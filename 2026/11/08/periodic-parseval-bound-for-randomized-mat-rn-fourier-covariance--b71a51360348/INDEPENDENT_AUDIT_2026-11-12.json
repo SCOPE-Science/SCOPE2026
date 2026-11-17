@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T03:59:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/periodic-parseval-bound-for-randomized-mat-rn-fourier-covariance--b71a51360348/RESULT.md",
+        "https://arxiv.org/pdf/2305.11065",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-sample-size-crossover-for-fourier-truncated-periodic-mat--7ea87a48194f/RESULT.md",
+        "frozen verify.py blob 2f484dad85f6bf069624c048fa6635f5491623a7"
+      ],
+      "rationale": "Poisson summation gives e=A_h−T_hm. The tail T is 1/h periodic; cover [-1,1]^d by 2^d unit cubes (h≤1), each contained in one full period after shifting, and apply Parseval: ∫|T|²≤2^d h^d sum_{j∉[-m,m]^d}|khat(hj)|². The difference density v=ρ*ρ̌ is supported in [-1,1]^d and bounded by R. The Matérn spectral envelope and BGR half-space lattice bound at power 4ν+2d yield RMS tail C_(d,ν)sqrt R ell^(-2ν)(hm)^(-2ν-d/2). Include uniform alias a_h by L² triangle inequality. N diagonal entries carry deterministic e(0), the offdiagonals have q², giving exact Frobenius second moment; bounded differences 2M²/N for U-statistic give exp(−Ns²/(2M⁴)), and Borel–Cantelli gives fixed-parameter a.s. convergence. Independently checked spectral normalization/envelopes on 72 scalar cases and finite Parseval examples; analytic proof gives arbitrary d.",
+      "residual_risks": [
+        "Alias contribution a_h must also shrink for total approximation rate; no claim of alias-free bound.",
+        "Density only bounded; no uniform triangular-array result as N,h,m vary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "BGR Theorem 5 uniform kernel bounds, explicit Conjecture 9 open; prior periodic theorem uses exact Haar orthogonality and no aliases."
+        ],
+        "reasoning": "Although BGR prove stronger pointwise uniform bounds O((hm)^(-2ν)), this does not imply sharper RMS O((hm)^(-2ν-d/2)); periodic Nov2 result does not imply the bounded-density nonperiodic result.",
+        "searches": [
+          "Random Matérn Fourier grid covariance Frobenius root mean square sharp Parseval bounded density conjecture",
+          "Matérn randomized covariance Fourier truncation Frobenius sample size crossover Parseval",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-sample-size-crossover-for-fourier-truncated-periodic-mat--7ea87a48194f/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/periodic-parseval-bound-for-randomized-mat-rn-fourier-covariance--b71a51360348/RESULT.md",
+        "https://arxiv.org/pdf/2305.11065",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-sample-size-crossover-for-fourier-truncated-periodic-mat--7ea87a48194f/RESULT.md",
+        "Random Matérn Fourier grid covariance Frobenius root mean square sharp Parseval bounded density conjecture",
+        "Matérn randomized covariance Fourier truncation Frobenius sample size crossover Parseval"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "BGR Conjecture 9 names the predicted exponent as unresolved; proof uses inequality ∫|T|²≤2^d h^d∑|khat|² and v≤R."
+        ],
+        "reasoning": "BGR spectral decay/half-space lemma provides an ingredient, but the crucial localization to a unit cube for nonperiodic difference density and the off-diagonal stochastic estimates are new deductions not covered by its Conjecture 9.",
+        "searches": [
+          "Random Matérn Fourier grid covariance Frobenius root mean square sharp Parseval bounded density conjecture",
+          "Matérn randomized covariance Fourier truncation Frobenius sample size crossover Parseval",
+          "https://arxiv.org/pdf/2305.11065"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barnett Conjecture 9 predicts extra d/2, without proof; earlier Resultary November 2 assumes uniformly distributed torus points and periodic spectrum."
+        ],
+        "reasoning": "The earlier torus/Haar exact Parseval theorem is not equivalent to arbitrary bounded-density iid points in the unit cube and a nonperiodic Matérn kernel sampled by a finite h-grid.",
+        "searches": [
+          "Random Matérn Fourier grid covariance Frobenius root mean square sharp Parseval bounded density conjecture",
+          "Matérn randomized covariance Fourier truncation Frobenius sample size crossover Parseval",
+          "https://arxiv.org/pdf/2305.11065"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Analytic ∫[-1,1]^d Parseval localization plus BGR Lemma 4 establish the full parameter bound."
+        ],
+        "reasoning": "This is a uniform analytic inequality over d,ν,ell,h,m and bounded densities; finite FFT tables and simple periodic-harmonic examples cannot imply it.",
+        "searches": [
+          "Random Matérn Fourier grid covariance Frobenius root mean square sharp Parseval bounded density conjecture",
+          "Matérn randomized covariance Fourier truncation Frobenius sample size crossover Parseval",
+          "https://arxiv.org/pdf/2305.11065"
+        ]
+      },
+      "rationale": "Barnett–Greengard–Rachh explicitly pose essentially the iid bounded-density Matérn covariance RMS extra d/2 exponent as Conjecture 9, proving only uniform kernel error and lattice-tail lemma. The submission gives the missing localized-Parseval proof and explicit constants. A November 2 periodic Matérn theorem has different torus/Haar hypotheses and no nonperiodic aliasing or arbitrary bounded density; its diagonal Frobenius identity is duly credited.",
+      "residual_risks": [
+        "Unindexed post-Conjecture-9 proofs or closely analogous localized-Parseval papers could already establish the bound.",
+        "Only fixed numerical parameters in almost sure assertion; alias may dominate at coarse mesh."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_CONJECTURE_NOT_PROOF",
+          "evidence": "Conjecture 9 explicitly predicts RMS exponent −2ν−d/2 and states rigorous proof remains open; Lemma 4 supplies only lattice tail.",
+          "identifier_or_url": "https://arxiv.org/pdf/2305.11065",
+          "material_read": "Full 2023 arXiv PDF searchable text, Section 4 / Conjecture 9, Theorem 5 and Lemma 4, PDF pages around conjecture independently visually inspected",
+          "method": "Read arXiv PDF text and screenshots of relevant pages",
+          "title": "Uniform approximation of common Gaussian process kernels using equispaced Fourier grids",
+          "trigger": "Primary posed Conjecture 9 and potential broader proof"
+        },
+        {
+          "assessment": "RELATED_NONCOVERING",
+          "evidence": "Haar-uniform torus periodic kernel, sharp m^d sample-size crossover; cannot imply arbitrary bounded density nonperiodic Fourier-grid alias bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-sample-size-crossover-for-fourier-truncated-periodic-mat--7ea87a48194f/RESULT.md",
+          "material_read": "Full published RESULT.md, hypothesis and exact expectation/variance derivation",
+          "method": "Retrieved actual GitHub blob and read all theorem/proof sections",
+          "title": "A sharp sample-size crossover for Fourier-truncated periodic Matérn covariance matrices",
+          "trigger": "Potential Resultary prior exact random covariance theorem"
+        },
+        {
+          "assessment": "CLAIM_ASSESSED",
+          "evidence": "Proof includes precise alias term, covariance diagonal and McDiarmid normalization.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/periodic-parseval-bound-for-randomized-mat-rn-fourier-covariance--b71a51360348/RESULT.md",
+          "material_read": "Full frozen RESULT.md and verify.py implementation",
+          "method": "Read frozen source and independently checked Fourier envelope cases",
+          "title": "Periodic-Parseval bound for randomized Matérn Fourier covariance matrices",
+          "trigger": "Submitted final claim and bounded finite checks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2305.11065",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/periodic-parseval-bound-for-randomized-mat-rn-fourier-covariance--b71a51360348/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-sample-size-crossover-for-fourier-truncated-periodic-mat--7ea87a48194f/RESULT.md"
+      ],
+      "rationale": "Resolving a specifically formulated bounded-density stochastic Fourier Matérn conjecture with explicit constants and finite-N concentration is an independently useful numerical-analysis theorem. The extra d/2 exponent improves the RMS truncation guarantee over the uniform rate and matters for random kernel Gram matrices.",
+      "residual_risks": [
+        "The separate alias error and finite-sample diagonal correction must remain explicit in applications."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No uniform simultaneous N,h,m,ell asymptotic asserted; fixed-parameter concentration.",
+    "Finite Fourier tests are diagnostic; infinite spectral tails use analytic lemma."
+  ],
+  "schema_version": 1
+}
