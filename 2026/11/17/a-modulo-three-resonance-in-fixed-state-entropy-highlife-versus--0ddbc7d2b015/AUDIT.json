@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The local Moore-neighbor count is |a|+|b|+|c|-b_r. Each fixed configuration corresponds bijectively to a length-n closed walk in an explicitly enumerated 64-vertex graph. An exact independent-integer transfer checker verifies the two 30- and 27-state recurrent components, all characteristic coefficients, the common period-three weight family, and rational Perron bounds; a separately implemented direct C++ evolution checker exhaustively verifies n=3..7. The exact finite graph computation, not bounded enumeration, proves the universal formulas. Positivity, irreducibility and the common loop imply the asymptotics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "McIntosh, Life’s Still Lifes, publisher abstract https://doi.org/10.1007/978-1-84996-217-9_4: de Bruijn analysis of Conway Life, written September 10, 1988.",
+        "Eppstein 2009 https://ar5iv.labs.arxiv.org/html/0911.2890: classifies rules by growth/extinction and surveys HighLife; no stationary strip transfer result."
+      ],
+      "reasoning": "A general de Bruijn framework does not imply the concrete pair of transfer spectra and strict eigenvalue inequalities. The McIntosh work predates the HighLife 1994 rule and cannot itself prove a HighLife-versus-Life comparison in its original form. Full archival priority is still uncertain.",
+      "searches": [
+        "\"Life\" \"HighLife\" \"stationary\" \"entropy\" strip",
+        "\"HighLife\" fixed points width three periodic boundary transfer 64",
+        "Life-like cellular automaton fixed points transfer matrix Life HighLife"
+      ]
+    },
+    "checked_sources": [
+      "https://ar5iv.labs.arxiv.org/html/0911.2890",
+      "https://ics.uci.edu/~eppstein/ca/replicators/b36s23.html",
+      "https://www.tip.net.au/~dbell/",
+      "https://doi.org/10.1007/978-1-84996-217-9_4",
+      "https://mail.conwaylife.com/wiki/OCA%3AHighLife"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bell’s author-maintained archive: https://www.tip.net.au/~dbell/ lists the original 1994 article; compressed text was not obtained.",
+        "Eppstein’s full paper treats structural existence of patterned growth and decay, not enumerating fixed states on 3-by-n tori.",
+        "The known inclusion of HighLife stable states in Life stable states follows from the extra six-neighbor birth, but does not give the exact spectral/residue-class separation.",
+        "A prior three-row Conway Life fixed-state theorem establishes the exact Life polynomial and a common three-divisible phase; it has no HighLife rule or edge deletion analysis."
+      ],
+      "reasoning": "The Life-only component and shared mod-three phase are already covered. The claim accepted here adds the HighLife polynomial, strictly smaller off-resonance Perron root, and two distinct limiting ratios; those do not follow from the Life-only statement, general transfer methods, or the trivial fixed-state inclusion.",
+      "searches": [
+        "David Bell HighLife An Interesting Variant of Life May 1994 full text",
+        "McIntosh Life’s Still Lifes transfer matrix three rows",
+        "Eppstein Growth and Decay Life-Like Cellular Automata HighLife fixed"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Eppstein 2009 ar5iv full text, especially lines 184-203, discusses B36/S23 patterns rather than 3-row toroidal fixed-state spectra.",
+        "HighLife LifeWiki cached still-life subsection gives conventional infinite-plane small patterns, not the claimed width-dependent counts."
+      ],
+      "reasoning": "Searched for stationary states, still lifes, strip periodic transfer spectra, and modulo-three resonance; the accessible results do not state the same fixed-state count formulas or their mod-three asymptotic comparison.",
+      "searches": [
+        "\"HighLife\" \"three-row\" \"fixed\" cellular automata",
+        "\"B36/S23\" \"B3/S23\" \"fixed points\" \"strip\"",
+        "\"HighLife\" \"3^n\" \"still lifes\" torus"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned HighLife pattern directories and unrelated numeric records, but no exact width-three fixed-state table for both rules.",
+        "The new checker independently produces both count sequences through n=15 and exact characteristic polynomials."
+      ],
+      "reasoning": "A failed numerical search is not a proof of historical uniqueness. The observed catalogues of finite-plane still lifes are not equivalent to counts on labelled three-row tori.",
+      "searches": [
+        "\"127, 37, 91, 2539, 1009\" HighLife OEIS",
+        "\"HighLife\" \"2539\" \"64882\"",
+        "\"HighLife\" \"3^n\" \"still lifes\" torus"
+      ]
+    },
+    "rationale": "The claim compares complete fixed-state counts of HighLife and Conway Life on all labelled 3-by-n Moore tori and proves a residue-class-dependent relative entropy effect. Related primary literature establishes the underlying rules, examples, and de Bruijn methodology, but the accessible prior Conway Life fixed-state record already provides the Life-side polynomial and resonance, but neither it nor any inspected full text implies the new HighLife spectrum or joint contrast. The original Bell compressed article and complete McIntosh chapter remain uninspected priority risks, explicitly disclosed.",
+    "residual_risks": [
+      "Original David Bell 1994 article could not be read from the author-hosted compressed archive.",
+      "Complete McIntosh 1988/2010 chapter could not be read; it may already contain the separate Life-side transfer computation, which is not claimed individually as new.",
+      "Unindexed historic Life-like rule tabulations might contain portions of the fixed-state sequences; no absolute priority certification.",
+      "The Life-only polynomial and resonance were previously established; they serve only as comparator, not newly claimed inventions."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the exact width-three periodic fixed-state census or residue-dependent limit",
+        "evidence": [
+          "Rule strings and neighbor convention, lines 34-61",
+          "HighLife discussion, lines 179-203, compares patterns but does not count three-row toroidal states"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/0911.2890",
+        "material_read": "Accessible complete HTML source; materially read the rule definitions in section 2 and the entire HighLife passage in section 6; indexed the rest for fixed/still-life references",
+        "method": "Read primary text and keyword searches for HighLife, fixed, still lifes",
+        "title": "Growth and Decay in Life-Like Cellular Automata",
+        "trigger": "HighLife B36/S23 versus Conway Life and possible broad still-life dynamics"
+      },
+      {
+        "assessment": "NOT_COVERING fixed states on labelled narrow periodic tori",
+        "evidence": [
+          "HighLife described as discovered in 1994, replicator behavior, and constructed oscillators; no fixed-state enumeration"
+        ],
+        "identifier_or_url": "https://ics.uci.edu/~eppstein/ca/replicators/b36s23.html",
+        "material_read": "Entire 23-line author webpage",
+        "method": "Read the page describing discovery, replicator and oscillators",
+        "title": "Replicators: B36/S23 (HighLife)",
+        "trigger": "Author-authored historical HighLife source"
+      },
+      {
+        "assessment": "UNRESOLVED full-text priority comparison; did not treat inaccessible text as evidence of non-coverage",
+        "evidence": [
+          "Author homepage lists a HighLife original article",
+          "Historical Usenet citations date a May 7, 1994 posting"
+        ],
+        "identifier_or_url": "https://www.tip.net.au/~dbell/",
+        "material_read": "Author homepage link and external dated excerpts only; compressed original text unavailable",
+        "method": "Inspected author homepage and attempted original ZIP; unsupported retrieval",
+        "title": "HighLife - An Interesting Variant of Life",
+        "trigger": "Original HighLife treatment by David I. Bell, May 1994"
+      },
+      {
+        "assessment": "Original manuscript explicitly written September 10, 1988 and concerns Conway Life; may contain Life-side transfer formulas but cannot subsume 1994 HighLife comparison",
+        "evidence": [
+          "Publisher abstract identifies original 1988 manuscript and generic still-life de Bruijn approach",
+          "Full chapter behind institutional access"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-1-84996-217-9_4",
+        "material_read": "Full publisher abstract, bibliography and chapter identification, not body; full institutional retrieval unavailable",
+        "method": "Read Springer publisher page and attempted authorized institutional access",
+        "title": "Life’s Still Lifes",
+        "trigger": "Potential classical de Bruijn transfer count for Conway Life"
+      },
+      {
+        "assessment": "Known rule inclusion and small still-life examples, not width-three labelled torus census",
+        "evidence": [
+          "Describes HighLife stable patterns as a subset of Life stable patterns, with small exceptions ship and hat"
+        ],
+        "identifier_or_url": "https://mail.conwaylife.com/wiki/OCA%3AHighLife",
+        "material_read": "Indexed still-life subsection and rule description, not complete original primary paper",
+        "method": "Searched indexed text for still lifes and differences with Life",
+        "title": "HighLife still lifes summary",
+        "trigger": "Possible tables of stable HighLife patterns"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0ddbc7d2-b015-4cdd-9673-996bab92aa33",
+  "value": {
+    "rationale": "The precise whole-family stationary-state invariant for two canonical neighboring Life-like automata reveals a non-obvious arithmetic resonance: one deleted stable transfer transition forces exponentially different relative populations for two circumference classes while allowing almost identical populations for multiples of three. The complete spectral formulas and explicit common-column phase explain the difference. This is more than a small-size census or the known inclusion of still lifes, and it is potentially useful in distinguishing symbolic dynamical constraints on narrow periodic media.",
+    "status": "PASS"
+  }
+}
