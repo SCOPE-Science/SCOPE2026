@@ -1,19 +1,21 @@
-# Scientific review: universal square-gap root profile
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact membership criterion is \(z=qm+r\in\langle m,m+1\rangle\) precisely when \(q\ge r\). Inserting squares yields the region \(y>mx^2/(m+1)\). The complete quadratic correlation identity gives \(|T_m(h,k)|^2\le m\gcd(2k,m)\), with no primality restriction. Two-dimensional Erdős–Turán–Koksma, then at most \(\lceil m^{1/6}\rceil\) vertical strips, gives the uniform bound \(O(m^{5/6}\log(2m))\), including every interval endpoint. The accompanying checker replays thousands of direct finite verifications, but these are not substitutes for the analytic proof. The standard multidimensional discrepancy inequality is the cited external mathematical input.
+PASS
 
-## Originality
+Euclidean division z=qm+r gives z in <m,m+1> iff q>=r. Thus for 0<=j<m, j² is a gap iff (j² mod m)/m > [m/(m+1)](j/m)². Completion by differencing yields |sum_j e((hj+kj²)/m)|²<=m gcd(2k,m)<=2|k|m, valid for composite as well as prime moduli, with k=0,h nonzero geometric sums zero. Two-dimensional Erdős–Turán–Koksma gives D*<<m^(-1/3) log(2m) at H=floor m^(1/3), and K=ceil m^(1/6) monotone strips produce O(m^(5/6) log m) uniform in u,v. Replacing m/(m+1)x² by x² changes main term <1. Independent small-modulus exact counts checked membership and approximate 2/3 trend; not proof of limit.
 
-**PASS within checked literature.** Chappelon and Ramírez Alfonsín (2020) and Binner (2021) determine the largest omitted square in relevant numerical semigroups; Binner's Lemma 6 already gives the key elementwise criterion. Neither inspected full primary manuscript states a count of all square gaps with the universal root-density law or a uniform local quantitative rate. Searches checked equivalent formulations, broader theorems, potential tabulations, and implication direction. Shor's gap-residue equidistribution paper is an additional related source assessed from its abstract only; this cannot justify a whole-document absence claim. It studies all gaps mod fixed integers rather than the stated varying-modulus square-gap root statistic. Unindexed equivalent applications remain possible. Only the counting/profile theorem is offered as new, not its known ingredients.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Where the square Frobenius invariant records one extremal square, the square-gap count and its normalized-root distribution quantify the complete missing-square population. The explicit density \(1-t^2\), total constant \(2/3\), and uniform all-moduli error are natural structural data not implied by maximal-gap or ordinary-genus results. The contribution is meaningful even though the exponent is not claimed sharp and no unrelated downstream theorem is asserted.
+Best-of-knowledge new quantitative distribution of square-gap ROOTS of <m,m+1> with profile 1-t² and composite-uniform O(m^(5/6) log m); earlier primary sources address the maximal missing square (square Frobenius number) and known quotient/remainder membership, not the global count or interval distribution. Analytical discrepancy theory could imply an unstated equivalent and remains a priority risk.
 
-## Scope and limitations
+## value
 
-Applies only to \(\langle m,m+1\rangle\) and macroscopic root intervals, not arbitrary generator pairs or shrinking windows. Its novelty assessment rests on accessible sources and targeted searches and cannot exclude every unindexed equivalent. Independent scientific validation is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural enumeration problem for all square gaps in the classical two-consecutive-generator numerical semigroup, providing its previously undetermined asymptotic root distribution and a uniform power-saving interval estimate. The limit is mass 2/3 rather than a normalized probability law; precise counting profile can be used in further semigroup-square statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
