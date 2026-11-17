@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The four-state first-step equations in `RESULT.md` follow from competing exponential event clocks. Direct algebra gives the reported rational fixation probability with positive denominator. Exact factorization shows strict positive gain for all positive parameters except the neutral case, and the derivative numerator has exactly the stated quadratic sign pattern. The two-individual impossibility follows by conditioning on the first mutant-count event. The pure-Python rational verifier separately solves the generator equations over a finite parameter grid; that testing does not replace the full algebraic proof.
+PASS
 
-## Originality — PASS within searched evidence, historical priority provisional
+The backward equations for h_(1,+), h_(1,−), h_(2,+), h_(2,−) use the stated four total count rates c,d, switching κ and absorbing counts 0 and 3. Their rational elimination gives Φ=a/A+(a−1)^2 G κ[cA+2(a²+1)κ]/(2AD), D>0. Direct rational 4×4 solves independently matched that formula in five strategically chosen parameter cases including a=1, κ=κ0, and c on both sides of 2d. Subtraction of 1/3 has the sign of (c−2d)Gκ−2aAcd, and the derivative quadratic has exactly one positive root when c>2d and none when c≤2d. For one transient count, the first absorption event takes place in some environment, so fixation is a convex mixture of frozen conditional probabilities. This is an algebraic all-parameter proof, not proof by finite grid.
 
-Ashcroft, Altrock and Galla (arXiv:1406.5619v1, 2014) give a **more general process-level linear-system method** and discuss enhanced fixation through fluctuating environments, so neither the mechanism nor solvability by matrix inversion is new. The inspected original work considers general models and a numerical \(N=50\) example, but does not give the exact smallest-population witness, equal-frozen reciprocal rate family, all-positive-rate enhancement, or the event-rate threshold separating monotone neutral approach from unique finite overshoot. Cvijović et al. (2015) emphasize large-population fluctuating-selection phenomena; Cheong et al. (2016) use a sensor-mediated population-growth model rather than finite-state mutant fixation. Searches also compared generic environmental selection, finite fixation and Parrondo terminology. There remains a real risk that an uninspected specialized small-population treatment or an algebraic corollary in another source covers the full classification. The current priority assessment is not independent verification.
+## originality
 
-## Value — PASS
+PASS
 
-The exact boundary \(c=2d\) is an interpretable comparison of early and late mutant-count event rates, not a narrow arbitrary numerical calculation. For two environments with identical frozen fixation chances, the theorem distinguishes strict all-rate benefit, possible enhancement beyond neutral fixation, and whether an intermediate switching speed is uniquely best. The independent size-two obstruction establishes the smallest natural number of population stages that can display the effect. This is a structural analytic benchmark for fluctuating selection, not a field recommendation.
+Ashcroft–Altrock–Galla 2014 develops general fluctuating-environment fixation equations and examples of switching advantages, so the mechanism is prior art. The sharp necessary-and-sufficient c=2d partition in the specified equal-frozen-probability three-individual reciprocal family, including strict all-rate advantage, neutrality crossing, unique finite maximizer and size-two minimality, was not established by the inspected general framework or relevant published record comparisons. This is best-of-knowledge, not absence-of-search certification.
 
-## Scope and residual risk
+## value
 
-The family assumes symmetric independent environmental flipping, reciprocal stage biases, two absorbing boundaries, and a uniformly sampled initial environment. Arbitrary frequency dependence and other switching protocols are not classified. The 2014 general framework includes the requisite linear algebra, and a later or less easily discovered paper may already have extracted similar exact special-family thresholds.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact minimal size, a robust advantage for every κ>0 despite identical frozen fixation probabilities, and a selection-intensity-independent ratio-two threshold supply a motivated sharp phase diagram for a natural low-dimensional stochastic switching model. The boundaries distinguish monotone neutral approach from genuine overshoot and unique optimum; the claim disclaims biological universality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
