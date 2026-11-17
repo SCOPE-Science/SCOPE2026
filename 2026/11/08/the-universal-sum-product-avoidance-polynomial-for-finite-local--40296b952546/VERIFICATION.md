@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification
-The standalone `verify.py` constructs the forbidden-pair graph from literal ring arithmetic and counts its admissible subsets componentwise; it compares all polynomial coefficients, highest-degree coefficients, total counts, and component type counts to the stated formula. For rings of order at most 13 it also exhaustively enumerates all subsets using the sum/product equations directly. The deterministic output is included as `verification_output.txt` and was reproduced from the standalone checker.
+# Independent mathematical audit
 
-Rings tested: prime fields of orders 5, 7, 11, 13; residue rings of orders 25, 49, 125; the extension field of order 25; the dual-number ring over the field of five elements; and a non-chain local algebra of order 125 with square-zero radical.
+## correctness
 
-The proof relies on the complete symbolic graph classification and simple-root lifting, not on extrapolation from tested ring sizes. Characteristic 2 or 3, nonlocal rings, and noncommutative rings are outside scope. Independent audit: not performed.
+PASS
+
+Avoidance is independence in the graph where x+y=1 or xy=1, deleting loops at 1/2 and ±1. On nonunits x∈m\{0}, the involution x→−x/(1−x), free for p≥5, pairs with 1−x and its inverse to form exactly (M−1)/2 induced P4s. Remaining units are acted on by s(x)=1−x and t(x)=x^{-1}, satisfying s²=t²=(st)³=1, hence generic orbits are induced C6. The only exceptional unit roots of x²−x+1 occur exactly twice if q≡1 mod3 and simple-root lift uniquely from the residue field because derivative 2x−1 is a unit. The 0/1 and 2/−1/1/2 components each give 1+z. Vertex partition yields the proposed polynomial, top degree (N−1)/2, leading coefficient, and total sets. Independently constructed forbidden graphs using literal operations in Z/25 and F5[ε]/ε²; their full component polynomials agree, 36 maximal sets and 82,944 total. This corroborates, not proves, all local rings.
+
+## originality
+
+PASS
+
+Tang 2026 Theorem2.2 / Remark2.4 analyzes only prime-field finite sum/product target avoidance with two exceptional components and unit six-cycles, deriving a prime-field extremal size. That special case and classical anharmonic action receive no originality credit. Extending to all finite commutative local rings with nilpotent maximal ideal introduces new P4 components and a nontrivial size-by-size independence polynomial invariant across nonisomorphic rings; the full local-ring enumerator is not entailed by prime-field conclusions.
+
+## value
+
+PASS
+
+The exact distribution of every avoiding-set cardinality over arbitrary finite local rings is a natural robust strengthening of an extremal combinatorial number-theory problem. Dependence only on (N,q) is structurally unexpected for nonisomorphic zero-divisor rings; the P4 component decomposition motivates and explains it. Both maximum count and full polynomial may be useful for enumerations and stability questions; not merely a relabelled prime-field case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
