@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification methods and reproducibility
 
-Run `python3 verify.py` in the directory containing `verify_output.txt`. No third-party libraries, downloads, or random seeds are needed.
+# Independent mathematical audit
 
-The executable directly enumerates partitions, constructs edges by transferring a unit between rows, computes clique Euler characteristics of lower links, and compares each local increment against the claimed height-gap weight. This tests all 1,211 partitions through \(n=17\).
+## correctness
 
-Separately, a formal-series state machine marks distinct cumulative multiplicities and internal gaps; through \(n=35\), its output matches independent direct partition enumeration on 81,155 partitions. The first 25 sphere-rank values also match the published numerical table. Coefficients through \(n=50\) are recorded in `verify_output.txt`, with the terminal marker `ALL_VERIFY_OK`.
+PASS
 
-The complete proof in `RESULT.md` establishes the theorem for every positive integer. The code checks finite instances and the arithmetic of the generating function; it does not certify an infinite assertion by enumeration. The theorem concerns integral homotopy type; no independent scientific audit has been performed.
+Reconstructed lexicographic conjugate-partition vertex filtration. Earlier neighbors are one-cell transfers indexed by edges D_iR_j of a bipartite Ferrers graph B_lambda (i<j plus diagonal if gap g_i≥2); their graph is its line graph, and the lower clique link has the graph B_lambda as nerve. Each noninitial link is connected and homotopy equivalent to a graph, so sequential cone attachments yield a simply connected CW model of dimension ≤2, hence a wedge of S². Counting vertices and edges in B_lambda gives 1−χ(link)=max(0,binom(s−2,2))+Σ_{i=2}^{s−1}[g_i≥2], with the s=1 initial case separately contributing 1 to χ. The product E(t,q)=∏_a(1+t q^a/(1−q^a)) and differentiation/marking an internal gap produce the stated positive generating series. Independent lower-link enumeration through n=10 covered 138 partitions and corroborated the local increments. The proof covers every n≥1; finite checks alone do not.
+
+## originality
+
+PASS
+
+No verified broader or equivalent prior statement implies the precise final claim after reading the identified primary theorems and searching published findings. This is a best-of-knowledge novelty assessment with the material access and indexing limitations explicitly recorded; published inputs and exact known subclaims are acknowledged.
+
+## value
+
+PASS
+
+Explicit nonnegative partition statistic and formal generating function answer a specific published open enumerative request for the number of S² summands in partition-transfer clique complexes. They replace an unevaluated Euler characteristic and allow exact coefficients beyond the formerly tabulated values. This is a motivated structural partition formula, not recomputation of known initial ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
