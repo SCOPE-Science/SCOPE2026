@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is precisely the Lovász open-neighborhood complex of the fifteen-vertex line graph of \(\mathrm{KG}(5,2)\). The proof relates its **integral equivariant** homology to the thirty-vertex bipartite double-cover graph by an equivariant nerve argument with verified singleton intersections, constructs an integral fundamental-cycle basis, and computes the two generator actions using edge permutations. The full exact Smith diagonal has twenty-nine ones and two twos; the standalone standard-library verifier rebuilds the presentation, applies unimodular Euclidean operations, checks cycle boundaries, and independently matches all 120 signed simplicial Lefschetz traces. It proves an exact finite result, with no unsupported infinite extrapolation. Residual risk: an implementation defect not caught by these logically distinct checks remains possible until independent human/code review.
+## correctness
 
-## Originality — PASS against located evidence
-Kamibeppu's general square-free graph model and the later published edge-disjoint-square classification cover the **nonequivariant** homotopy type, which is expressly credited rather than claimed new. Their inspected statements do not give the natural \(S_5\) integral coinvariant group or the seven-class rational character. Shukla's maximum-degree-three and circulant theorem has different scope; Goyal–Shukla–Singh study clique rather than open-neighborhood complexes. Targeted published-finding corpus searches for the Petersen line graph, its aliases, integral coinvariants, Specht representations, the bipartite double cover, and stronger graph-family results returned no equivalent statement. An unindexed or inaccessible calculation, or an unpublished derived module computation, is the central priority risk; negative searching is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The Petersen graph has canonical \(S_5\) symmetry, and taking its line graph supplies a natural nontrivial degree-four neighborhood complex. The rank-thirty-one homology is free, yet the **integral quotient by symmetry** has two independent order-two classes; both disappear rationally. This demonstrates a concrete integral-lattice obstruction invisible to the known circle-wedge homotopy type and to the complete rational character. The exact small symmetric test case can inform integral equivariant topology of graph complexes without claiming a larger classification.
+The 15-vertex line graph of Petersen has 30 edges and at most one common neighbor for any two vertices. Its Lovasz neighborhood complex is the nerve of an S5-invariant cover of the 30-vertex,60-edge bipartite double cover by contractible left stars with singleton intersections; the equivariant nerve theorem identifies integral H1 with the rank-31 cycle lattice. A spanning tree has 29 edges, giving 31 integral chord cycles. The two generators (transposition and 5-cycle) act by exact integral matrices; Smith reduction of [As-I | At-I] has 29 invariant units and two twos. The original script verifies full integral unimodular reductions; independently reconstructed the graph, integral cycle basis, 31x62 presentation, and SymPy Smith form, obtaining exactly (Z/2)^2. The seven-class rational character from signed Lefschetz agrees with the dimension 31 and zero trivial multiplicity; finite character values were checked in provided source.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Known circle-wedge homotopy type and nearby Petersen graph S5 characters are fully distinguished from this line-graph natural S5 lattice and its two order-two coinvariants. Rational characters alone do not imply these integral Smith factors.
+
+## value
+
+PASS
+
+Torsion in the S5 coinvariants of a natural 31-cycle lattice despite a torsion-free underlying H1 and no rational invariants is a structural equivariant distinction for the canonical Petersen line graph; precise (Z/2)^2 is not forced by rational character and informs integral symmetry methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

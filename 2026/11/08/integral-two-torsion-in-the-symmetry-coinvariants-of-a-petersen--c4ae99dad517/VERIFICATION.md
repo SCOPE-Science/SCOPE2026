@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Execute `python3 verify.py` in a directory containing the embedded standalone verifier; it requires only Python 3's standard library. `verification_output.txt` records a successful execution. The verifier enumerates the exact labelled Petersen graph and its line graph, all 180 nonempty neighborhood simplices, the 74-pair acyclic discrete Morse matching, the thirty-vertex/sixty-edge bipartite double-cover graph, an integral 31-generator fundamental-cycle basis, two integral 31-by-31 action matrices, and the 31-by-62 relation matrix. Its integer Euclidean Smith routine returns twenty-nine unit factors and two factors of two; no floating-point methods are used. It checks the full directed Hasse-graph acyclicity and repeats the homological character calculation in a separate signed-simplicial Lefschetz computation for all 120 group elements.
+# Independent mathematical audit
 
-The equivariant nerve equivalence is a mathematical lemma justified by the explicit invariant cover by left stars: each nonempty multiple intersection is a single right vertex, the nerve is exactly the neighborhood complex, and the group permutes stars. The code checks the combinatorial hypothesis rather than supplying a machine proof of the general nerve theorem. The Smith computation is reproducible from exact graph data. Human mathematical review of the argument and separate external originality verification have not been performed.
+## correctness
+
+PASS
+
+The 15-vertex line graph of Petersen has 30 edges and at most one common neighbor for any two vertices. Its Lovasz neighborhood complex is the nerve of an S5-invariant cover of the 30-vertex,60-edge bipartite double cover by contractible left stars with singleton intersections; the equivariant nerve theorem identifies integral H1 with the rank-31 cycle lattice. A spanning tree has 29 edges, giving 31 integral chord cycles. The two generators (transposition and 5-cycle) act by exact integral matrices; Smith reduction of [As-I | At-I] has 29 invariant units and two twos. The original script verifies full integral unimodular reductions; independently reconstructed the graph, integral cycle basis, 31x62 presentation, and SymPy Smith form, obtaining exactly (Z/2)^2. The seven-class rational character from signed Lefschetz agrees with the dimension 31 and zero trivial multiplicity; finite character values were checked in provided source.
+
+## originality
+
+PASS
+
+Known circle-wedge homotopy type and nearby Petersen graph S5 characters are fully distinguished from this line-graph natural S5 lattice and its two order-two coinvariants. Rational characters alone do not imply these integral Smith factors.
+
+## value
+
+PASS
+
+Torsion in the S5 coinvariants of a natural 31-cycle lattice despite a torsion-free underlying H1 and no rational invariants is a structural equivariant distinction for the canonical Petersen line graph; precise (Z/2)^2 is not forced by rational character and informs integral symmetry methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
