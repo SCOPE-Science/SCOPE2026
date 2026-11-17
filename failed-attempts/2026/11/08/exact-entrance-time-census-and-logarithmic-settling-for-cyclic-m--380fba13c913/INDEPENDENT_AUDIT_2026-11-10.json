@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T19:48:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all n>=3, bit changes under synchronous three-neighbor majority exactly when both adjacent disagreement edges are 1. Equal bonds persist and each finite one-run of g edges erodes by two at each end until length <=1, so T=floor(g/2), checkerboards on even rings being immediate 2-cycles. The parity-constrained cyclic edge word has exactly two spin preimages; the 2(2t+2)-state run/parity transfer counts even one-run words of length <=2t+1 and the two checkerboards add 2. Cyclic parity gives max floor((n-1)/2) with 2n maximizers. Standard longest-run union and disjoint-block probability bounds prove T/log2 n ->1/2. Independent exhaustive simulation n3..10 reproduced all first-entry layers (n10: 124,590,230,60,20).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-stabilization-census-and-poisson-critical-window-for-cycli--387c46a61238/RESULT.md: precise P(T<=t)->e^(-λ) for n2^(-2t-3)->λ and E T=(1/2)log2 n+O(1)."
+        ],
+        "reasoning": "Earlier result contains every submitted all-time count and a stronger critical scaling law; new convergence in probability is a weaker corollary.",
+        "searches": [
+          "Resultary cyclic Rule232 Poisson critical-window first entrance",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-stabilization-census-and-poisson-critical-window-for-cycli--387c46a61238/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-stabilization-time-distribution-for-the-cyclic-three-site--ea6170529cae/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-stabilization-census-and-poisson-critical-window-for-cycli--387c46a61238/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-stabilization-time-distribution-for-the-cyclic-three-site--ea6170529cae/RESULT.md",
+        "https://arxiv.org/abs/2205.08972",
+        "https://arxiv.org/abs/comp-gas/9703001"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same graph, same radius-one synchronous majority, same parity transfer representation; earlier Poisson window implies the new T/(log2 n)->1/2."
+        ],
+        "reasoning": "All asserted mathematics follows from a prior theorem, so prior work decisively implies the claim.",
+        "searches": [
+          "Compare same ECA232 update, transient T, maximum and logarithmic distribution",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-stabilization-census-and-poisson-critical-window-for-cycli--387c46a61238/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-stabilization-census-and-poisson-critical-window-for-cycli--387c46a61238/RESULT.md: τ_n=floor(D/2), trace(M_(2t+2)^n)+2I_even, maximum floor((n-1)/2) attained by 2n."
+        ],
+        "reasoning": "Earlier 0..L-1 run-counter at L=2t+2 and new 0..(2t+1) represent identical finite matrix; label swap equal/different edges leaves same parity combinatorics.",
+        "searches": [
+          "Resultary: exact stabilization census and Poisson critical window for cyclic majority automata",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-stabilization-census-and-poisson-critical-window-for-cycli--387c46a61238/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-stabilization-time-distribution-for-the-cyclic-three-site--ea6170529cae/RESULT.md: Q_(2t+1)(u,z) rational GF enumerates the same finite-time fixed-entry layers, except it excludes two checkerboard periodic states."
+        ],
+        "reasoning": "Earlier exact symbolic formula is an all-length database in rational generating-function form, convertible to the current matrix trace; not merely computed small-n statistics.",
+        "searches": [
+          "Resultary majority rule 232 all-n exact transfer matrix",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-stabilization-time-distribution-for-the-cyclic-three-site--ea6170529cae/RESULT.md"
+        ]
+      },
+      "rationale": "FAIL. October 25 published Resultary work proves exactly the same edge-run identity, 2n extremizers and trace with a state index cap L=2t+2 (j=0..L-1), equivalent to the submitted L=2t+1 (j=0..L), plus stronger Poisson critical-window and expectation laws. A November 2 source gives the same periodic-ring run-length identity and complete fixed-time GF; the checkerboard correction converts its fixed-entry count to this periodic-entry count. The logarithmic law follows from the stronger earlier distribution/expected time.",
+      "residual_risks": [
+        "Distinct fixed-time vs periodic-entry conventions checked; only two even checkerboards differ and earlier October25 uses same periodic definition.",
+        "Different transfer state parameter L labels the same graph; not a substantive new construction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECTLY COVERING and STRICTLY STRONGER",
+          "evidence": "Identical cumulative transfer formula after indexing shift; earlier Poisson law stronger.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-stabilization-census-and-poisson-critical-window-for-cycli--387c46a61238/RESULT.md",
+          "material_read": "Complete RESULT.md: four proof steps for erosion identity, trace, sharp extreme and Poisson/expectation law",
+          "method": "Read full pinned published Git blob c4ded9598d56e18b3d4acaf3ff01ae0bae3a044a",
+          "title": "Exact stabilization census and Poisson critical window for cyclic majority automata",
+          "trigger": "Earlier exact same Rule232 state space, time layers, ring size and parameters"
+        },
+        {
+          "assessment": "COVERING AFTER CHECKERBOARD ADJUSTMENT",
+          "evidence": "Add two checkerboards for even n to earlier finite fixed-time counts; same remaining law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-stabilization-time-distribution-for-the-cyclic-three-site--ea6170529cae/RESULT.md",
+          "material_read": "Complete RESULT.md including wall dynamics, parity-enumerator determinant Q_L and all-n GF",
+          "method": "Read full published Git blob 6b9238e83de8963dd6314a7f67665a8fa32670c6",
+          "title": "Exact stabilization-time distribution for the cyclic three-site majority automaton",
+          "trigger": "Potential alias first-fixed instead of first-periodic-entry"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL. Complete exact transient-layer enumeration and logarithmic clock would be valuable if unknown, but they are mathematically contained in the stronger earlier October 25 theorem for the same synchronous map, ring and initial distribution. An equivalent transfer-coordinate renaming adds no independent exact invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Distinct fixed-time vs periodic-entry conventions checked; only two even checkerboards differ and earlier October25 uses same periodic definition.",
+    "Different transfer state parameter L labels the same graph; not a substantive new construction."
+  ],
+  "schema_version": 1
+}
