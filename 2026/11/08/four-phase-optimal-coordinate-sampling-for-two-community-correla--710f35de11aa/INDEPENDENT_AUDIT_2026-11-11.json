@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T20:03:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Concavity of lambda_min(C^(1/2)DC^(1/2)) in diagonal sampling probabilities and within-community permutation symmetry yields a globally sufficient block-uniform sampler. For first-block mass t the spectrum has (p−1) copies ut, (q−1) copies v(1−t), plus smaller 2x2 mean-mode eigenvalue g(t); this proves optimization of min{ut,v(1−t),g(t)}. g has unique maximum t_Q=(s+c)/(r+s+2c) and value (rs−c²)/(r+s+2c). At t0=v/(u+v), testing Q−hI yields determinant (ab−c²)t0(1−t0), proving transition c²=ab. Monotonic crossings and determinant equalities produce remaining branch formulas. Independent rational four-phase witnesses, numerical one-dimensional optimizations and an unbounded gain family corroborate all phases. Limits require p,q≥2, a,b∈(0,1), c>0 and strict SPD.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General coordinate descent and Kaczmarz sampling SDP allows arbitrary SPD data but does not give this evaluated four-branch optimum.",
+          "The same-day preconditioner minimizes a spectral condition number of DCD, not lambda_min subject to sum probabilities one."
+        ],
+        "reasoning": "Neither broad computability nor a different spectral objective implies the exact t*(a,b,c,p,q) expression without further analysis.",
+        "searches": [
+          "two community equicorrelation matrix optimal coordinate descent sampling probabilities minimal eigenvalue four phases",
+          "2026/11/8/SCOPE-exact-four-mode-diagonal-preconditioning-for-two-community-corre--3470d222a671",
+          "arxiv:1506.03296"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-three-phase-optimal-sampling-for-two-cluster-correlated-kaczmarz--6e183c9f201f/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-four-mode-diagonal-preconditioning-for-two-community-corre--3470d222a671/RESULT.md",
+        "https://arxiv.org/abs/1506.03296",
+        "https://arxiv.org/abs/1402.2863"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Kaczmarz paper G diagonal is one, within off-diagonal c in BOTH clusters and interblock d; our unequal a,b family is a genuine extension.",
+          "The preconditioner optimizes kappa(DCD) by different matrix inequalities."
+        ],
+        "reasoning": "Prior special family and related exact objective cannot dominate the all-parameter four-phase fixed-sampling solution, although general optimal design mathematics may provide alternative derivations.",
+        "searches": [
+          "2026/11/2/SCOPE-three-phase-optimal-sampling-for-two-cluster-correlated-kaczmarz--6e183c9f201f",
+          "2026/11/8/SCOPE-exact-four-mode-diagonal-preconditioning-for-two-community-corre--3470d222a671",
+          "arxiv:1402.2863"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both coordinate descent and Kaczmarz reduce to lambda_min(G^(1/2) diag(pi) G^(1/2)) for normalized SPD Gram/Hessian.",
+          "November 2 theorem forces the same within-cluster parameter for both communities; current C permits a≠b and obtains four branches."
+        ],
+        "reasoning": "The objectives are spectrally equivalent but the earlier input family is strictly smaller; the present exact classification requires independent a,b and distinct contrast modes.",
+        "searches": [
+          "two community equicorrelation matrix optimal coordinate descent sampling probabilities minimal eigenvalue four phases",
+          "2026/11/2/SCOPE-three-phase-optimal-sampling-for-two-cluster-correlated-kaczmarz--6e183c9f201f",
+          "Kaczmarz Gram vs coordinate descent Hessian spectral one-step"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exposed overlapping two-community preconditioner and three-phase equal-coherence Kaczmarz papers.",
+          "Current four rational p=q=2 witnesses meet strict SPD and realize each branch."
+        ],
+        "reasoning": "No matching all-a,b four-phase table found among ranked records; search alone is not novelty proof and related exact tables were checked for mathematical implication.",
+        "searches": [
+          "two community equicorrelation matrix optimal coordinate descent sampling probabilities minimal eigenvalue four phases",
+          "Resultary two-community equicorrelation exact sampling search"
+        ]
+      },
+      "rationale": "PASS on the arbitrary unequal-within-coherence two-community four-regime optimal fixed coordinate sampler. Closely related November 2 Kaczmarz result fully read: it imposes a common within-group correlation, and has three regimes, so cannot imply the independent a,b four-phase classification outright. Another same-date two-community diagonal preconditioning theorem optimizes condition number, not the minimum eigenvalue under probability budget. Generic coordinate-descent SDP is foundational but not an evaluated four-case result.",
+      "residual_risks": [
+        "General E-optimal design and coordinate-sampling literature might offer an unstated equivalent characterization.",
+        "Optimal block-uniform sampler is shown; uniqueness among every asymmetric optimizer is not asserted.",
+        "One-step worst-case expected energy factor is not an exact finite-horizon or adaptive policy rate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SPECIAL_CASE_NOT_DOMINATING",
+          "evidence": "Its within-cluster correlations are both c; cross coupling d; it solves a special equal-within-coherence case.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-three-phase-optimal-sampling-for-two-cluster-correlated-kaczmarz--6e183c9f201f/RESULT.md",
+          "material_read": "Entire primary RESULT.md: definitions, one-step eigenvalue criterion, all three optimal regimes, full proof and limitations",
+          "method": "Full GitHub blob through connected read",
+          "title": "Three-phase optimal sampling for two-cluster correlated Kaczmarz systems",
+          "trigger": "Same spectral minimum and two-cluster data"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE",
+          "evidence": "Optimizes lambda_max/lambda_min under positive diagonal scaling, not lambda_min under probability-simplex constraint.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-four-mode-diagonal-preconditioning-for-two-community-corre--3470d222a671/RESULT.md",
+          "material_read": "Entire primary RESULT.md including optimal diagonal condition-number ratio, spectral decomposition, proof",
+          "method": "Full GitHub blob through connected read",
+          "title": "Exact four-mode diagonal preconditioning for two-community correlation matrices",
+          "trigger": "Same SPD matrix family and symmetry"
+        },
+        {
+          "assessment": "GENERAL_FRAMEWORK",
+          "evidence": "Supplies general sampling/eigenvalue design, no explicit four-phase a≠b solution identified.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.03296",
+          "material_read": "Relevant theoretical sections and published context as documented in inspected audit; not a newly asserted full monograph read",
+          "method": "Existing author preprint sections and linked mathematical statement",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "General random coordinate/Kaczmarz sampling guarantees"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Nontrivial globally optimal fixed probabilities for a common dense SPD correlation family, with four exact active-mode regimes and potentially unbounded gain relative to uniform sampling. Delineates when within-community contrasts or joint means control worst-direction contraction. This is a motivated design problem, not relabeling the SDP.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-three-phase-optimal-sampling-for-two-cluster-correlated-kaczmarz--6e183c9f201f/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-four-mode-diagonal-preconditioning-for-two-community-corre--3470d222a671/RESULT.md",
+    "https://arxiv.org/abs/1506.03296",
+    "https://arxiv.org/abs/1402.2863"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "General E-optimal design and coordinate-sampling literature might offer an unstated equivalent characterization.",
+    "Optimal block-uniform sampler is shown; uniqueness among every asymmetric optimizer is not asserted.",
+    "One-step worst-case expected energy factor is not an exact finite-horizon or adaptive policy rate."
+  ],
+  "schema_version": 1
+}
