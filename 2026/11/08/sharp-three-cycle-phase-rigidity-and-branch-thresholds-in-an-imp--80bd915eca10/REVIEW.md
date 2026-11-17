@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. All positive three-cycles satisfy the source recurrence, and the three zero-sum sine kicks force an exact factored identity in their positive speeds. Positivity eliminates the extra factor, forcing a zero sine kick. The plus-root equation is solved explicitly; its positive and negative kick branches have different, sharp inverse-domain conditions. The proof treats equality and zero kicks without a differentiability assumption. The attached verifier independently re-evaluates the algebraic identities and boundary examples. Finite tests are supplemental, not universal proof.
+## correctness
 
-## Originality
-PASS within inspected literature, not independent priority certification. Khandelwal and Mukherjee, arXiv:2412.15002v1, Section 3, prove sufficiency of a specified finite angle set for a family of speeds and state in Section 6 that other angles lose periodicity in simulations. They do not prove the global necessity of these phases, give a two-family period-three census, or identify the two exact branch cutoffs. Searches for the exact recurrence, paper title/identifier, three-step converse, and alternative implicit-map formulations found no stronger covering theorem. The closest related records involve other maps (cubic global centers, phase oscillator triangles and unrelated prime-three classifications), whose conclusions do not imply the present exact recurrence. Residual risk: unindexed or differently named prior results may exist.
+PASS
 
-## Value
-PASS. This is a natural complete classification for the first admissible rational angular rotation (three points), filling the source's explicit gap between proved sufficient phase conditions and empirical nonperiodicity outside them. Its source-specific positive-root fold thresholds separate two angular families and identify included singular endpoints, information not recoverable from the known existence result or numerical phase plots. The exact three-speed cyclic identity provides a structural rigidity mechanism, not an arbitrary isolated numerical witness.
+The positive-speed implicit equation Phi(u,v)=uv(v-u)/(u+v)=t and three sine kicks with zero sum yield the exact identity sum_cyclic Phi = -(x-y)(x-z)(y-z)(xy+xz+yz)/((x+y)(x+z)(y+z)). Independently verified symbolically in SymPy; positivity forces repeated speed and hence a zero sine kick. This restricts initial angles to multiples pi/3. With a=sqrt3|P|/2, the positive quadratic root ratio satisfies q²-(1+t/u²)q-t/u²=0. Its negative-kick plus branch is defined exactly for t/u²>=-(3-2sqrt2), and inverse step after a positive kick selects this branch precisely when entering w²>=a. In the opposite order, negative first requires w²>=(3+2sqrt2)a. Both inclusive endpoints are double quadratic roots. The rotating angle has least period three, and the proof covers all positive speeds and P !=0. Finite source verifier is consistency evidence, not universality.
 
-## Scope and independence
-The proof covers only the three-angle principal-branch subsystem; no global stability, other branch, or longer denominator is asserted. Independent audit is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Khandelwal–Mukherjee (2024) introduced the same map and gives sufficient lattice angles for periodicity, but its publicly accessible abstract does not by itself decide whether all angle possibilities or sharp plus-root branch thresholds were already proved in the complete manuscript. arXiv HTML/PDF and OA full-text attempts failed and authorized institutional tool reported VPN disconnected. With the explicit factored necessity proof and new exact branch thresholds not implied by the verified abstract or known general periodicity, best-of-knowledge originality is retained with a substantial named source-access risk, not falsely reported as full-text NOT_COVERING.
+
+## value
+
+PASS
+
+Branch choices and endpoint folds matter to the exact periodic point set of a physically motivated nonlinear angular map. An all-phase necessity classification plus two asymmetrical sharp speed thresholds completes an exact natural three-step case; it is not an arbitrary tiny numerical exception.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and the SymPy package. The script verifies the rational cyclic identity, radical double-root values, exhaustive rational test triples on a finite grid, two threshold examples and selected strict-interior and off-grid trajectories. The exact general argument appears in RESULT.md; numerical trials are not used to establish its universal quantifiers. No independent validation has been conducted.
+## correctness
 
-At exact thresholds the inverse step has a double positive root. Differentiability is not asserted there. The paper's original recurrence is interpreted using the **larger quadratic root** where it is real and strictly positive, not using arbitrary implicit branches.
+PASS
+
+The positive-speed implicit equation Phi(u,v)=uv(v-u)/(u+v)=t and three sine kicks with zero sum yield the exact identity sum_cyclic Phi = -(x-y)(x-z)(y-z)(xy+xz+yz)/((x+y)(x+z)(y+z)). Independently verified symbolically in SymPy; positivity forces repeated speed and hence a zero sine kick. This restricts initial angles to multiples pi/3. With a=sqrt3|P|/2, the positive quadratic root ratio satisfies q²-(1+t/u²)q-t/u²=0. Its negative-kick plus branch is defined exactly for t/u²>=-(3-2sqrt2), and inverse step after a positive kick selects this branch precisely when entering w²>=a. In the opposite order, negative first requires w²>=(3+2sqrt2)a. Both inclusive endpoints are double quadratic roots. The rotating angle has least period three, and the proof covers all positive speeds and P !=0. Finite source verifier is consistency evidence, not universality.
+
+## originality
+
+PASS
+
+Khandelwal–Mukherjee (2024) introduced the same map and gives sufficient lattice angles for periodicity, but its publicly accessible abstract does not by itself decide whether all angle possibilities or sharp plus-root branch thresholds were already proved in the complete manuscript. arXiv HTML/PDF and OA full-text attempts failed and authorized institutional tool reported VPN disconnected. With the explicit factored necessity proof and new exact branch thresholds not implied by the verified abstract or known general periodicity, best-of-knowledge originality is retained with a substantial named source-access risk, not falsely reported as full-text NOT_COVERING.
+
+## value
+
+PASS
+
+Branch choices and endpoint folds matter to the exact periodic point set of a physically motivated nonlinear angular map. An all-phase necessity classification plus two asymmetrical sharp speed thresholds completes an exact natural three-step case; it is not an arbitrary tiny numerical exception.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
