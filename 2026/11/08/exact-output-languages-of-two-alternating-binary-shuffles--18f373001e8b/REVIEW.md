@@ -1,19 +1,21 @@
-# Scientific review: alternating-source shuffle output languages
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The source-prefix excess gives the necessary height conditions. The converse for equal-phase inputs is a constructive two-stream allocation with completed-pair counts differing by at most one; for opposite-phase inputs the two synchronization states and independent boundary bits prove that every allowed two-letter block string is realizable by exactly balanced sources. Even-boundary encoding yields the two exact counts; the height conditions force the intersection singleton. The independent exhaustive mask generator in `checker.py` agrees with both characterizations for each integer parameter from one through five. Finite checks alone do not establish the infinite claim; the constructions do.
+PASS
 
-## Originality (O): PASS within available evidence
+For n>=1, at equal source phase every source prefix contributes height 0 or 1; output height stays in [0,2] and returns to 0. Conversely the height-strip two-letter block transitions can be distributed among the two (01)^n streams with balanced completed-pair counts, proving sufficiency. For opposite phases the even heights are zero and each output block is 01 or 10; the independent intermediate synchronization bits realize any target completed-pair count between the two run-count endpoints, an interval containing n. The strip walk has 2^(2n-1) words, opposite-phase 2^(2n), singleton overlap (01)^(2n), union 3*2^(2n-1)-1. Independently enumerated all masks and distinct output sets for n=1..4 and checked the equality with both specified languages. These bounded checks corroborate the all-n constructive proof.
 
-The recent insertion-degree source by Ma, Zhang and Hughes (arXiv:2610.39941v1, October 29, 2026) studies masks, exchanges, and insertion degrees, not distinct-output language characterization for the two periodic source pairs. Grytczuk, Pawlik and Ruciński (arXiv:2503.22043) consider general binary shuffle-square recognition, which is not a prescribed alternating-root output count; their constrained-run criteria do not imply the opposite-phase classification or the singleton intersection. OEIS A191755 tabulates the count of all binary shuffle squares at each length, and A331850 the maximum count across all possible roots, not the specific roots here. Search comparisons for exact formulas, bounded-height/ballot equivalences, shuffle products, and the opposite-phase pair-block language did not identify a published identical or stronger statement. A possible implicit classical shuffle-product derivation remains; the text of Datko and Pawlik's relevant 2025 article could not be fetched in full due to HTTP 429, though indexed passages were considered. Lack of a matching search hit alone is not a proof of priority.
+## originality
 
-## Value (V): PASS
+PASS
 
-The exact output languages and their overlap resolve a natural, tightly parameterized ambiguity problem for periodic shuffles, not merely the numbers of masks. The two source pairs have identical length and letter multiplicities, yet an opposite phase doubles the distinct-output count; the output families meet in exactly one word. This gives a complete infinite classification with a constructive membership witness and a transparent connection between source-phase synchronization and constrained lattice paths. The exact fixed-root counts and contrast are not supplied by the compared general shuffle-square counting tables.
+The fixed-alternating-root output languages and their opposite-phase intersection were not implied by inspected general all-root shuffle-square recognition or unlike-root constant-run formulas. Originality accepted only on the inspected best-of-knowledge evidence; general shuffle-product lattice-path treatments may implicitly include the result.
 
-## Limits and review status
+## value
 
-Historical priority remains subject to further checks, particularly in older shuffle-product and automata literature. This review is not independent mathematical validation. The theorem says nothing about arbitrary roots, source multiplicities, or mask multiplicity.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural fixed-root shuffle-language identification, unlike general shuffle-square recognition, is an exact characterization of possible emitted words, their ambiguity and their opposite-phase intersection. It supplies exact exponential counts and a useful strip-path normal form; these are mathematically motivated language-invariant facts, not routine reparameterized counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
