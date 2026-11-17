@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and only its standard library. The standalone program constructs finite rooted trees with a private cycle attached to each node, including cycles of varying lengths. It computes directed crossing numbers and the resulting exact rational transition probabilities for every strictly outward path across the selected finite depths, then sums those probabilities and compares against the claimed finite product.
+## correctness
 
-The checker reports 10,942 exact-rational finite probability comparisons (including conditional transition-weight and path-enumeration tests), plus 117 high-precision numerical inequalities checking finite approximants against the explicit analytic lower bound. The tested cycle lengths include lengths three through nine; the main proof permits every finite cycle length at least three. The bound is derived analytically from \(\log(1+x)\le x\) and the geometric reciprocal-degree sum; the checker cannot replace that proof.
+PASS
 
-Reproducibility is self-contained; no library downloads, network queries, external datasets, random seeds or hidden certificates are required. The main theorem and assumptions are in `RESULT.md`. A finite test does not certify all infinite graphs, all branch sequences, or the asymptotic positivity criterion.
+For a strictly outward path the newly reached level-i gate has exactly b_i unvisited children and two unused private-cycle neighbors (all directed weights 1); when i>=1 the just-used parent edge has reverse signed crossing -1 and weight exp(-beta), while at root there is no parent. Multiplication gives P(E)=b_0/(b_0+2)*product_{i>=1} b_i/(b_i+2+exp(-beta)). Because 2+exp(-beta) lies between 2 and 3, the logarithms of factors are comparable to 1/b_i; continuity for nested cylinder events gives the infinite-product iff. The infinite graph is locally finite, and on E the tree depth and graph distance grow exactly one at each step. With b_i=2^(i+2), sum_{i>=1}1/b_i=1/4 and the log inequality gives (2/3)exp(-3/4)>0. Every vertex lies on a private cycle, including frontier vertices; the proof does not require increasing cycle length.
+
+## originality
+
+PASS
+
+No inspected stronger work implies positive escape with every vertex lying in a finite cycle and constant triangle attachments; the motivating ant-walk paper poses a closely matching construction heuristically rather than proving it. Exact outward-event product/positive branching criterion are additional explicit statements, with unindexed priority risk.
+
+## value
+
+PASS
+
+Constructs a mathematically motivated counterexample to the apparent necessity of an infinite leaf for ant-walk escape, precisely in a graph where every vertex is on a finite cycle. Its universal beta bound and sharp reciprocal branching criterion for the monotone event reveal which aspect of tree growth defeats reinforcement; constant triangle blocks strengthen the motivating heuristic. This is a structural witness and threshold result, not an unmotivated instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
