@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 check_reachability.py` with Python 3 standard library. The checker evaluates the defining four-by-four truth-meet and warrant tables on every ordered pair of \(n\)-coordinate states for \(1\leq n\leq5\). The tested pair count is \(16+256+4096+65536+1048576=1118480\). It independently tests the source-conditioned Hamming-count formulas and aggregate counts; through \(n=4\), it checks the explicit source-preserving involution on all \(69904\) ordered pairs. It checks the number and form of universal sources through \(n=5\).
+## correctness
 
-Expected final output is `ALL CHECKS PASSED`. This was obtained by executing the included checker. The analytical arguments in RESULT.md, not finite experiments, prove the statements for all \(n\geq1\).
+PASS
 
-The study treats potential ordered pairs on the full four-valued product; without specifying actual move edges, it does not count a particular game's physical transitions. No independent mathematical or historical-priority audit has been performed.
+With the specified Y,N,B,U truth-meet and source warrant table, changed-coordinate local row multisets are {N,B,U},{Y,Y,Y},{B,N,U},{Y,B,U}. Input-dependent coordinate swaps preserve changed positions and implement automorphism B↔U of meet; hence equal exact-warrant fibers. Source products, global independent symbol sum, and n+1 universal source classification follow. Independent n≤3 pair enumeration 4368 pairs corroborates the general combinatorial proof. Original Kato connective matching is a literature-access caveat.
+
+## originality
+
+PASS
+
+The transition-warrant truth table originates with Kato. The submitted per-source Hamming-generating functions, coordinatewise ambiguity involution, all-pair spectra and exact n+1 universal-source count were not identified as consequences of any inspected published theorem; scientific value belongs to these new classifications rather than invention of the basic four-valued model.
+
+## value
+
+PASS
+
+At fixed model-defined four-valued warrant connective, a full per-radius destination spectrum, exact symmetric involution and universal-source classification are motivated structural invariants that can be reused to analyze reachability in unrestricted option products. Do not conflate potential moves with feasible dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
