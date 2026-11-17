@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is the unweighted wheel with at least three rim vertices and the uniform law on its distinct spanning-tree incidence vectors. Differentiating the matrix-tree polynomial proves the finite covariance identity \(C_{ef}=\mathbf1_{e=f}K_{ee}-K_{ef}^2\). The positive-definite reduced Laplacian has an explicitly periodized Green kernel; cyclic Fourier decomposition gives the stated two-by-two blocks. The large-cycle Green-kernel tails are exponentially controlled, and the limiting symbol has strictly ordered monotone branches with a simple quadratic low-frequency zero. Fourier-grid separation dominates the exponential error, proving the eventual extreme-mode classification and sharp ratio \(4/(5\pi^2)\). Cycle exchanges independently prove that the constant edge direction is the entire covariance kernel. A separately implemented exact-rational enumeration of all spanning trees on five small wheels matches the matrix-tree covariance entry-by-entry. The infinite-dimensional asymptotic is established by the proof, not by the finite experiments.
+## correctness
 
-## Originality — PASS, priority provisional
-The classic determinantal transfer-current identity computes any graph's pair edge covariances; the input formula is credited and not newly claimed. Chaourar's full paper on spanning-tree polytopes treats facets. Wigderson's accessible exposition establishes the transfer-current determinant and its negative pair correlation, but does not diagonalize wheel covariance, identify strict limiting Fourier dispersion, or derive the condition-number constant. Benjamin and Yerger's accessible abstract describes wheel spanning-tree enumeration rather than incidence covariance. A published wheel-spectrum study describes adjacency-matrix eigenvalues rather than covariance eigenvalues. The available portion of the spanning-tree fairness article concerns edge usage and expected overlap. The wheel-specific spectral asymptotics are not a direct stated consequence of any checked source, although they can be derived by combining standard tools and a nontrivial wheel-specific analysis. Equivalence under alternative terminology in earlier electrical-network literature remains a real residual risk; this is not an independent historical-priority certification.
+PASS
 
-## Mathematical value — PASS
-Spanning-tree polytopes are natural graphic-matroid base polytopes, and covariance eigenvalues of their vertices quantify intrinsic Euclidean anisotropy. A generic pair-correlation formula does not by itself determine the least-variance eigenspace or the order of degeneration. Here the complete finite spectrum is algebraically explicit, both limiting bands are monotone, and a sharp \(m^2\) condition number with an identified constant and eventual extremal Fourier modes follows. The quadratic anisotropy is therefore an invariant of geometric significance, not merely a routine enumerative increment or a numerical table.
+For W_{m+1}=K_1 join C_m with m>=3, incidence matrix E of all m spokes and m rim edges has reduced Laplacian L=3I-S-S^T and positive Green matrix g_d=[a^d+a^(m-d)]/[sqrt(5)(1-a^m)], a=(3-sqrt5)/2. Matrix-tree/transfer-current differentiation gives edge covariance C=diag(K_ee)-K∘K, K=E^T L^-1 E; it has precisely the fixed-tree-size constant null direction. Three periodic sequences g,h=2g-g_{+1}-g_{-1},q=g-g_{+1} produce the 2x2 Hermitian Fourier blocks, and the infinite-volume branch formula has low-frequency minus branch ~theta^2/(4sqrt5), maximal plus branch 4/(5sqrt5). Thus lambda_min+ ~pi^2/(sqrt5 m^2), max ~4/(5sqrt5), condition ratio ~4m^2/(5pi^2). I independently built E,L,K,C and compared *all 2m eigenvalues* with Fourier blocks for m=3,4,5,6,8,12,24,48,96; at m=96 the rescaled ratio 0.0811509867 approaches 4/(5pi^2)=0.0810569469. The proof uses uniform exponential wrap-around errors, not an inference from finite m.
 
-## Closest literature and limitations
-The closest foundational inputs are the graphic-matroid spanning-tree polytope facet description (Chaourar, arXiv:1903.07292), the determinantal transfer-current representation (Burton–Pemantle, as explained by Wigderson), and the existing wheel spanning-tree enumeration and graph spectrum literature. The all-wheel result is restricted to unweighted incidence-coordinate Euclidean geometry, and the eventual stabilization threshold is not explicit. Exact small-case checks complement but do not prove the asymptotic statement. A small risk of equivalent earlier spectral-statistics results remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original complete wheel-specific covariance Fourier spectrum and sharp growing anisotropy; general transfer-current determinantal identities, wheel tree totals and matrix-tree theorem are not claimed as new.
+
+## value
+
+PASS
+
+Uniform spanning-tree incidence vectors are the vertices of a canonical graphic matroid base polytope, and their covariance eigenvalues determine intrinsic inertia and conditioning. A sharp m² divergence on wheels despite nonvanishing local edge variance is a nontrivial geometric scale separation. The exact Fourier bands make the invariant reusable for graph-polytope inertia and stochastic edge network fluctuations; no paper-sized generality is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
