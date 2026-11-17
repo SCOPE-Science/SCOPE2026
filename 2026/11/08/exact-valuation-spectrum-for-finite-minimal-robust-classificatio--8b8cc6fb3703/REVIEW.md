@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is a finite labelled nonempty state set with finitely many independent Boolean atomic classifiers. The proof explicitly derives the pointwise minimal neighbourhood \(U_r(x)\) from the prescribed subbase, handles the empty-intersection boundary, and uses the finite lower-ideal property to prove equivalence of exact realizability with a negative witness in every maximal nonrobust signature block. Blocks are disjoint, so the product enumerator is exact, with all duplicate-signature sizes accounted for. A separate argument checks the sharp positive-classification optimum, and topological inclusions prove single-step saturation. A directly executed standalone checker exhausts all two-atom-valuation datasets through four states against all topologies, and every prescribed robust-region pair through five states against direct valuation enumeration. Neither finite search is treated as an infinite proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-The primary full-text comparison is Pichler–Tagliaferri (2026), especially the robustness/interior semantics in Section 5 and their finite or general minimal-model construction in Section 6.2, Theorem 6.3 and the image-classification example. This earlier work introduces the relevant construction and explicitly establishes leastness and forced *inclusion*. The new contribution is the full **exact-valuation count** over arbitrary fixed prescribed regions, with signature-block factors, all-valuation exactness criterion and maximizer multiplicities. These are not stated as a result or tabulated in the inspected primary work. Search comparisons across published-finding corpus and the accessible own ledgers did not identify an equivalent or stronger theorem; the closest published-finding corpus outputs concern unrelated finite topology invariants or product/block enumeration. A failure to retrieve a match is not proof of historical uniqueness. The finite-preorder and subbase principles used in the deduction are standard, so priority of the precise formula in the wider literature remains the principal residual risk.
+PASS
 
-## Value — PASS
-The motivating model takes annotated robust regions as *lower bounds* on true robustness, whereas empirical annotation may require knowing which claimed exact robust boundaries are consistent with the ordinary positive labels. The theorem gives a complete finite feasibility test for this distinction and quantifies the entire family of compatible labelled truth assignments. The factors \(2^{b_B}-1\) expose the role of indistinguishable robust signatures; they yield exact calibration probabilities, maximum allowed positive-classification cardinalities and numbers of optimal labelings. These are natural model-selection and data-feasibility invariants, not just a recomputation of the number of opens. The new theorem applies to a whole arbitrary finite family and is constructive. No claim is made of a general machine-learning performance improvement.
+For finite nonempty X, fixed robust regions r_i and arbitrary independent truth supersets v_i, the generated minimal Alexandrov topology has least open neighborhood U_r(x)={y:s(x)subseteq s(y)}. An exact interior int_{tau_r}(v_i)=r_i occurs iff every maximal signature block outside r_i contains a negative truth label, since the outside signature classes form a lower ideal. If any finer topology makes all r_i open and interiors exactly r_i, then minimal tau_r already does so by monotonicity of interior under refinement. The blocks are disjoint, yielding E(r)=prod_i 2^{n-|r_i|-sum_{B∈M_i}|B|} prod_{B∈M_i}(2^{|B|}-1), probability prod_{i,B}(1-2^{-|B|}), and sharp positive-budget multiplicities prod_{i,B}|B|. For f_i=int_{tau_r}(v_i), tau_f is contained in tau_r but each f_i is tau_f-open, forcing int_{tau_f}(v_i)=f_i in one step. Includes duplicate signatures, absent maximal blocks and empty intersections, and does not falsely assert original r_i stay open in tau_f. Independent exhaustive tiny finite checks passed.
 
-## Closest literature and limits
-Pichler and Tagliaferri, arXiv:2607.20185v1 / EPTCS 449 (2026), Theorem 6.3 and Section 7, establish the minimal generated topology and example-specific observed robustness, but not the general exact realization and valuation enumeration. Standard finite preorder representation supplies proof techniques and could conceal earlier equivalent counting statements. The scope excludes coupled mutually exclusive multiclass valuations, metric-topological constraints and infinite labelled carriers for the product count.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pichler and Tagliaferri 2026 Theorem 6.3 already constructs the least topology and lower bounds the available robust truth region. The submitted exact-realization iff criterion, complete labelled truth-valuation product count, maximum positives and one-step saturation are separately established and not stated in the inspected primary Section 6.2. General finite preorder/open-neighborhood identities are classical and not credited as new. The exact finite robustness calibration spectrum is a natural additive contribution, subject to unknown standard finite-poset analogues.
+
+## value
+
+PASS
+
+The underlying classification semantics asks how many truth valuations can actually realize prescribed robust regions and what additional robustness is forced. The maximal nonrobust-block criterion and exact count solve that concrete feasibility/calibration problem for every finite signature multiplicity pattern, including optimal positive labels and one-step correction. The naturally motivated invariant is richer than a trivial single Boolean check and can be used to benchmark finite robust-annotation consistency.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

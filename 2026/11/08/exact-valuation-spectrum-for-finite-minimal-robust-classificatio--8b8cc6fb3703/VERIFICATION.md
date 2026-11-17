@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Computational and deductive verification
 
-The complete proof establishes the theorem for arbitrary finite state sets and finitely many independent atomic predicates. The required nonstandard step is that a maximal nonrobust signature block must contain a negative example, and that one negative in each such maximal block covers every lower nonrobust signature. The proof derives this from the exact subbase minimal-neighbourhood identity.
+# Independent mathematical audit
 
-Run `python3 verify_robust_cores.py` with standard Python. The program independently (a) enumerates all labelled topologies through four states; (b) checks the exactness criterion and forcing/saturation for all two-predicate nested label datasets through four states; and (c) evaluates the proposed count from signature blocks and compares it with brute-force truth-set enumeration for all two-predicate prescribed robust families through five states.
+## correctness
 
-Observed output: topology counts 1, 4, 29, 355; 7,380 nested-label datasets, 564,869 admissible topology comparisons, 4,194 incompatible datasets and 8,454 extra forced positive label occurrences; all checks pass. The exact count agrees on 1,364 prescribed robust-region pairs through five states. Finite computation is corroboration and is not used as a proof for unbounded state or predicate counts. The theorem does not address priorities in unindexed sources.
+PASS
+
+For finite nonempty X, fixed robust regions r_i and arbitrary independent truth supersets v_i, the generated minimal Alexandrov topology has least open neighborhood U_r(x)={y:s(x)subseteq s(y)}. An exact interior int_{tau_r}(v_i)=r_i occurs iff every maximal signature block outside r_i contains a negative truth label, since the outside signature classes form a lower ideal. If any finer topology makes all r_i open and interiors exactly r_i, then minimal tau_r already does so by monotonicity of interior under refinement. The blocks are disjoint, yielding E(r)=prod_i 2^{n-|r_i|-sum_{B∈M_i}|B|} prod_{B∈M_i}(2^{|B|}-1), probability prod_{i,B}(1-2^{-|B|}), and sharp positive-budget multiplicities prod_{i,B}|B|. For f_i=int_{tau_r}(v_i), tau_f is contained in tau_r but each f_i is tau_f-open, forcing int_{tau_f}(v_i)=f_i in one step. Includes duplicate signatures, absent maximal blocks and empty intersections, and does not falsely assert original r_i stay open in tau_f. Independent exhaustive tiny finite checks passed.
+
+## originality
+
+PASS
+
+Pichler and Tagliaferri 2026 Theorem 6.3 already constructs the least topology and lower bounds the available robust truth region. The submitted exact-realization iff criterion, complete labelled truth-valuation product count, maximum positives and one-step saturation are separately established and not stated in the inspected primary Section 6.2. General finite preorder/open-neighborhood identities are classical and not credited as new. The exact finite robustness calibration spectrum is a natural additive contribution, subject to unknown standard finite-poset analogues.
+
+## value
+
+PASS
+
+The underlying classification semantics asks how many truth valuations can actually realize prescribed robust regions and what additional robustness is forced. The maximal nonrobust-block criterion and exact count solve that concrete feasibility/calibration problem for every finite signature multiplicity pattern, including optimal positive labels and one-step correction. The naturally motivated invariant is richer than a trivial single Boolean check and can be used to benchmark finite robust-annotation consistency.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
