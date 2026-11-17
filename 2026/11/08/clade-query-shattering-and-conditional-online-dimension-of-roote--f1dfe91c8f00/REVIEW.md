@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every implication has a constructive proof: a cherry-contraction avoidance lemma eliminates any laminar family of forbidden nontrivial clusters, local binary refinements preserve all confirmed positive clades, and the all-positive path in an adaptive tree gives a sharp upper bound on Littlestone dimension. The nonbinary extension uses its inclusion of binary trees and the same bound on nontrivial clusters. The face polynomial follows via a weighted hierarchy recursion and Lagrange inversion. The standalone finite checker verifies every laminar support through six taxa against actual binary-tree response traces and independently checks restricted Stirling coefficients, plus 241 conditional online-dimensional calculations. The proof does not infer an infinite result from those checks.
+PASS
 
-## Originality — PASS within documented comparison
+Necessity: simultaneous positive clades of rooted trees are laminar. Sufficiency: for any labeling of a support S compatible with positive H, build the hierarchy of positive clades; negative compatible queries become proper unions of at least two, but not all, children at their least positive ancestor. The cherry-contraction avoidance lemma gives binary refinements independently at each multifurcation omitting these negative unions; hence arbitrary labels occur iff H union S is laminar. A maximal rooted binary hierarchy contains n-2 nontrivial proper clades, so VC=n-2-|H|. In an online complete binary query tree the all-positive branch cannot repeat a query and must use distinct proper clusters outside H, yielding Ldim<=n-2-|H|; static lower bound gives equality; nonbinary trees cannot beat it. EGF U=x+z(e^U-1-U), inversion gives restricted Stirling coefficients {(n+k) over k+1}_{blocks>=2}. Independently checked all 15 binary trees at n4 and 105 at n5: every laminar support shattered, face polynomials 1+10z+15z² and 1+25z+105z²+105z³. These checks are bounded.
 
-The general hierarchy representation, the unconditional equality of VC and Littlestone dimensions, and the abstract enumerative coefficients are previously established and explicitly excluded from priority claims. The specific full positive/negative shattering criterion and exact residual online dimension for **clade membership** were compared with relevant primary sources on network hierarchies, phylogenetic encodings, and cluster/split indices, as well as recorded findings on other tree and phylogenetic query systems. An earlier mathematical claim on the same tree concept class already proves the unconditional capacities for binary and multifurcating trees (but does not assert the complete shattering complex or arbitrary positive-history dimensions); that prior claim is a decisive overlap with the scalar special case. The new assertions are not implied by that scalar equality alone. Other examined primary materials do not state or imply the full shattering criterion or the exact conditional theorem. Exact priority remains subject to specialized older combinatorics or learning terminology.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem determines an entire query shattering complex and an exact worst-case adaptive learning budget, even after any arbitrary compatible positive history, for every taxon count. It distinguishes the granularity of clade queries from triplet/quartet displays, and proves that permitting unresolved trees changes the hypothesis class without changing these two capacity invariants. The classical associated-Stirling numbers become exact coefficients of a natural learning invariant. The all-pattern avoidance argument and exact online residual law after arbitrary compatible positives are substantive additional structural statements; this is not offered as a new isolated count or a new unconditional dimension.
+The unconditional n-2 VC/Littlestone dimensions and abstract counting of laminar hierarchies are definitively prior work. New surviving claim is the full if-and-only-if positive/negative shattering complex, its interpretation as query faces and dimension after arbitrary compatible positive history. The older positive-branch product factorization makes the conditional scalar extension mathematically close, but it does not itself state nor establish the all-support negative-avoidance theorem.
 
-## Closest literature and limits
+## value
 
-Huber–Moulton–Wu (2019; repository 2017) treats the hierarchy of closed sets in phylogenetic networks and triplet/trinet reconstruction. Francis–Jarvis (2022) gives tree/matching and tree/partition correspondences. Moulton–Spillner–Wicke (2024) studies cluster/split-based diversity indices, with a full-text access limit for one mirror but another accessible open description. These establish motivation and considerable classical combinatorial overlap, but not the stated exact conditional Littlestone calculation. An earlier exact unconditional capacity result limits novelty to the complete complex, conditional dimensions and their connection to classical enumeration. The checker cannot establish historical novelty or unrestricted correctness on its own. No claims are made for noisy labels or queries other than exact clade membership.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete shattering-complex determination for a natural phylogenetic-clade membership class specifies exactly which query families realize every binary response pattern. Conditional adaptive capacity after arbitrary positive clade histories is a useful exact learning invariant, beyond an unconditional scalar dimension; tree-query semantics and avoidance constraints have mathematical substance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

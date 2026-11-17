@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T07:52:34.322537Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Necessity: simultaneous positive clades of rooted trees are laminar. Sufficiency: for any labeling of a support S compatible with positive H, build the hierarchy of positive clades; negative compatible queries become proper unions of at least two, but not all, children at their least positive ancestor. The cherry-contraction avoidance lemma gives binary refinements independently at each multifurcation omitting these negative unions; hence arbitrary labels occur iff H union S is laminar. A maximal rooted binary hierarchy contains n-2 nontrivial proper clades, so VC=n-2-|H|. In an online complete binary query tree the all-positive branch cannot repeat a query and must use distinct proper clusters outside H, yielding Ldim<=n-2-|H|; static lower bound gives equality; nonbinary trees cannot beat it. EGF U=x+z(e^U-1-U), inversion gives restricted Stirling coefficients {(n+k) over k+1}_{blocks>=2}. Independently checked all 15 binary trees at n4 and 105 at n5: every laminar support shattered, face polynomials 1+10z+15z² and 1+25z+105z²+105z³. These checks are bounded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier 2026-11-02 same-clade membership work establishes unconditional VC=Ldim=n-2 and a factorization for a single positive answer.",
+          "The current arbitrary H conditional formula is consistent with and closely motivated by that factorization, which could yield a shorter derived proof."
+        ],
+        "reasoning": "The previous scalar theorem and single-branch factorization do not explicitly imply full support-wise shattering or face enumeration, though the conditional scalar part has substantial derived-overlap risk.",
+        "searches": [
+          "phylogenetic tree clade membership query shattered laminar support conditional VC Littlestone dimension",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-static-and-online-shattering-for-clade-membership-in-roote--9d757d9b9c06/RESULT.md",
+          "phylogenetic hierarchy Boolean query Littlestone dimension after fixed positive clusters"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-static-and-online-shattering-for-clade-membership-in-roote--9d757d9b9c06/RESULT.md",
+        "https://doi.org/10.1007/s00357-018-9279-5",
+        "https://doi.org/10.1098/rspa.2022.0044",
+        "https://arxiv.org/abs/2403.15842",
+        "https://arxiv.org/abs/2302.04492"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior 2026-11-02 theorem proves unconditional dimensions and positive-branch product decomposition, not general negative-query avoidance.",
+          "Triplet and quartet displays use different query domains; structure of tree hierarchies alone does not establish online dimension from membership queries."
+        ],
+        "reasoning": "Unconditional scalar capacity does not determine which support sets are shattered; full characterization and binary realization of every mixed labeling require the avoidance argument. Residual possibility: an unrecognized corollary in the prior product decomposition may cover the conditional dimension.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-static-and-online-shattering-for-clade-membership-in-roote--9d757d9b9c06/RESULT.md",
+          "phylogenetic tree clade membership query shattered laminar support conditional VC Littlestone dimension",
+          "arxiv:2302.04492 triplet learning",
+          "arxiv:1906.02411 phylogenetic hierarchies"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Laminar hierarchy enumeration is classical, and its polynomial coefficients are restricted Stirling numbers.",
+          "Prior clade-membership scalar dimensions n-2 are explicitly published; they do not enumerate all shattered supports."
+        ],
+        "reasoning": "Enumerating abstract hierarchies is not by itself a learning-theoretic statement that all Boolean labelings of every compatible support are realizable by fully binary trees. This is proved using negative-clade avoidance.",
+        "searches": [
+          "phylogenetic tree clade membership query shattered laminar support conditional VC Littlestone dimension",
+          "rooted hierarchical cluster concept class shattering all subsets laminar",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-static-and-online-shattering-for-clade-membership-in-roote--9d757d9b9c06/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Restricted Stirling numbers count certain hierarchical structures as classical combinatorics.",
+          "Current face coefficients agree with classical hierarchy counts through n=5."
+        ],
+        "reasoning": "The coefficients as integers are not claimed original; novel aspect, if any, is their full Boolean shattering-complex interpretation and conditional online theorem.",
+        "searches": [
+          "phylogenetic tree clade membership query shattered laminar support conditional VC Littlestone dimension",
+          "restricted Stirling numbers partitions blocks at least two hierarchy faces"
+        ]
+      },
+      "rationale": "The unconditional n-2 VC/Littlestone dimensions and abstract counting of laminar hierarchies are definitively prior work. New surviving claim is the full if-and-only-if positive/negative shattering complex, its interpretation as query faces and dimension after arbitrary compatible positive history. The older positive-branch product factorization makes the conditional scalar extension mathematically close, but it does not itself state nor establish the all-support negative-avoidance theorem.",
+      "residual_risks": [
+        "Conditional dimension n-2-|H| may be a short corollary of the earlier single-positive product identity; originality rests more decisively on complete support-wise realization.",
+        "Classical hierarchy face counts are previously known as enumerative integers, and have not been claimed independent novelty.",
+        "Specialist concept-class or phylogenetic learning literature may name the same shattering complex differently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_PARTIAL_COVERAGE",
+          "evidence": "Already settles n-2 unconditionally; no complete shattered support criterion or full arbitrary-positive-history formula stated.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-static-and-online-shattering-for-clade-membership-in-roote--9d757d9b9c06/RESULT.md",
+          "material_read": "Complete RESULT.md with positive-branch product factorization and proof of unconditional dimensions",
+          "method": "GitHub full-file read, blob 8c35825e998eddd9cccf737cc8cf3a3ffb6f169c",
+          "title": "Exact static and online shattering for clade membership in rooted and unrooted trees",
+          "trigger": "Identical Boolean query class and strong scalar result"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_DIRECT_LEARNING_THEOREM",
+          "evidence": "Hierarchy and cluster structure, not complete Boolean shattering with negative queries.",
+          "identifier_or_url": "https://doi.org/10.1007/s00357-018-9279-5",
+          "material_read": "Available paper-level mathematical descriptions of hierarchy/closed-set results; no claim of full independent reading of all appendices",
+          "method": "Accessible original publication and source comparison",
+          "title": "Hierarchies from Lowest Stable Ancestors in Nonbinary Phylogenetic Networks",
+          "trigger": "Hierarchy equivalences and cluster representations"
+        },
+        {
+          "assessment": "DIFFERENT_QUERY_SEMANTICS",
+          "evidence": "Learns via triplet labels, not direct membership of whole proposed clades.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.04492",
+          "material_read": "Relevant stated learning model and abstract/available sections contrasting triplets",
+          "method": "Published open preprint description and prior comparison",
+          "title": "Tree Learning: Optimal Algorithms and Sample Complexity",
+          "trigger": "Potential stronger query-learning result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete shattering-complex determination for a natural phylogenetic-clade membership class specifies exactly which query families realize every binary response pattern. Conditional adaptive capacity after arbitrary positive clade histories is a useful exact learning invariant, beyond an unconditional scalar dimension; tree-query semantics and avoidance constraints have mathematical substance.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Review covers exact retrieved RESULT.md, SLOGAN.txt, VERIFICATION.md, METADATA.json, AUDIT.json, REVIEW.md where accessible plus mathematical primary sources; Git directory tree not independently rehashed.",
+    "Numerical finite examples corroborate critical identities only; no inferred infinite proof or priority certification.",
+    "Only complete scientific proof package is being judged; publication remains not_ready because public provenance was not sanitized."
+  ],
+  "schema_version": 1
+}
