@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T11:53:13.059470Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Schubert normalization is [pt]=sigma_(ell,ell,ell). The integral vertical Pieri operators for e1 and e2 produce each top coefficient M_(ell,b)=∫e1^(3ell-2b)e2^b with b=0..floor(3ell/2); the top subgroup of the polynomial subring is exactly their integer span, so its index is their gcd. I independently implemented the integral partition-state DP without using CHECK.py and evaluated ALL 216 coefficients for ell=1..16, recomputed each gcd and the index 3,3,3 window and return to 1. The original Git CERTIFICATE.json stores all exact integers, and its width=13 first four match 57468093927120,21172455657360,7820456594160,2896406039280; the width=16 values were read as raw decimal integers to avoid JavaScript integer precision loss. Submitted CHECK.py also offers an independent alternant coefficient evaluator, but the independent DP itself confirms the full bounded claim. No ell>=17 extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Reiner–Tudose/Polymath Jr rational Hilbert-series and filtration claims do not force integer gcd1; Xiong Remark 7.9 specifically does not assert an integral analogue."
+        ],
+        "reasoning": "No broader inspected theorem asserts top integral primitivity across these widths or dominates the index3/return-to1 pattern.",
+        "searches": [
+          "Resultary: integral top intersection gcd e1 e2 Grassmannian width13",
+          "arXiv:2011.03179",
+          "arXiv:math/0309281"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.28780",
+        "https://arxiv.org/abs/math/0309281",
+        "https://arxiv.org/abs/2011.03179",
+        "Resultary: integral top intersection gcd e1 e2 Grassmannian Gr(3,C^(ell+3)) width 13 14 15"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Top Q-span follows from rational generation, but does not imply integral primitivity: subgroup 3Z[pt] has full rational span."
+        ],
+        "reasoning": "Neither rational generation nor the standard Pieri rule alone states that the first integral obstruction occurs only at ell13..15 then recovers at ell16; actual exact gcds are necessary.",
+        "searches": [
+          "arXiv:2610.28780 Corollary 7.4 Remark 7.9 Appendix C.3",
+          "arXiv:2011.03179"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xiong establishes rational low-degree Chern-subalgebra filtrations and classical integral intersection formulas; rational top generation is compatible with any nonzero integral index."
+        ],
+        "reasoning": "Same algebra and Schubert intersection machinery appear in prior work; new question is exact integral subgroup index in the top lattice for a bounded sequence.",
+        "searches": [
+          "Resultary: integral top intersection gcd e1 e2 Grassmannian Gr(3,C^(ell+3)) width 13 14 15",
+          "arXiv:2610.28780"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Appendix C.3 provides a classical integral intersection/Kostka-number computation, but inspected discussion does not list the gcd-index row 1..16 or a first-loss/return classification."
+        ],
+        "reasoning": "A formula from which 216 integers can be computed is not itself a published exact gcd table; the finite enumeration yields a new structural index. Residual possibility that the appendix data contain an equivalent table is recorded.",
+        "searches": [
+          "Resultary index top two Chern Grassmannian integral gcd width13/14/15",
+          "arXiv:2610.28780 Appendix C.3"
+        ]
+      },
+      "rationale": "Best-of-knowledge new explicit finite-range integral top-class gcd/primitive threshold, separate from earlier rational filtrations and classical integer intersection formulas.",
+      "residual_risks": [
+        "An unindexed top-degree divisibility table or Appendix C.3 special computed entries may contain an equivalent finite gcd pattern; this remains a specific priority risk.",
+        "The theorem is bounded to ell<=16 and top degree only; no assertion about full integral algebra or ell>=17."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RATIONAL_ONLY_NOT_COVERING_EXACT_GCD",
+          "evidence": "Shows rational top generation and formula for integral coefficients; explicitly declines integral analogue, no inspected first nonprimitive index window.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.28780",
+          "material_read": "Full accessible arXiv PDF; Corollary 7.4, Remark 7.9 and Appendix C.3 integral intersection/Kostka discussion, with relevant nearby arguments",
+          "method": "Full primary PDF including page screenshots and relevant theorem/appendix read",
+          "title": "Low-degree filtrations in ordinary and Lagrangian Grassmannian cohomology",
+          "trigger": "Identical Grassmannian low-degree Chern subalgebra with potential dominating filtration theorem"
+        },
+        {
+          "assessment": "NO_DECISIVE_INTEGRAL_COVERAGE",
+          "evidence": "Rational filtration framework; residual uninspected details retained.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0309281",
+          "material_read": "Abstract and relevant conjecture statements as summarized in primary references",
+          "method": "arXiv abstract and cited theorem context; whole primary not inspected",
+          "title": "Conjectures on the cohomology of the Grassmannian",
+          "trigger": "Foundational low-degree Chern generator filtration conjectures"
+        },
+        {
+          "assessment": "NO_DECISIVE_INTEGRAL_COVERAGE",
+          "evidence": "Addresses rational generation and Hilbert series, not identified exact top integral gcd window.",
+          "identifier_or_url": "https://arxiv.org/abs/2011.03179",
+          "material_read": "Primary summary and Xiong account of the conjecture statements",
+          "method": "arXiv abstract/secondary comparison only, not full paper",
+          "title": "Filtering cohomology of ordinary and Lagrangian Grassmannians",
+          "trigger": "Earlier low-degree cohomology filtration and integer possibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The primitivity of a natural 2-Chern-generated top cohomology sublattice is a motivated integral refinement of rational cohomology filtrations. The first loss at ell=13 followed by recovery at ell=16 is a nontrivial structural boundary, and complete exact classification through the first failure/recovery range is a valuable finite result, not an arbitrary tiny test.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Gr(3,C^(ell+3)), ell=1..16, the image in top integral cohomology of Z[c1(S∨),c2(S∨)] has gcd index 3 exactly at ell=13,14,15 and index 1 at ell=1..12 and ell=16.",
+  "limitations": [
+    "Bounded exact classification ell=1..16 only.",
+    "Finite calculation is exhaustive for stated domain, using classical integral Pieri; no proof for larger widths."
+  ],
+  "schema_version": 1
+}
