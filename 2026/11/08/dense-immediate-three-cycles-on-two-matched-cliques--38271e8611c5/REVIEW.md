@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a connected graph, a nonfixed configuration with three-step return must have every vertex cycling through all phases; otherwise a permanently resting vertex adjacent to a rotating vertex would be forced to excite. The successor-neighbor criterion is both necessary and sufficient. The two-clique support classification exhausts all possibilities, including the forbidden configurations with two colors on each clique. The factor \(6\) in the mixed-support case comes from choosing which clique is two-colored and which of three colors it omits. Exact inclusion–exclusion gives \(9^n-6\cdot6^n+15\cdot4^n-12\cdot3^n+3\). Boundary cases \(n=1,2\) give zero. Code independently checks all \(597861\) states for \(2\le n\le6\) and an independent mask-transfer for \(1\le n\le60\); finite computations are corroboration, not the infinite proof.
+PASS
 
-## Originality — PASS (best-knowledge, qualified)
+For a finite connected graph and three-state Greenberg–Hastings dynamics, F³(c)=c nonfixed implies every vertex rotates through all three states; a stationary resting vertex adjacent to one rotating vertex would be forced to excite, and connectedness excludes mixed components. A rotating state occurs iff every color-a vertex has a neighbor of successor color a+1 modulo 3. In K₂□K_n each clique cannot be monochromatic and the two cliques cannot both use two colors: the missing-color cases violate successor support across matching edges. If both cliques use all colors, count S_n² with S_n=3^n-3*2^n+3. If exactly one uses two colors, its missing color and row choice yield six options, and the constrained opposite full row is counted B_n=4^n-3*3^n+3*2^n-1. Thus P3(n)=S_n²+6B_n=9^n-6*6^n+15*4^n-12*3^n+3 for every n≥1. n=1,2 vanish; n≥3 positive by onto-colorings of both rows. Independent implementation of literal synchronous update exhaustively checked n=1,...,5, with counts 0,0,72,1656,24840; this independently corroborates, but does not prove, infinite n.
 
-The materially inspected primary work of Gravner–Lyu–Sivakoff, arXiv:1610.07320v1, defines the same Greenberg–Hastings rule and gives broad synchronization/activity criteria on arbitrary connected graphs (particularly its Theorem 3), but not the immediately primitive-three count on the one-parameter matched-clique family. The graph \(K_2\square K_n\) also goes by the name the line graph of \(K_{2,n}\). Searches using both graph descriptions and formula-based variants found no covering statement. A 2022 study of graph-dependent synchronization prediction uses different questions and is not a tabulation of the exact initial period-three population. A finite census on another rook-graph size or an activity formula does not, without additional argument, imply this all-size closed formula. Unindexed and implicit equivalent-count literature is a residual novelty risk; lack of a search hit is not treated as proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the exact naturally defined initial periodic-state population of a connected homogeneous graph family, not an arbitrary graph slice or an ad hoc numerical statistic. The classification shows that both two-color layers are impossible, and supplies an explicit exponential-rate law: almost every initial state starts in a genuine three-cycle when the clique sizes grow. The probability tending to one is a meaningful sharp contrast with sparse finite-range excitation networks. The count also gives all primitive-three orbit numbers without quotienting labels. Neither a paper-sized result nor a downstream theorem is claimed.
+PASS best knowledge for exact immediate primitive-three census and support-type classification on K₂□K_n, including labelled and asymptotic counts. Graph-universal activity criteria concern eventual dynamics rather than the initial period-three measure, while prior similar complete bipartite/cocktail-party or threshold-two results concern different graph or rule. A general cyclically supported-coloring transfer could reproduce the count after a nontrivial specialization, but no previously read complete same-family formula was identified.
 
-## Closest literature and limitations
+## value
 
-Gravner, Lyu and Sivakoff (2016; arXiv:1610.07320v1) provide general long-run dynamical criteria, not this exact immediate count. Bassi and collaborators (2022; DOI:10.1038/s41598-022-18953-8) study empirical synchronization prediction rather than this exact enumeration; complete direct inspection of the latter source was obstructed by a site access check and it is used only as context. Potentially equivalent enumerations under cyclically dominated colorings or graph line-graph language remain a priority risk. No claim is made about remaining periods or transient basins. The verification programs use distinct computational approaches, but independent scientific audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Immediate periodic-state census is a natural exact dynamical invariant of dense matched-clique interaction graphs and resolves the sharp n=3 onset, forbidden two-two row supports, exact orbit counts and exponential law 1-6(2/3)^n+O((4/9)^n). The large-n almost-sure initial periodicity provides a meaningful contrast with sparse excitation systems. Not claimed to classify basins or other periods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

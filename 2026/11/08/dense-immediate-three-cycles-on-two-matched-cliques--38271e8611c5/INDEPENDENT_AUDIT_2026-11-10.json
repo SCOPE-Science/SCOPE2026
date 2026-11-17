@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T11:11:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a finite connected graph and three-state Greenberg–Hastings dynamics, F³(c)=c nonfixed implies every vertex rotates through all three states; a stationary resting vertex adjacent to one rotating vertex would be forced to excite, and connectedness excludes mixed components. A rotating state occurs iff every color-a vertex has a neighbor of successor color a+1 modulo 3. In K₂□K_n each clique cannot be monochromatic and the two cliques cannot both use two colors: the missing-color cases violate successor support across matching edges. If both cliques use all colors, count S_n² with S_n=3^n-3*2^n+3. If exactly one uses two colors, its missing color and row choice yield six options, and the constrained opposite full row is counted B_n=4^n-3*3^n+3*2^n-1. Thus P3(n)=S_n²+6B_n=9^n-6*6^n+15*4^n-12*3^n+3 for every n≥1. n=1,2 vanish; n≥3 positive by onto-colorings of both rows. Independent implementation of literal synchronous update exhaustively checked n=1,...,5, with counts 0,0,72,1656,24840; this independently corroborates, but does not prove, infinite n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier 2016 Theorem 3: activity/synchronization on arbitrary graphs via cycle integrals.",
+          "Published nearby Resultary graph families include cocktail-party complements of matchings, full subdivisions, and threshold-two complete bipartite systems."
+        ],
+        "reasoning": "General activity criteria do not provide the multiplicities of initially periodic states; other graph families are neither superclasses with this counted invariant nor direct substitutions giving the claimed all-n expression.",
+        "searches": [
+          "Resultary: 3-state excitation complete bipartite cocktail party graph subdivision exact census",
+          "arXiv:1610.07320 Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1610.07320",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-three-state-excitation-on-cocktail-party-graphs-a-sharp-period-t--b65add71b337",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-five-step-cutoff-and-coexistence-threshold-for-two-contact-exc--6337a6bf90f2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Activity theorems characterize whether a given initial state can synchronize, not the exact cardinality of successor-supported colourings.",
+          "Cocktail-party graphs delete a perfect matching from K_{2n}, whereas K₂□K_n consists of two K_n cliques joined by only n matched edges."
+        ],
+        "reasoning": "Neither a general dynamical activity statement nor a structurally distinct graph census implies the submitted all-size polynomial without additional combinatorial classification. No decisive prior implication found.",
+        "searches": [
+          "Contrast arXiv:1610.07320 Theorem 3 with all initial configurations",
+          "Resultary 2026/11/2 cocktail-party excitation primitive period"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K₂□K_n is isomorphic to line graph L(K_{2,n}), so both names checked.",
+          "Full Gravner–Lyu–Sivakoff dynamics uses edge flows and cycle integrals; does not present the labelled row-support census."
+        ],
+        "reasoning": "Equivalent successor-neighbor colorings are correctly recognized as the same periodicity property, but the exact counting identity is not a trivial consequence of an eventual-activity theorem.",
+        "searches": [
+          "Resultary: Greenberg Hastings K2 square Kn immediate 3 period",
+          "Resultary: line graph K2,n primitive three excitation",
+          "arXiv:1610.07320v1 successor-coloring activity criterion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The formula is P3(n)=9^n-6·6^n+15·4^n-12·3^n+3.",
+          "Other published small-graph and first-entry tables do not supply this all-size matched-clique count in the inspected descriptions."
+        ],
+        "reasoning": "Search and primary reading did not find a preexisting table that independently determines the full closed polynomial, rather than merely fixed n or eventual activity.",
+        "searches": [
+          "Resultary: matched cliques Greenberg Hastings 9^n 6^n 4^n",
+          "Resultary: rook graph excitation K2 n all n",
+          "Gravner et al 2016 finite graph examples"
+        ]
+      },
+      "rationale": "PASS best knowledge for exact immediate primitive-three census and support-type classification on K₂□K_n, including labelled and asymptotic counts. Graph-universal activity criteria concern eventual dynamics rather than the initial period-three measure, while prior similar complete bipartite/cocktail-party or threshold-two results concern different graph or rule. A general cyclically supported-coloring transfer could reproduce the count after a nontrivial specialization, but no previously read complete same-family formula was identified.",
+      "residual_risks": [
+        "Search results cannot exclude unindexed equivalent enumeration phrased as cyclically supported ternary colorings of L(K_{2,n}).",
+        "Only immediate period-three states, no eventual basin or other period claims."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the immediate labelled K₂□K_n population",
+          "evidence": [
+            "Theorem 3 characterizes eventual activity via edge forms/cycle circulation; no generating polynomial for all initially primitive-three matched-clique configurations."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+          "material_read": "Complete accessible arXiv paper, especially statement of Theorem 3 and discussion of eventual activity and synchronization",
+          "method": "Read complete parsed primary arXiv paper and checked theorems",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Same three-state Greenberg–Hastings rule and broad graph-universal dynamical criteria"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH",
+          "evidence": [
+            "Complement of perfect matching on 2m vertices rather than two K_n joined by matching; formulas and support constraints differ."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-three-state-excitation-on-cocktail-party-graphs-a-sharp-period-t--b65add71b337",
+          "material_read": "Published Resultary summary describing graph and formula, not complete proof",
+          "method": "Read search result and compared graphs and quantities",
+          "title": "Three-state excitation on cocktail-party graphs: a sharp period transition and exact orbit count",
+          "trigger": "Similar excitation exact count on graph constructed with a perfect matching"
+        },
+        {
+          "assessment": "DIFFERENT_RULE",
+          "evidence": [
+            "Two-contact threshold on K_{n,n}, not one-contact GHM on K₂□K_n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-five-step-cutoff-and-coexistence-threshold-for-two-contact-exc--6337a6bf90f2",
+          "material_read": "Published Resultary summary only",
+          "method": "Read search result and contrasted threshold and graph",
+          "title": "A five-step cutoff and coexistence threshold for two-contact excitation on complete bipartite graphs",
+          "trigger": "General multiple-period census on dense graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Immediate periodic-state census is a natural exact dynamical invariant of dense matched-clique interaction graphs and resolves the sharp n=3 onset, forbidden two-two row supports, exact orbit counts and exponential law 1-6(2/3)^n+O((4/9)^n). The large-n almost-sure initial periodicity provides a meaningful contrast with sparse excitation systems. Not claimed to classify basins or other periods.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1610.07320",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-three-state-excitation-on-cocktail-party-graphs-a-sharp-period-t--b65add71b337",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-five-step-cutoff-and-coexistence-threshold-for-two-contact-exc--6337a6bf90f2"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Search results cannot exclude unindexed equivalent enumeration phrased as cyclically supported ternary colorings of L(K_{2,n}).",
+    "Only immediate period-three states, no eventual basin or other period claims."
+  ],
+  "residual_risks": [
+    "Search results cannot exclude unindexed equivalent enumeration phrased as cyclically supported ternary colorings of L(K_{2,n}).",
+    "Only immediate period-three states, no eventual basin or other period claims."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING the immediate labelled K₂□K_n population",
+      "evidence": [
+        "Theorem 3 characterizes eventual activity via edge forms/cycle circulation; no generating polynomial for all initially primitive-three matched-clique configurations."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1610.07320",
+      "material_read": "Complete accessible arXiv paper, especially statement of Theorem 3 and discussion of eventual activity and synchronization",
+      "method": "Read complete parsed primary arXiv paper and checked theorems",
+      "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+      "trigger": "Same three-state Greenberg–Hastings rule and broad graph-universal dynamical criteria"
+    },
+    {
+      "assessment": "DIFFERENT_GRAPH",
+      "evidence": [
+        "Complement of perfect matching on 2m vertices rather than two K_n joined by matching; formulas and support constraints differ."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-three-state-excitation-on-cocktail-party-graphs-a-sharp-period-t--b65add71b337",
+      "material_read": "Published Resultary summary describing graph and formula, not complete proof",
+      "method": "Read search result and compared graphs and quantities",
+      "title": "Three-state excitation on cocktail-party graphs: a sharp period transition and exact orbit count",
+      "trigger": "Similar excitation exact count on graph constructed with a perfect matching"
+    },
+    {
+      "assessment": "DIFFERENT_RULE",
+      "evidence": [
+        "Two-contact threshold on K_{n,n}, not one-contact GHM on K₂□K_n."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-five-step-cutoff-and-coexistence-threshold-for-two-contact-exc--6337a6bf90f2",
+      "material_read": "Published Resultary summary only",
+      "method": "Read search result and contrasted threshold and graph",
+      "title": "A five-step cutoff and coexistence threshold for two-contact excitation on complete bipartite graphs",
+      "trigger": "General multiple-period census on dense graph family"
+    }
+  ]
+}
