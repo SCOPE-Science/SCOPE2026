@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The irreducibility proof uses a simple zero of the rational Kummer right-hand side; the compact curve is smooth on the torus and on all four boundary divisors. An explicit formula factors the logarithmic Gauss map into degree \(mn\) and degree \(2\) morphisms. A reciprocal involution joins the root-of-unity rotations to form a group of order \(2mn\), proving Galoisness. Local Kummer valuations and a quadratic derivative yield all ramification indices, with independent Riemann--Hurwitz total. Exact symbolic calculations and sample permutation groups support the proof.
+## correctness
 
-**Originality — PASS, with priority qualification.** The four inspected primary texts give general log-Gauss definitions, Newton-volume degree and discriminant methods, real/Harnack criteria, and automorphisms of generalized Fermat covers; none identifies the Galois logarithmic Gauss map and full four-branch profile of this rectangular family. For equal Kummer exponents, some abstract curve automorphisms are antecedent rather than new. The literature search and the mathematical-record comparison did not locate a directly equivalent result or stronger assertion implying it. The degree \(2mn\) and genus formulas are known consequences of established toric methods and are not the originality basis. Specialist literature on abelian-by-involution curve covers remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** The logarithmic Gauss map is a natural algebraic invariant in amoeba and toric-curve geometry. Generic covers have much less symmetry; here its *full regular-cover structure* is uniform in two unbounded degree parameters, with a complete local inertia specification and exactly four critical directions. These explicit families support comparison of Hurwitz strata and discriminants without relying on unverified downstream applications.
+The compactification has bidegree (m,n), is smooth at the toric boundary and in the torus for lambda not 0 or 1, and is irreducible by the simple-zero Kummer valuation. Substituting u=x^m and v=-(1+u)/(1+lambda*u) gives h(u)=(m/n)(lambda-1)u/((1+u)(1+lambda*u)); the two factors have degrees mn and 2. The rotations mu_m x mu_n plus reciprocal involution (alpha/x,beta/y) form 2mn distinct deck transformations with inversion conjugacy, proving Galoisness. Branches at 0,infinity and u=+/-lambda^(-1/2) have partitions m^(2n),n^(2m),2^(mn),2^(mn). Their Riemann-Hurwitz contribution 6mn-2m-2n equals 2g-2+4mn for g=(m-1)(n-1). Recomputed derivative, reciprocal symmetry and sample degree/ramification totals symbolically; those examples alone are not infinite proof.
 
-**Limitations.** Characteristic-zero curves with \(\lambda\ne0,1\) only; no claim about real amoeba topology, all automorphisms of the curves, positive characteristic, or independently established publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General Newton-polygon degree and genus statements are not the contribution; the exact Galois logarithmic Gauss map for the full positive-genus rectangular family, its generalized-dihedral group, and its complete four-inertia profile were not implied by the inspected primary results or nearest mathematical database hits. Best-of-knowledge PASS, not a claim of exhaustive priority.
+
+## value
+
+PASS
+
+The log Gauss map is a canonical toric-curve/amoeba invariant. An explicit regular map with nonabelian-by-inversion deck group for all m,n and exact four-branch Hurwitz data is a structurally useful classification of a nontrivial natural family, distinct from a routine genus calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
