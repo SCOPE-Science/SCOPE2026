@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The edge-product identity is a direct consequence of independent survival. A reduced rooted tree with at most three leaves has either no nontrivial clade or exactly one two-leaf clade, giving the general interaction form \(A1_a+B1_b+C1_c-T1_{bc}\) with \(T\ge0\). The exhaustive three-way case distinction proves greedy optimal for budget two; other budgets are immediate. The four-leaf witness is verified twice by exact rational calculations, including enumeration of the 16 independent survivor outcomes. Its unique choices and \(11/50\) gap are strictly checked. No claim is made about continuous spending, correlated risk, or all larger tree classifications.
+## correctness
 
-**Originality (PASS, with residual priority risk).** Hartmann and Steel (2006) already show general four-leaf greedy failure and common-multiplier greedy optimality. The precise new statement is a *homogeneous-baseline* counterexample with an all-parameter sharp three-leaf lower bound, which cannot be deduced from their exhibited heterogeneous-baseline example. Their manuscript, Theorem 1 and Figure 2 were read and compared on the mathematical hypotheses, not titles. Steel, Mimoto and Mooers (2007) establish the expected-marginal formula but not this restricted first-failure claim; the later certain-survival treatment in Billionnet does not apply. A closely related older homogeneous-risk example could remain unindexed, and the 2007 Moulton paper could not be examined in full; these are genuine remaining priority risks.
+PASS
 
-**Value (PASS).** Equal initial extinction risk is a natural control assumption when separating differences in intervention effectiveness from differences in baseline conservation urgency. The cutoff gives a complete minimal-size boundary for the validity of a widely used conservation-priority heuristic in that controlled setting. The strict four-taxon witness is not a mere changed score: the greedy decision is uniquely worse by a rational positive gap, while the three-taxon impossibility is uniform over all positive branch lengths and success probabilities. The result is a theoretical benchmark, not a management prescription.
+The edge-product expectation formula follows from independent extinction and rooted phylogenetic diversity. For at most three taxa, the only possible nonadditive clade on a reduced rooted tree is a cherry {b,c}, so F(S)=A 1_a+B 1_b+C 1_c-T 1_{bc}, T>=0; exhaustive comparison of each possible first greedy leaf and second choice proves optimality for budget 2, with k=0,1,3 immediate. The displayed four-tip comb has positive lengths (3,5,2,9,7,8), q_i=1/2, q_i’=(1/5,1/10,1/10,3/10). Independent exact rational edge-product evaluation and separate full 16-survivor-state evaluation across 16 treatment subsets agreed. Single gains a=9/10,b=14/5,c=3,d=29/10; pairs ab=37/10,ac=39/10,ad=19/5,bc=129/25,bd=269/50,cd=251/50. Unique greedy is {c,b}, unique optimum {b,d}, shortfall 11/50. The lower bound is mathematical for all probabilities/positive lengths, not obtained by finite sampling.
 
-**Closest literature and limits.** Hartmann and Steel (2006), Theorem 1 and Figure 2, https://doi.org/10.1080/10635150600873876; Steel, Mimoto and Mooers (2007), Theorem III.1, https://arxiv.org/html/0704.2649v1; Billionnet (2018), later available preprint https://arxiv.org/pdf/2203.12278. No claim of novelty is made for generic greedy failure or the common-multiplier result. Source-coverage limitations and the different premises are documented in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hartmann–Steel (2006) already prove common-intervention-factor greedy optimality and give a generic four-taxon greedy failure; neither is newly claimed. Their Fig 2 has unequal baseline extinction rates (and some certain-survival interventions), unlike this strictly imperfect homogeneous q_i=1/2 witness; the prior four-taxon existential does not logically establish the restricted counterexample. The universal three-tip bound is separately proved. Steel–Mimoto–Mooers gives the marginal expectation but not the sharp controlled counterexample. The inaccessible Moulton–Semple–Steel full text remains a real priority risk, not an automatic failure.
+
+## value
+
+PASS
+
+The homogeneous baseline removes unequal background extinction risk as an explanation for greedy failure; heterogeneous intervention effectiveness alone can cause a strict and unique wrong choice. The complete 3-vs-4 leaf cutoff is a clear natural, minimal impossibility/witness boundary for a standard conservation-priority heuristic under positive, imperfect interventions. It is mathematical decision theory, not an empirical management recommendation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
