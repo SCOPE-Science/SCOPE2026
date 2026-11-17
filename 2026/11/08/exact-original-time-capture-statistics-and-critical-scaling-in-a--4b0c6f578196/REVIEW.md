@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The map squares to the Cartesian product of the same piecewise-affine scalar map. Its expanding positive continuation branch has the exact inverse interval \(I_n=c+(-1/m)^n((0,B)-c)\) and length \(B/m^n\); every other scalar point resets to the endpoint two-cycle in finite time. The two independent scalar first-hitting times are shifted geometric variables. Restoring the original even/odd planar clock gives exact capture-time CDFs, masses, mean and parity probability. Geometric-tail convergence proves the near-neutral weak limit, and the neutral case is checked directly by a fourth-iterate identity. The self-contained checker reproduced 69,310 exact-rational instances, without substituting those instances for proof.
+## correctness
 
-## Originality — PASS within inspected literature and accessible comparisons
-The 2023 primary paper gives the same oscillator's four-cycles and a Poincaré return function, but not the first-capture law for independent planar-uniform initial coordinates measured at every original iteration. The 2023 follow-up studies phase locking; the 2024 generalized treatment studies the orbit-state count and bifurcation. An affinely equivalent trace-free border-collision system already has an exact *one-dimensional section-conditioned* geometric residence distribution and a global classification of its cycles. That stronger-known global classification is not claimed here, and does not itself state the planar measure's parity split or its two-exponential critical law. Published calculations for a Sel'kov-type oscillator address a different max-plus map. The 2015 founding article could only be compared at abstract level; equivalent unstated calculations remain a residual publication-priority risk.
+PASS
 
-## Mathematical value — PASS
-Time to lock into an ultradiscrete limit cycle is a natural dynamical observable. For two independently initialized oscillator components, the exact law differs qualitatively from the known one-dimensional section law: it has nontrivial odd/even structure, a parameter-dependent capture-time mean, and a critical limit controlled by the maximum of two exponentials. The calculation resolves the singular divergence of original-time capture as a previously documented neutral-cycle bifurcation is approached. This contribution is the joint physical-clock statistic and critical law, not a new claim to cycle existence or a routine parameter substitution.
+F² acts independently by h(x)=B-max(0,mx) on each coordinate; with c=B/(m+1) the continuing preimage interval has length B/m^j, furnishing geometric scalar first-hitting tails with ratio r=1/m. The original clock is N=2max(Qx,Qy)-1{Qx>Qy}; summing independent scalar capture times yields the two displayed PMF branches for j>=2, no earlier positive masses, E N=(4m-1)/(m-1) and odd mass 1/(m+1). Exact rational PMF summation checked independently at m=3/2 and analytic survival gives m↓1 law (1-exp(-t))² for (m-1)N/2. At m=1, h(x)=B-x, hence all noncentral points in (0,B)² lie on a 4-cycle distinct from the boundary cycle. No quantitative noise claim is made.
 
-## Scope and remaining risks
-The claim is square-uniform, original-clock, deterministic and exact. It does not assert nonlinear noise robustness or the same distribution for a nonuniform initial measure. The 2015 full article and any unindexed equivalent discussions could conceal overlapping statistical results. No independent mathematical audit was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: published Ohmori–Yamazaki papers describe the same map, cycles and stability; Simpson zero-determinant border collision papers study an affine-conjugate family and section-conditioned return counts. Those findings do not state a joint planar-uniform, original-iteration first-hit PMF with a parity split or the critical maximum-of-two-exponentials limit; the distinction is in both measure and physical-clock observable, not just parameters. The 2015 source and Simpson 2026 primary full text were not both independently retrieved and pose priority risks.
+
+## value
+
+PASS
+
+PASS: exact original-clock capture time from a natural uniform ensemble is an informative dynamical statistic near a neutral threshold; its sharp parity distribution, diverging mean, and two-exponential critical law distinguish planar initialization from one-dimensional section residence. This is a natural mathematical refinement of known orbit geometry, not a renaming of cycle existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
