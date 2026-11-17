@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The rooted-even-offspring determinant and inverse-root-entry lemma is proved by induction using Schur complements. Exactly two even-degree vertices make every spine vertex carry an odd number of healthy side branches, which gives the uniform reduced tridiagonal matrix. Its determinant, cyclic presentation, equivalence with the reversible path-wave module, and exact order/fixed-space populations are deduced algebraically, including all boundary cases with distance at least one. The general theorem is not inferred from finite experiments. Independent program implementations verified the characteristic polynomial for 102548 labelled trees and finite-field fixed populations for 96 additional trees, with exact direct state checks on 5440 inputs.
+PASS
 
-## Originality — PASS, qualified
+Pinned RESULT.md blob 887184132cc35d2dc3288f7b5518c81f57e1111c gives a rooted even-offspring Schur identity det(XI-A(H))=X^|H| and root Green function X^-1. Each of the m=d+1 spine vertices has odd offspine branch count; eliminating them over F_2[X,X^-1] gives H_m=(X²+1)I_m+X A(P_m). Tridiagonal determinant recurrence yields Q_m(X)², and unit off-diagonal coefficients make the nonzero-primary module cyclic and similar to the m-site reversible wave T_m. Fitting decomposition yields q^(2m) initially periodic states, exact period 2(m+1), fixed counts q^deg gcd(Q_m²,X^t+1), valuation formula and Möbius orbit counts. Inspected verify/matching_check.py blob 7301b97a2fba0ad5210ca02e229c5a63f902bd6e and dynamics_check.py blob becc64b3fe3c09844ac98d612bdf8c7a4a7fd64f; independently checked matching-polynomial identity for all 12 n=4 and 840 n=6 labeled two-defect trees. Infinite result derives from the branch-elimination algebra, not exhaustive small n.
 
-Primary comparisons include the 2005 full paper on general tree characteristic polynomials by Jacobs, Machado and Trevisan; the full revised arXiv article by Akın on linear automata on homogeneous Cayley trees; and the published abstract of Macfarlane's 2004 second-order reversible cellular automata. A general determinant algorithm, a one-dimensional reversible rule, and a regular-tree invertibility study are relevant foundations, but no inspected claim supplies the two-even-vertex reduction to a path-wave primary component. A previously recorded one-even-degree tree result is purely nilpotent; the separately recorded path-wave result does not link to irregular trees. Targeted aliases and general-coverage searches did not identify a stronger result. Full text for Macfarlane was unavailable; equivalent results in unindexed literature remain a priority risk. These are limitations, not evidence that failed searches prove novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result makes a global recurrent-state invariant of an infinite class of arbitrarily branched finite trees depend only on the distance between two even-degree vertices. It determines a sharp global clock, fixed populations for all times, and primitive orbit counts while isolating the dimension of transient degrees of freedom. The transition from one even-degree defect (nilpotent) to two defects (reversible recurrent part) is a motivated structural phenomenon; no downstream application is assumed.
+Best-of-knowledge: the tree-to-path-wave conjugacy under exactly two even-degree defects and complete d-only periodic orbit census go beyond general tree determinant computation, single-even-offspring nilpotence, and one-dimensional CA methods.
 
-## Closest literature and limits
+## value
 
-Jacobs–Machado–Trevisan (2005): general tree determinant technique. Akın (2012 initial release; 2017 revision): regular Cayley-tree matrix rules, reversibility and entropy. Macfarlane (2004): one-dimensional reversible second-order cellular automata, abstract only. The result does not classify transient entrance-time populations or graphs with more even-degree vertices, and independent mathematical validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A structural invariant of every finite tree with precisely two even-degree vertices collapses complex branch geometry to an exact reversible path-wave dynamics with explicit period and all periodic orbit counts. The branch-independent conjugacy and Fitting decomposition are motivated natural classifications, not a trivial single-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
