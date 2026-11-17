@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-Run `python check_motif.py` with Python 3.9 or newer. The checker is standalone and requires no third-party packages. It exhaustively checks all binary creation words with lengths one through ten, comparing graph-edge and graph-triangle enumeration with the closed expressions and verifying the exact quadratic remainder identity at rational baseline probability \(\rho=2/5\). For memory lengths one through five and four rational baseline/reinforcement combinations, it also checks stationarity of the exact Pólya word law, within-word covariances, the innovation-variance formula, and exact covariance integrals. Expected last line: `PASS 8615 exact assertions; final excess coefficient = 2/15`.
+## correctness
 
-The separate `simulate_motif.py` script reproduces a seeded numerical experiment using \(M=3\), \(\rho=0.4\), \(\delta=0.7\), 2,500 vertices and 2,300 independent samples; it gives empirical variance \(0.0347349534\) against the theorem's asymptotic variance \(0.0354785882\). The experiment is not an exhaustive test or a proof of a limit law. Finite verification does not substitute for the analytic martingale functional central limit theorem and the displayed deterministic remainder bound.
+PASS
 
-The self-contained statement concerns only fixed memory and the unconditioned graph construction. Historical priority, independent theorem review, and external validation remain unperformed. Scientific caveats are in `RESULT.md`.
+Exact threshold-graph identities E_m=Σ(j−1)X_j and T_m=Σ_{j<k}(j−1)X_jX_k, centered expansion with quadratic R_m=O_P(n²) via maximal partial sums, and stationary finite-state irreducible aperiodic length-M urn process establish a martingale invariance principle. Transfer by weighted Riemann sums gives Gaussian stochastic integrals for e_n and t_n with kernel pair 2s and 6ρ(s−s²/2). Independently evaluated exact Itô covariance integrals 4/3, 5ρ/2 and 24ρ²/5, determinant 3v²ρ²/20, and delta-method excess variance (2/15)ρ²v. Checked stationary Pólya window law and innovation variance exactly for M=1..4. All M and n→∞ follow from fixed-memory functional CLT, not simulation. Note v=ρ(1−ρ)[1+2Mδ+M(M−1)δ²/(1+δ)].
+
+## originality
+
+PASS
+
+PASS qualified: finite-memory edge-only Gaussian CLT and exact D_M were previously established; no new originality assigned to the edge marginal. The novel joint triangle fluctuation and nonzero residual after subtracting edge-density square are not implied by the old edge-only limit, requiring a distinct weighted quadratic motif projection.
+
+## value
+
+PASS
+
+The exact positive Gaussian residual distinguishes joint triangle geometry from the square of edge density in a natural stationary finite-memory dependent threshold graph; explicit dependence on ρ,M,δ and a nondegenerate two-dimensional covariance matrix provide a useful fine-scale motif classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
