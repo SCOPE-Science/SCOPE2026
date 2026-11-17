@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T07:00:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob e8ae1ee2b31744b529f383e183414287f0f0b5f3",
+        "verify_outer.py blob 685f6f24f80a198f34a12effc4547bcea1e5a80f",
+        "Own 4-cycle and 6-cycle direct coefficient enumeration q=2,3"
+      ],
+      "rationale": "For a connected height-two unicyclic poset, the radical basis is one arrow per comparability edge and all double-arrow products vanish. Every derivation is uniquely an edge-coefficient pair (beta_e,z_e), with rank matrix consisting of private beta pivots and signed incidence entries z. Inner derivations exactly have beta a vertex-potential gradient, i.e. signed cycle sum zero. In any prescribed nonzero cohomology class at least one cycle beta is nonzero; the zero-beta support is then a forest, whose signed incidence rows are independent over any characteristic. Hence rank is the number of nonzero edge pairs. Additive character orthogonality gives the cycle coefficient ((q²-1)^j-(-1)^j)/q times binomial(L,j), and independent off-cycle pairs multiply by (1+(q²-1)T)^(m-L). The rank-one coefficient is qL and all ranks 1..m occur. Independently enumerated pairs on isolated 4- and 6-cycles over q=2,3 with signed sum lambda=1, confirming all coefficients and totals q^(2L-1); rank-one counts 8,12,12,18 respectively.",
+      "residual_risks": [
+        "No multiple cycles, nonfield rings, higher height or automorphism-twisted derivations covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fornaroli–Khrypchenko Corollary 3.8 identifies derivations modulo inner derivations with poset cohomology for all posets and automorphism twists; Krylov–Tuganbaev Corollary 18.8 has innerness criterion."
+        ],
+        "reasoning": "General quotient/cohomology theorems do not enumerate linear ranks of individual representatives of a fixed NONZERO class; the unicyclic support-forest characterization and character-sum weight polynomial are not direct statements in those sources.",
+        "searches": [
+          "rank strata outer derivation nonzero cohomology class unicyclic incidence algebras exact enumeration",
+          "https://arxiv.org/abs/2307.08439"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2305.02984",
+        "https://arxiv.org/abs/2307.08439",
+        "Resultary semantic search: rank strata outer derivation nonzero cohomology class unicyclic incidence algebras exact enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Krylov–Tuganbaev fundamental-cycle weight criterion and Fornaroli–Khrypchenko cohomology quotient give class membership; they do not give rank=active edges for nonzero classes."
+        ],
+        "reasoning": "The new step deletes at least one cycle beta pivot to turn the nonpivot support into a forest. That bridge, then weighted character enumeration, establishes the polynomial. These results are not included in the prior quotient identification.",
+        "searches": [
+          "https://arxiv.org/abs/2305.02984",
+          "https://arxiv.org/abs/2307.08439",
+          "rank strata outer derivation nonzero cohomology class unicyclic incidence algebras exact enumeration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "First cohomology H¹ of a unicyclic comparability graph is one-dimensional; one nonzero outer class corresponds to a nonzero signed edge cycle sum."
+        ],
+        "reasoning": "This is equivalent to an affine single-parity-check code with alphabet k² and weight equal to nonzero coefficient-pair support, BUT the rank/support equivalence for non-inner derivations is an additional incidence-algebra structural step.",
+        "searches": [
+          "rank strata outer derivation nonzero cohomology class unicyclic incidence algebras exact enumeration",
+          "https://arxiv.org/abs/2305.02984",
+          "https://arxiv.org/abs/2307.08439"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Small known code-weight enumerators could specialize the displayed cycle factor, but the outer-derivation CLASS rank enumerator and q times cycle-length coefficient were not found as an existing table."
+        ],
+        "reasoning": "The theorem is all finite fields and unicyclic posets with trees attached, not a numerically isolated table. A generic q-ary parity-check identity alone does not supply the derivation rank identity.",
+        "searches": [
+          "rank strata outer derivation nonzero cohomology class unicyclic incidence algebras exact enumeration",
+          "Resultary search incidence unicyclic outer derivation rank enumerator"
+        ]
+      },
+      "rationale": "The known incidence-algebra derivation splitting and cycle-cohomology criterion are credited. The surviving theorem is the exact rank-by-rank enumeration of REPRESENTATIVES inside any fixed nonzero outer cohomology class, requiring the forest-support rank identity and weighted nonzero-cycle-character sum. Full relevant primary passages on quotient cohomology have no such rank-stratified enumerator. No stronger covering theorem was identified in Resultary or checked primary literature; historical priority remains provisional.",
+      "residual_risks": [
+        "The same weight enumerator may appear under an incidence-algebra rank-metric code or Tutte-character-sum formulation not indexed in searched sources; the connection is mathematically close.",
+        "General graph multiple-cycle extensions are not proved, and cannot be inferred from this unicyclic forest argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_INNERNESS_ONLY",
+          "evidence": "Fundamental-cycle edge-weight vanishing characterizes innerness; no rank enumeration per nonzero class appears in inspected core result.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.02984",
+          "material_read": "Primary PDF sections around fundamental cycles and Corollary 18.8 including its statement/proof, visually inspected page",
+          "method": "arXiv PDF and screenshot",
+          "title": "Incidence Rings: Automorphisms and Derivations",
+          "trigger": "Most directly relevant general incidence innerness criterion"
+        },
+        {
+          "assessment": "COHOMOLOGY_QUOTIENT_NOT_RANK",
+          "evidence": "Corollary 3.8 identifies quotient with H¹; it does not count ranks of actual derivation maps in fixed nonzero quotient cosets.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.08439",
+          "material_read": "Primary PDF Sections 2–3, Theorem 3.7 and Corollary 3.8 plus surrounding formulation; page 13 visually inspected",
+          "method": "arXiv PDF textual reading and screenshot",
+          "title": "Skew derivations of incidence algebras",
+          "trigger": "Possible dominating general cohomological classification of ordinary derivations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and independent q=2,3 4-/6-cycle count",
+        "Krylov–Tuganbaev innerness and Fornaroli–Khrypchenko cohomology"
+      ],
+      "rationale": "The entire nonzero outer-derivation class has a closed rank-generating polynomial, a natural invariant of the first nontrivial incidence-algebra cohomology case. Its coefficient q times the unique cycle length detects graph geometry inside a linear-map rank distribution, a useful distinction not read off from quotient dimension alone. Tree attachments and all finite-field characteristics are handled uniformly.",
+      "residual_risks": [
+        "No claim of a general graph-cyclomatic-number classification; cycle weight code interpretation could limit originality if a broader theorem is later found."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Height-two connected unicyclic finite posets, ordinary linear derivations, classwise nonzero cohomology. The known cohomology structure is prior work; only its exact rank-census refinement is assessed original.",
+  "schema_version": 1
+}
