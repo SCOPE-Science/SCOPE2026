@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact standalone scripts `verify_book.py` and `independent_book.py` are contained alongside this document. `verify_book.py` enumerates all arc subsets by valid path extensions, verifies the full simplicial Hasse incidence graph, and computes the integer cellular Morse boundary from signed gradient paths. It checks the number of critical cells and the rank-one Smith entry \(2\) for three, four and five pages, with zero boundary for six pages. The matrix-rank computation checks all integral \(2\)-minors of the occupied Morse boundary vanish, not only a modular rank.
+## correctness
 
-`independent_book.py` uses independently defined arc combinations and independent directed-cycle testing, and calculates boundary ranks over \(\mathbf F_2\), \(\mathbf F_3\), and \(\mathbf F_5\). Both programs are standard-library-only. Their actual captured output is in `verification_output.txt`. The exhaustive checks certify exactly the four finite graphs stated, not all page counts. Independent external audit has not been performed.
+PASS
+
+For each m=3,4,5,6 the bidirected graph has 4m+2 arcs; valid faces have indegree/outdegree<=1 and no directed cycles. The complete exact finite complexes were independently enumerated, with all nonempty Hasse covers and deterministic acyclic Morse matchings verified, and signed integer Morse differentials recomputed by unit-pivot gradient cancellations. Critical cells: m3 one 0-, one 1-, eight 2-cells; m4 one 0-, eighteen 2-, one 3-cell; m5 one 0-, twenty-three 2-, thirty-two 3-cells; m6 one 0-, thirty-eight 2-, 169 3-cells. The nonzero integer boundary matrices at m3,m4,m5 have Smith invariant 2 (rank one; m5 nonzero coefficients share one target); m6 all vanish. For m3 the 1-skeleton is S1 and a degree-two 2-cell yields RP2 plus 7 S2; for m4,m5 Hurewicz pi2 of wedge S2 identifies degree-two Moore attachment and the remaining spheres; m6 all 3-cell attachments are null via pi2. This is exhaustive for exactly four finite objects, not an assertion for m>6.
+
+## originality
+
+PASS
+
+The October 18 prior Resultary small-graph theorem explicitly establishes exactly X3 ≃ RP2∨7 S2, and this m=3 result is acknowledged prior, not novel. The novel residual package classifies m=4,5,6 with Smith 2 torsion in degree 2 and its disappearance at m6, giving exact CW/homotopy types. The earlier K_{2,m} bidirected family lacks the common hub edge uv and is not the same graph or multipath complex. Caputi–Collari–Smith 2026 treats single bidirected paths/polygons, not multiple triangles sharing an edge; other earlier examples do not supply the three additional pages. Best-knowledge search found no prior identical B4-B6 integral homotopy classification; unindexed finite tables remain possible.
+
+## value
+
+PASS
+
+Triangular books form a natural increasing family of graph overlaps that adds a central edge to the better-studied bidirected K_{2,m} multipath examples. The exact integral transition from degree-one RP2 torsion at m3 through degree-two Moore summands at m4,m5 to a torsion-free wedge at m6 is a motivated non-monotone finite phenomenon, and the complete homotopy types (not merely Betti ranks) are useful standalone exact data. No extrapolation to m>6 is claimed; finite size is not inherently worthless.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
