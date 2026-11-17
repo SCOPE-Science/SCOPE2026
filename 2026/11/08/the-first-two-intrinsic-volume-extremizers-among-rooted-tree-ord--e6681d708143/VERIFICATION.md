@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The full proof in `RESULT.md` supplies the infinite argument: vertex-subtree hook counts, the complete facet system with induced Euclidean measure, strict monotonicity of intrinsic volumes under proper inclusion, and the two order-extension constructions. The checks below do not independently certify that proof.
+## correctness
 
-Run `python checker.py` in an environment with Python 3, NetworkX, NumPy, and SciPy. The checker computes facet-area coefficients in \(\mathbb Q+\sqrt2\mathbb Q\) using exact fractions. It separately enumerates upper-ideal incidence vertices and computes Euclidean boundary area from `scipy.spatial.ConvexHull` for small dimensions; this is independent of the hook formula at the area-computation stage. It examines every unrooted tree (up to isomorphism) with every root for \(4\le n\le10\), checking the first/second surface-area levels and the shape profiles. The executed command was `python checker.py` and printed exactly:
+PASS
 
-`ROOTED_TREE_ORDER_POLYTOPE_CHECKS_PASSED 1803 59 28`
+PASS. The rooted-tree hook volume is Q(T)=1/product descendant sizes. Facets are exactly the root-lower facet, leaf-upper facets and edge-equality facets; the latter inherit sqrt(2) Euclidean measure, proving A(T)=nQ(T)+sum_leaf Q(T-v)+sqrt(2) sum_edge Q(T/e). Every nonchain tree admits a fork-poset refinement; every nonstar has a pair of comparable nonroot elements yielding a broom-poset relaxation. After coordinate permutation, chain is strictly contained in fork, which is contained in any nonchain rooted tree, which is contained in broom and then star. Distinct comparability structures yield proper inclusion, and Kubota projection averaging gives strict monotonicity of all V_j for full-dimensional proper inclusion. The special area formulas follow from hook contractions.
 
-The 1,803 profiles are not the number of distinct rooted-tree isomorphism classes because symmetric root choices are deliberately retained. The 59 convex-hull area checks use sizes through six. Floating-point hull calculations use a relative tolerance of \(10^{-8}\); exact extremal-level comparisons use integer-rational coefficient pairs. The all-intrinsic-volume claim for arbitrary \(n\) rests on the strict-inclusion proof, not on sample enumeration.
+## originality
 
-No independent mathematical audit has been performed. The source comparison does not prove historical uniqueness. See `REVIEW.md` and `AUDIT.json` for review reasoning and residual risks.
+PASS
+
+The new surviving statement is simultaneous first- and second-extremal rooted-tree classifications for every intrinsic volume, not the already implied boundary-area formula or classical hook formulas.
+
+## value
+
+PASS
+
+The exact unique first and second extrema simultaneously for every Euclidean intrinsic volume form a motivated natural complete geometric ranking across the infinite rooted-tree order-polytope class. Although proof follows concise poset inclusion and known strict intrinsic-volume monotonicity, the all-j rigidity is structurally useful; no paper-sized extension required. This judgment explicitly does not credit the known area expressions as novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
