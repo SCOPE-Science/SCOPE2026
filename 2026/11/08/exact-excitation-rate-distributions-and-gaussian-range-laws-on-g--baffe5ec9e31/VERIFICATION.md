@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-Execute the following standard-library programs from the same directory, using Python 3:
+## correctness
 
-```sh
-python exact_coefficients.py
-python direct_trajectories.py
-python replay_checks.py
-```
+PASS
 
-The matching captured outputs are `exact_coefficients.out`, `direct_trajectories.out`, and `replay_checks.out`. `exact_coefficients.py` computes trinomial coefficients, exact activity counts for both equal and unequal path lengths, and the edge-form identity. `direct_trajectories.py` independently enumerates full state spaces and measures periodic root-excitation rates using a functional-graph reduction, without invoking the path-sum formula. `replay_checks.py` compares those independent answers class by class, checks their factor-three relation, and checks zero-activity counts.
+The local nine-case edge-form identity d_C=3d_G+h(v)-h(u), h=[0,-2,-1], telescopes on cycles and applies GLS Theorem 3. Distinct u-v path sums are independently counted by trinomial A_li(t_i) conditional on equal endpoint residue; all simple cycles are two-path unions. Their maximum mean gives the exact distribution and equal-length inclusion-exclusion. Independent direct enumeration of initial colourings matched every coefficient for (2,2,2), (2,3,3), (3,3,3). Trinomial variance 2/3, lattice local CLT and Riemann summation yield correct sharp constant; standard multivariate CLT gives rate limit.
 
-The tested parameter tuples include nine instances, with full exhaustive state spaces ranging from \(243\) to \(177147\) labeled configurations per rule, for a total of \(318087\) states across those nine graphs **per update rule**. This is finite verification, not an infinite-family proof. The local central limit asymptotics follow from the proof in `RESULT.md`; the numerical limit checks in the output logs are illustrations only. The existing general circulation theorem is a cited published premise rather than a computation to certify independently.
+## originality
+
+PASS
+
+Established GLS all-graph cycle-rate theorem is the cited premise, not the contribution. Independently read full published cactus-graph activity theorem: a theta has r overlapping cycles, hence lies outside cactus domain; product over edge-disjoint cycle winding sums does not imply the residue-restricted correlated theta path range. No earlier all-path-length theta distribution or Gaussian-range synchronization formula located in actual comparisons.
+
+## value
+
+PASS
+
+Generalized theta graphs are a canonical multi-route network with a natural complete asymptotic-rate observable. An explicit distribution for every size, tractable equal-arm formula and sharp rare-synchronization and Gaussian-range limits are useful, not routine consequences of a graph-general maximum-cycle formula without path-sum enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

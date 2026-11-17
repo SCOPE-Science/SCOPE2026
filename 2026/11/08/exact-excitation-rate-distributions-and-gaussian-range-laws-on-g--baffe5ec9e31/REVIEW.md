@@ -1,11 +1,21 @@
-# Scientific review of the multi-theta activity theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The cited general cycle-mean theorem is checked against the actual published definitions of CCA and GHM activity and their distinct edge forms (Gravner–Lyu–Sivakoff, Theorem 3). The nine-state edge-form identity is algebraically exhaustive. Parallel paths give all simple cycles and a unique color realization for each admissible increment sequence. The residue-conditioned trinomial count, inclusion–exclusion, and Fourier local-limit calculation were reconstructed. Independent exact arithmetic and complete functional-graph enumerations agree on nine graph instances for both rules, including unequal arm lengths. The limit is proven for fixed arm count and positive finite relative lengths, not extrapolated from data.
+## correctness
 
-**Originality — PASS, qualified.** The 2018 general finite-graph theorem is stronger at the *pointwise rate criterion* and is explicitly treated as prior work. What remains is an exact full distribution over uniformly random initial states and a quantitative multi-arm asymptotic, including a sharp nonzero constant and a Gaussian-range law. The inspected 2018 theorem and discussion do not provide that summation or limit. Related published records on theta-graph square coloring and geometric graph invariants concern different quantities; previous accessible exact GHM results on clique, bipartite, multipartite and small named graphs do not subsume the general multi-arm rate census. Searches cannot exclude an unindexed earlier derivation. The 1993 full paper was inspected principally through its contents, abstract and introductory material; its later sections were not exhaustively checked.
+PASS
 
-**Value — PASS.** Multi-theta networks are the minimal connected graphs with many overlapping cycles; the number of parallel paths controls independent circulation constraints. The theorem identifies the exact frequency law on arbitrarily large finite networks, distinguishes long-run activity from primitive-period counts, and gives a sharp power-law rarity of synchronization with a geometric prefactor sensitive to unequal arm lengths. The Gaussian range is a natural limiting dynamical invariant and the equal-arm formula reduces exponentially many labeled configurations to polynomial-time arithmetic, providing a reproducible benchmark rather than an arbitrary tiny enumeration.
+The local nine-case edge-form identity d_C=3d_G+h(v)-h(u), h=[0,-2,-1], telescopes on cycles and applies GLS Theorem 3. Distinct u-v path sums are independently counted by trinomial A_li(t_i) conditional on equal endpoint residue; all simple cycles are two-path unions. Their maximum mean gives the exact distribution and equal-length inclusion-exclusion. Independent direct enumeration of initial colourings matched every coefficient for (2,2,2), (2,3,3), (3,3,3). Trinomial variance 2/3, lattice local CLT and Riemann summation yield correct sharp constant; standard multivariate CLT gives rate limit.
 
-No independent external validation has been conducted. The results use an established general activity theorem and do not claim originality for that theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Established GLS all-graph cycle-rate theorem is the cited premise, not the contribution. Independently read full published cactus-graph activity theorem: a theta has r overlapping cycles, hence lies outside cactus domain; product over edge-disjoint cycle winding sums does not imply the residue-restricted correlated theta path range. No earlier all-path-length theta distribution or Gaussian-range synchronization formula located in actual comparisons.
+
+## value
+
+PASS
+
+Generalized theta graphs are a canonical multi-route network with a natural complete asymptotic-rate observable. An explicit distribution for every size, tractable equal-arm formula and sharp rare-synchronization and Gaussian-range limits are useful, not routine consequences of a graph-general maximum-cycle formula without path-sum enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
