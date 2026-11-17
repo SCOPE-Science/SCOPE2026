@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T04:45:51.760261Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-mixed-convexification-for-rotationally-symmetric-planar-co--d93bd89cd3a3/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-mixed-convexification-for-rotationally-symmetric-planar-co--d93bd89cd3a3/mixed_polygon_verify.py",
+        "independent_checks.log: CONVEXIFICATION"
+      ],
+      "rationale": "The exposed side normal u of P_n shows that the support segment [v0,v1]+lambda F(K,u) is covered by its two vertex translates only if F(K,u) is a nondegenerate segment and lambda*ell >= 2sin(pi/n). For every other support direction of P_n its exposed face is a vertex, hence already covered. Symmetry rotates the side test to all boundary sides and implies that the origin belongs to one translate iff it belongs to all iff lambda>=gauge_K(-v0). Under both conditions every boundary point of C=P_n+lambda K lies in some convex translate containing origin, so radial filling covers C; the necessities also hold. For K=R_delta P_m, exact normals inclusion requires n|m and delta ≡ pi/n−pi/m (mod 2pi/m); ell=2sin(pi/m), with center gauge giving lambda*=1 (m=n even), sec(pi/n) (m=n odd), or sin(pi/n)/sin(pi/m) (m>n). The m>n side bound dominates gauge by sin(2a)/sin(a)>=sec(a) for a<=pi/6. Independent polygonal computations checked 68 aligned thresholds and support normals; real body theorem follows from the support/radial proof, not floating-point tests.",
+      "residual_risks": [
+        "K must have full n-fold rotation symmetry, nonempty interior, compact convex; not a general asymmetrical-convexifier theorem. Institutional access limitation is bibliographic, not proof failure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full prior published Result gives universal 1<=c_V(P)<=s(P)<=2 and all regular K=P_n values. Meyer abstract/general planar theorem concerns finite convexification by Minkowski summation, but full primary text is inaccessible in this run."
+        ],
+        "reasoning": "When K=P_n, new formula reduces to known parity thresholds; for K!=P_n and all n-fold symmetric nonsmooth bodies the earlier special case does not imply the result. The inaccessible plausible stronger source is named as a residual risk.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-vertex-convexification-bound-via-planar-minkowski-asymmetr--82528c35074f",
+          "https://arxiv.org/abs/2610.26744",
+          "https://arxiv.org/abs/2407.20604"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-vertex-convexification-bound-via-planar-minkowski-asymmetr--82528c35074f",
+        "https://arxiv.org/abs/2610.26744",
+        "https://arxiv.org/abs/2407.20604"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full earlier vertex bound solves only K=P, not arbitrary K with the required side-normal exposure. General Meyer finiteness formulation has not been checked in full this run because lawful OA retrieval was inaccessible."
+        ],
+        "reasoning": "The mixed finite-vs-infinite rotation alignment and exact max of central/side obstructions are an additional classification under symmetry. Full-source comparison is limited; PASS is best-of-knowledge rather than a claim that inaccessible work cannot contain the formula.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-vertex-convexification-bound-via-planar-minkowski-asymmetr--82528c35074f",
+          "https://arxiv.org/abs/2610.26744",
+          "https://arxiv.org/abs/2407.20604"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A_n+lambda K convex iff A_n+lambda K=P_n+lambda K, i.e. vertex-generated mixed convexification. Earlier c_V(P_n) uses only K=P_n; the general Minkowski finite-convexification condition recognizes exposed-side obstructions."
+        ],
+        "reasoning": "Exact mixed scale is max{gauge_K(-v0),side_length/length(F_K(u))}, requiring both independent central and boundary obstructions; matching general finiteness does not directly give numerical endpoint.",
+        "searches": [
+          "Resultary: mixed convexification vertex set regular polygon plus rotated polygon exposed face threshold gauge",
+          "https://arxiv.org/abs/2610.26744",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-vertex-convexification-bound-via-planar-minkowski-asymmetr--82528c35074f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known exact table for K=P_n is 1 (even n), sec(pi/n) (odd n); no table for ordered n,m with n|m and alignment, and lambda_*=sin(pi/n)/sin(pi/m), was located."
+        ],
+        "reasoning": "Special-case values are covered, but exact resonance/misalignment behavior for two different polygons is not deduced from the known self-convexification table.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-vertex-convexification-bound-via-planar-minkowski-asymmetr--82528c35074f",
+          "Resultary regular polygon mixed vertex convexification rotation divisibility threshold"
+        ]
+      },
+      "rationale": "Prior vertex-convexification exact values handle K=P_n (all even n at 1 and odd n at sec(pi/n)), whereas this theorem treats arbitrary n-fold invariant K and two possibly different regular polygons with exact normal alignment and an attained max(gauge,edge) threshold. General planar finiteness criteria from Meyer are relevant but the complete source could not be read this run; therefore the priority judgment is qualified, without asserting whole-paper noncoverage from snippets.",
+      "residual_risks": [
+        "Plausible Meyer 2026 primary full text could not be obtained because authorized institutional connection was disconnected; possible implicit exact threshold remains a priority risk.",
+        "General nonsymmetric K excluded; alignment is brittle in ordinary Hausdorff perturbations; numeric samples are not analytic proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS K=P_n; NOT_COVERING general mixed arbitrary K claim",
+          "evidence": "Regular thresholds 1 and sec(pi/n) coincide exactly with the m=n cases.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-vertex-convexification-bound-via-planar-minkowski-asymmetr--82528c35074f",
+          "material_read": "Complete published RESULT.md including lower edge obstruction, upper Minkowski-asymmetry bound and regular polygon parity values",
+          "method": "Read complete Resultary RESULT.md SHA 586e04e4727f8bd2d7221286afe13e5995063ac9",
+          "title": "Sharp vertex convexification bound via planar Minkowski asymmetry",
+          "trigger": "Previously proved regular self-convexification values may cover a subfamily"
+        },
+        {
+          "assessment": "ACCESS_LIMIT: cannot declare full-paper NOT_COVERING; may contain implicit exact mixed numerical threshold",
+          "evidence": "Public description of exposed-face finite-convexification criteria; exact special numerical statement not verified.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.26744",
+          "material_read": "Public abstract/secondary overview only. The primary complete manuscript could not be retrieved by arXiv and lawful OA attempts; authorized institutional retrieval returned vpn_disconnected.",
+          "method": "Public scholarly lookup and authorized institutional check, no access bypass",
+          "title": "Finite convexification by Minkowski summation",
+          "trigger": "Most plausible broader planar finite-convexification paper"
+        },
+        {
+          "assessment": "Relevant prior framework, especially K=P; full general implications unverified",
+          "evidence": "Vertex-generated parameter requires convexifier equal source polytope.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.20604",
+          "material_read": "Public title, abstract and principal K=P setting; full text not freshly read",
+          "method": "OA abstract and published result comparison",
+          "title": "Vertex generated polytopes",
+          "trigger": "Directly related self-convexification quantity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-mixed-convexification-for-rotationally-symmetric-planar-co--d93bd89cd3a3/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-vertex-convexification-bound-via-planar-minkowski-asymmetr--82528c35074f"
+      ],
+      "rationale": "Finite convexification of polygon vertex sets is a natural geometric covering invariant. Exact necessity/sufficiency for arbitrary rotationally symmetric convexifiers exposes the competition between a central hole and side support and solves a nontrivial arithmetic phase diagram for mixed regular polygons; the abrupt finite-to-infinite transition under angular misalignment is structurally informative.",
+      "residual_risks": [
+        "Self-polygon parity thresholds are previously established and not new."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality, not independent historical-priority certification; exact source and comparison risks in originality object.",
+    "Independent finite checks corroborate but do not establish infinite claims.",
+    "Publication not ready due to preexisting operational provenance and lack of complete sanitized guarded replacements."
+  ],
+  "schema_version": 1
+}
