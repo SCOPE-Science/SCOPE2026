@@ -1,15 +1,21 @@
-# Review of the flex-contact filtration theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is quantified over smooth complex plane curves of every degree \(d\ge3\). The Grassmannian-chart equations are exact coefficient conditions; solving the two first-order equations yields the tangent-jet ideal. Complex characteristic makes each leading \(\binom{r}{j}\) nonzero, hence the monomial completed-ring classification. The first infinitesimal normal direction is geometrically \(\ell\otimes T_C\), giving conormal \(\mathcal O_C(d-2)\). Local nilpotent lengths and global Plücker Hilbert polynomials then follow from the filtration, adjunction, Riemann–Roch and the classical Hessian inflection divisor. Exact symbolic tests cover multiple contact orders and Fermat cases. Risk: the formal local-coordinate argument and global sheaf identification are not independently audited.
+## correctness
 
-## Originality — PASS (priority provisional)
-Eisenbud–Harris (2000) supplies the general nonreducedness observation but not this complete contact-order dependent filtration; Ilten (arXiv:1411.3025v1) treats toric surfaces and does not imply the non-toric genus-positive cones treated here. The cubic case alone gives no formula for higher contact orders or for \(d\ge4\). Targeted published-record and semantic-database searches did not locate the full statement, which is not a uniqueness proof. Residual risk: other Hilbert-scheme or curve-osculation literature may express it equivalently.
+PASS
 
-## Mathematical value — PASS
-This is an exact global classification over all degrees and all smooth complex plane curves of the embedded infinitesimal line scheme, not a degree-specific substitution. It translates every tangent-contact order, including hyperflexes and higher inflections, into scheme-theoretic nilpotent lengths and a moduli-sensitive Hilbert polynomial. The Fermat example shows a genuine jump by 12 for quartics compared with ordinary-flex quartics. The first-order nonreducedness known classically does not determine those invariants.
+PASS. The Grassmannian line chart writes a nearby ruling as (W,X0,X1,X2)=(s1,s0,a s0+b s1,c s0+e s1); the cone polynomial restricted to this line has coefficient equations f(a,c)=0 and f_x b+f_y e=0 followed by jets u^j h_j(a) for j>=2. Smoothness solves c=phi(a), e=phi'(a)b; tangent contact r means phi(a)=gamma a^r+..., and the jet coefficients have valuation r-j for 2<=j<=r. In char 0 all leading binomial coefficients nonzero, giving completed ideal (t^(r-2)u²,t^(r-3)u³,...,t u^(r-1),u^r); nonflex r=2 has generic square-zero. Global tangent-direction geometry gives first nilradical layer O_C(1) tensor K_C=O_C(d-2). For j>=2 the finite sheaf N^j/N^(j+1) has length r-j at a flex, summing C(r-1,2); Riemann-Roch and Hessian contact total 3d(d-2) give 2dn+d+Σflex C(r-1,2). Checked pinned artifacts/verify_cone.py, and independently computed jet orders for r=2..8, finite lengths and Fermat d=3,4,5 polynomial values (6n+12,8n+40,10n+95), all matched. Full all-curves proof is algebraic, not based on finite checks.
 
-## Scope and sources
-The proof is self-contained modulo standard smooth-plane-curve adjunction and the Hessian inflection count. Principal comparisons: Eisenbud–Harris, *The Geometry of Schemes* (2000), Sections IV.3 and VI.2; Ilten, *Fano Schemes of Lines on Toric Surfaces* (arXiv:1411.3025v1). The degree-three special case is an immediate specialization, not separately claimed new. The infinite-family conclusion is proved algebraically, not inferred from tests. Positive characteristic, singular base curves and flat-limit questions remain outside the claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with explicit known d=3 special case. A 2026-11-08 published full RESULT.md Nine flex-supported embedded points in the line scheme of an elliptic cubic cone proves exactly the complete degree-three specialization: nonflex u², flex (tu²,u³), O_E(1), nine length-one embedded points, Hilbert 6n+12. It does **not** imply higher-degree contact filtration r>=4, hyperflex correction, or Fermat quartic 8n+40. Eisenbud–Harris's classical nonreducedness example is broader in object type but weaker in local scheme detail, and Ilten's toric surface theorem is outside the non-toric smooth degree>=3 plane-cone class. This all-degree theorem genuinely extends the known cubic case. Specialist unindexed priority remains a stated risk.
+
+## value
+
+PASS
+
+PASS. The full infinitesimal structure of the natural Fano line scheme on a projective cone is a meaningful scheme-theoretic invariant, not just counting its reduced ruling curve. The exact higher nilpotent filtration is controlled by tangent contacts and produces a computable hyperflex correction in the Plücker Hilbert polynomial for every smooth plane curve d>=4. In particular Fermat quartic 8n+40 differs from ordinary-flex 8n+28; this nontrivial extension remains valuable despite prior degree-three coverage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
