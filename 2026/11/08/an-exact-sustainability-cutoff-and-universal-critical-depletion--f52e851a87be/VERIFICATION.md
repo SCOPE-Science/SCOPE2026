@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying `verify.py` is an executable symbolic/numerical regression checker. Running `python verify.py` requires Python 3 with SymPy and SciPy installed, and prints `VERIFY_OK` when the example algebra and representative trajectories meet their stated numerical tolerances. The script uses no hidden input files.
+## correctness
 
-For the example \(b=7/10\), \(d=2\), \(c=1/2\), exact symbolic checks establish \(q=3/13\), \(k_c=2\log(10/3)\), \(p_{k_c}(0)=q\), \(p'_{k_c}(0)=k_cq(1-q)\), and \(\kappa=1+(6/13)\log(10/3)\). Numerical integration below and above the threshold checks the sign of the invasion eigenvalue and convergence to the corresponding resource equilibrium. At criticality, two disparate starts are integrated through time \(30000\); both observed \(tR(t)\) values approach the exact target \(0.6428058193\). Numerical checks are diagnostics, not proofs of asymptotic or global claims.
+PASS
 
-The proof in `RESULT.md` gives the decisive infinite-time arguments: a dissipative integral Lyapunov identity with coercivity at the resource boundary, a one-sided scalar comparison at depletion, the slow-variation justification of the convolution limit, and an implicit-function derivative for the positive branch. No independent external review has been performed.
+The invariant square follows from boundary vector-field signs. The depleted state has invasion rate lambda(k)=1-b-(d-b)p_k(0), strictly increasing in k; b+d>2 makes q=(1-b)/(d-b)<1/2 and the positive threshold exists uniquely. The equilibrium scalar F_k(R)=1-b-(d-b)p_k(R)-R is strictly decreasing with one positive root exactly for k>kc. Its integral Lyapunov V=(d-b)(x-x*)²/2+int_R*^R(p(s)-p(R*))/s ds has positive coercive terms (diverges as R->0) and derivative -(d-b)(x-x*)²-(p(R)-p(R*))(R-R*)<0 off equilibrium, proving global convergence. For k<=kc exponential comparison yields depletion; at equality 1/R tends infinity and the exponentially weighted convolution gives e(t)/R(t)->-a with a=kc q(1-q), so (1/R)dot->kappa. Cesaro and implicit differentiation yield exact critical profile and branch slope. Checked independent exact rational-log identities and the Lyapunov derivative, not just ODE numerics.
+
+## originality
+
+PASS
+
+Tu et al. first wrote the same normalized logistic resource-strategy feedback model and reported empirical higher/lower-intensity resource outcomes; their inspected 2024 paper explicitly says global stability was difficult to analyze and uses simulations. The exact global all-initial-data threshold, rigorous Lyapunov function and critical inverse-time constants are not implied by that qualitative observation or by Allee-resource models with altered equations.
+
+## value
+
+PASS
+
+The exact sustainability switch for all admissible model parameters and all positive-resource initial states distinguishes local invasion from global management outcomes; the universal t^-1 critical recovery and onset slope are useful sharp predictions at a biologically motivated threshold rather than textbook linear stability alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

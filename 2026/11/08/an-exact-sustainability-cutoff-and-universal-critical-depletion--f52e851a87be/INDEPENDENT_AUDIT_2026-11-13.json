@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T11:10:11.708271Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The invariant square follows from boundary vector-field signs. The depleted state has invasion rate lambda(k)=1-b-(d-b)p_k(0), strictly increasing in k; b+d>2 makes q=(1-b)/(d-b)<1/2 and the positive threshold exists uniquely. The equilibrium scalar F_k(R)=1-b-(d-b)p_k(R)-R is strictly decreasing with one positive root exactly for k>kc. Its integral Lyapunov V=(d-b)(x-x*)²/2+int_R*^R(p(s)-p(R*))/s ds has positive coercive terms (diverges as R->0) and derivative -(d-b)(x-x*)²-(p(R)-p(R*))(R-R*)<0 off equilibrium, proving global convergence. For k<=kc exponential comparison yields depletion; at equality 1/R tends infinity and the exponentially weighted convolution gives e(t)/R(t)->-a with a=kc q(1-q), so (1/R)dot->kappa. Cesaro and implicit differentiation yield exact critical profile and branch slope. Checked independent exact rational-log identities and the Lyapunov derivative, not just ODE numerics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tu--Menegazzo--D'Odorico--Suweis arXiv:2405.01271 Allee-effect resource growth",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-greed-dependent-extinction-boundary-in-an-allee-common-poo--1e50ea949486"
+        ],
+        "reasoning": "Allee variants can exhibit bistability, while this normalized logistic (no Allee) model has a monotone equilibrium equation and a global integral Lyapunov law. General critical t^-1 dynamical phenomena do not evaluate its exact kappa or kc.",
+        "searches": [
+          "Resultary: common pool resource logistic response sustainability exact k threshold critical 1/t depletion",
+          "Resultary: Tu resource strategies logistic coevolution global threshold stable depletion",
+          "arXiv:2401.11269 Section 3.6 resource logistic behavioral feedback",
+          "arXiv:2405.01271 Allee effect common pool resources"
+        ]
+      },
+      "checked_sources": [
+        "Tu et al. arXiv:2401.11269 Eqs. (1),(8),(14), Sec 3.6",
+        "Tu et al. arXiv:2405.01271 Allee-resource comparison",
+        "Resultary 2026/10/18 Allee common-pool extinction boundary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2401.11269 finite numerical trajectories and model formulation",
+          "Strict integral Lyapunov V and exact convolution-ratio asymptotics in the submitted proof"
+        ],
+        "reasoning": "The earlier model and qualitative low/high regimes do not logically imply global attraction for every positive resource initial condition or the equality-case coefficient; those require the nonlinear Lyapunov and critical slow-variation arguments.",
+        "searches": [
+          "Resultary: common pool resource logistic response sustainability exact k threshold critical 1/t depletion",
+          "Resultary: Tu resource strategies logistic coevolution global threshold stable depletion",
+          "arXiv:2401.11269 Section 3.6 resource logistic behavioral feedback",
+          "arXiv:2405.01271 Allee effect common pool resources"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tu et al. arXiv:2401.11269, equations (1), (8), (14), Section 3.6",
+          "Resultary logistic resource sustainability exact threshold search"
+        ],
+        "reasoning": "The model equations are prior work and credited as such; an observed response-sensitivity transition is not an exact threshold with global attraction and inverse-time amplitude. The submission derives these additional model-specific facts.",
+        "searches": [
+          "Resultary: common pool resource logistic response sustainability exact k threshold critical 1/t depletion",
+          "Resultary: Tu resource strategies logistic coevolution global threshold stable depletion"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact source RESULT.md threshold, Lyapunov and coefficient identities blob 6a23a30cbe82d419a42ef90a8b69ce00f4a09f85",
+          "Tu et al. Section 3.6 supplies numerical examples, not exact formula tables"
+        ],
+        "reasoning": "No relevant database of this precise deterministic logistic response recurrence was found, and the source examples do not prove the all-parameter threshold; search absence alone is not evidence of originality.",
+        "searches": [
+          "Resultary: common pool resource logistic response sustainability exact k threshold critical 1/t depletion",
+          "Resultary: Tu resource strategies logistic coevolution global threshold stable depletion"
+        ]
+      },
+      "rationale": "Tu et al. first wrote the same normalized logistic resource-strategy feedback model and reported empirical higher/lower-intensity resource outcomes; their inspected 2024 paper explicitly says global stability was difficult to analyze and uses simulations. The exact global all-initial-data threshold, rigorous Lyapunov function and critical inverse-time constants are not implied by that qualitative observation or by Allee-resource models with altered equations.",
+      "residual_risks": [
+        "An unpublished or unindexed analytical global study of precisely the 2024 logistic feedback subclass could overlap.",
+        "Related Allee-effect literature only partially read, and the first paper outside the decisive model and stability sections was not read exhaustively."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original authors define model, observe numerical effect and note analytical difficulty; no exact universal threshold/critical coefficient in inspected relevant section",
+          "evidence": "arXiv:2401.11269 Section 3.6",
+          "identifier_or_url": "https://arxiv.org/abs/2401.11269",
+          "material_read": "Primary PDF model equations (1), (8), (14) and Section 3.6 numerical vs analytical stability discussion, with screenshot; other sections not fully checked",
+          "method": "arXiv PDF extraction and page screenshots",
+          "title": "Coevolution of Resource and Strategies in Common-Pool Resource Dilemmas: A Coupled Human-Environmental System Model",
+          "trigger": "Identical underlying deterministic resource and logistic response model"
+        },
+        {
+          "assessment": "Resource growth has an Allee term and feedback differs; no direct implication for present logistic no-Allee parameters shown",
+          "evidence": "arXiv:2405.01271",
+          "identifier_or_url": "https://arxiv.org/abs/2405.01271",
+          "material_read": "Abstract, model summary, referenced sections; not full text",
+          "method": "arXiv web search/available abstract",
+          "title": "The role of the Allee effect in common-pool resource and its sustainability",
+          "trigger": "Possible stronger global sustainability theorem"
+        },
+        {
+          "assessment": "Allee bistable model not same strictly decreasing root equation; full proof uninspected",
+          "evidence": "Resultary 2026/10/18 result summary",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-greed-dependent-extinction-boundary-in-an-allee-common-poo--1e50ea949486",
+          "material_read": "Resultary published title and summary only",
+          "method": "Resultary semantic search",
+          "title": "Sharp greed-dependent extinction boundary in an Allee common-pool game",
+          "trigger": "A related nonlinear sustainability separation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact sustainability switch for all admissible model parameters and all positive-resource initial states distinguishes local invasion from global management outcomes; the universal t^-1 critical recovery and onset slope are useful sharp predictions at a biologically motivated threshold rather than textbook linear stability alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Normalized T=1 K=1 deterministic model with 0<b<1<d, b+d>2, 0<c<1, k>0; excluded R(0)=0 stays extinct; no stochastic or Allee claim.",
+  "schema_version": 1
+}
