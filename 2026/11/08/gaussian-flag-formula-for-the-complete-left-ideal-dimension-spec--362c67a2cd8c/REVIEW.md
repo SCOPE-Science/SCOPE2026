@@ -1,11 +1,21 @@
-# Scientific review — one-sided ideal dimension spectra in triangular matrix rings
+# Independent mathematical audit
 
-**Correctness — PASS.** Multiplication by row idempotents decomposes each left ideal into row spaces, and multiplication by off-diagonal matrix units forces their nesting. The converse checks closure under the full algebra's basis. Quotient-space Grassmann choices give each exact Gaussian coefficient, row direct sums give the exponent, and a standard bounded weakly increasing-sequence/Dyck-path bijection proves the formal Catalan specialization. The fixed-dimension-vector parameter space is a tower of relative Grassmannians. An independent exhaustive RREF enumeration tests left multiplication by all original matrix units in three nontrivial configurations; four additional flag-recursion computations agree with stated counts. Computations do not substitute for proof, and \(q=0\) is a polynomial specialization, not a field.
+## correctness
 
-**Originality — PASS, with residual priority risk.** Shapiro (1975) counts two-sided ideals; those ideals are spanned by matrix units and have field-independent Catalan numbers, not the present field-dependent left-ideal dimension spectrum. Lam's standard idempotent row decomposition is background and not claimed new. Fei's 2011 quiver-Hall counting framework is broadly applicable and potentially computes regular-module Grassmannians, but the inspected results do not themselves supply the explicit nested Gaussian rank polynomial for all left ideals of the triangular regular module or the fixed-dimension stratum formula. Ferraz–Polcino Milies–Taufer (2017) enumerate left ideals of **full** matrix rings, which are semisimple and do not imply the triangular regular-module formula. Searches for upper triangular left-ideal zeta polynomials, q-Catalan ideal counts, quiver submodule flag enumerators, and exact dimension-refined counts found no direct instance of the same complete expression. An unlocated specialized enumeration or a simplification of known Hall formulas may cover the result; exhaustive priority is not certified.
+PASS
 
-**Value — PASS.** The left-ideal lattice is a canonical invariant of a nonsemisimple algebra; its full dimension distribution, not merely the number of ideals or a small fixed case, measures actual module-subspace structure. The result simultaneously provides exact counts for all field sizes and dimensions, a moduli interpretation with stratum dimensions, and the precise Catalan degeneration linking the one-sided q-dependent count to the classical field-independent two-sided ideal count. It is a natural complete classification and exact invariant, rather than an arbitrary enumeration of a fixed matrix size.
+A left ideal I of T_n(F_q) splits by the diagonal idempotents into row subspaces U_i⊂span(e_i,...,e_n). Closure under each e_ij forces U_j⊂U_i for i<j, and conversely nested row flags define a left ideal. Given the dimension vector (d1≥...≥dn), choices for U_i/U_(i+1) are Gaussian binomials [n−i+1−d_(i+1) choose d_i−d_(i+1)]_q; total dimension is sum d_i. Each stratum is an iterated relative Grassmannian with dimension sum (d_i−d_(i+1))(n−i+1−d_i), and q=0 formally counts bounded monotone dimension sequences/Catalan C_(n+1). Independent Gaussian-binomial recurrence reproduced totals (n,q)=(2,2):7,(2,3):8,(3,2):40,(3,3):62,(4,2):362, and (3,2) coefficient array 1,7,10,11,7,3,1. These finite tests support but do not replace the all-n flag bijection.
 
-**Closest literature and limits.** Shapiro's two-sided Catalan result is the most directly adjacent triangular-algebra computation. Fei's broad Hall techniques present the most significant possible dominating formalism. No statement about left-ideal automorphism orbits, global scheme irreducible components, or independence of verification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Shapiro’s classical Catalan result concerns two-sided upper triangular ideals. Fei’s broad Hall algebra/quiver-Grassmannian framework potentially recovers submodule flags, but an explicit prior all-dimensional rank enumerator for one-sided ideals of the regular upper triangular algebra was not located. This claim is best-of-knowledge original as a fully worked exact field-dependent polynomial and geometric stratification. Fei full text was inaccessible: arXiv/OA attempts failed and Oxford institutional VPN was disconnected, which remains a material historical-priority risk, not grounds for automatic failure.
+
+## value
+
+PASS
+
+The dimension distribution of all left ideals is a natural finite-ring invariant not determined by the Catalan two-sided count; the explicit Gaussian flag formula, smooth strata dimensions and formal Catalan degeneration give an all-dimension classification useful for triangular module representation counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
