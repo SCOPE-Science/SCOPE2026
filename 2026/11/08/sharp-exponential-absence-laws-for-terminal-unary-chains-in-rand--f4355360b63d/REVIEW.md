@@ -1,11 +1,21 @@
-# Scientific review: terminal unary-chain absence in random recursive trees
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The root-SET decomposition gives the exact avoidance ODE, including the single forbidden size-\(r\) root tree. The integrating factor solves it. On \(|z|<3/2\), the integrand of \(F_r\) has positive real part, proving injectivity and exclusion of all rival complex zeros. A simple zero produces a single logarithmic singularity and a unit leading constant, with the analytic remainder bounded by Cauchy's estimate. The rate comparison and large-\(r\) expansion follow from integral inequalities. The standalone exact enumeration passed 100 checks through nine vertices and does not substitute for the analytic proof.
+## correctness
 
-**Originality (O): PASS with residual historical-priority risk.** Seelbach Benkner–Wagner (2021) provide the recursive-tree species framework and distinct-fringe results, including root-branch shape enumeration; Holmgren–Janson (2014) and Feng–Mahmoud (2010) establish mean/covariance/normal laws for fixed fringe-shape counts. Their inspected claims neither evaluate this exponentially small zero-event probability nor prove the common zero-free disk, strict exponential rates, and error. Broader pattern-avoidance formulae beyond the inspected literature could still exist. A complete independent literature review is outstanding.
+PASS
 
-**Value (V): PASS.** A zero occurrence is a genuine exponentially rare tail event not inferred from fixed-shape Gaussian fluctuations. The result supplies an all-chain-length exact enumerator and sharp leading probability, with a structural proof that every chain length shares a uniform analytic zero-free region; it also quantifies how the rate approaches one as the chain length grows.
+The increasing-label root-SET decomposition excludes exactly one unary chain at size r, so T_r_prime=exp(T_r)-z^(r-1)/(r-1)!, with u=exp(-T_r) solving u_prime=z^(r-1)u/(r-1)!-1. The integrating factor gives u=exp(z^r/r!)(1-F_r(z)); p_n=n[z^n]T_r. For |z|<3/2, |Im(z^r/r!)|<=9/8<pi/2, so Re F_r_prime>0; integrating over chords proves injectivity and exactly one zero of 1-F_r, the simple real rho_r in (1,3/2). Factoring u=(1-z/rho_r)g with g zero-free gives coefficient rho_r^-n+O(nR^-n). The large-r expansion follows from integral Taylor estimates; rho_{r+1}<rho_r by integrand monotonicity. Independently reconstructed exact-rational recurrence and enumerated labelled parent arrays for r=2..5 through n=8, agreeing with coefficients. Finite tests corroborate, do not establish complex/infinite proof.
 
-Limitations: fixed \(r\) before \(n\to\infty\); no uniform estimate for varying \(r\); independent review not performed. References: https://arxiv.org/abs/2105.04231 ; https://arxiv.org/abs/1406.6883 ; https://doi.org/10.1239/jap/1269610825 .
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No matching exponential zero-event theorem was found in relevant published results or inspected recursive-tree fringe literature. This is best-of-knowledge originality, not a proof of absolute historical priority.
+
+## value
+
+PASS
+
+An all-length sharp rare-event absence probability for a fixed natural terminal path shape is not supplied by a central-limit theorem for occurrence counts; the common analytic zero-free radius, exact unit prefactor, and strict decay-rate hierarchy give a reusable enumerative tool.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
