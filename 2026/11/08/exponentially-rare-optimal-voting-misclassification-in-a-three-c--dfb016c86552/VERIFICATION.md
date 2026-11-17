@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 check.py` in the extracted directory. The script uses only Python's standard library.
+## correctness
 
-Its completed run produced: 60 winning and 59 losing certificate occurrences with identical incidence vectors; all 56 profiles with at most five voters checked; 3,575,656 class profiles at sizes 5–60 checked; 294,912 fully enumerated labeled coalitions at sizes 5 and 6 checked; and 300 seeded relabeling certificates checked. All assertions passed.
+PASS
 
-The complete proof of the infinite inequalities is in `RESULT.md`: upper classifier, exact symmetric lower bound, and the random-injection averaging of the balanced certificate. Finite computer tests are not offered as proof for untested sizes or for arbitrary real weights. The precise unrestricted leading coefficient is not claimed. The original source's earlier normalized weight-excess formula is credited, not independently re-certified here. Independent scientific assessment has not been performed.
+For H=20a+15b+12c, critical H=59 winner (1,1,2) and H=60 losers (3,0,0),(0,4,0),(0,0,5) are exhaustive. The explicit class-symmetric rule weights (22,15,12), quota 60.5, errs only on (3,0,0), giving binom(m,3) labeled errors; verified all (m+1)^3 profiles for m=9,12. The 60 winning/59 losing equal-incidence multiset is an unavoidable error trade for arbitrary asymmetric weights. Random relabeling and coefficient bounds for m>=9 give e>=binom(m,3)/20, hence Theta(m^3/8^m). Upper and lower proofs do not use finite enumeration as exhaustion.
+
+## originality
+
+PASS
+
+Einy-Haimanko introduce precisely the game and general upper bound on coalition misclassification; the available primary abstract and assigned source attribution do not establish the sharp exponential-polynomial lower and upper order. A new explicit classifier and balanced 119-occurrence trade produce a quantitative family-specific theorem beyond the general polynomial upper bound. Primary full-text absence is a substantial specific priority risk, not alone a failure.
+
+## value
+
+PASS
+
+The exponentially small optimal classification error for a genuinely nonweighted three-class voting game contrasts sharply with the known 1/(47m) normalized weight excess. The precise event rate and symmetrically optimal rule address a natural statistical approximation invariant, with unrestricted leading constant explicitly left unknown.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
