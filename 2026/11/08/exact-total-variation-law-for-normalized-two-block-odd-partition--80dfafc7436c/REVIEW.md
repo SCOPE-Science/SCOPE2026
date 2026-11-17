@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Starting from Merca's published signed-partition identity, the proof reconstructs the exact normalized expression for all \(n\ge1\), including the \(t=0\) and \(t=1\) boundaries. The non-coincidence lemma splits the positive character-divisor-sum case by \(\nu_2(n)=0\) and \(\nu_2(n)\ge1\); the odd-case valuation identity follows from the elementary prime-power sum. A sum-of-two-squares witness at every nonempty dyadic layer gives atomwise domination, hence the exact finite-sample total variation. The classical Landau theorem then gives the sharp limiting rate. Independent signed-generating-function coefficient checks agree for the first 256 indices and all tested cutoffs. This is a proof-backed infinite claim, not a finite-census inference.
+## correctness
 
-**Originality — PASS, with priority risk.** Merca's first full open-access article proves \(a(n)\) as an explicit divisor-sum expression; the second full arXiv text proves dyadic identities and congruences. Neither inspected text contains the empirical-measure law, universal non-coincidence lemma, exact finite-cutoff total variation, or Landau--Ramanujan statistical interpretation. A targeted public literature search, the indexed sequence record, relevant published result summaries, and accessible prior claims found no equivalent distribution theorem. The claim is not merely the source coefficient identity: its precise finite-cutoff value needs the new atom-exclusion and measure-domination proofs. An earlier equivalent observation or an unindexed appendix remains possible.
+PASS
 
-**Mathematical value — PASS.** A natural signed partition statistic receives a complete probability law and an exact finite-sample distance, not just qualitative density. The identity exposes an unexpected arithmetic obstruction controlling probability-mass leakage: representability as a sum of two squares. This connects a newly defined partition enumerator to a classical counting problem and gives a sharp quantitative convergence rate. The proof also establishes a structural parity barrier preventing accidental coincidences with any limiting atom.
+Using the actual two-size odd-partition signed coefficient identity of Merca, for n=2^t m (m odd) the normalized coefficient equals r_t - lambda(m)/(4(2^{t+1}-1)sigma(m)). Positive lambda corresponds to sums of two squares by the prime-factor criterion. If t>=1, a different limiting atom would force lambda/sigma>2; if t=0, the 2-adic valuation equality for lambda(m),sigma(m) contradicts an even numerator 2/C_s. Therefore representable indices are outside the discrete limiting support. Every nonempty valuation layer contains n=2^t (sum of two squares), so the finite empirical atom masses are each at most 2^{-t-1}; the entire positive mass off support equals B(N)/N. TV is exactly that value for all N>=1, and Landau--Ramanujan gives the sharp K/sqrt(log N) asymptotic. Independent rational re-enumeration yielded B(256)=97 and TV=97/256; the finite check supplements the universal parity argument.
 
-Closest literature: Merca (2026), arXiv:2609.33770, DOI:10.1007/s11139-026-01426-1; Merca (2026), arXiv:2610.05020; Berndt--Moree (2024/2025), arXiv:2409.03428; OEIS A400616. The new finite identity uses these existing results as premises and does not reprove the foundational partition formula or Landau's asymptotic. Independent mathematical and historical-priority assessment remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: Merca derives the coefficient and dyadic identities, Landau the two-square asymptotic, but the exact finite-cutoff total-variation equality depends on the separately proved atom rigidity and mass-domination argument. These are not restatements of Merca positivity or an OEIS tabulation.
+
+## value
+
+PASS
+
+An exact finite-sample total-variation distance at EVERY N from a natural signed partition statistic to a countable dyadic atomic distribution is mathematically substantive, with nontrivial parity rigidity and a surprising bridge to the classical sum-of-two-squares exceptional set. Sharp rate and exact support identification make the invariant useful beyond a table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

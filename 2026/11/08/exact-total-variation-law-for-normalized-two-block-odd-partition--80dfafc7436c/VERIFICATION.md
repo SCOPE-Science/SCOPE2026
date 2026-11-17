@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Running `python3 verify.py` reproduced `VERIFY_OK partition_coefficient_checks=256 direct_sums_of_two_squares=256 atom_noncoincidence_checks=256 finite_sample_TV_identity=yes exact_arithmetic=yes`. The script independently expands the two-distinct-size signed generating series through the cutoff; computes character divisor sums and ordinary divisor sums by separate divisor loops; and verifies sums-of-two-squares membership by searching integer squares rather than invoking the two-square prime factor criterion. Every test uses exact integers and Python rational fractions, never floating-point comparisons. It checks the Merca identity, normalized formula, zero-vs-atom coincidence, and atom domination at every cutoff through 256.
+## correctness
 
-At the cutoff \(N=256\), the number representable as two squares is \(B(256)=97\), and the exact total-variation distance is \(97/256\). These are finite checks, not infinite certification. The unrestricted statement is proved in `RESULT.md` using the published Merca identity, elementary prime-power parity, exact floor counts, and the classical Landau--Ramanujan theorem. No independent audit or validation has occurred.
+PASS
+
+Using the actual two-size odd-partition signed coefficient identity of Merca, for n=2^t m (m odd) the normalized coefficient equals r_t - lambda(m)/(4(2^{t+1}-1)sigma(m)). Positive lambda corresponds to sums of two squares by the prime-factor criterion. If t>=1, a different limiting atom would force lambda/sigma>2; if t=0, the 2-adic valuation equality for lambda(m),sigma(m) contradicts an even numerator 2/C_s. Therefore representable indices are outside the discrete limiting support. Every nonempty valuation layer contains n=2^t (sum of two squares), so the finite empirical atom masses are each at most 2^{-t-1}; the entire positive mass off support equals B(N)/N. TV is exactly that value for all N>=1, and Landau--Ramanujan gives the sharp K/sqrt(log N) asymptotic. Independent rational re-enumeration yielded B(256)=97 and TV=97/256; the finite check supplements the universal parity argument.
+
+## originality
+
+PASS
+
+PASS: Merca derives the coefficient and dyadic identities, Landau the two-square asymptotic, but the exact finite-cutoff total-variation equality depends on the separately proved atom rigidity and mass-domination argument. These are not restatements of Merca positivity or an OEIS tabulation.
+
+## value
+
+PASS
+
+An exact finite-sample total-variation distance at EVERY N from a natural signed partition statistic to a countable dyadic atomic distribution is mathematically substantive, with nontrivial parity rigidity and a surprising bridge to the classical sum-of-two-squares exceptional set. Sharp rate and exact support identification make the invariant useful beyond a table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
