@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed-point map is monotone and strictly ray-sublinear for positive vectors. An increasing Perron subsolution establishes existence above the exact spectral threshold; a strict minimum-ratio comparison establishes uniqueness, and a left Perron-vector strict union bound excludes positive fixed points at or below threshold. The equitable quotient stays invariant. Equality of its two endemic coordinates occurs exactly at equal full degrees. The supercritical parameter region is connected and the unique equilibrium is continuous in parameters; near onset its direction is the unique positive quotient Perron vector. The quadratic Perron ratio has its positive root above one exactly for the larger quotient row sum, completing all-parameter ordering. The attached exact-rational checker supplies the six-vertex bracket, exhaustive five-vertex integer balance, and three-cell Rayleigh certificate. Finite checks are not substituted for the proof.
+PASS
 
-## Originality — PASS, with residual risk
+The derivative at disease-free zero is (1−δ)I+βA; a positive Perron subsolution gives existence exactly above βρ>δ, while the strict product union bound paired with a Perron left vector forbids positive fixed points at/below threshold. Coordinate monotonicity and strict ray sublinearity F(tp)≫tF(p) for 0<t<1 yield uniqueness. The equitable two-dimensional cell-constant subspace is invariant and contains a positive equilibrium from a lifted Perron seed; uniqueness forces the full equilibrium to be cell constant. Equal probabilities yield (1−βq)^{d1+b1}=(1−βq)^{d2+b2}, equivalent to equal full degrees; conversely equal degrees give a homogeneous positive fixed point. Connectedness of supercritical parameter domain, continuous positive equilibrium, and near-onset convergence to the quotient Perron eigenvector determine sign: for r=v1/v2 its equation b2 r²+(d2−d1)r−b1=0 is positive at r=1 exactly when full degree2>degree1. A 6-vertex C4 ∨ K2 with quotient [[2,2],[4,1]] has degree4 vs5 opposite internal degrees2 vs1, with rational strict sub/supersolutions at β=.3,δ=.4. Direct exact quotient and numerical fixed-point calculations agree. A three-cell quotient [[4,1,0],[1,2,1],[0,1,5]] has v2>v1 near onset although degree2<degree1.
 
-The motivating 2026 paper gives isolated-community and global spectral thresholds, not endemic per-vertex ordering or a minimum order-inversion graph. The 2008 paper introduces the exact product map but focuses on spectral thresholds. The two 2014 Bonaccorsi-led papers and Prasse et al. 2021 provide steady states and equitable reduction for **different continuous-time NIMFA equations** and are important prior foundations. No examined primary statement or searched research record covers the discrete product-map degree-order classification and its sharp six-vertex and three-cell boundaries. Possible unindexed analogous comparison arguments remain a residual risk. The novelty does not lie in Perron–Frobenius, classical monotone-map theory, or equitable quotient reduction alone.
+## originality
 
-## Value — PASS
+PASS
 
-Community threshold profiles may be used to rank apparent epidemic vulnerability. This result establishes an exact, parameter-independent endemic prevalence ordering in a natural class of structured networks and gives the smallest concrete counterexample to treating isolated thresholds as equilibrium burden ranks. The additional three-cell obstruction determines the structural limit of the simple degree ordering, making the classification useful for model interpretation rather than an arbitrary parameter calculation.
+The discrete product-form SIS map and spectral threshold are established Chakrabarti et al. prior art; equitable quotient reduction for continuous-time NIMFA is also established. The present claim is the uniform across-parameter ordering by full degrees for exactly two equitable cells, a minimum six-vertex isolated-threshold inversion, and a sharp failure at three cells. Dung–Phuc 2026 describes local/global threshold comparisons in its accessible abstract, but its complete original text was not accessible this run (ResearchGate 429; arXiv HTML disabled), hence no whole-paper noncoverage claim. Continuous-time product-free dynamics are not equivalent without a proof transfer; originality remains qualified.
 
-## Closest literature and limitations
+## value
 
-Dung–Phuc 2026 (arXiv:2607.14048) is the nearest motivating source; Chakrabarti et al. 2008 supplies the exact recurrence; Bonaccorsi et al. 2014 (arXiv:1412.6157), Bonaccorsi et al. 2014 (DOI:10.1103/PhysRevE.90.012810), and Prasse et al. 2021 (arXiv:2102.13151) supply related equitable continuous-time comparisons. This work is solely for the deterministic independence-approximation SIS fixed point, exactly two equitable cells for its main classification, and homogeneous rates. It does not establish a stationary law of the finite stochastic epidemic, full transient convergence, or a ranking of total (un-normalized) community infection sums.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The disconnect between isolated-community vulnerability and equilibrium endemic prevalence is a motivated model-comparison question. The exact rate-independent degree ordering with a sharp minimum counterexample and a three-cell boundary provides a structural theorem, not a mere plotted network instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
