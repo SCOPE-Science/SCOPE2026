@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,26 +19,24 @@
 }
 ---
 
-## Reproducible finite checks
+# Independent mathematical audit
 
-Run `python3 check_shift_online.py` with Python 3.10+ and no dependencies. The checker constructs each graph from increasing pairs, recomputes all hypothesis-query adjacency bits, and uses a memoized exact recurrence that maximizes one plus the minimum dimension of the two nonempty answer fibers. It does not rely on a table of previously calculated dimensions.
+## correctness
 
-Observed output:
+PASS
 
-```
-n=2 hypotheses=1 Ldim=0 checked_states=1
-n=3 hypotheses=3 Ldim=1 checked_states=6
-n=4 hypotheses=6 Ldim=2 checked_states=24
-n=5 hypotheses=10 Ldim=2 checked_states=86
-n=6 hypotheses=15 Ldim=3 checked_states=309
-n=7 hypotheses=21 Ldim=3 checked_states=1145
-n=8 hypotheses=28 Ldim=3 checked_states=4366
-n=9 hypotheses=36 Ldim=3 checked_states=16980
-SHIFT_NEIGHBORHOOD_VERIFIED exact_cases=8 total_states=22917 checked_arm_orders=11 depth3_leaves=8
-```
+PASS: For root query (a,b) in rank-two shift graph, all positively answering centers partition into A={(i,a):i<a} and B={(b,j):j>b}; any further query selects a whole arm, singleton, none, or both, so the positive version space has Ldim<=2, hence universal <=3 even for the infinite graph. Small n bound uses |positive fiber|<=n-2, and explicit complete depth-two/depth-three trees attain thresholds n=4 and n=6. Independent minimax ranks for n=2..7 are 0,1,2,2,3,3. The proof is global; finite computations are corroborating.
 
-The checker separately evaluates every listed answer along all four depth-two paths and all eight depth-three paths. A further bounded exhaustive loop checks the arm-classification identity and permitted query fibers for orders two through twelve.
+## originality
 
-## Mathematical limits of computation
+PASS
 
-The finite cases alone cannot establish any unbounded assertion. The written proof gives an all-order upper bound by deriving, for every positive fiber, an exact two-arm structure and bounding its adaptive dimension by two; the displayed depth-three tree persists under natural inclusions. The infinite-graph statement concerns the membership formula, not its complete first-order theory. The checker provides no proof of historical novelty, and independent validation has not been performed.
+Best-of-knowledge: the ordinary shift-graph adjacency relation has a natural sharp finite online rank sequence, proved here by a two-arm decomposition and explicit six-label decision tree. Published chromatic/model-theoretic shift-graph work and static VC thesis do not establish that numerical finite threshold in inspected material. A complete examination of all potential historical sources, especially the entire thesis, remains undone.
+
+## value
+
+PASS
+
+An exact finite threshold and uniform online rank for the canonical rank-two shift graph adjacency relation is a motivated model-theoretic/learning invariant, separating adaptivity from graph chromatic complexity. The proof supplies a sharp structural arm lemma and explicit minimal six-label witness, not a generic cardinality observation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
