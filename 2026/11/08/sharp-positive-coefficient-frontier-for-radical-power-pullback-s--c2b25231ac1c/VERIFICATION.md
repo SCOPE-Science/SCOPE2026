@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The analytical proof covers every integer \(m\ge2\) and every real \(p>0\). Its critical steps are the upper-tail log-concavity inequality, preservation of log-concavity by convolution, strictness of the first inequality, and the exact derivative calculation for \(d_1\).
+## correctness
 
-Run `python3 verify_coefficients.py` with Python 3 standard library. Completed output: `VERIFY_OK exact_rational_checks=8479 m_range=2..18 positive_p_samples=11`. The checker computes all polynomial coefficients from the exact factorization using rational numbers and checks 11 rational parameters for each of the 17 orders, including both sides of the theoretical positivity boundary. It does not test the irrational equality boundary numerically; equality is proved symbolically. Finite testing does not imply universal truth.
+PASS
 
-No independent audit has been performed.
+A1 has the log-concave positive binomial tail c_1..c_m; A2 tail sums are log-concave via decreasing binomial ratios. Convolution with (w+p)^2 preserves log-concavity, with a strict first inequality. Therefore all ratios d_{j+1}/d_j decrease and full coefficient positivity is equivalent to d1<1. Logarithmic differentiation gives d1=1+(m+3)/(2p)-mp^(m-1)/((p+1)^m-p^m), which is algebraically equivalent to p>p_m; equality leaves only the linear force coefficient zero. Exact rational independent checks across 42 sample cases m=2..8 supported the identities; uniform all-m proof is analytic.
+
+## originality
+
+PASS
+
+No stronger statement or equivalent theorem located in inspected materials; best-of-knowledge with specific access and priority risks.
+
+## value
+
+PASS
+
+An exact all-order necessary-and-sufficient stiffness frontier identifies precisely when an explicit radical-orbit spring is confining with positive restoring coefficients; it strictly improves the original sufficient p>=2m parameter regime.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
