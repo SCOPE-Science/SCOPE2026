@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the commutator-fiber theorem
 
-The standalone `verify_takiff.py` constructs the coordinate brackets in \(\mathfrak{sl}_2\), the full six-dimensional adjoint maps, and the linear systems for prescribed second bracket coefficients. It does not use the stated image-orthogonality or projective-line proof to decide consistency; instead, it applies modular Gaussian elimination to explicit matrices. Running `python3 verify_takiff.py` should reproduce the text in `verify_output.txt`.
+# Independent mathematical audit
 
-A separate direct-multiplication program, `verify_direct.py`, enumerates every one of \(3^{12}=531441\) ordered pairs over \(\mathbb F_3\), without using any rank- or orthogonality-based counting argument, and matches every target count. Its exact output is saved as `verify_direct_output.txt`.
+## correctness
 
-The check at \(q=3\) enumerates every one of the \(729\) bracket targets and sums \(531441\) ordered pairs using inverse-image multiplicities of independently computed linear maps. The check at \(q=5\) exhausts first-level input pairs for three specified target types and computes all adjoint ranks. The tests do not cover extension fields directly or prove the arbitrary odd-prime-power assertion; that statement follows from the algebraic proof in `RESULT.md`.
+PASS
 
-Final test markers: `TAKIFF_SL2_COMMUTATOR_FIBERS_PASS` and `DIRECT_MULTIPLICATION_COMMUTATOR_FIBERS_PASS`.
+For q odd the sl2 trace form is nondegenerate, and for each nonzero A its adjoint has kernel span(A), rank 2, image A^perp. For Z=[A,C] nonzero, there are q²-1 nonzero A in Z^perp and q solutions C each; [A,C]≠0 forces A,C independent, making (B,D)->[B,C]+[A,D] surjective rank3, hence q³ choices per W and q⁴(q²-1) fiber. For Z=0, except (A,C)=(0,0), every commuting pair is (au,cu) on one projective line with q²-1 nonzero coefficient pairs; the second map has image u^perp and kernel q⁴. A fixed nonzero W has q+1 eligible projective lines, W=0 has q²+q+1, plus q^6 zero-input pairs. This yields all three formulas and summing over q^6 targets returns q^12. The centralizer is 2D when A!=0, 4D when A=0 and B!=0, and 6D at zero, giving rank multiplicities 0:1, 2:q³-1, 4:q³(q³-1). Division by q^12 yields q^-4+q^-5+q^-6-q^-7-q^-8. Direct independent literal enumeration over F3 calculated all 531441 ordered brackets and exactly matched every one of 729 fibers; this finite test is not a proof for all prime-power q.
+
+## originality
+
+PASS
+
+Classical Takiff centralizer/invariant theory and Panyushev's semidirect-product work treat generic stabilizers and algebraic-geometry quotient fibers over algebraically closed characteristic zero, not exact labeled finite-field bracket fibers. Other Resultary finite Lie-algebra commutator strata concern nonisomorphic algebras. No previous same-algebra three-stratum population or full commuting probability found in accessible full primary text/search.
+
+## value
+
+PASS
+
+The prescribed ordered commutator-fiber distribution is a canonical finite-field invariant refining the commuting probability and centralizer-rank census. It supplies all target multiplicities rather than a single zero-target statistic, identifies a sharp three-stratum symmetry and confirms surjectivity for every odd field. The rank-centralizer/projective-incidence argument is structural and nontrivial, not merely reporting a handful of computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
