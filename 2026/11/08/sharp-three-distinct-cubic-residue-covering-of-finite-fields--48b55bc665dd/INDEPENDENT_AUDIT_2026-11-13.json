@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T04:05:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For q ≡1 mod3, the nonzero cubic subgroup H has size h=(q-1)/3. By order-three multiplicative-character decomposition each nontrivial additive Fourier coefficient has magnitude at most B=(1+2sqrt(q))/3; additive orthogonality bounds unrestricted ordered T_b below by (h³-(q-1)B³)/q. Three collision events each contain at most h triples, hence R_b≥T_b-3h. The resulting numerator factor t(t³-8t²-41t-6), t=sqrt(q), is positive for t≥13: cubic at13 is306 and its derivative is increasing and positive. This proves every target for all q≥169. For all 24 smaller eligible prime powers the inspected verifier explicitly constructs finite fields, checks nonzero inverses and enumerates all unordered distinct triples (131116 total). An independent implementation reproduced q37 and q43 contrast plus coverage at primes 49? (49 is extension): separately checked F25, F49, F64, F121 with explicit extension fields; verified q37 full, q43 missing zero, and all sampled eligible prime fields through163 covered. Finite exhaustiveness comes from inspected source code enumeration, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General character-sum bounds give eventual coverage, but a finite cutoff at 49 requires checking all small eligible field orders; the available general-result summary does not state it."
+        ],
+        "reasoning": "A quantitative inequality strong enough below 169 or a specialized table could dominate; none verified. Explicit residual risk.",
+        "searches": [
+          "Resultary: restricted three distinct cubic residues sum covering all finite field q threshold 49 and exceptional 37",
+          "https://arxiv.org/abs/1101.0289"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1101.0289",
+        "https://doi.org/10.3934/math.2022595",
+        "https://arxiv.org/abs/1702.03028",
+        "https://github.com/Resultary/2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prime-field zero-count formulas with repeated roots differ from all-target distinct subgroup elements over prime powers; unrestricted subset-sum asymptotics do not transparently imply sharp q=49."
+        ],
+        "reasoning": "No identified prior statement logically yields the full equivalence, but full Zhu–Wan theorem conditions remain unread and might supply an implicit cutoff.",
+        "searches": [
+          "https://arxiv.org/abs/1101.0289",
+          "https://doi.org/10.3934/math.2022595"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhu–Wan abstract establishes estimates for k-element subsets of arbitrary multiplicative subgroups, not explicit 37/43/49 classification in available material."
+        ],
+        "reasoning": "An equivalent special case may lie in full text not accessible; cannot assert definitive noncoverage.",
+        "searches": [
+          "Resultary: restricted 3 subset sums of nonzero cubes H of index 3 over finite fields exact q 37 43 49",
+          "https://arxiv.org/abs/1101.0289"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ge–Li–Wang Theorem 1.4 concern prime-field diagonal cubic zero counts; source article HTML introduction discusses order-three Gauss sums. The submitted table counts all target sums of 3 distinct elements across 24 prime powers."
+        ],
+        "reasoning": "Some zero-target numbers may be derivable from older diagonal cubic representation tables, but full simultaneous all-target extension-field table was not located.",
+        "searches": [
+          "Resultary: restricted 3 subset sums of nonzero cubes H of index 3 over finite fields exact q 37 43 49",
+          "https://doi.org/10.3934/math.2022595"
+        ]
+      },
+      "rationale": "Zhu–Wan (2011) studies arbitrary k-element subgroup subset sums asymptotically. Available abstract establishes a broader topic but does not imply the exact index-three k=3 all-target boundary; its complete arXiv manuscript was inaccessible and institutional retrieval reported disconnected VPN, so this remains a material priority risk. Ge–Li–Wang (2022) computes cubic diagonal equation solution counts for prime fields, plausibly covering zero-target subcases, but that alone does not cover distinct-summand all-target prime powers or the 37/43 cutoff. Separate Resultary searches found cubic-graph and consecutive-residue problems, not this subgroup restricted sumset. Originality is best-of-knowledge with exact source limitations stated.",
+      "residual_risks": [
+        "Zhu–Wan full text was inaccessible and could imply an exact k=3 index-three positivity threshold through specialized constants.",
+        "Ge–Li–Wang may contain previously known zero-target exceptions; the full text was not conclusively inspected.",
+        "Large-field proof is analytical; small-field certificate only for 24 eligible orders below 169; source code requires independent replay for complete assurance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PLAUSIBLE COVERING SOURCE INACCESSIBLE; no whole-text negative claim",
+          "evidence": "Abstract explicitly counts k-element subset sums over subgroups; cannot exclude index-three small-field tables from unread sections",
+          "identifier_or_url": "https://arxiv.org/abs/1101.0289",
+          "material_read": "Original arXiv abstract and bibliographic information; full paper inaccessible in current arXiv HTML/PDF and OA attempts",
+          "method": "arXiv abstract plus lawful OA searches; Oxford institutional request returned vpn_disconnected",
+          "title": "An Asymptotic Formula For Counting Subset Sums Over Subgroups Of Finite Fields",
+          "trigger": "Same arbitrary subgroup and k=3 exact subset sums"
+        },
+        {
+          "assessment": "PARTIAL prime-field zero-target overlap; full implication not verified",
+          "evidence": "Studies primes p≡1 mod3, cubic Gauss sums and some diagonal cubic equation solution counts",
+          "identifier_or_url": "https://doi.org/10.3934/math.2022595",
+          "material_read": "Publisher HTML introduction, listed theorem subject and paper abstract, not the complete theorem/proof",
+          "method": "AIMS HTML article extract",
+          "title": "A remark for Gauss sums of order 3 and some applications for cubic congruence equations",
+          "trigger": "Cubic character and zero-target representation formulae"
+        },
+        {
+          "assessment": "NOT SAME GROUP INDEX",
+          "evidence": "Index two quadratic residues, not H of index three",
+          "identifier_or_url": "https://arxiv.org/abs/1702.03028",
+          "material_read": "Accessible abstract-level result cited by assigned package",
+          "method": "arXiv bibliographic/source-package inspection",
+          "title": "Subset Sums of Quadratic Residues over Finite Fields",
+          "trigger": "Comparison of subgroup index"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural restricted Waring/subset-sum question for the index-three multiplicative subgroup has a surprising exceptional full-cover field q=37, obstruction at q=43, and sharp eventual threshold 49 uniformly over prime powers. Distinct-element and every-target quantifiers make the exact cutoff a useful finite-field additive-combinatorics fact, rather than a routine Gauss bound alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only q prime powers congruent 1 modulo 3 and pairwise distinct nonzero cube values.",
+    "No claim about exact target multiplicity distribution for arbitrary q.",
+    "Public operational provenance still present."
+  ],
+  "schema_version": 1
+}

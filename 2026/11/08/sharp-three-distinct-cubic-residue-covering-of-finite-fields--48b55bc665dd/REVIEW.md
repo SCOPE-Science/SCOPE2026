@@ -1,11 +1,21 @@
-# Review of the sharp three-distinct-cubic-residue covering theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The bound for each nontrivial additive Fourier coefficient is \((1+2\sqrt q)/3\) by the cubic-character decomposition and the exact absolute value of a nontrivial Gauss sum. Orthogonality counts all ordered triples; removing the at-most-three collision classes costs no more than \(3(q-1)/3\), irrespective of characteristic. The resulting lower bound is positive for \(q\ge169\). All \(24\) remaining eligible prime powers are exhaustively checked by the included standalone code, including extension fields and all sum targets. No finite computation is substituted for an infinite argument.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The exact theorem is not Zhu–Wan's general error estimate or their logarithmic-size positivity corollary; see arXiv:1101.0289v1, Theorem 1.1, Corollary 1.2 and Section 4. Wang–Wang–Zhou (arXiv:1702.03028) calculate the quadratic (index-two) case instead. Ge–Li–Wang (2022), Theorem 1.4, supplies exact zero counts for diagonal cubic forms in prime fields. Those can be used to derive some zero-target facts after excluding repeated *values*; the present claim is the simultaneous coverage of **every** target for **all** prime powers and its sharp cutoff. Exact searches on the mathematical wording, three-element subsets, cubic-residue subgroups and all-prime-power bounds, plus comparisons to existing mathematics records and accessible earlier findings, identified no equivalent or dominating theorem. Residual risk: specialist cubic cyclotomic-number tables or stronger generic subset-sum inequalities could imply all or part of the cutoff; historical uniqueness is not certified.
+PASS
 
-**Value — PASS.** The index-three, fixed-size-three subset-sum problem is a natural small-parameter gap in multiplicative-subgroup subset sums, with coding-theoretic links noted by Zhu and Wan. The theorem gives a *complete* field-order classification, not a generic asymptotic estimate. The unexpected full coverage at \(37\) followed by an obstruction at \(43\) makes the exact universal threshold \(49\) mathematically informative. It applies across both prime and extension fields including characteristic two, rather than an arbitrarily selected slice.
+For q ≡1 mod3, the nonzero cubic subgroup H has size h=(q-1)/3. By order-three multiplicative-character decomposition each nontrivial additive Fourier coefficient has magnitude at most B=(1+2sqrt(q))/3; additive orthogonality bounds unrestricted ordered T_b below by (h³-(q-1)B³)/q. Three collision events each contain at most h triples, hence R_b≥T_b-3h. The resulting numerator factor t(t³-8t²-41t-6), t=sqrt(q), is positive for t≥13: cubic at13 is306 and its derivative is increasing and positive. This proves every target for all q≥169. For all 24 smaller eligible prime powers the inspected verifier explicitly constructs finite fields, checks nonzero inverses and enumerates all unordered distinct triples (131116 total). An independent implementation reproduced q37 and q43 contrast plus coverage at primes 49? (49 is extension): separately checked F25, F49, F64, F121 with explicit extension fields; verified q37 full, q43 missing zero, and all sampled eligible prime fields through163 covered. Finite exhaustiveness comes from inspected source code enumeration, not extrapolation.
 
-**Limitations.** Only the existence of some distinct three-summand representation is classified; target-by-target multiplicities remain unclassified. The finite computation covers only \(q<169\) but covers that range *exhaustively*. The Fourier proof supplies the unrestricted statement for larger fields. Further independent mathematical checking and historical-priority review are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zhu–Wan (2011) studies arbitrary k-element subgroup subset sums asymptotically. Available abstract establishes a broader topic but does not imply the exact index-three k=3 all-target boundary; its complete arXiv manuscript was inaccessible and institutional retrieval reported disconnected VPN, so this remains a material priority risk. Ge–Li–Wang (2022) computes cubic diagonal equation solution counts for prime fields, plausibly covering zero-target subcases, but that alone does not cover distinct-summand all-target prime powers or the 37/43 cutoff. Separate Resultary searches found cubic-graph and consecutive-residue problems, not this subgroup restricted sumset. Originality is best-of-knowledge with exact source limitations stated.
+
+## value
+
+PASS
+
+A natural restricted Waring/subset-sum question for the index-three multiplicative subgroup has a surprising exceptional full-cover field q=37, obstruction at q=43, and sharp eventual threshold 49 uniformly over prime powers. Distinct-element and every-target quantifiers make the exact cutoff a useful finite-field additive-combinatorics fact, rather than a routine Gauss bound alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
