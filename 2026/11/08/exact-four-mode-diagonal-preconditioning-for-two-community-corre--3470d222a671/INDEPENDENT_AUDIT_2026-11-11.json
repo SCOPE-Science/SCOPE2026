@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T01:58:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For SPD A with m,n>=2,0<u,v<1,g>0 and Delta=mng^2<alpha beta, condition-number feasibility kappa(DAD)<=K is equivalent to the affine SDP W <= A <= K W with W positive diagonal. Averaging feasible W over within-community permutations proves unrestricted diagonal optimum is achieved by D=diag(sqrt(x)I_m,I_n). In-group contrast eigenvalues ax,b and 2x2 quotient eigenvalues lambda_±(x) give kappa(x)=max(lambda+/lambda-,lambda+/(ax),lambda+/b). The first decreases then increases at x0=beta/alpha; the latter two respectively decrease/increase, and cross at xc=b/a, so two constrained lower-mode collisions produce the stated clipped rational x*. Numerically independently optimized 80 random admissible cases over log x by bounded scalar minimization and matched the analytical formula. For m=n=2,u=3/10,v=3/5,g=1/2, exact x*=6/7 and eigenvalues 2/5,2/5,3/5,81/35 yield kappa=81/14. Local/numeric tests corroborate, not replace, the analytic SDP/spectral argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general paper provides algorithmic/semidefinite bounds; older block-optimality paper has a plausibly relevant abstract but complete text not inspected."
+        ],
+        "reasoning": "Generality of the optimization machinery does not automatically imply the explicit three-regime solution absent a carried-out specialization; residual Kolotilina priority risk retained.",
+        "searches": [
+          "Jambulapati et al Fast and Near-Optimal Diagonal Preconditioning arxiv:2008.01722",
+          "Kolotilina Optimally conditioned block matrices 2002",
+          "Resultary one-hub equicorrelation optimal scaling",
+          "Resultary windmill diagonal scaling"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2209.00809",
+        "https://doi.org/10.1016/S0024-3795(01)00412-8",
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-mode-switch-law-for-optimal-diagonal-scaling-on-windmill--8c423dd752b2/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published general schemes can compute optima but do not, from the material read, entail the explicit formula by mere parameter substitution; source paper addresses m,n>=2 with two distinct fluctuation eigenspaces."
+        ],
+        "reasoning": "The governing-mode proof and clipped solutions remain a substantive exact specialization rather than a trivial textbook parameter change.",
+        "searches": [
+          "Kolotilina 2002 optimally conditioned block matrices",
+          "Demmel Nearly Optimal Block-Jacobi Preconditioning 2023",
+          "Resultary sharp one hub scaling"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Congruence spectral conditioning is equivalent to a diagonal SDP sandwich, allowing symmetry averaging. General SDP statements supply the reduction, not the optimized closed form."
+        ],
+        "reasoning": "The claim concerns a concrete family-wise optimal ratio, not a new definition/renaming of SDP minimization.",
+        "searches": [
+          "Resultary two community equicorrelation compound symmetry diagonal scaling spectral condition number exact optimum",
+          "Qu et al Optimal Diagonal Preconditioning arxiv:2209.00809"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 3x3 case has fewer spectral modes; no verified existing all-m,n table for the four spectral groups."
+        ],
+        "reasoning": "No exact same parameter table found; failed search is not proof of novelty.",
+        "searches": [
+          "Resultary exact two community condition number eigenmode collision",
+          "Kolotilina 2006 quasireal Hermitian 3x3 optimal scaling"
+        ]
+      },
+      "rationale": "Existing general optimal diagonal preconditioning SDP characterizations and near-optimal algorithms do not display the specialized complete three-regime closed-form optimizer for two compound-symmetry communities. Resultary near neighbors treat one-hub, windmill, and different graph/community matrices. Kolotilina 2002 block-optimality and 2006 3x3 diagonal scaling pose real implied-prior risk, but only accessible descriptions were available; no demonstrated coverage of this m,n>=2 four-eigenmode exact clipped formula.",
+      "residual_risks": [
+        "Kolotilina 2002 full text and 2006 quasireal 3x3 scaling full text not inspected; possible older implicit specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General optimization framework but unresolved full-document implications",
+          "evidence": "General diagonal scaling objective and iterative optimization algorithms",
+          "identifier_or_url": "https://arxiv.org/abs/2209.00809",
+          "material_read": "Abstract/available search-level material; full manuscript not inspected",
+          "method": "arXiv landing and indexed overview",
+          "title": "Optimal Diagonal Preconditioning",
+          "trigger": "Most relevant modern general algorithm"
+        },
+        {
+          "assessment": "Plausible high-priority implicit criterion, not declared wholly noncovering",
+          "evidence": "L. Yu. Kolotilina, Linear Algebra Appl. 340 (2002), 55–67.",
+          "identifier_or_url": "https://doi.org/10.1016/S0024-3795(01)00412-8",
+          "material_read": "Publisher abstract/metadata only, full manuscript not available",
+          "method": "publisher search result",
+          "title": "Optimally conditioned block matrices",
+          "trigger": "Possible prior optimal block-constant diagonal scaling"
+        },
+        {
+          "assessment": "Different friendship-graph correlation matrix with hub-vs-petals, no proven equivalence",
+          "evidence": "Published summary describes a hub-scale phase transition not two arbitrary communities",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-mode-switch-law-for-optimal-diagonal-scaling-on-windmill--8c423dd752b2/RESULT.md",
+          "material_read": "Resultary title and summary only; entire mathematical paper not fetched",
+          "method": "Resultary semantic search",
+          "title": "A sharp mode-switch law for optimal diagonal scaling on windmill matrices",
+          "trigger": "Neighboring structured scaling formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit globally optimal diagonal scaling for structured SPD correlation matrices is useful as an exact benchmark for general algorithms and reveals transitions where within-block fluctuation and global quotient eigenmodes determine optimality. It is a motivated natural structured family, not an arbitrary numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2209.00809",
+    "https://doi.org/10.1016/S0024-3795(01)00412-8",
+    "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-mode-switch-law-for-optimal-diagonal-scaling-on-windmill--8c423dd752b2/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Kolotilina 2002 full text and 2006 quasireal 3x3 scaling full text not inspected; possible older implicit specialization.",
+    "Finite minimization tests do not certify every positive correlation; correctness relies on monotonicity and SDP proof."
+  ],
+  "residual_risks": [
+    "Kolotilina 2002 full text and 2006 quasireal 3x3 scaling full text not inspected; possible older implicit specialization.",
+    "Finite minimization tests do not certify every positive correlation; correctness relies on monotonicity and SDP proof."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "General optimization framework but unresolved full-document implications",
+      "evidence": "General diagonal scaling objective and iterative optimization algorithms",
+      "identifier_or_url": "https://arxiv.org/abs/2209.00809",
+      "material_read": "Abstract/available search-level material; full manuscript not inspected",
+      "method": "arXiv landing and indexed overview",
+      "title": "Optimal Diagonal Preconditioning",
+      "trigger": "Most relevant modern general algorithm"
+    },
+    {
+      "assessment": "Plausible high-priority implicit criterion, not declared wholly noncovering",
+      "evidence": "L. Yu. Kolotilina, Linear Algebra Appl. 340 (2002), 55–67.",
+      "identifier_or_url": "https://doi.org/10.1016/S0024-3795(01)00412-8",
+      "material_read": "Publisher abstract/metadata only, full manuscript not available",
+      "method": "publisher search result",
+      "title": "Optimally conditioned block matrices",
+      "trigger": "Possible prior optimal block-constant diagonal scaling"
+    },
+    {
+      "assessment": "Different friendship-graph correlation matrix with hub-vs-petals, no proven equivalence",
+      "evidence": "Published summary describes a hub-scale phase transition not two arbitrary communities",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-mode-switch-law-for-optimal-diagonal-scaling-on-windmill--8c423dd752b2/RESULT.md",
+      "material_read": "Resultary title and summary only; entire mathematical paper not fetched",
+      "method": "Resultary semantic search",
+      "title": "A sharp mode-switch law for optimal diagonal scaling on windmill matrices",
+      "trigger": "Neighboring structured scaling formula"
+    }
+  ]
+}

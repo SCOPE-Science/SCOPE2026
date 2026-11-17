@@ -1,19 +1,21 @@
-# Review: Exact four-mode diagonal preconditioning for two-community correlation matrices
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The Loewner-sandwich equivalence makes within-community symmetrization valid for **unrestricted positive diagonal** optimization, not only for the restricted ansatz. The invariant-subspace split produces two fluctuation eigenvalues and two quotient eigenvalues. Strict monotonicity of the three competing ratios and the two characteristic-polynomial collisions prove the clipped rule for all stated parameters. In the rational four-coordinate test, the resulting spectrum is exactly \(\{2/5,2/5,3/5,81/35\}\). The standalone script checks determinant identities and 3,000 parameter cases; only the written proof supplies the universal result.
+PASS
 
-## Originality
+For SPD A with m,n>=2,0<u,v<1,g>0 and Delta=mng^2<alpha beta, condition-number feasibility kappa(DAD)<=K is equivalent to the affine SDP W <= A <= K W with W positive diagonal. Averaging feasible W over within-community permutations proves unrestricted diagonal optimum is achieved by D=diag(sqrt(x)I_m,I_n). In-group contrast eigenvalues ax,b and 2x2 quotient eigenvalues lambda_±(x) give kappa(x)=max(lambda+/lambda-,lambda+/(ax),lambda+/b). The first decreases then increases at x0=beta/alpha; the latter two respectively decrease/increase, and cross at xc=b/a, so two constrained lower-mode collisions produce the stated clipped rational x*. Numerically independently optimized 80 random admissible cases over log x by bounded scalar minimization and matched the analytical formula. For m=n=2,u=3/10,v=3/5,g=1/2, exact x*=6/7 and eigenvalues 2/5,2/5,3/5,81/35 yield kappa=81/14. Local/numeric tests corroborate, not replace, the analytic SDP/spectral argument.
 
-PASS, with publication-precedence qualifications. General diagonal preconditioning is old: Jambulapati et al. (2020) and Qu et al. (2022) give general optimization machinery, and Kolotilina (2002) gives broader block-optimality characterizations. Kolotilina (2006) completely treats quasireal three-by-three matrices; the present family contains at least four genuine spectral modes because both communities have at least two coordinates, and the three-by-three classification does not itself state the clipped four-mode formula. No exact two-community all-parameter optimizer or the three competing transition mechanisms was found in the reviewed sources or published record searches. The older block-characterization literature and inaccessible material could offer a non-obvious implicit derivation; an independent precedence audit is still needed.
+## originality
 
-## Value
+PASS
 
-PASS. Two-community compound symmetry is a natural structured positive-definite matrix model. A direct, dimension-independent condition-number-optimal diagonal scaling rule is useful as a reproducible test case for optimization-based preconditioners. The least eigenvalue can switch among a quotient mode and two community-fluctuation modes, so analyzing the quotient alone gives the wrong answer. Even the four-coordinate example improves over uniform Jacobi normalization by an exact, verifiable amount. No downstream solver-speed theorem is asserted.
+Existing general optimal diagonal preconditioning SDP characterizations and near-optimal algorithms do not display the specialized complete three-regime closed-form optimizer for two compound-symmetry communities. Resultary near neighbors treat one-hub, windmill, and different graph/community matrices. Kolotilina 2002 block-optimality and 2006 3x3 diagonal scaling pose real implied-prior risk, but only accessible descriptions were available; no demonstrated coverage of this m,n>=2 four-eigenmode exact clipped formula.
 
-## Limitations
+## value
 
-The theorem is restricted to strictly positive correlations and strictly positive definite matrices. It proves existence of a block-constant optimum, plus uniqueness only of that relative block scale; it does not classify all unrestricted optima. Some historical primary sources were available only through abstracts; a full literature audit could change the originality assessment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit globally optimal diagonal scaling for structured SPD correlation matrices is useful as an exact benchmark for general algorithms and reveals transitions where within-block fluctuation and global quotient eigenmodes determine optimality. It is a motivated natural structured family, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
