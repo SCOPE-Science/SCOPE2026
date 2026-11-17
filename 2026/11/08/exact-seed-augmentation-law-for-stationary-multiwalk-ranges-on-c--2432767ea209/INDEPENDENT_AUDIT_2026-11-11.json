@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T08:11:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each labeled forbidden B of size b<n, a uniform-start walk avoids B with probability ((n-b)/n)*[1-(1-q)b/(n-1)]^t. Independent k-walk union avoidance is ((n-b)/n)^k α_b^T; single T-walk plus k-1 independent uniform seeds has exactly the same avoidance for every B including full B. Boolean-lattice Möbius inversion uniquely determines the entire labeled-subset law. Falling factorial moments, exact mean gap, and set-inclusion coupling follow. Checked n=2 boundary including nonlazy q=0 all covered once T>=1, and k=1 case. Independent exact rational dynamic programming confirmed all two-walk lifespan allocations with n=2,3,4, T=0..4 and q=0,1/3,1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2023 theorem controls E|range| on classes of reversible walks; Question 3.6 asks stochastic domination. 2026 biclique theorem controls one specific other graph family."
+        ],
+        "reasoning": "Neither supplies equality of all avoidance probabilities on labeled K_n nor exact q-lazy seed augmentation for all allocations; no stronger same-object theorem found.",
+        "searches": [
+          "stationary random walks complete graph union range distribution equals single walk plus extra uniform starting vertices allocation invariance",
+          "Dey Kim Terlov Collaboration of Random Walks 2023 Theorem 1.1 Question 3.6",
+          "GitHub 2026/11/08/pathwise-range-inclusion-for-independent-stationary-walks-on-com--dd50d89845c9/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2302.14241v1",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/pathwise-range-inclusion-for-independent-stationary-walks-on-com--dd50d89845c9/RESULT.md",
+        "https://arxiv.org/html/2604.20829v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dey et al. compare only mean range sizes; exact difference (n-1) a^T[1-(1-1/n)^(k-1)] and full inclusion stochastic order go strictly further on K_n."
+        ],
+        "reasoning": "Expected size is just first uncovered factorial moment and does not imply distributional equality; converse deduction is invalid. Present theorem has independent additional content.",
+        "searches": [
+          "arxiv:2302.14241v1 Theorem 1.1 Questions 3.2 3.6",
+          "stationary random walks complete graph union range distribution equals single walk plus extra uniform starting vertices allocation invariance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Avoidance-probability/Möbius-inversion formulation is equivalent to equality of random subsets and to an inclusion coupling with k-1 new seeds."
+        ],
+        "reasoning": "Dey et al. expectation-only comparisons cannot determine these full set laws. The complete bipartite construction gives inclusion but not this complete-graph distributional identity.",
+        "searches": [
+          "stationary random walks complete graph union range distribution equals single walk plus extra uniform starting vertices allocation invariance",
+          "arxiv:2302.14241v1",
+          "GitHub 2026/11/08/pathwise-range-inclusion-for-independent-stationary-walks-on-com--dd50d89845c9/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Single-walk network coupon distributions tabulate one trajectory; current theorem gives k-fold union as augmentation."
+        ],
+        "reasoning": "A single-walk table alone is insufficient to infer cross-walk allocation invariance and exact random-set coupling; the extra independent seeds are the substantive relation.",
+        "searches": [
+          "stationary random walks complete graph union range distribution equals single walk plus extra uniform starting vertices allocation invariance",
+          "arxiv:2604.20829 complete graph single walk distinct-range",
+          "Resultary finding 2026/11/8/SCOPE-pathwise-range-inclusion-for-independent-stationary-walks-on-com--dd50d89845c9"
+        ]
+      },
+      "rationale": "Dey–Kim–Terlov 2023 prove an expectation inequality and explicitly pose quantitative gap and full stochastic-order questions. The present complete-graph theorem is an exact equality of labeled-set laws via extra uniform seeds, with allocation invariance, full distribution, arbitrary lazy holding and parity endpoints; this stronger identity is absent from the inspected source. Related 2026 complete-bipartite pathwise inclusion treats different two-part alternating geometry and does not yield a K_n exact augmentation formula. A single-walk coupon range formula does not determine the multiwalk set law.",
+      "residual_risks": [
+        "Classical occupancy identities could encode equivalent complete-graph coupon arguments under different terminology; no exhaustive priority guarantee.",
+        "Failure on general graphs and nonstationary or heterogeneous walks is not ruled out by this positive K_n result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS mean inequality only; explicitly leaves set-size stochastic domination open as a question",
+          "evidence": "Theorem1.1 expectation inequality; Question3.6 seeks tail comparison for all thresholds.",
+          "identifier_or_url": "https://arxiv.org/html/2302.14241v1",
+          "material_read": "Full accessible primary HTML, Theorem 1.1, its proof via hitting probabilities, Question 3.2 and Question 3.6 in Section 3",
+          "method": "Primary full HTML read and quantified statements compared",
+          "title": "Collaboration of Random Walks on Graphs",
+          "trigger": "Same stationary independent walks and collaboration inequality"
+        },
+        {
+          "assessment": "COVERS one walk count distribution, not multiwalk equal-in-law augmentation or allocation invariance",
+          "evidence": "Equation (4) P_n(S) based on Stirling numbers and coupon representation; no k-walk union law.",
+          "identifier_or_url": "https://arxiv.org/html/2604.20829v2",
+          "material_read": "Entire accessible primary article, particularly Section 2 exact single-walk range law Eq (4), and discussion of CTRW",
+          "method": "Read primary arxiv HTML Sections 1 and 2 plus main-result outline",
+          "title": "Network exploration by random walks: A large deviation perspective",
+          "trigger": "Single-walk K_n count potentially yielding multiwalk formula"
+        },
+        {
+          "assessment": "Distinct complete bipartite nonlazy side-alternation model, does not give exact K_n lazy augmentation",
+          "evidence": "K_ab stationary starts uniform within sides, ranges coupled by two coupon pools; no distributional equality plus uniform seed identity.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/pathwise-range-inclusion-for-independent-stationary-walks-on-com--dd50d89845c9/RESULT.md",
+          "material_read": "Full frozen primary RESULT.md on coupon coupling of alternating K_(a,b) walks and range inclusion",
+          "method": "GitHub primary full text read at snapshot; theorem compared to K_n",
+          "title": "Pathwise range inclusion for independent stationary walks on complete bipartite graphs",
+          "trigger": "Plausibly broader random-set inclusion in closely related complete graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result answers, for a natural dense graph family, the published stochastic-domination problem with a stronger distributional construction. It gives every finite-size range threshold and an exact collaboration advantage without needing a large-n approximation; the three-vertex path counterexample shows the graph hypothesis has genuine content.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classical occupancy identities could encode equivalent complete-graph coupon arguments under different terminology; no exhaustive priority guarantee.",
+    "Failure on general graphs and nonstationary or heterogeneous walks is not ruled out by this positive K_n result."
+  ],
+  "schema_version": 1
+}

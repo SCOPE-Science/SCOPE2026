@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-## Exact finite-state replay
+## correctness
 
-Run `python check.py` using a standard Python 3 installation. The verifier performs 5,560 exact comparisons using `fractions.Fraction`. For every \(n\in\{2,3,4,5\}\), \(q\in\{0,1/3,1/2,1\}\), \(k\in\{1,2,3\}\), and \(T\in\{0,1,2,3,4\}\), it independently computes uniform-root random-walk range distributions by finite-state transitions on (visited mask, current vertex), convolves the laws for every weak composition of \(T\) into \(k\) lifespans, and compares them with both the one-walk-plus-seeds distribution and the exact subset probability formula. It additionally compares every uncovered factorial moment. The observed output was `PASS 5560 exact rational comparisons`.
+PASS
 
-## Analytic justification
+For each labeled forbidden B of size b<n, a uniform-start walk avoids B with probability ((n-b)/n)*[1-(1-q)b/(n-1)]^t. Independent k-walk union avoidance is ((n-b)/n)^k α_b^T; single T-walk plus k-1 independent uniform seeds has exactly the same avoidance for every B including full B. Boolean-lattice Möbius inversion uniquely determines the entire labeled-subset law. Falling factorial moments, exact mean gap, and set-inclusion coupling follow. Checked n=2 boundary including nonlazy q=0 all covered once T>=1, and k=1 case. Independent exact rational dynamic programming confirmed all two-walk lifespan allocations with n=2,3,4, T=0..4 and q=0,1/3,1.
 
-The uniform-state avoidance factor \(\alpha_b=1-(1-q)b/(n-1)\) is a one-step conditional probability whenever the walker remains outside a forbidden set of size \(b<n\). Multiplying this factor along \(T\) steps proves all forbidden-set survival probabilities exactly. Inclusion-exclusion identifies the full distribution and is valid on the entire finite Boolean lattice, while an explicit augmented-range construction supplies stochastic coupling. The proof is not limited to the checked finite cases.
+## originality
 
-## Scope boundaries
+PASS
 
-The exact state identity requires uniform independent starts, common \(q\), and the complete graph with the stated self-loop convention. The example on the three-vertex path shows that complete-graph allocation invariance does not extend automatically to arbitrary graphs. No claim is made about process-level coupling, arbitrary graphs, or independent external validation.
+Dey–Kim–Terlov 2023 prove an expectation inequality and explicitly pose quantitative gap and full stochastic-order questions. The present complete-graph theorem is an exact equality of labeled-set laws via extra uniform seeds, with allocation invariance, full distribution, arbitrary lazy holding and parity endpoints; this stronger identity is absent from the inspected source. Related 2026 complete-bipartite pathwise inclusion treats different two-part alternating geometry and does not yield a K_n exact augmentation formula. A single-walk coupon range formula does not determine the multiwalk set law.
+
+## value
+
+PASS
+
+The result answers, for a natural dense graph family, the published stochastic-domination problem with a stronger distributional construction. It gives every finite-size range threshold and an exact collaboration advantage without needing a large-n approximation; the three-vertex path counterexample shows the graph hypothesis has genuine content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
