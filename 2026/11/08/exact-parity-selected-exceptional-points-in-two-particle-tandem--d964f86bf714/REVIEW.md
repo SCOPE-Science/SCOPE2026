@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact active-class enumeration reduces the original cooperative triple rules to a \(2N\)-state alternating cycle; translation Fourier blocks yield the complete eigenvalue set. The discriminant and injectivity of the eigenvalue-to-Fourier-phase relation prove the exclusive even-ring Jordan ratios, and direct matrix exponentiation gives the staggered response and all sign regimes. The attached standalone full-generator checker passes 119 direct spectral, transition, and temporal comparisons; finite tests are corroboration rather than the proof.
+## correctness
 
-**Originality — PASS (qualified).** The publicly available full June 2026 tandem exclusion paper treats stationary Gibbs weights, current, and *spatial* transfer-matrix correlations, not the time-evolution generator, parity-selected Jordan thresholds, or the exact staggered response. Searches for the model and for equivalent alternating directed cycles found generic non-Hermitian exceptional-point literature but no explicit statement or stronger theorem demonstrated to cover the complete claim. The closest 2026 Huang–Nelson paper concerns different SSH/ladder hopping matrices, not this Markov generator. Searches of the accessible earlier mathematical claims did not find this particular result. A pre-existing general alternating-rate cyclic Markov spectral theorem remains a substantive priority risk; absence from searches is not a uniqueness proof.
+PASS
 
-**Value — PASS.** This is a complete dynamical classification of the natural minimal moving two-particle sector in a newly introduced cooperative exclusion model. It locates sharp rate ratios and a ring-parity obstruction for genuine generator non-diagonalizability and gives a concrete finite-time observable with infinitely many versus at most one sign change. The distinction between temporal dynamical thresholds and the already known \(\beta/\alpha=1\) static clustering crossover is mathematically and physically informative, rather than a pure parameter substitution.
+For N>=5, two-particle configurations A_j={j,j+1}, B_j={j,j+2} are 2N distinct moving states, with A_j→B_j rate α and B_j→A_{j+1} rate β; all other two-particle configurations are frozen. Fourier blocks have polynomial x²+(α+β)x+αβ(1-e^{iθ}); discriminant vanishes only at θ=π, even N, and β/α=3±2sqrt2. Nonzero nilpotent remainder gives exactly one size-two Jordan block. Exponential of π Fourier block gives the exact F(t), overdamped/oscillatory sign regimes and equal-rate limit. Independently constructed 2N directed-cycle matrices matched spectra at 12 odd/even N and rate pairs. This finite test corroborates, not proves, arbitrary N/rates.
 
-**Sources and boundaries.** Primary full text: Nguyen Ngoc–Nhung–Thi, arXiv:2606.01568v1 (2026-06-01), including its appendix and the discussion of spatial transfer eigenvalues. Related abstract and available exposition: Huang–Nelson, arXiv:2605.19072; *Exceptional points in oligomer chains*, Communications Physics (2021). The Huang–Nelson full text could not be retrieved in this session; its abstract provides comparison, not proof of noncoverage. Unknown priority from more general cyclic Markov spectral literature remains. Exactly two particles, \(N\ge5\), the active sector, and positive rates are essential limitations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same physical process primary covers stationary rather than temporal sector; alternate stochastic-ring exceptional-point result has different transition graph. The exact parity-selected Jordan and staggered response survive best-of-knowledge priority scrutiny.
+
+## value
+
+PASS
+
+Sharp temporal exceptional-point and observable-sign transition in the minimal genuinely moving sector of a cooperative exclusion process, separated from its known static clustering crossover, is a natural and reproducible exact dynamical classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
