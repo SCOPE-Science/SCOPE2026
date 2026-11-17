@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The exact identity follows from a reference model with independent arrival and loss clocks and a ratio of first-arrival probabilities after replacing the empty-state extinction hazard. The first-step recursion of the actual subset-state Markov chain provides a mathematically distinct calculation and was compared using exact `fractions.Fraction` arithmetic in 270 heterogeneous cases for two through seven required partners. All comparisons passed.
+## correctness
 
-The standalone `checker.py` also evaluated 200 numerical budget-optimization problems for two through nine partners, checking total allocation, common marginal logarithmic gain, risk ordering, dominance of random feasible allocations, and consistency with equal allocation. The small- and large-budget share limits were checked at extreme numerical budgets. The checker executed successfully with Python's standard library only.
+PASS
 
-The general identity and global uniqueness are proven analytically; finite cases alone would not establish them. The first-order asymptotic statement assumes fixed positive hazards and a fixed number of partners. Neither the validation script nor this review is an independent external audit, and no empirical parameter fit has been performed.
+For reference empty-state hazard D=sum delta_i, couple independent arrivals T_i~Exp(lambda_i) and hazard clocks K_i~Exp(delta_i). The success event is exactly intersection of T_i<K_i for every partner, giving product lambda_i/(lambda_i+delta_i). Changing only the initial empty-state hazard to d0 multiplies success by (B+D)/(B+d0), because fixed budget B fixes total first-arrival rate. For all positive hazards/B, log success has strictly negative second derivative f_i''=-delta_i(2lambda_i+delta_i)/(lambda_i^2(lambda_i+delta_i)^2), so one strictly positive global optimum solves unique KKT multiplier and the displayed quadratic roots. Low/high budget expansions and gain coefficient follow by Taylor; delta_i ordering follows strict monotonicity in hazard at fixed multiplier. Independently compared exact subset CTMC recursion with factorization in 120 heterogeneous rational cases, n=2..5. No finite test substitutes for independent exponential coupling and concavity.
+
+## originality
+
+PASS
+
+The ecological mutualism source Amarasekare (2004) treats spatial two-species metacommunity density and rescue thresholds; its full accessible model and appendices do not have this n-independent arrival-clock product or budgeted allocation. Classical series reliability product law and generic log-concave resource allocation are acknowledged; they motivate, but no inspected primary source specifies the same initial-hazard correction, hazard-ordering and sharp small/large-budget split for this distinct finite establishment model. Originality is best-of-knowledge with particularly substantial generic reliability-theory risk.
+
+## value
+
+PASS
+
+The exact, parameter-uniform solution of a motivated initial establishment problem with arbitrary n independent obligatory partners provides a self-contained baseline for multi-mutualist colonization. The initial-extinction correction, unique interior policy and equal-to-square-root crossover supply a useful benchmark and meaningful allocation boundary, though the clock independence is restrictive and all calculus steps become straightforward after factorization. It is not an empirical policy or a general metacommunity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
