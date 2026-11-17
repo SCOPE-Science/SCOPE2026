@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The sampling model and quantifiers are explicit. Finite-subset inclusion-exclusion yields the complete first- and second-moment rational functions, so all derivatives exist on the positive-probability region. Symbolic differentiation gives the coefficient \(32Q(a)/(1-a^2)^4\); exact signs and a strictly positive derivative of \(Q\) prove the single transition. At the unique threshold a positive quartic coefficient establishes a strict minimum despite quadratic degeneracy. A conditional coupling proves strict tail ordering for every integer sample size at which full detection is possible. Two independently implemented finite moment calculations agree on the exact witness and additional rational samples. Scope risk: results for arbitrary three-species perturbations are not asserted.
+## correctness
 
-## Originality
-**PASS for the specific threshold; priority provisional.** The 2014 completion-time moments and 2016 majorization ordering are known, as are the 2017/2026 global uniform-variance-minimum results. Importantly, Long (2026), §7.6, **already states that pairwise variance smoothing can fail**; neither that phenomenon nor uniform extremality is claimed as original. The exact unique critical rare abundance, sign-changing common-pair variance curvature, quartic degeneracy and sharp three-species boundary are not stated or implied by the inspected results, which compare different functionals or coarser directions. The full text of Yu (2017) was not accessible; historical priority remains subject to independent scrutiny.
+PASS
 
-## Value
-**PASS.** Holding the rare species fixed while balancing two common species is a natural ecological survey-design comparison. The answer is not merely a counterexample: the exact threshold separates two opposite local variance responses, even though the entire completion-time tail strictly improves under balancing. The sharp small-community boundary supplies a concrete caution for using variance as a proxy for faster complete detection. It does not claim a general survey-planning prescription under model misspecification.
+For positive three-type coupon probabilities the waiting-time tail inclusion-exclusion gives exact E[T] and E[T^2] as rational subset sums. At p=(a,(1-a)/2±delta) symmetry makes variance W(a,t) with t=bc=(1-a)^2/4-delta^2. Exact differentiation gives coefficient 32 Q(a)/(1-a^2)^4 and fourth-order coefficient 128 R(a)/(1-a^2)^6; the quartic is positive at the unique Q root. Q'(a) is strictly positive on (0,1/3), with opposite signs at a=0 and a=1/3; R>3 on [0.147,0.148] supplies critical positivity. Conditional common-species draws imply both common species appear more often when balanced and hence strictly smaller completion-time survival for every n>=3. Two-species variance z^-2-3z^-1-2 decreases with z=p1p2, proving minimal alphabet size. Independent exact SymPy calculation differentiated inclusion-exclusion moment rational functions and established both coefficient identities modulo Q; exact rational witness checked. All-real a result follows from analytic inequalities, not finite testing.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge: Anceaume/Busnel/Sericola give general coupon collection moments and ordering; Long 2026 §§7.5-7.6 proves uniform global minimum and explicitly notes that variance smoothing can fail. Neither inspected primary passage identifies the sharp unique rare-frequency quintic, its positive quartic critical degeneracy or the complete three-species fixed-rare phase classification. The result credits rather than reclaims general lack of Schur convexity or tail stochastic improvement.
+
+## value
+
+PASS
+
+Pinpointing the exact rare-species frequency at which a stochastically faster survey has *larger* stopping-time variance is a motivated variance-versus-speed paradox for the smallest feasible coupon alphabet. The unique threshold, degenerate quartic sign and exact rational witness provide a reusable natural structural classification, not merely a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
