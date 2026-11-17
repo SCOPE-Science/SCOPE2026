@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T16:53:04.796130Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md",
+        "pinned verify.py",
+        "https://doi.org/10.37236/1761"
+      ],
+      "rationale": "For the host 0101... of length m+t, greedily embed each binary output v of length m. The final minimum index is m-1+c(v), where c(v)=v_1+sum of equality indicators between adjacent bits. Thus v is a distinct length-m deletion descendant iff c(v)≤t. The map v↔(first bit,equality flags) is invertible over F2 and yields the known unweighted Hamming-ball count. Weight u per one and z per unit cost gives the exact two-state transfer polynomial P_m=(1,uz) [[z,u],[1,uz]]^(m-1)(1,1)^T, with recurrence P_m=z(1+u)P_(m-1)+u(1-z²)P_(m-2), and summing costs ≤t gives the claimed rational generating function (1+s-sh)/((1-h)(1-sh(1+u)-s²u(1-h²))). Run-composition minimization proves the exact weight support t≥max(0,m-2k-1,2k-m) and saturation threshold t=m-1 except for the all-ones word, which needs t=m. Complement pairing changes c by one, and counting odd r=m-t runs proves the explicit signed imbalance (m-2k)/a *binom(m-k-1,a-1)*binom(k-1,a-1), with correct one-run, even-run and end cases. Independently compared direct output sets for 546 (n,m,k) cells, including all corresponding parity cases. These are finite corroborations of an unrestricted bijective proof.",
+      "residual_risks": [
+        "Statement assumes a host starting with zero; for initial one, complement reverses the weight distribution."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary complementary-block laws count a constrained deletion of an alternating subsequence and paired residuals, not all distinct length-m descendants classified by output weight.",
+          "Deletion-code common-subsequence results concern pairwise hosts and code bounds."
+        ],
+        "reasoning": "These are different output families and do not imply the complete all-m,t,k trivariate enumerator or signed complement asymmetry.",
+        "searches": [
+          "alternating binary word deletion distinct subsequences fixed weight composition generating function parity asymmetry",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-binomial-tail-law-for-complements-of-alternating-words--d7ef6cdd9c92/RESULT.md",
+          "https://arxiv.org/abs/2209.11882"
+        ]
+      },
+      "checked_sources": [
+        "alternating binary word deletion distinct subsequences fixed weight composition generating function parity asymmetry",
+        "https://www.researchgate.net/publication/220343121_Strings_with_Maximally_Many_Distinct_Subsequences_and_Substrings",
+        "https://doi.org/10.37236/1761",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-binomial-tail-law-for-complements-of-alternating-words--d7ef6cdd9c92/RESULT.md",
+        "https://arxiv.org/abs/2209.11882"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior known greedy embedding condition and affine Hamming ball imply the total count but not the u-refined transfer matrix coefficients."
+        ],
+        "reasoning": "The signed parity formula needs the number of 0-starting alternating run compositions and distinguishes odd from even m-t; no inspected earlier theorem states or immediately implies these coefficients.",
+        "searches": [
+          "alternating binary word deletion distinct subsequences fixed weight composition generating function parity asymmetry",
+          "https://doi.org/10.37236/1761",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-binomial-tail-law-for-complements-of-alternating-words--d7ef6cdd9c92/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier unweighted maximal-subsequence formula counts all received v of length m, equal to sum_{j≤t}binom(m,j); the candidate keeps u marking ones."
+        ],
+        "reasoning": "Setting u=1 recovers a known formula, but an unweighted generating function does not determine the distribution among Hamming weights; the parity skew requires a separate run computation.",
+        "searches": [
+          "alternating binary word deletion distinct subsequences fixed weight composition generating function parity asymmetry",
+          "https://doi.org/10.37236/1761",
+          "https://www.researchgate.net/publication/220343121_Strings_with_Maximally_Many_Distinct_Subsequences_and_Substrings"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Flaxman et al. Theorems 2 and 5 describe maximal total number/length distribution of distinct subsequences for alternating hosts; they do not present one-count-by-ones tables or signed k↔m-k differences."
+        ],
+        "reasoning": "A total-count table is obtained by summing fixed-weight cells and cannot be inverted to retrieve their composition spectrum. No equivalent published complete weight table was found.",
+        "searches": [
+          "alternating binary word deletion distinct subsequences fixed weight composition generating function parity asymmetry",
+          "https://www.researchgate.net/publication/220343121_Strings_with_Maximally_Many_Distinct_Subsequences_and_Substrings"
+        ]
+      },
+      "rationale": "Earlier Flaxman–Harrow–Sorkin proves maximal unweighted distinct-subsequence enumeration for alternating words and provides a length-unweighted rational enumeration, which is explicitly excluded from novelty. The submitted composition-refined trivariate generating function, exact k-weight support and signed complementary weight bias are not implied by summing over k. Related alternate-host deletion residue/complement results constrain outputs to a prescribed alternating subsequence and different block words. No full-text published result inspected here supplies the identical fixed-composition distribution or parity law; originality remains qualified.",
+      "residual_risks": [
+        "A differently phrased fixed-weight refinement may exist in coding/string combinatorics or unindexed enumerative tables.",
+        "The known greedy embedding/Hamming-ball bijection is standard and receives no originality credit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_NOT_COVERING_WEIGHT",
+          "evidence": "It supplies unweighted distinct-subsequence maximality and length counts but not composition-refined enumerator or parity bias; the unweighted part receives no credit.",
+          "identifier_or_url": "https://www.researchgate.net/publication/220343121_Strings_with_Maximally_Many_Distinct_Subsequences_and_Substrings",
+          "material_read": "Full available original manuscript text, specifically Theorems 2 and 5 and proof of unweighted maximal subsequence counts",
+          "method": "Read the accessible complete primary manuscript, examined statements and formula variables",
+          "title": "Strings with Maximally Many Distinct Subsequences and Substrings",
+          "trigger": "Same alternating host and distinct output objective"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT",
+          "evidence": "Deletion requires a specific alternating subsequence removal and counts paired residuals; the output is not all m-bit descendants by Hamming weight.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-binomial-tail-law-for-complements-of-alternating-words--d7ef6cdd9c92/RESULT.md",
+          "material_read": "Published abstract/summary describing deletion of specified alternating (ab)^k and block-word residual count",
+          "method": "Compared complete stated objects and parameter constraints, without claiming full-document exclusion",
+          "title": "Binomial-tail law for complements of alternating words",
+          "trigger": "Related alternating host deletion-spectrum result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://doi.org/10.37236/1761",
+        "alternating binary word deletion distinct subsequences fixed weight composition generating function parity asymmetry"
+      ],
+      "rationale": "For a canonical extremal source in deletion/subsequence combinatorics, the exact distribution of distinct outputs by composition is a natural strengthening of the known total count. A sharp first-appearance threshold for each weight and explicit parity-sensitive imbalance can matter to constant-composition deletion channels and combinatorial enumeration. The result is a self-contained all-parameter structural enumeration rather than a trivial table or a restatement of the total formula.",
+      "residual_risks": [
+        "No claim of extremality at fixed output weight among arbitrary source words."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All m≥1,t≥0,0≤k≤m for host beginning with 0; empty-word m=0 extension formal only, and no host optimization theorem."
+  ],
+  "schema_version": 1
+}

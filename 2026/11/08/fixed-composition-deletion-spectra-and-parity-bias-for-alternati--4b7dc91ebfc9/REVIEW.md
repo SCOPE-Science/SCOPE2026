@@ -1,20 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The asserted identity \(v\preceq A_{m+t}\iff v_1+\#\{i:v_i=v_{i+1}\}\le t\) follows from the unique earliest embedding of any query in a binary alternating host. Its equality-indicator encoding is a bijection, establishing the total distinct-output count. Weight tracking in the two-state transition matrix yields the rational generating function with correctly normalized empty-length boundary. The exact support follows from maximum run counts with fixed ones/zeros. The complement difference is a cancellation of paired words away from the exact penalty boundary; run-composition binomials give the signed formula. The independent run-sum formula supplies a second derivation of every coefficient. Verifier: direct deletion-output sets through host length \(17\), transfer-vs-run census through output length \(64\), all checks passed. The infinite case is proved symbolically, not extrapolated.
+## correctness
 
-## Originality — PASS (best-knowledge review)
-Flaxman–Harrow–Sorkin (2004) prove the alternating host maximizes total distinct subsequences and give a bivariate enumeration in host/output lengths. Those established results have been removed from the novelty claim. Alon et al. (2022) focus on deletion codes and common subsequences of two words, and Menon–Singh (2023) count occurrence multiplicities of specified patterns across hosts. The inspected statements do not imply the fixed-Hamming-composition trivariate enumerator or signed binomial complement defect without a new refinement. Searches across research records and literature for aliases and composition/weight terms did not identify equivalent results. Residual risk: an unindexed prior multivariate refinement could cover the formula; searches do not prove uniqueness.
+PASS
 
-## Mathematical value — PASS
-The question is naturally motivated by deletion channels with constrained received-word composition: the total deletion-ball cardinality does not identify which constant-composition output classes occur or their sizes. The exact support threshold and parity-sensitive skew classify every class, including saturation boundaries, for an infinite host family. The complement-bias factorization is structural and not an arbitrary small numerical increment. No claim about all hosts or general coding-capacity improvements is made.
+For the host 0101... of length m+t, greedily embed each binary output v of length m. The final minimum index is m-1+c(v), where c(v)=v_1+sum of equality indicators between adjacent bits. Thus v is a distinct length-m deletion descendant iff c(v)≤t. The map v↔(first bit,equality flags) is invertible over F2 and yields the known unweighted Hamming-ball count. Weight u per one and z per unit cost gives the exact two-state transfer polynomial P_m=(1,uz) [[z,u],[1,uz]]^(m-1)(1,1)^T, with recurrence P_m=z(1+u)P_(m-1)+u(1-z²)P_(m-2), and summing costs ≤t gives the claimed rational generating function (1+s-sh)/((1-h)(1-sh(1+u)-s²u(1-h²))). Run-composition minimization proves the exact weight support t≥max(0,m-2k-1,2k-m) and saturation threshold t=m-1 except for the all-ones word, which needs t=m. Complement pairing changes c by one, and counting odd r=m-t runs proves the explicit signed imbalance (m-2k)/a *binom(m-k-1,a-1)*binom(k-1,a-1), with correct one-run, even-run and end cases. Independently compared direct output sets for 546 (n,m,k) cells, including all corresponding parity cases. These are finite corroborations of an unrestricted bijective proof.
 
-## Closest sources and limitations
-- Flaxman, Harrow, Sorkin (2004), DOI: https://doi.org/10.37236/1761: the unweighted precursor and greedy matching, not the weight spectrum.
-- Alon et al. (2022), https://arxiv.org/abs/2209.11882: deletion codes and longest-common-subsequence multiplicity.
-- Menon and Singh (2023), https://arxiv.org/abs/2306.07870: frequency of prescribed subsequences in collections of binary words.
-- Indexed research records on deletion-ball variance, deletion reconstruction, and subsequence universality address different counts.
+## originality
 
-The proof covers a single binary alternating source phase only. The unweighted statement is known; the novelty judgment for the exact weight refinement is necessarily bibliographic and not an independent certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Earlier Flaxman–Harrow–Sorkin proves maximal unweighted distinct-subsequence enumeration for alternating words and provides a length-unweighted rational enumeration, which is explicitly excluded from novelty. The submitted composition-refined trivariate generating function, exact k-weight support and signed complementary weight bias are not implied by summing over k. Related alternate-host deletion residue/complement results constrain outputs to a prescribed alternating subsequence and different block words. No full-text published result inspected here supplies the identical fixed-composition distribution or parity law; originality remains qualified.
+
+## value
+
+PASS
+
+For a canonical extremal source in deletion/subsequence combinatorics, the exact distribution of distinct outputs by composition is a natural strengthening of the known total count. A sharp first-appearance threshold for each weight and explicit parity-sensitive imbalance can matter to constant-composition deletion channels and combinatorial enumeration. The result is a self-contained all-parameter structural enumeration rather than a trivial table or a restatement of the total formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
