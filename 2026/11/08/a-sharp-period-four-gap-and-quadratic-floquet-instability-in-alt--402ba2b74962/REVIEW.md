@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-step return equations force equal population coordinates and yield precisely the boundary family and one interior orbit. Exact two-step Jacobians give the multipliers and the \(a^{-2}\) local e-fold law; periodic recovery of the feedback variable rules out odd nonconstant population periods. The concrete period-four witness is supported by an exact-rational Brouwer/Banach box contraction and strict disjointness/physical bounds, reproduced from the standalone verifier; only the analytic arguments establish the universal quantifiers.
+## correctness
 
-**Originality — PASS within inspected evidence.** The motivating primary full text, including its periodic-window analysis and Appendix 5.2, studies approximate quasi-cycles and drifting feedback. It does not imply the claimed strict-period classification, exact Floquet multipliers, or the certified four-cycle. Searches of the research index for alternating-feedback logistics, period-two spectra, and period-four dynamics returned findings on different maps and mechanisms; the comparable published static alternating-sign logistic family has no self-evolving feedback coordinate. A generic Floquet framework cannot supply the object-specific orbit census or interval witness without additional analysis. Prior full-state analyses not surfaced by these searches remain a residual historical-priority risk.
+PASS
 
-**Mathematical value — PASS.** The mathematically natural distinction between a transient quasi-periodic window and an exact periodic feedback orbit makes a full-state period classification useful for understanding the underlying model. The result shows a *sharp* first possible population period, constructs an actual interior orbit at that period, and gives the exact weak-coupling local instability rate of the unique shorter interior orbit, without conflating this rate with global lifetime.
+The augmented parity map F(x,y,s)=((r+y)x(1-x),y+sa(x-1/2),-s) gives y_2-y_0=a(x_0-x_1); hence the full period-two census follows for interior x and invariant x=0. Odd population periods are impossible for nonconstant interior x because y_n is uniquely reconstructed from consecutive x_n, contradicting parity-signed increments. The Floquet matrix J_-J_+ has trace 1 and determinant -a^2/16; lambda_+>1, lambda_- crosses -1 at a=4sqrt(2), and two-update linear e-fold time is 32/a^2+O(1). Independently reconstructed exact rational interval enclosure about c=(0.584659370623430440690721939042858948322863116678,-1.41236581213595531877756480186345406366138289085) with radius 1e-8 at r=3,a=6. The Newton map Jacobian infinity row bounds are 8.5062651e-6 and 1.8927216e-5; image remains inside box, all four x intervals are disjoint in (0,1), and all effective logistic parameters lie in (0,4). Banach contraction certifies exact period-four existence, not just a numerical orbit.
 
-**Scope of conclusions.** The four-cycle is proved for one non-small coupling, not for all couplings; weak-coupling escape statistics and global attractors remain open. Historical priority cannot be declared exhaustive from literature searches. The exact-arithmetic checker is not an external scientific audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chai and Kantz introduce the exact alternating-feedback mechanism but report stochastic quasi-cycles, transient persistence, and cancellation effects; the abstract/full original could not be retrieved and no directly covering period-two Floquet/exact interval period-four theorem was identified. The local a^-2 instability clock is not a global transient lifetime theorem. Best-knowledge O PASS with full-text priority risk.
+
+## value
+
+PASS
+
+Exact parity-aware period gap, all period-two classifications, explicit Floquet rate, and an exact period-four witness distinguish genuine cycles from trapping quasi-cycles in a natural feedback logistic model; nonroutine and reproducible.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
