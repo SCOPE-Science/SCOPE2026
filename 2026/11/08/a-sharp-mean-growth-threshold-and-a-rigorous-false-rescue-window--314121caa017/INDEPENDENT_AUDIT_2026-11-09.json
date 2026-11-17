@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T21:19:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact 4x4 conditional-moment Metzler generator commutes with swapping environment and population coordinates, so its Perron eigenvector lies in the paired-symmetric plane and gives Lambda_M=-a-kappa+sqrt((b+kappa)(c+kappa)). The determinant factorization (b+k)(c+k)-(a+k)^2=(b+c-2a)(k-k*) establishes the unique positive k*. For the sample paths, dual Perron vectors h_e=(sqrt(c+k),sqrt(b+k)) and transpose yield a multiplicative martingale whose log is M_t-k int(Z-1-log Z); bounded jump logarithms give M_t/t->0. Riccati ratio dynamics have a compact attracting invariant range and long exponential sojourns force a positive entropy frequency uniformly near k*, hence pathwise negative growth for a right-neighborhood despite positive first moments. The rational witness has k*=7/5, determinant 3/5000, Lambda_M<1/12000, entropy loss >=147/250000, so pathwise exponent upper < -1/2000. Independently checked these Fraction identities and the conservative inequality; these finite exact checks do not themselves establish the almost-sure strong laws, supplied by martingale/renewal arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Markov regenerative system literature gives general expected-growth stability criteria and tools; Tuljapurkar et al identify multiple growth-rate notions."
+        ],
+        "reasoning": "General mean stability does not provide the model-specific critical k* and entropy-certified false-rescue interval, and the prior discrete-time population comparison is not the same continuous-time two-environment recruitment model.",
+        "searches": [
+          "two state Markov switching nonnegative linear system mean growth positive almost sure extinction Lyapunov exponent",
+          "transposed off diagonal 2x2 Metzler switched environment two rate mean growth lyapunov 11/5 4 1 extinction",
+          "Ogura–Preciado arXiv:1501.03474"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1501.03474",
+        "https://doi.org/10.1086/378648",
+        "https://doi.org/10.1137/15M1024512",
+        "2026-11-09 Resultary query: two state Markov switching nonnegative linear system mean growth positive almost sure extinction Lyapunov exponent",
+        "2026-11-09 Resultary query: transposed off diagonal 2x2 Metzler switched environment two rate mean growth lyapunov 11/5 4 1 extinction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior general theory predicts possible separation of mean and pathwise growth; it does not supply a uniform positive entropy correction at the mean-zero boundary for these specific A1,A2."
+        ],
+        "reasoning": "This model-level threshold and explicit strict rational rate require Riccati and renewal estimates beyond the documented general criteria, so the assigned claim is not a mere restatement of the qualitative distinction.",
+        "searches": [
+          "Ogura–Preciado positive switched linear system stability criteria",
+          "Tuljapurkar et al multiple growth rates",
+          "two state Markov switching nonnegative linear system mean growth positive almost sure extinction Lyapunov exponent"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 4x4 mean generator is a special Metzler Markov jump linear system; its growth is first-moment stability, whereas sample exponent is the top Lyapunov exponent of a random matrix product."
+        ],
+        "reasoning": "Terminology of persistence, positive systems and random switching is compared; these are distinct mean-versus-typical observables, not a novel general separation principle.",
+        "searches": [
+          "two state Markov switching nonnegative linear system mean growth positive almost sure extinction Lyapunov exponent",
+          "transposed off diagonal 2x2 Metzler switched environment two rate mean growth lyapunov 11/5 4 1 extinction",
+          "Ogura–Preciado arXiv:1501.03474",
+          "Tuljapurkar–Horvitz–Pascarella DOI 10.1086/378648"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching 4x4 transposed-recruitment parameter table or rational witness (11/5,4,1,1401/1000) appears in the inspected relevant sources and semantic matches."
+        ],
+        "reasoning": "An absent indexed tabulation is not itself novelty proof, but no cited exact-formula table covers the chosen rates or universal k*.",
+        "searches": [
+          "transposed off diagonal 2x2 Metzler switched environment two rate mean growth lyapunov 11/5 4 1 extinction",
+          "arXiv:1501.03474",
+          "DOI:10.1086/378648"
+        ]
+      },
+      "rationale": "General differences between stochastic pathwise growth and ensemble mean growth are known (Tuljapurkar–Horvitz–Pascarella 2003) and Markov switching stability criteria are known (Ogura–Preciado 2015). The surviving original contribution is this particular symmetric transposed-recruitment continuous-time model with closed-form unique mean switch threshold, a provably nonempty positive-mean/negative-pathwise right interval, and an explicit rational almost-sure decay rate despite mean growth. A broad existing top-Lyapunov theorem could imply qualitative sign separation, but no inspected source states these sharp coordinates or quantitative witness.",
+      "residual_risks": [
+        "No exhaustive full-text survey of old positive Markov jump system Lyapunov classifications; older equivalent 2x2 transposed model may exist.",
+        "The rational pathwise bound is intentionally conservative, not an exact Lyapunov exponent; linear density extinction is not discrete finite-time extinction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_STABILITY_KNOWN_NOT_THIS_EXPLICIT_GAP",
+          "evidence": "Covers expected growth tools, not the exact transposed 2x2 recruitment threshold and rational pathwise decay.",
+          "identifier_or_url": "https://arxiv.org/pdf/1501.03474",
+          "material_read": "Original PDF abstract, definitions, main stability criteria and proof framework",
+          "method": "read relevant full-text portions",
+          "title": "Stability of Markov regenerative switched linear systems",
+          "trigger": "General moment-stability result could dominate the mean threshold"
+        },
+        {
+          "assessment": "QUALITATIVE_DISTINCTION_KNOWN",
+          "evidence": "Discrete-time structured population growth rates and inequalities; no inspected explicit matching 2-regime continuous-time formula.",
+          "identifier_or_url": "https://doi.org/10.1086/378648",
+          "material_read": "Published abstract and available relevant mathematical description, not asserted full article read",
+          "method": "published abstract and secondary descriptions",
+          "title": "The Many Growth Rates and Elasticities of Populations in Random Environments",
+          "trigger": "Prior qualitative separation of mean and stochastic growth"
+        },
+        {
+          "assessment": "PLAUSIBLE_BUT_DIFFERENT_NONLINEAR_MODEL",
+          "evidence": "Nonlinear predator-prey survival questions; insufficient material to exclude all analogous Lyapunov formulations.",
+          "identifier_or_url": "https://doi.org/10.1137/15M1024512",
+          "material_read": "Accessible abstract/metadata, no full article claim",
+          "method": "abstract and indexed metadata",
+          "title": "Permanence and Extinction of Regime-Switching Predator-Prey Models",
+          "trigger": "Ecological switching and extinction analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit rigorous positive-expectation/negative-typical-growth interval exposes a genuinely motivated diagnostic failure in two-population switching models. The sharp mean threshold and rational certified almost-sure gap give usable benchmark data for random positive linear systems without asserting the known general mean/typical separation as new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Strictly b>c>0 and sqrt(bc)<a<(b+c)/2; symmetric Markov switch rates and off-diagonal swapped recruitment.",
+    "Linear density process, not discrete finite-population absorption, and no exact top Lyapunov exponent.",
+    "Part of literature evidence is abstract-level only; that remains a priority risk rather than an automatic O failure."
+  ]
+}
