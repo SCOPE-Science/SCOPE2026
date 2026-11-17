@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is restricted to the five-site reflected weighted Laplacian with conductances \((1,t,t,1)\), \(t>0\), and to the Crank–Nicolson end-step at \(h\ge0\). Reflection decomposes the resolvent into explicit three-dimensional even and two-dimensional odd blocks, giving the two positive determinant factors \(D_1,D_2\). The reproduced cofactor calculations show endpoints are never active, while the shoulder and center return probabilities cross \(1/2\) exactly once because each is a strictly decreasing positive spectral mixture tending to \(1/5\). Comparing their values at the center crossing proves the sharp switching ratio \(3/4\), including the simultaneous boundary equality at \(h=2\). An implicit-function argument at the isolated positive root proves the stated square-root weak-coupling expansion; positivity of balanced two-state components proves the disconnected limiting contrast. The two included verifiers replay 1,797 and 12 checks, respectively. They are supplementary, not substitutes for the all-parameter argument.
+## correctness
 
-## Originality — PASS on accessible evidence, with priority risk
-The general Runge–Kutta positivity theory (Horváth 1998, abstract checked), uniform Dirichlet heat-diffusion classification (Faragó–Korotov–Szabó 2010, accessible sections), full uniform Dirichlet positivity and contractivity theorem (Higueras–Roldán 2023, introduction, theorems and proofs inspected), maximal regularity theorem for A-stable methods (Kovács–Li–Lubich 2015, introduction and Crank–Nicolson theorem inspected), and a published general reversible-chain resolvent-return formula (2026, full RESULT text inspected) were compared as implications, not by title. The general \(C=2R-I\) and spectral crossing principle are credited. Neither the uniform Dirichlet result nor the general implicit spectral threshold explicitly evaluates the complete positive-parameter mirrored five-site family, establishes the change of active site at \(t=3/4\), or derives the singular \(2t^{-1/2}-t^{1/2}\) law. The exact local phase transition and minimality statement comprise the new claim. An unindexed nonuniform-mesh or tridiagonal-resolvent calculation might imply the result, so publication priority is not certified independently.
+PASS
 
-## Value — PASS
-A reflected five-site chain is the smallest mirror-symmetric weighted path where the worst return diagonal can change location as the internal-to-external diffusivity ratio varies. The exact \(3/4\) switch is a complete parameter classification, not an arbitrary isolated numerical case, and identifies which physical site imposes a hard positivity timestep bound. The square-root divergence as conductance tends to zero explains a genuinely singular near-disconnection effect of practical importance for heterogeneous heat networks. The result does not claim an extension to all path lengths or to arbitrary discretization masses.
+For Laplacian edge weights (1,t,t,1), t>0, use C=2R−I and reflection decomposition into even 3x3/odd 2x2 blocks. Independently checked with symbolic inversion D1=h²t+2ht+4h+4, D2=5h²t+6ht+4h+4, central return D1/D2, shoulder (h+2)[(1+ht)/D2+1/D1], and the signed shoulder−center expression. Exact substitution at h=2,t=3/4 yields zero CN diagonal entries at the three inner sites and positive outer ones. Off-diagonals are strictly positive by irreducible M-matrix inversion. Every resolvent return decreases continuously from 1 to 1/5 and crosses 1/2 once. At center crossing the difference sign factors through h−2, giving the unique switch t=3/4; implicit polynomial scaling supports H_f(t)=2/sqrt(t)−sqrt(t)+O(t). Proof also compares symmetric paths of sizes 3,4; t=0 is handled separately.
 
-## Closest prior literature and limitations
-The 2026 reversible-chain return law subsumes the abstract diagonal-resolution criterion but stops short of these evaluated parameter-dependent structural statements. The 2023 and 2010 one-dimensional studies use uniform Dirichlet operators, not the variable-conductance zero-row-sum chain here. Horváth's general radius and the 2015 A-stability regularity theorem address different guarantees. The public mathematical record is incomplete, especially for older nonuniform-coefficient positivity and inverse tridiagonal formulas. The proof assumes \(t>0\) and exact arithmetic; numerical and symbolic tests do not independently certify infinite parameter ranges.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published reversible-Markov return law already establishes C=2R-I, diagonal half threshold and monotone return probabilities; the published uniform reflecting-path theorem covers only equal conductances, with a central obstruction. Neither source evaluates the 1,t,t,1 path across t, finds the shoulder-to-center switch at 3/4 or the singular weak-coupling scaling. Published other Crank–Nicolson studies concern different operators or graph structures. Best-of-knowledge originality for the structural active-site switch.
+
+## value
+
+PASS
+
+A counterintuitive switch of which physical site first loses positivity, with an exact conductance boundary and divergent weak-coupling safe-step law, is a useful nonuniform-grid structural benchmark. Its five-site minimality distinguishes genuine heterogeneity from routine explicit evaluation of a general implicit eigenvalue criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

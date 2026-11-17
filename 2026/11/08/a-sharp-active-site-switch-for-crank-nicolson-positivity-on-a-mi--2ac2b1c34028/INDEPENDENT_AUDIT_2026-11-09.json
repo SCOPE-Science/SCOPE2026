@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T11:51:42.764302Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For Laplacian edge weights (1,t,t,1), t>0, use C=2R−I and reflection decomposition into even 3x3/odd 2x2 blocks. Independently checked with symbolic inversion D1=h²t+2ht+4h+4, D2=5h²t+6ht+4h+4, central return D1/D2, shoulder (h+2)[(1+ht)/D2+1/D1], and the signed shoulder−center expression. Exact substitution at h=2,t=3/4 yields zero CN diagonal entries at the three inner sites and positive outer ones. Off-diagonals are strictly positive by irreducible M-matrix inversion. Every resolvent return decreases continuously from 1 to 1/5 and crosses 1/2 once. At center crossing the difference sign factors through h−2, giving the unique switch t=3/4; implicit polynomial scaling supports H_f(t)=2/sqrt(t)−sqrt(t)+O(t). Proof also compares symmetric paths of sizes 3,4; t=0 is handled separately.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Uniform reflecting path theorem strictly varies vertex count n with equal edge conductances, not interior conductance ratio t.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-positivity-thresholds-for-crank-nicolson-on-reflecting-pat--938c37dfd595"
+        ],
+        "reasoning": "Uniform reflecting path theorem strictly varies vertex count n with equal edge conductances, not interior conductance ratio t.",
+        "searches": [
+          "Resultary: five node weighted symmetric path conductances (1,t,t,1) positivity 3/4",
+          "Resultary: Crank Nicolson positivity active site switch mixed grid",
+          "Search: Higueras Roldan Crank Nicolson Dirichlet positivity nonuniform mesh"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-positivity-thresholds-for-crank-nicolson-on-reflecting-pat--938c37dfd595",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-active-site-switch-for-crank-nicolson-positivity-on-a-mi--2ac2b1c34028/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The formula 2 min_i s_i does not establish which return diagonal is minimal for a given t or whether its identity changes; additional inverse comparison is essential.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-positivity-thresholds-for-crank-nicolson-on-reflecting-pat--938c37dfd595"
+        ],
+        "reasoning": "The formula 2 min_i s_i does not establish which return diagonal is minimal for a given t or whether its identity changes; additional inverse comparison is essential.",
+        "searches": [
+          "Resultary: Crank Nicolson positivity reversible Markov chain resolvent return diagonal threshold",
+          "Resultary: five node weighted symmetric path conductances (1,t,t,1) positivity 3/4",
+          "Resultary: Crank Nicolson positivity active site switch mixed grid",
+          "Search: Higueras Roldan Crank Nicolson Dirichlet positivity nonuniform mesh"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent positivity criterion C=2R-I is prior; new statement is evaluated active-site switch and asymptotic for nonuniform five sites.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a"
+        ],
+        "reasoning": "Equivalent positivity criterion C=2R-I is prior; new statement is evaluated active-site switch and asymptotic for nonuniform five sites.",
+        "searches": [
+          "Resultary: Crank Nicolson positivity reversible Markov chain resolvent return diagonal threshold",
+          "Resultary: five node weighted symmetric path conductances (1,t,t,1) positivity 3/4",
+          "Resultary: Crank Nicolson positivity active site switch mixed grid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source scripts and symbolic identities give exact five-site expressions; searched published SCOPE return/reflecting results contain no matching t=3/4 table.",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-active-site-switch-for-crank-nicolson-positivity-on-a-mi--2ac2b1c34028/RESULT.md"
+        ],
+        "reasoning": "Source scripts and symbolic identities give exact five-site expressions; searched published SCOPE return/reflecting results contain no matching t=3/4 table.",
+        "searches": [
+          "Resultary: Crank Nicolson positivity reversible Markov chain resolvent return diagonal threshold",
+          "Resultary: five node weighted symmetric path conductances (1,t,t,1) positivity 3/4",
+          "Resultary: Crank Nicolson positivity active site switch mixed grid",
+          "Search: Higueras Roldan Crank Nicolson Dirichlet positivity nonuniform mesh"
+        ]
+      },
+      "rationale": "The published reversible-Markov return law already establishes C=2R-I, diagonal half threshold and monotone return probabilities; the published uniform reflecting-path theorem covers only equal conductances, with a central obstruction. Neither source evaluates the 1,t,t,1 path across t, finds the shoulder-to-center switch at 3/4 or the singular weak-coupling scaling. Published other Crank–Nicolson studies concern different operators or graph structures. Best-of-knowledge originality for the structural active-site switch.",
+      "residual_risks": [
+        "Older nonuniform Stieltjes-resolvent or heat-scheme paper might already contain this explicit five-node crossing under different notation.",
+        "Finite symbolic/numeric checks do not replace the analytic all-parameter crossing argument; no independent expert attestation is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general diagonal-resolvent criterion and unique crossings, but no explicit mirrored conductance family, active-site switch or singular coefficient",
+          "evidence": "The general threshold is 2 min_i s_i where R(s_i)_{ii}=1/2; it leaves every family-specific comparison implicit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "material_read": "Entire primary RESULT.md: theorem, assumptions, proof, verification, prior work and limitations",
+          "method": "Read complete primary mathematical RESULT.md via repository file retrieval and compared hypotheses, statements, proofs and consequences",
+          "title": "A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains",
+          "trigger": "Identical integrator and general reversible Markov operator"
+        },
+        {
+          "assessment": "All unweighted paths (conductances 1); cannot be specialized to nonconstant 1,t,t,1 except t=1 and provides no switch t=3/4",
+          "evidence": "For uniform weights its unique worst diagonal is the center for every n>=3; strong heterogeneity may move that worst diagonal.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-positivity-thresholds-for-crank-nicolson-on-reflecting-pat--938c37dfd595",
+          "material_read": "Entire primary RESULT.md, including reflecting Green kernel, central-site theorem and asymptotics",
+          "method": "Read complete primary mathematical RESULT.md via repository file retrieval and compared hypotheses, statements, proofs and consequences",
+          "title": "Sharp positivity thresholds for Crank–Nicolson on reflecting paths",
+          "trigger": "Potential dominating all-path formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A counterintuitive switch of which physical site first loses positivity, with an exact conductance boundary and divergent weak-coupling safe-step law, is a useful nonuniform-grid structural benchmark. Its five-site minimality distinguishes genuine heterogeneity from routine explicit evaluation of a general implicit eigenvalue criterion.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-active-site-switch-for-crank-nicolson-positivity-on-a-mi--2ac2b1c34028/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-positivity-thresholds-for-crank-nicolson-on-reflecting-pat--938c37dfd595"
+  ],
+  "disposition": "passed",
+  "limitations": "Best-of-knowledge literature coverage is not a universal novelty proof. Finite computations corroborate but do not replace analytically quantified proof steps; see separate C/O/V evidence.",
+  "residual_risks": [
+    "Older nonuniform Stieltjes-resolvent or heat-scheme paper might already contain this explicit five-node crossing under different notation.",
+    "Finite symbolic/numeric checks do not replace the analytic all-parameter crossing argument; no independent expert attestation is asserted."
+  ],
+  "schema_version": 1
+}
