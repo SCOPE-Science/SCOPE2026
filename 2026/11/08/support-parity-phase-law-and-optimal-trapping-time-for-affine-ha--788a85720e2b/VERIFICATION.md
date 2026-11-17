@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scientific limits
+# Independent mathematical audit
 
-Run `python verify.py` after installing the dependencies in `requirements.txt` using a compatible Python 3 interpreter. The verifier constructs the full non-Hermitian hypercube propagator and compares its squared norm against the independently implemented scalar two-level expression. It checks all initially untrapped vertices in small cubes for several positive loss strengths and times and both affine shifts of a non-coordinate parity detector.
+## correctness
 
-A separate Lyapunov-equation solve tests every nonzero singular mode through support size twenty; direct matrix ranks verify the dark-space count through support size ten. The recorded successful execution reported 1207 independent full-matrix/time comparisons and 220 Lyapunov-mode checks, and checked dark ranks at all sizes from two through ten. Large-support binomial sums were also evaluated at 1000, 1001, 4000 and 4001 to corroborate the two local-limit constants, without treating these tests as proofs.
+PASS
 
-The infinite result follows from exact tensor reduction, the Walsh spectrum, the dissipative Lyapunov identity and a uniform local central-limit argument. The numerical checks are finite; they do not establish an unbounded claim by enumeration. The theorem assumes uniform hopping, identical trap strengths and an entire affine parity hyperplane. The even-support conditional mean excludes the permanent dark-state survival mass. Historical originality is provisional, and independent audit has not been performed.
+The untrapped Q_(d-w) factor acts unitarily. Walsh eigenvalues give the exact B*B spectral measure (w−2j)^2 and weights binom(w,j)/2^w, with zero modes precisely when w even. Direct two-state Lyapunov equation integrates survival to 1/κ+κ/(2σ²) for σ>0; strict convexity optimizes and the binomial local limit plus reciprocal-square dominated convergence supplies sharp constants.
+
+## originality
+
+PASS
+
+Primary quantum-hypercube work concerns single-site traps, general coherence, or noise/dephasing, not the full affine parity projector; Resultary Hamming-sphere and few-point trap findings are distinct geometries. No exact previous all-κ conditional absorption-time formula or parity-halfcube transition was found.
+
+## value
+
+PASS
+
+Identical cardinality halfcube traps show a surprising support-parity perfect/incomplete capture difference; the exact all-time law and tunable optimum solve a natural network-transport design issue beyond generic spectral formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
