@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. A complete column-gap characterization proves the sharp packing number and counts all optima. For even orders, every slide is a three-color recoloring; cyclic signs prove the conserved winding parameter, component sizes and the twelve frozen states. For odd orders, path-coloring connectivity and an explicit relocation of the unique three-gap prove full connectivity. Exhaustive direct-graph and separate gap-graph implementations agree in their respective stated ranges. Finite checks are corroboration, not the proof of the infinite result.
+## correctness
 
-## Originality
-PASS, historically qualified. The source on ordinary independent-set token sliding on trees does not discuss these maximum distance-two packings. The 2007 three-coloring work *already* establishes cyclic winding/color-weight invariance, which is not new here. The complete packing-specific parity transition, odd-order mobility construction, counts and sector cardinalities are not directly supplied by the inspected sources or closest mathematical records. A general recoloring framework can imply the even-order qualitative behavior *after* the new packing encoding; the literature comparison is not a certificate of global novelty. No equivalent full result was located in the checked material. Possible unindexed or inaccessible published classifications remain a historical-priority risk.
+PASS
 
-## Value
-PASS. The problem asks whether maximum mutually distance-separated placements remain mobile under local movements, a natural intervention/packing question. The exact distinction between parity classes, winding-constrained even configurations, and freely mobile odd configurations is a structural infinite-family phase transition, rather than merely a small exact count. The theorem also gives every state count and connected-component size.
+Column distance forces cyclic occupied-column gaps at least 2. Maximum gaps are all 2 (even n) or exactly one 3 (odd n); row labels are proper 3-colorings of a cycle/path, giving trace((J-I)^k) and path counts. Even recolor moves transpose adjacent signs, preserve p and are connected within p and each parity including initial-color phase; odd gap can move by two columns with legal preparatory recoloring and gcd(2,n)=1. Explicit actual-graph enumeration independently matched all complete component profiles for n=5..10, including n=6 12 isolates and n=8 two 18-state components. This is an all-n constructive proof, not extrapolation from enumeration.
 
-## Limitations
-Only \(C_3\square C_n\) for \(n\ge5\), optimum distance-two packings, and edge slides are covered. The cyclic three-coloring invariant is classical. The result has no independent scholarly audit, and complete historical priority cannot be guaranteed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical 3-color cycle winding invariance is prior knowledge, but translating optimal distance-two cylinder packings to coloring sectors, moving unique odd-order slack, and the complete labeled state/component census are not supplied by inspected adjacent results. Best-of-knowledge original despite unindexed-packing classification risk.
+
+## value
+
+PASS
+
+Optimal distance-two placements represent a natural separation constraint, and permissible one-edge moves create a nontrivial connected-vs-fragmented parity transition. Complete state counts, winding sectors, and frozen configurations solve a motivated infinite-family reconfiguration classification, not a cosmetic parameter instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

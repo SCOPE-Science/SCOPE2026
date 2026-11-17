@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T17:58:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Column distance forces cyclic occupied-column gaps at least 2. Maximum gaps are all 2 (even n) or exactly one 3 (odd n); row labels are proper 3-colorings of a cycle/path, giving trace((J-I)^k) and path counts. Even recolor moves transpose adjacent signs, preserve p and are connected within p and each parity including initial-color phase; odd gap can move by two columns with legal preparatory recoloring and gcd(2,n)=1. Explicit actual-graph enumeration independently matched all complete component profiles for n=5..10, including n=6 12 isolates and n=8 two 18-state components. This is an all-n constructive proof, not extrapolation from enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "E. Demaine et al., Linear-Time Algorithm for Sliding Tokens on Trees (2014), https://arxiv.org/abs/1406.6576",
+          "Exact winding-sector sizes and exchange counts for three-colourings of circular ladders, https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-winding-sector-sizes-and-exchange-counts-for-three-colouri--d41f740a6f49"
+        ],
+        "reasoning": "Sliding on trees is ordinary independent-set reconfiguration, not distance-two packings on triangular cylinders. Circular ladders have different graph (C_n box K_2) and coloring objects; no stronger theorem directly supplies this full family.",
+        "searches": [
+          "maximum distance two packings triangular cylinder C3 Cartesian Cn token slide winding color components",
+          "single-edge token slides independent sets trees",
+          "circular ladder three colour winding"
+        ]
+      },
+      "checked_sources": [
+        "L. Cereceda, J. van den Heuvel, M. Johnson, Finding Paths Between 3-Colourings (2007), https://matthewjohnsondurham.github.io/papers/cdam-2007-31.pdf",
+        "E. Demaine et al., Linear-Time Algorithm for Sliding Tokens on Trees (2014), https://arxiv.org/abs/1406.6576",
+        "Exact winding-sector sizes and exchange counts for three-colourings of circular ladders, https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-winding-sector-sizes-and-exchange-counts-for-three-colouri--d41f740a6f49"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "L. Cereceda, J. van den Heuvel, M. Johnson, Finding Paths Between 3-Colourings (2007), https://matthewjohnsondurham.github.io/papers/cdam-2007-31.pdf"
+        ],
+        "reasoning": "The prior winding theorem implies conserved even-n sign sums, not the claimed odd-n connectivity (requires gap moves), all-n packing count, or complete labeled sector cardinalities without the new reduction.",
+        "searches": [
+          "maximum distance two packings triangular cylinder C3 Cartesian Cn token slide winding color components",
+          "cycle three colouring recoloring connected components"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "L. Cereceda, J. van den Heuvel, M. Johnson, Finding Paths Between 3-Colourings (2007), https://matthewjohnsondurham.github.io/papers/cdam-2007-31.pdf"
+        ],
+        "reasoning": "2007 cycle-color winding class is equivalent to the even-case invariant after a nontrivial optimal-packing encoding; it does not cover odd gap transport or full packing enumeration.",
+        "searches": [
+          "maximum distance two packings triangular cylinder C3 Cartesian Cn token slide winding color components",
+          "Finding Paths Between 3-Colourings cycle recoloring winding weight"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent complete brute-force product-graph enumeration n=5..10 agreed in count and component profile; no external all-n table used."
+        ],
+        "reasoning": "Finite checks are independent verification of small n, not an exact all-n database establishing this theorem.",
+        "searches": [
+          "maximum distance two packings triangular cylinder C3 Cartesian Cn token slide winding color components",
+          "finite optimal distance two packing census triangular prisms"
+        ]
+      },
+      "rationale": "Classical 3-color cycle winding invariance is prior knowledge, but translating optimal distance-two cylinder packings to coloring sectors, moving unique odd-order slack, and the complete labeled state/component census are not supplied by inspected adjacent results. Best-of-knowledge original despite unindexed-packing classification risk.",
+      "residual_risks": [
+        "Undiscovered exact triangular-cylinder distance-two packing reconfiguration result could cover the complete statement.",
+        "The general winding mechanism is known and must not be credited as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Winding invariance known; exact optimal packing slide classification not asserted in the inspected material",
+          "evidence": "Prior cyclic weight obstruction is a proper component of even-n proof.",
+          "identifier_or_url": "matthewjohnsondurham.github.io/papers/cdam-2007-31.pdf",
+          "material_read": "Author preprint sections addressing cycle color weights/recoloring, including relevant lemma shown in PDF page image",
+          "method": "public author PDF text and page screenshot",
+          "title": "L. Cereceda, J. van den Heuvel, M. Johnson, Finding Paths Between 3-Colourings (2007)",
+          "trigger": "Same cycle 3-color recoloring and winding invariant"
+        },
+        {
+          "assessment": "Study is standard independent sets on trees; not the complete C_3 box C_n distance-two packing census",
+          "evidence": "Distinct graph and spacing condition.",
+          "identifier_or_url": "arxiv.org/abs/1406.6576",
+          "material_read": "ArXiv public abstract/intro and method description, not whole article",
+          "method": "public arXiv access",
+          "title": "E. Demaine et al., Linear-Time Algorithm for Sliding Tokens on Trees (2014)",
+          "trigger": "Related token sliding work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Optimal distance-two placements represent a natural separation constraint, and permissible one-edge moves create a nontrivial connected-vs-fragmented parity transition. Complete state counts, winding sectors, and frozen configurations solve a motivated infinite-family reconfiguration classification, not a cosmetic parameter instance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "L. Cereceda, J. van den Heuvel, M. Johnson, Finding Paths Between 3-Colourings (2007), https://matthewjohnsondurham.github.io/papers/cdam-2007-31.pdf",
+    "E. Demaine et al., Linear-Time Algorithm for Sliding Tokens on Trees (2014), https://arxiv.org/abs/1406.6576",
+    "Exact winding-sector sizes and exchange counts for three-colourings of circular ladders, https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-winding-sector-sizes-and-exchange-counts-for-three-colouri--d41f740a6f49"
+  ],
+  "disposition": "passed",
+  "final_claim": "For C_3 box C_n, n>=5, max distance-two packings have floor(n/2) vertices; odd n yields one connected token-slide graph of order 3n 2^(floor(n/2)-1); even n yields winding sectors with exact 3*binomial(k,p) component size per occupied-column parity and 12 frozen states iff 3|k.",
+  "limitations": [
+    "n>=5 and only the three-row Cartesian cylinder; maximum-size distance-two packings and single-edge slides, not all packings or token jumps.",
+    "Classical cycle three-color winding invariant is background; no global historical priority certificate."
+  ],
+  "schema_version": 1
+}
