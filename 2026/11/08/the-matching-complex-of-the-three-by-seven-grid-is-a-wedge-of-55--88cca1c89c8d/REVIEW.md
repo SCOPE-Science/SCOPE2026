@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph and simplicial complex are unambiguous. Every matching is enumerated from graph adjacency; the Hasse matching and its acyclicity are checked over all 196785 faces. A second nonempty-poset acyclicity check leaves one zero-cell, 59 six-cells, and four seven-cells. The complete integral Morse boundary is calculated with signed incidences and has a displayed unimodular four-by-four minor. Standard cellular cancellation upgrades this to an integral homotopy equivalence with 55 six-spheres. The correctness limit is the single specified finite graph, not a general conjecture.
+## correctness
 
-**Originality — PASS subject to documented search limits.** The nearest currently available 2026 source proves only homology vanishing and connectivity for arbitrary three-row grids, while a secondary detailed review reports a remaining all-width wedge conjecture and finite computational evidence. The 2021 paper's apparent stronger theorem is explicitly retracted in its own published corrigendum, which invalidates parts of the purported proof. The 2019 valid small-grid theorem concerns two-row grids. Searches of the mathematical-record index under the exact grid, sphere rank, equivalent line-graph independence complex and conjecture terms found no exact seven-column homotopy certificate. The 2026 paper's full PDF was not accessible; an equivalent unpublished proof remains possible.
+PASS
 
-**Mathematical value — PASS.** The result proves, rather than merely tests numerically, a naturally singled-out finite case of a currently discussed width-three matching-complex wedge conjecture. The integer unit-minor analysis is essential: the matching initially has critical cells in two successive high degrees, so a homology-rank count alone would not establish a wedge homotopy type. It supplies a self-contained replayable proof that resolves this exact nontrivial finite case, without claiming an infinite-family theorem.
+For the Cartesian 21-vertex, 32-edge graph, independent exhaustive recursive matching-face enumeration gives 196785 faces including the empty face and the exact face vector 1,32,426,3080,13254,35004,56456,53588,27688,6716,540. A reconstructed ascending-index element matching yields 98361 augmented pairs; Kahn sorting of every Hasse incidence is acyclic. In the unaugmented model exactly one zero-cell, 59 six-cells and four seven-cells remain. The complete integral signed Morse differential contains the actual 4x4 unit minor [[0,-1,0,0],[1,0,0,0],[0,0,1,0],[0,0,0,1]] at rows 5,9,15,16. Primitive independent attaching maps in pi_6 of the 59-sphere wedge permit four homotopy cancellations. Finite exhaustion is a proof for this one finite complex, not an n-uniform claim.
 
-**Closest limitations.** Computational evidence cited elsewhere does not constitute a complete integral proof; previous all-length claims are retracted. The claim is neither a general stability theorem nor a full resolution of the conjecture; independent mathematical validation is still outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: the exact final claim and its critical new proof or torsion representation are not logically implied by checked stronger/related sources; known numerical/theorem components are explicitly attributed. Inaccessible plausible primary full text is recorded as residual risk and never represented as read.
+
+## value
+
+PASS
+
+Exact integral homotopy for a natural 3-row Cartesian grid length directly beyond the fully understood 1- and 2-row cases, with independent interest in grid-matching topology. The unretracted 2026 work establishes connectivity/bounds but does not state the 55-sphere exact homotopy at n=7; a full homotopy, not only numerical Betti ranks, resolves a motivated finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
