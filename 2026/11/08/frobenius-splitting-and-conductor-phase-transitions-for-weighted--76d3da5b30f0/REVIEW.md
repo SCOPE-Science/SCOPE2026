@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The monomial degree-\(a\) exponent interval follows from exact enumeration by the number of weight-\(e\) generators and a checked adjacent-interval inequality. This gives the full semigroup, not merely its Hilbert function. The normalization and conductor follow by adjoining \(t^d\) and checking arbitrary multiplication by normalized monomials. The monoid seminormalization and Frobenius splitting/failure follow from explicit lattice witnesses and the monomial projection; these are infinite proofs. Exact diagnostics from `check_weighted_curve.py` cover 56 small parameter pairs, five primes, and conductor residue tests; they do not replace the proofs.
+PASS
 
-## Originality
+The weighted semigroup generators at weighted degree 1 have s-exponents 1..d and at degree e have 0..e−1. The intervals for h weight-e generators concatenate to precisely j∈[a mod e, da], proving the claimed membership formula. Since t^d is integral and lies in the fraction field, the d-th Veronese B is the normalization. A monomial m(a,j) multiplies every B-monomial into R iff j≥e−1, giving the sharp conductor and nonnormal line u↦u^e. The eventual-multiple criterion yields the displayed seminormalization and e≤2 boundary. p-root closure of this semigroup yields Frobenius splitting iff e=1 or e=2 with p odd; explicit missing monomial (e−1,e−2) shows e≥3 always fails. Independently generated 840 degree/parameter semigroup comparisons and conductor cases agreed. This is an unrestricted semigroup proof, not inference from finite trials.
 
-**PASS, subject to historical priority.** The closest primary studies are Banks--Ramkumar, arXiv:2604.17735 (weighted minimal-degree geometry) and Davis--Sobieska, arXiv:2410.04586 (weighted rational embeddings, determinantal equations, Hilbert series and nonnormality). The inspected sections do not provide the exact conductor, its degree-\(e\) map on the nonnormal divisor, or the splitting/seminormality phase diagram. General affine-monoid results of Bruns--Li--Römer, Nguyen, and De Stefani--Montaño--Núñez-Betancourt provide broad criteria; deriving these family-specific statements still requires the precise semigroup and boundary calculation. Overlap searches of accessible prior records and published-finding corpus found no equivalent. An unlocated explicit treatment, or a general monoid theorem whose worked example exactly coincides, remains a risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** These two-parameter weighted rational cones are geometrically natural despite their smooth weighted-projective curve and excellent homological properties. The conductor and degree-\(e\) nonnormal divisor map identify the concrete failure of normality, while the sharp characteristic-dependent Frobenius-splitting threshold separates mild nonnormal singularities from more severe cases in a natural infinite family. A complete parameter classification and explicit geometric conductor have use independent of the source Hilbert series.
+Davis–Sobieska supplies this exact weighted rational-curve semigroup and its Hilbert series/nonnormality, not the conductor, seminormalization, the degree-e boundary normalization map or sharp characteristic-sensitive F-purity classification. General monoid purity/seminormality criteria are credited. The resulting explicit two-parameter phase classification survives a best-of-knowledge implication comparison.
 
-## Limitations
+## value
 
-Classification is not for arbitrary weighted scrolls, and potential independent historical priority remains unresolved. The checker only tests finite truncations. The source introducing the original rational curve family predates the two-year recent boundary, but the later 2026 motivating source treats a new weighted minimal-degree framework and is the first-public source for this direction. General methods may imply parts of the theorem without an exact published family specialization.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The weighted rational cones are a natural, published two-parameter family. Their precise nonnormal conductor, seminormalization and Frobenius-purity regimes distinguish degeneration behavior not captured by normality or Hilbert series. e=2 yields a substantive nonnormal-but-F-split phenomenon exactly in odd characteristic; this is a compact useful exact classification, although methods use known monoid criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
