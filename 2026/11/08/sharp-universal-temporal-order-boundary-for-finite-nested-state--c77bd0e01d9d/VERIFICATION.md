@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof in `RESULT.md` is an exact all-depth construction: a finite affine nesting orbit is separated before local piecewise-linear slopes are imposed; the prescribed values are unchanged, and all nonstandard estimates are explicit. The global bound on the autonomous relay reference solution verifies the strict amplitude assumption needed to invoke the source's invisibility theorem. The resulting nested delayed-argument derivative is \(1-\sum_{k=1}^{i-1}q^k\), constant on an actual interval. No finite enumeration is used as an infinite proof.
+## correctness
 
-Run the standalone standard-library checker with `python verify.py`. It verifies the exact rational construction, breakpoints, history bounds, nesting values and delayed-argument derivatives at representative depths, producing:
+PASS
 
-`VERIFY_OK exact_rational_checks=345 witness_depths=3..7 additional_below_threshold=3..8`
+For every depth i>=3 and every q in [nu_i,1), with sum_{k=1}^{i-1}nu_i^k=1, choose eta=q/2, a 2-Lipschitz piecewise-affine small history and distinct separated initial nesting points y_1,...,y_{i-1}. Local slope assignments v_1=...=v_{i-2}=-2, v_{i-1}=+2 retain all values and force d_i prime=1-sum_{k=1}^{i-1}q^k on an actual common interval. This is zero at nu_i, negative above. The relay reference g has |g|<=1+||phi||_infty so eta|g|<1, and every invisibility hypothesis with c=1 is satisfied; source Theorems 1.1 and 5.1 give global trajectory coincidence and the sufficient q<nu_i direction. Tested independent recurrence algebra at representative depths; finite tests only corroborate the quantified piecewise-linear proof. No smooth-history assertion.
 
-The irrational equality \(q=\nu_i\) is handled directly by the algebraic defining identity; finite rational tests check examples strictly above and below. The verification does not establish any independent scientific audit or historical priority. The result does not infer behavior of arbitrary histories above the universal bound.
+## originality
+
+PASS
+
+The motivating paper supplies nu_i as sufficient for temporal order, not exact all-depth sharpness or a genuine plateau at equality. A separate published same-day boundary at q=1 describes loss of trajectory invisibility, a different property from finite-depth loss of monotonic delayed arguments while invisibility survives for q<1. Walther 2009 concerns implicit/algebraic delay, but complete priority comparison limited by inaccessible text.
+
+## value
+
+PASS
+
+Solves a precise sharpness question raised by a natural published universal sufficiency condition, for every finite nesting depth including equality, and separates time-order failure from trajectory invisibility; these are structural dynamical statements rather than parameter substitutions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
