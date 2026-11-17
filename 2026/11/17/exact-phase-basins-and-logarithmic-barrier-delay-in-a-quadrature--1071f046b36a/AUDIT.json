@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Original model equations yield exactly q=artanh(sin phi), qdot=D and Ddot=-eps(D+a tanh q). Coercive H=D^2/2+eps*a log cosh q has derivative -eps D^2, proving global convergence by LaSalle and exact integrated asymmetry budget. Invariant phase barriers determine full basins. For bounded initial D and fixed threshold R, eventual negative q velocity and exponentially bounded tanh deficiency yield T_R=|q0|/a+O(1). The focus/node discriminant is eps(eps-4a); cubic nonlinearity preserves asymptotic crossing classification. Standalone source checker validates reductions, full/reduced correspondence and finite diagnostics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2209.10514, Sections II.2 and III.3.2 (equations and full analysis examined)",
+        "arXiv:2407.03433, Section II, N-to-infinity continuum and symmetric Hebbian adaptation (read)"
+      ],
+      "reasoning": "A theorem about all initial states in the exact directed-quadrature 2-node system would dominate this result if available. The original paper emphasizes beta=pi/2 for alpha=0 and alpha=-pi/10 and does not derive the alpha=pi/2 global budget and first-entrance clock. The continuum result changes the network size and learning kernel, so does not imply a global basin theorem for these two-node equations.",
+      "searches": [
+        "\"Complex dynamics in adaptive phase oscillator networks\" 2022 quadrature pi/2",
+        "\"adaptive Kuramoto\" global synchronization identical frequencies arbitrary couplings",
+        "\"damped tanh oscillator\" phase separation exact basins logarithmic delay",
+        "\"continuum limit of adaptive Kuramoto model\" directed quadrature"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2209.10514 original 2022 paper, full relevant sections",
+      "arXiv:2203.12090 reduced inertial Hebbian paper",
+      "arXiv:2407.03433 continuum paper"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2209.10514, equations (38a-c), Section III.3.2 chooses alpha=-pi/10 after discussing alpha=0",
+        "arXiv:2203.12090, inertia and Hebbian terms create different phase equations",
+        "arXiv:2407.03433, N to infinity and beta=0 learning"
+      ],
+      "reasoning": "The existing 2-oscillator equations imply the reduced flow by specialization, but obtaining the separate phase basins, exact L2 asymmetry dissipation, uniformly sharp logarithmic boundary entrance, and focus-to-node threshold requires further argument. Local stability and bifurcation plots alone do not imply their global quantifiers or quantitative constants. These derivations are the assessed claim; the model itself is not new.",
+      "searches": [
+        "\"Juttner Martens\" \"Section III.3.2\" \"alpha\" \"beta\"",
+        "\"Low-Dimensional Behavior of a Kuramoto Model with Inertia and Hebbian Learning\"",
+        "\"Continuum limit of the adaptive Kuramoto model\"",
+        "\"phase lag\" \"adaptive oscillator\" \"sharp global\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2209.10514, equations (6a-c), Section III.3.2 (full mathematical text read)",
+        "arXiv:2203.12090, section on reduced inertial Hebbian dynamics (full text read)"
+      ],
+      "reasoning": "Quotient by mean coupling and the monotone map q=artanh(sin phi) reveal a damped tanh-gradient system; neither an inertial Hebbian reduction nor a discrete sine map preserves these original directed-coupling physical equations or yields their lifetime asymmetry budget. No inspected formulation states the combined global phase basins and logarithmic first-entrance result.",
+      "searches": [
+        "\"adaptive Kuramoto\" \"quadrature\" \"phase difference\" \"energy\"",
+        "\"two oscillator\" \"directed coupling\" \"log cosh\" Lyapunov",
+        "\"adaptive oscillator\" \"barrier\" \"phase locking\" basin",
+        "\"two-clock sine\" \"quadrature\" adaptive"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2209.10514, Fig. 4 and Section III.3.2 (actual text checked)",
+        "arXiv:2203.12090, exact solution of longitudinal inertial Hebbian subsystem"
+      ],
+      "reasoning": "The original model presents bifurcation diagrams rather than an exhaustive initial-phase basin table and lifetime coupling-asymmetry integral. The closest numerical or indexing matches involve distinct discrete or inertial systems. Absence from checked results does not establish exhaustive priority.",
+      "searches": [
+        "\"quadrature\" \"adaptive oscillator\" \"log cosh\" energy",
+        "\"Juttner Martens\" \"alpha=pi/2\" \"beta=pi/2\"",
+        "\"adaptive Kuramoto\" \"logarithmic barrier\"",
+        "\"oscillator\" \"directed couplings\" \"dissipation integral\""
+      ]
+    },
+    "rationale": "The original 2022 paper supplies the model and local bifurcations, but its fully read beta=pi/2 analysis treats alpha=0 and alpha=-pi/10 rather than the exact quadrature interaction boundary. The other primary sources study distinct inertial/Hebbian and continuum models. The novel assessed content is the combined exact all-initial-state phase basin partition, coupling-asymmetry dissipation integral and universal logarithmic boundary delay; absence of wider unindexed equivalence remains a risk.",
+    "residual_risks": [
+      "Undiscovered equivalent damped-gradient formulation in alternative oscillator coordinates could subsume the quantitative theorem.",
+      "Local qualitative focus/node classification is classical; value and novelty attach to the coupled global basin and exact lifetime and boundary-delay laws.",
+      "No independent mathematical validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers model and selected other lag slices but not the quadrature-quadrature exact global theorem, energy budget and barrier delay",
+        "evidence": [
+          "Equations (6a-c) match the assumed system before parameter specialization",
+          "Section III.3.2 analyzes beta=pi/2 at alpha=0 then alpha=-pi/10, not alpha=pi/2"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.10514",
+        "material_read": "Equations (5)-(6), symmetries, Sections III.3.1 and III.3.2 including detailed analytic case and its chosen lag values, and Appendix context",
+        "method": "Full publicly accessible HTML mathematical text; equation-by-equation comparison",
+        "title": "Complex dynamics in adaptive phase oscillator networks",
+        "trigger": "Original adaptive two-oscillator model with exactly matching directed coupling equations"
+      },
+      {
+        "assessment": "Nonmatching inertial and Hebbian equations; not broader coverage of directed quadrature first-order model",
+        "evidence": [
+          "Phase accelerations and separate inertia parameter are central to this different reduction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2203.12090",
+        "material_read": "Public HTML abstract and mathematical model/reduction sections",
+        "method": "Full-text model comparison via HTML",
+        "title": "Low-Dimensional Behavior of a Kuramoto Model with Inertia and Hebbian Learning",
+        "trigger": "Two-adaptive-oscillator reduction with exact longitudinal solution and stability analysis"
+      },
+      {
+        "assessment": "Large network N-to-infinity and symmetric learning, so it does not entail exact directed two-node basin and energy assertions",
+        "evidence": [
+          "Section II gives cosine Hebbian learning and mean-field continuum limiting assumptions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2407.03433",
+        "material_read": "Sections I and II, model equations and continuum construction, and self-consistency analysis",
+        "method": "Full publicly accessible HTML mathematical text; hypotheses and system comparison",
+        "title": "Continuum limit of the adaptive Kuramoto model",
+        "trigger": "Potential later broader analysis by overlapping authors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "1071f046-b36a-4858-939c-faf76532774a",
+  "value": {
+    "rationale": "A directed, asymmetric learning rule can create complex dynamics in other parameter regions; identifying a physically natural quadrature interaction boundary where all initial couplings lead to a phase-controlled deterministic outcome has structural relevance. The exact lifetime coupling asymmetry and sharp divergence of transient capture near invariant phase barriers quantify adaptation costs and slow synchronization beyond equilibrium stability. The focus-to-node threshold provides an explicit change of response regime. This is not asserted for arbitrary parameter slices or larger networks.",
+    "status": "PASS"
+  }
+}
