@@ -1,11 +1,21 @@
-# Review: bounded-rank logical collision asymptotics
+# Independent mathematical audit
 
-**Correctness (PASS).** The standard monadic logical equivalence theorem yields equality of the per-type counts truncated at the quantifier-rank threshold. The independent multinomial assignments then give the exact double coefficient in (1), with the rank-one Stirling-number identity by counting common supports. The diagonal tilted law has a unique saddle, finite exponential moments, strictly positive covariance determinant, and full two-dimensional difference lattice; Fourier inversion proves the aperiodic local central limit at the exact target. Stirling's formula gives the stated normalization and exponent. The rank-one specialization at density \(\log2\) has covariance \(\bigl(\begin{smallmatrix}t&t^2\\t^2&t\end{smallmatrix}\bigr)\) and a stationary rate, making integer flooring harmless. Finite exact rational comparisons and independently computed near-critical ratios corroborate, but do not prove, the infinite theorem.
+## correctness
 
-**Originality (PASS under accessible comparisons).** The 2018 preprint by Carreiro–Facchini–Venema–Zanasi already establishes the underlying monadic \(k\)-equivalence criterion; that component is explicitly credited. The colored-urn large-deviation theorem of Dupuis–Nuzman–Whiting supplies a broad probabilistic background, and could imply an exponential-rate statement for an occupancy event after additional analysis, but the inspected primary material does not state the displayed exact coefficientwise collision formula, sharp fixed-size two-dimensional prefactor or the \(\log2\) coincidence with Poissonization. Searches of mathematical records and prior claims found related logical-type profiles, independent-occupancy extremals, and binomial collision-entropy work, but no matching or stronger exact result. Historical priority under synonymous occupancy terminology is not certified.
+PASS
 
-**Mathematical value (PASS).** Logical indistinguishability at bounded quantifier rank is a canonical finite-model invariant. An explicit collision law for two independently sampled structures distinguishes fixed-size sampling from Poissonized heuristics and pinpoints a nontrivial contact density where their exponential rates coincide. The exact prefactor is not captured by a general large-deviation principle, and the theorem supplies an explicit, reusable bivariate-tilting method for every fixed quantifier rank. This is a motivated parameterized probability theorem in finite model theory rather than a restatement of the monadic classification.
+The monadic k-round Ehrenfeucht–Fraïssé theorem reduces logical equivalence precisely to equality of k-truncated counts of each of M=2^r unary Boolean types. Summing two independent multinomial assignments gives the exact coefficient C=(n!)^2 M^-2n [x^n y^n]F_k(x,y)^M, F_k=sum_{j<k}(xy)^j/(j!)^2+(e^x-tail_{<k})(e^y-tail_{<k}). A two-dimensional exponential tilt at a unique diagonal saddle has positive definite covariance (support includes (k,k),(k+1,k),(k,k+1)) and full Z^2 difference lattice. Fourier local CLT yields 1/(2pi M sqrt(detSigma)); Stirling gives the prefactor alpha_M/sqrt(detSigma). At k=1, alpha=log2 the saddle equals the Poissonizing parameter, detSigma=t^2(1-t^2), and first derivative of rate vanishes, controlling floor(n). Independent exact rational type-assignment/EGF comparisons passed 24 cases M=2,4, n<=3, k<=3. No numerical test is treated as the asymptotic proof.
 
-The result concerns pure unary predicates, uniform independent labeling, fixed quantifier rank and positive limiting type occupancy. No claim of uniqueness across all historical nomenclature or of independent scientific validation is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the sharp fixed-size two-structure collision probability, all fixed k two-dimensional LLT prefactor and rank-one log(2) contact point. Carreiro–Facchini–Venema–Zanasi (arxiv:1809.03262) already prove the k-truncated count logical criterion; this prerequisite is not original. Dupuis–Nuzman–Whiting (J. Appl. Prob. 44 (2007), pp.115–141) establish colored occupancy sample-path large deviations and rate principles, not the event-specific exact coefficient, sharp polynomial prefactor, or rank-one Poissonization contact in their full examined source. A general LDP may dominate a qualitative rate under reductions but does not alone yield this local-limit constant. Historical occupancy-collision literature retains residual risk.
+
+## value
+
+PASS
+
+PASS. Bounded quantifier rank is the natural logical indistinguishability invariant; quantifying collisions of two random interpretations is a genuine all-parameter finite-model probability problem. The fixed-size-vs-Poissonized comparison detects a critical density where exponential rates touch and a nonunit prefactor; this is not implicit in a generic LDP. The exact coefficient gives finite-n probabilities, the 2D saddle gives sharp behavior for every fixed k.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

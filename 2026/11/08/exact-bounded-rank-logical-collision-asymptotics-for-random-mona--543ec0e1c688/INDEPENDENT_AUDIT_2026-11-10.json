@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T19:03:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The monadic k-round Ehrenfeucht–Fraïssé theorem reduces logical equivalence precisely to equality of k-truncated counts of each of M=2^r unary Boolean types. Summing two independent multinomial assignments gives the exact coefficient C=(n!)^2 M^-2n [x^n y^n]F_k(x,y)^M, F_k=sum_{j<k}(xy)^j/(j!)^2+(e^x-tail_{<k})(e^y-tail_{<k}). A two-dimensional exponential tilt at a unique diagonal saddle has positive definite covariance (support includes (k,k),(k+1,k),(k,k+1)) and full Z^2 difference lattice. Fourier local CLT yields 1/(2pi M sqrt(detSigma)); Stirling gives the prefactor alpha_M/sqrt(detSigma). At k=1, alpha=log2 the saddle equals the Poissonizing parameter, detSigma=t^2(1-t^2), and first derivative of rate vanishes, controlling floor(n). Independent exact rational type-assignment/EGF comparisons passed 24 cases M=2,4, n<=3, k<=3. No numerical test is treated as the asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dupuis et al sample-path LDP is more general for colored balls, with exponential rate information but no local limit or explicit fixed-sample event prefactor; full introduction, model theorem, Laplace upper/lower proof structure examined."
+        ],
+        "reasoning": "A general sample-path large-deviation principle may encompass logarithmic rates after a contraction, but it does not state or automatically imply relative 1+o(1) asymptotics with nontrivial determinant prefactor.",
+        "searches": [
+          "doi:10.1239/jap/1175267167",
+          "Monadic first order quantifier rank collision probability random unary predicate structures bivariate saddle Poissonized occupancy"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1809.03262",
+        "https://doi.org/10.1239/jap/1175267167"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "EF theorem implies the event description; occupancies have a general LDP. Exact coefficient extraction, aperiodic 2D local limit, stationary rate derivative at log2 are separate calculations."
+        ],
+        "reasoning": "Neither cited logical characterization nor LDP implies the entire submitted sharp fixed-size prefactor by direct corollary; a tailored saddle and lattice analysis is mathematically required.",
+        "searches": [
+          "arxiv:1809.03262",
+          "doi:10.1239/jap/1175267167",
+          "Monadic first order quantifier rank collision probability random unary predicate structures bivariate saddle Poissonized occupancy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Carreiro et al Proposition on truncated monadic EF types provides equivalence condition, not the probability of two independent structures being equivalent; Dupuis et al analyze urn process rate functions."
+        ],
+        "reasoning": "Equivalent events can be formulated as two independent colored urn occupancy vectors agreeing after thresholding; probability calculation and sharp local limit are additional, not equivalent to already-known EF characterization.",
+        "searches": [
+          "Monadic first order quantifier rank collision probability random unary predicate structures bivariate saddle Poissonized occupancy",
+          "arxiv:1809.03262",
+          "doi:10.1239/jap/1175267167"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary random successor-order rank spectra concern binary successor relations and limiting truth probabilities; submitted model is pure named unary predicates with growing number of one-point types."
+        ],
+        "reasoning": "No exact table or generating function for this collision event was found; failed search alone does not certify originality.",
+        "searches": [
+          "Monadic first order quantifier rank collision probability random unary predicate structures bivariate saddle Poissonized occupancy",
+          "Resultary: 2026/11/02/SCOPE-exact-rank-two-probability-spectra-for-independent-random-succes--ef51f4ed5442",
+          "arxiv:1809.03262"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the sharp fixed-size two-structure collision probability, all fixed k two-dimensional LLT prefactor and rank-one log(2) contact point. Carreiro–Facchini–Venema–Zanasi (arxiv:1809.03262) already prove the k-truncated count logical criterion; this prerequisite is not original. Dupuis–Nuzman–Whiting (J. Appl. Prob. 44 (2007), pp.115–141) establish colored occupancy sample-path large deviations and rate principles, not the event-specific exact coefficient, sharp polynomial prefactor, or rank-one Poissonization contact in their full examined source. A general LDP may dominate a qualitative rate under reductions but does not alone yield this local-limit constant. Historical occupancy-collision literature retains residual risk.",
+      "residual_risks": [
+        "A historical exact two-sample matching/occupancy collision saddle theorem not surfaced by Resultary or focused search remains possible",
+        "Core monadic equivalence and generic colored occupancy LDP are explicitly prior mathematics"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERS_LOGICAL_PREMISE",
+          "evidence": "Monadic rank-k equivalence if per-type counts agree below k and are both >=k; not a two-independent-sample collision distribution.",
+          "identifier_or_url": "arxiv:1809.03262",
+          "material_read": "Accessible full arXiv PDF; §3.2 Definition 11 and Proposition 3, relevant EF-equivalence statements and surrounding proof inspected, with cover screenshot",
+          "method": "ArXiv PDF text and screenshot",
+          "title": "Model Theory of Monadic Predicate Logic with the Infinity Quantifier",
+          "trigger": "Prior capped-count Ehrenfeucht–Fraïssé theorem for monadic types"
+        },
+        {
+          "assessment": "COVERS_GENERAL_LOG_RATE_FRAMEWORK_NOT_SHARP_COLLISION_CONSTANT",
+          "evidence": "Large deviation principle for empirical double-color urn occupancy paths; no event-specific all-n coefficient formula or determinant local-CLT prefactor stated in examined proof.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1175267167",
+          "material_read": "Complete Cambridge openly accessible 27-page PDF; abstract, introduction, model, colored-urn LDP statements, relative entropy and Laplace bounds Sections 2–5 inspected; page-0 screenshot",
+          "method": "Read publicly accessible full PDF text and page image",
+          "title": "Large deviations principle for occupancy problems with colored balls",
+          "trigger": "Strongest plausible broader occupancy theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Bounded quantifier rank is the natural logical indistinguishability invariant; quantifying collisions of two random interpretations is a genuine all-parameter finite-model probability problem. The fixed-size-vs-Poissonized comparison detects a critical density where exponential rates touch and a nonunit prefactor; this is not implicit in a generic LDP. The exact coefficient gives finite-n probabilities, the 2D saddle gives sharp behavior for every fixed k.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1809.03262",
+    "https://doi.org/10.1239/jap/1175267167"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed quantifier rank, exactly uniform independent unary predicates, n/M positive finite ratio",
+    "No higher-arity relations, growing k, or vanishing/divergent occupancy ratios",
+    "A broader occupancy matching probability under other terminology could preempt part of novelty"
+  ],
+  "residual_risks": [
+    "A historical exact two-sample matching/occupancy collision saddle theorem not surfaced by Resultary or focused search remains possible",
+    "Core monadic equivalence and generic colored occupancy LDP are explicitly prior mathematics"
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PARTIALLY_COVERS_LOGICAL_PREMISE",
+      "evidence": "Monadic rank-k equivalence if per-type counts agree below k and are both >=k; not a two-independent-sample collision distribution.",
+      "identifier_or_url": "arxiv:1809.03262",
+      "material_read": "Accessible full arXiv PDF; §3.2 Definition 11 and Proposition 3, relevant EF-equivalence statements and surrounding proof inspected, with cover screenshot",
+      "method": "ArXiv PDF text and screenshot",
+      "title": "Model Theory of Monadic Predicate Logic with the Infinity Quantifier",
+      "trigger": "Prior capped-count Ehrenfeucht–Fraïssé theorem for monadic types"
+    },
+    {
+      "assessment": "COVERS_GENERAL_LOG_RATE_FRAMEWORK_NOT_SHARP_COLLISION_CONSTANT",
+      "evidence": "Large deviation principle for empirical double-color urn occupancy paths; no event-specific all-n coefficient formula or determinant local-CLT prefactor stated in examined proof.",
+      "identifier_or_url": "https://doi.org/10.1239/jap/1175267167",
+      "material_read": "Complete Cambridge openly accessible 27-page PDF; abstract, introduction, model, colored-urn LDP statements, relative entropy and Laplace bounds Sections 2–5 inspected; page-0 screenshot",
+      "method": "Read publicly accessible full PDF text and page image",
+      "title": "Large deviations principle for occupancy problems with colored balls",
+      "trigger": "Strongest plausible broader occupancy theorem"
+    }
+  ]
+}
