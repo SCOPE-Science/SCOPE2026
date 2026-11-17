@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python CHECK.py` using Python 3 and the standard library only. The program checks all sixteen initial polygon-edge pairings and twenty-five dyadic-depth combinations: 400 two-step transition rules plus 400 primitive-period computations, all in exact rational arithmetic. It additionally checks sixteen exact determinant weights and twenty-five finite cumulative survival identities. It should print a `PASS` line. The separate line–segment intersection implementation does not assume the five-case symbolic transition rule when constructing actual orbits.
+## correctness
 
-The mathematical proof is in `RESULT.md`, including the exhaustive affine cases, the invariant depth cycle, the half-return antipodal/reflection identity, and the exact measure convolution. Separately from the standalone checker, the full open-cell affine formulas were derived by exact rational polygon clipping and tested on 400 entire dyadic rectangles before acceptance. These checks are supporting evidence only: finite sampling cannot establish claims over all real points. The invariant phase measure excludes a null set of vertex-collision trajectories; no positive-measure conclusions are asserted on that set.
+PASS
 
-Independent mathematical audit has not been performed.
+Line–edge intersection for the actual square and rhombus reduces Φ² on all 16 edge-pair charts to five affine cases, each preserving L=m+n+ε. The depth state cycles with least length 2L+1; exactly one antipodal edge transition and a central affine reflection force a second cycle for first return of Φ², while Φ alternates orientations. Thus primitive Φ period is 8L+4 on regular open cells, not merely a divisor. The Jacobian determinant density |det(E_i,D_j)| is invariant, with weights 16 for even parity and8 for odd, so ε has probabilities 2/3,1/3 and inward dyadic depths are independent Geometric(1/2). Convolution yields P(P=8k+4)=(2k+1)/(3·2^(k+1)), mean 68/3, and exponential threshold log2/8. Independent rational geometric intersection verified 144 primitive periods across all edge pairs and depth pairs 0..2; cannot certify all real cells by sampling.
+
+## originality
+
+PASS
+
+Albers–Lander–Westermann constructed exactly this square–rhombus as a fully periodic polygon pair with unbounded periods, credited without novelty. The presented exact pointwise least-period partition and invariant-area mass are a strict quantitative refinement not identified in accessible abstracts or related necktie work; the general periodicity fact does not mathematically determine distribution. Full original Example 2.29 text could still overlap, because arXiv/OA retrieval and authorized institutional retrieval did not return its full material.
+
+## value
+
+PASS
+
+Given an explicit fully periodic symplectic billiard with unbounded periods, the exact least-period spectrum and distribution under natural invariant area are meaningful dynamical invariants; their nontrivial geometric-polynomial tail and moment threshold are not determined by qualitative periodicity. No universality across polygons is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

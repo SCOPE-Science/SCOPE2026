@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed result is an exact classification of every regular phase point for the explicit square–rhombus pair of Albers–Lander–Westermann. Starting from the chord reflection rule, the proof gives five exhaustive affine two-step cases for the sixteen edge pairings. The invariant integer \(L=m+n+\varepsilon\) evolves on an explicit cycle of length \(2L+1\), each cycle antipodally swaps both edge indices and reflects both inward parameters, and two cycles give the first exact return. Consequently every period is exactly \(8L+4\). Direct determinant calculation yields the correct invariant symplectic-area weight, so the probability statement follows from two independent geometric dyadic depths and a weighted parity bit. In addition to the self-contained proof, exact symbolic polygon clipping was checked for 400 whole-depth-cell cases, and the included standalone `CHECK.py` reproduces 800 rational pointwise assertions plus all determinant weights and 25 distribution tails. Finite computations are not substituted for the universal proof.
+PASS
 
-## Originality — PASS within inspected evidence
+Line–edge intersection for the actual square and rhombus reduces Φ² on all 16 edge-pair charts to five affine cases, each preserving L=m+n+ε. The depth state cycles with least length 2L+1; exactly one antipodal edge transition and a central affine reflection force a second cycle for first return of Φ², while Φ alternates orientations. Thus primitive Φ period is 8L+4 on regular open cells, not merely a divisor. The Jacobian determinant density |det(E_i,D_j)| is invariant, with weights 16 for even parity and8 for odd, so ε has probabilities 2/3,1/3 and inward dyadic depths are independent Geometric(1/2). Convolution yields P(P=8k+4)=(2k+1)/(3·2^(k+1)), mean 68/3, and exponential threshold log2/8. Independent rational geometric intersection verified 144 primitive periods across all edge pairs and depth pairs 0..2; cannot certify all real cells by sampling.
 
-Albers, Lander and Westermann, arXiv:2402.12244, Example 2.29 and Theorem 3.6, establish the same polygon pair's full periodicity with unbounded periods. Those are credited, not re-claimed. The source's definitions, full relevant example and proof, and return-map criteria were inspected; no pointwise least-period formula or invariant-area census occurs there. Albers et al., *Polygonal symplectic billiards*, arXiv:1912.09404, develops other polygonal billiard examples, and its abstract does not state the present law. Relevant indexed mathematical findings on different dyadic interval processes, periodic billiards and unbounded return-time processes were compared by claim and implication. A separately documented square–kite/“necktie” symplectic billiard result gives odometer roof statistics for a different polygon pair and a one-dimensional return fiber, and does not cover the present square–rhombus two-dimensional phase space. Publication priority outside inspected sources remains an uncertainty.
+## originality
 
-## Value — PASS
+PASS
 
-The source supplies a canonical example of full periodicity without a uniform period bound, but its qualitative result does not determine which periods actually occur or their abundance. Computing a pointwise complete least-period classification and the measure-theoretically natural invariant-area law solves that motivated gap, provides exact expectations and a sharp exponential-moment threshold, and exposes a dyadic return structure that is useful for comparisons among polygonal integrable billiard examples. This is a natural complete classification for the particular example, not an arbitrary numerical slice or a restatement of the periodicity theorem.
+Albers–Lander–Westermann constructed exactly this square–rhombus as a fully periodic polygon pair with unbounded periods, credited without novelty. The presented exact pointwise least-period partition and invariant-area mass are a strict quantitative refinement not identified in accessible abstracts or related necktie work; the general periodicity fact does not mathematically determine distribution. Full original Example 2.29 text could still overlap, because arXiv/OA retrieval and authorized institutional retrieval did not return its full material.
 
-## Scientific limits and closest literature
+## value
 
-The classification excludes vertex-collision trajectories and is specific to the stated square and rhombus. The probability law depends on symplectic area, not uniform indexing of edge pairs. Equivalent unindexed literature could affect priority. Independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Given an explicit fully periodic symplectic billiard with unbounded periods, the exact least-period spectrum and distribution under natural invariant area are meaningful dynamical invariants; their nontrivial geometric-polynomial tail and moment threshold are not determined by qualitative periodicity. No universality across polygons is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
