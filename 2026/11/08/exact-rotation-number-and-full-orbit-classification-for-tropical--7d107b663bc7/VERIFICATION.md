@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-Verification of the mathematical claim uses the direct piecewise-affine case analysis, the exact four-quadrant area integrals, and the area-conjugacy argument in `RESULT.md`. They are analytic proofs for all positive real parameters with \(pq<4\); no finite enumeration is treated as a universal proof.
+# Independent mathematical audit
 
-The accompanying standalone `verify_rotation.py` uses only Python's standard library. Invoking `python verify_rotation.py` produced `TROPICAL_ROTATION_EXACT_AND_AREA_CHECK_OK 22756`. The program exactly checks seven rational parameter pairs and rational starts over all signs, their invariant values and primitive periods, and corroborates analytic area and ray-angle formulas with numerical quadrature at five asymmetric real parameter pairs. These are supplementary checks; floating-point agreement does not establish infinite or exact identities.
+## correctness
 
-The first-public source date used for the originating mutation is 2021-09-14, according to the initial arXiv submission of arXiv:2109.06927; the journal publication date is later. The original paper's invariant and special-period theorems are attributed as prior literature. The independent audit status is not performed.
+PASS
+
+The piecewise reflection-shear map has determinant +1 on every affine branch, is positively homogeneous, and preserves its positive-definite piecewise quadratic invariant for 0<pq<4. Area of unit level disk is three integrals of 1/(1+k z+z^2) and one of 1/(1-k z+z^2), giving (pi+2theta)/(2 k sin theta). Homogeneity plus area preservation maps radial sectors to equal-area sectors; image of positive s-axis has clockwise transformed angle 2theta, so each level map is conjugate to rotation rho=2theta/(pi+2theta). Rational theta/pi=a/b has precise least period (b+2a)/gcd(2,b); irrational theta has dense uniquely ergodic level orbits. Independent numeric orbit check at theta=2pi/7 returns period 11.
+
+## originality
+
+PASS
+
+Originating Machacek–Ovenhouse result gives first integral and periodic family theta=pi/m (integer m). The present explicit area-derived rotation number for all real 0<pq<4 covers theta=2pi/7 and irrational cases outside its stated special family, and the searched analogous piecewise-rotation publications have different branch maps. Unindexed equivalent formulas remain possible.
+
+## value
+
+PASS
+
+An explicit integrable cluster tropical map receives a complete rational and irrational orbit classification, exact periods, unique ergodicity and invariant level measure; these are natural dynamical invariants not obtained merely by quoting its earlier periodic subfamily.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
