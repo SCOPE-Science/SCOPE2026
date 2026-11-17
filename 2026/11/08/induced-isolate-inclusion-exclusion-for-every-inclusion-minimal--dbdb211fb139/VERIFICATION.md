@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-The original covering rule was checked by exhaustive selection of each vertex subset and edge subset, not by using the structural theorem. For every directly feasible cover, each selected element was independently deleted and coverage recomputed. `verify.py` reconstructs the proposed receiver-map sets and calculates inclusion–exclusion counts, then compares both with the direct oracle.
+# Independent mathematical audit
 
-Run: `python3 verify.py` using Python 3 standard library only. Expected summary:
+## correctness
 
-```
-ALL_LABELLED_GRAPHS_N1_TO_N4_OK 75
-ADDITIONAL_GRAPHS_N5_N6_OK 40
-FORMULA_COUNT 6 {4: 3, 5: 48, 6: 6}
-FORMULA_COUNT 7 {5: 14, 6: 98, 7: 2}
-FORMULA_COUNT 8 {7: 28, 8: 57, 10: 70, 13: 56, 17: 28, 22: 8, 28: 1}
-VERIFY_OK
-```
+PASS
 
-All simple labelled graphs with up to four vertices were checked; only the stated finite sample of larger graphs was tested. The unrestricted result rests on the mathematical proof. Independent mathematical validation remains unperformed.
+PASS: With omitted vertices W, each edge internal to G[W] is forced; other essential selected edges are exactly one cross-edge from each w isolated in G[W]. Selected receivers u are essential iff an unchosen edge u-w to W becomes uncovered upon removal; bad receiver events require all nonempty W-neighbors isolated in G[W] and all assigned to u. Inclusion–exclusion over pairwise disjoint receiver neighbor sets B_u gives c_G(W); each minimal cover has weight n-|W|+e(W)+|I(W)|. Bound at most sum_W 2^{n-|W|}=3^n terms. Independent original-coverage brute force matched receiver formula for K2, P3, K3, C4, K4. n=1 isolated-vertex boundary yields only its chosen vertex.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Aprile–Ferrarini covers general problem and incidence reduction; a published biclique enumerator covers only a special case. The new arbitrary-graph induced-isolate formula is structurally stronger; generic minimal domination priority risk remains.
+
+## value
+
+PASS
+
+PASS: Uniform exact structural classification and inclusion–exclusion for every inclusion-minimal mixed vertex-edge cover of an arbitrary graph extends a natural domination problem from optimization and special host families. Exact count and normal form may be used independently despite exponential complexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T18:06:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: With omitted vertices W, each edge internal to G[W] is forced; other essential selected edges are exactly one cross-edge from each w isolated in G[W]. Selected receivers u are essential iff an unchosen edge u-w to W becomes uncovered upon removal; bad receiver events require all nonempty W-neighbors isolated in G[W] and all assigned to u. Inclusion–exclusion over pairwise disjoint receiver neighbor sets B_u gives c_G(W); each minimal cover has weight n-|W|+e(W)+|I(W)|. Bound at most sum_W 2^{n-|W|}=3^n terms. Independent original-coverage brute force matched receiver formula for K2, P3, K3, C4, K4. n=1 isolated-vertex boundary yields only its chosen vertex.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior complete bipartite enumeration assumes every opposite-part pair is an edge, unlike arbitrary finite simple G.",
+          "Original initiating article solves optimization and structural special cases, not the exact general count formula identified in full-text review."
+        ],
+        "reasoning": "General G theorem strictly subsumes biclique case and handles isolated vertices/disconnected graphs; prior special-case and optimization results do not imply its detailed formula.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-complete-minimal-strong-total-cover-enumerator-of-complete-bipar--440ec78576a6/RESULT.md",
+          "https://arxiv.org/html/2610.23312v1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.23312v1",
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-complete-minimal-strong-total-cover-enumerator-of-complete-bipar--440ec78576a6/RESULT.md",
+        "https://arxiv.org/abs/2502.14611"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For W omitted, selected edges mandatory on E(G[W]), and exactly one cross-edge from each isolated vertex in G[W].",
+          "Receiver u is redundant precisely if all its nonempty W-neighbors lie in I(W) and all are assigned to u; simultaneous bad events require pairwise-disjoint neighbor blocks B_u."
+        ],
+        "reasoning": "The essentiality criterion and resulting 3^n inclusion–exclusion establish an explicit exact general formula beyond prior incidence equivalence and special graphs; full generic minimal-domination literature remains a risk.",
+        "searches": [
+          "https://arxiv.org/html/2610.23312v1",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-complete-minimal-strong-total-cover-enumerator-of-complete-bipar--440ec78576a6/RESULT.md",
+          "https://arxiv.org/abs/2502.14611"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Strong total covers are minimal dominating sets of incidence/subdivision graph under closed-neighborhood domination, already proved by Aprile–Ferrarini.",
+          "Submitted C(W,f) recasts minimal dominators into omitted ORIGINAL vertex set W, forced internal edges and exactly one chosen cross-edge for each vertex isolated in G[W]."
+        ],
+        "reasoning": "Equivalence to minimal domination is credited; the original-G normal form and explicit weighted receiver inclusion–exclusion are asserted additional results.",
+        "searches": [
+          "every inclusion minimal strong total cover incidence graph domination canonical normal form inclusion exclusion",
+          "arXiv:2610.23312v1",
+          "arXiv:2502.14611"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact K_mn cover polynomial from Oct26 is prior and not novel.",
+          "Independent new graph direct-oracle counts matched receiver inclusion–exclusion on K2,P3,K3,C4,K4, including disconnected/isolated boundary checked in proof."
+        ],
+        "reasoning": "The known biclique table is a specialization and cannot exhaust the submitted all-graph statement; no earlier identical all-graph coefficient table was identified.",
+        "searches": [
+          "every inclusion minimal strong total cover incidence graph domination canonical normal form inclusion exclusion",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-complete-minimal-strong-total-cover-enumerator-of-complete-bipar--440ec78576a6/RESULT.md"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Aprile–Ferrarini covers general problem and incidence reduction; a published biclique enumerator covers only a special case. The new arbitrary-graph induced-isolate formula is structurally stronger; generic minimal domination priority risk remains.",
+      "residual_risks": [
+        "Generic minimal dominating set or hypergraph transversal literature may state an equivalent exponential coefficient formula under different language.",
+        "3^n is an arithmetic bound, not polynomial input-time or output-polynomial enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR foundation; not general arbitrary-G exact enumerator",
+          "evidence": "Incidence graph domination equivalence and partial canonical cases are known; inspected theorems do not supply displayed all-graph receiver-map inclusion–exclusion coefficient.",
+          "identifier_or_url": "https://arxiv.org/html/2610.23312v1",
+          "material_read": "Complete accessible primary full-text rendering, including incidence equivalence, optimization, and bipartite structural claims",
+          "method": "Public HTML full-text read",
+          "title": "The Strong Total Cover Problem",
+          "trigger": "introducing same vertex-edge coverage rules, incidence graph equivalence and minimal covers"
+        },
+        {
+          "assessment": "SPECIAL_CASE_PREVIOUSLY_COVERED, not complete general G claim",
+          "evidence": "The earlier enumeration explicitly assumes G=K_{m,n}, m,n>=2, with its polynomial in part sizes; it cannot alone derive arbitrary-graph induced-isolate receiver formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-complete-minimal-strong-total-cover-enumerator-of-complete-bipar--440ec78576a6/RESULT.md",
+          "material_read": "Complete RESULT.md, full four-case proof and explicit coefficients",
+          "method": "Full GitHub source read",
+          "title": "Complete minimal strong-total-cover enumerator of complete bipartite graphs",
+          "trigger": "same cover rules and exact enumerator, restricted to biclique host"
+        },
+        {
+          "assessment": "SUBCLASS ALGORITHM, whole-document comparison limited",
+          "evidence": "Chordal-bipartite graph restriction does not include arbitrary incidence graphs; no whole-document absence assertion.",
+          "identifier_or_url": "https://arxiv.org/abs/2502.14611",
+          "material_read": "Accessible abstract and description; full text not established",
+          "method": "Public arXiv abstract",
+          "title": "Enumerating Minimal Dominating Sets and Variants in Chordal Bipartite Graphs",
+          "trigger": "incidence-graph minimal domination alternative exact algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Uniform exact structural classification and inclusion–exclusion for every inclusion-minimal mixed vertex-edge cover of an arbitrary graph extends a natural domination problem from optimization and special host families. Exact count and normal form may be used independently despite exponential complexity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2610.23312v1",
+    "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-complete-minimal-strong-total-cover-enumerator-of-complete-bipar--440ec78576a6/RESULT.md",
+    "https://arxiv.org/abs/2502.14611"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite simple graphs, potentially isolated vertices; no polynomial-time tractability claim. Generic incidence-graph minimal domination literature could contain alternative equivalent expression.",
+    "Pre-publication confidentiality requirements not independently satisfied for the complete public-bound package; separate transport not_ready."
+  ],
+  "residual_risks": [
+    "Generic minimal dominating set or hypergraph transversal literature may state an equivalent exponential coefficient formula under different language.",
+    "3^n is an arithmetic bound, not polynomial input-time or output-polynomial enumeration."
+  ],
+  "schema_version": 1
+}

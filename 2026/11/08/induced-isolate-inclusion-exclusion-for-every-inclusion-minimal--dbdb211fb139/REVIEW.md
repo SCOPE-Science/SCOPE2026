@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The normal form is forced by the two original coverage clauses. Every omitted induced-isolate needs exactly one incident selected cross edge; every omitted–omitted edge is forced; all other selected edges would be redundant. Receiver essentiality is precisely the condition that deleting a selected receiver vertex uncovers a cross edge. Inclusion–exclusion over potentially bad receivers gives the stated coefficient, with inconsistent overlapping assignments contributing zero. The \(3^n\) term bound follows from a complete enumeration of \((W,S)\). Exact direct enumeration verified 115 small graph instances, but finite checks are not an infinite proof.
+## correctness
 
-**Originality — PASS (historical priority provisional).** The 2025 public conference presentation defines strong total covering and addresses optimization/polyhedra. Aprile and Ferrarini's 2026 full manuscript proves an incidence-graph equivalence and an optimal-size induced-matching identity; neither yields the explicit induced-isolate polynomial as a stated theorem. Castelo, Defrain and Gomes address algorithmic minimal-domination enumeration on chordal bipartite graphs, not the unrestricted original-vertex coefficient formula. The known private-neighbor condition entails the vertex essentiality test after structural reduction, so an undiscovered equivalent formula is a residual priority risk. Related specialized complete-bipartite enumeration does not cover arbitrary graphs.
+PASS
 
-**Mathematical value — PASS.** The normal form and formula classify all inclusion-minimal strong total covers of arbitrary simple graphs, not just minimum covers or a named special graph family. The \(3^n\) original-vertex inclusion–exclusion evaluation avoids direct enumeration of all \(2^{n+|E|}\) selections in the incidence graph, and supplies each cardinality coefficient; this is a meaningful counting refinement of an optimization problem, though not output-polynomial.
+PASS: With omitted vertices W, each edge internal to G[W] is forced; other essential selected edges are exactly one cross-edge from each w isolated in G[W]. Selected receivers u are essential iff an unchosen edge u-w to W becomes uncovered upon removal; bad receiver events require all nonempty W-neighbors isolated in G[W] and all assigned to u. Inclusion–exclusion over pairwise disjoint receiver neighbor sets B_u gives c_G(W); each minimal cover has weight n-|W|+e(W)+|I(W)|. Bound at most sum_W 2^{n-|W|}=3^n terms. Independent original-coverage brute force matched receiver formula for K2, P3, K3, C4, K4. n=1 isolated-vertex boundary yields only its chosen vertex.
 
-**Limitations.** Independent audit has not been conducted. Generic minimal-domination equivalences remain an originality risk, as does the exact posting date of the 2025 public conference abstract. The computational examples are not exhaustive beyond graph order four.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Aprile–Ferrarini covers general problem and incidence reduction; a published biclique enumerator covers only a special case. The new arbitrary-graph induced-isolate formula is structurally stronger; generic minimal domination priority risk remains.
+
+## value
+
+PASS
+
+PASS: Uniform exact structural classification and inclusion–exclusion for every inclusion-minimal mixed vertex-edge cover of an arbitrary graph extends a natural domination problem from optimization and special host families. Exact count and normal form may be used independently despite exponential complexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
