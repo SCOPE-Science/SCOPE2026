@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Execute `python verify.py` from the directory containing `verify.py`. Requirements: Python 3, SymPy, and NumPy. The program has no network dependencies.
+## correctness
 
-The exact-arithmetic checks include the rational reduction of the alternating fixed-point equation to the quartic polynomial, the root-bracketing sign tests, derivative identity, rational envelopes of the Fourier trace and determinant, and the homogeneous stability inequalities. Numerical replay also evaluates the original simultaneous network update on even rings of lengths 2, 4, 6, 10, and 50 at both signs of the two checkerboard roots and at each of the two homogeneous states; it checks the Fourier eigenvalues at each mode. Execution returned:
+PASS
 
-`VERIFY_OK polynomial_identity=1 exact_root_brackets=4 stability_rational_bounds=12 ring_sizes=5 states_checked=20 Fourier_modes_checked=288`
+At rational (a,b,mu,epsilon)=(33/100,1/10,-3/5,3/10) and every even N>=2, antisymmetric checkerboard fixed points reduce exactly to (1+z)^3 H(z)=2 Q(z)/78125 for Q(z)=3696 z^4-136463 z^3-161162 z^2+27929 z+78500. Descartes gives at most two positive roots; sign brackets (5/8,63/100) and (38,39) give exactly two, each yielding two sign-related checkerboards. Jacobian at checkerboards has Fourier blocks determinant D(z) and trace F(z)(1-epsilon+D(z))+epsilon cos(2pi k/N). Inner root D in (0.9,0.95) and uniform trace bound makes multipliers complex with modulus sqrt(D)<1 for every mode. Outer root D<-1 is unstable. Both homogeneous +/-1 equilibria have D0=931/1000 and are Schur stable on every mode. Strict inequalities and simple root yield an N-uniform neighborhood of four hyperbolic sinks. Independently confirmed exact polynomial identity, all real roots and endpoint trace inequalities; valid also N=2 with duplicate neighbors.
 
-The infinite family of ring lengths is established analytically by mode reduction and bounds applying to every real Fourier cosine parameter in \([-1,1]\). These finite checks do not constitute a complete computational enumeration of all ring lengths or all spatial equilibria. The eigenvalue tests certify local linear stability for selected states, not global attraction or basin size. Independent scientific validation has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality follows from statement-level and implication-level comparisons; no identified complete earlier theorem covers the stated surviving exact result. See structured checks, inspected source material and risks.
+
+## value
+
+PASS
+
+An exact nontrivial coexistence of four attracting fixed states with open basins in a canonical coupled nonlinear map, plus *complete* nonzero antisymmetric checkerboard census and all-spatial-mode stability uniform in arbitrary even ring size, is a motivated dynamical regime beyond mere numerical clustering or a routine homogeneous linearization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

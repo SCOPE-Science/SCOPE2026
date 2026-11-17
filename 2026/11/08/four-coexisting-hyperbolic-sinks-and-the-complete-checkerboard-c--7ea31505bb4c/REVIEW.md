@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** At every even ring length the alternating fixed-point equations reduce exactly to the stated quartic. Four rational sign inequalities and Descartes' rule establish precisely two positive, simple squared amplitudes; each gives two opposite checkerboards. The full \(2N\)-dimensional Jacobian decomposes into explicit two-by-two Fourier blocks because both derivatives are even on an alternating state. Uniform exact rational inequalities prove complex multipliers strictly inside the unit disk for the inner pair, while the outer pair has determinant below negative one. The two homogeneous sinks have their own strictly stable Fourier blocks. The statements about persistence follow from simple roots, Fourier compactness, and uniform strict gaps. The reproducible program checks the critical identities and selected full-ring states, supplementing rather than replacing the proof.
+## correctness
 
-**Originality — PASS subject to historical priority risk.** The primary paper [1] specifies and numerically investigates this ring, but its full results, conclusions, and appendix do not include an exact nonzero antisymmetric checkerboard census, the explicit degree-four equation, or uniform all-mode stability at the specified corner. The closest prior mathematical finding [2] analyzes homogeneous equilibria of precisely this ring. We do **not** claim the two homogeneous sinks or their local stability as new; that prior result alone cannot infer existence and stability of nonhomogeneous checkerboards. The early Ambika–Ambika coupled-map article uses a different quadratic-numerator update and additive mutual coupling, while results for other lattices lack the same invariant spatial subspace and Jacobian. Searches did not identify stronger coverage, but searches do not prove historical priority.
+PASS
 
-**Value — PASS.** Spatial two-cluster equilibria are natural invariant configurations in the nearest-neighbor coupled-map network, and the selected rational values are an actual corner of the paper's Case-B parameter rectangle, not arbitrary coefficients. The complete four-checkerboard census distinguishes two genuine sinks from two unstable outer states. Proving a further pair of nonhomogeneous sinks alongside the previously understood homogeneous pair demonstrates exact robust multistability for every even system size, a structural result not accessible from a finite numerical cluster-count plot.
+At rational (a,b,mu,epsilon)=(33/100,1/10,-3/5,3/10) and every even N>=2, antisymmetric checkerboard fixed points reduce exactly to (1+z)^3 H(z)=2 Q(z)/78125 for Q(z)=3696 z^4-136463 z^3-161162 z^2+27929 z+78500. Descartes gives at most two positive roots; sign brackets (5/8,63/100) and (38,39) give exactly two, each yielding two sign-related checkerboards. Jacobian at checkerboards has Fourier blocks determinant D(z) and trace F(z)(1-epsilon+D(z))+epsilon cos(2pi k/N). Inner root D in (0.9,0.95) and uniform trace bound makes multipliers complex with modulus sqrt(D)<1 for every mode. Outer root D<-1 is unstable. Both homogeneous +/-1 equilibria have D0=931/1000 and are Schur stable on every mode. Strict inequalities and simple root yield an N-uniform neighborhood of four hyperbolic sinks. Independently confirmed exact polynomial identity, all real roots and endpoint trace inequalities; valid also N=2 with duplicate neighbors.
 
-**Limits and risk.** The result does not count arbitrary nonsymmetric equilibria, claim global attraction, or classify temporal periodic orbits. The original 2026 paper is inspectable in public HTML, while the early Gumowski–Mira coupled-map literature is broad; independent historical-priority review remains warranted. Finite numerical tests are not exhaustive evidence for infinite ring sizes.
+## originality
 
-**Sources.** [1] Fatoyinbo–Ghosh, arXiv:2607.03686v1 (2026-07-04). [2] *Parity-selective equilibrium stabilization in a coupled Gumowski–Mira ring* (October 2026 mathematical research record). [3] Ambika–Ambika, arXiv:nlin/0606005v1 (2006).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge originality follows from statement-level and implication-level comparisons; no identified complete earlier theorem covers the stated surviving exact result. See structured checks, inspected source material and risks.
+
+## value
+
+PASS
+
+An exact nontrivial coexistence of four attracting fixed states with open basins in a canonical coupled nonlinear map, plus *complete* nonzero antisymmetric checkerboard census and all-spatial-mode stability uniform in arbitrary even ring size, is a motivated dynamical regime beyond mere numerical clustering or a routine homogeneous linearization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
