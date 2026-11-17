@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The cyclic gap necessity is derived from the nonadjacent three-step pairs, which rule out adjacency through the long complementary arc for every two-step pair; summing yields both sharp inequalities. The floor-based seven-vertex construction gives the converse. An exact link identity transfers the known three-dimensional nonshellable seed to every graph in the interval. A separate 25-pair collapse certificate independently confirms that the seed retracts to a triangle boundary; the executed verifier checks each free face and samples 5,701 embedding pairs , fourteen actual links, and the 27 small-case exhaustive sharpness checks. The proof is uniform, not inferred from finite sampling.
+## correctness
 
-## Originality
-PASS within the inspected literature, with ordinary priority uncertainty. The relevant original papers establish the seed obstruction and the general theory of cut complexes, prove shellability for squared cycles only from length nine, and conjecture nonshellability below the larger-cycle threshold. Their inspected claims do not give the necessary-and-sufficient cyclic seven-point embedding range or its infinite consequence. A separate eight-point obstruction begins at a strictly larger lower threshold; its conclusion does not imply the present theorem, including the first case \((p,n)=(2,7)\). An equivalent unpublished or unindexed argument remains a residual risk.
+PASS
 
-## Value
-PASS. The exact embedding criterion supplies a sharp structural boundary for a natural minimal forbidden subgraph. Its topological consequence proves infinitely many previously conjectural nonshellability instances, rather than merely recomputing the already-known seven-vertex seed. The sharpness is explicitly restricted to cyclic-order-preserving copies, and no general shellability classification is claimed.
+For any ordered induced seven-tuple w_i in C_n^p, cyclic positive gaps g_i sum to n. Each nonedge w_i-w_{i+3} forces 3-gap sums ≥p+1 and their complements >p; summing yields 3n≥7(p+1). Since a two-gap arc is smaller than a forbidden three-gap arc, adjacency of the index-distance-two pair forces each two-gap sum ≤p; summing gives 2n≤7p. Conversely w_j=⌊jn/7⌋ yields 1- and 2-step clockwise distances ≤⌈2n/7⌉≤p and 3-/4-step distances ≥⌊3n/7⌋≥p+1 in both directions, proving the iff interval for cyclic-order-preserving induced C7². The ordinary 3-cut complex of C7² has seven tetrahedral facets and collapses via 25 free-face pairs to S¹ (seed homotopy already Bayer et al Proposition 7.27). The link of the complement of this induced subset in the ambient ordinary 3-cut complex equals the seed cut complex. A pure shellable complex would have shellable links, whereas the pure 3-dimensional seed has nonzero H1; hence nonshellability. Independently exhausted seven-subsets for p=2..4; this only checks bounded cases, while the gap proof handles all p≥2.
 
-## Limits
-The proof does not settle the entire conjecture, nor does it exclude non-cyclic embeddings or other types of obstruction beyond the displayed band. Independent mathematical audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The seed S¹ and nonshellability are explicitly prior results; the new statement is the sharp all-p cyclic-order embedding interval and resulting infinite subband of an open nonshellability region. Earlier powers-of-cycles paper proves shellability n≥6p−3; this band lies below and does not follow from that direction. A different 8-vertex motif interval and stable-range cyclic representation results do not imply the sharp 7-vertex motif interval. PASS is for this final combined claim, not for the known seed calculation.
+
+## value
+
+PASS
+
+A uniform sharp obstruction criterion inside a published nonshellability conjecture is mathematically motivated: it gives an explicit finite induced motif producing non-shellability for every p, with a tight arithmetic recognition interval. It does not claim full conjecture resolution or optimality among all motifs, and the novelty is not the elementary link lemma alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
