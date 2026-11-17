@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 check_ladder.py` from this directory; no nonstandard Python packages are required. The executable builds rational vertex Laplacian pseudoinverses and uses independent exact integration of the effective resistance on each ordered pair of unit edges. It checks the maximizing edge set and the closed squared constant for every integer from 2 through 9. The known degenerate four-edge-circle boundary at the smallest size is checked for the value, while the nondegenerate cases are checked for exactly two strict midpoint maximizers.
+## correctness
 
-A completed run printed `EXACT_RATIONAL_LADDER_GREEN_CHECKS_PASSED 8 sizes, all edges, all edge pairs`. In particular, squared sharp constants were `307/588` and `419/600` for the three- and four-rung ladders. The checker is a finite diagnostic, not a proof for all integer sizes.
+PASS
 
-The universal proof is the resistance-polarization identity, edgewise Brownian-bridge integral, strict vertex-potential ordering from the path resolvent, comparison with end rails, and independent Gaussian centering computation. The closed-form gap is positive because each end rung has resistance at most 3/4, and hence its edge quadratic is strictly concave for three or more rungs. Exact equality cases follow from the Riesz representer in the mean-zero energy Hilbert space.
+PASS. For real arclength-mean-zero edgewise H1 on equilateral ladder L_n=P_n□K2, the centered resistance polarization identity Q(x)=F(x)/(3n−2)−J/[2(3n−2)²] and Brownian-bridge integration give exact edge quadratic F(x_t)=(1−t)F(u)+tF(v)+(m−1−m r_e)t(1−t), m=3n−2. The path pseudoinverse G=D† and H=(D+2I)^−1 yield F(vertex rung j)=3n G_jj/2 + m H_jj/2+B, strictly falling from both ends. End rails decrease away from endpoint and end rung profile is symmetric strictly concave, so only its two midpoints maximize. Gaussian centering gives K_n=(18n³−18n²−9n+10)/(12(3n−2)²), off-end-rung gap 1/4(2−√3 coth(n arcosh2)−1/(3n−2))>0; n=2 is length-4 circle K=1/3 everywhere. Independent rational vertex Laplacian and full edge resistance integration n=2..7 confirmed constants and maximizing positions, e.g. n=3 307/588 and n=4 419/600; finite tests do not replace strict all-n inequality.
 
-No independent mathematical audit or external certification has occurred. The 2014 Carmona–Encinas–Mitjana full text was not available for material comparison, and bibliographic priority therefore remains qualified.
+## originality
+
+PASS
+
+PASS for exact equilateral ladder closed rational value and the all-n two-end-rung midpoint *uniqueness* plus positive off-end-rung gap. An earlier universal metric-graph finite quadratic envelope already determines the constant for an individual ladder via a finite optimization and supplies much of the general resistance framework; it does not state nor prove the uniform n-dependent simplification and strict family localization. Cinkir 2015 supplies ladder vertex resistances, which are credited. No exact prior n-uniform ladder Sobolev localization theorem was found in materially inspected texts.
+
+## value
+
+PASS
+
+PASS. A sharp functional inequality on a canonical metric-graph family with a surprising strict localization to two boundary-rung midpoints, explicit rational n dependence, an exact gap, and degeneracy boundary at n=2 is a natural complete classification, not mere table recomputation. It converts a general finite resistance envelope into a nontrivial uniform analytic family theorem with closed optimizers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
