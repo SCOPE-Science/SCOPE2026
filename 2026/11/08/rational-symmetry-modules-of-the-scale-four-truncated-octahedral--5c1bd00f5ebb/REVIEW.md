@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The new claim is a rational representation calculation, not a new nonequivariant homotopy classification. The standard-library verifier constructs all \(17,372\) nonempty faces and all \(8,682\) matching pairs from the graph definition. Directed acyclicity, signed integral Morse differentials, projection/lift chain relations and every \(S_4\times C_2\) action are exact finite checks. The primitive boundary has rank one, yielding fifth homology rank two and fourth homology rank five. The ten class characters have the stated irreducible decomposition. Signed full-simplicial Lefschetz traces provide an independent check of their alternating difference, and a separate direct cycle calculation checks the fifth-degree character. Scientific limit: no generalization to larger permutahedra or integral group-ring classification.
+## correctness
 
-**Originality — PASS on inspected evidence.** Adamaszek's 2011 source covers graph powers and graph-metric Rips topology generally; Saleh–Titz Mite–Witzel's Platonic-solid paper excludes the Archimedean truncated octahedron. The closest public published-finding corpus calculations **already establish** the exact scale-four wedge and mod-two persistence. Full-text inspection of their scientific RESULT documents, not merely title matches, showed no \(48\)-element homology character or quotient-homology classification. Focused semantic published-finding corpus searches and public-literature searches found no dominating equivariant statement. An unindexed calculation is the residual priority risk.
+PASS
 
-**Value — PASS.** The known mixed \(4\)/\(5\)-dimensional wedge leaves open how geometry permutes its seven rational generators. The answer separates one sign-twisted two-dimensional constituent and a three-dimensional constituent in degree four from a trivial-plus-alternating pair in degree five, identifying an invariant line only in the latter. This is a natural symmetry refinement of a canonical polyhedral filtration, and determines the full-symmetry quotient's rational homology without pretending to determine its homotopy type.
+At inclusive Kendall graph distance 4 on all 24 permutations of four labels, independently enumerated all 17,372 nonempty simplices with face vector (24,228,1112,3042,4848,4592,2592,822,112). Inspected actual exhaustive verify.py: constructs forbidden graph pairs, 8,682 acyclic discrete Morse matches, six critical degree-4 and three critical degree-5 cells, primitive rank-one integer Morse differential (0,1,1,0,-1,1), gradient projection/lift chain maps, all 48 symmetry actions and character decomposition. Independent complete 48-element signed simplicial Lefschetz calculation checked the submitted H4-minus-H5 character on every group element; 10 class pairs agree with S^(2,1,1) tensor 1 plus S^(2,2) tensor epsilon in H4 and (1+sgn) tensor 1 in H5. Together with inspected exact Morse chain model this yields claimed rational modules and one invariant H5 line. Original heavier lift/project calculations were not independently replayed; Lefschetz by itself would not prove the separate module split.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Prior full-graph Rips homotopy filtration and mod-two persistence of the same four-letter permutahedron explicitly give the scale-four Betti ranks 5 and 2 but no natural S4 x C2 rational representations. A separate November 8 symmetry result concerns scales two and three and does not cover scale four. The full scale-four representation split appears novel on inspected evidence.
+
+## value
+
+PASS
+
+PASS: The complete 48-element symmetry representations at a canonical mixed 4/5-dimensional graph-Rips stage add structural information beyond already published nonequivariant filtration and characteristic-two barcodes; the natural automorphism decomposition identifies precisely which degree survives rational quotienting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
