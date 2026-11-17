@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-The universal statements were verified by an algebraic proof using the block Gram matrix of the multiplication pairing and its kernel. Two standalone programs corroborated the rank formula on small quivers:
+# Independent mathematical audit
 
-- `python frob_rank_checker.py` enumerates all linear functionals and computes the Gram-matrix rank by modular Gaussian elimination over \(\mathbb F_2\) and \(\mathbb F_3\). It tests 26 cases including loops, two parallel arrows, cycles, chains and forks. The output ends with `ALL_FROBENIUS_RANK_CHECKS_PASS 26`.
-- `python frob_gf4_checker.py` uses arithmetic in \(\mathbb F_2[t]/(t^2+t+1)\) and computes direct matrix ranks independently. It checks five quivers and ends with `GF4_ALL_FROBENIUS_RANK_CHECKS_PASS`.
+## correctness
 
-For both programs, predicted rank distributions are independently constructed from arrow-support and diagonal masks, not the matrix elimination routine. The expected total number of functionals is \(q^{n+m}\). The scripts use only the Python standard library and terminate without downloads.
+PASS
 
-Finite enumeration does not certify all quiver sizes or field orders, nor does it establish historical originality. No independent audit has been performed.
+Unitality gives the bijection B(x,y)=λ(xy) exactly, including nonsymmetric bilinear forms. In vertex-arrow basis its Gram matrix is [D U;V 0], where column a of U and row a of V are supported on source and target of active arrow a. Kernel equations Vx=0 force target coordinates zero; Dx modulo im U imposes uncovered nonzero diagonal constraints. This yields rank |S_F|+|T_F|+#{v outside S_F∪T_F:d_v≠0}, independent of active arrow coefficient values. Counting support weights and uncovered diagonals gives the polynomial; all arrow activation yields max n+|S_all∩T_all|. Equality m=|S_all∩T_all| forces every nonisolated vertex indegree=outdegree=1 (directed cycles). Fresh small-quiver exact GF2 direct ranks confirm chain/fork distinction; the algebraic proof covers arbitrary q, loops, and parallel arrows.
+
+## originality
+
+PASS
+
+Best-of-knowledge original component after comparison of exact mathematical implications and source scope. Known constituent techniques and narrower special cases are credited. Full inaccessible relevant texts remain expressly flagged rather than declared not covering.
+
+## value
+
+PASS
+
+Rank-spectrum of associative multiplication pairings quantifies degeneracy of Frobenius duality across the natural full class of split radical-square-zero quiver algebras. The orientation-sensitive complete polynomial and maximum-rank boundary provide actual new information beyond known self-injective/Frobenius existence and are not merely an isolated low-order example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
