@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** In a unital algebra, associativity gives \(\beta(X,Y)=\lambda(XY)\). Partitioning rows and columns of the Gram matrix by the matched index produces exact independent rectangular blocks. Maximal rank reduces to one invertible square block in odd dimension and two overlapping full-rank rectangular blocks in even dimension. The latter count explicitly includes both the full-rank and corank-one intersections. The codimensions follow from ordinary determinant and maximal-minor loci. Exhaustive finite-field checks independently reproduce all tested values. The proof covers the full stated ranges and all characteristics.
+## correctness
 
-**Originality — PASS, provisionally.** The inspected 2013 structural-matrix-algebra paper settles Frobenius *existence*, not maximum degenerate-pairing rank, exact optimizer counts or the parity-sensitive degeneracy codimension. The inspected 2010 incidence-coalgebra paper classifies balanced forms on the dual coalgebra and co-Frobenius conditions, not the specific optimal-rank distribution on the algebra. Targeted searches and comparisons with accessible related mathematical records revealed no equivalent or dominating theorem. Search failures cannot establish priority. An unlocated general determinantal-rank-profile count remains a residual risk.
+PASS
 
-**Value — PASS.** The Frobenius criterion says that these nonsemisimple algebras have no nondegenerate associative pairing. The precise best possible rank, its sharp optimizer density and the codimension of failure quantify the *extent* and geometric stability of this obstruction for all sizes. The persistent odd-even density separation is a structural phenomenon, not a fixed-size numerical improvement or a generic textbook rank computation. The finite-field formula identifies a natural exact counting invariant.
+Reconstructed each functional lambda through beta(X,Y)=lambda(XY), using unit beta(1,XY), then regrouped the Gram matrix by shared matrix-unit index j. The independent blocks H_j have shapes j by (n-j+1) and lie in overlapping corners of the coefficient matrix. A single central invertible m by m block gives all full row/column ranks for odd n; for even n the adjacent middle blocks share C, and full maximal ranks permit rank(C)=m or m−1 with the two extension vectors outside its image/row space. The counted cases yield the stated odd/even formulas and geometric exceptional loci. Checked n=3,4 for GF(2) by separately constructing the full literal Gram matrix for every functional (24/528 optimal forms), not by using the claimed block decomposition. The all-n and arbitrary-field assertions rest on the algebraic proof and determinantal geometry, not finite enumeration.
 
-The claim is confined to maximum rank and the geometry of its complement; it is not a census of all lower-rank forms. Historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full upper triangular algebra is non-Frobenius by the older structural-algebra classification, but that boolean property does not determine maximal degenerate pairing rank, frequency or codimension of loss. Identified source with a pairing-rank stratification applies instead to multibranch Artin algebras, not T_n. Exact square-matrix full-rank counts are prior input; the interlocking rectangular-block decomposition yields an exact new parity-dependent finite-field census and geometric exceptional-locus structure, best of knowledge.
+
+## value
+
+PASS
+
+The number and geometry of maximum-rank associative pairings are natural invariants even for a non-Frobenius finite-dimensional algebra. The sharp parity switch from a determinant hypersurface to two codimension-two components, and limiting optimizer densities, are structural information not implied by nonexistence of Frobenius forms; a researcher studying random multiplication pairings could need precisely these quantities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

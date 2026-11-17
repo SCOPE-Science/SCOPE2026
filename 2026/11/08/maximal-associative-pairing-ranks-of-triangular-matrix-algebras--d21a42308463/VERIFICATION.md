@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-The algebraic argument is in `RESULT.md`; finite checks are corroboration, not an infinite proof.
+# Independent mathematical audit
 
-With a C++17 compiler and Python 3, execute from the directory containing the files:
+## correctness
 
-```sh
-g++ -std=c++17 -O2 check_prime_fields.cpp -o check_prime_fields
-./check_prime_fields
-python3 check_gf4.py
-```
+PASS
 
-`check_prime_fields.cpp` enumerates the \(n(n+1)/2\) functional coefficients, builds the full multiplication Gram matrix directly from the rule \(E_{ij}E_{k\ell}=\delta_{jk}E_{i\ell}\), computes its rank by modular Gaussian elimination, independently sums the ranks of the rectangular blocks, and compares the maximum-rank multiplicity against the theorem for ten cases. These are actual computations over the prime fields \(\mathbb F_2,\mathbb F_3,\mathbb F_5\), not experiments with a rounded real rank.
+Reconstructed each functional lambda through beta(X,Y)=lambda(XY), using unit beta(1,XY), then regrouped the Gram matrix by shared matrix-unit index j. The independent blocks H_j have shapes j by (n-j+1) and lie in overlapping corners of the coefficient matrix. A single central invertible m by m block gives all full row/column ranks for odd n; for even n the adjacent middle blocks share C, and full maximal ranks permit rank(C)=m or m−1 with the two extension vectors outside its image/row space. The counted cases yield the stated odd/even formulas and geometric exceptional loci. Checked n=3,4 for GF(2) by separately constructing the full literal Gram matrix for every functional (24/528 optimal forms), not by using the claimed block decomposition. The all-n and arbitrary-field assertions rest on the algebraic proof and determinantal geometry, not finite enumeration.
 
-`check_gf4.py` explicitly implements arithmetic in \(\mathbb F_2[t]/(t^2+t+1)\). It exhausts all coefficient assignments for dimensions two and three, compares direct and block ranks, and checks 5,000 independently seeded dimension-four cases. Its first two cases are boundary and extension-field checks; the main result concerns \(n\ge3\).
+## originality
 
-The recorded runs appear in `CHECKS.txt`. All reported tests passed. Larger dimensions and other fields are covered by the proof, not by computation. Neither checker certifies historical priority or supplies an independent mathematical audit.
+PASS
+
+The full upper triangular algebra is non-Frobenius by the older structural-algebra classification, but that boolean property does not determine maximal degenerate pairing rank, frequency or codimension of loss. Identified source with a pairing-rank stratification applies instead to multibranch Artin algebras, not T_n. Exact square-matrix full-rank counts are prior input; the interlocking rectangular-block decomposition yields an exact new parity-dependent finite-field census and geometric exceptional-locus structure, best of knowledge.
+
+## value
+
+PASS
+
+The number and geometry of maximum-rank associative pairings are natural invariants even for a non-Frobenius finite-dimensional algebra. The sharp parity switch from a determinant hypersurface to two codimension-two components, and limiting optimizer densities, are structural information not implied by nonexistence of Frobenius forms; a researcher studying random multiplication pairings could need precisely these quantities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

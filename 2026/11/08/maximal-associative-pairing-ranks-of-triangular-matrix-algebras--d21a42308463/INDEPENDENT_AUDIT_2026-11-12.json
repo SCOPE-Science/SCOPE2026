@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T01:01:00.672121Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/maximal-associative-pairing-ranks-of-triangular-matrix-algebras--d21a42308463/RESULT.md",
+        "RESULT.md:95e692c891cae73ac25aa838eab3e73c0c4ada31",
+        "check_gf4.py:152e76cf49cf70511b61bbca671086983f7a777d",
+        "METADATA.json:c0e331c560b39bec86b24301e8a5b183dd4abdc3"
+      ],
+      "rationale": "Reconstructed each functional lambda through beta(X,Y)=lambda(XY), using unit beta(1,XY), then regrouped the Gram matrix by shared matrix-unit index j. The independent blocks H_j have shapes j by (n-j+1) and lie in overlapping corners of the coefficient matrix. A single central invertible m by m block gives all full row/column ranks for odd n; for even n the adjacent middle blocks share C, and full maximal ranks permit rank(C)=m or m−1 with the two extension vectors outside its image/row space. The counted cases yield the stated odd/even formulas and geometric exceptional loci. Checked n=3,4 for GF(2) by separately constructing the full literal Gram matrix for every functional (24/528 optimal forms), not by using the claimed block decomposition. The all-n and arbitrary-field assertions rest on the algebraic proof and determinantal geometry, not finite enumeration.",
+      "residual_risks": [
+        "Independently tested only n=3,4 over GF(2); arbitrary n and extension fields rely on the analyzed determinant/rank decomposition.",
+        "Infinite product positivity follows from q>1 and summable q^-i; no all-rank spectrum is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026/11/2/SCOPE-linear-rank-degeneracy-arrangements-for-associative-pairings-on--86eb0e1718bc treats fiber products of truncated one-variable Artin algebras.",
+          "2026/10/25/SCOPE-right-annihilator-spectra-and-top-dimensional-zero-product-compo--15ccbc502699 treats zero-product pair variety, not lambda(XY)."
+        ],
+        "reasoning": "Neither result specializes to the present upper-triangular algebra pairing census. General finite-field rank-count formulas for free rectangular matrices are used but not themselves claimed as novelty.",
+        "searches": [
+          "Resultary: linear rank degeneracy arrangements associative pairings multi-branch Artin algebras",
+          "Resultary: right annihilator spectra triangular matrix algebras"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1512.09339",
+        "2026/11/2/SCOPE-linear-rank-degeneracy-arrangements-for-associative-pairings-on--86eb0e1718bc",
+        "2026/10/25/SCOPE-right-annihilator-spectra-and-top-dimensional-zero-product-compo--15ccbc502699"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary 2.2 says Frobenius structural algebras have only full matrix diagonal blocks, hence T_n has no full-rank pairing.",
+          "The claimed optimal rank is not full and its proportion of optimal forms tends to two distinct limits."
+        ],
+        "reasoning": "Nonexistence of a nondegenerate form is insufficient to infer an exact best deficient rank, its optimizer count, or that its nonoptimal variety has one versus two components and parity-dependent codimension.",
+        "searches": [
+          "Dăscălescu–Iovanov–Preduţ arXiv:1512.09339 full text Corollary 2.2",
+          "Resultary: rank degeneracy multibranch Artin"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frobenius structural-matrix criterion is existence of a nondegenerate associative form, equivalent to rank=d; triangular algebra fails for n>1.",
+          "Current optimum rank floor((n+1)^2/4) is strictly below d=n(n+1)/2 for n>=3."
+        ],
+        "reasoning": "Equivalently these are ranks of the multiplication pairing Gram map lambda(XY) and determinant strata of the associated non-square corner blocks; they are not ranks of an arbitrary matrix nor co-Frobenius forms on the incidence coalgebra.",
+        "searches": [
+          "Resultary: upper triangular matrix algebra associative pairing generic rank count structural Frobenius",
+          "arXiv:1512.09339v1 (complete HTML, Theorem 2.1 and Corollary 2.2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching prior exact table of optimizing associative forms found; finite check values 24 and 528 reconstructed independently.",
+          "Generic GL_m(q) formula is standard and included in the arithmetic derivation."
+        ],
+        "reasoning": "The finite counts are not merely a look-up table: the theorem supplies closed expressions for all n and arbitrary finite fields, and exactly characterizes codimension changes. A failed search is not a priority certificate.",
+        "searches": [
+          "Resultary: maximal associative pairing ranks finite triangular matrix algebra odd even counting",
+          "Source RESULT.md citations and verification n=3,4"
+        ]
+      },
+      "rationale": "The full upper triangular algebra is non-Frobenius by the older structural-algebra classification, but that boolean property does not determine maximal degenerate pairing rank, frequency or codimension of loss. Identified source with a pairing-rank stratification applies instead to multibranch Artin algebras, not T_n. Exact square-matrix full-rank counts are prior input; the interlocking rectangular-block decomposition yields an exact new parity-dependent finite-field census and geometric exceptional-locus structure, best of knowledge.",
+      "residual_risks": [
+        "A general structural-matrix algebra bilinear-rank classification under another name may predate this exact specialization; searches do not exclude unindexed literature.",
+        "Direct complete inspection of all incidence-coalgebra reference material was not obtained, although the principal structural-algebra theorem was read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS nondegeneracy obstruction ONLY, not optimal degenerate rank or counts",
+          "evidence": "Corollary 2.2 classifies Frobenius structural matrix algebras as products of full diagonal matrix blocks; no all-ranks numerical theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1512.09339",
+          "material_read": "Full accessible arXiv HTML including introduction, Theorem 2.1, Corollary 2.2, and concluding proof arguments",
+          "method": "Read primary mathematical statement and proof-level implication",
+          "title": "Frobenius Structural Matrix Algebras",
+          "trigger": "Exact subject: Frobenius structural algebras and associative forms"
+        },
+        {
+          "assessment": "Different coalgebra-side pairing; direct full text remains a priority limitation",
+          "evidence": "First paper notes incidence coalgebra co-Frobenius criterion on the dual incidence object.",
+          "identifier_or_url": "https://inmabb.criba.edu.ar/revuma/pdf/v51n1/v51n1a03.pdf",
+          "material_read": "The referenced theorem/definition contrasted via the full first primary source; direct second-paper full-text review was not completed",
+          "method": "Citation/implication comparison only",
+          "title": "Balanced bilinear forms and finiteness properties for incidence coalgebras over a field",
+          "trigger": "Closest terminology: balanced forms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1512.09339",
+        "2026/11/2/SCOPE-linear-rank-degeneracy-arrangements-for-associative-pairings-on--86eb0e1718bc",
+        "2026/10/25/SCOPE-right-annihilator-spectra-and-top-dimensional-zero-product-compo--15ccbc502699"
+      ],
+      "rationale": "The number and geometry of maximum-rank associative pairings are natural invariants even for a non-Frobenius finite-dimensional algebra. The sharp parity switch from a determinant hypersurface to two codimension-two components, and limiting optimizer densities, are structural information not implied by nonexistence of Frobenius forms; a researcher studying random multiplication pairings could need precisely these quantities.",
+      "residual_risks": [
+        "No broad downstream theorem is claimed; value is from the motivated exact invariant and classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independently tested only n=3,4 over GF(2); arbitrary n and extension fields rely on the analyzed determinant/rank decomposition.",
+    "Infinite product positivity follows from q>1 and summable q^-i; no all-rank spectrum is asserted.",
+    "A general structural-matrix algebra bilinear-rank classification under another name may predate this exact specialization; searches do not exclude unindexed literature.",
+    "Direct complete inspection of all incidence-coalgebra reference material was not obtained, although the principal structural-algebra theorem was read.",
+    "Scientific conclusions are best-of-knowledge, not independent external certification or claimed exhaustive literature access.",
+    "Publication withheld for privacy/transport reasons separate from C/O/V."
+  ],
+  "schema_version": 1
+}
