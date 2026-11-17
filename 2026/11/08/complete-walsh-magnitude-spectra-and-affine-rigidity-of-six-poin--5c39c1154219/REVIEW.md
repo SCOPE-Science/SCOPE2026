@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Affine rank and the unique rank-four relation give exactly four affine types; the pair-sum table is complete and its energies are \(168,120,96,96\). Character orthogonality and the complete two- and four-moment equations determine all three remaining local multiplicities after the unique maximal-magnitude coefficient is fixed. This proves all dimensions, while the integer checker separately covers all \(8036\) six-subsets in dimensions three and four and one five-dimensional representative per type. Boundary dimensions, coefficient normalization, and ambient lifting are explicit.
+## correctness
 
-**Originality — PASS relative to inspected evidence.** Kadowaki's eight-point zero-avoidance theorem and Ferguson–Iosevich's two-dimensional-subspace support lemma are not the stated six-point complete magnitude classification. The closest previously published binary-Fourier records concern eight-point spectrum counts, general four-sparse signals, and six-phase peak optimization; none entails the four six-point indicator magnitude rows by its stated hypotheses. Jauberty–Méaux establish attainable support cardinalities for general Boolean functions, a distinct unconditioned existence problem, but their inaccessible full text and potential implicit tables are a genuine residual priority risk; no absolute priority claim is made.
+PASS
 
-**Value — PASS.** Six-point supports are the first even support size beyond the well-studied four-point case and give four genuinely different affine circuit geometries. A single spectral support statistic unexpectedly identifies all affine types, with an exact zero-free characterization and complete amplitude counts in every binary ambient dimension. These are natural finite harmonic-analysis invariants rather than an arbitrary parameter slice. The result does not assert a theorem about general coefficients or noise robustness.
+Classify six-point affine sets by rank 3, 4 with 4-relation, 4 with 6-relation, and rank 5; over F2 these are exactly four affine-equivalence types. For pair-sum counts q(t), the energies Q=36+4 sum q(t)^2 are 168,120,96,96; character orthogonality yields second and fourth Walsh moments, while the only magnitude-6 character in the affine span is trivial. Solving the exact linear moment system gives local histograms (4,3,0,1),(6,7,2,1),(0,15,0,1),(10,15,6,1), with ambient lift 2^(d-r), and distinct support fractions. Independent exhaustive Walsh enumeration covered every 28 six-subsets of F2^3 and every 8008 six-subsets of F2^4 and canonical rank-5 set. All dimensions follow from affine linear algebra, not finite testing.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Four six-point binary indicator affine types and their full absolute Walsh multiplicity rows are not provided by checked eight-point spectral/tiling results nor broad spectral-norm existence literature. A Boolean-function Walsh-support-cardinality paper is highly relevant and potentially contains equivalent classification tables, but accessible abstract/preview only does not establish coverage or exclusion. Authorized institutional full-text access returned vpn_disconnected; accept best-of-knowledge with explicit substantial risk.
+
+## value
+
+PASS
+
+PASS: six-point subsets are a natural small-support class with genuinely four different affine circuit geometries; the striking rigidity that a single nonzero Fourier-support statistic determines affine orbit and the exact magnitude counts is a useful combinatorial-harmonic invariant. Complete all-dimension classification is not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
