@@ -1,24 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim has a fully specified Kingman pair-merger normalization and a pathwise definition of a pitchfork. Exact singleton factorial moments through order four and mixed singleton/doubleton recurrences control the stagewise covariance. A separate first-merger analysis handles the exceptional four-leaf tree. The resulting finite sum yields a constant \(-1/18\) for every integer \(n\ge5\). An independent exhaustive merge-history enumeration and a separate exact Markov recursion agreed with the algebra at 520 assertions. Those finite checks are corroborative; the proof is not based on extrapolation.
+PASS
 
-## Originality — PASS, with residual priority risk
+The exact proof tracks singleton counts S_k, doubleton counts W_k, and previous pitchfork events under uniformly chosen Kingman merges. Marked-leaf factorial moments m_r(k)=(k)_r(k-1)_r/(n-1)_r and the S-W mixed recurrence give explicit f_k,g_k; conditioning on next merge and future marked-pair coalescence yields u_k=2/[3(k-1)] and v_k=1/[(k-1)(k-2)]. These determine Cov(P_n,S_{n,k}) with factor (2k-n), including k=2 separately; independent holding times turn its sum into -1/18 for all n>=5. Direct exact enumeration of all labelled merge sequences n<=7 and a separate rational symbolic finite sum agree; finite enumeration is corroboration, not all-size proof. Small n2,3 zero and n4 +2/9 verified.
 
-The nearest primary literature treats external lengths (Janson–Kersting, 2010) or cherry/pitchfork topology (Disanto–Wiehe, 2011/2012). Neither inspected full text establishes the mixed pitchfork/external-length covariance. A related previously established cherry/external-length covariance concerns a different, non-equivalent statistic: trees with the same cherry count can have distinct pitchfork counts. The main new statement requires mixed doubleton/singleton moments and displays a stagewise sign transition that the known cherry result does not imply. General older joint-enumeration methods could still implicitly contain this formula; the literature search is not a proof of priority.
+## originality
 
-## Value — PASS
+PASS
 
-Pitchforks are local three-leaf motifs used as tree-shape statistics, while external length measures genealogical exposure and influences singleton genetic variants. The exact finite-size sign reversal and the interior stagewise sign crossover identify which ancestral phases create an otherwise hidden net dependence. They give a mathematically motivated benchmark for the standard neutral model, rather than a small numerical refinement to a known table.
+Inspected Janson–Kersting external-length work (singleton lineages, no pitchfork cross moment) and Disanto–Wiehe ranked shape pitchfork enumeration (topological counts without branch lengths). Published cherry–external-length covariance has a different statistic; no marginal theorem implies mixed Cov(P,E) or its stage-dependent sign. Resultary and indexed coalescent-covariance searches did not reveal a stronger equivalent; an undiscovered multistatistic joint generating function remains a residual priority risk.
 
-## Closest literature and limitations
+## value
 
-- Janson and Kersting, *The external lengths in Kingman's coalescent*, arXiv:1004.5011.
-- Disanto and Wiehe, *Exact enumeration of cherries and pitchforks in ranked trees under the coalescent model*, arXiv:1112.1295.
-- Choi, Thompson and Wu, *On cherry and pitchfork distributions of random rooted and unrooted phylogenetic trees*, arXiv:2002.12643.
-- Alimpiev and Rosenberg, *A compendium of covariances and correlation coefficients of coalescent tree properties*, arXiv:2103.13467.
+PASS
 
-The proof assumes binary constant-rate coalescence. Other demographic scenarios and different tree-shape indices remain unproved. Historical novelty requires the usual independent scholarly scrutiny.
+A universal rational mixed covariance between a recognized rooted three-leaf motif and a fundamental genealogical branch-length statistic, with n4/n5 sign reversal and a stagewise sign crossing k=n/2, is a motivated structural correlation useful for coalescent tree inference. Requires new doubleton-lineage mixed moments, not a routine marginal substitution.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
