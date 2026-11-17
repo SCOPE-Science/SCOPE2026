@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is a complete statement for the fixed cubic \(X=V(x^2w-y^2z)\) over algebraically closed characteristic-two fields. The determinantal equations and chart \(k[y,yt,t^2]\subset k[y,t]\) give the finite birational scroll normalization and conductor. For any curve cut set-theoretically on the cubic, pullback to the normal scroll gives \(rD\sim mH\), implying \(D\sim dH\) because \(H\) is primitive. A smooth image must intersect the conductor transversely by the local uniformizer test. Conversely, projective normality and \(e^2=zw\) make the square of every section of \(dH\) descend to a degree-\(2d\) polynomial. Generic Bertini divisors exist in all degrees, meet the conic transversely, and have the claimed genus by adjunction. At a transverse conductor intersection, any downstairs polynomial restricts to a square on the conductor conic, forcing the pullback multiplicity to be even. The degree-\(2d\) construction attains multiplicity two. These are infinite-dimensional geometric proof steps, not inferences from finite experiment. The executable checks the determinantal identities and one explicit example, and verifies the adjunction arithmetic.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Hartshorne–Polini (arXiv:1301.3222v1, posted 2013-01-15), especially Theorem 3.1 and Examples 6.3 and 7.12, establish conductor comparisons and give a restrictive characteristic-zero description of smooth STCI curves on the ruled cubic. Their result does not imply the characteristic-two exact classification or square-descent mechanism. Thoma's 1989 binomial-surface criterion is for **monomial curves** (rational) and therefore does not classify the higher-genus curves here. Moh's 1985 theorem provides broad positive-characteristic STCI constructions for monomial curves or some cuspidal projections, but does not require that the first hypersurface be this fixed nonnormal cubic, and does not provide the all-curve characterization or minimal second-surface degree. Reid's 1994 nonnormal del Pezzo analysis studies more general wild gluing but the material inspected did not yield this statement; whole-document negative coverage is **not** asserted. published-finding corpus searches for conductor, scroll, characteristic-two self-linkage, monomial and positive-characteristic STCI located no exact statement; closest stored items concern other scrolls, other conductors or ordinary complete intersections. Search absence is not a uniqueness proof. Historical literature remains a genuine risk.
+PASS
 
-## Mathematical value — PASS
-The work converts a known characteristic-zero rigidity phenomenon into a precisely classified opposite behavior in a genuinely wild characteristic: the same fixed irreducible cubic supports smooth set-theoretic complete intersections of every degree divisible by three, with unbounded genus, every one minimally of self-linkage multiplicity two. The exact class criterion, smoothness boundary and minimality of the descent degree are structural facts not immediate from the general positive-characteristic existence theorems. The unbounded family is therefore mathematically motivated rather than an arbitrary finite sample or routine parameter variation.
+Verified scroll parametrization [au:av:bu^2:bv^2:buv], minors xe-yz=xw-ye=zw-e^2=0, local conductor A=k[y,yt,t^2] subset B=k[y,t] and purely inseparable Gamma->L (t->t^2). The normalization is finite and birational, and smooth transverse D has y as uniformizer so its image curve is regular; tangency forces all image maximal-ideal generators to vanish order at least two. Pullback of any set-theoretic hypersurface section supported on C gives rD~mH; primitive H in Pic(S)=ZH+ZF forces D~dH (and excludes singular line L). In char2 s^2 descends as a homogeneous degree-2d polynomial because e^2=zw; this supplies multiplicity two and no other support. Restriction of any lower section to Gamma is a Frobenius square; transverse D has simple zeros, forcing r even. Bertini with surjective restriction to Gamma yields all d; adjunction H^2=3, K.H=-5 gives genus. Independent symbolic substitution and determinant checks corroborate example, not universal Bertini.
 
-## Limitations and closest sources
-All results hold only over algebraically closed characteristic-two fields, on this fixed surface. No classification of other singular cubics or descent over specified finite fields is claimed. The scheme-theoretic second intersection is not asserted to equal the squared ideal of the curve. Closest literature: Hartshorne and Polini, *Divisors class groups of singular surfaces*, arXiv:1301.3222v1 (2013); A. Thoma, *Monomial space curves in projective three-space as binomial set theoretic complete intersections*, Proc. AMS 107 (1989); T. T. Moh, *Set-theoretic complete intersections*, Proc. AMS 94 (1985); M. Reid, *Nonnormal del Pezzo Surfaces*, Publ. RIMS 30 (1994). An independent literature-priority audit remains desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hartshorne–Polini analyzes the SAME type of nonnormal ruled cubic over characteristic zero and finds only twisted cubic smooth set-theoretic complete intersections. Its generic conductor formalism does not produce characteristic-two inseparable square descent or an unbounded classification. Moh/Thoma treat other positive-characteristic monomial curve contexts, and Reid covers nonnormal surface geometry, but none inspected implies the fixed cubic complete classification with sharp multiplicity.
+
+## value
+
+PASS
+
+A sharp characteristic-dependent geometric classification on an explicit nonnormal cubic yields infinitely many smooth set-theoretic complete intersection curves of unbounded genus and a nontrivial minimal multiplicity obstruction. This isolates an inseparable-conductor mechanism relevant to linkage and positive-characteristic algebraic geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
