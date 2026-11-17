@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification summary
+# Independent mathematical audit
 
-Run `python3 verify.py` in the same directory. It uses only the Python standard library. Its first check enumerates all pairs of distinct round-two vectors, represented by four orbit types, on eight coefficient coordinates. This covers all overlap patterns of supports of size at most four and verifies the complete ten-row transition table. Its second check compares multinomial orbit counts with the asserted closed-form binomial polynomials for every \(2\le n\le24\). Its third check directly constructs the full ternary affine Steiner system on \(3^d\) points and simulates parallel propagation for every \(1\le d\le9\), checking all four stated cumulative counts and the three-round completion threshold.
+## correctness
 
-Expected successful final line: `VERIFY_OK`. These are finite computational checks and a finite table certificate; the extension to all dimensions uses the support-at-most-eight reduction proved in `RESULT.md`. The auxiliary verifier does not provide independent certification.
+PASS
+
+Use unique affine coefficient vectors summing to 1 in F3, standard unit seeds and closure c=-a-b. The S_n orbit type is (number of 1s,number of 2s). For the four F2 types the round-3 pair-operation overlap has support<=8, so enumerating 8-coordinate overlaps is dimension-independent. Ten resulting types give the exact stated support-binomial coefficients (1,1,3,5,11,15,7,1). Exhaustive independent full point propagation checked d=1..6: F3 counts 3,9,27,81,237,651, with all points burned iff d<=4 in that range. Analytic ten-type criterion proves for all d: (5,1) admissible only starting n=6 and missing from F3. Dimension 5 has exactly 6 missing points.
+
+## originality
+
+PASS
+
+Best-of-knowledge: exact ten affine coefficient orbit types through three simultaneous closure rounds, exact binomial profile and sharp d<=4 completion dimension are not implied by inspected minimum lazy-burning/cardinality or sequential source-round theorems.
+
+## value
+
+PASS
+
+A sharp finite-time closure threshold and complete early growth profile for natural minimum generators in affine Steiner triple systems answer a useful dynamic question not settled by burning number; finite orbit classification remains meaningful despite uncomputed later rounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
