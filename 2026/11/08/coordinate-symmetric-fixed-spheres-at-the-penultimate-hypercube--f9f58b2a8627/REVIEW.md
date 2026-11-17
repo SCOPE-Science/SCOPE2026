@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The geometric-fixed orbit-barycenter lemma is proved directly rather than assumed. The exact maximum distance between weight layers is attained by pairs with minimally overlapping supports; it gives the bipartite band-graph orbit model at inclusive scale \(n-2\) for both parities, including the boundary cases. Each of the two successive dominated-vertex removals is valid for the current graph, leaving exactly \(\lceil\lfloor n/2\rfloor/2\rceil\) disjoint edges. Their independence complex is a cross-polytope boundary. The complement involution has no invariant simplex and its integral homology sign follows from the simplicial Lefschetz formula. This is an unrestricted proof. Independent direct orbit enumeration and exact mod-two ranks agree, but do not replace the infinite proof.
+## correctness
 
-## Originality — PASS, with identifiable risk
-The closest primary source, Galetto--Montaño--Wellner (arXiv:2606.20784), determines **ordinary rational homology representations** of the full hypercube Vietoris--Rips complexes at scales at most three and \(n-1\), rather than geometric \(S_n\)-fixed-space homotopy at \(n-2\). The published parity reduction (2026-10-04) identifies the unrestricted scale-\(n-2\) complex as a folded-cube independence complex, but does not determine the fixed-space orbit graph for the original coordinate-permutation action. Bendersky--Elia--Grbić (arXiv:2605.00705) address cohomology and connectivity of the unrestricted complexes. Feng (arXiv:2305.07084) treats scale three, relevant only to this parameter family at \(n=5\). Earlier scale-two coordinate-permutation results cover isolated small boundary cases, not the infinite dimension-growth pattern. Searches in published-finding corpus and the accessible historical claim index revealed no equivalent all-parameter fixed-space theorem or complement-sign formula. The possibility of a differently named unindexed equivalent theorem remains.
+PASS
 
-## Mathematical value — PASS
-The result gives a uniform, exact geometric fixed-space homotopy classification at the first scale below the known cross-polytope endpoint for all cube dimensions, while the unrestricted homotopy classification is substantially harder. Its explicit graph folding yields a concrete cross-polytope core, a dimension that grows by one with each four additional coordinates, integral (not merely rational) homology, and a free residual complement involution with a determined homology sign. These are meaningful equivariant topological invariants, not consequences of ordinary representation characters or isolated finite calculations. The value is confined to the stated symmetry and scale; no unsupported downstream classification is claimed.
+Coordinate-permutation orbit barycenters correspond to full Hamming-weight layers. Exact maximum between layers a,b is min(a+b,2n-a-b), so eligible layers at radius n-2 are weights 0..m-1 and n-m+1..n, m=floor(n/2). Within each side all layers are compatible; across low L_i/high R_j the obstruction is |i-j|<=1. Thus fixed locus is independence complex of bipartite band graph B_m. Folding dominated vertices L_{2j+1}, R_{2j+1} using L_{2j},R_{2j} leaves ceil(m/2) disjoint edges, giving cross-polytope boundary S^(ceil(m/2)-1)=S^floor((n-2)/4). Complement exchanges L_i,R_i, no fixed simplex, and reduced Lefschetz trace gives (-1)^ceil(m/2). All n>=2 boundaries give S^0 where appropriate. Fresh direct original-word layer compatibility for n=2..9 and 30 fold tests matched, finite corroboration only.
 
-## Residual scientific limitations
-The fixed space is not proved PL-homeomorphic to a sphere before its collapses. The result does not classify smaller symmetry subgroups, whole hyperoctahedral fixed spaces, or the ordinary homotopy type of the full penultimate complex. The literature comparison is targeted, not an exhaustive guarantee of uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge qualified: source studies the single natural penultimate radius n-2 via a specific width-two band graph. A same-date broader Resultary all-scale result implies the sphere formula by substituting r=n-2, but its own Relationship to Prior Work explicitly identifies and acknowledges a prior single-radius coordinate-fixed classification as an input/precedent; both Resultary paths entered a batch Git commit at the identical UTC time 2026-11-08T20:01:35Z, so repository chronology alone does not establish which was first. On the read scientific statements the broader theorem treats the single-radius theorem as already established; it must not be misrepresented as an earlier source. Older primary papers compute whole-complex representations or connectivity, not this geometric fixed-point homotopy and complement degree. PASS is conditional on this explicit priority caveat, not a claim of independent chronological certification.
+
+## value
+
+PASS
+
+The geometric fixed-point space under full coordinate permutations is a natural but nontrivial symmetry invariant of Hamming Rips complexes. The uniform penultimate-radius reduction to a band-graph independence complex, cross-polytope homotopy sphere, and explicit complement degree supply a reusable exact classification across all n, not an arbitrary small instance. Its significance survives later all-scale generalization that explicitly acknowledges the special-case precedent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

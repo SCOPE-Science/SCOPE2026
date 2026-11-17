@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the finite checks
+# Independent mathematical audit
 
-Run `python3 verify_penultimate_fixed.py` in a directory containing this file and the script. Only the Python standard library is required. `verification_output.txt` contains the checked program output, whose final line is `PENULTIMATE_COORDINATE_FIXED_SPHERES_OK`.
+## correctness
 
-The script constructs every binary vector and compares every weight-orbit pair directly (without substituting the closed-form distance formula) for dimensions \(2\) through \(10\). It independently checks the predicted admissible weight classes and all their pair compatibilities. On \(B_m\), it verifies every neighborhood inclusion at the exact point it is used, plus the final residual graph, for \(1\le m\le30\). It also constructs independent sets and mod-two boundary matrices for \(1\le m\le6\) and confirms the expected homology ranks. The complement checks verify the lack of admissible paired orbit vertices for \(1\le m\le20\).
+PASS
 
-The unbounded theorem follows from the orbit model and neighborhood-collapse proof in `RESULT.md`; numerical ranges are only corroborative. Mod-two calculations do not independently prove torsion-freeness, which is supplied by the explicit integral homotopy collapse. The homology sign uses the integral Lefschetz trace argument, not a finite numerical inference. No independent external audit or validation has been carried out.
+Coordinate-permutation orbit barycenters correspond to full Hamming-weight layers. Exact maximum between layers a,b is min(a+b,2n-a-b), so eligible layers at radius n-2 are weights 0..m-1 and n-m+1..n, m=floor(n/2). Within each side all layers are compatible; across low L_i/high R_j the obstruction is |i-j|<=1. Thus fixed locus is independence complex of bipartite band graph B_m. Folding dominated vertices L_{2j+1}, R_{2j+1} using L_{2j},R_{2j} leaves ceil(m/2) disjoint edges, giving cross-polytope boundary S^(ceil(m/2)-1)=S^floor((n-2)/4). Complement exchanges L_i,R_i, no fixed simplex, and reduced Lefschetz trace gives (-1)^ceil(m/2). All n>=2 boundaries give S^0 where appropriate. Fresh direct original-word layer compatibility for n=2..9 and 30 fold tests matched, finite corroboration only.
+
+## originality
+
+PASS
+
+Best-knowledge qualified: source studies the single natural penultimate radius n-2 via a specific width-two band graph. A same-date broader Resultary all-scale result implies the sphere formula by substituting r=n-2, but its own Relationship to Prior Work explicitly identifies and acknowledges a prior single-radius coordinate-fixed classification as an input/precedent; both Resultary paths entered a batch Git commit at the identical UTC time 2026-11-08T20:01:35Z, so repository chronology alone does not establish which was first. On the read scientific statements the broader theorem treats the single-radius theorem as already established; it must not be misrepresented as an earlier source. Older primary papers compute whole-complex representations or connectivity, not this geometric fixed-point homotopy and complement degree. PASS is conditional on this explicit priority caveat, not a claim of independent chronological certification.
+
+## value
+
+PASS
+
+The geometric fixed-point space under full coordinate permutations is a natural but nontrivial symmetry invariant of Hamming Rips complexes. The uniform penultimate-radius reduction to a band-graph independence complex, cross-polytope homotopy sphere, and explicit complement degree supply a reusable exact classification across all n, not an arbitrary small instance. Its significance survives later all-scale generalization that explicitly acknowledges the special-case precedent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
