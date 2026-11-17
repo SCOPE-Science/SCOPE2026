@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T16:06:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all n>=7 over C, generically the three initial observed Hankel values a=x1,b=x2,c=x6 give the recurrence-parameter curve F(s,t)=(2as+b)t^2+(as^3+3bs^2)t+bs^4-c=0. Its quadratic discriminant is a generic squarefree sextic, hence its smooth projective model is irreducible genus two. There are exactly three polar places of the function x_n: the two distinct branches P,Q over s=infinity and the simple t-pole R over s=-b/(2a). Their respective pole orders are n-6, n-1-1_{n=2 mod4}, floor((n-1)/2); at Q the period-four cancellation is shown via the recurrence polynomials f_n(-1/2) and their derivatives, with nonzero next coefficient for n>=10. The sum is 2n-7+floor((n-1)/2)-1_{n=2 mod4}. The recurrence chart is birational to the generic rank-two locus, so pole degree equals the generic number of completions without multiplicity. Specializations and finite tests corroborate but do not prove generic irreducibility or the all-index pole orders.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 1 gives generic finite projection for any four samples; Theorem 5 gives (6-2)*max(6-2,n-6) for this pattern; Theorem 6 has three consecutive positions instead."
+        ],
+        "reasoning": "Finiteness and upper bounds do not determine the exact generic degree; exact formulas for other four-coordinate patterns neither subsume nor imply the claimed sixth-gap three-pole coefficient.",
+        "searches": [
+          "arXiv:2610.27554 Theorems 1,3,5,6 Remark 7",
+          "Resultary: 2026/11/2 rank-two Hankel {1,2,4,n} {1,2,5,n} {1,3,5,n}"
+        ]
+      },
+      "checked_sources": [
+        "Frozen assigned RESULT.md and verify_hankel_sixth.py (Git commit b0e95ae124c6a0e1a43dab35f490b119e0fbbb37)",
+        "Reed–Tsakiris arXiv:2610.27554v1 primary full HTML, Theorem 5, Remark 7, Theorem 6",
+        "Resultary adjacent rank-two Hankel degree records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior Theorem 5 bound exceeds the submitted degree e.g. n=12: 24 versus 22; Theorem 6 addresses {1,2,3,n} (and translates)."
+        ],
+        "reasoning": "A bound permitting multiple degrees does not imply the exact value; six examples and different sampling patterns do not logically force all n. New full exact formula is not a corollary of inspected results.",
+        "searches": [
+          "arXiv:2610.27554 §§5.2–5.3 Theorems 5 and 6",
+          "Resultary: elliptic {1,2,5,n}, rational {1,2,4,n}"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Degree of sparse rank-two Hankel completion is the field-extension degree of the coordinate projection; this identifies exactly the object and invariant in Reed–Tsakiris."
+        ],
+        "reasoning": "Direct algebraic-matroid, Prony recurrence, and secant-of-rational-normal-curve aliases were compared. No inspected equivalent all-n degree law for this exact sample was found; priority is best-of-knowledge, not proof of absence.",
+        "searches": [
+          "Resultary: Hankel determinantal matroid {1,2,6,n} degree three-pole genus-two",
+          "Reed–Tsakiris arXiv:2610.27554 §§5.2-5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previously tabulated exact degrees for n=10,11,12,13,14,15 are 16,20,22,25,26,30 and match the submitted formula."
+        ],
+        "reasoning": "The six tabulated cases are covered prior work; finite table entries cannot establish the unrestricted all-integer formula or generic genus-two proof.",
+        "searches": [
+          "arXiv:2610.27554v1 Remark 7 Macaulay2 table i=6 n=10..15"
+        ]
+      },
+      "rationale": "The full formula for the exact generic projection degree of {1,2,6,n} for every n>=7 survives prior comparisons. Reed–Tsakiris gives generic finiteness and a nonsharp upper bound, plus six exact special n values; its exact general formula concerns {i,i+1,i+2,n}. Other published exact Hankel degree laws examine distinct coordinate samples {1,2,4,n}, {1,2,5,n}, {1,3,5,n}, which do not imply this genus-two three-pole law. The six tabulated values are already known, not a novelty contribution.",
+      "residual_risks": [
+        "Unindexed older sparse Prony/interpolation elimination may contain an equivalent field-extension formula.",
+        "Finite symbolic checks through n=34 cannot exclude an all-index algebraic cancellation outside the proof; the inductive pole argument is decisive.",
+        "Exceptional fibers, positive characteristic and monodromy are not addressed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR PARTIAL COVERAGE: generic finiteness, upper bounds and n=10..15 exact table, no all-n sixth-gap formula",
+          "evidence": "Theorem 5 upper bound 4max(4,n-6), Remark 7 six values, Theorem 6 {i,i+1,i+2,n}",
+          "identifier_or_url": "https://arxiv.org/html/2610.27554v1",
+          "material_read": "Full HTML including Theorems 1,3,5,6; §5.2 proof and Remark 7 numerical table; §5.3 general exact theorem",
+          "method": "primary HTML full-text inspection",
+          "title": "On Hankel Determinantal Matroids",
+          "trigger": "exact same sparse Hankel projection family and six previously computed instances"
+        },
+        {
+          "assessment": "RELATED DIFFERENT OBSERVATIONS, cannot alone certify complete noncoverage",
+          "evidence": "Genus one and mod-three periodicity for {1,2,5,n}, contrasting sixth-gap genus two and mod-four cancellation",
+          "identifier_or_url": "Resultary:2026/11/2/SCOPE-elliptic-pencil-and-period-three-degrees-for-the-1-2-5-n-hankel--52f33c2b3d01",
+          "material_read": "Resultary ranked statement and exact parameter/observation description; not entire Git full text",
+          "method": "semantic search/result summary",
+          "title": "Elliptic pencil and period-three degrees for {1,2,5,n} Hankel projections",
+          "trigger": "closely adjacent Hankel sampling pattern"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact field-extension degrees for sparse rank-two Hankel completions are natural algebraic-matroid invariants and determine the number of generic solutions. Filling the all-index gap of a specifically tabulated yet only bounded sixth-gap sampling pattern, together with genus-two and period-four pole structure, is a motivated nontrivial classification beyond textbook recurrence manipulations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen assigned RESULT.md and verify_hankel_sixth.py (Git commit b0e95ae124c6a0e1a43dab35f490b119e0fbbb37)",
+    "Reed–Tsakiris arXiv:2610.27554v1 primary full HTML, Theorem 5, Remark 7, Theorem 6",
+    "Resultary adjacent rank-two Hankel degree records"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed older sparse Prony/interpolation elimination may contain an equivalent field-extension formula.",
+    "Finite symbolic checks through n=34 cannot exclude an all-index algebraic cancellation outside the proof; the inductive pole argument is decisive.",
+    "Exceptional fibers, positive characteristic and monodromy are not addressed.",
+    "Scientific originality is best of knowledge, not a worldwide priority certificate or formal-machine attestation.",
+    "No edits, publications or publisher attestations were made."
+  ],
+  "residual_risks": [
+    "Unindexed older sparse Prony/interpolation elimination may contain an equivalent field-extension formula.",
+    "Finite symbolic checks through n=34 cannot exclude an all-index algebraic cancellation outside the proof; the inductive pole argument is decisive.",
+    "Exceptional fibers, positive characteristic and monodromy are not addressed."
+  ],
+  "schema_version": 1
+}
