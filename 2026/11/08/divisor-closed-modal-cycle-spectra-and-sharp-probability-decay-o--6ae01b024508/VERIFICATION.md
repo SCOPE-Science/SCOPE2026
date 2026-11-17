@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python checker.py` from the extracted package directory. The program checks disjunctive formulas using independent propositional letters against all valuations in small cyclic frames, verifies the divisibility signature of the formula \(p\leftrightarrow\Box^a p\) for several lengths, and checks exact counts of permutations by recurrence against complete enumeration of \(S_n\) for \(n\le8\).
+## correctness
 
-The analytic proof of the classification and decay exponent is in `RESULT.md`. Finite tests do not prove arbitrary formula-depth validity, the divisor-closed classification in general, or the asymptotic limit. The exact recurrence is proved by differentiating the labelled exponential formula; both inequalities controlling coefficients are explicit in the proof. This constitutes self-review only. No external or independent audit has been performed.
+PASS
+
+Depth-d deterministic-unrolling makes validity on cycles m>d independent of length; divisibility via surjective bounded morphisms forces downward closure, and a long valid cycle forces total validity. Independent letters in disjunction (p_a iff Box^a p_a) realize any finite divisor-closed A at depth max(A), with a matching lower bound. Componentwise frame validity and labelled permutation exponential formula give c_n; nonnegative coefficient bound at t=n^(1/L) and L-cycles plus fixed points with Stirling give the two leading log asymptotic terms. Boundary A empty gives zero n>=1, all positive gives one, and d=0 is treated. Local checker examined; bounded sample enumeration corroborates, not proof.
+
+## originality
+
+PASS
+
+Previous finite deterministic-frame antichain theorem and classical restricted-cycle permutation theory cover ingredients, but neither checked statement supplies the full per-formula realizable spectrum with optimal depth and consequent exact decay-exponent classification for Boolean basic-modal frame validity. Best-of-knowledge originality for the combined exact theorem, with explicitly acknowledged historical-priority risk.
+
+## value
+
+PASS
+
+The exact definability classification and minimal depth are natural logical invariants; translating them into all possible sharp decay exponents for uniform bijective frames is a motivated precise bridge between modal logic and random permutations. Mere exponential counting is credited to prior literature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
