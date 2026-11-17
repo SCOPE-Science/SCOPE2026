@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T17:12:45.511757Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned full RESULT.md",
+        "Git source tree and verification metadata",
+        "original independently authored bounded checker"
+      ],
+      "rationale": "Graph definitions and all trace masks are deterministic and finite. Independently enumerated every size-1..4 support for each 16-vertex graph using separate adjacency/bit trace construction; got 16,120,288,0 for rook; 16,120,224,0 for Shrikhande; open 16,120,320,0 each. A shattered 4-set would require 16 distinct centers with 8 incidences per vertex, impossible because closed degree=7; exhaustive enumeration adds exact confirmation.",
+      "residual_risks": [
+        "Finite numerical tests do not substitute for infinite analytic proof; source proof independently examined."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "All-Hamming closed ball result gives Phi(H(2,4))=1+16z+120z²+288z³, already covering the rook half.",
+          "Shrikhande is the non-Hamming (16,6,2,2) strongly regular graph; general closed-neighborhood computation algorithms provide no stated 224 coefficient."
+        ],
+        "reasoning": "Strong coverage of one component is credited; exact Shrikhande 224 and the cross-graph separation survive.",
+        "searches": [
+          "2026/11/8/SCOPE-closed-neighborhood-shattering-polynomials-of-all-hamming-graphs--6c82fc864f93",
+          "2026/11/8/SCOPE-coefficientwise-vc-shattering-census-of-open-neighborhoods-in-ha--c2c444ddd1a2",
+          "arxiv:2405.07588"
+        ]
+      },
+      "checked_sources": [
+        "Resultary all-Hamming closed-ball RESULT (full)",
+        "Resultary open Hamming coefficient census (semantic record)",
+        "Coudert et al. 2024 publisher abstract",
+        "Byrne et al. arxiv:2609.10330",
+        "assigned exact triple_orbits.tsv and RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Coudert et al. define closed-neighborhood VC dimension and algorithms but not the complete Shrikhande polynomial in accessible material.",
+          "Earlier all-Hamming theorem applies to K4 square K4, not Shrikhande, which is not a Hamming graph."
+        ],
+        "reasoning": "Neither general algorithm nor scalar VCdim=3 implies the differing highest coefficient; published rook result is strictly partial coverage.",
+        "searches": [
+          "arxiv:2405.07588 Practical Computation of Graph VC-Dimension",
+          "2026/11/8/SCOPE-closed-neighborhood-shattering-polynomials-of-all-hamming-graphs--6c82fc864f93"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closed radius-one balls are the same as inclusive vertex neighborhoods; distinguishing 288 vs 224 triple shatter counts is stronger than observing VCdim=3.",
+          "The earlier Hamming family yields the rook polynomial but not any statement about the non-Hamming Shrikhande graph."
+        ],
+        "reasoning": "Aliased trace polynomial/f-vector terminology was checked; the full pairwise separation is not implied by the rook special case.",
+        "searches": [
+          "Resultary semantic: Shrikhande rook closed neighborhood VC shattering polynomial 288 224 triples",
+          "web: Shrikhande rook closed neighborhood shattering f-vector traces",
+          "Coudert et al. arxiv:2405.07588"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Assigned 70-row triple_orbits.tsv contains 35 16-element translation orbits per graph.",
+          "Independent enumeration of all 560 triples and 1820 quadruples per graph gives R triple count 288 and Shrikhande 224, with 96 one-edge Shrikhande triples unshattered."
+        ],
+        "reasoning": "Earlier scalar VC tables and rook polynomial do not record the Shrikhande triple count; the present finite certificate is fully checkable, not an unverified database assertion.",
+        "searches": [
+          "Resultary: closed neighborhood shattering Shrikhande rook 224 288",
+          "web Shrikhande triple trace count closed VC"
+        ]
+      },
+      "rationale": "Neither general algorithm nor scalar VCdim=3 implies the differing highest coefficient; published rook result is strictly partial coverage.",
+      "residual_risks": [
+        "Some same-day Resultary publications have uncertain chronological order, but the Hamming specialization does not cover Shrikhande.",
+        "Unindexed structural VC tables and unavailable full strongly-regular-graph papers may contain the 224 count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERS",
+          "evidence": "Explicit H(2,4) Phi=1+16z+120z²+288z³; no Shrikhande.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-closed-neighborhood-shattering-polynomials-of-all-hamming-graphs--6c82fc864f93/RESULT.md",
+          "material_read": "Full RESULT including formulas, all Hamming dimensions and d=2 q=4 specialization",
+          "method": "GitHub read-only full text",
+          "title": "Closed-neighborhood shattering polynomials of all Hamming graphs",
+          "trigger": "Rook=H(2,4) antecedent"
+        },
+        {
+          "assessment": "NOT_DECISIVELY_COVERING_FROM_READ_MATERIAL",
+          "evidence": "General VC dimension computation, not explicit Shrikhande coefficient; cannot assert full text lacks it.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.SEA.2024.8",
+          "material_read": "Abstract, definitions, stated algorithmic scope; full PDF not accessible via current retrieval",
+          "method": "publisher HTML/metadata",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "Primary closed-neighborhood graph VC literature"
+        },
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT",
+          "evidence": "Possible alternative graph-neighborhood convention, access and indexing risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.10330",
+          "material_read": "Abstract and reference scope only",
+          "method": "arXiv metadata",
+          "title": "The VC-dimension of strongly regular graphs",
+          "trigger": "Same SRG family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary all-Hamming closed-ball RESULT (full)",
+        "Resultary open Hamming coefficient census (semantic record)",
+        "Coudert et al. 2024 publisher abstract",
+        "Byrne et al. arxiv:2609.10330",
+        "assigned exact triple_orbits.tsv and RESULT.md"
+      ],
+      "rationale": "Complete face-count distinction for the canonical pair of nonisomorphic strongly regular (16,6,2,2) graphs is a natural exact invariant, not supplied by their shared parameters or scalar VCdimension, and can be used to compare their neighborhood range spaces.",
+      "residual_risks": [
+        "Some same-day Resultary publications have uncertain chronological order, but the Hamming specialization does not cover Shrikhande.",
+        "Unindexed structural VC tables and unavailable full strongly-regular-graph papers may contain the 224 count."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Public-facing metadata sanitization not staged; no independent publication/import.",
+    "Prior same-model AUDIT is source evidence only; all three axes freshly assessed here.",
+    "Some same-day Resultary publications have uncertain chronological order, but the Hamming specialization does not cover Shrikhande.",
+    "Unindexed structural VC tables and unavailable full strongly-regular-graph papers may contain the 224 count."
+  ],
+  "schema_version": 1
+}

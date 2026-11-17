@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The graphs are constructed explicitly on sixteen fixed coordinate pairs. The proof reduces the third-degree coefficient to exactly thirty-five translation-orbit representatives per graph (or, independently, all 560 triples). The accompanying 70-row exact trace-mask certificate and direct independent trace implementations verify every case; the zero higher-degree claim follows without reliance on the finite search by counting the seven neighborhoods containing a fixed vertex. Pair shattering has an explicit argument from the common strongly regular parameters. All boundary quantifiers are finite and explicit.
+## correctness
 
-**Originality — PASS within inspected material.** The nearest 2024 closed-neighborhood paper supplies an algorithm and bounds, not these two coefficients. The 2021 Hamming graph work primarily concerns open neighborhoods and only gives a closed-neighborhood boundedness deduction; the 2026 SRG paper defines an open-neighborhood scalar VC dimension and gives no closed-neighborhood face counts. A prior exact rook graph VC dimension three does not imply its 288 shattered triple supports and cannot imply the Shrikhande count of 224. Search and inspected-source negative evidence does not prove historical priority; residual risk includes a different term for neighborhood-system shattering profiles.
+PASS
 
-**Value — PASS.** The comparison is natural because the Shrikhande and rook graphs are the canonical same-parameter strongly regular pair. The face-count refinement distinguishes them even though the scalar VC dimension fails to, while the open-neighborhood polynomial coincides. The proof identifies precisely which induced-triple categories cause the difference. This demonstrates that identical two-point association-scheme parameters do not determine the full closed-neighborhood shattering complex.
+Graph definitions and all trace masks are deterministic and finite. Independently enumerated every size-1..4 support for each 16-vertex graph using separate adjacency/bit trace construction; got 16,120,288,0 for rook; 16,120,224,0 for Shrikhande; open 16,120,320,0 each. A shattered 4-set would require 16 distinct centers with 8 incidences per vertex, impossible because closed degree=7; exhaustive enumeration adds exact confirmation.
 
-**Scope and risk.** This is an exact finite classification, not an extension to arbitrary graph orders. The executable verification and complete orbit table provide checkable proof data but have not been independently audited. The closest sources and their differing domains are referenced in `RESULT.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Neither general algorithm nor scalar VCdim=3 implies the differing highest coefficient; published rook result is strictly partial coverage.
+
+## value
+
+PASS
+
+Complete face-count distinction for the canonical pair of nonisomorphic strongly regular (16,6,2,2) graphs is a natural exact invariant, not supplied by their shared parameters or scalar VCdimension, and can be used to compare their neighborhood range spaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

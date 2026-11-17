@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite verification
 
-Execute `python3 verify.py` beside `triple_orbits.tsv`. The table contains exactly 35 translation-orbit representatives for each graph, 70 data rows total; every triple belongs to one of these orbits of cardinality 16. Every representative has an eight-bit complete trace mask, with `ff` exactly when shattered. The script recomputes every representative, each mask, and each translation orbit directly, then compares the entire table. It separately traverses all \(560\) vertex triples and all \(1820\) four-element supports per graph using two trace-calculation implementations; the larger support obstruction is proved in `RESULT.md`.
+# Independent mathematical audit
 
-Expected final output marker: `SRG16_CLOSED_SHATTER_PASS 2 graphs 70 triple orbit rows 1120 triples 2*1820 four-supports`.
+## correctness
 
-No randomized checks, undocumented external software, or infinite extrapolation are involved. The certificate establishes finite computation correctness conditional on execution and exact graph definitions; an external independent audit has not been performed.
+PASS
+
+Graph definitions and all trace masks are deterministic and finite. Independently enumerated every size-1..4 support for each 16-vertex graph using separate adjacency/bit trace construction; got 16,120,288,0 for rook; 16,120,224,0 for Shrikhande; open 16,120,320,0 each. A shattered 4-set would require 16 distinct centers with 8 incidences per vertex, impossible because closed degree=7; exhaustive enumeration adds exact confirmation.
+
+## originality
+
+PASS
+
+Neither general algorithm nor scalar VCdim=3 implies the differing highest coefficient; published rook result is strictly partial coverage.
+
+## value
+
+PASS
+
+Complete face-count distinction for the canonical pair of nonisomorphic strongly regular (16,6,2,2) graphs is a natural exact invariant, not supplied by their shared parameters or scalar VCdimension, and can be used to compare their neighborhood range spaces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
