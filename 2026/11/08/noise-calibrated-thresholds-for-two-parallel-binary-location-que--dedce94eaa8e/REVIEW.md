@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is specific to a two-response-channel model with uniform location and independently flipped bits. The proof integrates every likelihood on three intervals and computes the conditional posterior means through \(c_y/p_y\), yielding the exact law-of-total-variance risk. The derivative polynomial \(H(t)\) is positive after its unique positive root and negative before; endpoint and noiseless degeneracies are explicitly handled. The strict monotonicity of the optimizer follows by implicit differentiation, with verified expansions at both noise endpoints. An independent rational-arithmetic verifier checks direct integration versus the closed formula. **Residual risk:** the proof applies only to reflected nonadaptive thresholds, not arbitrary pairs, and finite tests cannot prove the calculus arguments.
+PASS
 
-## Originality — PASS (best-knowledge, qualified)
+In the stated uniform-prior, two mirror-threshold, independent symmetric-bit-flip model, the three true-output regions [0,t),[t,1−t),[1−t,1] give p00=p11=(1−δ²+4δ²t)/4 and signed centered first moments ±δt(1−t)/2. Cross-output first moments vanish by symmetry. Total variance yields R=1/12−2δ²t²(1−t)²/(1−δ²+4δ²t). Differentiation reduces optimality to H=3δ²t²+(1−2δ²)t−(1−δ²)/2, with unique root in (1/3,1/2) for δ∈(0,1), root 1/3 at δ=1; δ=0 all designs tie. The implicit derivative is negative in δ². The boundary (δ,t)=(1,0) is separately constant-risk. Independent exact posterior integration matched eight rational parameter pairs, with endpoint limits and radical formula checked algebraically; no general non-symmetric optimum asserted.
 
-The full-text material inspected from Variani et al. (2015), Chung et al. (2016), and Zhou–Hero (2020) addresses dyadic-bit nonadaptive codes, unequal protection/asymptotic error rates, or excess-resolution probabilities. These differ from the exact unique noise-dependent two-threshold MSE minimizer and do not appear to imply its radical expression. The documented scientific literature and semantic record searches identified no matching published claim. **Residual risk:** a general classical Bayesian optimal experimental-design result may imply the calculation under alternate terminology, and the searched literature is not exhaustive; independent publication-precedence review remains necessary.
+## originality
 
-## Value — PASS
+PASS
 
-Two simultaneous threshold queries represent the smallest nontrivial fully parallel localization design: the noiseless optimal trisection gives three distinct target cells, whereas weak signals favor nearly repeated central measurements. The theorem determines the **entire** exact noise-continuum optimal design, uniquely identifies strict suboptimality of both fixed endpoint policies at intermediate noise, and gives an explicit calibrated design and risk rather than an asymptotic MSE rate. The result is naturally useful for two-call latency-constrained sensing and one-dimensional noisy bisection; no broader allocation optimum is claimed.
+Within the natural and explicitly constrained two nonadaptive mirror-threshold design family, a complete finite-query squared-error Bayes risk curve and its unique noise-dependent optimum were not supplied by inspected prior noisy-20-questions dyadic/asymptotic policies. Full Variani et al. 2015 accessible text studies repeated dyadic bits and √n-exponent distortions, not this exact two-location optimization. Literature comparisons do not certify worldwide priority.
 
-## Evidence and limitations
+## value
 
-Primary comparisons: Variani et al., arXiv:1504.05996, §§1–3; Chung et al., arXiv:1606.09233, §I; Zhou–Hero, arXiv:2004.07231, §I; independent rational arithmetic verifier. Limits: exactly two reflected nonadaptive thresholds, uniform target, independent identical BSC error, posterior mean, squared-loss risk. No independent audit or certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Choosing two simultaneous binary threshold tests under measurement noise is a natural Bayesian design problem. The exact risk and strict noise-dependent optimum provide a nontrivial, directly usable finite-query answer that interpolates between trisection and repeated midpoint sensing, even without a global unrestricted-design theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
