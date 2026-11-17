@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-`python3 CHECK.py` (Python standard library only) returns `PASS 15308 exact assertions`. Its exact rational calculations reconstruct the quotient matrix directly, compute its powers, test observation ranks by fraction-preserving elimination, verify one-sensor determinants by independent elimination, and count optimal vertex-sensor choices from all part-index subsets. Cases have two through five parts, each with size one, two or three, plus five six-part examples.
+# Independent mathematical audit
 
-The unbounded theorem is proved in RESULT.md through the complete eigenvalue decomposition of the rank-one quotient and a monic-polynomial Vandermonde determinant. Finite calculations are supportive only and do not certify arbitrary sizes. The proof assumes noiseless discrete time samples; no noisy minimax bound or general full-graph observability is established.
+## correctness
+
+PASS
+
+PASS: For k≥2 and positive part sizes, the exact row-stochastic quotient is P=αβ^T−diag(θ), θ_i=n_i/(N−n_i). It is similar to a real symmetric matrix, repeated-size eigenvalues have sum-zero supported eigenspaces of dimension r_s−1; all other eigenvalues are simple with every coordinate nonzero by the monotone secular equation. Vandermonde separation at times 0..k−1 yields exact necessary/sufficient sensor multiplicity. Optimal counts follow from choices of r_s−1 occupied parts and physical vertices; a monic-polynomial recurrence for off-j Krylov rows gives the determinant product including zero cases. k=2, singleton sensor, repeated sizes and every distinct-size group are covered. New exact-rational SymPy rank/determinant checks passed 1,971 independently built assertions for 2..4 parts with sizes 1,2,4; they corroborate but do not prove arbitrary k.
+
+## originality
+
+PASS
+
+PASS with full-text access risk: graph-specific rank/placement and determinant formulas are not established by inspected general dynamical sampling and cograph results.
+
+## value
+
+PASS
+
+PASS: Equal-size communities create intrinsic eigenvalue multiplicities; the exact minimum sensor budget, all physical optimal placements, and volume sensitivity near part-size collisions are natural full-parameter inverse-problem invariants useful in graph signal sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
