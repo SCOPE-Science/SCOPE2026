@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof's finite claims can be reproduced with `python3 verify.py`, which requires only the Python standard library. The checker examines every labeled graph on one through five vertices, every missing edge on every connected input graph, and all permutations of every graph. Exact `fractions.Fraction` arithmetic is used throughout.
+# Independent mathematical audit
 
-The two marked positive classes occur with labeled multiplicities 120 and 60. All 180 positive augmentations increase terminal expected occupancy by exactly \(1/15\). The time-dependent difference is the same for both arrows, and its algebraic crossover follows from an explicit cubic with strictly positive derivative. The verifier checks the rational root interval rather than substituting an approximate zero into a purported identity.
+## correctness
 
-Independent scientific audit is not yet performed. The scope is the stated finite graph classification and exact real-time law for the named three graphs; no asymptotic thermodynamic claim or claim of universal edge-monotonicity is made.
+PASS
+
+PASS: For independent identical first-arrival times the recursion F(H)=1+(1/|V(H)|) sum_v F(H-N[v]) is exact. A fresh independent rational-Fraction enumeration of every labeled graph on 1..5 vertices and each connected one-edge augmentation found no positive mean increase below 5 and exactly 180 positive five-site augmentations, each with increase 1/15. The inspected source code independently matches full 5! arrival-permutation expectations and tests 120+60 marked classes. From exact attempted-prefix means, both P5->Q and Q->K2,3 have identical p-polynomial gain p^2(7p^3-35p^2+60p-30)/30; strictly positive cubic derivative and end signs prove the unique time crossover. Classification is exhaustive only at order<=5, as claimed.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: edge-augmentation can increase random-order greedy occupancy was already known (six-site star-join counterexamples), but the earlier inspected source does not establish five as minimal, the two marked classes at five, or a common exact time-dependent polynomial. 1989 Pippenger full text remains inaccessible and is a genuine historical-priority risk.
+
+## value
+
+PASS
+
+PASS: The first possible graph order for failure of a natural monotonicity intuition, exact enumeration of all extremal marked-edge types, and equality of two nontrivial entire-time kinetic effects are motivated boundaries in random-sequential adsorption; exact five-site finite work has mathematical value independent of a broad infinite-graph theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
