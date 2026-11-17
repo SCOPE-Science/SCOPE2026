@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T12:55:18.879135Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all d>=1,m>=2,0<=r<m, the count f(z)=binom(z,d) mod m has least period P=product_{p^a||m}p^{a+floor(log_p(d))}: Vandermonde expansion and unitriangular binomial-basis evaluations give the necessary-and-sufficient congruences binom(T,j)=0 for 1<=j<=d; Lucas and p-adic valuation prove the prime-power criterion. The complete DFA (zeros mod P, scattered count mod m) is reachable via 0^d 1^c 0^(Z-d). For two hypothetically equivalent states, independent numbers of ones between P successive zero counts generate a subgroup H in (Z/m)^2. Acceptance equivalence and both surjective projections force H to be the graph of a cyclic-group automorphism a; the d-th forward difference gives a=1, the least period gives equal zero residue, and varying count increments gives equal count residue. No finite extrapolation. Independently minimized 35 d,m cases (1<=d<=5,2<=m<=8), all matching mP.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2011 trie automaton describes a general scattered-subword counting architecture; full text unavailable; Bruda arXiv:2607.02578 concerns fixed exact counts not modular minimal automata."
+        ],
+        "reasoning": "General counting machines establish recognizability but an arbitrary automaton is not an exact minimal-state index. No inspected stronger all-moduli Myhill-Nerode formula; specific uncertainty retained.",
+        "searches": [
+          "Exact state complexity DFA scattered subsequence 0^d 1 count modulo m Myhill Nerode binomial polynomial period",
+          "https://doi.org/10.1142/S0129054111008817"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-prime-power-staircases-in-modular-scattered-subsequence-automata--b8dbc861b2e5",
+        "https://arxiv.org/abs/2402.05838",
+        "https://arxiv.org/abs/2607.02578",
+        "https://doi.org/10.1142/S0129054111008817"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier prime result proves m=p instances, while general finite automata from 2024 q-Parikh theory do not specify quotient complexity; the new period uses nu_p(T)>=a+floor(log_p d)."
+        ],
+        "reasoning": "New theorem implies prime theorem, not conversely by known direct implication; a=2 and products of prime powers are missing from the prime statement. The inaccessible 2011 original remains a live risk.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-prime-power-staircases-in-modular-scattered-subsequence-automata--b8dbc861b2e5",
+          "https://arxiv.org/abs/2402.05838",
+          "https://arxiv.org/abs/2607.02578"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Read complete prime-modulus staircase RESULT.md: minimal complete DFA p^(2+floor(log_p d)), with Lucas support-hyperplane proof. Source presents no composite-modulus formula."
+        ],
+        "reasoning": "The m=p specialization agrees exactly with prior work, whereas composite m requires p^a-period divisibility and distinguishability over Z/m, not directly obtained from the field hyperplane proof.",
+        "searches": [
+          "Exact state complexity DFA scattered subsequence 0^d 1 count modulo m Myhill Nerode binomial polynomial period",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-prime-power-staircases-in-modular-scattered-subsequence-automata--b8dbc861b2e5",
+          "https://arxiv.org/abs/2402.05838"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prime-modulus staircase is an exact previously published formula, not a table; new theorem subsumes it but extends to all prime powers and CRT."
+        ],
+        "reasoning": "No separate finite database or numerical table determines the all-d,m,r formula; exact prior prime-field values are acknowledged.",
+        "searches": [
+          "Exact state complexity DFA scattered subsequence 0^d 1 count modulo m Myhill Nerode binomial polynomial period",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-prime-power-staircases-in-modular-scattered-subsequence-automata--b8dbc861b2e5"
+        ]
+      },
+      "rationale": "Earlier 2026-10-26 exact prime-modulus DFA staircase is a direct special case m=p: p^(2+floor(log_p d)); its full RESULT.md does not treat prime powers p^a (a>1) or composite moduli. The reviewed theorem gives a genuinely stronger exact all-m state complexity and new modular p-adic/surjective-subgroup distinguishability; the older 2011 trie automaton may contain a hidden equivalent and its full text was unavailable.",
+      "residual_risks": [
+        "The 2011 Alazemi–Černý article was inaccessible; institutional Oxford attempt returned vpn_disconnected; priority for composite m remains provisional.",
+        "Finite minimization across 35 cases corroborates but cannot establish the infinite state-complexity formula; proof reconstructs all parameters."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS PRIME-ONLY SPECIAL CASE",
+          "evidence": "Formula sc=p^(2+floor(log_p d)) for m=p, d>=2; no p^a with a>1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-prime-power-staircases-in-modular-scattered-subsequence-automata--b8dbc861b2e5",
+          "material_read": "Full RESULT.md: theorem, Lucas-period DFA, reachability, support translation-rigidity and lower-bound argument; composite moduli excluded",
+          "method": "Read actual published Git RESULT.md",
+          "title": "Prime-power staircases in modular scattered-subsequence automata",
+          "trigger": "Exact same language for the modulus-prime specialization"
+        },
+        {
+          "assessment": "MATERIAL_INACCESSIBLE_NOT_ASSUMED_NONCOVERING",
+          "evidence": "Publisher DOI; full-text comparison unresolved. An inaccessible plausible source alone does not reject the original composite generalization.",
+          "identifier_or_url": "https://doi.org/10.1142/S0129054111008817",
+          "material_read": "Bibliography/abstract and surrounding descriptions; complete article NOT accessible; institutional retrieval returned vpn_disconnected",
+          "method": "Bibliographic/OA searches; authorized Oxford attempted, no human-bypass",
+          "title": "Counting subwords using a trie automaton",
+          "trigger": "Plausibly broad counting automata for scattered subwords"
+        },
+        {
+          "assessment": "GENERAL_RECOGNIZABILITY_NOT_SAME_MINIMIZATION",
+          "evidence": "Finite automaton representation does not itself state exact complete minimal state counts for all m.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.05838",
+          "material_read": "Published relevant theorem description and four-state 01 example in prior full work; general abstract/bibliography from secondary comparisons",
+          "method": "Literature/previous published result comparison",
+          "title": "Introducing q-deformed binomial coefficients of words",
+          "trigger": "General prime-modular scattered subword permutation automata"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete minimal DFA complexity of a natural modular scattered-subword language is an exact all-parameter invariant. Composite moduli introduce non-field p-adic period phenomena genuinely outside the earlier prime-only classification; sharp minimality is useful for automata and modular subword statistics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-prime-power-staircases-in-modular-scattered-subsequence-automata--b8dbc861b2e5",
+    "https://arxiv.org/abs/2402.05838",
+    "https://arxiv.org/abs/2607.02578",
+    "https://doi.org/10.1142/S0129054111008817"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The 2011 Alazemi–Černý article was inaccessible; institutional Oxford attempt returned vpn_disconnected; priority for composite m remains provisional.",
+    "Finite minimization across 35 cases corroborates but cannot establish the infinite state-complexity formula; proof reconstructs all parameters."
+  ],
+  "residual_risks": [
+    "The 2011 Alazemi–Černý article was inaccessible; institutional Oxford attempt returned vpn_disconnected; priority for composite m remains provisional.",
+    "Finite minimization across 35 cases corroborates but cannot establish the infinite state-complexity formula; proof reconstructs all parameters."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS PRIME-ONLY SPECIAL CASE",
+      "evidence": "Formula sc=p^(2+floor(log_p d)) for m=p, d>=2; no p^a with a>1.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-prime-power-staircases-in-modular-scattered-subsequence-automata--b8dbc861b2e5",
+      "material_read": "Full RESULT.md: theorem, Lucas-period DFA, reachability, support translation-rigidity and lower-bound argument; composite moduli excluded",
+      "method": "Read actual published Git RESULT.md",
+      "title": "Prime-power staircases in modular scattered-subsequence automata",
+      "trigger": "Exact same language for the modulus-prime specialization"
+    },
+    {
+      "assessment": "MATERIAL_INACCESSIBLE_NOT_ASSUMED_NONCOVERING",
+      "evidence": "Publisher DOI; full-text comparison unresolved. An inaccessible plausible source alone does not reject the original composite generalization.",
+      "identifier_or_url": "https://doi.org/10.1142/S0129054111008817",
+      "material_read": "Bibliography/abstract and surrounding descriptions; complete article NOT accessible; institutional retrieval returned vpn_disconnected",
+      "method": "Bibliographic/OA searches; authorized Oxford attempted, no human-bypass",
+      "title": "Counting subwords using a trie automaton",
+      "trigger": "Plausibly broad counting automata for scattered subwords"
+    },
+    {
+      "assessment": "GENERAL_RECOGNIZABILITY_NOT_SAME_MINIMIZATION",
+      "evidence": "Finite automaton representation does not itself state exact complete minimal state counts for all m.",
+      "identifier_or_url": "https://arxiv.org/abs/2402.05838",
+      "material_read": "Published relevant theorem description and four-state 01 example in prior full work; general abstract/bibliography from secondary comparisons",
+      "method": "Literature/previous published result comparison",
+      "title": "Introducing q-deformed binomial coefficients of words",
+      "trigger": "General prime-modular scattered subword permutation automata"
+    }
+  ]
+}
