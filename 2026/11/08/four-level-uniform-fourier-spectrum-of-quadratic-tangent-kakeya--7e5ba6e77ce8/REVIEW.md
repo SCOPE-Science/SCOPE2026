@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The Kakeya property follows from the displayed full family of lines. The discriminant decomposition separates the nonvertical union from the additional vertical points and gives the correct set cardinality. Quadratic Gauss summation yields the full complex transform; the trace-fiber character sums account for every multiplicity. All four levels are positive and distinct when the extension degree is odd and at least three. The accompanying checker independently sums the Fourier series over actual points in several finite fields, including a full field of order 27. These finite tests are not the universal proof.
+## correctness
 
-**Originality: PASS relative to inspected sources.** Fraser's complete paper proves a weighted existence statement for Fourier-decaying probability measures on arbitrary Kakeya sets but does not assert the uniform four-level distribution for the specific quadratic construction. Kopparty–Lev–Saraf–Sudan's complete paper provides quadratic Kakeya point-set constructions and cardinalities but not the distribution of their uniform Fourier transform. Related mathematical-research records on finite-field Fourier sampling and paraboloid geometry did not give a covering assertion. An earlier indexed inadequately or unindexed quadratic-character evaluation could reduce or eliminate the novelty; this is a residual originality risk, not a proof of uniqueness.
+PASS
 
-**Value: PASS.** Uniform point mass is a more restrictive and more implementable witness than a constructed nonuniform weight on a Kakeya set. The exact sharp constant, distribution across all nonzero frequencies, and nonvanishing statement make this a meaningful structural case study at the sharp planar decay scale. The complete distribution also distinguishes individual strong and weak frequencies instead of providing only an upper bound.
+Using characteristic-three quadratic discriminant, U indicator is (1+chi(x²-4y)+1_{x²=4y})/2, and the missing vertical portion has (q-1)/2 points. Gauss identities with chi(-1)=-1 imply G=±i√q, yielding the exact complex transform for b≠0 and (q-1)/2 for b=0,a≠0. For z=a²/b, three trace values and trace-fiber character sums produce the four levels and counts (q-1), q(q-1)/3, (q-1)(q/3±3^((m-1)/2)); these sum to q²-1. An independently coded GF(27) union-of-lines transform checked all 728 nonzero frequencies, with levels 26,234,312,156; source CHECK.py was inspected. Infinite odd m follows from Gauss/trace proof rather than q=27 testing. Assumptions q=3^m, odd m≥3, uniform measure and specified Fourier normalization all respected.
 
-**Scientific limitations.** Only fields of order \(3^m\) with odd \(m\ge3\), the specified quadratic-tangent Kakeya configuration, and uniform point weights are covered. The proof uses classical Gauss sums. The numerical checker is supplementary and does not certify all extension degrees.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known quadratic Kakeya support and generic Gauss sums are acknowledged. The inspected general Kakeya theorem guarantees existence of a possibly nonuniform good measure, not this exact uniform full spectrum or multiplicity table.
+
+## value
+
+PASS
+
+The exact uniform distribution is more restrictive than choosing arbitrary Kakeya-supported weights. A full nonzero Fourier profile, frequency multiplicities, no zeros, and sharp bias across an infinite ternary field family provide a natural harmonic invariant, not merely the standard support construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
