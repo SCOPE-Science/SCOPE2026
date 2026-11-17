@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T20:01:06.701004Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Explicit bit coordinates satisfy local two-in/two-out constraint h_ij+v_ij=h_i,j-1+v_i-1,j; row-transfer over 16-bit row states enumerates every toroidal orientation without overlap. A one-face move is permitted iff the four boundary bits are 1100 or 0011, and complements precisely those bits. Fresh independent transfer-state enumeration constructed all 2970 orientations, all 8768 undirected edges, nine flux sectors and 60 singleton states, and ran BFS from every state to reproduce the reported component eccentricity counts and full central pair-distance histogram. Explicit 12-move witness and face-height L1 lower bound are consistent with sharp diameter.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Surface reachability and directional min-flips give general structure but do not imply every undirected eccentricity or exact pair-distance histogram. Planar vs torus and domino vs ice distinct."
+        ],
+        "reasoning": "Surface reachability and directional min-flips give general structure but do not imply every undirected eccentricity or exact pair-distance histogram. Planar vs torus and domino vs ice distinct.",
+        "searches": [
+          "Zhang Qian arxiv:2011.07481 Theorem 3.4; Felsner 2004 planar orientation lattice; Resultary 4x6 torus domino flip metrics"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2011.07481",
+        "https://oeis.org/A054759",
+        "https://arxiv.org/abs/1509.05070"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "State count alone underdetermines adjacency; invariant flux alone cannot determine intra-sector shortest paths or centers. Hence table requires new exhaustive exact graph construction and all-source BFS."
+        ],
+        "reasoning": "State count alone underdetermines adjacency; invariant flux alone cannot determine intra-sector shortest paths or centers. Hence table requires new exhaustive exact graph construction and all-source BFS.",
+        "searches": [
+          "Prior 2970 ice configurations and homology-component theorem vs exact 8768-edge metric"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Distinguish labeled 4x4 Eulerian orientations from unlabelled ice counts and from domino tilings; strict directed-square moves only."
+        ],
+        "reasoning": "Distinguish labeled 4x4 Eulerian orientations from unlabelled ice counts and from domino tilings; strict directed-square moves only.",
+        "searches": [
+          "square ice six vertex model 4x4 torus Eulerian orientation winding flux elementary face flip metric"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS covers state count only; no identified table for complete move-graph metric, and nonmatch cannot guarantee priority."
+        ],
+        "reasoning": "OEIS covers state count only; no identified table for complete move-graph metric, and nonmatch cannot guarantee priority.",
+        "searches": [
+          "OEIS A054759 2970; square ice 4x4 flip graph 990 340 140 diameter radius central metrics"
+        ]
+      },
+      "rationale": "Earlier square-ice enumeration 2970 is classical OEIS A054759 and not novelty; Zhang–Qian surface orientation flip reachability/least directional flips does not tabulate this strict undirected one-elementary-face 4x4 labelled torus reconfiguration metric. The Resultary 4x6 domino-tiling torus metric is a different state space and flip rule. No prior exact eccentricity/central checkerboard/entire 990-sector pair-distance table found.",
+      "residual_risks": [
+        "Earlier finite six-vertex Markov-chain computational studies may contain the exact 4x4 metric but be unindexed.",
+        "Exact result holds only for labelled 4x4 and single directed-face flips; cannot infer large-size torus behavior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General reachability and minimum directed-flip properties are prior, but strict undirected one-square metric on the 4x4 torus, eccentricity counts, all-pairs histogram and two centers not tabulated in inspected sections.",
+          "evidence": [
+            "Theorem 3.4 gives facial-flip reachability constraints, without the 2970-state labelled toroidal metric classification."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2011.07481",
+          "material_read": "Accessible full 2020 arXiv PDF; read abstract, definitions, key homology/flip theorems incl. Theorem 3.4, relevant proof and applications",
+          "method": "Read accessible full-text source, checked relevant definitions, theorems, proof and scope against precise submitted claim",
+          "title": "Flips on homologous orientations of surface graphs with prescribed forbidden facial circuits (Zhang, Qian)",
+          "trigger": "Potential general surface facial-flip reachability and metric theorem"
+        },
+        {
+          "assessment": "State enumeration count 2970 is previously established, not claimed original; no pair-distance or center table in the sequence record.",
+          "evidence": [
+            "The 4x4 count 2970 is explicitly acknowledged as prior in final claim."
+          ],
+          "identifier_or_url": "https://oeis.org/A054759",
+          "material_read": "Indexed sequence record showing 4x4=2970; the count was cross-checked against this known number",
+          "method": "Reviewed cited database identification and compared the count only; did not infer whole-document noncoverage from a search snippet",
+          "title": "OEIS A054759: Periodic square-ice configurations",
+          "trigger": "Exact configuration-count database possibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimal interesting finite square-ice torus is a natural exactly specified ice-model object; component connectivity, radius/diameter, metric centers and pair-distance profile are meaningful exact reconfiguration invariants beyond already-known partition-function count, with a nontrivial two-center phenomenon and explicit extremal witness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the labelled toroidal C4 square C4 Eulerian orientations under reversal of exactly one directed elementary square, the 2970 configurations yield 8768 undirected move edges, 60 frozen vertices and mobile components 4*140+4*340+990, in nine interior flux sectors. All mobile radii equal 8; diameters are 9 for size140 and 12 for larger. Central size990 sector has exactly two checkerboard metric centers and explicit distance histogram (3648,14112,35904,66064,92224,102304,95680,58579,16992,3632,352,64).",
+  "limitations": [
+    "Earlier finite six-vertex Markov-chain computational studies may contain the exact 4x4 metric but be unindexed.",
+    "Exact result holds only for labelled 4x4 and single directed-face flips; cannot infer large-size torus behavior."
+  ],
+  "schema_version": 1
+}

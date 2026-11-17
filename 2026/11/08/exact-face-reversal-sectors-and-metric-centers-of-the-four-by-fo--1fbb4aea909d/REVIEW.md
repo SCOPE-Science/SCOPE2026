@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The configuration space and face moves are completely defined. A 16-word row-transfer enumeration and an independent 32-edge constraint-propagation enumeration both generate exactly 2970 orientations, 8768 face-transition edges, and the same 69 connected components. Each implementation performs all-source shortest-path computations and independently reports the sector diameters and eccentricity distributions. A direct twelve-face path and a height-potential argument establish the extremal lower bound without relying on the graph search for sharpness. All computations are finite and exhaust all labelled assignments satisfying the stated constraints.
+PASS
 
-## Originality
+Explicit bit coordinates satisfy local two-in/two-out constraint h_ij+v_ij=h_i,j-1+v_i-1,j; row-transfer over 16-bit row states enumerates every toroidal orientation without overlap. A one-face move is permitted iff the four boundary bits are 1100 or 0011, and complements precisely those bits. Fresh independent transfer-state enumeration constructed all 2970 orientations, all 8768 undirected edges, nine flux sectors and 60 singleton states, and ran BFS from every state to reproduce the reported component eccentricity counts and full central pair-distance histogram. Explicit 12-move witness and face-height L1 lower bound are consistent with sharp diameter.
 
-**PASS (qualified).** Lieb's ice configurations and the OEIS count of 2970 are prior knowledge, as are the flux/homology and general face-flip frameworks of Felsner and Zhang–Qian. The exact 4-by-4 single-directed-plaquette graph, including its labelled components, sector radii, diameters, two central centers, and all-pairs central distance histogram, is not implied by those published statements. The related Borodin–Bufetov process uses different elementary updates. Several primary sources were read substantively, but unindexed historical computations remain a real priority risk. An absence of search hits is not treated as proof of uniqueness.
+## originality
 
-## Value
+PASS
 
-**PASS.** Small periodic ice is a canonical constrained configuration space, and elementary face reversals are its geometrically smallest local rearrangements. Exact sector connectivity alone does not determine reconfiguration cost; the sharp diameter difference between flux classes and the two exceptional central states provide natural, reusable benchmarks for local dynamics and height-based path methods. The nontriviality is visible in the coexistence of isolated states, differently sized mobile sectors, and two different mobile diameters. The claim is finite but solves a complete naturally defined problem, not an arbitrary sample.
+Earlier square-ice enumeration 2970 is classical OEIS A054759 and not novelty; Zhang–Qian surface orientation flip reachability/least directional flips does not tabulate this strict undirected one-elementary-face 4x4 labelled torus reconfiguration metric. The Resultary 4x6 domino-tiling torus metric is a different state space and flip rule. No prior exact eccentricity/central checkerboard/entire 990-sector pair-distance table found.
 
-## Evidence and limits
+## value
 
-Reproducibility uses `verify_transfer.py` and `verify_vertex_constraints.cpp`; source comparisons include Lieb (1967), Felsner (2004), Borodin–Bufetov (2015), Zhang–Qian (2020), and OEIS A054759. Only this exact labelled four-by-four model is covered. Dates refer to the verified original Lieb source, not to a later database revision. The numerical enumeration and self-review do not constitute independent publication certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The minimal interesting finite square-ice torus is a natural exactly specified ice-model object; component connectivity, radius/diameter, metric centers and pair-distance profile are meaningful exact reconfiguration invariants beyond already-known partition-function count, with a nontrivial two-center phenomenon and explicit extremal witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
