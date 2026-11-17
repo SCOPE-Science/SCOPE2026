@@ -1,19 +1,21 @@
-# Review of the critical-step tree synchronization theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof uses the exact globally strict endpoint inequality for the cosine potential, so no uniform positive descent constant is assumed at the threshold. Finiteness and isolation of the critical configurations give convergence of all orbits. The non-sink linearization has expanding directions; the smooth endomorphism stable-set theorem plus the non-identically-zero analytic Jacobian determinant makes its global attraction set null. A simple Perron eigenvalue supplies one center direction, and the invariant-graph calculation establishes both cubic and quintic coefficients. The reciprocal-square recursion rigorously yields the logarithmic correction and a finite remainder constant. Exact symbolic recomputation checks the stated first nonuniform path coefficient.
+PASS
 
-## Originality
+PASS. For an unweighted connected tree with m>=2 edges, bipartite edge orientation makes K=B^TB SPD, entrywise nonnegative and irreducible with simple Perron eigenvalue L and u>0. At h=2/L the exact integral Taylor remainder for cos is strict whenever sin z !=0 despite the vanishing quadratic descent bound. Compactness and steps tending to zero force every orbit to a single binary equilibrium. At every non-antiphase equilibrium KD_q is similar to symmetric K^(1/2)D_q K^(1/2) and has a positive eigenvalue, hence expanding multiplier; a nontrivial real-analytic Jacobian determinant ensures preimages of null local center-stable sets are null. This global endpoint component is also known in stronger form from the prior 2026/11/1 Resultary theorem; its coverage is acknowledged, not claimed new. The genuine additional critical law uses A=I-2K/L, a simple -1 Perron center and stable transverse spectrum. Odd center graph y=au+a³w+O(a^5) has w=-(I+A)|u-perp^(-1)QK(u³)/(3L), giving a'=-a+ca³+da^5+O(a^7), c=Σu_i^4/3 and d=Σu_i³w_i-Σu_i^6/60. Thus 1/a_{n+1}²-1/a_n²=2c+(2d+3c²)/W_n+O(W_n^-2), W_n=a_n^-2, yielding W_n=2cn+b log n+H+o(1), b=(2d+3c²)/(2c) for all basin orbits outside the codimension-one strong-stable fiber. For the four-vertex path exact w verifies c=1/8,d=-(1+sqrt2)/768,b=(17-sqrt2)/96. Own independent exact symbolic calculation reproduced the nontrivial coefficient. This is an asymptotic local formula plus a.e. basin conclusion, not a finite-time global error rate.
 
-**PASS within the inspected literature and accessible research comparisons.** The closest directly relevant paper, Buescu–D'Aniello–Oliveira (2026, arXiv:2610.10993), proves descent and convergence only for strictly subcritical steps and gives almost-global attraction under a stronger diffeomorphism condition. The present theorem crosses the formerly excluded full-descent endpoint and quantifies the nonhyperbolic relaxation on arbitrary unweighted trees. The general saddle-avoidance theorem of Schaeffer–McCalla (2019, arXiv:1908.01753) explicitly assumes step size strictly below the critical value; it does not derive endpoint convergence or the graph-specific quintic/logarithmic law. A prior scalar two-clock critical-flip result is a one-dimensional special case, not a covering all-tree theorem. Related three-clock work treats small-step stability. Residual risks include earlier unlocated studies of large-step sine gradients and abstract endpoint center-manifold results; the exact multi-graph coefficient may have alternative derivations.
+## originality
 
-## Value
+PASS
 
-**PASS.** The maximum admissible descent step is a natural dynamical threshold, not an arbitrarily selected parameter. At that step the classical strict quadratic energy estimate degenerates, local invertibility can fail, and the attractor becomes nonhyperbolic. The theorem still gives a complete all-orbit convergence classification, an almost-global basin statement, and a quantitative graph-dependent relaxation law. The four-vertex path is the first path with a nonuniform Perron vector, where the explicit logarithmic coefficient genuinely records transverse center-manifold coupling rather than a scalar substitution.
+Originality assessed against semantic published research and the listed primary sources; substantial previously established components explicitly credited. Global endpoint dynamics are completely covered, but the general tree-specific fifth-order Perron logarithmic coefficient survives as an independently meaningful non-implied part.
 
-## Verification and limitations
+## value
 
-Run `python verify.py` after installing SymPy and NumPy. The script checks exact eigenvectors, cubic and fifth-order invariant-graph equations on three small paths, coefficients and a long-iterate illustrative example. These checks do not replace the global analytic inequalities or the geometric stable-set arguments. The conclusion concerns finite, connected, unweighted trees with sine interaction, not general weighted or cyclic graphs. Historical priority is provisional and independent scientific validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS for the surviving unique log law, not the already-covered global endpoint theorem. The rate of approach along a nonuniform graph's critical Perron mode is mathematically motivated in synchronization, and the graph-dependent fifth-order correction is a genuine structural invariant requiring transverse center-manifold analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
