@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T05:46:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a Haar (n-q)-plane E, normal-subspace frame Q=G(G^T G)^-1/2 yields leverage scores ell_i=||Q^T e_i||²=(1/n)g_i^T S_n^-1 g_i, with S_n=G^T G/n ->I for fixed q. Hence projected antipodal radius is sqrt(1-ell_i), and the nearest-sphere deficit scaled by n^{1+2/q} is asymptotically n^{2/q}||g_i||²/2. Since iid chi²_q have small-ball probability x^{q/2}/[2^{q/2}Γ(1+q/2)](1+O(x)), the original n marked-pair deficits form a PPP with cumulative intensity t^{q/2}/Γ(1+q/2). Wishart spectral concentration plus min-chi-square tail uniform integrability gives all positive moments of Y=min deficits: Γ(1+q/2)^{2p/q} Γ(1+2p/q), while Poisson counts give kth order survival law. In n=3,q=1, a unit sphere normal gives max radius sqrt(1-min|u_i|²); inclusion-exclusion on |u_i|<s gives the displayed exact arcsin/arctan CDF. Four independent quadrature checks reproduced the formula. Distinguish generating antipodal pairs from actual vertices of a projected polytope.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Donoho and Tanner study high-dimensional cross-polytope projected-face survival and neighborliness; their full text has no fixed-codimension outer-radius point-process conclusion.",
+          "Böröczky and Henk analyze expected projected face numbers for fixed target dimension, whereas target dimension here is n-q."
+        ],
+        "reasoning": "The published geometric projection theorems do not logically imply the claimed metric endpoint law; dimensions and observables differ.",
+        "searches": [
+          "random cross polytope Haar projection fixed codimension leverage scores Poisson minimum radii Weibull",
+          "https://arxiv.org/abs/math/0607364",
+          "https://page.math.tu-berlin.de/~henk/preprints/boeroeczky%20henk%26random%20projections%20of%20regular%20polytopes.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0607364",
+        "https://page.math.tu-berlin.de/~henk/preprints/boeroeczky%20henk%26random%20projections%20of%20regular%20polytopes.pdf",
+        "random cross polytope Haar projection fixed codimension leverage scores Poisson minimum radii Weibull"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published projected-face asymptotics count surviving faces, while the submitted radius is the maximum norm of all generating projected ±e_i regardless of face incidence.",
+          "Classical Gaussian representation gives proof ingredients, not the stated point process without joint small-ball asymptotics and uniform-integrability work."
+        ],
+        "reasoning": "Neither inspected projected-face theorem implies the fixed-codimension PPP intensity or octahedral planar-radius CDF; the submitted analytical reduction supplies those results.",
+        "searches": [
+          "https://arxiv.org/abs/math/0607364",
+          "https://page.math.tu-berlin.de/~henk/preprints/boeroeczky%20henk%26random%20projections%20of%20regular%20polytopes.pdf",
+          "random cross polytope Haar projection fixed codimension leverage scores Poisson minimum radii Weibull"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The extremal statistic is min of normal-subspace leverage scores, equivalently max norm among projected ±e_i; it is not a face-count or random-section diameter.",
+          "Projected original vertices are counted with labels even when not extreme vertices of the shadow."
+        ],
+        "reasoning": "Leverage-score small-ball extreme value is a valid reduction, but no accessible primary theorem was found that explicitly gives the same full marked Poisson process and moment geometry.",
+        "searches": [
+          "random cross polytope Haar projection fixed codimension leverage scores Poisson minimum radii Weibull",
+          "https://arxiv.org/abs/math/0607364",
+          "https://page.math.tu-berlin.de/~henk/preprints/boeroeczky%20henk%26random%20projections%20of%20regular%20polytopes.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The n=3 q=1 formula is a spherical inclusion-exclusion CDF of planar-shadow circumradius, not the inradius law of another published octahedron shadow paper.",
+          "Independent analytic integration verified the arcsin/arctan expression at four thresholds."
+        ],
+        "reasoning": "No exactly covering published CDF or moment table was located. This is a substantive matching of geometric observables, not proof of exhaustive novelty.",
+        "searches": [
+          "random cross polytope Haar projection fixed codimension leverage scores Poisson minimum radii Weibull",
+          "https://arxiv.org/abs/math/0607364"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. Predecessor projected-face/volume results do not determine Euclidean circumsphere deficits of generating vertices when projected dimension is n-q. Random central sections use different geometry and are not interchangeable with projections. The independent minimum-chi-square extreme process is classical, but the explicitly normalized geometric full point process, all moments, and exact three-dimensional octahedron benchmark were not found as a stronger theorem in the inspected primary literature.",
+      "residual_risks": [
+        "The general extreme-value theory of random orthogonal projection leverage scores may subsume the marked Poisson process even without cross-polytope terminology.",
+        "The exact 3-dimensional CDF and all-moment convergence have only the stated fixed-codimension domain; no claim for growing q or only actual projected vertices."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_METRIC_AND_DIMENSION",
+          "evidence": [
+            "Projected neighborliness and surviving face counts, not Euclidean radius extremes of original coordinate axes."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0607364",
+          "material_read": "Complete accessible arXiv HTML mathematical text including model, face-count theorems and proofs",
+          "method": "Read the accessible research statement, hypotheses and mathematical proof and compare exact theorem implications",
+          "title": "Counting faces of randomly-projected polytopes when the projection radically lowers dimension",
+          "trigger": "Same regular cross-polytopes under random projections"
+        },
+        {
+          "assessment": "DIFFERENT_DIMENSION_REGIME",
+          "evidence": [
+            "The theorem treats expected face numbers under fixed projected dimension, not fixed codimension metric circumradius."
+          ],
+          "identifier_or_url": "https://page.math.tu-berlin.de/~henk/preprints/boeroeczky%20henk%26random%20projections%20of%20regular%20polytopes.pdf",
+          "material_read": "Complete accessible primary PDF extracted text with the leading theorem and proof; page imagery inspected for formulas and projected face-count definitions",
+          "method": "Read the accessible research statement, hypotheses and mathematical proof and compare exact theorem implications",
+          "title": "Random Projections of Regular Polytopes",
+          "trigger": "Primary precursor on Haar projections of regular polytopes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Random shadows of a canonical regular polytope are a natural high-dimensional convex-geometry object. The sharp fixed-codimension endpoint scaling n^{-1-2/q}, complete Poisson multiplicity process, positive-moment law and exact low-dimensional boundary benchmark are meaningful geometric invariants that could be used in studying random projection extremal radii; this is not a small arbitrary numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The general extreme-value theory of random orthogonal projection leverage scores may subsume the marked Poisson process even without cross-polytope terminology.",
+    "The exact 3-dimensional CDF and all-moment convergence have only the stated fixed-codimension domain; no claim for growing q or only actual projected vertices."
+  ],
+  "schema_version": 1
+}

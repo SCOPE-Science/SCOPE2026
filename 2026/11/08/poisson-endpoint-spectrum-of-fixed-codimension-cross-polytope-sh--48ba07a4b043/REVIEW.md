@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The geometric identification \(R_{n,q}=\sqrt{1-\min_i\ell_i}\) is exact for a centrally symmetric cross-polytope. Haar-normal Stiefel frames admit an exact Gaussian-matrix realization; fixed-codimension sample covariance converges uniformly on the rare-row scale. A chi-square small-ball expansion and a multinomial-to-Poisson limit establish full locally finite point-process convergence. Separately, spectral concentration and chi-square minimum tails provide uniform integrability for all positive moments. The octahedral CDF follows by explicit two-coordinate spherical integration and inclusion-exclusion with the triple intersection excluded on the stated domain. Independently executed numerical and integral checks support, but do not replace, these steps. Finite dimension, codimension and endpoint conventions were independently rechecked.
+## correctness
 
-## Originality
-**PASS (provisional).** The complete publicly accessible primary works by Böröczky–Henk and Donoho–Tanner establish projected *face counts*, not the joint near-circumsphere radius spectrum. The full published cross-polytope **section**-diameter result treats a distinct operation and an incompatible endpoint scaling. The full published octahedral **inradius**-of-projection result concerns a different functional and its formula does not supply the circumradius law. The published abstract of Guédon et al. concerns upper/lower random-**section**-diameter estimates; its complete text was not inspected, leaving a residual source risk. The Gaussian extreme-minimum calculation is standard; novelty is assessed only for the exact geometric projection endpoint process and its quantitative corollaries, not for Gaussian order statistics in isolation. Exhaustiveness and human priority remain unverified.
+PASS
 
-## Mathematical value
-**PASS.** The full extreme spectrum of a natural sequence of high-dimensional orthogonal shadows is a meaningful geometric refinement of a single radius or expected face count. Its exact codimension-dependent scaling and transition between square-root-Weibull, exponential and higher-shape laws quantitatively characterize the best-preserved projected vertex pairs. The finite octahedron law supplies an explicit normalization benchmark. It is not a parameter renaming of the earlier cross-polytope section theorem and the exact form is not determined by existing face-count expectations. The method is elementary once the geometric leverage-score reduction is identified; the result is limited to fixed codimension.
+For a Haar (n-q)-plane E, normal-subspace frame Q=G(G^T G)^-1/2 yields leverage scores ell_i=||Q^T e_i||²=(1/n)g_i^T S_n^-1 g_i, with S_n=G^T G/n ->I for fixed q. Hence projected antipodal radius is sqrt(1-ell_i), and the nearest-sphere deficit scaled by n^{1+2/q} is asymptotically n^{2/q}||g_i||²/2. Since iid chi²_q have small-ball probability x^{q/2}/[2^{q/2}Γ(1+q/2)](1+O(x)), the original n marked-pair deficits form a PPP with cumulative intensity t^{q/2}/Γ(1+q/2). Wishart spectral concentration plus min-chi-square tail uniform integrability gives all positive moments of Y=min deficits: Γ(1+q/2)^{2p/q} Γ(1+2p/q), while Poisson counts give kth order survival law. In n=3,q=1, a unit sphere normal gives max radius sqrt(1-min|u_i|²); inclusion-exclusion on |u_i|<s gives the displayed exact arcsin/arctan CDF. Four independent quadrature checks reproduced the formula. Distinguish generating antipodal pairs from actual vertices of a projected polytope.
 
-## Sources and risks
-Fully inspected: Donoho–Tanner arXiv:math/0607364v2 (body and sections on face counts); Böröczky–Henk 1997 author PDF (face-count asymptotics); published full texts of the distinct published-finding corpus section-diameter and projection-inradius findings. Abstract inspected: Guédon et al. arXiv:2609.24131. Remaining risk: unindexed mathematical-statistics literature on Haar leverage-score minima may imply an equivalent process, even when published without cross-polytope language. The exact starting date 15 July 2006 is tied to the focal arXiv paper and is not incorrectly assigned to the month-only 1997 preprint.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. Predecessor projected-face/volume results do not determine Euclidean circumsphere deficits of generating vertices when projected dimension is n-q. Random central sections use different geometry and are not interchangeable with projections. The independent minimum-chi-square extreme process is classical, but the explicitly normalized geometric full point process, all moments, and exact three-dimensional octahedron benchmark were not found as a stronger theorem in the inspected primary literature.
+
+## value
+
+PASS
+
+Random shadows of a canonical regular polytope are a natural high-dimensional convex-geometry object. The sharp fixed-codimension endpoint scaling n^{-1-2/q}, complete Poisson multiplicity process, positive-moment law and exact low-dimensional boundary benchmark are meaningful geometric invariants that could be used in studying random projection extremal radii; this is not a small arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
