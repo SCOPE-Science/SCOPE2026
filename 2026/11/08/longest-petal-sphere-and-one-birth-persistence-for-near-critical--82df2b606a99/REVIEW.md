@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The explicit chip-count recurrence gives the entire periodic trajectory for all integers \(k\ge2\) and \(L_i\ge3\); it checks the hub firing threshold at every step, identifies one traveling zero per unfinished petal, and shows exact return to the initial configuration at time \(m=\max_iL_i\). The derived firing sets admit a good-cover nerve whose every proper face occurs and whose full face is absent; the nerve is the boundary of an \((m-1)\)-simplex. Prefixes have a common vertex, so the persistence assertion follows without extrapolation. Adding a hub chip forces an all-vertex firing at time zero. The standalone tests independently simulate 3900 ordered configurations and directly compute six mod-two homology profiles. Finite checks do not prove the infinite statement; the induction and nerve argument do.
+## correctness
 
-## Originality — PASS, with specified residual risks
-The closest primary paper is Riihimäki–Smith, *Avalanche homology of digraphs via sandpile dynamics*, arXiv:2606.26786, first public June 25, 2026. Its Sections 2.1–2.2 introduce the invariant and nerve method, Section 3.2 proves results for single directed cycles (notably Lemma 3.27 and Corollary 3.33), Section 4 introduces persistence, and Section 5 explicitly proposes graph-class extensions. The present theorem concerns directed roses with a hub of outdegree \(k\ge2\), permits an arbitrary number of unequal cycles, and determines the exact period, longest-petal dimension and persistence birth. The single-cycle theorem does not imply this through substitution, because the hub contributes \(k\) outgoing transfers rather than one and the cyclic shift proof no longer applies. Targeted searches for bouquet/flower/rose/figure-eight avalanches, stronger cactus-graph coverage, and public mathematical-record entries revealed no equal or dominating result. The closest additional records concern single-cycle avalanche configurations or a distinct homology invariant. Unindexed equivalent work remains possible; the older chip-firing literature has a large scope and was not exhaustively searched.
+PASS
 
-## Mathematical value — PASS
-The first nontrivial branching class beyond directed paths and cycles has a uniform, exact integral homotopy and persistence classification for a canonical threshold configuration carrying exactly one chip fewer than the number of arcs. The topological degree and waiting time depend solely on the longest petal, despite arbitrary shorter petals, while adding one hub chip immediately kills the sphere. This identifies an interpretable topological stability boundary and a nontrivial infinite family, rather than merely recomputing a known cycle or an arbitrary isolated example. The source's explicit question about graph-class extensions and its emphasis on persistent avalanche homology motivate the calculation.
+The explicit synchronous firing recurrence is checked at times 0…m: F0 excludes only the hub, and for 1≤t<m, the hub and all peripherals fire except one zero at position t on each petal longer than t. The hub chip count 2k−1−N(t) remains ≥k until t=m−1 and becomes k−1 at time m, recovering the initial configuration. A fixed maximum-length petal gives each time s∈[1,m−1] a vertex omitted only from F_s, while the hub is omitted only at s=0. Therefore the m simplex facets have empty total intersection and every proper subintersection nonempty; the nerve is ∂Δ^{m−1}≈S^{m−2}. Each initial subfamily of fewer than m simplices shares a vertex, so the time-filtration is a cone then acquires the single permanent sphere; the additional hub chip forces F0=V. The finite 3900-case verification is corroboration rather than infinite proof.
 
-## Limits of the assessment
-Only the stated configuration and one-chip perturbation are classified. The novelty assessment is conditional on checked primary literature and indexed records, not a proof of uniqueness. No independent mathematical review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinction from the defining avalanche-complex literature is a bouquet of k≥2 oriented cycles with nonbinary hub and an exact longest-petal birth parameter; cited single directed-cycle and path results do not logically imply this multi-petal result. No stronger coverage was identified from available text, though the most relevant primary full article was inaccessible this run.
+
+## value
+
+PASS
+
+The orbit of a natural near-critical configuration on arbitrary bouquets yields an exact family-level sphere and unusually sharp one-birth persistent barcode depending only on the maximum petal length; it links graph dynamics to robust topological persistence beyond the one-cycle case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

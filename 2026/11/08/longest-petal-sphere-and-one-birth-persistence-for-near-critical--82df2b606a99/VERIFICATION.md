@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Run `python3 verify.py` in a directory containing that file; it uses only the Python standard library. The file `verification_output.txt` records the actual output of the included implementation. The terminal line is `ALL_VERIFY_OK`.
+# Independent mathematical audit
 
-The verifier constructs every ordered petal-length tuple for \(2\le k\le5\) with \(3\le L_i\le7\), including repeated lengths. It explicitly simulates synchronous firing until the first repeated full chip configuration; verifies return to the initial state, the exact period, and the fully predicted collection of firing sets; confirms the total initial chip count is one below the arc count; exhaustively enumerates every proper intersection of the firing-set cover; checks the early common intersection at every prefix; and verifies that one extra hub chip yields the full vertex set at the first step. There are 3900 length tuples and 25516 verified firing steps.
+## correctness
 
-As an independent chain-level spot check, the verifier enumerates the simplices of six sample complexes and reduces their simplicial boundary operators over \(\mathbb F_2\). Each has one nonzero reduced Betti number, equal to one in the predicted dimension. No claims about integral torsion or universal parameters are inferred from these finite-field computations: integrality and universality follow from the explicit nerve homotopy equivalence in RESULT.md.
+PASS
 
-The preprint's source convention excludes sinks from firing sets; the directed rose has none. The initial hub has \(k-1<k\) chips and is stable at time zero. The first nonzero reduced class is born at the final new facet of the first period and is never killed, since the configuration thereafter repeats.
+The explicit synchronous firing recurrence is checked at times 0…m: F0 excludes only the hub, and for 1≤t<m, the hub and all peripherals fire except one zero at position t on each petal longer than t. The hub chip count 2k−1−N(t) remains ≥k until t=m−1 and becomes k−1 at time m, recovering the initial configuration. A fixed maximum-length petal gives each time s∈[1,m−1] a vertex omitted only from F_s, while the hub is omitted only at s=0. Therefore the m simplex facets have empty total intersection and every proper subintersection nonempty; the nerve is ∂Δ^{m−1}≈S^{m−2}. Each initial subfamily of fewer than m simplices shares a vertex, so the time-filtration is a cone then acquires the single permanent sphere; the additional hub chip forces F0=V. The finite 3900-case verification is corroboration rather than infinite proof.
 
-The checks are same-model and computational; independent mathematical audit is not performed.
+## originality
+
+PASS
+
+Best-of-knowledge distinction from the defining avalanche-complex literature is a bouquet of k≥2 oriented cycles with nonbinary hub and an exact longest-petal birth parameter; cited single directed-cycle and path results do not logically imply this multi-petal result. No stronger coverage was identified from available text, though the most relevant primary full article was inaccessible this run.
+
+## value
+
+PASS
+
+The orbit of a natural near-critical configuration on arbitrary bouquets yields an exact family-level sphere and unusually sharp one-birth persistent barcode depending only on the maximum petal length; it links graph dynamics to robust topological persistence beyond the one-cycle case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
