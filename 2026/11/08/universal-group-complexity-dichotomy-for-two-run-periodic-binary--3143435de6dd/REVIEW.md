@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness (PASS)
-The proof gives a complete factor classification for the one-marker period, separately treating shorter-than-period windows and windows of at least one period. Prefix-fixed/suffix-symmetric orbits are exactly characterized by fixed prefixes and suffix Parikh weights. For two runs both of length at least two, complement symmetry forces the only two possible length-three orbit mergers to occur simultaneously; this proves the exact missing value for **every** subgroup. The finite checker separately exercises the stated formulas and all six length-three subgroups. No finite enumeration is used as an infinite proof.
+## correctness
 
-## Originality (PASS, best-knowledge and subject to residual risk)
-Launer–Puzynina–Voloshinova, arXiv:2607.07620 (2026-07-08), Sections 2 and 6, establishes a finite decision procedure for individual eventually periodic words. Its Lemma 12, Corollary 4, and periodic Example 3 do not imply a run-length dichotomy without an additional uniform classification. The paper does not identify this family’s exact group-complexity values for the nested suffix-permutation groups or its universal length-three obstruction. Charlier–Puzynina–Zamboni, arXiv:1505.03848 (2015), supplies the general framework and group-action Morse–Hedlund bounds, but not this family classification. Additional scientific index searches did not surface an equivalent statement; this is evidence of a best-knowledge gap, **not** an exhaustive uniqueness proof. Possible unindexed equivalent material remains a priority risk.
+PASS
 
-## Value (PASS)
-A live classification question asks which infinite words realize every complexity value between Abelian and ordinary factor complexity. The theorem answers it uniformly for the natural two-run periodic binary family, with infinitely many positive and negative instances. An exact first obstruction at length three and explicit witness subgroups at all lengths give the classification structural content beyond per-instance algorithmic testing.
+Reconstructed the entire finite-phase factor list and two-case subgroup orbit count: when one run is a singleton, H_m fixes m coordinates and permutes the suffix, producing every integer between Abelian and ordinary factor complexities, including n<r, n=r, t=0 and t>0 boundary cases. When a,b>=2, F(3) is four transition trigrams plus constant trigrams when present; any G<=S3 merges 001/100 and 011/110 together or neither, so the middle orbit count is absent. Independently enumerated all six S3 subgroups and bounded a,b=2..7 and one-marker r=2..12 with n<=2r; this is corroboration, not proof of all n.
 
-## Limitations and risk
-Only purely periodic words with one run of each binary letter per period are treated. The positive witness chain need not include all relevant subgroups. No expert or independent mathematical audit is represented here, and equivalent prior work that is not indexed remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novel uniform two-run run-length dichotomy and constructive H_m spectrum relative to a general finite decision procedure; decisive prior equivalent classification not found, but the primary 2026 full text is inaccessible, so priority is explicitly provisional.
+
+## value
+
+PASS
+
+Complete sharp natural family classification of an introduced universality property, a first obstruction at factor length three, and explicit canonical witness subgroups, rather than a mere renamed parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

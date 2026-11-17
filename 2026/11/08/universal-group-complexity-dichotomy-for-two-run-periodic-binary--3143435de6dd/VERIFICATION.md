@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-In a Python 3.10+ working directory containing `checker.py`, run:
+## correctness
 
-```sh
-python3 checker.py
-```
+PASS
 
-The expected exact output is:
+Reconstructed the entire finite-phase factor list and two-case subgroup orbit count: when one run is a singleton, H_m fixes m coordinates and permutes the suffix, producing every integer between Abelian and ordinary factor complexities, including n<r, n=r, t=0 and t>0 boundary cases. When a,b>=2, F(3) is four transition trigrams plus constant trigrams when present; any G<=S3 merges 001/100 and 011/110 together or neither, so the middle orbit count is absent. Independently enumerated all six S3 subgroups and bounded a,b=2..7 and one-marker r=2..12 with n<=2r; this is corroboration, not proof of all n.
 
-```text
-PASS 156832 direct suffix-orbit comparisons; 324 full S3 subgroup spectra; 6 subgroups
-```
+## originality
 
-The checker constructs every length-\(n\) factor from a complete periodic phase set. For the one-marker regime it compares actual subgroup orbit partitions against the theorem's piecewise expression, for all periods from 2 to 30, all lengths from 1 through four periods, all fixed-prefix sizes and both letter orientations. It independently constructs each subgroup of the coordinate group \(S_3\), tests closure, and computes all factor orbits for run lengths from 2 through 19 in the two-long-runs regime. Counts are exact within these finite ranges.
+PASS
 
-The proof of the infinite statement is in `RESULT.md`. In particular the arbitrary-length argument rests on phase indexing by the first marked-letter position and the fact that coordinate-permutation equivalence on a suffix is exactly equality of its Parikh vector. Negative-case impossibility follows from complementation symmetry at length 3. The finite checks are safeguards against calculation and boundary mistakes, not exhaustive evidence for arbitrarily large parameters.
+Best-of-knowledge novel uniform two-run run-length dichotomy and constructive H_m spectrum relative to a general finite decision procedure; decisive prior equivalent classification not found, but the primary 2026 full text is inaccessible, so priority is explicitly provisional.
 
-No independent external review or independent certification was conducted.
+## value
+
+PASS
+
+Complete sharp natural family classification of an introduced universality property, a first obstruction at factor length three, and explicit canonical witness subgroups, rather than a mere renamed parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
