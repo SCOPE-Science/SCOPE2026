@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T12:08:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: A five-element subset of F2^d has affine dimension only 3 or 4, giving the two local row types. Independently enumerated all C(8,5)=56 and C(16,5)=4368 quotient column sets with an exact integer Bareiss determinant, obtaining row-type tables (0:24,32:32) and (0:1360,16:2672,32:320,48:16). Verified 16 maximal 48-column sets equal exactly 16 translates of {0,3,5,9,14}. The projection to dual quotient has fibers Q/2^r and repeated columns force determinant0, proving all d≥4 count polynomials without extrapolation. Unit-normalization Q^(−5/2) and q=16 boundary respected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brent–Osborn treat general maximal determinant matrices of orders ≤21 and moment identities, not all Sylvester orders 2^d.",
+          "Resultary 4×4 Walsh classification does not directly provide 5×5 determinant distribution."
+        ],
+        "reasoning": "Neither cited finite table nor first/second determinant moment alone logically fixes all d≥4 5×5 counts.",
+        "searches": [
+          "https://arxiv.org/pdf/1208.3819",
+          "https://arxiv.org/abs/1208.3330",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-four-by-four-walsh-minor-rank-census-in-every-binary-dimen--16a955cfcc7a",
+          "Resultary: Walsh Sylvester Hadamard 5 by 5 minors determinant distribution all dimensions affine dependent"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1208.3819",
+        "https://arxiv.org/abs/1208.3330",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-four-by-four-walsh-minor-rank-census-in-every-binary-dimen--16a955cfcc7a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Derivation of q^5 quotient lift depends on classifying every binary five-point row set and exhaustive two local determinants; these steps are not supplied in Brent–Osborn finite tables or Cauchy–Binet identity.",
+          "At q=16 the proposed counts specialize exactly to old table; for q>16 source proof obtains nontrivial multiplicative fiber factors."
+        ],
+        "reasoning": "Best-of-knowledge novelty is all-d signed/zero sampling distribution and optimizer class, not old order16 histogram or max48.",
+        "searches": [
+          "https://arxiv.org/pdf/1208.3819",
+          "https://arxiv.org/abs/1208.3330",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-four-by-four-walsh-minor-rank-census-in-every-binary-dimen--16a955cfcc7a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Walsh matrix is Sylvester Hadamard, so its order-16 5×5 minors are precisely order-16(a) Brent–Osborn minors up to row and column signs/permutations.",
+          "Binary affine row types are rank 3 or 4; projection quotient has 2^r columns."
+        ],
+        "reasoning": "Order-16 equivalence is explicitly acknowledged; submitted claim includes all d≥4 and geometry of all max48 samples, not only one order.",
+        "searches": [
+          "Resultary: Walsh Sylvester Hadamard 5 by 5 minors determinant distribution all dimensions affine dependent",
+          "https://arxiv.org/pdf/1208.3819"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known order16 local row-col multiplicities (9,273,600; 7,182,336; 2,580,480; 43,008) exactly match q=16 and were published in supplement.",
+          "Local rank3 histogram 0:24,32:32 and rank4 histogram 0:1360,16:2672,32:320,48:16 verified independently; beyond q16 no previously identified all-d table."
+        ],
+        "reasoning": "Known q=16 numbers and universal maximal determinant48 are prior art, not new. Uniform q-polynomials and affine orbit lift are narrower new claim.",
+        "searches": [
+          "https://arxiv.org/pdf/1208.3819",
+          "Resultary: Walsh Sylvester Hadamard 5 by 5 minors determinant distribution all dimensions affine dependent"
+        ]
+      },
+      "rationale": "PASS for all-dimensional five-point Sylvester Walsh minor distribution and affine maximizer lifting; historical d=4 table and max48 are explicitly excluded from originality.",
+      "residual_risks": [
+        "Alternate design/code weight-enumerator formula could cover the all-d distribution without using Walsh language.",
+        "Brent–Osborn supplement provides exact q=16 counts already known; any claim they are first discovered would be false.",
+        "All-d proof relies on a finite 4424-case exact local table, not an analytic formula for arbitrary minor order."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Order 16(a) previously has determinant magnitudes 0,16,32,48 and finite associated numerical frequency data; no all-d formulas or cross-d lifting theorem stated in inspected sections.",
+          "identifier_or_url": "https://arxiv.org/pdf/1208.3819",
+          "material_read": "Lawful 35-page primary arXiv PDF: read introductory aims, main theorems, Section 4 discussion of computed minor tables, appendix Table 23 for n=16(a), and explicit note that numerical multiplicities are omitted from PDF and supplied separately; checked page-29 screenshot.",
+          "method": "ArXiv primary full-text PDF with screenshots",
+          "title": "On minors of maximal determinant matrices",
+          "trigger": "Exact subdeterminant spectrum and frequency for order-16 Sylvester Hadamard"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": "Moment identity checks weighted sum of squared minors but cannot determine all four multiplicities.",
+          "identifier_or_url": "https://arxiv.org/abs/1208.3330",
+          "material_read": "Primary arXiv theorem summary and reference comparison; complete 2012 manuscript not independently reread this run.",
+          "method": "ArXiv primary bibliographic/statement material",
+          "title": "Bounds on minors of binary matrices",
+          "trigger": "General Cauchy–Binet second-moment identity for minors"
+        },
+        {
+          "assessment": "RELATED_NOT_VERIFIED",
+          "evidence": "Order-4 theorem does not imply complete determinant magnitude histogram for order-5 minors or the 16 maximizers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-four-by-four-walsh-minor-rank-census-in-every-binary-dimen--16a955cfcc7a",
+          "material_read": "Resultary published summary with stated rank census, object and all-d scope; no full proof claimed read.",
+          "method": "Resultary semantic source retrieval",
+          "title": "Exact four-by-four Walsh minor rank census in every binary dimension",
+          "trigger": "Same Walsh affine projection strategy at adjacent minor order"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Full minor distribution and maximizing masks quantify exact singularity and D-optimality of natural five-sample Walsh frames across every Boolean dimension, a meaningful invariant beyond finite q16 table and trivial determinant maximum.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1208.3819",
+    "https://arxiv.org/abs/1208.3330",
+    "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-four-by-four-walsh-minor-rank-census-in-every-binary-dimen--16a955cfcc7a"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Alternate design/code weight-enumerator formula could cover the all-d distribution without using Walsh language.",
+    "Brent–Osborn supplement provides exact q=16 counts already known; any claim they are first discovered would be false.",
+    "All-d proof relies on a finite 4424-case exact local table, not an analytic formula for arbitrary minor order.",
+    "Frozen METADATA.json and AUDIT.json contain scope_run_id and same_model_review_status, which reveal protected operational provenance; full public-bound neutral replacements with exact blob guards and semantic privacy verification have not been prepared. Withhold publication independently of completed scientific judgment."
+  ],
+  "residual_risks": [
+    "Alternate design/code weight-enumerator formula could cover the all-d distribution without using Walsh language.",
+    "Brent–Osborn supplement provides exact q=16 counts already known; any claim they are first discovered would be false.",
+    "All-d proof relies on a finite 4424-case exact local table, not an analytic formula for arbitrary minor order."
+  ],
+  "schema_version": 1
+}

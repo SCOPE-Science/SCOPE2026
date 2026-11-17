@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-The standalone program `verify_walsh_five.py` enumerates all \(\binom85=56\) and \(\binom{16}5=4368\) column configurations for the two local affine row types. For each local matrix, a fraction-free integer-elimination determinant is compared with the full permutation expansion. The local table must equal \((24,32)\) for determinant magnitudes \((0,32)\) in affine dimension three and \((1360,2672,320,16)\) for magnitudes \((0,16,32,48)\) in dimension four. It additionally checks the anchored four-by-four binary-incidence determinant counts \(15,20\) and \(425,835,100,5\). The checker verifies that all 16 local maximum-volume sets are the 16 distinct translations of the stated prototype and checks the closed all-dimensional formulas for dimensions four through nine.
+## correctness
 
-The checker also verifies the independently known Cauchy--Binet second-moment identity at each tested dimension. These tests use no floating-point arithmetic, third-party packages, or inaccessible data. The universal claim follows from the mathematical affine-orbit and quotient-projection argument in `RESULT.md` applied to the completely enumerated finite local tables.
+PASS
 
-Run: `python3 verify_walsh_five.py`. Expected final output: `WALSH_FIVE_DETERMINANT_HISTOGRAM_PASS`.
+PASS: A five-element subset of F2^d has affine dimension only 3 or 4, giving the two local row types. Independently enumerated all C(8,5)=56 and C(16,5)=4368 quotient column sets with an exact integer Bareiss determinant, obtaining row-type tables (0:24,32:32) and (0:1360,16:2672,32:320,48:16). Verified 16 maximal 48-column sets equal exactly 16 translates of {0,3,5,9,14}. The projection to dual quotient has fibers Q/2^r and repeated columns force determinant0, proving all d≥4 count polynomials without extrapolation. Unit-normalization Q^(−5/2) and q=16 boundary respected.
 
-The program does not independently establish historical novelty or provide an independent external audit; it is a reproducibility certificate for the exact finite ingredients.
+## originality
+
+PASS
+
+PASS for all-dimensional five-point Sylvester Walsh minor distribution and affine maximizer lifting; historical d=4 table and max48 are explicitly excluded from originality.
+
+## value
+
+PASS
+
+PASS: Full minor distribution and maximizing masks quantify exact singularity and D-optimality of natural five-sample Walsh frames across every Boolean dimension, a meaningful invariant beyond finite q16 table and trivial determinant maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
