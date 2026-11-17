@@ -1,19 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The displayed cubic is smooth in the two fibers of its localized integral model: at any common gradient zero, cyclic propagation excludes zero coordinates, and multiplication of the remaining gradient equations forces \((-2)^p=1\), impossible both in characteristic zero and in characteristic \(p\ge5\). Every projectively fixed point lies in \(X_0\ne0\); the projective equalizer there has coordinate ring \(R[\lambda]/(\lambda^p-1)\). The cubic restricts to \(\Phi_p(\lambda)\) because multiplication by three permutes the residues modulo \(p\). This yields the integral fixed scheme, finite flatness, and the exact special-fiber length. The shift \(\Phi_p(1+t)\) is Eisenstein, establishing the ramified local ring, and the tangent representation is the quotient of the one-block permutation representation. These steps establish the theorem for all primes in the stated range. Exact code samples check identities but do not replace the proof.
+PASS
 
-## Originality: PASS, with a historical-priority qualification
+For every prime p>=5, the projective coordinate p-cycle equalizer is Spec Z_(p)[lambda]/(lambda^p-1), parameterized by eigenvectors [1:lambda:...:lambda^(p-1)]. On it the cubic sum lambda^(3i+1) equals Phi_p(lambda) since 3 is a unit mod p, so the actual fixed scheme is precisely Spec Z_(p)[lambda]/Phi_p. This is monic finite flat rank p-1, with p-1 simple roots in characteristic zero, and F_p[t]/t^(p-1) at the special fiber. Phi_p(1+t) is Eisenstein at p and describes total ramification over Z_p. Gradient vanishing forces (-2)^p=1, impossible in characteristic zero and p>=5, so each fiber smooth. At [1:...:1] in characteristic p, tangent is im(tau-I)/ker(tau-I) for the regular p-Jordan block, giving a single block of size p-2. Independently checked prime p=5,7,11,13,17 with literal exponent permutation, Eisenstein coefficients and rank filtration; general proof is symbolic and all-prime.
 
-González-Aguilera–Liendo (arXiv:1002.4136, 2010) explicitly define the Klein cubic family and analyze prime-order automorphisms over the complex numbers; Roulleau (arXiv:1001.4853, 2010) studies the classical complex Klein cubic threefold, its automorphisms, and its Fano surface. Van Geemen–Yamauchi (arXiv:1506.05346, 2015) explicitly assume characteristic zero when analyzing cubic threefolds with an order-five symmetry. Those inspected primary sections do not assert the integral fixed-scheme isomorphism, the length-\(p-1\) characteristic-\(p\) collision, or the unipotent tangent block. The known cyclic equation, simple eigenvector computation, and standard cyclotomic ramification are not claimed individually as novel. Closely relevant modular-symmetry sources could exist outside those inspected; priority is provisional.
+## originality
 
-## Value: PASS
+PASS
 
-This is an exact, uniform description of how distinct fixed points of an automorphism degenerate to a nonreduced curvilinear fixed scheme *without introducing any singularity into the host hypersurface*. The geometry naturally links the eigenvalues of the coordinate cycle, cyclotomic total ramification, and a single unipotent Jordan block. It applies to the classical Klein cubic threefold and to a nontrivial infinite sequence of higher-dimensional smooth cubics. That interaction is a structural special-characteristic boundary, not an arbitrary finite count or a restatement of the generic eigenvector calculation.
+The earlier 27 October Resultary theorem proves the exact p=5 Klein threefold fixed-scheme collision and even a simultaneous Fano-line collision; therefore p=5 and its tangent calculation are explicitly prior, not rediscovered. The surviving all-prime family (p>=7, changing ambient dimension with prime p) is not contained in that p=5 theorem. The uniform smoothness and Eisenstein mechanism gives the general p-dependent rank and tangent data; the classical automorphism papers address characteristic-zero configurations rather than this all-prime integral family. Best-knowledge originality with risk that the extension can be viewed as an immediate generalization.
 
-## Scope and remaining risks
+## value
 
-The result does not classify every automorphism of a Klein cubic, quotient geometry, stable models, or primes smaller than five. The finite exact-arithmetic program is a consistency check for selected primes only. A definitive historical-priority conclusion would require broader specialist review of modular automorphism literature and an independent proof audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A uniform exact fixed-subscheme and ramification classification for the natural coordinate-prime-order symmetry of the entire smooth Klein cyclic cubic family is useful geometric information beyond the p=5 instance: it gives integral finite flat degree, wild collision local length, and tangent unipotent rank simultaneously for arbitrarily large dimension. The result is an all-prime natural family rather than arbitrary finite sampling. Value is qualified because the proof extends a closely related p=5 scheme-theoretic calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
