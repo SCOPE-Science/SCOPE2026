@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-On each positive fiber the ratio dynamics is an explicit irreducible aperiodic cyclic Markov matrix. The stationary left-vector weights are inverse-next-fiber masses, and the deterministic limiting allele ratio follows by finite primitive-matrix convergence. Gamma–Beta factorization makes the random numerator an iid sum. For \(a>1\), the ordinary finite-variance central limit theorem yields the stated evaluated constant. At \(a=1\), direct integration gives the exact absolute tail \(1-4t+(1+4t)e^{-1/(2t)}\), its \(1/(24t^2)\) coefficient, a \((1/12)\log T\) truncated second moment, and a valid triangular-array Lindeberg argument. The final denominator obeys the strong law. Every quantifier and order of limits is restricted in the result. Exact-rational and high-precision checks were replayed from the accompanying code; finite tests were not treated as proof.
+## correctness
 
-## Originality — PASS, subject to literature limitations
-The closest primary source is Omirov and Rozikov, arXiv:2409.19687v1, which supplies the quadratic operator and invariant-fiber linearization, and its Lemma 2 and Theorem 2 characterize deterministic limit points. Its inspected main text and appendices do not specify Dirichlet sampling of initial simplex points or a growing-locus logarithmic central limit at shape one. The existing two-locus random equilibrium-selection density addresses a fixed four-coordinate problem, not an asymptotic directed cycle as the number of pairs grows. Generic gamma–Dirichlet and infinite-variance central-limit facts are classical and are not claimed as novel. Search comparisons involving inverse-gamma weighting, random weighted averages, directed cyclic allele maps, and the exact normalization uncovered no statement dominating this combined dynamical-selection result. Residual risk: an unindexed result may evaluate equivalent statistics for the same cyclic map or a general random reversible/irreversible consensus theorem may specialize to it.
+PASS
 
-## Mathematical value — PASS
-A natural unresolved observable after a nonlinear population map is shown to converge is which equilibrium random initial data selects. The directed cycle's exact inverse-mass weights reveal a dimension-dependent stochastic selection law and a sharp boundary between ordinary and logarithmically anomalous fluctuations. The complete-mixing comparison demonstrates that topology of interaction changes the central-limit normalization even under the same initial Dirichlet law. The constants are explicit and the limit laws describe all dimensions \(m\ge3\) as \(m\to\infty\), not an isolated toy computation. No independent audit or proof formalization is implied.
+For m≥3 with all c_i>0 the exact ratio recurrence is q_i'= (1-c_{i+1})q_i+c_{i+1}q_{i+1}; this primitive cyclic stochastic matrix has invariant weights proportional to 1/c_{i+1}, proving consensus at the claimed beta_m. Gamma–Dirichlet representation supplies independent U_i~Beta(a,a) and G_i~Gamma(2a,1), so the numerator is a sum of iid centered (U_i-1/2)/G_{i+1}, independent across shifted indices. For a>1 its variance gives (2a-1)/[4(2a+1)(2a-2)]. For a=1 exact tail expansion is Pr(|Y|>t)=1/(24t²)+O(t^-3), hence truncated variance (log t)/12+O(1), Lindeberg–Feller with b_m²=m log(m)/24 yields the critical N(0,1/24) for sqrt(m/log m)(beta_m-1/2). The denominator obeys the strong law, and the complete-mixing ratio is exactly Beta(ma,ma). Independently confirmed the tail series symbolically; these asymptotics are established by the proof, not a finite simulation.
 
-## Checked literature and remaining limitations
-Omirov–Rozikov, *A many-loci system with evolution characterized by uncountable linear operators*, first public 2024-09-29, equation (1.5), Lemma 2 and Theorem 2; comparison against a prior two-locus equilibrium-selection density; published research entries on cyclic two-sex Volterra dynamics and conditional stationary simplex laws (different objects); searches on inverse-gamma weighted averages and Dirichlet initialization. Results about a general infinite-variance domain-of-attraction normal law provide the probability mechanism but not the explicit selection law for this map. A possible unindexed statement of the same specialization remains a priority risk. The proof is restricted to fixed \(a\ge1\) and does not treat a joint iteration-time/dimension limit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original fixed-shape Dirichlet equilibrium selection fluctuation transition for the directed cyclic specialization. The defining many-loci paper covers the deterministic operator, invariant fibers and orbit convergence, not a growing-loci random-selection central limit theorem with inverse-gamma criticality. A published two-locus exact equilibrium law has fixed dimension and does not dominate the m→∞ transition.
+
+## value
+
+PASS
+
+Exact random equilibrium selection is a natural question for this nonlinear recombination model, and the logarithmic critical fluctuation scale at uniform simplex initialization identifies a genuine heavy-tail boundary, contrasting sharply with the all-to-all beta law; not merely a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

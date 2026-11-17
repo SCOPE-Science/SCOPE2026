@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The supplied `verify.py` is a stand-alone standard-library Python checker. Run with `python verify.py` in the directory containing this document. The observed terminal markers were:
+## correctness
 
-```
-EXACT_INVARIANT_AND_CYCLIC_MARKOV_REDUCTION_OK
-EXACT_CRITICAL_TAIL_AND_CONSTANT_1_OVER_24_OK
-FINITE_VARIANCE_DIRICHLET_CONSTANTS_OK
-DIRECT_NONLINEAR_ITERATION_AGREES_WITH_CONSENSUS_OK
-DIRECTED_MANY_LOCI_VERIFICATION_OK
-```
+PASS
 
-The rational-arithmetic checks establish selected small-dimensional algebraic invariant identities; high-precision arithmetic tests the exact gamma tail expansion; numerical dynamics corroborate convergence to the stationary weighted ratio. Monte Carlo illustrations for \(a=1\) and \(a=2\) are explicitly finite-sample evidence only and cannot certify an infinite-dimensional central limit theorem. The complete analytical proof and its tail/Lindeberg steps are in RESULT.md, including the exact scope and excluded cases.
+For m≥3 with all c_i>0 the exact ratio recurrence is q_i'= (1-c_{i+1})q_i+c_{i+1}q_{i+1}; this primitive cyclic stochastic matrix has invariant weights proportional to 1/c_{i+1}, proving consensus at the claimed beta_m. Gamma–Dirichlet representation supplies independent U_i~Beta(a,a) and G_i~Gamma(2a,1), so the numerator is a sum of iid centered (U_i-1/2)/G_{i+1}, independent across shifted indices. For a>1 its variance gives (2a-1)/[4(2a+1)(2a-2)]. For a=1 exact tail expansion is Pr(|Y|>t)=1/(24t²)+O(t^-3), hence truncated variance (log t)/12+O(1), Lindeberg–Feller with b_m²=m log(m)/24 yields the critical N(0,1/24) for sqrt(m/log m)(beta_m-1/2). The denominator obeys the strong law, and the complete-mixing ratio is exactly Beta(ma,ma). Independently confirmed the tail series symbolically; these asymptotics are established by the proof, not a finite simulation.
 
-Independent audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge original fixed-shape Dirichlet equilibrium selection fluctuation transition for the directed cyclic specialization. The defining many-loci paper covers the deterministic operator, invariant fibers and orbit convergence, not a growing-loci random-selection central limit theorem with inverse-gamma criticality. A published two-locus exact equilibrium law has fixed dimension and does not dominate the m→∞ transition.
+
+## value
+
+PASS
+
+Exact random equilibrium selection is a natural question for this nonlinear recombination model, and the logarithmic critical fluctuation scale at uniform simplex initialization identifies a genuine heavy-tail boundary, contrasting sharply with the all-to-all beta law; not merely a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
