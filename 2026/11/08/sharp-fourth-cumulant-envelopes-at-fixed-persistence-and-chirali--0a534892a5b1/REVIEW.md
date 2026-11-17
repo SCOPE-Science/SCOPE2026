@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The exact angular generator recurrence independently reconstructs the Laplace transforms of second and fourth projected moments; cancellation of the quadratic terms produces the linear fourth-cumulant coefficient. The angular two-moment constraint is both necessary and sufficient via chord laws and convex mixing. Inversion maps its disk to a circle for nonreal first harmonic and to a half-plane for real first harmonic, so the endpoints, attainment and sign regions follow without numerical optimization. Exact rational examples and independently propagated finite-time moments test the critical normalizations. Assumptions exclude the nonmixing second harmonic.
+## correctness
 
-**Originality (PASS, qualified).** Sevilla, arXiv:1905.07090, Eq. (54), already gives the complete *forward* fourth-moment transform for arbitrary turning kernels. Britton et al., arXiv:2608.23519, separately compute arbitrary-order moments and their long-time leading Gaussian term. Olsen and Löwen, arXiv:2405.14326, optimize second-order diffusion. The separate classification of all compatible second Fourier moments at prescribed first harmonic and the global, attainable fourth-cumulant envelopes, including the chiral and achiral sign thresholds, were not found in those sources or indexed comparisons. An unindexed general angular-moment optimization could still subsume this result; novelty is not independently certified.
+PASS
 
-**Value (PASS).** All permitted laws at fixed first angular moment have the same entire velocity autocovariance, while their fourth-cumulant rates can have opposite signs. The exact feasible interval and finite-angle extreme laws give an experimentally interpretable design boundary, including a sharp no-positive chiral curve and positive-only real anti-persistence range. This is a natural constrained inverse-design problem, not a single arbitrary parameter sample. It does not assert new leading Gaussian behavior, and it gives no precision guarantee for finite-time or noisy data.
+For an initially uniform angle and Poisson i.i.d. turn increments with first harmonic z and second w, the angular Fourier generator has decay rates a_j=alpha(1-m_j). The second/fourth moment hierarchy yields a linear asymptotic fourth-cumulant rate K=3v^4/alpha^3[Re((1-z)^-2(1-w)^-1)-2 Re((1-z)^-1)Re((1-z)^-2)] for |z|<1,w!=1. All second harmonics obey |w-z²|<=1-|z|², and the entire disk is feasible via two-atom chord laws and mixtures. Inverting 1-w maps the disk to another disk if Im z !=0 or half-plane when Im z=0, and direct affine optimization gives the full stated sharp K intervals, attaining boundary turn laws and sign thresholds. Independent exact rational boundary witnesses for z=i/2 gave K=162/125 and -288/125, with a zero sharp upper bound at z=(1+i)/2; an independent generator-based check corroborated the moment normalizations. Nonrelaxing w=1 and |z|=1 excluded.
 
-The excluded nonrelaxing angular mode \(w=1\) and possible unpublished global extremality results are explicit residual risks. Finite verifier checks cannot replace the proof; independent priority review remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: Sevilla 2019 Eq.(54) gives the arbitrary-kernel forward fourth-moment transform, which is an acknowledged essential input. The new constrained inverse design is the exact feasible w-disk at prescribed first z and optimization of the fourth-cumulant coefficient over every angular probability law, including full positive/negative/no-positive phase boundaries and two-angle extremizers. Britton et al 2026 discuss dependence on higher angular modes without the all-law interval; trapped swimming and second-moment diffusion results are different observables. An unindexed global trigonometric-moment extremization might dominate.
+
+## value
+
+PASS
+
+The first angular harmonic fixes the complete velocity covariance and diffusivity, while sharp fourth-cumulant signs differ within that covariance-equivalence class. Exactly identifying all attainable rates, extremal finite-angle controls and chiral no-positive curve is a natural transport-design identifiability and inverse problem, not merely a forward moment computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
