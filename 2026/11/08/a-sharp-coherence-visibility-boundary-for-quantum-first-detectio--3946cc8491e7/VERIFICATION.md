@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The argument is analytic. The starting physical assumption is a two-level Hermitian Hamiltonian with nonzero off-diagonal coupling. Direct spectral reduction gives transition probability \(p(t)=a\sin^2(\omega t/2)\). The first-detection renewal identities, convolution inverse, sharp sinc minimum, and weak-rate expansion are developed explicitly in `RESULT.md`.
+## correctness
 
-Reproduce the diagnostic check by executing `python checker.py` in a Python environment with NumPy and SciPy. The source computes the transition amplitude by independently exponentiating several Hermitian matrices; compares an exact rational Laplace transform with numerical integration of the renewal kernels; computes the unique critical sinc minimum; samples the nonnegative convolution kernel at subcritical visibilities; and independently inverts the rational transform to exhibit subcritical ordering and supercritical survival crossings. In the included run it passed 3278 deterministic assertions and returned a threshold of approximately \(0.82153497637881\).
+PASS
 
-Finite sampled checks do not prove universal positivity, lack of alternative zeros, or novelty. Those properties are addressed, respectively, by the displayed convolution representation and global minimum proof, by the interval monotonicity of the sinc function, and by explicit comparison with cited published results. The result has not undergone independent audit.
+For two-level unitary evolution p_01(t)=p_10(t)=a sin²(omega t/2). Under exponential inter-probe times, nonnegative kernels K=re^(−rt)p(t), L=re^(−rt)(1−p(t)) yield exact renewal equations f_tr=K+L*f_tr and f_ret=L+K*f_tr. Their survival difference equals G_r*(delta_0+sum_{n>=1}L^{*n}), G_r(t)=r e^(−rt)[(1−a)t+(a/omega)sin(omega t)]. The positive renewal measure implies stochastic order for every rate iff the seed is nonnegative for all times, and its first negative sinc minimum occurs uniquely at z* in (pi,3pi/2) with tan z*=z*, giving a*=1/(1−sin z*/z*)=0.821534976... . Necessity uses fixed-t small-r expansion at t=z*/omega, plus initial positive rt term to force crossing. A separate exact Laplace transform comparison proves return < transition in Laplace order for all a,r, including the crossing regime; means differentiate from the same transforms. Independent symbolic renewal-transform identity and local root/sign calculations supported the analytic proof. Finite tests are not a substitute for the all-r,t arguments.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: the exact assigned final claim (not its already-known general machinery) was compared with primary published theorems, more general methods, aliases, semantic research records and matched objects. The four structured comparisons and materially read source inspections below identify no inspected prior theorem implying this full result; residual risks remain real, and non-discovery is not a mathematical proof of priority.
+
+## value
+
+PASS
+
+This gives a sharp quantitative boundary at which return detection ceases to dominate transition detection at every finite time, despite retaining strict Laplace transform order. The separation is a natural and nontrivial probabilistic phenomenon for experimentally motivated randomly probed quantum dynamics; it supplies a threshold and unavoidable crossing mechanism not answered by existing mean or long-time tail optimizations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
