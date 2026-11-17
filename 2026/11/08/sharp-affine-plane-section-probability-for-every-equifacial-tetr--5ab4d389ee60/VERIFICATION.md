@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The identity for the exterior angles is a direct facet-normal computation. The mean-width edge formula is a classical integral-geometric identity, and the Schläfli identity is separately derived by differentiating the normalized reciprocal-square parameters. The optimization proof uses an interior stationarity argument and a strict compact-boundary gap.
+# Independent mathematical audit
 
-Run `python disphenoid_section_check.py` with Python and NumPy. The checker verifies the closed-form probability against importance-weighted direct plane intersections for five aspect ratios, checks 100,000 additional shapes against the bound, and checks degeneration limits. All numerical checks were run successfully. A test run reports `AFFINE_DISPHENOID_SECTION_OK random_shapes=100000 plane_samples=1400000 lower= 0.288535543072`.
+## correctness
 
-Floating-point sampling is not an exhaustive test and does not establish originality. Independent mathematical review and independent priority assessment have not been performed.
+PASS
+
+The motion-invariant conditioned plane law is width-biased. Edge crossings integrate to half the six-edge length sum and polyhedral mean width to exterior angle weighted length/(4pi), giving p4=2pi S/B-3. For disphenoid q_i=a_i^{-2}/sum and beta_i=2acos sqrt(q_i), direct Schläfli sum ell_i d beta_i=0. Fixing length sum, stationarity requires equal beta_i and thus a=b=c; compact boundary F<=pi(2-sqrt2)<acos(-1/3) proves unique global maximum F and probability minimum. Boundary corner limit pi/2 yields sharp unattained upper 1 and connected range; independent numerical edge-angle checks corroborate.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS. The earlier full RESULT for tetragonal disphenoids gives the same intrinsic Crofton expression but explicitly limits regular extremality to the one-parameter a=b family. The current two-parameter Schläfli stationary and boundary classification yields an all-equifacial range not implied. Central-plane equifacial findings use a different law. Schneider 1985 full text inaccessible; residual risk recorded without assuming absence.
+
+## value
+
+PASS
+
+PASS. Unique minimum over the full natural two-parameter equifacial similarity family, complete attainable probability range, and degeneracy-dependent boundary law answer a real geometric probability extremal classification beyond the previously studied one-parameter slice. Distinguishes invariant affine planes from central planes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
