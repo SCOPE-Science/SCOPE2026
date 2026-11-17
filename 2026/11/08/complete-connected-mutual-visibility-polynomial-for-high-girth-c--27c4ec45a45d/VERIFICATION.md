@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the stated theorem
+# Independent mathematical audit
 
-The proof in `RESULT.md` establishes the unrestricted theorem. `verify.py` implements a separate definition-level check without external dependencies: construct \(H\square K_q\), calculate graph distances and all internal geodesic masks, test induced connectedness and pairwise geodesic visibility, and count all nonempty subsets by size. It independently computes the proposed coefficient profile from \(|V(H)|((1+z)^q-1)+|E(H)|qz^2(1+2z)^{q-1}\) and compares exact integers.
+## correctness
 
-Every subset is traversed for ten chosen examples: an edge with clique widths two and five, a three-vertex path with widths three and five, a four-vertex path with width three, a four-vertex star with widths three and four, five- and six-cycles with widths three and two, and a five-vertex tree with width three. Largest graph: sixteen vertices, so exhaustive check involves its full \(2^{16}\) subsets. Output ended with `VERIFY_OK` after all ten `EXHAUSTIVE_OK` lines. The previously known two-color case was checked for consistency but is excluded from new originality claims.
+PASS
 
-The code does not test all graphs and cannot on its own certify the infinite result. No independent mathematical audit or independent validation has been performed.
+The assigned RESULT.md identifies selected fiber sections S_h, and uses the selected inter-fiber matching-edge graph T. Induced connectivity makes T connected. Any two consecutive T edges u-v-w force the unique base geodesic u-v-w (no triangles or four-cycles). If matching colors equal, the center (v,a) blocks their unique geodesic; if different, any one-color-change shortest product route meets selected (v,a) or (v,b). Thus at most two base fibers. For two adjacent fibers A,B, connectivity requires intersection; if intersection contains two colors, both length-two routes for a cross-colored pair are blocked; exactly one common color is also sufficient by two available shortest routes. Each non-common color has exactly three labelled choices: absent/in A/in B, yielding qz²(1+2z)^(q-1) per edge, disjoint from single fibers. Full maximum, maximality and singleton extension follow. Explicitly computed original-independent BFS connectivity, shortest path visibility and 2^6/2^9 subsets for H=K2/P3,q=3: cardinality profiles (6,9,14,12) and (9,15,27,24). Finite tests support but do not establish the universal girth result.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality PASS: direct mathematical comparison with the full published girth-by-girth Cartesian-product theorem excludes its applicability to K_q (q>=3); available recent graph visibility sources concern ordinary rather than induced-connected subsets or other low-girth products, and no dominating all-size enumerator was found. This is not proof of absolute priority.
+
+## value
+
+PASS
+
+A complete all-size enumerator of a natural induced-connected variant of mutual visibility over every connected high-girth base and clique width at least three gives exact coefficient counts, a sharp maximal-set purity result, and an exact optimum count. This differs substantively from the previously known maximum three for products in which both factors have high girth. All coefficients are needed by researchers studying visibility complexes and sampling of admissible subsets; no arbitrary tiny instance or mere relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
