@@ -1,19 +1,21 @@
-# Scientific review: cyclic covers and roots of three-run binary words
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The theorem ranges over arbitrary integers \(a,c\ge1\), \(b\ge2\) for the linear word \(0^a1^b0^c\). A cyclic cover necessarily forces the length-matched prefix and suffix to be conjugate, hence to have equal counts of ones. For unequal flanks this gives exactly the stated long-length threshold; for equal flanks, shorter patterns reach at most \(r\) middle-run positions from each end and give the \(2r\ge b\) criterion. The factor census follows from uniqueness of the central run; the cyclic-root restriction follows from equal Parikh vectors in each partition block. The accompanying definition-driven checker passed 1,250 parameter triples and 26,029 candidate-length comparisons. The general proof, not the finite checks, establishes the infinite result.
+PASS
 
-## Originality (PASS, bounded bibliographic confidence)
+Endpoint coverage forces conjugate length-ell prefix/suffix and equal one-counts. If a≠c, equal one-counts leave only all-zero short factors (unable to cover ones) or ell≥b+max(a,c). With a=c, a<ell<a+b, the boundary r=ell-a one-runs cover the central b ones iff 2r≥b, giving ell0=a+ceil(b/2). The factors covering at long lengths are distinct conjugates containing all b ones; two special factors at shorter symmetric lengths. A cyclic-root partition cannot have >2 blocks with positive equal numbers of both symbols, so the only possible nontrivial root requires a=c and b even. Independently enumerated 100 triples with 1≤a,c≤5,2≤b≤5 from definitions; finite check is only corroboration.
 
-The original Grossi–Iliopoulos–Jansson–Lim–Sung–Zuba paper explicitly gives the case \(0^m10^m\), which is acknowledged and excluded. Its general cyclic-cover algorithm, the 2025 open-access revision, and the later Iliopoulos–Kociumaka–Radoszewski–Rytter–Waleń–Zuba linear-time cyclic-cover/cyclic-root algorithm cover computation of instances, not an explicitly stated uniform formula for the remaining three-run family or its length-refined factor counts. Searches of published research records and targeted literature did not identify an equivalent theorem. An unindexed result or an unstated consequence of general algorithmic work could still affect priority; the result does not claim independent bibliographic certification.
+## originality
 
-## Value (PASS)
+PASS
 
-The two-transition binary family is a complete natural class for which cover behaviour changes qualitatively at equality of the outer runs. Its full length set, every distinct covering factor count and cyclic-root spectrum have explicit closed forms. A single appended zero can increase the shortest cover length by an unbounded amount, while outside symmetry the total number of covering factors is independent of the middle-run length. These structural facts distinguish the result from merely running a general cyclic-cover algorithm.
+Best-of-knowledge originality: the explicit statement is not implied by inspected stronger sources; limitations and plausible overlap recorded.
 
-## Scope and limits
+## value
 
-The singleton-middle-run example is prior work. Neither the theorem nor the verification script addresses words with more than two transitions, cyclic text wraparound, approximate cyclic covers, or independent external validation. The first public guiding source is the 2023 repository entry, not the later journal publication.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact three-run support and factor-count formulas expose a sharp symmetry transition and a one-letter insertion capable of increasing minimum cyclic-cover length by arbitrarily many symbols; a motivated structural classification distinct from a generic algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

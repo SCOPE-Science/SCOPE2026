@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-Execute `python3 verify_cyclic_three_runs.py` using Python 3 with no external dependencies. The script directly enumerates every rotation of every prefix and every possible start of a factor, constructs the full covered-position bitmask, counts distinct actual factor strings, and checks all equal-size block factorizations. It then compares the outputs to the stated closed-form spectra for every \(1\le a,b,c\le10\), plus 250 seeded random larger triples with each parameter between 1 and 25. The run passed 1,250 triples and 26,029 candidate-length tests. This also exercises boundary parameters outside the theorem's required \(b\ge2\) range; the known \(b=1\) cases are not part of the new claim.
+## correctness
 
-Independent audit: not performed. These finite tests cannot establish an unrestricted theorem or comprehensive bibliographic novelty; the unrestricted mathematical justification is the proof in `RESULT.md`. The source for the single-middle-letter special case and all general algorithmic results is credited. The publication-priority assessment is limited to the sources actually inspected.
+PASS
+
+Endpoint coverage forces conjugate length-ell prefix/suffix and equal one-counts. If a≠c, equal one-counts leave only all-zero short factors (unable to cover ones) or ell≥b+max(a,c). With a=c, a<ell<a+b, the boundary r=ell-a one-runs cover the central b ones iff 2r≥b, giving ell0=a+ceil(b/2). The factors covering at long lengths are distinct conjugates containing all b ones; two special factors at shorter symmetric lengths. A cyclic-root partition cannot have >2 blocks with positive equal numbers of both symbols, so the only possible nontrivial root requires a=c and b even. Independently enumerated 100 triples with 1≤a,c≤5,2≤b≤5 from definitions; finite check is only corroboration.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality: the explicit statement is not implied by inspected stronger sources; limitations and plausible overlap recorded.
+
+## value
+
+PASS
+
+The exact three-run support and factor-count formulas expose a sharp symmetry transition and a one-letter insertion capable of increasing minimum cyclic-cover length by arbitrarily many symbols; a motivated structural classification distinct from a generic algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

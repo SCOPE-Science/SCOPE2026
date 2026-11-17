@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T04:56:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Endpoint coverage forces conjugate length-ell prefix/suffix and equal one-counts. If a≠c, equal one-counts leave only all-zero short factors (unable to cover ones) or ell≥b+max(a,c). With a=c, a<ell<a+b, the boundary r=ell-a one-runs cover the central b ones iff 2r≥b, giving ell0=a+ceil(b/2). The factors covering at long lengths are distinct conjugates containing all b ones; two special factors at shorter symmetric lengths. A cyclic-root partition cannot have >2 blocks with positive equal numbers of both symbols, so the only possible nontrivial root requires a=c and b even. Independently enumerated 100 triples with 1≤a,c≤5,2≤b≤5 from definitions; finite check is only corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The CPM 2023 article gives linear-time algorithms for cyclic roots and covers of arbitrary strings; the 2023 WALCOM article gives a general algorithm."
+        ],
+        "reasoning": "Algorithmic coverage computes each instance but does not by itself state this uniform threshold bifurcation, factor census or unbounded one-symbol sensitivity; a broad algorithm is not the same as a formula theorem.",
+        "searches": [
+          "cyclic covers cyclic roots 0^a 1^b 0^c terminal length interval count cyclic covers root spectra",
+          "CPM2023 general cyclic covers algorithm Theorem22"
+        ]
+      },
+      "checked_sources": [
+        "Grossi et al. WALCOM 2023 author manuscript",
+        "Iliopoulos et al. CPM 2023 open paper",
+        "Resultary semantic search three-run cyclic covers",
+        "assigned RESULT.md and source enumeration program"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The necessary endpoint conjugacy does not yield sufficient coverage of middle run without new run-interior analysis.",
+          "The root dichotomy requires a separate two-block argument."
+        ],
+        "reasoning": "The source supplies starting definitions and a necessary observation, but not the symmetric cutoff or complete count. Conditional novelty based on examined material.",
+        "searches": [
+          "cyclic covers cyclic roots 0^a 1^b 0^c terminal length interval count cyclic covers root spectra",
+          "Grossi 2023 prefix/suffix conjugacy necessary",
+          "CPM 2023 general root algorithm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grossi et al. define cyclic covers via conjugate occurrences and give endpoint-conjugacy observation.",
+          "The supplied theorem counts distinct factor strings as well as length/rotation classes."
+        ],
+        "reasoning": "Matched definitions and distinguished length sets, distinct factors and cyclic roots; no equivalent b≥2 closed three-run parameter formula found in inspected source sections.",
+        "searches": [
+          "cyclic covers cyclic roots 0^a 1^b 0^c terminal length interval count cyclic covers root spectra",
+          "\"Finding the Cyclic Covers of a String\" Grossi 2023",
+          "\"Linear-Time Computation of Cyclic Roots and Cyclic Covers\" Iliopoulos 2023"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Grossi and collaborators explicitly describe 0^m10^m (b=1), excluded by b≥2.",
+          "The assigned and independent finite enumerations are bounded tables, not universal formulas."
+        ],
+        "reasoning": "Prior exact singleton-middle-run example is acknowledged but does not imply independently variable b≥2 or asymmetric flanks.",
+        "searches": [
+          "cyclic covers cyclic roots 0^a 1^b 0^c terminal length interval count cyclic covers root spectra",
+          "Grossi 0^m 1 0^m example cyclic cover lengths"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: the explicit statement is not implied by inspected stronger sources; limitations and plausible overlap recorded.",
+      "residual_risks": [
+        "Other string-combinatorics papers may have an equivalent run-classification as a corollary.",
+        "Finite enumeration cannot establish all positive a,b,c."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior 0^m10^m and algorithm, not same b≥2 family census",
+          "evidence": "Grossi et al. 2023 special b=1 and endpoint condition",
+          "identifier_or_url": "https://ir.cwi.nl/pub/32986/32986.pdf",
+          "material_read": "abstract, definitions, endpoint-conjugacy observation, special symmetric single-one-run example and algorithms",
+          "method": "public author PDF read with page screenshot",
+          "title": "Finding the Cyclic Covers of a String",
+          "trigger": "exact cyclic-cover definitions and b=1 predecessor"
+        },
+        {
+          "assessment": "Computes all individual instances; no inspected uniform three-run formula",
+          "evidence": "Theorem on linear-time root/cover computation",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2023.15",
+          "material_read": "definitions of cyclic roots/covers and main linear-time statements",
+          "method": "open Dagstuhl full-text HTML",
+          "title": "Linear-Time Computation of Cyclic Roots and Cyclic Covers of a String",
+          "trigger": "broader all-strings algorithms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact three-run support and factor-count formulas expose a sharp symmetry transition and a one-letter insertion capable of increasing minimum cyclic-cover length by arbitrarily many symbols; a motivated structural classification distinct from a generic algorithm.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For binary words 0^a1^b0^c (a,c≥1,b≥2), classify all cyclic-cover lengths, distinct covering factor counts and cyclic-root lengths, including sharp outer-run symmetry instability.",
+  "limitations": [
+    "Linear binary three-run words only; no circular text wraparound or approximate covers.",
+    "b≥2; previously studied b=1 special case is not new."
+  ],
+  "schema_version": 1
+}
