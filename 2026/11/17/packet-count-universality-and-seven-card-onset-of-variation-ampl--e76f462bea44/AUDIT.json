@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exact reduction of the operator norm to prefix steps uses the constant-preserving linearity of inverse-shuffle expectation and an exact l1 difference basis. Each realized prefix has at most 2a-1 jumps, providing a global upper bound. Quarter-packet probes and simultaneous Hoeffding concentration for independent label indicators give an explicit matching lower bound uniformly for every fixed positive packet law. The exact finite n=2..7 table follows from a complete binomial double sum, with an independent assignment enumeration in check.py. The composition and collision arguments yield fixed-r amplification 2a^r-1 and fixed-n decay. The proof covers all stated quantifiers; finite checks are not used to infer infinite limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bayer–Diaconis 1992 studies total-variation distance of permutation distributions and inverse shuffle constructions, not adjacent variation of expected signal vectors.",
+        "Lalley 1999 studies associated dynamical systems and entropy-constrained mixing; only the abstract was accessible.",
+        "Berechet 2001 studies continuous interval Perron–Frobenius operators under an additional monotonicity condition; only abstract-level text was accessible."
+      ],
+      "reasoning": "The distinction between total variation of two probability distributions and adjacent absolute differences of deterministic coordinate signals is essential. The known spectral and mixing statements for a fixed deck do not dominate a sharp operator-norm statement uniform in deck size. Inaccessible potentially related continuous-transfer-operator literature is recorded as a residual priority risk, not represented as fully checked.",
+      "searches": [
+        "inverse a shuffle expected signal total variation bounded variation operator norm asymptotic",
+        "riffle shuffle Markov operator graph total variation semi norm signal variation one step",
+        "Lalley riffle shuffles associated dynamical systems transfer operator bounded variation 1999",
+        "Perron–Frobenius operators acting on BV(I) as contractors, 2001"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/9712240",
+      "https://arxiv.org/abs/0905.4698",
+      "https://statistics.stanford.edu/technical-reports/trailing-dovetail-shuffle-its-lair",
+      "https://doi.org/10.1023/A:1021636902356",
+      "https://doi.org/10.1017/S0143385701001778"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fulman establishes a product identity for biased riffle laws; this proves the operator composition law used here but states no spatial-BV norm.",
+        "Assaf–Diaconis–Soundararajan provides one-card matrix spectra and distributional mixing estimates; these are consistent with fixed-n BV decay, but do not supply a dimension-growing sharp BV norm.",
+        "The present lower bound uses alternating deterministic probe coordinates and simultaneous concentration of three packet boundaries; these steps are not contained in the cited spectral formulas."
+      ],
+      "reasoning": "Prior packet constructions and product laws are explicitly reused. The sharp limit, finite onset and noncommuting spatial-BV norms are additional statements. Exact matrix information could in principle be used to derive them, but the inspected published statements do not logically supply these estimates without new norm and concentration arguments.",
+      "searches": [
+        "riffle shuffle average operator Lipschitz BV 2 a minus 1",
+        "Gilbert Shannon Reeds riffle shuffle one card averaging linear operator bounded variation norm path expectation signals 2a-1",
+        "arxiv:math/9712240 Proposition 1",
+        "arxiv:0905.4698 Proposition 3.2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fulman, arxiv:math/9712240, Section 1 describes stable inverse packet assignment and Proposition 1 gives the convolution law.",
+        "Assaf, Diaconis and Soundararajan, arxiv:0905.4698, Section 3 describes the one-card transition matrices and their geometric spectral sequence."
+      ],
+      "reasoning": "The average inverse-permutation operator is the same stochastic one-card matrix as in the prior probabilistic literature, up to matrix orientation. The new assertion is the sharp operator norm in adjacent path variation, not a new permutation law or new matrix-entry formula. No inspected equivalence converts the known mixing/distribution statements into its sharp 2a-1 variation limit or first seven-card threshold.",
+      "searches": [
+        "one-card riffle shuffle transition matrix path variation seminorm sharp amplification 7 card threshold",
+        "Gilbert Shannon Reeds expected deck profile mean ordered colors path total variation",
+        "arxiv:math/9712240, Section 1 inverse shuffle description and packet product law",
+        "arxiv:0905.4698, Section 3 single-card transition matrices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Assaf–Diaconis–Soundararajan gives explicit one-card transition entries, potentially permitting each finite dimension to be evaluated in principle.",
+        "The exact n=2,...,7 variation table here is derived by an independently specified binomial-count extremal reduction and reproduced by a separate enumeration."
+      ],
+      "reasoning": "An explicit matrix-entry formula precedes the present finite calculations, and no claim of novelty is made for those entries. No checked table of the induced path-BV norm, nor a theorem giving the bias-independent large-deck limit 2a-1 or noncommuting-limit law, was found. Merely possessing matrix entries does not constitute an explicit sharp all-a asymptotic variation theorem.",
+      "searches": [
+        "inverse riffle shuffle one-card Markov transition matrix total variation variation norm function",
+        "arxiv:0905.4698, Proposition 3.2 transition matrix and eigenvalues",
+        "one-card riffle shuffle transition matrix path variation seminorm sharp amplification 7 card threshold"
+      ]
+    },
+    "rationale": "The shuffle model, composition law and full one-card transition entries are acknowledged as prior. The inspected sources concern mixing distances, spectra, distribution and permutation statistics; no direct sharp adjacent-coordinate BV theorem or bias-universal large-deck norm 2a-1 was identified. The novel mechanism is a packet-run upper bound matched by concentration of alternating probes, plus exact seven-site onset. Priority remains provisional where potentially relevant dynamical-system full text was inaccessible.",
+    "residual_risks": [
+      "Lalley (1999) related shuffle dynamical-system full text was not accessible for complete comparison; abstract alone cannot establish noncoverage.",
+      "Berechet (2001) and other BV-transfer-operator literature may contain an unindexed equivalent after nontrivial reformulation.",
+      "Existing explicit one-card transition matrices algebraically contain every finite-dimension coefficient; the research contribution is the sharp universal asymptotic and its stability mechanism, not the matrix entries."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS model and packet-product rule; does not state the adjacent-signal-variation coefficient or limit",
+        "evidence": "Section 1 Description 4, Proposition 1; Section 2 concerns shuffle-to-uniform probability distance and Section 3 cycle structure",
+        "identifier_or_url": "https://arxiv.org/abs/math/9712240",
+        "material_read": "Full HTML article, with detailed inspection of Section 1 descriptions, convolution proposition, and Sections 2–4",
+        "method": "Read arXiv HTML and compared inverse-label mechanics and norm-related statements",
+        "title": "The Combinatorics of Biased Riffle Shuffles",
+        "trigger": "Identical inverse packet model and positive packet-bias generalization"
+      },
+      {
+        "assessment": "COVERS finite transition kernels and spectra; no sharp adjacent path signal BV statement found",
+        "evidence": "Introduction defines probability total-variation distance; Proposition 3.2 treats one-card matrix and eigenvalues; the distribution mixing results use different norms",
+        "identifier_or_url": "https://arxiv.org/abs/0905.4698",
+        "material_read": "Full arXiv HTML, especially introduction, the single-card transition-matrix/spectrum section, and later repeated-card distance sections",
+        "method": "Read primary full HTML; compared total-variation distance definitions and one-card matrix statements",
+        "title": "Riffle Shuffles of a Deck with Repeated Cards",
+        "trigger": "Possible stronger single-card expectation kernel and variation metric"
+      },
+      {
+        "assessment": "COVERS inverse model and probability mixing; no identified sharp path BV norm result",
+        "evidence": "Stanford report dated August 1989; 1992 article introduction distinguishes inverse packet representation and total-variation distance of permutation laws",
+        "identifier_or_url": "https://statistics.stanford.edu/technical-reports/trailing-dovetail-shuffle-its-lair",
+        "material_read": "Stanford report metadata and an accessible transcribed 1992 article including inverse shuffle discussion, introduction, and mixing sections; mathematical transcription is partially garbled",
+        "method": "Compared scientific definitions and reported main theorems in accessible source text; did not treat garbled formulas as decisive evidence",
+        "title": "Trailing the Dovetail Shuffle to Its Lair",
+        "trigger": "Earliest basic GSR inverse shuffle and mixing reference"
+      },
+      {
+        "assessment": "POTENTIAL related dynamical construction, no decisive statement comparison possible",
+        "evidence": "The abstract focuses on random orbit dynamical systems and mixing lower bounds based on fiber entropy",
+        "identifier_or_url": "https://doi.org/10.1023/A:1021636902356",
+        "material_read": "Abstract only; no full text inspected",
+        "method": "Read publication abstract describing entropy and mixing constraints",
+        "title": "Rifle Shuffles and Their Associated Dynamical Systems",
+        "trigger": "Possible BV transfer operator equivalence of a riffle dynamical system"
+      },
+      {
+        "assessment": "Different continuous interval transfer-operator setting with monotone transition probability assumptions; cannot wholly exclude a reduction without full text",
+        "evidence": "Published abstract states a sufficient monotonicity condition for a BV contraction constant in f-expansions, not finite random stable packet sorting",
+        "identifier_or_url": "https://doi.org/10.1017/S0143385701001778",
+        "material_read": "Abstract only; no full text inspected",
+        "method": "Read published abstract for object, regularity and claimed contraction",
+        "title": "Perron–Frobenius Operators Acting on BV(I) as Contractors",
+        "trigger": "Potential broader total-variation contraction principle for interval transfer operators"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "e76f462b-ea44-4fa4-a786-138b606dfbf9",
+  "value": {
+    "rationale": "Classifies the sharp large-deck spatial-BV norm of a natural random-permutation average uniformly over every positive packet bias at each fixed packet count. Quantifies how packet boundaries force instability and establishes an exact first finite-deck loss of nonexpansivity at seven sites. Noncommuting deck-size and shuffle-count limits distinguish variation stability from classical mixing, providing a concrete nonnormal transient phenomenon despite fixed-deck asymptotic averaging.",
+    "status": "PASS"
+  }
+}

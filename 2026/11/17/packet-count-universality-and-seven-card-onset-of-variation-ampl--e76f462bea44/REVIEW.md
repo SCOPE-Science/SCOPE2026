@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The exact BV operator norm equals the largest variation of an expected prefix step because the operator fixes constants and consecutive differences form an \(\ell^1\) basis. A realized inverse packet sort sends each prefix step to at most \(a\) descending blocks separated by at most \(a-1\) rising boundaries, proving the bound \(2a-1\). For arbitrary strictly positive packet probabilities, quarter-packet probe positions and Hoeffding bounds give \((2a-1)(1-12a e^{-np_*^2/32})\) as a constructive lower bound. The integer rounding and concentration margins are valid for \(n\ge16/p_*\). The seven-site onset is a complete exact rational calculation from a closed binomial-count identity, reproduced independently by enumerating all label assignments. The shuffled-label product law and collision bound prove the two noncommuting limits. Finite enumeration is not used as evidence for the unrestricted limit.
+
+## Originality — PASS, qualified
+Fulman (1997) establishes the biased inverse-packet construction and convolution law. Bayer–Diaconis (1989/1992) establishes the basic inverse riffle model and convergence of permutation laws. Assaf–Diaconis–Soundararajan (2009) derives one-card transition matrices and spectra, which already determine finite matrix entries; those inputs are acknowledged prior material. The contribution is the packet-bias-independent **sharp path-variation norm limit**, its explicit concentration estimate, the sharp seven-site threshold, and the noncommutation of fixed-deck mixing with large-deck operator norm. The already-known transition-matrix formulas permit finite calculations in principle, so no originality is claimed for them or for the packet-product rule. Searches of relevant published mathematical records did not identify the same BV statement. Lalley (1999) was available only as an abstract, and a historical equivalent or transfer-operator reformulation could remain unindexed.
+
+## Mathematical value — PASS
+The finding distinguishes spatial signal variation from probabilistic total-variation mixing in a classical and widely used random permutation model. Its exact asymptotic constant is controlled by the number of live packets rather than bias, even though every fixed-deck operator converges to constant averaging under iteration. This gives a sharp, dimension-asymptotic norm instability statement with concrete finite onset and quantitative boundary-layer witnesses. The noncommuting limits explain why fixed-deck spectral mixing does not imply a deck-uniform BV stability bound.
+
+## Scope and limitations
+Positive packet probabilities and fixed packet count are required for the asymptotic limit. Forward shuffle averaging, arbitrary growing packet counts, exact biased finite-deck coefficients, and weighted/cyclic signal variation are not covered. Historical priority is provisional, and the 1999 dynamical-systems paper could not be inspected in full.
+
+Self-review: passed. Independent audit: not yet performed.
