@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The exact isometry y=log(x/(1-x)), g=xf, transforms the weighted norm to Lp(rho dy) with rho=e^(-pAy)(1+e^y)^(p(A-B)), and the operator to one-sided indefinite integration. Translation bounds give ||H||<=1/min(A,B), while long plateau functions in the slower exponential tail give equality; strict translation and Minkowski equality rule out norm attainment. The inverse derivative D=H^{-1} is closed with domain weighted W1p. For lambda nonzero, H-lambda=-lambda(D-1/lambda)H. Explicit left/right convolution inverses establish resolvent regions, a one-dimensional kernel and onto range for A<B, and the exact dual annihilator with codimension-one range for A>B. Cutoff Weyl sequences establish non-Fredholm boundary and a high-frequency test establishes nonclosed range at zero. The proof treats all complex spectral values, equality cases, and strict admissibility bounds. The standalone checker passed 181 finite checks, not used as proof of infinite-dimensional claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abadías–Mahillo–Miana, arXiv:2604.20408v1, uses the classical Hardy kernel rather than 1/(1-t), as also distinguished in Belli et al., Remark 1.4.",
+        "Miller–Miller–Smith, Bishop's Property (beta) and the Cesàro Operator (1998) concerns analytic Hardy spaces rather than weighted real Lebesgue spaces.",
+        "General first-order exponential-dichotomy arguments control Fredholm index through endpoint exponents but do not directly state the complete explicit weighted Cesaro norm and range formula here."
+      ],
+      "reasoning": "Potentially stronger coverage was assessed by operator space and kernel, not merely parameter range. Prior semigroup spectral theorems for unweighted or analytic spaces do not cover arbitrary Jacobi ambient weights by direct substitution; the classical dichotomy method is credited and remains a stated publication-priority risk.",
+      "searches": [
+        "Fredholm spectrum Hardy Volterra integral weighted Lp two exponential ends",
+        "Cesaro weighted real line Volterra exponential dichotomy point residual spectrum sharp norm",
+        "spectrum generalized Cesaro operator weighted Lebesgue interval weights endpoint"
+      ]
+    },
+    "checked_sources": [
+      "Belli et al., arXiv:2606.08600v1 (first public June 7, 2026), open-access journal full text (September 10, 2026).",
+      "Abadías et al., arXiv:2604.20408v1, accessible definitions and introduction.",
+      "Malman, Spectra of Generalized Cesàro Operators Acting on Growth Spaces (2018), abstract.",
+      "Generalized Cesàro Operators: Geometry of Spectra and Quasi-Nilpotency (2021), Theorem 1.2 and introduction.",
+      "Miller, Miller, Smith, Bishop's Property (beta) and the Cesàro Operator (1998), abstract.",
+      "Belli–Gül–Ross–Siskakis, The Cesaro operator on L2(0,1), arXiv:2604.19691v2, primary HTML introduction and Section 2."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Belli et al., Theorem 1.3, calculates the unweighted norm max(p,q), its point spectrum and crescent.",
+        "The unweighted Fredholm classification of the same kernel has fixed endpoint exponents (p-1)/p and 1/p; neither that statement nor the cited unweighted paper asserts independent Jacobi rates.",
+        "The present theorem has e.g. a nonempty point or residual spectral crescent at p=2 when gamma+delta is nonzero, whereas the unweighted Hilbert theorem has only a spectral circle."
+      ],
+      "reasoning": "The new weighted statement strictly extends the unweighted special case. Its p=2 weighted phase reversal shows a mathematical conclusion unavailable from the published unweighted p=2 normal-operator case; a general theorem for exponential weights could still imply it and remains a qualified priority risk.",
+      "searches": [
+        "Jacobi weighted Lebesgue Lp x^gamma (1-x)^delta real-variable Cesaro integral with kernel f(t)/(1-t) exact operator norm crescent spectrum point residual",
+        "\"weighted\" \"real variable Cesàro\" \"Jacobi\" spectrum",
+        "Crescents real variable Cesaro operator weighted Lp x^alpha (1-x)^beta spectrum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Belli–Gül–Ross–Siskakis, Theorem 1.3, arXiv:2606.08600v1 and DOI:10.1007/s00020-026-02865-7, concerns the same kernel on unweighted Lp(0,1).",
+        "The logistic transform sends the weighted problem to an exponential two-ended derivative, so equivalence with a generic exponential-dichotomy theorem is the main remaining equivalence risk."
+      ],
+      "reasoning": "Identical-kernel terminology and reciprocal spectral-circle geometry were compared, not titles alone. Unweighted Lp is the Jacobi specialization gamma=delta=0 and fixes A+B=1; the weighted family varies A and B independently, so the unweighted theorem does not imply all weighted instances. A generic weighted derivative theorem may imply portions but no directly evaluated same-kernel two-Jacobi formula was found.",
+      "searches": [
+        "Jacobi beta power weighted real-variable Cesaro C f(x) = 1/x integral_0^x f(t)/(1-t) dt weighted Lp exact norm point residual Fredholm index two circles",
+        "weight x^gamma (1-x)^delta real variable Cesaro operator semigroup spectrum crescent phase transition p gamma delta",
+        "\"real-variable Cesàro\" \"Jacobi weights\" spectrum",
+        "\"1/(1-t)\" \"x^alpha\" \"(1-x)^beta\" Cesaro spectral norm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact unweighted formula in Belli et al., Theorem 1.3, is reproduced only at gamma=delta=0.",
+        "Related literature retrieval returned generalized Cesaro sequence matrices, Jacobi-Radau quadrature and weighted analytic Bergman operators, but no matched real-interval two-endpoint spectral table."
+      ],
+      "reasoning": "No available exact database/table gives the three-parameter classification for this operator. A negative search is not novelty proof, so nonindexed texts and general weighted-exponential dichotomy references are preserved as residual risks.",
+      "searches": [
+        "Jacobi beta power weighted real-variable Cesaro C f(x) = 1/x integral_0^x f(t)/(1-t) dt weighted Lp exact norm point residual Fredholm index two circles",
+        "weight x^gamma (1-x)^delta real variable Cesaro operator semigroup spectrum crescent phase transition p gamma delta",
+        "\"real-variable Cesàro\" \"Jacobi weights\" spectrum",
+        "\"Cesaro\" \"x^alpha\" \"(1-x)^beta\" \"spectrum\" \"Lp\""
+      ]
+    },
+    "rationale": "Belli et al. (arXiv:2606.08600v1, Theorem 1.3 and §§2-5) determine spectrum and norm only on unweighted Lp(0,1). The weighted two-endpoint rates A,B move independently, and the resulting two-parameter sharp norm, phase transition p=gamma+delta+2 and explicit weighted codimension-one annihilator are not mathematical consequences of an unweighted statement alone. Abadias et al. consider a different Cesaro-Hardy integral kernel. Searches identified related general Hardy, Fredholm and weighted analytic-function theories but no directly covering identical two-weight real-variable classification; generic differential exponential dichotomy is acknowledged as antecedent mechanism. Prior unweighted Fredholm classifications do not cover arbitrary Jacobi weights. Residual risk of a general preexisting weighted dichotomy implication is explicitly retained.",
+    "residual_risks": [
+      "A general weighted first-order differential-operator exponential-dichotomy theorem may imply the Fredholm index and range structure without giving the same explicit normalization.",
+      "An older or unindexed exact weighted Cesaro norm/spectral result may exist under Hardy-type or logistic-transform terminology.",
+      "A few older operator-theory works were accessible only at abstract/intro level; absence of a match was not inferred from that alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1.3 and main model have unweighted Lp(0,1); no classification of Jacobi ambient weights or their independent two-tail Fredholm indices.",
+        "evidence": [
+          "Theorem 1.3 states norms and open crescents as functions only of p and q.",
+          "The operator formula and the distinction from a different Cesaro–Hardy kernel are explicit in introduction and Remark 1.4."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00020-026-02865-7",
+        "material_read": "Open-access full HTML: introduction, Theorem 1.3, semigroup/norm sections 2 and 5, point spectrum section 3, spectrum section 4, and references/overview.",
+        "method": "Read published open-access full text, cross-checked arXiv:2606.08600 first-public date.",
+        "title": "Crescents and the Real Variable Cesàro Operator",
+        "trigger": "Exact same integral kernel and crescent spectrum; highest-priority possible covering source"
+      },
+      {
+        "assessment": "Its generalized Cesaro–Hardy kernel is an ordinary fractional Hardy integral, not the singular fixed kernel 1/(1-t) on Jacobi-weighted Lp.",
+        "evidence": [
+          "Belli et al., Remark 1.4 explicitly distinguish their operator from Abadías–Mahillo–Miana.",
+          "arXiv:2604.20408v1 describes fractional Cesàro–Hardy averaging and weighted Koopman semigroups."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.20408",
+        "material_read": "Accessible introduction, displayed operator definitions, and spectral summary; not relied on as a whole-document absence certificate.",
+        "method": "Compared available preprint and abstract text against the kernel distinction in Belli et al., Remark 1.4.",
+        "title": "Cesàro–Hardy operators on Lp[0,1]: fine spectrum, weighted Koopman semigroups and invariant subspaces",
+        "trigger": "Plausible stronger semigroup/spectral treatment under similar terminology"
+      },
+      {
+        "assessment": "Analytic Bergman generalized Cesaro operators; no immediate implication for the specified real Jacobi Lebesgue integral.",
+        "evidence": [
+          "Theorem 1.2 is a resolvent characterization on weighted analytic Bergman spaces via a Bekolle–Bonami-type weight condition."
+        ],
+        "identifier_or_url": "https://academic.oup.com/imrn/article/2021/23/17695/5826151",
+        "material_read": "Accessible introduction and Theorem 1.2 statement relating analytic Bergman spaces to weighted projection conditions.",
+        "method": "Compared spaces, kernel and spectral condition at theorem level.",
+        "title": "Generalized Cesàro operators: Geometry of Spectra and Quasi-Nilpotency",
+        "trigger": "Potential stronger weighted-spectrum theorem under generalized Cesàro terminology"
+      },
+      {
+        "assessment": "Only unweighted L2(0,1), with a single spectral circle, no independent Jacobi endpoint exponents.",
+        "evidence": [
+          "Introduction states the exact same kernel on unweighted L2, norm two, circular spectrum and normality."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.19691v2",
+        "material_read": "Accessible arXiv HTML introduction, the main results in Section 2, and overview of the later sections.",
+        "method": "Inspected the primary open-access arXiv HTML text and compared theorem scope.",
+        "title": "The Cesaro operator on L2(0,1)",
+        "trigger": "Earlier same-kernel normal-Hilbert model used by the motivating later work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0a58860d-98f4-4f85-b4b7-dbabe4d1d9e1",
+  "value": {
+    "rationale": "The Jacobi beta weights constitute the canonical two-endpoint family on (0,1). Their independent powers make the spectral circles and the eigen/residual Fredholm phase adjustable; even at p=2 a small change of the sum of the Jacobi exponents produces a full eigenvalue or residual crescent instead of the unweighted single circle. The theorem provides a complete sharp norm, nonattainment, spectral domain, exact essential spectrum, point/residual classification, indices and explicit range annihilator. This natural structural transition is not a routine reparameterization of unweighted Lp results. The limitations exclude critical weights and other kernels; no broader theorem is asserted.",
+    "status": "PASS"
+  }
+}
