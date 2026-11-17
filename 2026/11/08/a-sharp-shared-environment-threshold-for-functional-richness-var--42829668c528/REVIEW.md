@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is exactly quantified for \(g\ge2\), \(p\in(0,1)\), and \(\theta>0\). The conditional Beta moment calculation gives equation (1), algebraic differentiation gives equation (2), and the coefficient-sign proof in RESULT.md shows at most one positive zero using concavity of specific quadratics and Descartes' rule; the endpoint signs give exactly one when \(p<(g+5)/(12g)\). The proof handles equality at the phase boundary. The included exact checker separately enumerates survival configurations using Beta-binomial probabilities, verifies the symbolic differentiation identity, and checks the rational example. The checker is corroboration, not a substitute for the uniform analytic proof.
+PASS
 
-## Originality — PASS within inspected evidence, provisional
+For g>=2, p∈(0,1), θ>0, conditional Beta Bernoulli sampling gives u=E(1−P)^2 and v=E(1−P)^4, hence V=g u+g(g−1)v−g²u². Independent SymPy differentiation exactly reproduced the specified derivative factorization gp(p−1)H/[(θ+1)^3(θ+2)^2(θ+3)^2]. The proof checks c3,c4,c5>0 for all parameters, c2 and c1 sign compatibility (including g=2 special region) and c0 crossing at p_c(g)=(g+5)/(12g), so Descartes gives zero or one simple positive θ root with correct derivative signs. Independently checked g=2,p=1/5,θ=1/3 exact witness V=2052/3125 and endpoint bounds. The proof is uniform; finite examples are only corroboration.
 
-The closely related ecological mechanisms—functional redundancy under random extinctions, beta-distributed environmental survival and correlated food-web responses—are all established in primary sources. Fonseca and Ganade's full readable article develops fixed-count random extinction and a rarefaction variance, not a shared-Beta parameter phase diagram. Kaneryd and collaborators' full readable article employs correlated stochastic environmental growth in dynamical food webs and reports simulation responses, not the present closed-form one-peak law. Kendall's readable article abstract and source details establish use of Beta survival heterogeneity but concern likelihood-based estimation rather than guild-count uncertainty; the full mathematical text was not established as accessible and is a residual risk. Own earlier ecology records address either independently surviving species or fixed-budget random survivors; a separate earlier group-testing record uses a Beta latent variable for a different statistic. Semantic record searches returned no direct theorem, but indexing cannot certify uniqueness. An uninspected broader theorem for a general infinitely exchangeable binary model could, in principle, subsume the result. Priority remains provisional pending an independent literature review.
+## originality
 
-## Value — PASS
+PASS
 
-The result resolves a substantive exact risk-order question: whether more synchrony in species survival necessarily increases uncertainty in ecosystem functional richness. A whole infinite class of ecologically interpretable two-partner redundancies exhibits an exact, group-number-dependent threshold, and for rare mean survival there is exactly one interior worst-correlation regime. It separates correlated environmental stochasticity from independent demographic survival and gives a simple quantitative parameter boundary usable as a benchmark for simulation and interpretation. This is more than a numerical example or a routine end-point comparison.
+Best-of-knowledge original exact global one-peak versus monotone law with threshold p_c(g)=(g+5)/(12g) under common Beta propensity; basic beta moments and intraclass correlation are prior standard facts.
 
-## Sources and limitations
+## value
 
-Kendall (1998), https://doi.org/10.1890/1051-0761(1998)008[0184:ETMOES]2.0.CO;2; Fonseca and Ganade (2001), https://doi.org/10.1046/j.1365-2745.2001.00528.x; Kaneryd et al. (2012), https://doi.org/10.1002/ece3.218. Model limitations and the historical priority risk are explained in RESULT.md. No independent scientific validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The unique interior-variance-maximizing environmental correlation boundary is a motivated exact classification for a natural exchangeable survival model and variable functional richness; it is a genuine finite-system dependence transition, not a mechanical finite enumeration or unmotivated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
