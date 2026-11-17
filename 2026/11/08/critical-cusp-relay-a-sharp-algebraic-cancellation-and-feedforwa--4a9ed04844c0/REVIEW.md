@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The logistic-to-hyperbolic-tangent substitution is exact. The terminal scalar equations are autonomous and monotone, with cubic damping, so the two terminal amplitudes have the same \(t^{-1/2}\) leading term. The signed quadrature is the exact time translation between solutions of one scalar ODE. The relay input is a weighted difference of those solutions; its balanced coefficient follows by integrating the scalar damping over the time-shift interval, not by fitting numerical data. The final stable first-order relay equation passes asymptotic coefficients unchanged. The uniformly local exponential-kernel estimate also proves the near-balanced crossover. The proof covers all stated initial conditions and weights; it does not claim crossover rates at a cancellation of the displayed scaling function.
+PASS
 
-## Originality — PASS with priority limitations
+The RESULT.md normalization 2F(2s)-1=tanh(s) and row sums 1 give a,b scalar flows s′=-(s-tanh s) and relay u′=-u+tanh(pa-(1-p)b). For s>0, g(s)>0, g(s)=s^3/3+O(s^5), so s~sqrt(3/2)t^-1/2 and t^3/2 g(s)~sqrt(3/2)/2. Uniqueness of autonomous flow gives exact signed shift tau=int_b0^a0 ds/g(s), and a(t)-b(t)=int_(t-tau)^t g(b(s))ds~sqrt(3/2)tau/(2t^3/2). Exponential convolution preserves the leading forcing coefficients, proving off-balance t^-1/2 and exactly balanced t^-3/2, with a0=b0 identically zero forcing and relay u(t)=u0 e^-t. For p_T=1/2+lambda/T, frozen terminal flows give T^3/2 u(T) -> sqrt(3/2)(tau/4+2lambda). Our separate solve_ivp/quadrature gave balanced 1.291757 at T=1300 vs 1.291849 target and crossover 4.96647 vs 4.96608. Finite checks are corroboration only; no uniform-in-lambda or general network claim.
 
-The closest same-system source, Boudourides (arXiv:2609.10580), was read through its introduction, spectral theorem, multistability theorem, two-block cusp theorem, discussion, and appendices. It proves steady-state and spectral statements but no transient relay exponent, exact time-shift coefficient, or cusp cancellation crossover. Kaye's scalar framework (doi:10.1098/rsif.2026.0267) provides the threshold mechanism but not this network. General positive-feedback convergence results and cubic critical-relaxation results in other models have different objects and do not imply the exact three-node weighted cancellation formula. Actual database queries for equivalent feedback normalizations, exponent pairs, opposite terminal forcing, and time-shift cancellations did not identify a dominating claim. The remaining risk is uncatalogued literature on asymptotic cancellation in coupled critical scalar flows; no exhaustive priority certification is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-The minimal nontrivial feedforward graph has two independent recurrent terminal classes and a relay; a one-terminal graph cannot exhibit cancellation between opposing critical inputs. The claim distinguishes three genuinely different rates in one natural nonhyperbolic network and gives the crossover scale at which the exponent changes. It exposes information not contained in the standard homogeneous cusp or first-order spectral analysis: relay asymptotics depend on signed initial-condition time memory even though every activation converges to the same equilibrium. The quadrature makes that memory computable without numerically solving the full network.
+At the same critical logistic model, known cusp and row-stochastic global convergence are prior, but the reducible mixed-sign relay, exact finite signed time-shift coefficient, exceptional exponential cancellation, and O(1/T) coupling crossover are not derived by the inspected stronger global comparison/irreducible logarithmic law. The Resultary search returned the present record plus the separately fully read Nov 1 global theorem, which bounds all amplitudes but has no mixed-sign cancellation coefficient.
 
-## Limits
+## value
 
-Logistic cusp, three-node reducible row-stochastic network, opposing nonzero terminal signs, deterministic flow. The precise exponent need not survive feedback into terminal classes. Numerical confirmation is finite; independent verification is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A three-node feedforward cusp is a natural minimal reducible network: cancellation changes the extinction exponent by a full power, and a measurable initial-state quadrature plus sharp crossover distinguish transient regimes hidden from spectral linearization. It is a useful structural boundary result, not just a fitted decay exponent.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
