@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T07:14:08.981667Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Distinct zonotope vertices biject to two independent transitive clique orientations and hence uniform independent permutations. Centered permutation-rank covariance gives C=u L_Ka+v L_Kb, u=(a+1)t²/12, v=(b+1)s²/12. The two contrast eigenspaces yield au and bv; the 3x3 quotient has characteristic λ[λ²-(au+bv)λ+nuv]. Evaluating the quadratic at au,bv proves the two roots strictly straddle every internal contrast eigenvalue even at a=2 or b=2. With y=u/v>0 the exact identity κ+2+1/κ=4ab/n+(ay-b)²/(ny) makes y=b/a the unique minimizer, giving t/s=sqrt[b(b+1)/(a(a+1))] and exact optimal κ. Independent small-graph full orientation enumeration, exact rational covariance and characteristic polynomials passed; all-real proof is algebraic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kling Theorem 4 gives only spectrum {0,1,a^(a-2),b^(b-2),n} for unweighted graph Laplacian, not the two-weight split roots or optimum.",
+          "Other weighted complete-split zonotope result treats a graph with additional cross edges, not one articulation."
+        ],
+        "reasoning": "The general orientation–zonotope bijection and equitable partition are prior methods; without a weighted spectral optimization theorem they do not directly supply the submitted sharp condition number.",
+        "searches": [
+          "https://pisrt.org/psr-press/journals/odam/04-vol-6-2023-issue-1/on-the-uniqueness-of-the-laplacian-spectra-of-coalescence-of-complete-graphs/",
+          "https://arxiv.org/abs/2111.12422",
+          "Resultary query: weighted complete split graphical zonotope covariance optimization"
+        ]
+      },
+      "checked_sources": [
+        "https://pisrt.org/psr-press/journals/odam/04-vol-6-2023-issue-1/on-the-uniqueness-of-the-laplacian-spectra-of-coalescence-of-complete-graphs/",
+        "https://arxiv.org/abs/2111.12422",
+        "https://arxiv.org/abs/2111.12387",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-covariance-conditioning-plateaus-in-weighted-complete-spli--cfa7bca6223b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kling 2023 explicitly proves Theorem 4 via equitable 3x3 quotient and uses it to recognize graph structure.",
+          "This theorem determines covariance of uniform DISTINCT vertices, unlike volume-uniform and independent random edge-sign sampling."
+        ],
+        "reasoning": "Classical permutation covariance plus Kling implies the unweighted spectral subcase, but to get the unique arbitrary-weight optimal ratio one must derive and optimize a new two-parameter weighted quotient.",
+        "searches": [
+          "https://pisrt.org/psr-press/journals/odam/04-vol-6-2023-issue-1/on-the-uniqueness-of-the-laplacian-spectra-of-coalescence-of-complete-graphs/",
+          "https://arxiv.org/abs/2111.12422",
+          "https://arxiv.org/abs/2111.12387"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform zonotope vertices correspond to acyclic orientations, equivalent here to independent clique permutations. Uniform-weight covariance reduces to a scalar multiple of the classical coalescence graph Laplacian."
+        ],
+        "reasoning": "The problem can be recast as minimizing the condition number of uL(K_a)+vL(K_b) with u,v constrained by weight-squares. Earlier unweighted spectral descriptions do not optimize u/v.",
+        "searches": [
+          "Resultary search: weighted two clique covariance graphical zonotope condition number vertex uniform",
+          "https://arxiv.org/abs/2111.12422",
+          "https://arxiv.org/abs/2111.12387",
+          "https://pisrt.org/psr-press/journals/odam/04-vol-6-2023-issue-1/on-the-uniqueness-of-the-laplacian-spectra-of-coalescence-of-complete-graphs/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kling full published article explicitly records unweighted eigenvalues. The submitted exact spectrum specializes to that at equal effective block Laplacian weights, but additionally depends on arbitrary u/v and has a strict unique minimizing ratio."
+        ],
+        "reasoning": "An evaluated unweighted table covers only the degenerate equal-coefficient case; it does not exhaust continuous weight ratios.",
+        "searches": [
+          "https://pisrt.org/psr-press/journals/odam/04-vol-6-2023-issue-1/on-the-uniqueness-of-the-laplacian-spectra-of-coalescence-of-complete-graphs/",
+          "Resultary search: weighted clique coalescence Laplacian condition optimal scaling"
+        ]
+      },
+      "rationale": "PASS, qualified. Kling 2023 Theorem 4 covers the unweighted Laplacian spectrum of exactly the same clique-coalescence graph (and weighted equal-block scaling is a trivial consequence); that case is prior, not new. Padrol–Pilaud–Poullot 2021 gives graphical zonotope deformations; Pilaud 2021 orientation lattices. No inspected source gives the distinct two block weight coefficients from uniform-vertex covariance and the sharp global condition-number minimization. Same-day complete-split weighted zonotope results concern different graphs. Earlier weighted graph-Laplacian conditioning literature may contain an equivalent tuned ratio, retained as a risk.",
+      "residual_risks": [
+        "A previous optimized weighted Laplacian of two cliques under another application name may exist.",
+        "All same-model theorem conditions require uniform distinct zonotope vertices; not volume uniform or edge-sign independent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS unweighted Laplacian spectrum; NOT the weighted covariance optimizer",
+          "evidence": [
+            "Theorem 4 gives eigenvalues 0,1,a^(a−2),b^(b−2),n, via equitable 3×3 quotient, and does not introduce edge-weight ratio."
+          ],
+          "identifier_or_url": "https://pisrt.org/psr-press/journals/odam/04-vol-6-2023-issue-1/on-the-uniqueness-of-the-laplacian-spectra-of-coalescence-of-complete-graphs/",
+          "material_read": "Full HTML mathematical article through theorem 4, section 3.1 spectrum, proof, plus abstract/intro and subsequent results; PDF actual page checked",
+          "method": "Journal full-text HTML, full PDF retrieved and screenshot inspected",
+          "title": "On the uniqueness of the Laplacian spectra of coalescence of complete graphs",
+          "trigger": "Exactly the same unweighted clique coalescence"
+        },
+        {
+          "assessment": "Foundational geometric framework; no whole-document exclusion asserted",
+          "evidence": [
+            "Object is graphical zonotope deformation, not an identified covariance condition-number statement."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.12422",
+          "material_read": "Abstract and related prior scientific discussion, not the full original PDF read",
+          "method": "arXiv bibliographic/source comparison",
+          "title": "Deformed graphical zonotopes",
+          "trigger": "Graphical zonotope vertex/orientation geometry"
+        },
+        {
+          "assessment": "Known orientation bijection, not originality of new sampling formula or optimum",
+          "evidence": [
+            "Theorem concerns acyclic reorientation lattices and quotients."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2111.12387",
+          "material_read": "Source-level prior discussion and abstract; full original not inspected here",
+          "method": "arXiv bibliographic/source comparison",
+          "title": "Acyclic reorientation lattices and their lattice quotients",
+          "trigger": "Acyclic orientation/graphical zonotope bijection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Uniform-vertex covariance is a natural intrinsic geometric shape statistic; the unique weight ratio removes quadratic anisotropy when one clique becomes arbitrarily larger, leaving a finite sharp limiting condition number. Exact eigenmode multiplicities and strict gap demonstrate no hidden competing minimizer. This is a complete motivated one-parameter design optimization, not a general zonotope preconditioning theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Two complete simple graphs joined at exactly one vertex, all positive constant within-block weights, a,b>=2, Euclidean covariance on zero-sum hyperplane."
+  ],
+  "schema_version": 1
+}

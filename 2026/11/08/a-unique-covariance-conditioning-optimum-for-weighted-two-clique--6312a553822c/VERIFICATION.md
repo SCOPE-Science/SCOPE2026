@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks and scope
+# Independent mathematical audit
 
-From the extracted finding directory, run `python3 artifacts/verify.py` (Python 3 standard library only). It builds all acyclic-orientation vertices by restricting global vertex permutations to both cliques, without using the independent-clique formula in the construction. The program removes duplicate vertex vectors and checks that their count is \(a!b!\); it then evaluates the vertex covariance using exact fractions and compares every matrix entry with \(uL_{K_a}+vL_{K_b}\). It tests contrast eigenvectors, an exact principal minor/pseudodeterminant identity, and a grid of exact instances of the global ratio-penalty identity.
+## correctness
 
-Successful replay on the packaged source reports:
+PASS
 
-`TWO_CLIQUE_WEIGHTED_COVARIANCE_CHECKS_PASSED profiles=6 vertices=2068 covariance_entries=217 tuning_profiles=1014`
+PASS. Distinct zonotope vertices biject to two independent transitive clique orientations and hence uniform independent permutations. Centered permutation-rank covariance gives C=u L_Ka+v L_Kb, u=(a+1)t²/12, v=(b+1)s²/12. The two contrast eigenspaces yield au and bv; the 3x3 quotient has characteristic λ[λ²-(au+bv)λ+nuv]. Evaluating the quadratic at au,bv proves the two roots strictly straddle every internal contrast eigenvalue even at a=2 or b=2. With y=u/v>0 the exact identity κ+2+1/κ=4ab/n+(ay-b)²/(ny) makes y=b/a the unique minimizer, giving t/s=sqrt[b(b+1)/(a(a+1))] and exact optimal κ. Independent small-graph full orientation enumeration, exact rational covariance and characteristic polynomials passed; all-real proof is algebraic.
 
-The finite profiles include both clique sizes equal and unequal, and two different positive weights. They are not exhaustive for all sizes or real weights; the exact spectrum and the global minimizer follow from the rank-permutation, invariant-subspace and algebraic proofs in `RESULT.md`. No machine-formal proof, expert validation, or independent mathematical audit is claimed.
+## originality
+
+PASS
+
+PASS, qualified. Kling 2023 Theorem 4 covers the unweighted Laplacian spectrum of exactly the same clique-coalescence graph (and weighted equal-block scaling is a trivial consequence); that case is prior, not new. Padrol–Pilaud–Poullot 2021 gives graphical zonotope deformations; Pilaud 2021 orientation lattices. No inspected source gives the distinct two block weight coefficients from uniform-vertex covariance and the sharp global condition-number minimization. Same-day complete-split weighted zonotope results concern different graphs. Earlier weighted graph-Laplacian conditioning literature may contain an equivalent tuned ratio, retained as a risk.
+
+## value
+
+PASS
+
+PASS. Uniform-vertex covariance is a natural intrinsic geometric shape statistic; the unique weight ratio removes quadratic anisotropy when one clique becomes arbitrarily larger, leaving a finite sharp limiting condition number. Exact eigenmode multiplicities and strict gap demonstrate no hidden competing minimizer. This is a complete motivated one-parameter design optimization, not a general zonotope preconditioning theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
