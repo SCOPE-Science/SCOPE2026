@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Verification of two-ray finite phase retrieval
+# Independent mathematical audit
 
-The proof is algebraic and valid for every integer \(d\ge1\), positive distinct radial nodes on each ray, and angle with \(\sin(m\theta)\ne0\) for each \(1\le m\le d\), provided the products of radii differ. The submitted `RESULT.md` establishes these quantifiers. The finite checks below are supplementary.
+## correctness
 
-## Executed reproducibility
+PASS
 
-The included `verify.py` was executed with Python 3 and `mpmath`, configured to 90 decimal digits. It completed with:
+Exact frozen RESULT.md Lagrange interpolation yields P_i=I_i+cV_i with common leading/constant coefficients and c=(I1(0)-I0(0))/(V0(0)-V1(0)); unequal positive products make denominator nonzero, even when a_0 or a_d vanish. Quotient q/p near zero yields a first nonconstant order k<=d and sin(k theta)=0 contradiction; 1±iz^m witnesses necessity. Hermitian lift spans the 4d equal-endpoint profile space; lower bound pertains ONLY real-linear full-profile reconstruction. Independent exact rational/symbolic degree-two reconstruction passed; finite check is corroboration.
 
-`TWO_RAY_PROFILE_CHECKS_PASS 5355 degrees 1..6 plus resonant boundaries 1..8`
+## originality
 
-For degree bounds 1 through 6, twenty randomly chosen complex-coefficient test vectors per degree were sampled at \(2d\) distinct positive radii on each of two rays. The direct intensity coefficients were compared to coefficients reconstructed from two Lagrange interpolants and a common leading term. Off-grid intensities were checked. For every resonance order \(1\le m\le d\le8\), the code compared the explicit two distinct polynomials \(1\pm iz^m\) at points on both rays. An additional degree-one instance used exact rational arithmetic for both recovered polynomial profiles.
+PASS
 
-## Analytic steps not replaced by computation
+Balanced two-ray inverse interpolation and sharp finite-angle theorem follows from its own verified polynomial argument and is not established in earlier inspected phase-retrieval literature. A more general SAME-DAY crossing-circle theorem mathematically implies it by a Möbius pullback; Git commit chronology independently places that source 42 seconds AFTER this assigned source, so it cannot demonstrate earlier coverage. Contemporary priority/independent development remains a major explicit risk, not proof of novelty.
 
-1. The shared constant and top-degree coefficient identities for both radial intensities are polynomial identities, independent of numerical tests.
-2. For any unequal pair \(p,q\) with equal whole profiles, the first nonconstant quotient coefficient would force \(\sin(k\theta)=0\) for some \(k\le d\).
-3. The span of valid Hermitian-lifted profile pairs has real dimension \(4d\), by independent coefficient-sector controls; numerical sampling is not used as a proof of the dimension for all degrees.
-4. Resonant angles defeat **any** sample count on the two rays; the explicit counterexample is exact.
+## value
 
-## Limits
+PASS
 
-Floating-point Lagrange interpolation becomes ill-conditioned for large degree or clustered radii: a preliminary ordinary double-precision degree-six test suffered cancellation. The completed reproducibility check therefore uses high precision. No deterministic noise-uniform conditioning bound, nonlinear global sample-count optimum, or independent mathematical certification has been established.
+Polynomial phase retrieval is a fundamental finite measurement problem. An explicit arbitrary-node two-ray reconstruction and exact boundary for angular resonance solve a natural structured inverse problem; 4d optimality explicitly limited to full-profile linear maps, not spuriously claimed nonlinear minimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
