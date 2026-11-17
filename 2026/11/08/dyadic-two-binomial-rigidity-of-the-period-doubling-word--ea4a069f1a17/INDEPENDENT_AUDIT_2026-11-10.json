@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T15:52:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every aligned 2^k-block is V_k a with V_k a fixed prefix and a in {0,1}. Every length-2^k factor is a rotation of one of the two aligned blocks. At k>=2 one block is a double of the preceding odd-weight primitive block and the other has odd weight, giving N/2+N distinct factors, weights differing by 1. For fixed length, all scattered order-two counts are determined by weight m and position sum S, since #01=S-binomial(m,2). Rotating an odd-weight binary word of length 2^h by d changes S by 2^h*t-d*m, so distinct rotations cannot share S; doubled rotations inherit this. Therefore b2=P=3*2^{k-1}, b1=2. The two distinct length-5 factors 10001 and 01010 have the same (m,S), excluding arbitrary-length extension. Independently checked 3069 dyadic factor signatures, not substituted for universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cyclic-class theorem handles period-doubling but counts rotation classes, not binomial equivalence.",
+          "Parikh-collinear morphism families exclude 0->01 and 1->00: Parikh vectors (1,1) and (2,0) are independent."
+        ],
+        "reasoning": "Available general results do not deliver the stated exact two-binomial complexity at dyadic lengths under their hypotheses. Double-check possible unindexed corollary of cyclic-class work.",
+        "searches": [
+          "Resultary: period doubling word 2-binomial complexity dyadic lengths powers of two subword position sum rotation rigidity",
+          "Resultary: period doubling 2-binomial complexity factor length power two injective scattered",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-dyadic-rigidity-of-cyclic-factor-classes-in-the-period-doubling--8148ba3a1211",
+          "Rigo Stipulanti Whiteland arXiv:2201.04603"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-dyadic-rigidity-of-cyclic-factor-classes-in-the-period-doubling--8148ba3a1211",
+        "arXiv:2201.04603",
+        "arXiv:2510.07159",
+        "arXiv:1405.3532",
+        "Git factor verification at frozen commit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known c_p(2^k)=2 is consistent with exactly two cyclic branches; those counts alone do not imply (weight,S) injectivity within a branch.",
+          "One odd-weight branch and doubled branch each have S-separation via gcd(2^h,m)=1."
+        ],
+        "reasoning": "The new moment coprimality argument supplies information not given by class-count results; it may be an elementary refinement of that structural background, an originality risk but not direct prior implication.",
+        "searches": [
+          "Resultary: period doubling word 2-binomial complexity dyadic lengths powers of two subword position sum rotation rigidity",
+          "Resultary: period doubling 2-binomial complexity factor length power two injective scattered",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-dyadic-rigidity-of-cyclic-factor-classes-in-the-period-doubling--8148ba3a1211"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General binary identity #01=S-C(m,2) precedes this note (Richomme 2025).",
+          "Period-doubling cyclic class bijection https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-dyadic-rigidity-of-cyclic-factor-classes-in-the-period-doubling--8148ba3a1211 proves two classes at dyadic lengths but no moment separation."
+        ],
+        "reasoning": "Moment identity is background; the nontrivial statement is injectivity of the signature over every dyadic factor. Cyclic equivalence groups rotations but does not assert all rotations are distinguished by scattered 2-binomial counts.",
+        "searches": [
+          "Resultary: period doubling word 2-binomial complexity dyadic lengths powers of two subword position sum rotation rigidity",
+          "Resultary: period doubling 2-binomial complexity factor length power two injective scattered",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-dyadic-rigidity-of-cyclic-factor-classes-in-the-period-doubling--8148ba3a1211",
+          "Richomme arXiv:2510.07159"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2-abelian period-doubling studies count contiguous factors, so are different statistics.",
+          "No exact published same-object dyadic b_2 table identified in the ranked sources."
+        ],
+        "reasoning": "The integer b_2(2^k)=3*2^{k-1} is supported by an infinite proof and actual factor enumeration, not claimed novel merely because a database entry was absent.",
+        "searches": [
+          "Resultary: period doubling word 2-binomial complexity dyadic lengths powers of two subword position sum rotation rigidity",
+          "Resultary: period doubling 2-binomial complexity factor length power two injective scattered",
+          "arXiv:1405.3532",
+          "arXiv:1812.07330"
+        ]
+      },
+      "rationale": "The published cyclic-class doubling bijection proves c_p(2^k)=2 but does not state that scattering moment signatures separate all rotations; its cyclic classes concern a different equivalence relation. Parikh-collinear binomial morphism results are inapplicable since images 01 and 00 have independent Parikh vectors. Dyadic two-binomial reconstruction remains plausible original, though known cyclic structure makes a short implication possible with extra argument.",
+      "residual_risks": [
+        "Could be an implicit corollary of older period-doubling cyclic factor analysis combined with simple moments; no full-text priority certification.",
+        "Only exact dyadic lengths asserted; two-binomial collisions already occur at length five."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers dyadic cyclic complexity but not scattered order-two reconstruction",
+          "evidence": "c_p(2n)=c_p(n), c_p(2^k)=2; no weights and first moments separation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-dyadic-rigidity-of-cyclic-factor-classes-in-the-period-doubling--8148ba3a1211",
+          "material_read": "Entire RESULT.md theorem, morphism proof, base case and limitations",
+          "method": "GitHub raw read",
+          "title": "Dyadic rigidity of cyclic factor classes in the period-doubling word",
+          "trigger": "Same fixed point and exact dyadic factor structure"
+        },
+        {
+          "assessment": "Parikh-collinear main hypothesis does not apply to period doubling",
+          "evidence": "0->01 and 1->00 have linearly independent Parikh vectors.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.04603",
+          "material_read": "Accessible bibliographic summary and stated class; full PDF not obtained",
+          "method": "Arxiv and scholarly search",
+          "title": "Characterizations of families of morphisms and words via binomial complexities",
+          "trigger": "General binomial-complexity coverage"
+        },
+        {
+          "assessment": "The binary first-moment identity is prior, not this fixed-point dyadic rigidity",
+          "evidence": "#01=position moment minus C(weight,2).",
+          "identifier_or_url": "https://arxiv.org/abs/2510.07159",
+          "material_read": "Available abstract and package citation of classical identity; full paper not read",
+          "method": "Arxiv bibliographic search and mathematical identity checked directly",
+          "title": "On some 2-binomial coefficients of binary words: geometrical interpretation, partitions of integers, and fair words",
+          "trigger": "Existing equivalence of moments and order-two scattered counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Dyadic lengths are an intrinsic substitution scale. The exact minimal scattered-order of factor reconstruction and the sharp non-dyadic counterexample answer a motivated word-combinatorics question, not a rebranding of 2-abelian or cyclic complexity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific acceptance is a qualified best-of-knowledge assessment, not formal Lean verification, expert attestation or independent historical certification.",
+    "Independent finite tests corroborate only bounded examples; entire quantifier claim is established by the reviewed mathematical proof, with named inaccessible literature limitations in originality.residual_risks.",
+    "Public file publication is not_ready owing to verified operational identifiers in current METADATA.json and AUDIT.json; no sanitized replacements validated."
+  ],
+  "schema_version": 1
+}

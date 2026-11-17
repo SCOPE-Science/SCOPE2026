@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof in `RESULT.md` constructs the complete dyadic factor language from aligned blocks, identifies one primitive odd-weight cyclic orbit and one doubled odd-weight cyclic orbit, derives the precise rotation-moment identity, and uses the binary scattered-`01` count to recover that moment. The argument covers all integers \(k\ge1\), with level one handled explicitly. The independent-in-code finite diagnostic `python3 verify.py` returns `VERIFY_OK levels=0..11 windows_checked=24570 pair_checks=47 five_factor_collision=confirmed`; the infinite claim rests on the written proof, not these tests.
+PASS
 
-## Originality — PASS (with residual bibliographic risk)
+Every aligned 2^k-block is V_k a with V_k a fixed prefix and a in {0,1}. Every length-2^k factor is a rotation of one of the two aligned blocks. At k>=2 one block is a double of the preceding odd-weight primitive block and the other has odd weight, giving N/2+N distinct factors, weights differing by 1. For fixed length, all scattered order-two counts are determined by weight m and position sum S, since #01=S-binomial(m,2). Rotating an odd-weight binary word of length 2^h by d changes S by 2^h*t-d*m, so distinct rotations cannot share S; doubled rotations inherit this. Therefore b2=P=3*2^{k-1}, b1=2. The two distinct length-5 factors 10001 and 01010 have the same (m,S), excluding arbitrary-length extension. Independently checked 3069 dyadic factor signatures, not substituted for universal proof.
 
-The nearest source family is binomial complexity of Thue--Morse and generalized Thue--Morse (arXiv:1812.07330 and arXiv:2112.05347), as well as global reconstruction for Tribonacci (Lejeune--Rigo--Rosenfeld, 2019). The same-word 2014 study arXiv:1405.3532 treats two-abelian *contiguous* factor counts, not scattered subsequence counts. The general arXiv:2201.04603 and arXiv:2509.11172 theorems were compared by hypotheses and implication, including the explicit length-five obstruction to global reconstruction. Primary-text inspections and searches did not identify a covering dyadic statement. An unindexed equivalent is possible; this is not an independent bibliographic certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem completely identifies binomial reconstruction order at every dyadic scale, proving an all-scale exact factor count and a sharp gap between Abelian and two-binomial information. The first-moment criterion and the two cyclic orbits explain why these scales have this rigidity. This is a substantive natural invariant of a canonical automatic word, not a finite-sample extrapolation.
+The published cyclic-class doubling bijection proves c_p(2^k)=2 but does not state that scattering moment signatures separate all rotations; its cyclic classes concern a different equivalence relation. Parikh-collinear binomial morphism results are inapplicable since images 01 and 00 have independent Parikh vectors. Dyadic two-binomial reconstruction remains plausible original, though known cyclic structure makes a short implication possible with extra argument.
 
-## Limits and nearest literature
+## value
 
-The claim does not determine the full non-dyadic complexity. At length five, `10001` and `01010` are distinct two-binomially equivalent factors. The source comparisons and diagnostic computations are not proof of absolute novelty. Exact sources and theorem comparisons are recorded in `AUDIT.json` and `RESULT.md`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Dyadic lengths are an intrinsic substitution scale. The exact minimal scattered-order of factor reconstruction and the sharp non-dyadic counterexample answer a motivated word-combinatorics question, not a rebranding of 2-abelian or cyclic complexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
