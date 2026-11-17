@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T00:08:54.982513Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The previous-index held controller integrates exactly to x[k+1]=x[k]-h[k]x[k-1]. Multiplying companion matrices gives F=[[1-b,-a],[1,-a]], trace 1-2m and determinant ab. Strict Jury inequalities reduce to 2m-2<ab<1; the attainable 0<ab<=m^2 gives the sharp m<3/2 mean frontier, including m=1 and m<1 boundaries. Spectral trace bound rho>=m-1/2 for m>=1 has equality only at the double negative eigenvalue, giving the uniquely determined positive unordered pair. The defective Jordan block is correctly qualified as asymptotic, not a polynomial-free finite-epoch norm. Fresh exact rational computation independently recovered F at (a,b)=(9/4,1/4), repeated -3/4 multiplier and its nilpotent Jordan remainder.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jin–Wang–Wang, DOI 10.1080/00207179.2022.2069051, 2022/2023 official abstract: combines individually stable short intervals and unstable long intervals and gives a sufficient condition.",
+          "Berberich–Wildhagen–Hertneck–Allgöwer arXiv:2011.09221v2 Sections 1–5: data-driven robust bound on maximum intersample time for current-state feedback."
+        ],
+        "reasoning": "General sufficient mixed-sampling and robust aperiodic feedback theories do not in inspected material imply the exact index-delayed stability iff, mean supremum 3/2, or unique fixed-mean spectral optimizer. Jin full text inaccessible, therefore not declared non-covering.",
+        "searches": [
+          "search: enhanced average sampling interval sampled-data Jin Wang Wang 2022",
+          "https://arxiv.org/html/2011.09221v2",
+          "https://arxiv.org/abs/2103.14353"
+        ]
+      },
+      "checked_sources": [
+        "Frozen submitted RESULT.md and verify.py, pinned commit b0e95ae124c6a0e1a43dab35f490b119e0fbbb37",
+        "https://arxiv.org/html/2011.09221v2",
+        "https://doi.org/10.1080/00207179.2022.2069051",
+        "https://arxiv.org/abs/2103.14353",
+        "Resultary search: exact stability optimal alternating sampling intervals delayed sample scalar integrator Floquet radius mean period"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A generic short/long mixing sufficient condition does not entail the global impossibility at m>=3/2 or unique pair m±sqrt(4m-1)/2.",
+          "Berberich Eq. u(t)=Kx(t_k) differs from prior-sample-index hold and guarantees arbitrary interval sequences under a maximum, not one optimized alternating schedule."
+        ],
+        "reasoning": "Prior results prove qualitatively related stabilizing mixing; they do not supply, on inspected evidence, the submitted precise equivalence. One plausible inaccessible primary source creates an explicit residual risk.",
+        "searches": [
+          "DOI 10.1080/00207179.2022.2069051 abstract",
+          "arxiv:2011.09221 full text Section 1 controller definition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen source F=M(b)M(a) with tr 1-2m and det ab; closest Resultary 2026/11/2 fixed-budget variable-step BDF2 uses a multistep discretizer rather than a previous-sample integrator loop.",
+          "Berberich et al. arXiv:2011.09221, full text Eq. for controller u(t)=K x(t_k), not u(t)=-kappa x(t_{k-1})."
+        ],
+        "reasoning": "The natural aliases are two-period Floquet stabilization, variable sampling with one observation lag, and Schur stability of a companion product. The identified BDF result has a different recurrence; the full Berberich model uses current sample and seeks robust interval upper bounds, so neither is an algebraic equivalent theorem.",
+        "searches": [
+          "Resultary semantic search: exact stability optimal alternating sampling intervals delayed sample scalar integrator Floquet radius mean period",
+          "search: sampled data scalar integrator one-step delayed controller periodically alternating sampling intervals stability Jury 3/2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest published entries concern variable-step BDF2, BDF3, Adams–Bashforth and implicit discretizations, not the same delayed hold controller."
+        ],
+        "reasoning": "This is a continuum exact parameter classification rather than a finite tabulated invariant. No relevant exhaustive table yielding the pair or sharp frontier was identified; this negative search is not proof of priority.",
+        "searches": [
+          "Resultary semantic: fixed mean period two delayed sample feedback optimal Floquet factor",
+          "search: delayed sample hold alternating sampling mean interval exact table"
+        ]
+      },
+      "rationale": "A fixed-mean exact necessary-and-sufficient period-two Schur frontier and a unique Floquet spectral-radius optimizer for one-sample-index delayed scalar integrator are not established by the inspected aperiodic current-sample controller source or the available mixed-interval abstract. Qualitative long-short mixing is credited; claim is accepted best-of-knowledge with full-text access risk explicitly retained.",
+      "residual_risks": [
+        "Jin–Wang–Wang 2022/2023 full text unavailable; authorized access returned vpn_disconnected, so a covered example cannot be excluded.",
+        "An older indexed-delay exact period-two calculation could establish the same formulas in different terminology.",
+        "Norm-optimal finite-horizon/transient schedules are not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different current-sample feedback, no exact one-index delayed fixed-mean Floquet optimizer in inspected text",
+          "evidence": [
+            "Section 1 and problem setup use u(t)=Kx(t_k); Theorems address robust maximum sampling interval."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2011.09221v2",
+          "material_read": "Full HTML paper, Sections 1–5, state-feedback equation and robust MSI theory",
+          "method": "Read arXiv full-text HTML",
+          "title": "Data-driven analysis and control of continuous-time systems under aperiodic sampling",
+          "trigger": "Same control field with aperiodic intervals"
+        },
+        {
+          "assessment": "Plausible source not conclusively compared in full; priority risk explicitly open",
+          "evidence": [
+            "Abstract specifies a sufficient condition and two-sequence mixing; cannot exclude a relevant special example."
+          ],
+          "identifier_or_url": "https://doi.org/10.1080/00207179.2022.2069051",
+          "material_read": "Official journal abstract, dates and bibliographic page only; full text inaccessible",
+          "method": "Read official abstract; authorized institutional full-text attempt blocked by disconnected VPN",
+          "title": "Exponential stability of sampled-data control systems with enhanced average sampling interval",
+          "trigger": "Closest mixed stable/unstable intervals source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp and motivated stability-versus-average-frequency tradeoff for lagged sampled feedback, including a fifty-percent attainable mean-period improvement and a unique optimum, is independently useful despite elementary 2x2 algebra. It is not an arbitrary parameter slice or an assertion about transient gain.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen submitted RESULT.md and verify.py, pinned commit b0e95ae124c6a0e1a43dab35f490b119e0fbbb37",
+    "https://arxiv.org/html/2011.09221v2",
+    "https://doi.org/10.1080/00207179.2022.2069051",
+    "https://arxiv.org/abs/2103.14353",
+    "Resultary search: exact stability optimal alternating sampling intervals delayed sample scalar integrator Floquet radius mean period"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scalar integrator with noiseless one-index delayed hold, exactly two periodic positive intervals, fixed kappa; no arbitrary jitter or fixed-physical-delay robustness.",
+    "Jin paper was abstract-only and cannot justify a full-text negative claim."
+  ],
+  "residual_risks": [
+    "Jin–Wang–Wang 2022/2023 full text unavailable; authorized access returned vpn_disconnected, so a covered example cannot be excluded.",
+    "An older indexed-delay exact period-two calculation could establish the same formulas in different terminology.",
+    "Norm-optimal finite-horizon/transient schedules are not asserted."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Different current-sample feedback, no exact one-index delayed fixed-mean Floquet optimizer in inspected text",
+      "evidence": [
+        "Section 1 and problem setup use u(t)=Kx(t_k); Theorems address robust maximum sampling interval."
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2011.09221v2",
+      "material_read": "Full HTML paper, Sections 1–5, state-feedback equation and robust MSI theory",
+      "method": "Read arXiv full-text HTML",
+      "title": "Data-driven analysis and control of continuous-time systems under aperiodic sampling",
+      "trigger": "Same control field with aperiodic intervals"
+    },
+    {
+      "assessment": "Plausible source not conclusively compared in full; priority risk explicitly open",
+      "evidence": [
+        "Abstract specifies a sufficient condition and two-sequence mixing; cannot exclude a relevant special example."
+      ],
+      "identifier_or_url": "https://doi.org/10.1080/00207179.2022.2069051",
+      "material_read": "Official journal abstract, dates and bibliographic page only; full text inaccessible",
+      "method": "Read official abstract; authorized institutional full-text attempt blocked by disconnected VPN",
+      "title": "Exponential stability of sampled-data control systems with enhanced average sampling interval",
+      "trigger": "Closest mixed stable/unstable intervals source"
+    }
+  ]
+}
