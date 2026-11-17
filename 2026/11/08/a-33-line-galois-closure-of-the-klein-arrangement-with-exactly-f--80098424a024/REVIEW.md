@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The 33-line union is explicitly defined as the original 21 Klein equations together with the quadratic conjugate equations; projective overlap is checked to be exactly nine lines. The verifier performs exhaustive arithmetic in the quadratic integer ring for all 528 line pairs and 5456 line triples, proves nonzero norms have prime support only in 2, 3, 7 and 11, and checks all exceptional residue characteristics in their correct fields. For each profile the pair-intersection equivalence classes are verified to consist of all pairs among the recorded incident lines, ruling out unsupported multiplicity claims. The determinant norm certificate, not finite-field samples, establishes the uniform good reduction. An independent symbolic reduction confirmed base 21-line arithmetic. No unproved claim about fields of rationality or projective equivalence is included.
+## correctness
 
-## Originality (O): PASS, with historical priority risk
-The closest published results concern a *single* Klein 21-line arrangement. Gévay–Pokora establish the significance of quadratic Galois-conjugate realizations but do not compute the arrangement obtained by adjoining both; Innamorati treats the 21 line equations and characteristic-seven case; Bauer et al. analyze geometry and symbolic powers of the 21-line configuration. The 33-line Galois-closed divisor has cross-intersections not determined by either subconfiguration separately. Targeted searches of mathematical literature and published research records found no 33-line incidence spectrum or the exact bad-prime list. An older equivalent rational-descended configuration is possible and is a residual priority risk; the absence of a search match is not presented as proof of uniqueness or novelty.
+PASS
 
-## Mathematical value (V): PASS
-The minimal Galois-stable union of a marked Klein arrangement with its conjugate is a natural rational divisor associated to the arithmetic moduli of the classical configuration. Its 33 component lines and exact incidence profile supply new structure not obtainable from the known 49 singular points of one 21-line arrangement. The completely determined bad-characteristic set separates geometric collision at primes 2 and 7 from new characteristic-three and eleven concurrences, and the generic profile provides exact data for rational blowup models and combinatorial characteristic polynomials. This is an intrinsic classification of a natural construction, not a selected numerical sample or a routine rebranding of the original Klein incidence totals.
+Using printed 21 triples in Q(√−7), conjugation (a,b)↦(a−b,−b) gives 12 new lines beyond nine shared; independent Python exact pair-polynomial algebra reconstructed 33, computed all 528 pair cross products and 5,456 determinants with exactly 280 generic zero triples. The norms of every nonzero pair minor/triple determinant have prime support contained in {2,3,7,11}, and all four occur: excluding new dependencies at all other primes. Independent exact equivalence-class reconstruction verifies generic 120 double, 52 triple, 27 quadruple, 6 sextuple points; each class has C(r,2) pair edges, summing to 528. Separate specializations (p,ω)=(3,extension),(7,3),(11,4),(11,6),(2,0),(2,1) give asserted line counts and each multiplicity histogram, including F9 arithmetic for p=3. The universal statement is an exact determinant-norm certificate, not extrapolated prime sampling. Singular-scheme lengths and other integral models are not covered.
 
-## Residual risks and scope
-Priority risk remains for specialized literature on unions of conjugate reflection arrangements. The claim is model-specific and concerns geometric incidence, not other arithmetic or birational invariants. Independent mathematical review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original 33-line reduced Galois union and cross-conjugate incidence computation. Earlier exact Klein 21-line specialization results concern just the original component, while the independently studied 28-bitangent arrangement has a different 28-line object and incidence profile despite sharing the exceptional-prime set. Primary Klein realization literature inspected does not supply the 33-line closure counts. A specific equivalent study under alternate coordinates remains a priority risk.
+
+## value
+
+PASS
+
+This is a natural arithmetic descent of an iconic nonrational line configuration. A complete intersection lattice and *all* exceptional reduction characteristics for that distinguished 33-line rational divisor are useful exact data: cross-conjugate incidence cannot be inferred from either 21-line lattice alone; the characteristic-3 and 11 jump profiles provide meaningful new arithmetic boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
