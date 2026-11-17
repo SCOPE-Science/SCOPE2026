@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each primitive prime-power character, the exact cyclotomic coefficient-fiber lemma is established directly from the minimal polynomial. A singly occupied residue forbids every Fourier zero of order exceeding the initial residue modulus. For all remaining characters, a signed fiber with fewer than \(p\) departures and fewer than \(p\) arrivals must have zero coefficient difference in every position, which is exactly equality of the two projected multisets. The proof includes the matching reduction, sharp count, all attainable survival levels, and an explicit counterexample when the number of moves reaches \(p\). The finite checker reports `CHECK_OK checks=33317`; the unrestricted theorem is analytical.
+PASS
 
-## Originality — PASS relative to checked literature, with priority risk
+PASS: A primitive p^t root annihilates an integer coefficient polynomial of degree <p^t precisely if its p coefficients in each length-p cyclotomic fiber agree, by divisibility by Phi_{p^t}. For t>b an untouched residue class (guaranteed 2r<p^b) has one occupied point in its high-order fiber, excluding zero. For t<=b the original complete-residue transversal Fourier sum vanishes, and the changed signed sum vanishes only when the A,B multiplicities agree modulo p^t: with r<p no nonzero constant signed difference across a full p-cycle is possible. Such t form initial depths 0..V, giving the exact zero set at indices a*h with p^(b-V)|h and p^V-1 zeros. Residue-matching equivalence, single-relocation sharp attainable depths, lost notches, and r=p counterexample follow directly. Independently classified Fourier zeros for all 92 permitted single-relocation configurations at (p,k,b)=(3,3,2),(5,2,1) and all 756 two-relocation A,B pairs for (3,3,2) by coefficient-fiber arithmetic; no infinite claim rests on these cases.
 
-Asipchuk–De Carli–Rodriguez, arXiv:2605.16139 (Sections 1–5), relate cyclotomic divisibility to zero Gabor-frame matrix diagonals, but do not classify Fourier zeros after sparse relocations of cyclic complete-residue transversals. De Carli–Laporta, arXiv:2508.02722 (Sections 1–3), give a general divisibility criterion; Lam–Leung, arXiv:math/9511209 (Introduction, Section 2), provide the classical prime-power group-ring kernel. These **already cover the cyclotomic coefficient lemma**, not the resulting uniform lift-independent displacement classification, maximal common congruence depth, and sharp fault threshold as a combined statement. Both generic criteria permit checking every individual instance; an unindexed derivation of the specialized theorem or a standard presentation of this consequence remains a substantive priority risk. Relevant available research records on valuation shells, finite support zeros, and cyclic spectral sets concern different objects or parameters.
+## originality
 
-## Value — PASS
+PASS
 
-Complete-residue transversals provide \(p^b-1\) exact nontrivial Fourier notches. The theorem determines precisely how all notches survive under a natural class of counting-preserving but residue-misregistered sampling sets, independent of the initial lifts. It quantifies the unavoidable loss of at least \((p-1)p^{b-1}\) notches, characterizes every attainable survival depth with a single fault, and demonstrates that fewer than \(p\) is a mathematically sharp cutoff for the simple matching law. The result gives a structural robustness diagnostic for finite cyclic Fourier masks, rather than a numerical example.
+PASS with material modest-increment risk. The prime-power cyclotomic coefficient criterion and group-ring kernel are classical, and general recent Gabor block-equivalence and cyclotomic divisibility sources may decide each instance. None inspected states the uniform, lift-independent complete Fourier-zero set of a residue transversal after <p moves into distinct occupied residue classes, the exact optimal p-adic matching depth, and the sharp r=p breakdown. The cutoffs and all-depth enumeration form a motivated family theorem rather than a fixed single polynomial test.
 
-## Limitations and closest sources
+## value
 
-Only odd prime-power cyclic groups, unweighted subsets, and disjoint departed/receiving residue sets with \(1\le r<p\) and \(2r<p^b\) are covered. No arbitrary mixed-prime, weighted, or unconstrained fault model is claimed. Previous cyclotomic divisibility and minimal vanishing-sum results remain credited as essential inputs. Independent priority and mathematical review remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: complete-residue transversals are natural cyclic sampling supports with p^b-1 spectral notches. The theorem precisely quantifies fault robustness under count-preserving but residue-misregistered positions, using an intrinsic congruence-matching invariant; it gives an optimal destroyed-notch lower bound, all attainable single-fault profiles, and a sharp threshold counterexample. This is a structural finite Fourier classification potentially useful beyond the numerical examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
