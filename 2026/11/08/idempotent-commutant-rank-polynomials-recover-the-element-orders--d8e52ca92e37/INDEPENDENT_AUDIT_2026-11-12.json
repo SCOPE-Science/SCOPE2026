@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T00:03:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The final all-finite-group result is correctly normalized: idempotents of restriction monoid are the 2^n partial identities; each nonempty restricted translation has unique g; e_A commutes with s_{g,B} exactly when membership of A is constant along edges x->gx selected by B. A proper selection of j edges of an l-cycle is a forest with l-j components and 2^(l-j) A-choices; a full cycle adds the extra y^l, giving ((2+y)^l+y^l)^(n/l). The g=1 contribution is 2^n(1+y)^n and the duplicated empty restriction requires subtraction of 2^n for each g!=1. Expansion after subtracting baseline shows H_{n,l} first nonzero term (n/l)2^(n-l)y^l and gives triangular recovery of every element-order multiplicity. The even-order asymptotic follows by monotonic decrease of (3^l+1)^(1/l), with all l>=3 bounded by 28^(n/3). Independently enumerated explicit commuting pairs for C4 and V4, obtaining [16,160,176,96,24] and [16,160,192,112,28]. No inference about group isomorphism from equal histograms is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Konieczny 2003, Sections 2–4, classifies regularity and inverse/completely regular centralizers C(sigma) of full permutations; it does not count idempotents commuting with arbitrary restricted translations.",
+          "The nearby permutation-centralizer monoid paper counts idempotents of C(sigma) by image rank, not pairs e,s inside the inverse monoid R(G)."
+        ],
+        "reasoning": "The differing ambient monoids and count quantifiers prevent direct subsumption from the inspected theorems.",
+        "searches": [
+          "idempotent commutant rank polynomial partial translations finite group recover element order distribution",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-rank-enumeration-and-minimum-retraction-size-in-permutation-cent--46b24971b86b/RESULT.md",
+          "https://studylib.net/doc/10524225/"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2211.02155v1",
+        "https://studylib.net/doc/10524225/",
+        "https://dml.cz/handle/10338.dmlcz/134038",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-rank-enumeration-and-minimum-retraction-size-in-permutation-cent--46b24971b86b/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fernandes monoid construction supplies the objects and standard cycle length enumerations; neither those alone nor Konieczny regularity equivalences furnish the nontrivial triangular reconstruction."
+        ],
+        "reasoning": "The commutation criterion, nonempty-domain uniqueness and leading coefficient prove an additional non-redundant invariant; residual broad cycle-index consequences remain possible.",
+        "searches": [
+          "idempotent commutant rank polynomial partial translations finite group recover element order distribution",
+          "https://arxiv.org/html/2211.02155v1",
+          "https://studylib.net/doc/10524225/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The invariant is the idempotent-relative commutant of restricted regular translations, not the permutation centralizer C(sigma) in the full transformation monoid.",
+          "The reconstructing differences H_{n,l} have distinct y-adic leading valuations l."
+        ],
+        "reasoning": "An element order corresponds to uniform regular-action cycle length, but earlier cyclic restriction-monoid structure does not itself state recovery via commuting-pair ranks.",
+        "searches": [
+          "idempotent commutant rank polynomial partial translations finite group recover element order distribution",
+          "https://arxiv.org/html/2211.02155v1",
+          "https://studylib.net/doc/10524225/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fernandes gives cyclic inverse monoid cardinality and rank, but no table of P_G(y) across finite groups; small C4/V4 coefficient differences were computed independently."
+        ],
+        "reasoning": "No inspected table is an exact all-group rank polynomial or inverse formula; database absence does not prove novelty.",
+        "searches": [
+          "idempotent commutant rank polynomial partial translations finite group recover element order distribution",
+          "https://arxiv.org/html/2211.02155v1"
+        ]
+      },
+      "rationale": "No inspected earlier complete theorem supplies both the all-regular-action idempotent/partial-translation commuting-pair polynomial and the converse triangular recovery of element orders. Fernandes provides the underlying cyclic inverse monoid; Konieczny treats permutation centralizers and regularity, not this ordered pair invariant; other Resultary permutation-centralizer rank results count idempotents of a different monoid. The proof itself uses standard cycle-forest combinatorics. Best-of-knowledge originality is limited by possible general semigroup cycle-index centralizer formulas.",
+      "residual_risks": [
+        "General partial-transformation centralizer enumeration and unpublished group-theoretic cycle-index identities may imply this special polynomial; an exhaustive literature proof of novelty is not asserted.",
+        "Finite direct tests at group orders four do not replace the unrestricted cycle-orbit proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_NOT_COVERING",
+          "evidence": "Studies C_n restrictions without the all-finite-group idempotent-commutant generating polynomial or order-recovery theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2211.02155v1",
+          "material_read": "Accessible arXiv full HTML: definitions, cardinality, rank structure and monoid presentations",
+          "method": "full-text arXiv HTML examination",
+          "title": "On the cyclic inverse monoid on a finite set",
+          "trigger": "same restricted cyclic regular action"
+        },
+        {
+          "assessment": "DIFFERENT_FULL_TRANSFORMATION_CENTRALIZER",
+          "evidence": "C(sigma) regularity and inverse criteria are not enumeration of pairs in the restricted regular action inverse monoid.",
+          "identifier_or_url": "https://studylib.net/doc/10524225/",
+          "material_read": "Accessible full article HTML transcription, introductory definitions and sections 2–4 including Theorems 4–7",
+          "method": "primary full-text HTML transcription",
+          "title": "Regular, inverse, and completely regular centralizers of permutations",
+          "trigger": "centralizer-equivalence and stronger general permutation conditions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural intrinsic rank-graded invariant of inverse monoids recovering the full element-order profile of any finite group, distinguishing same-size groups including C4 and V4. The reconstruction theorem goes beyond a routine total count and is potentially useful in finite inverse-semigroup and group invariants.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2211.02155v1",
+    "https://studylib.net/doc/10524225/",
+    "https://dml.cz/handle/10338.dmlcz/134038",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-rank-enumeration-and-minimum-retraction-size-in-permutation-cent--46b24971b86b/RESULT.md"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "General partial-transformation centralizer enumeration and unpublished group-theoretic cycle-index identities may imply this special polynomial; an exhaustive literature proof of novelty is not asserted.",
+    "Finite direct tests at group orders four do not replace the unrestricted cycle-orbit proof."
+  ],
+  "schema_version": 1
+}

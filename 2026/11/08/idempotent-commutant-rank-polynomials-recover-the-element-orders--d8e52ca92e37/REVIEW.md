@@ -1,19 +1,21 @@
-# Review of the idempotent-commutant rank polynomial theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof begins from the exact equivalence \(x\in A\iff gx\in A\) for all selected domain points \(x\in B\). On a cycle, selecting fewer than all edges leaves a forest and gives \(2^{\ell-j}\) allowed indicator labelings; selecting every edge gives two. The correction for the shared zero restriction is necessary and explicitly included. Expanding the order-specific correction gives a nonzero leading term \((n/\ell)2^{n-\ell}y^\ell\), establishing the triangular recovery for every finite group, including the trivial case. The exact direct-composition program checks cyclic, noncyclic abelian, and nonabelian examples.
+PASS
 
-## Originality
+The final all-finite-group result is correctly normalized: idempotents of restriction monoid are the 2^n partial identities; each nonempty restricted translation has unique g; e_A commutes with s_{g,B} exactly when membership of A is constant along edges x->gx selected by B. A proper selection of j edges of an l-cycle is a forest with l-j components and 2^(l-j) A-choices; a full cycle adds the extra y^l, giving ((2+y)^l+y^l)^(n/l). The g=1 contribution is 2^n(1+y)^n and the duplicated empty restriction requires subtraction of 2^n for each g!=1. Expansion after subtracting baseline shows H_{n,l} first nonzero term (n/l)2^(n-l)y^l and gives triangular recovery of every element-order multiplicity. The even-order asymptotic follows by monotonic decrease of (3^l+1)^(1/l), with all l>=3 bounded by 28^(n/3). Independently enumerated explicit commuting pairs for C4 and V4, obtaining [16,160,176,96,24] and [16,160,192,112,28]. No inference about group isomorphism from equal histograms is made.
 
-PASS relative to inspected evidence, not an assertion of exhaustive priority. Fernandes (arXiv:2211.02155v1) already defined and enumerated the cyclic restriction monoid, and the familiar cyclic/dihedral orbit decompositions are prior facts. The inspected full text discusses rank, presentations, and related order-preserving submonoids rather than the idempotent-commutant rank polynomial or recovery of the element-order histogram. Fernandes–Paulista (arXiv:2205.02196) concerns dihedral partial isometries, their Green relations and presentations. Generic permutation-centralizer work might entail related enumerations; Konieczny (2003) was available only at abstract level and remains a residual comparison risk. The distinct claim is the uniform all-group formula together with the inverse triangular reconstruction.
+## originality
 
-## Value
+PASS
 
-PASS. The polynomial is an intrinsic, naturally rank-graded commutation statistic of a finite inverse monoid. Its ability to reconstruct all group element-order multiplicities is a structural invariant, rather than an arbitrary finite coefficient. The cyclic divisor specialization and asymptotic isolation of involutions give additional motivated consequences without claiming group-isomorphism classification.
+No inspected earlier complete theorem supplies both the all-regular-action idempotent/partial-translation commuting-pair polynomial and the converse triangular recovery of element orders. Fernandes provides the underlying cyclic inverse monoid; Konieczny treats permutation centralizers and regularity, not this ordered pair invariant; other Resultary permutation-centralizer rank results count idempotents of a different monoid. The proof itself uses standard cycle-forest combinatorics. Best-of-knowledge originality is limited by possible general semigroup cycle-index centralizer formulas.
 
-## Limits and follow-up
+## value
 
-Finite verification supplements but does not establish the all-group theorem. The nonregular-action setting has different extension multiplicities. Priority relative to every classical centralizer or generalized cycle-index formula is not independently settled.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural intrinsic rank-graded invariant of inverse monoids recovering the full element-order profile of any finite group, distinguishing same-size groups including C4 and V4. The reconstruction theorem goes beyond a routine total count and is potentially useful in finite inverse-semigroup and group invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
