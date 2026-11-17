@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T21:15:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For both zero-velocity and rethermalizing position+velocity resets, exact free-segment covariance A_j(t)=2*kappa*(t-d_j)+O(exp(-gamma*t)), B_j(t)=kappa+O(exp(-gamma*t)), C_j(t)=Dv/gamma+O(exp(-gamma*t)); d0=3/(2gamma), dM=1/gamma. The stationary joint law is an exponential-age mixture of bivariate Gaussians. Conditional on X=x, replacing t by u+d_j gives an exponentially accurate kernel u^-1/2 exp[-r u-x^2/(4*kappa*u)]. Its integral sqrt(pi/r) exp[-x sqrt(r/kappa)] yields conditional mean age x/(2sqrt(kappa*r))+d_j+1/(2r), variance x/(4sqrt(kappa)r^1.5)+1/(2r^2), and Gaussian CLT. Conditional Gaussian regression gives velocity mean sqrt(kappa*r), variance Dv/gamma, asymptotic independence. The Laplace spatial tail yields an independent exponential overshoot for X>R. Independently numerically integrated the key inverse-Gaussian normalization at x=100 (relative discrepancy 1.6e-14). Analytic Laplace concentration, not finite quadrature, proves joint weak limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/2312.13968",
+          "https://www.researchgate.net/publication/406960962_Resetting_of_underdamped_Brownian_motion"
+        ],
+        "reasoning": "The general joint position–velocity renewal formula supplies premises but the fixed-rate moving-saddle law and two reset scheme-dependent d_j shifts are not stated in the inspected full primary material. Crossing-count intensity is a velocity-weighted different conditional observable.",
+        "searches": [
+          "Resultary: underdamped Brownian resetting conditional velocity at large displacement and age delay",
+          "Montero Palassini Masoliver inertial reset crossings"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA 518416bed3fa6a96cd964e7b7f4d4292be823148 and verify.py SHA 17564e2aa7ce65e4559a0737e7c06210c0da961e",
+        "https://www.researchgate.net/publication/406960962_Resetting_of_underdamped_Brownian_motion",
+        "https://arxiv.org/pdf/2312.13968",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-extreme-displacement-velocity-and-reset-age-laws-for-random-acce--c202451627eb",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-universal-age-transverse-fluctuation-correlation-in-extreme-shea--2c4d5a8bd4fb",
+        "https://arxiv.org/abs/1812.07227"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/2312.13968",
+          "https://www.researchgate.net/publication/406960962_Resetting_of_underdamped_Brownian_motion"
+        ],
+        "reasoning": "Known Laplace marginal tail and joint Gaussian renewal mixture are insufficient as stated to yield the full conditional three-way asymptotic independence or 1/(2gamma) protocol delay without explicit Laplace saddle and derivative asymptotics; candidate proves those steps.",
+        "searches": [
+          "Resultary: undamped Brownian Poisson reset conditional extreme displacement velocity age Gaussian selection"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://www.researchgate.net/publication/406960962_Resetting_of_underdamped_Brownian_motion",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-extreme-displacement-velocity-and-reset-age-laws-for-random-acce--c202451627eb"
+        ],
+        "reasoning": "Same inertial model and reset recipes, but original paper computes marginal tails, core singularities, kurtosis. Related random acceleration is a different zero-damping limit with coupled age–velocity fluctuations, not this fixed-gamma Gaussian product law.",
+        "searches": [
+          "Resultary: undamped Brownian motion Poisson reset conditional extreme displacement velocity age Gaussian selection",
+          "Franke Sokolov 2026 underdamped Brownian resetting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://www.researchgate.net/publication/406960962_Resetting_of_underdamped_Brownian_motion"
+        ],
+        "reasoning": "Marginal PDF plots and numerical kurtosis figures do not tabulate conditional age/velocity Gaussian limits or exact O(1) delay. This is a parameter-continuous analytic theorem rather than a known finite table.",
+        "searches": [
+          "Resultary: undamped Brownian Poisson reset conditional extreme displacement velocity age Gaussian selection"
+        ]
+      },
+      "rationale": "Franke–Sokolov 2026 (same two reset prescriptions) establishes their marginal exponential-position tail and core singularity; full primary text was accessed and its scope checked. Montero–Palassini–Masoliver derive the general stationary inertial joint-mixture and level-crossing intensity, not the fixed-reset-rate extreme-position conditional law and O(1) age difference in inspected text. Neighboring Resultary random-acceleration model has correlated age/velocity in a different dynamics.",
+      "residual_risks": [
+        "Conditional rare-event asymptotics could be derivable in unpublished or differently titled stochastic-resetting large-deviation work; best-of-knowledge claim only.",
+        "The exponentially accurate comparison and rare-event overshoot tightness are analytic proof steps, not separately controlled by the one numerical integral test."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same-model marginal exponential tail explicitly prior; not verified to contain claimed rare-position conditional joint age/velocity theorem",
+          "evidence": "Published June 11 2026; full-text source distinguishes (x,v)->(0,0) and x->0 with Maxwell velocity, focus p(x), core and kurtosis.",
+          "identifier_or_url": "https://www.researchgate.net/publication/406960962_Resetting_of_underdamped_Brownian_motion",
+          "material_read": "Public CC BY 4.0 full-text transcription: abstract, introduction, resetting prescriptions, marginal PDF and tail analysis, discussion; text search for conditional age/mean velocity had no direct hits",
+          "method": "Lawful full-text HTML reading and within-document searches",
+          "title": "Resetting of underdamped Brownian motion",
+          "trigger": "Exactly the two resetting prescriptions, marginal stationary distribution and tails"
+        },
+        {
+          "assessment": "General renewal density and crossing intensity prior; crossing-conditioned statistics not interchangeable with fixed-position stationary conditioning",
+          "evidence": "P.3 expresses crossings integral |v| p(x,v); candidate samples stationary p(x,v) without velocity weight.",
+          "identifier_or_url": "https://arxiv.org/pdf/2312.13968",
+          "material_read": "27-page primary PDF; introduction, joint density and Rice crossing intensity equations, stationary reset and level-crossing/first-arrival portions, page 3 rendered",
+          "method": "Open-access PDF reading and screenshot inspection",
+          "title": "The effect of stochastic resettings on the counting of level crossings for inertial random processes",
+          "trigger": "Potentially broader stationary joint inertial diffusion formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Conditioning on extreme stationary displacement reveals a hidden velocity-selection law and a protocol-identifying O(1) age delay invisible in leading spatial tail or CLT. The distinction from crossing-time velocity weighting is important and mathematically motivated by rare-event sampling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed positive damping, diffusivity, reset rate; both stated full reset schemes only.",
+    "Stationary random-time sampling differs from level-crossing or hitting-time sampling; no uniform parameter limits."
+  ],
+  "schema_version": 1
+}

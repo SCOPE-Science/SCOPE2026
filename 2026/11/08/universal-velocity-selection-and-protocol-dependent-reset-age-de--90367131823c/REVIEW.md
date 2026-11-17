@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The new claim follows from the exact two-dimensional Gaussian reset-cycle covariance for each protocol and from stationary Poisson-age mixing. Large-time covariance is affine in the reset age up to an exponentially decaying remainder, permitting comparison with the exactly normalizable inverse-Gaussian-type reference age density. The reference Laplace integral gives both unscaled age moments; its exponentially accurate central-region approximation establishes the protocol-dependent constant without inferring it from a finite simulation. A moment-generating-function calculation gives the scaled age central limit, while the conditional bivariate-Gaussian regression produces the velocity mean and variance, with limiting independence. The exact exponential marginal density tail then supplies the independent threshold overshoot. The proof assumes strictly positive fixed damping, diffusivity and reset rate; the statement is not uniform in singular parameter limits.
+PASS
 
-## Originality
+For both zero-velocity and rethermalizing position+velocity resets, exact free-segment covariance A_j(t)=2*kappa*(t-d_j)+O(exp(-gamma*t)), B_j(t)=kappa+O(exp(-gamma*t)), C_j(t)=Dv/gamma+O(exp(-gamma*t)); d0=3/(2gamma), dM=1/gamma. The stationary joint law is an exponential-age mixture of bivariate Gaussians. Conditional on X=x, replacing t by u+d_j gives an exponentially accurate kernel u^-1/2 exp[-r u-x^2/(4*kappa*u)]. Its integral sqrt(pi/r) exp[-x sqrt(r/kappa)] yields conditional mean age x/(2sqrt(kappa*r))+d_j+1/(2r), variance x/(4sqrt(kappa)r^1.5)+1/(2r^2), and Gaussian CLT. Conditional Gaussian regression gives velocity mean sqrt(kappa*r), variance Dv/gamma, asymptotic independence. The Laplace spatial tail yields an independent exponential overshoot for X>R. Independently numerically integrated the key inverse-Gaussian normalization at x=100 (relative discrepancy 1.6e-14). Analytic Laplace concentration, not finite quadrature, proves joint weak limits.
 
-PASS, qualified. Franke and Sokolov, DOI:10.1103/qyl8-6q9h (2026), already establish the two protocols, exponential stationary position tails, central singularities and kurtosis. Gupta, arXiv:1812.07227, investigates a different velocity-preserving position reset and marginal position laws. Singh, arXiv:2007.05576, establishes a joint stationary density for an undamped random-acceleration model, not the present damped conditional limit. Montero, Palassini and Masoliver, arXiv:2312.13968, derive the general inertial-reset joint renewal representation and study level-crossing intensities, including the damped model; this is the closest substantive precursor and its formula is explicitly acknowledged in the proof. The assessed contribution is narrower and genuinely asymptotic: a fixed-reset-rate conditional joint velocity/age law, universal factorization with the threshold overshoot, and an order-one reset-prescription-dependent age shift. Searches of accessible earlier research records and relevant primary texts did not reveal that combination; general renewal representations alone do not state these moving-saddle constants. Publication-priority risk remains for unlocated conditional-limit work and for implications of broad general asymptotic theorems.
+## originality
 
-## Value
+PASS
 
-PASS. The stationary marginal position tail fails to reveal what velocities or ages are selected by a rare displacement. The exact Gaussian velocity bias identifies a measurable kinetic selection mechanism in a zero-mean equilibrium-bath model, while the protocol-dependent order-one age delay distinguishes two reset mechanisms whose leading far-tail conditional velocity laws are indistinguishable. The independent exponential overshoot makes the result applicable to threshold-conditioned observations. It does not claim an engineering optimum, a new marginal tail, or a theorem on actual level-crossing measurements.
+Franke–Sokolov 2026 (same two reset prescriptions) establishes their marginal exponential-position tail and core singularity; full primary text was accessed and its scope checked. Montero–Palassini–Masoliver derive the general stationary inertial joint-mixture and level-crossing intensity, not the fixed-reset-rate extreme-position conditional law and O(1) age difference in inspected text. Neighboring Resultary random-acceleration model has correlated age/velocity in a different dynamics.
 
-## Limitations and publication-priority risk
+## value
 
-All statements are for fixed positive parameters, one particle and instantaneous Poisson renewal. The novelty comparison is qualified, not exhaustive. In particular, general Gaussian-conditioning and saddle-point theorems could imply versions of the asymptotic law; the explicit protocol comparison and constant shifts were not found in inspected materials. The standalone numerical checker corroborates finite-position algebra and asymptotics but cannot establish infinite-domain limits. Independent mathematical review has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Conditioning on extreme stationary displacement reveals a hidden velocity-selection law and a protocol-identifying O(1) age delay invisible in leading spatial tail or CLT. The distinction from crossing-time velocity weighting is important and mathematically motivated by rare-event sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
