@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T04:43:18.756635Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At prime p occurring to exponent exactly one in n=pm, U(n)=(p+1)U(m) and T(n)=pT(m), so equality forces p=U(m)/(T(m)-U(m)); there is at most one p per cofactor m. Partitioning by largest prime p>y and whether p occurs once gives E(X)≤Psi(X,y)+floor(X/y)+X sum_{p>y}p^(-2). The Rankin estimate with alpha=1-1/log y and the prime-harmonic upper bound yields Psi(X,y)≤C X exp(-logX/log y)(log y)^e for y≥e^4. Taking y=exp(sqrt(logX)), X≥e^16, gives the stated X(logX)^2 exp(-sqrt(logX)) bound, since e/2<2. The argument is logically valid and handles n=1. Original verify_equality_sparsity.py computes the small equality list; that finite list is not substituted for asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 18 theorem is uniform over all positive c and has exponent -(1/sqrt2+o(1)) sqrt(logX loglogX), more negative than -sqrt(logX)+2loglogX eventually."
+        ],
+        "reasoning": "Substitute c=1; the stated quantitative bound for E(X) follows with an enlarged universal constant for bounded X. Prior theorem dominates both the scope and the asymptotic rate.",
+        "searches": [
+          "Resultary: unitary divisor sum exponential divisor sum equality counting bound density smooth numbers A236474 Trudgian",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-uniform-subexponential-sparsity-of-unitary-exponential-divisor-s--d621ea3016e6/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: unitary divisor sum exponential divisor sum equality counting bound density smooth numbers A236474 Trudgian",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-uniform-subexponential-sparsity-of-unitary-exponential-divisor-s--d621ea3016e6/RESULT.md",
+        "https://arxiv.org/pdf/1312.4615",
+        "https://oeis.org/A236474"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older level-set proof derives p(c T(m)-U(m))=U(m), identical to the candidate p(T(m)-U(m))=U(m) when c=1.",
+          "With y=exp((sqrt(logX loglogX))/sqrt2) and a sharper Rankin bound it gives a stronger decay."
+        ],
+        "reasoning": "The earlier 2013 paper asks about infinitely many equality cases, but the full October 18 theorem already implies this entire density-zero corollary, making the submitted bound a weaker consequence.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-uniform-subexponential-sparsity-of-unitary-exponential-divisor-s--d621ea3016e6/RESULT.md",
+          "Trudgian arXiv:1312.4615 Section 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equality U(n)=T(n) is exactly the ratio-fiber c=1 in the published level-set bound, where U=sigma* and T=sigma^(e)."
+        ],
+        "reasoning": "The underlying sets are identical, not merely analogues or a different normalization.",
+        "searches": [
+          "Resultary: unitary divisor sum exponential divisor sum equality counting bound density smooth numbers A236474 Trudgian",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-uniform-subexponential-sparsity-of-unitary-exponential-divisor-s--d621ea3016e6/RESULT.md",
+          "OEIS A236474"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS supplies initial exact solution list but not a new counting bound.",
+          "The October 18 theorem is a general proven analytic level-set estimate, not a numerical table."
+        ],
+        "reasoning": "Novelty is lost because of exact earlier analytic implication, not because a finite database enumerates solutions.",
+        "searches": [
+          "OEIS A236474",
+          "Resultary: unitary divisor sum exponential divisor sum equality counting bound density smooth numbers A236474 Trudgian",
+          "Trudgian arXiv:1312.4615"
+        ]
+      },
+      "rationale": "Decisive exact earlier coverage: the complete October 18 published uniform level-set theorem proves sup_{c>0} #{n≤X: sigma*(n)/sigma^(e)(n)=c} ≤ X exp[-(1/sqrt2+o(1)) sqrt(log X log log X)]. Setting c=1 yields this same coincidence set and a strictly stronger upper bound than exp(-sqrt(log X)) times any fixed log power, for all sufficiently large X; adjusting the constant handles the remaining finite X range. It explicitly uses the IDENTICAL cofactor-to-large-prime injection and a sharpened Rankin smooth-number argument. The candidate is therefore a covered weaker special case, not original. This conclusion is from full mathematical implication, not title similarity.",
+      "residual_risks": [
+        "No uncertainty about the exact covered c=1 specialization; only ancillary literature may contain additional stronger bounds.",
+        "The earlier asymptotic theorem supplies a bound for sufficiently large X; a finite-X constant adjustment is necessary for the candidate all-X form."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVELY COVERS the submitted mathematical claim",
+          "evidence": "N_c(X) ≤ X exp[-(1/sqrt2+o(1))sqrt(logX loglogX)] uniformly c>0; c=1 implies candidate bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-uniform-subexponential-sparsity-of-unitary-exponential-divisor-s--d621ea3016e6/RESULT.md",
+          "material_read": "Entire original RESULT.md read: definitions, large-prime-injection argument, Rankin Euler product, all-c theorem, limitations",
+          "method": "Resultary published Git full blob",
+          "title": "Uniform subexponential sparsity of unitary–exponential divisor-sum ratio fibers",
+          "trigger": "Exact same functions, equality fiber and a dominating parameter c"
+        },
+        {
+          "assessment": "CONTEXT not the decisive coverage; equality infinitude remains open",
+          "evidence": "Trudgian discusses A236474 examples and ratio/equality questions, not the later uniform 2026 ratio-fiber estimate.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.4615",
+          "material_read": "Full arXiv PDF accessed; inspected prime-power definitions, comparisons and closing equality question (including page six)",
+          "method": "PDF searchable text and screenshot",
+          "title": "The sum of the unitary divisor function",
+          "trigger": "Primary earlier equality-question and density context"
+        },
+        {
+          "assessment": "KNOWN table, not an independent proof of density",
+          "evidence": "Initial equality solutions include 1,20,45,320,6615,382200; do not extrapolate from finite table.",
+          "identifier_or_url": "https://oeis.org/A236474",
+          "material_read": "Sequence description/initial terms, not a mathematical proof",
+          "method": "Database entry",
+          "title": "OEIS A236474",
+          "trigger": "Exact known initial values"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: This particular upper bound is quantitatively weaker than the already published uniform level-set result for the identical arithmetic functions. The proof repeats the same large-prime injection and Rankin strategy, and the zero-density conclusion is an immediate known corollary. A valid elementary proof and finite sequence check do not create an independently valuable new theorem.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Rejection is scientific originality/value, not correctness or a failed download.",
+    "The candidate does not determine infinitude or precise asymptotics for the equality sequence."
+  ],
+  "schema_version": 1
+}
