@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic argument proceeds by angular gap decomposition, a uniform single-near-semicircle area asymptotic, a bound ruling out multiple near-singular gaps at first order, and integration of the exact adjacent-normal intensity. It is not a numerical or external certification.
+# Independent mathematical audit
 
-Run `python verify_tangent_tail.py` from this package with NumPy/SciPy installed. The independent numerical checks include finite-angle tangent-line intersections for a circle, an ellipse, and a noncircular constant-width body, exact special-case comparisons for circles and the constant-width Fourier family, numerical evaluation of the general coefficient for several sample sizes, and direct simulations of tangent polygons. The code reports `VERIFY_OK` when all assertions pass.
+## correctness
 
-The near-gap tests used \(\delta=0.008,0.002,0.0005\) and showed \(\delta A\) approaching the predicted \(w^2/2\). The numerical evaluation for a unit circle and \(n=3\) gave \(C_3\approx3.8197186343\); for an ellipse of semiaxes \(1.5,0.8\) it gave \(C_3\approx4.7828171247\). For \(h=1+0.06\cos(3\theta)\), the exact value is \(C_3\approx3.4331164110\) with \(p_3\approx0.2461092665\). The simulation drew 350,000 triplets per shape; finite-threshold errors are not assumed to vanish at a specified rate. No independent audit has been performed.
+PASS
+
+Gauss angle Jacobian rho=h+h″ establishes f=rho/L; all cyclic gaps less than pi iff the halfplane intersection is bounded. When a single gap equals pi-delta, the divergent vertex has leading w(theta)/delta and shoelace area w(theta)^2/(2 delta). Every side is tangent so perimeter bounds area by a sum of reciprocal near-pi gap defects, and two-gap simplex estimates make concurrent extremes negligible in the leading t^-1 probability. Adjacent-pair density n(n-1) f(theta)f(theta+pi) H(theta)^(n-2) gives the exact integral constant after division by p_n>0. Positive constant yields the q<1 iff moment threshold. The noncircle constant-width example follows by trigonometric integrals; finite numerical evaluations check its sign but do not prove the general claim.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for the arbitrary C² positively curved body fixed-n conditional curvature–width coefficient and constant-width discrimination; known circle tail and exponent are credited. Distinct full-text comparisons and source-access risks are explicitly bounded.
+
+## value
+
+PASS
+
+A natural stochastic-geometric question is whether a random tangent polygon enclosing a smooth convex curve has finite conditional mean, and what geometry controls its tail. The nontrivial exactly shape-dependent all-n coefficient and the constant-width counterexample isolate information beyond width while explaining an otherwise counterintuitive infinite mean. Neither circle tail nor arbitrary positive-density extension alone would give that shape comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

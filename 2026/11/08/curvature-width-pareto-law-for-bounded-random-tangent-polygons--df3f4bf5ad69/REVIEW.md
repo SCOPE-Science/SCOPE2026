@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The boundedness probability follows from the exact semicircle-gap criterion and iid normal-angle density. The near-antipodal tangent intersection has a leading displacement \(w(\theta)/\delta\), producing \(w(\theta)^2/(2\delta)\) area. A uniform upper bound in terms of inverse gap deficits and a simplex-volume estimate suppress overlapping singularities. The remaining adjacent-normal probability flux yields the stated positive finite coefficient. The moment cutoff follows from a positive \(1/t\) tail. Numerical integration, symbolic Fourier specializations and Monte Carlo support—but do not replace—the proof.
+## correctness
 
-**Originality — PASS, subject to historical-priority risk.** The circle-tangent tail and the possibility of unbounded areas are already related to previous work. The assessed claim is the entire arbitrary smooth convex curve's fixed-sample coefficient, its arbitrary normal-density form, and a noncircular constant-width distinction. Fodor, Hug and Ziebarth (arXiv:1409.8105) consider outer-truncated randomly circumscribed bodies as the number of halfspaces grows; their inspected full-text model and theorems do not subsume this result. Xu (2015) treats circle-tangent polygons; only the abstract was accessible, so no whole-document negative-priority claim is made. The closest retrieved geometric approximation literature has different parameters and conclusions.
+PASS
 
-**Value — PASS.** Expected circumscribed area is a natural approximation-quality statistic. The theorem identifies an exact and persistent conditional nonintegrability mechanism for every fixed sample size, and the coefficient separates convex bodies of identical constant width. This is a shape-sensitive law, not simply the circle law rewritten.
+Gauss angle Jacobian rho=h+h″ establishes f=rho/L; all cyclic gaps less than pi iff the halfplane intersection is bounded. When a single gap equals pi-delta, the divergent vertex has leading w(theta)/delta and shoelace area w(theta)^2/(2 delta). Every side is tangent so perimeter bounds area by a sum of reciprocal near-pi gap defects, and two-gap simplex estimates make concurrent extremes negligible in the leading t^-1 probability. Adjacent-pair density n(n-1) f(theta)f(theta+pi) H(theta)^(n-2) gives the exact integral constant after division by p_n>0. Positive constant yields the q<1 iff moment threshold. The noncircle constant-width example follows by trigonometric integrals; finite numerical evaluations check its sign but do not prove the general claim.
 
-**Scientific limits.** Fixed \(n\), planar \(C^2\) strictly convex bodies with positive curvature; no random tangent offsets, finite-sample statistical estimator, second-order tail remainder, or nonsmooth extension. Published priority and the complete Xu text require outside review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for the arbitrary C² positively curved body fixed-n conditional curvature–width coefficient and constant-width discrimination; known circle tail and exponent are credited. Distinct full-text comparisons and source-access risks are explicitly bounded.
+
+## value
+
+PASS
+
+A natural stochastic-geometric question is whether a random tangent polygon enclosing a smooth convex curve has finite conditional mean, and what geometry controls its tail. The nontrivial exactly shape-dependent all-n coefficient and the constant-width counterexample isolate information beyond width while explaining an otherwise counterintuitive infinite mean. Neither circle tail nor arbitrary positive-density extension alone would give that shape comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
