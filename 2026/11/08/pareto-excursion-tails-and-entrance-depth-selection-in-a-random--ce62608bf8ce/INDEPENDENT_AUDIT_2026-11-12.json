@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T08:00:52.725841Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: for Y=(1/2,1] under map right branch (y-1/2)^B and subsequent left doubling, R=1+floor(B Z), Z=log_2 1/(y-1/2)≥1. For integer n, {R>n}={BZ≥n}; conditional Pareto tail is min(1,(Z/n)^kappa). Source induced stationary density bounded on Y implies P(Z>z)=O(2^-z), finite C_kappa. Layer-cake gives exact deficit and O(2^-n/n). Conditional mixed tails converge to kappa-size-biased Z independent of Pareto overshoot by dominated convergence; tower mass finiteness iff E R<∞ iff kappa>1. Independently checked exact integer returns (Z,B)=(2,2),(3,3),(4,5): R=5,10,21. Source stationary law is NOT asserted uniform and numerical uniform test only diagnostic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Inoue–Toyokawa Theorem 3.1 and Lemma 3.1 construct induced invariant ν and control its density. Proposition 4.6/Remark 4.5 bound near-zero mass and prove infinite mass in one regime.",
+          "General first-return maps theory gives tower structure, not exact Pareto conditional return-time law."
+        ],
+        "reasoning": "Earlier conclusions overlap on infinite mass for kappa<=1 but do not explicitly give both-sided sharp moment thresholds, stationary C_kappa and joint tilted-depth/Pareto law.",
+        "searches": [
+          "https://arxiv.org/html/2303.10873v1",
+          "https://doi.org/10.1088/1361-6544/ab4c83",
+          "random convex intermittent interval map Pareto parameters first return time depth size bias induced invariant Inoue Toyokawa"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2303.10873v1",
+        "https://doi.org/10.1088/1361-6544/ad2ff9",
+        "https://doi.org/10.1088/1361-6544/ab4c83",
+        "Resultary semantic query: random convex intermittent interval map Pareto parameters first return time depth size bias induced invariant Inoue Toyokawa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published source supplies density boundedness and existence; our exact R identity plus independent B specifies a new conditional tail and size-bias mechanism.",
+          "The paper says the invariant measure is infinite for kappa<=1; the converse and distributional details are not stated in the examined preprint."
+        ],
+        "reasoning": "A stronger generic theorem could give these as corollaries after recognizing the product clock, but no identified inspected result makes them immediate for this map.",
+        "searches": [
+          "https://arxiv.org/html/2303.10873v1",
+          "https://doi.org/10.1088/1361-6544/ad2ff9",
+          "https://doi.org/10.1088/1361-6544/ab4c83"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source §4.6 random map is identical to T_B at alpha=0 and ell=kappa+1; generic heavy-tail product/Breiman theory predicts the leading law once R=1+floor(BZ) is established."
+        ],
+        "reasoning": "The return observable R and independent depth tilt are a model-specific reduction not given by the abstract existence of invariant measures.",
+        "searches": [
+          "random convex intermittent interval map Pareto parameters first return time depth size bias induced invariant Inoue Toyokawa",
+          "https://arxiv.org/html/2303.10873v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original published example has invariant-mass estimates but no table of exact R tail probabilities at all integer n."
+        ],
+        "reasoning": "An infinite return-time distribution is not a finite lookup table; exact formula checked against the same map and source statement, rather than assuming absence proves novelty.",
+        "searches": [
+          "random convex intermittent interval map Pareto parameters first return time depth size bias induced invariant Inoue Toyokawa",
+          "https://arxiv.org/html/2303.10873v1"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: original Inoue–Toyokawa supplies invariant measure and infinite-mass side but not this exact return-clock tail formula, exponential correction, stationary depth-size bias and conditional overshoot law in inspected accessible preprint; generic Breiman/Pareto product results are prior tools.",
+      "residual_risks": [
+        "Stationary density ν not computed in closed form; exact C_kappa remains an expectation.",
+        "Journal revision of same source and general inducing literature not fully inspected; equivalent conditional law may preexist.",
+        "Proof concerns stationary annealed first return and alpha=0, not quenched or general branch laws."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Existing measure construction and one-sided infinite-mass regime are prior; exact stationary return law and selected-depth conditional theorem not found in inspected v1",
+          "evidence": "Theorem 3.1, Lemma 3.1, p19 eq (4.6), p20 Proposition 4.6 and Remark 4.5.",
+          "identifier_or_url": "https://arxiv.org/html/2303.10873v1",
+          "material_read": "Complete accessible arXiv v1 including Theorem 3.1, Lemma 3.1, §4.6 eq (4.6), Proposition 4.6, Remark 4.5",
+          "method": "Full primary PDF text and relevant page-image checks",
+          "title": "Invariant measures for random piecewise convex maps",
+          "trigger": "Exact map, invariant induced law and mass criterion"
+        },
+        {
+          "assessment": "Historical priority remains qualified because journal revisions uninspected",
+          "evidence": "Nonlinearity 37 (2024) 055016.",
+          "identifier_or_url": "https://doi.org/10.1088/1361-6544/ad2ff9",
+          "material_read": "Accessible journal abstract/metadata only; full final version not accessed",
+          "method": "Bibliographic and abstract comparison; no whole-paper NOT_COVERING claim",
+          "title": "Invariant measures for random piecewise convex maps (journal)",
+          "trigger": "Potential changed full journal version"
+        },
+        {
+          "assessment": "Does not establish coverage from accessed material; priority risk retained",
+          "evidence": "Nonlinearity 33 (2020) 249.",
+          "identifier_or_url": "https://doi.org/10.1088/1361-6544/ab4c83",
+          "material_read": "Abstract and bibliographic record; complete paper not obtained",
+          "method": "Relevant model and scope comparison only",
+          "title": "First return maps of random maps and invariant measures",
+          "trigger": "Possible broad inducing/return-time theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: provides an exact regenerative return distribution, sharp moment/finite-mass boundary, and explicit rare-excursion depth mechanism for a natural published random intermittent map; the invariant-entrance constant is meaningful despite lacking closed-form density.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2303.10873v1",
+    "https://doi.org/10.1088/1361-6544/ad2ff9",
+    "https://doi.org/10.1088/1361-6544/ab4c83",
+    "Resultary semantic query: random convex intermittent interval map Pareto parameters first return time depth size bias induced invariant Inoue Toyokawa"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Stationary density ν not computed in closed form; exact C_kappa remains an expectation.",
+    "Journal revision of same source and general inducing literature not fully inspected; equivalent conditional law may preexist.",
+    "Proof concerns stationary annealed first return and alpha=0, not quenched or general branch laws."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The model is an iid random interval map with the left branch \(2x\) and right branch \((x-1/2)^B\), and a stationary induced entrance distribution on \(Y=(1/2,1]\). For each starting pair \((y,B)\), direct iteration gives \(R=1+\lfloor BZ(y)\rfloor\), including exact dyadic boundary cases. Conditional Pareto integration proves the finite-integer tail without approximation. Bounded induced density (Inoue–Toyokawa Theorem 3.1, assumption (A) with left derivative \(2\)) gives the exponential logarithmic-depth bound, quantitative error and finite moments. Dominated convergence proves the size-biased entrance distribution and independent Pareto overshoot. The source's return-tower construction gives the precise finite-measure threshold. The standard-library checker passed 834 finite checks; the analytical argument, not finite tests, proves the infinite claims.
+## correctness
 
-## Originality — PASS within inspected evidence
-The direct primary source is Inoue and Toyokawa, arXiv:2303.10873v1, especially their §4.6, Proposition 4.6 and Remark 4.5. That paper provides the underlying model, the induced invariant law and near-zero shell comparisons, with a one-sided infinite-mass criterion. Its inspected full preprint does not state the exact stationary return-time tail, conditioned depth law, or corresponding converse criterion. The distinct §4.1 low-slope system has an additive rather than multiplicative return clock. Searches for the same formula, product/renewal equivalents and broader inducing results found no demonstrated coverage. This is a best-knowledge result, not a proof of global uniqueness. The later journal version of the same paper and some broader induced-return references were not inspected fully, so a publication-priority risk remains.
+PASS
 
-## Mathematical value — PASS
-The motivated invariant is the first excursion duration out of the expanding section of a natural random intermittent model. In addition to the sharp Pareto exponent and stationary constant, the theorem identifies an exact finite-threshold probability, exponentially accurate asymptotic, and the conditional selection of deeper entrance points as excursions grow long. That selection bias is useful to understand which initial geometric configurations generate long returns; the full moment and finite-measure phase diagram also strengthens the one-sided criterion in the originating paper. The constant is a stationary expectation rather than a closed elementary expression, which limits direct numerical evaluation but not the exact law.
+PASS: for Y=(1/2,1] under map right branch (y-1/2)^B and subsequent left doubling, R=1+floor(B Z), Z=log_2 1/(y-1/2)≥1. For integer n, {R>n}={BZ≥n}; conditional Pareto tail is min(1,(Z/n)^kappa). Source induced stationary density bounded on Y implies P(Z>z)=O(2^-z), finite C_kappa. Layer-cake gives exact deficit and O(2^-n/n). Conditional mixed tails converge to kappa-size-biased Z independent of Pareto overshoot by dominated convergence; tower mass finiteness iff E R<∞ iff kappa>1. Independently checked exact integer returns (Z,B)=(2,2),(3,3),(4,5): R=5,10,21. Source stationary law is NOT asserted uniform and numerical uniform test only diagnostic.
 
-## Sources and limitations
-The key source and its relevant equations were inspected in full HTML at https://arxiv.org/html/2303.10873v1. The 2024 journal counterpart (DOI:10.1088/1361-6544/ad2ff9) was accessible only in excerpt form; the general first-return paper (DOI:10.1088/1361-6544/ab4c83) and a later Markov-operator/Darling–Kac paper (DOI:10.14492/hokmj/2024-851) were accessible only as abstracts. They are residual comparison risks, not declared non-covering from snippets. This proof concerns iid Pareto parameters, \(\alpha=0\), and the stationary induced entrance law, not quenched limits, other parameters, or a uniform entrance density.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: original Inoue–Toyokawa supplies invariant measure and infinite-mass side but not this exact return-clock tail formula, exponential correction, stationary depth-size bias and conditional overshoot law in inspected accessible preprint; generic Breiman/Pareto product results are prior tools.
+
+## value
+
+PASS
+
+PASS: provides an exact regenerative return distribution, sharp moment/finite-mass boundary, and explicit rare-excursion depth mechanism for a natural published random intermittent map; the invariant-entrance constant is meaningful despite lacking closed-form density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
