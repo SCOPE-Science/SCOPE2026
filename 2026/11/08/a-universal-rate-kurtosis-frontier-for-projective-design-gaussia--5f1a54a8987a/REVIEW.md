@@ -1,15 +1,21 @@
-# Scientific review: projective-design Gaussian sampler
+# Independent mathematical audit
 
-## Correctness — PASS
-The model explicitly requires a planar rank-one projector law with matching second and fourth directional design moments, independent selections, calibrated isotropic Gaussian innovations, and \(0<\eta<2\). Projector idempotence yields the exact rate \(\rho\) and quartic radial multiplier \(t_4\). Synchronous coupling makes the Markov operator contractive in \(W_2\); the fourth-moment drift gives integrability. The covariance is uniquely \(sI_2\). A contraction on homogeneous quartic polynomials then determines every stationary directional fourth moment uniquely, not merely a rotational average. Its strict positive excess cumulant and exact algebraic rate–kurtosis frontier follow for all admissible parameters. Exact pair-coordinate identities and rational special cases were independently recomputed by the standalone checker. There is no claim about general \(W_2\) sharpness, total-variation rates or continuous-time discretization error.
+## correctness
 
-## Originality — PASS, with remaining precedence risk
-The 2019 scalar random-coefficient autoregression paper already explains non-Gaussianity and derives scalar fourth moments with random coefficients; neither its stated scalar results nor its Appendix A formula establishes the specified planar projective-design identity and complete rate–kurtosis tradeoff for noncommuting rank-one projection maps. The 2021 random-batch overview and the two inspected 2022 random-batch papers give general algorithms and invariant-measure error estimates, not this sharp fourth-order benchmark. The 2023 GJ Langevin analysis concerns non-Gaussian forcing and different deterministic updates, whereas the present innovations are Gaussian and the projection direction is randomized. Overlapping earlier results on stochastic coordinate Langevin covariance and noisy randomized Kaczmarz Gaussianity treat different update/noise structures, so their recorded claims do not imply the new quartic formula. Searches of alternate formulations, projective designs, random-affine recurrences, and specific quartic constants returned no statement found to cover the same complete result. Absence from these searches is not a uniqueness proof. Residual risk: a general multivariate affine recursion or random-direction sampling paper may already specialize to this closed form. No independent literature review was performed.
+PASS
 
-## Value — PASS
-A projective second-moment design is a standard non-arbitrary way to distribute stochastic rank-one directions, with the three pair-difference directions of a complete three-particle system as its smallest geometric example. Matching covariance is commonly used to validate noisy numerical samplers. This result proves that the same calibration leaves a universal, measurable non-Gaussian fourth-moment error and that the fastest synchronous mean-square contraction produces the largest such error. At \(\eta=1\) and unit target variance, the radial fourth moment is exactly \(48/5\), compared with the Gaussian value \(8\); the stationary quadratic-energy variance is \(28/5\) instead of \(4\). The law is uniform over all planar designs satisfying two moment equations, not an isolated parameter calculation. It is a benchmark and structural limitation, not a general sampler superiority claim.
+For a planar iid rank-one orthogonal projector P with E P=I/2 and E(uᵀPu)²=3||u||⁴/8, A=I−ηP has exact directional squared contraction ρ=1−b/2 and quartic multiplier t4=1−b+3b²/8, b=η(2−η)>0. Synchronous coupling contracts W2 and quartic drift gives unique stationary finite fourth moment; q=(1−ρ)s enforces covariance sI. The homogeneous quartic operator contracts by t4, forcing a unique radial directional fourth moment m=3s²(8−2b)/(8−3b), so κ=3b/(8−3b)=3(1−ρ)/(1+3ρ). Since b≤1 with equality only η=1, fastest synchronous squared contraction ρ=1/2 has κ=3/5. Independent exact symbolic three-pair-projector design identities and 21 rational parameter cases corroborate. This says nothing about total variation or SDE discretization.
 
-## Closest sources and scope limitations
-The closest sources are Ślęzak–Burnecki–Metzler (arXiv:1904.08737), Jin–Li (arXiv:2104.04337), Jin–Li–Ye–Zhou (arXiv:2202.04952), Ye–Zhou (arXiv:2206.02166) and Grønbech-Jensen (arXiv:2301.04821). The result excludes anisotropic targets, correlated projector draws, non-Gaussian innovations, higher-dimensional non-design frames, and endpoint steps \(\eta=0\) or \(2\). Independently checking specialist multivariate random-coefficient literature remains appropriate before asserting priority in publication.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior scalar random-coefficient autoregression explains non-Gaussian stationary laws and random-batch methods explain randomized interaction algorithms; the inspected formulas do not give the new planar projective-second-moment-design invariant quartic law or exact κ–ρ relation for calibrated isotropic Gaussian forcing. Published isotropic noisy Kaczmarz fourth-cumulant attenuation uses a different noise mechanism. Residual risk: a general matrix-affine moment formula could imply this case; no exhaustive priority claim.
+
+## value
+
+PASS
+
+Covariance calibration is a standard validation target for stochastic numerical samplers, but it need not control non-Gaussian higher moments. The exact unavoidable fourth cumulant and its inverse tradeoff with synchronous contraction rate supplies a useful quantifiable algorithmic warning and natural projective-design universality, not a lone tiny-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

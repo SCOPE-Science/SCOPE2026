@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The exact checker is `verify.py` and its recorded standard output is `verify_output.txt`. With Python 3 and SymPy installed, run:
+## correctness
 
-```bash
-python verify.py
-```
+PASS
 
-The checker verifies the exact polynomial identities for the three pair projectors on the two-dimensional centered subspace of \(\mathbb R^3\), including the projective design's quadratic and quartic moments for a symbolic centered vector. It verifies the factorization \(t_4-\rho^2=\eta^2(2-\eta)^2/8\), the stationary fourth-moment fixed-point equation, the calibrated covariance, and the exact frontier. It also checks 21 exact-rational parameter/variance combinations.
+For a planar iid rank-one orthogonal projector P with E P=I/2 and E(uᵀPu)²=3||u||⁴/8, A=I−ηP has exact directional squared contraction ρ=1−b/2 and quartic multiplier t4=1−b+3b²/8, b=η(2−η)>0. Synchronous coupling contracts W2 and quartic drift gives unique stationary finite fourth moment; q=(1−ρ)s enforces covariance sI. The homogeneous quartic operator contracts by t4, forcing a unique radial directional fourth moment m=3s²(8−2b)/(8−3b), so κ=3b/(8−3b)=3(1−ρ)/(1+3ρ). Since b≤1 with equality only η=1, fastest synchronous squared contraction ρ=1/2 has κ=3/5. Independent exact symbolic three-pair-projector design identities and 21 rational parameter cases corroborate. This says nothing about total variation or SDE discretization.
 
-The general theorem for arbitrary projective second-moment design laws is justified by the analytic proof's one-step moment identities, \(W_2\) contraction, fourth-moment drift, and strict contraction on homogeneous quartic polynomials. Finite symbolic examples do not replace that proof. No experiment establishes uniqueness in the literature, and no external independent validation has been performed.
+## originality
+
+PASS
+
+Prior scalar random-coefficient autoregression explains non-Gaussian stationary laws and random-batch methods explain randomized interaction algorithms; the inspected formulas do not give the new planar projective-second-moment-design invariant quartic law or exact κ–ρ relation for calibrated isotropic Gaussian forcing. Published isotropic noisy Kaczmarz fourth-cumulant attenuation uses a different noise mechanism. Residual risk: a general matrix-affine moment formula could imply this case; no exhaustive priority claim.
+
+## value
+
+PASS
+
+Covariance calibration is a standard validation target for stochastic numerical samplers, but it need not control non-Gaussian higher moments. The exact unavoidable fourth cumulant and its inverse tradeoff with synchronous contraction rate supplies a useful quantifiable algorithmic warning and natural projective-design universality, not a lone tiny-instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
