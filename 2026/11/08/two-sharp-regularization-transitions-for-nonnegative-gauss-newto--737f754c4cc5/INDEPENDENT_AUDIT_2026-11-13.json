@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T20:59:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-sharp-regularization-transitions-for-nonnegative-gauss-newto--737f754c4cc5/RESULT.md",
+        "Local independent SymPy audit04_checks.py",
+        "Orvieto–Xiao primary derivation https://arxiv.org/html/2407.04358v1"
+      ],
+      "rationale": "For S_j=x^TH^jx, m=S2/S1 and variance v=S3/S1−m², expanding the update gives (1+σ²v)/(1+σm)². Endpoint inequality v≤(b−m)(m−a) is sharp for any actual extremal eigenspaces. Independent SymPy differentiation produced the affine derivative numerator σ[σ(a+b)+2σ²ab−2−σ(2+σ(a+b))m]; substitution of stationary m verified the quoted second rational branch identically. The branch switch, unique σ minimax point, and κ descent frontier follow from derivative and AM–GM with attainable two-point mass. Independent exact witness at H=diag(1,10), σ=2 is alpha=12/31 and ratio=41/31.",
+      "residual_risks": [
+        "Only centered zero-minimum SPD quadratics in exact arithmetic, deterministic update and one step; no implication for long-run stability or stochastic gradients."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original NGN paper derives stochastic/deterministic algorithms and convergence without the exact finite-σ two-eigenspace all-state objective envelope.",
+          "Huang–Qi Theorem 2.1 studies a generalized step with convergence in a weighted norm; the Sep20 theorem handles fixed gamma and already gives the κ=3+2sqrt2 limiting constant."
+        ],
+        "reasoning": "Previous general convergence does not guarantee single-step objective decrease. Fixed-gamma bounds are not sharp after substituting gamma(m) into a global constant-gamma supremum, since the spectral mean is coupled to gamma.",
+        "searches": [
+          "arXiv:2407.04358v1 §2 derivation and §4 convergence",
+          "arXiv:2407.04914v1 Theorem 2.1 and §3",
+          "Resultary Sep20 complete scaled Polyak theorem"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2407.04358v1",
+        "https://arxiv.org/html/2407.04914v1",
+        "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The minimax value ((b-a)/(b+a))² and κ=3+2sqrt2 are already classical/previously established for other rules; not claimed independently new.",
+          "The new finite-σ bifurcation ((b-a)σ(1+aσ)=2), exact maximizing spectral mean, and unique σ_opt=2(a+b)/(b-a)² do not follow from the fixed scaled-Polyak constant-gamma result by parameter substitution."
+        ],
+        "reasoning": "A corollary with coincident constants is prior-covered, but the full state-coupled sharp envelope and finite-regularization safety law survive the closest prior implication tests.",
+        "searches": [
+          "Source NGN paper derivation equations 10–15",
+          "Sep20 scaled Polyak theorem Main theorem/Minimax calibration",
+          "Huang–Qi 2024 Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source-defined NGN alpha=σ/(1+σS2/S1) for f=S1/2 and gradient norm²=S2, state-dependent m=S2/S1.",
+          "Fixed-scaled Polyak alpha=(gamma/2)S1/S2 differs because its gamma is constant, whereas matching NGN requires gamma=2σm/(1+σm), depending on the current state."
+        ],
+        "reasoning": "NGN is a harmonic-mean regularization of a Polyak-type adaptive step, but its all-state finite-σ optimization is not equivalent to the fixed-gamma Polyak supremum. Its two-branch function Qσ is an additional mathematical assertion, not just a rename.",
+        "searches": [
+          "Resultary search: Gauss Newton adaptive gradient sigma/(1+sigma norm grad squared/(2f)) quadratic worst case",
+          "Orvieto–Xiao 2024 §2.2.3 harmonic mean of Polyak step",
+          "Resultary Sep20 scaled-Polyak complete theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Explicit source formula Qσ(a,b) is rational and piecewise for all σ; searches located related endpoint inequalities but no matching full analytic finite-σ table."
+        ],
+        "reasoning": "This is a continuous-parameter worst-case theorem rather than a finite lookup table. No covering tabulation was found; originality rests on the nonimplied formula and equality characterization, not failed search.",
+        "searches": [
+          "Resultary semantic searches: NGN SPD objective contraction sigma safety envelope",
+          "arXiv 2407.04358v1 text about scalar quadratics and sigma"
+        ]
+      },
+      "rationale": "Source NGN and scaled-Polyak algorithms, constants and pointwise inequality were explicitly separated. The new continuously parameterized sharp finite-σ envelope, two-eigenspace maximizing state, mode switch and safe regularization frontier do not follow from the fixed-gamma source. Originality remains best-of-knowledge given the broad adaptive gradient literature.",
+      "residual_risks": [
+        "An older equivalent regularized Polyak/two-moment optimization statement under different terminology cannot be excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ALGORITHM_COVERED; no stated sharp SPD fixed-σ objective envelope in inspected primary sections",
+          "evidence": "NGN is defined as a regularized Gauss–Newton step and a harmonic mean of Polyak and constant steps; convergence not identical to all-state one-step monotonicity.",
+          "identifier_or_url": "https://arxiv.org/html/2407.04358v1",
+          "material_read": "Relevant HTML portions: §2 derivation, §2.2.3 connection to Polyak, the §4 convergence outline and source paper abstract; not all sections read line-by-line",
+          "method": "Primary arXiv HTML reading",
+          "title": "An Adaptive Stochastic Gradient Method with Non-negative Gauss-Newton Stepsizes",
+          "trigger": "Defines identical deterministic NGN update and fixed regularization"
+        },
+        {
+          "assessment": "DIFFERENT_STEP_FAMILY",
+          "evidence": "Uses exact line search or scaled Polyak/generalized steps and proves weighted-norm or objective contraction, not NGN with fixed σ.",
+          "identifier_or_url": "https://arxiv.org/html/2407.04914v1",
+          "material_read": "HTML Introduction, Section 2 including Theorem 2.1, Section 3 gradient-method objective results",
+          "method": "Primary arXiv HTML reading",
+          "title": "Analytic analysis of the worst-case complexity of the gradient method with exact line search and the Polyak stepsize",
+          "trigger": "Two-endpoint quadratic gradient spectra and possible implication"
+        },
+        {
+          "assessment": "COVERS SHARED LIMITING CONSTANTS, NOT fixed-σ NGN envelope",
+          "evidence": "Its objective factor Qγ=1−γ+γ²(κ+1)²/(16κ) has fixed gamma; the current finite-σ NGN maps gamma to a state-dependent function of spectral mean.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-polyak-objective-monotonicity-frontier--169a05cdc789",
+          "material_read": "Full RESULT.md including formula and moment proof",
+          "method": "Published full scientific record via GitHub connector",
+          "title": "Sharp one-step objective frontier for scaled Polyak steps on SPD quadratics",
+          "trigger": "Identical appearing κ barrier and minimax ratio"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2407.04358v1",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-sharp-regularization-transitions-for-nonnegative-gauss-newto--737f754c4cc5/RESULT.md"
+      ],
+      "rationale": "The exact worst one-step objective factor for a named adaptive optimization method is a natural benchmark. Separating universal one-step descent, regularization that minimizes worst-case loss, and transient objective spikes gives a meaningful calibration boundary and explicit extremizers across every SPD dimension.",
+      "residual_risks": [
+        "The result is not a multistep convergence theory or a recommendation for stochastic training."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The deterministic NGN step on an SPD quadratic has a sharp two-branch all-state objective factor; its unique minimizing regularization is 2(a+b)/(b−a)², and universal one-step descent for every positive σ holds exactly when κ≤3+2√2, otherwise only σ≤2/(a+b−2√(2ab)) is safe.",
+  "limitations": [
+    "Originality is best-of-knowledge except where decisive full-text prior coverage is proven. No independent expert publication-priority guarantee.",
+    "Whole-tree Git object was not independently rehashed; only named frozen source blobs were read.",
+    "Existing published source package unchanged; no filesystem or GitHub modifications to research content, no formal/Lean or expert attestation invented."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof starts from the source-defined NGN formula and derives an exact spectral-variance identity for the one-step objective ratio. The elementary endpoint-moment inequality is sharp **for every specified matrix with actual extremal eigenvalues**, because its endpoint eigenspaces are available and can realize every mixture. The derivative of the resulting one-variable rational objective is affine in its spectral-mean parameter, establishing the unique maximizer and both branches. Differentiation in the regularization parameter establishes the unique minimax scale. The AM–GM equality case gives necessity as well as sufficiency of the strict descent frontier. The explicit diagonal witness has exact ratio \(41/31\). The independent arithmetic implementation in `artifacts/verify.py` was run successfully, reporting 37,727 exact-rational/deterministic numerical assertions. Finite tests are supplementary, not an infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+For S_j=x^TH^jx, m=S2/S1 and variance v=S3/S1−m², expanding the update gives (1+σ²v)/(1+σm)². Endpoint inequality v≤(b−m)(m−a) is sharp for any actual extremal eigenspaces. Independent SymPy differentiation produced the affine derivative numerator σ[σ(a+b)+2σ²ab−2−σ(2+σ(a+b))m]; substitution of stationary m verified the quoted second rational branch identically. The branch switch, unique σ minimax point, and κ descent frontier follow from derivative and AM–GM with attainable two-point mass. Independent exact witness at H=diag(1,10), σ=2 is alpha=12/31 and ratio=41/31.
 
-Actual comparisons include the publicly available July 2024 NGN source (arXiv:2407.04358v1, its defining rule and deterministic/stochastic properties), the publicly posted 2026 scaled-Polyak quadratic frontier (full RESULT.md), and Huang–Qi's July 2024 spectral-gradient family (arXiv:2407.04914v1, Section 2). The doubled-Polyak \(3+2\sqrt2\) barrier, the known optimal-gradient factor and the spectral moment inequality are explicitly excluded from novelty. None of the inspected claims asserts the NGN *fixed \(\sigma\)* sharp two-branch objective factor, the mode-switch threshold, the unique finite optimal regularization, or the finite-regularization objective-descent cutoff. Crucially, fixed-scaled Polyak has a constant multiplier while NGN's multiplier depends on the current spectral mean; the former's sharp envelope does not attain the latter's coupled statewise maximum at all spectral means. Primary literature nomenclature is broad, so a historically equivalent finite-regularization result remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-Nonnegative Gauss–Newton promises robust optimization behavior with a freely tunable regularization; the exact distinction between safe all-state one-step descent, optimal worst-case contraction, and a transient objective increase is a mathematically motivated calibration question, not a cosmetic variant. The result identifies two distinct structural thresholds, provides sharp extrema in every dimension, and gives a practical exact benchmark for testing parameter choices in quadratic models. No claim of a general downstream convergence theorem is made.
+Source NGN and scaled-Polyak algorithms, constants and pointwise inequality were explicitly separated. The new continuously parameterized sharp finite-σ envelope, two-eigenspace maximizing state, mode switch and safe regularization frontier do not follow from the fixed-gamma source. Originality remains best-of-knowledge given the broad adaptive gradient literature.
 
-## Limitations and closest literature
+## value
 
-All statements concern exact arithmetic, centered positive-definite quadratics, deterministic full gradients and one step only. The 2026 public scaled-Polyak theorem is the closest overlap; it already supplies the shared large-regularization constant and minimax objective-factor value, but not the state-coupled NGN envelope. The 2024 NGN paper supplies the algorithm and general convergence framework. Publication-priority uncertainty about uninspected older adaptive step literature remains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact worst one-step objective factor for a named adaptive optimization method is a natural benchmark. Separating universal one-step descent, regularization that minimizes worst-case loss, and transient objective spikes gives a meaningful calibration boundary and explicit extremizers across every SPD dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
