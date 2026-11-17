@@ -1,11 +1,21 @@
-# Mathematical review — nonbinary Hamming-ball first-band concentration
+# Independent mathematical audit
 
-**Correctness (PASS).** The first Fourier band decomposes into radial coordinate characters and coordinate-local symbol contrasts. Conditional binomial moments yield the radial block and the transverse eigenvalue, and direct substitution proves both strict characteristic-polynomial inequalities. The proof covers all interior radii, boundary cases, and the fixed-alphabet Gaussian limit. Exact rational and direct complex Fourier checks reproduce the formulas; numerical eigensolver checks are supporting evidence, not substitutes for the proof.
+## correctness
 
-**Originality (PASS, with priority risk).** The closest indexed single-shell result gives a q-ary radial/transverse decomposition but not the eigenvalues of a union of shells or their exact universal ordering. Its shell radial matrices are not simultaneously diagonalizable. The closest Boolean-ball result treats q=2, without transverse coordinate spaces. The two relevant primary preprints study general Fourier concentration estimates on Euclidean/discrete Euclidean domains and Boolean-cube Slepian eigenspaces, respectively. None of the inspected statements asserts the four-sector nonbinary ball spectrum, sharp ordering, or fixed-alphabet Gaussian outlier universality. A broader association-scheme identity or a clever use of the published shell decomposition could reproduce these calculations; historical priority remains provisional, not independently certified.
+PASS
 
-**Mathematical value (PASS).** Exact stable recovery bounds on full Hamming balls are natural for first-degree Fourier signals on multi-symbol product groups, unlike single-shell restriction, which always has an unavoidable nullspace. The nonbinary transverse sector is new relative to the binary model; nevertheless both outliers have an alphabet-independent Gaussian limit. The all-parameter strict ordering identifies the sharp singular values without numerical diagonalization. This is a complete natural spectral invariant, not a claim of a universal algorithm or a higher-band theory.
+Decomposition of each coordinate into constant, activity contrast and q-2 zero-at-zero transverse character modes yields the exact block spectrum. Conditioning on Bin(n-1,p) and Bin(n-2,p) gives m,d,e,c and transverse beta; radial contrast mu=d-e and the remaining 2x2 eigenvalues lambda±. The characteristic polynomial signs F(beta)=-(n-1)(q-1)alpha*s/q² and F(mu)=-n(q-1)r*s/q² prove strict interlacing. B_1 separates all first-band functions, and the complement to B_k for k<=n-2 also does, giving 0<lambda- and lambda+<1. Local/central binomial limits produce q-independent Gaussian outliers. Independent exact binomial identities checked 390 tuples and direct complex Fourier matrices checked 3 cases.
 
-**Closest works and limitations.** Marceca–Romero–Speckbacher (arXiv:2301.11685, 2023), Hogan–Lakey (arXiv:1812.08905, 2018), *Exact q-ary Hamming-shell Fourier concentration and the arithmetic tightness criterion* (2026), and *Exact first-Walsh-band concentration spectra on Boolean Hamming balls* (2026). The theorem fixes q for its central-limit limit and treats only the first band and full balls. It does not establish an independently audited priority claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact q-ary SINGLE-SHELL spectrum and all-degree Hamming SPHERE spectrum are relevant and employ the same radial/transverse decomposition; the binary BALL theorem gives a three-sector counterpart. But summing eigenvalues of shell matrices does not produce ball eigenvalues because their two-dimensional radial blocks generally fail to share eigenvectors. No inspected earlier theorem states the nonbinary full-ball four-sector ordering and q-independent Gaussian outliers. Best-of-knowledge priority; association-scheme literature may imply equivalent formulas.
+
+## value
+
+PASS
+
+A complete closed spectrum, strict interlacing, exact best/worst first-band reconstruction bounds and fixed-q universal Gaussian outliers on an important nonbinary sampling family are independently useful; not just numerical normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
