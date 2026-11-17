@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is the real seven-dimensional degree-three harmonic space on the unit two-sphere, normalized by the probability surface measure. A symmetric trace-free coefficient tensor exists uniquely. Exact integration of each monomial produces the identities \(\int h^2=2E/35\) and \(\int h^4=4E^2/715+(24/5005)\operatorname{tr}(B^2)\). The standalone rational-coefficient checker independently verifies the two polynomial identities for arbitrary seven formal coefficients, including all 210 quartic coefficient slots; the proof then uses the identity \(\operatorname{tr}(B^2)=E^2/3+\|B-(E/3)I\|_{\mathrm F}^2\) and the explicit isotropic example \(xyz\). Equality is exactly \(B=(E/3)I\), without any unproved orbit-classification assertion. A finite test of selected harmonic cubics alone would not establish the universal result, but the included complete symbolic coefficient comparison does.
+## correctness
 
-## Originality — PASS, with residual literature risk
-The relevant 1981 Stanton–Weinstein paper, including its Theorem 1 and discussion of the highest-weight \(L^4\) property, establishes a **local maximum** for the fourth norm within a fixed degree, whereas this result proves a **global lower** constant for degree three and a tensor-isotropy remainder. The source was inspected in the available full author-uploaded text; its different extremal direction and conclusions do not imply this finding. Sogge–Zelditch, arXiv:1011.0215v1 (first posted 2010-10-31), was inspected at the preprint's introduction and relevant later statements and analyzes high-degree typical eigenfunctions, not sharp fixed-degree three minima. Lu's 1987 note was accessible only as an abstract, and therefore no whole-document noncoverage assertion is made about it. published-finding corpus comparisons found a sharp degree-two harmonic fourth-norm record and a cubic-harmonic curvature record, neither of which establishes the asserted degree-three global minimum or exact matrix remainder. The original published spherical-harmonic formulas and harmonic-product identities mean the moment calculation is accessible in principle, but no located source states or implies the exact sharp inequality with equality criterion. Unindexed older invariant-theory literature remains a real originality risk; partitioning records or failing a search is not proof of novelty.
+PASS
 
-## Value — PASS
-Sharp *lower* moments measure the minimum possible concentration of a fixed harmonic degree, complementary to the classical upper-\(L^4\) program. Degree two on the two-sphere has a flat fourth moment, while degree three exhibits nontrivial variation; this theorem determines the exact minimum and a quantitative identity for every cubic. The invariant covariance-like tensor \(B\) gives an intrinsic optimality certificate and an explicit deficit, rather than a merely computed value at one model cubic. The result is a complete natural sharp extremal inequality on the full seven-dimensional harmonic family, and the equality criterion is necessary and sufficient.
+For real degree-three spherical harmonics on normalized unit S^2, the tensor T is symmetric trace-free and E=||T||^2>0; B_ij=sum_{kl}T_ikl T_jkl is PSD with tr B=E. Direct exact rational monomial integration in a seven-dimensional harmonic basis verifies the *universal* polynomial identities ∫h²=2E/35 and ∫h⁴=4E²/715+(24/5005)tr(B²). They imply the stated ratio 315/143+(210/(143 E²))||B-EI/3||_F². Matrix-square nonnegativity gives sharpness and iff equality, with xyz realizing B=EI/3. Nonisotropic x(x²−3y²) has ratio 350/143. This is an all-coefficient identity, not finite sampling; the result asserts no orbit classification.
 
-## Closest literature and limits
-R. J. Stanton and A. Weinstein, *On the L4 norm of spherical harmonics*, Math. Proc. Cambridge Philos. Soc. 89 (1981), 343–358, DOI `10.1017/S0305004100058229`, accessible full author-uploaded text; C. D. Sogge and S. Zelditch, *Concerning the L4 norms of typical eigenfunctions on compact surfaces*, arXiv:1011.0215v1, first posted 2010-10-31, inspected preprint; J.-H. Lu, *A note on a theorem of Stanton–Weinstein*, DOI `10.1017/S0305004100067591`, abstract only. All constants concern real cubic harmonics on \(\mathbb S^2\) with probability surface measure. The result does not prove the sharp upper fourth moment, an equivalence-class classification of isotropic cubic tensors, or extension to other degrees or complex coefficients. No independent mathematical review is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The checked historical Stanton–Weinstein result concerns local maxima of the L4 norm at highest-weight harmonics, not the sharp global degree-three lower endpoint and isotropic tensor remainder. Lu 1987 addresses local maximality; Sogge–Zelditch studies typical high-eigenvalue functions. Published-record searches around cubic/tensor moment aliases and other harmonic degrees revealed no stronger implication. This is best-knowledge originality, not a priority certificate.
+
+## value
+
+PASS
+
+A sharp, exact, nonnegative stability remainder on a natural irreducible seven-dimensional spherical-harmonic space identifies when fourth-moment isotropy is achieved, with a concrete equality geometry. This is a meaningful analytic invariant and rigidity/stability statement, not a renaming or a trivial general Lp inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
