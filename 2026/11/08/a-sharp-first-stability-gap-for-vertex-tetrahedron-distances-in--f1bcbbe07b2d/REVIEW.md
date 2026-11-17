@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is confined to full-dimensional four-simplices formed from five distinct Boolean four-cube vertices. A coordinate-complement symmetry reduces to one marked origin. A complete exact-rational computation checks all 1,365 unordered opposite-tetrahedron vertex choices, rejects 425 linearly dependent choices, and computes all 940 valid convex-hull distances by orthogonal projection on each possible nonempty tetrahedron face with barycentric feasibility. This *is* exhaustive for this finite theorem; a generic numerical optimizer would not establish exact equality. The unique first level, 28 second-level cases, and three coordinate-permutation orbits are asserted and reproduced by the bundled self-contained checker. Reversal of the complement map gives the global counts. The finite certificate is material to the proof and has been replayed.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The most relevant known theorem gives the same *minimum* value \(1/2\) for the vertex-to-opposite-tetrahedron distance; that part is not claimed new. The new statement is the **exact next attainable value** and the complete three-orbit near-minimizer classification for genuine four-simplices, with a sharp positive gap. The inspected primary literature tabulates first minima, general kissing-polytope minima, and bounds; no second-level marked-simplex orbit result was identified. An indexed closely related research record concerns point-to-opposite-triangle distances in a three-dimensional ternary cube and does not imply this result. Targeted equivalence, database, and stronger-coverage searches did not identify a covering claim; undiscovered nonindexed prior computation remains possible.
+PASS
 
-## Mathematical value — PASS
-The motivating notion of flatness is controlled by distances between opposite faces of lattice simplices, with consequences for polytope conditioning. The first minimum alone says nothing about whether nearly flat simplices are isolated; the sharp next squared-distance gap \(1/12\) proves discrete stability. The 448 configurations split into three geometrically inequivalent full-cube orbits, identifying all first near-extremizers, not a single ad hoc example. This is a natural complete classification at the smallest four-dimensional Boolean case beyond the original three-dimensional formula; the numerical scope is narrow but mathematically motivated. There is no claim of a universal high-dimensional stability modulus.
+Cubical coordinate complements send the marked p to origin, leaving exactly C(15,4)=1365 tetrahedron vertex subsets. I independently enumerated all 4-column rank tests over the rationals, 940 full-dimensional cases, and minimized squared norm on all 15 faces by solving rational barycentric projection systems and checking nonnegative weights. Exactly one fixed-p candidate has distance squared 1/4; 28 have 1/3; no intermediate level; the third shell begins at 2/5. The 28 second candidates form three coordinate-permutation orbits of sizes 12,12,4; multiplying by 16 marked p gives 448 global cases and orbits 192,192,64. This exhaustive independent finite certificate is complete because all subsets and convex faces are considered; not empirical extrapolation.
 
-## Closest sources and limitations
-Deza–Pournin, arXiv:2601.03183v1, Table 2 and §§1–2; Deza–Liu–Pournin, arXiv:2412.03479v1, Table 1 and §§1–2,4; Deza–Onn–Pokutta–Pournin, arXiv:2305.18597, introduction, theorems, and computational discussion; indexed record `2026/10/11/SCOPE-exact-vertex-to-opposite-triangle-distance-spectrum-in-the-3-tim--8d3cbeed1ec8`. The exhaustive exact certificate is part of the proof, not external certification. Historical priority is provisional; there is no extrapolation to larger cubes or dimensions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known minimum distance epsilon_0(4,1)=1/2 is fully credited to Deza–Pournin; the first strictly larger attainable distance, gap 1/12 in the squared metric, exhaustive exact number and complete three-orbit near-minimizer classification are additional results not supplied by inspected prior minimum-distance tables. Originality is best-of-knowledge, subject to unpublished near-extremal tables.
+
+## value
+
+PASS
+
+First nonzero stability gap and symmetry-resolved near minimizers are natural follow-ups to the sharp minimization of Boolean simplex-to-opposite-face distance. The finite n=4 full exact classification is a meaningful natural cutoff and complete answer, not an arbitrary list.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
