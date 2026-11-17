@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T11:18:55.127508Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Actual five-coordinate map has edge cycle return h_p∘g_p∘f_p³; identities g_p(z)=1-f_p(z), h_p(z)=f_p(1-z) show exactly f_p^5. The deficit follows T_q(t)=qt+(1-q)t². Comparison to v_j=t0^(2^j) gives 0<=log(t_m/v_m)<=(2^m-1)sqrt(v_m)/c→0 for m=5n, so t_m/q_n→c. The first posttransition step yields c+c² after q_n² normalization; induction t_{m+r+1}/q_n^(r+2)→c+c² proves the fixed-offset result. Hypotheses t0 in (0,1), c>0, p_n close to 1 for large n ensure positivity and bounds. The n-dependent parameter is fixed along each trajectory; no claim uniform in growing ell.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ganikhodjaev–Pah–Rozikov 2019/2021 qualitative dynamics",
+          "Related Resultary independent quadratic maps, not this edge"
+        ],
+        "reasoning": "General iteration theory gives local convergence for fixed p; it does not supply explicit joint tuning and uniform-in-time log-error needed here. No inspected stronger theorem dominates the time-parameter scaling.",
+        "searches": [
+          "Resultary: Ganikhodjaev Pah Rozikov five elements quadratic Volterra moving time p to 1 double exponential crossover f fifth iterate",
+          "Resultary: quadratic stochastic operators critical singular 5 phase edge",
+          "Resultary: general superattracting dynamics moving observation horizon"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1908.07740",
+        "original Git RESULT.md blob d039341d829ba1311125183f80d5c3e5d2c3a50d",
+        "actual Git check_edge_crossover.py blob b6a1d9d392dc7d3570d3ed9101a34c3e2579464e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:1908.07740 Eq.4.11, Proposition5: f,g,h and fixed-parameter derivative"
+        ],
+        "reasoning": "The original factorization plus an additional explicit inequality and asymptotic induction yields the new result. The earlier theorem alone fixes p before n→∞ and cannot be specialized to a moving p_n without nonuniform control.",
+        "searches": [
+          "Resultary: Ganikhodjaev Pah Rozikov five elements quadratic Volterra moving time p to 1 double exponential crossover f fifth iterate",
+          "Resultary: edge quadratic stochastic map 1-p n moving time"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ganikhodjaev–Pah–Rozikov arXiv:1908.07740 §4.3",
+          "Same-model original fixed-p derivative F_p’(1)=(1-p)^5"
+        ],
+        "reasoning": "Earlier f_p^5 representation is an ingredient, not the claimed critical q_n-driven transition; the two-term coefficient c+c² is not the fixed-parameter derivative or a mere renaming of it.",
+        "searches": [
+          "Resultary: Ganikhodjaev Pah Rozikov five elements quadratic Volterra moving time p to 1 double exponential crossover f fifth iterate",
+          "Ganikhodjaev Pah Rozikov five elements Volterra q^5n crossover",
+          "Resultary: critical moving-time iterates f_p quadratic map"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or earlier critical-window coefficient in primary §4.3",
+          "Original check_edge_crossover.py bounded tests"
+        ],
+        "reasoning": "This is a universal asymptotic continuous-parameter profile rather than a database invariant; a finite table cannot exhaust n→∞ or settle q_n-dependent scaling.",
+        "searches": [
+          "Resultary: Ganikhodjaev Pah Rozikov five elements quadratic Volterra moving time p to 1 double exponential crossover f fifth iterate",
+          "Resultary: 32^n five-elements Volterra moving time crossover c+c2"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Ganikhodjaev–Pah–Rozikov give the same model, invariant edge and five-step factorization and fixed-p attraction derivative. Inspection of their arXiv primary preprint §4.3 Eq.4.11 and Proposition5 shows only qualitative and fixed-parameter estimates, not this singular joint p_n→1, n→∞ scaling q_n=t0^(32^n)/c with sharp coefficient c+c². Relevant Resultary searches found no same-model time-moving scaling theorem.",
+      "residual_risks": [
+        "Only invariant edge initial conditions; no generic interior population inference.",
+        "Offset ell fixed, not uniform growing with n.",
+        "Related nonuniform iteration literature not exhaustively screened."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior factorization and fixed-parameter convergence covered; critical q_n time-moving profile not stated",
+          "evidence": [
+            "f_p(z)=z(1+p(1-z)); g_p=1-f_p and h_p=f_p(1-z); Eq.4.11"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1908.07740",
+          "material_read": "Primary arXiv full text including §4.3 Eq.4.11, Proposition5 and mathematical return-map expressions; PDF page 9 (zero-index 8)",
+          "method": "arXiv lawful OA full text with rendered page screenshot",
+          "title": "Dynamics of quadratic operators generated by China’s Five elements philosophy",
+          "trigger": "Original precise same stochastic map and five-edge return"
+        },
+        {
+          "assessment": "Supports independent reconstruction of the sharp coefficient",
+          "evidence": [
+            "Upper bound (2^m-1) t0^(2^(m-1))/c tends zero"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-moving-time-critical-crossover-on-the-five-phase-quadratic-edg--5c88a7aabfc3/RESULT.md",
+          "material_read": "Entire RESULT.md and linked exact rational checker source",
+          "method": "Verified Git blob d039341d829ba1311125183f80d5c3e5d2c3a50d",
+          "title": "A moving-time critical crossover on the five-phase quadratic edge cycle",
+          "trigger": "Assigned final proof and boundary cases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The parameter p=1 is a dynamical singularity from linear contraction to quadratic superattraction; the critical observation horizon 5n and exponentially small q_n produce a precise noncommuting limit. This exact crossover coefficient and exponent is motivated by stiffness and boundary-layer dynamics, beyond the routine fixed-p linearization or the elementary singular p=1 limit alone.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Moving-observation-time critical crossover for the invariant edge of the five-phase quadratic Volterra map with q_n=t0^(32^n)/c: t5n/q_n→c and t5(n+ell)/q_n^(5ell+1)→c+c² for fixed ell>=1.",
+  "limitations": [
+    "Only invariant edge initial conditions; no generic interior population inference.",
+    "Offset ell fixed, not uniform growing with n.",
+    "Related nonuniform iteration literature not exhaustively screened."
+  ],
+  "schema_version": 1
+}
