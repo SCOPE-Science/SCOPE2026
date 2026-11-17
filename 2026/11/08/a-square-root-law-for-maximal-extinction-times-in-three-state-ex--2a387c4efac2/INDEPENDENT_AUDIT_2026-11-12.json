@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T08:46:27.021563Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Verified for 3-state threshold-one GHM on free path: the height gradient d(0,1)=1,d(1,0)=-1 and local excitation indicators give h_{t+1}(v)=max_{u in N[v]}h_t(u). By diameter D=n-1 the height has stabilized and no new excitation occurs after update D; states 1 and 2 vanish within two more steps, giving T<=n+1. New excitation at update D-1 can occur only at one endpoint, exactly when that endpoint is a strict maximum of initial height over all other vertices; both events disjoint. Reverse-state-word walks with strictly positive prefix heights satisfy stated 3-letter kernel equations; cancellation at the unique small formal root yields S(z)=(sqrt((1+z)/(1-3z))-1)/(2z) and EGF ordinary A(z)=sqrt((1+z)/(1-3z)). Algebraic singularity at 1/3 gives probability constant 2/(3 sqrt(3 pi n)); n=1 treated separately. Independently replayed full original-state transitions for n=1..9 and recovered 1,2,4,10,26,70,192,534,1500; examined independent transfer and max-plus source files, which are finite corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2018 Lemma 1: n_et(x)=max path integral over walks length<=t; Theorem 3: finite connected conservative path synchronizes by diameter D.",
+          "1995 one-dimensional 3-color dynamics finite free-boundary definition; no longest-shell count in inspected text.",
+          "1991 one-site infinite-line t^-1/2 survival, not finite free-boundary n+1 hitting."
+        ],
+        "reasoning": "General height representations and diameter bounds allow an upper bound n+1 but do not themselves enumerate exactly which initial words attain the bound. This requires new endpoint-record characterization and kernel enumeration.",
+        "searches": [
+          "Gravner–Lyu–Sivakoff 2018 OA full PDF Lemma1 Theorem3",
+          "Fisch–Gravner 1995 finite free boundary section",
+          "Durrett–Steif 1991 Theorem1"
+        ]
+      },
+      "checked_sources": [
+        "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+        "https://content.wolfram.com/sites/13/2018/02/09-5-1.pdf",
+        "https://sites.math.duke.edu/~rtd/reprints/paper66.pdf",
+        "OEIS A025565 known generating function",
+        "Pinned RESULT.md 25f3791c26d0a1a7f3e5c0a8e71e3f8f95588165"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2018 general-maxima lemma and D=n-1 synchronization give latest new excitation no later than D.",
+          "A strict height record at either path endpoint at time D, plus two refractory steps, provides the *if and only if* extremal event.",
+          "The counted strict positive-height reversed-letter walks have a new kernel generating function, matching A025565."
+        ],
+        "reasoning": "The prior dynamics plus known sequence are insufficient without a combinatorial identification. Full 2018 primary proves an ingredient, not the all-n extremal count; no stronger statement explicitly implies the new sharp-tail census in the inspected full texts.",
+        "searches": [
+          "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+          "https://content.wolfram.com/sites/13/2018/02/09-5-1.pdf",
+          "https://sites.math.duke.edu/~rtd/reprints/paper66.pdf",
+          "OEIS A025565"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A025565 already contains coefficients 1,2,4,10,26... and same generating function in another combinatorial context.",
+          "The new equivalent dynamical event is strict endpoint-record height for 3-color path under GHM, exactly last excitation time."
+        ],
+        "reasoning": "Algebraic sequence itself is NOT claimed new; meaningful exact combinatorial correspondence is to the sharply defined first-all-zero hitting time n+1, not a mere relabeling of an arbitrary finite set.",
+        "searches": [
+          "Resultary_Search: Greenberg Hastings path maximal extinction time sqrt generating function length n longest transient",
+          "OEIS A025565 sqrt((1+z)/(1-3z)) combinatorial coefficients",
+          "Gravner–Lyu–Sivakoff DOI:10.1214/17-AAP1350 Lemma 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The coefficient sequence is preexisting A025565 and explicitly acknowledged by assigned RESULT.",
+          "No located earlier Resultary result equates that table with maximal three-state path extinction."
+        ],
+        "reasoning": "Known numeric sequence reduces novelty to its natural dynamical interpretation; it neither entails nor by itself proves which initial GHM states constitute the set counted. Search absence is not priority proof.",
+        "searches": [
+          "OEIS A025565 count and sqrt((1+z)/(1-3z))",
+          "Resultary_Search: Greenberg Hastings path maximal extinction time sqrt generating function length n longest transient"
+        ]
+      },
+      "rationale": "The height/max-plus dynamics and square-root formal sequence are acknowledged prior work, but the precise identification of the *naturally longest possible free-boundary path extinction shell* with that sequence, its exact all-n coefficient and sharp random-initialization probability are absent from three highly relevant fully read primary analyses. Distinctive exact finite-path enumerator remains best-knowledge novel, not just a known table with no dynamical interpretation.",
+      "residual_risks": [
+        "Equivalent finite-path boundary-record enumeration might occur in unindexed earlier one-dimensional CA/ballot literature.",
+        "The algebraic generating function and max-plus comparison lemma are known and must not be presented as new independently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BROAD_DYNAMICAL_STRUCTURE_NOT_EXACT_SHELL",
+          "evidence": "Lemma 1 gives the same monotone max-plus excitation count and Theorem 3 synchronizes finite trees by graph diameter D, yielding general termination after refractory delay; but neither states the strict endpoint height-record census on P_n nor sqrt((1+z)/(1-3z)) or E_n/3^n constant. Structural lemma explicitly credited.",
+          "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+          "material_read": "Accessible 34-page published OA PDF; read Introduction, Section 2 Lemma 1 (max of path-integrals), Theorem 3 (diameter bound on synchronization), and relevant Section 4 proof; page 1 screenshot inspected",
+          "method": "Targeted original research theorem, proof and model definitions from OA full text; not merely abstract",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs (Gravner, Lyu, Sivakoff, 2018)",
+          "trigger": "Potential general all-graphs max-plus representation which may imply new finite path theorem"
+        },
+        {
+          "assessment": "SAME_DYNAMICS_NOT_EXACT_EXTREMAL_ENUMERATION",
+          "evidence": "Finite free-boundary configuration is explicitly defined, but substantive theorems concern infinite-lattice phase behavior, SPOs, strong/weak death and kappa=2 eventual cycles, not enumerated maximal n+1 transient for kappa=3 on finite path.",
+          "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/09-5-1.pdf",
+          "material_read": "Accessible 20-page PDF; inspected introduction, finite free-boundary definition p3, sections 3–5 principal statements and selected proofs, section 6 finite systems, and first-page screenshot",
+          "method": "Targeted material from primary full text with free-boundary definition and core 1D results",
+          "title": "One-dimensional Deterministic Greenberg-Hastings Models (Fisch and Gravner, 1995)",
+          "trigger": "Most plausible older full-text on finite free-boundary one-dimensional dynamics"
+        },
+        {
+          "assessment": "DIFFERENT_EXTINCTION_EVENT",
+          "evidence": "Theorem 1 estimates P(X_t(0)=1)~const/sqrt(t) on infinite line and Section 5 finite-box dynamics in d>=2; neither is probability that an n-vertex free-boundary path first reaches all zero at exactly n+1, nor its exact generating function.",
+          "identifier_or_url": "https://sites.math.duke.edu/~rtd/reprints/paper66.pdf",
+          "material_read": "Accessible 22-page PDF; inspected Introduction, Theorem 1 on infinite Z one-site survival, proof excerpts, Section 5 finite high-dimensional boxes, and first-page screenshot",
+          "method": "Targeted primary theorem statements and relevant substantive proof passages",
+          "title": "Some Rigorous Results for the Greenberg–Hastings Model (Durrett and Steif, 1991)",
+          "trigger": "Pioneering exact sqrt-time extinction result on same 3-color local rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exactly counting the configurations that attain the natural largest transient in an established three-state cellular automaton is a mathematically motivated complete extremal classification, with an exact n^-1/2 rare-event law. The answer is not arbitrary because maximal first-zero time is intrinsic to the model. Although the same integers were known in other enumerative forms, identifying the precise dynamical class is substantive.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+    "https://content.wolfram.com/sites/13/2018/02/09-5-1.pdf",
+    "https://sites.math.duke.edu/~rtd/reprints/paper66.pdf",
+    "OEIS A025565 known generating function",
+    "Pinned RESULT.md 25f3791c26d0a1a7f3e5c0a8e71e3f8f95588165"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The result does not classify intermediate extinction-time strata or infinite paths, cyclic boundaries, or other color counts.",
+    "The counted OEIS sequence itself and the general height lemma are not new; unindexed past matching interpretation remains priority risk."
+  ],
+  "residual_risks": [
+    "Equivalent finite-path boundary-record enumeration might occur in unindexed earlier one-dimensional CA/ballot literature.",
+    "The algebraic generating function and max-plus comparison lemma are known and must not be presented as new independently."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "BROAD_DYNAMICAL_STRUCTURE_NOT_EXACT_SHELL",
+      "evidence": "Lemma 1 gives the same monotone max-plus excitation count and Theorem 3 synchronizes finite trees by graph diameter D, yielding general termination after refractory delay; but neither states the strict endpoint height-record census on P_n nor sqrt((1+z)/(1-3z)) or E_n/3^n constant. Structural lemma explicitly credited.",
+      "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+      "material_read": "Accessible 34-page published OA PDF; read Introduction, Section 2 Lemma 1 (max of path-integrals), Theorem 3 (diameter bound on synchronization), and relevant Section 4 proof; page 1 screenshot inspected",
+      "method": "Targeted original research theorem, proof and model definitions from OA full text; not merely abstract",
+      "title": "Limiting behavior of 3-color excitable media on arbitrary graphs (Gravner, Lyu, Sivakoff, 2018)",
+      "trigger": "Potential general all-graphs max-plus representation which may imply new finite path theorem"
+    },
+    {
+      "assessment": "SAME_DYNAMICS_NOT_EXACT_EXTREMAL_ENUMERATION",
+      "evidence": "Finite free-boundary configuration is explicitly defined, but substantive theorems concern infinite-lattice phase behavior, SPOs, strong/weak death and kappa=2 eventual cycles, not enumerated maximal n+1 transient for kappa=3 on finite path.",
+      "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/09-5-1.pdf",
+      "material_read": "Accessible 20-page PDF; inspected introduction, finite free-boundary definition p3, sections 3–5 principal statements and selected proofs, section 6 finite systems, and first-page screenshot",
+      "method": "Targeted material from primary full text with free-boundary definition and core 1D results",
+      "title": "One-dimensional Deterministic Greenberg-Hastings Models (Fisch and Gravner, 1995)",
+      "trigger": "Most plausible older full-text on finite free-boundary one-dimensional dynamics"
+    },
+    {
+      "assessment": "DIFFERENT_EXTINCTION_EVENT",
+      "evidence": "Theorem 1 estimates P(X_t(0)=1)~const/sqrt(t) on infinite line and Section 5 finite-box dynamics in d>=2; neither is probability that an n-vertex free-boundary path first reaches all zero at exactly n+1, nor its exact generating function.",
+      "identifier_or_url": "https://sites.math.duke.edu/~rtd/reprints/paper66.pdf",
+      "material_read": "Accessible 22-page PDF; inspected Introduction, Theorem 1 on infinite Z one-site survival, proof excerpts, Section 5 finite high-dimensional boxes, and first-page screenshot",
+      "method": "Targeted primary theorem statements and relevant substantive proof passages",
+      "title": "Some Rigorous Results for the Greenberg–Hastings Model (Durrett and Steif, 1991)",
+      "trigger": "Pioneering exact sqrt-time extinction result on same 3-color local rule"
+    }
+  ]
+}

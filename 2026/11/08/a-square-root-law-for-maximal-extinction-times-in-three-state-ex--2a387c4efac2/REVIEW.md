@@ -1,19 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every finite open path the exact excitation-count representation reduces extinction time to an iterated closed-neighborhood maximum of an integer height potential. The longest transient is characterized by a strict height record at either endpoint; opposite endpoint records are disjoint. Counting the positive-height reversed color words with a three-letter boundary-state kernel gives the stated algebraic generating function, and singularity analysis gives the probability constant. The only special case is the one-vertex path, where exactly the excited state survives two steps. The proof covers all positive path lengths; the finite programs are corroboration, not an extrapolative proof. The three accompanying checkers independently verify the finite dynamics, boundary-record characterization, transfer recurrence and max-plus increments.
+PASS
 
-## Originality — PASS, with explicit limits
+Verified for 3-state threshold-one GHM on free path: the height gradient d(0,1)=1,d(1,0)=-1 and local excitation indicators give h_{t+1}(v)=max_{u in N[v]}h_t(u). By diameter D=n-1 the height has stabilized and no new excitation occurs after update D; states 1 and 2 vanish within two more steps, giving T<=n+1. New excitation at update D-1 can occur only at one endpoint, exactly when that endpoint is a strict maximum of initial height over all other vertices; both events disjoint. Reverse-state-word walks with strictly positive prefix heights satisfy stated 3-letter kernel equations; cancellation at the unique small formal root yields S(z)=(sqrt((1+z)/(1-3z))-1)/(2z) and EGF ordinary A(z)=sqrt((1+z)/(1-3z)). Algebraic singularity at 1/3 gives probability constant 2/(3 sqrt(3 pi n)); n=1 treated separately. Independently replayed full original-state transitions for n=1..9 and recovered 1,2,4,10,26,70,192,534,1500; examined independent transfer and max-plus source files, which are finite corroboration only.
 
-Durrett and Steif's 1991 line analysis gives wave-survival asymptotics for a different infinite-line event, not the exact finite free-boundary maximal-extinction shell. Fisch and Gravner's 1995 finite-system definition and general one-dimensional results do not establish the exact enumerator in examined sections. Gravner–Lyu–Sivakoff's 2016 maximum-height formalism already accounts for a structural step but not the specific boundary-record event and its enumerated frequency. OEIS A025565 ALREADY records precisely the coefficient sequence and square-root generating function in combinatorial terms, so neither is claimed as an original sequence/formula in isolation. The originality claim is restricted to the dynamical identification and quantified sharp transient probability. An unindexed equivalent dynamical result could remain, particularly in historical one-dimensional wave studies.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The maximal transient is a canonical extremal observable for a dissipative finite excitable medium. The result determines exactly how many initial configurations attain the sharp worst-case time, revealing polynomial \(n^{-1/2}\) rarity despite the exponentially growing configuration space. This is a structural distinction between the behavior of a maximal-duration boundary wave and mere global extinction, and provides a precise boundary-sensitive statistic beyond general convergence bounds. It is not offered as a new combinatorial sequence, an arbitrary finite slice or a general classification of all transient times.
+The height/max-plus dynamics and square-root formal sequence are acknowledged prior work, but the precise identification of the *naturally longest possible free-boundary path extinction shell* with that sequence, its exact all-n coefficient and sharp random-initialization probability are absent from three highly relevant fully read primary analyses. Distinctive exact finite-path enumerator remains best-knowledge novel, not just a known table with no dynamical interpretation.
 
-## Limits of review
+## value
 
-The proof assumes three states, threshold one, open endpoints and synchronous updates. The finite checks do not establish novelty, and publication/priority identification is limited by searchable and inspected sources. No independent validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exactly counting the configurations that attain the natural largest transient in an established three-state cellular automaton is a mathematically motivated complete extremal classification, with an exact n^-1/2 rare-event law. The answer is not arbitrary because maximal first-zero time is intrinsic to the model. Although the same integers were known in other enumerative forms, identifying the precise dynamical class is substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

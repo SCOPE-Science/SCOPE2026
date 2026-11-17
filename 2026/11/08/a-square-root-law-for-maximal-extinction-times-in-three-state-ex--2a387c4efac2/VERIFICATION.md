@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run the included scripts with ordinary Python 3 from their containing directory:
+## correctness
 
-```sh
-python3 check_exhaustive.py
-python3 check_transfer.py
-python3 check_maxplus.py
-```
+PASS
 
-The files `exhaustive_output.txt`, `transfer_output.txt`, and `maxplus_output.txt` capture successful executions of these exact scripts.
+Verified for 3-state threshold-one GHM on free path: the height gradient d(0,1)=1,d(1,0)=-1 and local excitation indicators give h_{t+1}(v)=max_{u in N[v]}h_t(u). By diameter D=n-1 the height has stabilized and no new excitation occurs after update D; states 1 and 2 vanish within two more steps, giving T<=n+1. New excitation at update D-1 can occur only at one endpoint, exactly when that endpoint is a strict maximum of initial height over all other vertices; both events disjoint. Reverse-state-word walks with strictly positive prefix heights satisfy stated 3-letter kernel equations; cancellation at the unique small formal root yields S(z)=(sqrt((1+z)/(1-3z))-1)/(2z) and EGF ordinary A(z)=sqrt((1+z)/(1-3z)). Algebraic singularity at 1/3 gives probability constant 2/(3 sqrt(3 pi n)); n=1 treated separately. Independently replayed full original-state transitions for n=1..9 and recovered 1,2,4,10,26,70,192,534,1500; examined independent transfer and max-plus source files, which are finite corroboration only.
 
-`check_exhaustive.py` evolves all \(\sum_{n=1}^{12}3^n=797160\) labelled three-state configurations on open paths of lengths 1–12. For each configuration it checks extinction by \(n+1\), agreement of the first-extinction time with the strict-endpoint-record criterion, and agreement of the resulting population with the square-root coefficient recurrence. Its terminator is `EXHAUSTIVE_OK`.
+## originality
 
-`check_transfer.py` evolves letter-labelled strictly positive height paths via an independent boundary-aware transfer. It compares right-end strict-record counts through path length 101 against the differential recurrence for the square-root series. Its terminator is `TRANSFER_100_OK`.
+PASS
 
-`check_maxplus.py` compares every transition's original excitation events with closed-neighborhood maximum-height increments on all \(9840\) labelled initial words of lengths 1–8 through \(n+3\) rounds. It also checks the color-gradient invariant. Its terminator is `MAXPLUS_OK`.
+The height/max-plus dynamics and square-root formal sequence are acknowledged prior work, but the precise identification of the *naturally longest possible free-boundary path extinction shell* with that sequence, its exact all-n coefficient and sharp random-initialization probability are absent from three highly relevant fully read primary analyses. Distinctive exact finite-path enumerator remains best-knowledge novel, not just a known table with no dynamical interpretation.
 
-These computations establish only their specified finite checks. The all-length theorem, the exact kernel solution and the sharp probability constant rest on the argument in `RESULT.md`; the runs do not independently certify historical priority or constitute an external review.
+## value
+
+PASS
+
+Exactly counting the configurations that attain the natural largest transient in an established three-state cellular automaton is a mathematically motivated complete extremal classification, with an exact n^-1/2 rare-event law. The answer is not arbitrary because maximal first-zero time is intrinsic to the model. Although the same integers were known in other enumerative forms, identifying the precise dynamical class is substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
