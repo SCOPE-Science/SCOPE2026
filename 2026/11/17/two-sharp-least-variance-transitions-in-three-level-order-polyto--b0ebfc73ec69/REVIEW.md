@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** A uniform-volume point admits an exact representation as permuted consecutive uniform order statistics; their covariance and mean-squared gap formulas imply the block matrix and three permutation-contrast eigenvalues. An orthogonal block symmetry decomposition reduces the remaining spectrum to an antisymmetric line and a symmetric \(2\times2\) matrix. The three stated factorizations of its characteristic function rigorously give all strict spectral comparisons, the \(q=p+3\) equality, and all multiplicities. The independent order-statistic summation checker passed 480 rational parameter profiles; it corroborates rather than substitutes for the symbolic all-parameter proof.
+
+**Originality — PASS, with historical-priority risk.** The primary studies [1] and [2] concern maximal ranked order polytopes, ordinal sums and face vectors; their inspected full text does not provide a covariance spectrum. The classical order-statistic covariance literature [3] studies the covariance of the *sorted* sample, not of a uniform coordinate point in this order polytope after within-rank permutation. Related two-rank ellipsoid work concerns different objects/invariants and does not imply this finite three-rank phase classification. No exact, stronger, or equivalent published classification was identified after checking aliases and reductions. The possibility of an unindexed equivalent order-statistic spectral identity remains.
+
+**Mathematical value — PASS.** The geometric family is natural in the literature on ranked posets. The exact answer locates the least-variance directions and their multiplicities in every dimension of a two-parameter family, including a first sharp jump and a second precise, high-dimensional degeneracy. Those features are not read off from the routine moment identities and give intrinsic metric information about uniform points in these polytopes.
+
+**Scope and residual risk.** The outer ranks must agree, and the measure is continuous uniform volume, not counting measure on vertices. Historical priority is provisional. No assertion is made about arbitrary ranked posets, or independent mathematical certification.
+
+Self-review: passed. Independent audit: not yet performed.
