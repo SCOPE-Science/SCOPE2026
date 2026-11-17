@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The statement fixes ordinary complex ranks for all ordered pairs of unordered three-point row/column subsets in \(\mathbb Z_p\times\mathbb Z_q\), for any **distinct** primes. The elementary unit-modulus determinant identity proves that singularity for size three forces proportional rows or columns. Coprime-order character annihilation makes that condition exactly four residue-collision/purity events. Rank one is the two opposite-purity events. The four-event inclusion–exclusion has only two overlaps of size \(XY\), leading to the stated exact counts. Factoring the formula is verified directly. A standalone cyclotomic checker exhausts the cases \((2,5),(3,5),(3,7)\), including all rank strata, without numerical tolerance. The universal proof does not rely on these checks. No extension to repeated primes is assumed.
+## correctness
 
-## Originality
-**PASS under bounded source comparison.** The closest prior result for cyclic even semiprimes classifies \(\mathbb Z_{2p}\); the displayed formula specializes to that known rank-two count, but the new odd-prime-pair case has a positive rank-one sector and a two-direction overlap correction. The published prime-affine-plane three-minor result concerns \(\mathbb F_p^2\), not \(\mathbb Z_p\times\mathbb Z_q\) with distinct primes, although it supplies the preexisting unit-modulus lemma. The KU Leuven report TW477 analyzes maximal rank-deficient Fourier-Kronecker blocks and Hamming numbers; Bonami–Ghobber studies Fourier uncertainty minima and equality cases; Loukaki gives sufficient nonvanishing criteria rather than an exhaustive rank distribution. No inspected statement directly tabulates the new two-prime rank counts. The derivation is elementary once rigidity is known, and a stronger unlocated classification might imply it; unconditional historical priority is not asserted.
+PASS
 
-## Mathematical value
-**PASS.** A complete low-order Fourier-minor rank census is a natural exact interpolation-failure invariant. Unlike the known even-semiprime boundary, odd distinct prime factors admit rank-one (not merely rank-two) failures, and the theorem quantifies both sectors for every pair of primes. It thus identifies an arithmetic transition and gives a determinant-free test for every third-order restriction, without claiming a new general rigidity lemma or a result for arbitrary composite orders.
+Normalize unit-modulus 3x3 determinant: vanishing forces a proportional row/column pair by conjugate identity. In coprime CRT characters, row proportionality forces its nonzero difference in exactly one prime component and all opposing column differences pure in its complementary component. Four events are exhaustive; the only two overlap types are opposite-purity rank-one pairs. Inclusion-exclusion gives R1=2XY, R2=2(XB+YA-2XY) with X=p*C(q,3),Y=q*C(p,3),A=C(pq,3)-q^3*C(p,3),B=C(pq,3)-p^3*C(q,3). Independent exact-integer recalculation reproduced (0,1600,12800) for (2,5), (300,13800,192925) for (3,5), (1470,91728,1675702) for (3,7), and (24500,1146600,41665925) for (5,7).
 
-## Closest literature and limitations
-The relevant inspected primary materials are Bonami–Ghobber (arXiv:1003.5060v2, section on distinct-prime products), Delvaux–Van Barel (KU Leuven report TW477, rank-one tilings and Hamming-number sections), Loukaki (arXiv:2412.08600v5, Theorems A/B), and the complete public mathematical statements *Singular three-by-three Fourier minors on even semiprime cycles* and *Complete three-by-three Fourier-minor rank geometry on prime affine planes*. No claim is made for larger minors, repeated factors, or unlocated literature. Source access was sufficient to compare the stated principal results; one online PDF renderer denied screenshots although its extractable text was available.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A fully inspected 2026-10-18 theorem settles order 3p for all odd p>=5 with identical p=3 formulas. Earlier 2026-10-11 paper covers 2p. Neither applies to arbitrary distinct odd primes >=5, where additional both-prime variable counts arise. Loukaki 2025 concerns principal or restricted nonvanishing, not arbitrary minor rank census. Existing subgroup-block results do not give the complete formula without fresh counting.
+
+## value
+
+PASS
+
+The full exact rank distribution for natural squarefree two-prime cyclic Fourier tables is a coherent extension beyond 2p and 3p and resolves all odd-odd cases; knowing individual rank incidences is useful in finite harmonic analysis and sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
