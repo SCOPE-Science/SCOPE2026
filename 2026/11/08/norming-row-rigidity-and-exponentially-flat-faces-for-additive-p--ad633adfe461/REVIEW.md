@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact conditional-expectation kernel follows from the mutually orthogonal centered coordinate spaces. The strict one-coordinate comparison is proved by an explicit mean-preserving coupling of Bernoulli reciprocal variables; its equality condition is precisely the absence of a subset sum in a strict sign-crossing interval. The telescoping replacement chain yields an if-and-only-if test for **all** norming rows. Under the stated masking inequalities, every possible kernel value has a strict sign determined by the rare block. This proves both free-coordinate flatness and compulsory rare-coordinate rigidity; conditioning gives the norm formula. An exact one-variable computation gives the displayed nonzero loss bound. The explicit \(d=3k+2\) construction satisfies each inequality for all \(k\ge1\), not just the checker dimensions. `verify.py` independently confirms finite rational instances and 124 step strictness tests.
+PASS
 
-## Originality — PASS with residual risk
+The orthogonal additive projector P=Σ_iE_i-(d-1)E gives K=Σ1_match/q_i-(d-1). The martingale coupling of Bernoulli(ri)/ri versus Bernoulli(qi)/qi has conditional mean preservation, with strict |.| Jensen precisely at a negative-to-positive crossing. Every subset of the other independent coordinates has positive mass, so the stepwise support-gap criterion is iff. Under R/T masking, a matched rare R coordinate forces positive K; without any rare R match, all T terms stay below d-1, giving exact norm 1+2(|R|-1)∏(1-ri), and nonminimum R choices have strict deficit. In the d=3k+2 biased family R=2k+2 rare coordinate masses 1/(2d) and T=k masses 1/3, so exactly 2^k corners. Independent exact rational test at d=5 gave two maximizers, common row norm 24683/5000.
 
-The 2008 and 2010 Ding–Lax–Chen papers were inspected in accessible primary full text, including their approximation formulas, orthonormal basis constructions and relevant sections. They give least-squares formulas and the product orthonormal basis, not an all-row sharp norming classification. An earlier finite-product ANOVA endpoint result already computes the operator norm and an all-minimum-mass maximizing row; **these are prior, not the novel claim**. An earlier homogeneous Bernoulli classification exhibits only a one-coordinate resonance; it does not cover the exact heterogeneous multi-coordinate masking faces. Current mathematical-record searches for aliases, equality cases, rare-atom masking and ANOVA endpoint extrema did not surface the present all-row subset criterion or exponential flat-face theorem. Absence from searched sources is not a mathematical proof of novelty; unindexed work remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-The maximum of a projection row identifies where worst-case endpoint amplification occurs, and its kernel sign determines extremizing input signals. Knowing just the sharp norm and one norming location leaves that worst-case geometry unresolved. The theorem resolves all norming evaluation locations by an explicit support-gap test, identifies an entire natural rare-versus-free parameter phase, and supplies quantitative rigidity outside its flat norming face. Exponentially many norming points arise at arbitrarily large dimensions despite all marginal Bernoulli biases being nonfair. This is a structural obstruction to generic uniqueness, not merely another numerical norm table.
+The complete norming-row criterion for heterogeneous finite-product additive L2 projections and the full rigid-times-free masking regime are not supplied by existing sharp-norm theorems. The earlier first-chaos product result omits the constant, and the earlier biased-affine Bernoulli result treats identical biases and only one-coordinate resonance; neither forces arbitrarily large 2^k norming sets with all coordinates biased. Weighted pseudo-Boolean least-squares formulas supply the projector but not this equality-locus classification.
 
-## Evidence and limits
+## value
 
-Sources: Ding–Lax–Chen–Chen (2008), DOI 10.1016/j.dam.2007.08.034, Sections 1 and 6; Ding–Lax–Chen–Chen–Marx (2010), DOI 10.1016/j.dam.2009.08.009, Sections 1 and 3. Earlier finite-product ANOVA and homogeneous Bernoulli norm statements were compared for implication. The proof's strict inequalities exclude boundaries where additional resonant norming rows can arise; the generic subset criterion still covers such boundaries. Finite checks are not an infinite proof. Previously uncatalogued equivalences remain a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete equality-case locus of a natural additive ANOVA projector is a structural extremizer problem that sharp norm values alone do not settle. The exact support-kink test, full rigid-times-free face, quantitative norm gap and biased 2^k multiplicity family explain a nontrivial degeneracy in multivariate least-squares amplification and can guide equality/stability investigations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
