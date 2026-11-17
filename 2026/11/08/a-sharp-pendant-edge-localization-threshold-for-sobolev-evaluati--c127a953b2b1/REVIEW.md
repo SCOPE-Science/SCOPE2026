@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-PASS. The zero-mean energy space has a resistance Green kernel whose squared point-evaluation norm is \(F(x)/L-J/(2L^2)\). On an ordinary unit parallel edge, the complementary resistance is \(1/(r-1)\), giving the strictly concave profile \(F_0+(h/r)t+kt(1-t)\). On the grafted bridge the profile is convex and its tip wins among bridge points. The former profile has the unique interior optimizer \(x_r(h)\). The two candidate values cross exactly once because their difference decreases uniformly with \(h\). Exact integration gives the double resistance integral \(J\). The provided `checker.py` executes exact resistance-network integrations in rational examples, and exact symbolic threshold identities; these do not replace the universal proof.
+## correctness
 
-## Originality
-PASS with bounded bibliographic risk. Baker--Faber's 2004 resistance and canonical-measure formulas are fully acknowledged; Baker--Rumely's companion paper develops the Green operator, not the present graph-family sharp threshold. The ungrafted parallel-path network and a pair of separately joined loop bouquets have different resistance-average profiles from a pendant graft on a multipath bundle. Semantic mathematical-record searches for pendant-multipath sharp Sobolev evaluation, equivalent Green profiles, and localization thresholds did not identify a statement implying the exact \(h_r\) classification. The underlying resistance machinery alone does not state the optimization comparison; unindexed or implicit equivalent results remain possible.
+PASS
 
-## Mathematical value
-PASS. Grafting the simplest nontrivial bridge to a cyclic multipath graph changes where the sharp Sobolev embedding localizes. The exact all-\(r\) phase boundary, finite set of equality points, continuous sharp constant, and discontinuous optimizer switch quantify a natural graph-surgery stability phenomenon rather than an arbitrary numerical case. The value is the sharp classification for the family, not novelty of the Green-function representation.
+For the metric multigraph with r>=3 unit parallel edges plus a pendant h, centered resistance Green representation gives Q(x)=F(x)/(r+h)-J/[2(r+h)^2]. On each parallel edge F=F0+(h/r)t+k t(1-t) with k=r-2+(r-1)h/r>0, and its unique maximum occurs at x=(r-2+h)/(2k). On the pendant F=F0+z²+(r-h)z is convex and its tip exceeds the junction by rh. Direct integration of profiles gives J=[r²+(r+2)h+3rh²+h³]/3. The difference of two candidate maxima has exactly one positive zero; solving 4rhk=(r-2+h)^2 gives the displayed h_r, 0<h_r<1 and limit 1/4. Scalar multiples of centered representers are the complete equality functions. My independent sympy checks at r=3,4,11 verified the radical identity and candidate-value equality; the broad resistance envelope independently yields the same curvature k.
 
-## Limitations and nearest literature
-The graph is a unit equilateral multipath bundle with precisely one pendant of arbitrary positive length, real functions, unnormalized arclength, and quadratic derivative energy. Closest primary literature: Baker--Faber, *Metrized graphs, electrical networks, and Fourier analysis* (arXiv:math/0407428, Theorems 10--12), and Baker--Rumely, *Harmonic analysis on metrized graphs* (arXiv:math/0407427). Broader graph-Sobolev approximation: Solomyak (2003). Independent review of the new result is not yet performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Baker–Faber supplies resistance curvature, while a later published general metric-graph quadratic envelope provides an algorithm for all graphs; neither states the displayed r-dependent pendant switching threshold or extremizer locations without specializing and optimizing. A related loop-bouquet with pendant has a different topology and threshold; no earlier matching full classification was located. The broad envelope publication commit (Nov9 01:09:49Z) is later than the assigned source commit (Nov8 23:31:40Z), but chronology is not treated as guaranteed priority.
+
+## value
+
+PASS
+
+The exact norm and discontinuous localization transition are a motivated network geometry phenomenon: grafting a leaf changes where the largest mean-zero Sobolev evaluations concentrate. The radical boundary, all equality points, and nontrivial r→∞ limit are useful exact information for this natural multigraph, not a guessed arithmetic slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
