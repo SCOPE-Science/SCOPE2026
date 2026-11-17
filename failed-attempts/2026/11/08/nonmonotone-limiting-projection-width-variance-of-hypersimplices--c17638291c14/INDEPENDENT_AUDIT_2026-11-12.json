@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T02:20:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/nonmonotone-limiting-projection-width-variance-of-hypersimplices--c17638291c14/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-nonmonotone-gaussian-angular-width-fluctuations-of-hypersimplice--fe20d5fa3db3/RESULT.md",
+        "independent_science_checks.py exact formula numerical evaluation"
+      ],
+      "rationale": "Exact support function reduces intrinsic Haar width of Δ(n,k) to the Gaussian top-k minus bottom-k order-statistic sum divided by the centered Gaussian norm. At fixed α∈(0,1/2], trimmed-sum linearization gives the influence function (|G|−t)_+−E[(|G|−t)_+]−φ(t)(G²−1), whose Gaussian second moment equals the stated V(t). CLT yields width fluctuations, and width Lipschitz constant ≤√n with n−2-dimensional spherical concentration supplies uniform integrability and Var W→V(t). Continuity plus exact rational Gaussian bounds at t=1/2,1,5/4,3/2,2 forces a strict local minimum and maximum in the stated disjoint intervals; no uniqueness claim. Independently evaluated V at those five rational thresholds, reproducing 0.01488462, 0.00581403, 0.00787487, 0.00870885, 0.00541904, all correct strict inequalities. The all-n CLT is analytical; numeric checks do not prove it.",
+      "residual_risks": [
+        "Fixed positive α only, not sparse vanishing-rank regimes. Strict two extrema existence, not exact number. Gaussian variance convergence requires concentration argument, not proved by finite samples."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 25 full RESULT.md establishes standardized CLT for ANY positive-proportion sequence k_n/n≥ε, even without rank-fraction convergence, and the exact same limiting variance profile",
+          "November 8 candidate only states k_n=floor(α n) with fixed α"
+        ],
+        "reasoning": "Earlier theorem dominates the candidate CLT by specialization. Uniform integrability from the standard hypersimplex width Lipschitz bound gives the candidate extra Var W convergence as a routine moment consequence, not an independent new asymptotic law.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-nonmonotone-gaussian-angular-width-fluctuations-of-hypersimplice--fe20d5fa3db3/RESULT.md",
+          "hypersimplex random projection width variance limit nonmonotone"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-nonmonotone-gaussian-angular-width-fluctuations-of-hypersimplice--fe20d5fa3db3/RESULT.md",
+        "https://arxiv.org/abs/1511.08479",
+        "https://arxiv.org/abs/2402.17665",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/nonmonotone-limiting-projection-width-variance-of-hypersimplices--c17638291c14/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full October 25 RESULT.md proves same Gaussian fluctuations and four certified inequalities for the identical intrinsic width",
+          "Kabluchko et al. provide earlier cube endpoint, Casabella et al. study subdivisions, but October 25 source is the dominating one"
+        ],
+        "reasoning": "The earlier theorem plus α_n→α implies the submitted limiting Gaussian law; the same V function, continuity/elementary concentration and positivity imply all substantive claimed consequences. Reject O even though candidate proof is correct.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-nonmonotone-gaussian-angular-width-fluctuations-of-hypersimplice--fe20d5fa3db3/RESULT.md",
+          "https://arxiv.org/abs/1511.08479",
+          "https://arxiv.org/abs/2402.17665"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published 2026-10-25 hypersimplex width theorem defines the same polytope Δ_{n,k}, same intrinsic Haar sphere, and same Gaussian top/bottom rank support functional",
+          "Its V(z)=2[(1+z²)tail−zφ]−4(φ−z tail)²−2φ² is algebraically identical to candidate V(t)"
+        ],
+        "reasoning": "The difference between upper tail z_n and t, and between fixed α and α_n bounded away from zero, is notation/restriction; identical random object and fluctuation variance.",
+        "searches": [
+          "hypersimplex random Gaussian projection width asymptotic variance trimmed Gaussian order statistics",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-nonmonotone-gaussian-angular-width-fluctuations-of-hypersimplice--fe20d5fa3db3/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned the earlier 2026/10/25/fe20d5fa3db3 full theorem immediately beside candidate",
+          "Earlier certified V(1/2)>V(1)<V(3/2)>V(2), precisely the same two nonmonotonicity witnesses"
+        ],
+        "reasoning": "The exact V table and variance dip/rebound are already published; candidate additional t=5/4 checkpoint refines neither the principal boundary nor the function.",
+        "searches": [
+          "hypersimplex random Gaussian projection width asymptotic variance trimmed Gaussian order statistics",
+          "hypersimplex random projection width variance limit nonmonotone",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-nonmonotone-gaussian-angular-width-fluctuations-of-hypersimplice--fe20d5fa3db3/RESULT.md"
+        ]
+      },
+      "rationale": "FAIL because the complete October 25 published mathematical statement already gives a stronger same-object same-metric CLT, identical V formula, and exact same nonmonotonicity witnesses. This is coverage by implication, not a failed search or title-only match.",
+      "residual_risks": [
+        "No novelty ambiguity remains for the central CLT, exact variance function or nonmonotonicity: earlier full primary result matches.",
+        "Earlier theorem does not explicitly assert moment convergence Var W, but this follows from standard uniform subGaussian concentration of widths; no independent substantive improvement established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOMINATES_EXACT_CLAIM",
+          "evidence": "Identical V(t), same intrinsic Haar metric, stronger rank-sequence CLT, same dip/rebound inequalities.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-nonmonotone-gaussian-angular-width-fluctuations-of-hypersimplice--fe20d5fa3db3/RESULT.md",
+          "material_read": "COMPLETE RESULT.md: Finding, assumptions, proof, certified inequalities, references",
+          "method": "Read full primary published mathematical result and compared formulas, quantifiers, normalization and logical implications",
+          "title": "Nonmonotone Gaussian angular-width fluctuations of hypersimplices, published 2026-10-25",
+          "trigger": "Exact matching invariant, parameter, and putative new profile"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": "The previously published October 25 hypersimplex claim independently resolves priority.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.08479",
+          "material_read": "Earlier cube/simplices/crosspolytope scope and cited endpoint as available; not used to establish decisive coverage",
+          "method": "Compared named polytope families and the balanced cube endpoint",
+          "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables, Kabluchko–Litvak–Zaporozhets",
+          "trigger": "Potential older generic width CLT"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Subdivision combinatorics does not decide this stochastic width claim; exact prior is different earlier paper.",
+          "identifier_or_url": "https://arxiv.org/abs/2402.17665",
+          "material_read": "Accessible theorem scope on hypersimplex subdivisions and metric connections",
+          "method": "Compared geometric invariant with random Haar projection width",
+          "title": "Subdivisions of Hypersimplices, Casabella–Joswig–Kastner",
+          "trigger": "Same geometry, potential stronger variance result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-nonmonotone-gaussian-angular-width-fluctuations-of-hypersimplice--fe20d5fa3db3/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/nonmonotone-limiting-projection-width-variance-of-hypersimplices--c17638291c14/RESULT.md"
+      ],
+      "rationale": "The natural exact high-dimensional hypersimplex width variance profile is mathematically meaningful, but its central quantitative law and qualitative dip/rebound were already published in a stronger theorem. The candidate offers standard fixed-parameter specialization, routine uniform-integrability upgrade and another rational intermediate test point, not an independently needed unknown structural fact. Correctness/reproducibility cannot rescue duplicate value.",
+      "residual_risks": [
+        "The rejected package remains mathematically correct; relocation preserves source evidence and should not be described as a disproof."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The prior Oct25 stronger result invalidates originality, not mathematical correctness.",
+    "Only fixed positive rank fractions; no exhaustive census of stationary points."
+  ],
+  "schema_version": 1
+}
