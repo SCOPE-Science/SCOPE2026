@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T22:53:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/a-uniform-double-logarithmic-gumbel-law-for-first-passage-floodi--b38bb38e62e1/RESULT.md Git blob 52c7ef88b40c1176032a398af81d7fb17da884d5, exact full proof and scope",
+        "2026/11/08/a-uniform-double-logarithmic-gumbel-law-for-first-passage-floodi--b38bb38e62e1/verify.py Git blob 607999032c2cee20eef5cf8a139656cfc26dfb21, source inspected; phase-type matrix and exact rational checks",
+        "Independent rational evaluation of A_k, mu_k, squared centered tilted-rate sum and k=2 Erlang-two boundary; original proof uses uniform exponential moments rather than extrapolation",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-clique-bouquet-flooding-a-sharp-log-log-n-shift-and-a-harmonic-s--b342e8b97dcd/RESULT.md"
+      ],
+      "rationale": "The final claim is hub-rooted flooding on B_{m,k}=K_1 vee (m K_k) with independent Exp(1) edges, m->infinity and EVERY sequence k=k_m>=2. A hub path cannot profit from traversing another petal. Within one K_{k+1}, successive exploration waits are independent Exp(i(k+1-i)/k) after multiplying flood time by k. Exactly the first and last rates equal one; the internal exponential tilt has exact residue product A_k=(k-1)^2, mean mu_k=2kH_{k-2}/(k-1), uniformly bounded centered variance and exponential moment. The gamma-two survival function and exponential tilt yield m P(kR_k>b+x)=e^{-x}[1+(log log m+x+1+delta_k)/log m]+O_x(m^(-1/12)/log m), delta_k=2log(k-1)-mu_k bounded uniformly in k. Independence across m petals produces the Gumbel and marked Poisson limits; the first/last independent rate-one waits have uniform ratio independent of completion time. k=1 is treated separately as a maximum of m Exp(1) edges. The critical computations were rederived for representative k from the source rate formula and the infinite uniform bound follows analytically, not by finite simulation.",
+      "residual_risks": [
+        "No extension to nonhub roots, non-exponential edges or arbitrary petal graphs; the claimed O(log m) and m^-1/12 remainder concerns a fixed x and uniform k.",
+        "Finite k computations cannot establish the uniform k->infinity statement; that depends on the bounded tilted variance and exponential Markov estimates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior 2026/11/2 result includes exact finite clique-petal law, fixed-petal Gumbel, arbitrary nonhub source; graph-ensemble flooding sources use different degree regimes."
+        ],
+        "reasoning": "The prior graph theorem is broader for choice of start vertex but explicitly narrower in the main two-parameter asymptotic; no inspected theorem covers arbitrary growing k and the stated uniform second-order remainder or marked process.",
+        "searches": [
+          "Resultary query: flooding clique bouquets varying petal size uniform first passage",
+          "Janson 1999, Leskelä–Ngo 2018, Mountford–Saliba 2019"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search: First passage percolation independent exponential edges on clique bouquet hub flooding Gumbel uniform k extreme value phase type",
+        "Resultary hit 2026/11/2/SCOPE-clique-bouquet-flooding-a-sharp-log-log-n-shift-and-a-harmonic-s--b342e8b97dcd",
+        "Asimit and Jones, Extreme behavior of multivariate phase-type distributions (2007), Proposition 1",
+        "Janson, One, Two and Three Times log n/n for Paths in a Complete Graph (1999)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier result states “For each fixed integer m≥2 and n→∞” for the same graph and centering; final claim requires “every integer sequence k=k_m≥2” and a k-uniform expansion."
+        ],
+        "reasoning": "The implication NEW=>OLD holds on taking constant k, but OLD=>NEW is unjustified because all old constants are allowed to depend on k. The new tilted concentration controls this dependence; there is no identified reverse implication.",
+        "searches": [
+          "Resultary 2026/11/2 complete RESULT.md",
+          "Asimit–Jones phase-type maxima 2007"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Single-petal finite phase-type representation: endpoints both rate one, internal rates >1; prior fixed-k Gumbel law exactly matches scaling when k held constant."
+        ],
+        "reasoning": "The proof is an extreme-value law for maxima of independent phase-type variables with a dimension k_m that can change arbitrarily. Standard fixed-dimensional phase-type pole statements are equivalent only to each fixed-k special case, not to the dimension-uniform survival remainder.",
+        "searches": [
+          "Resultary semantic query: clique bouquet hub flooding Gumbel triangular array",
+          "Asimit–Jones 2007, phase-type repeated dominant pole, Proposition 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The coefficient A_k=(k-1)^2 and fixed-k log-log centering already appear in the earlier clique-bouquet theorem."
+        ],
+        "reasoning": "This is not a new finite database/table; the fixed-k constants are covered and not credited. The dimension-uniform asymptotic and independent mark are the testable claims.",
+        "searches": [
+          "Resultary semantic query: phase type maximum clique petals exact Gumbel log log n",
+          "Asimit–Jones Proposition 1 fixed pole expansion"
+        ]
+      },
+      "rationale": "Prior SCOPE clique-bouquet theorem (November 2, 2026) proves EXACT SAME hub flooding and Gumbel centering only when the petal order is fixed as m grows; its extra nonhub-start penalty is distinct. Asimit–Jones (2007, Proposition 1) treats maxima of fixed finite-dimensional phase-type laws with repeated dominant pole. The final contribution is the dimension-uniform second-order survival remainder for every oscillating/unbounded k_m plus an independent uniform endpoint-ratio mark and Poisson point process. These stronger quantifiers are not implied by the fixed-parameter results without a uniform-in-k estimate. Best-of-knowledge originality, not a priority certificate.",
+      "residual_risks": [
+        "General triangular-array extreme-value criteria could cover this family given additional uniform-tail hypotheses; such a direct equivalent theorem was not established in inspected material.",
+        "Full Asimit–Jones argument not independently rederived beyond its stated fixed-matrix scope; historical priority is qualified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS fixed-petal limit and finite law, NOT shown to cover triangular-array remainder or uniform endpoint marks",
+          "evidence": "Its theorem fixes m>=2 before n->infinity; independent endpoint marks and every k=k_m are absent.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-clique-bouquet-flooding-a-sharp-log-log-n-shift-and-a-harmonic-s--b342e8b97dcd/RESULT.md",
+          "material_read": "Full RESULT.md including theorem, decomposition, fixed-petal asymptotics and limitations",
+          "method": "GitHub primary file full text",
+          "title": "Clique-bouquet flooding: a sharp log log n shift and a harmonic source penalty",
+          "trigger": "Exact same clique bouquet and flooding normalization"
+        },
+        {
+          "assessment": "Final claim reconstructed; uniform tilt and concentration checked in proof",
+          "evidence": "Exact A_k=(k-1)^2, mu_k=2k H_{k-2}/(k-1), marked PPP argument.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-uniform-double-logarithmic-gumbel-law-for-first-passage-floodi--b38bb38e62e1/RESULT.md",
+          "material_read": "Full RESULT.md and verifier source",
+          "method": "Frozen Git tree and blob",
+          "title": "A uniform double-logarithmic Gumbel law for first-passage flooding on clique bouquets",
+          "trigger": "The assigned final theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-clique-bouquet-flooding-a-sharp-log-log-n-shift-and-a-harmonic-s--b342e8b97dcd/RESULT.md",
+        "2026/11/08/a-uniform-double-logarithmic-gumbel-law-for-first-passage-floodi--b38bb38e62e1/RESULT.md"
+      ],
+      "rationale": "A changing-petal-size first-passage model is natural: a hub links many dense modules, and neither the number of modules nor the within-module size must stay fixed. A size-uniform second-order extreme-value estimate and marked Poisson process require a nontrivial tilted-concentration mechanism and distinguish otherwise identical fixed-k approximations. The result provides a reusable exact distributional boundary and quantitative error; the earlier finite-size factorization alone does not give the desired arbitrary growth regime.",
+      "residual_risks": [
+        "Conditional on exactly rate-one independent exponential passage times and the fixed hub/petal geometry."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Same C/O/V assessment criterion used across all records; verified finite computations treated only as corroboration, not infinite proofs.",
+    "Best-of-knowledge bibliography and reading risks are retained in the respective originality objects.",
+    "Source-tree SHA from assigned frozen commit independently matched exact Git tree object, and no GitHub mutations were performed."
+  ],
+  "schema_version": 1
+}
