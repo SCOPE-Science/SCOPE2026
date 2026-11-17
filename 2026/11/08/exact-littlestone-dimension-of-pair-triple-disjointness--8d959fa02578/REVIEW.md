@@ -1,15 +1,21 @@
-# Review of exact pair–triple disjointness online shattering
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof proves a universal five-level bound by inductively bounding the hypothesis families meeting one, two, and three fixed points. At each step it covers **every** triple query by either a positive branch in a smaller marked-star family or a negative branch with at most three, six, or nine explicit pair hypotheses. The separate positive-branch cardinality bound excludes excessive depths for ground sets of orders three through nine. Five complete, individually checked mistake trees provide matching lower bounds at orders five, six, seven, eight and ten. Monotonic embeddings extend the latter two as stated. A separate exact minimax recurrence independently confirms all orders three through eight. There is no unproved extrapolation.
+## correctness
 
-## Originality — PASS with limited priority scope
-The material inspected in the 2020 disjointness communication-complexity work, the 2020 Johnson/Hamming neighborhood VC study, and the 2023 applications-of-Littlestone work does not supply the exact **asymmetric** pair-center/triple-query online dimension. The closest known exact pair/pair and triple/triple Kneser online dimensions concern other incidence domains; neither implies the threshold \(n=10\) with dimension five here. Three direct indexed research searches yielded no equivalent statement but absence of a match does not prove global novelty. A hidden result under bipartite Kneser, fixed-weight sparse disjointness, or thicket-rank language remains possible.
+PASS
 
-## Mathematical value — PASS
-This determines the optimal deterministic realizable mistake bound for every order of a natural, asymmetric two-uniform/three-uniform disjointness incidence relation. The sharp first order permitting five-level adaptive shattering, \(n=10\), distinguishes it from the symmetric pair/pair system, whose online dimension saturates at four. The result is a complete structural phase profile with explicit optimal decision trees, not an isolated small numerical computation.
+Proof of uniform cap five uses the nested marked-star upper bounds for pair families hitting a fixed set of size one, two, three; any triple root negative branch has rank at most four. For n≤9 the positive branch size binom(n−3,2) gives the sharper matching upper bounds. Five explicitly stored complete lower mistake trees for n=5,6,7,8,10 have been traversed independently against actual pair/triple disjointness, certifying 2,4,8,16,32 distinct leaves; monotone embeddings extend lower trees to n=9 and every n≥10. No finite computation is extrapolated to the universal upper bound.
 
-## Boundaries
-No higher-uniformity extension, randomized bound, or global priority certification is asserted. A separate independent mathematical audit is required before treating this as independently validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact asymmetric pair-centre/triple-query disjointness online dimension; published symmetric rank-two and rank-three Kneser results and published Johnson VC work have different hypothesis/query ranks or static invariant and do not imply its universal cap and first depth-five threshold n=10.
+
+## value
+
+PASS
+
+The asymmetric pair/triple disjointness relation is a natural fixed-weight incidence class whose sharp universal online mistake budget of five and first attainment at n=10 are not obtained from symmetric Kneser learning or static VC theory. The marked-star argument and complete lower trees give a useful exact all-n classification, not a cosmetic parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

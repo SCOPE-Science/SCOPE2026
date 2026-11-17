@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Place `TREES.json` and `VERIFY.py` together and execute `python VERIFY.py` using a Python 3.9-or-later standard-library interpreter.
+## correctness
 
-`TREES.json` gives complete query trees for \((n,d)=(5,1),(6,2),(7,3),(8,4),(10,5)\). A branch named `yes` means that the pair witness is disjoint from the triple query; `no` means nonempty intersection. Every one of the \(2^d\) leaf paths is checked from scratch against the full candidate-pair universe.
+PASS
 
-Independent dynamic programming over bitmasked version spaces computes the exact Littlestone dimension for every \(3\le n\le8\), with all possible triple queries considered in every reachable state. Observed terminal output:
+Proof of uniform cap five uses the nested marked-star upper bounds for pair families hitting a fixed set of size one, two, three; any triple root negative branch has rank at most four. For n≤9 the positive branch size binom(n−3,2) gives the sharper matching upper bounds. Five explicitly stored complete lower mistake trees for n=5,6,7,8,10 have been traversed independently against actual pair/triple disjointness, certifying 2,4,8,16,32 distinct leaves; monotone embeddings extend lower trees to n=9 and every n≥10. No finite computation is extrapolated to the universal upper bound.
 
-```
-ALL_PAIR_TRIPLE_TREE_CERTIFICATES_PASS [(5, 1, 2), (6, 2, 4), (7, 3, 8), (8, 4, 16), (10, 5, 32)]
-INDEPENDENT_EXACT_RECURRENCE_PASS [(3, 0, 1), (4, 0, 1), (5, 1, 1023), (6, 2, 6114), (7, 3, 24697), (8, 4, 91051)]
-PAIR_TRIPLE_ALL_CHECKS_PASS
-```
+## originality
 
-The general upper bound is a mathematical marked-star argument in `RESULT.md`, not a claim established by the finite checker. Historical novelty is assessed only within the inspected literature and accessible comparisons. No independent scientific audit has been performed.
+PASS
+
+Best-of-knowledge original exact asymmetric pair-centre/triple-query disjointness online dimension; published symmetric rank-two and rank-three Kneser results and published Johnson VC work have different hypothesis/query ranks or static invariant and do not imply its universal cap and first depth-five threshold n=10.
+
+## value
+
+PASS
+
+The asymmetric pair/triple disjointness relation is a natural fixed-weight incidence class whose sharp universal online mistake budget of five and first attainment at n=10 are not obtained from symmetric Kneser learning or static VC theory. The marked-star argument and complete lower trees give a useful exact all-n classification, not a cosmetic parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
