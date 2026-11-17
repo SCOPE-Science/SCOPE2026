@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification of the sharp eight-species coextinction moment threshold
+# Independent mathematical audit
 
-Run the two stand-alone standard-library Python programs from the same directory:
+## correctness
 
-```bash
-python3 verify.py
-python3 crosscheck.py
-```
+PASS
 
-Each program must end with `PASS`; a failed exact identity or finite-count assertion raises an exception. `verify.py` constructs plant partner-set degrees and pairwise unions, enumerates all pollinator extinction subsets, directly checks the witness and verifies the 2,161 labelled four-plant/three-pollinator lower-bound matrices and their 42 isomorphism classes. It enumerates 150 connected four-by-four and 76 connected five-by-three classes and lists all five moment-equivalent, distribution-inequivalent pairs. `crosscheck.py` independently iterates every binary incidence matrix in those two connected eight-species cases and computes moment Bernstein coefficients from direct survival outcomes instead of degree/union formulas.
+The first two falling factorial moment curves determine the plant-degree and pair-union histograms, but not triple unions. For three or fewer plants the probability of zero served (q^m) with first two moments determines the entire law; for one/two pollinators the two single-survivor degrees plus endpoints determine it. Independent exhaustive canonical connected-graph enumeration gives no different-law moment twins for four plants and three pollinators, and exactly four classes at (4,4) plus one at (5,3). The explicit 4+4 witness has identical EY=4-3q^2-q^4 and E(Y)_2=12-18q^2+6q^3 yet all-served probability gap q^3(1-q), maximizing at 27/256. Connectedness and guild-preserving unlabeled isomorphism were retained.
 
-Both scripts enumerate complete finite domains under their explicitly coded constraints. The analytic small-guild arguments extend the seven-species impossibility beyond these finite enumerations. The independent pollinator-extinction assumption is essential. The decimal probability gap is not part of any certificate: the difference is exactly \(q^3(1-q)\), with exact maximum \(27/256\). The verification is mathematical and same-model only; no independent external audit has been conducted.
+## originality
+
+PASS
+
+The closely related October 18 eleven-species theorem imposes degree three on every pollinator and equality of each labeled one- and two-plant loss law; its cutoff cannot imply the unrestricted aggregate-mean/variance 8-species threshold. A November 8 nine-species theorem concerns reversal of variance between fixed-retention budgets with identical degrees, not indistinguishability of full mean and variance curves under Bernoulli failures. No primary result inspected yields the five-pair connected eight-species classification.
+
+## value
+
+PASS
+
+This is the first exact size cutoff at which standard first-two-moment ecological network observables fail to identify an underlying full coextinction law, together with complete classification of the natural first exception layer and an explicit positive probability gap. Finite classification is motivated by identifiability of naturally defined network statistics, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
