@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T17:40:40.860867Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite chain ring valuation criterion xy=0 iff nu(x)+nu(y)>=ell gives low independent L and high clique H with block A=[[0,B],[B^T,J-I]]. Ideal cardinalities yield B*1_H=-1_L, BB^T=-J_L and |H|=-1 modulo prime p. Solving kernel equations for (z,y): y=B^T z + T1, low forces s+T=0, high-coordinate sum 2T=-s; hence T=s=0 in every characteristic, including p=2. Kernel=(z,B^T z) with sum z=0, so rowspace=(t1_L-By,y), rank |H|+1. Each low valuation layer has cardinality divisible by p, so restricted code dot product is y.y', yielding one-dimensional hull. Constant B-columns occur at the socle and (if ell even) the middle layer; they and only they give singleton codewords and d(C)=1. Equal-valuation low differences prove d(C-dual)=2. Independent direct ring example F3[u]/(u^4) has n=26 rank=9, as asserted; finite equal-characteristic tests do not replace the chain-ring proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier graph papers give real spectra/valuation graph structure, and one special case modular code. They do not state a general prime-field adjacency rowspace across mixed-characteristic chain rings."
+        ],
+        "reasoning": "The graph structure is an input, not sufficient as a statement of all code/hull/weight-one invariants; length-four special case cannot logically dominate every ell.",
+        "searches": [
+          "https://arxiv.org/abs/2609.22909",
+          "https://arxiv.org/abs/2610.08480",
+          "https://arxiv.org/abs/2605.13622"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.08480",
+        "https://arxiv.org/abs/2609.22909",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/adjacency-codes-of-finite-chain-ring-zero-divisor-graphs-uniform--aeb9d6118aed/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Current C admits e_v for socle v, hence minimum distance one. Prior 2026 Theorem 4.6 asserts d=2 for same special-case simple graph, so the previous statement cannot imply the new correct parameter triple.",
+          "Current theorem includes complete dual and exact A_1(C)=(p-1)(q-1)(1+1_even_ell*q^(ell/2-1)), which are beyond the length-four parameter/hull assertions."
+        ],
+        "reasoning": "Prior agrees on rank/hull but not on d=1 nor the full family and weight-one spectrum. The result genuinely corrects and extends the literature rather than merely renaming it.",
+        "searches": [
+          "https://arxiv.org/abs/2610.08480",
+          "https://arxiv.org/abs/2609.22909"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sarkar et al., Thm 4.6-4.7 for ell=4, q=p odd gives dim p^2 and one-dimensional hull; also reports minimum distance 2."
+        ],
+        "reasoning": "This paper concerns exactly the same adjacency code in a restricted family, but its d=2 claim fails for the simple adjacency graph due to nonzero socle e_v in its rowspace. It does not give the uniform theorem.",
+        "searches": [
+          "Resultary semantic query: zero divisor finite chain ring adjacency graph modular linear code hull dual prime field min distance one valuation",
+          "https://arxiv.org/abs/2610.08480"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact ell=4 p-odd dimension and hull are known; the d=1 unit-word contradiction is checked by the explicit formula t=1,y=e_v at socle."
+        ],
+        "reasoning": "No prior table found for all ell>=3, q=p^f and characteristic; this is a uniform structural theorem not a recomputed single table.",
+        "searches": [
+          "https://arxiv.org/abs/2610.08480",
+          "Resultary modular zero-divisor code search"
+        ]
+      },
+      "rationale": "The 2026 Sarkar–Hansda–Maji paper studies the specific F_p[x]/(x^4) graph for odd prime p, obtaining dimension p^2 and hull 1, which are explicitly preexisting special cases. Its claimed adjacency-code minimum distance two conflicts with an explicit socle-column unit word in the same simple adjacency model; the present uniform result instead gives minimum distance one, prime-field rowspace and dual in all nilpotency lengths ell>=3 and all finite commutative chain rings (including mixed characteristic). The graph valuation description is standard; the new content is exact modular code structure and weight-one classification. Potential prior general modular split-graph code theory is a residual risk.",
+      "residual_risks": [
+        "General modular adjacency-code results for nested/split graphs could imply part of the block-rank structure under different terminology.",
+        "The existing paper's minimum-distance mismatch depends on using the same simple zero-diagonal adjacency convention; the reviewed proof explicitly fixes that convention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS ell4 dimension and hull, but erroneously says d(C)=2; no all-chain-ring rowspace/dual/weight-one theorem",
+          "evidence": "Theorem 4.6 states [p^3-1,p^2,2]_p, while socle v has a constant B-column and its e_v is an actual rowspace word; Theorem 4.7 hull=1.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.08480",
+          "material_read": "Accessible primary arXiv full text: graph preliminaries, Section 4.2 Theorems 4.6–4.7, special-case code parameters, proof and concluding generalization suggestion",
+          "method": "Read full accessible arXiv page rendered as article text, including theorem and proof",
+          "title": "Graph-Based Linear Codes Associated with the Finite Ring F_p[x]/<x^4> — Sarkar, Hansda and Maji",
+          "trigger": "Closest exact adjacency-code paper: same graph and code in ell=4"
+        },
+        {
+          "assessment": "Real graph spectrum and dynamics rather than prime-field adjacency code",
+          "evidence": "Same fixed graph at ell=4 but different invariant.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.22909",
+          "material_read": "Primary paper description and relevant stated spectral invariants",
+          "method": "Read accessible bibliographic/primary statement, not a full-paper no-coverage certification",
+          "title": "Spectral characterization and network systems dynamics of zero-divisor topologies over F_p[x]/<x^4>",
+          "trigger": "Related authors and graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The adjacency code of a graph is a canonical linear code, and a whole structural class of finite chain rings is intrinsically motivated. Exact rowspace and dual, hull dimension, both distances and first weight-enumerator coefficient for every ring provide useful algebraic invariants and expose a critical coding-theoretic error-correction limitation. This corrects the claimed positive minimum distance of the closest prior special case and extends to residue prime powers and mixed characteristic; it is more than a small exact instance or a restatement of known graph structure.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.08480",
+    "https://arxiv.org/abs/2609.22909",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/adjacency-codes-of-finite-chain-ring-zero-divisor-graphs-uniform--aeb9d6118aed/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only finite commutative chain rings with ell>=3; exclude length2 and nonchain rings.",
+    "Minimum distance1 means no single-error correction, despite some earlier claims; no full weight enumerator."
+  ],
+  "residual_risks": [
+    "General modular adjacency-code results for nested/split graphs could imply part of the block-rank structure under different terminology.",
+    "The existing paper's minimum-distance mismatch depends on using the same simple zero-diagonal adjacency convention; the reviewed proof explicitly fixes that convention."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS ell4 dimension and hull, but erroneously says d(C)=2; no all-chain-ring rowspace/dual/weight-one theorem",
+      "evidence": "Theorem 4.6 states [p^3-1,p^2,2]_p, while socle v has a constant B-column and its e_v is an actual rowspace word; Theorem 4.7 hull=1.",
+      "identifier_or_url": "https://arxiv.org/abs/2610.08480",
+      "material_read": "Accessible primary arXiv full text: graph preliminaries, Section 4.2 Theorems 4.6–4.7, special-case code parameters, proof and concluding generalization suggestion",
+      "method": "Read full accessible arXiv page rendered as article text, including theorem and proof",
+      "title": "Graph-Based Linear Codes Associated with the Finite Ring F_p[x]/<x^4> — Sarkar, Hansda and Maji",
+      "trigger": "Closest exact adjacency-code paper: same graph and code in ell=4"
+    },
+    {
+      "assessment": "Real graph spectrum and dynamics rather than prime-field adjacency code",
+      "evidence": "Same fixed graph at ell=4 but different invariant.",
+      "identifier_or_url": "https://arxiv.org/abs/2609.22909",
+      "material_read": "Primary paper description and relevant stated spectral invariants",
+      "method": "Read accessible bibliographic/primary statement, not a full-paper no-coverage certification",
+      "title": "Spectral characterization and network systems dynamics of zero-divisor topologies over F_p[x]/<x^4>",
+      "trigger": "Related authors and graph family"
+    }
+  ]
+}

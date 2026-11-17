@@ -1,17 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Reviewed statement.** The prime-field rowspace of the adjacency matrix of the simple zero-divisor graph of every finite commutative chain ring of length \(\ell\ge3\), with its complete dual, dimension, exact hull and weight-one support spectrum. This is a uniform mathematical claim, not a claim about the previously known graph description alone.
+## correctness
 
-## Correctness — PASS
-The valuation partition is valid for chain rings and gives \(A=\left(\begin{smallmatrix}0&B\\B^T&J-I\end{smallmatrix}\right)\). The two identities \(B\mathbf1=-\mathbf1\) and \(BB^T=-J\) follow from counts of ideals of powers of the maximal ideal, modulo \(p\). Solving both kernel blocks forces the sum of low coordinates and the sum of high coordinates to vanish in every characteristic, including two; thus the stated kernel is exhaustive, not just a family of candidate vectors. Orthogonal complementation yields the complete rowspace. The low-layer cardinalities are divisible by \(p\), proving that the restricted dot product on the rowspace is exactly the ordinary dot product on its freely varying high coordinates. Socle columns prove minimum distance one, low equal-valuation differences give dual distance two, and the full classification of constant columns of \(B\) gives the number of weight-one words. Fourteen independently constructed finite examples using direct ring multiplication match all calculations. Unproved boundary: no extension to nilpotency length two or non-chain rings.
+PASS
 
-## Originality — PASS, with historical uncertainty
-The 2026 primary paper arXiv:2610.08480, especially Theorems 4.6–4.7, already provides the adjacency-code dimension and hull for one ring family at \(\ell=4\) and odd prime residue field, so those special-case facts are not new. Its reported adjacency minimum distance two is contradicted by the coordinate-unit word exhibited here, and its conclusion leaves larger nilpotency indices for further study. No examined source gives the uniform rowspace/dual/hull and exact weight-one spectrum for all finite chain rings in every characteristic. The companion spectral paper arXiv:2609.22909 concerns the same index-four graph's real spectral and physical parameters, not the claimed modular code. Historical priority remains qualified by potential alternate literature on modular graph codes and general split-graph row spaces; a search without a match does not prove uniqueness.
+The finite chain ring valuation criterion xy=0 iff nu(x)+nu(y)>=ell gives low independent L and high clique H with block A=[[0,B],[B^T,J-I]]. Ideal cardinalities yield B*1_H=-1_L, BB^T=-J_L and |H|=-1 modulo prime p. Solving kernel equations for (z,y): y=B^T z + T1, low forces s+T=0, high-coordinate sum 2T=-s; hence T=s=0 in every characteristic, including p=2. Kernel=(z,B^T z) with sum z=0, so rowspace=(t1_L-By,y), rank |H|+1. Each low valuation layer has cardinality divisible by p, so restricted code dot product is y.y', yielding one-dimensional hull. Constant B-columns occur at the socle and (if ell even) the middle layer; they and only they give singleton codewords and d(C)=1. Equal-valuation low differences prove d(C-dual)=2. Independent direct ring example F3[u]/(u^4) has n=26 rank=9, as asserted; finite equal-characteristic tests do not replace the chain-ring proof.
 
-## Mathematical value — PASS
-The invariant is natural: the row space of a graph adjacency matrix is a canonical linear code. The theorem completely determines its generator and parity-check descriptions, dual distance, almost-LCD hull, and exact weight-one defect throughout a structurally important infinite class of rings; it is not a single handpicked parameter instance. It resolves the length-extension question for these code properties, includes residue-field extensions and mixed characteristic, and identifies an important coding-theoretic boundary: every such adjacency code has minimum distance one, so it cannot correct a single error. This matters when evaluating claimed error-correcting properties of the family.
+## originality
 
-## Closest literature and limitations
-Primary comparison: Sarkar–Hansda–Maji, arXiv:2610.08480 (sections 2, 4.2, conclusion); real spectral companion arXiv:2609.22909. Neither is claimed to be independently certified as exhaustive mathematical literature. The statement deliberately excludes the length-two clique and does not claim a complete weight enumerator or a generalization to non-chain local rings. Computations test fourteen finite quotient rings, not all chain rings. An independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 2026 Sarkar–Hansda–Maji paper studies the specific F_p[x]/(x^4) graph for odd prime p, obtaining dimension p^2 and hull 1, which are explicitly preexisting special cases. Its claimed adjacency-code minimum distance two conflicts with an explicit socle-column unit word in the same simple adjacency model; the present uniform result instead gives minimum distance one, prime-field rowspace and dual in all nilpotency lengths ell>=3 and all finite commutative chain rings (including mixed characteristic). The graph valuation description is standard; the new content is exact modular code structure and weight-one classification. Potential prior general modular split-graph code theory is a residual risk.
+
+## value
+
+PASS
+
+The adjacency code of a graph is a canonical linear code, and a whole structural class of finite chain rings is intrinsically motivated. Exact rowspace and dual, hull dimension, both distances and first weight-enumerator coefficient for every ring provide useful algebraic invariants and expose a critical coding-theoretic error-correction limitation. This corrects the claimed positive minimum distance of the closest prior special case and extends to residue prime powers and mixed characteristic; it is more than a small exact instance or a restatement of known graph structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
