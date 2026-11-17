@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with the Python standard library. The script independently implements the two cell-centroid integrals by Simpson quadrature; it does not require numerical libraries or any unbundled scientific file.
+## correctness
 
-Expected successful report:
+PASS
 
-```text
-VERIFY_OK drift_sign_checks=132 analytic_branch_cases=20 strict_coefficient_cases=97
-```
+At concentration zero, both centroids equal the circular cell midpoint, giving J0=1/2 I+1/4(S+S^-1), eigenvalues cos^2(pi j/n). The reflection-odd subspace removes the sole eigenvalue-one rotation mode, permitting analytic IFT and local attraction within that subspace only. Differentiating integrals at 0 gives forcing -[(sin L)/L-cos L]sin alpha and -[(L-sin L cos L)/(2 sin L)]sin alpha, then divide by sin^2 L. f(L)=L^2+L sin L cos L-2sin^2 L has f(0)=f_prime(0)=0 and f_doubleprime=4 sin L(sin L-Lcos L)>0, proving strict coefficient ordering for L<=pi/3. For arbitrary positive kappa the exact difference of weights at +/-t has sign -sgn(sin alpha), so a regular n-gon with some nonzero sin alpha cannot be fixed. Independent coefficient arithmetic n=3,4,5,7,10 corroborates signs but is not a universal check. No full-space attraction or global optimum is asserted.
 
-The computation tests the sign of the first displacement from regular polygons at five polygon sizes and several positive concentrations, checks convergence of iterated updates at small concentrations to the predicted first-order coefficients, and checks strict coefficient ordering for 97 finite sizes. The analytic proof supplies the exact coefficient formulas, all-\(n\) strict inequality, local implicit-function branch construction, and all-positive-concentration sign theorem. Numerical quadrature and finite iteration cannot certify those universal assertions, and the checker is not an independent scientific audit.
+## originality
+
+PASS
+
+Prior 2026 Saha–Jha–Roychowdhury papers give density-weighted centroid equations, chordal numerical codebooks, circular Lloyd dynamics and Fourier stability, but not the two explicit all-n local branch response coefficients or the strict cross-metric ordering. A positive-density fixed regular polygon claim in the dynamical paper is inapplicable to fixed nonuniform mean: the exact cell imbalance disproves the unstated symmetry premise. Search results include the same record but no stronger exact response theorem; this is a qualified best-knowledge originality judgment.
+
+## value
+
+PASS
+
+The result addresses a genuine finite-n modeling inconsistency in directional quantization: different intrinsic/chordal distortion metrics yield different locally attracting pinned equilibria, and the commonly assumed regular reference is not a fixed point once mean direction remains fixed. Exact coefficients for every n give precise perturbation data beyond high-resolution and seven-point numerics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
