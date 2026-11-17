@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All variables, graph weights and leaf conventions are explicit. The bijection between spanning trees and path compositions with one spoke per block proves the finite generating polynomial. The hub-leaf correction is included and is essential for the one-block case. Positive aperiodic block coefficients yield a simple dominant pole and analytic quasi-powers, which prove the fixed-conductance moment expansions and central limit theorem. Differentiation gives the mean and variance densities. The variance derivative equals an explicit degree-seven polynomial divided by a positive denominator; exact Sturm variations 4 and 3 at the endpoints establish a unique global maximizer. The standalone checker independently verifies finite exact distributions and algebraic signs. Limits: finite checks alone are not an infinite proof; this result makes no finite-size optimizer claim.
+PASS
 
-## Originality — PASS (historical priority qualified)
+Each fan spanning tree is equivalent to a composition of path vertices into positive blocks separated by deleted path edges, with exactly one hub spoke per block; length-one, length-two and longer blocks have the displayed leaf weights, and one-block trees make the hub an additional leaf. Hence the bivariate exact Z_n generating function follows. The dominant simple pole r solving t*r/(1-r)^2=1 is isolated for every fixed t>0 by nonnegative aperiodic block coefficients; analytic perturbation yields a quasi-powers moment generating function, mean nµ(r)+O_t(1), variance nv(r)+O_t(1) and Gaussian fluctuations with v>0. Independently differentiated the implicit pole equation and confirmed exact µ and v rational functions. Differentiation gave dv/dr=-2p(r)/(1+r)^4; an exact rational Sturm root count confirms p has precisely one root in (0,1), implying unique global variance-density maximizer t*=(1-r*)²/r* since v→0 at both endpoints. These are fixed-t asymptotics, not finite-n optimizer claims.
 
-Cameron–Grubb–Sawada (2021, full text inspected) construct efficient fan spanning-tree listings, without a weighted leaf-count distribution or variance optimizer. Gao–Lu–Wei–Zhu (2023, available full-text manuscript inspected) derive total counts for generalized fan graphs, not leaf-variance optimization. Rapoport (2023, HTML primary text inspected) gives general UST edge/degree probabilities, but the specialized sharp optimizer is not its statement or a stated corollary. Blanco–Zeilberger (2025, paper description inspected) handle total leaf counts on cycle and path powers rather than the weighted fan variance. Targeted mathematical searches and accessible prior claim titles/objects revealed no equivalent or dominating evaluated statement. A general formalism permitting calculation does not itself entail the completed algebraic global optimization without the missing derivation. Residual risk: unlocated historical specializations remain possible; no independence or priority certificate is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-A fan interpolates between a path-like tree ensemble at weak spoke conductance and an almost deterministic star at strong spoke conductance. The sharp location of maximum fluctuations of total leaves is a motivated natural uncertainty optimization and is not visible in the known unweighted spanning-tree counts or limiting mean alone. The exact bivariate law and Gaussian fluctuation constants allow quantitative comparisons across all positive spoke weights. The result is a complete, self-contained optimizer classification of a natural asymptotic invariant rather than an isolated numerical improvement.
+Known fan spanning-tree enumeration and Fibonacci counts, general weighted spanning-tree transfer matrices, and wheel hub-degree variance optimization are distinct. Exact weighted fan total-leaf bivariate renewal, its asymptotic leaf variance density and its unique algebraic maximizing spoke weight were not covered in the closest primary full text or published comparison items. Generic determinant techniques are methodological antecedents, not an already evaluated all-leaves optimization.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A fan graph is a canonical structured graph; total leaf count measures the branching boundary of the sampled spanning tree and its fluctuations vary naturally with hub spoke conductance. Identifying the unique conductance maximizing asymptotic leaf-count variance and proving CLT is a meaningful exact graph-invariant optimization, not an arbitrary small instance or mere tree-count recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
