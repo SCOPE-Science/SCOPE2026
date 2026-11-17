@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T08:52:18.858812Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The degree-five integer polynomial P_k has 5 simple roots isolated by 330 disjoint exact rational radius-10^-6 Rouche disks. For each k 0..65 the strictly smallest-modulus root is real positive with positive residue, and strict root/residue bounds guarantee its dominance for all n>=300. Independently recomputed 330 root centers using high-precision numerical candidates then checked all root-disk, simple-pole and tail inequalities using only exact rational bounds; the largest competing-pole/positive-residue ratio at n=300 was 0.3376494235153464<17/50. Separately evaluated 19,734 exact positive finite coefficients (n=1..299) and negative c_38(66,5). Thus the all-n statement uses a proven tail bound, not extrapolation of a finite run. The certificate script and data at exact pinned paths were inspected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Scardino gives k=0 positivity for odd m and conditional eventual positivity, and infinitely many m=5 counterexamples; degree-three all-k theorem is about m=3, not m=5."
+        ],
+        "reasoning": "The conditional root-domain result does not check every k<=65 or all small n; the original conjecture was false and is not a covering theorem.",
+        "searches": [
+          "Scardino 2026 Theorems 3.1,8.2,8.5 and Proposition 8.3",
+          "Fasi-Higham SIAM J Matrix Anal Appl 2019 Conjecture 3.2",
+          "Resultary: cubic exponential Padé complete positivity"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.39051v1",
+        "DOI:10.1137/18M1228876",
+        "https://github.com/Resultary/2026/2026/11/8/SCOPE-the-first-failure-of-reciprocal-pad-positivity-at-denominator-de--e2ef02e4d19b",
+        "Resultary Padé m3/m7/m9/m13 records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scardino proves existence and asymptotics of counterexamples and sufficient tail conditions; these do not imply positivity of all n for every lower k."
+        ],
+        "reasoning": "The first positive strip supplies the previously missing matching lower k-bound; negative (66,38) is explicitly credited.",
+        "searches": [
+          "https://arxiv.org/abs/2610.39051",
+          "DOI:10.1137/18M1228876",
+          "Resultary Padé degree-five query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Scardino 2026 proves c_38(66,5)<0, an upper bound for the first failing k, but not the lower bound covering all n for k<=65."
+        ],
+        "reasoning": "A first-failing-k statement is logically equivalent to positivity for every coefficient at all preceding k plus one negative witness. The source proves only the witness, while the new exact certificate proves the former.",
+        "searches": [
+          "arXiv:2610.39051v1 Sections 1,8",
+          "Resultary semantic query: reciprocal exponential Pade denominator degree five positivity k 0 to 65 first negative k 66 coefficient 38"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separate m5 all-index 0..65 table found; diagonal m7/9/13 and m3 results have different denominators."
+        ],
+        "reasoning": "The submitted numerical certificate is a natural exact finite family with infinite coefficient indices; possible unpublished computations remain.",
+        "searches": [
+          "Resultary query Padé m5 first failure k66 all-index lower strip",
+          "Resultary: all-index Padé diagonal m9 and m13",
+          "Resultary: degree-seven diagonal Padé positivity"
+        ]
+      },
+      "rationale": "Fresh best-of-knowledge comparison for Reciprocal Padé positivity first fails at numerator order 66 for m=5: no checked stronger or equivalent prior statement implies the full scoped final claim. The source inspections are scoped to material actually read. Unindexed or inaccessible history remains explicitly a risk.",
+      "residual_risks": [
+        "Unpublished parameter scans or specialized numerical-Padé tables may already record k=66 minimality.",
+        "Independent root enclosures used rational verification of candidate approximations; no numerical floating-point premise occurs in the mathematical tail proof.",
+        "No claim beyond denominator degree five or all numerator orders above 66."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known negative at (66,38), but no unconditional simultaneous k<=65 all-index positivity theorem.",
+          "evidence": [
+            "Abstract: k=0 positivity; eventual positivity under unique min-modulus real root; counterexamples m=5."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.39051",
+          "material_read": "Full 19-page open PDF retrieved and inspected in relevant introduction and positivity/counterexample theorem sections; scanned p.1 screenshot.",
+          "method": "Primary PDF, checked definitions (1.1) and results on k=0, sufficient eventual positivity and negative witness.",
+          "title": "On a positivity conjecture of Fasi and Higham for Padé approximants to the matrix exponential",
+          "trigger": "Identical normalized Padé polynomial and explicit negative counterexample."
+        },
+        {
+          "assessment": "The false conjecture is not a prior theorem proving the k<=65 strip.",
+          "evidence": [
+            "Original Conjecture 3.2, as quoted and evaluated by Scardino."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/18M1228876",
+          "material_read": "Published abstract and cited Conjecture 3.2 wording/metadata; full primary PDF not independently read this run.",
+          "method": "Compared claimed conjecture and its documented refutation.",
+          "title": "An Arbitrary Precision Scaling and Squaring Algorithm for the Matrix Exponential",
+          "trigger": "Original Fasi-Higham positivity conjecture."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp first-failure order for a natural fixed-denominator instance of the Fasi-Higham reciprocal-positivity conjecture after its refutation is useful for locating the precise safe k-range. Ruling out any negative coefficient for 66 different rational denominators is stronger than searching finitely many n. The result does not claim a new negative witness, all denominator orders or matrix algorithm breakdown.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unpublished parameter scans or specialized numerical-Padé tables may already record k=66 minimality.",
+    "Independent root enclosures used rational verification of candidate approximations; no numerical floating-point premise occurs in the mathematical tail proof.",
+    "No claim beyond denominator degree five or all numerator orders above 66.",
+    "The original publication-facing provenance fields are not privacy-safe. The completed scientific decision is not a publication authorization; no GitHub write or status certificate was made."
+  ],
+  "schema_version": 1
+}
