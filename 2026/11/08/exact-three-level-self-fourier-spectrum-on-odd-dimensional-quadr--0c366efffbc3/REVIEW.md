@@ -1,15 +1,21 @@
-# Review of the odd-dimensional quadratic-cone Fourier spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes the field characteristic, the Witt form, the inclusion of the vertex, the unnormalized Fourier convention, and all multiplicities. The cone Gauss sum yields the exact Fourier coefficient. On the cone, its Gram matrix is a scalar identity plus a quadratic-character kernel. The central nonstandard step is the exact signed-kernel square identity, proved by splitting point pairs into coincident rays, orthogonal independent pairs, and nonorthogonal independent pairs and evaluating the corresponding quadratic-value counts. The radial quadratic-character sector has dimension \(P\); the kernel's two eigenvalues and zero trace then determine both remaining multiplicities. Thus all Gram eigenvalues are positive, and the condition number is exactly \(q\). The attached checker independently reconstructs the algebraic identities and numerical singular spectra on eleven finite cases, including an extension field. The finite tests support but do not prove the universal quantifiers.
+## correctness
 
-## Originality — PASS, bounded comparison
-The closest primary work is Koh–Yeom (arXiv:1601.07677v1), particularly Lemma 4.1, which already gives the odd-dimensional cone Fourier coefficient. That coefficient is an acknowledged ingredient, not a newly claimed formula. Its main theorems concern \(L^p\)-\(L^r\) bounds for restricted averaging operators, not the complete square self-restricted Fourier singular spectrum. Koh (arXiv:1212.5298v1) treats radial test-function restriction estimates and quadratic-sphere character sums; Iosevich–Koh (arXiv:0804.4505v1) concerns extension estimates for nonzero quadratic levels. The new algebraic component is the signed polar-character square identity and its complete multiplicity/condition-number consequences. Other nearby results concern even-dimensional cones, a three-dimensional cone **without** its vertex, or first-band rather than full self-restriction sampling. None of the compared statements directly implies the theorem with its stated hypotheses; a broader unlocated orthogonal association-scheme formula is a residual priority risk. Failure to locate another result is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The zero cone is a canonical Fourier restriction hypersurface in finite-field harmonic analysis. Self-sampling exactly \(|C|\) Fourier coefficients for \(|C|\) unknowns is a natural critical reconstruction problem. An exact all-dimension classification, universal invertibility, sharp stability constant, and structural explanation of the three spectral levels are nontrivial properties not supplied by decay bounds alone. These conclusions are mathematically useful without requiring an extension to nonlinear recovery or an external downstream theorem.
+For Q=∑u_iv_i+a w² on F_q^(2m+1), q odd, m≥1, the zero cone C includes vertex and has size q^(2m). Character orthogonality gives sum_{z∈C}ψ(B(v,z))=q^(2m)1_{v=0}+η(a)q^mη(Q(v)). Hence H*H=q^(2m)I+s q^m K, s=η(-a), K_{xy}=η(B(x,y)). For the signed projective ray operator R, the exact entrywise identity K²=q^(2m-1)(q-1)R+s q^(m-1)(q-1)^2K follows from dependent, orthogonal, and hyperbolic independent null-pair counts; signed-scaling subspace W has dimension P=(q^(2m)-1)/(q-1). Its two eigenvalues are s q^m(q-1) and -s q^(m-1)(q-1) with multiplicities r=P/(q+1) and P-r, zero elsewhere. Therefore singulars q^(m+1/2),q^m,q^(m-1/2), multiplicities r,q^(2m)-P,P-r. Independently checked integer K² identity and complex Gram spectra for q=3,5,7 small m. Nondegenerate odd-dimensional q odd, vertex-included cone, ambient unweighted normalization and arbitrary additive ψ are essential.
 
-## Scientific limitations
-The result excludes even characteristic, even ambient dimension, nonzero-level hypersurfaces, and deletion of the cone vertex. The analysis establishes linear recovery but not phaseless recovery. Finite checker runs are corroborative, not exhaustive. Completeness of the historical-priority search and independent validation remain unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The odd-dimensional polar quadratic-character radial identity and complete two-sided singular multiset are not supplied by the primary Fourier-transform/extension articles. The highly similar published even-dimensional cone result excludes odd dimension, q odd radial η(K) method and changes multiplicity structure; not a dominating theorem. Exact historical association-scheme coverage remains an explicit risk.
+
+## value
+
+PASS
+
+Exact conditioning/invertibility and complete spectrum of a naturally self-restricted finite Fourier sampling operator, uniform in all odd dimensions and anisotropic scalars, resolves a meaningful nontrivial reconstruction invariant; sharp condition q is independent of dimension. Character radial decomposition is structural, not numerical threshold fitting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

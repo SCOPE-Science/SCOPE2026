@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The test script `check_cone.py` uses Python 3 and NumPy. It reconstructs the polynomial and polar pairing for finite prime fields and for \(\mathbb F_9\), checks the cone size, checks the exact integer-valued signed polar-character matrix identity, checks the Fourier Gram identity, and compares the complete numerical singular spectrum against the claimed multiplicities. Runs cover \(q=3,5,7,9,11\) and \(m=1\), plus \(q=3,5\) and \(m=2\), with both quadratic-form types and several distinct nontrivial additive characters.
+# Independent mathematical audit
 
-Observed result: `ODD_QUADRATIC_CONE_SELF_FOURIER_PASS`. The largest absolute singular-value error in the eleven tested cases was less than \(2\times10^{-13}\).
+## correctness
 
-These computations are finite tests, not a complete enumeration of all finite fields or dimensions. The universal conclusion rests on the algebraic proof in `RESULT.md`. No independent mathematical audit has been performed.
+PASS
+
+For Q=∑u_iv_i+a w² on F_q^(2m+1), q odd, m≥1, the zero cone C includes vertex and has size q^(2m). Character orthogonality gives sum_{z∈C}ψ(B(v,z))=q^(2m)1_{v=0}+η(a)q^mη(Q(v)). Hence H*H=q^(2m)I+s q^m K, s=η(-a), K_{xy}=η(B(x,y)). For the signed projective ray operator R, the exact entrywise identity K²=q^(2m-1)(q-1)R+s q^(m-1)(q-1)^2K follows from dependent, orthogonal, and hyperbolic independent null-pair counts; signed-scaling subspace W has dimension P=(q^(2m)-1)/(q-1). Its two eigenvalues are s q^m(q-1) and -s q^(m-1)(q-1) with multiplicities r=P/(q+1) and P-r, zero elsewhere. Therefore singulars q^(m+1/2),q^m,q^(m-1/2), multiplicities r,q^(2m)-P,P-r. Independently checked integer K² identity and complex Gram spectra for q=3,5,7 small m. Nondegenerate odd-dimensional q odd, vertex-included cone, ambient unweighted normalization and arbitrary additive ψ are essential.
+
+## originality
+
+PASS
+
+The odd-dimensional polar quadratic-character radial identity and complete two-sided singular multiset are not supplied by the primary Fourier-transform/extension articles. The highly similar published even-dimensional cone result excludes odd dimension, q odd radial η(K) method and changes multiplicity structure; not a dominating theorem. Exact historical association-scheme coverage remains an explicit risk.
+
+## value
+
+PASS
+
+Exact conditioning/invertibility and complete spectrum of a naturally self-restricted finite Fourier sampling operator, uniform in all odd dimensions and anisotropic scalars, resolves a meaningful nontrivial reconstruction invariant; sharp condition q is independent of dimension. Character radial decomposition is structural, not numerical threshold fitting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
