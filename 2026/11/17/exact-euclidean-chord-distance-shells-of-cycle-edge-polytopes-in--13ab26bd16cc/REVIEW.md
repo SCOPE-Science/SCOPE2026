@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The stated result is a single theorem with exact embedding, quantifiers \(n\ge3\), an explicit nearest-point formula for each cyclic separation, complete vertex distances, Hausdorff maximum, and farthest-point rigidity. For each case the proposed nearest point is a convex combination of cyclic edge vertices with rational nonnegative coefficients summing to one. The residual dot product with each active edge equals the certificate maximum; every inactive edge has a smaller or equal residual dot product. This is the necessary-and-sufficient Euclidean convex projection criterion, independent of affine rank. The strict residual-variance inequality excludes any nonvertex farthest point. The exact program checks 10,659 pairs to order 40, while 219 independent quadratic programs test the formulas to order 11; finite checks are not used as proof of the infinite statement.
+
+## Originality — PASS, with priority risk
+The 2014 Tran–Ziegler paper explicitly constructs the same edge polytopes and states that the complete graph gives a second hypersimplex; it determines cycle polytope dimension, face data and extremal combinatorial statistics, not the claimed Euclidean nearest projections. Nagaoka–Tsuchiya (2017) treat reflexive constructions and normality of these objects. Martínez-Sandoval–Padrol (2019) treat affine projections preserving hypersimplex skeletons and convex dimension; their implications do not calculate distance to a cycle edge subpolytope. Relevant database and textual searches for cycle edge-polytope Euclidean Hausdorff distance, alternate chord terminology, and stronger graph-polytope statements did not identify dominating coverage. The four-cycle is the complete-bipartite graph \(K_{2,2}\), so its isolated special-case computation is not the new core; the unbounded cycle family and the complete chord/farthest-point classifications for \(n\ge5\) are the contribution assessed here. Historical priority remains provisional given the possibility of unindexed prior metric work.
+
+## Mathematical value — PASS
+Cycle edge polytopes are a canonical sparsification of the rank-two uniform hypersimplex: they keep only \(n\) out of \(\binom n2\) incidence vertices. Their exact maximal Euclidean approximation error, nearest-point map, and all chord-distance shells are natural quantitative geometric data. An atypically large four-cycle error changes to an exactly stable bound in all higher orders; two-step chords, rather than the longest chords, become the only worst-case points. The exact \(1/12\) vertex gap for every order at least six is a meaningful sharp stability statement, not a generic numerical increment. The theorem could serve as an explicit model for geometric fidelity of sparse graph-edge-polytope approximations, without claiming an unproved downstream application.
+
+## Limits
+The metric is embedding-dependent. The vertex gap does not extend to continuous nonvertex points. Earlier unindexed equivalent work remains possible; independent verification is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
