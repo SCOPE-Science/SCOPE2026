@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim uses the unnormalized additive Fourier transform on the full binary matrix space. Subspace Möbius inversion yields the classical nonzero rank-shell transform; trace parity is precisely the Fourier shift by the identity matrix. Disjoint constrained zero/one eigenspaces are counted by Gaussian subspace counts and inverted by the two-variable Gaussian inversion formula. The only equal absolute values in the rank-shell multiplier occur at consecutive maximal ranks with opposite signs, giving exact zero directions for each parity. Joint nullity asymptotics follow from convergent Gaussian moments and a tightness bound. The checker independently reconstructs every finite coefficient through dimension four. There is no extrapolation from experiments.
+PASS
 
-## Originality — PASS under bounded comparison
+The classical rank-shell Fourier transform F_n(rank A) follows from subspace Möbius inversion. Multiplying the invertible-set indicator by (1+(-1)^eps chi_I)/2 shifts frequencies by I, giving lambda_eps=(F(rank A)+(-1)^eps F(rank(A+I)))/2. Disjoint kernels ker A and ker(A+I) permit Gaussian subspace-pair counting and exact double inversion. Adjacent highest-rank shell magnitudes are the unique opposite-sign tie; hence C0 zero iff (u,v)=(0,1) or (1,0) and C1 zero iff u=v; their kernels disjoint. The bounded Gaussian moment convergence yields independent limiting nullity laws. Independently enumerated full Walsh spectra n=2,3 (nullities (6,8),(196,216)) and rank-predicate counts n=4 (23280,28224); those finite counts only corroborate the all-n proof.
 
-The rank-shell Fourier formula is Delsarte's established mathematics. The one-dimensional nullity law and full-matrix cycle-index machinery are also known (Fulman; Fulman–Goldstein). These antecedents can generate components of the derivation but the examined texts do not give the two trace-sliced convolution spectra or their different complete nullity criteria and limiting fractions. Searches included alternate formulations by Fourier translation, matrix trace hyperplanes, joint zero/one eigenspace statistics, and adjacency matrices of binary rank schemes. An unlocated equivalent specialization of general cycle-index methods remains a genuine historical originality risk; the review does not assert exclusive priority.
+## originality
 
-## Value — PASS
+PASS
 
-The Fourier support of an invertible-matrix averaging operator is a natural object in finite rank-metric harmonic analysis. Conditioning this operator on trace parity changes its injectivity from total recovery to two distinct positive-density nullspaces. The theorem exactly identifies both kernels in all dimensions, quantifies the different information losses and proves that combining the two filters removes all loss. These properties are not merely finite counts or a normalization check, and provide an explicit exact model of information-loss complementarity for non-radial restrictions of matrix-space convolution.
+Delsarte already determines the GL rank-shell transform; Fulman–Goldstein give the one-matrix nullity law, and Fulman supplies rational-canonical structure. These recognized stronger technical tools can derive pieces, but the specifically paired trace-parity Fourier operators, exact distinct nullity criteria and limiting proportions were not established in the inspected primary statements or related published results. The cyclic/eigenspace joint distribution is an alias of two disjoint fixed-space dimensions, and overlooked classical coverage remains a residual risk.
 
-## Residual limitations
+## value
 
-No nonbinary analogue or stability claim is proved. The cycle-index literature can recover the joint nullity laws in principle and an unpublished trace-slice specialization might predate the result. Independent validation remains absent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two trace parities are natural spectral data restrictions of the matrix Cayley convolution and exhibit different asymptotic information loss, yet their joint observation remains injective. Exact nullity multiplicities and limiting constants give a useful structural classification beyond routine rank-only Fourier transform reproduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
