@@ -1,0 +1,19 @@
+# Scientific review: periodic equilibrium memory in frequency shifts
+
+## Correctness — PASS
+
+For every integer \(k\ge1\), the proposed stationary construction starts with independent fair macro-markers at grid spacing \(N=k+1\), fills each gap of \(m\) grid units with exactly the permitted generator \(0^m1^{km}\), and uniformly randomizes the grid residue. The digit word recovers its `10` junctions and hence the marker process and phase. This proves the conditional Bernoulli representation; its entropy is \(\log2/N\), equal to Reyes' proven topological entropy, so the stationary law is his unique maximal-entropy measure. The zero condition is exactly \(S\ge kT+a\) for independent geometric left/right marker gaps. Summation yields the stated rational conditional means; Bernoulli mixing and a finite geometric convolution yield the periodic covariance formula. The height \(R(j)=\min\{kj,NM-j\}\) increases by \(k\) for a zero and decreases by one for a one, proving an exact count coboundary. Geometric tails prove all finite moments and justify the endpoint limit laws. `check.py` passed exact-rational convolution and finite-generator tests. Finite checks alone are not treated as an infinite proof. Critical limits are supplied by the analytical Bernoulli-mixing and geometric-tail arguments.
+
+## Originality — PASS, with historical-priority risk
+
+The full primary text of Carlos Reyes, *Frequency shifts: non-soficity, absence of specification and intrinsic ergodicity*, arXiv:2611.10995v1 (2026-11-07), was compared at its Theorems C/D, Lemma 5.3, Remark 5.6, and Theorem 6.8. That paper already proves the coded generators, entropy, uniqueness, and **topological nonmixing**; none of those is presented here as new. Its model-specific results do not give the explicit conditional zero profile, exact nondecaying long-lag covariance constants, or \(L^p\) digit-count coboundary and residue-law fluctuations. Pavlov's general coded-shift entropy and uniqueness theorems, arXiv:1803.05966v1, include qualitative Bernoulli-modulo-periodicity precedents, explicitly credited; no new general Bernoulli theorem is claimed. The published one-sided-balanced ternary coded-shift marker result and an additive-toral-skew product correlation result were compared through their complete accessible RESULT.md scientific texts. Neither covers the binary balanced-block frequency shift nor implies its exact phase probabilities/covariance and discrepancy formulas. A bounded survey cannot establish absolute priority; a previously unindexed equivalent computation remains possible.
+
+## Mathematical value — PASS
+
+The motivating 2026 paper determines intrinsic ergodicity and entropy but does not determine the digit process of its maximizing measure. The new phase-resolved law reveals a positive-entropy equilibrium with persistent periodic correlations and a striking suppression of ordinary zero-count diffusion: centered count variance is uniformly bounded, with explicit residue-class non-Gaussian limits. The conditional \(q_a\) and periodic \(C_{N,r}\) formulas distinguish model-specific statistics from the generic Bernoulli-modulo-periodic description. This provides concrete equilibrium observables and exact fluctuation benchmarks for all integer parameters of a newly studied natural family. Standard renewal theory is properly attributed; the contribution is the jointly complete explicit measurement and coboundary classification, not a routine rephrasing of the entropy theorem.
+
+## Boundaries
+
+Only the unique maximal-entropy measure of \(\Sigma(k/(k+1))\), \(k\in\mathbb N\), is covered. No generic parameter, all-measures, exceptional-trajectory, or global pointwise bounded-discrepancy claim is made. The results are analytic; numerical checks are corroborative only. No independent assessment has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
