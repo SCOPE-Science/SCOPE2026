@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The moment matrix of the basis \(1,\cos\theta,\sin\theta\) is exactly diagonal with entries \(1,(1+w)/2,(1-w)/2\). The row norm is the sum of a computable absolute-cosine integral and a two-atom term. The central nonstandard step is the **strict** comparison of every other evaluation latitude against the perpendicular latitude; it is proved throughout \(\(0<w<1\)\) by reducing the derivative inequality to \(2\sqrt3>\pi\). This avoids relying on finite numerics for the universal assertion. Saturating signs recover equality and all norming inputs. Direct quadrature and exact rational Gram tests corroborate the computation. The singular endpoint \(w=1\) is excluded.
+## correctness
 
-## Originality — PASS, qualified
-The finite-mass kernel update is established by Delgado, Fernández, Pérez and Piñar (arXiv:1601.07194, Section 3, Theorem 3.4); its implication is a kernel formula, not the stated optimized \(L^\infty\) norm or the perpendicular norming rigidity. Witte (arXiv:0811.4027) discusses circle orthogonal-polynomial transforms, not the real fixed-degree endpoint norm. The closest indexed discrete three-frequency Fourier Lebesgue constant concerns counting measure on cyclic groups rather than this continuous-plus-atomic probability. The mixed-measure optimization is not covered by those statements. Older work on weighted Fourier projections could contain related special cases; the Chemnitz preprint 99-10 is represented in the accessible record by an abstract rather than inspected full text. Unindexed older overlap remains possible.
+PASS
 
-## Mathematical value — PASS
-The all-weight sharp operator norm is a quantitative conditioning guarantee for a natural least-squares sampling model that mixes continuous observations with repeated antipodal measurements. The solution settles the location and equality-input problem globally, shows the contamination norm rises strictly and convexly, and identifies a finite amplification limit even as one harmonic direction loses \(L^2\) identifiability at the limiting purely atomic measure. Neither a kernel update alone nor a generic operator-norm bound gives this optimization and rigidity.
+The mixed uniform-circle plus two antipodal atoms measure has exact Gram diag(1,(1+w)/2,(1−w)/2) for 1,cos,sin when 0<w<1; thus its evaluation kernel K_w=1+a cosθ cosφ+b sinθ sinφ with a=2/(1+w), b=2/(1−w). The L∞ projection norm is the maximal L1 kernel-row mass, equal to J_w(t)=(1−w)I(sqrt(b²−(b²−a²)t²))+w·max(1,at) for t=|cosθ|. The formula I(R)=2/π(sqrt(R²−1)+arcsin(1/R)) is obtained by splitting the two sign arcs. On t≤(1+w)/2 the atomic contribution is constant and the continuous term strictly decreases. On the remaining interval the derivative sign reduces to tf(R²)>π(1−w)(1+w)/16, f(s)=sqrt(s−1)/s; its minimum on the interval occurs at an endpoint, whose exact lower bounds follow from 2sqrt(3)>π. Therefore only perpendicular θ=π/2,3π/2 maximize. Row-kernel sign functions characterize norming inputs a.e.; differentiation of the resulting formula proves strict monotonicity, convexity and one-sided limits, excluding w=1. Independent angular row checks at five positive weights and exact mixed moment checks support, not replace, the analytic argument.
 
-## Limits
-Only equal antipodal atoms, real degree-one trigonometric approximation, and \(\(0<w<1\)\) are settled. No general statement for unequal point masses or higher Fourier degrees is implied. Numerical checks corroborate, but do not prove, the universal angular comparison. Independent mathematical review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General Uvarov point-mass kernel updates and circle bi-orthogonal transformations cover construction of the reproducing kernel, not the exact globally maximized L∞ row integral or perpendicular rigidity at all atomic weights. Neither available primary theorem implies the strict angular inequality.
+
+## value
+
+PASS
+
+The Lebesgue constant is a natural stability measure of real trigonometric least-squares projection. Adding two singular antipodal sample masses introduces a genuine angular optimization problem, resolved for the full weight continuum with unique worst evaluation directions, extremizing inputs, monotonic convex norm profile and singular w→1 boundary. This is an informative stable/unstable mixed-measure exact classification, not a routine kernel-update restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
