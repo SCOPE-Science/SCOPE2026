@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T08:57:36.239318Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: crossed A-to-agent1/B-to-agent2 is strictly Pareto dominated by swapping the pair. If no such crossed pair, a positive-weighted welfare witness gives full Pareto efficiency. First p A-only prefixes enforce exact one-each consecutive A pairs; since p>=2 agent1 receives A, so all q B must be assigned to agent1. For odd p, agent1 receiving the last A violates EF1 immediately after the first B; therefore its endpoint pair counts are (k,k+1), versus (k,k) when p even. At B-prefix t, agent2's strongest removable agent1-good is A of value alpha, so TEF1 reduces exactly to t beta<=alpha(1+p mod2), while the opposite EF1 inequality is automatic. Monotonic t yields the q bound, with 2^floor(p/2) independent labeled pair orientations. Independent all-allocation dominance and prefix-EF1 enumeration matched examples p2-5 including the known 2+2 obstruction and equality case. Infinite real alpha,beta scope follows the algebra, not the finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The original impossibility theorem gives existence of bad instances, not a closed necessary/sufficient feasibility region inside the reciprocal p-A/q-B class.",
+          "Published broad temporal fair-division algorithms and per-day efficiency do not algebraically imply the odd-versus-even first-phase horizon or 2^floor(p/2) count."
+        ],
+        "reasoning": "General TEF1 statements are background rather than dominating exact enumerators for the given structured values.",
+        "searches": [
+          "https://arxiv.org/abs/2410.14593",
+          "https://arxiv.org/abs/2410.23416",
+          "temporal EF1 and Pareto optimal two agents reciprocal valuations two phases A A then B B parity criterion"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2410.14593",
+        "https://arxiv.org/abs/2410.23416",
+        "Resultary search: temporal EF1 and Pareto optimal two agents reciprocal valuations two phases A A then B B parity criterion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The crossed-pair exchange improves both agents by alpha-beta, making final PO equivalent to no type-A item assigned to agent1 simultaneously with a type-B item assigned to agent2.",
+          "EF1 at A prefixes forces split consecutive A pairs, and the presence of p>=2 then forces all B goods to agent1; for odd p the final A must go to agent2, leaving q beta<=alpha(1+p mod2)."
+        ],
+        "reasoning": "This characterizes the exact boundary of the cited negative four-good example and counts all feasible assignments, which the earlier sources do not imply simply by restatement.",
+        "searches": [
+          "https://arxiv.org/abs/2410.14593",
+          "temporal EF1 and Pareto optimal two agents reciprocal valuations two phases A A then B B parity criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Elkind et al. Proposition 4.2 exhibits p=q=2 values alpha=2,beta=1.1 where TEF1+final PO fails, and its theorem 3.6 gives TEF1 without final efficiency; neither states q beta<=alpha(1+p mod2) for all p,q.",
+          "Cookson–Ebadian–Shah study per-day versus accumulated fairness; one-item daily PO is not final global PO."
+        ],
+        "reasoning": "The TEF1 notion is shared with Elkind et al., not a hidden change of fairness definition. The submitted full set classification strictly refines the older counterexample.",
+        "searches": [
+          "temporal EF1 and Pareto optimal two agents reciprocal valuations two phases A A then B B parity criterion",
+          "https://arxiv.org/abs/2410.14593",
+          "https://arxiv.org/abs/2410.23416"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary tasks use repeated two-goods with different preferences or complementarity valuation, not this two-phase reciprocal additive EF1/PO table.",
+          "Direct small-case enumeration gives 2 feasible assignments for (p,q,alpha,beta)=(2,2,2,1), zero for (2,2,2,1.1)."
+        ],
+        "reasoning": "No exact preexisting table covering the whole two-block reciprocal family was found; bounded search is not absolute priority proof.",
+        "searches": [
+          "temporal EF1 and Pareto optimal two agents reciprocal valuations two phases A A then B B parity criterion",
+          "Resultary: sharp rational-exchange horizons for repeated two-good fair division",
+          "Resultary: exact fair-efficient allocation for two agents with disjoint complementary pairs"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: the exact all-p,q reciprocal-valuation criterion and labeled assignment count go beyond the known two-agent counterexample for TEF1+PO and beyond TEF1 existence without PO. The known example occurs at one point of the newly derived even-phase bound.",
+      "residual_risks": [
+        "The positive reciprocal two-block family is narrow; general nonreciprocal valuations or alternating types need a new argument.",
+        "The earlier Elkind example supplies the p=q=2 infeasible point, and the generic TEF1/PO obstruction is not a new discovery here.",
+        "An unindexed exact classification of this reciprocal family could exist; searches and primary material reviewed do not certify global historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING: specific p=q=2 impossibility at alpha=2,beta=1.1, not sharp all-parameter family and count",
+          "evidence": "Proposition 4.2 gives goods 1.1,1.1 then 2,2 for agent1, reversed for agent2, and excludes TEF1 plus PO.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.14593",
+          "material_read": "Complete open arXiv PDF available; Section 3 relevant EF1 existence and Section 4 including Definition 4.1 and Proposition 4.2, exact 2x2 goods example (PDF p.13 screenshot)",
+          "method": "Compare original counterexample, full statement and arrival convention with submission",
+          "title": "Temporal Fair Division of Indivisible Items",
+          "trigger": "Original source defining temporal EF1 and showing TEF1/PO incompatibility"
+        },
+        {
+          "assessment": "Scope uncertainty preserved; per-day PO does not impose final complete-allocation PO",
+          "evidence": "The submitted final Pareto condition concerns cross-phase exchanges, which per-round efficiency omits.",
+          "identifier_or_url": "https://arxiv.org/abs/2410.23416",
+          "material_read": "Abstract and source-paper characterization as described in reviewed references; full primary body not independently inspected in this run",
+          "method": "Bounded contextual comparison, not whole-document noncoverage claim",
+          "title": "Temporal Fair Division",
+          "trigger": "Potential broader alternative temporal fairness formalism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The sharp parity jump in the maximal admissible length of a second phase is a mathematically motivated exact feasibility boundary for the known temporal EF1 versus Pareto-efficiency tension. A complete necessary/sufficient parametrized classification plus exact sequence count is useful to fair-division theory, not an arbitrary tiny counterexample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2410.14593",
+    "https://arxiv.org/abs/2410.23416",
+    "Resultary search: temporal EF1 and Pareto optimal two agents reciprocal valuations two phases A A then B B parity criterion"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The positive reciprocal two-block family is narrow; general nonreciprocal valuations or alternating types need a new argument.",
+    "The earlier Elkind example supplies the p=q=2 infeasible point, and the generic TEF1/PO obstruction is not a new discovery here.",
+    "An unindexed exact classification of this reciprocal family could exist; searches and primary material reviewed do not certify global historical priority."
+  ],
+  "schema_version": 1
+}

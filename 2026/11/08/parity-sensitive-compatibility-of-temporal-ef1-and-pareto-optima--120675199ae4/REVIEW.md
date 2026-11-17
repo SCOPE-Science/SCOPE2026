@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The claim fixes two additive agents, exact arrival order, strictly positive reciprocal item valuations and explicit temporal EF1/final Pareto requirements. A crossed pair (agent 1 holds \(A\), agent 2 holds \(B\)) permits a strict two-sided improvement. Its absence is Pareto sufficient by positive-weighted welfare. The first two goods and prefix EF1 force a crossed-pair-free allocation to give all later \(B\) goods to agent 1; balancing the first-phase counts enforces split pairs. For odd first-phase length, giving the final \(A\) to agent 1 immediately breaks EF1 after the first \(B\). The residual agent-2 EF1 inequality is exactly \(q\beta\le\alpha(1+(p\bmod2))\). Counting split-pair orientations gives the exact enumeration. Exact exhaustive comparisons of all complete competing allocations for 192 parameter cases support the proof, but finite tests alone do not prove the unrestricted theorem.
+PASS
 
-## Originality (PASS; literature-priority uncertainty retained)
+PASS: crossed A-to-agent1/B-to-agent2 is strictly Pareto dominated by swapping the pair. If no such crossed pair, a positive-weighted welfare witness gives full Pareto efficiency. First p A-only prefixes enforce exact one-each consecutive A pairs; since p>=2 agent1 receives A, so all q B must be assigned to agent1. For odd p, agent1 receiving the last A violates EF1 immediately after the first B; therefore its endpoint pair counts are (k,k+1), versus (k,k) when p even. At B-prefix t, agent2's strongest removable agent1-good is A of value alpha, so TEF1 reduces exactly to t beta<=alpha(1+p mod2), while the opposite EF1 inequality is automatic. Monotonic t yields the q bound, with 2^floor(p/2) independent labeled pair orientations. Independent all-allocation dominance and prefix-EF1 enumeration matched examples p2-5 including the known 2+2 obstruction and equality case. Infinite real alpha,beta scope follows the algebra, not the finite checks.
 
-The principal 2024 article (Elkind et al., arXiv:2410.14593, Proposition 4.2) gives a particular four-item impossibility witness and general structural/complexity results, but not the characterized alternating-pair family, its sharp parity-dependent capacity or exact count. Cookson et al. (arXiv:2410.23416) address a different per-day/cumulative formulation, and Choi et al. (arXiv:2608.20033) impose other structural hypotheses. The tested publication and mathematical-record searches did not identify a stronger theorem implying this exact phase diagram; the negative search is not a uniqueness guarantee. An unindexed or unavailable equivalent specialist result remains possible.
+## originality
 
-## Value (PASS)
+PASS
 
-The result supplies an exact feasibility boundary and complete census for the simultaneous fairness-efficiency demand already shown to be nonuniversally satisfiable. The parity discontinuity in the permissible second-phase horizon and exponential number of valid assignments are qualitative structural information, not an arbitrary numerical example or a repeated counterexample. The ratio condition can be used as a reproducible test family for future temporal allocation methods. It does not prove a corresponding statement for unrestricted arrival orders or preferences.
+PASS best-of-knowledge: the exact all-p,q reciprocal-valuation criterion and labeled assignment count go beyond the known two-agent counterexample for TEF1+PO and beyond TEF1 existence without PO. The known example occurs at one point of the newly derived even-phase bound.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: The sharp parity jump in the maximal admissible length of a second phase is a mathematically motivated exact feasibility boundary for the known temporal EF1 versus Pareto-efficiency tension. A complete necessary/sufficient parametrized classification plus exact sequence count is useful to fair-division theory, not an arbitrary tiny counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
