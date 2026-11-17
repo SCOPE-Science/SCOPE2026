@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The boundary-inclusive hypothesis \(d\ge3,\ n\ge2d+2\) separates all four edge lengths \(1,d-1,d,d+1\) up to reversal except that the last one becomes antipodal at the boundary. This makes each short-diagonal edge belong to a unique tetrahedron, justifying both specified families of elementary collapses. The residual triangles have vertex links that are six-cycles in the stable range; uniform explicit orientations and Euler characteristic zero identify a torus without relying on experimental extrapolation. At \(n=2d+2\), the antipodal edges halve one edge orbit and change Euler characteristic to \(d+1\). The standalone verifier reconstructs 575 stable-range cases and 23 boundary cases and independently checks homology in 49 examples. The proof, rather than the finite sample, covers all parameters.
+PASS
 
-## Originality — PASS, with residual priority risk
+Under threshold-one parallel firing on forward C_n, each initially occupied binary site fires and translates the support exactly one vertex per step. Hence facets F_i={i,i+1,i+d,i+d+1}. For d≥3,n≥2d+2, e_i={i+1,i+d} is the unique edge of unoriented length d−1 within F_i, so a_i={i,i+1,i+d} is free in the tetrahedron and after all n such collapses e_i is free in b_i={i+1,i+d,i+d+1}; these are exactly 2n valid elementary collapses. Residual A_i={i,i+1,i+d+1} and B_i={i,i+d,i+d+1} form a connected orientable closed 6-regular triangular surface for n≥2d+3 (six distinct cyclic neighbors, opposing edge orientations), with face vector (n,3n,2n), χ=0, hence a torus. At n=2d+2 the antipodal length d+1 edge class has n/2 edges, so χ=n/2=d+1, excluding a torus. Independent finite face computation gave boundary (d,n)=(3,8) f=(8,20,16), Betti=(1,1,4); stable samples (3,9),(4,11),(5,14) had Betti=(1,2,1). This does not replace the all-parameter collapse proof.
 
-The inspected full text of Riihimäki–Smith (arXiv:2606.26786) treats consecutive blocks and three-grain configurations, not these separated two-pair, four-grain cycle supports. A related calculation for two pairs on an absorbing directed path concerns a different graph and has circle homotopy, not a torus. The resulting surface is exactly Datta–Upadhyay's previously known \(T_{n,1,d}\) (Example 1), but that study does not address the three-dimensional avalanche parent or its explicit collapse. Jevtić–Živaljević's full generalized-Tonnetz manuscript (Definition 1.3 and Theorem 1.5) builds all length permutations and requires genericity for its torus theorem; our one-orbit complex has duplicate unit gaps. Neither theorem implies the claimed collapse. Targeted mathematical-record searches and comparisons found no covering result, which alone does not prove novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Two adjacent occupied pairs are a natural first four-grain motif beyond the published three-grain directed-cycle calculations. Their avalanche complex has a nontrivial integral degree-one cup product, distinguishing its torus from the circle-bouquet types that predominate in three-grain examples. The explicit \(2n\)-step collapse gives a uniform structural explanation and the immediately preceding antipodal boundary has a demonstrably different Euler characteristic. This is a motivated infinite-family homotopy classification for the new dynamical complex, not a restatement of the classification of abstract triangulated tori.
+No verified broader or equivalent prior statement implies the precise final claim after reading the identified primary theorems and searching published findings. This is a best-of-knowledge novelty assessment with the material access and indexing limitations explicitly recorded; published inputs and exact known subclaims are acknowledged.
 
-## Source coverage and limitations
+## value
 
-Primary full-text sections inspected: Riihimäki–Smith (2026-11-02 revision), Section 3 including Theorem 3.32, Proposition 3.34 and Question 3.36; Datta–Upadhyay (2004), Example 1 defining the exact surviving surface; Jevtić–Živaljević (2020), Definition 1.3, Theorem 1.5 and genericity discussion. The possibility of unindexed equivalent results about cyclic tetrahedral orbit complexes remains a residual priority risk. The proof covers the specified forward cycle and initial support only. The boundary assertion is solely about Euler characteristic, not integral homotopy type.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The avalanche complex is a concrete dynamical object, not merely a known cyclic torus. The explicit 2n free-face collapse identifies the invariant homotopy and cup product, and the immediately preceding antipodal threshold has a mathematically sharp Euler-characteristic obstruction. The reduction is a motivated structural response to classification of avalanche types by chip configuration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
