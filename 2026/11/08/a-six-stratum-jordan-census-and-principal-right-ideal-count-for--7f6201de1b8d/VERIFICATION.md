@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-Run `python3 check_quantum_cubic.py` in the same directory as the checker. The program uses only the standard library and constructs the original quantum multiplication table on the nine PBW monomials, not an assumed closed counting formula. It computes the ranks of all nine-by-nine left-multiplication operators and their squares by finite-field elimination. Over \(\mathbb F_4\), all \(4^8=65,536\) radical elements were checked exhaustively, and distinct principal right ideals were classified by the canonical row-reduced span of \(fA\); the dimension profile was \((0:1,1:1,2:5,3:20,4:16,6:20)\). Over \(\mathbb F_7\), every one of the \(7^6=117,649\) elements of \(J^2\) was checked. Additional nonzero-linear-part cases over \(\mathbb F_7\) and \(\mathbb F_{13}\) were tested deterministically. The exact result is recorded in `verification_output.txt`, ending with `QUANTUM_CUBIC_JORDAN_CENSUS_DIRECT_CHECK_OK`.
+## correctness
 
-The checker supports only its three explicitly implemented finite fields. It does not exhaustively enumerate the full radical over \(\mathbb F_7\) or all elements over arbitrary fields. The proof in RESULT.md, not sampling, establishes the general theorem. Independent audit and validation have not been performed.
+PASS
+
+PBW monomials x^i y^j, 0<=i,j<3, give dim9 and J dim8 for xy=zeta yx. For any positive-degree f, a faithful matrix representation x->uD,y->vP over k[u,v]/(u^3,v^3), with DP=zeta PD, has char polynomial t^3 by root-of-unity conjugation and Cayley-Hamilton, so f^3=0 (including char2). Nonzero degree-one coefficient forces rank6 and rank(f^2)=3 by homogeneous block ranks. For f in J^2 the degree-two coefficient triple (a,b,c) controls Delta=b^2-zeta^2 ac and degree-one-to-degree-three 2x2 minor, yielding ranks 4 (Delta!=0) and 3 (Delta=0, triple!=0), squares ranks 1 and 0; lower J^3,J^4 strata give ranks2,1,0. PBW rank formulas determine all six listed Jordan partitions. The smooth nonzero quadratic cone has Q^2-1 finite-field points; multiplying by 3 higher coefficients yields exact counts. Nakayama says the nonzero principal right ideal fA of dimension r has (Q-1)Q^(r-1) generating elements; the stated ideal counts and total 3(Q^2+Q+1)+1 follow. Independently constructed exact 9x9 PBW left multiplication over GF7 and tested representative ranks/square ranks (6,3),(4,1),(3,0),(2,0),(1,0),(0,0). These spot checks do not replace the all-field algebra argument.
+
+## originality
+
+PASS
+
+Found a closely related characteristic-three COMMUTATIVE modular group algebra with the same six numeric rank and principal-ideal distributions, and a same-dimension quantum algebra nilpotency-index census. Neither implies the all-radical Jordan, reduced geometric and principal RIGHT ideal classification for noncommutative primitive-cube-root characteristic-not-three algebras. The quantum nilpotence-spectrum theorem gives f^3=0 in the cyclotomic branch but explicitly does not determine Jordan types or ideals; the commutative characteristic-three result does not transfer through an algebra isomorphism.
+
+## value
+
+PASS
+
+A complete exact multiplication-Jordan stratification of all eight-dimensional radical elements in a natural small quantum complete intersection, including smooth strata and principal RIGHT ideals, is a motivated algebraic invariant; it extends beyond the standard rank-one linear pencil and is not implied by knowing all elements are cubically nilpotent. The exact finite-field total and the matching-but-distinct modular commutative pattern provide useful structural comparison, not just table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
