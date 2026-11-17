@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T10:02:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The orthonormal Laguerre basis and Laplace inner products yield J_W(t)=4N_W(t)/P_W(t)^2 on the full t>=0 domain. Independent SymPy expansion verified exactly J_W(W-1)=(W+1)/W, J_W(t)-(W+1)/W=-(t-W+1)^2H_W(t)/(W P_W(t)^2), the derivative -8(t-W+1)Q_W(t)/P_W(t)^3, and discriminant 16W(W-3). At W=3, J-4/3=-4(t-2)^2(t-5)^2/[3(t^2-4t+16)^2], giving both global carrier levels. For W>3 the negative region of H is a bounded interval t>W and strict convexity of Q there gives a unique maximum. The high-frequency substitution Q_W(W+u)=W(2u^2-8u+2)+u^3+2u^2+u proves the 2+sqrt(3) branch. Constraints on equal amplitudes, phase and omega>=2a are essential.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hu–Yu Section 4 gives approximation-error bounds and Section 6 scaling tradeoffs; Wang et al describe selecting multiple modulation centers by adaptive indicators."
+        ],
+        "reasoning": "Neither available theorem yields the exact fixed-scale global maximizers of two orthogonal coefficients as functions of W. Full Wang comparison remains limited.",
+        "searches": [
+          "H. Hu and H. Yu, Scaling Optimized Spectral Approximations on Unbounded Domains, arXiv:2602.03083v1",
+          "C. Wang, Z. Zhao, T. Zhao, A Localized Core-Tail Fourier-Laguerre Frame Method with Adaptive Frequency Detection, arXiv:2609.27910"
+        ]
+      },
+      "checked_sources": [
+        "H. Hu and H. Yu, Scaling Optimized Spectral Approximations on Unbounded Domains, arXiv:2602.03083v1",
+        "C. Wang, Z. Zhao, T. Zhao, A Localized Core-Tail Fourier-Laguerre Frame Method with Adaptive Frequency Detection, arXiv:2609.27910",
+        "Resultary search: single carrier two Laguerre mode damped cosine two tones optimal frequency switching"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hu–Yu estimates truncation and scaling error for many modes; Wang framework uses modulated tail frames and mismatch terms, not sharp two-mode equality."
+        ],
+        "reasoning": "Error upper bounds or heuristic frequency selection do not imply the discriminant factorization and exact discontinuous global optimum; inaccessible Wang full text leaves an explicit priority risk.",
+        "searches": [
+          "Hu Yu arXiv 2602.03083 Section 4 projection error estimates",
+          "Wang Zhao Zhao arXiv 2609.27910 abstract frequency mismatch"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Only the submitted finding matched the exact one-carrier two-mode discontinuous optimizer; related results concern frequency-bin or scale selection."
+        ],
+        "reasoning": "Adaptive multi-carrier frames and optimized Laguerre scaling vary different parameters and objective functions.",
+        "searches": [
+          "Resultary: single carrier two Laguerre mode damped cosine two tones optimal frequency switching",
+          "Web: two mode Laguerre common carrier optimal damped cosinusoid frequency optimization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No corresponding exact table listing the four carriers at W=3 or cubic high-W optimizer was found."
+        ],
+        "reasoning": "The threshold W=3 and full stationary-point classification are not entries in an identified standard Laguerre approximation table.",
+        "searches": [
+          "Resultary search: half line orthonormal Laguerre functions two tone exponentially decaying oscillation projection two carriers phase transition"
+        ]
+      },
+      "rationale": "A full accessible Hu–Yu paper treats scaled Laguerre spectral error and optimal scaling, not this fixed-scale two-mode single-carrier exact global rational minimax. Wang–Zhao–Zhao describes adaptive multiple carriers and error estimates but its full text was inaccessible; no equivalent exact switch found in Resultary. Best-of-knowledge PASS with this explicit priority risk.",
+      "residual_risks": [
+        "The directly relevant Wang–Zhao–Zhao arXiv:2609.27910 full text could not be retrieved via arXiv/alternative OA or authorized institutional access (VPN disconnected); only abstract and prior self-review claims were available.",
+        "The theorem is for fixed Laguerre scale and equal in-phase two-tone signals, not arbitrary multi-carrier algorithms or omega<2a."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scale and bandwidth optimization, not exact fixed-scale common modulation of two damped tones.",
+          "evidence": "Section 6.1 explicitly balances spatial and frequency truncation errors, unlike the single-carrier coefficient objective.",
+          "identifier_or_url": "https://arxiv.org/html/2602.03083v1",
+          "material_read": "Full HTML source accessible; Sections 2,4 and 6, especially 6.1 scaling and 6.6 dual Laguerre comparison, read.",
+          "method": "Web HTML full-text sections and theorem comparison",
+          "title": "Scaling Optimized Spectral Approximations on Unbounded Domains: The Generalized Hermite and Laguerre Methods",
+          "trigger": "General Laguerre projection/error estimation and choice of scale"
+        },
+        {
+          "assessment": "Plausible priority risk remains, not whole-document NOT_COVERING.",
+          "evidence": "Abstract says adaptive modulation centers and frequency-mismatch bounds; no sharp single-carrier minimax formula exposed there.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.27910",
+          "material_read": "Abstract and source metadata only; full arXiv/OA text retrieval failed; Oxford institution reported vpn_disconnected.",
+          "method": "Primary arXiv abstract; attempted lawful full-text retrieval and authorized institutional access",
+          "title": "A Localized Core-Tail Fourier-Laguerre Frame Method with Adaptive Frequency Detection for Unbounded-Domain Problems",
+          "trigger": "Highly relevant same physical tone/correlation setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The discontinuous exact optimal-carrier switch at the simplest nontrivial two-tone, two-Laguerre-mode setup is a substantive boundary in frequency-adaptive spectral approximation, not a normalization exercise.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "H. Hu and H. Yu, Scaling Optimized Spectral Approximations on Unbounded Domains, arXiv:2602.03083v1",
+    "C. Wang, Z. Zhao, T. Zhao, A Localized Core-Tail Fourier-Laguerre Frame Method with Adaptive Frequency Detection, arXiv:2609.27910",
+    "Resultary search: single carrier two Laguerre mode damped cosine two tones optimal frequency switching"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Independent verification is best-of-knowledge; no formal proof/expert attestation asserted.",
+    "No public publication authorized: Public-bound METADATA.json retains the operational scope_run_id (seen directly in pinned Git blobs), and package-wide sanitization plus complete verified guarded replacements for every affected public file were not finished. Do not publish or treat status as import-ready."
+  ],
+  "residual_risks": [
+    "The directly relevant Wang–Zhao–Zhao arXiv:2609.27910 full text could not be retrieved via arXiv/alternative OA or authorized institutional access (VPN disconnected); only abstract and prior self-review claims were available.",
+    "The theorem is for fixed Laguerre scale and equal in-phase two-tone signals, not arbitrary multi-carrier algorithms or omega<2a."
+  ],
+  "schema_version": 1
+}

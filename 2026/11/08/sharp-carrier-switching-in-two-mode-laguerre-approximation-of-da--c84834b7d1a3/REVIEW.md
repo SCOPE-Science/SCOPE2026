@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For all \(a>0\) and \(\omega\ge 2a\), the two Laguerre functions specified in the result are orthonormal. The Laplace-transform formula gives the exact squared projection energy \(J_W(t)/s\) for every real carrier, with \(t=(k/s)^2\) and a strictly positive denominator. The verified identity comparing \(J_W(t)\) against \((W+1)/W\) reduces the global classification to the discriminant \(16W(W-3)\) of a quadratic. At \(W=3\), its only zero is \(t=5\), alongside the squared-carrier root \(t=2\). For \(W>3\), the above-baseline interval contains a unique global maximum: its derivative polynomial is strictly convex there, with opposite signs at the two endpoints. Endpoint limits and the large-frequency expansion follow by polynomial substitution. Exact symbolic identities and independently integrated half-line Laguerre coefficients were checked with the provided standalone checker; finite grids are not used in place of the continuous proof.
+## correctness
 
-## Originality — PASS relative to inspected sources
-Wang–Zhao–Zhao (arXiv:2609.27910, especially Sections 3.2–4.3, 5 and 6) considers multi-frequency carrier detection, residual phase and approximation-error estimates, not the exact globally optimal **single common carrier** for the displayed beat. Hu–Yu (arXiv:2602.03083, Sections 2, 4, 5 and 6) optimizes scaling and controls general Laguerre projection errors, not this common-modulation problem. Indexed research checks for carrier detachment, modulation bifurcation, two-tone Laguerre projections, exact threshold and related terminology returned no comparable formula. The closest indexed hits address unrelated Fourier moment transitions, two-tap spectrogram conditioning, or Laplace-distribution tails; these do not imply the present optimization. No database search can certify absence of an older equivalent calculation, and this remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-The lowest nontrivial truncated modulated Laguerre approximation of a coherent two-tone exponentially damped tail is a natural frequency-selection benchmark for half-line spectral methods. The global optimizers exhibit a sharp, **discontinuous** branch change at \(\omega/(2a)=\sqrt3\), with four exactly degenerate carriers at the switch, in contrast to a simple matched-frequency rule. This supplies an exact parameter-selection law and a meaningful boundary for one-carrier representations, not an arbitrary numerical slice. No claims about unconstrained multi-carrier approximation, arbitrary amplitudes, or algorithmic robustness are made.
+The orthonormal Laguerre basis and Laplace inner products yield J_W(t)=4N_W(t)/P_W(t)^2 on the full t>=0 domain. Independent SymPy expansion verified exactly J_W(W-1)=(W+1)/W, J_W(t)-(W+1)/W=-(t-W+1)^2H_W(t)/(W P_W(t)^2), the derivative -8(t-W+1)Q_W(t)/P_W(t)^3, and discriminant 16W(W-3). At W=3, J-4/3=-4(t-2)^2(t-5)^2/[3(t^2-4t+16)^2], giving both global carrier levels. For W>3 the negative region of H is a bounded interval t>W and strict convexity of Q there gives a unique maximum. The high-frequency substitution Q_W(W+u)=W(2u^2-8u+2)+u^3+2u^2+u proves the 2+sqrt(3) branch. Constraints on equal amplitudes, phase and omega>=2a are essential.
 
-## Closest literature and remaining risks
-The motivation and general adaptive approximation framework are Wang, Zhao and Zhao (2026), arXiv:2609.27910. The main broader comparison is Hu and Yu (2026), arXiv:2602.03083. Potential unindexed equivalents in optimal matched-filter or Laguerre approximation literature were not excluded. The result is limited to fixed-scale continuum projection and the resolved-frequency domain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A full accessible Hu–Yu paper treats scaled Laguerre spectral error and optimal scaling, not this fixed-scale two-mode single-carrier exact global rational minimax. Wang–Zhao–Zhao describes adaptive multiple carriers and error estimates but its full text was inaccessible; no equivalent exact switch found in Resultary. Best-of-knowledge PASS with this explicit priority risk.
+
+## value
+
+PASS
+
+The discontinuous exact optimal-carrier switch at the simplest nontrivial two-tone, two-Laguerre-mode setup is a substantive boundary in frequency-adaptive spectral approximation, not a normalization exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
