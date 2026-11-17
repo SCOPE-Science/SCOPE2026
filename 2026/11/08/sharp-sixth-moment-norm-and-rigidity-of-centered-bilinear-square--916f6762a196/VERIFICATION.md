@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Mathematical verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 check_q1_sixth.py` from the directory containing the other files. The checker depends only on Python 3's standard library, creates no external artifact, and computes all sixth-moment coefficients independently from the monomial product integration formula over two uniform independent coordinates.
+## correctness
 
-The program checks the exact ten rational sixth-moment coefficients, both symmetric substitutions, the complete coefficientwise nonnegative lower deficit, the exact upper positive antisymmetry term, the stationary quadratic and boundary signs, and equality witnesses. Additional finite floating-point evaluations of the algebraic cubic deficit are explicitly supplementary consistency checks, not a proof of an interval statement.
+PASS
 
-The **analytic proof** covers all real triples, including vanishing coefficients. The lower deficit is an identity in squared coefficient magnitudes with strictly positive coefficients, so the complete lower zero locus follows directly. The upper relation reduces maximization to a one-dimensional strictly concave cubic; its root and positive remainder factorization prove the entire upper interval and all equality cases. Orthogonality and affine change of variables establish the stated normalization and parallelogram scope.
+PASS: Recomputed all ten terms of E(√3 a U+√3 b V+3cUV)^6 by the exact multinomial formula for independent uniform[-1,1] U,V; checked the L² basis orthonormality and normalized simplex x+y+z=1. The lower difference from 27/7 is a sum of nonnegative monomials with zeros only at pure linear modes. The exact identity M=Φ(z)−D(z)(x−y)² with D>0, and Φ strictly concave with its sole interior derivative root r=(231−√42889)/44, proves global upper endpoint and all signs of the optimizer. An independent exact algebraic-root reduction checked the K expression and equality stability; no reliance on floating-point optimization. Affine pushforward preserves normalized measure on a parallelogram.
 
-No independent external mathematical audit or additional validation channel has been performed. An inaccessible or unindexed previously published equivalent formulation remains a possible originality risk.
+## originality
+
+PASS
+
+PASS (bounded): General finite-element inverse estimates, hypercontractivity and least-deviation polynomial studies give context but not a matching centered three-dimensional Q1-on-square sixth-power sharp constant, interior bilinear-energy optimizer and equality deficits in the inspected accessible materials. Some full texts were unavailable/uninspected and this priority risk is explicitly retained.
+
+## value
+
+PASS
+
+PASS: The centered local bilinear Q1 finite element is a canonical three-dimensional tensor-product polynomial space. Its exact norm constant and global equality geometry exhibit nontrivial interior allocation to the bilinear mode, can benchmark reference-cell inverse estimates and transfer to parallelograms; not a gratuitous fixed coefficient computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

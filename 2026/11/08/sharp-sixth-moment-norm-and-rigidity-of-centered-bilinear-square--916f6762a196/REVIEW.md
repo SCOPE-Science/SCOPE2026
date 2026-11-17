@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For independent uniform coordinates on the reference square, the three displayed generators are orthonormal in the normalized area \(L^2\) space. Multinomial expansion with vanishing odd moments yields exactly the ten sixth-moment coefficients. The nonnegative lower deficit is coefficientwise positive; its zero set is exactly the two pure linear modes. The upper reduction \(M=\Phi(z)-D(z)(x-y)^2\) has \(D(z)>0\) throughout the normalized simplex and a strictly concave cubic \(\Phi\) with exactly one critical point in \((0,1)\). Its exact factorization around that critical point proves the upper inequality and its equality classification. The proof includes the boundary \(z=0,1\) and extends by a change of variables to nondegenerate parallelograms. The checker independently expands all ten moment coefficients using rational arithmetic and verifies the principal polynomial identities.
+## correctness
 
-## Originality — PASS (best-knowledge qualification)
-Barak, Brandão, Harrow, Kelner, Steurer and Zhou, *Hypercontractivity, Sum-of-Squares Proofs, and their Applications* (arXiv:1205.4484, 2012), treat broad \(L^2\to L^q\) norm-computation complexity and related hypercontractive estimates, but the inspected Introduction, result statements and main theorem overview do not state an exact sharp sixth-moment constant for a centered continuous-square bilinear \(Q_1\) element. Wolff, *Hypercontractivity of simple random variables* (2007), treats finite discrete probability spaces and semigroup constants; its hypotheses do not identify the present continuous-space coefficient optimization. Graham, Hackbusch and Sauter, *Finite Elements on Degenerate Meshes: Inverse-type Inequalities and Applications* (2004), address general inverse estimates with mesh dependence and do not give the particular exact finite-dimensional sixth-moment optimization. Bojanov, Haußmann and Nikolov, *Bivariate Polynomials of Least Deviation from Zero* (2001), minimize deviation of fixed-leading-term polynomials on disks and triangles instead of maximizing the centered bilinear square \(L^6/L^2\) ratio. Database comparisons of exact-algebraic, \(Q_1\), bilinear, hypercontractive and finite-element aliases produced no statement covering these constants and equality loci. This is not proof that all historical literature has been exhausted: an unindexed specialized sharp inverse inequality remains a residual originality risk.
+PASS
 
-## Mathematical value — PASS
-The mean-zero bilinear cell is the smallest nontrivial tensor-product finite-element space that couples two linear modes to their product. Determining its exact sharp embedding norm and both endpoints completely resolves a natural local conditioning problem, including a nontrivial interior optimal allocation of squared coefficient energy, \(r=(231-\sqrt{42889})/44\). The exact nonnegative deficit identities quantify the rigidity of both extremizers rather than merely providing a plausible example. The statement transfers without recalculation to every affine parallelogram cell. These features make the exact fact useful as a reference sharp constant and structural endpoint classification, without asserting a general finite-element error theorem.
+PASS: Recomputed all ten terms of E(√3 a U+√3 b V+3cUV)^6 by the exact multinomial formula for independent uniform[-1,1] U,V; checked the L² basis orthonormality and normalized simplex x+y+z=1. The lower difference from 27/7 is a sum of nonnegative monomials with zeros only at pure linear modes. The exact identity M=Φ(z)−D(z)(x−y)² with D>0, and Φ strictly concave with its sole interior derivative root r=(231−√42889)/44, proves global upper endpoint and all signs of the optimizer. An independent exact algebraic-root reduction checked the K expression and equality stability; no reliance on floating-point optimization. Affine pushforward preserves normalized measure on a parallelogram.
 
-## Residual limitations and validation status
-The square's product-uniform geometry is essential; a general bilinear quadrilateral mapping has a variable Jacobian. The result is specific to real coefficients and sixth moments. Some specialized prior literature could contain an equivalent inequality under a different normalization. Finite checker output tests identities but is not an infinite proof; the analytic polynomial positivity and concavity arguments carry that burden.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (bounded): General finite-element inverse estimates, hypercontractivity and least-deviation polynomial studies give context but not a matching centered three-dimensional Q1-on-square sixth-power sharp constant, interior bilinear-energy optimizer and equality deficits in the inspected accessible materials. Some full texts were unavailable/uninspected and this priority risk is explicitly retained.
+
+## value
+
+PASS
+
+PASS: The centered local bilinear Q1 finite element is a canonical three-dimensional tensor-product polynomial space. Its exact norm constant and global equality geometry exhibit nontrivial interior allocation to the bilinear mode, can benchmark reference-cell inverse estimates and transfer to parallelograms; not a gratuitous fixed coefficient computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
