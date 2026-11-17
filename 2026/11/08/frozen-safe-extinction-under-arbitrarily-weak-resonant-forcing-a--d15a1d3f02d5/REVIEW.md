@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The central comparison is exact at first order. The frozen-step response follows from the stable-focus matrix exponential; its all-time bound is less than \(2sc/(e\alpha)\), while the resonant sinusoid's asymptotic amplitude is \(sc/\alpha\). An exponentially stable variation-of-constants estimate controls the nonlinear error by \(O(\varepsilon^2)\) uniformly in time for bounded input. The predator remains above its switching threshold by the exact absolute-sine kernel integral. The source's threshold fields imply irreversible prey decline following an inward crossing, and then predator extinction. The proof deliberately claims an **existent Filippov continuation**, not uniqueness at grazing contact. The executed standalone verifier corroborates 79 matrix identities, 39 frozen controls and three resonant crossing cases; finite computation is not the analytic proof.
+## correctness
 
-**Originality — PASS within inspected evidence.** The source paper's full text (Gao et al., arXiv:2610.39113v1) gives the model, numerical frequency scans and a conditional crossing criterion. Earlier smooth-response work already has the resonant transfer-function maximum and joint accessibility optimizer, **which are not claimed new**. The new object is the simultaneous, quantified uniform frozen-input safety/periodic-forced extinction theorem with universal step-gap bound and a new small-amplitude threshold corridor. The full Swailem–Rucklidge periodic-carrying-capacity model (arXiv:2511.03521v2) does not include a thresholded extinction switch. Relevant earlier reproduction-rate forcing work (Naess et al., 2008) was available only in abstract form; historical priority is not exhaustive.
+PASS
 
-**Value — PASS.** The quantifiers express a concrete, motivated resilience paradox rather than a frequency-amplitude calculation alone: **every** fixed rate in the oscillating range preserves coexistence from the same initial state, whereas the resonant schedule causes complete extinction for every sufficiently small positive forcing amplitude. The nonempty universal separation window and exact predator safety bound make this a reusable analytical mechanism for threshold dynamics.
+The assumptions define a stable-focus coexistence equilibrium J=[[-alpha,-a n],[a b p,0]] with discriminant alpha^2<4d and n=m/(ab), p=(r/a)(1-n/K), d=rm(1-n/K). Exponential stability plus variation-of-constants establishes uniformly in time an O(epsilon^2) remainder for all bounded forcing inputs. For each frozen eta the first-order prey step response is epsilon s c exp(-alpha t/2) sin(qt)/q; |sin qt|<=qt bounds its maximum by 2 epsilon s c/(e alpha). Predator L1 convolution bound is epsilon s kappa coth(pi alpha/(4q)); strict u,v inequalities keep all frozen trajectories safely in coexistence for small epsilon. Periodic sine forcing at sqrt(d) has asymptotic prey amplitude epsilon s c/alpha, strictly exceeding the moving prey-barrier u epsilon, while its predator remains above the moving predator barrier. Crossing f1 into N<Na with P>Pa has an admissible Filippov f2 continuation with negative prey drift; subsequent prey extinction and eventually predator decay follow by differential inequalities. Exact step amplitude tends to ratio 2/e as q/alpha tends to 0, establishing sharpness of the universal sufficient comparison (not the full nonlinear tipping threshold).
 
-**Limits.** Threshold distances scale linearly with forcing amplitude, the baseline is a stable focus, and the conclusion is an existence statement for a discontinuous Filippov continuation. It does not quantify finite-amplitude thresholds optimally, prove uniqueness at grazing contacts, or establish persistence after smoothing. Numerical checks are corroborative only. Priority remains provisional in view of older inaccessible full texts.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Gao–Poloni–Wang–Lewis analyze the same threshold predator–prey model and frequency-induced tipping at fixed thresholds/amplitudes, and contemporaneous published findings calculate first-harmonic resonance or joint-threshold accessibility, but none inspected proves the co-moving O(epsilon) barrier with *all frozen rates safe* and *every sufficiently weak resonant periodic amplitude admitting extinction* nor the sharp universal 2/e step/sinusoid gap. Related works are credited; no absolute priority is asserted.
+
+## value
+
+PASS
+
+PASS: a model-specific counterexample to frozen-parameter safety inference is conceptually meaningful, especially the explicit nonempty universal corridor and rigorous Filippov extinction despite asymptotically vanishing periodic forcing. The result separates oscillatory resonance from every constant-rate response using a sharp universal coefficient; it does not exaggerate into a full tipping phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
