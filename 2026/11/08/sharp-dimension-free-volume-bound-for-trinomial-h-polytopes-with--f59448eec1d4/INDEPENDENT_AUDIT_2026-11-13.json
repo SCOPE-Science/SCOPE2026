@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T16:19:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-dimension-free-volume-bound-for-trinomial-h-polytopes-with--f59448eec1d4/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-dimension-free-volume-bound-for-trinomial-h-polytopes-with--f59448eec1d4/verify.py",
+        "https://arxiv.org/abs/2610.35287"
+      ],
+      "rationale": "Because h*_1=0 for k>=2, P is an empty lattice simplex. Tsuchiya Proposition 4.3 bounds orders of the two height-2k elements to phi(order)<=4, generates the simplex group with them, and yields group order<=144. For each nontrivial dual character psi, coordinate-character Fourier transforms of support indicators are nonpositive, while target normalized heights give 2k(Re psi(x)+Re psi(y)-1), forcing spectral inequality Re psi(x)+Re psi(y)<=1. The included exact-Fraction verifier enumerates every C_m x C_n (m|n, 12<mn<=144), all eligible distinct high pairs, and characters; rational cosine lower bounds exclude 46135 of 46223 candidates. Its remaining 88 pairs lie in three fully enumerated automorphism orbits. Their three dual vectors force v dot normalized target = -1 but v dot every individual fractional character >=0; the audit independently recomputed these 3 negative targets and minimum dual=0 over respectively 16,16,18 characters using Fraction arithmetic, validating the critical separation. The source complete verifier and its 46223-pair result are exact reproducible arithmetic, not an arbitrary incomplete sample. Tsuchiya Example 4.5 achieves a=9 at every k>=2, giving sharp volume 12.",
+      "residual_risks": [
+        "This audit independently checked all three dual vectors but did not rerun the entire 46223-pair search; full source is inspectable and mathematically bounded.",
+        "Dependence on Tsuchiya Proposition 4.3 and Example 4.5 is explicit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tsuchiya 2026 Proposition 4.3 reduces all b to finite group orders, but does not exclude b=2 group orders 13..144; Question 4.6 asks for optimum."
+        ],
+        "reasoning": "A general upper reduction and lower equality witness do not imply the new sharp finite obstruction; the supplied exact enumeration resolves missing b=2 case.",
+        "searches": [
+          "trinomial h star lattice polytope 1+a t^k+2 t^2k sharp bound volume 12 Tsuchiya",
+          "https://arxiv.org/abs/2610.35287"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.35287",
+        "https://arxiv.org/abs/1503.05685"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tsuchiya upper group order<=144 and Example4.5 lower attained12 leave optimal interval [12,144] at b=2. New exact character/dual obstruction excludes every 13..144."
+        ],
+        "reasoning": "Prior results are necessary inputs but do not logically imply matching upper12 without the spectral and dual arithmetic argument.",
+        "searches": [
+          "trinomial h star lattice polytope 1+a t^k+2 t^2k sharp bound volume 12 Tsuchiya",
+          "https://arxiv.org/abs/2610.35287"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lattice normalized volume equals h*(1)=a+3; the theorem is equivalent to a<=9 for 1+a t^k+2t^{2k}."
+        ],
+        "reasoning": "Reformulation as a simplex group bound |G|<=12 is exact, and the prior theorem only gives <=144; not equivalent.",
+        "searches": [
+          "trinomial h star lattice polytope 1+a t^k+2 t^2k sharp bound volume 12 Tsuchiya",
+          "https://arxiv.org/abs/2610.35287"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full exact verifier covers 46223 high-pairs above |G|=12, with 46135 character exclusions and 88 exact dual exclusions."
+        ],
+        "reasoning": "No existing numerical Ehrhart table is claimed as a novelty certificate; explicit full source of mathematical exact finite classification is the new obstruction, and no already published table covered it.",
+        "searches": [
+          "trinomial h star lattice polytope 1+a t^k+2 t^2k sharp bound volume 12 Tsuchiya",
+          "https://arxiv.org/abs/2610.35287",
+          "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-dimension-free-volume-bound-for-trinomial-h-polytopes-with--f59448eec1d4/verify.py"
+        ]
+      },
+      "rationale": "The October 2026 Tsuchiya primary paper was inspected with its group reduction Proposition 4.3, equality Example 4.5 and open sharp-volume question. It supplies a much weaker general bound and matching volume-12 examples at b=2 but no sharp universal upper for that slice. The 2015 Higashitani–Nill–Tsuchiya Gorenstein classification applies to palindromic h* vectors, whereas h*=1+9t^k+2t^{2k} is not palindromic. No available earlier theorem in Resultary or these sources implies volume<=12 for all a,k. Historical priority qualified because further literature may exist.",
+      "residual_risks": [
+        "An unpublished/unindexed special b=2 bound or stronger general theorem might exist.",
+        "A priori group reduction from prior work is not claimed original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: lower 12 and loose finite group bound<=144, not new exact sharp upper",
+          "evidence": "Prop 4.3 order/generation, Ex.4.5 sharpness construction, Question 4.6",
+          "identifier_or_url": "https://arxiv.org/abs/2610.35287",
+          "material_read": "ArXiv 2610.35287 16-page accessible OA PDF: Proposition 4.3 and Example 4.5 located and inspected, with contextual theorem/question sections",
+          "method": "Primary OA PDF parsed and page screenshots viewed",
+          "title": "Scott-type inequalities for trinomial h*-polynomials",
+          "trigger": "Primary conjectural source with same parameters b=2 and sharp-volume question"
+        },
+        {
+          "assessment": "INAPPLICABLE to nonpalindromic a=9,b=2 equality example",
+          "evidence": "Gorenstein property gives palindromic numerator",
+          "identifier_or_url": "https://arxiv.org/abs/1503.05685",
+          "material_read": "Scope Gorenstein/palindromic as identified by source; full primary paper not reopened in this run",
+          "method": "ArXiv bibliographic comparison; no broad negative assertion inferred from snippets",
+          "title": "Gorenstein polytopes with trinomial h*-polynomials",
+          "trigger": "Potential complete trinomial classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-dimension-free-volume-bound-for-trinomial-h-polytopes-with--f59448eec1d4/RESULT.md",
+        "https://arxiv.org/abs/2610.35287"
+      ],
+      "rationale": "This determines an exact dimension-independent maximum volume for every k>=2 in a natural h*-trinomial class, meeting an explicit known lower construction and resolving a concrete b=2 slice of a general extremal question. The novel finite-group Fourier/duality obstruction is substantive, not a routine recomputation of source examples, and its exact certificates are mathematically motivated by complete finite reduction.",
+      "residual_risks": [
+        "No classification of all equality simplices or b>=3 case."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "This audit independently checked all three dual vectors but did not rerun the entire 46223-pair search; full source is inspectable and mathematically bounded.",
+    "Dependence on Tsuchiya Proposition 4.3 and Example 4.5 is explicit.",
+    "An unpublished/unindexed special b=2 bound or stronger general theorem might exist.",
+    "A priori group reduction from prior work is not claimed original.",
+    "No classification of all equality simplices or b>=3 case."
+  ],
+  "schema_version": 1
+}

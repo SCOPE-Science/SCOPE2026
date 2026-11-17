@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The published group-generation reduction bounds the group order by \(144\) and the orders of its two high-height elements by the eight possible integers with totient at most four. The Fourier transform of coordinate nonvanishing indicators gives the necessary character inequality. The exact rational verifier visits every allowed group and pair with size greater than \(12\), proving 46,135 spectral exclusions and 88 dual exclusions. Three explicit dual vectors satisfy all character inequalities exactly; the computed orbit enumeration proves no survivor is omitted. The original source constructs equality simplices for every \(k\). The proof does not substitute finite experiments for unbounded search: the independent mathematical reduction makes the search finite.
+PASS
 
-## Originality — PASS (historical priority provisional)
+Because h*_1=0 for k>=2, P is an empty lattice simplex. Tsuchiya Proposition 4.3 bounds orders of the two height-2k elements to phi(order)<=4, generates the simplex group with them, and yields group order<=144. For each nontrivial dual character psi, coordinate-character Fourier transforms of support indicators are nonpositive, while target normalized heights give 2k(Re psi(x)+Re psi(y)-1), forcing spectral inequality Re psi(x)+Re psi(y)<=1. The included exact-Fraction verifier enumerates every C_m x C_n (m|n, 12<mn<=144), all eligible distinct high pairs, and characters; rational cosine lower bounds exclude 46135 of 46223 candidates. Its remaining 88 pairs lie in three fully enumerated automorphism orbits. Their three dual vectors force v dot normalized target = -1 but v dot every individual fractional character >=0; the audit independently recomputed these 3 negative targets and minimum dual=0 over respectively 16,16,18 characters using Fraction arithmetic, validating the critical separation. The source complete verifier and its 46223-pair result are exact reproducible arithmetic, not an arbitrary incomplete sample. Tsuchiya Example 4.5 achieves a=9 at every k>=2, giving sharp volume 12.
 
-The closest October 2026 theorem gives a dimension-free but non-sharp general \(b\) bound and explicitly asks for its optimum. The source's b=2 example shows attainability of \(12\) but not the corresponding universal upper bound. The prior Gorenstein classification is restricted to palindromic numerators. Three targeted mathematical-record searches and 94 accessible historical claims yielded no covering result. Unindexed literature remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The bound is optimal for every exponent \(k\), addresses a precise open extremal gap in a recently published source, and replaces the known b=2 bound \(1024\) by the sharp \(12\). Its finite-group/Fourier/duality mechanism could inform the higher-b open cases, although no higher-b result is claimed.
+The October 2026 Tsuchiya primary paper was inspected with its group reduction Proposition 4.3, equality Example 4.5 and open sharp-volume question. It supplies a much weaker general bound and matching volume-12 examples at b=2 but no sharp universal upper for that slice. The 2015 Higashitani–Nill–Tsuchiya Gorenstein classification applies to palindromic h* vectors, whereas h*=1+9t^k+2t^{2k} is not palindromic. No available earlier theorem in Resultary or these sources implies volume<=12 for all a,k. Historical priority qualified because further literature may exist.
 
-## Scientific limitations
+## value
 
-Dependence on the published finite-group reduction is explicit. No classification of all equality simplices or optimal bound for coefficient \(b\ge3\) is claimed. Rational verification is replayable but has not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This determines an exact dimension-independent maximum volume for every k>=2 in a natural h*-trinomial class, meeting an explicit known lower construction and resolving a concrete b=2 slice of a general extremal question. The novel finite-group Fourier/duality obstruction is substantive, not a routine recomputation of source examples, and its exact certificates are mathematically motivated by complete finite reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or newer (no external dependencies). All inequalities are checked using exact `fractions.Fraction` arithmetic. The script enumerates invariant-factor groups \(C_m\times C_n\), all allowable distinct upper-height pairs, all nontrivial complex characters, and all automorphisms needed for the remaining orbits.
+## correctness
 
-The local replay returned:
+PASS
 
-```
-certified excluded group 2 8 automorphisms 16 orbit size 16
-certified excluded group 4 4 automorphisms 96 orbit size 48
-certified excluded group 3 6 automorphisms 48 orbit size 24
-EXACT_VERIFICATION_PASS; candidate_pairs_above_12= 46223 spectral_exclusions= 46135 dual_exclusions= 88
-```
+Because h*_1=0 for k>=2, P is an empty lattice simplex. Tsuchiya Proposition 4.3 bounds orders of the two height-2k elements to phi(order)<=4, generates the simplex group with them, and yields group order<=144. For each nontrivial dual character psi, coordinate-character Fourier transforms of support indicators are nonpositive, while target normalized heights give 2k(Re psi(x)+Re psi(y)-1), forcing spectral inequality Re psi(x)+Re psi(y)<=1. The included exact-Fraction verifier enumerates every C_m x C_n (m|n, 12<mn<=144), all eligible distinct high pairs, and characters; rational cosine lower bounds exclude 46135 of 46223 candidates. Its remaining 88 pairs lie in three fully enumerated automorphism orbits. Their three dual vectors force v dot normalized target = -1 but v dot every individual fractional character >=0; the audit independently recomputed these 3 negative targets and minimum dual=0 over respectively 16,16,18 characters using Fraction arithmetic, validating the critical separation. The source complete verifier and its 46223-pair result are exact reproducible arithmetic, not an arbitrary incomplete sample. Tsuchiya Example 4.5 achieves a=9 at every k>=2, giving sharp volume 12.
 
-The spectral test uses an explicit rational cosine lower bound relying on classical \(223/71<\pi<22/7\). The dual tests are exact rational matrix inequalities for every group character; no floating-point feasibility solver is used. The infinite theorem also relies on the group reduction and equality examples established in Tsuchiya, Proposition 4.3 and Example 4.5. This is self-review, not independent validation.
+## originality
+
+PASS
+
+The October 2026 Tsuchiya primary paper was inspected with its group reduction Proposition 4.3, equality Example 4.5 and open sharp-volume question. It supplies a much weaker general bound and matching volume-12 examples at b=2 but no sharp universal upper for that slice. The 2015 Higashitani–Nill–Tsuchiya Gorenstein classification applies to palindromic h* vectors, whereas h*=1+9t^k+2t^{2k} is not palindromic. No available earlier theorem in Resultary or these sources implies volume<=12 for all a,k. Historical priority qualified because further literature may exist.
+
+## value
+
+PASS
+
+This determines an exact dimension-independent maximum volume for every k>=2 in a natural h*-trinomial class, meeting an explicit known lower construction and resolving a concrete b=2 slice of a general extremal question. The novel finite-group Fourier/duality obstruction is substantive, not a routine recomputation of source examples, and its exact certificates are mathematically motivated by complete finite reduction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
