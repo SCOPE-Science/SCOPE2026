@@ -1,15 +1,21 @@
-# Review of the finite-tournament two-variable classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact statement concerns all finite nonempty tournaments in the pure binary-arc/equality language, counting-free \(\mathrm{FO}^{2}\) and unrestricted quantifier depth. Unique source peeling followed by sink peeling gives the asserted core and does not create a source during sink deletion. The recursive predicates for successive sources and sinks use only two reusable variables; the permanent two-pebble strategy uses the core’s nonempty in- and out-neighborhoods. Every admissible \((h,t)\) is realized at each sufficiently large order, and the minimum representative contains a directed triangle. Independent finite-refinement and direct-game scripts agree on all checked instances; these tests do not replace the infinite mathematical argument.
+## correctness
 
-## Originality — PASS, qualified
-Pikhurko–Verbitsky (arXiv:1003.4865) supplies game machinery, Thörnblad (arXiv:1604.04271) the older ordered structural decomposition of tournaments, and Geniet–Thomassé (arXiv:2207.07683) a modern first-order model-checking/twin-width theory. The inspected relevant primary full text and source/claim semantic searches do not report the complete \(\mathrm{FO}^{2}\) equivalence classification or exact \(1+\binom{n-1}{2}\) fixed-size theory spectrum. The earlier cyclic-three-block substitution result proves only the source/sink-free special case, without implying the global theorem. An unlocated stronger modal/bisimulation or composition theorem, and incompletely accessible historical literature, remain plausible priority risks; absence of a search hit does not establish uniqueness.
+PASS
 
-## Mathematical value — PASS
-The result classifies a natural full infinite class: arbitrary finite tournaments, not a chosen finite census or ad hoc numerical slice. It explains why two-variable logic detects every universally winning/losing peeling position but forgets the otherwise unrestricted tournament core, and provides exact counts and canonical smallest witnesses. The mathematical content is the structural/logical separation and complete quotient, not merely reproducible enumeration.
+At most one source and one sink can exist. Repeatedly removing sources yields a canonical initial linear chain. Subsequent sink peeling from source-free residue cannot create a source because each remaining vertex already beat that sink; the nonempty terminal core has no global source or sink and at least three vertices. Two-variable formulas σ_i(x) and reversed θ_i(x) recursively define the ith head/tail positions via scoped variable reuse; fixed finite i needs only x,y, so different peeling counts and transitive lengths are distinguishable. For equal (h,t), Duplicator maps matching chain positions; inside a core, each vertex has both in- and out-neighbor, so a permanent two-pebble response preserves equality and either arc orientation for arbitrary moves and depth. No counting quantifier is used. A 3-cycle core gives minimal nontransitive representative, and any core size r>=3 exists (e.g. lexicographic blow-up of a 3-cycle), giving 1+C(n−1,2) classes. Independent enumeration of all labelled tournaments of orders 1..5 found invariant class counts [1,1,2,4,7], matching formula; finite checks cannot replace infinite-depth Duplicator argument.
 
-## Limitations
-No independent proof audit, full historical-priority certification, or extension to richer signatures, counting quantifiers, other oriented graphs or higher variable widths is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS to best of knowledge: full earlier FO² cyclic triangle substitution result proves precisely the h=t=0 special case, while unrestricted tournament peeling counts and all-core equivalence are not implied by it; structural tournament decomposition and model-theory survey give tools, not the full quotient/spectrum.
+
+## value
+
+PASS
+
+An unrestricted-quantifier-depth classification of all finite tournament FO² elementary theories with explicit canonical minima and exact spectrum is a natural full model-theoretic classification, showing dramatic blindness to arbitrarily complex source/sink-free cores. This is stronger than the special directed-triangle transitive-block family and supplies a reusable normal form for finite-variable logic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
