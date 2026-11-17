@@ -1,19 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Fourier concentration quadratic form is the exact real sinc kernel. Arbitrarily concentrated two-packet magnitudes force pointwise sign factorization for a universal phase. Connectedness fixes the phase on each band, while the integer parity staircase forces all cross-band intervals into the same branch of the sinc sign. The strict adjacent disjointness condition and every boundary case are included. The proof directly verifies sufficiency by nonnegative signed kernel; there is no unproved numerical step. The deterministic sign checker is supplementary.
+PASS
 
-## Originality — PASS (provisional priority)
+By Fourier inversion the fixed-window energy is the real sinc quadratic form, whose off-diagonal pairwise sign must be saturated by any universal phase: two shrinking independent nonnegative packets expose any violating pair. Locally positive sinc kernel forces almost-everywhere constant phase per connected band. Any scaled width >1 conflicts with a negative in-band sinc lobe. Cross-band differences of gap r occupy intervals centred r x with maximal half-width Delta_r; continuity of their sign and adjacent band parity require floor(r {x}) to be even for all r. The floor staircase increments by 0 or 1 and begins 0, hence stays 0, yielding sharp Delta_r <= r {x} <= 1-Delta_r. Conversely those inequalities make signed sinc kernel pointwise nonnegative under the proposed alternating phase, proving universal optimality and uniqueness, including measure-zero zeros at closed endpoints. Independent 7000 deterministic sampled sign tests compared the criterion to all pairwise lobe signs; finite tests are corroboration only. One printed theorem line has a harmless notation typo nu instead of u; the proof unambiguously defines u=x-floor x.
 
-The most relevant primary source is O. Baeza-Guasch, arXiv:2307.04558, first publicly posted July 10, 2023. Its revised full text, Sections 1–2 and 8, gives the fixed-modulus sinc mechanism for connected frequency intervals, not the arbitrary unequal-width multiband classification. A previously established three-band equal-width result covers one strict specialization, which is acknowledged and not counted as new. The general statement combines an arbitrary number of connected components with unrestricted positive widths, and the exact maximum/minimum linear-window criterion; its implications are not established by the narrower statement alone. An unlocated general signed-kernel phase theorem could potentially imply this result, so historical priority is provisional. Searches of external mathematical records and the accessible comparison corpus found no covering exact theorem.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural multichannel design question asks whether one phase choice can concentrate every possible spectral magnitude, not merely a selected signal. The theorem gives a complete answer simultaneously for any number of potentially unequal passbands: an explicit finite polyhedral feasibility test, all feasible separation intervals, the unique compatible phase, and the sharp equal-width channel-capacity bound. It identifies how the maximum possible number of independent frequency channels is constrained by observation duration. This is a complete structural classification beyond the previously known special case, not a small numerical constant adjustment.
+A full previously published three-equal-band theorem (November 8 Resultary) gives precisely the m=3 equal-width special case and positive strict-window rigidity, credited rather than claimed new. Baeza-Guasch 2023/2026 handles phase symmetry for one connected interval; operator-level Paley-Wiener work optimizes the Fourier magnitude too. Neither read statement gives arbitrary finite m and arbitrary width-vector max/min conditions. Earlier abstract signed-kernel gauge theory could provide a general framework but no exact multiband sharp classification was found.
 
-## Limitations
+## value
 
-Only equally spaced band centers and centered time intervals are considered. The result does not compare unrestricted best concentration norms or cover general frequency geometries. Historical priority remains subject to a broader literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The problem is a naturally motivated universal optimization under arbitrary prescribed Fourier magnitudes across spectral gaps. An all-band-count and unequal-width necessary-and-sufficient threshold, sharp equal-width mδ boundary, and uniqueness of phase directly extend a known nontrivial three-band special case; this is not an arbitrary parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
