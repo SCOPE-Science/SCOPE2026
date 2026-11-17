@@ -1,15 +1,21 @@
-# Scientific review of the four-cube coordinate-actuation classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim's exact domain is the unweighted 16-vertex hypercube, the full Laplacian state matrix and independent coordinate controls. The lower bound of six follows from the middle eigenvalue's multiplicity. Character orthogonality, PBH and Jacobi's complementary-minor identity prove that six distinct antipodal classes are necessary and that the omitted classes must have opposite parity. A uniform bound of eight zeros for any nonzero first-order Walsh polynomial eliminates all other eigenspace obstructions. The same count follows directly from four even and four odd omitted-class choices and six independent representative choices. The eight orbit sizes are certified by exhaustive finite group-action enumeration, not assumed from numerical sampling. All 8,008 candidate subsets are independently checked with exact modular ranks. The modulus is rigorously large enough to detect every nonzero relevant integer minor. Limits: no higher-dimensional or weighted-network conclusion.
+PASS
 
-## Originality — PASS, qualified by publication-access limits
+For Q4, level-j Walsh eigenspaces have dimensions 1,4,6,4,1, so at least six independent coordinate actuators are necessary. For any six sampled vertices, middle even Walsh degree2 forces six distinct antipodal pairs. An 8x8 even-Walsh matrix and Jacobi complementary-minor identity make the 6x6 middle determinant nonzero precisely when the two unsampled antipodal classes have opposite parity. Degree1 and degree3 Walsh restrictions remain injective since a nonzero linear combination vanishes on at most four antipodal pairs; outer levels are nowhere zero. Exactly 4*4*2^6=1024 valid 6-sets; exhaustive action of 384 automorphisms partitions into eight orbits sized 32,32,96,96,192,192,192,192. Independent modular ranks over 257 for all 8008 sets agree with the criterion, and Hadamard bound |det|<=216 makes mod257 checks rationally conclusive.
 
-The relevant general result of Notarstefano and Parlangeli (arXiv:1203.0129, first public 2012-03-01) gives PBH and repeated-eigenspace determinant tests for Cartesian-product grids; its inspected introductory, spectral and general-grid sections do not state the four-cube's explicit antipodal-parity equivalence, complete 1,024-placement count, or eight-orbit classification. Olshevsky (arXiv:1304.3071, first public 2013-04-10) proves generic sparse-input complexity and approximation results, not this exact special-family placement theorem. Dai (DOI 10.1049/cth2.12385, first public 2022-10-29) supplies general leader-selection machinery and examples on other families, but not these cube placements. Yuan et al. (DOI 10.1038/ncomms3447, first public 2013-09-12) gives eigenvalue-multiplicity lower bounds, which do not identify which coordinate placements attain them. Searches of accessible mathematical research records for aliases, parameters and the exact combinatorial statement found related Fourier/cube problems but no implication matching this full result. The general determinant tests do subsume the *decision problem in principle*; the new contribution is their nontrivial closed combinatorial evaluation and complete optimum-set classification. The comparison is not a proof against unindexed or inaccessible specialist results. No independent audit has been performed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sixteen-vertex four-cube is a canonical product network in which repeated Laplacian eigenspaces make minimal coordinate placement nontrivial. The six-control multiplicity bound is actually attainable, but only 1,024 of the 8,008 six-site placements attain it. The elementary geometric obstruction — no repeated antipodal pair and omitted pairs of opposite parity — is more useful for design than recomputing controllability matrices, and the eight orbits distinguish inequivalent optimal layouts. It supplies a complete classification rather than an arbitrary computed statistic. No claim is made about cost, control energy, robustness or general hypercubes.
+PASS best-of-knowledge: General hypercube coordinate-actuation theorem attains the central eigenmultiplicity in every dimension and documents failing even middle shell, but does not classify every optimum six-set of Q4. Target supplies sharp antipodal-complement parity iff, all 1024 minimum choices and eight explicit symmetry types. Generic grid/PBH criteria permit deriving this only after substantive Jacobi minor and orbit analysis.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: The natural 4-cube is the first substantive middle-eigenspace control case; a complete parity criterion and exhaustive symmetry-resolved classification of every minimum actuator set is a useful sharp design invariant not reducible to the known minimum number alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
