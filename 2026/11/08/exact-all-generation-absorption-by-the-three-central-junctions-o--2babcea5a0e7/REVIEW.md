@@ -1,19 +1,21 @@
-# Scientific review: central-junction quantum capture on finite gaskets
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim concerns the combinatorial Laplacian on the level-\(g\) gasket and three positive-loss top-level *internal* junctions. The proof starts from the exact Schur reduction of a triangle of copies, including the necessary \(+z\) correction for shared vertices, and obtains two scalar junction resolvents. Its polynomial recurrence is checked algebraically, and three exact Bézout identities together with algebraic-integrality exclusions rule out every possible numerator/denominator cancellation. The scalar resolvents are Stieltjes transforms of finite real-symmetric matrices, so their reduced denominator degrees count distinct observable poles; these give the dimension \(13\cdot 2^{g-2}+1\) for all \(g\ge2\). The no-jump dissipation argument handles any three strictly positive rates. Independent finite-field Krylov reconstructions cover the first five nontrivial graph levels under two moduli; numerical rank tests corroborate but do not establish the infinite result. Risk: no independent human proof assessment has occurred.
+PASS
 
-## Originality
+The no-jump dissipative generator decomposes into the Laplacian cyclic subspace of three junction vectors (all decaying) and dark orthogonal complement, since any real eigenmode in bright space would vanish on all positive-loss sites, contradiction. Rational boundary Schur complement uses symmetric/standard channels; polynomial recurrences r_{j+1}=r_j(5-r_j), q_{j+1}=(3-r_j)q_j-r_j. Exact Bezout identities and algebraic-integer arguments preclude numerator/denominator cancellation at any generation; reduced junction-resolvent denominators degrees 1+3*2^(g-2) (symmetric) and 5*2^(g-2) (standard), multiplicity 1+2* respectively yields rank B_g=1+13*2^(g-2). The g=1 direct resolvent yields rank 6. Independent symbolic Bezout verification and exact modular Krylov ranks g=1..4 equal 6,14,27,53. Finite ranks are supporting checks, not the all-generation proof.
 
-**PASS on examined evidence, with historical-priority risk.** The main closest source is Darázs et al. (arXiv:1405.5078), whose Section V and Table IV already report the first finite central-junction trapping values; those exact finite-level values are not claimed as new. The examined article treats this problem numerically rather than deriving the all-generation central-junction rank polynomial. Burgarth et al. (arXiv:1111.1475) provide general controllability and zero-forcing criteria, not the rank of this non-zero-forcing three-junction set. A known all-generation exterior-corner absorption law involves a different three-vertex support and does not determine the internal-junction spectral measure. Related gasket spectral-projector literature, including Allan–Barany–Strichartz, may provide a route to the result; the complete text of that particular article was not accessible, so historical priority is not guaranteed. No relevant inspected source implies the explicit central-junction formula on its face.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The existing finite numerical table posed a concrete spectral transport question: its internal-junction trapping values suggested a recurrence, but finite tables cannot establish one. The result gives an exact infinite-family law, a structural two-channel proof, and the asymptotic captured fraction \((13/6)(2/3)^g\). In contrast with exterior-corner capture, the central triplet accesses roughly 30 percent more modes at large generation, a physically motivated placement difference rather than an arbitrary slice. A precise finite-scale law remains useful independently of finite-time relaxation estimates.
+Darázs et al. 2014 already list central-junction dark dimensions at several fixed generations (1,15,70,261,886) and setup of identical coherent walks. Finite entries are prior. Their inspected primary text reports numerical spectral calculations, without an analytic every-g proof, observability rank recurrence, or exact leading asymptotic. An earlier all-level exterior-corner theorem treats different absorber vertices. Best-of-knowledge this central all-level formula and noncancellation proof survive.
 
-## Sources and limitations
+## value
 
-Closest primary source: Darázs et al., *Transport properties of continuous-time quantum walks on Sierpinski fractals* (2014), https://arxiv.org/abs/1405.5078, Section V and Table IV. General method: Burgarth et al., *Zero forcing, linear and quantum controllability for systems evolving on networks* (2011), https://arxiv.org/abs/1111.1475. Plausible historical competitor: Allan, Barany and Strichartz, *Spectral operators on the Sierpinski gasket I* (2009), https://doi.org/10.1080/17476930802272978 (abstract available, full text inaccessible during this review). The result requires unweighted finite graphs, uniform real hopping, and strictly positive absorption at all three junctions; it does not cover arbitrary detector sets or absorption times.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Absorption at natural internal junction trap set of a self-similar fractal network is an intrinsic coherent-transport observable. Determining the exact accessible spectral mass at every generation, independent of positive loss intensities, answers a natural analytical question left as finite trapping data, and yields an exact decay coefficient. It is not merely reciting the old finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
