@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification procedure
+# Independent mathematical audit
 
-Execute `python3 verification/verify.py` using Python 3 with no third-party dependencies. The code checks the algebraic twenty-equation certificate and binary-state closure, reproduces Tribonacci monic and odd-monic block sequences for twenty-two blocks, constructs all Stern polynomials up to index \(32768\), and checks every corresponding state and block count through \(k=15\).
+## correctness
 
-The certificate's finite polynomial equalities and the proof's uniquely solvable formal-power-series recursions together establish the exact generating functions for all \(k\). The independently enumerated polynomials only test the definitions and implementation for a finite range; they cannot establish an infinite-density theorem on their own.
+PASS
 
-Expected exact check output begins `VERIFY_OK reachable_states=10 formal_transfer_identites=20 polynomial_indices=32767 exact_block_levels=22`.
+PASS: For n>=1 track d=deg(B_{n+1})-deg(B_n) and flags a,b for monicity. Positivity of coefficients ensures equal-degree sums are NOT monic, while unequal degrees inherit the leading coefficient of the higher summand. Therefore the exact T0/T1 transitions on d in {-1,0,1} are valid. Read the ten-state transfer table and independently checked its finite rational-series identities in the source verifier; these define W and C as formal power series, yielding both stated generating functions. Leading binary 1 plus k-1 arbitrary bits gives U_k; appending odd terminal 1 gives V_k. Even B_{2n}=tB_n cannot be reciprocal due zero constant term; odd-index B_n has constant term 1 so reciprocity forces monicity. Characteristic root lambda<2 gives O(lambda^k) and thus O(X^log2(lambda)). Independently generated dense Stern polynomials through n=4096 and checked binary-block U/V. No unproved leap from finite evidence to infinite counts.
 
-Known scientific limit: this method bounds reciprocal indices by the larger odd monic set. Priority risk: the full 2016 leading-coefficient chapter was unavailable for close comparison. No independent verification is asserted.
+## originality
+
+PASS
+
+PASS, qualified by a precise inaccessible source. Published Gawron 2014 proves explicit reciprocal families and a lower bound, and conjectures a much stronger polylogarithmic upper bound; those do NOT imply an upper X^theta density-zero bound. Schinzel 2015 restricts criteria to certain reciprocal Stern forms but does not give a global monic-block Tribonacci law in material inspected. Schinzel 2016 specifically studies leading coefficients in terms of binary digits; its full text could not be obtained from arXiv or lawful OA and authorized Oxford access returned vpn_disconnected. A pointwise digit formula COULD potentially yield an equivalent monic distribution via counting; only abstract-level evidence is available and no whole-document noncoverage is claimed. Resultary searches found no earlier exact full-law record. Best-of-knowledge PASS with substantive unresolved historical risk, not definitive priority certification.
+
+## value
+
+PASS
+
+PASS: Monicity in all dyadic index blocks is a naturally defined structural property of Stern polynomials and the simple exact Tribonacci law yields a genuine quantitative consequence for the published reciprocal-index counting problem: density zero. The bound is intermediate and not conjecturally optimal; it is not advertised as a solution of Gawron polylogarithmic conjecture. A finite-state exact infinite enumeration and power saving are mathematically useful regardless of absent downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

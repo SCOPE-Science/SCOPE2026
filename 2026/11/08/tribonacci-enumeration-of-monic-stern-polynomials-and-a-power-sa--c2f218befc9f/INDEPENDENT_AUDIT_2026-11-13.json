@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T11:01:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For n>=1 track d=deg(B_{n+1})-deg(B_n) and flags a,b for monicity. Positivity of coefficients ensures equal-degree sums are NOT monic, while unequal degrees inherit the leading coefficient of the higher summand. Therefore the exact T0/T1 transitions on d in {-1,0,1} are valid. Read the ten-state transfer table and independently checked its finite rational-series identities in the source verifier; these define W and C as formal power series, yielding both stated generating functions. Leading binary 1 plus k-1 arbitrary bits gives U_k; appending odd terminal 1 gives V_k. Even B_{2n}=tB_n cannot be reciprocal due zero constant term; odd-index B_n has constant term 1 so reciprocity forces monicity. Characteristic root lambda<2 gives O(lambda^k) and thus O(X^log2(lambda)). Independently generated dense Stern polynomials through n=4096 and checked binary-block U/V. No unproved leap from finite evidence to infinite counts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gawron proves families and a polylogarithmic LOWER count, conjecturing an UPPER; Schinzel identifies reciprocal forms but neither inspected statement gives all-index monicity counts or global density zero."
+        ],
+        "reasoning": "Broader algebraic reciprocal criteria do not automatically prove a global asymptotic upper bound without quantitative enumeration; submitted state transfer provides such an enumeration.",
+        "searches": [
+          "Gawron arXiv:1401.3553 Section 4 reciprocity conjecture",
+          "Schinzel 2015 Reciprocal Stern Polynomials DOI:10.4064/ba63-2-4"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1401.3553v1",
+        "doi:10.4064/ba63-2-4",
+        "doi:10.1007/978-3-319-28203-9_25 (abstract only)",
+        "OEIS:A186890",
+        "Resultary semantic monic Stern search",
+        "SCOPE2026 pinned RESULT.md/REVIEW.md/METADATA.json/AUDIT.json/verification/verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gawron Conjecture 4.3 is unproved polylogarithmic upper for reciprocal indices; if proved it would dominate O(X^theta), but an open conjecture cannot cover it. Schinzel 2016 chapter may give a starting point but accessible abstract does not supply the asymptotic consequence."
+        ],
+        "reasoning": "Existing proved lower bounds do not entail an upper bound; no decisive implication established from inspected full text. Inaccessibility is disclosed and does not alone force a fail.",
+        "searches": [
+          "Gawron arxiv:1401.3553 original paper Section 4",
+          "Schinzel 2015 original article",
+          "Schinzel 2016 DOI abstract; authorized access attempted"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2016 chapter abstract states a leading-coefficient formula from binary digits; it may be a pointwise equivalent description but does not display the submitted counting GF in the accessible abstract. The full chapter was not read."
+        ],
+        "reasoning": "A digit-wise formula may induce transfer automata after nontrivial enumeration; without full material one cannot declare either equivalence or NOT_COVERING. This specific priority risk is retained while evaluating at best knowledge.",
+        "searches": [
+          "Resultary query: Stern polynomial monic leading coefficient tribonacci generating function self reciprocal bound",
+          "Schinzel 2016 leading coefficients of Stern polynomials DOI 10.1007/978-3-319-28203-9_25"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS lists some exact reciprocal indices; current U/V enumerate a superset (monic Stern polynomials), not the same listed reciprocal set."
+        ],
+        "reasoning": "Finite index lists do not imply uniform Tribonacci generating functions or a power saving in X. No exact prior table of full monicity block counts established in accessible material.",
+        "searches": [
+          "OEIS A186890 reciprocal Stern polynomial indices",
+          "Resultary Stern leading coefficients monicity and Tribonacci search"
+        ]
+      },
+      "rationale": "PASS, qualified by a precise inaccessible source. Published Gawron 2014 proves explicit reciprocal families and a lower bound, and conjectures a much stronger polylogarithmic upper bound; those do NOT imply an upper X^theta density-zero bound. Schinzel 2015 restricts criteria to certain reciprocal Stern forms but does not give a global monic-block Tribonacci law in material inspected. Schinzel 2016 specifically studies leading coefficients in terms of binary digits; its full text could not be obtained from arXiv or lawful OA and authorized Oxford access returned vpn_disconnected. A pointwise digit formula COULD potentially yield an equivalent monic distribution via counting; only abstract-level evidence is available and no whole-document noncoverage is claimed. Resultary searches found no earlier exact full-law record. Best-of-knowledge PASS with substantive unresolved historical risk, not definitive priority certification.",
+      "residual_risks": [
+        "2016 specialist chapter not read in full because of authorized access obstacle; historical priority qualified.",
+        "The reciprocal-index count is ONLY bounded, not exactly enumerated; conjectured polylog upper remains open.",
+        "The 10-state transfer is an explicit finite algebraic proof, not a computer-proof of originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not establish current upper X^theta, and proposes conjecturally stronger polylogarithmic upper.",
+          "evidence": "Gawron 2014 Corollary 4.2 and Conjecture 4.3.",
+          "identifier_or_url": "https://arxiv.org/pdf/1401.3553",
+          "material_read": "Primary PDF, especially reciprocal polynomials Section 4, conjecture and lower-bound statements; screenshot inspected.",
+          "method": "Read accessible primary full PDF with selected pages visually checked.",
+          "title": "A note on the arithmetic properties of Stern Polynomials",
+          "trigger": "Same reciprocal-index counting question."
+        },
+        {
+          "assessment": "Gives families and criteria but no identified global dyadic monicity GF or reciprocal power-saving density theorem.",
+          "evidence": "Schinzel 2015 DOI 10.4064/ba63-2-4; reciprocal forms compared to monic superset.",
+          "identifier_or_url": "https://www.impan.pl/shop/en/publication/transaction/download/product/91253",
+          "material_read": "Primary 2015 PDF including theorem conditions, reciprocal binary forms and proof discussion; visual page inspection.",
+          "method": "Read the available primary source, comparison by theorem implication.",
+          "title": "Reciprocal Stern Polynomials",
+          "trigger": "Prior exact criteria for reciprocal Stern polynomials."
+        },
+        {
+          "assessment": "PRIORITY RISK: cannot decide whether detailed chapter derivations imply the exact monicity count.",
+          "evidence": "The 2016 abstract advertises expressions of leading coefficients using binary index representations.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-319-28203-9_25",
+          "material_read": "Abstract and bibliographic summary only; full chapter unavailable on arXiv/OA; Oxford institutional attempt returned vpn_disconnected.",
+          "method": "Limited abstract inspection and authorized access attempt; no claim of reading full text.",
+          "title": "The Leading Coefficients of Stern Polynomials",
+          "trigger": "Precisely same leading-coefficient observable; potential stronger pointwise digit criterion."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Monicity in all dyadic index blocks is a naturally defined structural property of Stern polynomials and the simple exact Tribonacci law yields a genuine quantitative consequence for the published reciprocal-index counting problem: density zero. The bound is intermediate and not conjecturally optimal; it is not advertised as a solution of Gawron polylogarithmic conjecture. A finite-state exact infinite enumeration and power saving are mathematically useful regardless of absent downstream theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:1401.3553v1",
+    "doi:10.4064/ba63-2-4",
+    "doi:10.1007/978-3-319-28203-9_25 (abstract only)",
+    "OEIS:A186890",
+    "Resultary semantic monic Stern search",
+    "SCOPE2026 pinned RESULT.md/REVIEW.md/METADATA.json/AUDIT.json/verification/verify.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For Stern polynomials the exact binary-block generating functions for monic B_n and odd-index monic B_n are z(1+z)/(1-z-z^2-z^3) and z(1-z^2)/(1-z-z^2-z^3). Hence both block counts satisfy a Tribonacci recurrence. Since reciprocal indices are odd and monic, the number of reciprocal indices <=X is O(X^theta), theta=log_2(lambda)<1, lambda the real Tribonacci growth root; thus reciprocal indices have density zero.",
+  "limitations": [
+    "Positive index only; monic superset; theta between zero and one, no polylog upper claim."
+  ],
+  "schema_version": 1
+}

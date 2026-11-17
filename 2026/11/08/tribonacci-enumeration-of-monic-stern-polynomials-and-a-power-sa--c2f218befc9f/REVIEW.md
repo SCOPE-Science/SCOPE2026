@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The binary state tracks consecutive degree difference and both monicity flags exactly. Positive coefficients make the equal-degree case nonmonic, fixing the critical transition. A complete ten-state table and twenty integer-polynomial identities provide an explicit certificate for both rational generating functions. The coefficient extraction, even-index exclusion, odd-index constant-term identity and characteristic-root bound establish the claimed unrestricted estimates. The independent finite verifier checks the state and actual polynomials but is not used as the infinite proof.
+## correctness
 
-## Originality — PASS (historical-priority risk retained)
-The inspected full text of Gawron (2014) gives lower bounds and a stronger polylogarithmic conjecture, but not a monicity generating function or density-zero theorem for reciprocity. The inspected full text of Schinzel (2015) studies exact reciprocal criteria in restricted binary forms without the current global distribution statement. OEIS A186890 is a list of reciprocal indices, not a density theorem. Schinzel (2016) gives a formula for leading coefficients in terms of binary digits; only the abstract was accessible, and a deduction or equivalent enumeration inside its full text remains a specific risk. Searches were by both object and mathematical implication, not only matching titles. Novelty is best-knowledge, not a certification of absence elsewhere.
+PASS
 
-## Value — PASS
-The exact complete binary-block count for the naturally defined monic superset has an unexpectedly simple Tribonacci rational generating function. It yields the qualitative density-zero conclusion and a quantitative power saving for a published reciprocal-Stern-polynomial problem. The work does not claim the polylogarithmic conjecture or an exact reciprocal count.
+PASS: For n>=1 track d=deg(B_{n+1})-deg(B_n) and flags a,b for monicity. Positivity of coefficients ensures equal-degree sums are NOT monic, while unequal degrees inherit the leading coefficient of the higher summand. Therefore the exact T0/T1 transitions on d in {-1,0,1} are valid. Read the ten-state transfer table and independently checked its finite rational-series identities in the source verifier; these define W and C as formal power series, yielding both stated generating functions. Leading binary 1 plus k-1 arbitrary bits gives U_k; appending odd terminal 1 gives V_k. Even B_{2n}=tB_n cannot be reciprocal due zero constant term; odd-index B_n has constant term 1 so reciprocity forces monicity. Characteristic root lambda<2 gives O(lambda^k) and thus O(X^log2(lambda)). Independently generated dense Stern polynomials through n=4096 and checked binary-block U/V. No unproved leap from finite evidence to infinite counts.
 
-## Residual limitations
-The 2016 leading-coefficient chapter was not read in full. Historical priority warrants specialist verification. The finite software checks are corroborative rather than a proof of the infinite theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified by a precise inaccessible source. Published Gawron 2014 proves explicit reciprocal families and a lower bound, and conjectures a much stronger polylogarithmic upper bound; those do NOT imply an upper X^theta density-zero bound. Schinzel 2015 restricts criteria to certain reciprocal Stern forms but does not give a global monic-block Tribonacci law in material inspected. Schinzel 2016 specifically studies leading coefficients in terms of binary digits; its full text could not be obtained from arXiv or lawful OA and authorized Oxford access returned vpn_disconnected. A pointwise digit formula COULD potentially yield an equivalent monic distribution via counting; only abstract-level evidence is available and no whole-document noncoverage is claimed. Resultary searches found no earlier exact full-law record. Best-of-knowledge PASS with substantive unresolved historical risk, not definitive priority certification.
+
+## value
+
+PASS
+
+PASS: Monicity in all dyadic index blocks is a naturally defined structural property of Stern polynomials and the simple exact Tribonacci law yields a genuine quantitative consequence for the published reciprocal-index counting problem: density zero. The bound is intermediate and not conjecturally optimal; it is not advertised as a solution of Gawron polylogarithmic conjecture. A finite-state exact infinite enumeration and power saving are mathematically useful regardless of absent downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
