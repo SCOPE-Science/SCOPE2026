@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Published quadratic splitting of the two projective Burkhardt models over a field containing cube roots of unity, together with the standard model's blowup zeta function, constrains every Frobenius eigenvalue to the required signed Tate weights. Two independently reproducible exhaustive small-field counts determine the two remaining traces; the formula over all extensions then follows formally. The complete projective \(\mathbb F_2\)-point set and its singularity are elementary direct computations. This does not rely on extrapolating finite enumeration.
+## correctness
 
-**Originality — PASS, with a documented historical-priority limitation.** The standard model's zeta function and the fact that the symmetric model is a twist are explicitly prior results. They do not determine the signs of descent Frobenius on this nontrivial twist. Their difference is visible in the incompatible \(\mathbb F_2\)-counts \(23\) and \(15\). The inspected Ren--Sam--Sturmfels work treats complex tropical geometry; the Bruin--Nasserden paper's zeta theorem applies to the standard model and provides the critical comparison; Bruin--Filatov's general theory excludes characteristic two. No exact twist formula was found in the completed searches, but uninspected historical arithmetic treatments remain a residual priority risk.
+PASS
 
-**Value — PASS.** Determining an all-extension zeta function of a distinguished arithmetic form of the Burkhardt threefold, together with the absence of smooth base-field points, addresses its natural arithmetic descent rather than an arbitrarily chosen finite slice. The sign distribution is not specified by the known standard-form zeta function and is useful for studying this moduli-related form over finite fields.
+Reconstructed the distinction between six-coordinate symmetric twist and standard five-coordinate Burkhardt model; the F4 isomorphism plus published F4 zeta/geometric blowup results force only ±2 and ±4 Frobenius eigenvalues for the F2 descent. Two independent odd-degree counts determine their integer trace multiplicities. Independent exact finite-field projective enumeration via polynomial-quotient arithmetic gave #X(F2)=15, #X(F4)=205, #X(F8)=345, #X(F16)=7729, all matching the asserted parity formulas. For F2, weight-two projective points alone lie on X and all have vanishing derivative sigma4, proving no smooth point. Finite counts are used to determine unknown signs after the theoretical eigenvalue restriction, not extrapolated to all m.
 
-**Limits.** This is an exact arithmetic result for the displayed characteristic-two twist, not a classification of all twisted forms or a newly established birational characterization.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novel complete zeta of the specific symmetric characteristic-two form. 2017 Bruin–Nasserden determine the distinct standard model over F4 and recognize the twist; 2026 Oct25 same symmetric form calculates rational nodes and exceptional divisor quotient, but not zeta of X. The complete ± Frobenius multiplicities and odd-extension counts fill the missing descent information.
+
+## value
+
+PASS
+
+A complete rational Hasse–Weil zeta and every extension-field point count of a naturally occurring, arithmetically nontrivial symmetric twist are intrinsic algebraic-geometric invariants; the F2 vs F4 descent distinction is mathematically substantive. Earlier node quotient alone does not determine this full invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
