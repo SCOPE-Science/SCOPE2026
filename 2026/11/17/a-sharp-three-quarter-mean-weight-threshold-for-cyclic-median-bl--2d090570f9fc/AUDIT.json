@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every strict rank chamber the local median selector admits an exact three-edge factorization through cyclic first differences with column (a,1-a-c,c), a,c in {0,1}. Blending uniform moving average yields three coefficients whose absolute sum is at most max(1,3-8theta/3), by checking four indicator patterns. Continuity and finite piecewise-affinity imply the same bound globally. Two separated strict-rank interfaces with finite epsilon input perturbation attain that bound for all n>=6 and all theta in [0,1]. Exact rational proof checks independently verify all rank chambers for n=6,7,8 and witnesses for n=6..23, while the general proof supplies infinite-domain validity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Arias-Castro–Donoho, 2006 submission/2009 article, introduction and results describe worst-case mean-squared error and edge behavior, not seminorm control of differences.",
+        "Thivakaran–Chandrasekaran 2010 primary text describes conditional adaptive median replacement and measures PSNR, not the fixed convex blend or pairwise variation bound."
+      ],
+      "reasoning": "The named source theorems address statistical performance or a different algorithm. Such assertions do not logically dominate a worst-case two-input cyclic BV estimate; no stronger explicit covering result was established from the inspected material. This is not a proof that no stronger theorem exists.",
+      "searches": [
+        "'median filter' 'moving average' 'total variation' stability blend",
+        "'median-mean' 'bounded variation' 3/4",
+        "https://arxiv.org/abs/math/0612422",
+        "https://arxiv.org/abs/1003.1803"
+      ]
+    },
+    "checked_sources": [
+      "Ben Hamza–Krim, DOI 10.1109/ICIP.2001.958067 (scientific full text read)",
+      "Arias-Castro–Donoho, arXiv:math/0612422 (PDF core sections inspected)",
+      "Thivakaran–Chandrasekaran, arXiv:1003.1803 (PDF algorithm sections inspected)",
+      "Jia–Xu–Fu, DOI 10.4028/www.scientific.net/AMM.701-702.288 (publisher abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Separate sharp constants for the median (3) and mean (1) imply by triangle inequality only a linear upper bound 3-2theta.",
+        "For theta=3/4, this endpoint convexity bound is 3/2, while the new exact coefficient is 1; the proof isolates a locally negative middle selector coefficient and cancels it with the mean contribution."
+      ],
+      "reasoning": "The claimed all-weights transition is not a corollary of separate endpoint norms or the published MSE/risk analysis. The two-input differential factorization, its negative middle entry and finite attaining interfaces are the exact additional mathematical content.",
+      "searches": [
+        "https://doi.org/10.1109/ICIP.2001.958067",
+        "'median-mean' 'bounded variation' Lipschitz constant",
+        "https://arxiv.org/abs/math/0612422"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ben Hamza–Krim 2001, author-posted full scientific text, defines a mean–median convex combination; its proposition and deterministic sections concern influence-function variance, filter roots, and details.",
+        "The new modulus is for differences under cyclic total variation, a different functional than statistical variance or one-input root preservation."
+      ],
+      "reasoning": "The physical filter family is pre-existing and is not claimed as original. Comparing the mathematical assertions rather than names: none of the inspected propositions establishes the exact two-input cyclic-variation modulus as a function of the mixture weight.",
+      "searches": [
+        "'median mean mixture total variation Lipschitz filter'",
+        "'median' 'mean' 'mixture' 'total variation' 'Lipschitz' filter",
+        "https://doi.org/10.1109/ICIP.2001.958067"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public results on the pure cyclic three-point median give factor three for cycles of at least six sites; that is the theta=0 endpoint only.",
+        "The published literature compared includes blend models but no checked exact table for arbitrary mean weight."
+      ],
+      "reasoning": "An exact pure-median endpoint and a mean-filter endpoint are insufficient to infer the interpolation law; no table or database entry directly matching the all-weights threshold was located. The accessible search and text inspection, rather than mere keyword absence, ground the claim to best-knowledge originality.",
+      "searches": [
+        "'sharp BV perturbation threshold for cyclic three-point medians'",
+        "'cyclic three point median' 'perturbation' 'variation'",
+        "'median-mean hybrid filter derivative sharp cyclic variation stability'"
+      ]
+    },
+    "rationale": "The 2001 primary paper defines mean–median blends but its full reviewed propositions analyze distributional variance and root properties rather than two-input cyclic variation. A 2006 median-versus-linear paper studies MSE. Pure median perturbation factor 3 and mean factor 1 give only 3-2theta by convexity; they do not imply the new sharp 3/4 cancellation threshold. Full-text access remains incomplete for an improved 2014 hybrid model, and historical priority is not independently certified.",
+    "residual_risks": [
+      "The 2014 improved hybrid median-mean algorithm could not be full-text inspected and may contain relevant unstated stability details; its precise algorithm is not established equal to the fixed three-point convex blend.",
+      "Other unindexed exact BV stability results could alter historical priority.",
+      "The earliest precise public lead-source date is 2006-12-14; the earlier 2001 blend paper is dated only by year/month in available bibliographic evidence."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The blend construction is prior work; its stated analytical results concern influence functions, asymptotic variance and fixed points of related relaxed median filters, not the new two-input variation threshold.",
+        "evidence": "The text presents asymptotic variance in Proposition 1 and root/fixed point statements in Propositions 3–4. The inspected full scientific text gives no formula for the exact cyclic total-variation Lipschitz coefficient of a mean-median blend.",
+        "identifier_or_url": "https://doi.org/10.1109/ICIP.2001.958067",
+        "material_read": "Author-posted full scientific text, introduction, definitions, Propositions 1–4, deterministic properties, experiments, conclusion and references; 2001 bibliographic year and February month only",
+        "method": "Read publicly displayed author-posted primary text at https://www.researchgate.net/publication/3919864_Nonlinear_image_filtering_trade-off_between_optimality_and_practicality",
+        "title": "Nonlinear image filtering: trade-off between optimality and practicality",
+        "trigger": "Same convex combination of mean and median filters, strongest direct-object comparison"
+      },
+      {
+        "assessment": "Explicit minimax MSE risk comparison and two-stage filtering, not a theorem on pairwise cyclic variation seminorms. The reviewed theorem statements have different hypotheses and conclusion.",
+        "evidence": "Sections 1.3–1.7 define fixed-window linear/median filters and worst-case squared-risk objectives; table 1 reports rates, not BV seminorm operator constants. Earliest arXiv v1 date 2006-12-14.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0612422",
+        "material_read": "PDF abstract and pages 1–7, definitions and results overview, prior-literature section; not an assertion of full-document exclusion",
+        "method": "Read text extraction and inspected actual PDF page screenshots of cover and page 7",
+        "title": "Does median filtering truly preserve edges better than linear filtering?",
+        "trigger": "Canonical archived mathematical comparison of running median and linear averaging"
+      },
+      {
+        "assessment": "A switching/adaptive median filter with PSNR evaluation, not the specified fixed convex mean–median map or its all-pairs variation stability.",
+        "evidence": "Algorithm AMF selects replacement based on minimum/maximum tests; performance measures include PSNR and noise attenuation.",
+        "identifier_or_url": "https://arxiv.org/abs/1003.1803",
+        "material_read": "PDF pages 1–2, algorithm, filter definitions, and performance indices",
+        "method": "Read actual arXiv PDF text and screenshots of the first two pages",
+        "title": "Nonlinear Filter Based Image Denoising Using AMF Approach",
+        "trigger": "Archived primary work on robust running median filters and mean-versus-median tradeoff"
+      },
+      {
+        "assessment": "Abstract describes an improved median-filter-based hybrid algorithm and experimental denoising; exact map and theorem unverified from unavailable body, retained as residual historical risk.",
+        "evidence": "Publisher abstract presents experimental mixed-noise performance and identifies an improved median preprocessing algorithm rather than an exact cyclic BV comparison.",
+        "identifier_or_url": "https://doi.org/10.4028/www.scientific.net/AMM.701-702.288",
+        "material_read": "Publisher abstract and bibliography only; public full text not obtained",
+        "method": "Searched arXiv/preprint and lawful open access first; publisher abstract inspected; institutional retrieval unavailable without manual VPN connection",
+        "title": "An Improved Hybrid Median-Mean Filter Algorithm",
+        "trigger": "Plausible same-phrase 2014 hybrid-filter publication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "2d090570-f9fc-4245-8d24-70ac82431565",
+  "value": {
+    "rationale": "The 3/4 threshold gives an exact, dimension-uniform nonexpansivity calibration for a classical robust-plus-linear smoothing construction. It resolves a mathematically motivated gap between mean/median endpoint bounds; sharp finite witnesses expose the negative middle-derivative cancellation and show that no smaller averaging weight suffices. The claim is an exact structural fact, not merely a numerical gain or a restated convexity bound.",
+    "status": "PASS"
+  }
+}
