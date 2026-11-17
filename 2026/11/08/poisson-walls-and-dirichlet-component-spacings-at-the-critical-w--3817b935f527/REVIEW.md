@@ -1,15 +1,21 @@
-# Review of the critical cycle-square component law
+# Independent mathematical audit
 
-## Correctness
-PASS. The model and the three edges crossing a gap are explicit. The deterministic event excluding four deleted edges in any five-vertex window has complement probability at most \(35nq_n^4\); on that event a component-label singleton run is impossible and every component boundary is a three-edge wall. This proves the finite component-wall identity. The wall indicators have independent nonadjacent pairs, adjacent joint deletion probability \(q_n^5\), and a finite-cluster factorial moment calculation yields a Poisson point process. The component count and conditional Dirichlet spacings then follow. A standalone checker passed 8,935 exact finite assertions. Limits rely on the analytic proof, not enumeration.
+## correctness
 
-## Originality
-PASS, with an explicit historical-priority risk. Federico (2024) already solves the off-critical connectivity threshold for the same finite-range cycle network and identifies cut-gap obstructions, so these facts are not original. The full text was read, including the theorem, isolated-vertex and cut-gap sections, the exclusion of other disconnections, and conclusion. It gives no critical-window distribution of components or their spacings. The October 2026 arXiv motivating paper explicitly poses the fixed-band critical component laws as an open problem. The 2020 Wilsher–Dettmann–Ganesh abstract concerns random-position soft geometric graphs, not the deterministic cycle-square host. Related available public mathematical record descriptions show no direct covering implication. A differently phrased earlier network-reliability result could exist.
+PASS
 
-## Mathematical value
-PASS. The result answers a natural special case of the explicitly posed small-bandwidth component-law problem, gives the complete critical component-count distribution and the sharp connectivity probability, and recovers the sizes of separated macroscopic components rather than merely showing their existence. The finite-volume rigidity estimate is a structural mechanism usable for further small-width investigations. The result is restricted to range two and identical deletion probabilities; no wider-band theorem is claimed.
+At n>=10 a five-consecutive-vertex window has seven host edges; no window with >=4 deletions occurs except probability <=35 n q^4. In that event singleton runs of any connected-component label force 4 local missing edges, so each component forms a contiguous arc, each boundary exactly a 3-edge missing wall, and K=max(1,W). Wall indicators have probability q^3, adjacent intersection q^5 and independent otherwise. For n q^3->lambda>0, factorial moments of cluster configurations yield a simple rate-lambda PPP. Given k>=2 points, cyclic gaps from a uniformly chosen wall are Dirichlet(1,...,1), giving connectivity e^-lambda(1+lambda), maximum size CDF via simplex inclusion-exclusion, mean H_k/k.
 
-## Evidence and limitations
-The 2026 primary manuscript, the complete 2024 article, and the related 2020 abstract were inspected at the material levels indicated above. The proof and reproducibility script are in the accompanying files. Historical priority, extension to arbitrary fixed width, and independent audit remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Federico 2024 treats this exact bounded-range one-dimensional graph and identifies the cut-dominated threshold via zero-one laws, but the materially inspected full text does not give the fixed-window Poisson count of 3-edge walls, quantitative 35nq^4 component-wall comparison, or conditional Dirichlet macroscopic component spacings. These are the surviving contributions.
+
+## value
+
+PASS
+
+A full component-count and conditional macroscopic size law at the first three-edge-cut threshold resolves a natural finite-range network connectivity transition, with a sharp quantitative finite-volume rigidity estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
