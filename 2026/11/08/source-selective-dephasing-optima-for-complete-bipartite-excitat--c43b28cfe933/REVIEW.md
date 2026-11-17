@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The density-matrix generator, population-loss and dephasing normalizations, all initial conditions, and source ranges are explicit. The symmetry reduction is checked entry by entry; integrated variables yield two exact means. A Hilbert--Schmidt decay argument proves extinction under positive dephasing, strict convexity establishes uniqueness, and the derivative equations rigorously yield the two square-root asymptotics. An independent full Liouvillian numerical solver passes 106 finite checks. Their finite range is not substituted for the analytic proof. Risk: only the specified Markovian, uniform and no-bulk-loss model is covered.
+PASS
 
-## Originality: PASS on examined material, provisional priority
+PASS: The specified Haken–Strobl Lindblad generator damps off-diagonal entries at gamma and trap population at kappa; the Hilbert–Schmidt dissipation equality excludes nonzero imaginary-axis invariant eigenoperators for gamma>0 by the connected bipartite graph. Permutation averaging of one localized source is justified by survival-trace invariance. Integrating the eight entry equations gives C_N=N/kappa+(N-1)kappa/(4 J^2 b) and T_A=C_N+(a-1)(N-2)/(2gamma+kappa)+(a-1)/gamma+N gamma/(2J^2 b), T_B=C_N+a(N-2)/(2gamma+kappa)+(b-1)/gamma+(N-1)gamma/(2J^2 b). Direct independent N^2-dimensional complex Liouvillian solves for (m,n)=(2,2),(3,2),(4,3), for both source sides, agree within floating errors around 3e-15. Strict convex derivatives yield the B positive optimum, A positive optimum iff a>=2; at a=1 coherent capture on the reachable sector is proved despite other dark eigenvectors. Scaling gamma=x sqrt(b) yields source constants J sqrt(a-1), J sqrt(a+2) and excess constants sqrt(a-1)/J, sqrt(a+2)/J. The finite solves are corroboration, not the all-size proof.
 
-Full public HTML was inspected for Kassal--Aspuru-Guzik (arXiv:1201.5202v2), Caruso and collaborators (arXiv:0901.4454), and Alterman--Berman--Strauch (arXiv:2309.00164). Their studied structures are ordered chains and rings or fully connected graphs, whereas the claim concerns two-sided complete-bipartite graphs, exact source-resolved first-capture means, and a distinct large-part dephasing scaling. The known star trap formulas belong to the singleton-part graph limit and are explicitly excluded. Direct literature and published-record comparisons found no stronger statement implying the proposed result. The full text of the plausibly related 2004 Gaab--Bardeen paper could not be obtained; it is a residual priority risk rather than evidence of noncoverage. Unindexed equivalent calculations remain possible.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The complete two-source exact solution for all \(m,n\ge2\) resolves a concrete transport design question: an excitation from one partition can require finite noise to be captured promptly while a source from the opposite partition, on the same graph, is slowed by any noise. The two inequivalent, explicit \(\sqrt n\) optimal-noise constants are not obtained merely by relabeling the star limit. These give structural source-selective predictions on a natural dense ordered network. Limitations: no bulk recombination, disorder, or coherent superposition inputs.
+PASS, best of knowledge: the exact two separate localized-source mean formulas, the special coherent-side boundary and unequal large-b optimum constants are not in the inspected previously published uniform-nontrap-mixture theorem; that theorem supplies only one weighted combination of these two means, which cannot determine each separately. Earlier Haken–Strobl connectivity work establishes qualitative dephasing/trapping optima, but its abstract is insufficient to certify noncoverage of a concealed exact K_{m,n} reduction; full text was unavailable through permitted routes and remains a specific risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: class-specific localized-source optima distinguish where an excitation is injected even in a highly symmetric network. The exact abrupt coherent-boundary case m=2 and different sqrt(b) optimal dephasing constants are natural structural information needed for source choice, not a mere restatement of the already published symmetric-mixture optimum. No claims about external bulk loss or transport-efficiency optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
