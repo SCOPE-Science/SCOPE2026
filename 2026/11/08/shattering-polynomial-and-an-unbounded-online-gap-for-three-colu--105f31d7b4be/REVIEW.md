@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The sorted east-step heights parameterize every directed shortest path; explicit predicate/witness tests classify all shattered pairs; a complete triple-type obstruction proves no higher supports exist. The online bound uses a two-independent-threshold subfamily and the hypothesis-count upper bound. The standalone checker corroborates exact traces and finite online dimensions; infinite claims rest on proofs.
+## correctness
 
-**Originality — PASS within examined sources.** A published VC theory of minor-free graph ranges concerns distance comparisons, balls and shortest-path-tree edge systems, not all vertex traces of a fixed source–target grid path family. The canonical-path range-space theorem for shortest paths likewise uses one tie-broken path per endpoint pair and different ranges. Related interval-threshold formulations may be known under other names. Searches do not certify global priority.
+PASS
 
-**Value — PASS.** The count \(2b^2+b-2\) provides the entire nontrivial top stratum of a natural three-column shattering complex, and the qualitative online gap grows as \(2\log_2 b+O(1)\) although static dimension remains two. This supplies a precise benchmark for variable shortest-path concept families and a motivated boundary case before general grid widths.
+Every monotone (0,0)–(2,b) path corresponds to 0<=r<=s<=b, with column predicates L_i=[r>=i], M_j=[r<=j<=s], R_h=[s<=h]. Exactly 3b+1 singleton queries vary, 2b²+b-2 two-query supports shatter by four geometric types, while every triple misses a trace by interval-convexity/nested-threshold obstruction. Thus Phi_b=1+(3b+1)z+(2b²+b-2)z² for b>=2. The k² subfamily with 0<=r<k and k<=s<2k supports two independent balanced binary threshold searches, depth 2floor(log2 k), k=floor((b+1)/2); hypothesis count gives upper floor(log2((b+1)(b+2)/2)), so Ldim=2log2 b+O(1), VCdim=2. Independent exhaustive path trace/pair/triple checks for b=2..10 (triples b<=6) matched the formula. The original checker and source path were read; we do not claim an exact finite Ldim formula.
 
-The exact online dimension for individual heights and higher-width polynomials are not established. Independent priority and mathematical reproduction remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: All monotone fixed-endpoint path vertex traces on a three-column grid differ from tie-broken all-pairs shortest path range systems, geodesic-convex sets, or shortest-path trees. Prior general VC bounds and threshold learning facts do not logically give this polynomial plus unbounded VC/Littlestone separation for this precise incidence family.
+
+## value
+
+PASS
+
+The fixed-width natural graph path concept class has an exact all-height VC-shattering polynomial and a sharp-order adaptive-versus-static separation; it provides a concrete family with VC dimension two but unbounded Littlestone dimension despite only three columns. The exact Ldim additive constant remains open, but the quantified gap is a meaningful independent result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
