@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conditional crossing kernel \(g(\ell)=\ell\mu/(2\pi^2)\) is obtained by a two-stage isotropic intersection and phase calculation. It gives the exact degree mixture, star moments and covariance of indicators sharing an arc. The sum of covariance classes proves the exact variance. The classical first-order U-statistic decomposition proves a Gaussian limit when \(\operatorname{Var}(L)>0\), with an \(O(n^2)\) remainder variance. Binomial concentration proves empirical degree convergence. Endpoint angle integrals and all stated normalizations have been checked, with a separate deterministic-seed simulation as corroboration.
+PASS
 
-## Originality — PASS (provisional priority)
+For iid independently oriented shorter great-circle arcs with L in (0,pi), conditioning on an arc of length ell gives an intersection probability g(ell)=ell E[L]/(2pi^2): one point of the antipodal supporting-circle intersection pair hits the fixed arc with chance ell/pi, and an independent arc of length s covers it with chance s/(2pi). This gives the exact conditional Binomial(n-1,g(ell)) degree law and star moments. Crossing indicators of disjoint pairs are independent; covariances of two pairs sharing one arc equal Var(g(L))=E[L]^2 Var(L)/(4pi^4). Counting 3*C(n,3) unordered overlapping pairs proves the stated variance with coefficient 6*C(n,3). The first Hoeffding projection gives the n^(3/2) normal CLT when length variance is positive; the degenerate remainder has L2 variance O(n^2). Uniform Hoeffding tails and Borel–Cantelli imply empirical normalized-degree weak convergence. For L density sin(L)/2, E[L]=pi/2, Var(L)=pi²/4-2, p=1/8 and degree density 2pi sin(4pi x) on (0,1/4). For deterministic L the pairwise indicators, though not necessarily mutually jointly independent, have zero covariance, so variance is exactly binomial-order. The proof distinguishes that case from any unproved smaller-scale CLT.
 
-The \(1/8\) probability for two uniform-endpoint geodesics is prior art (Bor, 2014); Bonamy–Mohar–Wesolek (2020) already prove a broad crossing-graphon convergence result and the limiting edge density. The contribution assessed here is the explicit complete star spectrum and degree law for isotropic variable-length arcs, exact finite-network variance and its fixed-length transition, rather than these known base facts. The 2026 spherical weighted-crossing extremum treats different quantifiers and statistics. Some older needle literature was not fully accessible, so the historical-priority judgment is provisional.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem evaluates an entire family of natural graph statistics and pinpoints a structural sharp variance change: identical-length arcs give pairwise independent crossing events and variance of order \(n^2\), whereas nonconstant lengths force a nondegenerate \(n^3\) regime and a normal limit. Its closed normalized-degree law for independent uniform endpoints gives an explicit geometric-network benchmark.
+The pair crossing probability 1/8 and general graphon edge-density/convergence machinery are prior results, not original claims. Bonamy–Mohar–Wesolek treat geodesic drawings with arcs sharing endpoints and their graphon statistics; their inspected primary proof does not give the exact iid isotropic independent-needle conditional degree mixture, all star moments, all-n variance correction and length-variance-dependent CLT/scale transition. General U-statistic results furnish the limiting mechanism, not these specialized evaluated invariants.
 
-## Scope and risks
+## value
 
-The proof assumes independent isotropic arcs of length strictly below \(\pi\); it does not apply to complete-graph geodesic drawings with shared endpoints. It does not provide the fixed-length distributional limit at scale \(n\). Some historical spherical Buffon-needle material remains incompletely inspected. Simulations corroborate but do not replace proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural sphere-intersection random graph model has a complete explicit degree mixing law and all centered crossing-count second-order statistics. Detecting that heterogeneous arc lengths create order n^3 variance while fixed lengths retain order n^2, despite the same edge marginal at the endpoint specialization, is a structural probabilistic distinction of use in stochastic-geometry and network models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

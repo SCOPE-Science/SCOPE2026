@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T16:06:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For iid independently oriented shorter great-circle arcs with L in (0,pi), conditioning on an arc of length ell gives an intersection probability g(ell)=ell E[L]/(2pi^2): one point of the antipodal supporting-circle intersection pair hits the fixed arc with chance ell/pi, and an independent arc of length s covers it with chance s/(2pi). This gives the exact conditional Binomial(n-1,g(ell)) degree law and star moments. Crossing indicators of disjoint pairs are independent; covariances of two pairs sharing one arc equal Var(g(L))=E[L]^2 Var(L)/(4pi^4). Counting 3*C(n,3) unordered overlapping pairs proves the stated variance with coefficient 6*C(n,3). The first Hoeffding projection gives the n^(3/2) normal CLT when length variance is positive; the degenerate remainder has L2 variance O(n^2). Uniform Hoeffding tails and Borel–Cantelli imply empirical normalized-degree weak convergence. For L density sin(L)/2, E[L]=pi/2, Var(L)=pi²/4-2, p=1/8 and degree density 2pi sin(4pi x) on (0,1/4). For deterministic L the pairwise indicators, though not necessarily mutually jointly independent, have zero covariance, so variance is exactly binomial-order. The proof distinguishes that case from any unproved smaller-scale CLT.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Graphon convergence and edge density are established broadly for certain spherical geodesic drawings; standard U-statistic decomposition implies asymptotic Gaussianity once its nonzero first-order projection is known."
+        ],
+        "reasoning": "General convergence and central-limit machinery does not itself supply the exact g(ell), all star moments, finite n variance, explicit endpoint density or zero-first-projection boundary. Those are evaluated model-specific quantities.",
+        "searches": [
+          "arXiv:2008.10459 full Sections 1–4",
+          "arXiv:2605.16700 Uniform Geodesic Drawings of Graphs",
+          "Hoeffding projection U-statistic CLT standard theorem"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py",
+        "Bonamy–Mohar–Wesolek arXiv:2008.10459 primary preprint",
+        "Gil Bor MathOverflow 2014 geometric edge-probability calculation",
+        "General Hoeffding U-statistic theory (method, not model-specific conclusion)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The signed first projection h1(A)=g(L_A)-p has variance mu² sigma²/(4pi⁴), and exactly 3*C(n,3) unordered overlapping indicator pairs exist; these are not stated in the graphon result."
+        ],
+        "reasoning": "Prior p=1/8 plus a graphon limit gives neither the complete distribution of g(L) nor the finite variance formula. General probability lemmas provide tools, but the present statement requires the spherical intersection kernel computation.",
+        "searches": [
+          "Bonamy–Mohar–Wesolek arXiv:2008.10459 Theorems on graphons",
+          "classical Hoeffding U-statistic variance projection",
+          "MathOverflow 2014 p=1/8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Geodesic needle graph equals an intersection graph on iid arcs rather than edges of one shared-endpoint K_{n,n} drawing."
+        ],
+        "reasoning": "Compared the random intersection-graph, random-geodesic-drawing, graphon-degree and U-statistic formulations. Different shared-endpoint dependence makes the principal graphon theorem non-equivalent to the exact iid arc mixture.",
+        "searches": [
+          "Resultary: isotropic spherical geodesic arc crossing star moment degree distribution variance",
+          "Bonamy–Mohar–Wesolek arXiv:2008.10459 graphon crossing network"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Uniform endpoint crossings p=1/8 is a known exact scalar, expressly overlapping the submitted endpoint specialization."
+        ],
+        "reasoning": "This one-edge probability fails to determine the arc-length-conditioned degree law or higher star spectrum and variance of a network of independent arcs; no exact table covering those quantities was identified.",
+        "searches": [
+          "MathOverflow 2014 random geodesics on round sphere crossing probability 1/8",
+          "arXiv:2008.10459 crossing edge density 1/8"
+        ]
+      },
+      "rationale": "The pair crossing probability 1/8 and general graphon edge-density/convergence machinery are prior results, not original claims. Bonamy–Mohar–Wesolek treat geodesic drawings with arcs sharing endpoints and their graphon statistics; their inspected primary proof does not give the exact iid isotropic independent-needle conditional degree mixture, all star moments, all-n variance correction and length-variance-dependent CLT/scale transition. General U-statistic results furnish the limiting mechanism, not these specialized evaluated invariants.",
+      "residual_risks": [
+        "Earlier sphere needle and stochastic-geometry literature under Buffon/Crofton terms might independently give star moments or variance.",
+        "Deterministic-length case establishes pairwise independence only; higher-order dependence and an n-scale limit are not claimed.",
+        "Simulations recorded in source were inspected as supporting descriptions, not re-run during this audit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL PRIOR: graphon, p=1/8, different sampling dependence",
+          "evidence": "The graph is generated by drawings of K_{n,n}; its edges are arcs with shared sampled graph vertices, unlike independent iid needles.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.10459",
+          "material_read": "Primary preprint PDF covering graphon construction, convergence results, intersection edge/triangle density and random shared-endpoint drawings",
+          "method": "primary PDF full-text and page-image inspection",
+          "title": "Limiting crossing numbers for geodesic drawings on the sphere",
+          "trigger": "closely related geodesic crossing graphon with edge density 1/8"
+        },
+        {
+          "assessment": "PRIOR SCALAR result, not full network spectrum",
+          "evidence": "Crossing probability 1/8 when independent uniformly sampled endpoints.",
+          "identifier_or_url": "https://mathoverflow.net/questions/153700/probability-of-random-geodesics-on-the-round-sphere-intersecting",
+          "material_read": "Mathematical answer/antipodal geometry and source attribution",
+          "method": "web mathematics discussion comparison",
+          "title": "Probability of random geodesics on the round sphere intersecting",
+          "trigger": "known exact 1/8 endpoint crossing probability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural sphere-intersection random graph model has a complete explicit degree mixing law and all centered crossing-count second-order statistics. Detecting that heterogeneous arc lengths create order n^3 variance while fixed lengths retain order n^2, despite the same edge marginal at the endpoint specialization, is a structural probabilistic distinction of use in stochastic-geometry and network models.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and verify.py",
+    "Bonamy–Mohar–Wesolek arXiv:2008.10459 primary preprint",
+    "Gil Bor MathOverflow 2014 geometric edge-probability calculation",
+    "General Hoeffding U-statistic theory (method, not model-specific conclusion)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Earlier sphere needle and stochastic-geometry literature under Buffon/Crofton terms might independently give star moments or variance.",
+    "Deterministic-length case establishes pairwise independence only; higher-order dependence and an n-scale limit are not claimed.",
+    "Simulations recorded in source were inspected as supporting descriptions, not re-run during this audit.",
+    "Scientific originality is best of knowledge, not a worldwide priority certificate or formal-machine attestation.",
+    "No edits, publications or publisher attestations were made."
+  ],
+  "residual_risks": [
+    "Earlier sphere needle and stochastic-geometry literature under Buffon/Crofton terms might independently give star moments or variance.",
+    "Deterministic-length case establishes pairwise independence only; higher-order dependence and an n-scale limit are not claimed.",
+    "Simulations recorded in source were inspected as supporting descriptions, not re-run during this audit."
+  ],
+  "schema_version": 1
+}
