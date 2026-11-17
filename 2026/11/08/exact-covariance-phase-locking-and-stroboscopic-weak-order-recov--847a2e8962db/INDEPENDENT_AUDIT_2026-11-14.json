@@ -1,0 +1,164 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T23:40:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Solving the stated implicit quadratic-potential update gives z_{k+1}=R_θ(z_k+σe₂ΔW_k), θ=2 arctan(ωh/2). Orthogonal rotation makes E||z||² increase by σ²h, proving the trace law. Independent noise increments yield C_N=σ²h Σ_{j=1}^N R_{jθ}e₂e₂ᵀR_{jθ}ᵀ, whose traceless complex sum S=Σ e^{2ijθ}=e^{i(N+1)θ} sin(Nθ)/sinθ gives the claimed spectrum and all isotropizing h via θ=mπ/N (N≥2). At fixed T=Nh, θ/h=ω−ω³h²/12+O(h⁴), and the right-endpoint Euler–Maclaurin formula produces first-order tensor σ²[fω(T)−fω(0)]/2. It vanishes exactly at ωT∈πZ; then frequency drift gives σ²ω²T diag(1,−1)/24 at order h², with numerical mean error also O(h²). Fixed N, h→∞ sends θ→π and normalized covariance to rank-one projector, whereas exact normalized →I/2. Independent covariance recursions matched the spectral tensor in 20 parameter cases; 8 fixed-time asymptotic cases corroborated, not proved, infinite-family claims.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chen et al. Theorem 3 energy-trace identity and general first-order weak convergence apply to broad nonlinear Hamiltonian systems, but do not as stated characterize spectral isotropy and exact exceptional-time second-order tensor.",
+          "Older oscillator papers analyze long-time energy/oscillation and stochastic midpoint, with exact same-method possibility."
+        ],
+        "reasoning": "General weak O(h) bounds do not imply a leading coefficient, cancellation set, or proof of sharp order h²; inaccessible midpoint full text prevents confidently excluding a stronger earlier same-object theorem.",
+        "searches": [
+          "arXiv:1907.08804",
+          "Hong et al. 2006",
+          "Strømmen Melbø–Higham 2004"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1907.08804",
+        "https://portal.mardi4nfdi.de/wiki/Midpoint_rule_for_a_linear_stochastic_oscillator_with_additive_noise",
+        "https://strathprints.strath.ac.uk/164/",
+        "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-minimum-mean-step-for-one-step-second-moment-isotropization-unde--bb97d1702b8a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cayley rotation is the already published method specialization; geometrically summing rotated rank-one noise gives the new exact finite-step spectrum.",
+          "First order at T=1 in the original numerical paper does not imply second order at T=mπ/ω or its tensor coefficient."
+        ],
+        "reasoning": "The existing update + trace law is insufficient as an asserted theorem for exact covariance phase locking, although an earlier full midpoint analysis might imply it and awaits reconciliation.",
+        "searches": [
+          "arXiv:1907.08804",
+          "Hong–Scherer–Wang 2006"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chen et al. §5.1 explicitly specialize the drift-preserving integrator to harmonic oscillator; the quadratic-potential map coincides with noise-kicked Cayley/implicit stochastic midpoint.",
+          "Hong et al. 2006 concerns exactly the same linear stochastic oscillator and midpoint rule but complete text could not be inspected."
+        ],
+        "reasoning": "The underlying map is prior known and acknowledged. No unsupported assertion that its covariance phase law must be new is made; historical risk is carried forward explicitly.",
+        "searches": [
+          "arXiv:1907.08804",
+          "Hong–Scherer–Wang 2006 NPSC 14"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The spectral condition covers every N and every positive h; isotropy nodes are m=1,...,N−1, not finite sampled data.",
+          "Chen et al. numerical moment plots at T=1 show generic first order in second moment, not a universal finite-step table of sharp isotropy."
+        ],
+        "reasoning": "No matching exact tabulation identified in inspected accessible primary sources; no claim about unread 2006 text.",
+        "searches": [
+          "drift-preserving stochastic harmonic oscillator integrator covariance isotropy half period weak second order stepsize",
+          "arXiv:1907.08804",
+          "Hong–Scherer–Wang 2006"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS with unusually explicit preceding-method risk: Chen et al. already establish the *same harmonic-oscillator numerical scheme* and exact expected energy trace, and the 2006 Hong–Scherer–Wang stochastic midpoint rule is likely the same map under normalization. Their results are prior art, not new algorithm claims. The inspected accessible original describes only general O(h) weak error and fixed-T=1 numerical moments; no exact finite-N isotropy list or half-period stroboscopic coefficient was located. The full 2006 midpoint article remained inaccessible; it could contain equivalent phase computations and remains material risk, not automatically a failed O assessment.",
+      "residual_risks": [
+        "Full 2006 Hong–Scherer–Wang midpoint manuscript inaccessible; potentially exact same numerical method and covariance theory. Oxford institutional retrieval returned an unavailable-worker error, not a scientific disproof.",
+        "The first-order statement pertains to centered covariance; all-polynomial-degree-≤2 order two only at physical half-periods, not arbitrary smooth observables.",
+        "ωh numerical phase-lock steps differ from fixed physical T half-periods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same integrator and energy trace predate this theorem; original reports generic weak O(h) for second moments, not the claimed all-N isotropy or half-period sharp coefficient in inspected text.",
+          "evidence": [
+            "Chen et al. (2020), §5.1 update (11), Figure 3, general error theorem"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1907.08804",
+          "material_read": "Accessible full 18-page primary PDF; introduction, exact quadratic method §5.1 and formula (11), Theorems and Figure 3 first/second moment tests at T=1, other numerical sections",
+          "method": "Full PDF text/sections; page-image access attempted but error",
+          "title": "Drift-preserving numerical integrators for stochastic Hamiltonian systems",
+          "trigger": "Originator of exact method and same harmonic oscillator"
+        },
+        {
+          "assessment": "Same-object prior source, material risk explicitly unresolved; cannot justify full-document NOT_COVERING from metadata.",
+          "evidence": [
+            "Hong–Scherer–Wang, NPSC 14 (2006), pp.1–12"
+          ],
+          "identifier_or_url": "https://portal.mardi4nfdi.de/wiki/Midpoint_rule_for_a_linear_stochastic_oscillator_with_additive_noise",
+          "material_read": "Bibliographic record, journal volume contents and related citations only; original 12-page full text unavailable after preprint/OA search; institutional retrieval returned unavailable",
+          "method": "Public bibliographic sources plus authorized-access attempt",
+          "title": "Midpoint rule for a linear stochastic oscillator with additive noise",
+          "trigger": "Plausibly same normalized Cayley midpoint method (2006)"
+        },
+        {
+          "assessment": "Long-time second-moment and oscillation performance of other methods, not evidence of same phase-isotropy coefficient.",
+          "evidence": [
+            "Strømmen Melbø–Higham 2004 abstract, long-time moment growth"
+          ],
+          "identifier_or_url": "https://strathprints.strath.ac.uk/164/",
+          "material_read": "Repository abstract and accepted-manuscript summary (full manuscript not read)",
+          "method": "Primary repository abstract comparison",
+          "title": "Numerical simulation of a linear stochastic oscillator with additive noise",
+          "trigger": "Earlier oscillator moment/energy behavior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A positive-semidefinite moment method can exhibit perfectly isotropic noise at isolated phase steps despite not matching exact covariance, and its leading error unexpectedly drops from first to second order at a physically motivated set of times. Exact constants and large-step anisotropy expose practical diagnostics for moment observables without claiming all-observable weak order two.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1907.08804",
+    "https://portal.mardi4nfdi.de/wiki/Midpoint_rule_for_a_linear_stochastic_oscillator_with_additive_noise",
+    "https://strathprints.strath.ac.uk/164/",
+    "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-minimum-mean-step-for-one-step-second-moment-isotropization-unde--bb97d1702b8a"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the Chen–Cohen–D’Ambrosio–Lang additive-noise harmonic oscillator integrator, the Cayley-rotated noise covariance has all-N sine-sum eigenvalues and exact N−1 isotropizing positive step sizes; fixed physical half-periods uniquely cancel the generic O(h) centered covariance defect, leaving a sharp nonzero O(h²) diagonal tensor.",
+  "limitations": [
+    "Full 2006 Hong–Scherer–Wang midpoint manuscript inaccessible; potentially exact same numerical method and covariance theory. Oxford institutional retrieval returned an unavailable-worker error, not a scientific disproof.",
+    "The first-order statement pertains to centered covariance; all-polynomial-degree-≤2 order two only at physical half-periods, not arbitrary smooth observables.",
+    "ωh numerical phase-lock steps differ from fixed physical T half-periods."
+  ],
+  "residual_risks": [
+    "Full 2006 Hong–Scherer–Wang midpoint manuscript inaccessible; potentially exact same numerical method and covariance theory. Oxford institutional retrieval returned an unavailable-worker error, not a scientific disproof.",
+    "The first-order statement pertains to centered covariance; all-polynomial-degree-≤2 order two only at physical half-periods, not arbitrary smooth observables.",
+    "ωh numerical phase-lock steps differ from fixed physical T half-periods."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Same integrator and energy trace predate this theorem; original reports generic weak O(h) for second moments, not the claimed all-N isotropy or half-period sharp coefficient in inspected text.",
+      "evidence": [
+        "Chen et al. (2020), §5.1 update (11), Figure 3, general error theorem"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1907.08804",
+      "material_read": "Accessible full 18-page primary PDF; introduction, exact quadratic method §5.1 and formula (11), Theorems and Figure 3 first/second moment tests at T=1, other numerical sections",
+      "method": "Full PDF text/sections; page-image access attempted but error",
+      "title": "Drift-preserving numerical integrators for stochastic Hamiltonian systems",
+      "trigger": "Originator of exact method and same harmonic oscillator"
+    },
+    {
+      "assessment": "Same-object prior source, material risk explicitly unresolved; cannot justify full-document NOT_COVERING from metadata.",
+      "evidence": [
+        "Hong–Scherer–Wang, NPSC 14 (2006), pp.1–12"
+      ],
+      "identifier_or_url": "https://portal.mardi4nfdi.de/wiki/Midpoint_rule_for_a_linear_stochastic_oscillator_with_additive_noise",
+      "material_read": "Bibliographic record, journal volume contents and related citations only; original 12-page full text unavailable after preprint/OA search; institutional retrieval returned unavailable",
+      "method": "Public bibliographic sources plus authorized-access attempt",
+      "title": "Midpoint rule for a linear stochastic oscillator with additive noise",
+      "trigger": "Plausibly same normalized Cayley midpoint method (2006)"
+    },
+    {
+      "assessment": "Long-time second-moment and oscillation performance of other methods, not evidence of same phase-isotropy coefficient.",
+      "evidence": [
+        "Strømmen Melbø–Higham 2004 abstract, long-time moment growth"
+      ],
+      "identifier_or_url": "https://strathprints.strath.ac.uk/164/",
+      "material_read": "Repository abstract and accepted-manuscript summary (full manuscript not read)",
+      "method": "Primary repository abstract comparison",
+      "title": "Numerical simulation of a linear stochastic oscillator with additive noise",
+      "trigger": "Earlier oscillator moment/energy behavior"
+    }
+  ]
+}
