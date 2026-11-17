@@ -1,23 +1,21 @@
-# Scientific assessment: sharp zero-intensity tails at infinitely flat spectral edges
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is limited to bounded, nonzero, compactly supported, nonnegative spectral densities of pure circular complex stationary Gaussian noise. The known intensity formula, differentiated without boundary terms, yields the exact identity \(\rho_S(\omega)=4\pi\operatorname{Var}_{\mu_\omega}(X)\). Exponential tilting recovers the essential support endpoints and proves the total-bandwidth law. For algebraic edges, the three requisite tilted moments follow from Gamma integrals; for infinitely flat edges, the unique saddle has position \((\kappa\beta/t)^{1/(\beta+1)}\) and variance width \(\sqrt{u_t/((\beta+1)t)}\). A uniform rescaled-Laplace argument controls the first two centered moments, not merely their mode. The normalization \(t=4\pi|\omega|\) gives the stated sharp constants. Direct numerical integrations from `CHECK.py` passed for three flatness exponents and checked the independent opposite-edge algebraic law. They corroborate but cannot replace the general proof.
+PASS
 
-## Originality — PASS relative to inspected sources
+For pure stationary circular complex Gaussian noise with compact bounded nonzero spectral density S, the accepted first-intensity identity gives rho=1+(log F)''/4pi=4pi Var_{mu_omega}X=m'(omega) with F=integral S(x)exp(-2pi(omega-x)^2)dx and exponentially tilted mean m. Essential compact endpoints imply m(+-infinity)=b,a, so exact total zero-intensity integral b-a and right tail b-m(R). For S(b-u)=u^alpha h(u)exp(-kappa/u^beta), saddle phase t u+kappa/u^beta, t=4piR, has unique minimizer u_t=(kappa beta/t)^{1/(beta+1)} with Gaussian variance scale u_t/((beta+1)t). Convergence of first two centered moments using convex phase and bounded prefactors establishes sharp rho(R)~u_t/((beta+1)R) and integrated tail~u_t; algebraic cutoff gives alpha+1/(4piR^2). Independent SciPy tilted-integral at beta=1,t=1000 yielded mean/u_t about 1.029 and var/sigma² about 1.064, corroborative only. Left edge follows reflection. Spectral intensity, not finite sample recovery, is identified.
 
-Escudero–Koliander–Romero [1] derive the pure-noise Gaussian-spectrogram intensity and a separate slow-decay theorem. Their asymptotic theorem assumes a global positive sub-Gaussian lower spectral bound and does not treat compact cutoffs. Feldheim [2] supplies the earlier stationary-Gaussian-analytic-function logarithmic-derivative formula and a Paley–Wiener box spectrum; it therefore already covers the general intensity identity and the specific constant-spectrum interval. Neither inspected result supplies the sharp continuously varying exponent \((\beta+2)/(\beta+1)\), its coefficient, or the integrated tail law for a spectrum vanishing faster than every algebraic order at a band edge. Earlier intensity formulas are acknowledged, not claimed as new. A non-obvious equivalent treatment in wider stationary-analytic-function or Laplace-asymptotic literature remains the main priority risk. The related exact spectral-equivalence classification addresses identical complete intensity profiles, not infinitely flat spectral-edge asymptotic families.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem identifies a qualitative change in how zero intensity extends beyond a compact frequency band: ordinary algebraic cutoffs have an inverse-square tail, whereas infinitely flat cutoffs exhibit every exponent strictly between one and two. Its explicit constants make the order and severity of spectral flatness exactly identifiable from an ideal population tail, while the total zero count retains only bandwidth. This is a natural spectral-diagnostics boundary, not an arbitrarily selected finite parameter or a routine numerical increment. It also supplies a mathematically sharp benchmark for separating slowly decaying colored spectra (asymptotically white zero density) from bandlimited spectra (decaying zero density). This concerns first intensities, not stable or finite-sample inference.
+Known Gaussian-spectrogram intensity formula and stationary Gaussian entire-function spectral theory are credited, as is the flat box-band limit. The distinguishing surviving contribution is the exact endpoint saddle-variance coefficient/exponent continuum for an infinitely flat compact cutoff and inverse recovery of beta/kappa. Closely related full primary general Gaussian analytic literature was not wholly accessible; best-of-knowledge qualification retained.
 
-## Closest literature and limitations
+## value
 
-[1] L. A. Escudero, G. Koliander, J. L. Romero, *Zeros of the Spectrogram of Colored Noise*, arXiv:2609.18689 (2026-09-16), Theorem 1.1 and Section 4. Theorem supplies the base intensity and noncompact slow-decay comparison.
+PASS
 
-[2] N. Feldheim, *Zeroes of Gaussian Analytic Functions with Translation-Invariant Distribution*, arXiv:1105.3929 (2011), Theorem 1 and Section 3.1. It is prior coverage of the stationary-GAF intensity identity and the Paley–Wiener special case.
+Identifies a universal continuously varying zero-intensity tail exponent and exact constant for infinitely flat compact spectral cutoffs, together with integrated tail and edge-parameter recovery. This is a naturally motivated non-regular spectral boundary beyond standard algebraic endpoints.
 
-The exact leading laws assume convergent positive endpoint prefactors; oscillating cutoffs are excluded. The claim concerns mean zeros per unit time, not point-process correlations, statistical rates, or a new generic intensity identity. Publication priority has not been independently established.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

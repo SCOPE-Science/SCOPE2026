@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T04:10:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For pure stationary circular complex Gaussian noise with compact bounded nonzero spectral density S, the accepted first-intensity identity gives rho=1+(log F)''/4pi=4pi Var_{mu_omega}X=m'(omega) with F=integral S(x)exp(-2pi(omega-x)^2)dx and exponentially tilted mean m. Essential compact endpoints imply m(+-infinity)=b,a, so exact total zero-intensity integral b-a and right tail b-m(R). For S(b-u)=u^alpha h(u)exp(-kappa/u^beta), saddle phase t u+kappa/u^beta, t=4piR, has unique minimizer u_t=(kappa beta/t)^{1/(beta+1)} with Gaussian variance scale u_t/((beta+1)t). Convergence of first two centered moments using convex phase and bounded prefactors establishes sharp rho(R)~u_t/((beta+1)R) and integrated tail~u_t; algebraic cutoff gives alpha+1/(4piR^2). Independent SciPy tilted-integral at beta=1,t=1000 yielded mean/u_t about 1.029 and var/sigma² about 1.064, corroborative only. Left edge follows reflection. Spectral intensity, not finite sample recovery, is identified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Resultary stretched-exponential spectral-tail theorem treats unbounded spectra and an eventual overshoot, while the present object has hard compact support with infinitely flat endpoint.",
+          "The Resultary ambiguity-orbit theorem describes spectra generating identical full zero-intensity profiles, not a saddle tail coefficient."
+        ],
+        "reasoning": "Different endpoint topology prevents a direct specialization of the unbounded spectral tail regimes. Broad Gaussian entire-function zero-intensity principles may reduce the proof, but no accessible full text yielded exactly the flat-edge saddle law.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-five-spectral-tail-regimes-and-a-zero-deficit-compensation-law-f--57e8fa98fd6a",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-ambiguity-orbits-and-tail-rigidity-for-gaussian-spectrogra--f5cbd7b2c321",
+          "arXiv:1105.3929"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.18689",
+        "https://arxiv.org/abs/1105.3929",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-five-spectral-tail-regimes-and-a-zero-deficit-compensation-law-f--57e8fa98fd6a",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-ambiguity-orbits-and-tail-rigidity-for-gaussian-spectrogra--f5cbd7b2c321",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-zero-intensity-tails-at-infinitely-flat-spectral-edges--b023b14f32fd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Escudero–Koliander–Romero give the analytic first intensity identity used, and study differently constrained spectra.",
+          "General spectral zero-intensity formula and endpoint mass do not alone prove the sharp second-centered-moment asymptotic."
+        ],
+        "reasoning": "Applying known general formulas plus a new nondegenerate moving saddle analysis yields the submitted result; the inspected related sources do not directly state an implication covering the exact hypotheses. Primary full-text incompleteness remains a priority risk.",
+        "searches": [
+          "arXiv:2609.18689",
+          "arXiv:1105.3929",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-five-spectral-tail-regimes-and-a-zero-deficit-compensation-law-f--57e8fa98fd6a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The first intensity is the derivative of the mean of the exponentially tilted compact spectral distribution. The proposed tail is the variance of a steep Laplace saddle, not a statement about zero spacing.",
+          "Feldheim gives general Gaussian entire-function zero intensity and flat Paley–Wiener support, according to inspected abstract/review."
+        ],
+        "reasoning": "The claim is equivalent to a sharp Laplace saddle variance asymptotic with limiting spectral edge; deriving it needs the second centered moment rather than only concentration. Known general intensity identities alone do not explicitly provide this coefficient in inspected materials.",
+        "searches": [
+          "Resultary semantic: spectrogram zero density derivative tilted mean compact support edge saddle asymptotics",
+          "arXiv:2609.18689",
+          "arXiv:1105.3929"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-title November 8 record is an archive of this assigned theorem, not independent prior coverage; no older surfaced database tabulates beta-continuum coefficient."
+        ],
+        "reasoning": "The known algebraic-cutoff row (alpha+1)/(4pi) does not encode the beta>0 exponent between one and two.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-zero-intensity-tails-at-infinitely-flat-spectral-edges--b023b14f32fd",
+          "Resultary semantic: Gaussian STFT zeros compact spectral support infinitely flat edge stretched exponential density tail Laplace saddle"
+        ]
+      },
+      "rationale": "Known Gaussian-spectrogram intensity formula and stationary Gaussian entire-function spectral theory are credited, as is the flat box-band limit. The distinguishing surviving contribution is the exact endpoint saddle-variance coefficient/exponent continuum for an infinitely flat compact cutoff and inverse recovery of beta/kappa. Closely related full primary general Gaussian analytic literature was not wholly accessible; best-of-knowledge qualification retained.",
+      "residual_risks": [
+        "Full Escudero–Koliander–Romero and Feldheim primary texts not newly retrieved in full; old general saddle asymptotic could imply formula after variable transformation.",
+        "Only population first intensity of pure noise, compact spectrum and positive convergent prefactors; not point-process law or finite-sample stability."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_FOUNDATION_NOT_FULLY_READ",
+          "evidence": [
+            "rho=1+(log F)''/4pi under the Gaussian window and stationary complex noise; no claim of full-document noncoverage."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.18689",
+          "material_read": "Abstract/search and published first-intensity formula as quoted in source; full paper not obtained",
+          "method": "ArXiv bibliographic and quoted formula cross-check",
+          "title": "Zeros of the Spectrogram of Colored Noise",
+          "trigger": "Exact pure Gaussian first-intensity source and spectral assumptions"
+        },
+        {
+          "assessment": "POTENTIAL_BROADER_FORMULATION",
+          "evidence": [
+            "General zero-intensity and bandwidth law may be prior; sharp infinitely flat asymptotic not verified absent from full text."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1105.3929",
+          "material_read": "Abstract/secondary bibliographic material and cited flat support example; complete article not newly read",
+          "method": "ArXiv entry and literature cross-comparison",
+          "title": "Zeroes of Gaussian analytic functions with stationary coefficients",
+          "trigger": "General stationary Gaussian entire zero-intensity theory and compact flat spectrum"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_SUPPORT",
+          "evidence": [
+            "Unbounded stretched exponential spectra are not compact infinitely flat edge density."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-five-spectral-tail-regimes-and-a-zero-deficit-compensation-law-f--57e8fa98fd6a",
+          "material_read": "Resultary full indexed abstract/summary with tail hypotheses",
+          "method": "Resultary semantic search",
+          "title": "Five spectral-tail regimes and a zero-deficit compensation law for Gaussian-spectrogram zeros",
+          "trigger": "Most proximate indexed tail classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifies a universal continuously varying zero-intensity tail exponent and exact constant for infinitely flat compact spectral cutoffs, together with integrated tail and edge-parameter recovery. This is a naturally motivated non-regular spectral boundary beyond standard algebraic endpoints.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full Escudero–Koliander–Romero and Feldheim primary texts not newly retrieved in full; old general saddle asymptotic could imply formula after variable transformation.",
+    "Only population first intensity of pure noise, compact spectrum and positive convergent prefactors; not point-process law or finite-sample stability."
+  ],
+  "schema_version": 1
+}
