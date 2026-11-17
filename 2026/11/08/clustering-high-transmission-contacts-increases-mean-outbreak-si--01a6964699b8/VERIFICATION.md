@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproducible calculation
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3 with no third-party dependencies. The program enumerates every independent-bond state for finite cycles of orders four to ten at specified exact rational probabilities. It checks the strict separation-difference identity using direct connected-component enumeration and compares four-cycle first and second moments using a separate symbolic polynomial expansion. On the supplied script it reports `PASS 67 exact checks`.
+## correctness
 
-## Scope of mathematical evidence
+PASS
 
-The proof of the cycle-wide comparison uses two-edge interval counting and exact two-arc connectivity. The proof of the four-cycle variance transition uses a two-open-bond component-size classification, an explicit polynomial, and strict monotonicity. No finite test is used as a substitute for an assertion over all cycle orders or over a continuum of probabilities. The calculation assumes independent undirected bonds and a uniformly selected initial case. Other epidemic timing mechanisms or correlated transmissions are outside scope.
+Two edge-disjoint arcs connect each vertex pair, so probability of connectivity equals sum of their Bernoulli edge-product probabilities minus global-product probability. The resulting uniform-seed mean is a cyclic contiguous-interval product sum. Expanding each product in delta=p−q, only quadratic contributions depend on high-edge separation d; cyclic interval pair count C_k(d) yields μ_d−μ_{d+1}=2delta²/n sum_{k=d+1}^{n−d−1}q^(k−2)>0. For C4, only adjacent-versus-opposite two-open-bond configurations affect the two placements, giving first and second raw-moment differences delta²/2 and 3delta². Their variance sign becomes sign F(p,q); derivative F_p is negative at endpoints and affine, establishing strict monotonicity, unique critical p when q_L<q<q_U, and outer fixed-sign zones. Independently enumerated full bond states for small n using exact fractions.
+
+## originality
+
+PASS
+
+Prior outbreak stochastic comparisons on K33 versus triangular prism study different host graphs and homogeneous transmissibility. Moore/Newman small-world cluster formulas address homogeneous or asymptotic networks, not placement of precisely two heterogeneous edges on every finite cycle nor the C4 two-dimensional sharp variance sign diagram. No statement-implication match found in semantic searches; residual priority uncertainty remains.
+
+## value
+
+PASS
+
+The theorem isolates a sharp intervention-choice principle—cluster versus separate the two stronger contacts—and demonstrates that mean-optimal placement can worsen or improve variance depending on rates, with exact transition and uniqueness. This is a motivated distributional boundary, not only numerical parameter testing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
