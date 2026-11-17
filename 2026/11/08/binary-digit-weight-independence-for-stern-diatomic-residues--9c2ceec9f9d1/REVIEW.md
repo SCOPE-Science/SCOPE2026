@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Stern child identities are exact. The vector transformations are invertible elementary matrices and preserve primitive pairs. The equality \(\mathbf L\mathbf R^{-1}\mathbf L=\mathbf R^{-1}\mathbf L\mathbf R^{-1}\) and their unequal digit-coordinate increments produce the missing pure digit translation. Together with elementary generation of \(\operatorname{SL}_2(\mathbb Z/m\mathbb Z)\), this proves irreducibility on every primitive vector and digit-weight class. A loop at \((0,1,t)\) proves aperiodicity. Standard finite-chain convergence and a dyadic decomposition give the stated power saving. Actual modular computations reproduce independent direct Stern counts for 55 modulus pairs, but do not replace the group argument. Risk: constants and saving exponents are not explicit.
+## correctness
 
-**Originality — PASS within inspected evidence.** Reznick's 2008 modular adjacent-pair result proves the marginal distribution, not its intersection with digit-weight classes. Bettin–Drappeau–Spiegelhofer 2017 studies logarithmic-size statistics of Stern values; Beck–Dilcher 2021 studies matrices of Stern polynomial coefficients and Thue–Morse signs. Their statements do not imply the precise joint law directly. Prior adjacent Stern triple/quadruple residue theorems and fixed-suffix conditioning results do not imply independence of the total binary Hamming weight, which depends on the unbounded full index prefix. Targeted exact-formulation, aliases, stronger-coverage, database, and research-record searches found no covering source. Risk: an unindexed joint-distribution argument, or an already published very general automatic-sequence group theorem with this arithmetic specialization, may exist. A search miss is not proof of novelty.
+PASS
 
-**Mathematical value — PASS.** The extra digit-weight congruence is a natural arithmetic refinement of a classical equidistribution theorem and ties two well-studied deterministic binary processes together. The pure digit-translation relation is a structural mechanism that guarantees complete independence, rather than a computation of an arbitrary finite slice. The saving exponent is qualitative but the scope covers every fixed pair of moduli, including shared prime factors.
+Stern recursions give children L(a,b,t)=(a,a+b,t) and R(a,b,t)=(a+b,b,t+1) on primitive residue pairs times Z/h. Elementary unipotents generate SL2(Z/m), transitively on primitive pairs. The exact braid identity L R^{-1} L = R^{-1} L R^{-1} on vector coordinates has digital increments -1 versus -2; composing them supplies a pure t-translation. Thus lifted permutation action is transitive even when gcd(m,h)>1. Both moves are permutations; the directed two-move chain is irreducible and has an L-self-loop at (0,1,t), so is aperiodic. Finite Perron–Frobenius mixing yields uniform mass 1/(h J_2(m)) with exponential rate in binary depth, and binary-prefix subtree decomposition yields O(X^(1-delta)) for all X>=2. Independent bounded BFS verified full reachability for all 55 modulus pairs 2<=m<=12,2<=h<=6; this is corroboration, not proof for arbitrary m,h. Primitive pairs only, no nonprimitive exceptions.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Reznick gives the Stern adjacent-vector congruence marginal but no joint binary digit-weight residue independence; the independently verified braid-translation kills potential congruence/digital coupling. The broader modulo-eight Stern spectrum concerns one coordinate only, without popcount conditioning.
+
+## value
+
+PASS
+
+The independence of arithmetic Stern pair residues and digital Hamming weight is a natural joint local statistic; a nontrivial lifted finite-group braid proves absence of all moduli correlations, including noncoprime m,h. Uniform power saving makes the result stronger than a simple marginal computation and useful in digital-arithmetic counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
