@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact recurrence checker `checks/verify_fast_entry.py` uses eight three-time histories; its arithmetic is over integers and has no external dependencies. Run `python3 checks/verify_fast_entry.py`. Its captured output is `checks/verify_fast_entry.out`. It reproduces all six tabulated populations.
+## correctness
 
-The independent simulation checker `checks/direct_tree.c` constructs the rooted cubic tree explicitly, evolves each initial bit mask three times under strict neighborhood majority, and counts `step(x)==step(step(step(x)))`. Compile using `cc -O3 -std=c11 checks/direct_tree.c -o direct_tree`; run `./direct_tree`. Captured output is `checks/direct_tree.out`. It checks \(2^4+2^{10}+2^{22}=4195344\) initial configurations, exhausting heights one through three only.
+PASS
 
-The proof of the all-height formula is a state-history bijection. The exponential bound follows from independent radius-three obstruction events and is not inferred from finite simulation. No infinite computation or independent audit is claimed. The bound is not optimal and the precise asymptotic entropy is unknown here.
+Temporal histories v=(time0,time1,time2) with time3=time1 encode exactly the event M^3x=Mx. Leaf copying determines D_0; each two-child internal vertex satisfies three majority constraints; three-child root closes the tree. Multiplication over disjoint subtrees and unique time evolution prove an all-height bijection. Independent eight-state integer recurrence computed H=1..6 matching all six published populations; the explicit radius-3 witness yields a two-pattern 2^-14 obstruction and disjoint placements prove the exponential upper bound. H1,H2 universally enter, while H>=3 has delayed states.
+
+## originality
+
+PASS
+
+The closely matching complete 2026 primary majority-on-finite-trees paper proves worst-case/typical stabilization scales on the same perfect binary rooted trees, not cardinality A_H of first periodic entry <=1 at each height; other literature classifies fixed/two-periodic states, not their one-step preimages. Resultary searches found no identical eight-history early-entry census. Historical alternate finite-horizon dynamic-programming enumerations remain plausible.
+
+## value
+
+PASS
+
+The exact first-entrance population, sharp first height of delay, and rigorous rare-event bound refine a natural dynamical question for canonical regular branching graphs. It separates early transient behavior from counts of periodic states, without claiming a sharp rare-event exponent or universal tree formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** An exact three-time history decomposition handles leaf copying, two-child majority constraints and the three-child root separately. The resulting integer recurrence is bijective with initial states obeying \(M^3x=Mx\). The local obstruction yields a rigorous independent-block exponential bound. The direct checker exhaustively enumerates 4,195,344 initial states over heights one through three; the separate recurrence checker agrees through height six. Neither finite check substitutes for the general proof.
+## correctness
 
-**Originality — PASS, qualified.** Kaaser–Mallmann-Trenn–Natale (2015) treat worst-case voting time; Královič (2001), discussed explicitly in Turau (2022), treats fixed points; Turau (2022) gives recurrent-state characterizations on trees; Benjamini–Zakharov–Zhukovskii (2026) treat worst-case and typical times. Those claims do not determine the time-one **preimage** population at all heights. An actual mathematical-record search found no directly equivalent assertion, but searches cannot establish uniqueness. The 2001 full text and complete 2026 paper were not fully inspectable; possible equivalent finite-horizon enumerations remain residual risks. Related internal published time-census results concern cycles and other graphs, not this cubic-tree recurrence.
+PASS
 
-**Value — PASS.** The number of initial opinions stabilizing after at most one round is a natural first-entrance distribution quantity for a standard branching network. Its complete exact all-height census, first depth where delays appear, and rigorous exponentially small early-entry probability refine known worst-case/typical-time questions, without claiming a new general period-two theorem or new fixed-point enumeration.
+Temporal histories v=(time0,time1,time2) with time3=time1 encode exactly the event M^3x=Mx. Leaf copying determines D_0; each two-child internal vertex satisfies three majority constraints; three-child root closes the tree. Multiplication over disjoint subtrees and unique time evolution prove an all-height bijection. Independent eight-state integer recurrence computed H=1..6 matching all six published populations; the explicit radius-3 witness yields a two-pattern 2^-14 obstruction and disjoint placements prove the exponential upper bound. H1,H2 universally enter, while H>=3 has delayed states.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The closely matching complete 2026 primary majority-on-finite-trees paper proves worst-case/typical stabilization scales on the same perfect binary rooted trees, not cardinality A_H of first periodic entry <=1 at each height; other literature classifies fixed/two-periodic states, not their one-step preimages. Resultary searches found no identical eight-history early-entry census. Historical alternate finite-horizon dynamic-programming enumerations remain plausible.
+
+## value
+
+PASS
+
+The exact first-entrance population, sharp first height of delay, and rigorous rare-event bound refine a natural dynamical question for canonical regular branching graphs. It separates early transient behavior from counts of periodic states, without claiming a sharp rare-event exponent or universal tree formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
