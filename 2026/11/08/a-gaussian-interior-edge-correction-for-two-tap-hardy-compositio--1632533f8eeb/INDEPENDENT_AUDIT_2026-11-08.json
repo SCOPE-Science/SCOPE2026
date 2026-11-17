@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-11-08",
+  "audited_at_utc": "2026-11-08T21:04:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On the Hardy monomial basis, T_r e_{n+d}=((n+d)!/n!)r^n(e_n+c e_{n+m}); phase removal reduces epsilon^d T_r, epsilon=-log r, to (I+a S^m)D_epsilon, a=|c|>0, diagonal b_epsilon(n)=exp(-epsilon n)prod_{j=1}^d epsilon(n+j). The exact shift-form identity ||(I+aS^m)h||²=(1+a)²||h||²-a||(I-S^m)h||² yields variational norm deficit. Its unique interior maximum at epsilon n≈d has B_epsilon²=A_d²[1+(d+1)epsilon+O(epsilon²)]; shifted lattice rounding requires an explicit -C epsilon² error in lower localization bound. Rescale y=sqrt(epsilon)(n-d/epsilon), separate m residue classes and interpolate near-minimizers. Tightness and local discrete H¹ compactness give a harmonic-oscillator functional with kinetic am² and potential (1+a)²/d; its exact minimum A_d² m(1+a)sqrt(a/d) follows by completing the square. Squared norm and square root then yield first correction (d+1)/2 -m sqrt(a)/[2(1+a)sqrt d]. Independently reproduced SciPy band-matrix top eigenvalues for d=1,m=4,a=1 (coefficient→0), d=1,m=2,a=1 (→0.5), and d=2,m=2,a=1 (→1.14645), with errors decreasing as epsilon→0. Finite samples do not prove the infinite-dimensional lower bound; the interpolation/oscillator argument does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kac–Murdock–Szegő asymptotic matrix theorem covers bulk eigenvalue statistics, and discrete semiclassical comparisons are related; none inspected implies the sharp first eigenvalue coefficient for this slowly varying Hardy band matrix."
+        ],
+        "reasoning": "Bulk distribution alone leaves O(epsilon) correction to the top norm undetermined. A broader general Jacobi ground-state theorem could imply it under a parameter substitution but that specific applicable theorem was not established.",
+        "searches": [
+          "arxiv:1610.00084",
+          "arxiv:2406.05934",
+          "arxiv:2108.05645"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.19658",
+        "arxiv:2108.05645",
+        "arxiv:1610.00084",
+        "arxiv:2406.05934",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/08/a-gaussian-interior-edge-correction-for-two-tap-hardy-compositio--1632533f8eeb/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source general operator bounds and monomial singular values do not determine O(epsilon) ground-state correction; direct oscillatory mode coupling needed."
+        ],
+        "reasoning": "No inspected theorem has hypotheses and conclusion strong enough to yield the exact first correction for two-tap norm. Risk from inaccessible full specialist paper and general ground-state semiclassics persists.",
+        "searches": [
+          "arxiv:2610.19658",
+          "arxiv:2108.05645",
+          "arxiv:1610.00084",
+          "arxiv:2406.05934"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun–Liu Section 9.2 monomial output orthogonality gives singular values for one monomial tap; assigned banded Jacobi form has two interfering taps."
+        ],
+        "reasoning": "The polynomial weight 1+c z^m is not a single monomial and the norm is not the maximum coefficient norm. The first correction is spectral-edge oscillator energy, not an immediate one-tap diagonal substitution.",
+        "searches": [
+          "Resultary search: Hardy weighted composition differentiation 1+c z^m derivative radial rz top norm semiclassical discrete harmonic oscillator",
+          "arxiv:2610.19658"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only monomial exact singular-value sequence and different undifferentiated 2-tap parameter families returned; no identical d,m,a coefficient table found."
+        ],
+        "reasoning": "The claim is asymptotic for arbitrary fixed positive d,m and a, not a small finite table; absence in bounded index not conclusive proof of priority.",
+        "searches": [
+          "Resultary top singular spectral edge two tap Hardy composition differentiation d m radial oscillator",
+          "arxiv:2610.19658"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Results indexed for Hardy composition–differentiation include Sun–Liu exact monomial-weight singular values and Fatehi unweighted or general norm bounds. Neither inspected available statement gives the first interior spectral-edge correction for *two taps* 1+c z^m, where shifted columns overlap and a discrete oscillator appears. Resultary search found no exact m sqrt a/[2(1+a)sqrt d] coefficient, apart from this assigned finding. General Kac–Murdock–Szegő bulk distributions do not by themselves imply the top edge first correction. Inaccessible plausible full Sun–Liu manuscript after both arXiv and OA attempts and failed authorized Oxford VPN access is a documented residual risk, not automatic originality failure.",
+      "residual_risks": [
+        "Most relevant full specialist manuscript could not be accessed after arXiv/OA attempts; authorized Oxford VPN disconnected, no authentication bypass, so priority remains provisional.",
+        "A general semiclassical banded/Jacobi lowest-eigenvalue theorem could yield the coefficient without Hardy terminology.",
+        "The proof is for fixed positive derivative order and tap separation; no d=0 or growing m, no O(epsilon²) assertion at the zero coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIORITY_RISK: do not assert whole-document noncoverage; accessible statement covers monomial tap, not proven to cover two taps",
+          "evidence": "arxiv:2610.19658 citation, assigned RESULT.md description of Theorem 9.2.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.19658",
+          "material_read": "ArXiv abstract/source synopsis and Section 9.2 theorem statement as reproduced in audited bibliographic discussion; full PDF/HTML could not be read after arXiv and open-access attempts",
+          "method": "arXiv/OA attempts; then authorized Oxford request returned vpn_disconnected, job bef3ec4de815d71ed2b8a41d0e85a9f9",
+          "title": "Weighted composition–differentiation operators on mixed-norm, derivative Hardy and F(p,q,s) spaces",
+          "trigger": "Most plausible primary same operator class, monomial weights"
+        },
+        {
+          "assessment": "No decisive general theorem implying two-tap interior-edge coefficient located",
+          "evidence": "arxiv:2108.05645 abstract and audited source References [2].",
+          "identifier_or_url": "https://arxiv.org/abs/2108.05645",
+          "material_read": "Primary abstract and reference discussion, not the entire 2021 paper",
+          "method": "ArXiv indexed summary and source claim comparison",
+          "title": "Weighted Composition–Differentiation Operator on the Hardy and Weighted Bergman Spaces",
+          "trigger": "General norm estimates / unweighted derivative composition"
+        },
+        {
+          "assessment": "Generic bulk matrix distributions do not directly calculate first top eigenvalue correction",
+          "evidence": "arxiv:1610.00084 source description.",
+          "identifier_or_url": "https://arxiv.org/abs/1610.00084",
+          "material_read": "Primary abstract and theorem-scope description, not full manuscript",
+          "method": "ArXiv indexed summary and method comparison",
+          "title": "Spectral asymptotics for Kac–Murdock–Szegő matrices",
+          "trigger": "Possible general slowly varying Jacobi reduction"
+        },
+        {
+          "assessment": "Correct variational reduction and well-motivated oscillator edge; finite calculation supplementary",
+          "evidence": "Assigned RESULT.md Proof Steps 1–4, explicit localization correction and finite verifier source.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/08/a-gaussian-interior-edge-correction-for-two-tap-hardy-compositio--1632533f8eeb/RESULT.md",
+          "material_read": "Entire RESULT.md and edge_check.py, AUDIT, METADATA, REVIEW, SLOGAN, VERIFICATION",
+          "method": "Frozen Git text and tree reads plus independent finite-section Jacobi calculation",
+          "title": "A Gaussian interior-edge correction for two-tap Hardy composition–differentiation operators",
+          "trigger": "Assigned claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp first-order norm expansion for a natural finite-band Hardy composition–differentiation family reveals tap-separation dependence invisible to the leading norm and an exact sign change at d=a=1,m=4; it requires a motivated discrete-to-continuum oscillator calculation, not a routine diagonal monomial case. This edge information may guide spectral perturbation and other finite-band composition operators.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2610.19658",
+    "arxiv:2108.05645",
+    "arxiv:1610.00084",
+    "arxiv:2406.05934",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/08/a-gaussian-interior-edge-correction-for-two-tap-hardy-compositio--1632533f8eeb/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Most relevant full specialist manuscript could not be accessed after arXiv/OA attempts; authorized Oxford VPN disconnected, no authentication bypass, so priority remains provisional.",
+    "A general semiclassical banded/Jacobi lowest-eigenvalue theorem could yield the coefficient without Hardy terminology.",
+    "The proof is for fixed positive derivative order and tap separation; no d=0 or growing m, no O(epsilon²) assertion at the zero coefficient."
+  ],
+  "residual_risks": [
+    "Most relevant full specialist manuscript could not be accessed after arXiv/OA attempts; authorized Oxford VPN disconnected, no authentication bypass, so priority remains provisional.",
+    "A general semiclassical banded/Jacobi lowest-eigenvalue theorem could yield the coefficient without Hardy terminology.",
+    "The proof is for fixed positive derivative order and tap separation; no d=0 or growing m, no O(epsilon²) assertion at the zero coefficient."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PRIORITY_RISK: do not assert whole-document noncoverage; accessible statement covers monomial tap, not proven to cover two taps",
+      "evidence": "arxiv:2610.19658 citation, assigned RESULT.md description of Theorem 9.2.",
+      "identifier_or_url": "https://arxiv.org/abs/2610.19658",
+      "material_read": "ArXiv abstract/source synopsis and Section 9.2 theorem statement as reproduced in audited bibliographic discussion; full PDF/HTML could not be read after arXiv and open-access attempts",
+      "method": "arXiv/OA attempts; then authorized Oxford request returned vpn_disconnected, job bef3ec4de815d71ed2b8a41d0e85a9f9",
+      "title": "Weighted composition–differentiation operators on mixed-norm, derivative Hardy and F(p,q,s) spaces",
+      "trigger": "Most plausible primary same operator class, monomial weights"
+    },
+    {
+      "assessment": "No decisive general theorem implying two-tap interior-edge coefficient located",
+      "evidence": "arxiv:2108.05645 abstract and audited source References [2].",
+      "identifier_or_url": "https://arxiv.org/abs/2108.05645",
+      "material_read": "Primary abstract and reference discussion, not the entire 2021 paper",
+      "method": "ArXiv indexed summary and source claim comparison",
+      "title": "Weighted Composition–Differentiation Operator on the Hardy and Weighted Bergman Spaces",
+      "trigger": "General norm estimates / unweighted derivative composition"
+    },
+    {
+      "assessment": "Generic bulk matrix distributions do not directly calculate first top eigenvalue correction",
+      "evidence": "arxiv:1610.00084 source description.",
+      "identifier_or_url": "https://arxiv.org/abs/1610.00084",
+      "material_read": "Primary abstract and theorem-scope description, not full manuscript",
+      "method": "ArXiv indexed summary and method comparison",
+      "title": "Spectral asymptotics for Kac–Murdock–Szegő matrices",
+      "trigger": "Possible general slowly varying Jacobi reduction"
+    },
+    {
+      "assessment": "Correct variational reduction and well-motivated oscillator edge; finite calculation supplementary",
+      "evidence": "Assigned RESULT.md Proof Steps 1–4, explicit localization correction and finite verifier source.",
+      "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/08/a-gaussian-interior-edge-correction-for-two-tap-hardy-compositio--1632533f8eeb/RESULT.md",
+      "material_read": "Entire RESULT.md and edge_check.py, AUDIT, METADATA, REVIEW, SLOGAN, VERIFICATION",
+      "method": "Frozen Git text and tree reads plus independent finite-section Jacobi calculation",
+      "title": "A Gaussian interior-edge correction for two-tap Hardy composition–differentiation operators",
+      "trigger": "Assigned claim"
+    }
+  ]
+}
