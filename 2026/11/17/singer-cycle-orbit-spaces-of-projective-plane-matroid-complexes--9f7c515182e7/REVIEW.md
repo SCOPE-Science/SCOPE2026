@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The object is the rank-three matroid independence complex, not the cap complex or the lattice-of-flats order complex. Its matroid shellability gives a simply connected two-dimensional covering complex. The Singer cycle is point-regular; any nonidentity stabilizer of a geometric point must permute a simplex of size at most three. Since the cycle order is odd, only order-three stabilizers are possible. The field-degree argument shows that every order-three orbit triple is a basis, so the order-three subgroup fixes exactly the barycenters of \(m/3\) disjoint faces. Armstrong's theorem then computes the fundamental group. Euler characteristics of fixed sets give the exact quotient Euler characteristic; two-dimensionality and finite fundamental group determine the entire integral homology. Checks for \(q=2,3,4,5\) verify the nonfree and free formulas without standing in for the uniform proof.
+
+## Originality — PASS relative to inspected sources
+Huang–Schmidt provides the Singer field model, Ardila–Castillo–Samper the matroid topology, and Armstrong the general fundamental-group theorem; none states the resulting full family of quotient invariants. The closest published Fano Singer-cycle calculation determines the integral \(C_7\)-homology lattice of the **covering** matroid independence complex, and its \(q=2\) data can be combined with other tools to recover some quotient invariants. The published Fano rational character gives a degree-two invariant rank only in the binary case. Neither comparison entails the order-three stabilizer phenomenon and degree-one fundamental-group drop for **all** projective orders \(q\equiv1\pmod3\). Search results and accessible own claims showed no equal or dominating infinite-family orbit statement. An unindexed prior equivalence remains possible.
+
+## Value — PASS
+This is an arithmetic classification of the entire Singer orbit-space family, including integral homology, fundamental group, a precise free/nonfree dichotomy, and a nontrivial exception even among prime-power projective planes. The \(q\equiv1\pmod3\) class has exactly one nonfree orbit, which removes a factor of three from the cyclic fundamental group, a structural phenomenon not detectable from simply counting matroid bases or applying nonequivariant shellability. The closed-form second-homology rank is a compatible integral refinement, not a claim of determining the homotopy type.
+
+## Limits and closest literature
+Only additive homology and the fundamental group are classified. The all-parameter statement relies on the original proof, not its finite checker. The earliest exact-dated publicly accessible source used for the underlying cyclic-projective-plane construction is Huang–Schmidt (15 January 2008). The relevant Fano representation papers do not classify the general orbit family. Possible unpublished or unindexed equivalences remain a priority risk; the review has no independent mathematical audit.
+
+Self-review: passed. Independent audit: not yet performed.
