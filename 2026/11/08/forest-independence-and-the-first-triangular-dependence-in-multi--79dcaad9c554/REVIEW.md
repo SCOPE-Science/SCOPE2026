@@ -1,19 +1,21 @@
-# Review: forest independence and triangular successor dependence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The elementary but fully general root/relative-permutation bijection supplies an exact joint product law along every forest. Path equality is expressed by a two-variable sentence; its joint probability over a graph \(G\) is \((n!)^{-(k-c(G))}\), which distinguishes forests from graphs containing cycles for every \(n\ge2\). The quantitative part separates identical, exactly-two-equal, and three-distinct compatible directed-edge triples. The resulting centered mixed third moment is strictly positive and has leading term \(1/n\). The independently implemented finite checks in `checker.py` test both sides of these calculations on small domains. No extrapolation from computation substitutes for the proof.
+PASS
 
-## Originality — PASS within inspected evidence
+PASS: For each index-graph edge (i,j), the relative permutation Q_ij=pi_i^{-1}pi_j classifies the isomorphism type of the pair of directed successor paths, so all pair-local FO² truth tests depend only on Q_ij. For a forest, root labels together with independent edge differences form a bijective coordinate system of k independently uniform permutations. On a cycle, equality-of-successor sentences have joint probability (n!)^{-(k-c(G))} versus product (n!)^{-|E(G)|}, proving the iff. For quantitative overlaps, an ordered edge is present with probability 1/n; two distinct compatible edges with probability 1/[n(n-1)]. The exact triple sum over directed edges yields raw moment (n^4-4n^3+8n^2-8n+1)/[n²(n-1)²] and centered third cumulant (n^4-2n^3+2n²-4n+1)/[n³(n-1)²], positive even for n=2. Independent full enumeration of 2!,3!,4! order triples reproduced cumulants 1/8,17/54,145/576 exactly. These finite tests support the all-n enumeration and forest-coordinate proof.
 
-The 2026 article on finite satisfiability with arbitrarily many successors supplies the precise logical language but addresses decision complexity. Diaconis–Evans–Graham determine the one-pair directed-adjacency law; their theorem does not imply triple interactions. Bender–Canfield give general sparse-graph intersection Poisson limits, not an exact joint law of different pairwise intersections. Searches of the mathematical research index for relative-permutation, forest, pairwise-overlap, and mixed-cumulant aliases located no covering statement. A related exact triangular cumulant for LKJ correlation matrices concerns different random objects. The forest result follows a classical group-coordinate principle and originality is not claimed for that abstract device. General probability results could affect priority for parts of this work.
+## originality
 
-## Value — PASS
+PASS
 
-For the natural finite-model measure associated with several independent successor relations, the theorem gives a complete graph-theoretic criterion for universal independence of arbitrary pair-local first-order truth events. It identifies exact definable cyclic obstructions and computes the first nonzero interaction of the basic common-successor statistics, including its sharp finite-size scale. The statement is a motivated structural classification rather than a small finite example.
+PASS best-of-knowledge: generic group differences on a forest are a known mechanism and not separately claimed new; the pair-local logical characterization and exact n-dependent triangle mixed third cumulant of random successor-path overlaps remain uncovered by the inspected two-order adjacency marginal and other same-pattern results.
 
-## Scope and residual limitations
+## value
 
-The random orders must be independent and uniform, and pair-local logical sentences may not use extra fixed labels or relations. The numeric count statistic need not be expressible in plain FO². The result establishes an exact third cumulant but does not determine the full multivariate distribution or historical priority. One older PDF was read through extracted text because visual rendering failed. No independent mathematical audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Exact universal graph-indexed independence for any pair-local logical events, together with the natural first nonzero triangular third cumulant of shared directed adjacencies, distinguishes pairwise independence from higher-order dependence in multiple-successor random structures. Group-edge independence is classical and credited, but the explicit path-overlap cumulant is a meaningful model-specific statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
