@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The mathematical proof derives the sign pattern of the first-difference coefficient vector directly from log-concavity, then derives the global equality and index-by-index deficit by exact finite summation. Its claims cover every infinite full-support log-concave probability mass function, not only numerical examples. The Bessel reduction uses the series and adjacent probability ratios given in the reference.
+# Independent mathematical audit
 
-A standalone standard-library Python script `verify_stein.py` was executed from the actual assembled scientific folder. It returned `PASS 21970 exact-rational and numeric diagnostic assertions`. The exact-rational tests enumerate all binary indicator sets on 59 finite log-concave test profiles, verify pointwise envelopes, global factors, deficit identities, and maximizer criteria; additional finite-prefix tests explore a concentrated family. The finite profiles are diagnostics only and do not prove the full-support universal statement or historical priority.
+## correctness
 
-Reproduction: place `verify_stein.py` in the extracted folder and run `python3 verify_stein.py` using Python 3. No downloaded sources, network access, random seed, or external packages are required for this check. Independent assessment has not been performed.
+PASS
+
+Detailed balance telescopes the centered Stein solution; the tail-to-p_j ratio is bounded by eventual geometric decay of positive logconcave p. Expanding wDelta g(j) as a linear functional of indicator values yields one positive singleton coefficient and nonpositive others, by monotone adjacent ratios on left and right tails. The local envelope is (G_{j+1}+r_jF_{j-1})/w. The difference from (1-p0)/w is a nonnegative exact sum of ratio deficits; it vanishes at j1, and for j>=2 exactly when r1=...=rj. Bessel p_n and r_j=nu/[j(j+k)] yield its closed constant and strict maximizing index. Finite rational examples corroborate, but analytic argument proves the infinite support assertion.
+
+## originality
+
+PASS
+
+Brown–Xia and DeSalvo already developed Stein operator and pointwise indicator envelopes; those are excluded from novelty. DeSalvo 2026 explicitly poses the optimal Bessel first-difference factor and logconcave constant-birth bound as open problems; the derived global equality and exact equality indices solve the sharp question. Brown–Xia 2001 full original text was not inspected, leaving an explicit risk that an equivalent optimization appears there.
+
+## value
+
+PASS
+
+Sharp full-support logconcave Stein factor replaces weaker estimates and resolves a stated Bessel approximation open problem; the general optimizer locus and exact gap are independent usable inequalities for birth–death approximation, not a parameter substitution or numerical fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
