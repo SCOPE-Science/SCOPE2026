@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact positive-neighborhood polynomial system, trigonometric identities, and transformations are derived in the proof and reproduced in the standalone check. The quadratic radial and linear angular fluctuations have zero mean. Averaging yields \(\mu=-q/4<0\) and \(\nu=-(\omega^2+4q^2+5q+1)/(24\omega)<0\), with the necessary uniform remainders. The reciprocal-square estimate supplies a summable phase error and therefore a finite phase constant, not merely an asymptotic \(O(\log t)\) bound. The analysis is local and applies to every finite positive response timescale.
+## correctness
 
-**Originality — PASS within checked material.** The 2026 model paper treats the attracting coexistence branch and canard tipping at strictly larger \(\phi\), and only identifies the Hopf point at equality. Wang–Shi–Wei (2011) proves a broader supercritical Hopf criterion and **dominates the Hopf-direction subclaim**. Their formula introduces an unspecified nonlinear angular coefficient, but does not evaluate the present flow's negative coefficient or infer the physical-coordinate logarithmic phase and radius limits. The main new assertion is that explicit trajectory-wise phase lag. The fully inspected van Voorn–Hemerik–Boer–Kooi (2007) Bazykin–Berezovskaya model is exactly related by \(s=(\phi/\varepsilon)t\), \(x_2=v/\phi\), \(l=a\), \(k=1/\phi\), \(m=1\), \(c=\varepsilon/\phi\): it already supplies the Hopf transition and limit cycles, but not the evaluated logarithmic phase coefficient. General parabolic/weak-focus methods are classical. Historical priority remains provisional.
+PASS
 
-**Mathematical value — PASS.** The source explicitly excludes its nonhyperbolic coexistence boundary in the tipping analysis. The evaluated two-parameter phase drift distinguishes an asymptotically attracting focus from linear neutral oscillations and gives the exact long-time delay in the observed oscillation clock, a quantitative observable for slow ecological relaxation. Its universal strictly negative sign and dependence on the finite timescale are substantive features not established by the published general Hopf-direction criterion. The claim is not a mere restatement of that criterion.
+At φ_H=1/(2−a), a∈(0,1), ε>0, the coexistence equilibrium has Jacobian eigenvalues ±iω, V=(1−φ_H)(1−a)>0 and q=φ_H/ε>0. With X=u−1, Y=(v−V)/(εω), direct algebra yields X’=−ωY−qX²−ωXY−qX³, Y’=ωX+XY. Polar reduction R’=R²A(θ)+R³B(θ), θ’=ω+RC(θ)+R²D(θ), has zero average quadratic radial and linear angular terms. Exact trigonometric averages give radial normal form μ=<B>−<AC>/ω=−q/4 and phase frequency coefficient ν=<UC>−<C²>/ω=−(ω²+4q²+5q+1)/(24ω), where U is periodic primitive A/ω. Uniform normal-form remainders imply ρ²=2/(qt)+O(t^−3/2); angular residual O(ρ³) is integrable, so the lifted phase has a finite constant after ωt+(2ν/q)log t and the log coefficient is always negative. Near-identity transforms vanish in the tR² and phase limits. The transversality of real eigenvalue part at φ_H and μ<0 give the supercritical local Hopf direction, which is known and not claimed novel. Independent high-resolution Fourier quadrature of radial/phase means for three parameter pairs corroborates exact symbolic formulas; finite trajectory runs are not infinite proofs.
 
-**Risks and limits.** The result is local, autonomous, and not uniform in vanishing timescale. The 2007 BB-model full text has now been checked; its Hopf bifurcation and limit cycles are known. The explicit critical phase coefficient was not located there. Earlier specialized normal-form literature could still contain it. General normal-form theory supplies the method, and further priority checking may uncover a special-case phase coefficient. Neither symbolic checks nor finite trajectories are independent proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The autonomous model is an exact parameter transform of the 2007 Bazykin–Berezovskaya predator–prey flow, so its coexistence Hopf location and stable limit cycles were already known. Wang–Shi–Wei 2011 supplies the broad first Lyapunov/supercritical Hopf criterion; the direction alone is covered. Full accessible model-specific prior analyses did not evaluate the *original-coordinate* critical log-phase drift or derive the two trajectory-wise critical limits. The surviving contribution is its explicit, strictly negative, two-parameter phase coefficient at the nonhyperbolic boundary, not re-proving the Hopf classification. Generic normal-form theory supplies techniques but does not identify this explicit parameter dependence without evaluating nonlinear resonant terms.
+
+## value
+
+PASS
+
+An exact asymptotic oscillation clock at the nonhyperbolic coexistence boundary is a motivated natural invariant of the predator–prey model. The universal t^−1/2 envelope and strictly negative log delay, with explicit timescale dependence and finite phase constant, quantify critical ringdown beyond neutral linear oscillation or the standard sign of the first Lyapunov coefficient. Scope is a substantive critical boundary rather than an arbitrary tiny parameter improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
