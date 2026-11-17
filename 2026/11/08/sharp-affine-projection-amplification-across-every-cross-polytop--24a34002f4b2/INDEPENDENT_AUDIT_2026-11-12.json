@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T12:17:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Face-balanced cross-polytope skeleton sampling has support s/d and signed Dirichlet(1,...,1), covariance 2/[d(s+1)] I. Exact affine kernel 1+d(s+1)x·y/2; Beta-tail integration gives 1+(s+1)/2(1-2/[d(s+1)])^s. Convexity and positive-measure opposite-sign kernel rows force only vertices to maximize. Log derivative of g(t)=t(1-2/[dt])^(t-1) gives strict rank increase; radial disintegration derives solid endpoint and stricter volume gap; Bernoulli remainder proves uniform 1/d bound and half-step law. Independent exact-fraction checks sampled all ranks for d<=23.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-norm-and-positivity-defect-of-the-affine-l-2-projector-on--03eefe0e17ca published s=d boundary formula",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-affine-least-squares-stability-separates-the-cube-from-its--3d28c2e94a6d solid endpoint formula",
+          "2026/11/8 cone-boundary stability theorem compares only boundary and volume, not all ranks"
+        ],
+        "reasoning": "Previously published endpoints are covered; a new all-ranks hierarchy, strict monotonicity and uniform half-step law are not contained in the inspected statements.",
+        "searches": [
+          "affine projector operator norm cross polytope skeleton faces rank Dirichlet beta",
+          "sharp affine L infinity orthogonal projection norm cross polytope l1 ball cube duality asymptotic"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-norm-and-positivity-defect-of-the-affine-l-2-projector-on--03eefe0e17ca",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-affine-least-squares-stability-separates-the-cube-from-its--3d28c2e94a6d",
+        "https://www.math.unipd.it/~marcov/pdf/lebeval.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Uniform support s has marginal selection s/d and Beta(1,s-1) tails; old boundary/volume are only s=d and radial volume.",
+          "The 2023 polynomial-mesh paper provides rigorous numerical Lebesgue constant evaluation procedures rather than an all-rank identity."
+        ],
+        "reasoning": "The new Dirichlet support-probability calculation independently yields all s and supports a monotonic rank interpolation; the older boundary-versus-volume comparison is only the final inequality.",
+        "searches": [
+          "affine projector operator norm cross polytope skeleton faces rank Dirichlet beta",
+          "sharp affine L infinity orthogonal projection norm cross polytope l1 ball cube duality asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-norm-and-positivity-defect-of-the-affine-l-2-projector-on--03eefe0e17ca exact boundary s=d norm",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-affine-least-squares-stability-separates-the-cube-from-its--3d28c2e94a6d exact solid-volume norm"
+        ],
+        "reasoning": "A face-balanced s-face observation law is neither uniform solid volume nor just full boundary except at its endpoints. Exact intermediate skeleton constants cannot be obtained by mere renaming of the solid-volume formula.",
+        "searches": [
+          "affine projector operator norm cross polytope skeleton faces rank Dirichlet beta",
+          "sharp affine L infinity orthogonal projection norm cross polytope l1 ball cube duality asymptotic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-norm-and-positivity-defect-of-the-affine-l-2-projector-on--03eefe0e17ca supplies one rank rather than complete face-rank table",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-affine-least-squares-stability-separates-the-cube-from-its--3d28c2e94a6d supplies volume rather than rank table"
+        ],
+        "reasoning": "No inspected published table reports 1<=s<=d exact cross-polytope skeleton norms. A lack of search hit is not itself proof of novelty.",
+        "searches": [
+          "affine projector operator norm cross polytope skeleton faces rank Dirichlet beta"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. Earlier published results give cross-polytope boundary s=d and full-volume endpoints, and the 2023 numerical mesh paper gives methods, but no inspected theorem yields exact norms for each intermediate face rank and uniform half-step law. Source-specific partial-inspection limits are documented.",
+      "residual_risks": [
+        "An indexed original source for cross-polytope face-rank Dirichlet sampling may exist in specialized approximation/cubature literature.",
+        "The full cross-polytope boundary paper was not separately examined, but the exact covered endpoint is acknowledged."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ENDPOINT_COVERED",
+          "evidence": "Published boundary norm matches the new s=d specialization; full proof not examined.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-norm-and-positivity-defect-of-the-affine-l-2-projector-on--03eefe0e17ca",
+          "material_read": "Published Resultary complete finding statement and formula",
+          "method": "Resultary index",
+          "title": "Exact norm and positivity defect on the cross-polytope boundary",
+          "trigger": "identical object at s=d"
+        },
+        {
+          "assessment": "ENDPOINT_COVERED",
+          "evidence": "Exact solid-volume cross-polytope norm and cube comparison covered; no skeleton hierarchy.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-affine-least-squares-stability-separates-the-cube-from-its--3d28c2e94a6d",
+          "material_read": "Full main scientific RESULT.md including theorem, hypotheses, proof and limitations",
+          "method": "GitHub full RESULT.md",
+          "title": "Sharp affine least-squares stability separates cube from polar cross-polytope",
+          "trigger": "solid volume endpoint"
+        },
+        {
+          "assessment": "METHOD_DIFFERENT",
+          "evidence": "Rigorous numerical mesh approximation for projectors on solid geometries, not exact face-balanced cross-polytope ranks.",
+          "identifier_or_url": "https://www.math.unipd.it/~marcov/pdf/lebeval.pdf",
+          "material_read": "PDF Introduction, Sections 2 and examples via parsed primary text; page 1 visually inspected",
+          "method": "Primary OA PDF and screenshot",
+          "title": "Evaluating Lebesgue constants by Chebyshev polynomial meshes on cube, simplex and ball",
+          "trigger": "general Lebesgue-constant methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Sampling uniform ranked faces is a natural stability interpolation between vertex observations, boundary data and solid measurements; exact all-rank constants, unique norming locations and uniform limiting half-step law are independent structural information not supplied by the known endpoint cases.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full paper comparison beyond primary geometric methods and public indexed theorem results is incomplete; possible unindexed face-rank stability derivation.",
+    "The constant-one sign conflict for skeletal s=1 uses discrete atoms; uniqueness is established independently at every s."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The directly reconstructed Gram matrix has entries \(\operatorname{diag}(1,2/[d(s+1)],\ldots,2/[d(s+1)])\), as follows from the uniform face-support law and the exact Dirichlet second moment. Consequently the reproducing kernel is \(1+[d(s+1)/2]x\cdot y\). Beta tail integration establishes the closed norm; a positive-measure sign conflict at any two distinct vertices makes the convex row-norm bound strict away from vertices. Differentiating a one-variable interpolation of the exact skeleton formula and applying a strict logarithmic inequality proves all face-rank inequalities. Independent radial disintegration proves the volume formula and strict final comparison. Binomial remainders yield the uniform half-step bound and limiting volume gap. The standalone rational checker corroborates 594 dimensional/rank cases and the exact beta-integral identity. Numerical cases are not the proof.
+PASS
 
-## Originality — PASS, with residual risk
+Face-balanced cross-polytope skeleton sampling has support s/d and signed Dirichlet(1,...,1), covariance 2/[d(s+1)] I. Exact affine kernel 1+d(s+1)x·y/2; Beta-tail integration gives 1+(s+1)/2(1-2/[d(s+1)])^s. Convexity and positive-measure opposite-sign kernel rows force only vertices to maximize. Log derivative of g(t)=t(1-2/[dt])^(t-1) gives strict rank increase; radial disintegration derives solid endpoint and stricter volume gap; Bernoulli remainder proves uniform 1/d bound and half-step law. Independent exact-fraction checks sampled all ranks for d<=23.
 
-Compared exact objects and statements, not titles. Oswald (arXiv:math/0611573, Sections 1–3, Theorem 1) proves growth of projection norms for triangulated spline spaces, and Hangelbroek–Narcowich–Sun–Ward (arXiv:1005.2424, Section 5, Theorem 5.1) proves stability of kernel-generated least-squares projectors on smooth manifolds: neither has the present finite affine space, all cross-polytope skeleton measures or their sharp constants. The indexed exact simplex-affine projection result concerns a simplex and its volume measure, so it neither subsumes an \(\ell_1\)-cross-polytope nor its varying ranked supports. The known universal strict cone-versus-volume comparison for centrally symmetric bodies implies only the final inequality, not the face-skeleton constants, uniqueness or half-step asymptotic law. Multiple indexed searches found no mathematical claim dominating the new complete hierarchy; absence of a hit is not a uniqueness proof. A prior calculation in unindexed design/approximation literature remains possible, and no independent originality audit has been done.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Sampling on polytope skeleta of increasing intrinsic dimension is a canonical way to move between vertex data, lower-dimensional faces and boundary measurements. The result determines the exact worst-case stability of the same affine least-squares space under **every** such observation law, classifies all extremal evaluations and inputs, proves strict nonmonotonicity with the intuitive claim that more extensive observation supports should be safer, and quantifies a uniform half-unit cost per face rank. The solid-volume endpoint has another nonvanishing half-unit gap. This resolves a natural all-ranks sharp-constant question rather than an unmotivated finite parameter lookup.
+Best-of-knowledge PASS. Earlier published results give cross-polytope boundary s=d and full-volume endpoints, and the 2023 numerical mesh paper gives methods, but no inspected theorem yields exact norms for each intermediate face rank and uniform half-step law. Source-specific partial-inspection limits are documented.
 
-## Limits of review
+## value
 
-The paper comparisons were limited to the primary full texts and the indexed mathematical records listed in the accompanying audit. This mathematical assessment neither establishes publication priority nor replaces independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Sampling uniform ranked faces is a natural stability interpolation between vertex observations, boundary data and solid measurements; exact all-rank constants, unique norming locations and uniform limiting half-step law are independent structural information not supplied by the known endpoint cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

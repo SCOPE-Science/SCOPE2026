@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification of the affine-projection face-skeleton theorem
+# Independent mathematical audit
 
-To reproduce the exact rational checks, execute `python3 checker.py` from a directory containing the standalone checker. The checker has no external dependencies. It reports:
+## correctness
 
-```
-EXACT_ALTERNATE_BETA_POLYNOMIAL_INTEGRALS_OK 594
-EXACT_FACE_SKELETON_COVARIANCES_OK 594
-EXACT_FACE_LEVEL_AND_SOLID_MONOTONICITY_SAMPLES_OK 33
-UNIFORM_FIRST_ORDER_REMAINDER_CERTIFICATE_SAMPLES_OK
-DIRECT_DISCRETE_VERTEX_KERNEL_NORMS_OK 38
-EXACT_VOLUME_RADIAL_MOMENTS_OK 38
-ALL_CROSSPOLYTOPE_SKELETON_PROJECTION_CHECKS_OK
-```
+PASS
 
-The alternate Beta-integral computation expands \((1-u)^{s-2}\) and integrates every monomial from the moving kernel sign threshold to one using rational arithmetic. The theoretical covariance is checked by a separate calculation via coordinate inclusion probabilities and Dirichlet moments. The first skeleton is also verified by direct enumeration of all signed coordinate vertices. The volume kernel covariance is checked against the exact radial law.
+Face-balanced cross-polytope skeleton sampling has support s/d and signed Dirichlet(1,...,1), covariance 2/[d(s+1)] I. Exact affine kernel 1+d(s+1)x·y/2; Beta-tail integration gives 1+(s+1)/2(1-2/[d(s+1)])^s. Convexity and positive-measure opposite-sign kernel rows force only vertices to maximize. Log derivative of g(t)=t(1-2/[dt])^(t-1) gives strict rank increase; radial disintegration derives solid endpoint and stricter volume gap; Bernoulli remainder proves uniform 1/d bound and half-step law. Independent exact-fraction checks sampled all ranks for d<=23.
 
-These computations are finite checks. The mathematical claim for all \(d\ge2\) and all \(1\le s\le d\), the strict vertex-only norming property, the complete monotonic hierarchy and the asymptotic limit are derived analytically in RESULT.md. No independent verification or scientific audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS. Earlier published results give cross-polytope boundary s=d and full-volume endpoints, and the 2023 numerical mesh paper gives methods, but no inspected theorem yields exact norms for each intermediate face rank and uniform half-step law. Source-specific partial-inspection limits are documented.
+
+## value
+
+PASS
+
+PASS. Sampling uniform ranked faces is a natural stability interpolation between vertex observations, boundary data and solid measurements; exact all-rank constants, unique norming locations and uniform limiting half-step law are independent structural information not supplied by the known endpoint cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
