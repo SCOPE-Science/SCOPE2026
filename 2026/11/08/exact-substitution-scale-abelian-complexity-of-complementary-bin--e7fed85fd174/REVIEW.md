@@ -1,19 +1,21 @@
-# Review of the substitution-scale Abelian-complexity formula
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns every integer base \(b\ge3\) and every substitution depth \(k\ge0\). The proof explicitly establishes the signed block total \((b-2)^k\), derives exact maximum/minimum prefix sums of the complementing block, and characterizes all factor sums from adjacent parent-letter pairs. Both parent-pair orientations occur. A maximizing prefix at the explicit offset \(r_k\) yields both extreme one-counts; the sliding-window increment bound fills the intervening integer interval. Thus the complexity count and the base-three/base-four-plus growth dichotomy follow with no unproved asymptotic step. The standalone `verify.py` performs independent finite block-window and extremal-prefix comparisons; it is diagnostic, not the proof.
+PASS
 
-## Originality — PASS, with stated bibliographic risks
+For every integer b>=3 and k>=0, a level-k block has signed total D=(b-2)^k, with exact prefix extrema H=sum_{j=0}^k(b-2)^j and m=min(0,2-k) when b=3, m=0 otherwise. The parent bigrams 01 and 10 provide opposite crossing factors with signed extremes +/- (2H-D); any moving window alters ones by at most one, so all intermediate counts occur. The k=0 two letters are treated separately. The recurrence yields rho_b(b^k)=2H-D+1. Independently enumerated complete two-block window spectra in 24 bounded (b,k) settings, not as an infinite proof; canonical seven-blob Git tree reconstructed exactly.
 
-The closest fully inspectable paper, Popoli–Shallit–Stipulanti (2024), develops additive complexity and presents other morphic examples, but the relevant example and theorem sections do not give this complementary-binary-family formula. Rigo–Stipulanti–Whiteland (2024) treats rank-one Parikh-collinear morphisms; the present incidence matrix has rank two for every admitted base. Chen–Wen (2018/2019) treats the cyclic, larger-alphabet digit-sum-modulo-base word, not the binary digit-\((b-1)\)-count-parity word; its eventually periodic result cannot imply the unbounded complexity here. The general binary-uniform algorithm of Blanchet-Sadri–Seita–Wise (2016) and Whiteland's asymptotic classification (2019) are materially relevant but were accessible only through metadata/abstracts rather than full text. Their possible specific examples remain residual risks; neither accessible statement establishes the explicit exact formula for all bases and powers. Mathematical-record searches and recoverable earlier claims revealed no statement implying it.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Lengths \(b^k\) are the intrinsic substitution scales, not an arbitrary computational slice. The classification determines the exact set of binary Parikh vectors at each such scale, sharp balance defects, and explicit factors attaining the endpoints. It identifies a genuine parameter-dependent change from logarithmic factor-length growth when \(b=3\) to power-law growth \(L^{\log_b(b-2)}\) for \(b\ge4\). This supplies a concrete contrast between rank-one bounded-complexity criteria and this rank-two automatic family. No formula at other lengths, downstream application or independent confirmation is claimed.
+The examined exact primary statements and indexed Resultary claims, including direct implication/subcase checks, do not cover the surviving complete theorem as scoped. Specific overlaps and uncertain inaccessible full texts are recorded; negative searches are not taken as novelty proof.
 
-## Limits and closest sources
+## value
 
-The scope is the stated complementary substitution family, bases \(b\ge3\), and lengths \(b^k\). The relevant primary comparisons are arXiv:2410.02409, arXiv:2405.18032 and arXiv:1809.06554, with the 2016 binary-uniform algorithm and 2019 asymptotic paper identified as non-exhaustively inspected risks. The finite verifier covers only the explicitly stated bounded test instances; no formal or independent certification is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Substitution powers b^k are intrinsic scales rather than arbitrary samples. The exact entire Parikh-vector interval and explicit maximizing prefix give the sharp balance defect, while the b=3 logarithmic to b>=4 power-law change is a structurally motivated parameter transition. The prior b=3 formula is credited; the all-b (in particular b>=4) exact classification is not a known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
