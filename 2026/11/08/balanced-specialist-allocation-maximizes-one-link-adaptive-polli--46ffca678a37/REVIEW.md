@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Every successful outcome requires three distinct surviving service units and at least two represented initial specialist classes; the converse is constructive by selecting two original edges and one new edge. Exact disjoint-event counting gives the reliability formula. Pascal's identity yields a strictly positive second forward difference for the concentration penalty, establishing the unique balanced optimum for every admissible integer population and every \(0<p<1\). The exact six-unit feasibility cutoff follows because a class of three or more permits a positive-probability one-class survivor event. An independent enumerative matching checker passed 252 rational identities and 252 policy comparisons for all class-size compositions through nine units, at three rational probabilities.
+PASS
 
-## Originality
+A matching after at most one new edge exists exactly if at least three distinct units survive and survivors occur in at least two of the three original classes. The converse selects one survivor from each of two represented plants and a third distinct survivor to serve the missing plant via its only new edge; if all three represented, original edges suffice. Subtract disjoint one-class-survivor events from Bin(n,p)>=3 to derive exact R=C_n−ΣG(m_i). Direct Pascal differences yield Δ²G(m)=p²q^(n−m−2)(1−q^m)>0, hence strict balancing by integer transfers and unique balanced multiset. G(m)=0 iff m<=2, so physical ideal C_n attainable iff n<=6, with first gap p³q⁴ at n=7. Independently enumerated survival masks and used an equivalent but separate represented-class criterion for all n 3..8 compositions and p=1/4,1/2.
 
-**PASS within inspected evidence, with historical-priority risk.** Direct searches tested adaptive matching, balanced specialist allocation, full three-plant service and reliability-majorization aliases; the accessible prior claims and identified works did not contain the exact joint all-size allocation theorem and six-unit cutoff. Ramos-Jiliberto et al. (2012) model adaptive ecological interactions, but not this finite exchangeable, capacity-constrained matching optimization. Pedroso and Ikeda (2016) analyze matching recourse on an existing uncertain graph, not post-failure addition of a missing interaction. El-Neweihi et al. (1986) present general allocation/Schur-convexity techniques; the balancing method is not claimed as new. Dourado et al. (2015) concern robust recoverability after edge failures. The 1986 and 2015 full texts were not fully available in the inspected material, and specialized reliability literature could contain an equivalent formulation.
+## originality
 
-## Value
+PASS
 
-**PASS.** The model isolates the gain obtainable from one contingent plant–pollinator interaction under unit service capacity, showing a uniform, parameter-free optimum over every number of service units and every survival probability, plus a sharp limit to achieving the physical three-survivor bound. This clarifies redundancy allocation and adaptive restoration in a transparent benchmark, while avoiding unsupported claims about actual ecological effectiveness. The exact finite cutoff and strict balancing law are not merely a numerical graph census.
+Relevant literature on adaptive ecological rewiring, stochastic matching recourse, and majorization allocation provides motivation and general tools but does not match this event: post-observation addition of one currently nonexistent edge, exclusive capacity-one specialists, matching three distinct plants, and exact uniform-in-p class-size allocation plus sharp n=6/7 physical feasibility threshold. Resultary search of specific three-plant one-new-link balanced allocations found this record but no prior equivalent; older reliability allocation papers have abstract-level comparisons only, explicitly a priority risk.
 
-## Limitations and priority checks
+## value
 
-The result is limited to three permanently available plants, exclusive initial host classes, independently surviving identical units, one post-observation new interaction, and distinct-unit matching. The work establishes neither ecological field validity nor historical uniqueness. Specific comparison risks are general reliability-allocation/majorization results and inaccessible complete matching sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Post-failure recourse can invalidate naive static redundancy designs; the theorem identifies the exact stochastic event and proves a nontrivial all-n, all-p unique optimum, with the sharp six-to-seven unattainability threshold. The discrete convexity lemma is motivated by and exactly resolves this capacity-constrained matching objective, giving a useful benchmark for reliability theory rather than an arbitrary slice. No empirical conservation success is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
