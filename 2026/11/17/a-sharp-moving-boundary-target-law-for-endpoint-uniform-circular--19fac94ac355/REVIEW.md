@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The exact signed-arcsine chord-line parametrization and the containment equivalence lead to a one-dimensional angular integral. Its fixed-interior expansion is elementary, but the moving-boundary case requires a uniform comparison with the singular elliptic integral, including the integrable tangency endpoint. The resulting error is bounded uniformly on compact parameter intervals; a normalized conditional density converges to a mass-one product density, so Scheffé's lemma yields total variation. Direct endpoint-coordinate simulation and independent quadratures match the expansion. Finite checks are not proofs of limiting claims.
+
+**Originality — PASS, provisionally.** The classical center-distance chord law and basic arcsine offset measure are acknowledged as prior. The closest full texts inspected are Bäsel (2012), treating motion-invariant polygon chord lengths, and Bortolotto–Souza (2025), treating the radial intersection of two chord lines. Bortolotto–Ramos (2024) optimizes concentric-disk crossing probabilities over endpoint laws. These do not state or directly imply the explicit moving off-center boundary constant or the total-variation marked law. A 1966 chord-distance source was only available in abstract and historical priority is not certified. Informal off-center small-disk examples were found; the elementary spatial intensity is not the distinctiveness claimed.
+
+**Value — PASS.** For endpoint-uniform circle chords, a shrinking target is hit at order \(\varepsilon\) in the interior but at order \(\varepsilon\log(1/\varepsilon)\) at tangency to the boundary. The finite crossover constant identifies dependence on target clearance, while the marked law identifies how grazing chords achieve interception. This is a natural geometric probability observable and a meaningful boundary singularity, not simply a new notation for a standard center calculation.
+
+**Limitations.** The remainder is uniform only for bounded \(\lambda\ge1\). Disk targets extending beyond the sampling circle and arbitrary endpoint sampling laws are excluded. No independent mathematical or historical validation has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
