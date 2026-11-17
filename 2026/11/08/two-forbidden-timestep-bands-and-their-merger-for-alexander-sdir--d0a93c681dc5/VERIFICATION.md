@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify.py` from the extracted package directory. The checker uses only standard-library exact rational arithmetic extended to the quadratic field \(\mathbb Q(\sqrt2)\), and tests every critical fixed-rational-step sign with exact algebraic comparisons. In particular, it checks the two step bands' separation for each integer \(m=5,\ldots,9\), their shared negative point for many \(m\ge10\), and the exact identities used to show positivity of the two offdiagonal matrix-entry classes.
+## correctness
 
-The all-integer conclusions are proved symbolically in RESULT.md using the universal sign of the hub quadratic, the two-sign-change Descartes argument for the leaf quartic, and a one-variable degree-ten threshold calculation. The script's finite-degree numerical consistency tests are supplementary. The analysis concerns the final end-step map only, not the internal Runge–Kutta stage values. Independently administered audit has not been performed.
+PASS
+
+Star Laplacian eigenvalues 0,1 (m-1),m+1 give explicit hub/leaf diagonal and positive offdiagonal expressions for Alexander r(hL). Scalar r minimum equals -(sqrt2-1)/2. Hub sign reduces to a quadratic with two positive roots for m>=5; leaf diagonal numerator quartic has coefficient signs (+,+,+,-,+), two positive roots by negative exact witness and Descartes. For m=5..9 exact sign at h=7/2 separates bands; for all m>=10 exact h=17/5 has two negative diagonals, so bands merge. Independent sign calculations m=5..13 show merger at 10; universal proof uses exact inequalities for every m.
+
+## originality
+
+PASS
+
+Earlier rate-tuning theorem on reversible stars proves the sharp first failing six-state star for every positive choice of rates, but does not derive exact two forbidden timestep intervals, four boundary functions and 10-leaf merger for equal-rate stars. Radau IIA is a different stability function.
+
+## value
+
+PASS
+
+An exact complete final-step positivity domain for a widely used L-stable integrator on natural star graph diffusion models, with reentrant positivity and a nontrivial 10-leaf topology transition, is a mathematically useful stability/maximum-principle boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

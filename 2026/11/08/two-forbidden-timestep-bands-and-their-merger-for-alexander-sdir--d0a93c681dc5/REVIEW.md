@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stability function is reconstructed from the stated two-stage tableau; the three-eigenvalue star projector formulas determine every matrix entry, and the two offdiagonal classes are nonnegative by an explicit positive-coefficient identity. An exact global bound on the scalar stability function establishes the unconditional regime for two to four leaves. For five or more leaves, the hub quadratic and a two-positive-root quartic exactly identify the forbidden sets; exact radical inequalities certify the disjoint/overlap transition at leaf counts nine and ten. The attached standard-library checker reproduces the critical exact comparisons and auxiliary numerical checks; it does not substitute finite tests for the infinite-degree proof.
+## correctness
 
-**Originality — PASS with residual risk.** The method and its scalar stability function are classical (Alexander 1977), and generic positivity, strong stability and flux limiting are acknowledged. Examined modern implicit Runge–Kutta work analyzes scheme design or modified limiting, rather than the unmodified Alexander star end-step matrix, its two independent diagonal failures and the exact nine/ten-leaf band-merger transition. Published short records for SSP-SDIRK2(2) and the [2/2] Padé method concern distinct stability functions, not an implication of this classification. The complete Alexander 1977 paper was not accessible beyond its publisher record, though an independently available method specification gave the actual tableau. Specialist unindexed work might already address the same exact star phase diagram; that is a remaining publication-priority risk.
+PASS
 
-**Value — PASS.** Stars are natural diffusion networks with one high-degree junction and many leaves. The two separate diagonal obstructions exhibit how stability and exact matrix positivity differ; the sharp universal degree cutoff, recovery at large steps and structural merger exactly at ten leaves are meaningful design information that cannot be inferred from scalar stability alone. The result does not claim higher-order accuracy benefits, weighted-star coverage or a generic theorem for all graphs.
+Star Laplacian eigenvalues 0,1 (m-1),m+1 give explicit hub/leaf diagonal and positive offdiagonal expressions for Alexander r(hL). Scalar r minimum equals -(sqrt2-1)/2. Hub sign reduces to a quadratic with two positive roots for m>=5; leaf diagonal numerator quartic has coefficient signs (+,+,+,-,+), two positive roots by negative exact witness and Descartes. For m=5..9 exact sign at h=7/2 separates bands; for all m>=10 exact h=17/5 has two negative diagonals, so bands merge. Independent sign calculations m=5..13 show merger at 10; universal proof uses exact inequalities for every m.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Earlier rate-tuning theorem on reversible stars proves the sharp first failing six-state star for every positive choice of rates, but does not derive exact two forbidden timestep intervals, four boundary functions and 10-leaf merger for equal-rate stars. Radau IIA is a different stability function.
+
+## value
+
+PASS
+
+An exact complete final-step positivity domain for a widely used L-stable integrator on natural star graph diffusion models, with reentrant positivity and a nontrivial 10-leaf topology transition, is a mathematically useful stability/maximum-principle boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
