@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T05:15:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-negative-dependence-of-the-two-extreme-key-depths-in-rand--278d996125d4/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-negative-dependence-of-the-two-extreme-key-depths-in-rand--278d996125d4/verify.py",
+        "Independent exact insertion-permutation enumeration all n<=6, uniform-root split and harmonic covariance checked"
+      ],
+      "rationale": "The root rank L is uniform 0..n-1. Conditioned on L the two extreme depths are independent, distributed as A_L and A_{n-1-L}, with A_0=0, A_k=1+sum_{j=2}^k Bernoulli(1/j). The record-indicator law and coupling imply expectation of any nonconstant increasing depth function is monotone, nonconstant in subtree size. Reverse Chebyshev covariance with the opposite-sized subtrees is strictly negative; indicators of thresholds a,b<=n-2 give strict quadrant inequality. The conditional mixed moment is n^-1 sum_{l=0}^{n-1} H_l H_{n-1-l}, giving Cov=1-H_n^(2) via harmonic generating functions; finite exact permutation enumeration for n=2..6 independently reconfirmed every quadrant and moment. Central root ranges epsilon n..(1-epsilon)n yield independent Bernoulli sums with means log n+O_epsilon(1) and variances log n+O_epsilon(1); triangular-array CLT plus endpoint probability <=2epsilon proves joint independent normals. The boundary n=2 covariance -1/4 is included.",
+      "residual_risks": [
+        "Proof of strictness concerns nonconstant increasing functions over the full finite attainable support, not arbitrary nonmonotone functions.",
+        "Finite exhaustive n<=6 verifies but does not establish all n or joint CLT."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spanning tree length between selected keys has mixed moments, and upper bounds on distances, but the distance distribution alone does not determine joint (D_min,D_max) nor all increasing-transform covariances."
+        ],
+        "reasoning": "Prior broad random-BST distance/CLT results do not imply the full strict quadrant inequalities without extra conditional monotone coupling.",
+        "searches": [
+          "random binary search tree depths of minimum and maximum keys joint negative quadrant dependence exact covariance harmonic second",
+          "https://arxiv.org/abs/math/0405292",
+          "https://www.math.uni-frankfurt.de/~neiningr/pathdist.pdf"
+        ]
+      },
+      "checked_sources": [
+        "random binary search tree depths of minimum and maximum keys joint negative quadrant dependence exact covariance harmonic second",
+        "https://www.math.uni-frankfurt.de/~neiningr/pathdist.pdf",
+        "https://arxiv.org/abs/math/0405292",
+        "https://doi.org/10.1007/BF01940876"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior marginal CLT and record Bernoulli law can derive each variance; the cross term 1-H_n^(2) and strict monotone covariance require using the root coupling."
+        ],
+        "reasoning": "The candidate adds the explicit dependence sign and covariance beyond the prior marginal laws, even though its mechanism uses standard ingredients.",
+        "searches": [
+          "https://www.math.uni-frankfurt.de/~neiningr/pathdist.pdf",
+          "https://arxiv.org/abs/math/0405292",
+          "random binary search tree depths of minimum and maximum keys joint negative quadrant dependence exact covariance harmonic second"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Seidel–Aragon and Devroye–Neininger give marginal record and ancestor probabilities, not the strict NQD joint law in the inspected portions."
+        ],
+        "reasoning": "Equivalent formulations in treap language and root-record depths considered; no statement of this precise two-extreme NQD located.",
+        "searches": [
+          "random binary search tree depths of minimum and maximum keys joint negative quadrant dependence exact covariance harmonic second",
+          "random treap min max key joint depth dependence",
+          "https://www.math.uni-frankfurt.de/~neiningr/pathdist.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known harmonic second-order terms occur in unrelated leaf/path covariances; these are different random variables and cannot be substituted."
+        ],
+        "reasoning": "No tabulation of the two-extreme joint quadrant probabilities was found; comparison is theorem-level not absence-of-table alone.",
+        "searches": [
+          "random binary search tree depths of minimum and maximum keys joint negative quadrant dependence exact covariance harmonic second",
+          "BST extreme depth covariance harmonic H2 closed form"
+        ]
+      },
+      "rationale": "Published random-BST results give marginal depth/ancestor laws and distances between rank-selected keys, but do not appear to give the joint strict negative-quadrant theorem and exact mixed covariance for the deterministic two extreme ranks in inspected theorems. Both root decomposition and record variables are classical inputs; claim of novelty is only their exact two-extreme dependence synthesis.",
+      "residual_risks": [
+        "A more general multivariate treap-priority or joint rank-depth theorem may imply these formulas as an unstated special case; historical priority remains conditional.",
+        "No negative association for the entire vector of all key depths is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_FOUNDATIONS_NO_DIRECT_COVERAGE_IN_INSPECTED_THEOREMS",
+          "evidence": "Depth and ancestor counts for specified ranks and path lengths, not all increasing-function covariance of both deterministic extremes.",
+          "identifier_or_url": "https://www.math.uni-frankfurt.de/~neiningr/pathdist.pdf",
+          "material_read": "Original full PDF introductory hypotheses and Theorems 1.1–1.5 with depth/distance quantities",
+          "method": "Read accessible author PDF with page-level inspection",
+          "title": "Distances and Finger Search in Random Binary Search Trees (Devroye–Neininger)",
+          "trigger": "Same random-permutation BST search-depth and path-distance objects"
+        },
+        {
+          "assessment": "LIMITED_NOT_DECISIVE",
+          "evidence": "Harmonic-square coefficients alone may overlap the computation but do not establish the full NQD theorem from inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0405292",
+          "material_read": "Abstract and theorem context via arXiv metadata only",
+          "method": "ArXiv summary",
+          "title": "Spanning Tree Size in Random Binary Search Trees (Panholzer–Prodinger)",
+          "trigger": "Potential harmonic-square mixed-moment result"
+        },
+        {
+          "assessment": "ASSESSMENT",
+          "evidence": "Proves NQD via conditional monotone functions, covariance 1-H_n^(2) and joint CLT.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-negative-dependence-of-the-two-extreme-key-depths-in-rand--278d996125d4",
+          "material_read": "Entire RESULT.md, root coupling proof, asymptotics, verification description and source code",
+          "method": "Frozen Git blobs and independent exact small-n enumeration",
+          "title": "Strict negative dependence of two extreme-key depths",
+          "trigger": "Candidate exact claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-negative-dependence-of-the-two-extreme-key-depths-in-rand--278d996125d4",
+        "https://www.math.uni-frankfurt.de/~neiningr/pathdist.pdf"
+      ],
+      "rationale": "Joint negative dependence is a mathematically meaningful contrast to asymptotic independence of the two most extreme searches in the foundational random BST model. Exact finite-size covariance and strict all-threshold inequalities are natural reusable invariants, not mere relabeling of a single-depth expectation.",
+      "residual_risks": [
+        "Specialized uninspected multivariate tree literature could include a stronger dependence statement."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Proof of strictness concerns nonconstant increasing functions over the full finite attainable support, not arbitrary nonmonotone functions.",
+    "Finite exhaustive n<=6 verifies but does not establish all n or joint CLT.",
+    "A more general multivariate treap-priority or joint rank-depth theorem may imply these formulas as an unstated special case; historical priority remains conditional.",
+    "No negative association for the entire vector of all key depths is established.",
+    "Specialized uninspected multivariate tree literature could include a stronger dependence statement."
+  ],
+  "schema_version": 1
+}

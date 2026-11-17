@@ -1,15 +1,21 @@
-# Review of strict negative dependence between extreme-key depths
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claimed domain is the uniformly permuted insertion tree with \(n\ge2\) and edge depths. The ancestor-as-record identity yields the Bernoulli marginal law. Conditional on the root's uniform rank, the two extreme-key depths are independent; their conditional expectations are the harmonic numbers of the two complementary subtree sizes. The reversed Chebyshev inequality proves strict negative dependence for all nonconstant increasing transforms. The second derivative of the binomial-series coefficient at exponent two yields the exact mixed moment and covariance. The independent Gaussian limit follows from a uniform-in-central-root-splits triangular-array CLT, with the omitted root-split tails vanishing as the central restriction expands. All 796 exact standalone checks pass; finite checks are not substitutes for the analytic infinite statements.
+## correctness
 
-## Originality
-**PASS, with priority risk.** Closest literature: Seidel–Aragon (1996) supplies the random-priority model and marginal analysis; Devroye–Neininger (2004) supplies record representations and normal limits for ranks/path lengths; Panholzer–Prodinger (2004, arXiv math/0405292) supplies marginal moments of randomly chosen spanning-tree sizes and a related harmonic-square coefficient identity. The inspected material does not give a negative-quadrant theorem for the fixed smallest/largest depths or the displayed bivariate covariance. Unlike randomly selected pairs, the two extreme keys are fixed ranks. The derivation draws on familiar tools, and an earlier unstated consequence of multivariate treap formulas cannot be ruled out without an exhaustive historical audit.
+PASS
 
-## Value
-**PASS.** Search costs at opposite ends of an ordered key universe are natural jointly observed operations. The general dependence ordering supplies inequalities for every increasing cost transformation, not merely a single moment, while an exact strictly decreasing covariance and an independent bivariate Gaussian limit distinguish persistent unnormalized dependence from asymptotic decorrelation. These joint statements are not consequences of the two separate marginal normal laws.
+The root rank L is uniform 0..n-1. Conditioned on L the two extreme depths are independent, distributed as A_L and A_{n-1-L}, with A_0=0, A_k=1+sum_{j=2}^k Bernoulli(1/j). The record-indicator law and coupling imply expectation of any nonconstant increasing depth function is monotone, nonconstant in subtree size. Reverse Chebyshev covariance with the opposite-sized subtrees is strictly negative; indicators of thresholds a,b<=n-2 give strict quadrant inequality. The conditional mixed moment is n^-1 sum_{l=0}^{n-1} H_l H_{n-1-l}, giving Cov=1-H_n^(2) via harmonic generating functions; finite exact permutation enumeration for n=2..6 independently reconfirmed every quadrant and moment. Central root ranges epsilon n..(1-epsilon)n yield independent Bernoulli sums with means log n+O_epsilon(1) and variances log n+O_epsilon(1); triangular-array CLT plus endpoint probability <=2epsilon proves joint independent normals. The boundary n=2 covariance -1/4 is included.
 
-## Limits
-Uniform random insertion only; no claims for biased trees or arbitrary key pairs. No negative-regression claim and no independent external audit. The finite checker covers the stated ranges only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published random-BST results give marginal depth/ancestor laws and distances between rank-selected keys, but do not appear to give the joint strict negative-quadrant theorem and exact mixed covariance for the deterministic two extreme ranks in inspected theorems. Both root decomposition and record variables are classical inputs; claim of novelty is only their exact two-extreme dependence synthesis.
+
+## value
+
+PASS
+
+Joint negative dependence is a mathematically meaningful contrast to asymptotic independence of the two most extreme searches in the foundational random BST model. Exact finite-size covariance and strict all-threshold inequalities are natural reusable invariants, not mere relabeling of a single-depth expectation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
