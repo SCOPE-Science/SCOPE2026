@@ -1,0 +1,15 @@
+# Scientific review — invariant-disc and sharp nonlinear synchronization theorem
+
+## Correctness (PASS)
+
+The argument proves, for every finite connected nonnegative weighted undirected graph and every \(0<R<1\), the exact forward-invariance threshold \(\alpha\ge\beta\tan R/R\). The extremal boundary direction is synchronized \(z_i=iR\), so necessity and the equality obstruction are constructive. On the invariant polydisc, the exact segment representation of \(\tanh\), the graph spectral-gap inequality, and integrability of the vanishing nonlinear coefficient prove the all-initial-data exponential disagreement estimate. A Fiedler-direction perturbation has nonzero limiting rescaled projection, establishing optimality of the exponent; elementary unit-disc metric comparisons transfer both the estimate and sharpness to pairwise Kobayashi distances. The standalone checker in `check.py` verifies finite numerical quantities but not universal quantifiers. All nonstandard inequalities and endpoint witnesses are in `RESULT.md`.
+
+## Originality (PASS within inspected evidence)
+
+Sarkar's arXiv:2608.07551v1, Sections 6 and 9, supplies a general invariant-set criterion, a specific sufficient radius, a conservative Hermitian contraction estimate, and the numerical/linearized prediction of the rate for a six-cycle; the predicted linearized rate is not new. The present statement establishes the exact *all-radius* invariant-disc boundary, an all-graph nonlinear synchronization inequality at the **sharp** linear spectral-gap exponent and a uniform transient prefactor. The source does not establish that stronger statement. Yang–Meng–Shi–Hong–Johansson (arXiv:1401.6541) provide general Lipschitz-coupling synchronization results without these model-specific sharp boundary/optimal all-time constants. Al-Radhawi–Angeli–Sontag (arXiv:2307.13678) study structural contraction of other network dynamics. Published mathematical findings on Stuart–Landau critical synchronization and logistic-threshold consensus concern different nonlinearities and boundary mechanisms. No located source implies the precise complete theorem, but full historical priority across general nonlinear evolution methods is not established.
+
+## Mathematical value (PASS)
+
+The motivating paper identifies a substantial gap between a certified contraction rate and an observed graph-spectral rate, and explicitly presents a network-aware bound as a useful direction. The theorem resolves that gap for an exact nonlinear model, with a **uniform all-data bound at the optimal rate** and an exact sharp invariant-radius transition including the critical nonzero equilibria. These are quantitative nonlinear design statements rather than a restatement of linearization. The result is limited to the holomorphic hyperbolic-tangent network, an undirected connected graph, and an invariant disc of radius below one; no assertion about all holomorphic networks or global complex-plane basins is made. Potential derivations from broad classical contraction theory remain a priority risk.
+
+Self-review: passed. Independent audit: not yet performed.
