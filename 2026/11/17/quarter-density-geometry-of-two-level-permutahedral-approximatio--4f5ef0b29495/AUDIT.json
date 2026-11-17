@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "All definitions, ambient Euclidean normalization, integer ranges, cap halfspace constraints and equality cases are explicit. The projection normal inequality certifies the unique capped-sum minimizer; convexity and symmetry yield the global Hausdorff maximum. A strict variance identity for mixed residuals characterizes every farthest face; the face dimensions/count and disjointness follow from ordered residual plateaus. Separate Riemann-sum analysis yields the two limiting branches and endpoint case; analytic differentiation gives one-sided third derivatives -2 and 0. Reproducible rational and independent quadratic-programming checks corroborate but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wang–Lu arxiv:1503.01002 gives the general KKT clipping algorithm for projection onto capped simplices and therefore subsumes the algorithmic single-point projection calculation used here.",
+        "Ardila–Castillo–Eur–Postnikov arxiv:1904.11029 treats deformation cones, weight polytopes, and support functions, rather than a global Euclidean distance/equality-case formula for the pair here."
+      ],
+      "reasoning": "The finite clipped coordinate formula is acknowledged as a specialization of a known general method and is not independently asserted to be novel. The complete farthest-face stratification, its exact orbit count, and the two-branch third-derivative and dimension transition require additional geometric extremality and asymptotic arguments and are not supplied by either broad reference.",
+      "searches": [
+        "arxiv:1503.01002 Sections 1-3 capped simplex projection algorithm",
+        "arxiv:1904.11029 generalized permutahedra Coxeter submodular functions",
+        "Hausdorff distance between permutahedra Euclidean formula majorization projection",
+        "distance permutation orbit polytopes coarsened coordinates convex Euclidean projection exact clipped levels"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1812.07491 (Manecke, Sanyal, So, Sections 2 and 4)",
+      "arxiv:1503.01002 (Wang and Lu, capped simplex KKT projection)",
+      "arxiv:1904.11029 (Ardila, Castillo, Eur, Postnikov, Coxeter/generalized permutahedra)",
+      "2026/11/1/SCOPE-exact-facial-distance-spectrum-and-a-quarter-density-transition--6a44089f2869 (distinct intrinsic hypersimplex facial distance)",
+      "2026/10/25/SCOPE-exact-euclidean-facial-distance-of-hypersimplices-and-a-rank-dri--86c58a077574 (distinct intrinsic hypersimplex facial distance)",
+      "2026/10/25/SCOPE-a-third-order-gaussian-mean-width-transition-in-partial-permutoh--96ab817e00b2 (different orbit body/invariant)",
+      "2026/11/8/SCOPE-exact-directed-hausdorff-separation-of-layered-order-and-chain-p--e4ceaefbbc0e (different order/chain polytope pair)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The cited multipermutahedron paper identifies orbit structures and hypersimplex-related realizations but no metric extremality.",
+        "The capped-simplex projection paper gives a per-point optimizer; it says nothing about all convex mixtures of maximizers in a larger orbit polytope or the critical normalized density.",
+        "The two published facial-distance results optimize separations of faces in hypersimplices, not nested permutahedra, and neither has the independent full-permutahedron vertex parameter."
+      ],
+      "reasoning": "Reusing the known clipping operator and vertex symmetry does derive the finite Hausdorff distance algorithm, so that ingredient is covered methodologically. The final claim adds a sharp equality-case classification and a nontrivial limiting density transition which do not follow as stated corollaries from the inspected literature. The argument in the submitted proof is needed to obtain those additions; no stronger identified theorem dominates the whole statement.",
+      "searches": [
+        "arxiv:1812.07491 Theorem 4.3 multipermutahedra coherent paths",
+        "arxiv:1503.01002 KKT capped simplex projection",
+        "published record 2026/11/1/SCOPE-exact-facial-distance-spectrum-and-a-quarter-density-transition--6a44089f2869",
+        "published record 2026/10/25/SCOPE-exact-euclidean-facial-distance-of-hypersimplices-and-a-rank-dri--86c58a077574",
+        "Euclidean projection of permutation vector onto translated scaled hypersimplex, exact Hausdorff permutahedron"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Manecke–Sanyal–So, arxiv:1812.07491, Section 2 and Theorem 4.3 describe orbit polytopes and coherent monotone path realizations; they do not report Euclidean directed distances or extremizing unions of faces.",
+        "Published-record query returned hypersimplex facial-distance spectra (2026/11/1/...--6a44089f2869, 2026/10/25/...--86c58a077574), which are internal-face distances of a single hypersimplex rather than distance from the full permutahedron to its two-level coarsening."
+      ],
+      "reasoning": "A translated hypersimplex is an affine and symmetric-orbit formulation of the smaller body in this claim. That equivalence was explicitly used in the projection proof and searched. It does not identify the outer permutahedron farthest-point locus by itself. Separate equality analysis provides an extra conclusion not present in the identified published statements.",
+      "searches": [
+        "Euclidean distance from permutahedron conv permutations 1,...,n to two-valued multipermutahedron, translated hypersimplex, complete farthest point set union of exposed faces, squared Hausdorff",
+        "permutahedron to translated scaled hypersimplex Euclidean nearest-point residual plateau and farthest faces with permutations of middle labels",
+        "Euclidean Hausdorff distance between standard permutahedron and two-level multipermutahedron, hypersimplex with same mean",
+        "arxiv:1812.07491, Proposition 2.4 and Theorem 4.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Queries for tabulated exact distance spectra and the quarter-density limit did not yield a matching table for the specific nested orbit pair.",
+        "The closest published partial-permutahedron results concern Gaussian mean width, John ellipsoids or enclosing spheres, not this fixed Euclidean Hausdorff deficit."
+      ],
+      "reasoning": "No exact all-parameter value table or equivalent prior formula was identified; non-detection is not treated as a proof that such a table cannot exist. A potential specialist table under a different name remains an explicit residual bibliographic risk.",
+      "searches": [
+        "fourth-order smoothness phase transition Hausdorff approximation of permutahedron by two-level orbit polytope at 1/4",
+        "permutahedron hypersimplex Hausdorff gap two-level averaged block face complex",
+        "exact hausdorff distance between permutahedra two-valued orbit polytope",
+        "published record 2026/10/25/SCOPE-a-third-order-gaussian-mean-width-transition-in-partial-permutoh--96ab817e00b2"
+      ]
+    },
+    "rationale": "Published prior work supplies the multipermutahedral setup and a strictly more general clipped-point projection algorithm, but no inspected source or recoverable relevant published finding asserts the full union-of-faces extremal locus and critical \\(1/4\\) density law. Claim-to-prior implication was examined, with earlier finite projection method explicitly excluded from the novelty assertion; the remaining priority risk is stated.",
+    "residual_risks": [
+      "Earlier specialist results using symmetric-orbit majorization or quantization terminology may contain an equivalent exact extremal-face theorem not indexed by checked searches.",
+      "The general capped simplex projection is prior art and the finite scalar clipping substep is not claimed independently novel; the scientific novelty depends on the full farthest-locus and density-transition conclusions.",
+      "Bibliographic assessment is not an independent priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the full farthest-locus and asymptotic Hausdorff theorem; supplies primary definitions and combinatorial context.",
+        "evidence": [
+          "Proposition 2.4 is the Minkowski rule for permutahedra; Theorem 4.3 constructs multipermutahedra from monotone paths. No Euclidean Hausdorff theorem appears in inspected material.",
+          "Original v1 publicly submitted 2018-12-18; revision version separately dated 2019-11-28."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1812.07491v2",
+        "material_read": "Introduction; Section 2 on permutahedra, orbit hulls and faces; Section 4 on monotone-path polytopes, including Theorem 4.3; Sections 5 and reference context.",
+        "method": "Lawful arXiv full-text HTML examination of definitions and theorem statements, plus document text searches for metric and distance language.",
+        "title": "S-hypersimplices, pulling triangulations, and monotone paths",
+        "trigger": "Primary multipermutahedron structure, exact face and orbit definitions and first public research lead."
+      },
+      {
+        "assessment": "Covers the clipping and scalar-balance projection algorithm but not the permutahedral farthest-face or quarter-density limit.",
+        "evidence": [
+          "Algorithm 1 and KKT conditions (2)-(8) are exact projection methods for capped-sum cubes; the finite clipping operation in this claim is credited to prior knowledge."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1503.01002",
+        "material_read": "Sections 1-3, including Problem (1), Algorithm 1 and KKT proof.",
+        "method": "Openly accessible arXiv structured full-text reading and algebraic comparison.",
+        "title": "Projection onto the capped simplex",
+        "trigger": "Known per-point projection method that might logically subsume the finite calculation."
+      },
+      {
+        "assessment": "Does not cover the pair-specific metric approximation or quantitative farthest locus.",
+        "evidence": [
+          "Theorem program describes generalized deformation cones, weight polytopes, symmetric submodular functions and support geometry, with no target Hausdorff formula found."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1904.11029v2",
+        "material_read": "Abstract; Introduction; Sections 2 and 4-6 theorem descriptions and paper outline; targeted full-text searches for Hausdorff/distance.",
+        "method": "Lawful arXiv HTML, inspected main structural results and targeted terminology.",
+        "title": "Coxeter submodular functions and deformations of Coxeter permutahedra",
+        "trigger": "Potential stronger orbit/polytope deformation framework."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4f5ef0b2-9495-47d4-a75c-c26f65f7ed2a",
+  "value": {
+    "rationale": "Canonical two-level orbit coarsening is an intrinsically motivated approximation of the standard permutahedron with fixed coordinate sum and full coordinate symmetry. The complete extremal set is a large collection of positive-dimensional faces rather than merely vertices; its limiting dimension saturates sharply at quarter density. The error has a genuine C2/non-C3 transition at exactly the same geometrically explained threshold. These are new structural quantitative conclusions beyond routine per-point capped-simplex projection.",
+    "status": "PASS"
+  }
+}
