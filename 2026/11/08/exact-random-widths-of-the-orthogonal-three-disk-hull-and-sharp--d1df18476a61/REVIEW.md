@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The convex-hull support identity is an exact consequence of orthogonal projection onto each hyperdisk and central symmetry. In three dimensions the conditional angular probability on a sphere gives the derivative of the survival function of the minimum coordinate; an explicit antiderivative proves the displayed cumulative distribution, including both endpoints. The lower-tail coefficient comes from the full Dirichlet density at its central point and the exact translated-simplex volume. The upper-tail coefficient follows from coordinate-marginal densities and controlled two-coordinate intersections. Gaussian minima and concentration of the radial normalization prove the high-dimensional convergence. The included `verify_width.py` checker was executed and passed direct disk-support, deterministic quadrature, endpoint and seeded stochastic corroboration. Numerical work is not used as the all-dimensional proof.
+## correctness
 
-## Originality
-**PASS (historical priority provisional).** Chancelier and de Lara define and study the general top-\(k\) and \(k\)-support norm constructions, which identify the body, but do not evaluate its Haar directional-width distribution. The closest publicly indexed three-disk-hull result concerns deterministic intrinsic volumes, Euclidean radii and boundary geometry; those quantities do not imply the full width distribution. Finch's orthogonal-disk hulls have two, rather than three, generating disks and focus on volumes and mean widths. The standard \(\operatorname{Dirichlet}(1/2)\) density gives an integral representation, but the elementary three-dimensional evaluation and the explicit sharp endpoint constants require additional analysis. Searches by coordinate-minimum and support-norm aliases found no equivalent full result. The same-body indexed result's full text was inaccessible and remains a named priority risk, not a claim of exhaustive uniqueness.
+PASS
 
-## Mathematical value
-**PASS.** Random directional width is a natural anisotropy observable of the Euclidean \((d-1)\)-support ball, an established sparse-geometry object. The complete elementary three-dimensional law supplies all width quantiles, while the all-dimensional endpoint powers and constants identify the rare nearly extremal directions and their change with dimension. The rescaled limit supplies an additional nontrivial asymptotic geometric law. These exact distributional and limiting invariants go beyond routine mean-width evaluation and are motivated by the geometric meaning of the support norm.
+A coordinate hyperdisk has support sqrt(1-u_j^2); convex-hull support takes the maximum and central symmetry doubles it. In 3D, conditional on |U_1|=s, the remaining angular fraction with both coordinates exceeding s in magnitude is 1-4 asin(s/sqrt(1-s^2))/pi; differentiation of the minimum-coordinate survival probability and an exact antiderivative give the CDF, zero at width 2sqrt(2/3) and one at width 2. For all d, squared coordinates have Dirichlet(1/2,...,1/2) density. Near equal squares 1/d, translated-simplex volume yields the explicit (d-1)-power lower tail; marginal coordinate density and pairwise O(t^2) overlap yield sqrt(epsilon) upper tail. Independent Gaussian minimum |Z| gives E after d scaling and LLN radial denominator gives (pi/2)E^2. Numerical quadrature independently recomputed four d=3 CDF values to 1e-12 and verified both endpoint formulas analytically.
 
-## Closest literature and limitations
-Relevant background: Chancelier--de Lara, arXiv:2001.10441; Finch, arXiv:1211.4514; Gesmundo--Meroni, arXiv:2111.01241; and the publicly indexed study *Exact intrinsic volumes and boundary decomposition of the orthogonal three-disk hull*. The closed elementary cumulative distribution is specific to three dimensions, while sharp endpoint formulas and the high-dimensional limit apply to every integer dimension at least three. The body is a convex hull of equal-radius coordinate hyperdisks, not a Minkowski sum; neither unequal radii nor skew planes are treated. Equivalent older formulas under Dirichlet minimum-order-statistic terminology may exist. The same-body indexed result was available as a summary, not full text, so historical priority is qualified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full older 2026-10-11 mathematical theorem for the IDENTICAL three-disk convex hull establishes its support identity, volume, surface area, eight triangular facets, ruled patches and in/out radii, but does not determine the Haar width distribution. Chancelier–de Lara identify generalized Euclidean k-support norm balls, of which this is the k=d-1 instance. The submitted full 3D distribution and all-d sharp endpoint constants and high-dimensional weak limit are genuine distributional refinements not implied by the listed static scalar invariants alone. Classic Dirichlet extreme-value literature may contain equivalent coordinate-minimum laws and remains priority risk.
+
+## value
+
+PASS
+
+PASS: Haar directional width is a natural probabilistic observable of a well-studied sparse-support convex body. An exact 3D law determines all quantiles, sharp all-dimensional endpoint powers describe rare extremal directions, and the d^3 high-dimensional limit records geometric anisotropy. These facts are distinct from known mean widths, volumes, radii and the classical support identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

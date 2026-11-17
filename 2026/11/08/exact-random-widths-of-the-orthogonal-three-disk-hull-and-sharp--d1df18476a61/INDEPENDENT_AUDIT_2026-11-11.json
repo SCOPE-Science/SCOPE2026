@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T02:55:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A coordinate hyperdisk has support sqrt(1-u_j^2); convex-hull support takes the maximum and central symmetry doubles it. In 3D, conditional on |U_1|=s, the remaining angular fraction with both coordinates exceeding s in magnitude is 1-4 asin(s/sqrt(1-s^2))/pi; differentiation of the minimum-coordinate survival probability and an exact antiderivative give the CDF, zero at width 2sqrt(2/3) and one at width 2. For all d, squared coordinates have Dirichlet(1/2,...,1/2) density. Near equal squares 1/d, translated-simplex volume yields the explicit (d-1)-power lower tail; marginal coordinate density and pairwise O(t^2) overlap yield sqrt(epsilon) upper tail. Independent Gaussian minimum |Z| gives E after d scaling and LLN radial denominator gives (pi/2)E^2. Numerical quadrature independently recomputed four d=3 CDF values to 1e-12 and verified both endpoint formulas analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oct11 prior gives volume (8-10sqrt2/3), area (12-4sqrt3+2pi), inradius sqrt(2/3), circumradius 1 for d=3; no exact quantile law.",
+          "Finch studies the convex hull of two orthogonal disks, not three."
+        ],
+        "reasoning": "Static intrinsic volumes and two-disk geometry neither bound nor specify the complete width distribution in d=3 or universal d-dependent tails.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a/RESULT.md",
+          "https://journalofconvexanalysis.com/articles/jca30036/",
+          "https://arxiv.org/abs/1211.4514"
+        ]
+      },
+      "checked_sources": [
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a/RESULT.md",
+        "https://journalofconvexanalysis.com/articles/jca30036/",
+        "https://arxiv.org/abs/1211.4514",
+        "https://arxiv.org/abs/2111.01241"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior h_K(u)=sqrt(1-min u_j^2) is explicitly proven, making submitted support-identity portion old; integrating the Dirichlet minimum distribution and deriving endpoint powers are additional substantive mathematical steps."
+        ],
+        "reasoning": "A support function known pointwise does not in itself state or mechanically imply the evaluated elementary CDF and sharp epsilon/d limits as published results; claim priority only for the distributional refinement.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a/RESULT.md",
+          "https://journalofconvexanalysis.com/articles/jca30036/",
+          "https://arxiv.org/abs/2001.10441"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oct11 hull has h_K(u)=sqrt(1-min u_j^2), same support function; Chancelier-de Lara generalized top-k norm formalism matches this body."
+        ],
+        "reasoning": "Same object, but prior support function is an input to—not a direct statement of—the full Haar-width probability distribution and sharp constants.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a/RESULT.md",
+          "https://journalofconvexanalysis.com/articles/jca30036/",
+          "Resultary: orthogonal three disk hull random widths Dirichlet minimum",
+          "Resultary: top k support norm random directional width law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The older three-disk table gives exact width support endpoints via radii but not a CDF; no exact order-statistic table was identified in tested searches."
+        ],
+        "reasoning": "Inaccessibility of some historical order-statistic studies is documented; absence of indexed match alone is not novelty proof.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a/RESULT.md",
+          "Resultary: exact three-disk hull intrinsic volumes width probability",
+          "Resultary: Dirichlet 1/2 minimum random width coordinate hyperdisks"
+        ]
+      },
+      "rationale": "The full older 2026-10-11 mathematical theorem for the IDENTICAL three-disk convex hull establishes its support identity, volume, surface area, eight triangular facets, ruled patches and in/out radii, but does not determine the Haar width distribution. Chancelier–de Lara identify generalized Euclidean k-support norm balls, of which this is the k=d-1 instance. The submitted full 3D distribution and all-d sharp endpoint constants and high-dimensional weak limit are genuine distributional refinements not implied by the listed static scalar invariants alone. Classic Dirichlet extreme-value literature may contain equivalent coordinate-minimum laws and remains priority risk.",
+      "residual_risks": [
+        "The full generalized top-k norm primary article was not examined beyond its accessible abstract and scope.",
+        "A specialized older Dirichlet(1/2) minimum order-statistic source could contain the same integrated law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_OVERLAP_NOT_COVERING",
+          "evidence": "The same body/support identity is known, but paper computes intrinsic volumes and radii, not the width CDF or d-dependent endpoint laws.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a/RESULT.md",
+          "material_read": "Entire RESULT.md including theorem, support proof, 24 patches, eight triangular facets, volume/area/radii and limitations",
+          "method": "Read-only full original Git text",
+          "title": "Exact intrinsic volumes and boundary decomposition of the orthogonal three-disk hull",
+          "trigger": "Identical convex body; plausible direct coverage of widths"
+        },
+        {
+          "assessment": "ALIAS_BACKGROUND_UNRESOLVED_FULL_TEXT",
+          "evidence": "Establishes generalized norm constructions; cannot exclude a hidden distribution calculation without full paper. Priority qualified.",
+          "identifier_or_url": "https://journalofconvexanalysis.com/articles/jca30036/",
+          "material_read": "Open-access journal landing, abstract and mathematical scope; downloadable paper not opened",
+          "method": "Public OA HTML abstract",
+          "title": "Orthant-Strictly Monotonic Norms, Generalized Top-k and k-Support Norms",
+          "trigger": "Known k-support ball alias and possible width statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Haar directional width is a natural probabilistic observable of a well-studied sparse-support convex body. An exact 3D law determines all quantiles, sharp all-dimensional endpoint powers describe rare extremal directions, and the d^3 high-dimensional limit records geometric anisotropy. These facts are distinct from known mean widths, volumes, radii and the classical support identity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-intrinsic-volumes-and-boundary-decomposition-of-the-orthog--14663bdfc53a/RESULT.md",
+    "https://journalofconvexanalysis.com/articles/jca30036/",
+    "https://arxiv.org/abs/1211.4514",
+    "https://arxiv.org/abs/2111.01241"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the convex hull of centered unit coordinate hyperdisks in R^d, Haar width equals 2 sqrt(1-min_j U_j^2). In d=3 it has an elementary exact CDF, in every d>=3 sharp lower/upper endpoint powers with explicit constants, and d^3(2-W_d) converges to (pi/2)Exp(1)^2.",
+  "limitations": [
+    "Elementary CDF only d=3; in higher dimensions exact law is a Dirichlet integral plus asymptotics.",
+    "Fixed-d epsilon limits and growing-d weak limit are distinct regimes, not a joint uniform estimate."
+  ],
+  "residual_risks": [
+    "The full generalized top-k norm primary article was not examined beyond its accessible abstract and scope.",
+    "A specialized older Dirichlet(1/2) minimum order-statistic source could contain the same integrated law."
+  ],
+  "schema_version": 1
+}
