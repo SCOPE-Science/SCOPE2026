@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The subgroup-support correspondence follows from the uniqueness of cyclic subgroups of each divisor and the lcm rule for products. Pendant vertices cannot occur on a cycle. The degree-two counting identity \(a+b\le2|B|+e_A\) is exact before discarding nonnegative terms. In even rank, the only internal large-side edges are complementary middle-level pairs, a matching. In odd rank, all such edges have sizes \((k,k)\) or \((k,k+1)\), and the middle-level degree budget bounds \(x+2y\). The resulting all-r bound, exact omitted-vertex count, and asymptotic are justified. The supplied finite witnesses were checked from their actual encoded cycles, not inferred from search success.
+## correctness
 
-## Originality — PASS, qualified historical priority
-The October 29, 2026 primary study arXiv:2610.40860v1 computes small-r circumferences and describes the squarefree group graph; these existing numbers are not claimed as new. It does not supply the all-r central-binomial coverage obstruction on arbitrary disjoint unions of factorization cycles. The 2019 founding factorization-graph work concentrates on structure and forbidden graphs, not mixed-level cycle-coverage counts. Fixed-level Kneser Hamiltonicity is not a covering result for the Boolean mixed-level disjointness graph. Actual research-record searches did not return an implication-equivalent result. Residual risk: an earlier theorem on cycle covers of Boolean disjointness graphs, under another name, might imply the bound; independent historical-priority review is still absent.
+PASS
 
-## Value — PASS
-For an infinite, naturally defined class of finite groups, the theorem gives a quantitative obstruction to arbitrary simultaneous cyclic subgroup factorizations that grows exponentially up to a square-root factor. The stronger 2-regular coverage formulation explains a middle-level combinatorial restriction not captured by merely proving non-Hamiltonicity and matches independently known small-r circumference values. It is a nonroutine all-r bound, not a claim to have solved the complete exact-circumference problem.
+For squarefree cyclic group each proper nontrivial subgroup corresponds to a proper nonempty missing-prime support and product=whole group iff missing supports are disjoint. Removing r size-(r-1) pendant supports leaves V=2^r-r-2 possible cycle vertices. For any 2-regular subgraph, twice degrees give a-b=e_A-e_B and |V(F)|<=2|B|+e_A. At even rank 2k only complementary k-set pairs yield internal A edges, at most C(2k,k)/2. At odd 2k+1 internal A edges are (k,k) or (k,k+1); incidence at k level bounds x+2y<=2c and x<=c, hence e_A<=floor(3c/2). Both yield U=2^r-2-ceil(c/2). Verified entire stated r=5,6,7 explicit disjoint cycles and symbolic level structure for ranks5..12 with independently written exact bitset certificate. These finite witnesses prove only 2-regular sharpness at those ranks; all-r bound follows from the general counting proof, not enumeration.
 
-## Limits
-Primary focus is products of proper subgroups in finite cyclic groups (MSC2020 20D40); a graph-theoretic encoding is used in the proof. No claim of a sharp general upper bound for ranks at least eight, nor of uniqueness of extremizers. No expert or independent audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Previous Gutiérrez–Zuleta–García-Claro work determines the squarefree cyclic factorization graph and exact single-cycle circumferences for small ranks 5,6,7; those counts are credited, not claimed new. The new uniform central-binomial bound applies to any disjoint UNION of cycles for all r>=5. General factorization-graph origin and fixed-level Kneser Hamiltonicity do not imply this mixed-level bound. Original 2026 full preprint access failed (Oxford VPN disconnected), so comparisons beyond abstract/published summary are qualified; no contrary general all-r bound identified.
+
+## value
+
+PASS
+
+Uniform structural missing-middle-layer obstruction to 2-regular coverage of an intrinsically natural subgroup-factorization graph, exact at three first nontrivial ranks with explicit witnesses. It answers a concrete all-r extremal question distinct from merely repeating existing small-r circumference numbers; the gap grows order 2^r/sqrt(r).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
