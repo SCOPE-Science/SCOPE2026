@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact identity for the binary valuation of each quotient \(b_n\) proves the even-coefficient dyadic induction, including transitions when the block level is divisible by \(\nu_2(K+2)\). For odd coefficients, every odd-index multiplier contributes a factor of two; this forces divisibility at all even indices at least six, while the index-four residue check is exhaustive modulo twelve. Direct integer-arithmetic experiments agree on all tested ranges. The proof is for every coefficient and every index, rather than extrapolation from the tests.
+## correctness
 
-## Originality — PASS, with historical qualification
-Cloitre (arXiv:2510.18891, Proposition 6.5) establishes the \(K=2\) binary staircase, an acknowledged special case. Neither its statement nor the related OEIS entry gives the whole even/odd coefficient phase diagram. Searches of published mathematical records and the closely relevant primary article located no explicit equivalent of the combined general result. An earlier implicit derivation from the source's method or unindexed result is an unresolved priority risk.
+PASS
 
-## Mathematical value — PASS
-The general coefficient family is a natural open direction in the motivating article. This result gives an exact complete description of the 2-adic behavior for every even coefficient and a sharp, qualitatively opposite finite-support theorem for every odd coefficient, including a nontrivial modulus-twelve exceptional boundary. The result does not solve odd-increment primality or offer an exact valuation for odd coefficients.
+The exact factor b_n=n/gcd(n,A_{n-1}) gives nu2(b_n)=max(0,nu2(n)-nu2(A_{n-1})). With K even, internal dyadic-block indices have odd b_n; at powers of two valuation increases by exactly t=nu2(K+2) when previous V_r=r, hence b_n=2 and the claimed ceiling staircase. With K odd, all odd indices >=3 produce even multipliers; for even n>=6 their accumulated factors force nu2(A_{n-1})>=nu2(n), making b_n odd. Direct n=4 modulo12 computation gives {1,3,11}; all n>=5 multipliers are even, proving lower bound. Induction covers all n, not just tested n.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS for the coefficient-wide phase diagram, not the known K=2 staircase. Cloitre Proposition 6.5 establishes K=2 only; §7.4 raises other coefficients. OEIS has K=2 and related unweighted special cases, but not an all-positive-K even/odd dichotomy with K mod12 boundary. Uniform dyadic induction is a natural nontrivial extension; priority beyond indexed work remains qualified.
+
+## value
+
+PASS
+
+The complete binary transition diagram for the natural weighted-LCM recurrence solves the coefficient-extension direction of its motivating source: infinite logarithmically sparse even increments for every even K versus finite support for all odd K, including a nontrivial mod12 boundary. A full parameter classification may be useful without settling primality of other increments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
