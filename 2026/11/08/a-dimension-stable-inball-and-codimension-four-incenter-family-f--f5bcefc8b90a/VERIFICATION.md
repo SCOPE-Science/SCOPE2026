@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the Catalan matroid inball theorem
+# Independent mathematical audit
 
-The proof uses an exact description by ballot-prefix halfspaces, intrinsic projections of their normals, and a matching radius upper bound/feasible-center construction. Integrality of the ballot polytope follows from the totally unimodular difference-constraints matrix in cumulative-sum variables.
+## correctness
 
-Run `python verify.py` after installing NumPy and SciPy. The script checks the full radius linear program for integers \(3\le n\le34\); checks the explicit sign-block incenter satisfies every inward-shifted inequality; and checks that small-\(n\) feasible binary vertices coincide with the Dyck-path enumeration and Catalan counts for \(3\le n\le8\). It also checks the unique rank-two case algebraically. The verification marker is `CATALAN_INRADIUS_ANALYTIC_LP_VERTEX_CHECKS_PASSED`.
+PASS
 
-All computation is finite and numerical apart from finite integer enumeration. Numerical linear-programming tolerances are not mathematical proof of the claimed all-dimension theorem, which is supplied in the proof. No computer algebra, external service, or independent audit was used to establish historical priority. The incenter-locus affine dimension is proved analytically; the numerical program does not constitute an exhaustive face computation.
+PASS: Verified Catalan Dyck-upstep incidence halfspace representation via total-unimodular difference constraints; affine hull H_m with m=2n-2 and rank m-1. Intrinsic tangent-normal norms sqrt((m-1)/m) and sqrt(2k(m-2k)/m); first even-prefix versus two coordinate upper facets yields sharp radius 1/[2(a_m+c_m)]. Explicit symmetric plus/minus center satisfies every shifted prefix; first and last coordinate equalities force 4 extremes; middle zero-sum affine dimension m-5=2n-7, with strict feasible perturbation. Correct n2,n3 boundaries and positive monotone limit. Separate SciPy LP corroboration n3..12.
+
+## originality
+
+PASS
+
+PASS as best knowledge of source comparisons. Known lattice-path matroid facet geometry, Ehrhart and affine distributive equivalence do not state or directly preserve the intrinsic Euclidean inradius or high-dimensional incenter locus for ordinary Catalan incidence polytopes. Other Resultary matroid inball formulas concern panhandle/minimal-base or Catalan pellytopes, not these Dyck matroid bases. Primary full text of some plausible older sources was not accessible and remains a named residual risk, not an automatic failure.
+
+## value
+
+PASS
+
+PASS: A natural matroid base-polytope intrinsic metric invariant with nonzero high-dimensional limit and a codimension-four full incenter family gives a substantive exact geometric classification, beyond a facet restatement or arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

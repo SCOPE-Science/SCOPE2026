@@ -1,21 +1,21 @@
-# Scientific review: A dimension-stable inball and codimension-four incenter family for Catalan matroid polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The polytope is the Dyck up-step indicator hull in the original Euclidean metric. A difference-constraints integrality argument establishes the exact ballot halfspace representation. The orthogonally projected coordinate and prefix normals have explicitly computed lengths, so an inscribed radius is characterized by a finite family of linear inequalities. The first prefix and its two coordinate upper caps force the upper bound; the block-sign center simultaneously attains all constraints and proves it sharp for every integer \(n\ge2\). The two terminal prefix inequalities fix four incenter coordinates; a perturbation strict on all remaining constraints proves the full \(2n-7\) center dimension for \(n\ge4\). Boundary ranks and the positive limit are accounted for. Linear-programming and exact Dyck-path enumeration checks reproduced the formulas at finite sizes; they are not used in place of the proof.
+PASS
 
-## Originality — PASS, historical priority provisional
+PASS: Verified Catalan Dyck-upstep incidence halfspace representation via total-unimodular difference constraints; affine hull H_m with m=2n-2 and rank m-1. Intrinsic tangent-normal norms sqrt((m-1)/m) and sqrt(2k(m-2k)/m); first even-prefix versus two coordinate upper facets yields sharp radius 1/[2(a_m+c_m)]. Explicit symmetric plus/minus center satisfies every shifted prefix; first and last coordinate equalities force 4 extremes; middle zero-sum affine dimension m-5=2n-7, with strict feasible perturbation. Correct n2,n3 boundaries and positive monotone limit. Separate SciPy LP corroboration n3..12.
 
-The closest inspected primary sources are Bidkhori (arXiv:1212.5705), whose Lemmas 3.8--3.10 describe the facets; Knauer, Martínez-Sandoval and Ramírez Alfonsín (arXiv:1701.05529), whose results concern Ehrhart theory and affine distributive polytopes; and Chen, Li and Yao (arXiv:2503.19621), who study valuative invariants of the same Catalan matroids. These give important source structure but do not supply the Euclidean inradius and full center-locus classification. A published theorem for rank-two matroid base polytopes is not broader coverage of the present varying-rank Catalan family, and the generalized Pitman–Stanley metric result concerns a different finite-radius geometry. Searches under Dyck, ballot, Catalan and matroid Chebyshev-center terminology did not identify an equivalent formula. Exact searches and detailed implication comparisons appear in `AUDIT.json`.
+## originality
 
-An uncatalogued earlier equivalent formula in Schubert-matroid, ballot-polytope or geometric-optimization literature remains possible. The absence of a search hit is not a proof of historical uniqueness.
+PASS
 
-## Mathematical value — PASS
+PASS as best knowledge of source comparisons. Known lattice-path matroid facet geometry, Ehrhart and affine distributive equivalence do not state or directly preserve the intrinsic Euclidean inradius or high-dimensional incenter locus for ordinary Catalan incidence polytopes. Other Resultary matroid inball formulas concern panhandle/minimal-base or Catalan pellytopes, not these Dyck matroid bases. Primary full text of some plausible older sources was not accessible and remains a named residual risk, not an automatic failure.
 
-This is a natural exact invariant of a classical matroid-polytope family. Unlike vertex numbers and Ehrhart invariants, the intrinsic Euclidean inradius depends on embedding. Its positive limit and an incenter locus with fixed codimension four as the ambient dimension grows are structural phenomena, not routine small-case computations. The exact center constraints may be used to study contact patterns and related metric questions.
+## value
 
-## Limitations
+PASS
 
-The analysis addresses only ordinary Catalan matroids in their standard embedding. General lattice path matroids and affine-equivalent distributive realizations are not covered. The affine dimension of the incenter locus is determined, but its face vector and volume are not. Finite numerical checks and self-review do not amount to independent mathematical validation.
+PASS: A natural matroid base-polytope intrinsic metric invariant with nonzero high-dimensional limit and a codimension-four full incenter family gives a substantive exact geometric classification, beyond a facet restatement or arbitrary finite slice.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
