@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T01:57:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 16 even-weight five-bit words, adjacent at Hamming distance four, define a 5-regular Clebsch graph. The incidence-count lower bound eliminates four selected vertices: 12 distinct nonempty signatures on 4 chosen positions would require at least 22 outside incidences but 4*5=20. A complete independent first-principles examination of 4368 five-sets found exactly 416 codes in induced types 16 independent, 320 one-edge, 80 four-star. Constructing every one-vertex exchange on all 416 yielded the jump graph 2960 edges, radius5 diameter6, degree types 25/15/9, and the slide graph 1360 edges, radius6 diameter7, degree types 25/7/1; the latter has exactly 80 pendant star states. Every vertex BFS was evaluated, so this is a complete finite proof, not a sample; the actual two verifier source implementations were also inspected and both Git blob identities and full record tree were checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Foucaud-Henning-Löwenstein-Sasse (2015) prove general twin-free size bounds; Hernando-Mora-Pelayo (2013) compare locating-domination with complements."
+        ],
+        "reasoning": "Neither general bound or complement relation implies 416 optimum sets, 2960/1360 reconfiguration edges, or radii/diameters, which require exact code classification and distances.",
+        "searches": [
+          "arxiv:1412.2376 locating-dominating sets in twin-free graphs",
+          "arxiv:1312.0772 global location-domination in graphs",
+          "Resultary Clebsch code reconfiguration"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1412.2376",
+        "https://arxiv.org/pdf/1312.0772",
+        "https://mathworld.wolfram.com/ClebschGraph.html",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-seven-symmetry-orbits-and-diameter-eight-in-the-clebsch-perfect--162270758a81"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bounds cannot decide all-pairs distances in a 416-vertex move graph. The 705 perfect-matchings under four-cycle flips are a different configuration space."
+        ],
+        "reasoning": "The claimed sharp movable/frozen structure is not implied by the inspected broad statements or by numerical values for other graph invariants.",
+        "searches": [
+          "arxiv:1412.2376 full theorem",
+          "arxiv:1312.0772 full theorem",
+          "Resultary related Clebsch matching flip graph, different invariant"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard 5-regular Clebsch graph can be represented either as even Hamming parity-five words or Cayley graph on F_2^4 with differences {1,2,4,8,15}. The 96 identifying minima are a strict subset of 416 LD minima."
+        ],
+        "reasoning": "Representations are equivalent, predicates are not: identifying codes test selected vertices too; ordinary domination lacks distinct outside-neighborhood signatures. No published same-optimal-state graph matched.",
+        "searches": [
+          "Resultary: Clebsch graph optimal locating dominating configurations reconfiguration geometry",
+          "Published Clebsch identifying codes and five-set dominating sets",
+          "arxiv:1312.0772"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Only the current finding had the exact 416/2960/1360 combined data; neighboring counts 96 and 1056 describe different set predicates."
+        ],
+        "reasoning": "No exact earlier table for the same state space was located; absence from searched indices is not proof against unindexed tables.",
+        "searches": [
+          "Resultary: five-regular Clebsch LD 416 2960 1360 diameters 6 7",
+          "Clebsch graph independent sets identifying code 96 and 1056 dominating five sets"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. The same finite Clebsch graph is known in generic locating-domination bounds, identifying-code classifications and dominating-set enumeration, but those predicates differ: 96 optimal identifying codes identify all closed neighborhoods, and 1056 five-set dominators impose no external uniqueness; neither determines the 416 open-neighborhood locating-dominating optima or their two reconfiguration graph metrics. The full-text generic 2013 and 2015 locating-domination papers concern global-complement conditions and twin-free bounds, not this full exchange classification. Resultary search found the precise current theorem but no earlier equal/stronger statement. Residual risk of obscure enumerations remains.",
+      "residual_risks": [
+        "A specialised earlier Clebsch location-domination or optimal-code reconfiguration table not indexed by available searches could reduce originality.",
+        "The result is an exact finite host classification, not a theorem for all strongly regular graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_ON_MATERIAL_READ",
+          "evidence": "Main results concern general upper bounds and extremal tree or split/co-bipartite families; no 416-state token move classification.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.2376",
+          "material_read": "Complete 11-page PDF available; abstract, definitions, theorem statements, body on split/co-bipartite/twin-free bounds and graph families reviewed",
+          "method": "Primary PDF text and page-image inspection",
+          "title": "Locating-dominating sets in twin-free graphs",
+          "trigger": "General twin-free bound might cover Clebsch"
+        },
+        {
+          "assessment": "NOT_COVERING_ON_MATERIAL_READ",
+          "evidence": "Global LD requires S to distinguish in both graph and complement; the 416 ordinary LD optima and their relocation graph are not determined.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.0772",
+          "material_read": "15-page PDF; definitions, introduction, global-complement comparisons and main scope inspected",
+          "method": "Primary PDF text and page-image inspection",
+          "title": "On global location-domination in graphs",
+          "trigger": "Same LD predicate and complement equivalence"
+        },
+        {
+          "assessment": "SUBMISSION_VERIFIED",
+          "evidence": "Both independently derived graph descriptions yield 416 optimums and the claimed two distance graphs.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/locating-domination-and-relocation-geometry-of-the-five-regular--891539ac1265/RESULT.md",
+          "material_read": "Entire RESULT.md, checker programs verify_even5.py and verify_folded4.cpp, recorded outputs, metadata and scientific audit",
+          "method": "Git file/blob reading and independent executable logical reconstruction",
+          "title": "Locating domination and relocation geometry of the five-regular Clebsch graph",
+          "trigger": "Submitted exact theorem and all verification identities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. A finite but natural highly symmetric graph has a complete classification of feasible minimum placement geometries, not just a small isolated number. The connectedness and two different exact metrics for jump versus slide and the striking 80 forced leaves provide reusable exact mobility data and a meaningful boundary contrast between reconfiguration moves; 416 configurations and all-pairs distances are nontrivial finite invariants.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1412.2376",
+    "https://arxiv.org/pdf/1312.0772",
+    "https://mathworld.wolfram.com/ClebschGraph.html",
+    "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-seven-symmetry-orbits-and-diameter-eight-in-the-clebsch-perfect--162270758a81"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A specialised earlier Clebsch location-domination or optimal-code reconfiguration table not indexed by available searches could reduce originality.",
+    "The result is an exact finite host classification, not a theorem for all strongly regular graphs."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-The full self-contained Python and C++ source programs and their corresponding reference outputs are included as sibling files. Run `python3 verify_even5.py > even5_output.json`; compile the C++ program using `g++ -std=c++17 -O2 -Wall -Wextra verify_folded4.cpp -o verify_folded4`, then execute `./verify_folded4 > folded4_output.txt`. Both programs were executed from these final file paths, and their outputs matched the embedded output files byte-for-byte.
+## correctness
 
-Both exhaust all feasible five-sets and their exact one-for-one moves. The Python program also enumerates every smaller cardinality; the C++ program independently enumerates all 65,536 masks. All 416 shortest-path BFS searches complete in each move graph. All results are exact finite facts for the defined host graph; independent scholarly audit is not performed.
+PASS
+
+The 16 even-weight five-bit words, adjacent at Hamming distance four, define a 5-regular Clebsch graph. The incidence-count lower bound eliminates four selected vertices: 12 distinct nonempty signatures on 4 chosen positions would require at least 22 outside incidences but 4*5=20. A complete independent first-principles examination of 4368 five-sets found exactly 416 codes in induced types 16 independent, 320 one-edge, 80 four-star. Constructing every one-vertex exchange on all 416 yielded the jump graph 2960 edges, radius5 diameter6, degree types 25/15/9, and the slide graph 1360 edges, radius6 diameter7, degree types 25/7/1; the latter has exactly 80 pendant star states. Every vertex BFS was evaluated, so this is a complete finite proof, not a sample; the actual two verifier source implementations were also inspected and both Git blob identities and full record tree were checked.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge. The same finite Clebsch graph is known in generic locating-domination bounds, identifying-code classifications and dominating-set enumeration, but those predicates differ: 96 optimal identifying codes identify all closed neighborhoods, and 1056 five-set dominators impose no external uniqueness; neither determines the 416 open-neighborhood locating-dominating optima or their two reconfiguration graph metrics. The full-text generic 2013 and 2015 locating-domination papers concern global-complement conditions and twin-free bounds, not this full exchange classification. Resultary search found the precise current theorem but no earlier equal/stronger statement. Residual risk of obscure enumerations remains.
+
+## value
+
+PASS
+
+PASS. A finite but natural highly symmetric graph has a complete classification of feasible minimum placement geometries, not just a small isolated number. The connectedness and two different exact metrics for jump versus slide and the striking 80 forced leaves provide reusable exact mobility data and a meaningful boundary contrast between reconfiguration moves; 416 configurations and all-pairs distances are nontrivial finite invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
