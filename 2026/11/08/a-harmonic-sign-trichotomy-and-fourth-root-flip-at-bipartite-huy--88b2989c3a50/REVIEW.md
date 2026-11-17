@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed phase map and its two-harmonic Taylor expansion are explicit. Bipartiteness gives simplicity of the top weighted-Laplacian eigenvalue by an irreducible nonnegative sign conjugation. The symmetric half-return equation is odd, its Lyapunov–Schmidt transverse derivative is invertible, and the reduced odd scalar equation has coefficient \(\beta Q_4/6\) when \(\beta\ne0\) and \(-Q_6/15\) at \(\beta=0\). This proves the side and amplitude of each nontrivial local branch without extrapolating numerical tests. Full quotient stability follows from the symmetric Jacobian and a simple top eigenvalue; the common-phase direction is neutral. Numerical smoke checks passed for three weighted graph geometries in all three cases, but are not certificates for infinitely many graphs.
+## correctness
 
-## Originality — PASS within inspected evidence
-The general smooth-odd-interaction phase network and its small-step descent theory belong to Buescu–D'Aniello–Oliveira, arXiv:2610.10993v1. Their later cycle specialization, arXiv:2610.19953v1, treats convergence within the Lyapunov interval and does not provide a higher-harmonic flip trichotomy. Generic period-doubling conditions and cubic sign computations are established by Hénot–Lessard, arXiv:2610.22986v1, and earlier classical bifurcation theory; these methods are not claimed as new. The assessed distinction is the exact network-independent sign boundary \(\kappa=-1/27\), the subcritical reversal on the other side, and the explicit fifth-order coefficient and fourth-root critical scaling for all connected weighted bipartite graphs. Related previous research on the pure sine law is strictly a different interaction, and does not imply the threshold for the third harmonic. Specialist historical priority beyond accessible sources remains at risk.
+PASS
 
-## Value — PASS
-The motivating source permits smooth odd edge interactions and identifies the graph spectral coupling threshold, but does not decide what dynamics emerges at that threshold. The new trichotomy shows the *same* connected weighted bipartite graph can undergo either a stable supercritical or an unstable subcritical flip merely by changing a third Fourier-harmonic coefficient, and exhibits a sharp degenerate fourth-root onset at the crossover. It distinguishes spectral loss of linear stability from nonlinear branch direction and provides an explicit oscillator-interaction design boundary; this is more than recomputing a special numerical example.
+Conjugating the weighted Laplacian by bipartite signs produces an irreducible nonnegative signless matrix; Perron-Frobenius ensures simple maximal eigenvalue. The odd half-return equation has one scalar critical direction on the common-phase quotient. Its Taylor coefficients alpha=1+3kappa, beta=1+27kappa, gamma=1+243kappa give critical cubic -beta Q4/6 or, at beta=0, fifth-order -Q6/15. Lyapunov–Schmidt reduction gives exact branch signs and amplitude laws; the spectral gap isolates transverse multipliers, and the critical multiplier -1+2alphaLambda epsilon (generic) or -1+4alphaLambda epsilon (degenerate) determines sink vs saddle. Symbolic spot checks of the coefficients at three kappa values confirm algebra; no claim about nonsymmetric cycles.
 
-## Scope and remaining uncertainties
-Only local symmetric two-cycles are claimed; neither distant cycles nor global attractor basins are addressed. The independent external audit has not been performed. Specialist historical-priority uncertainty remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Generic flip/LS methodology and pure-sine discrete Huygens dynamics are established. Checked cited high-harmonic and generic flip material does not state the network-universal third-harmonic threshold kappa=-1/27 nor the explicit fifth-order fourth-root onset. A close primary full PDF was not accessible (institutional VPN disconnected), so this is a qualified best-of-knowledge assessment with specialist priority risk, not a conclusion based on inaccessible text alone.
+
+## value
+
+PASS
+
+The bifurcation direction changes sign in the same natural network simply by varying a Fourier coefficient; the exactly degenerate fourth-root scaling is a motivated nonlinear stability boundary uniform over arbitrary positive-weight bipartite graphs. Local branch/stability information is mathematically useful beyond generic flip normal-form existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
