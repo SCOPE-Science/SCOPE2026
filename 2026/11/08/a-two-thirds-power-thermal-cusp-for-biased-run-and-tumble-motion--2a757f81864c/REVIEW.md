@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The physical generator is explicitly normalized, the stationary athermal law follows from two-state zero-current balance, and the thermal component is an independent Gaussian of variance \(s\). For \(0<a,b<1\) the athermal law has exactly two boundary singularities and one valley. Gaussian variation diminution bounds the number of modes by two; the strict parabolic zero-number theorem, the small-noise sign pattern and strict log-concavity for \(s>1\) give a single global transition. The symmetric Kummer root is unique, the quartic spatial coefficient is strictly negative and the asymmetry derivative strictly negative. A nonzero rescaled Jacobian yields the \(1/3\) fold-location and \(2/3\) thermal-threshold laws. The standalone checker passed 101 deterministic numerical identities and fold consistency tests. Infinite-parameter conclusions come from the mathematical proof, not the grid.
+## correctness
 
-## Originality — PASS (qualified)
-The exact beta law for unequal rates is already covered by the general two-state Dirichlet framework of Guéneau–Majumdar–Schehr; the thermal Gaussian convolution and symmetric bimodality temperature are also established there and independently by Sevilla–Meléndez Mora. The exact new comparison target is the **asymmetric cusp coefficient and global one-fold mode classification**, not the model, stationary law, Gaussian convolution or generic cusp normal form. Primary article sections on generalized finite-state laws, thermal shape transitions and symmetric convolution were inspected; no matching \(|\varepsilon|^{2/3}\) threshold or \(|\varepsilon|^{1/3}\) fold-location theorem was found. Actual semantic research searches also returned no covering result. The search is not a guarantee of priority; inaccessible or unindexed sources remain possible.
+PASS
 
-## Value — PASS
-Bimodality of the stationary position distribution is a central measurable signature of persistent motion in harmonic confinement. The result identifies a sharp and non-linear fragility of that signature to biased direction changes, quantifies which side loses its peak, and supplies an explicit physically computable cusp coefficient. This is a structural stability boundary rather than a routine restatement of the known stationary density.
+The telegraph stationary transport equations yield beta(b,a) on [-1,1], with independent stationary Gaussian OU variance s. Gaussian strict variation-diminishing/heat zero-number implies at most three derivative zeros, two modes at small s and one at s>1; zeros cannot be created, yielding a unique loss event. The symmetric Kummer root has only strictly downward crossings, and at its critical tilted law E[Y²]=s_ell, E[Y^4]=(2ell+1)s_ell², so quartic coefficient K=2(ell-1)p0/s_ell²<0. Bias derivative B=-(2p0/s_ell)E[YatanhY]<0. The cusp fold solves (K/2)tau x+(K/6)x³+B eps=0 and derivative zero, giving x~A sgn(eps)|eps|^(1/3), s=s_ell-A²|eps|^(2/3)+o. Independent scipy hypergeometric/quadrature gives s_.5=.3164643403484472, A_.5=1.0116863053000347, agreeing with the package.
 
-## Closest prior literature and limitations
-The strongest adjacent result is Guéneau–Majumdar–Schehr, arXiv:2602.08436, especially its Dirichlet representation for arbitrary discrete velocity weights and its one-dimensional thermal shape transition. Sevilla–Meléndez Mora, arXiv:2608.21781, similarly supplies the Gaussian-convolution framework and symmetric-rate analysis. Angenent's classical zero-number theorem is essential for the global uniqueness argument. The theorem is restricted to positive rates below one, fixed positive trap and propulsion, Gaussian thermal forcing, and near-symmetric asymptotics; it makes no experimental-resolution claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Guéneau–Majumdar–Schehr (arXiv:2602.08436v2) supply the general Dirichlet/stick-breaking stationary law and Gaussian convolution, and analyze symmetric thermal crossover. Earlier published Resultary records (2026-10-26 and 2026-11-02) prove symmetric variance thresholds and peak openings but not unequal flipping a!=b. The inspected literature does not supply the explicit asymmetric fold coefficient or the all-positive-variance biased mode-loss classification. The general cusp exponent is not itself new.
+
+## value
+
+PASS
+
+A physically motivated symmetry-breaking cusp with an exact coefficient and global uniqueness for a canonical driven diffusion is a meaningful extension of the known symmetric thermal mode transition. The 2/3 cusp normal form alone is standard; the specific tilted-beta integral coefficient and global model classification supply the value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
