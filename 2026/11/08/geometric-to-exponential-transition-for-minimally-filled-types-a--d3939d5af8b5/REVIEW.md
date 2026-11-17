@@ -1,15 +1,21 @@
-# Review of a stopped occupancy phase transition
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The Poisson embedding gives the exact stopped count law with a unique maximizing Gamma clock, and the conditional binomial representation independently supports the finite integral. The extreme Gamma quantile lies more than \(\sqrt m\) above its shape, so its hazard has an elementary Mills approximation. That asymptotic, coupled with the established all-multiplicity Gumbel clock limit, gives the marked conditional Poisson mixture and exponential regime. The quantile large-deviation rate identifies the logarithmic threshold. The checker independently compares two exact-rational finite-state methods (143 assertions); it does not attempt to infer infinite truth from experiments. Risks: asymptotic uniformity is limited to fixed compact Gumbel windows, sufficient because of tightness; arbitrary sequences are treated by subsequences.
+PASS
 
-## Originality
+In the actual RESULT.md, the merged independent Poisson processes have the identical ordered coupon-label stream. Conditioning on the unique maximum m-th arrival gives the exact binomial mixture and integral law for K; with b solving n Q_m(b)=1, the Gamma-tail hazard Q_m(b)/f_m(b) is asymptotic to b/(b-m) uniformly on the Gumbel window because (b-m)^2/b tends to infinity. The mark ratio p_m/Q_m is asymptotic to b/m-1; conditional binomial-to-Poisson mixing with e^{-G}~Exp(1) yields Geom(1/(1+a)) for A->a, while mean/variance control yields K/A->Exp(1) for A->infinity. The Gamma large-deviation rate I(r)=r-1-log r identifies the m/log n regimes, with no monotonicity assumption. Finite examples check the conditional law but do not prove it.
 
-**PASS, subject to historical priority.** Castro–Marinho and Long establish a growing-multiplicity clock law, not the terminal count of exactly-minimal types. Myers–Wilf already establish the full \(m=1\) stopped singleton law, which is expressly credited and not claimed anew. Ilienko's fixed-level extended-collection results include exponential and geometric limits for different observables and delayed times, and some fixed-threshold behavior may be deducible. The additional threshold \(m\asymp\log n\) and continuum of geometric terminal-count limits are not directly stated in these inspected sources. Search comparisons of nearby published occupancy, coupon, and point-process claims did not identify a dominating theorem, but absence from search is not proof of global novelty. Castro–Marinho's full text was intermittently inaccessible on reinspection, so its appendices remain a residual risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** In repeated coupon collection, the count of types remaining exactly at the required multiplicity is the natural terminal bottleneck-size statistic. The new geometric limiting family at \(m\asymp\log n\), its explicit large-deviation parameter, and the collapse and exponential regimes on either side quantify a structural transition not determined by the distribution of total collection time. The exact finite law provides a reproducible starting point for future finite-size estimates. This is a bounded, model-specific result, not a claim about all occupancy models.
+Best-of-knowledge PASS after comparison with earlier fixed-quota coupon laws, uniform Gamma-tail completion time, and a stronger-sounding marked-shortage theorem at a deterministic near-completion clock. The deterministic-time deficiency law is not the random stopped count of types attaining the quota exactly at the last arrival. A marked-extremes process theorem covering all growing quota rates could supersede it but was not identified.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The number of minimally filled types exactly at the random common m-coverage time is a natural stopped-occupancy statistic, distinct from the stopping clock and from deterministic-time deficiencies. Its full geometric family, exponential normalization and logarithmic quota threshold give a usable phase classification for generalized coupon collection, beyond the known fixed-m singleton result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
