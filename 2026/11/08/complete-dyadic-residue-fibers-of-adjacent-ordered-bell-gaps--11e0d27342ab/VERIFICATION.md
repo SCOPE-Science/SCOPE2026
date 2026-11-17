@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Extract `verify.py` and run `python3 verify.py` using Python 3 and the standard library only. It compares the exact binomial recurrence for Fubini numbers against Stirling-number sums for the first 30 nonzero indices; computes every adjacent gap residue modulo \(2^k\) for \(7\le k\le15\); exhaustively verifies 45 full blocks covering 5,110 residue observations; checks 6,232 exact scaled-isometry cases and 360 series comparisons; and tests selected higher-precision branch identities modulo \(2^{17}\), \(2^{19}\), and \(2^{23}\).
+## correctness
 
-Successful output:
+PASS
 
-```
-VERIFY_OK levels=7..15 gap_image=PASS sharp_start=PASS least_period=PASS
-complete_blocks= 45 residue_cells= 5110 scaled_isometry_pairs= 6232 series_cases= 360
-independent_stirling_rows=1..30 exact_integer_recurrence=0..130 extra_precision=17,19,23
-```
+The exact 2-adic odd-base interpolation of F_n splits the adjacent gaps into G_0,G_1 with interpolation error valuation n+1; the unique j=3 leading term yields v_2(G_e(t)-G_e(s))=7+v_2(t-s). As each branch is an isometry onto the full ball 114+128Z_2 or 110+128Z_2, residue fibers are each exactly once per block 2^(k-6), with onset k-1 and sharp preceding error valuation k-1. The six early differences give isolated residues; periodic index frequencies yield their natural densities, and closure has Haar measure 1/64. Independent modular recurrence computations at k=7..12 corroborated these claims without replacing the all-k valuation proof.
 
-The code performs finite consistency checks only. For every precision, the proof rests on two-adic series (1), exact interpolation error (6), unique lowest-valuation term (9), and the resulting bijections, not on computation beyond a fixed cutoff. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: Poonen (1988) establishes Fubini values eventual period 2^(k-4) and shift congruences. Subtracting neighboring shifts removes the leading constant and does not determine the first-difference image, one-per-residue fiber theorem, sharp period 2^(k-6), onset, or 2-adic closure. Resultary search found only this exact finding and other distinct Fubini polynomials/Stirling columns. A plausible 2017 congruence paper remained unread and is a priority risk, not negative evidence.
+
+## value
+
+PASS
+
+The adjacent gap counts weak orderings which cannot be obtained by merely appending a new final block. Its complete 2-adic fiber and exceptional-prefix classification resolves a concrete natural combinatorial arithmetic invariant whose spectrum is not a routine corollary of the value-sequence period.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
