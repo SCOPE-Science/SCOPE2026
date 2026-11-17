@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The algebraic Anderson numerator identity is verified by direct cancellation; the difference of independent uniform errors determines exactly when the denominator can vanish. Below the threshold a positive denominator gap bounds the quotient. At equality its only zero lies at one square corner: planar small-ball area yields a quadratic tail, with a numerator cancellation exactly for reflection-symmetric inputs. Above equality the zero set crosses an interior line segment and its normal strip yields the explicit positive first-order tail constant. The second-moment logarithmic coefficient follows by integration in corner coordinates; tail integration gives the exact moment classification. Standalone rational identities and numerical integrations (10,452 assertions) replay successfully. Finite calculations are corroboration, not a substitute for the asymptotic proof.
+## correctness
 
-## Originality — PASS (qualified)
-Comparison was at the theorem/implication level. Ouyang et al. (arXiv:2006.02559) address adaptive regularization and deterministic/global convergence control, not unregularized independent bounded-uniform tails. Wei, Bao and Liu (arXiv:2110.01543) control noisy coefficient matrices by damping and regularization, with different scope. The accessible full preprint of Toth et al. (DOI:10.1137/16M1080677) gives local improvement/stagnation results **under a bounded coefficient-sum assumption** (Assumption 1.2; Theorems 2–3); that assumption is exactly violated in the critical and supercritical cases of the present result, and their theorems do not determine either tail exponent or any sharp amplitude threshold. Garner et al. (arXiv:2311.02490) study deterministic windowed Anderson. Prior Gaussian two-point Anderson noise results identify a first-order tail whenever the denominator density is positive throughout the real line. They neither imply a finite-support onset nor the distinct order-two boundary law. Residual risk: obscure independent descriptions of rational-function singularity distributions may subsume parts of the exact constants; comprehensive publication precedence is not certified.
+PASS
 
-## Value — PASS
-The exact noise-amplitude boundary is a meaningful safeguarding benchmark: bounded independent perturbations alone do not bound the one-step output of an unsafeguarded residual-minimizing extrapolation. The result distinguishes the positive-gap, tangency and transverse-zero geometries, including an exceptional cancellation and all moment thresholds. It is a complete natural scalar benchmark rather than a routine numerical check or unsupported claim about iterative convergence.
+PASS. The exact one-step Anderson algebra reduces Z-theta to (a eps1-b eps0)/(-k Delta+eps1-eps0). Below delta_c=k Delta/2 denominator is separated from zero. At criticality its zero touches one error-square corner, producing a t^-2 tail with coefficient (a+b)^2/8 unless a+b=0, when numerator also vanishes linearly and the quotient remains bounded. Above delta_c the zero line crosses a positive-length interior segment, yielding a t^-1 tail with the stated positive integral constant. Corner integration independently reproduced exact critical Pr(|Z|>t)=1/[8t(t+1)] for the specified test case; the log divergence comes from integrating (s+u+v)^-2. One-step conditional only.
 
-## Scope and risks
-The independent uniform assumption, fixed distinct inputs and affine strict contraction are necessary for the literal formulas. All moments are absolute moments of one output relative to its true fixed point. No claim is made for later iterates, floating-point implementations or arbitrary perturbation laws. Publication precedence and generalization require independent assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with explicit risk from inaccessible primary. The 2026-11-02 Aitken paper proves a mathematically similar bounded-uniform t^-2 corner/t^-1 interior transition but for a SEQUENTIAL noisy three-term Picard trace; its pole numerator is quadratic (c s-eps0)^2 and its denominator has a distinct affine coefficient a=2-rho. Here two fixed, independently queried inputs give an affine numerator a eps1-b eps0, and a symmetric exceptional cancellation not implied by that Aitken theorem; the exact coefficients and log prefactor are distinct. Gaussian oracle-noise Anderson results have t^-1 without compact-support phase. Toth et al. discuss inaccurate function evaluations, but full text access failed; its abstract is not grounds for whole-paper noncoverage. Best-of-knowledge pass, substantial historical overlap risk documented.
+
+## value
+
+PASS
+
+PASS. Singular residual cancellation under bounded oracle errors is directly relevant to unsafeguarded extrapolation risk. The exact support threshold, different tail exponents, symmetric cancellation, leading constants and divergent second-moment onset are a useful quantitative boundary; finite scalar benchmark is motivated, with no exaggerated claim of failure for safeguarded methods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
