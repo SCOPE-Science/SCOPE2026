@@ -1,19 +1,21 @@
-# Mathematical assessment: Gaussian quadrature tree calibration
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The local covariance \(1+v\cos(2\pi(t-s))\) is positive semidefinite, and the local integral cancels the sine/cosine components exactly. The leaf Gaussian posterior is obtained by a one-dimensional Schur complement. For a balanced binary node with two independent children, the correct prior covariance is exactly \(mI_2\), and the reported child variance is \(mv/(1+jv)\). Direct insertion into the stipulated pseudo-observation update gives the next denominator \(1+(j+1)v\). This closes the induction for every \(h\ge0\) and every \(v>0\). The normalized root estimation error is exactly Gaussian, with variance computed from two independent normal sums; the coverage asymptotic follows from the normal density at zero. The extracted exact-rational checker corroborates 2,268 finite-depth assertions but is not used as a substitute for proof.
+PASS
 
-## Originality — PASS, with priority caveats
+For independent cells f_i(t)=X_i+sqrt(v)(Z_i cos(2πt)+W_i sin(2πt)), covariance 1+v cos2π(t-s) is positive semidefinite; I_i=X_i and y_i=X_i-sqrt(v)Z_i. Exact Gaussian leaf posterior is mean y_i/(1+v), variance v/(1+v). At height j with m equal-size independent children, pseudo-observation merge with exact prior child-integral C=m I_2 multiplies child means by (1+jv)/(1+(j+1)v) and yields variance 2m v/(1+(j+1)v). Induction gives root mean Y/[1+(h+1)v] and reported variance n v/[1+(h+1)v]. Conditioning independent leaves once instead yields Y/(1+v), nv/(1+v). From S-Y/D=((D-1)ΣX_i+sqrt(v)ΣZ_i)/D, D=1+(h+1)v, true variance n[(D-1)^2+v]/D², so the reported-error variance ratio is [1+(h+1)^2v]/[1+(h+1)v]→∞ and Gaussian z-interval coverage tends 0, asymptotic sqrt(2/π)z/sqrt(h+1). Independent rational recombination checks h<=5 and three v; these are checks, analytic induction proves all depths.
 
-The motivating Weiland–Karvonen–Hennig paper defines the recursive Gaussian-conditioning update and studies convergence of its integral estimates, but the inspected recombination and theoretical/experimental sections do not establish this depth-dependent unconditional error-to-reported-variance factor or its vanishing credible-interval coverage. Distributed Gaussian-product expert methods can be overconfident (Deisenroth–Ng), whereas the present operation updates sums of *different* subintegrals using posterior means as pseudo-observations. Nested Kriging (Rullière et al.) propagates the covariances of the expert estimators explicitly, a different construction. Searches for hierarchical Bayes quadrature, posterior pseudo-observations, and depth-driven double conditioning in the accessible mathematical record returned no direct implication. General historical Bayesian double-counting observations are a plausible priority risk, and the absence of indexed matches is not a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-Hierarchical quadrature's reported posterior variance is used to assess numerical integration uncertainty and can inform refinement. The exact depth law proves that small reported uncertainty need not indicate calibrated integral uncertainty even when the leaf priors and parent prior covariance are correct. The loss is unbounded and the nominal fixed-width interval coverage tends to zero, so the consequence is structural rather than a tiny numerical discrepancy. The correctly calibrated direct sum in the same construction gives a concrete benchmark for diagnosing the variance-recombination step.
+Weiland–Karvonen–Hennig 2026 primary full text explicitly gives the Gaussian hierarchical pseudo-observation equations (Section 3.2), but its convergence theorem analyzes quadrature under regularity and does not state the present depth calibration failure or exact coverage law. Distributed Gaussian-product expert overconfidence and nested Kriging theory concern different aggregation/cross-covariance assumptions, not the defined repeated posterior-mean pseudo-noise rule. No matching example or bound emerged from targeted indexed searches. Best-of-knowledge PASS with artificial-model limitations.
 
-## Scientific limits
+## value
 
-This is a family of growing-domain independent-cell priors, not an assertion about real-world adaptive tree selection or the source implementation's default stationary parent kernel. The exact formulas use Gaussian prior-predictive coverage and an oracle parent covariance. A different estimator fusion scheme can avoid the effect. An independent historical-priority check and mathematical audit remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A quantitative prior-predictive coverage collapse to zero despite correct finite-rank leaf GPs and oracle child prior covariance is a motivated and potentially diagnostic negative counterexample to a specified Bayesian quadrature fusion rule; it separates numerical accuracy/convergence from uncertainty calibration rather than merely renaming a Gaussian identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

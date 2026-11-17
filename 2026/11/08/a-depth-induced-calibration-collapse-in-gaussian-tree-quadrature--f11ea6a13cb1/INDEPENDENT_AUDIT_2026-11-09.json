@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T07:04:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For independent cells f_i(t)=X_i+sqrt(v)(Z_i cos(2πt)+W_i sin(2πt)), covariance 1+v cos2π(t-s) is positive semidefinite; I_i=X_i and y_i=X_i-sqrt(v)Z_i. Exact Gaussian leaf posterior is mean y_i/(1+v), variance v/(1+v). At height j with m equal-size independent children, pseudo-observation merge with exact prior child-integral C=m I_2 multiplies child means by (1+jv)/(1+(j+1)v) and yields variance 2m v/(1+(j+1)v). Induction gives root mean Y/[1+(h+1)v] and reported variance n v/[1+(h+1)v]. Conditioning independent leaves once instead yields Y/(1+v), nv/(1+v). From S-Y/D=((D-1)ΣX_i+sqrt(v)ΣZ_i)/D, D=1+(h+1)v, true variance n[(D-1)^2+v]/D², so the reported-error variance ratio is [1+(h+1)^2v]/[1+(h+1)v]→∞ and Gaussian z-interval coverage tends 0, asymptotic sqrt(2/π)z/sqrt(h+1). Independent rational recombination checks h<=5 and three v; these are checks, analytic induction proves all depths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original recurrence uses child posterior means plus pseudo-noise variances; prior sources provide rule not proof of depth h zero-coverage asymptotic",
+          "Nested Kriging preserves cross covariances of aggregated predictors, unlike this rule"
+        ],
+        "reasoning": "An earlier theorem would cover this claim only through an actual statement-level implication; the specific similarities and differences are documented in evidence. Specific record comparison: Weiland–Karvonen–Hennig 2026 primary full text explicitly gives the Gaussian hierarchical pseudo-observation equations (Section 3.2), but its convergence theorem analyzes quadrature under regularity and does not state the present depth calibration failure or exact coverage law. Distributed Gaussian-product expert overconfidence and nested Kriging theory concern different aggregation/cross-covariance assumptions, not the defined repeated posterior-mean pseudo-noise rule. No matching example or bound emerged from targeted indexed searches. Best-of-knowledge PASS with artificial-model limitations.",
+        "searches": [
+          "hierarchical Bayesian quadrature recursive gaussian pseudo observation calibration depth coverage collapse",
+          "Gaussian tree quadrature double conditioning posterior means posterior variances overconfidence"
+        ]
+      },
+      "checked_sources": [
+        "Hierarchical Bayesian Quadrature — arXiv:2607.10793; https://arxiv.org/abs/2607.10793; PMLR 337 (2026), 7273–7289",
+        "Distributed Gaussian Processes — arXiv:1502.02843",
+        "Nested Kriging predictions for datasets with large number of observations — arXiv:1607.05432",
+        "Frozen Git RESULT.md at b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-depth-induced-calibration-collapse-in-gaussian-tree-quadrature--f11ea6a13cb1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Algorithmic rule in source + elementary Gaussian identities needs a new repeated-conditioning induction to imply h-dependent miscalibration; source gives no such theorem"
+        ],
+        "reasoning": "Prior statements and their logical consequences were compared directly; inspect the scientific rationale for the surviving non-implied claim. Specific record comparison: Weiland–Karvonen–Hennig 2026 primary full text explicitly gives the Gaussian hierarchical pseudo-observation equations (Section 3.2), but its convergence theorem analyzes quadrature under regularity and does not state the present depth calibration failure or exact coverage law. Distributed Gaussian-product expert overconfidence and nested Kriging theory concern different aggregation/cross-covariance assumptions, not the defined repeated posterior-mean pseudo-noise rule. No matching example or bound emerged from targeted indexed searches. Best-of-knowledge PASS with artificial-model limitations.",
+        "searches": [
+          "hierarchical Bayesian quadrature recursive gaussian pseudo observation calibration depth coverage collapse",
+          "Gaussian tree quadrature double conditioning posterior means posterior variances overconfidence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weiland–Karvonen–Hennig 2026 Section 3.2 Gaussian conditioning rule (arXiv:2607.10793)",
+          "Deisenroth–Ng 2015 distributed product GPs; Rullière et al. nested Kriging"
+        ],
+        "reasoning": "Same objects and parameter formulations are compared against identified original sources; name/title match alone is not taken as coverage. Specific record comparison: Weiland–Karvonen–Hennig 2026 primary full text explicitly gives the Gaussian hierarchical pseudo-observation equations (Section 3.2), but its convergence theorem analyzes quadrature under regularity and does not state the present depth calibration failure or exact coverage law. Distributed Gaussian-product expert overconfidence and nested Kriging theory concern different aggregation/cross-covariance assumptions, not the defined repeated posterior-mean pseudo-noise rule. No matching example or bound emerged from targeted indexed searches. Best-of-knowledge PASS with artificial-model limitations.",
+        "searches": [
+          "hierarchical Bayesian quadrature recursive gaussian pseudo observation calibration depth coverage collapse",
+          "Gaussian tree quadrature double conditioning posterior means posterior variances overconfidence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact n=2^h, [1+(h+1)^2v]/[1+(h+1)v] ratio or zero-coverage table found in indexed matches"
+        ],
+        "reasoning": "No checked exact matching full theorem/table found in the cited searches; absence of search hits is not proof of novelty. Specific record comparison: Weiland–Karvonen–Hennig 2026 primary full text explicitly gives the Gaussian hierarchical pseudo-observation equations (Section 3.2), but its convergence theorem analyzes quadrature under regularity and does not state the present depth calibration failure or exact coverage law. Distributed Gaussian-product expert overconfidence and nested Kriging theory concern different aggregation/cross-covariance assumptions, not the defined repeated posterior-mean pseudo-noise rule. No matching example or bound emerged from targeted indexed searches. Best-of-knowledge PASS with artificial-model limitations.",
+        "searches": [
+          "hierarchical Bayesian quadrature recursive gaussian pseudo observation calibration depth coverage collapse",
+          "Gaussian tree quadrature double conditioning posterior means posterior variances overconfidence"
+        ]
+      },
+      "rationale": "Weiland–Karvonen–Hennig 2026 primary full text explicitly gives the Gaussian hierarchical pseudo-observation equations (Section 3.2), but its convergence theorem analyzes quadrature under regularity and does not state the present depth calibration failure or exact coverage law. Distributed Gaussian-product expert overconfidence and nested Kriging theory concern different aggregation/cross-covariance assumptions, not the defined repeated posterior-mean pseudo-noise rule. No matching example or bound emerged from targeted indexed searches. Best-of-knowledge PASS with artificial-model limitations.",
+      "residual_risks": [
+        "Counterexample uses tailored independent cells, a growing integration domain and oracle parent priors; does not establish failure for adaptive practice or typical fitted kernels.",
+        "Another unpublished or harder-to-index Gaussian overconfidence example might coincide."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Rule matches defined pseudo-noise merger; no quantitative tree-depth calibration-collapse theorem found",
+          "evidence": [
+            "Section 3.2 treats posterior means as child observations with variances; convergence discussion does not provide coverage ratio."
+          ],
+          "identifier_or_url": "arXiv:2607.10793; https://arxiv.org/abs/2607.10793; PMLR 337 (2026), 7273–7289",
+          "material_read": "Accessible full primary HTML manuscript, introduction, Section 3.2 equations (13)–(17), theorem and limitations",
+          "method": "Read original accessible arXiv HTML and PMLR links",
+          "title": "Hierarchical Bayesian Quadrature",
+          "trigger": "Same recursive Gaussian quadrature conditioning rule and uncertainty report"
+        },
+        {
+          "assessment": "Related product expert fusion but no identical tree rule",
+          "evidence": [
+            "Product-of-experts predicts common latent, whereas candidate recombines disjoint integrals."
+          ],
+          "identifier_or_url": "arXiv:1502.02843",
+          "material_read": "Available abstract/overview and cited comparison; not claimed full paper read",
+          "method": "Search and semantic comparison",
+          "title": "Distributed Gaussian Processes",
+          "trigger": "Possible fusion overconfidence equivalent"
+        },
+        {
+          "assessment": "Cross-covariance-based aggregation differs from independent pseudo-observation-noise scheme",
+          "evidence": [
+            "Nested Kriging uses covariance between aggregated predictions."
+          ],
+          "identifier_or_url": "arXiv:1607.05432",
+          "material_read": "Available abstract/overview; complete text not inspected",
+          "method": "Search and method comparison",
+          "title": "Nested Kriging predictions for datasets with large number of observations",
+          "trigger": "Related nested Gaussian predictor fusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A quantitative prior-predictive coverage collapse to zero despite correct finite-rank leaf GPs and oracle child prior covariance is a motivated and potentially diagnostic negative counterexample to a specified Bayesian quadrature fusion rule; it separates numerical accuracy/convergence from uncertainty calibration rather than merely renaming a Gaussian identity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Hierarchical Bayesian Quadrature — arXiv:2607.10793; https://arxiv.org/abs/2607.10793; PMLR 337 (2026), 7273–7289",
+    "Distributed Gaussian Processes — arXiv:1502.02843",
+    "Nested Kriging predictions for datasets with large number of observations — arXiv:1607.05432"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Counterexample uses tailored independent cells, a growing integration domain and oracle parent priors; does not establish failure for adaptive practice or typical fitted kernels.",
+    "Another unpublished or harder-to-index Gaussian overconfidence example might coincide."
+  ],
+  "residual_risks": [
+    "Counterexample uses tailored independent cells, a growing integration domain and oracle parent priors; does not establish failure for adaptive practice or typical fitted kernels.",
+    "Another unpublished or harder-to-index Gaussian overconfidence example might coincide."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Rule matches defined pseudo-noise merger; no quantitative tree-depth calibration-collapse theorem found",
+      "evidence": [
+        "Section 3.2 treats posterior means as child observations with variances; convergence discussion does not provide coverage ratio."
+      ],
+      "identifier_or_url": "arXiv:2607.10793; https://arxiv.org/abs/2607.10793; PMLR 337 (2026), 7273–7289",
+      "material_read": "Accessible full primary HTML manuscript, introduction, Section 3.2 equations (13)–(17), theorem and limitations",
+      "method": "Read original accessible arXiv HTML and PMLR links",
+      "title": "Hierarchical Bayesian Quadrature",
+      "trigger": "Same recursive Gaussian quadrature conditioning rule and uncertainty report"
+    },
+    {
+      "assessment": "Related product expert fusion but no identical tree rule",
+      "evidence": [
+        "Product-of-experts predicts common latent, whereas candidate recombines disjoint integrals."
+      ],
+      "identifier_or_url": "arXiv:1502.02843",
+      "material_read": "Available abstract/overview and cited comparison; not claimed full paper read",
+      "method": "Search and semantic comparison",
+      "title": "Distributed Gaussian Processes",
+      "trigger": "Possible fusion overconfidence equivalent"
+    },
+    {
+      "assessment": "Cross-covariance-based aggregation differs from independent pseudo-observation-noise scheme",
+      "evidence": [
+        "Nested Kriging uses covariance between aggregated predictions."
+      ],
+      "identifier_or_url": "arXiv:1607.05432",
+      "material_read": "Available abstract/overview; complete text not inspected",
+      "method": "Search and method comparison",
+      "title": "Nested Kriging predictions for datasets with large number of observations",
+      "trigger": "Related nested Gaussian predictor fusion"
+    }
+  ]
+}
