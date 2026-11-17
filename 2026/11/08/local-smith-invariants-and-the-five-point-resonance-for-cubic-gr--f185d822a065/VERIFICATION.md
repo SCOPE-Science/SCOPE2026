@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The derivation gives exact local valuations with the normalization \(v_\pi(\zeta-1)=1\). The matrix includes the zero row and zero column; its trivial character sector is not discarded. The p-adic unit character table and the strictly sub-\(p-1\) leading coefficient orders make the diagonalization and modular coefficient test exact.
+# Independent mathematical audit
 
-Reproduce by running `python3 verify.py` (Python standard library only). The script constructs the full matrix over the truncated local ring \(\mathbb F_p[\pi]/(\pi^{p-1})\), performs valuation-minimal Smith elimination, and checks predicted finite exponent multisets. It tests six prime sizes (5 through 19, listed in the code), all nonzero cubic curvatures at primes 7 and 11, and all four curvatures at prime 5. The reported exponent \(p-1\) is a truncation bound, not an exact exponent: the proof's cyclotomic identity establishes exact singularity at the two exceptional five-point curvatures.
+## correctness
 
-No test over finitely many primes verifies the theorem for all primes; the cyclotomic and character-orthogonality argument supplies the universal proof. Independent audit has not been performed.
+PASS
+
+For p>=5 and c!=0, M(s,t)=zeta_p^(st+c s^3 t^3). On Fp* invert column parameter and diagonalize by Teichmueller multiplicative characters; the origin contributes a 2x2 block with valuations 0 and e=2ceil((p-1)/6). For nontrivial sector with t=p-1-r, the first unit pi coefficient has degree h(t)=min{j>=1: j<=t<=3j, j=t (mod2)}, unique for p>=7; lower p-divisible jets have valuation >h(t). Thus all Smith exponents and exact determinant valuation follow. At p5 the quadratic sector has competing monomials and cancels exactly for c=2,3, leaving rank 4; other nonzero c have the listed exponents. Independent truncated-ring block-rank elimination checked p=5 all c and p=7,11 sample c; capped exponent p-1 is a lower bound, while exact character cancellation proves singularity.
+
+## originality
+
+PASS
+
+Mockenhaupt–Tao finite-field restriction methods and Katz–Langevin–Lee–Sapozhnikov binomial Weil-sum p-adic valuations are foundational prior results. The latter full paper addresses minima among additive Weil sums for binomial monomial-exponent settings, not every twisted multiplicative-character sector and Smith valuations of this square mixed cubic Fourier matrix. The fully inspected Resultary parabola theorem computes quadratic phase Smith invariants; cubic phase and the p=5 curvature resonance are materially distinct. Qualified originality survives, with broader unindexed Weil-sum valuation results as a risk.
+
+## value
+
+PASS
+
+The exact local invariant factors for an entire natural family of square Fourier sampling operators determine arithmetic stability and identify a sharp failure of uniqueness on exactly two curvatures at the smallest admissible prime. The complete uniform all-prime Smith profile and exceptional resonance are natural classifications of one operator family, not arbitrary computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
