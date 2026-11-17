@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For any fixed \\(\\lambda>0\\) the strictly convex polyhedral fused-lasso prox is locally affine, with a connected-component averaging derivative \\(P_\\pi\\). For any constant-preserving averaging map, graph coarea proves its exact \\(J_w\\) operator seminorm equals the maximum over nontrivial cuts. Any connected partition is strictly realizable as a proximal active face by setting a block-constant output, signed saturated cross-block dual variables and zero internal variables; a spanning-tree divergence flow absorbs any small perturbation exactly. Therefore the maximum is attained as a ratio of two proximal outputs. The two-clique barbell witness has input cut weight one and output variation \\(t(q-t)\\), giving quadratic order. The unweighted universal upper bound follows from oscillation and |E|. All weights/normalizations/zero-denominator boundaries were checked. Exact rational checks cover 206 selected small connected partitions/weights and five barbell primal-dual witnesses; finite checks are corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kirisits, Scherzer and Setterqvist, RICAM Report 2018-24, Theorem 6, proves per-input universal convex minimality in a data-dependent affine feasible set.",
+        "Madrid Padilla et al., arXiv:1608.03384, Lemma 1 and Theorems 2-3, obtain DFS-graph variation comparisons and statistical mean-square error rates.",
+        "Connected-tree projector sensitivities can coincide numerically on special families without providing all-graph fused-lasso sensitivity."
+      ],
+      "reasoning": "Per-input convex minimization, statistical error bounds, and different nonlinear projections do not control \\(J_w(T_\\lambda(y)-T_\\lambda(z))\\) by \\(J_w(y-z)\\), nor establish that supremal graph-BV perturbation ratios can grow quadratically on unweighted graphs.",
+      "searches": [
+        "graph anisotropic total variation denoising Jacobian block averaging partition Lipschitz BV 1 semigroup contractivity",
+        "\"graph TV denoising\" \"total variation\" \"Lipschitz continuous\" pair inputs",
+        "Invariant phi-Minimal Sets and Total Variation Denoising on Graphs, RICAM Report 2018-24, Sections 1, 3.1, 3.3",
+        "arXiv:1608.03384, Sections 1-3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1005.1971 (Sections 2,6,10)",
+      "arXiv:1608.03384 (Sections 1-3)",
+      "RICAM Report 2018-24 (Sections 1,3, Theorem 6)",
+      "published record 2026/10/11/cb1eceb082ab",
+      "published record 2026/10/11/c92b6dad1bd0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general locally affine Jacobian theorem of Tibshirani–Taylor is used and cited as a premise, not claimed as new.",
+        "Theorem 6 of Kirisits et al. yields convex-comparison properties of the denoised signal, but does not imply any two-input BV bound.",
+        "For a two-clique barbell the new explicit witness has \\(J(y-z)=\\varepsilon\\) and \\(J(T(y)-T(z))=\\varepsilon\\lfloor q^2/4\\rfloor\\), unlike any constant independent of graph order."
+      ],
+      "reasoning": "Local block projection representations imply only the range of possible derivative types. To deduce equality to a maximum over all connected partitions one needs a new realization argument for each partition; the graph coarea test and explicit barbell cut then establish a global quantitative phenomenon that is not an immediate corollary of the inspected prior statements.",
+      "searches": [
+        "The solution path of the generalized lasso arXiv 1005.1971 locally affine projection connected components",
+        "Invariant phi-Minimal Sets and Total Variation Denoising on Graphs RICAM 2018 full text",
+        "The DFS Fused Lasso arXiv 1608.03384 graph total variation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Tibshirani and Taylor, arXiv:1005.1971, Section 10 Lemma 3: locally affine Euclidean projection for the generalized lasso; Section 6: graph-nullspace projectors average connected fused groups.",
+        "The new claim is the exact operator seminorm for all pairs of data in \\(J_w\\), expressed by a two-stage cut/partition maximum and attained by actual proximal perturbations."
+      ],
+      "reasoning": "The published local formula gives possible Jacobian geometry, but not the graph-BV global norm, sharp cut reduction, realization of every connected partition as a stable data face, or quadratic barbell perturbation amplification. A priori coincidence of a local projection and a global Lipschitz constant is not automatic.",
+      "searches": [
+        "ROF proximal graph fused lasso full perturbation graph total variation stability exact connected partition cut ratio",
+        "\"fused lasso\" \"piecewise affine\" \"connected components\" Jacobian",
+        "arXiv:1005.1971, Sections 6 and 10"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed records include a Euclidean inradius formula for weighted graphical zonotopes (published item 2026/10/11/cb1eceb082ab), a weighted cross-polytope metric projection stability theorem (2026/10/11/c92b6dad1bd0), and unrelated total variation or proximal estimates.",
+        "No inspected record reports the connected-partition/cut maximum or the barbell quadratically growing two-input modulus."
+      ],
+      "reasoning": "A cut expansion formula for a convex body and norms of metric projections onto weighted cross-polytopes have different operators and input/output seminorms. Index search incompleteness is retained as a bibliographic risk, not asserted as uniqueness proof.",
+      "searches": [
+        "Lipschitz constant graph total variation proximal map in graph total variation norm",
+        "sharp two-input Lipschitz norm graph total variation denoising proximal map finite tree star",
+        "\"proximal\" \"total variation seminorm\" \"Lipschitz constant\" graph",
+        "\"total variation denoising\" \"sensitivity\" \"graph\" variation differences"
+      ]
+    },
+    "rationale": "The 2010 generalized-lasso affine projection theorem is properly credited, and the 2016 graph BV results and 2018/19 graph ROF convex minimality paper were compared at the level of their mathematical implications. The complete all-graph sharp two-input graph-BV constant, realization of every connected partition in the data parameter, and explicit order-n-squared barbell sensitivity are not stated or implied by the material inspected. Exhaustive priority is not established; a hidden equivalent geometric formulation is possible.",
+    "residual_risks": [
+      "An equivalent all-partition cut formula might be embedded in uncatalogued polyhedral-projection or submodular proximal stability literature.",
+      "The full historical bibliography of nonlinear BV perturbation moduli has not been independently audited."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "FOUNDATIONAL_LOCAL_RESULT_ONLY",
+        "evidence": [
+          "Lemma 3 describes locally affine Euclidean projections almost everywhere.",
+          "Sections 6 and 10 identify averaging on connected fused graph components.",
+          "The paper computes degrees of freedom, not the sharp two-input \\(J_w\\) perturbation modulus."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1005.1971",
+        "material_read": "Original arXiv HTML, Sections 2.1, 6.2 and 10.1, especially graph fused groups and Lemma 3 locally affine Euclidean projection; source posting date May 11 2010",
+        "method": "Full primary web-hosted text sections and theorem comparisons",
+        "title": "The solution path of the generalized lasso",
+        "trigger": "Same penalty operator and possibly dominant local projector theorem"
+      },
+      {
+        "assessment": "NOT_COVERING_CLAIM_IN_INSPECTED_MATERIAL",
+        "evidence": [
+          "Lemma 1 compares variation of the same signal on a graph with a DFS-induced chain.",
+          "Theorems 2 and 3 provide statistical MSE rates, not perturbation-to-perturbation \\(J_w\\) constants."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1608.03384",
+        "material_read": "Original publicly posted arXiv full-text HTML Sections 1-3, including the estimator, DFS comparison, and BV risk theorems; posting date August 11 2016",
+        "method": "Original full-text HTML theorem/section inspection",
+        "title": "The DFS Fused Lasso: Linear-Time Denoising over General Graphs",
+        "trigger": "General-graph BV-denoising statement potentially stronger than an operator bound"
+      },
+      {
+        "assessment": "PER_INPUT_CONVEX_MINIMALITY_NOT_TWO_INPUT_GRAPH_BV_STABILITY",
+        "evidence": [
+          "Theorem 6 minimizes sums of convex functions on a translated subgradient feasible set for each fixed input.",
+          "No inspected theorem supplies a norm for differences of two outputs in the graph total-variation seminorm."
+        ],
+        "identifier_or_url": "https://www.ricam.oeaw.ac.at/files/reports/18/rep18-24.pdf",
+        "material_read": "Full open-access primary report Sections 1 and 3.1-3.3, Proposition 5, Theorem 6, Proposition 8 and their neighboring discussion, with document page images inspected; report dated July 27 2018",
+        "method": "Primary PDF text plus page-image verification",
+        "title": "Invariant phi-Minimal Sets and Total Variation Denoising on Graphs",
+        "trigger": "Strongest plausible ROF contraction property on general finite graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b4b1357d-8d1c-45dd-9c6f-0d89c4347e56",
+  "value": {
+    "rationale": "The exact all-weighted-graph constant is a naturally motivated sharp stability invariant of the widely used fused-lasso/ROF denoiser, measured in the same total-variation penalty as the estimator. The finite formula is nontrivial because all connected plateau partitions must be shown realizable as active data faces. The barbell lower bound \\(\\lfloor q^2/4\\rfloor\\) establishes quadratic growth, contrasting with Euclidean nonexpansivity and single-input total-variation suppression. Its graph-order significance survives without polynomial-time evaluation or a precise universal leading coefficient.",
+    "status": "PASS"
+  }
+}
