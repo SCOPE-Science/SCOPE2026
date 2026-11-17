@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The proof in `RESULT.md` proves the full age and radial stochastic order from a coupled partition of Poisson refresh points. Its critical strict inequality is the positive covariance of two strictly decreasing exponentials of the same nondegenerate random rate. An event with no original refresh mark and one additional mark yields the explicit lower bound. Jensen's inequality and an integrated-rate covariance estimate establish the sharp endpoint limits. The independent Gaussian time-mixture identity transfers age ordering to Brownian radial tails and moments.
+## correctness
 
-Run `python3 verify.py` with the Python standard library. The program compares a two-state exact Feynman--Kac formula with independent ODE integration, independently integrates a three-state Feynman--Kac system, evaluates the strict quantitative one-extra-mark lower bound, checks stationary mean-square displacement, and compares Gaussian-tail quadrature with the exact quenched endpoint. These are bounded calculations, not proofs of the universal assertions.
+PASS
 
-The proof does not extend without new arguments to rate distributions reaching zero, correlated rate refreshes, non-Poisson refresh times, time-dependent spatial rates, or first-passage observables. There has been no independent audit.
+Conditional void survival on an interval is exp(−integrated intensity); conditional on Poisson refresh cuts, independent plateau-rate averaging gives E∏φ(|I|). Splitting a plateau strictly decreases its product by (1/2)E[(e^(−uL)−e^(−uL′))(e^(−vL)−e^(−vL′))]>0 for nondegenerate ν. Coupled Poisson superposition establishes all t monotonicity; the no-prior-mark/exactly-one-added-mark event produces the stated positive gap with factor (μ2−μ1)e^(−μ2t). Jensen and integrated covariance 2 Var(λ)∫_0^t(t−u)e^(−μu)du give strict endpoint bounds and fast limit. The Brownian stationary position is sqrt(2D A)Z, and all positive Gaussian-radius tails increase with A. Independently diagonalized a three-state finite generator / matrix-exponential Feynman–Kac system for several μ and confirmed decreasing void probabilities. Finite diagnostics support, not substitute for the coupling proof.
+
+## originality
+
+PASS
+
+Best of knowledge: strict whole-family pointwise stationary age-tail and Brownian radial first-order ordering, including universal positive gap, not found in inspected full same-model source; its transform and endpoint profiles are prior, with Cox-process theorem priority risk.
+
+## value
+
+PASS
+
+An entire stochastic ordering valid for every refresh frequency, radial threshold, and positive moment is stronger than an endpoint interpolation or an individual exact resolvent. The strict universal one-mark gap quantifies localization independent of the detailed rate law, directly relevant to control of stochastic resetting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

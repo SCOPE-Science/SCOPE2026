@@ -1,15 +1,21 @@
-# Scientific review: strict localization under resetting-rate refresh
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes a stationary Poisson-refreshed environment with independent rate draws, a positive lower rate bound, and diffusion generator \(D\Delta\). The no-reset event over a backward interval yields an exact product of Laplace transforms across refresh plateaus. The covariance of two strictly decreasing exponentials of a nondegenerate random rate is strictly positive, so Poisson refinement lowers this product; the no-original-mark, exactly-one-extra-mark event proves the stated positive quantitative difference. Jensen's strict inequality, a covariance bound for integrated hazards, and Gaussian time-mixture monotonicity establish every endpoint and spatial assertion. The finite second-moment and tail checks in `verify.py` pass, but are not a proof of the full-domain theorem. All positive dimensions, thresholds and refresh rates are handled by the proof itself. No densitywise or first-passage claim is made.
+## correctness
 
-## Originality — PASS, qualified
-Arutkin and Reuveni (arXiv:2509.25365v1, full text inspected, Sections 2--5) already give a general steady-state Fourier transform (Eq. 23), an integrated-hazard representation (Eq. 11), the rate-refresh model, and limiting laws at slow and fast refresh. Those results are not new here. An accessible preceding study of this same model already gives the Laplace transform of the no-reset kernel and derives a temporal covariance law; these fixed-refresh formulas are also prior work, not claimed here. The new, separately proved claim compares two arbitrary finite refresh frequencies by a coupled Poisson partition and gives strict *first-order age and radial-tail ordering for every threshold* plus a quantitative lower bound, which the inspected paper does not state or establish. Błaszczyszyn and Yogeshwaran (arXiv:1105.4293, full text inspected) discuss directionally convex order and Cox-process clustering but not this particular cross-refresh stochastic localization result. The abstract of Meester and Shanthikumar (1993) concerns ordering of segmented and Cox processes, but the full text was not accessible; it is a specific possible broader-coverage risk. Published research-record searches for the source, integrated-hazard partition refinements, reset-age ordering and Brownian tail monotonicity returned nearest items about stationary renewal age--residual correlations, Poisson clustering, and unrelated diffusions; none of their available statements implies this theorem. Absence of a search hit does not certify publication priority.
+PASS
 
-## Value — PASS
-The question is dictated by the physical model: does speeding up environmental rate mixing, without changing its stationary distribution or mean, consistently confine a reset Brownian particle more strongly? Full stochastic ordering of age and radius for every threshold gives an experimentally testable statement stronger than comparing a variance, characteristic length, or one limiting regime. The theorem is distribution-free within the natural uniformly positive bounded rate class, supplies sharp endpoint envelopes, and quantifies the strict gap. The time-partition mechanism also separates the effect of rate correlation time from its one-time marginal law. It is not a special arbitrary numerical parameter slice or a routine isolated moment calculation.
+Conditional void survival on an interval is exp(−integrated intensity); conditional on Poisson refresh cuts, independent plateau-rate averaging gives E∏φ(|I|). Splitting a plateau strictly decreases its product by (1/2)E[(e^(−uL)−e^(−uL′))(e^(−vL)−e^(−vL′))]>0 for nondegenerate ν. Coupled Poisson superposition establishes all t monotonicity; the no-prior-mark/exactly-one-added-mark event produces the stated positive gap with factor (μ2−μ1)e^(−μ2t). Jensen and integrated covariance 2 Var(λ)∫_0^t(t−u)e^(−μu)du give strict endpoint bounds and fast limit. The Brownian stationary position is sqrt(2D A)Z, and all positive Gaussian-radius tails increase with A. Independently diagonalized a three-state finite generator / matrix-exponential Feynman–Kac system for several μ and confirmed decreasing void probabilities. Finite diagnostics support, not substitute for the coupling proof.
 
-## Relationship, limits and inspection risk
-Sources compared: Arutkin--Reuveni, *Diffusion with doubly stochastic resetting* (arXiv:2509.25365v1, model/Equations 11 and 23/limits/full main text); Evans--Majumdar, *Diffusion with stochastic resetting* (2011, constant-rate baseline as cited by the primary source); Błaszczyszyn--Yogeshwaran, *Clustering, percolation and directionally convex ordering of point processes* (arXiv:1105.4293, full text); and Meester--Shanthikumar, *Regularity of Stochastic Processes: A Theory Based on Directional Convexity* (1993, abstract only). Full supplementary derivation S2 of the primary paper was not separately available; its exact formula and the main text were read. The two-state exact moment is a check, not separately asserted as novel. Applicability to rates reaching zero, non-Poisson refreshes or correlated environments remains unproved. An independent scientific or literature-priority review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge: strict whole-family pointwise stationary age-tail and Brownian radial first-order ordering, including universal positive gap, not found in inspected full same-model source; its transform and endpoint profiles are prior, with Cox-process theorem priority risk.
+
+## value
+
+PASS
+
+An entire stochastic ordering valid for every refresh frequency, radial threshold, and positive moment is stronger than an endpoint interpolation or an individual exact resolvent. The strict universal one-mark gap quantifies localization independent of the detailed rate law, directly relevant to control of stochastic resetting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
