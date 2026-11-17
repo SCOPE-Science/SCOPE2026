@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+**PASS.** The Frobenius diameter bound is exact for disjoint permutations. The four-point midpoint/exterior-product inequality is derived with all quantifiers and its equality cases; with one coordinate collision it yields the exact first nonmaximal upper bound for every order at least five. A cyclic-shift-and-swap construction attains this bound for every admissible order. The order-four case is a finite exhaustive theorem: all 1,771 anchored quadruples are checked by explicit integer Gram determinants; the anchoring-to-all-quadruples multiplicity argument is given in the proof. The standalone checker independently rebuilds difference-matrix Gram determinants for selected instances. Numerical tests are not relied upon for the infinite case.
+
+## Originality
+**PASS, historical priority provisional.** The exact Frobenius maximum is close to the classical diameter-constrained simplex inequality, so the **newly distinguished target** is the first strict vertex-supported tetrahedral volume gap and its complete one-collision equality classification, including the order-four obstruction. Bouthat–Mashreghi–Morneau-Guérin (arXiv:2310.14043; sections 4–5) treat Chebyshev centers and radii, not tetrahedral volume spectra. Their part I treats operator norm radii. Paffenholz (arXiv:1304.3948) analyzes combinatorial types of faces; a vertex-spanned tetrahedron need not be a face. Baumeister–Ladisch (2018) address the combinatorial automorphism group. Di Summa and colleagues (arXiv:1406.3512) treat general approximation algorithms, not the exact Birkhoff first gap. Published search records about tetrahedra in cubic signed permutahedra concern a different orbit polytope. Searches for permutations/Latin rectangles, coincident positions, and Birkhoff tetrahedral volumes uncovered no equivalent exact result. These are comparisons of claims, not assertions of exhaustive worldwide novelty. Older matching-code literature remains a possible priority risk.
+
+## Mathematical value
+**PASS.** A fixed 3-dimensional invariant in an arbitrarily high-dimensional, highly symmetric assignment polytope admits a complete sharp first stability gap. Its equality patterns identify exactly how a partial Latin rectangle first departs from coordinate-disjointness, with a nontrivial obstruction at order four. The theorem gives a quantitative robust criterion for near-maximum vertex tetrahedra that does not follow from a Chebyshev radius or face classification. The infinite family and its all-order equality description, not the small finite counts alone, motivate this invariant.
+
+## Limitations and closest comparisons
+The next-highest **unrestricted** tetrahedral volume is undefined because nonvertex points yield a continuum approaching the maximum. The classification is in the Frobenius metric and does not claim a general theory of all-dimensional simplices. General matrix-norm radius results, face enumeration, and Latin-rectangle properties are acknowledged as related foundations. Historical priority and correctness have not been independently verified.
+
+Self-review: passed. Independent audit: not yet performed.
