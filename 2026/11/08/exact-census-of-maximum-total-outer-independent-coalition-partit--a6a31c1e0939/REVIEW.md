@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof establishes that a TOIDS has a cyclic \(2\)-packing complement, that the coalition graph of a maximum three-class partition is a path or triangle, and that ordered choices of two packing classes count a path twice and the exceptional triangle six times. The two transfer traces, their exact characteristic polynomials, and the resulting recurrences are independently checked with integer arithmetic. Exhaustive enumeration of unordered partitions through \(n=12\) confirms all counts and boundary cases against the original graph-neighborhood definition. The all-order proof uses the packing and trace bijections, not finite extrapolation; the Perron argument gives the claimed growth constant.
+PASS
 
-## Originality — PASS, with priority risk
+For every n>=3 and labelled cycle C_n, a total outer-independent dominating set has exactly a cyclic distance-three packing as its complement: outside independence forbids adjacent outside vertices, and total domination forbids an outside pair at cyclic distance two. For three nonempty blocks the coalition graph without isolated vertices is P3 or K3. In a path, exactly the two leaf blocks are packing complements; in a triangle, all three are. Seven pair-color states, their 7x7 transition T with characteristic (x^3+x-1)(x^4-x^3-x^2-2x-1), and a weighted 3x3 forbidden-union U with polynomial x^3-x^2-2 give t_n-f_n. Paths are counted twice and unique three-periodic triangles (only 3|n) six times, hence N_n=(t_n-f_n)/2-2*[3|n]. T is primitive; the quartic Perron root dominates all other roots and U, giving N_n~lambda^n/2 with lambda=2.065994892... . Direct independent enumeration by original domination/neighborhood definitions confirmed unordered partitions for n=3..9: (1,6,10,25,63,130,280) with triangle at n=3,6,9, not extrapolation.
 
-The nearest primary result, Buntina and Golmohammadi (arXiv:2607.23623, Definition 3 and Theorem 2(iv)), proves the scalar optimum of three classes but does not enumerate the optimizing partitions. Krzywkowski's cycle formula gives a minimum TOIDS size rather than a coalition-partition count. Dobrynin and Golmohammadi (2024) count ordinary coalition-graph types, not total outer-independent partitions. Semantic mathematical-record searches, including alternate 2-packing and partition wording, and exact sequence searches found no statement implying the new count. These negative searches are not proof of priority. Potential unindexed equivalent color-word enumeration is a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Enumerating all optimal partitions for an infinite family is a motivated refinement of a new extremal coalition parameter. The structural path/unique-triangle split, constant-order recurrences, and exponential growth rate are substantive exact data about the full optimizer space, not a routine numerical update.
+The original Buntina–Golmohammadi cycle theorem gives only the maximum size three of a TOI-coalition partition; no source actually inspected supplies the labelled unordered optimizer census, its P3/K3 split, or the coupled characteristic-polynomial recurrence. This is best-of-knowledge, not unconditional historical priority, because full primary PDF could not be obtained.
 
-## Limits
+## value
 
-The formula counts unordered blocks on labelled cycles, not orbits under cycle automorphisms; no claim concerns other graphs or nonmaximum partitions. The self-review is not independent mathematical or historical verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact optimizer census for every labelled cycle is a motivated and nontrivial strengthening of a known extremal size in a recently introduced domination/cooperation notion. The path/unique-triangle classification and growth entropy describe all maximizers, not a tiny-instance table or a mere restatement of the 3-block maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
