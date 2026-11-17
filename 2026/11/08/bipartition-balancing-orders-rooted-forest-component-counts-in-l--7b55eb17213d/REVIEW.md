@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-The four spectral eigenvalue classes give the exact determinant partition function and hence the Poisson-binomial representation. The two-Bernoulli replacement has explicit probability coefficients \((ab,qN,q^2)\) versus \(((a+1)(b-1),qN,q^2)\), proving its likelihood-ratio order. All leftover Bernoulli factors are individually ordered; log-concave convolution preserves likelihood-ratio order. Positive support yields strict tails, and elementary algebra gives the mean gap. The standalone checker independently enumerates forests and passes 46928 exact rational assertions. Risks: no independent mathematical review; numerical checks do not replace the infinite proof.
+## correctness
 
-## Originality (O) — PASS, qualified
-The published matrix-forest identity, spectral Bernoulli factorization and 2004 rooted-forest enumeration are credited, not claimed as new. The 2021 full-text analysis proves fugacity monotonicities on a fixed graph rather than comparison between graph bipartitions; the 2017 Laplacian-coefficient paper treats limiting distributions; the 2026 massive-forest paper studies complete-graph local shapes. A full four-page read of the 2004 enumeration does not reveal an inter-bipartition likelihood-ratio ordering. Exact and aliased published-finding corpus searches did not produce the stated implication; closest records concern different rooted-forest orders, graph polytopes, or Bernoulli balancing under fixed parameter sums. Residual risk: classical enumeration plus generic total-positivity results might have appeared elsewhere; a search does not certify historical novelty.
+PASS
 
-## Value (V) — PASS
-The fugacity governs the number of clusters in a rooted forest model used for multiscale graph partitioning. Across fixed-order bicliques, balancing changes graph topology rather than merely one Bernoulli parameter, and several individual Bernoulli success parameters move in opposing directions. The strong likelihood-ratio theorem nevertheless orders all component-count thresholds and all increasing statistics for every fugacity, identifies unique extremizers, and supplies a positive exact mean gap. This is a structural comparison not contained in a single standard moment computation.
+Matrix-forest theorem yields partition polynomial q(q+N)(q+a)^(b-1)(q+b)^(a-1) and independent Bernoulli root indicators. Pair a-1 old (q/(q+a),q/(q+b)) Bernoulli factors against new (q/(q+a+1),q/(q+b-1)) factors: degree 0,1,2 coefficients proportional to (ab,qN,q^2) versus ((a+1)(b-1),qN,q^2), so each pair has the asserted likelihood-ratio orientation. Remaining singles decrease strictly. Convolution by independent Poisson-binomial log-concave factors preserves LR order (TP2 Toeplitz kernel); interval-positive support and a strict Bernoulli change give strict all interior tails. Sum of individual means simplifies to printed rational gap. Verified exact LR minors, tails and mean for N<=11 and three positive rational fugacities. Algebraic proof covers all finite N and real q>0.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Székely (2004) full four-page primary article and its Jin–Liu input formula enumerate rooted forests with prescribed root locations; they do not compare different bipartitions in LR order. Avena et al. use the known det(qI+L) and fugacity monotonicity on a fixed graph, not graph-shape balancing. General spectral Bernoulli factorization does not give stochastic order when individual parameters move in opposite directions; the complementary pair matching and total positivity argument are additional exact content. No identified previous Resultary result supplies the same comparison.
+
+## value
+
+PASS
+
+Root fugacity q controls cluster count in a natural random-forest measure. The theorem orders the full distribution across all graph bipartitions and all fugacities, determining extremal shapes, not just an isolated moment, and provides a precise constructive comparison despite opposing movements of individual Bernoulli parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

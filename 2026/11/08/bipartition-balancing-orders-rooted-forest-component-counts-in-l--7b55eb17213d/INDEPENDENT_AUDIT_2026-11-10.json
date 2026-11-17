@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T06:19:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Matrix-forest theorem yields partition polynomial q(q+N)(q+a)^(b-1)(q+b)^(a-1) and independent Bernoulli root indicators. Pair a-1 old (q/(q+a),q/(q+b)) Bernoulli factors against new (q/(q+a+1),q/(q+b-1)) factors: degree 0,1,2 coefficients proportional to (ab,qN,q^2) versus ((a+1)(b-1),qN,q^2), so each pair has the asserted likelihood-ratio orientation. Remaining singles decrease strictly. Convolution by independent Poisson-binomial log-concave factors preserves LR order (TP2 Toeplitz kernel); interval-positive support and a strict Bernoulli change give strict all interior tails. Sum of individual means simplifies to printed rational gap. Verified exact LR minors, tails and mean for N<=11 and three positive rational fugacities. Algebraic proof covers all finite N and real q>0.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Avena et al. analyze random rooted forests as q changes on fixed graphs; Székely handles enumeration but no graph-balance inequality."
+        ],
+        "reasoning": "A known explicit generating polynomial is a prerequisite, not a pre-existing comparison theorem: the factors q/(q+a) and q/(q+b) move in conflicting directions under a balancing step.",
+        "searches": [
+          "complete bipartite rooted spanning forest root count likelihood ratio balancing part sizes K_ab matrix forest",
+          "arXiv:2103.14436",
+          "https://combinatorialpress.com/article/ars/Volume%20073/volume-73-paper-11.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://combinatorialpress.com/article/ars/Volume%20073/volume-73-paper-11.pdf",
+        "arXiv:2103.14436 abstract",
+        "Resultary queried forest balancing and spectral distributions"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The factor-pair probabilities are proportional to (ab,qN,q^2) and their new counterparts to ((a+1)(b-1),qN,q^2).",
+          "Classical enumeration and rooted matrix-forest theorem do not establish cross-shape comparison."
+        ],
+        "reasoning": "The submitted proof supplies an independent ordered-factor coupling plus TP2-convolution argument; closest prior statements have different quantifiers.",
+        "searches": [
+          "complete bipartite rooted spanning forest root count likelihood ratio balancing part sizes K_ab matrix forest",
+          "https://combinatorialpress.com/article/ars/Volume%20073/volume-73-paper-11.pdf",
+          "arXiv:2103.14436"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Székely Theorem 1 counts class-specific rooted forests, with no likelihood-ratio or cross-graph monotonicity statement."
+        ],
+        "reasoning": "Converting unrooted forest counts to the rooted q-weighted law requires component-size factors, and balancing graph sizes is different from varying fugacity on one graph.",
+        "searches": [
+          "complete bipartite rooted spanning forest root count likelihood ratio balancing part sizes K_ab matrix forest",
+          "https://combinatorialpress.com/article/ars/Volume%20073/volume-73-paper-11.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2004 Jin–Liu/Székely formulas tabulate rooted forest counts by number of roots in each part. Resultary closest K_ab findings address spanning-tree leaf/degree/distance laws."
+        ],
+        "reasoning": "Exact enumeration makes the current pmf computable but does not itself print or logically assert adjacent LR minors nonnegative for all q,N; no matching table of the ordering was found.",
+        "searches": [
+          "complete bipartite rooted spanning forest root count likelihood ratio balancing part sizes K_ab matrix forest",
+          "https://combinatorialpress.com/article/ars/Volume%20073/volume-73-paper-11.pdf"
+        ]
+      },
+      "rationale": "Székely (2004) full four-page primary article and its Jin–Liu input formula enumerate rooted forests with prescribed root locations; they do not compare different bipartitions in LR order. Avena et al. use the known det(qI+L) and fugacity monotonicity on a fixed graph, not graph-shape balancing. General spectral Bernoulli factorization does not give stochastic order when individual parameters move in opposite directions; the complementary pair matching and total positivity argument are additional exact content. No identified previous Resultary result supplies the same comparison.",
+      "residual_risks": [
+        "General rooted-forest enumeration plus classical total positivity could have been used to prove the same statement in unsearched literature.",
+        "Avena 2021 full mathematical text not read in this execution; best-of-knowledge priority only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ENUMERATION_ONLY",
+          "evidence": [
+            "Counts rooted forests with roots prescribed by color; no balancing LR-order theorem."
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20073/volume-73-paper-11.pdf",
+          "material_read": "All four scanned pages 97–100 including formula (1), Theorem 1, proof and references",
+          "method": "web PDF screenshots of every page",
+          "title": "Counting rooted spanning forests in complete multipartite graphs",
+          "trigger": "Same exact K_ab rooted forest counts"
+        },
+        {
+          "assessment": "PARTIAL_NOT_COVERING_IN_STATED_RESULTS",
+          "evidence": [
+            "Discusses q-monotonicity for fixed graphs, not balancing K_ab; full details not examined."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2103.14436",
+          "material_read": "Title, full abstract and stated monotonicity aims; not full paper",
+          "method": "arXiv bibliographic abstract",
+          "title": "Loop-erased partitioning of a network: monotonicities & analysis of cycle-free graphs",
+          "trigger": "Same rooted-forest fugacity measure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Root fugacity q controls cluster count in a natural random-forest measure. The theorem orders the full distribution across all graph bipartitions and all fugacities, determining extremal shapes, not just an isolated moment, and provides a precise constructive comparison despite opposing movements of individual Bernoulli parameters.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://combinatorialpress.com/article/ars/Volume%20073/volume-73-paper-11.pdf",
+    "arXiv:2103.14436 abstract",
+    "Resultary queried forest balancing and spectral distributions"
+  ],
+  "disposition": "passed",
+  "final_claim": "For q>0 and fixed N, a balancing move K_(a,b) to K_(a+1,b-1) (b-a>=2) strictly decreases all nontrivial rooted-forest root-count tails and orders the entire law by likelihood ratio, with explicit Bernoulli representation and exact positive mean gap.",
+  "limitations": [
+    "General rooted-forest enumeration plus classical total positivity could have been used to prove the same statement in unsearched literature.",
+    "Avena 2021 full mathematical text not read in this execution; best-of-knowledge priority only."
+  ],
+  "residual_risks": [
+    "General rooted-forest enumeration plus classical total positivity could have been used to prove the same statement in unsearched literature.",
+    "Avena 2021 full mathematical text not read in this execution; best-of-knowledge priority only."
+  ],
+  "schema_version": 1
+}
