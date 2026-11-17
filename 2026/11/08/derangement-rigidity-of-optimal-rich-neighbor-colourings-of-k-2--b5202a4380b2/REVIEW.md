@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument uses the original adjacency-based definitions: in a proper \((n+1)\)-colouring of \(K_{2,n}\), each row omits exactly one palette colour; each row therefore contains at most one rich edge. Since every rich edge must have a distinct rich neighbour, exactly two rich edges must occur in one common column. Their colours are each other's row omissions, and all remaining colours form a derangement between the rows. This is a bijection with the counted data. The orbit count follows from conjugacy of the derangement (and inversion under swapping the two small-side vertices). The proper-colouring denominator uses inclusion-exclusion or the direct split of permutations into derangements of \(n\) and \(n+1\). The proof covers every integer \(n\ge3\). An independent direct enumerator corroborates the formulas through \(n=8\). Finite enumeration is not used in the infinite proof.
+## correctness
 
-## Originality — PASS, with residual historical priority risk
-Jiangxu Kong, *Linear bounds for rich-neighbor edge-colorings* (arXiv:2610.21036v1, 2026-10-15), proves the optimal index for every complete bipartite graph. Its Section 3.1 supplies an existence construction, but not a classification or count of *all* optimum edge-colourings, an orbit count by derangement cycle types, or their rarity among proper colourings. Kashima, Petruševski, Sedlar, and Škrekovski (arXiv:2610.16446v1) establish general bounds and rich-edge constraints. The founding paper and subcubic literature are relevant but not known to contain an unrestricted \(K_{2,n}\) optimum-enumeration theorem. The original 2024 full text was not accessible; priority remains provisional and independently unconfirmed. A same-parameter search of accessible mathematical records did not identify an equivalent statement; absence from a search is not novelty proof.
+PASS
 
-## Mathematical value — PASS
-The previously established *minimum number of colours* does not determine the multiplicity or structure of optimal solutions. The exact bijection with derangements gives every optimum assignment for an infinite natural graph family, not just a handful of examples. The complete orbit classification yields the partition function \(p_{\ge2}(n-1)\) of optimal types and the fraction \(P_n\sim1/n\) measures their scarcity among proper minimum-palette assignments. These quantities are natural refinements for extremal edge-colouring rather than arbitrary finite slices.
+Each of the two rows uses n distinct colours and omits one among n+1, say alpha and beta. The top-edge richness condition is exactly that the lower edge in its column has colour alpha, and conversely, so each row has at most one rich edge. Rich-neighbor requires a different adjacent rich edge for each edge, hence both rows have a rich edge in the SAME unique column. Richness there forces complementary missing colours, leaving a common n-1-colour set. Other columns are exactly two permutations differing at every coordinate, i.e. a derangement. Conversely such a colouring satisfies the condition. Counting column, ordered exceptional colour pair, upper permutation and lower derangement gives n*n*(n+1)*(n-1)!D_{n-1}; quotient by column and colour permutations identifies relative derangement up to conjugacy/inversion, hence cycle type. An injection first row has (n+1)! possibilities, while second row has D_{n+1}+D_n possibilities, establishing fraction and Stirling/derangement asymptotic. For n=2 a 1-point derangement is absent; four-colour C4 solution has 24 assignments. Independent direct proper-coloring adjacency enumeration agrees at n=3..7 (72,960,32400,1330560,74793600).
 
-## Limitations and nearby work
-The key prior theorem determines the index and a construction; neither is claimed as new. This work applies to labelled \(K_{2,n}\) with \(n\ge3\), counting named minimum-palette colourings and then quotienting by automorphisms plus palette permutations. It does not classify \(K_{m,n}\) for \(m\ge3\), does not handle larger palettes, and has not undergone independent mathematical review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known palette optimum n+1 (Kong 2026) is not new. The earlier index theorem for all complete bipartite graphs establishes existence/optimal number of colours, but a palette-size theorem does not imply unique rich witness structure, enumeration of every named configuration, or conjugacy-class orbits. The new rigidity bijection and counts are separate, as checked against indexed rich-neighbor results. The founding 2024 full article was not read, retained as risk.
+
+## value
+
+PASS
+
+Counting all labelled optimal colourings and describing their symmetry orbits for a naturally extremal complete bipartite family sharpens an already studied graph-colouring invariant; the unique witness column and fixed-point-free permutation form a reusable structural equivalence, beyond a routine substitution into a known index.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
