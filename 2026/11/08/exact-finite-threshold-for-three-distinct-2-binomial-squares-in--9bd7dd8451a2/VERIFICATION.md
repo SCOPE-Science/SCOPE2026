@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The finite theorem is reduced to exact exhaustive enumeration by the suffix-extension recurrence, with a monotone stopping condition at four distinct square strings.
+## correctness
 
-Executed with Python 3 standard library:
+PASS
 
-```
-python3 check_bfs.py
-python3 check_dfs.py
-```
+For equal-length binary halves, matching all scattered subsequence counts of lengths 1 and 2 is equivalent exactly to matching zero count and scattered 01 pair count. On adjoining a letter, the only new 2-binomial square factors are suffixes ending at that letter. The prefix-monotone condition permits exhaustive binary branching with pruning upon the fourth distinct literal square, and exhaustiveness follows inductively. A fresh independent Python implementation reconstructed full BFS layers without relying on source output, obtaining numbers n=40..44 of 64,32,16,4,0 and exactly the four stated 43-character witnesses. Thus the finite search is exhaustive (not a nonexhaustive experiment) and proves the unbounded upper bound via forbidden length-44 prefixes. Source BFS and direct six-coordinate DFS implementations were separately read. Exact classification concerns distinct literal contiguous factors, not equivalence classes or occurrences.
 
-Both programs reported PASS. The breadth-first program checks both binary extensions of every retained prefix, outputs four admissible words at length 43 and none at length 44, and checks exact intermediate layers. The depth-first program checks literal counts of all six length-one and length-two subsequences and, after a justified complement symmetry reduction, finds exactly two zero-initial words of length 43 and no word of length 44. This check is complete because the state property is prefix-monotone.
+## originality
 
-No independently executed scientific audit has been performed. The result does not establish bounds under any other repetition notion.
+PASS
+
+Rao–Rigo–Salimov 2013/2015 introduced exactly this 2-binomial-square repetition notion and state only an inability to construct an infinite binary word with at most three distinct 2-binomial squares (Fact 1). By König finite-branching, that implies some finite cutoff, but does not numerically determine the sharp 43 or four extremizers. Other sources classify ordinary squares or binomial complexity of infinite words, different invariants. Primary Section 4 contains no 43. Best-of-knowledge originality survives; exact older enumeration remains a risk.
+
+## value
+
+PASS
+
+A sharp finite threshold of 43 and all four extremizers answer the natural finite question left unresolved by a published infinite avoidance result; a complete rigorous finite classification is mathematically useful without a paper-sized asymptotic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
