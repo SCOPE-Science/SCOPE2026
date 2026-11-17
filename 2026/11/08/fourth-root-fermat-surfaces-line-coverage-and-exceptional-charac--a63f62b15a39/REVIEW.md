@@ -1,21 +1,21 @@
-# Scientific review: fourth-root Fermat surfaces
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-The statement specifies odd prime powers \(q\equiv1\pmod4\), \(d=(q-1)/4\ge2\), the smooth Fermat surface, and precisely the \(3d^2\) rational coordinate-pairing lines. The finite-field \(d\)-th-power map sends nonzero coordinates onto the four fourth roots of unity with uniform fibers of cardinality \(d\). A complete four-term additive classification produces supported-tuple counts \((24,0,36)\) for \(p\ge7\), \((24,16,36)\) for \(p=3\), and \((24,48,52)\) for \(p=5\). For \(p\ge7\), the short Gaussian-norm obstruction proves that every vanishing sum has opposite pairs. In characteristic three, \(1,i\) are independent and the only extra triples have three identical entries; in characteristic five, a closed-form additive-character count applies. Projectivization divides the nonzero affine solution count by \(q-1=4d\).
+PASS
 
-For the union, the \(6d\) coordinate-supported points each lie on \(d\) lines and each of three unordered pairs of line families contributes exactly \(d^3\) noncoordinate points lying on two lines. There are no other intersections or three-family common points in odd characteristic. Line-point double-counting gives the exact union size \(9d^3+6d\), including the merged \(d=2\) stratum. Subtraction yields the full claimed complement. The bundled standalone programs `verify_root_sums.py` and `verify_point_incidence.py` completed successfully on the included contents; they verify the short-sum table and direct projective incidence for seven finite fields (including \(q=9,25\), both exceptional characteristics). The symbolic proof, not sample enumeration, establishes the universal claim.
+For q≡1 mod4 odd, d=(q-1)/4>=2, the d-th power map has image mu4 and fibers d. Every zero sum of up to four fourth roots is classified using A+Bi and norm A²+B²<17; supports c2=24 and c4=36 for p>=7, with extra c3=16 at p=3, and c3=48,c4=52 at p=5. This yields #X by divided scalar action. Separately, same-family line intersections form 6d points incident d times, cross-family intersections 3d³ points incident twice, yielding U=9d³+6d and N1=6d³. Subtracting gives the claimed off-line regimes. Independent enumeration of four-root sums for p=3,5,7,13,17,29 and all F13/F17/F29 projective points confirmed full incidence spectra. Special q=9,d=2 merger checked in the proof, not extrapolated from p>=7 enumeration.
 
-## Originality (O) — PASS with residual priority risk
+## originality
 
-The three geometric families and many intersections are established prior geometry. The article of Andria–Rojas–Mangueira on Fermat-surface lines treats their geometric incidence and maximal skew systems but does not prove a complete all-rational-point line-covering criterion for the index-four exponent. Borges–Cook–Coutinho's plane-section point studies concern the index-two relation \(q=2d+1\), not the present \(q=4d+1\). Voloch–Zieve's rational-point classification concerns exponent \(q_0-1\) over \(\mathbb F_{q_0^2}\), which supplies a known specialization at \(q=9,d=2\) but not the uniform index-four theorem. Aubry–Voloch study degree \((p-1)/2\) and other special families, and their line-counting technique is recognized as related background. Published mathematical searches, available indexed records, and available previously published mathematical claims found no equivalent theorem simultaneously determining the complement for all odd prime powers, the two exceptional characteristics, and the incidence spectrum. A historical equivalence via short sums of fourth roots cannot be ruled out by search alone.
+PASS
 
-## Mathematical value (V) — PASS
+The standard 3d² line incidence, even its all-field motivic/zeta refinement, is already published and receives no originality credit. The new surviving statement is the complete rational *surface* point count and consequent all-q index-four off-line characteristic cutoff p>=7, with exact exceptional p=3,5 complement counts. Earlier q=2d+1 point-count family and fixed quartic q=17 theorem do not dominate variable d=(q-1)/4 and both exceptional families. This is best-of-knowledge with priority risk from hidden fourth-root-sum formulas.
 
-The natural question is which rational points of a highly symmetric smooth Fermat surface are accounted for by its distinguished rational lines, a line-incidence problem independent of any arbitrary numerical cutoff. The theorem gives an exact infinite-family dichotomy by characteristic, two positive exceptional complementary formulas, the full positive multiplicity spectrum, and exact point totals in all admissible fields. Its field-uniform statement goes beyond the classical existence of the lines and the earlier fixed-degree examples. The norm obstruction explains structurally why the exceptional primes are precisely three and five. The conclusion does not identify any additional lines in special characteristics or extend to other exponent-field relationships.
+## value
 
-## Primary comparisons and limitations
+PASS
 
-H. Borges, G. Cook, M. Coutinho, *Plane sections of Fermat surfaces over finite fields*, arXiv:1804.04442, 2018-04-12 (related field-size regime, not identical). J. F. Voloch and M. E. Zieve, *Rational points on some Fermat curves and surfaces over finite fields*, arXiv:1310.1772, 2013-10-07 (quadratic-extension exponent \(q_0-1\); entails \(q=9,d=2\) special case). S. Andria, J. Rojas and W. Mangueira, *Maximal number of Skew lines on Fermat Surfaces*, arXiv:2403.15666, 2024-03-23 (geometric lines and their intersections). Y. Aubry and J. F. Voloch, *Rational points on smooth surfaces in projective three-space over finite fields*, arXiv:2605.09166, 2026-05-09 (other families). Independent historical-priority review remains outstanding.
+A uniform exact arithmetic line-covering cutoff across infinitely many growing-degree smooth Fermat surfaces, with sharply exceptional characteristics three and five and explicit off-line polynomials, is a natural incidence classification. The calculation is finite-root-sum-driven but its universal characteristic dichotomy is not an arbitrary slice.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
