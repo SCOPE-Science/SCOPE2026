@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-08",
+  "audited_at_utc": "2026-11-08T01:36:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "staged/2026-10_week3/310f1880-163d-4ba3-8d67-f612e28b8dbf/RESULT.md at immutable commit c24827d1707a8e74f74397f01bde6aa1407ea09b",
+        "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.70043 Definition 2.1 and Proposition 2.3(i), equation images",
+        "staged/2026-10_week3/310f1880-163d-4ba3-8d67-f612e28b8dbf/verify.py, independently re-derived with exact rational arithmetic"
+      ],
+      "rationale": "For x in P1 intersect P2 the classical fiber sum is theta I1(x)+(1-theta)I2(x), an interval of length theta*l1(x)+(1-theta)*l2(x); outside the intersection it is empty. Fubini integrates this to area(Ftheta). Subtracting Cavalieri area(Ki)=integral_{Pi} li yields exactly theta*integral_{P1\\P2}l1+(1-theta)*integral_{P2\\P1}l2. With theta strictly in (0,1), full-dimensional planar bodies have strictly positive fiber lengths in the interior of projection intervals. Distinct compact projection intervals have a positive-length interval in at least one difference, so deficit>0; equal intervals make it zero. Boundary theta=0/1 is correctly excluded. Exact independent checks give (overlap, output, weighted, deficit)=(2,4,6,2) for the nested rectangles and (3/2,5,20/3,5/3) for overlapping unequal projections. Both have origin interior. Finite checks corroborate, and the general proof is the integral argument, not extrapolation.",
+      "residual_risks": [
+        "The source uses a literal ?_{L|M} in one display; the classical fiber operation is nonetheless unambiguous in surrounding prose and proof.",
+        "The case of disjoint projections yields empty output, with area interpreted as zero; the actual published counterexample uses origin-containing rectangles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2025 published Theorem 2.8 prints vol_2(F_theta)^(1/2) >= theta*vol_2(K1)^(1/2) + (1-theta)*vol_2(K2)^(1/2), which is contradicted even more sharply by the rectangles: left 2 vs right (sqrt(4)+sqrt(8))/2 > 2.",
+          "The paper also prints the corresponding p=1 case of its general theorem, and its classical fiber sum construction restricts to common projections.",
+          "McMullen 1999 was identified as the cited source but full text was unavailable; original hypotheses were not assumed from Hoehner–Xing's paraphrase."
+        ],
+        "reasoning": "A general claim whose printed form is false cannot subsume this exact positive deficit, even if the paper's intended or corrected inequality might. For equal projections the deficit formula reduces to a standard Cavalieri equality, so that portion alone does not establish novelty. The nonmatching-projection diagnosis is the qualified contribution.",
+        "searches": [
+          "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.70043, Theorem 2.8/eq. (2.11) and proof",
+          "https://arxiv.org/abs/2503.05392, paper bibliographic/arXiv versions",
+          "Web: McMullen fiber Brunn Minkowski inequality equality projection common base hypothesis",
+          "Resultary semantic: McMullen fiber combinations inequality equal projection weighted volume Fubini"
+        ]
+      },
+      "checked_sources": [
+        "Hoehner & Xing (2025), Mathematika 71 e70043, https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.70043, relevant full-text sections and equations explicitly inspected",
+        "Hoehner & Xing arXiv:2503.05392 (abstract and bibliographic/version context; complete v3 PDF not independently obtained)",
+        "P. McMullen, New combinations of convex sets, Geometriae Dedicata 78 (1999), 1-19 (bibliographic/secondary only, full primary text NOT read)",
+        "Bianchi–Gardner–Gronchi (2017), Adv. Math. 306:51–88 (abstract and bibliographic/archival metadata only)",
+        "Resultary semantic searches using the three query strings recorded in the four comparison objects"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For theta=1/2, K1=[-1,1]x[-1,1] and K2=[-2,2]x[-1,1], the source operation gives area 4, while the weighted areas equal 6; in fact the source's stronger published square-root inequality also fails (2 < 1+sqrt(2)).",
+          "Fubini of the original fiber-sum definition already implies the elementary length calculation. An exact inequality correction/strict equality discussion was not found in the inspected primary source or indexed searches."
+        ],
+        "reasoning": "The prior definition and Cavalieri logically imply the formula through routine steps; that is acknowledged rather than described as an independent new technique. The falsification of an explicitly printed 2025 central theorem and precise missing condition are not the claimed prior theorem's corollary: its printed inequality gives the opposite conclusion. No indexed correction was found, but an unindexed correction could preempt priority.",
+        "searches": [
+          "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.70043, Definition 2.1, Proposition 2.3(i), Theorem 2.8",
+          "Web: New fiber and graph combinations of convex bodies correction erratum",
+          "Web: P McMullen New combinations of convex sets 1999 full text pdf",
+          "Resultary semantic: planar fiber sum classical McMullen fiber Brunn Minkowski p=1 exact area deficit unequal base projections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hoehner–Xing's exact fiber-sum definition fixes the base coordinate; Proposition 2.3(i) says the shadow is P1 intersect P2.",
+          "A one-dimensional Minkowski sum of weighted nonempty intervals has length theta*l1+(1-theta)*l2; Cavalieri's identity then gives the projection-deficit formula.",
+          "Resultary returned no exact fiber-sum deficit/correction among the ranked published hits for three actual semantic queries; this negative retrieval is not a novelty proof."
+        ],
+        "reasoning": "The displayed identity is equivalent to a standard fiberwise Fubini calculation, with no new integration principle. The assessed distinctive statement is its explicit strict-deficit/equality characterization and obstruction to the unrestricted 2025 theorem; this comparison does not claim that its ingredients are original.",
+        "searches": [
+          "Resultary semantic: Hoehner Xing New fiber and graph combinations of convex bodies projection intersection common base corrected inequality counterexample",
+          "Resultary semantic: planar fiber sum classical McMullen fiber Brunn Minkowski p=1 exact area deficit unequal base projections",
+          "Web: McMullen fiber Brunn Minkowski inequality equality projection common base hypothesis",
+          "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.70043, sections 1 and 2, (1.3), (2.4), Proposition 2.3(i)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The result is an analytic identity for all admissible continuous convex bodies, not a finite-table datum.",
+          "No relevant mathematical database or published enumerative table was located in the actual searches."
+        ],
+        "reasoning": "The exact-database/table test is specifically inapplicable to an unrestricted area identity; the relevant risk is prior analytic exposition or erratum, not a tabulated invariant.",
+        "searches": [
+          "Resultary semantic: Hoehner Xing New fiber and graph combinations of convex bodies projection intersection common base corrected inequality counterexample",
+          "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.70043, sections 1–2; bibliography",
+          "Web: 'fiber sum convex bodies exact volume integral over intersection of projections theorem'"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality as an explicit correction and strict projection-deficit/equality observation for the unrestricted published Hoehner–Xing statement, not originality of the Fubini identity itself. The publisher full-text theorem and shadow property were inspected directly, and independent arithmetic confirms the contradiction; three Resultary semantic comparisons and targeted searches identified no indexed prior correction. Original McMullen 1999 full text and possible errata were not inspected; those are material residual priority risks but do not by themselves prove coverage.",
+      "residual_risks": [
+        "Original McMullen 1999 article could contain a necessary fixed-projection hypothesis or relevant equivalent formula; its full primary text was not obtained, so no claim about falsity of its original theorem.",
+        "A publisher erratum, corrected arXiv revision or unindexed note after September 2025 could already describe the flaw; targeted current search found none, not a historical-priority guarantee.",
+        "The integral formula itself follows immediately from fiberwise Minkowski-addition of intervals and Cavalieri; scientific distinctiveness is the correction to the printed unrestricted theorem, not a new Fubini principle.",
+        "The source RESULT.md uses a literal question-mark subscript to denote the fiber binary operation in one displayed formula; its prose and proof define the operation unambiguously, but typography should be cleaned during authorized editorial handling if permitted.",
+        "When P1 and P2 are disjoint the fiber combination is empty and area must be interpreted as zero; Hoehner–Xing K_n^o hypothesis places the origin inside both, so this boundary does not arise for the published counterexample."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Publisher Theorem 2.8 is stated without a common-projection condition and asserts the failing lower bound; its own shadow property says projection intersection. Not a source for the stated projection-deficit identity; it is the counterexample target.",
+          "evidence": [
+            "Theorem 2.8 image math-0362.png shows the >= sign and (1-theta),theta coefficients; the paper has 0<theta<1, p>=1, K_i in K_n^o.",
+            "Proposition 2.3(i) image math-0257.png shows (fiber combination)|M = (K1|M) intersection (K2|M).",
+            "Theorem 2.8 proof applies its quoted McMullen inequality (1.4); mismatch cannot be explained by changing the base projection to a union."
+          ],
+          "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.70043 ; arXiv:2503.05392",
+          "material_read": "Open-access publisher full-text HTML: Introduction definitions (1.3) and (1.4); section 2 Definition 2.1, Proposition 2.3(i), Lemma 2.5, Theorem 2.8 and displayed proof; visually inspected hosted images of equations (1.3), (1.4), (2.11), projection property and proof conclusion.",
+          "method": "Direct close reading of source HTML and rendered math images; compared quantifiers and p=1/one-dimensional-fiber restriction to the rectangle and Fubini identity.",
+          "title": "New fiber and graph combinations of convex bodies",
+          "trigger": "Same fiber operation, identical symbols and direct stronger published theorem whose printed lower bound is challenged."
+        },
+        {
+          "assessment": "Original McMullen statement and its actual hypotheses remain unverified. Neither correction nor noncoverage is claimed from its unavailable text.",
+          "evidence": [
+            "Hoehner–Xing 2025 reference [35] identifies McMullen, Geom. Dedicata 78 (1999), 1–19.",
+            "The cited equation (1.4) has a volume lower bound conflicting with the rectangle calculation if interpreted without additional hypotheses."
+          ],
+          "identifier_or_url": "P. McMullen, New combinations of convex sets, Geometriae Dedicata 78 (1999), 1-19",
+          "material_read": "Bibliographic identification and secondary quotations/context in Hoehner–Xing (2025); no complete original source text obtained.",
+          "method": "Searched title, journal and open/preprint versions; authorized institutional retrieval attempted after open-access search and returned Oxford worker unavailable/invalid request.",
+          "title": "New combinations of convex sets",
+          "trigger": "Foundational 1999 fiber-sum and purported classical Brunn–Minkowski theorem cited by Hoehner–Xing; possibly stronger/earlier coverage."
+        },
+        {
+          "assessment": "Public abstract concerns unary symmetrization characterizations, not visibly an exact two-body unequal-projection deficit; full-text noncoverage is NOT asserted.",
+          "evidence": [
+            "The indexed abstract emphasizes characterizations of Steiner, Minkowski and central symmetrizations."
+          ],
+          "identifier_or_url": "Bianchi, Gardner and Gronchi, Advances in Mathematics 306 (2017), 51–88; https://arxiv.org/abs/1603.00643",
+          "material_read": "Abstract, journal bibliographic page and OA archive listing only; not the full article.",
+          "method": "Web discovery of arXiv metadata and institutional OA record.",
+          "title": "Symmetrization in geometry",
+          "trigger": "Preexisting general fiber/Steiner symmetrization framework cited by the target paper; plausible alternative geometric wording."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.70043 Theorem 2.8, proof and section 1 discussion of McMullen relation",
+        "staged/2026-10_week3/310f1880-163d-4ba3-8d67-f612e28b8dbf/RESULT.md proof and exact rectangle example"
+      ],
+      "rationale": "The motivation is substantive even though the integral proof is elementary: the printed unrestricted p=1 fiber Brunn–Minkowski lower bound is a prominent theorem invoked to motivate broader p inequalities. A two-rectangle counterexample shows a real hypothesis failure, not a numerical rounding anomaly; the full planar formula quantifies the failure and characterizes exactly when the weighted-area identity has equality. This correction can prevent false applications and clarifies the necessary common-projection boundary. It does not purport to refute McMullen under unknown original hypotheses or establish p>1 claims.",
+      "residual_risks": [
+        "This is a focused correction, not a new general inequality; value depends on the unrestricted 2025 theorem being used as printed.",
+        "The elementary formula is already implicit in definitions; value specifically attaches to identifying the printed false claim and sharp necessary projection condition."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Original McMullen 1999 article could contain a necessary fixed-projection hypothesis or relevant equivalent formula; its full primary text was not obtained, so no claim about falsity of its original theorem.",
+    "A publisher erratum, corrected arXiv revision or unindexed note after September 2025 could already describe the flaw; targeted current search found none, not a historical-priority guarantee.",
+    "The integral formula itself follows immediately from fiberwise Minkowski-addition of intervals and Cavalieri; scientific distinctiveness is the correction to the printed unrestricted theorem, not a new Fubini principle.",
+    "The source RESULT.md uses a literal question-mark subscript to denote the fiber binary operation in one displayed formula; its prose and proof define the operation unambiguously, but typography should be cleaned during authorized editorial handling if permitted.",
+    "When P1 and P2 are disjoint the fiber combination is empty and area must be interpreted as zero; Hoehner–Xing K_n^o hypothesis places the origin inside both, so this boundary does not arise for the published counterexample."
+  ],
+  "schema_version": 1
+}
