@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph's four orthogonal Laplacian eigenspaces give three exact off-diagonal entry formulas. Their denominators are positive, and the within-blade numerator is an explicitly factored quartic with one positive zero. The leading-coefficient inequality is proved for all admissible integers; the other off-diagonals and every diagonal are positive. The finite exact-rational verifier independently reconstructs the matrix function on sample inputs; it is not asserted to certify all parameters.
+## correctness
 
-## Originality — PASS on inspected evidence
-The closest general diagonal-Padé positivity obstruction and step-size work is Zappavigna et al. (2012), with material studied in Sections 1, 2, and 4. Lóczi and Ketcheson (2013), Sections 1–2, treat rational absolute monotonicity rather than the windmill-specific exact sign horizon. A potentially overlapping existing spectral-map statement for \(K_1\) joined to disjoint cliques assumes global convexity of the scalar filter; the Gauss–Legendre filter here is eventually concave and lies outside that premise. Searches for friendship/windmill/Dutch-windmill and equivalent Padé formulations did not identify an implication covering the stated quartic classification. This is best-knowledge originality, not a proof of worldwide publication priority.
+PASS
 
-## Value — PASS
-A single extra within-blade connection changes the unconditional positivity of equal-weight stars to a finite, exactly characterized timestep horizon for every genuine multi-clique windmill. The result supplies a complete natural two-parameter family, a unique sharp cutoff and the identity of every negative transition afterward; this is useful when choosing positive heat-step discretizations on clique-connected hub networks, not merely a scalar sign check.
+The four orthogonal eigenvalues 0,1,r,N and projectors yield exact entry classes: apex-leaf=12h/D(Nh), cross-blade=12h²((N+1)h+6)/[D(h)D(Nh)], same-blade=12hP/[D(h)D(rh)D(Nh)]; D(z)=z²+6z+12. Every diagonal >0 by scalar F(z)>0 and nonnegative projector weights. For m>=2,r>=3, P=-rAh⁴+6r(r+1)h³+12Bh²+72(u+2)h+144, A>0, B>0, so P/h⁴ strictly decreases through exactly one positive zero. The m=1 and r=2 orbit exceptions and m→∞ limit sqrt(12/r) follow analytically. Independent exact matrix comparisons pass 618 bounded checks; not substituted for all-parameter proof.
 
-## Boundaries and residual risk
-Only equal-size blades and unit conductances are classified. Intermediate stages and general graph filters are outside scope. Literature not discovered by the searches and some older specialist sources could still contain an equivalent result; mathematical and historical priority warrant independent verification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge non-implied graph-specific sharp positivity horizon for a nonconvex Padé filter. Closest full published heterogeneous-windmill filter theorem assumes scalar f nonnegative AND convex, which this Gauss [2/2] F violates (F is eventually concave). Complete-multipartite scalar criterion does not cover windmills with several clique blades and missing interblade edges. The Zappavigna Padé literature provides general obstructions/sufficient steps but not this exact quartic and sign orbit classification.
+
+## value
+
+PASS
+
+Exact loss of entrywise positivity despite spectral stability is a natural structural discretization boundary. The all-windmill quartic gives an exact cutoff and identifies precisely which entries fail, distinguishing stars, complete graphs and genuine clique-windmills. The negative-entry pattern is informative beyond routine scalar Padé stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
