@@ -1,15 +1,21 @@
-# Scientific review: two-level symmetric-matrix commutator fibers
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is exact for every odd prime power. The Fourier identity is derived from two nondegenerate trace pairings, not assumed. A nonzero skew-symmetric three-by-three matrix necessarily has rank two and cannot have square zero, so the quadratic-minimal-polynomial contradiction forces cyclicity. Its full centralizer is the polynomial algebra, and transpose selects exactly the two-dimensional symmetric span of the identity and the square. Character orthogonality gives both fiber sizes, and their total mass is the full number of ordered pairs. The dimension-four witness uses explicitly distinct centralizer dimensions, and nonuniform Fourier values contradict uniform nonzero fibers. Exhaustive checks over three prime fields and a separate four-dimensional witness check agree. The experiments do not prove the arbitrary-field statement; the algebraic argument does.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The inspected full accessible texts by Bulois (arXiv:0906.3881, type-AI symmetric-pair geometry), Lopatin (arXiv:1004.3082, invariants of skew matrices), and Fulman–Guralnick (arXiv:1611.05499, general linear/unitary/symplectic commuting-pair enumeration) address related centralizers but do not supply this target-resolved bracket law for two symmetric factors or its dimension-four obstruction. Grašič's 2010 skew-Lie zero-product-determined result was checked at the abstract/metadata level only; full text was inaccessible and remains a specific risk. Searches for the formulas, aliases and equivalent Fourier statements did not locate an implication establishing the result. Search absence is not a proof of novelty; a more general unidentified symmetric-pair convolution theorem remains a residual risk.
+PASS
 
-## Value — PASS
-The orthogonal symmetric-pair bracket is a canonical quadratic map from self-adjoint to skew-adjoint matrices, not an arbitrary finite slice. Dimension three is the smallest case where its target space has more than one dimension and yields the nontrivial finding that **all** nonzero skew targets share a single exact multiplicity despite their different orthogonal types. The first higher-dimensional obstruction shows that uniformity reflects a distinctive cyclic-centralizer property rather than an automatic bilinear-map phenomenon. The zero fiber also determines the exact symmetric-matrix commuting probability. The invariant is natural even without a downstream theorem or higher-dimensional classification.
+For additive character psi, Fourier-transform target counts by the nondegenerate skew trace pairing. The sum over symmetric Y is q^6 precisely when [Z,X]=0, giving Fhat(Z)=q^(6+d(Z)). Every nonzero skew 3x3 Z has rank two, Z^2 nonzero, and degree-three minimal polynomial, hence full centralizer k[Z]; its symmetric subspace is span{I,Z^2}, so d(Z)=2, whereas d(0)=6. Fourier inversion on the q^3 skew targets gives exactly the two formulas and total q^12 pairs. At n4, Z1=J⊕0 and Z2=J⊕tJ (t^2!=1) have symmetric-centralizer dimensions four and two, so nonzero Fourier frequencies are unequal and target uniformity is impossible. Independently exhaustive F3 enumeration of all 3^12 ordered symmetric pairs yielded zero fiber 26001 and each of 26 nonzero fibers 19440.
 
-## Sources and limitations
-M. Bulois, arXiv:0906.3881v1 (public 2009-06-21); A. A. Lopatin, arXiv:1004.3082v1 (public 2010-04-19); M. Grašič, DOI 10.1080/03081080903191672 (online 2010-04-16); J. Fulman and R. Guralnick, arXiv:1611.05499v1 (public 2016-11-16). The characteristic-two situation and the complete dimension-four target distribution are outside the claim. The accessible-literature comparison is provisional and independent mathematical validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bulois investigates type-AI symmetric Lie algebra sheets and Slodowy slices, Lopatin skew orthogonal invariants, Fulman–Guralnick commuting pairs in full/general Lie algebras. Their inspected results do not enumerate prescribed skew target fibers for brackets of two symmetric factors or the n4 Fourier-centralizer obstruction. Matching broad centralizer machinery does not provide a target-resolved exact count by itself.
+
+## value
+
+PASS
+
+The bracket map Sym3×Sym3→Skew3 is a natural symmetric-pair quadratic map with a multivariate target. Uniform nonzero fibers for all odd fields, exact commuting probability q^-3+q^-4-q^-7, and its sharp dimension-four obstruction reveal a structural low-dimensional centralizer rigidity absent in general higher-dimensional settings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
