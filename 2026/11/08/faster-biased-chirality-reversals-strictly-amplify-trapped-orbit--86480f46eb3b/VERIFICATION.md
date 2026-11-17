@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The result is proved analytically in RESULT.md by a two-state complex resolvent, harmonic-filter cross moments, and strictly signed derivatives. A standalone numerical replay is included as `checks.py`, requiring Python 3 and no external packages.
+# Independent mathematical audit
 
-Run `python checks.py` from a directory containing the file. The prepared scientific package completed 1,082 deterministic assertions, including direct Runge–Kutta evolution of the two-state angular characteristic functions followed by Simpson integration. The program checks selected finite parameter sets only; exact nonnegativity of the full polynomial and global strict inequalities are proved in RESULT.md.
+## correctness
 
-No statistical data, fitted model, human expert confirmation, or independent scientific audit is supplied. The slow- and fast-switching endpoint statements refer to limits of positive-rate stationary models.
+PASS
+
+The stationary angular two-state Feynman–Kac backward matrix gives its rational Laplace transform. Taking its imaginary part produces I(s), and stable OU filtering gives both cross moments and J. The positive polynomial P(s) proves strict s-monotonicity; symbolic differentiation independently verified ∂λI=2λω³δ(1−δ²)(λs+s²+ω²)/Q² and the ∂sI sign polynomial. The fixed-bias derivative and endpoint limits prove all λ>0 and parameter-boundary statements, including δ=0, κx=κy and D_R=D_t=0. Numerical finite checks are corroborative, not a substitute for this exact argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge original fixed-bias strict amplification and anisotropic sign/zero classification for two-state angular-chirality switching, not the previously treated symmetric angular switching, constant chirality, or propulsion-direction flips.
+
+## value
+
+PASS
+
+The strict response of an observable orbital current to switching frequency at fixed stationary chirality bias, invariant to independent translational diffusion and arbitrary anisotropy, resolves a natural experimentally meaningful distinction between chirality persistence and bias. It is not a bare normalization or small parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

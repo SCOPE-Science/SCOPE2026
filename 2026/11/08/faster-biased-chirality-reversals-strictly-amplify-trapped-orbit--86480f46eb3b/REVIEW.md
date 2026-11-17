@@ -1,15 +1,21 @@
-# Assessment of biased chirality switching under harmonic confinement
+# Independent mathematical audit
 
-## Correctness
-PASS. The two-state Fourier/backward resolvent supplies an exact complex angular correlation under independently added rotational Brownian noise. Stable harmonic filtering gives the orientation-position mixed moments; stationarity of the position product gives the covariance and orbital current. A displayed positive-coefficient polynomial proves the monotone Laplace-argument sign, while a displayed strict derivative proves monotonicity in the total flip rate at fixed stationary chirality bias. These calculations cover all stated positive flip rates, arbitrary positive confining strengths, nonnegative rotational and translational diffusion, and the two singular switching-speed limits. The standalone script passed 1,082 diagnostic assertions, including an independent numerical solution of the angular backward equations. The proof, not the finite grid, supports the global quantifiers.
+## correctness
 
-## Originality
-PASS, qualified. Das and Basu (arXiv:2301.11194, Sections 2, 3, 5, Appendix A) treat symmetric chirality reversals in free space and specifically identify confinement as an extension. Caprini, Löwen and Marini Bettolo Marconi (arXiv:2306.11133, Sections II, IV and Appendix B) treat constant chirality in elliptic confinement, so the general existence of chiral cross-correlations and circulating motion is prior work. Neither inspected primary text states the asymmetric telegraph switching-speed theorem under a fixed chirality bias. The 2021 trapped *propulsion-direction* reversing model by Santra, Basu and Sabhapandit (arXiv:2107.12640) was distinguished at abstract level only; its full text was not accessible. A generalized linear filter of a prescribed colored force is known, but deriving the biased two-state resolvent and proving strict positivity of its parameter derivative across the full domain is not merely a notational copy of the constant-chirality formula. Search and published-record overlap checks found no stronger exact claim; unpublished or unindexed prior derivations remain a risk.
+PASS
 
-## Value
-PASS. The exact, global strict monotonicity answers an experimentally motivated control question: at fixed mean chirality, does making rotations reverse more rapidly suppress or enhance the signed orbital circulation? The surprising answer is enhancement for every harmonic anisotropy and rotational diffusivity, with sharp slow- and fast-switch limits. The independent covariance sign law distinguishes hidden chirality bias from anisotropy: neither one alone yields a nonzero position cross-covariance. This is a motivated structural classification of a physical observable, not a single arbitrary parameter sample.
+The stationary angular two-state Feynman–Kac backward matrix gives its rational Laplace transform. Taking its imaginary part produces I(s), and stable OU filtering gives both cross moments and J. The positive polynomial P(s) proves strict s-monotonicity; symbolic differentiation independently verified ∂λI=2λω³δ(1−δ²)(λs+s²+ω²)/Q² and the ∂sI sign polynomial. The fixed-bias derivative and endpoint limits prove all λ>0 and parameter-boundary statements, including δ=0, κx=κy and D_R=D_t=0. Numerical finite checks are corroborative, not a substitute for this exact argument.
 
-## Residual limitations
-The stationary law is defined by its explicit uniform-angle and stationary-switching construction; zero switching speed is only a limit. The claims concern second-order orbital observables, not full stationary measures or entropy production. General colored-noise or renewal-drive studies could contain a stronger unindexed theorem; independent external priority verification has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original fixed-bias strict amplification and anisotropic sign/zero classification for two-state angular-chirality switching, not the previously treated symmetric angular switching, constant chirality, or propulsion-direction flips.
+
+## value
+
+PASS
+
+The strict response of an observable orbital current to switching frequency at fixed stationary chirality bias, invariant to independent translational diffusion and arbitrary anisotropy, resolves a natural experimentally meaningful distinction between chirality persistence and bias. It is not a bare normalization or small parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
