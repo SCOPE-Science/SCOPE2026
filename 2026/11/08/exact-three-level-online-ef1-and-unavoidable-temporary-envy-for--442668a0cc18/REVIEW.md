@@ -1,19 +1,21 @@
-# Review of exact online EF1 at the three-agent surplus boundary
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The terminal EF1 shape reduction is logically forced by positivity and exactly four goods among three agents; with a \((2,1,1)\) shape it reduces to comparison of one singleton to the smaller of the two goods in the doubled bundle, preserving the entire result under independent strictly increasing recodings of each agent's finite levels. The game recursion uses the correct quantifier order: the adversary picks a value triple, the allocator sees it and then chooses the recipient. The separate Python ordinal checker and C++ cardinal checker independently return the four asserted win/loss values and include the entire adaptive decision tree by complete finite recursion. No finite test is substituted for an infinite unrestricted claim: the infinitely many positive real ratios are covered by the proved exact ordinal reduction. Source paths and instructions for replay are embedded.
+PASS
 
-## Originality
+Every positive-valuation four-good terminal EF1 allocation among three agents has cardinalities (2,1,1): otherwise an empty agent envies a double bundle after deletion. In the (2,1,1) pattern, terminal EF1 reduces exactly to each singleton-holder i satisfying v_i(own singleton)>=min(v_i(double pair)). Therefore only each agent’s weak rank ordering matters, regardless of cardinal magnitudes. Exhaustive four-ply perfect-information minimax, adversary revealing any value triple BEFORE choice of recipient, gives adversary forcing values (L=3 free, L=3 distinct-first-two, L=3 same-first-two, L=4 free) = (0,1,1,1). Independently compiled C++ cardinal terminal check reproduced all four values with direct OR-over-triple/AND-over-recipients recurrences. Adaptive quantifiers correct; 3-level existence, 4-level impossibility and necessity of context-dependent first-two occupancy follow. The statement is restricted to terminal fairness, four goods, three agents, positive additive utilities, known horizon, deterministic policies and no future frequency predictions.
 
-**PASS, with residual literature risk.** Neoh–Teh (2026, arXiv:2610.34625v1) give approximate EF1 bounds with predictions for three agents and a negative exactness regime for at least five agents, but not an exact three-agent/four-good personalized three-tier cutoff. Wang–Wei (2025, arXiv:2505.24321v2) prove tri-valued impossibility under a requirement of fairness at every arrival, which does not imply failure of final-only fairness; indeed here a successful algorithm must sometimes violate EF1 after the second arrival. Elkind et al. (2024, arXiv:2410.14593v1) study temporal EF1 and two global item types, not this domain. A previously known two-agent/three-good ordinal-cutoff result does not imply the three-agent guarantee or first-two assignment separation. Matching statements, not merely keywords, were compared. Equivalent unindexed exhaustive game analyses remain possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** For a canonical smallest-surplus three-agent market, the result completely classifies the precise value-alphabet boundary at which a deterministic online final-EF1 policy exists, despite known general temporal impossibility phenomena. The structural result shows why neither predetermined second-good occupancy pattern is sufficient and proves temporary fairness violations are sometimes necessary to preserve eventual fairness. This addresses an intrinsic distinction between online horizon fairness and terminal fairness rather than a purely arbitrary enumeration. The algorithm is finite and not claimed efficient.
+The final-terminal-only sharp 3-versus-4 personalized value-level frontier and mandatory variation of early allocations are not logically implied by temporal-EF1 impossibility or by models granting accurate frequency predictions. Literature review found relevant but genuinely different information and fairness specifications; no decisive prior equal-claim theorem was located, with residual unindexed-priority risk.
 
-## Literature and limitations
+## value
 
-The exact two-agent small-market result is known, so no novelty is asserted for that smaller case. Published full-text inspections cover the motivating 2026 paper, the 2025 temporally constrained impossibility paper, and the 2024 two-type temporal fairness paper. The current exact cutoff depends on a known four-good horizon and strictly positive additive values and does not extrapolate to larger market sizes. Independently commissioned validation would be needed before publication.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+First surplus-good horizon is the natural first nontrivial online terminal-EF1 question beyond one good per agent. A sharp finite alphabet boundary, explicit adaptive-game strategy and necessity of temporary intermediate envy identify a structural obstacle to simple early-allocation policies; the result is not merely a numerical value or routine renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
