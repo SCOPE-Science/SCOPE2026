@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The primal identity is a directly applicable, published forest formula for the type-B graph-root polytope (Ohsugi–Tsuchiya, arXiv:1810.12258, Proposition 3.4). The polar inequalities follow immediately from its signed generating vertices; transforming one bipartition's coordinates by reflection gives precisely the order polytope of the associated height-two poset. Stanley's sorting triangulation supplies the polar volume with no missing Jacobian. The normalized product simplifies exactly to \(M(T)L(T)/n!\). The extremal statement has only finitely many sizes and the supplied executable certificate enumerates **every** labeled tree by Prüfer sequence, groups by reconstructible canonical tree strings, uses exact subset recurrences, and checks all class and winner counts. Four independent numerical hull checks agree but are not the proof.
+## correctness
 
-## Originality — PASS (provisional priority)
-The closest sources are Ohsugi–Tsuchiya (2018) for the primal and Kohl–Olsen–Sanyal (2020) for unconditional-polytope Mahler inequalities and a global perfect-graph maximization experiment. Neither materially examined text states the tree-specific first crossover at seven vertices or the combined exact normalized factorization with the bipartite-poset extension count. The original-paper primal formula and classical order-polytope theorem are not credited as new. Searches for type-B, unconditional stable-set, matching–extension, subdivided-claw, and seven-vertex extremal equivalents found no directly covering published statement. Earlier equivalent results and unpublished tables remain a priority risk; failure to find one is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The problem addresses an actual extremal question motivated by Mahler products of unconditional graph polytopes. The complete first-failure order is mathematically structural: matching numbers favor the seven-vertex path, while its polar extension count is sufficiently smaller than the three-legged subdivided claw's to reverse the product. The sharp, exhaustive finite cutoff is not an arbitrary parameter slice, and the general primal–polar factorization supplies a reusable invariant for all trees.
+Reconstructed Ehrhart matching identity of Ohsugi–Tsuchiya n!vol(B_T)=2^n M(T); in each orthant the polar |y_i|+|y_j|<=1 becomes a Stanley order polytope under bipartition reflection, giving vol(B_T^polar)=2^n L(T)/n!. Both volumes use Euclidean normalization and n>=2 tree hypothesis. Independently enumerated all unlabeled trees for n=2..7 using networkx nonisomorphic_trees, an independent matching subset recurrence and topological-sort ideal recurrence: class counts 1,1,2,3,6,11, maxima M L 2,6,25,128,793,5760; at n=7 S222 (20,288,5760), P7 (21,272,5712). Inspected packaged Prüfer exhaustive 18,248 labeled trees script; no inference beyond 7 or from approximate hull check.
 
-## Limitations and closest sources
-The result is not a global graph-extremal theorem and predicts nothing for trees with eight or more vertices. The graph-polytopal ingredients are partly known and the seven-vertex original-priority claim is qualified. The exact integer certificate and numerical hull checks are independently reproducible from embedded code; no external independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The matching Ehrhart formula and Stanley volume theorem are prior art, not new. The joint tree volume-product formula and sharp first maximizer crossover at 7 survive comparison with Kohl–Olsen–Sanyal broader perfect-graph Mahler experiments, which do not state this tree-specific order-7 optimum in the inspected full text.
+
+## value
+
+PASS
+
+A natural polytope Mahler extremal problem has a sharp, provably first structural transition at 7 vertices, identifying a unique non-path optimum and exact small gap 1/105. Finite complete classification on natural tree families is substantive beyond a random numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

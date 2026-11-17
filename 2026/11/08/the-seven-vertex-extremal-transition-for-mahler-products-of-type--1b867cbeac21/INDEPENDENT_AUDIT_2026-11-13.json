@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T11:17:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "check_tree_mahler.py"
+      ],
+      "rationale": "Reconstructed Ehrhart matching identity of Ohsugi–Tsuchiya n!vol(B_T)=2^n M(T); in each orthant the polar |y_i|+|y_j|<=1 becomes a Stanley order polytope under bipartition reflection, giving vol(B_T^polar)=2^n L(T)/n!. Both volumes use Euclidean normalization and n>=2 tree hypothesis. Independently enumerated all unlabeled trees for n=2..7 using networkx nonisomorphic_trees, an independent matching subset recurrence and topological-sort ideal recurrence: class counts 1,1,2,3,6,11, maxima M L 2,6,25,128,793,5760; at n=7 S222 (20,288,5760), P7 (21,272,5712). Inspected packaged Prüfer exhaustive 18,248 labeled trees script; no inference beyond 7 or from approximate hull check.",
+      "residual_risks": [
+        "Python graph-isomorphism generator and independently implemented recurrence were relied upon for unlabeled exhaustion; packaged distinct Prüfer full-labeled code inspected, not formally certified."
+      ],
+      "status": "PASS",
+      "verified_checks": [
+        "Independently reconstructed exact analytic/combinatorial argument from the frozen RESULT.md",
+        "Inspected frozen verifier source blob and reran bounded independent checks in /mnt/data/audit1104_checks.py",
+        "Fetched actual source Git tree object and checked returned tree SHA and file blob identities"
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kohl–Olsen–Sanyal investigate unconditional reflexive polytopes and general perfect-graph maxima through 9 vertices; their broader graph n=7 winner is not the S222 tree-only optimum."
+        ],
+        "reasoning": "Broader graph enumeration does not logically classify maximum on the constrained tree subset; its data might contain unreported tree entries.",
+        "searches": [
+          "Mahler product volume tree type B symmetric root polytope matching linear extension seven subdivided claw path",
+          "https://arxiv.org/abs/1906.01469"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1906.01469",
+        "https://arxiv.org/abs/1810.12258",
+        "https://doi.org/10.1007/BF02187680",
+        "RESULT.md",
+        "check_tree_mahler.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stanley order-polytope volume plus Ohsugi–Tsuchiya matching Ehrhart gives the all-tree formula; finite order-7 inequality additionally needs exact census."
+        ],
+        "reasoning": "The elementary factorization follows from known lemmas, but the sharp motivated finite first crossover and uniqueness are not automatic consequences of cited upper bounds.",
+        "searches": [
+          "Mahler product volume tree type B symmetric root polytope matching linear extension seven subdivided claw path",
+          "https://doi.org/10.1007/BF02187680"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ohsugi–Tsuchiya forest h* polynomial at z=1 gives primal volume but not polar linear-extension factorization and tree extremal transition."
+        ],
+        "reasoning": "Equivalence under symmetric-edge/type-B graph-root polytope naming checked; prior primal equality is explicitly credited, not counted as novelty.",
+        "searches": [
+          "Mahler product volume tree type B symmetric root polytope matching linear extension seven subdivided claw path",
+          "https://arxiv.org/abs/1810.12258"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected primary publication gives graph extremal tables but no full 11-class M(T)L(T) tree table matching submitted order-7 census."
+        ],
+        "reasoning": "No previously located exact tree-only table; missing/unpublished data and alternative terminology remain residual priority risks.",
+        "searches": [
+          "Mahler product volume tree type B symmetric root polytope matching linear extension seven subdivided claw path",
+          "https://arxiv.org/abs/1906.01469"
+        ]
+      },
+      "rationale": "The matching Ehrhart formula and Stanley volume theorem are prior art, not new. The joint tree volume-product formula and sharp first maximizer crossover at 7 survive comparison with Kohl–Olsen–Sanyal broader perfect-graph Mahler experiments, which do not state this tree-specific order-7 optimum in the inspected full text.",
+      "residual_risks": [
+        "Published graph-extremal computations or unpublished tables might already enumerate tree maxima under equivalent graph-polytope names.",
+        "Classical factorization has modest independent novelty; main value lies in the sharp first constrained extremal transition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_PARTIAL",
+          "evidence": "Forest Ehrhart h* at z=1 gives n!vol(B_T)=2^n M(T), not a complete tree Mahler-maximizer classification.",
+          "identifier_or_url": "https://arxiv.org/pdf/1810.12258",
+          "material_read": "Primary full-text introduction and relevant Proposition 3.4/3.5 and matching h* formula",
+          "method": "Read full-text PDF and pertinent proofs",
+          "title": "Reflexive polytopes arising from bipartite graphs with gamma-positivity associated to interior polynomials",
+          "trigger": "Same type-B graph-root polytope and forest volume formula"
+        },
+        {
+          "assessment": "NOT_DECISIVELY_COVERING",
+          "evidence": "Inspected perfect-graph extrema differ from subtree extrema; no 7-tree S222 table located.",
+          "identifier_or_url": "https://arxiv.org/pdf/1906.01469",
+          "material_read": "Full primary article, extremal graph tables and Sections 3 and 8.1",
+          "method": "Read full-text PDF, inspected relevant extremal table and figure",
+          "title": "Unconditional Reflexive Polytopes",
+          "trigger": "Broader graph-polytope Mahler extremality with n<=9 computational tables"
+        },
+        {
+          "assessment": "PRIOR_LEMMA",
+          "evidence": "Volume(order polytope)=number of linear extensions/n!",
+          "identifier_or_url": "https://doi.org/10.1007/BF02187680",
+          "material_read": "Identified theorem statement and standard chamber-volume argument from target and published citation; original article not fully obtained",
+          "method": "Proof independently reconstructed by sorting-chamber triangulation",
+          "title": "Two poset polytopes",
+          "trigger": "Foundational order-polytope volume"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural polytope Mahler extremal problem has a sharp, provably first structural transition at 7 vertices, identifying a unique non-path optimum and exact small gap 1/105. Finite complete classification on natural tree families is substantive beyond a random numerical slice.",
+      "residual_risks": [
+        "No claim that the same optimizer persists for all larger tree orders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Python graph-isomorphism generator and independently implemented recurrence were relied upon for unlabeled exhaustion; packaged distinct Prüfer full-labeled code inspected, not formally certified.",
+    "Published graph-extremal computations or unpublished tables might already enumerate tree maxima under equivalent graph-polytope names.",
+    "Classical factorization has modest independent novelty; main value lies in the sharp first constrained extremal transition.",
+    "No claim that the same optimizer persists for all larger tree orders."
+  ],
+  "schema_version": 1
+}
