@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-Run `python3 verify.py` using the Python standard library. It enumerates all independent outgoing-subset configurations at labeled orders 3–5 for each eligible small outdegree, computes the reciprocity count and full indegree histogram, and compares every exact rational covariance coefficient against the closed-form binomial second-difference formula. Expected result: 17 test configurations, 86 coefficient comparisons, all PASS.
+## correctness
 
-The proof in RESULT.md handles all valid orders and outdegrees; finite enumerations do not establish generality by themselves. The fixed-outdegree limit is a coefficientwise binomial-to-Poisson argument. There is no independently performed scientific audit.
+PASS
+
+Read exact conditional-PGF derivation in the assigned RESULT.md. Conditioning on one mutual arc pair changes only two source rows; the second-order cancellation in (1-t) gives a positive loopless polynomial and a negative loop-allowed polynomial. Independently enumerated every outgoing-row subset for n=3,4 and k=1,2 in both conventions; all indegree-coefficient covariances matched their exact polynomials. At t=1 the double zero enforces deterministic counts sum N_j=n and sum j N_j=nk. The Poisson second-difference limit follows from binomial-to-Poisson coefficient convergence. This is not a joint-distribution theorem.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the surviving full statement, not any already-known specialization. The full two-convention signed polynomials and universal coefficientwise Poisson second-difference profile survive, but the loopless N0 part alone would not be new.
+
+## value
+
+PASS
+
+The sign of dependence between reciprocal dyads and indegree histogram switches purely on whether self-choice is allowed; the complete binomial second-difference polynomial shows which degree classes participate. This sharp null-model sensitivity is mathematically motivated beyond an individual N0 sign check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
