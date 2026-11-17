@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T04:16:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/a-strict-leaf-split-covariance-dichotomy-for-uniform-labeled-tre--6933b4340198/RESULT.md (blob 020c9b0fa94a9815d0827a210e71771fb4e864d8)",
+        "2026/11/08/a-strict-leaf-split-covariance-dichotomy-for-uniform-labeled-tre--6933b4340198/verify.py"
+      ],
+      "rationale": "For fixed S of size k, exactly one crossing edge has probability k^{k-1}(n-k)^{n-k-1}/n^{n-2} by two Cayley trees and a uniform joining edge. The two internal trees and join endpoints become independent uniform conditional on S; each component contributes g(m)=m(1-1/m)^{m-1} surviving leaves (g(1)=1). Summing split indicators (dividing equal-size splits by 2) yields Cov(L,B_{n,k})=b_{n,k}[g(k)+g(n-k)-ell_n]. When k=1, B=L and Var(L)>0 for n>=4. For k,n-k>=2 the proof bounds g(m)<(m+3/4)/e and ell_n>(n+3/2)/e using convergent log series and concavity, so covariance<0. Expanding gives conditional deficit -1/(2e) for both sides growing. Fresh independent Prüfer enumeration computed all mixed moments n=4..6 using exact fractions and checked formulas/signs. Algebra establishes all n>=4, not enumeration.",
+      "residual_risks": [
+        "Uniform unrooted vertex-labeled Cayley trees only; B counts vertex-component sizes and equal split once."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General conditioned Galton–Watson fringe limit theory may give some asymptotic covariances; older cutting-down research likely contains fragment-size combinatorics."
+        ],
+        "reasoning": "Neither inspected source supplied a universal exact mixed-moment formula plus uniform strict sign; uninspected older full text remains named risk, not automatic originality FAIL.",
+        "searches": [
+          "arxiv:1312.1211",
+          "Meir and Moon 1970 Cutting down random trees"
+        ]
+      },
+      "checked_sources": [
+        "Janson arXiv:1312.1211",
+        "Fischer–Liebscher arXiv:1510.07882",
+        "Meir–Moon DOI:10.1017/S1446788700006698 abstract",
+        "Resultary query leaf count covariance split size edge uniform Cayley labeled tree negative association"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Janson Example 2.1 treats leaf fluctuation; Fischer–Liebscher Theorem 1 treats extremal deterministic phylogenetic balance."
+        ],
+        "reasoning": "A marginal leaf variance does not determine Cov(L,B_{n,k}); leaf-labeled split shape extrema do not imply random vertex-split covariance signs.",
+        "searches": [
+          "arxiv:1312.1211",
+          "arxiv:1510.07882"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fringe-tree asymptotic leaf counts are not unrooted edge vertex-component-size mixed moments.",
+          "Phylogenetic balanced split sizes refer to leaf-set partitions rather than vertex-count components."
+        ],
+        "reasoning": "The statistics cannot be equated without model and measure change; old general framework may inform but does not supply displayed all-n strict sign under inspected hypotheses.",
+        "searches": [
+          "leaf count covariance split size edge uniform Cayley labeled tree negative association",
+          "arxiv:1312.1211",
+          "arxiv:1510.07882"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related hits concern cherry-Wiener and fringe/leaf-parity covariance, not fixed vertex-component split B_{n,k}; no known matched joint table retrieved."
+        ],
+        "reasoning": "No exact covering database/table identified in searched records; failed search does not prove novelty.",
+        "searches": [
+          "leaf count covariance split size edge uniform Cayley labeled tree negative association",
+          "Cayley tree leaf split covariance table"
+        ]
+      },
+      "rationale": "The key joint finite-n vertex-split/leaf statistic is not the marginal leaf fringe variance or deterministic phylogenetic leaf-set split balance. Inspected Janson and Fischer–Liebscher relevant primary sections do not state the all-size sign dichotomy. Meir–Moon (1970) related cutting model full text was not accessed: named residual priority risk. Resultary returned other correlations with different pair statistics.",
+      "residual_risks": [
+        "1970 Meir–Moon full text not inspected; a mixed moment might be implicit in older cut-enumeration work.",
+        "Generic joint fringe generating functions may imply some fixed-size special cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED, NO DIRECT FINITE UNROOTED MIXED MOMENT STATEMENT in examined material",
+          "evidence": [
+            "Examples cover marginal leaves/outdegrees, not conditioned unrooted vertex splits"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1312.1211",
+          "material_read": "Primary introduction, Examples 2.1–2.2 and relevant outdegree covariance discussion",
+          "method": "Read targeted primary article full-text sections",
+          "title": "Asymptotic normality of fringe subtrees and additive functionals in conditioned Galton–Watson trees",
+          "trigger": "Uniform Cayley trees as conditioned Poisson Galton–Watson; leaf count is fringe functional"
+        },
+        {
+          "assessment": "DIFFERENT MODEL: deterministic leaf-labeled phylogenetic split sizes",
+          "evidence": [
+            "Leaf-set partition sizes rather than vertex-count edge components"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1510.07882",
+          "material_read": "Primary introduction, formal leaf-set split definition and extremal theorem",
+          "method": "Compared definitions and theorem quantifiers",
+          "title": "On the Balance of Unrooted Trees",
+          "trigger": "Split terminology could denote same statistic"
+        },
+        {
+          "assessment": "ACCESS RISK: no decisive not-covering judgment",
+          "evidence": [
+            "Describes random cuts needed to isolate a root"
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S1446788700006698",
+          "material_read": "Only publisher abstract and bibliographic description; full text unavailable",
+          "method": "Read abstract; no full-paper assertion",
+          "title": "Cutting down random trees",
+          "trigger": "Historical uniform labeled tree edge deletion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Janson arXiv:1312.1211",
+        "Fischer–Liebscher arXiv:1510.07882",
+        "Meir–Moon DOI:10.1017/S1446788700006698 abstract",
+        "Resultary query leaf count covariance split size edge uniform Cayley labeled tree negative association"
+      ],
+      "rationale": "A natural local-vs-global structural covariance phenomenon in a classical uniform labeled random tree is completely classified at all admissible n and cut sizes, including universal macroscopic conditional loss; not a tiny unmotivated instance.",
+      "residual_risks": [
+        "1970 Meir–Moon full text not inspected; a mixed moment might be implicit in older cut-enumeration work.",
+        "Generic joint fringe generating functions may imply some fixed-size special cases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform unrooted vertex-labeled Cayley trees only; B counts vertex-component sizes and equal split once.",
+    "Covariance sign does not imply stochastic negative dependence; n>=4 strict k=1 sign."
+  ],
+  "schema_version": 1
+}
