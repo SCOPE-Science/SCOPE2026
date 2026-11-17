@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The claim uses the unnormalized complete-pair Gini seminorm in both dimensions. The indicator-cut formula for a barycenter is exact by the nested level-set decomposition. For superquadratic exponents the force-balance equation limits each derivative weight to one half, giving the upper bound, attained as a derivative at the two-extreme configuration. The Hilbert case is uniform averaging. For subquadratic exponents, monotonicity provides the universal factor two, and an explicit singular-weight center perturbation approaches it. The nonlinear finite checker passed, but the unrestricted claim rests on those arguments rather than numerical extrapolation.
+
+**Originality — PASS, provisional priority.** Kyng et al. (2015), Sections 3 and Appendix A, establish a sup-norm stability theorem for absolutely minimal Lipschitz extensions, not a finite-exponent two-input complete-pair Gini coefficient. Marano et al. (2002) establish convergence properties of best \(p\)-approximations, not the same operator variation norm. Closely related star \(p\)-harmonic sensitivity under leaf-to-edge Lipschitz seminorms does not imply this three-regime Gini formula, especially the distinct constants above and below \(p=2\). Searches for the same center under Gini mean difference, complete-pair variation, and insertion/barycenter terminology did not identify a covering theorem. Unindexed or alternative-norm equivalents remain a substantive priority risk.
+
+**Value — PASS.** Complete-pair Gini variation measures all label discrepancies rather than the maximum discrepancy used in sup-norm stability. The exact phase diagram explains a qualitative difference between \(p<2\), \(p=2\), and \(p>2\), with dimension-dependent sharp constants and explicit instability witnesses. It therefore quantifies the sensitivity of an established graph-interpolation rule under a mathematically natural distributional stability metric; it is not merely a finite table or a restatement of the existing sup-norm estimate.
+
+**Limitations.** Only equal-weight scalar stars are classified. This review does not establish a claim for arbitrary graphs, weights, other variation norms, or independent validation.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,99 @@
+{
+  "correctness": {
+    "rationale": "The nested cut decomposition yields an exact norm formula for any nonnegative unit-mass barycenter, including the correct source/target Gini normalization. Uniform weights give the Hilbert value; p>2 force balance and subadditivity of x^alpha with alpha=(p-2)/(p-1) imply all Jacobian weights <=1/2, and a two-extreme input attains the resulting sharp cut ratio locally. For p<2, the nonlinear center is monotone and translation equivariant so the full Gini ratio is <=2; an explicit perturbation at a datum equal to the center gives c_h/h->1 and hence the ratio ->2. Finite rational cut checks and nonlinear root checks passed but are not treated as proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kyng et al. 2015 full paper Sections 3, Appendix A.2: Theorem 7 bounds each output coordinate perturbation by the largest input perturbation.",
+        "Marano et al. 2002 Sections 2.1-2.2 concern convergence of best p-approximants at p tending to infinity."
+      ],
+      "reasoning": "The source sup-norm bound controls individual coordinates but does not fix the sharp complete-pair amplification. The Pólya approximation results concern a different limit, rather than a fixed-p two-input sensitivity norm. A previous leaf-to-edge Lipschitz estimate for a p-harmonic star does not dominate the complete-pair Gini estimate: the required norm comparison is not sharp and does not distinguish sides of p=2.",
+      "searches": [
+        "Absolutely minimal Lipschitz extension on finite graphs nonlinear extension operator perturbation bound graph metric infinity Laplacian uniqueness sensitivity",
+        "Stability of absolutely minimizing Lipschitz extensions on graph star trees boundary data norm",
+        "2014 p-Laplacian minimizers graph infinity limit Lipschitz learning quantitative rate"
+      ]
+    },
+    "checked_sources": [
+      "https://proceedings.mlr.press/v40/Kyng15.pdf",
+      "https://studylib.net/doc/10709111/j-i-p-a",
+      "https://proceedings.mlr.press/v40/Kyng15.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new p<2 coefficient is 2, whereas for p>2 it is 1+m/[2(m-1)] for all m>=3, a separation not present in the closest leaf/edge Lipschitz stability statement.",
+        "The proof uses bounded individual Jacobian masses <=1/2 for p>2 and a singular weight concentrating at a single leaf for p<2; neither mechanism follows from the established uniform sup-norm bound."
+      ],
+      "reasoning": "Same center object does not mean claim implication: an all-coordinate sup bound and a maximum-edge Lipschitz ratio cannot certify the exact complete-pair Gini norm. The old p-independent non-Hilbert Lipschitz coefficient would not yield the stated split; a distinct layer-cut calculation and force-balance argument are necessary.",
+      "searches": [
+        "p-harmonic Gini extension variation stability",
+        "sharp complete pair dispersion norm infinity harmonic extension min max on star extremizers",
+        "\"graph p-Laplacian\" \"total variation\" Lipschitz stability boundary perturbation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kyng et al. 2015, Thm. 7: ℓ-infinity stability of lex-minimal extension, not sum of absolute pairwise differences.",
+        "The complete-pair Gini seminorm equals graph total variation for the complete graph, but the studied extension graph is a star, and the measured variation is not its edge seminorm."
+      ],
+      "reasoning": "The equivalent formulation is a nonlinear map from a complete-graph variation seminorm on leaf differences to complete-graph variation on augmented differences. Even under the alternate name Gini mean difference, the normalization cancels only within fixed dimensions; a graph-edge norm or pointwise infinity norm does not give the coefficient. No equivalent treatment was found.",
+      "searches": [
+        "p-harmonic Gini extension variation stability",
+        "sharp complete pair dispersion norm infinity harmonic extension min max on star extremizers",
+        "\"p-harmonic\" \"Gini\" extension variation stability",
+        "\"midrange\" \"Gini\" Lipschitz extension graphs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic search returned different exact metrics for graph Lipschitz embeddings, conditional averaging, and star operators; no result with both the variational p-center and input-output complete-pair Gini ratio.",
+        "An indexed closest example was a finite-star fractional-incidence-gradient phase law, a linear spectral operator rather than the nonlinear center insertion."
+      ],
+      "reasoning": "No exact table of the specified operator norm was observed. This is negative search evidence only, not a proof of priority or uniqueness.",
+      "searches": [
+        "sharp Gini pairwise variation stability p-harmonic extension star nonlinear p-Laplace midpoint averaging",
+        "global pairwise dispersion total variation Lipschitz bound nonlinear order-preserving center insertion generalized barycenter p mean ℓp star graph Gini",
+        "\"best constant\" \"p-harmonic\" \"Gini\" \"star\""
+      ]
+    },
+    "rationale": "Kyng et al. (2015) supply a sup-norm perturbation bound for graph lex-minimizing extensions, and Marano et al. (2002) analyze convergence of finite p-best approximants. Neither inspected statement yields the sharp two-input complete-pair Gini coefficient for the variational p-center. A related star p-harmonic result formulated with leaf/edge Lipschitz seminorms uses different input/output seminorms and has identical nonquadratic constants, so it does not imply the new Gini distinction between p<2 and p>2. Published record searches found neighboring but not covering claims. Residual priority risk persists.",
+    "residual_risks": [
+      "Priority search cannot exclude unindexed treatments of Gini or complete-graph total variation under nonlinear barycenter insertion.",
+      "The same variational star p-center has been considered with different stability seminorms; a general transfer theorem not identified in the accessible sources could conceivably imply this special case.",
+      "Only the relevant sections of a 34-page principal article were inspected in detail; no claim to having searched every cited source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Presents p-energy minimizers and a sup-norm stability property for the lex-minimizing limit; does not establish the exact complete-pair Gini finite-p law.",
+        "evidence": "Theorem 7, PDF page 6, and Appendix A.2: bound is maximum terminal perturbation; Theorem 8 identifies finite-p energy minimizers and the p-to-infinity limit.",
+        "identifier_or_url": "https://proceedings.mlr.press/v40/Kyng15.pdf",
+        "material_read": "Full-text PDF, page 1 and Sections 1-3 statements; Theorem 7 and 8; Appendix A.2 proof (PDF pages 2,6,18-19).",
+        "method": "Read primary text and mathematically compared perturbation norm, graph, and exponent hypotheses.",
+        "title": "Algorithms for Lipschitz Learning on Graphs",
+        "trigger": "Same variational p-energy extension and a published stability theorem"
+      },
+      {
+        "assessment": "The primary content addresses rates of convergence of p-best approximants and does not state the new three-regime input-output Gini Lipschitz coefficients.",
+        "evidence": "Theorems 2.1, 2.3 and 2.5 bound p times approximation errors rather than two-input complete-pair variation.",
+        "identifier_or_url": "https://studylib.net/doc/10709111/j-i-p-a",
+        "material_read": "Accessible full-text HTML reproduction: Abstract, Section 2, Theorems 2.1, 2.3 and 2.5, isotonic example.",
+        "method": "Compared optimization target, fixed-p sensitivity versus convergence as p tends to infinity, and presence/absence of Gini pairwise norms.",
+        "title": "Rate of convergence of the discrete Pólya algorithm from convex sets: A particular case",
+        "trigger": "Prior finite-dimensional best p-approximation and p-to-infinity asymptotics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5e79cde5-fedf-48c9-98fc-1ea8a71f7bc3",
+  "value": {
+    "rationale": "The complete-pair Gini variation is a natural dispersion and robust-label metric distinct from sup and edge-Lipschitz norms. Its sharp two-input extension coefficient splits into genuinely different subquadratic, Hilbert, and superquadratic regimes, whereas the nearest known sup-norm law does not detect the split. The classification holds for all star sizes and all real exponents and supplies explicit sharpness mechanisms, giving usable constants for nonlinear graph interpolation sensitivity.",
+    "status": "PASS"
+  }
+}
