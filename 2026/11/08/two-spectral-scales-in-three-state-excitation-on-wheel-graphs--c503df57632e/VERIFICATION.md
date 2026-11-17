@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The independent small-graph simulator exhaustively processed all initial ternary states for rim sizes 3 through 10, agreeing with both exact transfer counts. `checks/verify_wheel.py` also checks the stated characteristic polynomials. The separate C light-cone checker exhaustively processed all 43,046,721 possible combinations of a 15-site initial window and hub phase, confirming equality of its central site's states after four and seven updates. The finite-radius lemma proves this suffices for all rim orders. The direct analytic no-tricolored-triangle argument covers the complementary extinction case. Neither checker establishes historical novelty or constitutes independent validation.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+The initial tricolored hub triangle is invariant under three-color rotation, while its absence leads to extinction in at most four steps by case analysis on initial hub state. With a persistent hub rotor, site t+7 depends only on the length-15 radius-seven light cone, so an exhaustive finite local comparison for all 3×3^15=43,046,721 rotor-phase/neighborhood pairs proves F^7=F^4 in every wheel size; independently compiled and ran the inspected C recurrence, and every comparison passed. Independent full-state wheel enumeration for n=3..7 reproduced the 3 and 4 entry bounds, E_n=3tr(S^n), and 3P_n=3(tr(T^n)-1). Transfer-matrix S counts cyclic words avoiding 12/21 after a hub relabeling, and T counts globally rotating rim words with fixed hub phase; the characteristic polynomials yield distinct positive Perron roots 1+sqrt(2) and ρ=2.205569... . No finite-size enumeration alone is used to extrapolate; the light-cone reduction proves uniform all-n recurrence.
+
+## originality
+
+PASS
+
+The qualitative circulation/conservativity synchronization criterion is classical (Gravner–Lyu–Sivakoff) and not new. The wheel-specific exact extinction basin, primitive orbit transfer matrices, sharp first-entry count, and distinct asymptotic exponential rates go beyond that general theorem; related published SCOPE studies concern other graph families.
+
+## value
+
+PASS
+
+For a natural infinite family of finite graph dynamical systems, the result gives complete exact basin and primitive-cycle counts and reveals sharply different rates for eventual recurrence and initial recurrence. The exhaustive finite light cone combined with symbolic transfer matrices is meaningful mathematical structure, not a bound inferred from simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
