@@ -1,0 +1,15 @@
+# Mathematical review: selective relaxation at the critical stochastic flip
+
+## Correctness
+**PASS.** The operator is a genuine quadratic simplex map because all coefficients are nonnegative and the three output coordinates sum to \((x_1+x_2+x_3)^2=1\). In scalar/imbalance coordinates the update is exactly triangular. The two-step scalar map is globally contractive in the absolute value of the centered scalar over its physical interval; inverse-square increments give the sharp original-generation \(n^{-1/2}\) coefficient. A second exact algebraic reduction cancels the linear forcing into a contracting transverse recursion, proving its \(n^{-1}\) coefficient. The two selective rates follow from the only zeros of the slow-vector component. The exceptional hyperplane is handled separately. Exact symbolic checker identities and finite numerical runs corroborate all critical arithmetic without substituting for the proof.
+
+## Originality
+**PASS within the inspected evidence.** Hardin–Rozikov 2018/2019, full relevant original text inspected, treats the same subfamily and gives qualitative convergence at the nonhyperbolic parameter, but does not provide the sharp full-vector asymptotic or the two selective cancellation ratios. The published scalar quadratic flip susceptibility result includes parabolic slowdown but has no asymmetric coupled population coordinate. The published Ricker-competition synchronization theorem and Khamrayev's 2019 quasi-strictly non-Volterra model concern different dynamical systems, verified from their defining equations. Relevant database records and original statements were compared by implication. A general transverse parabolic normal-form theorem might in principle subsume some steps; this is a residual priority risk, not proof of novelty from failed searches.
+
+## Value
+**PASS.** In heredity/population dynamics the convergence clock of each individual type is more informative than stability of the aggregate or scalar center coordinate. The theorem gives a complete, parameter-sharp and biologically feasible classification of an otherwise hidden relaxation-rate cancellation. The exact inheritance ratio \(2:5\), together with the nonzero coefficient \(-20/63\), demonstrates that a minority coordinate can converge a full power of the generation count faster despite continued slow oscillation in the remaining coordinates. This exact selective effect is not merely the textbook scalar flip exponent.
+
+## Boundaries and closest prior work
+The proof applies only to the critical subfamily \(a=\alpha=0\), \(e=1/4\). It makes no claim about varying-parameter uniformity or general four-parameter operators. The source's first-public posting is arXiv:1808.00229v1 (2018-08-01); its original primary classification is 37N25. The closest relevant general result is a published finite-time susceptibility crossover for the scalar quadratic flip; its statement is distinct from the species-selective coefficient/resonance theorem. Independent publication-priority certification and independent proof verification are outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
