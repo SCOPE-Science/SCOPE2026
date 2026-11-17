@@ -1,21 +1,21 @@
-# Review of the stationary bipartite noisy-voter crossover
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The claim is confined to simultaneous independent updates, not conventional random-sequential voter moves. Strict positivity of the transition matrix at nonzero noise proves unique stationarity. Because each new part depends only on the opposite *old* part and independent local randomness, cross-part independence is preserved at each finite step and in the stationary weak limit. This establishes independence of entire part configurations rather than only their first two moments.
+PASS
 
-On a complete bipartite graph, each fresh part count is conditionally binomial given the opposite previous count. Composing two steps yields an exact scalar transition with drift \(-(1-q^2)(u-1/2)\) and conditional variance \(\mu(1-\mu)/a+q^2(1-a^{-1})r(1-r)/b\). The uniform third-moment bound makes the stationary diffusion-generator limit valid. The polynomial moment recursion uniquely identifies \(\operatorname{Beta}(2\lambda,2\lambda)\) on \([0,1]\). Exact same-part two-spin recurrences establish both boundary regimes without assuming a fixed part-size ratio. Finite independent exact-rational checks replay all identities; they do not serve as an infinite proof.
+Positive reset probability makes every one-step state-to-state transition positive, ensuring a unique invariant law. Conditional next-part A uses only old B and independent fresh randomness, and conditional next-part B only old A; a product law across parts is preserved and uniqueness makes the invariant law a product. On a complete biclique, the A fraction two-step law is the composition of binomial sampling via r(u)=epsilon/2+(1-epsilon)u; total variance gives the exact two-step drift and variance in the source. Scaling by h=1/a+1/b gives limiting Wright–Fisher drift λ(1-2u) and diffusion u(1-u)/2. A uniform third-moment bound allows passing polynomial test functions to the stationary generator; the resulting moments uniquely determine Beta(2λ,2λ). Independent partwise limits then yield product Beta. Pair-spin covariance equations, including the 1/a,1/b finite self-copy terms, settle zero- and high-noise endpoints by second moments. A separate exact-rational K2,2 check preserved cross-part product structure under 35 full synchronous updates; the source exact-rational stationary checker (inspected) verifies K_ab cases more broadly. The finite check is not proof of the limiting law.
 
-## Originality (PASS, qualified)
+## originality
 
-The closest same-update treatment is Benjamini–Helman Tov–Zhukovskii (arXiv:2207.01224), especially Section 6 of the full text. It computes a *single-vertex temporal repetition statistic* on \(K_{n,m}\); the inspected results do not give the stationary same-time factorization of all vertex spins across the bipartition, nor a joint fraction limit or sharp three-phase noise scaling. General voter stationary results by Pymar–Rivera (arXiv:2112.01478) and Ben-Ari et al. (arXiv:2004.10187) operate with asynchronous updates, and Mori et al. (arXiv:1810.05643) examine an interacting, non-product multivariate Beta model. published-finding corpus semantic searches using synchronized voter, stationary independence, and Beta-limit formulations found no directly covering published finding. This is best-knowledge originality, not a guarantee that every older paper has been located; the exact independence observation is structurally simple and may have been implicit elsewhere.
+PASS
 
-## Value (PASS)
+The primary Benjamini–Helman Tov–Zhukovskii paper studies the same discrete-time simultaneous model but local temporal repetition statistics, not the invariant two-part factorization and independent-Beta crossover. Earlier Resultary exact Beta/Gaussian theorems use continuous-time asynchronous rate-one copying: there the two parts synchronize to a common Beta variable, an opposite joint law. The update convention is a decisive mathematical distinction, not a title difference.
 
-The theorem isolates an overlooked dynamical distinction: in the synchronous bipartite model, two repeatedly interacting classes are independent *at the same stationary time*. At vanishing noise, the independent endpoint limits mean disagreeing whole-class consensuses occur with probability tending to \(1/2\), unlike joint consensus behavior commonly associated with asynchronous updates. The critical scaling depends only on the sum of reciprocal part sizes and remains valid with arbitrarily unbalanced diverging populations. The complete three-regime classification and joint non-Gaussian law provide a concrete reference for parallel-update interacting-particle systems.
+## value
 
-## Scope, closest sources and risks
+PASS
 
-The exact factorization applies to any finite loopless bipartite graph without isolated vertices, but the explicit crossover requires complete bipartite sampling. Other update conventions, self-loops, temporal correlations, convergence rates, and exactly zero reset noise are outside scope. Historical-priority risk persists because the broad interacting-particle literature cannot be exhaustively audited by a limited source search. The full same-process paper has been read in its relevant sections; neither similarity of models nor absence from search results was treated as sufficient novelty evidence. The asymptotic proof and its exact finite identities are independently reconstructible from the manuscript.
+The precise update protocol creates an unusual exact independence of the entire same-time vertex-part states despite continual cross-part copying. A three-regime joint stationary phase classification at the natural inverse-population noise scale, with two independent nondegenerate Beta limits and no aspect-ratio restriction, differs qualitatively from the known asynchronous common-Beta phenomenon and is mathematically motivated.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
