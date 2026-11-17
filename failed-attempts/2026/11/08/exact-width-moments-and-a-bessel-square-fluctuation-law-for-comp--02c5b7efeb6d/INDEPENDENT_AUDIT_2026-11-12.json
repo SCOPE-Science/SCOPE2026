@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T10:16:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For symmetric edge roots of K(p,q), Gaussian support is S=max|X_i-Y_j| and intrinsic spherical width is W=2S/R with R chi distributed and independent of direction. Conditioning on Gaussian sample min/max gives exact CDF F_{p,q}(t), integrating the survival function and dividing by E R^r yields all positive moments. For p=q=m, four asymptotically independent Gaussian maxima give max of two independent sums of Gumbels; exponential products yield Bessel-square CDF, beta-integral gamma MGF and cumulants 2 gamma +1 and 3. Independent K(2,3) Gaussian CDF quadrature (~0.5140) versus a 140k Monte Carlo estimate (~0.5121), plus gamma differentiation, confirmed normalization; finite Monte Carlo does not prove asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier theorem covers fixed-part and both-growing imbalanced regimes, including balanced γ=1, whereas the submitted limit only treats balanced p=q and finite r-moments."
+        ],
+        "reasoning": "The earlier parameter coverage strictly dominates the asymptotic distribution regime. Its exact finite CDF determines all finite moments. Unimodular/facet-only literature is less decisive than this direct same-object prior.",
+        "searches": [
+          "Resultary search: complete bipartite symmetric edge polytope random directional width Bessel gamma Gumbel extremes",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-bessel-square-and-gumbel-crossover-in-random-widths-of-complete--7bf106914c88",
+          "Resultary query complete bipartite random width Gumbel gamma"
+        ]
+      },
+      "checked_sources": [
+        "Resultary search: complete bipartite symmetric edge polytope random directional width Bessel gamma Gumbel extremes",
+        "2026/11/08/exact-width-moments-and-a-bessel-square-fluctuation-law-for-comp--02c5b7efeb6d/RESULT.md at frozen commit",
+        "2026/11/08/exact-width-moments-and-a-bessel-square-fluctuation-law-for-comp--02c5b7efeb6d/AUDIT.json at frozen commit",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-bessel-square-and-gumbel-crossover-in-random-widths-of-complete--7bf106914c88",
+        "https://arxiv.org/abs/1807.07678"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published theorem Step 1: exact support max/min CDF. Step 4: Bessel-square integral. Step 5: joint convergence of first and second moments.",
+          "Standard Mellin transform of Z=min(E1E2,E3E4) gives Γ(s+1)^3Γ(s+2)/Γ(2s+2), yielding variance 3 and mean 2γ+1."
+        ],
+        "reasoning": "Each purported added statistic is a direct deterministic transform of the already known exact finite CDF or Bessel-square limit. Rewriting the normal integral conditioned on the other Gaussian sample cannot restore originality.",
+        "searches": [
+          "Resultary search: complete bipartite symmetric edge polytope random directional width Bessel gamma Gumbel extremes",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-bessel-square-and-gumbel-crossover-in-random-widths-of-complete--7bf106914c88"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 18 full primary published RESULT.md defines exactly P_{p,q}=conv ±(e_i-e_j), U intrinsic uniform, D=√d W/2, S=max cross |X_i−Y_j| and contains Pr(S<=t)=E[(Φ(min Y+t)−Φ(max Y−t))_+^p].",
+          "That same RESULT explicitly gives balanced limit CDF 4 e^{-x}K_1(2 e^{-x/2})^2."
+        ],
+        "reasoning": "The displayed CDF of submitted Y is algebraically the same expression; finite exact positive width moments follow from the earlier exact S-CDF via E S^r=r∫t^{r−1}Pr(S>t)dt and Gaussian radius independence.",
+        "searches": [
+          "Resultary search: complete bipartite symmetric edge polytope random directional width Bessel gamma Gumbel extremes",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-bessel-square-and-gumbel-crossover-in-random-widths-of-complete--7bf106914c88"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier full finite Gaussian-support CDF is an exact distribution-level representation, stronger than a list of moments for the same polytope; CDF was materially read."
+        ],
+        "reasoning": "No separate finite table is needed: the published exact distribution is a dominating exact database/formula from which each claimed moment can be calculated.",
+        "searches": [
+          "Resultary search: complete bipartite symmetric edge polytope random directional width Bessel gamma Gumbel extremes",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-bessel-square-and-gumbel-crossover-in-random-widths-of-complete--7bf106914c88"
+        ]
+      },
+      "rationale": "FAIL: The already-published October 18 complete-bipartite width theorem gives the same exact finite Gaussian-support CDF, the same balanced Bessel-square limit distribution, and first two centered moments convergence. The submitted finite r moment formula is the standard survival integral combined with the independent chi radius, and the gamma MGF/cumulants are directly determined by that prior same limiting distribution. No substantive mathematical remainder survives.",
+      "residual_risks": [
+        "No priority uncertainty affects rejection: a directly matching earlier published full theorem was materially inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS",
+          "evidence": "Exact original finite CDF and balanced Bessel-square limit plus convergence of first two moments imply the submitted integral formulas and cumulants.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-bessel-square-and-gumbel-crossover-in-random-widths-of-complete--7bf106914c88",
+          "material_read": "Full RESULT.md: complete finding, exact support CDF, fixed and growing part asymptotics, Bessel derivation, moments and limitations",
+          "method": "GitHub raw full text 2026-10-18",
+          "title": "Bessel-square and Gumbel crossover in random widths of complete-bipartite symmetric edge polytopes",
+          "trigger": "Same family, metric, Gaussian extremes, identical Bessel-square limit"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Facet/Ehrhart information not needed for decisive coverage because the October 18 width result is exact.",
+          "identifier_or_url": "https://arxiv.org/abs/1807.07678",
+          "material_read": "Published abstract and propositions cited by source proof, not its full text in this run",
+          "method": "arXiv abstract and assigned bibliography",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "Same graph-polytope family"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: While metric width laws for this natural polytope family are generally worthwhile, the entire submitted incremental content is an elementary integral-transform and Mellin/cumulant evaluation of an already complete exact finite distribution and limiting law. It does not provide an unknown structural invariant, new boundary or genuinely new classification after the implication comparison.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Simulated finite dimensions verify only normalization; earlier full theorem, not simulation, is decisive for coverage.",
+    "No priority uncertainty affects rejection: a directly matching earlier published full theorem was materially inspected."
+  ],
+  "schema_version": 1
+}
