@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The self-contained symbolic checker is `CHECK.py` (Python 3 with SymPy). It differentiates the actual polynomial planar epidemic–opinion field, checks the Hopf parameter surface, rederives the canonical real coordinates, obtains the first Lyapunov coefficient from derivatives, and verifies exact rational parameter crossings and endemic-root ordering. Execute `python CHECK.py` from the directory containing the files. A successful run prints `PASS`.
+## correctness
 
-The substantive existence of periodic orbits follows from the smooth finite-dimensional nondegenerate Hopf bifurcation theorem applied at the two exactly verified points; the symbolic script independently checks its hypotheses other than the abstract theorem. Exact calculations involve real rational algebra plus formal positive variables, not finite enumeration or numerical inference.
+PASS
 
-This verifies **local** behavior on the synchronous invariant set only. Positive periodic states remain below the opinion sign-switching threshold for sufficiently small amplitude. Neither unsynchronized stability nor global attraction is claimed. A point with vanishing first Lyapunov coefficient is identified but its higher degeneracy and cycle count are not classified.
+Specified three-community genuine triadic terms and symmetric opinion coupling leave the synchronous plane invariant; on negative-opinion sign region it has xdot=x[-d0−d1 y+q x(1−x)] and ydot=x−y. At s,w parametrization equilibrium has trace zero and determinant w²>0, with a lower saddle. The explicitly normalized real Hopf coordinates yield exact first Lyapunov coefficient [4s−1−2(1−2s)w²]/[8s(1−2s)²w²], independently reproduced by symbolic derivatives. At (s,w)=(1/4,1/2) and (1/3,1/2), l1=−2 and +9/4 and trace crossing speeds +1/8 and −7/9. Classical nondegenerate planar Hopf gives attracting versus repelling small cycles on the invariant synchronous plane, and IFT preserves both for sufficiently small positive pairwise transmission. No transverse/global stability claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison across relevant published findings and primary papers; no direct stronger theorem covering the precise final result was identified. Unread/inaccessible sources remain concrete priority risks rather than novelty certification.
+
+## value
+
+PASS
+
+Two qualitatively opposite nonlinear Hopf branches arise within one explicitly defined admissible higher-order epidemic–opinion model, while disease extinction can remain locally stable. The exact analytic sign boundary and positive-dyadic perturbation robustness are natural bifurcation invariants, beyond merely noting that other behavioral epidemics can oscillate. Model-specific limits and local/synchronous qualifier are essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

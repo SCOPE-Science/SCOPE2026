@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The original three-community equations reduce exactly to the displayed planar flow with genuine three-body infection and symmetric opinion coupling. The positive equilibrium and admissibility ranges are explicit. Both exact witnesses have purely imaginary simple eigenvalues, nonzero parameter-crossing speeds, and opposite nonzero first Lyapunov coefficients. The nondegenerate Hopf theorem then guarantees the asserted local cycles, and the implicit-function theorem establishes the small-positive-pairwise robustness. `CHECK.py` independently differentiates the claimed identities symbolically. Risk: claims do not extend to asymmetric initial states or large perturbations.
+## correctness
 
-**Originality — PASS (best-knowledge, qualified).** The primary 2026 model supplies the equations, synchronous invariant set, and equilibrium bifurcation criteria, but its inspected theorem concerns the endemic trace being strictly negative, rather than a nonlinear trace-zero Hopf calculation. A different 2022 SIS–behavior model already rigorously has epidemic limit cycles, so oscillations themselves are prior art. The assessed new point is an exact sign-changing first Lyapunov invariant and two opposite nondegenerate Hopf types for the 2026 higher-order epidemic–opinion equations, including persistence for positive pairwise infection. Research-record and published-source comparisons found no stronger covering implication. Risk: unindexed analyses or general normal-form results may imply parts of the calculation.
+PASS
 
-**Mathematical value — PASS.** The source's bistability picture distinguishes disease-free and endemic stationary states. The present work proves a qualitatively different endemic **periodic attractor** can coexist with locally stable extinction and that the same higher-order feedback family can undergo the opposite Hopf criticality. The sign boundary resolves whether a destabilizing endemic branch emits an attracting cycle or whether a repelling cycle surrounds the attracting branch. This matters for interpreting modeled recurrent outbreaks and for designing early-warning scenarios; it does not claim population-level epidemiological validation.
+Specified three-community genuine triadic terms and symmetric opinion coupling leave the synchronous plane invariant; on negative-opinion sign region it has xdot=x[-d0−d1 y+q x(1−x)] and ydot=x−y. At s,w parametrization equilibrium has trace zero and determinant w²>0, with a lower saddle. The explicitly normalized real Hopf coordinates yield exact first Lyapunov coefficient [4s−1−2(1−2s)w²]/[8s(1−2s)²w²], independently reproduced by symbolic derivatives. At (s,w)=(1/4,1/2) and (1/3,1/2), l1=−2 and +9/4 and trace crossing speeds +1/8 and −7/9. Classical nondegenerate planar Hopf gives attracting versus repelling small cycles on the invariant synchronous plane, and IFT preserves both for sufficiently small positive pairwise transmission. No transverse/global stability claimed.
 
-**Closest literature and limits.** Samadi et al. (arXiv:2608.31032, first posted 2026-08-31): exact governing system and strict-trace stability criterion; inspected model, invariant set, Theorem 2 and proof. Frieswijk et al. (arXiv:2203.04016): different coupled decision/SIS vector field with proven cycles; inspected full-text model (Eq. 6) and cycle theorem. Juher et al. (2020): behavior-induced cycles, accessible abstract only. The result does not claim global attraction, general network stability or nonlinear classification when the cubic coefficient vanishes. Independent novelty checking is still warranted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparison across relevant published findings and primary papers; no direct stronger theorem covering the precise final result was identified. Unread/inaccessible sources remain concrete priority risks rather than novelty certification.
+
+## value
+
+PASS
+
+Two qualitatively opposite nonlinear Hopf branches arise within one explicitly defined admissible higher-order epidemic–opinion model, while disease extinction can remain locally stable. The exact analytic sign boundary and positive-dyadic perturbation robustness are natural bifurcation invariants, beyond merely noting that other behavioral epidemics can oscillate. Model-specific limits and local/synchronous qualifier are essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
