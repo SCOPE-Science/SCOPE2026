@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T05:52:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md exact Jacobian/modal determinants, center reduction and certificate; actual verify.py symbolic tensor assertions",
+        "independent_turing.py/log original reaction Hessian and Q, harmonic response and cubic S>0, C<0"
+      ],
+      "rationale": "The displayed rational predator–prey reaction with diffusion diag(1,100) and Neumann length π√10 has homogeneous positive equilibrium u=v=h, with κ=(2−h)/(h(2+h)). Direct differentiation gives J(h)=[[1/2−h,−3/2+h²/4],[1/2,−1/2]], tr J=−h<0 and det J=(4+4h−h²)/8>0. At h_c=42−sqrt(43410)/5, D1(h_c)=0 (5h²−420h+138=0); n=0 and every n≥2 remain strictly stable. The critical right vector is (1,1/21), and reflection flips the first Neumann cosine. Hessian, third derivative tensor, and constant/second-harmonic inverses yield exact normal form dot t=S(κ−κ_c)t+Ct³+remainder with independently recomputed S≈0.113222629765>0, C≈−0.603782237456<0. Algebraic rational root isolation certifies signs, not mere floating-point signs. Standard analytic parabolic center manifold/implicit function theorem with spectral gap gives exactly two nearby positive, reflection-related, locally exponentially stable nonconstant equilibria for small κ>κ_c; no global result or all-parameter theorem is claimed.",
+      "residual_risks": [
+        "Local small-κ−κ_c analytical theorem; no global attractor or other parameter ranges.",
+        "Analytic parabolic regularity/center manifold assumptions require strictly positive equilibria away from the rational denominator singularity; all stated local states meet that boundary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang–Zou's general linear instability inequalities encompass the Turing threshold but omit the third derivative and center-manifold cubic sign in the examined sections. Song–Zou treats Turing–Hopf in a reaction without the cost parameter κ."
+        ],
+        "reasoning": "No inspected theorem with stronger parameter coverage implies C<0 for this fixed fear-cost model; near-threshold nonlinear stability needs extra analysis.",
+        "searches": [
+          "DOI 10.3934/mbe.2018035",
+          "Song–Zou 2014 Turing–Hopf",
+          "Resultary stable fear-cost first Turing threshold semantic query"
+        ]
+      },
+      "checked_sources": [
+        "Wang–Zou 2018 doi:10.3934/mbe.2018035 source model equation (81), linear Turing discussion and simulations",
+        "Song–Zou 2014 doi:10.1016/j.camwa.2014.04.015 cost-free Turing–Hopf study",
+        "Resultary semantic searches for fear-cost pattern cubic supercritical"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wang–Zou supplies original PDE and linear Turing onset; this new proof adds cubic C≈−0.603782 and S>0. Song–Zou's cubic concerns a different reaction tensor."
+        ],
+        "reasoning": "The existence and exponential stability of two nearby positive patterned equilibria is not a formal corollary of linear Turing instability and is the narrow surviving contribution.",
+        "searches": [
+          "Wang–Zou 2018 Eq.(81), mode inequalities",
+          "Song–Zou 2014 model and Turing–Hopf scope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The submitted reaction coincides with Wang–Zou Eq.(81) with rational specialization; prior source analyzes linear Turing criteria and numerical spatial patterns. Song–Zou cost-free model uses a different nonlinear F, so its cubic coefficient cannot be substituted."
+        ],
+        "reasoning": "Same PDE alone is partial coverage, not logical determination of the exact local center normal-form coefficient/stable branches.",
+        "searches": [
+          "Resultary: fear cost ratio dependent predator prey reaction diffusion supercritical Turing bifurcation center manifold cubic pattern stability Wang Zou 2018",
+          "DOI 10.3934/mbe.2018035 Eq.(81)",
+          "DOI 10.1016/j.camwa.2014.04.015"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier numerical pattern plots and linear threshold calculations do not provide the exact algebraic root/cubic normal form at κ_c. Independent symbolic arithmetic confirmed its sign; no identical coefficient found in actual available literature."
+        ],
+        "reasoning": "There is no natural standard database for this model-specific parabolic cubic normal-form constant. A matching formula in a supplement remains possible and is not ruled out by search failure.",
+        "searches": [
+          "Wang–Zou 2018 linear Turing pattern numerical figures",
+          "Resultary fear-cost supercritical pitchfork cubic stable patterns"
+        ]
+      },
+      "rationale": "The original Wang–Zou fear-cost-only reaction–diffusion model and linear Turing conditions are already published and receive no novelty credit. Its inspected model equation (81), linear spectral pattern criteria and simulation discussion do not determine the cubic sign or stability of two nonlinear near-threshold patterns. The Song–Zou Turing–Hopf normal form is for a different cost-free reaction tensor. The precise positive-rational specialization, analytic cubic coefficient and stable pitchfork constitute a best-of-knowledge separate result.",
+      "residual_risks": [
+        "A model-specific nonlinear cubic calculation may appear in unindexed appendices or later work despite no such statement in inspected published material.",
+        "Earlier Wang–Zou full text was inspected for model and Turing sections, not every supplementary attachment; do not treat absence of an indexed cubic as formal novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BASE_MODEL_AND_LINEAR_SCOPE_ONLY",
+          "evidence": "Derives linear Turing-instability conditions and numerical patterns, not the independently recomputed first-mode pitchfork cubic in the inspected source portions.",
+          "identifier_or_url": "https://doi.org/10.3934/mbe.2018035",
+          "material_read": "Publisher HTML mathematical-model Eq.(81) and its Turing-instability/pattern simulation discussion inspected; no claim to exhaustive inspection of supplements",
+          "method": "Lawful journal publisher HTML",
+          "title": "Pattern formation of a predator-prey model with the cost of anti-predator behaviors",
+          "trigger": "Original exact fear-cost model, particularly Eq.(81)"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_REACTION_ACCESS_LIMITED",
+          "evidence": "Cost-free reaction tensor cannot directly supply the fear-cost cubic; no whole-document negative conclusion.",
+          "identifier_or_url": "https://doi.org/10.1016/j.camwa.2014.04.015",
+          "material_read": "Available journal description and cited model distinction; full article not materially inspected this run",
+          "method": "Journal abstract and bibliography",
+          "title": "Spatiotemporal dynamics in a diffusive ratio-dependent predator-prey model near a Hopf–Turing bifurcation point",
+          "trigger": "Potential earlier nonlinear normal form with ratio dependence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wang–Zou 2018 doi:10.3934/mbe.2018035 source model equation (81), linear Turing discussion and simulations",
+        "Song–Zou 2014 doi:10.1016/j.camwa.2014.04.015 cost-free Turing–Hopf study",
+        "Resultary semantic searches for fear-cost pattern cubic supercritical",
+        "assigned RESULT.md exact Jacobian/modal determinants, center reduction and certificate; actual verify.py symbolic tensor assertions",
+        "independent_turing.py/log original reaction Hessian and Q, harmonic response and cubic S>0, C<0"
+      ],
+      "rationale": "Linear Turing instability alone does not establish existence or stability of a spatial pattern. An exact supercritical sign and pair of locally attracting positive equilibrium branches in a canonical fear-cost predator–prey diffusion model fill that physically motivated qualitative gap. The parameter specialization is a constructive rigorous nonlinear stability witness; it is local, not an unsupported general ecological claim.",
+      "residual_risks": [
+        "A model-specific nonlinear cubic calculation may appear in unindexed appendices or later work despite no such statement in inspected published material.",
+        "Earlier Wang–Zou full text was inspected for model and Turing sections, not every supplementary attachment; do not treat absence of an indexed cubic as formal novelty proof.",
+        "Local small-κ−κ_c analytical theorem; no global attractor or other parameter ranges.",
+        "Analytic parabolic regularity/center manifold assumptions require strictly positive equilibria away from the rational denominator singularity; all stated local states meet that boundary."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Local small-κ−κ_c analytical theorem; no global attractor or other parameter ranges.",
+    "Analytic parabolic regularity/center manifold assumptions require strictly positive equilibria away from the rational denominator singularity; all stated local states meet that boundary.",
+    "A model-specific nonlinear cubic calculation may appear in unindexed appendices or later work despite no such statement in inspected published material.",
+    "Earlier Wang–Zou full text was inspected for model and Turing sections, not every supplementary attachment; do not treat absence of an indexed cubic as formal novelty proof."
+  ],
+  "schema_version": 1
+}
