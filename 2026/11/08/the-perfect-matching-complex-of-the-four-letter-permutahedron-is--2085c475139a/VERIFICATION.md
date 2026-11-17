@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-Execute `python VERIFY.py` with Python 3.10 or later. The program uses only the Python standard library. The expected stdout is `VERIFICATION_OUTPUT.txt`. It asserts every property below and exits nonzero on any failure.
+## correctness
 
-- Perfect-matchings from graph recursion and independent vertex-subset dynamic programming: both 169.
-- Every nonempty facet submask enumerated: 379056 faces including empty, with exact 12-term face vector.
-- Complete acyclicity verification of both independently ordered matching choices: all 2550660 Hasse incidences each.
-- Forward signed Morse boundaries of sizes 10 by 40 and 40 by 6: exact ranks 10, 5 and zero composite.
-- Exact Bareiss unit minors: determinant +1 (10 by 10); determinant -1 (5 by 5).
-- Reverse signed Morse boundaries with exact ranks 7, 8 and 1 and zero composites.
-- Integral CW cancellation argument in dimensions 3-5 establishes full nonequivariant wedge homotopy, not only Betti numbers.
+PASS
 
-The source graph, face set, complete oriented Hasse graph and all integer Morse differentials are constructed in memory. The randomization-free certificate is a finite proof for this particular graph, not a theorem for larger permutahedra. Self-review has been completed; independent external audit has not been performed.
+The adjacent-transposition Cayley graph of S4 has 24 graph vertices and 36 edges; a face is any graph-edge subset extendible to a perfect matching. Independently enumerated 169 distinct perfect matchings and all 379,056 face masks, obtaining the asserted 12-entry f-vector. Reconstructed the source's ascending-edge toggle discrete-Morse matching: exactly 189,500 face/coface pairs; remaining 10 dimension-three, 40 dimension-four and 6 dimension-five critical augmented cells. Verified all 2,550,660 oriented Hasse incidences give an acyclic directed graph, and independently reconstructed signed Morse chain reductions: D4 is 10×40, D5 is 40×6, D4D5=0. Exact Bareiss computation of specified minors gave det(D4[all rows;cols (0,3,4,6,7,16,20,24,32,37)])=+1 and det(D5[rows (0,5,8,9,19);cols(1,2,3,4,5)])=-1, so both images primitive and ranks 10 and 5. The CW model starts in dimension three, so pi3 of wedge S3 is integer degree lattice; after elementary unimodular cell cancellations, pi4 of wedge S4 is also degree lattice. Hence full integral homotopy wedge 25 S4 plus one S5 (not just field homology), pure dimension 11 and not shellable.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: the earlier same-graph anti-forcing polynomial paper establishes 169 perfect matchings and their symmetry orbits, but no simplicial boundary, Morse cancellations, or perfect-extendibility homotopy; knowing its facet count does not fix 379,056-face topology. Honeycomb patch and polygonal line tiling primary theorems treat different graph families. Other permutahedron results concern ordinary graph independence, graph-metric Vietoris–Rips, or resonance graph, different simplicial functors. No earlier full homotopy calculation for this exact perfect-matching complex was found; the indexed same-date title is the assigned finding, not a prior independent source.
+
+## value
+
+PASS
+
+PASS: the standard finite 3-dimensional permutahedron is a canonical natural graph, its perfect-matchings are central objects, and the exact integral homotopy type of the full complex of extendible matchings is an independently useful invariant. A pure eleven-dimensional simplicial complex with lower-degree torsion-free mixed wedge of 25 four-spheres and a five-sphere yields a meaningful nonshellability obstruction and extends the natural perfect-matching complex census. This is a motivated exact finite classification, not just re-tallying known 169 facets.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
