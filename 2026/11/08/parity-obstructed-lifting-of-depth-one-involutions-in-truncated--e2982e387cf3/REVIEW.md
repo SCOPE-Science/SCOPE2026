@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof gives a leading-commutator parity lemma and a triangular coefficient recursion: every even obstruction uniquely solves for one odd-indexed coefficient, and odd-degree obstructions automatically vanish. It proves all dimensions and lifting claims for every field of characteristic two. The checker confirms independent finite compositions for three binary fields and multiple truncations. Finite tests are corroboration only.
+## correctness
 
-## Originality — PASS (provisional)
-Lubin (2011), citing Klopsch, classifies *actual* formal torsion up to conjugacy, but does not determine the finite involution jets that do not lift. Szechtman (arXiv:2610.01469) presents finite truncated substitution groups through degree fifteen over prime fields, not the unbounded all-characteristic-two-field lifting classification. The nearest matching published-finding corpus record addresses odd-characteristic brace socles rather than involution jets. Pálfy (1998) counts conjugacy classes in selected finite quotients; its full text was not retrieved. An unidentified general theorem may still dominate the result; novelty is not independently certified.
+PASS
 
-## Value — PASS
-The Nottingham group's ramification filtration is a basic pro-p group invariant. The theorem shows that the natural map from genuine order-two formal series to finite quotient order-two points is surjective at every even depth-one truncation, but misses a smooth divisor at every odd truncation. Both the geometric structure and a uniform point-count ratio hold at all lengths and over every binary extension field.
+PASS: Read actual frozen RESULT.md (Git blob 5895d4d358c345f351588747026513d5743276fb) and characteristic-two truncated composition checker. For f=t+a2*t^2+... with a2 nonzero, the first nontrivial term of f^2 is necessarily even: commutation of f with f^2 gives the leading obstruction r*a2*b in degree r+1, impossible if r odd. The even coefficient E_(2j) is triangular with invertible coefficient a2 on a_(2j-1), and independent of later coefficients. Thus odd-indexed coefficients are uniquely determined for full lifts, even-indexed coefficients free; N=2m jets all lift, N=2m+1 jets have exactly one codimension-one next-coefficient condition. This yields the reduced G_m x A^floor((N-1)/2) geometry and both finite-field counts for every field of characteristic two. Independently recomputed F2 truncated composition at N=2..9 (depth-one/lift counts 1/1, 2/1, 2/2, 4/2, 4/4, 8/4, 8/8, 16/8). Finite examples corroborate but do not prove infinite-field result; nilpotent or nonreduced equation schemes explicitly excluded.
 
-## Scope and limits
-The claimed geometry is reduced and only in characteristic two and depth one. No statement is made for deeper elements or the nonreduced involution scheme. No external mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best-of-knowledge: distinguishing nonliftable finite order-two jets from formal genuine involutions is a distinct question from classical torsion conjugacy. Relevant primary Lubin article sections were read; Szechtman truncation-paper title and abstract examined, full text inaccessible; Resultary semantic search finds related finite Nottingham conjugacy and other torsion, not the present all-level affine stratum/liftability ratio. No stronger implication located, but inaccessible full Szechtman text and unindexed torsion-lifting results remain genuine risks.
+
+## value
+
+PASS
+
+PASS: Natural depth-one ramification stratum of finite substitution-group quotients; exact dimension, scheme reduction, and arithmetic proportion of liftable involutions answer a structured and reusable torsion-lifting obstruction question at every cutoff, not merely restating a conjugacy theorem or tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
