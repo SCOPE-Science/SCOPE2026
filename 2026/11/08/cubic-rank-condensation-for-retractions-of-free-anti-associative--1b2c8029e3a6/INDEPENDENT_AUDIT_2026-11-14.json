@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T09:48:34Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob790ba630895412fff9fd04b8721db57f85a0d16b",
+        "Remm arxiv2202.10812 section2.3 full paper and screenshot confirms free dimensions k+k²+k³ and multiplication",
+        "independent_math_checks.json confirms quartic exponent equality, irrational alpha polynomial, n2 q3 rank1 count 6377292",
+        "source verify.py blob607b9d52166c223aa158833761813de5c3921211 uses a non-formula finite canonical projector check"
+      ],
+      "rationale": "The anti-associative relation over char≠2 forces all length-four products to zero while preserving independent degree-one, degree-two and right-nested degree-three words. The actual RESULT.md constructs the free algebra V⊕V⊗²⊕V⊗³ with sign -(uv)w=u(vw), and arbitrary generator images determine homomorphisms. Any composition-idempotent e induces an idempotent P on V; choose basis U=image P,W=ker P and set g(u)=e(u),g(w)=w−e(w). This is identity mod the square, hence a filtered automorphism; e g=g P on generators, so e=gPg^-1, with image isomorphic F_r and rank d(r). The kernel G of automorphisms fixing V/J is the independent affine generator higher-degree shifts, of size q^{nB(n)}; commuting with P forces shifts in U to U-only words (B(r)) and those in W to words with W letters (B(n)−B(r)). Orbit-stabilizer yields q^{r(B(n)−B(r))+(n−r)B(r)} lifts per fixed P, times {n brack r}_q q^{r(n-r)} linear projections. Image orbit size is {n brack r}_q q^{r(B(n)−B(r))}, and fixed-image fibers q^{(n-r)d(r)}. Independent symbolic expansion reproduced quartic E_n=-2r^4+(n−2)r³+(n−2)r²+(n³+n²+2n)r, with uniformly bounded Gaussian correction. Its limit f(t)=t+t³−2t⁴ has unique strict interior maximizer alpha solving 8alpha³−3alpha²−1=0 and negative second derivative; for all sufficiently large n the integer ranks outside floor/ceil x_n lose order n² in log_q weight, giving the stated exponentially small leakage. Independent n=2,q=3 formula gives 4*3^13=6,377,292 rank-one endomorphisms, consistent with 3^12 per fixed degree-one projection and 3^3 per embedded image. These finite checks are not the proof of all n or asymptotic concentration.",
+      "risks": [
+        "Proof and free basis specifically char≠2; no characteristic two generalization is asserted.",
+        "Asymptotic q fixed; constants not uniform in field size."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published full Lie formula has r+binom r2 and exponent cubic E; it assumes anticommutative exterior tensor, not general associative-anticommutative tensor cubic",
+          "Truncated symmetric cube-zero algebras have commutative quadratic layer, nilpotent class2, not antiassociative cubic layer"
+        ],
+        "reasoning": "These are analogous but different identities, so none supplies the quantified target formula via an object-preserving reduction. There is no assumed general theorem that would dominate all operadic identities.",
+        "searches": [
+          "Resultary free class-two Lie retractions exact rank spectrum and two-point concentration 2026/11/8",
+          "Resultary 2026/10/13 cube-zero truncated symmetric algebra retractions",
+          "search free operadic algebra projective retract rank Gaussian"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md blob790ba630895412fff9fd04b8721db57f85a0d16b",
+        "https://arxiv.org/pdf/2202.10812 full text §2.3",
+        "https://arxiv.org/pdf/2301.02627 full text §6",
+        "Resultary full same-day class-two Lie rank-spectrum RESULT"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Underlying G=unipotent automorphisms and its commuting stabilizer dimension B(n),B(r) not computed by those statements",
+          "The rank concentration root alpha≈0.6610 differs from Lie (1+sqrt7)/6≈0.6076"
+        ],
+        "reasoning": "The prior facts are important premises/analogs but do not entail exact all q,n enumeration and new large rank condensation without nontrivial algebra-specific counting and asymptotics.",
+        "searches": [
+          "Remm free antiasociative basis vs target orbit stabilizer",
+          "Cerqua–Facchini idempotent preLie semidirect vs full enumeration",
+          "Lie free class-two formula vs cubic tensor lift"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Remm full §2.3: F_n dimension n+n²+n³, no rank census",
+          "Cerqua–Facchini §6: general idempotent ↔ ideal/subalgebra splitting in pre-Lie algebras, no enumeration"
+        ],
+        "reasoning": "General structural language of retracts is prior, but formula {n brack r}_q and fiber q^{(n-r)d(r)} plus quartic saddle are not equivalent statements in these works.",
+        "searches": [
+          "Resultary semantic free anti-associative algebra rank retractions idempotent enumerator",
+          "Remm arxiv2202.10812 free antiassociative automorphism endomorphism",
+          "Cerqua–Facchini arxiv2301.02627 idempotent semidirect §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Remm gives dimension polynomial n+n²+n³, not endomorphism counts",
+          "Lie and symmetric table formulas use different dimensions and center structures"
+        ],
+        "reasoning": "No known exact anti-associative image census or Gaussian polynomial of the target structure was identified in searched primary sources.",
+        "searches": [
+          "Resultary search embedded image counts free antiasociative finite q",
+          "Remm §2.3 basis tables vs finite q retraction tables"
+        ]
+      },
+      "rationale": "Remm 2022/2024 complete primary paper explicitly determines the free anti-associative algebra and three homogeneous dimensions; it does not count composition-idempotent endomorphisms or images. Cerqua–Facchini 2023 full pre-Lie paper, §6, gives abstract retraction/semidirect correspondence in a different algebra variety, no q-Gaussian enumerator. The highly similar published Resultary class-two Lie census was read in full: its F_n=V⊕∧²V, ranks r+binom(r,2), and quadratic-large-deviation saddle are not the odd-char anti-associative cubic tensor algebra. The entire enumerator and quartic asymptotic are neither renaming nor numerical specialization. A general operadic projection formula might provide an alternative but no directly covering finite-field formula was located.",
+      "residual_risks": [
+        "The older general literature on free operadic retracts/filtered automorphism groups may express some counts under different terminology. This was not exhaustively eliminated.",
+        "Remm states char0; extension to odd char requires, and actual source provides, direct algebra basis proof, not blind characteristic transport."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATION NOT COVERING: free graded dimensions and multiplication established, not idempotent rank census",
+          "evidence": "Remm §2.3 k+k²+k³; published arxiv v2 2024-04-10, initial 2022-02-22",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.10812",
+          "material_read": "Full 24-page arXiv v2 PDF, §2.3 including page8 multiplication table and degree basis, other section synopsis",
+          "method": "Read PDF text and visual screenshot of page8 basis and structure constants",
+          "title": "Anti-associative algebras",
+          "trigger": "Direct exact same free anti-associative object and basis, potential prior enumeration"
+        },
+        {
+          "assessment": "RELATED GENERAL IDEA: pre-Lie (different variety), abstract equivalence of retractions and direct sums; no q enumeration or anti-associative cubic layer",
+          "evidence": "§6 Prop15 gives e ↔ ker(e)⊕im(e) for preLie algebra",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.02627",
+          "material_read": "Full 21-page primary arxiv PDF, §6 pages17–19 including Proposition15, definitions and semidirect decomposition",
+          "method": "Read PDF with screenshot and targeted §6 text",
+          "title": "Pre-Lie algebras, their multiplicative lattice, and idempotent endomorphisms",
+          "trigger": "Uses idempotent endomorphisms and split algebra objects"
+        },
+        {
+          "assessment": "ANALOG NOT COVERING: exterior-square second layer vs tensor-square plus tensor-cube antiassociative layers",
+          "evidence": "Lie image dimension r+binom r2; antiassoc r+r²+r³; Lie saddle alpha=(1+sqrt7)/6",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-retraction-rank-spectrum-and-two-point-concentration-in-fr--8cb566c6da84",
+          "material_read": "Full published RESULT.md including class-two Lie normal form, enum, exponent and proof",
+          "method": "Read full theorem and compare object multiplication and r-dependent exponent",
+          "title": "Exact retraction-rank spectrum and two-point concentration in free class-two Lie algebras",
+          "trigger": "Same kind of Gaussian rank enumeration and two-point law, plausible broad equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Retractions classify genuine direct-factor algebra decompositions; the complete family-wide image orbit and fixed-fiber census over every odd finite field is a natural structural invariant of the free anti-associative variety. The new cubic graded layer changes the growth exponent from class-two analogues and yields an irrational rank-condensation fraction and two-integer window at exponential accuracy. This is motivated, mathematically nonroutine classification, not just a rebranding of q-linear projections.",
+      "risks": [
+        "The asymptotic concentration does not determine fine probability split between the two adjacent ranks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md blob790ba630895412fff9fd04b8721db57f85a0d16b",
+    "https://arxiv.org/pdf/2202.10812 full text §2.3",
+    "https://arxiv.org/pdf/2301.02627 full text §6",
+    "Resultary full same-day class-two Lie rank-spectrum RESULT"
+  ],
+  "disposition": "passed",
+  "final_claim": "Over every odd F_q, free nonunital anti-associative algebra F_n with graded dimensions n,n²,n³ has composition-idempotent endomorphisms of ranks d(r)=r+r²+r³ only, with exact embedded image count {n choose r}_q q^{r(B(n)-B(r))}, retractions per image q^{(n-r)d(r)}, and two-point concentration near irrational alpha≈0.6610498 times n at q^{-c n²} error.",
+  "limitations": [
+    "Requires odd-characteristic finite fields, nonunital algebra maps and composition idempotence, not idempotent elements.",
+    "Two-neighbor concentration is asymptotic for fixed q and does not determine the dominant neighbor in each n."
+  ],
+  "residual_risks": [
+    "The older general literature on free operadic retracts/filtered automorphism groups may express some counts under different terminology. This was not exhaustively eliminated.",
+    "Remm states char0; extension to odd char requires, and actual source provides, direct algebra basis proof, not blind characteristic transport."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "FOUNDATION NOT COVERING: free graded dimensions and multiplication established, not idempotent rank census",
+      "evidence": "Remm §2.3 k+k²+k³; published arxiv v2 2024-04-10, initial 2022-02-22",
+      "identifier_or_url": "https://arxiv.org/pdf/2202.10812",
+      "material_read": "Full 24-page arXiv v2 PDF, §2.3 including page8 multiplication table and degree basis, other section synopsis",
+      "method": "Read PDF text and visual screenshot of page8 basis and structure constants",
+      "title": "Anti-associative algebras",
+      "trigger": "Direct exact same free anti-associative object and basis, potential prior enumeration"
+    },
+    {
+      "assessment": "RELATED GENERAL IDEA: pre-Lie (different variety), abstract equivalence of retractions and direct sums; no q enumeration or anti-associative cubic layer",
+      "evidence": "§6 Prop15 gives e ↔ ker(e)⊕im(e) for preLie algebra",
+      "identifier_or_url": "https://arxiv.org/pdf/2301.02627",
+      "material_read": "Full 21-page primary arxiv PDF, §6 pages17–19 including Proposition15, definitions and semidirect decomposition",
+      "method": "Read PDF with screenshot and targeted §6 text",
+      "title": "Pre-Lie algebras, their multiplicative lattice, and idempotent endomorphisms",
+      "trigger": "Uses idempotent endomorphisms and split algebra objects"
+    },
+    {
+      "assessment": "ANALOG NOT COVERING: exterior-square second layer vs tensor-square plus tensor-cube antiassociative layers",
+      "evidence": "Lie image dimension r+binom r2; antiassoc r+r²+r³; Lie saddle alpha=(1+sqrt7)/6",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-retraction-rank-spectrum-and-two-point-concentration-in-fr--8cb566c6da84",
+      "material_read": "Full published RESULT.md including class-two Lie normal form, enum, exponent and proof",
+      "method": "Read full theorem and compare object multiplication and r-dependent exponent",
+      "title": "Exact retraction-rank spectrum and two-point concentration in free class-two Lie algebras",
+      "trigger": "Same kind of Gaussian rank enumeration and two-point law, plausible broad equivalence"
+    }
+  ]
+}
