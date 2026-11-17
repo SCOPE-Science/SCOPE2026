@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-The accompanying `check.py` uses only the Python 3 standard library and may be executed with `python3 check.py`. Its actual stdout is recorded verbatim in `check_output.txt`. It checks the CRT selection condition, the two-digit range, the digit sums, and simultaneous modular witness conditions for all 1343 admissible pairs with odd bases from 3 to 301 and even differences from 2 to 42. For the parameter pairs (11,4) and (21,4), it additionally calculates the full integers and independently checks their digit sums and gcds.
+## correctness
 
-The proof needs no numerical search: the CRT existence argument is valid for arbitrarily many prime factors, simultaneous prime congruences follow from Fermat's theorem, and the two-digit bound eliminates all possible extra prime factors of the number-minus-digit-sum discrepancy. These are universal algebraic steps, not extrapolations from the checker. The verification does not establish originality, an independent audit, or the conjecture beyond the claimed inequality.
+PASS
+
+For every prime q|b-1, the p-1 forbidden residues for c modulo q do not exhaust q, because either q|d leaves one forbidden class or q≥p. CRT yields 0≤c≤b-2 with gcd(b-1,1+c+jd)=1. The short-width bound gives x_j=c+jd<2b, hence s_b(x_j)=x_j-(b-1)e_j for e_j∈{0,1}; simultaneous m≡1 mod q-1 makes b^m≡b modulo all digit-sum prime factors. A hypothetical common factor divides (b-1)(1+e_j), supported only on primes of b-1 since b odd, contradicting CRT. The known p-divisibility obstruction gives sharpness; independent full-integer checks for b=11 and 21 d=4 plus modular witnesses at further bases corroborate.
+
+## originality
+
+PASS
+
+The established p-1 obstruction and difference-2 existence are credited. The other same-day fixed-d construction requires larger base and gcd restrictions absent here; it does not imply the b=11,d=4 four-term extremum or the all-eligible-base short-stride family. The new CRT argument genuinely extends a natural open even-step question.
+
+## value
+
+PASS
+
+The exact length of arithmetic progressions avoiding shared digit-sum factors is a natural Niven-theory invariant. The theorem proves sharp attainment for an infinite structured range of base and prescribed even-step parameters, including the previously untreated concrete d=4,p=5 boundary; it answers a motivated partial case of the explicit published conjecture rather than recomputing a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
