@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T16:05:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All k+1 marker one-starting and sum(g_j) zero-starting rotations are distinct because g_k is a unique maximum. A zero-starting rotation with t leading zeros sorts first for larger t; within a fixed t bucket the subsequent distinct zero gaps order the eligible j indices as k−1,...,m,k, so predecessor letters are 1 exactly at t=g_j. Counting intervening bucket sizes produces the full 1,0^(d_k−1),1, product_j 0^((k−j+1)d_j)1, 0^(kd_1),1,0 expression and run count 2k+2−2[d_k=1]. Explicit one-starting tail and k=2 empty product were checked. Independently sorted every full cyclic rotation for 1089 increment vectors d_i∈{1,2,3}, 2<=k<=6; full output strings matched.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier restricted polynomial gaps force particular increment laws, whereas submitted d_j may be arbitrary positive integers.",
+          "Other Resultary paperfolding/dyadic results concern single morphic sequences."
+        ],
+        "reasoning": "A polynomial-gap run-count theorem does not imply a full arbitrary-gap BWT word or the sharp last-gap increment boundary.",
+        "searches": [
+          "Burrows Wheeler transform strictly increasing gaps zero runs cyclic word binary 1 0^g1 1 0^g2 1 explicit runs",
+          "Burrows Wheeler transform arbitrary increasing zero gaps complete run lengths formula",
+          "https://arxiv.org/abs/2404.10426"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2404.10426",
+        "https://arxiv.org/abs/2202.02609",
+        "Resultary searches Burrows Wheeler transform strictly increasing gaps zero runs cyclic word binary 1 0^g1 1 0^g2 1 explicit runs ; Burrows Wheeler transform arbitrary increasing zero gaps complete run lengths formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Precursor explains why ordering by subsequent gaps matters, but only analyzes special words/run sensitivity.",
+          "Exact arbitrary-gap construction handles boundary markers and every symbol."
+        ],
+        "reasoning": "The precursor technique may be adaptable to derive the result, but the specific complete general statement is not already a corollary stated in the inspected primary paper. Historical broad unwritten version remains a risk.",
+        "searches": [
+          "Burrows Wheeler transform strictly increasing gaps zero runs cyclic word binary 1 0^g1 1 0^g2 1 explicit runs",
+          "Burrows Wheeler transform arbitrary increasing zero gaps complete run lengths formula",
+          "https://arxiv.org/abs/2404.10426"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Giuliani et al Section 4 has polynomial-gap examples, exact bounds on numbers of runs, and a next-gap rotation-order idea.",
+          "Submitted result gives all individual BWT output symbols and lengths for arbitrary strictly increasing g_j."
+        ],
+        "reasoning": "The new formula is more detailed and has a larger independent gap vector parameter domain than the cited polynomial construction.",
+        "searches": [
+          "Burrows Wheeler transform strictly increasing gaps zero runs cyclic word binary 1 0^g1 1 0^g2 1 explicit runs",
+          "Burrows Wheeler transform arbitrary increasing zero gaps complete run lengths formula",
+          "https://arxiv.org/abs/2404.10426"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching all-increasing-gap full output table found in inspected general BWT literature.",
+          "Source formula yields ordered zero-block lengths depending separately on every d_j."
+        ],
+        "reasoning": "This is not recomputation of a finite known table; it is a uniform parametric output theorem even for exponentially large words.",
+        "searches": [
+          "Burrows Wheeler transform arbitrary increasing zero gaps complete run lengths formula",
+          "https://arxiv.org/abs/2202.02609"
+        ]
+      },
+      "rationale": "Giuliani et al 2024/2025 primary paper studies polynomial zero-gap families and sensitivity/run-count phenomena; its section 4 rotation-comparison insight is acknowledged, but inspected theorem does not state the entire transform for arbitrary strictly increasing integer gaps or the d_k=1 boundary. Published Resultary BWT transforms for particular morphic words or fixed three/four ones are not general dominating claims.",
+      "residual_risks": [
+        "Potential old general arbitrary-monotone-gap rotation-bucket formula implicit in unindexed BWT theory.",
+        "New run-count itself closely related to known polynomial-gap examples; accepted novelty relies on complete general arbitrary-gap RLE theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_ANTECEDENT_NOT_COMPLETE_ARBITRARY_GAP",
+          "evidence": [
+            "Polynomial-gap run-count and rotation comparison; no complete arbitrary-gap full-string RLE statement in inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.10426",
+          "material_read": "Complete openly accessible 2025 journal/preprint mathematical PDF, including Section 4 polynomial-gap construction and run-count claims; rendered page inspected",
+          "method": "Full primary PDF and web theorem inspection",
+          "title": "Bit Catastrophes for the Burrows-Wheeler Transform",
+          "trigger": "Closely matching increasing zero-gap words and rotation-order argument"
+        },
+        {
+          "assessment": "DIFFERENT_CLASS",
+          "evidence": [
+            "Purely morphic words versus arbitrary increasing gaps; asymptotic rather than all output positions."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.02609",
+          "material_read": "Paper abstract/main result overview, not a whole-document noncoverage certification",
+          "method": "OA result inspection",
+          "title": "Logarithmic Equal-Letter Runs for BWT of Purely Morphic Words",
+          "trigger": "Potential wider BWT run theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact run-length-encoded BWT for a full variable-gap family is a natural combinatorial compression invariant; gives O(k) compressed construction without sorting an O(sum g) word and a sharp single-increment phase switch.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2404.10426",
+    "https://arxiv.org/abs/2202.02609",
+    "Resultary searches Burrows Wheeler transform strictly increasing gaps zero runs cyclic word binary 1 0^g1 1 0^g2 1 explicit runs ; Burrows Wheeler transform arbitrary increasing zero gaps complete run lengths formula"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Circular no-sentinel BWT for strictly increasing positive gaps and adjacent endpoint marker only; tied/nonmonotone gaps excluded."
+  ],
+  "residual_risks": [
+    "Potential old general arbitrary-monotone-gap rotation-bucket formula implicit in unindexed BWT theory.",
+    "New run-count itself closely related to known polynomial-gap examples; accepted novelty relies on complete general arbitrary-gap RLE theorem."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PARTIAL_ANTECEDENT_NOT_COMPLETE_ARBITRARY_GAP",
+      "evidence": [
+        "Polynomial-gap run-count and rotation comparison; no complete arbitrary-gap full-string RLE statement in inspected material."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2404.10426",
+      "material_read": "Complete openly accessible 2025 journal/preprint mathematical PDF, including Section 4 polynomial-gap construction and run-count claims; rendered page inspected",
+      "method": "Full primary PDF and web theorem inspection",
+      "title": "Bit Catastrophes for the Burrows-Wheeler Transform",
+      "trigger": "Closely matching increasing zero-gap words and rotation-order argument"
+    },
+    {
+      "assessment": "DIFFERENT_CLASS",
+      "evidence": [
+        "Purely morphic words versus arbitrary increasing gaps; asymptotic rather than all output positions."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2202.02609",
+      "material_read": "Paper abstract/main result overview, not a whole-document noncoverage certification",
+      "method": "OA result inspection",
+      "title": "Logarithmic Equal-Letter Runs for BWT of Purely Morphic Words",
+      "trigger": "Potential wider BWT run theorem"
+    }
+  ]
+}
