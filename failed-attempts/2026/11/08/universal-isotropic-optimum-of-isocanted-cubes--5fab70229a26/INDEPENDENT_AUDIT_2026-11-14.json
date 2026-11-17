@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T22:13:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The purported result follows correctly by exact spread-chamber integration for K_d(t)=[-1,1]^d+[-t,t]1: vol=2^d(1+dt), lambda_parallel=(1+2t+dt²)/3 and lambda_perp=[1+(d+2)t]/[3(1+dt)], and the determinant defines the volume-normalized isotropic constant. Independently verified symbolic logarithmic derivative 2d(d−1)t(t−1)/[(1+dt)(1+(d+2)t)(1+2t+dt²)] and minimum ratio (d+3)^d/(d+1)^(d+1). d>=2, t>=0; unique t=1. The all-dim conditional-integration argument is independent of the finite exact convex-hull checker. The theorem is mathematically correct but this alone does not mean novel.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The fully inspected https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-covariance-and-quantitative-isotropic-profile-of-one-edge--8efca44e3b81 states the entire covariance, determinant and optimizer profile for arbitrary d≥2, t≥0; also gives second derivative at t=1.",
+          "It credits a stronger general minimization result due to Kipp for zonotopes with at most d+1 generators."
+        ],
+        "reasoning": "The prior full-parameter covariance result dominates every scientific component. Kipp's geometric minimization theorem separately subsumes the claimed uniqueness, so nothing survives under a narrower formulation.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-covariance-and-quantitative-isotropic-profile-of-one-edge--8efca44e3b81",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-uniform-volume-covariance-and-latent-interval-law-for-isocanted--da9911a588e4",
+          "Kipp Isotropic constants and regular polytopes Proposition 6.5 arXiv:2407.01353"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query uniform volume covariance isotropic constant isocanted cube diagonal zonotope sharp minimum t=1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-covariance-and-quantitative-isotropic-profile-of-one-edge--8efca44e3b81",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-uniform-volume-covariance-and-latent-interval-law-for-isocanted--da9911a588e4",
+        "Kipp arXiv:2407.01353"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Explicit source finding: prior lambda_parallel_old=(1+2t+dt²)/12, lambda_perp_old=(1+(d+2)t)/(12(1+dt)).",
+          "The submitted versions multiply by 4; the ratio R_d(t) and sign of its logarithmic derivative are exactly preserved."
+        ],
+        "reasoning": "Prior source ⇒ current theorem by dilation x↦2x and the definition of isotropic constant. The same unique minimizer was independently established in a stronger prior general class. Thus originality FAIL decisively.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-covariance-and-quantitative-isotropic-profile-of-one-edge--8efca44e3b81",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-uniform-volume-covariance-and-latent-interval-law-for-isocanted--da9911a588e4",
+          "arXiv:2407.01353"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-covariance-and-quantitative-isotropic-profile-of-one-edge--8efca44e3b81 defines K_old=[−1/2,1/2]^d+[−t/2,t/2]1, exactly (1/2) K_submitted.",
+          "Its covariance eigenvalues are (1+2t+dt²)/12 and [1+(d+2)t]/[12(1+dt)]; multiplying by four gives the submitted formulas exactly."
+        ],
+        "reasoning": "An explicit homothety identifies the two objects and transforms all terms. The affine-invariant normalized isotropic functional is unchanged under homothety. Hence different cube scale and graphical-zonotope terminology do not distinguish the mathematics.",
+        "searches": [
+          "uniform volume covariance isotropic constant isocanted cube diagonal zonotope sharp minimum t=1",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-covariance-and-quantitative-isotropic-profile-of-one-edge--8efca44e3b81",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-uniform-volume-covariance-and-latent-interval-law-for-isocanted--da9911a588e4",
+          "arXiv:2407.01353"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior formula R_d(t)=[1+(d+2)t]^(d−1)(1+2t+dt²)/(1+dt)^(d+1) is the exact same rational function as the submission.",
+          "Prior derivative and minimizer R_d(1)=(d+3)^d/(d+1)^(d+1) are identical. No new constant or parameter regime is present."
+        ],
+        "reasoning": "This is not a table coincidence: both are symbolic identities throughout all dimensions and nonnegative t. Exact functional identity implies every alleged numerical value is an already-covered specialization.",
+        "searches": [
+          "uniform volume covariance isotropic constant isocanted cube diagonal zonotope sharp minimum t=1",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-covariance-and-quantitative-isotropic-profile-of-one-edge--8efca44e3b81",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-uniform-volume-covariance-and-latent-interval-law-for-isocanted--da9911a588e4"
+        ]
+      },
+      "rationale": "Exact dominating published Resultary October 25 work already gives ALL of the submitted uniform-volume covariance eigenvalues, the identical normalized isotropic function, logarithmic derivative and unique optimizer, for K_old=[−1/2,1/2]^d+[−t/2,t/2]1=K_submitted/2. Homothety multiplies covariance by 1/4 but leaves isotropic constant invariant, so this is statement-for-statement exact coverage, not merely matching parameters or a coincidental table. The previous theorem additionally gives anisotropy and curvature; the stronger Kipp result also establishes symmetric minimizing shape among d+1-generator zonotopes. The submitted original cannot pass via disclaimers or another certificate.",
+      "residual_risks": [
+        "The correctness check is symbolic and the complete original all-dimension proof relies on spread integration rather than independently rerunning every large exact convex hull.",
+        "Publication chronology/priority of the October 25 source is reported as published mathematical coverage; neither an independent author claim nor a new unique remainder is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_ALL_SUBMITTED_CLAIMS",
+          "evidence": "The source explicitly states identical R_d(t), derivative, full two eigenvalues, and t=1 uniqueness for all d≥2,t≥0.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-covariance-and-quantitative-isotropic-profile-of-one-edge--8efca44e3b81",
+          "material_read": "Full RESULT.md: Finding, normalized formulas, covariance proof steps 1–4, relationship to Kipp and references",
+          "method": "Read full primary published result via connected GitHub",
+          "title": "Exact covariance and quantitative isotropic profile of one-edge-weighted cycle zonotopes",
+          "trigger": "Exact same body under diagonal-cube zonotope alias"
+        },
+        {
+          "assessment": "ALSO_COVERS_COVARIANCE; adds high-dimensional distribution information",
+          "evidence": "With ell=2(1+t),a=2t,delta=2, its parallel and transverse formulas match the submission after substitution.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-uniform-volume-covariance-and-latent-interval-law-for-isocanted--da9911a588e4",
+          "material_read": "Full RESULT.md: finding and full volume-mixture/covariance proof",
+          "method": "Read published GitHub RESULT.md completely",
+          "title": "Uniform-volume covariance and latent interval law for isocanted cubes",
+          "trigger": "Same isocanted cube, possible even stronger coverage"
+        },
+        {
+          "assessment": "ADDITIONAL_MINIMIZER_PRIORITY; exact direct coverage already established by other full source",
+          "evidence": "October 25 theorem explicitly credits Kipp for the symmetric unique minimizer among at most d+1-generator zonotopes.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.01353",
+          "material_read": "Proposition 6.5 description and theorem citation as reproduced and analyzed in the full previous Resultary theorem; primary paper not fully read in this run",
+          "method": "OA arXiv record and comparison in prior published proof",
+          "title": "Isotropic constants and regular polytopes",
+          "trigger": "Potential stronger geometric minimization"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The submitted finite-dimensional covariance and optimizer would be a natural nontrivial invariant, but under this assignment its exact complete continuum answer is an already published theorem for the very same homothetic family. Recomputing that table and optimization by a different integration has no separate unknown mathematical content. No motivated original remainder is supplied, so distinct V fails.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection is due to decisive exact prior coverage, not access, transport, or a correctness gap.",
+    "Failed plan preserves complete original package with no modified RESULT.md or SLOGAN.txt."
+  ],
+  "schema_version": 1
+}
