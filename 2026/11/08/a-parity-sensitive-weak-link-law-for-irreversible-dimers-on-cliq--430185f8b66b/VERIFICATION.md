@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Both standalone programs use only Python 3's standard library and exact fractions for finite identities. Run `python3 verify_direct.py` to compare the reduced bridge recurrence against a separately constructed graph-level Markov recursion over every available edge. The same graph-level recursion independently checks the entire jammed dimer-count distribution. This gives 72 exact comparisons for clique orders between 2 and 6 and several rational bridge rates.
+## correctness
 
-Run `python3 verify_laplace.py` to construct the pure-death transition probabilities of isolated complete graphs, integrate the two survival functions by partial fractions, and compare all results to the reduced first-edge recurrence. This gives 588 exact rational comparisons for clique orders 2 through 15 and three bridge rates. The program separately checks residual hub survival and prints illustrative finite-size convergence values for size ratios 1, 2, and 3.
+PASS
 
-The analytic proof in RESULT.md establishes statements for every integer clique size and all positive real rates. Finite exact comparisons are consistency checks, not exhaustive enumeration over infinitely many graph orders or proof of the scaling limits. The proof's rescaled martingale argument, expectation comparison bound and dominated-convergence decomposition are needed for the asymptotic results. The source comparison includes fully read material for arXiv:cond-mat/0611413 but only abstracts for two older possibly relevant works. Independent scientific audit has not been performed.
+Independent exponential-clock coupling yields λ∫e^{-λt}q_a(t)q_b(t)dt, and conditioning on first accepted edge yields exact recursion. Isolated-clique death process leaves n mod2 residual sites uniformly; density-scaled drift −x² gives (1+s)^{-1}; comparison bound q_n(t)≤1/[n−(n−1)e^{-t}] controls the tail. N0/N1 follow from parity of maximal matching on residual cliques.
+
+## originality
+
+PASS
+
+Earlier linked-clique adsorption work has n paired bridges rather than one; its Poisson cross-edge limit does not imply the one-bridge exact law or unequal-size logarithmic coefficient. Historical broad graph-RSA articles are method background; their uninspected full texts remain a residual risk.
+
+## value
+
+PASS
+
+An exact event probability and sharp weak-link/size crossover quantifies how one bond changes irreversible jamming, with a genuine odd/even obstruction on two dense communities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
