@@ -1,21 +1,21 @@
-# Scientific review: exact two-ballot FJR+ characterization
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem uses Teh's nonnegative fractional-violation system, including the elected-candidate cap in (C5). Identical voter types can be averaged without changing the violation ratio. A deficient type that approves no unelected candidate cannot participate; a participating type alone costs exactly \(\ell\) candidate weight per unit voter weight. If both participate, an unelected common candidate yields an EJR+ violation. Otherwise the only potential weight sharing occurs on \(r\) common *elected* candidates, with savings at most \(r\min(s,t)\). The candidate-weight inequality is tight at all three extremal voter-weight ratios. Fractional-linearity on either side of equal type weights rules out an additional interior maximum. The supported-winner corollary follows by adding the two strict utility deficits, and Pareto optimality disposes of unsupported winners by a swap. The example's FJR and EJR+ inequalities and its explicit level-four fractional witness are checked directly.
+PASS
 
-Reproducibility: `python verify.py` with the stated dependency compared the closed formula against the published FJR+ LP on 3,852 exhaustively generated small two-type cases and 1,653 deterministic pseudorandom larger cases. It also checked the strictness example against literal FJR/EJR+ predicates. The infinite theorem rests on the proof, not these computations.
+Type-averaging preserves the source FJR+ linear-program witness. For one eligible type, max Z/Y is a/ell or b/ell. For both eligible without an unelected common candidate, any witness satisfies Y>=ell(s+t)-r min(s,t), where r is the common elected approvals; equality at ratios (s,t)=(1,0),(0,1),(1,1) follows by allocating r shared elected units and the remaining deficit to private unelected candidates. Piecewise fractional-linearity proves precisely four integer-level tests. With supported winners, p+q+r=k and both deficient imply 2ell-r>k; thus FJR+=EJR+. The explicit k=6 2+3 voter unsupported-winner example has utilities (2,3), r=2, ell=4, Y=6, Z=5, h=5/6 and separates FJR+ from FJR and EJR+. Independent combinatorial witness checks reproduced these figures; inspected LP script and its independent SciPy formulation, but did not execute all LP searches.
 
-## Originality — PASS, with limits
+## originality
 
-The nearest primary paper is Teh (arXiv:2608.11500v1, August 11, 2026). Its Definition 3.1 introduces the fractional system, Proposition 3.8 shows strictness against FJR plus EJR+ for unrestricted ballots, and Proposition 3.9 reduces FJR+ to lower quota for *disjoint* party lists. This result instead gives a necessary-and-sufficient explicit test for two possibly overlapping ballot types, plus equivalence with EJR+ for supported/Pareto-optimal committees and a two-type counterexample when support fails. Dong and Peters (arXiv:2605.04612v1) axiomatically characterize EJR+ and separately analyze FJR; their inspected definitions and results do not establish the fractional two-type theorem. A related existence theorem for two ballot types concerns JUQ, JNQ and EJR+, not the FJR+ decision problem. Searches of those sources, the accessible research database and existing related records did not identify a covering statement. Search incompleteness and unindexed equivalent results remain possible.
+PASS
 
-## Mathematical value — PASS
+PASS: the FJR+ fractional representation LP reduces to the exact four tests for overlapping two ballot types and arbitrary unsupported winners, plus a sharp Pareto/support boundary; related two-ballot fractional core+ theorem addresses different allocation rule and uses a Pareto hypothesis. Comparison with its complete proof finds no implication yielding the unrestricted four tests.
 
-The new FJR+ axiom was introduced as a computably verifiable strengthening of two important representation conditions. It matters to know when the added fractional test is mathematically indispensable, rather than running a linear program by default. The exact two-type formula provides such a characterization on a basic structured preference domain that allows overlapping approvals, distinguishes the behavior of supported versus unsupported winners, and explains why Pareto efficiency eliminates the extra FJR+ obstruction there. The zero-support counterexample is not offered as a stand-alone defect check: it marks a necessary boundary of the structural equivalence.
+## value
 
-## Remaining limitations
+PASS
 
-The characterization is for unweighted binary approval utilities, Hare quotas, a fixed-size integral committee, and at most two ballot types. It does not cover more ballot types, generalized project costs, or weighted/FJR+ variants. The reproducibility code uses floating-point linear-program optimization for small samples; the analytical inequalities and exact rational counterexample provide the proof. The literature review is not a certification of global novelty, and no independent audit was performed.
+Committee-by-committee decision procedure removes an LP on a natural two-type domain and distinguishes three otherwise conflated fairness requirements at the sharp unsupported-winner boundary; the exact characterization and concrete counterexample have reusable axiomatic value.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

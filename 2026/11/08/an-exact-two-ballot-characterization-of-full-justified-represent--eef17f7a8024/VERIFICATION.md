@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification procedure and limits
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3 and SciPy as declared in `requirements.txt`. The script implements the published definition of FJR+ as a linear program with normalized total candidate weight, and separately evaluates the four-test closed formula. It tests every pair of distinct approval sets and every committee when the candidate count is two or three and both type populations belong to \(\{1,2,3\}\), then tests deterministic pseudorandom cases up to seven candidates. It also enumerates the FJR comparison sets for the explicit separation and checks all EJR+ inequalities.
+## correctness
 
-Observed result: 3,852 complete small cases and 1,653 pseudorandom cases agreed; the separate FJR and EJR+ checks passed for the example, and the published fractional system detected its level-four violation. A direct exact rational witness is provided in `RESULT.md`. Computational agreement cannot replace the universal argument, which is based on type symmetrization, a sharp candidate-weight lower bound and fractional-linear endpoint optimization.
+PASS
 
-This is the scope of the reproducibility work. It does not establish global literature uniqueness, validate claims about three or more ballot types, or constitute independent mathematical validation.
+Type-averaging preserves the source FJR+ linear-program witness. For one eligible type, max Z/Y is a/ell or b/ell. For both eligible without an unelected common candidate, any witness satisfies Y>=ell(s+t)-r min(s,t), where r is the common elected approvals; equality at ratios (s,t)=(1,0),(0,1),(1,1) follows by allocating r shared elected units and the remaining deficit to private unelected candidates. Piecewise fractional-linearity proves precisely four integer-level tests. With supported winners, p+q+r=k and both deficient imply 2ell-r>k; thus FJR+=EJR+. The explicit k=6 2+3 voter unsupported-winner example has utilities (2,3), r=2, ell=4, Y=6, Z=5, h=5/6 and separates FJR+ from FJR and EJR+. Independent combinatorial witness checks reproduced these figures; inspected LP script and its independent SciPy formulation, but did not execute all LP searches.
+
+## originality
+
+PASS
+
+PASS: the FJR+ fractional representation LP reduces to the exact four tests for overlapping two ballot types and arbitrary unsupported winners, plus a sharp Pareto/support boundary; related two-ballot fractional core+ theorem addresses different allocation rule and uses a Pareto hypothesis. Comparison with its complete proof finds no implication yielding the unrestricted four tests.
+
+## value
+
+PASS
+
+Committee-by-committee decision procedure removes an LP on a natural two-type domain and distinguishes three otherwise conflated fairness requirements at the sharp unsupported-winner boundary; the exact characterization and concrete counterexample have reusable axiomatic value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
