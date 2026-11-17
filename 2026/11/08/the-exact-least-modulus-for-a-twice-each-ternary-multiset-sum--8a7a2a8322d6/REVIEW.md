@@ -1,15 +1,21 @@
-# Scientific review: twice-each ternary modulus
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact statement requires a single multiplicity vector of total \(2n\) to share the target sum modulo the least modulus. The proof reduces that assertion to the minimal number of ternary coins and a parity condition. For the proposed odd modulus, negative differences are excluded by the minimum size of the target, and positive differences force more than \(2n\) coins. Every smaller modulus is defeated by an explicit permitted difference; the final odd-modulus case uses digit-sum and a maximal ternary-power parity constraint. The argument includes all \(n\ge2\) and does not infer infinitude from tests. Independent finite algorithms enumerate compositions and reachable powers and agree for \(n=2,\ldots,8\).
+## correctness
 
-## Originality — PASS, qualified
-Fonollosa's July 2026 theorem evaluates the minimum modulus for binary powers with **one** copy of each element and \(n\) total summands. Its precise result, including the greedy binary-coin argument, does not state or imply the present formula for ternary powers with **two** copies each and \(2n\) summands. The author's listed related finite-abelian-group generalization also concerns the original all-ones problem. Published research-record searches did not identify an implication or equivalent theorem. The related permanent companion was inspected at abstract level only: there is a residual risk from its inaccessible full text. Earlier unindexed equivalent work is possible. No covering equivalent theorem was identified in the scientific comparisons.
+PASS
 
-## Mathematical value — PASS
-The recent modular-uniqueness problem motivates exact transform moduli and explicitly identifies variations of its target multiplicities as a natural direction. The result solves a whole infinite-parameter family and exhibits a parity-sensitive ternary cutoff. It is not simply evaluating a few numerical instances; the proof gives the exact optimum and all smaller-modulus obstructions.
+The fixed ternary family A_n={3^i-1}, i=0..n-1, is distinguished at total multiplicity 2n by k_i=2. Since total counts match, the offset -1 cancels, leaving even difference V=sum k_i3^i-(3^n-1). The minimal coin count gamma_n(M)=floor(M/3^(n-1))+s_3(M mod 3^(n-1)); all other feasible counts arise by splitting a 3^j coin into three 3^(j-1) coins, preserving parity. For N*=(3^n-3^t)/2 with n-t odd and 3^t<=2n-1, N* odd: negative multiples violate M>=2n; positive multiples h(3^n-3^t) have gamma=2n+3h-s_3(h)>2n. All smaller even N and small odd N admit a negative difference; remaining odd N yield dprime=3^n-2N with s_3(dprime)>=3 (opposite exponent parity excludes one-digit powers), producing a positive rival. Independently exhausted all weak compositions and candidate moduli for n=2..6: minima 3,13,39,117,363. The proof, not finite n, covers n>=2.
 
-## Scope and limitations
-This fixes both the radix and the multiplicity profile; it makes no universality assertion over all residue sets. Arithmetic experiments are a reproducibility check only. Priority is not certified and an inaccessible relevant companion source leaves a limited comparison risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS with explicit residual primary-access risk. The 2026 Fonollosa minimum-modulus theorem treats radix TWO with one copy per position and n summands, whereas this result fixes radix THREE and exactly two copies/2n summands, requiring new parity-dependent 3-adic obstruction. An earlier binary all-ones formula, even if supplied for groups, is not an implication at the distinct target multiplicity. Targeted Resultary comparisons found only this exact ternary twice-each theorem, not an independently earlier same theorem. Full Fonollosa primary article remained inaccessible via arXiv/OA and institutional VPN, so the comparison is limited to accessible abstract and authorized public material; equivalent unindexed specialization risk remains.
+
+## value
+
+PASS
+
+The precise least modulus guaranteeing a unique multiset checksum is a natural numerical invariant motivated by modular uniqueness/permanent-transform constructions. Solving the nontrivial weighted radix-and-multiplicity variation for all n and sharp parity-sensitive t(n), plus explicit witnesses for every smaller modulus, goes beyond a substitution into the binary formula or finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
