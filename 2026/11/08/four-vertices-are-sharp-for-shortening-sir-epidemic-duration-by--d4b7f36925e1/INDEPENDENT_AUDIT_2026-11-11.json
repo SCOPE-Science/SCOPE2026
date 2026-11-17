@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T17:20:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the continuous-time SIR process with one infectious seed and homogeneous edge rate beta, event-clock conditioning gives an acyclic recursion for expected absorption time h and expected subsequent infections f. Independently recomputed every graph–missing-edge–seed triple on n<=3: exactly 38 labeled cases, with symbolic nonnegative differences for all beta>0, including disconnected graphs. For a four-cycle with edges 02,03,12,13 and seed 2, inserting diagonal 01 at beta=10 changes mean duration by -1631125/648015984 and expected final infections by +8200/586971; exact-rational independent computation matched both. This is a witness at n=4, not an exhaustive four-vertex classification. It uses mathematical coefficient positivity, not finite beta sampling, for the all-rate lower bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published five-vertex counterexample varies beta on fixed graph; six-vertex result changes the probability of an overload event."
+        ],
+        "reasoning": "Neither compares expected extinction durations before and after one contact at the same beta, so neither implies the four-vertex bound.",
+        "searches": [
+          "Markovian SIR single edge addition reduces mean epidemic extinction time smallest graph four vertices",
+          "Resultary five-vertices sharp nonmonotone Markovian SIR outbreak duration",
+          "Resultary six-vertices contact addition decrease SIR peak overload"
+        ]
+      },
+      "checked_sources": [
+        "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0084429",
+        "https://arxiv.org/abs/1212.2172",
+        "https://arxiv.org/abs/1708.06456",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-five-vertices-are-sharp-for-nonmonotone-markovian-sir-outbreak-d--1e0cd8cbebfd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sharkey exact tree equations do not apply directly to the C4 witness without a cycle treatment; CTMC recursion is standard but requires a graph-by-graph sign classification.",
+          "The earlier discrete-time result is not an exact continuous-time contact-addition theorem."
+        ],
+        "reasoning": "No checked stronger theorem mechanically establishes the stated sharp four-vertex negative duration difference and no-reversal at orders <=3.",
+        "searches": [
+          "Markovian SIR single edge addition reduces mean epidemic extinction time smallest graph four vertices",
+          "Sharkey Kiss Wilkinson Simon exact equations for SIR on trees",
+          "Holme extinction times of epidemic outbreaks networks 2013"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holme 2013 studies outbreak extinction times as infectivity changes in a discrete-time fixed-duration SIR model, not one-edge insertion at a fixed CTMC rate.",
+          "Earlier SIR moment-equation works derive dynamics, not exact monotonicity of unconditioned expected absorption duration under edge insertion."
+        ],
+        "reasoning": "Time to no infectives is not final epidemic size or a fixed-time peak, and rate variation is not graph edge insertion.",
+        "searches": [
+          "Markovian SIR single edge addition reduces mean epidemic extinction time smallest graph four vertices",
+          "SIR expected absorption extinction outbreak duration extra edge contact graph"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The full accessible 2013 PLOS paper describes simulation and extinction-time dependence on transmissibility; does not report exact CTMC C4 plus diagonal 10-rate fractions.",
+          "Independent symbolic enumeration of 38 small cases and exact witness fractions was needed."
+        ],
+        "reasoning": "Full dynamic programming methods can yield the fractions but a generic method is not an existing exact classification or table; potential unindexed specialized tables remain a risk.",
+        "searches": [
+          "Markovian SIR single edge addition reduces mean epidemic extinction time smallest graph four vertices",
+          "Holme 2017 exact small graphs node importance epidemic duration",
+          "Holme 2013 extinction time edges network"
+        ]
+      },
+      "rationale": "On a best-of-knowledge comparison of exact claims and stronger implications, no inspected prior source determines the complete submitted theorem. Known premises and specialized coverage are credited; the precise remaining potential overlaps are listed as residual risks.",
+      "residual_risks": [
+        "An unindexed exact SIR duration table may contain the four-vertex edge witness; checked full 2013 paper does not.",
+        "Not a full classification for all four-vertex graphs or beta values."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_DYNAMICS_AND_COMPARISON",
+          "evidence": "Uses discrete-time fixed infectious period and variation of transmissibility, not exact CTMC before/after a specific edge.",
+          "identifier_or_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0084429",
+          "material_read": "Complete accessible PLOS HTML, including model, figures/results and discussion of infectiousness",
+          "method": "Read primary HTML",
+          "title": "Extinction Times of Epidemic Outbreaks in Networks (Holme, 2013)",
+          "trigger": "Same epidemic extinction-time observable"
+        },
+        {
+          "assessment": "RELATED_METHOD_NOT_EXHAUSTIVE",
+          "evidence": "Tree exact equations form background; cannot infer cycle-plus-diagonal witness or exhaustive n<=3 edge comparisons from abstract alone.",
+          "identifier_or_url": "https://arxiv.org/abs/1212.2172",
+          "material_read": "Public arXiv abstract and source description, no complete primary PDF reading",
+          "method": "Abstract / bibliographic record",
+          "title": "Exact equations for SIR epidemics on tree graphs (Sharkey et al.)",
+          "trigger": "Exact SIR process equations and possible implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp counterexample to intuitive contact-addition duration monotonicity is meaningful: greater final epidemic size need not mean longer epidemic duration. Four vertices is a natural minimal boundary and the exact witness is relevant to stochastic network-process comparisons, independent of general CTMC computability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unconditional continuous-time duration from one fixed seed; no graph-size extension.",
+    "Only homogeneous exponential infection/recovery rates, no reinfection or interventions.",
+    "An unindexed exact SIR duration table may contain the four-vertex edge witness; checked full 2013 paper does not.",
+    "Not a full classification for all four-vertex graphs or beta values."
+  ],
+  "schema_version": 1
+}
