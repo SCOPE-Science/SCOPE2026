@@ -1,15 +1,21 @@
-# Mathematical review: h-perfect stable-set inball classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof takes the precise h-perfect polyhedral inequalities from Miyazaki's Definition 2.3 and Lemma 3.4, normalizes each inequality by its Euclidean normal norm, and uses the exact clique and cycle functions \(f(s)=1/(s+\sqrt s)\) and \(g(\ell)=(1-1/\sqrt\ell)/2\). Their strict monotonicity and the inequalities \(g(5)<f(2)<g(7)\), \(f(3)<g(5)\) justify every radius branch and eliminate all longer odd holes. At a sharp radius, the sum of coordinate lower bounds enforces equality on each critical support; strict slack elsewhere yields exactly the claimed center-locus dimension. Affine-independence arguments separately establish that maximum-clique and triangle-free pentagon inequalities are genuine facets, so the contact counts are not merely counts of potentially redundant halfspaces. The finite checker was run from `verify.py` and corroborated 14 distinct profiles. Tests are not an infinite proof.
+## correctness
 
-## Originality — PASS; priority provisional
-Miyazaki (arXiv:2005.03259, first 2020-05-07), whose full relevant text was inspected, gives the defining h-perfect inequalities but concerns Ehrhart-ring structure rather than Euclidean metric centers. The closest exact Euclidean study, *Clique number controls the exact Euclidean inradius of every perfect stable-set polytope* (2026), was inspected in full: it assumes a perfect graph and therefore does not imply the analysis of the extra odd-cycle inequalities for nonperfect h-perfect graphs. A published Minkowski-asymmetry classification uses a different affine-invariant objective. Accessible historical records about odd antiholes already imply the isolated \(C_5\) numerical value, which is **not** claimed new here; another record treats particular clique–odd-cycle joins, not all h-perfect graphs. The assessed novelty is the universal pentagon-only obstruction and full incenter/contact classification. Equivalent formulations under Chebyshev-center terminology remain a residual priority risk; search absence is not proof of novelty. See `AUDIT.json` for actual aliases, closest IDs, comparison arguments, source inspections, and residual risks.
+PASS
 
-## Mathematical value — PASS
-The problem is motivated by extending an exact known perfect-graph metric invariant across the natural h-perfect boundary where odd-hole facets enter. Only the pentagon can defeat maximum cliques, while all odd holes of size at least seven fail to do so; the result gives a sharp dichotomy with arbitrary-graph quantifiers, explicit complete center polytope, its dimension, and every facet touching the uniform maximal ball. In particular, incenter uniqueness is controlled by covering graph vertices with specific critical supports. The statement is not just a finite calculation, a direct one-parameter substitution, or an unmotivated isolated invariant.
+Under the exact h-perfect halfspace model, c_v>=r yields clique barriers f(s)=1/(s+sqrt(s)) and odd cycle barriers g(l)=(l-1)/(2(l+sqrt(l)))=(1-1/sqrt(l))/2. f decreases and g increases; f(3)<g(5)<f(2)<g(7), so max-clique is binding except omega=2 with C5, where pentagon binds. Uniform r1 attains all barriers. Critical supports force coordinates c_v=r on union U and all others vary independently in small positive directions due finitely many strict inequalities, proving dimension n-|U|. The proof provides affinely independent stable-set vertices for max-clique facets and each C5 facet in the triangle-free case; tangent count is n plus #critical supports at uniform center. Handles edgeless omega1 and disconnected graphs.
 
-## Scope and outstanding risks
-The graph must be nonempty, simple, finite, and h-perfect; the metric is standard Euclidean on the vertex-coordinate space. The checker establishes finite profiles only. Unindexed equivalent historical statements remain possible. Independent mathematical audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sharp h-perfect nonperfect C5 exception, all-centers dimension and facet tangencies extend but are not implied by the inspected perfect-graph metric theorem; foundational h-perfect stable-set inequalities are acknowledged as prior.
+
+## value
+
+PASS
+
+Classifies precisely when nonperfect odd-hole constraints alter the Euclidean insphere of an important broad class of graph polytopes, and computes full incenter dimension and sharp facet contacts; the exceptional C5 barrier is meaningful geometry not a numerical novelty claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

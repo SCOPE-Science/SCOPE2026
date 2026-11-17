@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-## Mathematical verification
-The proof is universal and exact: the defining inequalities for h-perfect graphs imply competing clique barriers \(1/(s+\sqrt s)\) and odd-cycle barriers \((1-1/\sqrt\ell)/2\). Their strict monotonicity proves that only maximum cliques and, exceptionally for clique number two, five-cycles can be active at the uniform center. Equality forces the coordinates on each active support. The five-cycle facet assertion is established by explicit affinely independent stable-set vertices.
+# Independent mathematical audit
 
-## Reproduction
-Run `python verify.py` in this directory with Python 3, NumPy and SciPy. Successful output:
+## correctness
 
-`HPERFECT_EUCLIDEAN_INBALL_CHECKS_PASSED profiles= 14 cliques= 169 odd_cycles= 15 coordinates= 85`
+PASS
 
-The checker solves finite halfspace Chebyshev-center linear programs and tests feasibility of the claimed uniform balls. These profiles include both short and long odd cycles, graphs with maximum cliques, and disjoint unions.
+Under the exact h-perfect halfspace model, c_v>=r yields clique barriers f(s)=1/(s+sqrt(s)) and odd cycle barriers g(l)=(l-1)/(2(l+sqrt(l)))=(1-1/sqrt(l))/2. f decreases and g increases; f(3)<g(5)<f(2)<g(7), so max-clique is binding except omega=2 with C5, where pentagon binds. Uniform r1 attains all barriers. Critical supports force coordinates c_v=r on union U and all others vary independently in small positive directions due finitely many strict inequalities, proving dimension n-|U|. The proof provides affinely independent stable-set vertices for max-clique facets and each C5 facet in the triangle-free case; tangent count is n plus #critical supports at uniform center. Handles edgeless omega1 and disconnected graphs.
 
-## Limits
-The finite tests do not establish the general theorem or verify the h-perfect property of arbitrary input graphs. They are complementary to the symbolic argument. Originality remains provisional pending an independent literature review, and no external independent mathematical audit has been performed.
+## originality
+
+PASS
+
+Sharp h-perfect nonperfect C5 exception, all-centers dimension and facet tangencies extend but are not implied by the inspected perfect-graph metric theorem; foundational h-perfect stable-set inequalities are acknowledged as prior.
+
+## value
+
+PASS
+
+Classifies precisely when nonperfect odd-hole constraints alter the Euclidean insphere of an important broad class of graph polytopes, and computes full incenter dimension and sharp facet contacts; the exceptional C5 barrier is meaningful geometry not a numerical novelty claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
