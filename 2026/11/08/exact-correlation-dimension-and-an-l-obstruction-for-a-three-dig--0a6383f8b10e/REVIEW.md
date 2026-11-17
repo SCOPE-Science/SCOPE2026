@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The signed-digit carry transition is exhaustive because the entering carry never leaves \(\{-1,0,1\}\); each of its 81 configurations is counted directly. The central matrix entry generates additive quadruple counts, and the reflection-invariant two-dimensional sector has characteristic polynomial \(\lambda^2-25\lambda+90\). The independent prefix/tail decomposition compares the actual fourth-power grid mass square sum with finite additive energy within a factor of two. Therefore the stated continuous-measure correlation dimension and the non-\(L^2\) consequence follow for all levels, not just the checked finite examples.
+## correctness
 
-**Originality — PASS relative to available evidence.** The precise \(D=\{0,1,3\}\), base-four self-convolution dimension, its quadratic algebraic growth root, and resulting non-\(L^2\) conclusion were not found in the inspected recent full-text sources, the 2022 finite-type matrix theorem, the accessible prior-claim ledger, or targeted research records. General matrix representations provide a framework and may compute analogous examples, but the reviewed theorem does not state or directly supply this evaluated digit-set invariant. The possibility of a previously calculated equivalent example is a material publication-priority risk.
+PASS
 
-**Value — PASS.** The set has a natural three-quarter four-adic construction and each factor has dimension greater than one-half. Their convolution nevertheless misses the \(L^2\) threshold by a small but *exactly quantified* positive amount. This distinguishes geometric dimension heuristics from analytic convolution regularity in a motivated setting and makes the finite harmonic fourth moment sequence completely explicit.
+PASS: Directly reconstructed all 81 one-digit quadruples and the signed-carry matrix [[8,10,2],[3,15,3],[2,10,8]], which keeps carries in {-1,0,1}. Its reflection-even 2x2 block has polynomial x²-25x+90 and central entry E_n. Independently enumerated digit-set additive energies 15,285,5775,118725 at depths 1..4. The continuous tail has support [0,2] and each grid-cell probability is q0 w_k+q1 w_{k-1}; nonnegative cross terms and Young yield (1/2) E_n/81^n <= sum cell masses² <= E_n/81^n for every n. This proves the exact all-scale dimension; Cauchy–Schwarz makes L² impossible because 4 lambda+/81>1. Strict separation of the basic IFS cylinders justifies dimension log3/log4 for each factor; no singularity or smaller-p density claimed.
 
-The checker independently verifies the transition and finite energy sequence; it is not presented as a proof of the infinite-level limit. No statement on absolute continuity or sharp \(L^p\) regularity for \(p<2\) is made.
+## originality
 
-Closest literature: Carnovale--Fraser--de Orellana (2026), arXiv:2606.07143; Oliveira--de Orellana (2026), arXiv:2602.08568; Wu (2022), arXiv:2201.01909. General finite-type formalism and possible unindexed exact tabulations remain the main originality risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge original evaluated digit-set invariant and near-threshold L² counterexample; generic finite-type and Lq convolution theory does not state its evaluated base-4 {0,1,3} self-convolution dimension or 25±sqrt265 growth constants. Possible old tables of overlap-IFS energies remain a real priority risk.
+
+## value
+
+PASS
+
+PASS: Each factor has Hausdorff dimension log_4(3)>1/2, yet the natural self-convolution has an exactly specified near-one L² dimension 0.9862600784<1 and lacks an L² density. This exact arithmetic example clarifies a motivated convolution regularity boundary and provides a complete finite-level energy recurrence, rather than an arbitrary small numerical experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

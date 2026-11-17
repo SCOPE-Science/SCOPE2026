@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 CHECK.py` with the standard Python interpreter. The program enumerates all 81 digit quadruples, constructs the integer carry matrix independently, obtains its first seven central powers, tests the exact second-order recurrence, and compares the results against separate brute-force additive-energy calculations at levels one through four.
+## correctness
 
-The *infinite* assertions instead rest on the explicit carry-state completeness argument and the uniform factor-two comparison between truncated and full convolution grid energies. The strict \(L^2\) obstruction follows from \(4\lambda_+/81>1\) and the grid-interval Cauchy--Schwarz inequality. Numerical checks cannot establish singularity of the convolution or its \(L^p\) regularity for \(1\le p<2\); neither is asserted.
+PASS
 
-The scientific comparison checked the full accessible HTML versions of arXiv:2606.07143, arXiv:2602.08568, and arXiv:2201.01909. General finite-type overlap machinery remains potentially relevant; independent review of historical priority has not been performed.
+PASS: Directly reconstructed all 81 one-digit quadruples and the signed-carry matrix [[8,10,2],[3,15,3],[2,10,8]], which keeps carries in {-1,0,1}. Its reflection-even 2x2 block has polynomial x²-25x+90 and central entry E_n. Independently enumerated digit-set additive energies 15,285,5775,118725 at depths 1..4. The continuous tail has support [0,2] and each grid-cell probability is q0 w_k+q1 w_{k-1}; nonnegative cross terms and Young yield (1/2) E_n/81^n <= sum cell masses² <= E_n/81^n for every n. This proves the exact all-scale dimension; Cauchy–Schwarz makes L² impossible because 4 lambda+/81>1. Strict separation of the basic IFS cylinders justifies dimension log3/log4 for each factor; no singularity or smaller-p density claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge original evaluated digit-set invariant and near-threshold L² counterexample; generic finite-type and Lq convolution theory does not state its evaluated base-4 {0,1,3} self-convolution dimension or 25±sqrt265 growth constants. Possible old tables of overlap-IFS energies remain a real priority risk.
+
+## value
+
+PASS
+
+PASS: Each factor has Hausdorff dimension log_4(3)>1/2, yet the natural self-convolution has an exactly specified near-one L² dimension 0.9862600784<1 and lacks an L² density. This exact arithmetic example clarifies a motivated convolution regularity boundary and provides a complete finite-level energy recurrence, rather than an arbitrary small numerical experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
