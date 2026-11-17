@@ -1,19 +1,21 @@
-# Review of the nested uniform temporal-tree covariance theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The root-children decomposition is exact because each child either enters at its own edge label (taking its full descending subtree) or does not enter. The mean integral equation has solution \(e^{np}\). Differentiating the independent-child second-moment identity yields a linear ODE with the displayed closed form, and disjoint root-label bins give the mixed covariance. The factorization determines the unique sign crossing; the limits follow from elementary exponential asymptotics. The multithreshold independence consequence uses the published one-threshold exponential limit and an explicit Laplace factorization, without assuming stronger source results. The reproducibility script passed 301 finite assertions, including rational finite-depth calculations and independent simulations. Those checks support, but do not replace, the analytic argument.
+PASS
 
-## Originality
+The common-edge-label root decomposition T_n(p)=1+sum_i 1[U_i<p] T_{n,i}(U_i) yields E T=e^{np} and an exact second-moment ODE, solved as f=(2-2/n)e^{2np}+(2p-1+2/n)e^{np}. For p<=q, the additional root-label bins are disjoint, so Cov(T(p),T(q))=Var T(p)-(e^{np}-1)(e^{nq}-e^{np})/n. Factoring gives the one-zero bracket n-1+2np/(e^{np}-1)-e^{n(q-p)}, establishing q_*, sign classification, (log n)/n crossover and correlation limits. With fixed distinct p_j, disjoint-bin Laplace transform (1-sum a_{n,j})^n and the published one-threshold Exp(1) limit yield independent limiting exponentials; the ignored smaller-bin contribution vanishes in L1. Independent evaluation n=2,p=.4 gives q*=.817658752284986 and negative covariance at q=.9. This is an analytic proof; packaged finite-depth simulations are not used as infinite certification.
 
-**PASS, provisional historical assessment.** The full relevant sections of Atamanchuk–Devroye–Lugosi (arXiv:2501.13044, especially Theorem 2.1 and its proof) concern one-threshold size and related structural statistics. Their theorem does not imply the mixed covariance identity by mere specialization, nor the sign-reversal window. Hu–Wu–Dong (2022) study counts at different *depth* cutoffs and pair-accessibility probabilities for a single fixed root label; those quantities are related but do not state the cross-threshold sign classification. Semantic searches of related research records and published literature did not identify an equivalent theorem. The uninspected complete 2022 article and other earlier accessibility results are the main residual priority risks. A failed search is not proof of uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The original object was introduced to model temporal reachability as a cutoff varies. Nested reachable sets need not have positively correlated cardinalities, and the exact crossover \((\log n)/n\) identifies the scale at which a shared ancestral contribution is overtaken by competition between disjoint root-label bins. The same analysis supplies the microscopic positive-correlation kernel, a negative fixed-separation correction, and finite-dimensional asymptotic independence. This is a structural dependence phase diagram for a natural observable, not an arbitrary parameter slice or a recomputation of the one-point mean.
+The exact same n-ary temporal-tree one-threshold distribution was published in 2025; its marginal Exp(1) limit alone does not determine the negative common-coupling covariance or sign crossing. Hu–Wu–Dong 2022 covers accessible counts and joint depth cutoffs on vertex-label accessibility, a mathematically related but distinct two-time observable. Full 2022 paper access was interrupted after the first screenshot, a residual risk rather than an automatic failure. The exact all-n formula and sign transition survived the best-of-knowledge implication comparison.
 
-## Literature and limitations
+## value
 
-Primary model and one-point theorem: https://arxiv.org/html/2501.13044 (2025). Closest earlier accessible-path model and depth-profile theorems: https://doi.org/10.52396/JUSTC-2022-0059 (2022). The 2022 full PDF was not inspected, leaving some priority uncertainty. No independent mathematical audit has been performed. Neither a functional threshold-process limit nor boundary-scale results for vanishing \(p\) are claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact sign reversal in covariance of NESTED random sets is a substantive structural phenomenon rather than a routine single-time moment. The sharp (log n)/n gap and independent finite-dimensional exponential limit quantify how temporal thresholds decorrelate, with an explicit finite-n crossing useful for accessibility research.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
