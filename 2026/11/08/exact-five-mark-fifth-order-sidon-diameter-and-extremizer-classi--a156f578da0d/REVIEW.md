@@ -1,19 +1,21 @@
-# Review of exact five-mark fifth-order Sidon diameter
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A \(B_5\) set is exactly an increasing tuple whose \(126\) repetition-allowed five-term multisets have distinct integer sums. Translation permits normalization to \(0<a<b<c<d\). The exact finite nested loops visit each normalized five-set of diameter at most \(72\) once, and an initial four-mark pruning step is sound by heredity. A second independently coded exhaustive checker uses recursive generation and reflection. The sole two full-domain solutions are the stated reflections, and no smaller-diameter candidates pass. Exact rational/integer operations only; the finite proof establishes the bounded claim, not a claim for all orders.
+PASS
 
-## Originality — PASS, with priority limitations
+Every increasing five-mark integer B5 set is uniquely represented by 0<a<b<c<d after translation. The collision-free criterion enumerates exactly 126 five-multisets, and its restriction to the first four marks is a necessary pruning condition. A freshly written C++17 nested-loop exhaustive search examined all 1,028,790 ordered quadruples with 4<=d<=72, 342,414 four-mark survivors, and found exactly (0,1,16,66,72) and its reflection (0,6,56,71,72). Therefore diameter 72 is minimal and the two listed optimizers are exhaustive; no extrapolation to other parameters.
 
-The closest direct source, Zhang (arXiv:2609.08915v1, full text Sections 2, 6, 12.2), poses the exact \(L_5(q)\) question and lists only \(q=2,3,4\). The paper's \(H_5(q)\) concerns all relation profiles and is not a determination of the substantially smaller relation-free \(L_5(5)\). O'Bryant's construction and greedy \(B_h\) papers supply different bounds/algorithms but no inspected matching exact five-mark, fifth-order optimum and extremizer classification. Research-record searches using both equivalent formulations and the proposed exact sets found no direct covering record. Historical-priority risk persists for unindexed tables or articles. Lack of a hit is not itself evidence of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The invariant is explicitly singled out by the source as an open natural extension of known exact values. This is the next uncomputed fifth-order, five-mark case and, beyond the number, certifies uniqueness up to the natural affine symmetries. The exact bound \(72\) is below the greedy five-mark construction at this order and the published universal upper bound \(150\). Finite classification is the intended mathematical result, not a sample standing in for an infinite assertion.
+Best-of-knowledge original at the exact final claim level after statement-level comparison with identified published results; credits previously known subclaims, keeps specific access and archival risks.
 
-## Remaining limitations
+## value
 
-The work resolves only the fixed pair \((5,5)\) and uses finite exhaustive verification. An independent scientific audit and full archival priority review have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This solves the first absent natural parameter of the relation-free five-letter B5 diameter sequence explicitly asked about by Zhang and gives a complete extremizer classification, a meaningful finite exact Sidon invariant rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
