@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T06:04:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual frozen SCOPE RESULT.md, verify_dp.py, verify_census.py and cycles_order4/5.txt blob identities",
+        "Independent exhaustive rooted binary enumeration n=1..5",
+        "https://arxiv.org/abs/1608.08480",
+        "https://arxiv.org/abs/1511.08431",
+        "Resultary searches for cyclic reversal covers and ordinary de Bruijn enumerations"
+      ],
+      "rationale": "The class count (2^n+2^ceil(n/2))/2 is a reversal-involution count. Every covering cycle has a 0^n window, so fixing one root loses no solutions. Inspected verify_dp.py and verify_census.py: the former traverses all class bitmasks and n−1-bit suffixes with all n−1 closing windows; the latter directly enumerates every 0^n-rooted binary suffix for every L from n through the claimed minimum, deduplicates rotations and both symmetries, and checks both attached optimal-cycle lists. An independently written exhaustive implementation recomputed for n=1..5 the shortest lengths 2,4,8,14,26, class counts 2,3,6,10,20, optimal cycles 1,1,2,8,128, and bracelet counts 1,1,1,3,36. With all shorter candidates checked, this is an exhaustive proof only for n<=5. Equality of rooted and necklace optima also verifies one occurrence of 0^n in each optimum.",
+      "residual_risks": [
+        "No all-order claim beyond n=5; proof depends on complete exact finite search and correct closing windows.",
+        "Unindexed historical cyclic unoriented de Bruijn necklace census remains possible."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burris et al. treat unoriented de Bruijn sequences with constructions at orders 4 and 5 and a parity obstruction.",
+          "Fici et al. treat general linear shortest-common-superstring-with-reversals approximation/complexity."
+        ],
+        "reasoning": "Neither inspected result gives both minimal cyclic lengths and the rotation/reversal/complement census; generic algorithmic coverage does not evaluate the exact circular invariants.",
+        "searches": [
+          "Resultary semantic search: unoriented de Bruijn shortest cyclic reversal",
+          "arxiv:1608.08480;arxiv:1511.08431"
+        ]
+      },
+      "checked_sources": [
+        "Actual frozen SCOPE RESULT.md, verify_dp.py, verify_census.py and cycles_order4/5.txt blob identities",
+        "Independent exhaustive rooted binary enumeration n=1..5",
+        "https://arxiv.org/abs/1608.08480",
+        "https://arxiv.org/abs/1511.08431",
+        "Resultary searches for cyclic reversal covers and ordinary de Bruijn enumerations",
+        "unoriented de Bruijn shortest cyclic binary reversal covering necklaces order 4 order 5 exact counts",
+        "reverse de Bruijn binary fifth order 26 optimal cyclic 128 necklaces",
+        "Burris Motta Shipman unoriented de Bruijn cyclic versus linear constructions",
+        "arxiv:1608.08480",
+        "arxiv:1511.08431"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The circular cover has an extra closing compatibility condition absent for linear superstrings.",
+          "Cyclic optimum necklace counts are not determined by a single constructive linear example."
+        ],
+        "reasoning": "Even if an earlier minimal linear length happens numerically to match the circular length at one order, neither all rotations nor their symmetry classes follow by implication.",
+        "searches": [
+          "Burris–Motta–Shipman linear reversal covers versus circular Eulerian min",
+          "Resultary comparison ordinary de Bruijn order-five census"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Burris–Motta–Shipman define reversal equivalence of length-n factors and Eulerian constructions for linear unoriented words.",
+          "Here each cyclic window has wraparound and only rotation is quotiented; counts of all optimal cycles are required."
+        ],
+        "reasoning": "Same local reversal classes but a different closure constraint: a minimal linear cover need not be a closed Eulerian walk nor determine the number of optimal circular words.",
+        "searches": [
+          "unoriented de Bruijn cycles vs linear reversal superstrings",
+          "arxiv:1608.08480 §§3,5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Other order-five de Bruijn-census results concern 2048 ordinary de Bruijn cycles, not reversal-covering necklaces of length 26.",
+          "The actual attached optimal cycle lists and exhaustive rooted enumeration yield 8 and 128, independently reproduced."
+        ],
+        "reasoning": "No matching exact reversal-cover table was located. This negative search is only qualified priority evidence and leaves older unpublished/unindexed enumeration as a risk.",
+        "searches": [
+          "Resultary search: reverse de Bruijn binary fifth order 26 optimal cyclic 128 necklaces",
+          "published de Bruijn order-five cycle census"
+        ]
+      },
+      "rationale": "The original finite exact cyclic minimum-and-necklace census is not immediately implied by previously studied unoriented de Bruijn linear constructions or ordinary de Bruijn necklace counts. The closest full primary Burris–Motta–Shipman text studies linear unoriented words, graphs and examples; the circular root and optimal-cycle multiplicity classification are additional. Searches found no exact earlier table but cannot exclude an unindexed enumeration.",
+      "residual_risks": [
+        "No all-order claim beyond n=5; proof depends on complete exact finite search and correct closing windows.",
+        "Unindexed historical cyclic unoriented de Bruijn necklace census remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSE BUT NOT COVERING exact cyclic census",
+          "evidence": "The article treats linear unoriented de Bruijn words, Eulerization, and examples; it does not enumerate all shortest cyclic necklace classes.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.08480",
+          "material_read": "Accessible PDF sections 1,3,5, including the examples and Eulerian construction discussion",
+          "method": "Read primary PDF text and inspected PDF pages 1 and 12",
+          "title": "An Unoriented Variation on de Bruijn Sequences",
+          "trigger": "Same binary reversal classes and obstructed orders 4–5"
+        },
+        {
+          "assessment": "No decisive cyclic exact census inferred",
+          "evidence": "Linear general shortest-superstring with reversals has different objective and supplies no listed finite necklace counts.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.08431",
+          "material_read": "Abstract and accessible reported problem/results, not an exhaustive line-by-line proof review",
+          "method": "Abstract/problem comparison and metadata",
+          "title": "On the Greedy Algorithm for the Shortest Common Superstring Problem with Reversals",
+          "trigger": "General reversal-superstring dominating-parameter check"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual frozen SCOPE RESULT.md, verify_dp.py, verify_census.py and cycles_order4/5.txt blob identities",
+        "Independent exhaustive rooted binary enumeration n=1..5",
+        "https://arxiv.org/abs/1608.08480",
+        "https://arxiv.org/abs/1511.08431",
+        "Resultary searches for cyclic reversal covers and ordinary de Bruijn enumerations"
+      ],
+      "rationale": "Reverse-equivalent coverage is a natural universal-cycle problem. n=4 and n=5 are the first nontrivial obstructed small instances; exact optimal necklace and symmetry counts, with witnesses and all-shorter-length exclusion, provide a mathematically motivated complete finite classification rather than only a witness or unmotivated statistic.",
+      "residual_risks": [
+        "No all-order claim beyond n=5; proof depends on complete exact finite search and correct closing windows.",
+        "Unindexed historical cyclic unoriented de Bruijn necklace census remains possible."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For n=1,...,5 every binary circular order-n reversal covering has minimum length 2,4,8,14,26, respectively; the rotation-optimal counts are 1,1,2,8,128 and the rotation/reversal/complement classes 1,1,1,3,36.",
+  "limitations": [
+    "No all-order claim beyond n=5; proof depends on complete exact finite search and correct closing windows.",
+    "Unindexed historical cyclic unoriented de Bruijn necklace census remains possible."
+  ],
+  "schema_version": 1
+}

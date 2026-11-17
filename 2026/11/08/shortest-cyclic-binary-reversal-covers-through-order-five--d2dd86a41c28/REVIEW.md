@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed domain is the complete finite set of circular binary words of orders \(1\) through \(5\), with reversal applied to factors and rotation used to identify cycles. Burnside counting gives \((2^n+2^{\lceil n/2\rceil})/2\) required factors. Every covering cycle contains a window \(0^n\), which reduces the complete search to rooted words. An explicit bitmask/suffix-state recurrence certifies nonexistence at every shorter candidate length and the exact rooted counts at the optimum. Separate direct enumeration agrees on optimal lengths, rotation classes, symmetry classes and the lists of all order-four and order-five optima. Both independent programs were executed successfully on these exact inputs.
+PASS
 
-## Originality — PASS, with historical-priority risk
+The class count (2^n+2^ceil(n/2))/2 is a reversal-involution count. Every covering cycle has a 0^n window, so fixing one root loses no solutions. Inspected verify_dp.py and verify_census.py: the former traverses all class bitmasks and n−1-bit suffixes with all n−1 closing windows; the latter directly enumerates every 0^n-rooted binary suffix for every L from n through the claimed minimum, deduplicates rotations and both symmetries, and checks both attached optimal-cycle lists. An independently written exhaustive implementation recomputed for n=1..5 the shortest lengths 2,4,8,14,26, class counts 2,3,6,10,20, optimal cycles 1,1,2,8,128, and bracelet counts 1,1,1,3,36. With all shorter candidates checked, this is an exhaustive proof only for n<=5. Equality of rooted and necklace optima also verifies one occurrence of 0^n in each optimum.
 
-Burris–Motta–Shipman (arXiv:1608.08480, sections 3–5) study unoriented de Bruijn sequences and Eulerization, including linear examples at orders four and five, but do not enumerate optimal binary circular necklaces or prove these cycle-count values. Fici et al. (arXiv:1511.08431, sections 1–5) develop linear shortest-superstring-with-reversals approximation and complexity results, not an exact cyclic census. Targeted literature and research-record searches did not identify the length-and-count statement. The absence of indexed matches does not prove absolute historical priority; specialized older tables remain a risk.
+## originality
 
-## Value — PASS
+PASS
 
-Reverse-direction coverage is a natural superstring/universal-cycle requirement. The first orders after the one-visit obstruction are a motivated test of how closing the word changes the covering optimum. The result supplies sharp cyclic lengths, all optimal cycles and the reversal/complement symmetry census rather than a routine witness or a merely numerical upper bound. This exact finite classification makes explicit the boundary between ordinary de Bruijn traversal and reversal-constrained cyclic covering.
+The original finite exact cyclic minimum-and-necklace census is not immediately implied by previously studied unoriented de Bruijn linear constructions or ordinary de Bruijn necklace counts. The closest full primary Burris–Motta–Shipman text studies linear unoriented words, graphs and examples; the circular root and optimal-cycle multiplicity classification are additional. Searches found no exact earlier table but cannot exclude an unindexed enumeration.
 
-## Scope and remaining limits
+## value
 
-No higher-order, nonbinary, reverse-complement or noisy-channel claim is made. A finite exhaustive proof is legitimate because all shorter lengths and all optimum candidates are enumerated and the programs implement precisely stated recurrences; it should not be extrapolated to unexamined orders.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Reverse-equivalent coverage is a natural universal-cycle problem. n=4 and n=5 are the first nontrivial obstructed small instances; exact optimal necklace and symmetry counts, with witnesses and all-shorter-length exclusion, provide a mathematically motivated complete finite classification rather than only a witness or unmotivated statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
