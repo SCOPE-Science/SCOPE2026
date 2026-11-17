@@ -1,11 +1,21 @@
-# Scientific review: critical resetting absolute-area fluctuations
+# Independent mathematical audit
 
-**Correctness (PASS).** The normalized microscopic model uses \(X_s=\sqrt2B(s^\beta)\), Pareto waiting exponent \(\rho=1+\beta/2\), independent Brownian cycles, and a positive total reward. Brownian scaling gives \(Y=\xi/U\); the exact tail and truncated centering follow by conditioning on \(\xi\). The standard triangular-array Lévy theorem gives the one-stable limit for deterministic cycle counts, with the specified characteristic exponent. The potentially dependent renewal count is controlled by a finite \(p\)-moment bound and a reward-block sandwich, avoiding a false independence assumption. The nonarithmetic finite-mean renewal-age theorem makes the incomplete excursion tight. Independent cycle rewards and Borel--Cantelli prove the almost-sure limsup. Checks of normalizations, units, boundary strictness, and the executable algebra are documented. No finite test is treated as proof of an infinite limit.
+## correctness
 
-**Originality (PASS, qualified).** The October 2026 full-text source develops the scaled Brownian reset area and strict-regime moment formulas, but its critical equality \(\alpha=1+\beta/2\) is not given this joint logarithmic weak-law, stable-fluctuation, and almost-sure limsup classification. The 2025 general-resetting full text covers transform and low-moment results without this critical specialization. Semantic literature-index searches against physical model, aliases, stable-renewal and critical scaling did not reveal the statement; closest hits concern renewal age/residual correlation and unrelated heavy-tail families. The universal index-one stable theorem is old, so the contribution is expressly a model-specific critical transition with an exact coefficient/centering and an almost-sure contrast, not a new general stable probability theorem. An earlier renewal-reward theorem could subsume part of the stable-limit argument; this is recorded as residual priority risk rather than dismissed.
+PASS
 
-**Value (PASS).** The parent model's superlinear versus linear mean-area regimes meet at an exponent excluded from its strict-regime formulas. The missing boundary has a new \(t\log t\) typical scale, a non-Gaussian order-\(t\) fluctuation law with an explicit centering, and sample paths whose normalized area spikes without bound despite convergence in probability. This resolves a natural physical critical-law question and distinguishes typical and pathwise observations. The result is not presented as a new general renewal theorem or an assertion about equilibrium ergodicity beyond the stated area law.
+Brownian scaling makes each completed reward Y=tau^rho*xi, with rho=1+beta/2. At exactly Pareto exponent rho, tau^rho has the law U^{-1}. Conditioning gives P(Y>x)=E[min(1,xi/x)] and the truncated mean b(x)=E[xi log(x/xi) 1_{xi<=x}]. E xi=4/((2+beta)sqrt(pi)), xP(Y>x)->E xi, and b(x)=E xi log x-E[xi log xi]+o(1). Index-one Lévy convergence with centering n b(n) follows by truncated characteristic functions. Renewal inversion for p-moments 1<p<rho, a count window n^q with 1/p<q<1, and a reward union/Markov bound make the random count o_P(n) at stable scale despite cycle length/reward dependence. Renewal backward-age tightness makes the unfinished area O_P(1). Independent Borel–Cantelli events Y_j>m j log j, plus T_j/j->mu, yield infinite a.s. limsup. This proves the stated full physical-time, all t->infinity claim; not a moment heuristic.
 
-**Closest literature and limits.** Méndez--Cristín, arXiv:2610.19985v1, Sections II, IV, V, supplies the dynamics, excursion scaling, and strict exponent regimes. Méndez--Flaquer-Galmés, Phys. Rev. E 112 (2025), supplies general reset-functional methods. Levy--Taqqu (2000) and Horii et al. (2022) study broader renewal-reward limits/fluctuations; general results remain a priority qualification. A full text of the former was not verified in this assessment. Claims are restricted to independent full renewal resets, normalized diffusivity/time units, \(0<\beta<2\), and the critical Pareto exponent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge originality limited to the exact critical exponent, physical-time one-stable centering and almost-sure limsup contrast. Neither the physically identical full primary manuscript nor the earlier strictly supercritical published stable window supplies their joint critical conclusions; general stable and renewal methods are fully credited.
+
+## value
+
+PASS
+
+The boundary exponent is a natural nonintegrable-reward threshold between finite-mean and heavy-tailed regimes. Determining the exact t log t normalization, one-stable centered fluctuations and failure of almost-sure self-averaging together is a substantively motivated critical classification. The exact Brownian coefficient and random renewal-time control are needed for applications; neither reproducibility nor generic attraction theory alone is the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T20:14:20.220925Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md Proof steps 1–6 and assumptions 0<beta<2, independent complete resets, Pareto lower cutoff 1, rho=1+beta/2",
+        "Checker independently tests Gaussian area expectation and Pareto/uniform tail and centering identities",
+        "Classical index-one stable domain-of-attraction theorem and finite-mean renewal-age convergence; neither is inferred from finite tests"
+      ],
+      "rationale": "Brownian scaling makes each completed reward Y=tau^rho*xi, with rho=1+beta/2. At exactly Pareto exponent rho, tau^rho has the law U^{-1}. Conditioning gives P(Y>x)=E[min(1,xi/x)] and the truncated mean b(x)=E[xi log(x/xi) 1_{xi<=x}]. E xi=4/((2+beta)sqrt(pi)), xP(Y>x)->E xi, and b(x)=E xi log x-E[xi log xi]+o(1). Index-one Lévy convergence with centering n b(n) follows by truncated characteristic functions. Renewal inversion for p-moments 1<p<rho, a count window n^q with 1/p<q<1, and a reward union/Markov bound make the random count o_P(n) at stable scale despite cycle length/reward dependence. Renewal backward-age tightness makes the unfinished area O_P(1). Independent Borel–Cantelli events Y_j>m j log j, plus T_j/j->mu, yield infinite a.s. limsup. This proves the stated full physical-time, all t->infinity claim; not a moment heuristic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier window holds only for alpha>rho and subtracts a finite linear reward mean",
+          "General renewal-reward and index-one attraction theorems provide the probabilistic tools, but their use still requires model-specific reward constant, physical renewal-count coupling, incomplete-area tightness and pathwise spikes"
+        ],
+        "reasoning": "Generic renewal-reward theory may dominate the abstract limit after verifying hypotheses; no inspected prior theorem states this explicit model-specific complete critical trio. Risk retained rather than novelty certified.",
+        "searches": [
+          "critical scaled Brownian motion absolute area with resetting Pareto exponent alpha=1+beta/2 logarithmic t log t one-stable fluctuation",
+          "Resultary 2026/11/2/a-totally-skewed-stable-fluctuation-window-for-pareto-reset-scal--5e9587862982",
+          "Lévy–Taqqu, Bernoulli 6 (2000), 23–44",
+          "Horii et al arxiv:2203.08584"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.19985",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-totally-skewed-stable-fluctuation-window-for-pareto-reset-scal--5e9587862982",
+        "https://math.bu.edu/people/murad/abstracts/30/30.html",
+        "https://arxiv.org/abs/2203.08584"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At alpha=rho, Eq.(111) gives an asymptotic 1/y complete excursion tail, but the parent does not state the truncated-mean random-epoch limit or a.s. limsup",
+          "The full primary text discusses first/second moments and backward recurrence; strict inequalities in (54),(58),(62) leave the equality unproved"
+        ],
+        "reasoning": "The reward-tail calculation is inherited. The claim adds a complete index-one full-area limit with explicit centering and a pathwise failure of a.s. convergence; earlier sources do not imply these without extra renewal/stable arguments.",
+        "searches": [
+          "Méndez and Cristín arxiv:2610.19985 Eq.(109)–(115), Section IV.2",
+          "critical scaled Brownian motion absolute area with resetting Pareto exponent alpha=1+beta/2 logarithmic t log t one-stable fluctuation",
+          "Resultary earlier stable window 2026/11/2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Méndez and Cristín Eq.(45) uses the identical Pareto reset law; Eqs.(54),(58),(62) separate alpha<rho and alpha>rho and omit alpha=rho",
+          "Earlier stable-window record assumes rho<alpha<2rho; its stable index q=alpha/rho>1 cannot be plugged into q=1 because the mean diverges"
+        ],
+        "reasoning": "The exact alpha=rho weak law, truncated centering and a.s. excursions are not the same as a strict-regime q>1 stable fluctuation theorem. Signed area is also distinct from absolute area.",
+        "searches": [
+          "critical scaled Brownian motion absolute area with resetting Pareto exponent alpha=1+beta/2 logarithmic t log t one-stable fluctuation",
+          "arxiv:2610.19985 full-text Sections IV.2, V, VI",
+          "Resultary published record 2026/11/2/a-totally-skewed-stable-fluctuation-window-for-pareto-reset-scal--5e9587862982"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The parent paper tabulates area moments and asymptotic regimes, not a database of full index-one limiting distributions at the matching equality",
+          "No exact finite combinatorial table applies to a continuous renewal process"
+        ],
+        "reasoning": "A precomputed numerical threshold or strict-regime moment formula does not establish the infinite-time stable law and almost-sure limsup.",
+        "searches": [
+          "critical scaled Brownian motion absolute area with resetting Pareto exponent alpha=1+beta/2 logarithmic t log t one-stable fluctuation",
+          "arxiv:2610.19985 Sections IV.2, VI; published SCOPE/Resultary semantic records"
+        ]
+      },
+      "rationale": "Best-knowledge originality limited to the exact critical exponent, physical-time one-stable centering and almost-sure limsup contrast. Neither the physically identical full primary manuscript nor the earlier strictly supercritical published stable window supplies their joint critical conclusions; general stable and renewal methods are fully credited.",
+      "residual_risks": [
+        "Potential already-established general dependent renewal-reward limit with sufficient strength to make the stable-law portion a corollary; not all general full papers read",
+        "OAuth institutional Oxford full-text endpoint reported vpn_disconnected; this did not override accessible arXiv text and is not novelty evidence",
+        "Historical indexing may omit independent critical absolute-area treatment"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARENT MODEL/TOOLS; NOT COVERING critical three-part law",
+          "evidence": [
+            "Eq.(54) omits alpha=rho; Sec.VI supplies reward tail, but no full index-one convergence theorem or a.s. limsup"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.19985",
+          "material_read": "Accessible arXiv full text through arxiv.org/abs mirror: Sections II–VI, especially IV.2 formulas (45),(54),(58),(62), V backward time, VI Eqs.(109)–(115), discussion and references; HTML version endpoint separately disabled",
+          "method": "read and compared mathematical text, equations and strict parameter bounds",
+          "title": "Absolute area under a scaled Brownian motion with resetting",
+          "trigger": "Identical reset scaled Brownian absolute area and exponent equality"
+        },
+        {
+          "assessment": "STRICT OPEN-PARAMETER OVERLAP ONLY",
+          "evidence": [
+            "Requires 1+beta/2<alpha<2+beta, excludes alpha=1+beta/2 equality and its infinite mean"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-totally-skewed-stable-fluctuation-window-for-pareto-reset-scal--5e9587862982",
+          "material_read": "Complete RESULT.md, hypotheses, theorem, proof and limitations read from actual GitHub file",
+          "method": "full GitHub file read and exact implication comparison",
+          "title": "A totally skewed stable-fluctuation window for Pareto-reset scaled Brownian absolute area",
+          "trigger": "Highly similar stable law for same area observable"
+        },
+        {
+          "assessment": "GENERIC THEOREM; COMPLETE COVERAGE UNKNOWN",
+          "evidence": [
+            "Cannot assert noncoverage from an abstract; priority residual risk"
+          ],
+          "identifier_or_url": "https://math.bu.edu/people/murad/abstracts/30/30.html",
+          "material_read": "Abstract and bibliographic summary only, full paper not established",
+          "method": "abstract read via existing literature record",
+          "title": "Renewal reward processes with heavy-tailed interrenewal times and heavy-tailed rewards",
+          "trigger": "Potential dominating general 1-stable limit"
+        },
+        {
+          "assessment": "POTENTIALLY RELEVANT GENERAL TOOLS",
+          "evidence": [
+            "No whole-paper noncoverage assertion"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.08584",
+          "material_read": "Abstract level and bibliographic record only",
+          "method": "public abstract metadata",
+          "title": "Anomalous fluctuations of renewal-reward processes with heavy-tailed distributions",
+          "trigger": "Potential general renewal-reward anomaly"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Explicit positive c/mu at alpha=rho",
+        "Nondegenerate index-one physical-time limit with finite-scale centering",
+        "Contrasting infinite a.s. limsup"
+      ],
+      "rationale": "The boundary exponent is a natural nonintegrable-reward threshold between finite-mean and heavy-tailed regimes. Determining the exact t log t normalization, one-stable centered fluctuations and failure of almost-sure self-averaging together is a substantively motivated critical classification. The exact Brownian coefficient and random renewal-time control are needed for applications; neither reproducibility nor generic attraction theory alone is the value claim.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE-Science/SCOPE2026 frozen Git commit b0e95ae124c6a0e1a43dab35f490b119e0fbbb37; actual RESULT.md, AUDIT.json, METADATA.json and seven-blob tree for each assigned package",
+    "Independent checker: independent_checks.py, independent_checks.log, 159 exact/algebraic and bounded assertions",
+    "Independent actual Git-tree SHA-1 object reconstruction: verify_git_trees.py, git_trees.log, all five seven-blob trees match",
+    "https://arxiv.org/abs/2610.19985",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-totally-skewed-stable-fluctuation-window-for-pareto-reset-scal--5e9587862982",
+    "https://math.bu.edu/people/murad/abstracts/30/30.html",
+    "https://arxiv.org/abs/2203.08584"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only full independent Brownian resets, 0<beta<2 and exact Pareto lower-cutoff convention; unknown general renewal theorem overlap and no uniform off-critical limits. Oxford authorization blocked but accessible arXiv mirror text read."
+  ],
+  "residual_risks": [
+    "Potential already-established general dependent renewal-reward limit with sufficient strength to make the stable-law portion a corollary; not all general full papers read",
+    "OAuth institutional Oxford full-text endpoint reported vpn_disconnected; this did not override accessible arXiv text and is not novelty evidence",
+    "Historical indexing may omit independent critical absolute-area treatment"
+  ],
+  "schema_version": 1
+}
