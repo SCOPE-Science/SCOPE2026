@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "The finite graph is given by a 16-cycle plus eight chords and is cubic bipartite. Exact formulas for its two 8-bit majority maps yield \\(F^5=F^3\\) on all \\(2^{16}\\) configurations; a state with first-entry time three establishes sharpness. Complete 256-word finite tables show 12 rotation classes comprising 72 stable symbols, with preimage weights 1 (22), 2 (48), 69 (2); the recurrent swap bijection then proves 72 fixed states, 2556 two-cycles, and the nine row basin census using w(s)^2 and 2w(s)w(t). Two independent standard-library programs were executed from current package paths. verify_full.py independently checks every one of 65536 graph configurations, all basin sizes and entry times; outputs are included. No sampled-to-infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1405.2486v1 §1 Theorem 1.1 says every finite majority process eventually has period at most two, but does not give an exact cutoff or attraction basins on \\(GP(8,3)\\).",
+        "published-finding corpus:095dfb0decea on \\(GP(10,2)\\) counts 118 fixed states and 9679 two-cycles, not all GP(n,k).",
+        "published-finding corpus:8cd2964a9d93 uses Heawood graph, 58-symbol shore projection, not an all-incidence-graph formula."
+      ],
+      "reasoning": "The general period-two theorem covers only period lengths, which is deliberately credited and is logically too weak to establish exact transient counts, fibers, or orbit-basin sizes. Other exact results have different graph parameters and no theorem specializing to \\(GP(8,3)\\).",
+      "searches": [
+        "published-finding corpus: majority voting on all generalized Petersen graphs arbitrary n k fixed point exact basin classification",
+        "published-finding corpus: exact universal cubic bipartite incidence graph majority attractor preimages period two 72 symbols",
+        "published-finding corpus: majority dynamics hypercube Q4 exact recurrent configurations two-cycles",
+        "Web: synchronous majority dynamics bipartite graph periods two Goles Olivos paper 1980"
+      ]
+    },
+    "checked_sources": [
+      "published-finding corpus:8cd2964a9d93 — A two-step majority projection and exact attraction basins on the Heawood graph (full RESULT.md inspected; 58 symbols and two-update bound)",
+      "published-finding corpus:095dfb0decea — Dodecahedral majority dynamics: an exact recurrent, basin and symmetry census (full RESULT.md inspected; 20-vertex nonbipartite graph)",
+      "arxiv:1405.2486v1 — Benjamini, Chan, O’Donnell, Tamuz and Tan (finite general period-two property; infinite/random graph results)",
+      "published-finding corpus:2026 Pappus majority dynamics: 92 recurrent symbols and sharp three-step clock (existing claim and scope checked only for deduplication)",
+      "MathWorld:MoebiusKantorGraph — graph identity GP(8,3) and cubic symmetric uniqueness (not an automaton classification)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Heawood full RESULT.md establishes \\(F^4=F^2\\) on its 14-vertex incidence graph and 58 stable symbols; it does not contain a general theorem covering the eight-point Möbius–Kantor configuration.",
+        "Dodecahedral full RESULT.md is a complete finite 20-vertex census and explicitly limits its scope.",
+        "Benjamini et al. only supplies a generic eventual-period upper bound without graph-specific cardinalities.",
+        "A separate Pappus claim has 92 stable symbols, and its graph is not isomorphic to \\(GP(8,3)\\)."
+      ],
+      "reasoning": "Since the closest results have different graph domains and no shared parameterized theorem covering the current graph, none implies the 72-symbol structure or six oscillator basin sizes. The classical global convergence result is strictly weaker. No originality is claimed for the abstract swap representation applicable whenever two shore maps are mutual inverses on a stable set; the contribution is the complete Möbius–Kantor symbol/fiber classification.",
+      "searches": [
+        "published-finding corpus: binary majority dynamics generalized Petersen graph GP(8,3) 72 fixed points",
+        "published-finding corpus: majority dynamics on Mobius ladders fixed point count spin invariant cyclic ladder",
+        "published-finding corpus: Möbius-Kantor 16-site majority 22 isolated stable configurations 231 isolated 2cycles",
+        "Web: Möbius-Kantor graph majority voting state transition periodic attractors 16"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus:8cd2964a9d93 treats a 14-vertex Fano incidence graph, not the 16-vertex 8_3 incidence graph.",
+        "MathWorld \\(GP(8,3)\\), Knödel W(3,16), and Möbius–Kantor are equivalent graph descriptions; searched Möbius/Moebius and GP aliases.",
+        "The complete 8-site cyclic 12-necklace certificate distinguishes this particular truth-table result."
+      ],
+      "reasoning": "All graph aliases resolve to the same cubic 16-vertex graph, so no alias was assumed novel by itself. Search hits closest to the requested dynamical census involved different graphs or unrelated invariants; no equal or stronger same-graph claim was identified.",
+      "searches": [
+        "published-finding corpus: majority dynamics Möbius Kantor graph 16 fixed points cycles exact basins",
+        "published-finding corpus: Möbius-Kantor majority period basin census isolated symbols",
+        "Web: Möbius Kantor graph majority dynamics cellular automata finite graph",
+        "Web: Moebius Kantor graph majority voting state transition periodic attractors 16"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus exact-count queries combining graph aliases, 72 fixed states, 2556 two-cycles and isolated orbits surfaced no table for this majority system.",
+        "MathWorld Möbius–Kantor page gives graph structure and adjacency/spectrum, not a dynamics census.",
+        "Full check enumerates every 65536 labelled configuration and the exact table is attached."
+      ],
+      "reasoning": "Neither a relevant published published-finding corpus table nor a standard graph-record table supplying this dynamical data was found. The negative search does not establish absolute novelty; the complete in-package finite result is independent of an external lookup.",
+      "searches": [
+        "published-finding corpus: Möbius–Kantor 16-site majority 22 isolated stable configurations 231 isolated 2cycles",
+        "published-finding corpus: GP(8,3) 16 Möbius Kantor graph synchronous majority recurrence fixed states 72 and two cycles 2556",
+        "Web: (\"Möbius Kantor\" OR \"Moebius Kantor\" OR \"GP(8,3)\") majority dynamics fixed points",
+        "Web: \"Möbius-Kantor\" \"cellular automaton\" majority",
+        "Web: Möbius-Kantor graph synchronous majority automaton fixed points basin 72 2556"
+      ]
+    },
+    "rationale": "The Heawood majority incidence result is a structurally close analogue on a different graph: its 58 symbols and idempotent shore projection do not imply the 72-symbol Möbius–Kantor retraction or its 88-to-72 intermediate collapse. The Pappus graph has another 92-symbol census; not the same graph. Benjamini et al. and the Goles–Olivos theorem guarantee eventual periods <=2, but not the exact 16-vertex basin spectrum or clock. Specific searches under \\(GP(8,3)\\), graph aliases, majority-vote, recurrent symbols, 72, 2556, and basins found no exact match. Priority remains qualified due to unindexed literature and one inaccessible historical original.",
+    "residual_risks": [
+      "Original Goles–Olivos 1980 full text not obtained; only the well-documented generic period-two theorem was checked through a published primary successor.",
+      "The 2026 Möbius–Kantor graph topology paper was available only as an abstract.",
+      "Unindexed exact enumerations, unpublished computations, and alternative Boolean-rule descriptions could potentially duplicate the graph-specific numbers."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_GRAPH_NOT_COVERING",
+        "evidence": [
+          "58-symbol Fano line/point projection, F^4=F^2, 14 vertices; no eight-site necklace formula."
+        ],
+        "identifier_or_url": "published-finding corpus:8cd2964a9d93",
+        "material_read": "Complete full-text RESULT.md including all proof steps, basin table, limitations and references",
+        "method": "Read complete published repository source text",
+        "title": "A two-step majority projection and exact attraction basins on the Heawood graph",
+        "trigger": "Closest incidence-graph result with a shore projection and basin products"
+      },
+      {
+        "assessment": "DIFFERENT_GRAPH_NOT_COVERING",
+        "evidence": [
+          "GP(10,2), 20 vertices, 118 fixed and 9679 two-cycles; no GP(8,3) theorem."
+        ],
+        "identifier_or_url": "published-finding corpus:095dfb0decea",
+        "material_read": "Complete full-text RESULT.md with assumptions, computational method, limitations and citations",
+        "method": "Read complete published repository source text",
+        "title": "Dodecahedral majority dynamics: an exact recurrent, basin and symmetry census",
+        "trigger": "Close exact majority graph census within generalized Petersen family"
+      },
+      {
+        "assessment": "GENERAL_PERIOD_BOUND_ONLY",
+        "evidence": [
+          "Theorem 1.1 credits Goles–Olivos; remainder treats unimodular and random graphs, not an exact Möbius–Kantor basin census."
+        ],
+        "identifier_or_url": "arxiv:1405.2486v1",
+        "material_read": "PDF contents, original submission page, introduction, finite-graph Theorem 1.1, sections 2 and 4 and references",
+        "method": "Read public PDF text and inspected page images",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "General finite-majority period-two result and convergence bounds"
+      },
+      {
+        "assessment": "GRAPH_CONTEXT_NO_DYNAMICS",
+        "evidence": [
+          "Graph is GP(8,3), unique cubic symmetric graph with 16 nodes, LCF [5,-5]^8; no majority update data."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/Moebius-KantorGraph.html",
+        "material_read": "Graph identification, adjacency/LFC description and graph properties in webpage",
+        "method": "Read public graph reference text",
+        "title": "Möbius–Kantor Graph",
+        "trigger": "Verify unique cubic symmetric graph and GP(8,3)/LCF alias"
+      },
+      {
+        "assessment": "ABSTRACT_POINTS_TO_UNRELATED_GRAPH_TOPOLOGY_FULL_NOT_CHECKED",
+        "evidence": [
+          "Abstract describes Cayley graph geometry, Lefschetz numbers and topology rather than binary neighbor-majority updates; full-text coverage unresolved."
+        ],
+        "identifier_or_url": "arxiv:2605.30799",
+        "material_read": "Public abstract only; full PDF request unsuccessful",
+        "method": "Searched arXiv abstract and attempted full PDF",
+        "title": "Remarks about the Moebius-Kantor graph",
+        "trigger": "Graph-specific plausible title, inspect whether Lefschetz fixed points cover majority dynamics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6c024411-1767-46b0-bcb1-c6cf368bdbfb",
+  "value": {
+    "rationale": "This is a complete natural invariant of the unique cubic symmetric 16-vertex graph, not an arbitrary selected graph: a canonical 12-necklace classification yields six distinct primitive oscillator basin sizes and three structural source-fiber weights. The 88-to-72 secondary collapse produces a genuine sharp transient delay versus the Fano-incidence model. The 231 dynamically isolated primitive oscillations and unique 9522-configuration oscillation basin provide useful exact benchmarks for stability and accessibility on symmetric networks. The fact is finite and self-contained; no unsupported broad theorem or applied impact is claimed.",
+    "status": "PASS"
+  }
+}
