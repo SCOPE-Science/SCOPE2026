@@ -1,14 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The graph is defined without ambiguity as ordered pairs with same-source and reversal edges; the five maximal four-cliques recover its full automorphism group. Exact exhaustive rational elimination gives the five boundary ranks and thus both reduced homology dimensions. Signed chain actions are verified for a transposition and five-cycle, which generate \(S_5\). Independently computed boundary-image traces and chain traces give both seven-class character vectors. These match the explicitly identified finite permutation modules, and the quotient ring follows from finite-group rational averaging. All required computations are reproduced by `verify.py` using exact fractions; the signed output is recorded in `verification_output.txt`. No integral lattice claim is made.
+## correctness
 
-## Originality
-PASS on inspected evidence. The exact nonequivariant homotopy type for this graph was previously published; that result is expressly not treated as novel. Its complete RESULT text was inspected and gives no equivariant homology character or quotient calculation. Engström's full claw-free independence-complex article and Barmak's full star-cluster article establish general connectivity and homotopy tools but not this graph's two representations. Searches included the equivalent once-subdivided complete graph matching complex, ordered-pair partial-map complex, and conjugacy-character formulations. No statement found implies the two degreewise characters. Residual risk: an unindexed or inaccessible equivariant calculation may be equivalent.
+PASS
 
-## Value
-PASS. The truncated four-simplex is a canonical high-symmetry polytope graph and its independence complex has two adjacent nonzero homology degrees. The five-dimensional lower group and twenty-three-dimensional higher group are identified as qualitatively different natural \(S_5\)-modules, yielding a nontrivial single-degree invariant in the full symmetry quotient. These features are not determined by the known sphere-wedge homotopy type and provide a concrete structural equivariant benchmark, rather than a restatement of the Betti numbers.
+Natural 20-vertex T5 graph is defined by equal first coordinate or reversed pair; independent enumeration of partial directed maps with no reciprocal pair gives exact face vector (20,150,520,815,444). Independent Fraction rational column reduction reproduced augmented boundary ranks (1,19,131,389,421), hence reduced rational Betti (0,0,0,5,23). Independently reconstructed seven class homology traces using signed oriented simplicial action and exact boundary-image bases: H3=(5,-3,1,2,0,-1,0), H4=(23,1,-1,-1,1,1,3) in RESULT class order 1^5,2 1^3,3 1^2,2^2 1,4 1,3 2,5. The first is sign tensor five-letter permutation, the second 24 directed Hamiltonian 5-cycle permutation minus its unique sign line. Group invariants (H3=0,H4=1), transfer after barycentric subdivision, and dimensional multiplication imply quotient rational cohomology ring Q in degrees 0 and 4 only. No integral equivariant lattice asserted.
 
-The exact statement is restricted to the rational representations of this one finite complex. Integral module and quotient torsion remain undetermined, and priority assessment is not definitive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact 2026-10-11 publication settles the same truncated four-simplex integral nonequivariant homotopy type, but does not determine the natural S5 rational characters, their Hamiltonian-cycle module or invariant quotient cohomology. A targeted Resultary search found no older same-character theorem; best-of-knowledge original with unindexed-literature risk.
+
+## value
+
+PASS
+
+PASS: Complete rational representation classification and the full-symmetry quotient ring for a natural Archimedean graph, previously known only through an integral nonequivariant wedge classification, materially distinguish possible module structures with equal Betti numbers. An exact invariant of this canonical object is of independent interest without requiring an infinite-family result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
