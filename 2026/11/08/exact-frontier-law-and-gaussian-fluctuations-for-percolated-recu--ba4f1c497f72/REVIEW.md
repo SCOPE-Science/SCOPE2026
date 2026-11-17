@@ -1,15 +1,21 @@
-# Scientific review: exact percolation frontier law
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact Markov transition for retained root size and cut-edge frontier has three exhaustive events, with probabilities \(pc/n\), \(qc/n\), and \(1-c/n\). The displayed bivariate generating function satisfies the resulting differential recurrence and initial value; the coefficient recursion proves its uniqueness. The centered frontier martingale has exact conditional variance \(qC_n/(pn)\), so its finite second moment telescopes. The stopped negative-binomial distribution follows from independent marks at predictable root-parent births. A Yule embedding proves a positive root-component growth limit, and bounded martingale differences with the asymptotically random quadratic variation establish the joint Gaussian-mixture limit and self-normalized normal limit. The standalone checker passed 883 exact finite tests. None of the finite tests is represented as proving asymptotic convergence.
+## correctness
 
-## Originality — PASS, with priority risks
-Baur, *Percolation on random recursive trees* (arXiv:1407.2508, 2014), already defined the first-generation component count and introduced the neutral-mutation/Yule representation. Its primary theorem considers retention tending to one and ranked cluster sizes, rather than the present fixed-parameter joint generating function, exact frontier martingale variance, or Gaussian limit. Desmarais, Holmgren and Wagner (arXiv:2110.15050v1, first posted October 28, 2021) calculate root-component size asymptotics and global coloured-tree statistics but do not establish these frontier statements. Kürsten (arXiv:1512.05275v1, 2015) counts vertices across first-generation clusters, a size-weighted statistic, not the number of such clusters. Bansaye, Gu and Yuan (arXiv:2109.05760v1, 2021) treat a different process with post-birth fragmentation and isolation. General neutral-mutation branching-process formulas might imply some special cases; a literature-wide originality guarantee is not claimed.
+PASS
 
-## Value — PASS
-The number of cut edges directly incident to a percolated root component is its first-generation branching degree in the contracted component tree. This is structurally different from either root-component population or total descendant population. A complete joint generating function, an exact finite-size centered-variance identity, a negative-binomial hitting-size law and an observed-size-normalized Gaussian theorem jointly quantify how a growing connected population creates immediate percolation descendants. These are natural, reusable statistics of an established random-tree model, rather than an arbitrary parameter slice.
+Exact one-step (C,B) transitions pc/n, qc/n and 1-c/n imply the displayed differential generating function with P_1=u; direct substitution plus the unique coefficient recurrence establishes the all-n law, including r=1-qv=0 by limit. With Z=B-(q/p)(C-1), each selected retained birth subtracts q/p and deleted birth adds one, so conditional variance is qC/(pn), telescoping to q(a_n-1)/p^2. Predictable root-parent events sample independent Bernoulli p edge marks: the (k-1)st retained success has NB(k-1,p) failure count. Yule embedding C(t) rate p, N(t) rate 1 yields almost surely positive W=C_n/n^p; independent marks yield B_n/C_n->q/p. Martingale predictable quadratic variation/n^p->qW/p^2 and bounded jumps give stable Gaussian mixture and self-normalized N(0,q/p^2) for fixed 0<p<1. Independently computed rational Markov moments through n=8; finite calculation only corroborates infinite proof.
 
-## Scientific scope and historical limitations
-Uniform recursive attachment, fixed \(0<p<1\), independent birth-edge marking, and a root component grown jointly in \(n\) are essential. Literature comparisons used the complete relevant open HTML papers when accessible, but independent priority assessment and independent mathematical validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: complete fixed-p bivariate frontier generating function, stopped NB law and self-normalized Gaussian residual are not covered by inspected original results. No negative novelty inference from searches alone.
+
+## value
+
+PASS
+
+The first-generation number of components attached to the retained root cluster is a natural branch-degree observable of the contracted percolation tree, distinct from cluster size or total descendant mass. Its exact joint law, stopped negative-binomial distribution, finite centered variance and intrinsic-size CLT reveal a reproducible structural fluctuation phenomenon; a researcher on genealogical trees could use precisely these formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
