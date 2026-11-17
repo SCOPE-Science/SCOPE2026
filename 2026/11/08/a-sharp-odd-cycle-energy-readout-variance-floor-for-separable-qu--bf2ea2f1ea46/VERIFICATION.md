@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility of the mathematical claim
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing this document. The script uses only Python's standard library and deterministic random seeds. It independently forms Pauli matrix tensor products for three chargers; checks Born expectations against the closed Walsh formula; checks Walsh orthogonality for three- to five-vertex graphs; tests both constructive sharp optimizers for odd-cycle lengths three, five, seven, nine and eleven; samples general Bloch bases for numerical counterexamples; and verifies the three-charger variance and the explicit separable-mixture weights.
+## correctness
 
-The exact reduction to a multi-affine problem in squared equatorial lengths proves that a global optimizer exists at endpoints. The discrete Fourier lower bound on an odd-cycle adjacency matrix proves the all-equatorial optimum and its attainability. These analytical arguments, not the bounded script, cover the full continuum of local axes and every odd cycle size. The script cannot establish any universal claim, rule out prior published equivalents, or certify physical realization by a specified dynamics.
+PASS
 
-A full independent validation has not been performed.
+For odd n>=3 and 0<delta<=1/[2^(n+1)(nh+2nJ)], the Pauli-string convex decomposition directly proves the constructed joint state is fully separable. Uniform charger outcome probabilities and distinct Walsh characters yield exactly Var(E_B)=(2^n delta)^2[h² sum_i z_i²+J² sum_edges(u_i·u_j)²]. With squared transverse lengths t_i in [0,1], fixing azimuths makes this expression separately affine in each t_i; a global minimizer exists at cube vertices t_i in {0,1}. Any vertical vertex gives >=h², attained by orthogonal alternation along the resulting path. Otherwise double-angle vectors on the odd n-cycle give least adjacency eigenvalue -2 cos(pi/n), with an attainable Fourier mode; equatorial minimum equals nJ²[1-cos(pi/n)]/2. Thus exactly the claimed smaller branch and switch, with all-axis global coverage. The bipartite iff zero statement uses h,J>0 and two perpendicular planar unoriented lines. Independent deterministic optimizer and variance checks on odd n=3,5,7,9,11 corroborated construction, not the infinite spectral proof. The n=3, h=J=1, delta=1/256 witness yields 3/4096 squared-energy dispersion.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality attaches to the quantitative conditional-energy variance minimum, exact all-Bloch-axis field/XY crossover and odd-cycle formula, not to known local orthogonality or odd-cycle Rayleigh facts. Full Liu metrology paper establishes the qualitative triangle obstruction in a different observable. Gong et al. study adaptive three-qubit collision charging; its abstract differs materially, but full article was inaccessible via public sources and authorized retrieval (vpn_disconnected), leaving a genuine priority limitation. Resultary semantic searches found this current record and related but non-dominating quantum results; absence is not proof of novelty.
+
+## value
+
+PASS
+
+The sharp lower floor directly answers whether classical separable charger correlations can be made branch-energy-uniform using nonadaptive local product projectors. The parameter-uniform switch between sacrificing one equatorial axis and spreading odd-cycle frustration gives an exact, reusable measurement design boundary, not a restatement of known graph bipartiteness or a contrived numeric instance. Scope is explicitly one-shot conditional means, not charging dynamics or intrinsic energy fluctuations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
