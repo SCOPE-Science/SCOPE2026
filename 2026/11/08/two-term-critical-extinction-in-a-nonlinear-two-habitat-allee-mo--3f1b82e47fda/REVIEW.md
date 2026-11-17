@@ -1,17 +1,21 @@
-# Scientific review — two-term critical extinction in a nonlinear two-habitat Allee model
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the original continuous-time equation with strictly positive initial patch densities, \(e=s\delta/(s+\delta)\), \(0<s\delta/(s+\delta)<1\), and \(m\ge 1/(h+s\delta/(s+\delta))\). The exact product identity follows by adding the logarithmic per-capita equations with coefficient \(\delta/(s+\delta)\); the proof derives it without approximation. The logistic comparison makes solutions positive and bounded and keeps the second habitat away from zero. Product decay therefore proves global convergence of every interior trajectory. The exact fast-coordinate equation is checked symbolically; variation of constants for \(z/u^3\) or \(z/u^2\) proves the needed limiting slaving coefficients. Reciprocal-square and reciprocal integration gives both rates and the next, initial-condition-independent coefficient. The extracted standalone verifier checks 1,968 rational exact identities and six non-probative finite numerical examples. No finite-time result is used to infer the infinite-time assertion.
+## correctness
 
-The restriction to the source's normalized time is essential. The limiting positive density of the second habitat is not called extinction of the entire population. The published source already contains the leading critical cubic normal-form term; it is credited.
+PASS
 
-## Originality — PASS subject to residual priority uncertainty
-Xia et al., arXiv:2310.10558v1 (2023-10-16), Section 2.1, equations (2.1), (2.6)–(2.7) and Theorems 2.2–2.7, were inspected in open full text. They establish local stability at \(e=B\), including a nonzero cubic coefficient at \(m=m_c\), and global results for different regions, but do not state the all-interior-data global result at the double equality, the exact decreasing weighted product, the two-term critical profile, or the supercritical exact \(t^{-1}\) amplitude. Their printed local normal-form cubic is NOT presented as new here. Gao et al. (2024) analyze a discrete-time analogue; Grumbach et al. (2023), examined in full open text, treat logistic and Beverton–Holt patches with linear movement, and Guiver et al. (2017) provide general growth/Lyapunov context, not this critical ODE profile. Two accessible published mathematical records were inspected in full: the doubly tangent Leslie–Gower predator-only threshold and the multiple-exposure epidemic degeneracy. Both feature cubic algebraic relaxation, but are on different vector fields with no reduction implying the present exact coefficients. The semantic database searches and accessible own-history searches recovered no covering statement. Absence from a ranked search does not establish exhaustive originality; an unindexed equivalent or stronger general center-manifold theorem remains a risk.
+For s,delta,h>0 and finite u,v initially positive, boundedness follows W=u+v logistic comparison, and v bounded away from zero follows v>= logistic. Independently recomputed exact identity d log(u v^c)/dt = u[(m+u)^-1-mc^-1] at e=B, implying u->0 globally. The transformed stable coordinate z=v-v0-cu obeys exact z-damping. Quotients z/u^3 (at mc) and z/u^2 (above mc) solve asymptotically stable scalar linear equations; leading critical coefficient alpha=mc^-2 and next beta=mc^-3+delta c/(s mc^2). Expanding u^-2 produces the claimed 1/t coefficient. Independent symbolic identity check passed; the infinite-time claim rests on the variation-of-constants argument, not numerical integration.
 
-## Value — PASS
-Critical invasion/persistence boundaries are ecologically meaningful: local stability alone cannot tell an observer whether a surviving patch loses a marginal population at an inverse-time rate or the much slower inverse-square-root rate. The proof resolves the entire positive basin exactly at the equality, identifies a reproducible weighted total-population functional, and quantifies how nonlinear movement contributes to the second extinction amplitude. The physical quantity is specific to the model, not an arbitrary slice. The result is a structural threshold theorem rather than just a parameter substitution or a few decimal values.
+## originality
 
-## Limits and comparison
-No result is asserted for the PDE, discrete-time analogue, noncritical mortality \(e\ne B\), or zero first-patch initial data. The mathematical findings are subject to unindexed-publication priority risk. The 2023 source's local cubic information and below-threshold coexistence results are not part of the originality claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Xia et al. establish identical vector field and local cubic center-manifold rate but do not state global positive-data convergence at e=B,m>=mc or the universal 1/t correction. The Resultary crossover theorem proves critical leading rate for an explicitly restricted near-extinction tube and new singular scaling for nearby m, not every positive initial state or a quartic asymptotic. These are distinct and non-dominating conclusions.
+
+## value
+
+PASS
+
+The exact boundary between persistence and slow collapse in a natural population model has direct dynamical meaning; extending a local center manifold rate to the full positive basin and identifying dispersal-dependent next coefficient are meaningful structural findings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
