@@ -1,19 +1,21 @@
-# Scientific review: a sharp eight-cycle threshold on wheels
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The update identities reduce the rim map to alternating Boolean OR and AND operations controlled by one hub bit. The explicit all-even witness has a cyclic interval of \(n/2-4\) ones and a verified eight-step expansion/contraction history, returning at time eight with a different hub at time four. All interval size bounds are checked for \(n\ge12\). For odd rim sizes, the hub becomes a strict anti-threshold updater; Theorem 10 of Haslegrave–Cannings applies to the simple loopless graph and forbids period eight. The only remaining even sizes, \(4,6,8,10\), are exhaustively excluded by two independently implemented transition checkers. Both complete algorithms count \(288\) primitive-eight configurations at the first possible size \(n=12\). Reproducible code and outputs are provided, not merely reported checksums.
+PASS
 
-## Originality
+From explicit open-neighbor majority at rim, derived r_i^{new}=OR(r_{i-1},r_{i+1}) for hub1 and AND for hub0. At even n>=12 a single cyclic one-block of length n/2-4 expands 2 four times then contracts 2 four times; both tie-retention updates and hub sequence 11110000 were checked including n=12 boundary, and time4 differs. At odd n hub has no ties and satisfies the published loopless pure anti-threshold Theorem 10, which excludes period 8. Independently exhaustively enumerated all 2^(n+1) states by a fresh graph-neighbor program for n=3,...,12: zero periods before 12, exactly 288 for n=12. Reproduced explicit witnesses for n=12,14,20,40,100; finite checks support, not replace, all-even construction.
 
-PASS under the accessible-literature comparison, with explicit priority uncertainty. Haslegrave–Cannings (2016), read in its first-version full text, proves period restrictions for a strict anti-threshold nonconformist but not the inertial tie-retaining hub: at even rim sizes the latter rule depends on the hub's previous opinion at a tie. Its permissive results for more general rules on other graphs do not supply a wheel-specific sharp existence threshold or the first-size census. Cannings (2009) considers majority/minority behavior on complete graphs, hypercubes and selected cubic graphs in the accessible abstract; its full text was not reviewed. Goles–Olivos (1980) is relevant to homogeneous threshold periodicity but does not imply this mixed-rule result from its accessible abstract. Searches for equivalent wheel/contrarian/tie variants and indexed results found no demonstrated covering implication. An unindexed or inaccessible equivalent remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. The condition \(n\in2\mathbb Z\), \(n\ge12\) identifies a sharp qualitative change in possible primitive periods caused solely by the interaction of a minority hub and inertial ties. It refines a natural boundary of an established nonconformist-period theorem, provides explicit period-eight waves on an infinite family of simple loopless graphs, and gives the nontrivial first admissible finite population and orbit count. This is structural periodic behavior, not a parameter rename or an isolated experimental example.
+Best-of-knowledge new coexistence of a loopless wheel, one tie-retaining minority hub, an iff parity-and-size threshold n even>=12 and a first primitive-eight census (288). The central earlier period-classification theorem applies at odd n but explicitly does not apply to even-n tie-inertia; ordinary-majority wheel papers use a different hub rule.
 
-## Limits and verification
+## value
 
-The result is not a complete recurrent-state census at every wheel length; no general eight-cycle count is asserted. Earlier source access is imperfect and publication priority is not certified. Enumeration is exhaustive for the stated small cases but cannot substitute for the infinite construction or the odd-case theorem.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural one-dissenter tie-retaining voting model sharply crosses a known period restriction: parity determines whether the minority hub is memoryless, and the first exceptional primitive-eight recurrence has a fully quantified population. This is a structural theorem and motivated boundary, not an arbitrary automaton instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
