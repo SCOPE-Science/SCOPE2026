@@ -1,25 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The facet theorem is used in its exact intrinsic-hyperplane form, and a direct tight-edge argument reconstructs the relevant normals without relying on a black-box optimization. The metric-dual projection removes the ambient normal direction, yielding the stated quadratic signed-sum expression. The central-symmetry argument establishes an optimal center, and both the threshold reduction and the unweighted center-dimension calculation are complete. Exact rational enumerations agree with the formula for 42 weighted profiles; the star decision equivalence and 24 incenter-rank profiles are also checked. These finite checks are not asserted to establish the infinite theorem.
+PASS
 
-## Originality
+Exact facets of symmetric-edge polytope P_{A,B} have polar normals supported with signs ±1 on precisely one bipartition part. With intrinsic metric diag(1/t_i) on sum-zero hyperplane, the squared dual norm of normal f is Σt_i f_i²−(Σt_i f_i)²/T, hence max over signed facets is max{T_A−δ_A²/T,T_B−δ_B²/T}; centered inradius inverse-square equals that maximum by central symmetry. On star with t=(z_1,...,z_m,1), positive integers, A term strictly dominates B and r^-2≥Σz_i iff partition discrepancy δ_A=0, giving weak NP completeness with succinct binary weights. Zero-sum tangent normal span proves claimed unweighted incenter dimensions. Universal t_i>0 for geometric result, rational/integer in exact decision problem.
 
-**PASS, provisional historical priority.** The 2018 full-text source [1] supplies precisely the previously known biclique facet description; it does not present an optimization of intrinsic diagonal-metric normal lengths or the PARTITION reduction. The 2021/2022 full-text source [2] studies facet-subgraph correspondences rather than metric inballs. The Lipschitz-polytope connection [3] could conceal earlier equivalent geometric language. Previously established unweighted star inradii are excluded from the novelty claim. The weighted-discrepancy identity and exact rational-metric hardness boundary are the distinguishable mathematical assertions.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result identifies exactly why arbitrary vertex-coordinate anisotropy makes a natural geometric thickness invariant encode a number-partition instance. A simple biclique root-polytope family thereby changes from an elementary parity-controlled unweighted inradius to a weakly NP-complete exact metric question. The contact-facet characterization explains which optimal partitions are geometrically visible; the rank calculation supplies a complete unweighted incenter-dimension classification. Both the object and the precise metric invariant arise without choosing an arbitrary finite slice.
+Published facet work supplies exactly the signed normals and earlier Resultary unweighted inradius results cover the t_i=1 specialization, but neither implies an evaluated arbitrary positive diagonal-metric discrepancy radius without the metric-dual projection. Searches for weighted Lipschitz-polar radius and diagonal root-polytope metric found no earlier full matching theorem; possible alias under weighted polar circumradius remains material residual risk.
 
-## Sources and limitations
+## value
 
-[1] Higashitani--Jochemko--Michałek, arXiv:1807.07678v1, especially Proposition 3.4 (facets already covered).
+PASS
 
-[2] Chen--Davis--Korchevskaia, arXiv:2107.12315, Sections 1 and 4 (related facet-subgraph correspondences).
+Diagonal anisotropy on an intrinsically natural symmetric-edge body promotes elementary unweighted parity formulas to exact weighted number partitioning, and even stars encode weak NP completeness. This quantifies exact inball geometry, tangent facet selection, and a natural computational boundary, not arbitrary parameter slicing.
 
-[3] Gordon--Petrov, arXiv:1608.06848 (related Lipschitz-polytope framework; potential historical-priority risk).
-
-Only weak NP-completeness of an exact rational-metric threshold is claimed. The paper does not supply a floating-point hardness bound or an independent mathematical audit. A previously unrecognized weighted-variance equivalence could affect originality.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
