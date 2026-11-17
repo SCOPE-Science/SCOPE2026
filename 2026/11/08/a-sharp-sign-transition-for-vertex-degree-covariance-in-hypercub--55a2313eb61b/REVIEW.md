@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact formula follows from the Laplacian pseudoinverse, Hamming-ball flux, and the transfer-current determinantal covariance identity. The five coordinate-pair types partition all \(d^2\) ordered pairs. The final rational factorization and boundary \(d=1,2\) settle every integer dimension and Hamming distance, not just enumerated cases. An independent exact Walsh spectral calculation and exhaustive spanning-tree enumeration of \(Q_1,Q_2,Q_3\) agree; the included verifier reports 105 additional exact comparisons in dimensions 2–8. Residual correctness risk is limited to any overlooked normalization in this reconstruction; the independent exact tests target this issue.
+PASS
 
-## Originality — PASS (qualified)
+Reconstructed Green radial recurrence by Laplacian flux across Hamming balls, h_j=[2^d-sum_{q<=j} binom(d,q)]/[2^d binom(d,j)(d-j)]. Transfer-current determinantal identity gives Cov(sum star indicators)=p*1_adj - sum K(e,f)^2; partition all d² ordered edge pairs by support membership to obtain exact Xi. For nonadjacent stars Xi>0; adjacent algebra factors as given and is positive for d>=3. The zero-index omitted terms at t=1,d boundaries are explicitly interpreted. Independently solved finite Green pseudoinverses exactly and compared covariance for d<=5 all distances.
 
-The well-known transfer-current determinant and the general finite-graph degree distribution are **not** new and are not claimed. Bernardi's hypercube treatment enumerates trees and weighted edge orientations; Kassel–Wu provide transfer-current machinery and scaling limits; Rapoport gives an exact general degree-distribution formalism. The finite binary-cube Hamming-distance sign classification and its positive-adjacency formula require a separate exact radial Green-function flux calculation and were not identified in the inspected primary texts or exact-claim searches. A general formula formally specializes to this problem, and uninspected older hypercube network-moment papers may contain equivalent expressions; this is a priority risk, not a proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem offers a complete sign classification for the naturally observable degree field of a canonical high-dimensional random spanning-tree model. It distinguishes negative correlations of disjoint stars from a nontrivial positive adjacent effect arising from their shared edge, and proves the change persists in all dimensions \(d\ge3\). The exact nonadjacent kernel supports calculations beyond the sign theorem. No assertion about publication-level significance or a joint-distribution result is made.
+Qualified PASS only for the explicit evaluated full Hamming-distance covariance profile Xi_{d,t}. A separate same-day complete adjacent degree joint law already gives the identical adjacent covariance and positivity; the broad SIGN transition is its corollary when combined with the standard disjoint-stars transfer-current inequality. Neither that published adjacent PGF nor general transfer-current theory states the new all-distance explicit evaluated Xi profile in its inspected text. Public attribution and slogan emphasizing adjacent positivity require correction; strong residual risk that exact profile is a routine implicit specialization of existing graph Green kernels.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Qualified PASS: a closed exact spatial covariance profile for every Hamming separation is a motivated finite high-dimensional random-tree dependence invariant. The already-covered adjacent sign transition and automatic disjoint-star negative sign contribute zero novelty/value; all-distance values may be used for quantitative spatial dependence and scaling, beyond signs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

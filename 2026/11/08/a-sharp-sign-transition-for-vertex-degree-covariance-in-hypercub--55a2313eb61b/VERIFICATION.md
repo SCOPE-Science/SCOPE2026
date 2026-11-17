@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction of calculations
+# Independent mathematical audit
 
-Run `python3 verify_hypercube.py` using Python 3 and only the standard library. The script enumerates all spanning trees of \(Q_1\), \(Q_2\), \(Q_3\), obtaining counts 1, 4, 384, and verifies the exact degree covariances directly from the enumerations. It then independently calculates the zero-mean Laplacian Green function on \(Q_d\) from all Walsh-character eigenfunctions, using eigenvalue \(2|S|\) for the character indexed by nonempty subset \(S\), and compares star-to-star transfer currents with the binomial flux formula. For every \(2\le d\le8\), \(1\le t\le d\), it checks the exact adjacent rational factorization and sign classification. The program reports 105 exact spectral/formula/sign assertions.
+## correctness
 
-The output includes \(\operatorname{Cov}(D_u,D_v)=1/96,-5/32,-1/32\) at distances 1, 2, 3 in \(Q_3\), and \(1/64,-59/576,-1/64,-1/192\) at distances 1 through 4 in \(Q_4\).
+PASS
 
-The infinite-dimensional statement rests on the analytic Hamming-ball flux proof, the known transfer-current determinant and the sign factorization; finite enumeration and spectral comparisons cannot certify every dimension. Historical-priority assessment is separate from arithmetic verification.
+Reconstructed Green radial recurrence by Laplacian flux across Hamming balls, h_j=[2^d-sum_{q<=j} binom(d,q)]/[2^d binom(d,j)(d-j)]. Transfer-current determinantal identity gives Cov(sum star indicators)=p*1_adj - sum K(e,f)^2; partition all d² ordered edge pairs by support membership to obtain exact Xi. For nonadjacent stars Xi>0; adjacent algebra factors as given and is positive for d>=3. The zero-index omitted terms at t=1,d boundaries are explicitly interpreted. Independently solved finite Green pseudoinverses exactly and compared covariance for d<=5 all distances.
+
+## originality
+
+PASS
+
+Qualified PASS only for the explicit evaluated full Hamming-distance covariance profile Xi_{d,t}. A separate same-day complete adjacent degree joint law already gives the identical adjacent covariance and positivity; the broad SIGN transition is its corollary when combined with the standard disjoint-stars transfer-current inequality. Neither that published adjacent PGF nor general transfer-current theory states the new all-distance explicit evaluated Xi profile in its inspected text. Public attribution and slogan emphasizing adjacent positivity require correction; strong residual risk that exact profile is a routine implicit specialization of existing graph Green kernels.
+
+## value
+
+PASS
+
+Qualified PASS: a closed exact spatial covariance profile for every Hamming separation is a motivated finite high-dimensional random-tree dependence invariant. The already-covered adjacent sign transition and automatic disjoint-star negative sign contribute zero novelty/value; all-distance values may be used for quantitative spatial dependence and scaling, beyond signs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
