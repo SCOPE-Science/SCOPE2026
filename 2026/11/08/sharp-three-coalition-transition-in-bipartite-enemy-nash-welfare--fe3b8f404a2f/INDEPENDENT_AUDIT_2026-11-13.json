@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T04:05:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Given n=2q+4, penalty -n forces each positive-welfare coalition to be a friendship clique because an agent with an enemy has utility at most n-2-n<0. Splitting either identical same-side core pair is suboptimal by strictly beneficial merging, and all peripheral leftovers can be merged; hence optimizer has two core coalitions and at most one peripheral coalition. Its product is (a+1)^(a+2)(b+1)^(b+2)(2q-a-b-1)^(2q-a-b) for residual size >=2. The map f(s)=s log(s-1) is convex for s>=2, giving a vertex maximum; mixed vertices lose to the two-coalition candidate. D(x)=2x log(2x-1)-(2x+4)log(x+1) has D’>0 for x>2 and changes sign between q=8,9. Independent integer calculations verified q=7,8,9,10,80, and the inspected verifier includes unrestricted partitions q=2 and q=3. Strict positive difference gives unique winners as stated; exact threshold 22 agents is family-specific.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6.2 establishes NP-complete positive Nash welfare feasibility with at most k>=3 in general; no theorem specifies the solvable missing-q²-edge K_(q+2,q+2) family."
+        ],
+        "reasoning": "General hardness and approximation do not determine the exact family optimum.",
+        "searches": [
+          "Resultary: Nash welfare symmetric aversion to enemies connected bipartite enemy graph two versus three coalition optimal transition"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2605.19030v1",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-matching-edge-plateau-for-nash-products-on-nearly-bipartite-en--392ddef51b7e",
+        "https://arxiv.org/abs/2603.21826"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 1 only enforces enemy-free cliques. Theorem 6.1 optimizes with two coalitions allowed; it does not compare to an unrestricted three-coalition competitor."
+        ],
+        "reasoning": "Strict transition arises from an additional explicit log-convexity and product comparison not implied by the cited general results.",
+        "searches": [
+          "https://arxiv.org/html/2605.19030v1",
+          "Resultary: Nash welfare symmetric aversion to enemies connected bipartite enemy graph two versus three coalition optimal transition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pagano–Schlenga Theorem 6.1: efficient optimization subject to k<=2, not unrestricted optimal number."
+        ],
+        "reasoning": "Restriction to at most two coalitions is not the same as unrestricted two-coalition optimality; does not imply crossover q=9.",
+        "searches": [
+          "Resultary: Nash welfare symmetric aversion to enemies connected bipartite enemy graph two versus three coalition optimal transition",
+          "https://arxiv.org/html/2605.19030v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matching-edge plateau and odd enemy-cycle exact catalogs are distinct graphs; no exact q=8/9 product threshold table was found."
+        ],
+        "reasoning": "No located prior table covers the family. Search nonappearance is not historical novelty proof.",
+        "searches": [
+          "Resultary: bipartite enemy Nash welfare two three coalition"
+        ]
+      },
+      "rationale": "Pagano–Schlenga primary HTML Sections 2, 3, 6, and appendix distinguish the unrestricted AEG Nash welfare optimization from at-most-two coalition tractability (Theorem 6.1) and at-most-three hardness (Theorem 6.2). Neither supplies the explicit connected bipartite core-periphery family nor its crossover. Other published Resultary matching-edge and odd-cycle formulas treat different signed compatibility graphs; no implication found. Priority remains qualified by possible specialized bipartite friendship-clique product optimizations.",
+      "residual_risks": [
+        "Exact threshold is not a global minimal counterexample among all bipartite enemy graphs.",
+        "No full survey of every 2026 game-theory manuscript; specialized equivalent graph families may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact core-periphery threshold",
+          "evidence": "Lemma 1 friendship cliques; Thm6.1 restricted k=2 P; Thm6.2 general k>=3 NP completeness",
+          "identifier_or_url": "https://arxiv.org/html/2605.19030v1",
+          "material_read": "Full accessible arXiv HTML including Lemma 1, Theorems 3.1, 6.1, 6.2 and appendix proofs for Section 6",
+          "method": "arXiv primary full HTML, sections 2,3,6 and appendix",
+          "title": "Nash Welfare in Additively Separable Hedonic Games",
+          "trigger": "Exact aversion-to-enemies model and two/three partition boundaries"
+        },
+        {
+          "assessment": "DISTINCT hostility construction, not establishing q=9",
+          "evidence": "K_(a,b) plus disjoint same-side hostile edges vs present K_(q+2,q+2) minus q² peripheral cross edges",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-matching-edge-plateau-for-nash-products-on-nearly-bipartite-en--392ddef51b7e",
+          "material_read": "Published Resultary title and mathematical summary",
+          "method": "Resultary semantic-search record",
+          "title": "A matching-edge plateau for Nash products on nearly bipartite enemy graphs",
+          "trigger": "Related exact welfare on enemy graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A connected bipartite enemy graph can have a unique globally welfare-optimal partition using three coalitions even though two are graph-colorable. The sharp 22-agent transition within a natural scalable core-periphery family gives a useful counterexample to inferring optimal coalition count from bipartiteness, with exact formulas not just existence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No inference of strategic stability or tractability of general bipartite enemy graphs.",
+    "Existing public audit and metadata contain operational fields requiring sanitation."
+  ],
+  "schema_version": 1
+}

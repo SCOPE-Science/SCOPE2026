@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement is restricted to symmetric aversion-to-enemies games with four specified core agents and two peripheral sets of cardinality \(q\ge2\). The negative valuation \(-n\) makes every coalition with an enemy pair non-IR; any eligible coalition must be a friendship clique. Merging separated portions of either compatible core and merging leftover peripheral-only coalitions strictly raises positive Nash welfare, yielding an exact two/three-coalition reduction. The product becomes \((a+1)^{a+2}(b+1)^{b+2}(r-1)^r\). Convexity of \(s\log(s-1)\) reduces the domain to five polygon vertices, with the mixed vertices dominated by the two-coalition product. The log-ratio of the remaining two products is strictly increasing for \(q>2\), and exact comparisons at \(q=8,9\) establish the threshold. Separate complete set-partition enumeration for \(q=2,3\), plus integer scanning through \(q=80\), agreed with the analytic prediction. The finite scans are explicitly supplementary and do not prove the infinite theorem.
+PASS
 
-## Originality — PASS, qualified
+Given n=2q+4, penalty -n forces each positive-welfare coalition to be a friendship clique because an agent with an enemy has utility at most n-2-n<0. Splitting either identical same-side core pair is suboptimal by strictly beneficial merging, and all peripheral leftovers can be merged; hence optimizer has two core coalitions and at most one peripheral coalition. Its product is (a+1)^(a+2)(b+1)^(b+2)(2q-a-b-1)^(2q-a-b) for residual size >=2. The map f(s)=s log(s-1) is convex for s>=2, giving a vertex maximum; mixed vertices lose to the two-coalition candidate. D(x)=2x log(2x-1)-(2x+4)log(x+1) has D’>0 for x>2 and changes sign between q=8,9. Independent integer calculations verified q=7,8,9,10,80, and the inspected verifier includes unrestricted partitions q=2 and q=3. Strict positive difference gives unique winners as stated; exact threshold 22 agents is family-specific.
 
-Pagano and Schlenga (2026), *Nash Welfare in Additively Separable Hedonic Games*, https://arxiv.org/html/2605.19030v1, define the same preference/utility normalization and prove that IR AEG coalitions are friendship cliques. Their Theorem 6.1 and its appendix derive the optimum among partitions with **at most two** coalitions, whereas their Theorem 6.2 gives general hardness for up to three or more coalitions. Neither statement or inspected proof supplies the unconstrained global optimum for the connected bipartite graph family, nor its switch at nine peripherals per side. The paper's known convexity argument for fixed two-coalition sizes is acknowledged rather than claimed new.
+## originality
 
-Available earlier special-family welfare classifications concern complete multipartite friendship graphs with within-class enemies and interclass friends, not the current deleted-biclique enemy structure; their conclusions do not imply the stated switch. Searches for equivalent formulations and broader coverage did not locate an equivalent classification. An unindexed clique-partition/Nash-welfare result could still anticipate the theorem; this is a residual publication-priority risk. A related 2026 paper on individual rationality with coalition constraints was inspected only at its abstract and cannot support whole-paper novelty exclusion.
+PASS
 
-## Mathematical value — PASS
+Pagano–Schlenga primary HTML Sections 2, 3, 6, and appendix distinguish the unrestricted AEG Nash welfare optimization from at-most-two coalition tractability (Theorem 6.1) and at-most-three hardness (Theorem 6.2). Neither supplies the explicit connected bipartite core-periphery family nor its crossover. Other published Resultary matching-edge and odd-cycle formulas treat different signed compatibility graphs; no implication found. Priority remains qualified by possible specialized bipartite friendship-clique product optimizations.
 
-The paper's algorithmic result for two-coalition AEGs leaves open what the **unrestricted** optimum does even on simple connected bipartite enemy graphs. The explicit, infinite, structurally motivated family shows a genuine phase transition: in a larger market a two-colouring is still feasible but strictly less Nash-efficient than introducing a third coalition. The theorem identifies the exact cutoff, global product, and all maximizing partitions with an analytic argument. This is a meaningful boundary to a natural extrapolation of a known restricted optimization theorem, without asserting any global smallest-graph claim.
+## value
 
-## Limitations and closest literature
+PASS
 
-The result applies only to the specified four-core/two-peripheral signed complete model and a product objective on nonnegative IR utilities. No robustness, stability, incentive or arbitrary-graph algorithm claim is asserted. The closest inspected literature is the 2026 Pagano–Schlenga preprint, particularly Sections 2, 3, 6.1 and the appendix proof of Theorem 6.1. Open priority risks include unindexed graph-clique-partition work and older specialized social-welfare studies not inspected in full.
+A connected bipartite enemy graph can have a unique globally welfare-optimal partition using three coalitions even though two are graph-colorable. The sharp 22-agent transition within a natural scalable core-periphery family gives a useful counterexample to inferring optimal coalition count from bipartiteness, with exact formulas not just existence.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
