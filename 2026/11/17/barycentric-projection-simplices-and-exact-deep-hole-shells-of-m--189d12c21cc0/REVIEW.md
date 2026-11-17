@@ -1,0 +1,12 @@
+# Mathematical review
+
+## Correctness (PASS)
+The proof provides an exact normal-cone certificate: the residual at the explicitly constructed barycenter has a strictly maximal inner product precisely at the proposed face vertices. Those generators form a bipartite-forest incidence set, establishing the face as a simplex and giving its volume by a Gram determinant. The distance identity follows by direct norm calculation, and a residual-variance identity rules out all nonvertex Hausdorff maximizers. Quantifiers include every multipartite class profile with at least one part of size two or more; exceptional all-singleton graphs are excluded. Exact closed-form checks and numerical quadratic minimizations independently corroborate 140 nontrivial missing-vertex instances.
+
+## Originality (PASS, conditional on unindexed historical work)
+Ohsugi–Tsuchiya's complete multipartite PQ adjacency results determine lattice volume and Ehrhart information, not metric projection faces or Euclidean distance shells. A previous crown-root-polytope result **does** cover perfect-matching deletion, equivalent here when every class has exactly two vertices. That fully paired subclass is expressly credited; allowing singleton parts creates partial-matching deletion, which is not directly covered by that prior theorem. Prior Gaussian directional-width results on bipartite PQ polytopes are not equivalent to a vertexwise Euclidean nearest-point formula; neither imply the arbitrary-part-size theorem. The closest results and their precise implication boundaries have been compared, but an unindexed earlier equivalent statement under a transportation or graph-projection formulation remains possible.
+
+## Mathematical value (PASS)
+The complete coordinate Euclidean Hausdorff invariant, exact full family of finite metric shells and multiplicities, constructive nearest-point map, and simplex face geometry are natural exact data for the PQ-type polytope family important in discrete geometry. The nontrivial independent-of-internal-size projection geometry and face support dimension varying with external class size add structure beyond a single distance constant. This is an all-dimensional theorem, not a fixed-size numerical re-enumeration. Its value does not depend on new statements about matching deletion, which is already covered in prior work.
+
+Self-review: passed. Independent audit: not yet performed.
