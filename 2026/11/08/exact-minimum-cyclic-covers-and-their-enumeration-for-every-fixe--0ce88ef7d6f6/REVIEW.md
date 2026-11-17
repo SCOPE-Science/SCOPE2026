@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The overlap graph uses complete length-\(n\) labeled words as edges. The distinct support-necklace components follow from the invariant that successive fixed-weight windows force the appended nonzero indicator to equal the dropped one. Every component is balanced; its normalized random walk resets to uniform colors after \(n\) transitions, making the component irreducible and giving only phase-root and zero eigenvalues. The resulting exact arborescence count, multiplied by the BEST local factors, proves both the minimum number and the number of minimum covers. The pure-Python checker independently reconstructed twelve finite instances, computed each exact Laplacian cofactor, and directly enumerated Euler circuits for three small instances. The checker is corroboration, not a substitute for the all-parameter proof.
+## correctness
 
-## Originality — PASS against checked evidence
-The two-nonzero case admits a simpler special calculation, whereas the present theorem treats arbitrary weight, including all weights greater than two, by a general reset-spectrum argument. Sawada–Williams addresses shorthand fixed-content construction rather than enumeration of minimum covers of original windows. Campbell–Janik-Jones–Sawada (arXiv:2603.11954) and Gabrić–Imam–Janik-Jones–Sawada (arXiv:2603.11934) likewise construct and decode bounded-weight or shorthand universal cycles; the inspected theorem statements and relevant full-text passages do not furnish the claimed enumeration. The known binary necklace formula and classical BEST/de Bruijn case are acknowledged components, not novelty claims. An equivalent old or unindexed enumeration remains a possible priority risk.
+PASS
 
-## Value — PASS
-An exact full-word fixed-weight cycle is generally impossible because the binary supports cannot cross necklace classes. The natural replacement question is the smallest number of circular tracks and the number of optimal designs. The arbitrary-weight theorem gives both answers, interpolates the classical de Bruijn enumeration at the all-nonzero boundary, and resolves a family of higher-order support components not covered by the previously analyzed two-nonzero case. The general reset-spectrum law is structural, and the exact counts quantify a genuine design space beyond existence.
+For all integers q>=2,n>=2,1<=k<=n, a circular track with every n-window having exactly k nonzero symbols necessarily repeats its binary support indicator with period dividing n. Every fixed-weight support necklace therefore gives a separate Eulerian overlap-graph component, and each has one mandatory track in a minimum cover. For a necklace of least support period h and a=kh/n positive positions, normalizing outgoing edges gives stochastic matrix whose n-th power is rank one on each support phase. Its nonzero spectrum consists of h-th roots of unity; directed matrix-tree cofactors are exactly s^(a*s^(k-1)-k) where s=q-1. BEST then counts Euler tracks per component as that power times ((s-1)!)^(a*s^(k-1)). Summing a over binary support necklaces yields binom(n-1,k-1), proving the all-parameter global count C=s^(s^(k-1)*binom(n-1,k-1)-kN)*((s-1)!)^(s^(k-1)*binom(n-1,k-1)), N=(1/n)sum_{d|gcd(n,k)}phi(d)binom(n/d,k/d). Independent exact directed-tree cofactors checked several small triples; the universal conclusion rests on reset-spectrum and BEST proof, not experiments.
 
-## Closest literature and limits
-The 2026 bounded-weight construction and decoding papers and the fixed-content shorthand universal-cycle paper use related words and necklaces but different representations or objectives. The present result is limited to minimum-track covers without identifying reversals or alphabet permutations. Historical priority beyond the inspected evidence remains uncertain; no independent audit was carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Fixed-weight de Bruijn sequence/universal-cycle literature often uses shorthand encodings or bounded weight rather than unshortened windows with exact fixed nonzero support. A published result covers k=2 only. Arbitrary k requires the general support-necklace reset spectrum and exact per-component spanning-tree count. No inspected stronger theorem implies the arbitrary-k product.
+
+## value
+
+PASS
+
+PASS: A complete exact enumeration for every fixed weight and alphabet size resolves a natural missing classification beyond the known number of support-necklace components. The reset-spectrum computation supplies a reusable nontrivial arborescence invariant, not an arbitrary small numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

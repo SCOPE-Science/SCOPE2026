@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T17:18:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all integers q>=2,n>=2,1<=k<=n, a circular track with every n-window having exactly k nonzero symbols necessarily repeats its binary support indicator with period dividing n. Every fixed-weight support necklace therefore gives a separate Eulerian overlap-graph component, and each has one mandatory track in a minimum cover. For a necklace of least support period h and a=kh/n positive positions, normalizing outgoing edges gives stochastic matrix whose n-th power is rank one on each support phase. Its nonzero spectrum consists of h-th roots of unity; directed matrix-tree cofactors are exactly s^(a*s^(k-1)-k) where s=q-1. BEST then counts Euler tracks per component as that power times ((s-1)!)^(a*s^(k-1)). Summing a over binary support necklaces yields binom(n-1,k-1), proving the all-parameter global count C=s^(s^(k-1)*binom(n-1,k-1)-kN)*((s-1)!)^(s^(k-1)*binom(n-1,k-1)), N=(1/n)sum_{d|gcd(n,k)}phi(d)binom(n/d,k/d). Independent exact directed-tree cofactors checked several small triples; the universal conclusion rests on reset-spectrum and BEST proof, not experiments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full-word k=2 formula is strictly a specialization, while newer universal-cycle constructions cover broader languages/encoding but not the all-weight enumeration of minimum unshortened track covers."
+        ],
+        "reasoning": "Broader in covered string family or algorithmic construction does not imply the numerical count of Euler tours in each exact support necklace component.",
+        "searches": [
+          "fixed Hamming weight qary length n words cyclic track minimum cover enumeration necklace BEST arborescences",
+          "https://arxiv.org/pdf/2603.11954",
+          "https://arxiv.org/abs/2603.11934",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-optimal-cyclic-track-covers-for-windows-with-exactly-two-nonzero--ef91832cabd7/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-optimal-cyclic-track-covers-for-windows-with-exactly-two-nonzero--ef91832cabd7/RESULT.md",
+        "https://arxiv.org/pdf/2603.11954",
+        "https://skeeter.socs.uoguelph.ca/~sawada/papers/fixedContentUCycle.pdf",
+        "https://arxiv.org/abs/2603.11934",
+        "https://arxiv.org/abs/2607.22350"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "k=2 degree-suppression reduces to bidirected K_{s,s} and looped complete digraph; arbitrary k has variable support phase sizes and requires P^n rank-one reset/spectral arborescence theorem."
+        ],
+        "reasoning": "Neither the special k=2 factors nor shorthand universal-cycle existence determines k>=3 component tree counts or global product; the formula solves a genuinely wider natural problem.",
+        "searches": [
+          "fixed Hamming weight qary length n words cyclic track minimum cover enumeration necklace BEST arborescences",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-optimal-cyclic-track-covers-for-windows-with-exactly-two-nonzero--ef91832cabd7/RESULT.md",
+          "https://arxiv.org/pdf/2603.11954",
+          "https://skeeter.socs.uoguelph.ca/~sawada/papers/fixedContentUCycle.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The k=2 predecessor classifies separation components only; Sawada–Williams and 2026 Campbell et al. construct shorthand universal cycles on different representations rather than arbitrary-weight full-window minimum cover enumerations."
+        ],
+        "reasoning": "A shortest cycle in compressed notation is not a collection of physical full-length circular tracks with exact k nonzero entries in every window. Different equivalence relations mean no simple count substitution.",
+        "searches": [
+          "fixed Hamming weight qary length n words cyclic track minimum cover enumeration necklace BEST arborescences",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-optimal-cyclic-track-covers-for-windows-with-exactly-two-nonzero--ef91832cabd7/RESULT.md",
+          "https://arxiv.org/pdf/2603.11954",
+          "https://skeeter.socs.uoguelph.ca/~sawada/papers/fixedContentUCycle.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical binary necklace counts supply the *number of tracks*, not the independent Euler-tour choice count; k=2 published exact count is a strict subset."
+        ],
+        "reasoning": "Search found no indexed arbitrary-k exact cover-count table; possible unindexed data remains a priority risk. Independent proof, not negative retrieval, supports assessment.",
+        "searches": [
+          "fixed Hamming weight qary length n words cyclic track minimum cover enumeration necklace BEST arborescences",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-optimal-cyclic-track-covers-for-windows-with-exactly-two-nonzero--ef91832cabd7/RESULT.md",
+          "fixed weight necklace q-ary de Bruijn BEST spanning arborescences exact cover table"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Fixed-weight de Bruijn sequence/universal-cycle literature often uses shorthand encodings or bounded weight rather than unshortened windows with exact fixed nonzero support. A published result covers k=2 only. Arbitrary k requires the general support-necklace reset spectrum and exact per-component spanning-tree count. No inspected stronger theorem implies the arbitrary-k product.",
+      "residual_risks": [
+        "An unindexed weighted de Bruijn arborescence/enumeration theorem might encode the same arbitrary-weight formula.",
+        "The Mitchell–Wild 2026 full paper was not inspected and its potentially related constrained-cycle constructions warrant additional priority checking."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strict k=2 special case; no all-k component spectrum",
+          "evidence": [
+            "Formula A_s^floor((n-1)/2) B_s^{even n}, based only on nonzero pair distance."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-optimal-cyclic-track-covers-for-windows-with-exactly-two-nonzero--ef91832cabd7/RESULT.md",
+          "material_read": "Entire RESULT.md theorem, forced path reduction, BEST count, limitations",
+          "method": "Full published GitHub mathematical source, blob 4d2300c24ac94eb7897089d16fc666f0b9309af1",
+          "title": "Optimal cyclic track covers for windows with exactly two nonzero symbols",
+          "trigger": "Closest exact fixed-support count, k=2"
+        },
+        {
+          "assessment": "Different compressed objects; no unshortened all-k minimum cover enumerator established in inspected material",
+          "evidence": [
+            "Compressed/shorthand universal cycles are constructed, not the separate full-window support-necklace Euler-cover count."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.11954",
+          "material_read": "PDF introduction, model and initial main results on shorthand and bounded-weight representations",
+          "method": "Lawful arXiv full PDF text plus first-page image",
+          "title": "Universal cycle constructions for k-subsets and k-multisets",
+          "trigger": "2026 primary universal-cycle construction with similar fixed-weight language"
+        },
+        {
+          "assessment": "Shorthand/fixed-content universal cycle construction, not full-word k-nonzero Euler-track counting",
+          "evidence": [
+            "The main theorem addresses cycle existence for a different representation, not arborescence count per full-window binary support necklace."
+          ],
+          "identifier_or_url": "https://skeeter.socs.uoguelph.ca/~sawada/papers/fixedContentUCycle.pdf",
+          "material_read": "PDF introduction and main universal-cycle theorem with later relevant page image",
+          "method": "Full lawful author-site PDF retrieval with page images for introduction and theorem",
+          "title": "A Universal Cycle for Strings with Fixed-Content",
+          "trigger": "Primary construction for related fixed-content cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-optimal-cyclic-track-covers-for-windows-with-exactly-two-nonzero--ef91832cabd7/RESULT.md",
+        "https://arxiv.org/pdf/2603.11954",
+        "https://skeeter.socs.uoguelph.ca/~sawada/papers/fixedContentUCycle.pdf",
+        "https://arxiv.org/abs/2603.11934",
+        "https://arxiv.org/abs/2607.22350"
+      ],
+      "rationale": "PASS: A complete exact enumeration for every fixed weight and alphabet size resolves a natural missing classification beyond the known number of support-necklace components. The reset-spectrum computation supplies a reusable nontrivial arborescence invariant, not an arbitrary small numeric slice.",
+      "residual_risks": [
+        "An unindexed weighted de Bruijn arborescence/enumeration theorem might encode the same arbitrary-weight formula.",
+        "The Mitchell–Wild 2026 full paper was not inspected and its potentially related constrained-cycle constructions warrant additional priority checking."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge prior-literature assessment, not exhaustive historical-priority certification.",
+    "Scientific assessment refers to exact assigned Git snapshot; no GitHub write or dispatcher closeout performed.",
+    "Public change-set not_ready: no unguarded public metadata containing operational identifiers may be published."
+  ],
+  "schema_version": 1
+}
