@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The shadow computation gives the exact support function of the projection body for every dimension. Integrating its axial sections gives the full polynomial in segment length. The normalized coefficient ratio follows algebraically and strict log-convexity of the beta moments proves that the coefficients are equal at indices zero and one and strictly increase thereafter. The Bernstein derivative is therefore strictly positive at every positive finite parameter in dimensions at least three. Affine contravariance proves the ellipsoidal extension. A standard-library verifier passed 214 supplementary comparisons, including independent axial-volume quadrature; sampled checks are not used to prove the infinite theorem.
+## correctness
 
-**Originality — PASS (best-knowledge; historical risk remains).** Mielke-Sulz (arXiv:2609.13517, first published September 11, 2026) and the September 24, 2026 general projection-body result prove the ball lower bound with rigid equality. Neither deduces monotonicity on ellipsoid-plus-segment paths, the complete Bernstein profile, or its sharp cylinder limit. Their stronger coverage concerns an inequality across all bodies, not comparisons along a fixed path. Searches for capsule, sausage, stadium, parallel-segment bodies, normalized projection volume, and Petty-quotient monotonicity returned no matching formula in the consulted sources. Classical mixed-volume expressions might subsume the explicit coefficient identity in older specialized literature, so novelty is provisional.
+PASS
 
-**Mathematical value — PASS.** The exact monotone interpolation gives a non-asymptotic, sharp, affine-invariant quantitative benchmark for a natural family of nonsmooth bodies of revolution. It refines a qualitative recently resolved inequality, exhibits a dimension-dependent strict Bernstein coefficient law, and identifies the exact limiting obstruction at cylindrical degeneration. This is an all-parameter family theorem rather than a single numerical comparison; it does not purport to solve a new global inequality.
+The projection-body support h(u)=kappa_(d-1)+2t*kappa_(d-2)*sqrt(1-(u.e_d)^2) identifies Pi K as an axial ball plus transverse disk. Axial section integration gives a degree-(d-1) Bernstein polynomial after volume normalization. Exact ratios u_(j+1)/u_j and strict log-convexity of I_m imply u_0=u_1<u_2<...<u_(d-1) for d>=3. Its Bernstein derivative is positive for any interior y>0; endpoint ball and cylinder limits and affine invariance follow. Independently recomputed coefficient order in d=3..11, with d=3 lower value 3pi^2/4 and upper 8. Finite dimensions corroborate the general Cauchy–Schwarz proof.
 
-**Risks and limitations.** Historical priority cannot be certified by unsuccessful searches. The geometric construction relies on the summand being a segment and the other body being an ellipsoid. The numerical checks cover only finitely many dimensions and parameters, and all universal quantifiers rely on the written proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The global unpolarized Petty inequality for revolutions and general d>=4 supplies ellipsoid minimality, not strict monotonicity or all-parameter capsule profile. Prior SCOPE capsule findings are on Mahler/Santaló/John-Löwner quantities, distinct functionals. Specific prior capsule projection-volume calculations could exist; Mielke-Sulz full article remained unavailable and was not certified noncovering.
+
+## value
+
+PASS
+
+The capsule is a standard, geometrically motivated deformation from ellipsoid to cylinder. A sharp all-dimensional quotient profile and coefficient-order mechanism quantify strictness of a difficult general inequality along a natural path; more informative than the global inequality alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
