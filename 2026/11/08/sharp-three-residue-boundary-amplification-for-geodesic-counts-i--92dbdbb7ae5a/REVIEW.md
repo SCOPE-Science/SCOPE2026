@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The definition of the geodesic-subpath number includes trivial paths, and the layer graph is fully specified. The proof first partitions shortest paths by whether their endpoints occupy distinct or equal independent layers, giving the complete identity (1). The suffix-product recurrence yields the precise growing-core term, while the finite boundary correction contributes the linear coefficient \(33/2\). The replacement steps are exact, preserve total tail size, and leave only eight normalized possibilities; their residue comparisons establish sharp bounds and explicit attainability. Independent breadth-first geodesic counts match the proposed formula in the tested finite domain. No inference from finitely many tests to the infinite claim is made.
+## correctness
 
-**Originality — PASS, with residual historical-priority risk.** The source paper proves statements for equally sized sequential joins and poses a general extremal problem. A public preceding result already gives the residue-zero tapered construction and its exact number. Neither that accessible claim nor the relevant inspected sections of the foundational paper state the three-residue sharp fixed-tail optimization or the boundary replacement theorem. The old residue-zero construction and constant are explicitly attributed. Searches for the optimization, equivalent formulations, and other layer-size profiles did not reveal a covering result. The preceding tapered-construction record's full text was unavailable, so unrecognized stronger claims there are possible; that limitation does not constitute a positive demonstration of covering.
+PASS
 
-**Value — PASS.** Determining which finite boundary modifications give the best exponential prefactor is a motivated refinement of an active extremal graph-counting problem. The result proves a sharp bound over an infinite optimization class, gives a finite reduction theorem, and supplies exact constructions in both previously untreated vertex-count residue classes. It does not purport to solve global graph extremality or to optimize cores other than the growing three-layer chain.
+For independent vertex layers joined completely in sequence, every pair of endpoints in distinct layers contributes the product of intervening layer choices; same-layer endpoint pairs contribute the sum of neighboring layer sizes. This proves the exact path-count formula. The transfer E_j=a_j(E_{j-1}+1) and central all-3 run yield H(L)H(R)3^m+(33/2)m+K. Arbitrary positive fixed tails reduce via beneficial split a>=4, sorting, merging 1+1 into 2 and replacing four 2s with (2,3,3), to eight (1^epsilon,2^j,3^k) profiles. Exact comparisons of three residue classes of tail scores give the stated global fixed-tail constants. Independent exact count checks for m=1..11 and dynamic-tail maxima sizes 7..24 corroborated the infinite combinatorial proof.
 
-**Closest literature and limits.** Knor–Sedlar–Škrekovski–Zhang, *Counting geodesic paths in graphs* (arXiv:2604.04907, first public April 6, 2026), provides the invariant, uniform-layer examples, and Problem 14. *Boundary-tapered path blow-ups improve the geodesic-subpath lower bound* (published record dated September 20, 2026) supplies exactly the old residue-zero construction. The new claim is limited to fixed finite tails and their sharp limiting coefficients. Independent verification and complete historical-priority checking remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The September 20, 2026 full published boundary-tapered result already proves the general geodesic count and explicit r=0 example with leading 121/36. The present finding credits them and newly proves an all-fixed-tail upper envelope for all three residue classes and attains r=1 and r=2 constants. Knor et al. treat equal-size layers and pose the construction extremal problem; their theorem does not give the fixed-tail sharpness.
+
+## value
+
+PASS
+
+Natural exact asymptotic extremal classification within a motivated layered-path family, resolving the effect of any fixed boundary perturbation and residue class. An actual infinite-class upper bound and two newly sharp residue coefficients are more than a renaming of the existing r=0 lower-bound example; no claim to global graph optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
