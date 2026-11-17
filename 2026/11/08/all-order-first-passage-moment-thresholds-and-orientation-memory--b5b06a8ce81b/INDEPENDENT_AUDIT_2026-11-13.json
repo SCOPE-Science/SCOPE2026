@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T09:12:19.447781Z",
+  "axes": {
+    "correctness": {
+      "rationale": "In the telegraph model dot X=-1/(1+X)+v sigma, sign flips rate gamma and starts x>1/v-1, the generator backward equations yield an integrating factor (v^2(1+x)^2-1)^(-beta/2), beta=2gamma/v^2, for d_n=(m_n^+-m_n^-)/2. Monotone comparison gives nonnegative d_n; diffusive-scale martingale lower bound forces the weighted source integral to diverge if beta<=2n-1. Positive polynomial Foster–Lyapunov functions s^(2j)+(jv/gamma) sigma s^(2j-1) and compact regeneration prove finiteness if beta>2n-1. Vanishing boundary flux then yields the exact recursion C_n=1/(2^n product_{j<=n}(1-(2j-1)/beta)) for m_n~C_n x^(2n) and leading positive orientation gap 2n C_{n-1}/[v(beta-2n+1)] x^(2n-1). Independent symbolic generator/coefficient checks passed; finite-grid upwind diagnostics in package are nonproof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guéneau–Majumdar–Schehr Appendix B gives general moment backward ODEs but describes them as formal and assumes moments exist for their use",
+          "Radice studies overdamped Brownian log-potential first passage, not finite-speed telegraph"
+        ],
+        "reasoning": "A formal recursion for moments conditional on their existence does not prove moment existence/necessity or the all-order orientation-gap asymptotic.",
+        "searches": [
+          "https://arxiv.org/html/2409.16951v1",
+          "https://arxiv.org/html/2307.12699v2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2409.16951v1",
+        "https://arxiv.org/html/2307.12699v2",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-second-passage-moment-threshold-for-a-run-and-tumble-parti--e8413b5016ce",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/all-order-first-passage-moment-thresholds-and-orientation-memory--b5b06a8ce81b/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "n=2 finite moment criterion beta>3 supplies a base case but not n>=3",
+          "The original general backward recurrence assumes moments finite and does not justify flux boundary at infinity for all n"
+        ],
+        "reasoning": "The current induction from lower bounds and Lyapunov drift gives a genuinely additional all-order theorem; residual risk is possible prior unindexed analysis of the same recursion.",
+        "searches": [
+          "https://arxiv.org/html/2409.16951v1",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-second-passage-moment-threshold-for-a-run-and-tumble-parti--e8413b5016ce"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mean hitting-time threshold and formal moment recursion known; second-moment criterion and C_2 known in Nov 2 theorem",
+          "Current theorem claims all n>=3 as well as n-dependent orientation difference"
+        ],
+        "reasoning": "Exact same telegraph model and logarithmic potential, so overlap is acknowledged; existing n=1/n=2 pieces do not imply explicit all-n finite thresholds without a new inductive proof.",
+        "searches": [
+          "Resultary semantic search logarithmic trap run and tumble first passage moment all orders threshold orientation memory",
+          "https://arxiv.org/html/2409.16951v1",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-second-passage-moment-threshold-for-a-run-and-tumble-parti--e8413b5016ce"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known n=1 and n=2 coefficients match C_1,C_2",
+          "No earlier all-n coefficient table located in named specialized sources"
+        ],
+        "reasoning": "The product formula for arbitrary n and the leading orientation-gap coefficient are not a recomputation of an existing finite numerical table; search alone is not proof of priority.",
+        "searches": [
+          "Resultary semantic search logarithmic trap run and tumble first passage moment all orders threshold orientation memory",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-second-passage-moment-threshold-for-a-run-and-tumble-parti--e8413b5016ce"
+        ]
+      },
+      "rationale": "PASS best of knowledge: the 2024 full primary paper on this exact logarithmic RTP supplies first-passage mean and formal all-order backward recursions, but does not establish the all-n finite-moment threshold, completed Lyapunov/integrating-factor proof or leading orientation-gap asymptotic; the separate Nov 2 published theorem covers n=2 threshold only, and these known pieces are credited. Unindexed equivalence remains risk.",
+      "residual_risks": [
+        "Earlier 2024 same-model Appendix B moment recurrence may enable equivalent unpublished higher-order deduction; absence of printed theorem is not novelty proof.",
+        "Specialized first-passage moment literature might include all-order threshold in alternative persistence-exponent language."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_BACKGROUND",
+          "evidence": "Published recurrences and first moment, no explicit all-order finiteness proof or orientation-gap coefficient",
+          "identifier_or_url": "https://arxiv.org/html/2409.16951v1",
+          "material_read": "Full available arXiv HTML, Section II.1 and Appendix B equations 86–95, formal recursion and provisos",
+          "method": "Lawful full arXiv HTML reading",
+          "title": "Run-and-tumble particle in one-dimensional potentials: mean first-passage time and applications",
+          "trigger": "Same precise model and potential with higher-moment Appendix B"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "beta>3 and C_2 known, higher n not represented",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-second-passage-moment-threshold-for-a-run-and-tumble-parti--e8413b5016ce",
+          "material_read": "Published Resultary detailed statement and known n2 coefficient; no claim of whole primary when material partial",
+          "method": "Published summary plus cited exact result",
+          "title": "Sharp second-passage-moment threshold for a run-and-tumble particle in a logarithmic trap",
+          "trigger": "Exact earlier same model, order 2"
+        },
+        {
+          "assessment": "ASSESSED",
+          "evidence": "Martingale lower bound and Foster–Lyapunov induction central to general theorem",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/all-order-first-passage-moment-thresholds-and-orientation-memory--b5b06a8ce81b/RESULT.md",
+          "material_read": "Complete Finding, proof steps 1–5, Verification and limitations",
+          "method": "Frozen GitHub RESULT.md reading",
+          "title": "All-order first-passage moment thresholds and orientation memory",
+          "trigger": "Assigned source"
+        },
+        {
+          "assessment": "DIFFERENT_GENERATOR",
+          "evidence": "Brownian diffusion, not exact finite-speed telegraph orientation memory",
+          "identifier_or_url": "https://arxiv.org/html/2307.12699v2",
+          "material_read": "Abstract/model and cited Brownian comparison only",
+          "method": "Lawful public arXiv abstract/context",
+          "title": "First-passage functionals of Brownian motion in logarithmic potentials",
+          "trigger": "Potentially equivalent diffusion limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: the hierarchy beta>2n-1 is a sharp moment phase diagram for a natural velocity-jump model, and the subleading orientation dependence is a nontrivial quantitative memory effect beyond effective-diffusion approximation. It distinguishes finite moments even when mean exists.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Start x>v^-1-1, fixed integer n, fixed 0<v<1, gamma>0; no simultaneous n and x asymptotic, no thermal noise or finite-time density.",
+  "schema_version": 1
+}

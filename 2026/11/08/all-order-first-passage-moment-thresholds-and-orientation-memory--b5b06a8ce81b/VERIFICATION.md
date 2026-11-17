@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification performed
+# Independent mathematical audit
 
-The stated theorem follows analytically from five steps reproduced in `RESULT.md`: moment generator identities; monotone coupling and martingale time-scale lower bound; divergent integrating-factor integral for necessity; explicit polynomial Foster–Lyapunov functions and compact regeneration for sufficiency; and an all-order power-tail induction for coefficients. Every parameter range is included in the theorem and a fixed moment order is assumed.
+## correctness
 
-The supplied `check_hierarchy.py` was executed with Python 3, SymPy, NumPy, and SciPy. It reported `symbolic_assertions 34`. With speed \(v=1/2\), flip rate \(\gamma=1\), and \(\beta=8\), the exact predicted coefficients for moment orders one, two, and three were `4/7`, `16/35`, and `64/105`. For starting positions \(20,40,80\), the computed order-three average normalized by its predicted asymptotic term was `1.50839, 1.31091, 1.21638`, and the normalized sign difference was `1.43348, 1.27794, 1.19966`. All symbolic assertions completed successfully, and all finite-domain solves returned positive moments. These finite-size diagnostics cannot establish exact asymptotics or an infinite-time theorem by themselves.
+PASS
 
-The boundary for the numerical scheme is artificially absorbing at a distant position and the upwind grid introduces truncation error; both can affect the ratios. The analytic theorem covers \(x>v^{-1}-1\) and fixed finite moment orders only, with no numerical error bound or uniformity in order.
+In the telegraph model dot X=-1/(1+X)+v sigma, sign flips rate gamma and starts x>1/v-1, the generator backward equations yield an integrating factor (v^2(1+x)^2-1)^(-beta/2), beta=2gamma/v^2, for d_n=(m_n^+-m_n^-)/2. Monotone comparison gives nonnegative d_n; diffusive-scale martingale lower bound forces the weighted source integral to diverge if beta<=2n-1. Positive polynomial Foster–Lyapunov functions s^(2j)+(jv/gamma) sigma s^(2j-1) and compact regeneration prove finiteness if beta>2n-1. Vanishing boundary flux then yields the exact recursion C_n=1/(2^n product_{j<=n}(1-(2j-1)/beta)) for m_n~C_n x^(2n) and leading positive orientation gap 2n C_{n-1}/[v(beta-2n+1)] x^(2n-1). Independent symbolic generator/coefficient checks passed; finite-grid upwind diagnostics in package are nonproof.
+
+## originality
+
+PASS
+
+PASS best of knowledge: the 2024 full primary paper on this exact logarithmic RTP supplies first-passage mean and formal all-order backward recursions, but does not establish the all-n finite-moment threshold, completed Lyapunov/integrating-factor proof or leading orientation-gap asymptotic; the separate Nov 2 published theorem covers n=2 threshold only, and these known pieces are credited. Unindexed equivalence remains risk.
+
+## value
+
+PASS
+
+PASS: the hierarchy beta>2n-1 is a sharp moment phase diagram for a natural velocity-jump model, and the subleading orientation dependence is a nontrivial quantitative memory effect beyond effective-diffusion approximation. It distinguishes finite moments even when mean exists.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
