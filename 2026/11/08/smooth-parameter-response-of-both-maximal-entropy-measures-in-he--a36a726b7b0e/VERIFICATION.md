@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The theorem is proved analytically by constructing a common symbolic coupling and uniformly summable derivative series of affine inverse/forward codings. The core bound for the \(q\)-th parameter derivative of the \(n\)-th increment is \(C_{q,K,M}(n+1)^q\rho_K^{n-q}\) with \(\rho_K<1\) on compact interior parameter ranges. Dominated differentiation gives the response formula, and a complex contraction neighborhood yields polynomial analyticity.
+## correctness
 
-The included `check_affine_response.py` independently constructs finite affine compositions and first derivatives both by reverse-chain recursion and by a forward product series using exact fractions. It also verifies branch image, contraction and truncation bounds. Run with `python3 check_affine_response.py`. Successful output: `PASS: 105496 exact rational algebra/bound checks; finite words, M=2,3,4.`
+PASS
 
-These finite-word checks are not a proof for arbitrary infinite sequences or all derivative orders. Those steps rely on the displayed analytic estimates and the published parameter-independent almost-sure singleton coding, respectively. Independent mathematical audit has not been performed.
+Reconstructed symbol-dependent inverse-unstable and forward-stable affine recursions on [0,1] with slopes a,1-Ma,b,1-Mb. For every compact K inside (0,1/M), all slopes bounded by rho<1 and affine coefficient derivatives bounded by M. Product differentiation gives uniformly summable O((n+1)^q rho^(n-q)) bounds for every fixed q, so U_a and S_b are C-infinity in their respective parameters uniformly over symbolic sequences. The common symbolic maximal-entropy laws and center singleton coding are explicitly published hypotheses from the source paper; fixed-measure dominated differentiation yields the claimed joint C^r integral and derivative series. Complexified local contraction proves polynomial analyticity. Center coordinate and its law are independent of both outside-coordinate parameters. Inspected exact-fraction checker covers finite words only, not the infinite statement.
+
+## originality
+
+PASS
+
+The originating Saiki–Takahasi–Yamamoto–Yorke work establishes weak-star continuity and expressly formulates differentiability as Conjecture 2.7. Uniform contraction in the two outside symbolic coordinates solves that stated problem for C^1 and smoother observables, with explicit higher response and polynomial analyticity, without asserting total variation response. No stronger prior implication found in the Dyck entropy/mixing or related center-path work.
+
+## value
+
+PASS
+
+Resolution of an explicit named parameter-response conjecture for both distinguished maximal-entropy measures supplies quantitative differentiation formulas for observables of a concrete heterochaotic system, not just a parameter substitution; the fixed center marginal sharpens the structural understanding.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
