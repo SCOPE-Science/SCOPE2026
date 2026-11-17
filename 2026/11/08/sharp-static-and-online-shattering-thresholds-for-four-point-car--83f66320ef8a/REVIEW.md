@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A three-point shattered set would lie in a four-corner rectangle and contain a diagonally opposite pair that forces the third, giving a universal VC bound. Explicit trace witnesses handle all boundary sizes. Every root-positive restriction has online rank at most two by its two one-hot parameters, giving the universal online bound three; a fully replayable eight-leaf tree reaches it on the three-by-three grid. The width-two boundary follows by one-hot restriction and hypothesis counting.
+## correctness
 
-**Originality — PASS within accessed comparisons.** The inspected zero-set and aggregation works do not imply this fixed-two-by-two exact family. Prior unrestricted Cartesian-product geometry is a strict superclass whose ranks do not imply restricted-class ranks. Actual comparisons for fixed four-cell bicliques and rank-one binary matrices returned no dominating exact theorem, though unknown equivalent formulations remain possible.
+PASS
 
-**Value — PASS.** Fixed-size rectangular patterns are a canonical uniform rank-one incidence family. The all-parameter dimension classification proves a sharp first adaptive separation at the smallest nontrivial two-axis grid, distinct from variable-size rectangles. This is a structurally explained phase boundary rather than an isolated computed sample.
+The 2x2-positive corner constraint forbids VC shattering of a triple: positive diagonal pair forces the third corner. Explicit two-query witnesses handle m,n≥3 and strips, and concept counts handle 2x2 and 2x3 boundaries. A root-positive fixed-rectangle class has online rank at most two because a second positive query fixes one or both remaining row/column parameters; hence whole Ldim≤3 and strip Ldim≤2. A complete eight-leaf 3x3 depth-three tree embeds into larger grids, proving the remaining lower bounds. Independent full exact recurrence yielded (0,0),(1,1),(2,2),(2,2),(2,3),(2,3) on six grid sizes.
 
-Small checks cover only listed sizes; the complete universal claim is proved analytically. Historical priority remains a residual risk. No external mathematical validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The first 3x3 (VC,L)=(2,3) example is **already a special case** of the 2026-11-02 exact closed-neighborhood theorem on H(2,3): complementing each closed rook neighborhood yields precisely a 2x2 rectangle, preserving VC/Littlestone ranks by swapping labels. The surviving original assertion is the uniform all-m,n fixed-cardinality classification, including every narrow strip and the global Ldim bound; neither unrestricted combinatorial-rectangle dimensions nor the isolated 3x3 closed-rook case directly state the all-grid result.
+
+## value
+
+PASS
+
+A natural uniform K_{2,2} incidence concept family has a complete two-parameter static/adaptive dimension table, including exact narrow-domain boundaries. The all-grid classification extends beyond the previously-known 3x3 special case and gives a reusable exact benchmark for restricting set-product hypothesis families. No arbitrary downstream theorem is needed for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
