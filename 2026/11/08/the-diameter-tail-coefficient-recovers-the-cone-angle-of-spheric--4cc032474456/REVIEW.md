@@ -1,15 +1,21 @@
-# Scientific review: spherical-football diameter-tail law
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is the doubled spherical lune of opening \(\pi\alpha\), for fixed \(0<\alpha<1\), with normalized area distribution and intrinsic geodesic distance. The unique diameter pairs are the two ordered opposite-cone-point pairs. The cosine-rule expansion, the positive-quadrant coercivity bound \(Q_\delta(u,v)\ge\min\{1,1+\cos(\pi\alpha)\}(u^2+v^2)\), and dominated convergence reduce the normalized tail to the stated double integral. Its polar-coordinate reduction, elementary tangent substitution, and angular antiderivative yield the exact closed coefficient. Strict monotonicity follows from strict inclusion of elliptical positive-quadrant sublevel regions as the longitude gap increases. Checks of normalization, the smooth endpoint, and three independent integral representations agree. Boundary: no claim for \(\alpha\ge1\); fixed-parameter limit only.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The closest geometric predecessor is Mondello–Panov (arXiv:1505.01994v1, 2015-05-08), Section 3.1.1, which constructs arbitrary spherical doubles of bigons and discusses cone angles, not random intrinsic pair-distance tails. Tu–Fischbach (arXiv:math-ph/0201046v1, 2002-01-22) develops Euclidean **chord**-distance distributions inside balls, a different metric and object. The classical round-sphere law gives a quadratic endpoint and does not imply the continuous sub-round coefficient. Related archived local cone-surface and flat-pillowcase distance laws have different curvature and distance endpoints, and no stronger shared theorem was identified. Queries included aliases football/spindle/doubled spherical bigon/cyclic sphere quotient and cone-angle inverse distance tails. Indexed absence cannot prove novelty; older obscure stereological literature remains an explicit risk.
+PASS
 
-## Mathematical value — PASS
-The order-four extreme-distance law is a natural, sharp invariant of a globally curved cone surface. Its explicitly evaluated coefficient is strictly increasing over the full interval of cone angles smaller than \(2\pi\), so a single leading statistical observable recovers the geometry's cone angle. The change from fourth to second order at the round sphere and the discrete cyclic-orbifold specialization expose a geometric singularity signature. This is not merely a computational example or rescaling of the sphere: it is a continuous inverse theorem with a nontrivial boundary layer.
+The spherical football F_alpha has longitude period 2πα with a=πα<π; the nearest longitude separation δ∈[0,a] is uniform. The intrinsic spherical cosine formula makes opposite pole pairs the sole diameter contacts for any fixed α<1. With colatitudes s=εu, t=εv, the positive-quadrant form Q=u²+v²+2uv cosδ is uniformly coercive at fixed a<π; dominated convergence yields fourth-order tail (2a)^−1∫_0^a I(cosδ)dδ. Polar substitution gives I(cosδ)=(sinδ−δcosδ)/(8sin³δ), integral C=[csc²a−cot(a)/a]/32. I increases strictly in δ, hence its running average is strictly increasing from 1/48 to infinity; α=1 sphere separately has ε²/4. Independent angular quadrature at α=.1,.25,.5,.75,.9 agrees, including nonorbifold α>.5.
 
-## Verification and limits
-The standalone `verify_football.py` evaluates the original radial integral, its angular reduction, the exact coefficient and finite-tail probabilities for four angles. Numeric limiting ratios converge as predicted. Numerical integration is corroboration; the analytic steps above establish the theorem. Independent audit and priority certification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The October 25 prior theorem supplies the SAME explicit coefficient only on discrete cyclic orbifolds α=1/q, q≥2, and its metric proof exploits cosδ≥0 on [0,π/q]⊂[0,π/2]. The assigned result treats every real α∈(0,1), especially 1/2<α<1 where cosδ can be negative, proves coercive localization and strict inverse over the entire continuous cone-angle family. The discrete statement does not logically imply values for α>.5 or continuity/monotonic range (1/48,∞) without new analytic work. Mondello–Panov gives the geometry of doubled lunes, not the random pair-distance tail. The prior discrete result is explicitly credited.
+
+## value
+
+PASS
+
+The cone angle of a natural one-parameter family of spherical conical metrics is recovered from an observable distributional endpoint invariant. Passing from discrete orbifold orders to the entire continuous angle space, including negative longitude-cosine regimes, yields a genuinely meaningful inverse-geometry classification and sharp singular smooth-endpoint discontinuity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

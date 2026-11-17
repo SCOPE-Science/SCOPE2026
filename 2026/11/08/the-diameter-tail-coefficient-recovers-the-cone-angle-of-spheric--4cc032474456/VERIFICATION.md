@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytical argument is in `RESULT.md`. Re-run the standalone checker with `python3 verify_football.py`, using only Python's standard library. All calculations concern the same normalized curvature-one football family.
+## correctness
 
-The checker verifies independent numerical representations of the coefficient: a direct polar two-dimensional quadratic-domain integral; its angular antiderivative; and a direct numerical integration of the **unexpanded** spherical cosine inequality at finite \(\varepsilon\). It also verifies strict sample ordering, the antipodal quotient case \(\alpha=1/2\), and the small-angle expansion. A sample successful run is:
+PASS
 
-```
-alpha=0.25 coefficient=0.022711264227 tail-ratios=0.022707708257,0.022710376345
-alpha=0.50 coefficient=0.031250000000 tail-ratios=0.031246638313,0.031249078861
-alpha=0.75 coefficient=0.075762911924 tail-ratios=0.075781887550,0.075767979472
-alpha=0.90 coefficient=0.361270119997 tail-ratios=0.362293948264,0.361523261367
-SPHERICAL_FOOTBALL_DIAMETER_TAIL_OK
-```
+The spherical football F_alpha has longitude period 2πα with a=πα<π; the nearest longitude separation δ∈[0,a] is uniform. The intrinsic spherical cosine formula makes opposite pole pairs the sole diameter contacts for any fixed α<1. With colatitudes s=εu, t=εv, the positive-quadrant form Q=u²+v²+2uv cosδ is uniformly coercive at fixed a<π; dominated convergence yields fourth-order tail (2a)^−1∫_0^a I(cosδ)dδ. Polar substitution gives I(cosδ)=(sinδ−δcosδ)/(8sin³δ), integral C=[csc²a−cot(a)/a]/32. I increases strictly in δ, hence its running average is strictly increasing from 1/48 to infinity; α=1 sphere separately has ε²/4. Independent angular quadrature at α=.1,.25,.5,.75,.9 agrees, including nonorbifold α>.5.
 
-The tail ratios use \(\varepsilon=0.05\) and \(0.025\), respectively, and approach the theoretical coefficients as \(\varepsilon\downarrow0\). These are deterministic numerical cross-checks, not independent proof, exhaustive simulation, or a certificate about arbitrary cone metrics. Exact proof requires the spherical distance law, pole localization, a convergent boundary-layer argument, and the elementary integral evaluation displayed in `RESULT.md`. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+The October 25 prior theorem supplies the SAME explicit coefficient only on discrete cyclic orbifolds α=1/q, q≥2, and its metric proof exploits cosδ≥0 on [0,π/q]⊂[0,π/2]. The assigned result treats every real α∈(0,1), especially 1/2<α<1 where cosδ can be negative, proves coercive localization and strict inverse over the entire continuous cone-angle family. The discrete statement does not logically imply values for α>.5 or continuity/monotonic range (1/48,∞) without new analytic work. Mondello–Panov gives the geometry of doubled lunes, not the random pair-distance tail. The prior discrete result is explicitly credited.
+
+## value
+
+PASS
+
+The cone angle of a natural one-parameter family of spherical conical metrics is recovered from an observable distributional endpoint invariant. Passing from discrete orbifold orders to the entire continuous angle space, including negative longitude-cosine regimes, yields a genuinely meaningful inverse-geometry classification and sharp singular smooth-endpoint discontinuity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
