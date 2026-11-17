@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The discriminant identity proves the exact smooth domain, and the explicitly calculated Cartier matrix diagonalizes by a constant characteristic-five basis. This is stronger than an ordinary-rank calculation: inverse-Frobenius Cartier iterates preserve exactly the nonzero diagonal summands, so the formula gives stable \(5\)-rank. Three explicit elliptic quotient equations independently reproduce the three factors. The two resultant substitutions find every possible rank-one coefficient pair, exclude singular extraneous roots, and prove three transverse, reduced solutions. Direct fractional-linear coordinate changes identify all three exceptional curves over the algebraic closure. Both symbolic and independent finite-field verifiers run successfully; finite enumeration is not used as an infinite proof. Remaining correctness risk: an unnoticed convention for Cartier transpose or a degenerate quotient is mitigated by the symmetric matrix, smooth discriminant hypothesis, and explicit function-field/point-count cross-checks.
+## correctness
 
-**Originality — PASS (best available documented comparison, not independent certification).** The 2022 Moriya–Kudo genus-three Howe arithmetic paper supplies general Howe constructions, superspecial algorithms, and the known characteristic-five nonexistence of superspecial hyperelliptic Howe curves. It does not present the rank-one coefficient scheme or one-class moduli identification. The earlier Ohashi superspecial/maximality study and Frei's general genus-three Cartier study concern different logical claims. Borówka–Shatsila establish complex involution and quotient geometry, but not this characteristic-five arithmetic stratification. Targeted semantic-database and published-literature checks disclosed no equivalent or strictly stronger classification; they do not establish an exhaustive priority proof. Risks remain from unindexed tables, different normalizations or results implicitly derivable from larger classification theorems.
+PASS
 
-**Mathematical value — PASS.** Geometric \(p\)-rank and \(a\)-number strata are intrinsic arithmetic invariants used to study the moduli and isogeny behavior of curves. In a natural dihedral-symmetry family, the rank-one condition is a meaningful extremal stratum. The exact classification identifies its reduced scheme and shows that its three coordinate realizations collapse to a single geometric moduli point; the elliptic quotient decomposition explains the missing rank-zero stratum. The result is not presented as a general theorem about all genus-three curves or as three distinct moduli points. The findings go beyond merely reporting isolated finite-field examples.
+For smooth reciprocal octics y²=x8+A x6+B x4+A x2+1 in characteristic5, Hasse–Witt coefficient matrix of f² has shape [[A²+2B,0,2A],[0,2A²+B²+2,0],[2A,0,A²+2B]]. Constant F5 diagonalization proves p-rank is number of nonzero λ±,λ0 and a-number=3−p-rank, avoiding the untwisted-matrix fallacy. Polynomial elimination shows only smooth rank1 coefficient pairs (0,0),(2,0),(−2,0), transverse reduced. The Möbius identity (z−1)^8+(z+1)^8=2(z8−2z6−2z²+1) in F5 plus z↦2z identifies all three over algebraic closure. Independent checked exact family expansion and marked-pair map from previous Howe theorem; inspected standalone symbolic and GF25 enumeration sources.
 
-**Source comparison and limits.** Primary-source inspection: Moriya–Kudo 2022 §§4–5, arXiv:2209.02926; Borówka–Shatsila 2023 preprint abstract, geometric quotient description, arXiv:2308.07038; Ohashi 2021 abstract, arXiv:2112.11152; Frei 2017 mathematical scope, arXiv:1703.03516. Some potentially relevant source sections were not fully accessible, so a historical-priority risk remains. Published-source searches, the available mathematical records, were compared by implication, not solely by title.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A stronger earlier theorem of 2026-11-02 completely determines the Hasse divisor and six reduced rank-one points for Howe form (x4−u x²+1)(x4−v x²+1). Substituting A=−(u+v), B=uv+2 maps exactly those six points in symmetric pairs to the three marked reciprocal points. Consequently **all rank-stratification and reducedness is prior coverage**, NOT a novel result. The previously inspected prior does not classify the three marked reciprocal presentations up to geometric curve isomorphism; the surviving specific new assertion is that all three lie in one geometric genus-three moduli class, proved by explicit Möbius transform. This is a narrowly limited best-of-knowledge PASS subject to the risk that a known automorphism normal form already implies the moduli collapse.
+
+## value
+
+PASS
+
+Determining whether three natural marked rank-one Howe parameters give one or three geometric curves is an intrinsically motivated moduli classification. The exact equivalence has utility when comparing arithmetic coefficient strata to isomorphism-class enumerations; the already-known Hasse strata are not recredited. The distinctive value is small but specific and non-tautological, an explicit fractional-linear identification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
