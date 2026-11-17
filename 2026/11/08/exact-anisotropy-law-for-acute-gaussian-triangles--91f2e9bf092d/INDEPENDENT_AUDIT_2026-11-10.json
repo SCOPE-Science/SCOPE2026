@@ -1,0 +1,187 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T15:10:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS — Three independent Gaussian vertices admit independent edge sum and difference U,V with covariances 6Σ and 2Σ. Their radial-exponential ratios reduce the obtuse-angle probability to the stated single angular integral. Symmetrizing independent arcsine-distributed cos² angles gives A(R)=1/4−(9/4)E[(q(S)−q(T))²/(3q(S)²+10q(S)q(T)+3q(T)²)]. Since q_R=1+(R−1)s, the integrand is strictly increasing with R>1 for s≠t by a positive normalized variance derivative, proving all-R strict decrease; at R=1 it vanishes. The arcsine moment variance 1/8 yields the 9/256 quadratic loss. The large-R endpoint layer is controlled separately, giving sqrt(3)/π·log(R)/R+O(R^-1), with nondegenerate finite R and limiting R→∞ distinguished. A separate SciPy adaptive quadrature gives A(1)=0.25, A(2)=0.233776306839877, A(16)=0.0951255750851252, A(10000)=0.0005131827413711 and normalized tail 0.5571811; finite quadrature is a check, not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published ellipse model samples boundary points (a cos Θ,b sin Θ) at uniform Θ; the Gaussian model samples interior N(0,Σ) independently.",
+          "Ellipse result is P=1/4−3 Li_2(τ²)/(2π²), a distinct functional dependence and probability measure; its near-isotropic coefficient differs from the Gaussian 9/256 in R coordinates."
+        ],
+        "reasoning": "The strongest plausibly related random-triangle studies do not dominate the iid anisotropic Gaussian law merely by sharing axis-ratio parameters.",
+        "searches": [
+          "Resultary: Gaussian triangle acuteness nonisotropic normal elliptic probability exact covariance",
+          "Resultary 2026/11/2/SCOPE-sharp-dilogarithmic-acuteness-law-for-affine-uniform-ellipse-tri--a5911e351b92",
+          "arxiv:1501.03053"
+        ]
+      },
+      "checked_sources": [
+        "Frozen all-seven-file Git tree, including RESULT.md and verify.py",
+        "Edelman and Strang, Random Triangle Theory with Geometry and Applications (2014 full primary PDF)",
+        "Resultary published 2026-11-02 affine-uniform ellipse triangle theorem complete RESULT.md",
+        "Baylor Random Triangles 2013 site; full text inaccessible",
+        "Resultary semantic searches of Gaussian acuteness and covariance anisotropy"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At Σ scalar, A=1/4 follows from prior.",
+          "The ellipse-boundary proof uses affine images of uniform angles and does not sample the Gaussian radial variables; its result cannot be substituted into the Gaussian formula.",
+          "Baylor 2013 site returned HTTP 502 on full-page retrieval."
+        ],
+        "reasoning": "Isotropic special case covered; anisotropic monotonicity/local coefficient/tail not entailed by cited primary statements. Baylor historical source is retained as specific unresolved priority risk.",
+        "searches": [
+          "Edelman–Strang full PDF primary text",
+          "Resultary full Nov-2 ellipse finding",
+          "Baylor 2013 Random Triangles page retrieval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Edelman–Strang shows independent standard Gaussian coordinates give acute probability 1/4; no arbitrary positive-definite common covariance eigenvalue ratio law in inspected standard-normal results.",
+          "The submitted covariance-ratio law reduces to 1/4 at R=1 but gives 0.2337763 at R=2 and strict decay."
+        ],
+        "reasoning": "Common Gaussian triangle definitions match at isotropy only. Transforming a Gaussian by a nonscalar linear map does not preserve Euclidean angles, so the isotropic theorem has no automatic anisotropic implication.",
+        "searches": [
+          "Resultary: acute triangle probability anisotropic Gaussian covariance eigenvalue ratio strictly decreasing logarithmic asymptotic",
+          "Edelman–Strang Random Triangle Theory PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected isotropic result is a single value 1/4, not a tabulated whole-R function or the sharp log(R)/R coefficient.",
+          "Own independent nontrivial numerical values distinguish this law from the ellipse dilogarithm law."
+        ],
+        "reasoning": "No exact indexed database/table establishing the entire anisotropic Gaussian curve was found; absence from search is not proof of priority.",
+        "searches": [
+          "Resultary: acute Gaussian triangle anisotropy law probability table",
+          "Edelman–Strang PDF, Section 3.3"
+        ]
+      },
+      "rationale": "PASS — The final assessed claim is the covariance-ratio exact law, strict all-R ordering and both sharp asymptotic constants for three iid Gaussian planar vertices, not the classical isotropic 1/4. Edelman–Strang establishes the isotropic standard-Gaussian hemisphere model; the unrelated affine-uniform ellipse-boundary dilogarithm formula has distinct sampling measure and different local coefficient. No implication from either primary result to the submitted normalized anisotropic Gaussian integral was found.",
+      "residual_risks": [
+        "A dated 2013 Baylor post discussing correlated Gaussian random triangles was not available in full; an analytic equivalence hidden there remains a concrete priority risk.",
+        "The large-R proof needs the explicitly stated uniform endpoint-layer error control; quadrature alone cannot certify its O(1/R) remainder."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mathematical proof supports stated all-R claim and boundary asymptotics; finite code not considered a proof",
+          "evidence": [
+            "RESULT.md blob 46a2fefd16d10e1cf74b3ef7d8c5d4850cec6d8e",
+            "Independent quadrature values A(1),A(2),A(16),A(10000) match"
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-anisotropy-law-for-acute-gaussian-triangles--91f2e9bf092d",
+          "material_read": "Complete RESULT.md, METADATA.json, AUDIT.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md and verify.py",
+          "method": "Frozen Git blob reads and independent integral evaluation",
+          "title": "Exact anisotropy law for acute Gaussian triangles",
+          "trigger": "Assigned frozen proof and verifier"
+        },
+        {
+          "assessment": "ISOTROPIC_SUBCASE_ONLY; uniform standard-Gaussian shape result does not give arbitrary covariance law",
+          "evidence": [
+            "Edelman–Strang PDF full primary, standard normal acuteness 1/4, Section 3.3"
+          ],
+          "identifier_or_url": "https://math.mit.edu/~edelman/publications/random_triangle.pdf",
+          "material_read": "Complete PDF accessible; introduction, shape-sphere geometry, and Section 3 normal Gaussian acuteness examined",
+          "method": "Direct PDF text and rendered page 1",
+          "title": "Random Triangle Theory with Geometry and Applications",
+          "trigger": "Same Gaussian random triangle objects, potential stronger baseline"
+        },
+        {
+          "assessment": "NOT_COVERING; boundary-angle sampling, no Gaussian radial law",
+          "evidence": [
+            "Ellipse dilogarithm expression and proof explicitly assume uniform eccentric anomaly"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-dilogarithmic-acuteness-law-for-affine-uniform-ellipse-tri--a5911e351b92/RESULT.md",
+          "material_read": "Complete published mathematical RESULT.md including sampling law and proof",
+          "method": "GitHub full primary blob",
+          "title": "Sharp dilogarithmic acuteness law for affine-uniform ellipse triangles",
+          "trigger": "Same axis-ratio acuteness themes"
+        },
+        {
+          "assessment": "PRIORITY_RISK_ONLY; no full-text noncoverage conclusion",
+          "evidence": [
+            "HTTP 502 on attempted full article"
+          ],
+          "identifier_or_url": "https://blogs.baylor.edu/baylorisms/2013/04/23/random-triangles/",
+          "material_read": "Full text inaccessible; submitted source refers to an excerpt; site returned 502",
+          "method": "Attempted direct website retrieval",
+          "title": "Random Triangles",
+          "trigger": "Historically early correlated Gaussian discussion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS — Gaussian random triangles are a natural covariance-shape problem; the theorem identifies a monotone dimensionless geometric probability and both local and highly eccentric sharp rates, including a nontrivial logarithmic degeneracy. Not a routine substitution of the isotropic theorem or a short finite tabulation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen all-seven-file Git tree, including RESULT.md and verify.py",
+    "Edelman and Strang, Random Triangle Theory with Geometry and Applications (2014 full primary PDF)",
+    "Resultary published 2026-11-02 affine-uniform ellipse triangle theorem complete RESULT.md",
+    "Baylor Random Triangles 2013 site; full text inaccessible",
+    "Resultary semantic searches of Gaussian acuteness and covariance anisotropy"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Strict all-R inequality follows analytically; a finite quadrature or simulation does not establish it.",
+    "Applies only to Euclidean acuteness for iid planar Gaussians with common positive-definite covariance, not other elliptical distributions."
+  ],
+  "residual_risks": [
+    "A dated 2013 Baylor post discussing correlated Gaussian random triangles was not available in full; an analytic equivalence hidden there remains a concrete priority risk.",
+    "The large-R proof needs the explicitly stated uniform endpoint-layer error control; quadrature alone cannot certify its O(1/R) remainder."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Mathematical proof supports stated all-R claim and boundary asymptotics; finite code not considered a proof",
+      "evidence": [
+        "RESULT.md blob 46a2fefd16d10e1cf74b3ef7d8c5d4850cec6d8e",
+        "Independent quadrature values A(1),A(2),A(16),A(10000) match"
+      ],
+      "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-anisotropy-law-for-acute-gaussian-triangles--91f2e9bf092d",
+      "material_read": "Complete RESULT.md, METADATA.json, AUDIT.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md and verify.py",
+      "method": "Frozen Git blob reads and independent integral evaluation",
+      "title": "Exact anisotropy law for acute Gaussian triangles",
+      "trigger": "Assigned frozen proof and verifier"
+    },
+    {
+      "assessment": "ISOTROPIC_SUBCASE_ONLY; uniform standard-Gaussian shape result does not give arbitrary covariance law",
+      "evidence": [
+        "Edelman–Strang PDF full primary, standard normal acuteness 1/4, Section 3.3"
+      ],
+      "identifier_or_url": "https://math.mit.edu/~edelman/publications/random_triangle.pdf",
+      "material_read": "Complete PDF accessible; introduction, shape-sphere geometry, and Section 3 normal Gaussian acuteness examined",
+      "method": "Direct PDF text and rendered page 1",
+      "title": "Random Triangle Theory with Geometry and Applications",
+      "trigger": "Same Gaussian random triangle objects, potential stronger baseline"
+    },
+    {
+      "assessment": "NOT_COVERING; boundary-angle sampling, no Gaussian radial law",
+      "evidence": [
+        "Ellipse dilogarithm expression and proof explicitly assume uniform eccentric anomaly"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-dilogarithmic-acuteness-law-for-affine-uniform-ellipse-tri--a5911e351b92/RESULT.md",
+      "material_read": "Complete published mathematical RESULT.md including sampling law and proof",
+      "method": "GitHub full primary blob",
+      "title": "Sharp dilogarithmic acuteness law for affine-uniform ellipse triangles",
+      "trigger": "Same axis-ratio acuteness themes"
+    },
+    {
+      "assessment": "PRIORITY_RISK_ONLY; no full-text noncoverage conclusion",
+      "evidence": [
+        "HTTP 502 on attempted full article"
+      ],
+      "identifier_or_url": "https://blogs.baylor.edu/baylorisms/2013/04/23/random-triangles/",
+      "material_read": "Full text inaccessible; submitted source refers to an excerpt; site returned 502",
+      "method": "Attempted direct website retrieval",
+      "title": "Random Triangles",
+      "trigger": "Historically early correlated Gaussian discussion"
+    }
+  ]
+}

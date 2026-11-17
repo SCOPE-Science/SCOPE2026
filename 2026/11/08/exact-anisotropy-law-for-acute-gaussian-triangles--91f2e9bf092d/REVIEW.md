@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For three iid Gaussian vertices, the two edge sums/differences are independent Gaussians with covariances \(6\Sigma\) and \(2\Sigma\). This proves the quadratic-form comparison. Conditional exponential radial integration proves the exact angular law, and swapping iid angle variables produces a nonnegative rational deficit whose pointwise strict monotonicity is explicit. The local expansion uses exactly \(\operatorname{Var}(\cos^2\Theta)=1/8\). The high-anisotropy expansion includes a uniform second-derivative remainder bound and a separately controlled endpoint layer. The standalone script independently checks both integral representations and geometric vertex simulations. Numerical tests are not substitutes for analytic quantifiers.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Edelman–Strang's established isotropic case gives \(1/4\) but does not assert the covariance-ratio ordering or its sharp decay. Baylor's 2013 correlated-Gaussian demonstration is a close motivating source: its retrieved excerpt poses a qualitative anisotropy question rather than giving the analytic law. Anderson (2017) considers alternate conditional shape properties under the uniform shape-sphere measure, not deforming the Gaussian covariance. The analogous published-index hits concern independent problems such as parallelogram circumellipses, random polygons in ellipses, and isotropic triangle area tails. Broad searches for nonisotropic Gaussian triangular obtuseness did not identify stronger coverage. The unavailable full Baylor page and incomplete coverage of the historical literature remain explicit risks; no claim of independently established novelty is made.
+PASS
 
-## Mathematical value — PASS
-A natural variation of a classical geometric-probability model changes the covariance eccentricity while keeping independence and Gaussianity. A pointwise symmetric ratio identity proves a **global strict geometric ordering** without resorting to numerical conjecture; the near-isotropic quadratic susceptibility and logarithmically enhanced nearly collinear decay quantify both extremal mechanisms. The result is a nontrivial, reusable comparison of correlated quadratic-form events and an exact answer to a motivated Gaussian triangle-shape question, rather than a restatement of the uniform shape-sphere theorem.
+PASS — Three independent Gaussian vertices admit independent edge sum and difference U,V with covariances 6Σ and 2Σ. Their radial-exponential ratios reduce the obtuse-angle probability to the stated single angular integral. Symmetrizing independent arcsine-distributed cos² angles gives A(R)=1/4−(9/4)E[(q(S)−q(T))²/(3q(S)²+10q(S)q(T)+3q(T)²)]. Since q_R=1+(R−1)s, the integrand is strictly increasing with R>1 for s≠t by a positive normalized variance derivative, proving all-R strict decrease; at R=1 it vanishes. The arcsine moment variance 1/8 yields the 9/256 quadratic loss. The large-R endpoint layer is controlled separately, giving sqrt(3)/π·log(R)/R+O(R^-1), with nondegenerate finite R and limiting R→∞ distinguished. A separate SciPy adaptive quadrature gives A(1)=0.25, A(2)=0.233776306839877, A(16)=0.0951255750851252, A(10000)=0.0005131827413711 and normalized tail 0.5571811; finite quadrature is a check, not an infinite proof.
 
-## Limits and risks
-The result is specific to Gaussian vertices in dimension two and the exact-probability model. General elliptical distributions and statistical estimation are unresolved. A complete historical-priority guarantee is impossible from the inspected sample; the Baylor full page was not accessible, although its dated excerpt was inspected. Independent review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS — The final assessed claim is the covariance-ratio exact law, strict all-R ordering and both sharp asymptotic constants for three iid Gaussian planar vertices, not the classical isotropic 1/4. Edelman–Strang establishes the isotropic standard-Gaussian hemisphere model; the unrelated affine-uniform ellipse-boundary dilogarithm formula has distinct sampling measure and different local coefficient. No implication from either primary result to the submitted normalized anisotropic Gaussian integral was found.
+
+## value
+
+PASS
+
+PASS — Gaussian random triangles are a natural covariance-shape problem; the theorem identifies a monotone dimensionless geometric probability and both local and highly eccentric sharp rates, including a nontrivial logarithmic degeneracy. Not a routine substitution of the isotropic theorem or a short finite tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
