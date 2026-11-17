@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T01:45:26.030415Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the inspected RESULT.md and CHECK.py, H_{overline{z+t z^m}} has finite matrix E_00+tJ_m, with singular norm (1+sqrt(1+4t²))/2 for all m≥2. The exact Poisson-variance kernel profile is F=1−r²+t²(1−r^(2m))+2t(1−r²)r^(m−1) cos((m−1)theta). Subtracting F(0) and dividing by r² yields the quadratic −1+2t(1−r²)r^(m−3)−t²r^(2m−2). Rationalizing the smaller positive root gives t_-(r)=r^(3−m)/(1−r²+sqrt(1−2r²)). Its interior minimum for m≥4 is at sqrt(1−2r²)=2/(m−1), producing exactly T_m and the finite m−1 angular tie; m=3 instead attains the lower endpoint at r→0 and has unique radius sqrt((sqrt(1+6t)−2)/(3t)) for t>1/2. For m=2 strict concavity and implicit expansion give the claimed t⁴/2 small-amplitude gap. Rechecked numerically independently that T_m is reciprocal of an earlier C_{m,1} for m=3,4,5,8,10,18. The finite tests do not establish all m, which follows from the algebraic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November 2 theorem has arbitrary integers m>n≥1 and threshold C_{m,n}; target only n=1.",
+          "The second prior handles all complex nonzero coefficients a,b and t=|b/a|."
+        ],
+        "reasoning": "The first is strictly broader in exponent pairs; second strictly broader in phases. Both include target center-to-off-center transition as a special case.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-center-to-off-center-transition-for-binomial-hankel-kern--b4983d324094",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-origin-to-off-center-transitions-for-kernel-testing-of-two--f14859105b04"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exponential-localization-threshold-for-garsia-norm-testing-of--5dc29bae0a93",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-center-to-off-center-transition-for-binomial-hankel-kern--b4983d324094",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-origin-to-off-center-transitions-for-kernel-testing-of-two--f14859105b04",
+        "https://arxiv.org/abs/2609.33242"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Old general root inequality for c=|a|/|b| and critical radius yields all proposed T_m and r_m via t=1/c.",
+          "Prior directly gives norm=(|a|+sqrt(|a|²+4|b|²))/2 and m3 optimizer."
+        ],
+        "reasoning": "The target phase diagram follows without a new lemma from the older analytic theorem. Dyakonov gives qualitative context but Resultary prior is decisive mathematical implication.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-center-to-off-center-transition-for-binomial-hankel-kern--b4983d324094",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-origin-to-off-center-transitions-for-kernel-testing-of-two--f14859105b04",
+          "https://arxiv.org/abs/2609.33242"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier November 2 theorem covers z^m+c z^n; with n=1,c=1/t and scaling by t it becomes exactly z+t z^m.",
+          "November 8 result covers az+bz^m directly, including threshold and all critical ties."
+        ],
+        "reasoning": "This is exact equivalence under parameter inversion and scalar multiplication; all nonzero normalized kernel locations and equalities are identical.",
+        "searches": [
+          "Garsia norm Hardy Hankel z + t z^m exact reproducing kernel maximal radius threshold m",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-center-to-off-center-transition-for-binomial-hankel-kern--b4983d324094",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-origin-to-off-center-transitions-for-kernel-testing-of-two--f14859105b04"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Explicit C_m formulas, critical radii, and operator norms are in prior published theorem bodies, not just numerical tables.",
+          "The target T_m C_m=1 checked for multiple m and follows symbolically from p=(m-3)/2 in the older formula."
+        ],
+        "reasoning": "This is exact published analytic formula coverage; numeric parameters or different notation cannot establish novelty. Degree-two quartic term is routine Taylor arithmetic, not a new database classification.",
+        "searches": [
+          "Garsia norm Hardy Hankel z + t z^m exact reproducing kernel maximal radius threshold m",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-center-to-off-center-transition-for-binomial-hankel-kern--b4983d324094",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-origin-to-off-center-transitions-for-kernel-testing-of-two--f14859105b04"
+        ]
+      },
+      "rationale": "FAIL: exact theorem coverage by an earlier Resultary result for general binomial symbols z^m+c z^n, all m>n≥1, published November 2, 2026. Set n=1 and c=1/t, then z+t z^m=t(z^m+(1/t)z); a positive scalar scales the operator/kernel norms without moving maximizers. Its threshold c=C_{m,1} is exactly t=1/C_{m,1}=T_m, with identical critical radius, m=3 continuity and m≥4 discontinuity. A separate November 8 published treatment directly addresses general az+bz^m with same threshold and full Hankel norm. The target degree-two Taylor deficit is a routine expansion of the already characterized quadratic kernel problem and does not establish a distinct original theorem.",
+      "residual_risks": [
+        "Originality fails decisively regardless of any inaccessible older literature: the November 2 full-text published theorem subsumes the target.",
+        "Degree-two Taylor coefficient is not separately original or valuable without an unprovided mathematical rationale; no rescue by a generic audit disclaimer."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "For n=1 c=1/t and scalar factor t, both profiles, thresholds and ties coincide.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-center-to-off-center-transition-for-binomial-hankel-kern--b4983d324094",
+          "material_read": "Full published RESULT.md, including theorem, discriminant root branches, threshold C_{m,n}, equality radii, proof and perturbation law",
+          "method": "full Git primary source text read and algebraically specialized",
+          "title": "A sharp center-to-off-center transition for binomial Hankel kernel tests",
+          "trigger": "general z^m+c z^n includes precise target"
+        },
+        {
+          "assessment": "COVERING",
+          "evidence": "Uses az+bz^m and c=|a|/|b|=1/t; same exact transition and m-dependent orbit.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-origin-to-off-center-transitions-for-kernel-testing-of-two--f14859105b04",
+          "material_read": "Full published RESULT.md, theorem and explicit C_m, R_m, norm formula and m=3 boundary",
+          "method": "full Git primary source text read and parameter comparison",
+          "title": "Sharp origin-to-off-center transitions for kernel testing of two-frequency Hardy Hankel operators",
+          "trigger": "same normalized two-frequency family"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": "Qualitative SRKT context, not the decisive prior; mathematical coverage is established by read full theorem above.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.33242",
+          "material_read": "Abstract and publicly available description of strong reproducing-kernel thesis; full text not required for decisive prior comparison",
+          "method": "primary abstract",
+          "title": "The strong reproducing kernel thesis for Hankel operators and the Garsia norm",
+          "trigger": "primary qualitative background"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL for distinct contribution, not for mathematical interest of the subject: the phase transition, optimizer multiplicity, critical radii and operator norm are entirely covered by the November 2 broader result and a November 8 same-family result. The remaining degree-two small-t expansion and reciprocal coefficient parametrization are elementary algebraic consequences, not a separately motivated structural boundary that changes the known picture.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exponential-localization-threshold-for-garsia-norm-testing-of--5dc29bae0a93",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-center-to-off-center-transition-for-binomial-hankel-kern--b4983d324094",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-origin-to-off-center-transitions-for-kernel-testing-of-two--f14859105b04",
+    "https://arxiv.org/abs/2609.33242"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "The failed disposition is scientific prior coverage, not a correctness defect.",
+    "Preserve the complete original source package; do not make edits or suggest status-only rescue."
+  ],
+  "residual_risks": [
+    "Originality fails decisively regardless of any inaccessible older literature: the November 2 full-text published theorem subsumes the target.",
+    "Degree-two Taylor coefficient is not separately original or valuable without an unprovided mathematical rationale; no rescue by a generic audit disclaimer."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERING",
+      "evidence": "For n=1 c=1/t and scalar factor t, both profiles, thresholds and ties coincide.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-center-to-off-center-transition-for-binomial-hankel-kern--b4983d324094",
+      "material_read": "Full published RESULT.md, including theorem, discriminant root branches, threshold C_{m,n}, equality radii, proof and perturbation law",
+      "method": "full Git primary source text read and algebraically specialized",
+      "title": "A sharp center-to-off-center transition for binomial Hankel kernel tests",
+      "trigger": "general z^m+c z^n includes precise target"
+    },
+    {
+      "assessment": "COVERING",
+      "evidence": "Uses az+bz^m and c=|a|/|b|=1/t; same exact transition and m-dependent orbit.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-origin-to-off-center-transitions-for-kernel-testing-of-two--f14859105b04",
+      "material_read": "Full published RESULT.md, theorem and explicit C_m, R_m, norm formula and m=3 boundary",
+      "method": "full Git primary source text read and parameter comparison",
+      "title": "Sharp origin-to-off-center transitions for kernel testing of two-frequency Hardy Hankel operators",
+      "trigger": "same normalized two-frequency family"
+    },
+    {
+      "assessment": "BACKGROUND_ONLY",
+      "evidence": "Qualitative SRKT context, not the decisive prior; mathematical coverage is established by read full theorem above.",
+      "identifier_or_url": "https://arxiv.org/abs/2609.33242",
+      "material_read": "Abstract and publicly available description of strong reproducing-kernel thesis; full text not required for decisive prior comparison",
+      "method": "primary abstract",
+      "title": "The strong reproducing kernel thesis for Hankel operators and the Garsia norm",
+      "trigger": "primary qualitative background"
+    }
+  ]
+}
