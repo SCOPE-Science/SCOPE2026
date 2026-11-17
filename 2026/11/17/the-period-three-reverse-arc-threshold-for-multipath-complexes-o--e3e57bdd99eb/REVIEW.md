@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The proof identifies the only forbidden faces: local reverse–forward conflicts and the full forward directed cycle. The consecutive length-three conflict blocks partition all forward arcs exactly at the period-three threshold; the full join description is therefore exact. The acyclic matching is defined on every noncritical face, with an explicit strictly decreasing statistic that prevents cycles. It leaves only the lower cross-polytope sphere and one top cell, whose attachment is forced null by a literal simplicial retraction. The relative exact sequence proves that the original top cycle maps to a primitive generator, not just a nonzero field class. The implementation independently verifies all graph faces, matching acyclicity, Euler characteristics and modular homology at three finite parameters. The proof, rather than the finite tests, establishes all integers in scope.
+
+## Originality — PASS with bibliographic risk
+The closest 2026 source proves a sphere classification when three consecutive reverse arcs are missing, equivalent to having an unblocked forward arc; it does not cover the period-three threshold where at most two consecutive reverse arcs are missing. Its conjectural statements about one or two reverse deletions from a *fully* bidirected cycle likewise have different graphs and no implication for the minimum-support filtration. The 2023/2024 polygon theorem concerns conventional directed orientations, and its general dynamical-module decomposition is trivial for these strongly connected graphs. Indexed results for the fully bidirected polygon concern a different, larger complex and do not subsume proper subcomplex homotopy. Actual semantic and literal searches found no exact minimum-dominating-support result. Unindexed or differently formulated results may nevertheless exist; novelty is not independently certified.
+
+## Value — PASS
+This is a sharp structural transition in an infinite natural family of partially bidirected cycle networks, not a change to a discretionary small example. It shows that fewer than one reverse arc per three cycle edges cannot alter the homotopy type, completely identifies the unique minimum-budget configuration at multiples of three that does, computes the two sphere dimensions integrally, and determines what happens to the actual cycle class along the filtration. This bridges the previously published three-consecutive-missing criterion and substantially bidirectional polygons, providing a motivated topological fault-budget classification.
+
+## Scope and remaining risks
+The classification does not extend to supports beyond the first critical budget, nor to full symmetry modules or general digraphs. Discrete-Morse foundations are standard; the nonstandard join identification, matching and retraction are proved explicitly. Primary-publication dates and statement comparisons were checked against the cited first versions and rendered text. Search incompleteness and possible general prior statements remain limitations.
+
+Self-review: passed. Independent audit: not yet performed.
