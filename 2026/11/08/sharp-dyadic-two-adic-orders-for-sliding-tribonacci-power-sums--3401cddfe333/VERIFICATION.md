@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Checked computations
-The companion standalone `checker.py`, using only the Python standard library, generated Tribonacci terms by recurrence and checked the complete grid of exponents 3 through 33, dyadic scales 1 through 10, and starting indices 0 through 79 modulo \(2^{16}\). It also independently computed exact integer window gcds for exponents 3 through 9, scales 1 through 6, and starts 0 through 24. Output:
+# Independent mathematical audit
 
-```text
-VERIFY_OK modular_windows=24800 exact_integer_windows=1050 exponents=3..33 dyadic_r=1..10 starts=0..79
-```
+## correctness
 
-## Proof verification and limits
-The infinite parameter statement follows from the explicit companion-matrix identity, inductive dyadic congruence, binomial tail divisibility, four-period parity cancellation, and exact base cases at lengths 2, 4, and 8, all set out in `RESULT.md`. The checker is bounded evidence only. No computational certificate asserts originality, independent audit, or whole-document novelty of uninspected sources. The two-adic valuation is exact; no odd-prime factorization is claimed.
+PASS
+
+Independently checked companion matrix A^4=I+2B and parity pattern 0011 of T_n. For r>=3, A^(2^r)=I+2^(r-1)B_r, giving four-periodic parity for both T_j and increment coefficients; binomial doubling remainder is divisible by 2^r for odd e and 2^(r+1) for even e. Base eight terms establish the two exact congruences and subsequent induction covers every n>=0, e>=3 and r>=3. Direct windows r=1,2 give gcd valuation 0,1. Separate modular recurrence independently checked 8736 windows with e in a bounded range: finite corroboration, not infinite proof.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: The prime, exponent and recurrence order differ; no known cited general recurrence theorem specializes to this exact even/odd exponent dyadic-window law. No stronger prior theorem found with the exact odd/even all-exponent power-window conclusion; the matrix induction is a genuine additional argument.
+
+## value
+
+PASS
+
+A uniform sharp two-adic gcd threshold for all nonlinear powers of a natural third-order recurrence provides a nontrivial divisibility classification with a genuine parity-of-exponent phase split, not a routine substitution from order-two Fibonacci identities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

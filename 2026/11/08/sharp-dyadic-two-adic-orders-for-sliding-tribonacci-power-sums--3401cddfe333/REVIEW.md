@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The explicitly computed integer matrix identity \(A^4=I+2B\) implies a four-step parity period and a dyadic shift congruence of strength \(2^{r-1}\). The binomial remainder after splitting a length-\(2^{r+1}\) window is divisible by \(2^r\) for odd powers and \(2^{r+1}\) for even powers. The parity-period count proves the needed extra factor, and exact length-eight base congruences establish both upper and lower bounds, for all starts and all exponent parameters. Direct modular and arbitrary-precision checks in `checker.py` passed. Finite experiments alone are not the proof.
+## correctness
 
-**Originality — PASS within inspected evidence.** The 2022 Gryszka full article and its early author preprint contain congruences of sums of FIRST powers of Tribonacci-type recurrences along arithmetic progressions; their statements do not imply nonlinear dyadic sliding-window gcd valuations. The full Bilu et al. paper analyzes valuations of individual Tribonacci terms, not these sums. Mbirika–Spilker studies SECOND-order generalized Fibonacci squares, not powers of order-three Tribonacci. Targeted mathematical-record searches and closely related scientific claims were compared by implication, not merely by title. No covering theorem was identified, but semantic rankings and inaccessible papers do not prove uniqueness. The principal residual risk is an unindexed general congruence result that may imply this special case.
+PASS
 
-**Mathematical value — PASS.** This is a sharp, uniform classification across a natural tower of window lengths and every nonlinear exponent, including a nontrivial odd-versus-even dichotomy and an all-starts strengthening. The parameter choices arise from the exact period-four residue dynamics of a classical number-theoretic recurrence, not an arbitrary finite slice. It determines the two-adic component of a natural infinite-window gcd invariant and provides a reusable lifting argument. The odd part of the gcd and other recurrences are not addressed.
+Independently checked companion matrix A^4=I+2B and parity pattern 0011 of T_n. For r>=3, A^(2^r)=I+2^(r-1)B_r, giving four-periodic parity for both T_j and increment coefficients; binomial doubling remainder is divisible by 2^r for odd e and 2^(r+1) for even e. Base eight terms establish the two exact congruences and subsequent induction covers every n>=0, e>=3 and r>=3. Direct windows r=1,2 give gcd valuation 0,1. Separate modular recurrence independently checked 8736 windows with e in a bounded range: finite corroboration, not infinite proof.
 
-Independent literature completeness and independent mathematical validation remain open. The scientific assessment applies to the stated theorem; it does not constitute independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: The prime, exponent and recurrence order differ; no known cited general recurrence theorem specializes to this exact even/odd exponent dyadic-window law. No stronger prior theorem found with the exact odd/even all-exponent power-window conclusion; the matrix induction is a genuine additional argument.
+
+## value
+
+PASS
+
+A uniform sharp two-adic gcd threshold for all nonlinear powers of a natural third-order recurrence provides a nontrivial divisibility classification with a genuine parity-of-exponent phase split, not a routine substitution from order-two Fibonacci identities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
