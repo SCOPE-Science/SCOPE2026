@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T06:10:55.110721Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact primary source updates only edges |x_i-x_j|<c and includes each vertex’s own opinion. Initially 0-1 has gap a*c<c and 1-2 has gap (b-a)c>c for 0<a<1 and (3+a)/2<b<2. Only 0-1 repulsion acts, and direct shifted-neighbor averages give ((a-1)c/2,(a+1)c/2,bc). Its repulsive gap is exactly c and attractive gap is (b-(a+1)/2)c>c; both edges then inactive, hence frozen. Its diameter is c(b+(1-a)/2)>2c while initial bc<2c, excess c(b-(3+a)/2). At a=1/4,b=7/4,c=1 the exact fractions and 17/8>2 follow; sup c/2 is approached, not attained. Independent rational one-step recomputation and source eq (3.1)-(3.2) inspection corroborate. Original Prop 4.1 covers the 2-agent bound, implying sharp graph size. This does NOT contradict source’s separate convergence conjecture.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior graph electrical-resistance theorem for one repulsive tie addresses fully receptive equilibria and no inactive edge; this path has a bridge antagonistic edge and the output has both inactive edges. Related models use different signed force/normalization."
+        ],
+        "reasoning": "A theorem about fully receptive fixed points neither implies nor rules out a specific one-step escape to an inactive equilibrium; scope is disjoint.",
+        "searches": [
+          "repulsive bounded confidence Kann Feng conjecture terminal diameter two edges counterexample",
+          "arxiv:2301.02210"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2301.02210",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-single-antagonistic-tie-is-persistently-receptive-exactly-when--aa4da2245e3c/RESULT.md",
+        "https://doi.org/10.1016/j.automatica.2018.03.064",
+        "https://doi.org/10.1016/j.neucom.2019.12.061"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source Proposition 4.1 proves 2-agent diameter inequality; Theorem 4.11 is proposed, not established, for mixed signs. Different prior result explicitly excludes fixed states with inactive edges."
+        ],
+        "reasoning": "The all-graph proposed upper bound is falsified by a single valid path; no implication from other models’ fixed points or monotonicity can rescue the universal bound in the source’s exact strict-threshold update.",
+        "searches": [
+          "repulsive bounded confidence Kann Feng conjecture terminal diameter two edges counterexample",
+          "arxiv:2301.02210"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary Theorem 4.11 claims final max_i,j(x_i(T)-x_j(T))<=max(initial width,m*c). For witnessed state width=17/8>2. The original source explicitly calls it suspected based on numerics."
+        ],
+        "reasoning": "An initially connected underlying graph is not the same as a connected active/receptive graph; the witness satisfies the stated graph connectivity only, not any hypothetical stronger initial-active-connectivity condition.",
+        "searches": [
+          "repulsive bounded confidence Kann Feng conjecture terminal diameter two edges counterexample",
+          "arxiv:2301.02210"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original 2023 paper has simulations of larger random networks, not an exhaustive exact rational census of three-agent signed paths; direct witness refutes bound without a table."
+        ],
+        "reasoning": "A finite three-node rational witness is a proof of failure of a universal inequality, not a non-exhaustive attempted general bound.",
+        "searches": [
+          "repulsive bounded confidence Kann Feng conjecture terminal diameter two edges counterexample",
+          "arxiv:2301.02210"
+        ]
+      },
+      "rationale": "Direct full-text inspection of the originating 2023 paper confirms the mixed-sign diameter inequality is explicitly a conjectural unsupported Theorem 4.11, not already known false or proved; the exact 3-node connected witness defeats its bound but converges. Prior public same-model one-antagonistic-edge equilibrium result classifies fully receptive states only, whereas witness becomes completely nonreceptive. Related signed opinion updates are distinct. No covering earlier explicit witness found in the searches, with unindexed priority risk.",
+      "residual_risks": [
+        "Other researchers may already have publicly noted this elementary 3-agent counterexample to the 2023 proposed bound; no absolute originality certification.",
+        "A condition requiring initially receptive connectivity would be a different conjecture; the third vertex here is initially nonreceptive.",
+        "Strict inequality |gap|<c is essential to one-step freezing, not a statement for <=c conventions.",
+        "The claimed c/2 supremum is only within the exhibited open family, not a global all-network maximum."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_CONJECTURE_FALSIFIED_DIAMETER_ONLY",
+          "evidence": "2023 paper explicitly suspects mixed-sign final width<=max(initial,m c); the present strict-threshold signed path gives 17/8>2 while converging.",
+          "identifier_or_url": "https://arxiv.org/pdf/2301.02210",
+          "material_read": "Primary 23-page PDF original model equations (3.1)-(3.2), 2-agent Proposition 4.1, proposed Theorem 4.11 and its caveat, pages 3-4, 6, 13-14; theorem screenshot inspected",
+          "method": "Original arXiv PDF text and screenshot, exact fraction transcription",
+          "title": "A Repulsive Bounded-Confidence Model of Opinion Dynamics in Polarized Communities",
+          "trigger": "Identical dynamical definition and proposed inequality"
+        },
+        {
+          "assessment": "DIFFERENT_FIXED_POINT_REGIME",
+          "evidence": "It requires all edges receptive at equilibrium. The submitted counterexample ends with zero active edges; the prior proof explicitly excludes such states.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-single-antagonistic-tie-is-persistently-receptive-exactly-when--aa4da2245e3c/RESULT.md",
+          "material_read": "Full published RESULT.md, fixed-point equation, exact electrical criterion, proof/limitations",
+          "method": "Connected GitHub full source read and assumption-by-assumption comparison",
+          "title": "A single antagonistic tie is persistently receptive exactly when it lies on a cycle",
+          "trigger": "Same Kann-Feng update with exactly one antagonistic edge"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE_RISK",
+          "evidence": "Different force definition in the accessible description, but the full proof was not read; residual priority risk retained.",
+          "identifier_or_url": "https://doi.org/10.1016/j.neucom.2019.12.061",
+          "material_read": "Bibliography/abstract only; full text not accessible in this run",
+          "method": "Publisher metadata; no whole-document noncoverage conclusion",
+          "title": "Discrete-time signed bounded confidence model for opinion dynamics",
+          "trigger": "Related discrete signed model might have established a counterexample"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A minimal connected mixed-sign model falsifies an explicit open diameter conjecture with exact rational witness and an open robustness family. Its role is a rigorous boundary to a proposed quantitative theorem, not an arbitrary cheap numerical negative case; three agents and one-step absorption reveal the strict-threshold mechanism.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned Git tree and frozen RESULT.md/verification code at https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-connected-three-agent-counterexample-to-a-repulsive-confidence--c5356e23c8e4: 6122a6967d95cef72350c86dfc625c1074ac11ff",
+    "https://arxiv.org/pdf/2301.02210",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-single-antagonistic-tie-is-persistently-receptive-exactly-when--aa4da2245e3c/RESULT.md",
+    "https://doi.org/10.1016/j.automatica.2018.03.064",
+    "https://doi.org/10.1016/j.neucom.2019.12.061"
+  ],
+  "disposition": "passed",
+  "final_claim": "In the strict synchronous self-inclusive Kann-Feng signed bounded-confidence model on connected path 0-1-2 with the 0-1 edge repulsive and 1-2 attractive, c=1 and x(0)=(0,1/4,7/4), the process freezes after one update at (-3/8,5/8,7/4), whose diameter 17/8 exceeds max(initial diameter 7/4, m*c=2) with m=2. A nonempty open 2-parameter family has positive violation and excess supremum c/2 within that family; the graph size 3 is minimal for this violation.",
+  "limitations": [
+    "Only contradicts the diameter clause of conjectural Theorem 4.11, not global convergence.",
+    "The underlying path is connected but initially active graph has an isolated node.",
+    "No all-graphs upper bound, no classification of all violations."
+  ],
+  "residual_risks": [
+    "Other researchers may already have publicly noted this elementary 3-agent counterexample to the 2023 proposed bound; no absolute originality certification.",
+    "A condition requiring initially receptive connectivity would be a different conjecture; the third vertex here is initially nonreceptive.",
+    "Strict inequality |gap|<c is essential to one-step freezing, not a statement for <=c conventions.",
+    "The claimed c/2 supremum is only within the exhibited open family, not a global all-network maximum.",
+    "Original METADATA.json (2cbf36e1a176d833ac47cb062a75edb8b29b8771) and AUDIT.json (84111c5c0ac1cfbd0d56aa66668822bb29d57e55) contain the operational source identifier scope_run_id and provenance fields, which are not cleared for public metadata; no complete semantically audited sanitized replacement was prepared. Withhold publication."
+  ],
+  "schema_version": 1
+}

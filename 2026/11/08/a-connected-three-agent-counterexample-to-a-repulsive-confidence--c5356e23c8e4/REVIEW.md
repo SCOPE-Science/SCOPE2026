@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source update is transcribed with self-weight \(A_{ii}=1\) and strictly receptive edges \(|x_j-x_i|<c\). In the connected signed path, the sole initially receptive nonloop edge is repulsive, so its two endpoints update to \((a-1)c/2\) and \((a+1)c/2\), while the isolated-in-receptivity third endpoint remains at \(bc\). The repulsive gap then equals \(c\) and the attractive gap exceeds \(c\); both edges stay inactive forever. The exact final width and strict excess follow algebraically. The numeric witness is checked in two independent exact-rational implementations; the infinite family is supported by the proof, not merely tests. The two-agent minimality invokes Proposition 4.1 of the source. No claim is made about general convergence.
+PASS
 
-## Originality — PASS (best-knowledge priority assessment)
+The exact primary source updates only edges |x_i-x_j|<c and includes each vertex’s own opinion. Initially 0-1 has gap a*c<c and 1-2 has gap (b-a)c>c for 0<a<1 and (3+a)/2<b<2. Only 0-1 repulsion acts, and direct shifted-neighbor averages give ((a-1)c/2,(a+1)c/2,bc). Its repulsive gap is exactly c and attractive gap is (b-(a+1)/2)c>c; both edges then inactive, hence frozen. Its diameter is c(b+(1-a)/2)>2c while initial bc<2c, excess c(b-(3+a)/2). At a=1/4,b=7/4,c=1 the exact fractions and 17/8>2 follow; sup c/2 is approached, not attained. Independent rational one-step recomputation and source eq (3.1)-(3.2) inspection corroborate. Original Prop 4.1 covers the 2-agent bound, implying sharp graph size. This does NOT contradict source’s separate convergence conjecture.
 
-Kann and Feng, arXiv:2301.02210v1, equations (3.1)–(3.2), Proposition 4.1 and page 14 proposed Theorem 4.11 were read. The text explicitly calls the mixed-sign theorem numerically suspected, and the printed inequality is universally quantified in graphs, without initial receptive-connectivity assumptions. The present path is an actual counterexample, not a numerical observation or a rewording of their proved complete-repulsive theorem. Searches for the exact conjecture, its diameter inequality, mixed-sign three-agent counterexamples and equivalent width bounds did not identify a covering prior statement. Related signed opinion models use different update mechanisms. A 2021 signed bounded-confidence paper was only accessible at abstract/bibliographic level and could not be compared in full; this and unindexed literature are residual publication-priority risks. Unsuccessful searches alone are not treated as proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The result resolves the truth value of the explicit, motivated general mixed-sign diameter conjecture with the smallest possible connected graph, an exact rational witness, a genuine open set of initial conditions, and the exact amount of excess within that set. It isolates how an initially nonreceptive attractive edge coexists with an active repulsive edge to defeat an edge-count width barrier. This is a substantive boundary to a mathematical assertion, not an arbitrary parameter slice or a small numerical improvement. A revised conjecture requiring initial receptive connectivity remains untested.
+Direct full-text inspection of the originating 2023 paper confirms the mixed-sign diameter inequality is explicitly a conjectural unsupported Theorem 4.11, not already known false or proved; the exact 3-node connected witness defeats its bound but converges. Prior public same-model one-antagonistic-edge equilibrium result classifies fully receptive states only, whereas witness becomes completely nonreceptive. Related signed opinion updates are distinct. No covering earlier explicit witness found in the searches, with unindexed priority risk.
 
-## Closest literature and limits
+## value
 
-Primary: C. Kann and M. Feng, *Repulsive Bounded-Confidence Model of Opinion Dynamics in Polarized Communities*, arXiv:2301.02210v1 (2023), model equations (3.1)–(3.2), two-agent Proposition 4.1, and conjectural Theorem 4.11 on page 14. Related but distinct: C. Bernardo et al., *Bounded confidence opinion dynamics: A survey*, Automatica 159 (2024), 111302, DOI:10.1016/j.automatica.2023.111302; discrete-time signed bounded-confidence article, Neurocomputing DOI:10.1016/j.neucom.2019.12.061, abstract only. Full independent priority review has not been conducted. The counterexample does not address general convergence and assumes the source's strict confidence rule.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A minimal connected mixed-sign model falsifies an explicit open diameter conjecture with exact rational witness and an open robustness family. Its role is a rigorous boundary to a proposed quantitative theorem, not an arbitrary cheap numerical negative case; three agents and one-step absorption reveal the strict-threshold mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
