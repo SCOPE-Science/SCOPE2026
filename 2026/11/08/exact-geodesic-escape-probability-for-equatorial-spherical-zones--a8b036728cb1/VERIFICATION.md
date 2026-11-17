@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standalone Python 3 checker `verify_zone.py` uses only standard-library modules. It compares the analytic identity with five Simpson-integrated two-point great-circle formulas and separately samples direct surface-area-uniform endpoint pairs at three widths. Each sampled geodesic is tested by exact optimization of its vertical sinusoid over the full shorter arc; no point grid is substituted for that optimization.
+## correctness
 
-At widths \(0.08,0.27,0.60,1.00,1.38\) radians, quadrature and the closed expression agreed to absolute error below \(2\times 10^{-8}\). At widths \(0.13,0.64,1.23\), direct samples of 110,000 pairs each were consistent with the predicted values within specified sampling tolerances. The run terminated with `SPHERICAL_ZONE_GEODESIC_ESCAPE_ANALYTIC_AND_DIRECT_SAMPLE_OK`.
+PASS
 
-The mathematical proof uses an established spherical integral-geometric decomposition and explicit evaluation. Finite numerical checks do not prove the theorem; no independent review or automated mathematical certification is claimed. Source priority may be incomplete where historical articles are unindexed or use different terminology.
+For 0<θ<π/2 and independent area-uniform points on |z|≤sinθ⊂S², the two-point spherical Blaschke–Petkantschin formula disintegrates pairs by unoriented great circles with density |sin(u−v)|. A circle of inclination i≤θ is entirely in the band; for i>θ it meets the zone in two antipodal arcs of length L=2arcsin(sinθ/sin i)<π. Exactly opposite-component endpoint pairs have a minimizing geodesic escaping. The weighted opposite-pair integral equals 4(L−sin L), reducing escape probability to I(s)/(2πs²). Differentiation of I(s) gives I′(s)=2πs−πs/sqrt(1−s²), hence I(s)=πsqrt(1−s²)(1−sqrt(1−s²)) from I(0)=0. Thus P=cosθ/(2(1+cosθ)), strictly decreasing to 0 as θ→π/2, and tending to 1/4 as θ↓0, while exactly-on-equator sampling gives 0. Independent high-precision quadrature at five θ confirms normalization; it is not used as proof.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge PASS: the 2015 full primary paper supplies the exact spherical pair disintegration but treats halfsphere random convex hulls, while the full inspected cap-escape theorem concerns **one geodesic cap** with different topology, thresholds and formula. No inspected published statement gives the equatorial-band two-component conditioned-short-arc escape law. Domain difference is material rather than naming.
+
+## value
+
+PASS
+
+Uniform pairwise shortest-geodesic containment in a natural nongeodesically-convex symmetric spherical belt is an intrinsic geometric probability invariant. The exact simple closed form and singular thin-zone limit are useful for integral-geometric sampling and nonconvexity assessments, not merely arbitrary numerical output; the limit contrast is a meaningful boundary phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

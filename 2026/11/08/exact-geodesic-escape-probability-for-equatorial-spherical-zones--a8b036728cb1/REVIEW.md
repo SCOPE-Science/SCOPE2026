@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The event is identified as pairs of points lying in opposite connected components of the intersection of their common great circle with the zone. The spherical two-point integral formula carries the \(|\sin(u-v)|\) Jacobian, and the two orders of cross-component sampling account for the factor four. The remaining integral is evaluated by a justified parameter differentiation and independently checked by quadrature and direct sampled geodesics. The domain is \(0<\theta<\pi/2\), with the whole sphere and limiting equator distinguished.
+PASS
 
-## Originality
+For 0<θ<π/2 and independent area-uniform points on |z|≤sinθ⊂S², the two-point spherical Blaschke–Petkantschin formula disintegrates pairs by unoriented great circles with density |sin(u−v)|. A circle of inclination i≤θ is entirely in the band; for i>θ it meets the zone in two antipodal arcs of length L=2arcsin(sinθ/sin i)<π. Exactly opposite-component endpoint pairs have a minimizing geodesic escaping. The weighted opposite-pair integral equals 4(L−sin L), reducing escape probability to I(s)/(2πs²). Differentiation of I(s) gives I′(s)=2πs−πs/sqrt(1−s²), hence I(s)=πsqrt(1−s²)(1−sqrt(1−s²)) from I(0)=0. Thus P=cosθ/(2(1+cosθ)), strictly decreasing to 0 as θ→π/2, and tending to 1/4 as θ↓0, while exactly-on-equator sampling gives 0. Independent high-precision quadrature at five θ confirms normalization; it is not used as proof.
 
-PASS, with historical-priority risk. Lassak (2013 online; DOI 10.1007/s00010-013-0237-3) concerns deterministic spherical convexity and width. Bárány et al. (arXiv:1505.04672v1) provide the general integration formula but study random convex hulls in halfspheres. Gille (2005; DOI 10.3844/jmssp.2005.24.28) studies Euclidean isotropic chords in a solid hemisphere, not surface-to-surface minimizing great-circle arcs. A related earlier cap escape probability samples inside a single cap, whereas the current zone is a complement of two antipodal polar caps. Neither the cap identity nor those published theorems implies the zone law without solving a distinct restricted-pair integral. Searches for equivalent spherical zone/belt/annulus escape laws found no stronger statement; absence of a hit does not prove priority.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Geodesic convexity is a standard yes/no condition. The exact zone law is a quantitative nonconvexity invariant for a natural, full one-parameter family. Its sharp thin-zone limit \(1/4\) differs from the zero escape probability of the limiting equator, demonstrating a genuine singular geometric-probability boundary phenomenon, while the full-sphere limit has a different order. This is an exact global calculation, not a fitted finite statistic.
+Qualified best-of-knowledge PASS: the 2015 full primary paper supplies the exact spherical pair disintegration but treats halfsphere random convex hulls, while the full inspected cap-escape theorem concerns **one geodesic cap** with different topology, thresholds and formula. No inspected published statement gives the equatorial-band two-component conditioned-short-arc escape law. Domain difference is material rather than naming.
 
-## Scope and remaining risks
+## value
 
-The proof uses the round unit two-sphere and independent area-uniform points. General spherical domains, unequal pole caps, or higher dimensions are not addressed. Unindexed older literature remains a priority risk; independent mathematical review has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Uniform pairwise shortest-geodesic containment in a natural nongeodesically-convex symmetric spherical belt is an intrinsic geometric probability invariant. The exact simple closed form and singular thin-zone limit are useful for integral-geometric sampling and nonconvexity assessments, not merely arbitrary numerical output; the limit contrast is a meaningful boundary phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

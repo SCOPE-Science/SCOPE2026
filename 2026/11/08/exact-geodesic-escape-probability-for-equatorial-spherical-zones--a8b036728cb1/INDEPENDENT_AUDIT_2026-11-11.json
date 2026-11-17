@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T01:51:29.475355Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<θ<π/2 and independent area-uniform points on |z|≤sinθ⊂S², the two-point spherical Blaschke–Petkantschin formula disintegrates pairs by unoriented great circles with density |sin(u−v)|. A circle of inclination i≤θ is entirely in the band; for i>θ it meets the zone in two antipodal arcs of length L=2arcsin(sinθ/sin i)<π. Exactly opposite-component endpoint pairs have a minimizing geodesic escaping. The weighted opposite-pair integral equals 4(L−sin L), reducing escape probability to I(s)/(2πs²). Differentiation of I(s) gives I′(s)=2πs−πs/sqrt(1−s²), hence I(s)=πsqrt(1−s²)(1−sqrt(1−s²)) from I(0)=0. Thus P=cosθ/(2(1+cosθ)), strictly decreasing to 0 as θ→π/2, and tending to 1/4 as θ↓0, while exactly-on-equator sampling gives 0. Independent high-precision quadrature at five θ confirms normalization; it is not used as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bárány–Hug–Reitzner–Schneider Lemma3.2 proves spherical BP for general pair integrands, a technique, not a closed band probability.",
+          "The full cap probability theorem is for domains Cρ, not the two-sided band Zθ; their areas and event classifications differ."
+        ],
+        "reasoning": "Neither a general integral representation nor the cap-specific closed formula implies the claimed exact band law without the new two-component classification and explicit integral evaluation.",
+        "searches": [
+          "https://arxiv.org/abs/1505.04672",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-geodesic-convexity-failure-probability-for-uniform-pairs-i--f456005a5ea4",
+          "equatorial spherical zone random shortest geodesic leaves belt band probability 1/4"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1505.04672",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-geodesic-convexity-failure-probability-for-uniform-pairs-i--f456005a5ea4",
+        "https://doi.org/10.1007/s00010-013-0237-3",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-geodesic-escape-probability-for-equatorial-spherical-zones--a8b036728cb1/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2015 Lemma3.2 is a two-point integral change of variables, and its target is random halfsphere convex hull functionals.",
+          "The published large-cap theorem studies a complement of ONE missing cap, giving P=½t(1−t)^2 and not the two missing polar caps of Zθ."
+        ],
+        "reasoning": "The submitted P is not a direct corollary of the cap formula since the two caps alter the component geometry and normalization nonadditively; original event partition and integration remain.",
+        "searches": [
+          "https://arxiv.org/abs/1505.04672",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-geodesic-convexity-failure-probability-for-uniform-pairs-i--f456005a5ea4",
+          "equatorial spherical zone random shortest geodesic leaves belt band probability 1/4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2015 spherical BP lemma allows two-point plane integration for any integrand, but does not evaluate the band-specific escape event.",
+          "Published November 8 cap-exit theorem studies area-uniform pairs on a *single large cap*, P=0 for radius≤π/2 and P=½t(1−t)^2 beyond, unlike two opposed polar exclusions in a zone."
+        ],
+        "reasoning": "Spherical annulus/belt/zone are aliases; the band is intersection of two polar-complement caps, but conditioning both endpoints and the shorter geodesic creates a two-boundary event not obtained by simple subtraction of one-cap escape probabilities.",
+        "searches": [
+          "equatorial spherical zone random shortest geodesic leaves belt band probability 1/4",
+          "https://arxiv.org/abs/1505.04672",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-geodesic-convexity-failure-probability-for-uniform-pairs-i--f456005a5ea4",
+          "Resultary semantic search: equatorial spherical belt geodesic escape probability random pairs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published index returned this exact formula in the submitted November 8 record and distinct cap/latitude-zone plane-section results.",
+          "The five independent numerical quadratures match cosθ/(2(1+cosθ)) to <10^−9."
+        ],
+        "reasoning": "No exact band exit table or separately published same-parameter formula was found, but search absence is not proof of global priority.",
+        "searches": [
+          "equatorial spherical zone random shortest geodesic leaves belt band probability 1/4",
+          "Resultary semantic search: equatorial band spherical intrinsic shortest geodesic leaves belt probability",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-geodesic-convexity-failure-probability-for-uniform-pairs-i--f456005a5ea4"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS: the 2015 full primary paper supplies the exact spherical pair disintegration but treats halfsphere random convex hulls, while the full inspected cap-escape theorem concerns **one geodesic cap** with different topology, thresholds and formula. No inspected published statement gives the equatorial-band two-component conditioned-short-arc escape law. Domain difference is material rather than naming.",
+      "residual_risks": [
+        "Unindexed older spherical belt/annulus integral-geometry work might contain an equivalent exact probability in different terms.",
+        "Other sampling laws (latitude-uniform, boundary-uniform) are not treated, and θ=0 is a singular different measure rather than a continuous extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_TOOL_NOT_FINAL_BAND_LAW",
+          "evidence": "Lemma3.2 provides invariant pair disintegration; Sections3–8 treat random halfsphere convex hulls, not band escape probability.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.04672",
+          "material_read": "Full arXiv HTML including Introduction, §2, §3 Lemma3.2 and its proof, and subsequent target theorems",
+          "method": "Primary arXiv full-text HTML",
+          "title": "Random points in halfspheres",
+          "trigger": "Exact spherical Blaschke–Petkantschin formula used in proof"
+        },
+        {
+          "assessment": "DIFFERENT_DOMAIN_NON_COVERING",
+          "evidence": "Large caps with one missing polar cap have 0 or ½t(1−t)^2 exit probability, not equatorial-zone double-cap conditioning.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-geodesic-convexity-failure-probability-for-uniform-pairs-i--f456005a5ea4",
+          "material_read": "Full Resultary RESULT.md with exact cap formula, normalization, geometric partition, full derivation and limitations",
+          "method": "Full published GitHub research document",
+          "title": "Sharp geodesic-convexity failure probability for uniform pairs in spherical caps",
+          "trigger": "Closest mathematical event with two area-uniform points and shortest-arc escape"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform pairwise shortest-geodesic containment in a natural nongeodesically-convex symmetric spherical belt is an intrinsic geometric probability invariant. The exact simple closed form and singular thin-zone limit are useful for integral-geometric sampling and nonconvexity assessments, not merely arbitrary numerical output; the limit contrast is a meaningful boundary phenomenon.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed older spherical belt/annulus integral-geometry work might contain an equivalent exact probability in different terms.",
+    "Other sampling laws (latitude-uniform, boundary-uniform) are not treated, and θ=0 is a singular different measure rather than a continuous extension.",
+    "One assigned result and source verifier are fully inspected; the independent bounded checks in the accompanying log are corroborative rather than proofs of unrestricted statements. No GitHub mutation or public status change has occurred."
+  ],
+  "schema_version": 1
+}
