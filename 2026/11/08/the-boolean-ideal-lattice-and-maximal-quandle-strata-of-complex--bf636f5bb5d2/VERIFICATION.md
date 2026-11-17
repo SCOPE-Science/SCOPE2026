@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational and symbolic verification
+# Independent mathematical audit
 
-The proof in RESULT.md is a universal symbolic argument. Its critical steps are (1) the exact Fourier multiplication identity, (2) reciprocal/square phase propagation, (3) the induced \(s^2/r\) law, (4) the right-translation surjectivity argument for maximal quandles, and (5) the square-root reachability argument for ideals. All hold for any finite abelian odd-order group over complex coefficients.
+## correctness
 
-Execute `python verify_magma.py` under Python 3. The checker creates roots of unity in finite fields large enough for the tested groups, uses Fourier inversion to generate vectors, and multiplies them directly using the defining quandle basis structure constants. It checks idempotency, every predicted pair product for small cases, selected pair products for larger groups, and the support strata. For group orders one, three and five it enumerates *every nonempty subset* and independently tests the two-sided-ideal condition. The exact output is in `verify_magma_output.txt`; all tests passed.
+PASS
 
-Finite-field trials do not certify the complex theorem by themselves, and do not claim to exhaust arbitrary finite abelian groups. No independent mathematical audit has been performed.
+Direct Fourier expansion gives cχ(u*v)=cχ^-1(u)cχ²(v). Active orbit idempotent equations force c_{χ^{-1}}=1/c_χ and c_{χ^2}=c_χ^2, with odd local order N=2^(d/2)+1 or 2^d−1. Thus nonzero coordinate multiplication z*w=z^-1 w² and inactive coordinates absorb. Supports intersect; fixed supports are connected Latin quandles because 2 is invertible. Right-translation surjectivity forces any subquandle to have constant support. Left/right ideal closure yields every lower support fiber via solving 2v−u=w, so ideals correspond exactly to Boolean downsets. Independently enumerated abstract two-coordinate magma ideals (five each) and inspected direct finite-field checker; all-group assertion rests on the Fourier proof.
+
+## originality
+
+PASS
+
+Earlier November 2 work counts individual idempotents, Peirce multiplicities and the root-orders; October 25 work classifies K-linear two-sided ideals of the ENTIRE ambient quandle algebra, not subset ideals of the idempotent magma. Both primary statements were read completely; neither gives the product multiplication structure, maximal subquandles, or Dedekind-number submagma ideal lattice. Equivalence risk remains because structure follows naturally from known Fourier parametrization.
+
+## value
+
+PASS
+
+The complete ideal lattice and maximal connected subquandle decomposition give a natural algebraic classification of the finite idempotent magma. These structures matter for homomorphisms, submagma ideals and quandle stratification and are not supplied by a count of isolated idempotents or a vector-space ideal lattice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The bilinear Fourier-product equation follows by evaluating basis multiplication. Idempotent-phase propagation is finite and exact. The product law on the root coordinates gives closure and a concrete isomorphism, not merely an enumeration. Surjectivity of right translations inside fixed support uses odd cyclic orders. Arbitrary subquandles cannot cross support strata because their right translations must be onto. Ideals are exactly downward support unions because every target of smaller support is reached by a right multiplier using square-root coordinates. The trivial-group case and inclusion conventions are explicit. The standalone checker independently tests literal algebra multiplication and brute-force ideal closure.
+## correctness
 
-## Originality — PASS, with a material priority risk
-Zhang's 2026 Fourier equation and an earlier complete complex idempotent enumeration are treated as prior. Their support/phase parameterizations do not state the product-algebra isomorphism, maximal-subquandle classification, or full ideal lattice, which require an additional induced-operation and ideal-reachability argument. Elhamdadi–Nunez–Singh–Swain treat integral rings of specified coverings, not the complex finite odd core idempotent magma. Searches under semilattice, shelf, zero-adjoined core, Dedekind ideal lattice, and quandle-subset aliases found no directly equivalent result. The prior explicit parametrization does make the new classification relatively accessible, and an equivalent historical semilattice description cannot be excluded.
+PASS
 
-## Mathematical value — PASS
-The question whether idempotents of a quandle algebra themselves form a quandle is established as meaningful by earlier covering-quandle work. For complex odd-order cores the full set is **not** a quandle, but the complete maximal connected-quandle structure is now determined. Its ideal lattice is an intrinsically defined lattice with a precise Dedekind-number count; this cannot be read off a scalar idempotent census alone. It identifies the original quandle as a natural subquandle of the unique full-support augmentation-one fiber, separating idempotent enumeration from algebraic organization.
+Direct Fourier expansion gives cχ(u*v)=cχ^-1(u)cχ²(v). Active orbit idempotent equations force c_{χ^{-1}}=1/c_χ and c_{χ^2}=c_χ^2, with odd local order N=2^(d/2)+1 or 2^d−1. Thus nonzero coordinate multiplication z*w=z^-1 w² and inactive coordinates absorb. Supports intersect; fixed supports are connected Latin quandles because 2 is invertible. Right-translation surjectivity forces any subquandle to have constant support. Left/right ideal closure yields every lower support fiber via solving 2v−u=w, so ideals correspond exactly to Boolean downsets. Independently enumerated abstract two-coordinate magma ideals (five each) and inspected direct finite-field checker; all-group assertion rests on the Fourier proof.
 
-## Closest literature and limitations
-The principal closest result is the earlier exact root-choice and Peirce-multiplicity census for the same complex core algebras; it covers the counting ingredients but does not explicitly classify multiplication, maximal quandle strata, or ideals. Zhang (2026) already proves the Fourier equation; Elhamdadi–Nunez–Singh–Swain (2022) prove a related quandle property in a different integral covering setting. Restricted to finite abelian odd-order groups over \(\mathbb C\). The two-sided ideals here are subset ideals in the idempotent magma, not linear ideals of the ambient algebra. Finite tests are not universal proofs. Historical priority beyond the inspected material remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier November 2 work counts individual idempotents, Peirce multiplicities and the root-orders; October 25 work classifies K-linear two-sided ideals of the ENTIRE ambient quandle algebra, not subset ideals of the idempotent magma. Both primary statements were read completely; neither gives the product multiplication structure, maximal subquandles, or Dedekind-number submagma ideal lattice. Equivalence risk remains because structure follows naturally from known Fourier parametrization.
+
+## value
+
+PASS
+
+The complete ideal lattice and maximal connected subquandle decomposition give a natural algebraic classification of the finite idempotent magma. These structures matter for homomorphisms, submagma ideals and quandle stratification and are not supplied by a count of isolated idempotents or a vector-space ideal lattice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
