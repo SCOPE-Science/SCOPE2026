@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The angular Poisson kernel has mean \((a,0)\), bounded strictly positive density and unit-length samples. The initial greedy choice is the first row for every interpolation setting, and the one-observation exact risk is \(a^{-2}-1\). Antipodal cancellation for two samples and a transverse regular-polygon configuration for every higher count yield the precise lower small-ball powers needed for the negative-second-moment divergence. The strong law independently establishes almost-sure consistency. A derivative, Hoeffding and bias decomposition proves the one-step ridge \(O_a(N^{-1})\) bound. The standalone checker verifies only supporting algebra/numerics, not the infinite-expectation proof.
+## correctness
 
-## Originality
-**PASS, qualified by historical-priority risk.** The motivating 2026 RGRK-SA paper assumes normalized individual rows and claims finite expected squared error under finite second moments, but its analyzed update divides by a squared averaged-row norm. The paper does not identify this normalized full-rank, biased angular example, its batch-one finite / all-batches-from-two divergence, the almost-sure/mean-square split, and the matched ridge-rate remedy. Planar random-walk negative moments and ratio-estimator instability are classical and could support a broader equivalence; that general phenomenon is not claimed as new. Different Kaczmarz averaging and regularization models were compared. The cited published-result searches yielded related but not directly encompassing Kaczmarz statements. No exhaustive historical novelty guarantee is made.
+PASS
 
-## Mathematical value
-**PASS.** The result distinguishes unnormalized inverse moments from finite measurement variance for an algorithm whose numerical projections divide by data-dependent row lengths; it identifies an exact risk transition between one and two averaged observations in two dimensions despite exact unit-row observations, uniformly good conditioning and noise arbitrarily close to zero. This explains why expectation bounds need more than per-observation moment assumptions and gives a provably stable elementary repair in the same object. This is a one-step boundary statement, not a general convergence analysis.
+For every fixed 0<a<1 the Poisson-kernel Fourier moment E u=(a,0) proves unbiased unit-row measurements and noise second moment 1-a²; normalized greedy residual forces row one. Batch one yields exact a^-2-1 MSE. For N=2 antipodal angle bands give P(||v_N||<r)>=cr; for N>=3, the regular-N-gon zero configuration has rank-two Jacobian sin(2pi/N)/N², giving a genuine two-dimensional small-ball lower bound cr² by an inverse chart. Tail integration makes E||v_N||^-2 infinite, and a.s. invertibility plus SLLN gives a.s. convergence. Local derivative control and Hoeffding give the stated O_a(1/N) ridge first-step MSE. Independent spot check of Poisson-kernel moment and regular-polygon Jacobian matches. Finite experiments never certify the divergent expectation.
 
-## Scientific limits and closest literature
-Source analysis: Zhang–Zeng–Zhang (2026), §§1,4, Algorithm 2 and Theorem 4.1. Close mathematical tools: Borwein–Straub–Wan–Zudilin (2011) planar walk moments; Moorman et al. (2020) averaged updates; Goldshlager–Hu–Lin (2025) regularized block updates; Gan–Wu (2026) doubly noisy Kaczmarz. Remaining risk: broader ratio-estimator or randomized projection results may imply the application by a short reduction. Infinite expectations cannot be verified by finite trials, and the ridge estimate is only for the first step.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This explicit unbiased, unit-row signal-averaging counterexample shows a real inverse-moment gap in the mean-square guarantee: N=1 has finite risk but all finite N>=2 give infinite first-step risk, although the estimator converges almost surely and ridge restores O(1/N). The compared March 2026 Kaczmarz signal-averaging paper states a finite full-expectation guarantee under bounded row norms without a uniform denominator lower bound. Earlier random-walk singular-moment and Gaussian-resampled-row studies give ingredients, not this precise contradiction under its algorithm and assumptions.
+
+## value
+
+PASS
+
+A concrete all-finite-N counterexample to a published unconditional first-step mean-square guarantee is a consequential boundary for noisy row normalization: arbitrarily small bounded row noise and well-conditioned SPD A do not ensure inverse-square integrability. The batch-one/batch-two phase discontinuity and matched stabilizing ridge rate show a mathematical mechanism researchers must handle, not merely an anecdotal failure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T23:53:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/normalized-noisy-rows-can-cause-infinite-mean-square-error-after--f833da7aff2c/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/normalized-noisy-rows-can-cause-infinite-mean-square-error-after--f833da7aff2c/checks.py",
+        "https://arxiv.org/pdf/2603.29372"
+      ],
+      "rationale": "For every fixed 0<a<1 the Poisson-kernel Fourier moment E u=(a,0) proves unbiased unit-row measurements and noise second moment 1-a²; normalized greedy residual forces row one. Batch one yields exact a^-2-1 MSE. For N=2 antipodal angle bands give P(||v_N||<r)>=cr; for N>=3, the regular-N-gon zero configuration has rank-two Jacobian sin(2pi/N)/N², giving a genuine two-dimensional small-ball lower bound cr² by an inverse chart. Tail integration makes E||v_N||^-2 infinite, and a.s. invertibility plus SLLN gives a.s. convergence. Local derivative control and Hoeffding give the stated O_a(1/N) ridge first-step MSE. Independent spot check of Poisson-kernel moment and regular-polygon Jacobian matches. Finite experiments never certify the divergent expectation.",
+      "residual_risks": [
+        "Only first-step error and specified noise model; no statement for later iterates or all Kaczmarz schemes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-moment-thresholds-for-gaussian-noisy-norm-weighted-kaczmar--81db12815a13/RESULT.md",
+          "https://arxiv.org/pdf/2603.29372"
+        ],
+        "reasoning": "The older Gaussian moment classification uses freshly resampled full-dimensional Gaussian candidate rows and norm-power selection; it neither covers bounded unit rows averaged before selection nor their batch-one/batch-two transition. Zhang et al. provide the algorithm and an asserted bound, not this counterexample.",
+        "searches": [
+          "Resultary: Gaussian-noisy norm-weighted Kaczmarz moment thresholds",
+          "arXiv:2603.29372 Assumption 4.1 Theorem 4.1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2603.29372",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-moment-thresholds-for-gaussian-noisy-norm-weighted-kaczmar--81db12815a13/RESULT.md",
+        "https://arxiv.org/abs/1103.2995"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/2603.29372",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-moment-thresholds-for-gaussian-noisy-norm-weighted-kaczmar--81db12815a13/RESULT.md"
+        ],
+        "reasoning": "The actual Assumption 4.1/Algorithm 2 update normalizes the averaged noisy coefficient row. The claimed finite MSE theorem would contradict the shown infinite expectation; prior theory does not imply the negative finding, and the mismatch identifies the extra inverse-moment requirement.",
+        "searches": [
+          "Zhang Zeng Zhang relaxed greedy randomized Kaczmarz signal averaging Theorem 4.1",
+          "Resultary sharp Gaussian noisy norm weighted Kaczmarz moment threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/2603.29372",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-moment-thresholds-for-gaussian-noisy-norm-weighted-kaczmar--81db12815a13/RESULT.md",
+          "https://arxiv.org/abs/1103.2995"
+        ],
+        "reasoning": "The normalized inverse row update is the complex inversion v/|v|^2 and its singular second moment is a planar small-ball divergence. Classical short random-walk negative-moment methods treat uniform angles, not Poisson-kernel biased mean rows with nonzero true signal and forced greedy selection.",
+        "searches": [
+          "Resultary: signal averaged noisy Kaczmarz normalized rows infinite mean square inverse moment near zero Poisson kernel circle",
+          "Kaczmarz signal averaging denominator inverse moments cancellation unit circle"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/1103.2995",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-moment-thresholds-for-gaussian-noisy-norm-weighted-kaczmar--81db12815a13/RESULT.md"
+        ],
+        "reasoning": "No exact table is needed for the universal N>=2 divergence. The short-uniform-walk density singularity is known and acknowledged, but the Poisson-kernel positive-mean unit-row signal-averaging setting and first-step ridge comparison are different.",
+        "searches": [
+          "Resultary: normalized noisy rows can cause infinite mean square error",
+          "Borwein densities of short uniform random walks negative moment N=2"
+        ]
+      },
+      "rationale": "This explicit unbiased, unit-row signal-averaging counterexample shows a real inverse-moment gap in the mean-square guarantee: N=1 has finite risk but all finite N>=2 give infinite first-step risk, although the estimator converges almost surely and ridge restores O(1/N). The compared March 2026 Kaczmarz signal-averaging paper states a finite full-expectation guarantee under bounded row norms without a uniform denominator lower bound. Earlier random-walk singular-moment and Gaussian-resampled-row studies give ingredients, not this precise contradiction under its algorithm and assumptions.",
+      "residual_risks": [
+        "Potential known ratio-estimator/inverse-moment counterexamples under other terminology. The first-step theorem comparison is specific to the stated algorithm and written assumptions, not a global Kaczmarz convergence claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The paper states full expectation MSE bounds under assumptions satisfied by the constructed model, but does not handle averaged-row singular inverse moments.",
+          "evidence": "Algorithm 2; Assumption 4.1; Theorem 4.1",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.29372",
+          "material_read": "PDF algorithm, written Assumption 4.1 and Theorem 4.1, pages 9–11, inspected using PDF page renderings and text",
+          "method": "primary PDF page reading",
+          "title": "Relaxed Greedy Randomized Kaczmarz with Signal Averaging for Solving Doubly-Noisy Linear Systems",
+          "trigger": "Exact signal-averaged selected-row method and challenged MSE theorem"
+        },
+        {
+          "assessment": "Different Gaussian fresh-row weighting model; the novel counterexample is not an implication of its exact threshold q<min(md,d+beta).",
+          "evidence": "Finding and Steps 1–3; limitations",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-moment-thresholds-for-gaussian-noisy-norm-weighted-kaczmar--81db12815a13/RESULT.md",
+          "material_read": "Complete RESULT.md including theorem, proof and scope",
+          "method": "GitHub full primary publication text",
+          "title": "Sharp moment thresholds for Gaussian-noisy, norm-weighted Kaczmarz projections",
+          "trigger": "Possible general singular inverse-moment coverage"
+        },
+        {
+          "assessment": "Prior negative-moment mechanism acknowledged; cannot certify whole document excludes related biased cases.",
+          "evidence": "arXiv:1103.2995 abstract/topic",
+          "identifier_or_url": "https://arxiv.org/abs/1103.2995",
+          "material_read": "Identifying abstract and reference descriptions; full primary text was not material-read in this run",
+          "method": "Bibliographic/arXiv abstract",
+          "title": "Densities of short uniform random walks",
+          "trigger": "Known planar inverse-moment singularity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2603.29372",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/normalized-noisy-rows-can-cause-infinite-mean-square-error-after--f833da7aff2c"
+      ],
+      "rationale": "A concrete all-finite-N counterexample to a published unconditional first-step mean-square guarantee is a consequential boundary for noisy row normalization: arbitrarily small bounded row noise and well-conditioned SPD A do not ensure inverse-square integrability. The batch-one/batch-two phase discontinuity and matched stabilizing ridge rate show a mathematical mechanism researchers must handle, not merely an anecdotal failure.",
+      "residual_risks": [
+        "Specificity to one step and normalized row-averaging protocol must be preserved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "None of the model simulations can establish infinite mean square; the rigorous small-ball inverse-moment proof is essential. Primary signal-averaging theorem and assumptions were inspected.",
+    "Finite checks are corroboration, not substitute for universal proof.",
+    "Publication not_ready is a transport/privacy status, not a scientific axis failure."
+  ],
+  "schema_version": 1
+}
