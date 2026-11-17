@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The mathematical argument reconstructs the full invariant chain complex and its nonregular boundary, including the forbidden middle-face constraint, the exceptional cancellation at root order two, and the nonzero squared differential for other primitive root orders. Splitting each permutation representation into a trivial line and an augmentation module gives the kernels, images, and every quotient with full group action. The claim has unrestricted quantifiers, and no finite test is substituted for the proof. The standalone code reproduces the predicted ranks and equivariant characters in bounded independent tests.
+PASS
 
-## Originality
+For the complete only-consecutive-arcs A→B→C graph with a,b,c>=2, direct deletion of the middle vertex shows invariant Ω2=P_A⊗U_B⊗P_C, while Ω1=(P_A⊗P_B)⊕(P_B⊗P_C), Ω0=P_A⊕P_B⊕P_C and Ωk=0 above2. The written d1,d2 formulas give ker d2=U_A⊗U_B⊗U_C, im d2=ker d1=U_B⊗(1⊕U_A⊕U_C), coker d1=1, and d1d2=(ζ+ζ²)εAεC U_B, zero exactly for primitive order2. With P_X=1⊕U_X these are G-equivariant modules and imply ALL displayed cases for q and N-q. This proof applies for every N>=2, every primitive root and all group sizes; finite modular checker is supporting evidence only.
 
-PASS with a residual literature risk. Karaguler–Wei's inspected original article develops the theory and computes small motifs, but not the stated all-order, representation-valued shortcut-free three-level family. The closest indexed layered-graph theorem assumes transitively complete arrows, including those from the first to the last level, which are forbidden here; the two models have different chain groups and distinct numerical homology already at root order three. The previously accessible parallel two-step network calculation specializes to one source and one sink and cannot imply the new triple-augmentation homology for three widths at least two. Targeted mathematical and publication-record searches yielded no equivalent formula. An implicit general theorem not retrieved remains possible.
+## originality
 
-## Value
+PASS
 
-PASS. Shortcut-free three-level feedforward networks are canonical examples in directed topology. The theorem determines all complex Mayer groups and full layer-permutation representations, not just Betti ranks, for infinitely many nontrivial parameter triples. It identifies the three-layer interaction module already in ordinary degree-two path homology and quantifies two distinct higher-order expansions at later Mayer indices. This is a structural, parameter-uniform classification rather than an arbitrary sample computation.
+Statement-level and mathematical-object comparisons with the inspected primary/published results identified no previous theorem determining the claim's precise new invariant. Negative indexed searches are not absolute novelty proof.  Prior work is credited separately for ingredients and any directly implied subclaims.
 
-## Closest literature and limitations
+## value
 
-The 2026 Mayer path homology source provides definitions and local generators, and the published transitive-layer calculation has different arrows and is not a stronger covering theorem. The result is restricted to complex coefficients and complete consecutive-layer arcs with exactly three levels. Finite-field experiments corroborate algebraic formulas but do not establish results for all sizes or independent validation. An earlier unindexed equivariant calculation is the principal residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A shortcut-free complete feedforward three-level network is a canonical small directed acyclic model. Ordinary path homology has a nonzero three-way standard-tensor interaction, and the higher-root Mayer indices resolve different augmentation blocks; the complete equivariant classification for all root orders is a motivated nontrivial calculation that is independently usable as a test family for the newer theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

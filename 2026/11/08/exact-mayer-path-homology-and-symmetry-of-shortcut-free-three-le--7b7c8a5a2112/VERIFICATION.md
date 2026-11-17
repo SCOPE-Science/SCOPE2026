@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The standalone `verify.py` is executable with Python 3 and the standard library alone. Run from this directory with `python3 verify.py` and compare the standard output with `verify_output.txt`.
+# Independent mathematical audit
 
-The code independently enumerates allowed elementary paths, computes the full forbidden-face matrix, constructs a basis of its kernel, and checks every exact boundary rank over the prime field of order 2521 at primitive roots of orders 2 through 10. It evaluates every permitted Mayer index for eight parameter triples and compares them with the closed dimension formulas. It also performs chain-level permutation-matrix checks of the full representation character for three parameter triples and all eight simultaneous transposition patterns in the three levels at five root orders.
+## correctness
 
-The proof is algebraic over the complex numbers. Modular ranks and characters are finite tests only. The input model has no source-to-sink shortcut, no augmented degree-minus-one chains, and no higher directed paths. The tested dimensions are not an exhaustive search of the unbounded parameter domain. No independent mathematical audit has been performed.
+PASS
+
+For the complete only-consecutive-arcs A→B→C graph with a,b,c>=2, direct deletion of the middle vertex shows invariant Ω2=P_A⊗U_B⊗P_C, while Ω1=(P_A⊗P_B)⊕(P_B⊗P_C), Ω0=P_A⊕P_B⊕P_C and Ωk=0 above2. The written d1,d2 formulas give ker d2=U_A⊗U_B⊗U_C, im d2=ker d1=U_B⊗(1⊕U_A⊕U_C), coker d1=1, and d1d2=(ζ+ζ²)εAεC U_B, zero exactly for primitive order2. With P_X=1⊕U_X these are G-equivariant modules and imply ALL displayed cases for q and N-q. This proof applies for every N>=2, every primitive root and all group sizes; finite modular checker is supporting evidence only.
+
+## originality
+
+PASS
+
+Statement-level and mathematical-object comparisons with the inspected primary/published results identified no previous theorem determining the claim's precise new invariant. Negative indexed searches are not absolute novelty proof.  Prior work is credited separately for ingredients and any directly implied subclaims.
+
+## value
+
+PASS
+
+A shortcut-free complete feedforward three-level network is a canonical small directed acyclic model. Ordinary path homology has a nonzero three-way standard-tensor interaction, and the higher-root Mayer indices resolve different augmentation blocks; the complete equivariant classification for all root orders is a motivated nontrivial calculation that is independently usable as a test family for the newer theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
