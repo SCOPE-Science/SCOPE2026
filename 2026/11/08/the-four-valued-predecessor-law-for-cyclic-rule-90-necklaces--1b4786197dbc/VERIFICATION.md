@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof consists of four checked steps: (i) exact kernels and images of the binary linear rule, including the two exceptional tiny rings; (ii) identification of input-necklace fibers with orbits of the output's rotation stabilizer; (iii) Burnside's fixed-point formula in terms of divisors of the primitive multiplicity; and (iv) evaluation of the even/odd divisor sums by the totient identity. These deductions apply to every positive integer ring size and are not inferred from numerical experiments.
+## correctness
 
-Run `python3 verify.py` in the extracted folder. The code implements the cellular update cell by cell, separately canonicalizes cyclic rotations, exhaustively enumerates all input words through length sixteen and checks predicted inverse degrees for every output necklace. Replayed locally, it reported `VERIFY_OK lengths=1..16 necklaces=8923 witnesses=5`. This experiment checks finite cases and does not substitute for the universal proof.
+PASS
 
-The source comparison examines algebraic labeled-state results, the all-elementary-rule necklace network study, and the adjacent-XOR necklace map. No completeness claim is made for unpublished or unindexed historical work. No external independent review or validation is asserted.
+Reconstructed F_n over F2 with kernel two constants for odd n or two parity classes for even n, and image exactly one or two parity constraints. The output rotation stabilizer has t=n/p elements; fixed-predecessor counts on each divisor repeat the linear inverse image on a length-pj ring. Burnside with totient sums gives every case including n=1,2. Independent implementation formed all rotation necklaces and inverse counts for EVERY input length 1..13 and matched all target degrees; the source checker separately specifies length<=16 (8923 target necklaces). Finite enumeration is corroboration only, not an all-length proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge new individual-output all-length incoming-degree classification on the rotational Rule90 quotient; prior indexed and related Ducci-map results do not establish the exact primitive-period and parity law in inspected sources.
+
+## value
+
+PASS
+
+Incoming degree on rotation-orbit state networks is a natural precise invariant for a foundational cellular automaton. The complete all-output classification of the symmetry-induced degree spectrum, with n=8 sharp realization and primitive-period boundaries, advances beyond the uniformly 2/4 labeled fibers and is useful for inverse-branching or quotient transition graphs. No downstream theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

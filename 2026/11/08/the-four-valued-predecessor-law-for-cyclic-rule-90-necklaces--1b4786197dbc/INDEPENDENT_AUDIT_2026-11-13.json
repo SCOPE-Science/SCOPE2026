@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T12:59:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md Git blob 0b0c42469998052f11ab179c961ef977b7d3e0e6",
+        "assigned verify.py blob 8352826b109e2bfa347dfe4ffbafec484873b574",
+        "/mnt/data/independent_scope_checks_20261113.py Rule90 enumeration n<=13"
+      ],
+      "rationale": "Reconstructed F_n over F2 with kernel two constants for odd n or two parity classes for even n, and image exactly one or two parity constraints. The output rotation stabilizer has t=n/p elements; fixed-predecessor counts on each divisor repeat the linear inverse image on a length-pj ring. Burnside with totient sums gives every case including n=1,2. Independent implementation formed all rotation necklaces and inverse counts for EVERY input length 1..13 and matched all target degrees; the source checker separately specifies length<=16 (8923 target necklaces). Finite enumeration is corroboration only, not an all-length proof.",
+      "residual_risks": [
+        "The case p even with nonzero primitive parity but t even requires Burnside on H, not just the existence of a labeled predecessor.",
+        "No dynamics of multi-step preimages, reversal quotient, or other binary rules has been proven."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The Nov 2 lifting theorem determines the MINIMUM ring-enlargement factor for a target output, with Rule90 factors 1/2/4; it expressly does not count distinct predecessor necklaces on the original ring.",
+          "Powley-Stepney prove indexed (not necklace) fiber cardinalities 2 or 4 for Rule90 by parity of the ring size."
+        ],
+        "reasoning": "A larger family of cellular automata or a broader period-lifting theorem does not dominate this quotient fiber-orbit count; its four-/five-valued local in-degree is a different invariant. The one-step D-to-D^2 comparison remains a genuine specialist-priority risk.",
+        "searches": [
+          "Resultary: sharp periodic-preimage lifting for all sixteen left-permutative elementary cellular automata (2026-11-02)",
+          "Powley Stepney 2009 transition graph automorphisms for linear cellular automata",
+          "Martin Odlyzko Wolfram 1984 algebraic cellular automata"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches listed in checks",
+        "arXiv:2409.04780",
+        "Powley-Stepney JCA2009 PDF",
+        "Malcolm Black adjacent-XOR page",
+        "Resultary Nov2 preimage-lifting RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-output Burnside count requires c(pj,y) for every divisor j|t; the prior indexed result supplies only labeled-fiber size and reachability.",
+          "Minimum lift factor only answers whether some predecessor exists after enlargement, not how many orbits exist at the original length."
+        ],
+        "reasoning": "Neither result logically entails the full displayed b_n formula without the new stabilizer/divisor analysis. Conversely the b_n law specializes known indexed parity constraints but refines them on rotation classes.",
+        "searches": [
+          "Powley Stepney 2009 labeled transition fibers",
+          "Resultary Nov 2 period lifting Rule90",
+          "Frati et al 2024 necklace networks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frati-Petak-Cheney defines the same rotation-quotient CA network and shows sample Rule 90 graphs, without an all-n primitive-parity incoming-degree formula in inspected body.",
+          "Black describes one-step adjacent-XOR necklace branching; two successive difference updates equal Rule 90 modulo a rotation, but his explicit map is not the stated complete degree formula for the square."
+        ],
+        "reasoning": "The predecessor count is the number of orbits of a size-2 or size-4 affine fiber under the output rotation stabilizer. Indexed fiber multiplicities and one-step adjacent-XOR inverse degrees are related but are not algebraically identical to the claimed number of input necklace orbits at an arbitrary primitive-period output.",
+        "searches": [
+          "Resultary: Rule 90 cyclic binary necklaces exact inverse indegree; Rule 90 necklace predecessor inverse degree parity",
+          "Frati Petak Cheney arXiv:2409.04780",
+          "Malcolm Black adjacent-XOR necklace map"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The compared exact Rule150/Rule12 tables concern different cellular automaton rules.",
+          "Frati et al provide illustrative small-size quotient graphs; Black presents adjacent XOR one-step branching, not an all-length five-value Rule90 local degree table."
+        ],
+        "reasoning": "No identical 0/1/2/3/4 primitive-period/parity table was found in these actual sources. Search absence is neither a proof of priority nor an exhaustive table audit.",
+        "searches": [
+          "Resultary: exact inverse-degree spectrum Rule150 necklaces; Rule12; Rule90 cyclic",
+          "Frati Petak Cheney 2024 Rule90 network examples",
+          "Malcolm Black binary-necklaces adjacent XOR component tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge new individual-output all-length incoming-degree classification on the rotational Rule90 quotient; prior indexed and related Ducci-map results do not establish the exact primitive-period and parity law in inspected sources.",
+      "residual_risks": [
+        "A historical adjacent-XOR/Ducci formulation of the squared map might imply the count through two-step necklace transition formulas not found in inspected sources.",
+        "Unindexed exhaustive older tables or a linear CA graph-quotient theorem may contain equivalent b_n; searches are not a priority certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING_IN_INSPECTED_MATERIAL",
+          "evidence": "Gives necklace quotient and visualization; no theorem expressing every local Rule90 inverse degree from primitive-period parity.",
+          "identifier_or_url": "https://arxiv.org/abs/2409.04780",
+          "material_read": "Accessible article discussion of network construction, Rule90 examples and illustrated finite graphs; abstract and body inspected",
+          "method": "full-text article via arXiv HTML/available article view",
+          "title": "Networks of Binary Necklaces Induced by Elementary Cellular Automata Rules",
+          "trigger": "Same Rule90 map on spatial necklace quotient"
+        },
+        {
+          "assessment": "RELATED_INDEXED_ONLY",
+          "evidence": "Rule90 labeled fibers have 2 predecessors on odd rings or 4 on even rings when attainable; quotient orbit counts vary.",
+          "identifier_or_url": "https://www-users.york.ac.uk/~ss44/bib/ss/nonstd/jca09.pdf",
+          "material_read": "Full paper: labeled-fiber lemmas and Rule90 even/odd kernel discussion (PDF pp 8 and 12), with PDF page images inspected",
+          "method": "primary PDF text plus page screenshots",
+          "title": "Automorphisms of Transition Graphs for Linear Cellular Automata",
+          "trigger": "Exact predecessor counting for Rule90"
+        },
+        {
+          "assessment": "CLOSE_ALIAS_NOT_DIRECTLY_COVERING_IN_INSPECTED_MATERIAL",
+          "evidence": "Describes adjacent XOR one-step map branching. The square requires integrating two-step fibers; no exact all-n primitive-parity Rule90 degree classification was located.",
+          "identifier_or_url": "https://malcolmblack.org/binary-necklaces.html",
+          "material_read": "Full online exposition, adjacent XOR and primitive-root/component sections",
+          "method": "read online full page",
+          "title": "Binary Necklaces, Adjacent XOR",
+          "trigger": "Adjacent XOR map squared equals Rule90 up to rotation"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Minimum ring enlargement factor, not per-necklace number of input rotation classes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-periodic-preimage-lifting-for-all-sixteen-left-permutative--7369edc8c842",
+          "material_read": "Entire published RESULT.md, finite inverse recurrence, transformation monoid classification and limitation",
+          "method": "read actual GitHub source file blob cb42fd98fe959a93057ceec116521d125366c40b",
+          "title": "Sharp periodic-preimage lifting for all sixteen left-permutative elementary cellular automata",
+          "trigger": "Strong general prior including Rule90"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frati–Petak–Cheney arXiv:2409.04780 necklace-network motivation",
+        "frozen Burnside formula and n8 witnesses"
+      ],
+      "rationale": "Incoming degree on rotation-orbit state networks is a natural precise invariant for a foundational cellular automaton. The complete all-output classification of the symmetry-induced degree spectrum, with n=8 sharp realization and primitive-period boundaries, advances beyond the uniformly 2/4 labeled fibers and is useful for inverse-branching or quotient transition graphs. No downstream theorem is required.",
+      "residual_risks": [
+        "If a hidden classical Ducci-square formula covers the result, its original-value basis would have to be revisited."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every n>=1 the immediate indegree of each output binary necklace under one cyclic Rule90 update is exactly determined by its primitive block parity and t=n/p; possible degrees 0,1,2,3,4, all realized by n=8.",
+  "limitations": [
+    "Only binary synchronous one-step Rule90 modulo rotations; no reflections/complements.",
+    "Independent finite checker through n=13, source verifier design through n=16, unbounded theorem relies on proved Burnside argument."
+  ],
+  "schema_version": 1
+}
