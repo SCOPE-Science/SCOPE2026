@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof identifies exactly the states with \(F_n^2(c)=c\) by a signed-energy identity and the complete graph's persistence of tied labels. A strict reversal occurs precisely when each adjacent level gap is smaller than the sum of the two level multiplicities. Counting labelled level assignments and independent gaps gives a positive-composition sum. A rank-two transfer identity then yields the closed generating function, and a Perron pole argument yields the growth law. Direct and exact-series checkers passed on the supplied source paths. No finite check is presented as an all-size certificate.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** Duffy et al. (arXiv:1609.05792, posted 2016-09-19) establish the underlying diffusion rule and strict-reversal principle; Long and Narayanan (arXiv:1704.04295, 2017) establish global eventual periods one or two. Neither inspected primary full text contains the complete-graph normalized periodic-point generating function or its asymptotic. Query comparisons also considered the exact coefficient sequence, the generating-function denominator, related chip-firing studies, and the distinction between first-return classification and quantitative recurrence. A broad general strict-reversal criterion logically reduces characterization to finite inequalities, but does not directly give this explicit rank-two enumeration and growth constant. Further historical indexing may reveal an antecedent; that remains a residual risk.
+PASS
 
-**Mathematical value — PASS.** The number of recurrent states modulo an exact symmetry is a natural invariant of the finite diffusion dynamical system, rather than an arbitrary chip-total slice. The closed exponential generating function yields all graph orders, exact primitive orbit counts, and a sharp factorial-exponential growth rate. The factorization through just two transfer coordinates is a structural compression not supplied by general recurrence theorems.
+Use Long–Narayanan eventual period≤2 to reduce initially periodic states to fixed or two-cyclic states. For an initial state with ordered label blocks of multiplicities a_i, under one update each gap becomes old gap−(a_i+a_{i+1}); paired strict comparisons reverse exactly when 1≤d_i≤a_i+a_{i+1}−1, while ties persist. This is necessary and sufficient for F²(x)=x, with only the constant fixed class. Counting label assignments and independent gaps gives the weighted composition census. Append-a-part rank-two transfer matrix sums to EGF (1−e^(−z))/(1−z+z²−ze^z). Its positive simple dominant pole and aperiodic positive matrix imply C_n~κ n!ρ^(−n), ρ≈0.4695449931. Independent direct enumeration of all initially periodic normalized boxes for n=1..4 gave 1,3,19,163; analytically argued block gaps support all n.
 
-**Limitations.** This census excludes transients and basin sizes, works only for complete graphs with the original integer synchronous diffusion rule, and distinguishes labelled vertices. Historical-priority judgment is limited to inspected and discoverable sources. All numerical checks are finite.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary diffusion papers establish eventual period≤2 and strict comparison reversal on complete graphs, but not the all-n count of initially periodic labelled states modulo translation, the exact EGF or analytic growth constant. Similar Resultary results use other graphs or a distinct chip-firing mechanism. The composition enumeration is the distinct contribution.
+
+## value
+
+PASS
+
+An exact all-order count of initially periodic integer diffusion states is a natural dynamical invariant, refining qualitative global eventual periodicity. The weighted-composition classification, two-cycle orbit census, closed EGF and factorial-exponential asymptotic are nontrivial enumerative consequences that future diffusion studies can use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

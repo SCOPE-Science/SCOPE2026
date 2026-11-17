@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T03:59:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/periodic-point-growth-of-complete-graph-diffusion--fa5971f9d5fa/RESULT.md",
+        "https://arxiv.org/pdf/1609.05792",
+        "https://arxiv.org/abs/1704.04295",
+        "frozen verify_egf.py blob 7b143fc95d287f4977f6f7dca255ac0ddad744b9"
+      ],
+      "rationale": "Use Long–Narayanan eventual period≤2 to reduce initially periodic states to fixed or two-cyclic states. For an initial state with ordered label blocks of multiplicities a_i, under one update each gap becomes old gap−(a_i+a_{i+1}); paired strict comparisons reverse exactly when 1≤d_i≤a_i+a_{i+1}−1, while ties persist. This is necessary and sufficient for F²(x)=x, with only the constant fixed class. Counting label assignments and independent gaps gives the weighted composition census. Append-a-part rank-two transfer matrix sums to EGF (1−e^(−z))/(1−z+z²−ze^z). Its positive simple dominant pole and aperiodic positive matrix imply C_n~κ n!ρ^(−n), ρ≈0.4695449931. Independent direct enumeration of all initially periodic normalized boxes for n=1..4 gave 1,3,19,163; analytically argued block gaps support all n.",
+      "residual_risks": [
+        "Only initially periodic states modulo simultaneous integer shifts, not all transient states or basins.",
+        "Finite n≤4 checks cannot establish analytic asymptotics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General period≤2 theorem does not count labelled normalized configurations."
+        ],
+        "reasoning": "Long–Narayanan global eventual period bound is broader in graph family but weaker in enumerative conclusion; it cannot determine the exact size of the K_n recurrent set.",
+        "searches": [
+          "Periodic point counting integer diffusion complete graphs normalized configurations exponential generating function",
+          "Complete graph integer diffusion stationary periodic states composition generating function counting",
+          "https://arxiv.org/abs/1704.04295"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/periodic-point-growth-of-complete-graph-diffusion--fa5971f9d5fa/RESULT.md",
+        "https://arxiv.org/pdf/1609.05792",
+        "https://arxiv.org/abs/1704.04295",
+        "Periodic point counting integer diffusion complete graphs normalized configurations exponential generating function",
+        "Complete graph integer diffusion stationary periodic states composition generating function counting"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Diffusion criterion specifies pairwise signs; formula ∏_{i}(a_i+a_{i+1}−1) and transfer determinant are absent from earlier works."
+        ],
+        "reasoning": "The previous strict-reversal criterion supplies the combinatorial bridge but does not itself sum over arbitrary ordered partitions and gaps; the new two-state rank transfer is required for the EGF and asymptotic.",
+        "searches": [
+          "Periodic point counting integer diffusion complete graphs normalized configurations exponential generating function",
+          "Complete graph integer diffusion stationary periodic states composition generating function counting",
+          "https://arxiv.org/pdf/1609.05792"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Duffy et al. strict comparison reversals on complete graphs supply necessary dynamics; submitted independent integer gap enumeration yields C_n."
+        ],
+        "reasoning": "General two-step diffusion dynamics describe which configurations can recur, but no inspected theorem gives the weighted block-gap composition distribution or this rational-exponential EGF.",
+        "searches": [
+          "Periodic point counting integer diffusion complete graphs normalized configurations exponential generating function",
+          "Complete graph integer diffusion stationary periodic states composition generating function counting",
+          "https://arxiv.org/pdf/1609.05792"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent n=1..4 counts 1,3,19,163; submitted EGF gives 1,3,19,163,1741,…"
+        ],
+        "reasoning": "Finite sequences through n≤13 from a verifier cannot certify an all-n EGF, but the rank-two transfer and simple dominant pole prove it analytically. No relevant published exact K_n table containing this entire sequence was found.",
+        "searches": [
+          "Periodic point counting integer diffusion complete graphs normalized configurations exponential generating function",
+          "Complete graph integer diffusion stationary periodic states composition generating function counting",
+          "https://arxiv.org/pdf/1609.05792"
+        ]
+      },
+      "rationale": "The primary diffusion papers establish eventual period≤2 and strict comparison reversal on complete graphs, but not the all-n count of initially periodic labelled states modulo translation, the exact EGF or analytic growth constant. Similar Resultary results use other graphs or a distinct chip-firing mechanism. The composition enumeration is the distinct contribution.",
+      "residual_risks": [
+        "An older exact enumerative chip-diffusion literature not found by text searches may contain the same EGF.",
+        "Asymptotic applies to graph order n growing, not fixed-graph chip masses."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_DYNAMIC_TOOL_NONCOVERING_COUNT",
+          "evidence": "Establishes dynamics and structural reversal, not all-size labelled periodic-point counting EGF.",
+          "identifier_or_url": "https://arxiv.org/pdf/1609.05792",
+          "material_read": "Full arXiv PDF retrieved, central recurrence and complete-graph period-two/strict-reversal theorem portions read, including named Theorems 2.10, 3.1",
+          "method": "Primary PDF text and relevant screenshot",
+          "title": "A Variation on Chip-Firing: the Diffusion Game",
+          "trigger": "Same synchronous integer diffusion update and K_n strict reversal"
+        },
+        {
+          "assessment": "GENERAL_PERIOD_ONLY",
+          "evidence": "Provides global period bound but no initial recurrent-state counts.",
+          "identifier_or_url": "https://arxiv.org/abs/1704.04295",
+          "material_read": "Authoritative abstract and theorem statement concerning eventual period≤2",
+          "method": "Primary arXiv page read for central theorem; not represented as complete PDF inspection",
+          "title": "Diffusion on Graphs Is Eventually Periodic",
+          "trigger": "Potential broader global theorem"
+        },
+        {
+          "assessment": "CLAIM_ASSESSED",
+          "evidence": "Composition criterion, rank-two transfer matrix, pole asymptotic.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/periodic-point-growth-of-complete-graph-diffusion--fa5971f9d5fa/RESULT.md",
+          "material_read": "Full frozen RESULT.md and exact-series verifier",
+          "method": "Read frozen proof and independently reconstructed bounded count",
+          "title": "Periodic-point growth of complete-graph diffusion",
+          "trigger": "Assigned final census and generating function"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/periodic-point-growth-of-complete-graph-diffusion--fa5971f9d5fa/RESULT.md",
+        "https://arxiv.org/pdf/1609.05792",
+        "https://arxiv.org/abs/1704.04295"
+      ],
+      "rationale": "An exact all-order count of initially periodic integer diffusion states is a natural dynamical invariant, refining qualitative global eventual periodicity. The weighted-composition classification, two-cycle orbit census, closed EGF and factorial-exponential asymptotic are nontrivial enumerative consequences that future diffusion studies can use.",
+      "residual_risks": [
+        "The fixed-point and eventual period≤2 facts are credited and not treated as original."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Labelled graph states modulo integer translation only; no count of eventual-entry basins.",
+    "Pole uniqueness uses positivity/aperiodicity, not merely numerical root fitting."
+  ],
+  "schema_version": 1
+}
