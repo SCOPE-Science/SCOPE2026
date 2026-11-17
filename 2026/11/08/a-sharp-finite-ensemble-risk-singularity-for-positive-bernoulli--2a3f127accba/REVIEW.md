@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definition uses the original leverage-score Bernoulli sketch with \(U=(1,1,1)^{\mathsf T}/\sqrt3\), \(\eta_i=1/3\), and strictly positive diagonal coefficient and control fields. The eight indicator patterns have exact probabilities; the only integer-base levels that contain two patterns are levels two and three. On the two mixed events, the empirical least-squares coefficient is exactly \(1+\sqrt\varepsilon/\varepsilon\), and the corrected errors are exactly \(-1/(3\sqrt\varepsilon)\) and \(-4/(3\sqrt\varepsilon)\). All other fixed-ensemble patterns give bounded error by the finite-state case split. Hence the limit coefficient \((A_\nu+16B_\nu)/9\), the negativity probability \(A_\nu+B_\nu\), and the fixed-weight variance \(2\varepsilon/(9\nu)\) follow without unproved regularity assumptions. Exact-rational enumeration corroborates the finite patterns and constants.
+PASS
 
-## Originality — PASS, with qualified priority
+For each 3-bit row mask g, control T_j=k(g)+εg2 with k=2g1+2g2+g3 and physical Y_j=T_j+√ε g2. Mixed classes of common integer base level k=2 or 3 have probabilities Aν=(8/27)^ν−2(4/27)^ν and Bν=(4/27)^ν−2(2/27)^ν. On either, nonzero sample variance ε² times a binomial variance gives fitted slope (ε+√ε)/ε exactly, hence error −(k−5/3)/√ε and eventual negative corrected Gram. All other finite ordered ν-ensembles have either nondegenerate integer-level sample variance (bounded errors) or a zero-variance tie with declared b=0. Fixed ν makes termwise limit rigorous, so ε MSE→(Aν+16Bν)/9, negative probability→Aν+Bν. Fixed b=1 gives 2ε/(9ν) MSE and positive estimate. Exact fractions ν=2 yield C2=160/6561, negative=40/729, matching original checker. No claim uniform in growing ν.
 
-The motivating 2026 Gram-sketch paper already gives the Bernoulli scheme, uses empirical same-ensemble control-variate coefficients, and warns that the corrected matrix may lose positive definiteness; those general observations are prior work. The narrow new comparison is a sharp \(1/\varepsilon\) finite-ensemble risk law and exact nonpositive-geometry probability while the physical/control diagonals stay uniformly positive and close. Portier–Segers prove OLS control-variate large-sample limits, not this fixed-ensemble triangular parameter limit. Glynn–Szechtman provide broader asymptotic theory; its abstract alone does not establish the narrow result, and the full text was not used to assert otherwise. General regression extrapolation or weak-design literature may contain an equivalent mechanism, so historical priority is not independently established. Literature and published-finding similarity searches did not yield the exact theorem.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The target is a natural performance diagnostic of a proposed variance-reduced projected FEM Gram estimator. The example isolates a finite-ensemble hazard that is invisible to population correlations and oracle variance comparisons, gives an exact probability of leaving the SPD cone, and distinguishes a failure of empirical coefficient estimation from singularity of the original coefficients or sketch average. Its precisely quantified scope informs safeguards such as coefficient regularization or clipping without claiming those safeguards have been analyzed here.
+Earlier parameter-oblivious Bernoulli Gram work introduces sketch/control-variate apparatus and generic possible loss of positivity, and existing exact samplewise positivity frontiers concern fixed or oracle coefficients rather than the same-sample ordinary-least-squares coefficient with almost-tied control masks. Large-sample OLS control-variate limit theory does not dominate fixed-ν ε→0; no indexed exact joint Cν and Aν+Bν limit was located.
 
-## Scope and limits
+## value
 
-This is a scalar, three-row, pre-damping estimator at the minimal expected Bernoulli sampling budget, with a conventional zero-denominator rule and fixed ensemble size. It does not assert instability of a damped inverse estimator or of a pilot-trained/capped alternative. Independent historical and mathematical review remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite-ensemble, arbitrarily accurate positive-control but divergent-risk instability is a precise and motivated warning about empirically estimated control coefficients. The exact failure probability and divergence constant quantify a structural instability not implied by generic observations that a control correction may be negative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
