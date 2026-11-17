@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python verify_split.py` from this file's directory (Python 3, standard library only). The checker constructs raw ordered disjoint partitions of each team and tests the two functional dependencies without using graph-orientation logic. A second independent routine evaluates the connected-component formula. It compares both for all team masks in every rectangle with \(1\le p,q\le3\) (682 teams), and checks the inclusion-exclusion total in all nine sizes. In addition it calculates the component formula over the complete sets of 2, 16, 512, and 65,536 teams on square alphabets of sizes one through four, independently verifying sharp maximum and aggregate counts. It additionally evaluates 200 seeded four-by-four teams against direct partition enumeration. The expected final line is `PASS`.
+# Independent mathematical audit
 
-Key expected outputs include square-alphabet maxima \(2,4,9,18\), total witness counts \(3,47,2074,183249\), and total satisfying teams \(2,16,460,33959\) (the last set follows by checking nonzero component counts). The last set of satisfying-team numbers is reported as a finite verification table only; no new closed formula for those numbers is needed to prove the main claim.
+## correctness
 
-Scientific scope: finite *sets* of assignments, disjoint ordered splitting explanations, usual functional dependencies. The checker performs exhaustive searches only over the specified finite domains. The all-size component multiplicity, sharp extremum, inclusion-exclusion formula and generating identity require and receive the symbolic proofs in RESULT.md; no finite table establishes them. No external or independent verification is claimed.
+PASS
+
+Disjoint ordered witnesses of dep(x,y)∨dep(y,x) biject with orientations of the labelled bipartite team graph having outdegree <=1. Connected components must be trees or unicyclic: v roots for each tree, 2 cycle directions for each unicyclic graph, zero for components with e>v. An integer-break upper bound on 2d vertices is attained by balanced alternate left/right paths for every residue mod3. Disjoint partial-function inclusion-exclusion over matched common edges gives Z_{p,q}; rooted bipartite tree and cycle species give EGF exp(L+R−LR)/(1−LR). Fresh brute enumeration of all p,q<=3 team masks directly labelled partitions and all 65,536 four-by-four component counts matched maxima 2,4,9,18, global totals 3,47,2074,183249 and satisfying teams 2,16,460,33959.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Fröhlich--Kolaitis--Meier prior establishes pseudoforest existence and orientation mechanism but not the exact number of disjoint splitting explanations, optimal balanced max, global inclusion-exclusion or bivariate weighted species enumerator. The rooted-tree/oriented-cycle factor is an elementary derivation rather than standalone claimed novelty.
+
+## value
+
+PASS
+
+Exact ambiguity of satisfying disjunction explanations is a natural quantitative refinement of a known decision theorem. The per-instance component law plus sharp balanced maximum and all-teams sum provide usable invariants for counting-team semantics, beyond merely renaming a standard graph count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

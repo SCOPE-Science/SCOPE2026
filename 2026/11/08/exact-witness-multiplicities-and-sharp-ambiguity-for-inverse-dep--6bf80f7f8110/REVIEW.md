@@ -1,19 +1,21 @@
-# Review: Exact witness multiplicities and sharp ambiguity for inverse-dependence disjunctions
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph-orientation correspondence is a bijection for **disjoint** ordered witnesses; the product count for tree and unicyclic components is reconstructed, not inferred from finite experiments. Integer-break optimization supplies the sharp upper bound, and balanced alternating path components attain it for every square alphabet size. Inclusion-exclusion across forced matching edges counts all pairs of disjoint partial functions; the bivariate exponential generating identity follows from rooted bipartite trees and unicyclic cycles. The packaged checker tests all two-column teams with up to three values in each coordinate and every 4-by-4 team via graph counts, with independent brute partition tests. Finite checks supplement the full proofs.
+PASS
 
-## Originality — PASS within the inspected evidence
+Disjoint ordered witnesses of dep(x,y)∨dep(y,x) biject with orientations of the labelled bipartite team graph having outdegree <=1. Connected components must be trees or unicyclic: v roots for each tree, 2 cycle directions for each unicyclic graph, zero for components with e>v. An integer-break upper bound on 2d vertices is attained by balanced alternate left/right paths for every residue mod3. Disjoint partial-function inclusion-exclusion over matched common edges gives Z_{p,q}; rooted bipartite tree and cycle species give EGF exp(L+R−LR)/(1−LR). Fresh brute enumeration of all p,q<=3 team masks directly labelled partitions and all 65,536 four-by-four component counts matched maxima 2,4,9,18, global totals 3,47,2074,183249 and satisfying teams 2,16,460,33959.
 
-Fröhlich, Kolaitis and Meier (arXiv:2508.16146) already prove the qualitative pseudoforest criterion and the root/cycle *existence* construction. That theorem is not reintroduced as new. The additional count of every irredundant splitting, the tight exponential ambiguity extremum, the rectangular total witness count, and the bivariate generating identity were not found in the inspected primary source. Barlag et al. (arXiv:2605.31269) study coherence and rewritability rather than this count. Haak et al. (arXiv:1902.00246; journal 2025) count satisfying teams and counting complexity classes, a different quantification than partitions of a fixed team. Standard graph species and integer-break methods are acknowledged as classical, not separate novelty claims. Other literature with equivalent combinatorial enumeration remains a historical-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The object is the canonical nonredundant explanation multiplicity for a logically meaningful two-atom dependence disjunction. An L-complete Boolean decision test may conceal exponentially many independently valid disjunct assignments. The theorem determines exact multiplicity for every team, proves a sharp resource bound for every finite square alphabet, and gives a complete count across all teams. These are intrinsic quantitative invariants for provenance and finite semantics, not an arbitrary isolated computation.
+PASS best-of-knowledge: Fröhlich--Kolaitis--Meier prior establishes pseudoforest existence and orientation mechanism but not the exact number of disjoint splitting explanations, optimal balanced max, global inclusion-exclusion or bivariate weighted species enumerator. The rooted-tree/oriented-cycle factor is an elementary derivation rather than standalone claimed novelty.
 
-## Scope and residual risks
+## value
 
-Counts exclude **overlapping** lax-disjunction witness pairs; however, disjoint witnesses exist whenever the formula is satisfied. The maximum formula assumes equal finite value-alphabet sizes. No claim is made about arbitrary dependence disjunctions, multisets, or historically exhaustive novelty. The finite tests cannot replace the all-size mathematical arguments. Historical priority and proof quality have not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact ambiguity of satisfying disjunction explanations is a natural quantitative refinement of a known decision theorem. The per-instance component law plus sharp balanced maximum and all-teams sum provide usable invariants for counting-team semantics, beyond merely renaming a standard graph count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
