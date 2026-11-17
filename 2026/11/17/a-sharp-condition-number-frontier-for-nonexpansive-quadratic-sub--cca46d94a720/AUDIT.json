@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The reflected Jacobian equality is directly derived and exact-algebra checked; positivity is reduced through a rank-one Schur complement to an expectation of a strictly convex scalar function. Its extremal distribution uses the actual minimum and maximum eigenspaces, yielding Q_k(t), whose exact minimum changes sign at 2+sqrt(3). Equality and strict expansion witnesses are explicit for all k regimes. Global norm control follows from continuity, homogeneity, compactness, and path integration; finite computation is corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1403.7135v1 Proposition 8.2 supplies a one-dimensional derivative criterion; Section 8 analyzes distinct example families and general invariances.",
+        "Pauwels arXiv:1403.7237v1 Lemma 3.10 and Proposition 3.12 provide general Lipschitz tests/upper estimates, but no closed condition-number frontier."
+      ],
+      "reasoning": "General differentiability and norm inequalities are broader hypotheses but do not state nor automatically compute the threshold: the minimax convex spectral chord and polynomial discriminant are required. The literature comparisons were statement-level; a sharp stronger published theorem entailing this criterion was not found in the inspected portions.",
+      "searches": [
+        "Euclidean subgradient projector of strongly convex homogeneous quadratic forms sharp nonexpansivity condition number barrier 2+sqrt 3",
+        "subgradient projector anisotropic quadratic positive definite matrix exact Lipschitz norm condition number threshold expansive",
+        "arXiv:1403.7135v1 Section 8",
+        "arXiv:1403.7237v1 Section 3.2.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1309.6402v1, full accessible HTML, Example 4.9",
+      "arXiv:1403.7135v1, full HTML, Sections 7–10",
+      "arXiv:1403.7237v1, public thesis rendering, Section 3.2.2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bauschke–Chen–Wang show quasi-Bregman nonexpansivity toward fixed points, weaker than pairwise nonexpansivity; the result here proves loss of pairwise nonexpansivity above a sharp threshold while retaining radial contraction.",
+        "Bauschke–Wang–Wang–Xu state the exact quadratic formula but not the polynomial threshold.",
+        "Pauwels general Lipschitz equivalence requires verification on all pairs; the explicit extremal spectral reduction is not a corollary without new work."
+      ],
+      "reasoning": "The tested implication was whether any prior theorem already states or strongly dominates the complete all-dimensional iff. A general test or a weaker quasi-nonexpansivity assertion cannot answer this sharp threshold by substitution alone; they can serve as starting points. No decisive covering source was identified after inspecting the specified material.",
+      "searches": [
+        "arXiv:1309.6402v1 Example 4.9 and Lemma 4.6",
+        "arXiv:1403.7135v1 Proposition 7.1 and Section 8",
+        "arXiv:1403.7237v1 Section 3.2.2",
+        "subgradient projector anisotropic quadratic positive definite matrix exact Lipschitz norm condition number threshold expansive"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1403.7135v1 Proposition 7.1 gives the same formula with quadratic-power exponent p=2; its Remark 7.3 relates a different p=1 map to acceleration.",
+        "arXiv:1309.6402v1 Example 4.9 defines classical subgradient projection without pairwise Lipschitz spectral threshold."
+      ],
+      "reasoning": "Compared the exact nonlinear quotient mapping and its scaling, not merely the terminology. The known quadratic projector identity fixes the object, but neither this identity nor quasi-nonexpansiveness implies the new all-dimensional pairwise criterion. The p=1 accelerated map is a distinct scaling of the subgradient step and cannot be substituted for the p=2 quadratic case.",
+      "searches": [
+        "For a positive definite matrix A, the map x - (x^T A x)/(2 x^T A^2 x) A x is globally nonexpansive precisely when its spectral condition number is at most 2 + sqrt 3",
+        "Bauschke Wang subgradient projector nonexpansive squared quadratic form spectral anisotropy two eigenvalues",
+        "quadratic form subgradient projector; accelerated fixed-point map; Polyak subgradient projection",
+        "arXiv:1403.7135v1 Proposition 7.1 and Remark 7.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching exact threshold found in returned research records or the inspected primary sections.",
+        "The numerical value and extremizer are obtained by an exact polynomial calculation rather than copied from a table."
+      ],
+      "reasoning": "A failed database query is not proof of novelty. Exact formula equality was cross-checked against primary literature and no known table with the same quadratic-map threshold was identified; unknown unindexed results remain a risk.",
+      "searches": [
+        "For a positive definite matrix A, the map x - (x^T A x)/(2 x^T A^2 x) A x is globally nonexpansive precisely when its spectral condition number is at most 2 + sqrt 3",
+        "Euclidean subgradient projector of strongly convex homogeneous quadratic forms sharp nonexpansivity condition number barrier 2+sqrt 3",
+        "Bauschke Wang subgradient projector nonexpansive squared quadratic form spectral anisotropy two eigenvalues",
+        "subgradient projector anisotropic quadratic positive definite matrix exact Lipschitz norm condition number threshold expansive",
+        "exact nonexpansive quadratic subgradient condition number threshold spectrum 2+sqrt3"
+      ]
+    },
+    "rationale": "The exact formula for quadratic subgradient projection was known, but the inspected papers do not state or imply the dimension-free sharp pairwise nonexpansiveness cutoff without the new nonlinear-spectral optimization. This is best-knowledge priority only, with unindexed-literature risk.",
+    "residual_risks": [
+      "Unindexed historical work on Rayleigh-adaptive fixed-point maps and quadratic subgradient projectors may encode an equivalent spectral threshold.",
+      "The 2014 thesis was not read cover-to-cover; the full relevant Lipschitz section was inspected.",
+      "The original source arXiv:1403.7135v1 has primary MSC 90C25, so it is supporting literature rather than the primary MSC 47H09 lead source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the new exact pairwise condition-number iff; establishes fixed-point quasi-nonexpansiveness and convergence instead",
+        "evidence": "Example 4.9 formula; Lemma 4.6 quasi-Bregman nonexpansivity; Theorem 4.8 iteration.",
+        "identifier_or_url": "https://arxiv.org/html/1309.6402v1",
+        "material_read": "Full accessible HTML, especially Section 4.1, 4.3 Lemmas 4.6–4.7, Theorem 4.8, Example 4.9 and statements elsewhere",
+        "method": "Primary arXiv HTML full-text inspection and comparison of quantifiers",
+        "title": "A Bregman projection method for approximating fixed points of quasi-Bregman nonexpansive mappings",
+        "trigger": "Eligible primary MSC 47H09, introduces the classical subgradient projector in Example 4.9"
+      },
+      {
+        "assessment": "NOT_COVERING the specific sharp spectral threshold in inspected relevant material; exact operator formula and general nonexpansive calculus are established antecedents",
+        "evidence": "Proposition 7.1 formula (30); Section 8 begins with general invariances and one-dimensional tests; Section 10 considers different nonlinear examples.",
+        "identifier_or_url": "https://arxiv.org/html/1403.7135v1",
+        "material_read": "HTML Introduction/definitions, Section 7 Proposition 7.1, Section 8 Proposition 8.1–8.6 and examples, Section 10 comments, references",
+        "method": "Primary arXiv HTML full-text navigation and equation-by-equation implication comparison",
+        "title": "On subgradient projectors",
+        "trigger": "Same mapping explicitly appears in quadratic-power Proposition 7.1; highly plausible coverage"
+      },
+      {
+        "assessment": "Relevant broad Lipschitz criteria but no explicit all-dimensional SPD spectral threshold in the inspected mathematical propositions",
+        "evidence": "Lemma 3.10 pairwise Lipschitz equivalence and Proposition 3.12 generic upper bound.",
+        "identifier_or_url": "https://arxiv.org/abs/1403.7237",
+        "material_read": "Public full-text HTML rendering via https://www.researchgate.net/publication/261217418_Subgradient_Projection_Operators, front matter, introduction, table of contents, Section 3.2.2 Lemma 3.10 and Propositions 3.11–3.14",
+        "method": "Full-text rendering with targeted section inspection (not all manuscript pages read)",
+        "title": "Subgradient Projection Operators",
+        "trigger": "Master thesis addressing Lipschitz properties of all subgradient projectors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "cca46d94-a720-4d81-b446-2857e7d74f15",
+  "value": {
+    "rationale": "Nonexpansive vs merely quasi-nonexpansive behavior is central to fixed-point convergence assumptions. The all-dimensional SPD class supplies a natural, sharp spectral boundary and explicit extreme-eigenvector counterexamples, revealing a genuine stability phase transition despite universal radial attraction.",
+    "status": "PASS"
+  }
+}
