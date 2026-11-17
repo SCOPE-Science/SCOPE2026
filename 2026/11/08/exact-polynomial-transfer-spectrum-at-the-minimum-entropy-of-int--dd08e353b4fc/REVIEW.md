@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The transfer formula follows from the three explicit affine inverse branches, and its squared diagonal block is a symmetric averaging map. The image is an even-polynomial space, with distinct nonzero triangular eigenvalues \(4^{-k}\); degree, rank and nullspace counting force the claimed complete Jordan structure. The correlation formula is verified again through the exact two-step transfer image and elementary half-interval integrals. Finite exact checks are supplementary rather than substitutes for the proof at all degrees.
+## correctness
 
-## Originality — PASS within searched and inspected evidence
-The motivating source arXiv:2610.39443v1 proves the minimum-entropy interval realization and analyzes entropy, not the complete Frobenius--Perron polynomial spectrum and nilpotent Jordan structure. The nearest historical source, Yoshida--Mori--Shigematsu (1983), develops power spectra and correlations for a parameterized two-branch tent family, and may cover related oscillatory behavior. Only its detailed abstract was accessible; it cannot certify absence of an equivalent formula elsewhere. Searches of polynomial spectra, transfer operators, half-turn square roots, band splitting, and published findings returned no theorem that implies the complete specified spectrum. Historical priority is provisional.
+PASS
 
-## Value — PASS
-The algebraic transfer spectrum controls exact finite-time correlations for every polynomial observable, not just entropy or the existence of the predictable alternating mode. The classification of all zero Jordan blocks identifies precisely how the finite-time transient disappears after two iterations. This furnishes a solvable statistical benchmark at the sharp entropy boundary for transitivity and separates positive topological entropy from time-mixing.
+The three inverse branches of the explicit map g give L=(0 A;B 0) on two polynomial halves; A is invertible reflection and ABf(y)=[f(1/4-y/2)+f(1/4+y/2)]/2. AB has image the even polynomial space of dimension floor(d/2)+1; triangular filtration has distinct nonzero eigenvalues 4^-k, hence zero is semisimple for AB. Similarity of BA and AB and rank L=(d+1)+(floor(d/2)+1) give precisely ceil(d/2) size-two Jordan blocks at zero, and simple ±2^-k nonzero eigenvalues. The exact second transferred centered coordinate φ gives L²φ=(-1/4,1/4), a -1 eigenmode; C0=1/12, C1=-7/96, Cn=(-1)^n/16 for n≥2. A separately constructed exact SymPy transfer-matrix implementation reproduced charpolys and ranks for every d=0,...,7. The proof, not these finite degrees, establishes all d and all polynomial-pair correlations.
 
-## Limits and nearest literature
-The result is specific to the named piecewise-affine map, Lebesgue transfer operator, and finite-degree polynomial spaces. Extension to other observables or a Banach-space transfer spectrum is not asserted. The full 1983 classical paper could not be inspected; it remains a historical-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Vinod Kumar P B arXiv:2610.39443v1 full accessible HTML proves the sharp minimum entropy ½log2 and square-root interval construction but does not derive this map’s polynomial density-transfer Jordan spectrum; no occurrences of Frobenius or transfer in its accessible full HTML. Classical Yoshida–Mori–Shigematsu 1983 studies tent-map band splitting, Perron–Frobenius eigenmodes and time correlations, but the full primary text was not available (authorized retrieval disconnected VPN). Its abstract cannot rule out all overlap and remains a specified priority risk. Resultary semantic searches of minimum-entropy interval transfer polynomial spectra revealed no stronger covering theorem. Best-of-knowledge O PASS for exact all-degree spectrum and nilpotent part, not for known alternation or entropy bound.
+
+## value
+
+PASS
+
+This supplies the complete finite-degree spectral decomposition, including nilpotent Jordan blocks controlling exactly two-step transients, for an explicit extremal-entropy nonmixing transitive map. Exact correlation modes for all polynomial observables separate entropy positivity from mixing and give a useful solvable transfer-operator benchmark. The result is more than renaming the entropy construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
