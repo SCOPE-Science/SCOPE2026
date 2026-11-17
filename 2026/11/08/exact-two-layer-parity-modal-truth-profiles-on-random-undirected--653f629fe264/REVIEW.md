@@ -1,15 +1,21 @@
-# Review of the exact two-step neighborhood-parity law
+# Independent mathematical audit
 
-## Correctness (C): PASS
-For every integer \(n\ge2\), the proof fixes the field, labeled graph model, open-neighborhood update, vectors, and all quantifiers. An invertible change of basis produces a bijection between symmetric hollow matrices satisfying \(AS=Y\) and arbitrary lower-right alternating blocks, giving exactly \(2^{\binom{n-r}{2}}\) completions iff \(S^TY\) is alternating. This lemma establishes uniform even first-state parity and conditional uniformity over the intersection of two independent parity hyperplanes, with the rank-one exceptional inputs handled separately. Counting orthogonal first states proves both marginal laws. All ordered pairs were independently counted by exhaustive graph enumeration for \(n=2,3,4,5,6\). The general proof does not depend on the finite enumeration.
+## correctness
 
-## Originality (O): PASS within inspected evidence
-The source from 2026 addresses satisfiability of counting logics, not random-graph modular update statistics. The strongest direct random-graph comparison is Balister–Powierski–Scott–Tan (2021/2023), whose Section 5 studies random symmetric-matrix ranks and counts degree-constrained partitions, not the exact joint random variables \(A\mathbf1\) and \(A^2\mathbf1\). Janzer–Yip (2024/2025) already prove uniform even degree parity in Lemma 3.4 and condition on the degree-parity vector for a different property; Prokip (2017) develops symmetric linear-equation solvability without the alternating zero-diagonal random-graph fiber counts. The exact joint law is not a stated corollary of the inspected results. Named research-record searches found fixed-graph parity automata but not the two-step random-graph distribution. The elementary matrix-extension lemma is **not** asserted to be independently original; historical priority of the combined joint law has residual risk.
+PASS
 
-## Value (V): PASS
-The object is a standard synchronous modular-neighborhood update on the canonical fair random-graph model, strongly motivated by the logical problem of iterating local count predicates. Two steps are the first point at which the update uses a random predicate produced by the **same** underlying edges. The answer is a complete all-size distribution on labelled state pairs, not a numerical sample or a renamed graph parameter: it explains the precise dependence between successive layers, the additional orthogonality constraint, the two exceptional deterministic trajectories, and the parity-dependent atom structure. It enables exact finite-model probabilities for any Boolean property of these two parity predicates, and gives a baseline for random-model semantics beyond independent-layer approximations.
+An alternating-matrix basis-completion argument with S=[1,d] shows the precise graph count 2^{binom(n-2,2)} for d in even hyperplane excluding 0 and 1, and t even orthogonal to d. The zero and all-one exceptional trajectories follow from A1=d. Summing gives the marginal law. Independently enumerated all edge masks and all labelled state pairs for n=2..6, including n=2. Universal proof does not rely on finite enumeration.
 
-## Prior literature and limitations
-Benedikt et al., arXiv:2610.39108v1, 2026-10-29, Sections 1, 2 and 5; Balister et al., arXiv:2105.12612 / DOI 10.1002/rsa.21115, Sections 1, 2 and 5; Janzer–Yip, arXiv:2409.11152 / DOI 10.1002/rsa.70034, introduction and degree-parity conditioning lemma; Prokip, DOI 10.1155/2017/2867354, main symmetric-equation theorem. The result is specific to \(G(n,1/2)\), two updates, open adjacency and all-one initialization. More general probabilistic models and deeper iterates are not proved. Unindexed or indirectly implied prior formulas remain possible. Finite checks do not establish the infinite theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected Resultary or primary theorem states the dependent joint law of (A1,A^2 1) for a single random alternating adjacency matrix. Janzer–Yip Lemma 3.4 already gives the uniform even first state, which is credited. Symmetric-matrix completion is a standard tool, not claimed novel by itself.
+
+## value
+
+PASS
+
+A natural complete finite-model law for two synchronous GF(2) neighborhood iterations, at the first time the observed predicate depends on the same adjacency used for the next aggregation. Exact exceptional atoms and orthogonality constraint matter for parity-modal finite-model semantics and cannot be replaced by independent-layer approximations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
