@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T21:49:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed t=2s2(n)-s2(3n) as carry count in n+2n and proved no isolated carry (first carry forces a second). Carry bound t≤r; if t>0, output popcount b≤r because an output with >r ones would have to be 2^(r+1)-1, which is divisible by 3 only in the alternating carry-free case. Nonadjacent one digits give t=0 length≥2a-1, attained by (10)^(a-1)1. For t≥2 and b,t same parity, explicit (10)^h 1^b or 1^t(01)^h achieve shortest length max(b,t) and required weights. Sum parity-square counts gives C(r,2)+2, r=1 and n=0 included. Independent brute-force enumeration r=1..12 plus witness checks agreed; all-r follows from the carry/witness proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2002.02731v1: Theorem 17 counts 3-flimsy integers asymptotically; https://arxiv.org/html/2112.03077v1: Theorems 2.1–2.4 bounded products with low s(ab), not uniform b,t rectangle."
+        ],
+        "reasoning": "A general automaton that recognizes flimsy numbers is a computational tool and counts the inequality cases, not a theorem specifying achievable every (a,b) or minimum index length. Fixed-small-output-weight bounds cannot dominate unrestricted support.",
+        "searches": [
+          "simultaneous base two digit sums s2(n) and s2(3n) all dyadic lengths",
+          "joint binary weight spectrum s2(n) s2(3n) shortest witness binomial r 2 plus 2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2002.02731v1",
+        "https://arxiv.org/html/2112.03077v1",
+        "https://arxiv.org/html/1009.5357v1",
+        "https://oeis.org/A036555",
+        "https://oeis.org/A180054"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/2002.02731v1: Thm 17 3-flimsy asymptotic, Cor 19 cumulative count; https://arxiv.org/html/2112.03077v1: theorems for fixed k=2,3,4 of s(ab), distinct arithmetic object."
+        ],
+        "reasoning": "The prior sign distribution aggregates many pairs and cannot be inverted to all feasible (a,b), much less their shortest length. Kaneko–Stoll only addresses selected fixed low-weight product regimes. No statement-wise implication found from inspected theorem domains; historical equivalent under other digit automata remains possible.",
+        "searches": [
+          "compare Clokie Theorem 17 and Kaneko Stoll Theorem 2.1-2.4 with binary support S_r",
+          "joint binary weight spectrum s2(n) s2(3n) shortest witness binomial r 2 plus 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2002.02731v1: s2(3n)-s2(n) sign event; https://arxiv.org/html/2112.03077v1: product s(ab) small fixed weight; elementary Legendre identity v2 central binomial=s2(n)."
+        ],
+        "reasoning": "Carry counting t=2a-b and central-binomial valuations are equivalent FORMULATIONS of submitted theorem, but none of inspected primary results evaluates their entire 2D image for all dyadic r. The 2-adic statement follows immediately from Legendre; no independent novelty claimed for that equivalence.",
+        "searches": [
+          "joint binary weight spectrum s2(n) s2(3n) shortest witness binomial r 2 plus 2",
+          "binary popcount n and 3n possible pairs shortest length",
+          "binomial 2-adic valuations v2 binom(2n,n) and v2 binom(6n,3n)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://oeis.org/A036555: marginal s2(3n); https://oeis.org/A180054: one-sided inequality index sequence",
+          "Neither yields bivariate dyadic S_r or constructive shortest lengths."
+        ],
+        "reasoning": "Known one-dimensional digit-sum and sign tables do not determine the complete correlated two-coordinate image; same numerical C(r,2)+2 in an unrelated sequence is not an equivalent classification.",
+        "searches": [
+          "OEIS A036555 s2(3n) OEIS A180054 flimsy",
+          "joint binary weight spectrum s2(n) s2(3n) shortest witness binomial r 2 plus 2"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge. The primary 2020 Clokie–Lidbetter–Molina Lovett–Shallit–Witzman paper studies the sign event s2(3n)<s2(n) via automata and asymptotic counts; Kaneko–Stoll main theorems bound products with prescribed small weights, not the all-dyadic two-coordinate support or exact minimal witnesses. Morgenbesser–Shallit–Stoll studies parity of digit sums on multiples. A marginal OEIS series and finite small-weight restrictions do not imply the joint all-r classification.",
+      "residual_risks": [
+        "A preexisting equivalent finite-state transducer support theorem under less direct language may exist; this is best-of-knowledge, not exhaustive novelty certification.",
+        "The cited valuation theorem is a corollary via Legendre, not a separate finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_STATISTIC: sign/count asymptotic versus exact (a,b) attainable support and minimal witnesses",
+          "evidence": "Theorem 17 estimates number of n with s2(3n)<s2(n), no all-pairs support theorem.",
+          "identifier_or_url": "https://arxiv.org/html/2002.02731v1",
+          "material_read": "Full HTML introduction, section 12 on 3-flimsy formal-language enumeration, Theorem 17, Corollary 19, conclusions and table structure",
+          "method": "Read lawful arXiv primary full HTML and compare theorem quantifiers and statistics",
+          "title": "Computational Aspects of Sturdy and Flimsy Numbers",
+          "trigger": "Direct 3-flimsy multiplier-three sign classification and automata might dominate joint support"
+        },
+        {
+          "assessment": "NON_COVERING on inspected main theorems; fixed small output-weight bounds not full all-r support",
+          "evidence": "Theorem 2.1: if s(ab)=2, s(a)=l, s(b)=m fixed, then product upper bound; other results analogues.",
+          "identifier_or_url": "https://arxiv.org/html/2112.03077v1",
+          "material_read": "Full HTML abstract, Sections 1–2 including main Thms 2.1–2.4 and proof outlines of fixed sparse-weight products",
+          "method": "Lawful arXiv HTML with explicit domain/quantifier comparison",
+          "title": "Products of Integers with Few Nonzero Digits",
+          "trigger": "Potential coverage of product weight-three and multiplier three cases"
+        },
+        {
+          "assessment": "DIFFERENT_STATISTIC: parity/least odd-sum witness not all dyadic simultaneous weight pairs",
+          "evidence": "Main questions concern parity of s2(kn) and least odd-parity witness.",
+          "identifier_or_url": "https://arxiv.org/html/1009.5357v1",
+          "material_read": "Open-access primary HTML abstract, introduction, central parity-theorem and least-witness statements",
+          "method": "Direct primary theorem comparison",
+          "title": "Thue-Morse at Multiples of an Integer",
+          "trigger": "Arithmetic digit sums under odd integer multiplication including k=3"
+        },
+        {
+          "assessment": "MARGINAL_OR_SIGN_ONLY; no pair-support match established",
+          "evidence": "A036555 records s2(3n); A180054 records inequality indices.",
+          "identifier_or_url": "https://oeis.org/A036555; https://oeis.org/A180054",
+          "material_read": "Available marginal sequence metadata and identifiers; not complete underlying bivariate database",
+          "method": "Database title and enumerated invariant comparison",
+          "title": "OEIS A036555 and A180054",
+          "trigger": "Possible exact precomputed table for 3n weights and 3-flimsy counts"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The multiplier 3 is the first nontrivial odd binary dilation, and (s2(n),s2(3n)) is a natural statistic in carry propagation, 3-flimsy numbers and central binomial 2-adic valuations. A complete exact support and shortest witness for EVERY dyadic length, with a forbidden single-carry stratum and quadratic count, supply meaningful data not recoverable from marginals or aggregate sign counts. No paper-sized downstream theorem required.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2002.02731v1",
+    "https://arxiv.org/html/2112.03077v1",
+    "https://arxiv.org/html/1009.5357v1",
+    "https://oeis.org/A036555",
+    "https://oeis.org/A180054"
+  ],
+  "disposition": "passed",
+  "final_claim": "For each r≥1 the simultaneous supports of (s2(n),s2(3n)) for 0≤n<2^r consist exactly of (0,0), carry-free (a,2a) for 1≤a≤floor((r+1)/2), and parity-matched ( (b+t)/2,b) for 2≤b,t≤r; total size C(r,2)+2, with sharp minimal binary witness lengths and equivalent joint central-binomial valuations.",
+  "limitations": [
+    "No multiplicities or density of each support pair, and no multiplier other than 3.",
+    "Finite enumeration is only corroboration, not infinite proof."
+  ],
+  "residual_risks": [
+    "A preexisting equivalent finite-state transducer support theorem under less direct language may exist; this is best-of-knowledge, not exhaustive novelty certification.",
+    "The cited valuation theorem is a corollary via Legendre, not a separate finding."
+  ],
+  "schema_version": 1
+}

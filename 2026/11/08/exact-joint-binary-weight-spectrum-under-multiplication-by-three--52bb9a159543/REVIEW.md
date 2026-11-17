@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The identity \(2s_2(n)-s_2(3n)\) counts the carries in adding \(n+2n\). A first carry necessarily forces a second, and at most \(r\) carries occur for \(n<2^r\). If the product \(3n\) had more than \(r\) ones, it would have to equal \(2^{r+1}-1\), forcing alternating original digits and zero carries. Thus the declared support is necessary. The two explicitly evaluated binary-word families attain every parity-compatible point at the two sharp length bounds. The parity-square count gives \(\binom r2+2\). Cases \(r=1\), zero, and carry-free positive words are treated separately. The standalone verifier exhaustively checks levels through \(15\) and 2,401 additional constructed points. These checks corroborate, but are not substituted for, the proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The 2010 digit-sum-multiples paper concerns parity and least witness indices, not the complete ordered pair image. The 2020 flimsy-number work counts numbers with \(s_2(3n)<s_2(n)\) and equality but does not determine all simultaneous values or sharp per-pair lengths. The 2021/2022 small-weight product results concern selected fixed small product weights, not this global two-parameter dyadic spectrum. OEIS's marginal and flimsy sequences are not equivalent to the full pair classification. A relevant published finite small-weight classification from published-finding corpus handles a single low-weight regime and does not imply all dyadic levels. No direct theorem or stronger statement was identified in the consulted material. The Kaneko–Stoll full-text comparison could not be completed; an undiscovered equivalent theorem remains a nonzero risk. This is a best-knowledge originality assessment, not certified historical uniqueness.
+PASS
 
-## Mathematical value — PASS
-The multiplier three is the first nontrivial odd dilation in binary digital-sum and 3-flimsy-number questions. The exact joint support is not recoverable from either marginal digit-sum distribution or the known inequality count. The theorem supplies the entire attainable support at every bit length, a sharp minimal witness construction at every point, and a parallel complete joint valuation description for two classical central binomial coefficients. The parity-restricted carry geometry and quadratic support count are useful structural refinements independent of any unproved extrapolation. This is an all-depth classification, not a finite table or a single routine congruence.
+Reconstructed t=2s2(n)-s2(3n) as carry count in n+2n and proved no isolated carry (first carry forces a second). Carry bound t≤r; if t>0, output popcount b≤r because an output with >r ones would have to be 2^(r+1)-1, which is divisible by 3 only in the alternating carry-free case. Nonadjacent one digits give t=0 length≥2a-1, attained by (10)^(a-1)1. For t≥2 and b,t same parity, explicit (10)^h 1^b or 1^t(01)^h achieve shortest length max(b,t) and required weights. Sum parity-square counts gives C(r,2)+2, r=1 and n=0 included. Independent brute-force enumeration r=1..12 plus witness checks agreed; all-r follows from the carry/witness proof.
 
-## Unresolved limits
-The theorem does not enumerate multiplicities within a support point, give limit laws, or treat arbitrary multipliers. The most relevant inaccessible full text and residual possibility of a historical equivalent statement are described above.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge. The primary 2020 Clokie–Lidbetter–Molina Lovett–Shallit–Witzman paper studies the sign event s2(3n)<s2(n) via automata and asymptotic counts; Kaneko–Stoll main theorems bound products with prescribed small weights, not the all-dyadic two-coordinate support or exact minimal witnesses. Morgenbesser–Shallit–Stoll studies parity of digit sums on multiples. A marginal OEIS series and finite small-weight restrictions do not imply the joint all-r classification.
+
+## value
+
+PASS
+
+PASS. The multiplier 3 is the first nontrivial odd binary dilation, and (s2(n),s2(3n)) is a natural statistic in carry propagation, 3-flimsy numbers and central binomial 2-adic valuations. A complete exact support and shortest witness for EVERY dyadic length, with a forbidden single-carry stratum and quadratic count, supply meaningful data not recoverable from marginals or aggregate sign counts. No paper-sized downstream theorem required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
