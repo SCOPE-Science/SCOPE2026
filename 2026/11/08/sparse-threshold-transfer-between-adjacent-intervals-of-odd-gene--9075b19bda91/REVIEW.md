@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The residue parameterization by \(2s\pmod{2a+1}\) is bijective. For each candidate \(qb+2s\), parity forces the possible numbers of summands, and their bounded partition counts are derived explicitly. The proof obtains a uniform upper threshold \(q\le5\), a sharp lower bound for three summands in upper residues, and exact two-summand counts in the only differing range. All parity endpoints and the empty representation of zero are included. A separate exact dynamic program confirms the complete gain set for all \(a=4,\ldots,150\), all permitted \(p\), with \(5{,}843\) instances. Finite checks supplement rather than replace the infinite proof.
+## correctness
 
-## Originality — PASS, with historical priority qualification
-Komatsu–Hyun–Song (arXiv:2608.14053) treat these same families, but their stated results are maxima of the excluded sets (\(p\)-Frobenius numbers), not the exact set difference of the threshold levels. Our result compares each residue's first qualifying element and proves an unexpectedly small, fully located exceptional set. Komatsu's older general \(p\)-Apéry-to-genus identity contains no corresponding enumeration; Komatsu–Pandey's distinct family consists of consecutive integers rather than consecutive odds. Publicly indexed searches and research-record comparisons did not find an explicit stronger theorem. The remaining uncertainty is unindexed or unpublished earlier analysis, including possible implicit deductions from the original articles.
+PASS
 
-## Value — PASS
-This gives a complete, uniform sensitivity law for adding a natural missing odd generator, for every threshold in the range of the motivating paper. The result explains why the full \(p\)-genus changes by only a bounded constant independent of \(a\), determines the *exact integers* responsible, distinguishes the sharp odd-endpoint anomaly, and gives their first moments. The p-Frobenius values alone do not supply these facts.
+For b=2a+1 and generators b+2t with 0<=t<=a or a+1, an h-summand representation of qb+2s forces parity h≡q mod 2 and h<=q. Exact two-, three-, four- and five-part partition bounds give a residue-by-residue first crossing by q<=5 for all admissible a>=4,p<=floor((a+1)/2). Pair counts differ by one precisely at two terminal residues, except the odd-a maximal-p endpoint; p=0 and p=1 special cases give one and four shifted integers, respectively. Independent integer DP checked all thresholds for a=4..24 over n<=25a, as well as p=0,1 genus formulas. The all-integer result follows from the q-monotonic injection and cited Gaussian unimodality, not the finite check.
 
-## Closest literature and limits
-The August 2026 paper's related bounded-partition arguments were checked against the new explicit transfer statement. A 2023 source provides general \(p\)-Apéry methods, not this specialized comparison. The 2025 consecutive-integer paper was identified bibliographically; its full text was not accessible, although the 2026 authors describe its odd-interval statements as conjectures. The theorem is restricted to \(a\ge4\) and \(0\le p\le\lfloor(a+1)/2\rfloor\). The scientific claim has no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Komatsu–Hyun–Song 2026 studies exactly the two consecutive-odd generator families and reports p-Frobenius maxima; its abstract does not assert the complete set of n crossing p representation thresholds on adjoining the final generator. The general p-Apéry/genus identity and older arithmetic-progression results give tools, not these precise all-parameter finite transfer sets. The same-object primary full text remained inaccessible this run, a substantial priority risk that does not by itself refute best-of-knowledge originality.
+
+## value
+
+PASS
+
+The exact membership sensitivity of a natural numerical-semigroup generator extension is an independent gap beyond Frobenius maxima: every newly represented threshold-crossing integer is identified, uniformly in the generator interval and p. The four-to-two-to-one exceptional pattern and endpoint anomaly can matter for Apéry and genus calculations, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
