@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.9 or later; no third-party packages are required. The program prints `VERIFICATION_OK 56063 exact-rational and sampled-grid assertions` if successful. It checks the closed Cauchy–Binet formula against an independently constructed Gram determinant for integer decay-rate ratios with exact rational arithmetic. It also checks exact first derivatives, global-design inequalities on dense deterministic grids for nonintegral ratios on both sides of the transition, and leading small-excess-horizon and large-horizon formulas.
+## correctness
 
-The proof in `RESULT.md` is the mathematical evidence for the continuum claim. Rational examples and sampled real-parameter grids alone cannot certify all real parameters, all times, or the asymptotic limit. The records describe calculations performed from the contained script, not an independent mathematical audit. No external validation has yet been performed.
+PASS
+
+The Cauchy–Binet minors of rows (1,1),(e^{-at},e^{-bt}),(e^{-aT},e^{-bT}) give F=x²(1−u)²+q²(1−v)²+q²x²(u−v)². Its derivative in x is 2x Q_T(u), with Q(v)=(1−v)(1−rv) and Q(1)=q²(1−v)(r−v). The convex quadratic has one interior minimum when T≤Tc and two interior critical points (one unique global maximum) when T>Tc; endpoints exactly tie. Q(1/r)>0 with Q′(1/r)<0 gives t*<Tc, and the two critical limits equal Tc, so nonmonotonicity holds. For T→∞, F(t*)→r^{-2/(r−1)}(1−1/r)², while endpoint value decays as 2e^{-2aT}, giving the stated ratio. Independently checked 20 rate/horizon parameter pairs against 1001 grid points and exact quadratic candidates; finite grids are only diagnostics.
+
+## originality
+
+PASS
+
+Published damped-Jordan pinned three-event design has an analogous transition at aT=1 for the confluent signal e^{-at}(A+Bt), but it does not give the distinct-rate bi-exponential determinant or exact Tc=log(b/a)/(b−a) and quadratic optimizer. Dette et al 2004 exponential regression concerns unknown rates, unrestricted approximate design/support and a different parameterization, not this three fixed-event problem. Semantic searches for the same known-two-rate fixed-endpoint schedule found no dominating theorem. Best-of-knowledge originality, not exhaustive priority.
+
+## value
+
+PASS
+
+A complete D-optimal placement classification for the naturally constrained three-observation two-exponential estimation problem gives a sharp and useful duration threshold, explicit optimal event, and quantifies the high-horizon loss from endpoint replication. It directly answers sensor/measurement timing choices; not merely a reformulation of observability rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
