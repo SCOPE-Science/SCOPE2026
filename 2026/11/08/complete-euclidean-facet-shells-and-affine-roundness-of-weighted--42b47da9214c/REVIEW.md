@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is supported by an explicit invertible map from the complete type-A root polytope, a complete facet proof, and exact Euclidean support distances. Two opposite closest planes sharply bound the inscribed radius, while the strict slack at the origin proves the full \((d-1)\)-dimensional incenter locus. Vertices are signed intervals, giving the unique two-contact minimum sphere. Permutation symmetry and an explicit averaging argument prove both ellipsoids and the sharp affine containment constant without assuming a spherical trial ellipsoid is optimal. The standalone verifier passed 15 exact-rational configurations. Risks: the finite checks do not certify all positive real weights; the unrestricted proof is essential.
+PASS
 
-## Originality — PASS, provisional
+The invertible cumulative path map L sends K_{d+1}=conv(e_i-e_j) in the root hyperplane to P_a, with L^-1 x=(-x1/a1, x1/a1-x2/a2, ..., xd/ad). Supporting facets of K_n are exactly nonempty proper subset cuts sum_{i in S}z_i<=1; each equality face spans dimension d-1 because all bipartite crossing roots lie there. Mapping chosen complement pairs by indicator flips yields |u_T.x|<=1 with each nonzero T irredundant and ||u_T||^2=sum_{i in T}a_i^-2. The unique full-flip normal gives minimal facet distance and two centered contacts; ball feasibility for every T gives the entire center polytope, with codimension one from tight opposite full-flip pair and strict slack on other faces. Root vertices are interval vectors; the longest weighted interval gives exactly two farthest antipodes. Coordinate-permutation symmetry of K_n forces unique optimal John/Loewner ellipsoids to be root-space spheres; subset-normal length squared k(n-k)/n gives their constants n/F and 2. Symmetrizing an arbitrary ellipsoid B with operator convex matrix inversion proves optimal affine containment ratio sqrt(2F/n); Cauchy-Schwarz proves R/r>=d. Independent rational d=2..5 checks directly confirmed 56 facets and norms. All d>=2/a_i>0 follow analytically.
 
-Inspected primary sources explicitly study unsigned interval-vector polytopes, staircase-sum facet normals, and Cayley polytope descriptions; none of their inspected results states the complete weighted Euclidean facet-distance and incenter-locus theorem. Search matches concerning nonsymmetric connected-block polytopes, cographic complete-graph polytopes, and star Lipschitz-free spaces do not directly give the weighted Euclidean statement. The latter may cover the affine Banach--Mazur component, which is treated here as comparison, not separately original. Closest full-text sources are arXiv:2610.35689v2, arXiv:2610.35668v2 and arXiv:1211.2039v2. Residual risk: an unindexed result or a metric specialization of an uninspected broad theorem may already cover these weighted Euclidean formulas.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This gives a complete exact geometric classification for a naturally motivated infinite two-parameter class (dimension and arbitrary positive weight vector) arising as an opposite pair of staircase simplices. A full \((d-1)\)-dimensional optimal-center family coexists with only one pair of centered tangent facets, and the contrast between variable Euclidean distortion and fixed affine distortion explains how combinatorially identical realizations acquire radically different shapes. The statement is not a routine count of known facets or a numerically isolated example.
+The unweighted root-polytope combinatorics and affine symmetry ellipsoids are classical, and no independent priority is claimed for them in isolation. New packaged theorem concerns the natural opposite-pair weighted staircase difference body in its ACTUAL Euclidean metric, giving every facet distance, full incenter polytope, contact collapse and Euclidean-versus-affine comparison uniformly over all positive weights. Beck et al arXiv:1211.2039 study unsigned interval-vector polytopes, not the signed difference body/inball locus. Qu–Lee arXiv:2610.35689 abstract concerns facet normals for arbitrary staircase Minkowski sums, rather than Euclidean support distance or all inball centers; its full text was inaccessible, so detailed overlap remains a significant explicit risk. Previously published weighted simplex-generator zonotope is a projected box with n(n-1) root-difference facets, not this 2^n-2-facet root polytope. Best-of-knowledge O PASS does not assert absolute historical priority.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The weighted staircase simplex is canonical in triangulation geometry; its symmetric difference body is a natural invariant rather than an arbitrary slice. The exact facet-distance multiset and entire (d-1)-dimensional incenter locus despite just two tangent facets yield an unusual structural metric classification, and all weights exhibit a fixed optimal affine shape but arbitrarily bad Euclidean radius ratio. That contrast goes beyond a textbook facet count or weight substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
