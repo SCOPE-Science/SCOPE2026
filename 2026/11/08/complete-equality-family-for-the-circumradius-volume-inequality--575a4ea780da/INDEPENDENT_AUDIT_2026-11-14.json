@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T02:47:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A nonzero 3x4 kernel dependency can be made nonnegative by sign flips, orienting the generators with 0 in their tetrahedral hull. Tetrahedral dissection gives zonotope volume as one tetrahedron determinant; the three balanced signed sums w_j have det four times the volume. All balanced half-sums are vertices/candidates of the centered zonotope and have norm <=R. Hadamard forces three w_j perpendicular and of length 2R at equality. Inverting the 3x4 Walsh transform gives p_i=q_i+v and the positivity condition -v in T_R. The other signed sums exhaust the circumradius: 2v, three balanced R terms, and v-q_i, yielding exactly the region constraints, necessary and sufficient even at degeneracies. Independent exact rational witness at R=2,v=(1/10,0,0) has V=16, R^2=4, unequal generator squared lengths 281/100 and 321/100. The open interior of Omega_R shows genuinely nonregular equality. The witness proves existence, while general necessity/sufficiency follows algebraically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Joós–Lángi Theorem 3: global sharp V <=2R^3, does not list all equality bodies",
+          "Lángi 2021 Theorem 1: unit-volume parallelohedra minimal mean width attained by truncated octahedra",
+          "Resultary 2026/10/18 sharp tetrahedral-volume fraction relates inscribed simplex to zonotope volume"
+        ],
+        "reasoning": "The sharp inequality is broader as a bound but explicitly leaves equality classification open; different mean-width and tetrahedral-fraction results do not dominate the semialgebraic equality locus.",
+        "searches": [
+          "four generator zonotope circumradius volume equality all common shift tetrahedron rhombic dodecahedron",
+          "arxiv:2102.11621 Theorem 1 mean width",
+          "Resultary: four-generator zonotope tetrahedral volume fraction"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2206.03204",
+        "https://arxiv.org/pdf/2102.11621",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-tetrahedral-volume-fraction-for-four-generator-three-zon--38fa15f25500"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical volume formula V=sum |det triple|",
+          "Joós–Lángi inequality V<=2R^3 and common-shift construction",
+          "New equality forces Hadamard orthogonality, then determines all eight opposite signed-sum pair constraints"
+        ],
+        "reasoning": "Previously proven sharp inequality and some perturbed extremizers do not imply that EVERY equality body is exactly a common tetrahedral shift satisfying Omega_R. The structural necessity and boundary-inclusive sufficiency require the new factorization.",
+        "searches": [
+          "arxiv:2206.03204 Sections 3.1, 3.2 and 5",
+          "four generator zonotope circumradius volume equality all common shift tetrahedron rhombic dodecahedron"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Joós–Lángi (2023), Sections 3.1, 3.2: inequality and common-shift observation",
+          "Joós–Lángi Section 5, Problem 1 asks if equality implies regularity"
+        ],
+        "reasoning": "The same geometry appears as regular-simplex generator shifts; prior small shifts preserve radius in a related mean-width setting. That observation is only sufficient and does not classify all shifts or establish necessity at fixed volume.",
+        "searches": [
+          "four generator zonotope circumradius volume equality all common shift tetrahedron rhombic dodecahedron",
+          "\"rhombic dodecahedron\" \"circumradius\" \"equality\" parameter family",
+          "arxiv:2206.03204 Section 3.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite rational witness has V=16 and true R=2, unequal generator lengths",
+          "Joós–Lángi Section 5 Problem 1 concerns all rhombic dodecahedra"
+        ],
+        "reasoning": "Neither the regular special value nor a numerical table classifies all equality geometries. No exact equality-locus table was found; the claimed region is a continuum, not a finite census.",
+        "searches": [
+          "four generator zonotope circumradius volume equality all common shift tetrahedron rhombic dodecahedron",
+          "\"rhombic dodecahedron\" \"circumradius\" \"equality\" parameter family"
+        ]
+      },
+      "rationale": "Joós–Lángi arXiv:2206.03204, Theorem 3 already proves the sharp inequality and section 3.2 gives small common-shift perturbations; both are explicitly prior, not claimed. Their Section 5 Problem 1 still asks uniqueness of the minimizing rhombic dodecahedron, so it cannot contain this complete necessary-and-sufficient equality parameter region. Lángi arXiv:2102.11621 optimizes mean width for parallelohedra, not fixed circumradius-volume equality. Related Resultary four-generator results bound inscribed tetrahedron occupancy, distinct functional. The exact exhaustive 3-dimensional equality family and boundary classification is the assessed increment; historical equality-characterization priority provisional.",
+      "residual_risks": [
+        "Historical equality descriptions might use Voronoi-cell/rhombic-dodecahedron terminology without the present generators",
+        "The full Bezdek (2000) article was not retrieved in this execution; only its claimed invariant was compared by available bibliographic/contextual evidence"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR GENERAL BOUND and small common shifts, but its Problem 1 leaves equality uniqueness as a question; no full Omega_R locus is stated",
+          "evidence": [
+            "arXiv:2206.03204 (2022), Mathematika 69 (2023), Theorem 3, Remark 4 and Problem 1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.03204",
+          "material_read": "Relevant Theorem 3, Sections 3.1/3.2 on circumradius and common shifts, Section 5 Problem 1",
+          "method": "Full original arXiv PDF text and page-image inspection",
+          "title": "Isoperimetric problems for zonotopes",
+          "trigger": "Sharp identical volume/circumradius inequality and posed equality question"
+        },
+        {
+          "assessment": "Theorem 1 minimizes mean width at a regular truncated octahedron for volume one, not R-volume equality for <=4 generators",
+          "evidence": [
+            "arXiv:2102.11621v4 Theorem 1 and Remark 1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2102.11621",
+          "material_read": "Abstract, Section 1 Theorem 1 and Section 2 volume/mean-width normalization",
+          "method": "Full arXiv PDF text and first-page image inspection",
+          "title": "An isoperimetric problem for three-dimensional parallelohedra",
+          "trigger": "Potentially broader geometric inequality involving rhombic dodecahedra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This fully resolves the equality classification for an extremal sharp inequality and answers the explicitly posed regularity question by constructing nonregular optimizers, with a precise semialgebraic parameter locus including boundary configurations. It is a global geometric structural result, not merely a known inequality or a single perturbation counterexample.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2206.03204",
+    "https://arxiv.org/pdf/2102.11621",
+    "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-tetrahedral-volume-fraction-for-four-generator-three-zon--38fa15f25500"
+  ],
+  "disposition": "passed",
+  "final_claim": "For full-dimensional spatial zonotopes with <=4 segment generators, volume=2R^3 iff, after generator signs, translation and rigid motion, p_i=q_i+v with q_i a regular tetrahedron at scale R/2 and v satisfying -v in conv(q_i), 2||v||<=R and ||v-q_i||<=R for i=1..4; a nonempty open 3-parameter nonregular rhombic-dodecahedral equality family exists.",
+  "limitations": "Dimension exactly three, full-dimensional bodies with at most four generators; no higher dimensions, no stability estimate; parameterization has finite congruence redundancies.",
+  "residual_risks": [
+    "Historical equality descriptions might use Voronoi-cell/rhombic-dodecahedron terminology without the present generators",
+    "The full Bezdek (2000) article was not retrieved in this execution; only its claimed invariant was compared by available bibliographic/contextual evidence"
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PRIOR GENERAL BOUND and small common shifts, but its Problem 1 leaves equality uniqueness as a question; no full Omega_R locus is stated",
+      "evidence": [
+        "arXiv:2206.03204 (2022), Mathematika 69 (2023), Theorem 3, Remark 4 and Problem 1"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2206.03204",
+      "material_read": "Relevant Theorem 3, Sections 3.1/3.2 on circumradius and common shifts, Section 5 Problem 1",
+      "method": "Full original arXiv PDF text and page-image inspection",
+      "title": "Isoperimetric problems for zonotopes",
+      "trigger": "Sharp identical volume/circumradius inequality and posed equality question"
+    },
+    {
+      "assessment": "Theorem 1 minimizes mean width at a regular truncated octahedron for volume one, not R-volume equality for <=4 generators",
+      "evidence": [
+        "arXiv:2102.11621v4 Theorem 1 and Remark 1"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2102.11621",
+      "material_read": "Abstract, Section 1 Theorem 1 and Section 2 volume/mean-width normalization",
+      "method": "Full arXiv PDF text and first-page image inspection",
+      "title": "An isoperimetric problem for three-dimensional parallelohedra",
+      "trigger": "Potentially broader geometric inequality involving rhombic dodecahedra"
+    }
+  ]
+}
