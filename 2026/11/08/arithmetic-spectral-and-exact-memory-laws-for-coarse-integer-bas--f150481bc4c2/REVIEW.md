@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The full-branch alignment of integer multiplication with a \(q\)-cell partition is checked directly; conditional-uniformity induction proves an exact (nonhomogeneous) Markov property, not merely a one-step marginal. Counting the quotient and remainder of the product slope proves a sharp total-variation equality and the if-and-only-if independence criterion. The rescaled Fourier basis is invertible, and its images under the kernels reduce the characteristic polynomial to nilpotent transient modes and weighted permutation cycles. Boundary points of measure zero and passage into the zero frequency are explicitly addressed. The standalone checker uses exact arithmetic in a finite verification range; universality is analytical.
+## correctness
 
-## Originality
-PASS within the inspected evidence, not a claim of global uniqueness. Suzuki (arXiv:2303.17521) treats invariant densities and response; Aimino–Nicol–Vaienti (arXiv:1310.4359, especially Example 7.3) treats random-map limit laws; a published result on variance onset for randomly switched integer maps concerns BV observable fluctuations, not the complete deterministic-schedule coarse-state Markov kernel spectrum. Existing general Markov partition machinery yields the counting setup but not an explicit universal modulus, cyclotomic-zero structure and exact arithmetic cutoff for arbitrary integer products in the inspected statements. The source checks included aliases in Fourier transfer operators, strong mixing and multiple bases. Unindexed work and alternate coarse-partition representations remain the key originality risks.
+PASS
 
-## Value
-PASS. Equal spatial cells are canonical finite-resolution measurements of an expanding interval map; their complete transition spectra and exact memory-reset times are motivated observables in coarse-graining, rather than an arbitrary slice of a toy model. The theorem demonstrates an arithmetic transition absent from ordinary asymptotic mixing statements: two slopes individually retaining memory can erase it exactly after composition. The classification handles all resolutions, all integer bases, including noncoprime cases with nilpotent spectral modes, and every deterministic switching schedule. The result does not claim a new general ergodic theorem; it supplies a sharply determined natural finite factor invariant.
+Under Lebesgue-uniform X0, each b-fold map T_b(x)={b x} has b full subbranches per equal q-cell interval, giving conditional-uniformity on every observed cell after any finite observed history. Direct counting yields Q_b(j,k)=#(0<=r<b:bj+r≡k mod q)/b; composition T_c T_b=T_bc gives Q_b Q_c=Q_bc and commuting kernels. For B=aq+r, each row has r counts a+1 and q-r counts a, so TV=r(q-r)/(q B) and exact independence iff q|B. Nonconstant Fourier modes g_k(j)=(1-ζ^k)ζ^{kj} map to b^-1 g_{bk mod q}; the modular functional graph yields characteristic polynomial (z-1) z^(q-1-M) prod_C(z^|C|-b^-|C|), including transient zeros. Independently checked exact q=6,b=2 characteristic polynomial (z-1)z^3(z²-1/4), Q2 Q3=Q6 uniform and several TV distances. These finite checks are corroborative; algebra proves all q,b.
 
-## Limits and closest literature
-The comparison is to the explicit density and transfer theory of Suzuki, the random integer-map limit theorems of Aimino–Nicol–Vaienti, and beta-transform spectral investigations by Vepštas. This is a finite-state exact factor result only, and publication priority is conditional on the inspected sources. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Previous integer-beta literature proves general transfer operator mixing, CLTs and invariant densities, but the relevant inspected primary paper does not give the exact q-cell commuting finite Markov factors, arithmetic no-memory criterion q|product, or complete noncoprime modular Fourier spectrum. No earlier Resultary equivalent surfaced in the actual meaning search. The new finite-factor classification is supported as best-of-knowledge original, with an explicit risk from older symbolic-dynamics/Markov-partition literature.
+
+## value
+
+PASS
+
+The complete stochastic spectra for arbitrary q including composite noncoprime pairs, combined with exact finite-time erasure under changing integer slopes, are natural exact invariants of coarse observations. Distinguishes true finite-time independence from merely exponential mixing, and gives a reusable arithmetic method to select observation resolution and slope schedules.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
