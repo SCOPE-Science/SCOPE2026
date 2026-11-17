@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two prey multipliers on a hypothetical positive two-cycle have ratios \(s\) and \(s^{-1}\), forcing \(\Delta y=(s-1)(1+s^{-1}-x_0)>0\) when \(s>1\). The predator multipliers are positive, ordered oppositely by the strictly increasing response to prey, and multiply to one, which forces \(\Delta y<0\). The equal-prey and both boundary cases are separately disposed of. The rational program's finite checks corroborate but do not prove the universal claim.
+## correctness
 
-**Originality — PASS, subject to stated historical risk.** The exact defining map and its original preprint were inspected. The source's Section 3.0.1 excludes period two on the predator-free axis only, while its Theorem 3 proves equilibrium convergence on a restricted trapping triangle and selected parameter ranges. The present positive-quadrant two-cycle exclusion spans all positive parameters and all nonnegative two-cycles. Its absence in published-source and theorem-index searches is evidence of nonoverlap, not proof of world-wide priority. Liu–Xiao (2006) addresses a related discretization with flip bifurcations; its full text was inaccessible, and a possible stronger implication remains the principal risk.
+PASS
 
-**Value — PASS.** The first possible nonfixed positive periodic orbit in the discrete plankton model cannot be a two-season oscillation, even above the coexistence equilibrium's Neimark–Sacker boundary. A global periodicity obstruction across the entire parameter plane is distinct from local stability or a restricted basin theorem and informs the interpretation of numerical recurrent oscillations.
+For any all-positive two-cycle with x0<x1, set s=x1/x0>1. The exact prey updates force x0+y0=2-s and x1+y1=2-1/s, hence y1-y0=(s-1)(1+1/s-x0)>0 since x0<2-s<1. Predator multipliers t0=1-r+gamma*x0 and t1=1-r+gamma*x1 are positive with t0*t1=1 and t0<t1, hence t0<1, y1<y0, contradiction. Equal-x case is fixed; invariant coordinate axes admit only fixed nonnegative two-step states. Fixed-point equations give exactly stated census; no whole-quadrant invariance was assumed. Inspected exact symbolic script and independent identity derivation; finite grid is corroboration only.
 
-**Limitations.** No classification of prime period at least three, invariant-circle rotation numbers, chaotic sets, or all points with negative intermediate iterates is claimed. Independent verification and exhaustive historical priority checking have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the identical-map Shoyimardonov 2025 arXiv primary proves period-two absence only on predator-free x-axis and global convergence on restricted invariant triangle/parameter bands; neither implies all-parameter exclusion of positive-interior two-cycles. No matching stronger Resultary theorem surfaced. Full journal version and older Liu–Xiao article remain source-access historical-priority risks, not sufficient alone to reject.
+
+## value
+
+PASS
+
+Global absence of the first possible nonfixed periodic behavior over all positive r,gamma in an ecologically motivated discrete model is a structural dynamical obstruction, not an axis-only check. It remains informative above a Neimark–Sacker threshold and outside previously proved invariant-triangle basins; restrictions and future higher-period questions are explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
