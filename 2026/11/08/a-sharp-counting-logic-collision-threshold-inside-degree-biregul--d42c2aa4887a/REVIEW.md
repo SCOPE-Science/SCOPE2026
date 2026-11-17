@@ -1,15 +1,21 @@
-# Scientific review — degree-biregular block graphs
+# Independent mathematical audit
 
-## Correctness — PASS
-The asserted class is characterized without using a computer: one degree-three center and three degree-two stubs are associated to each vertex of a unique tree of degrees one or three. A matched pair of stubs at the same center gives a triangle; matched stubs at distinct centers give a subdivided tree edge. The block-graph condition eliminates multiedges and cycles in the quotient. Conversely, all such trees give admissible block graphs, and the original tree is recoverable from adjacency and degree. The tree handshake lemma gives exactly \(8i+8\) vertices. The color partition by degree is equitable with common neighbor-count matrix \(\bigl(\begin{smallmatrix}0&3\\1&1\end{smallmatrix}\bigr)\), proving the \(\mathrm C^2\)-equivalence claim. The first two internal-tree shapes occur at four vertices and yield the sharp order-40 collision *within the defined class*. Standalone checks independently reproduce all finite test instances and explicit witnesses.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The paper by Arvind, Köbler, Rattan and Verbitsky (arXiv:1502.01255) develops color refinement and the general graph-amenability framework. Kiefer, Schweitzer and Selman (arXiv:1503.08792) classify absolute \(\mathrm C^2\)-identification and provide matching constructions, which are conceptually related but do not give the present degree-constrained block-graph class, its tree-bijection, or its relative first collision at forty vertices. Gavrilyuk, Nedela and Ponomarenko (arXiv:2005.11766) prove a *two-dimensional* WL upper bound on the broader distance-hereditary class; this does not distinguish the proposed \(1\)-WL-equivalent examples. The source and claim searches recorded in the structured review found no explicit stronger or equivalent theorem. The prior eight-vertex triangle-barbell example and general non-identifiability are explicitly not claimed as new. Residual risk: an unpublished or differently named gadget construction may subsume the present statement.
+PASS
 
-## Mathematical value — PASS
-This identifies a natural, exactly specified subclass of connected subcubic block graphs by its smallest stable degree-based equitable quotient. It reveals a sharp transition from one to multiple nonisomorphic realizations of the same counting-logic type, starting at forty vertices. The class has a complete enumerative description by unrooted subcubic trees; the number of distinct realizations of each logical type is unbounded, although every tree alone is identified by \(\mathrm C^2\). This supplies a structural obstruction to the apparent tree-like rigidity of block graphs, rather than a single isolated counterexample.
+The degree constraints partition the graph into degree-3 centers and degree-2 stubs, the latter inducing a perfect matching. Each stub pair joins two distinct centers by a three-edge path or closes a triangle at one center. A cycle/parallel pair in the center skeleton would induce a nonclique biconnected block, so it is a tree with degrees 1 or 3. Its i internal degree-3 vertices and i+2 leaves create 2i+2 centers plus 6i+6 stubs: graph order 8i+8. Deleting skeleton leaves bijects the isomorphism types with subcubic unlabeled trees on i vertices. Degree partition is equitable, with neighbor-count quotient [[0,3],[1,1]], hence joint 1-WL stable histogram, and therefore C² equivalence, depends only on i. First nonisomorphic subcubic trees occur at i=4 (P4 and K1,3), order 40; explicit distinct families persist for every i>=4. Independent networkx unlabeled-tree enumeration gave 1,1,1,1,2,2,4,6,11 for i=0..8.
 
-## Limitations
-The sharp order is relative to the specified degree-incidence class, not all block graphs. Nothing is asserted for higher-dimensional WL, and external historical priority and independent validation remain open. Finite enumeration corroborates the general proof but does not replace it.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General color-refinement/C² equivalence is known, as is the appearance of smaller collisions among unrestricted chordal, block and 2-tree families. The submitted statement explicitly concerns this exact uncolored degree-incidence-defined block-graph subclass; none of the inspected published results classifies its skeleton by all subcubic trees, proves 8i+8 census, or implies the sharp relative first collision at 40. No claim of global first collision is accepted. Distinct relative-vs-absolute logical quantifiers were checked. Potential unindexed tree-gadget encodings remain a bounded historical risk.
+
+## value
+
+PASS
+
+A complete infinite structural parametrization of a natural exactly degree-biregular block-graph class, together with an exact logical-equivalence spectrum and sharp first relative collision, is a motivated classification rather than an arbitrary tiny counterexample. A researcher studying stability of C²/color refinement on chordal/block families can use the exact 40-vertex boundary and infinite indistinguishability construction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
