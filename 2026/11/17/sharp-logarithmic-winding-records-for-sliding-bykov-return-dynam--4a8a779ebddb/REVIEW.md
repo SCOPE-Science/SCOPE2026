@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact branch derivative rate \(\exp[-2\pi k/|\kappa|]\) is established in [1, equations (17)–(19), (23)]. The conformal measure, equivalent invariant measure, distortion and contraction inputs are established in [1, §5.4, Theorem B(c), Appendix C]. A complete derivation in RESULT.md gives wordwise distortion, quasi-Bernoulli cylinder comparability, uniform prefix-conditional tails, two-sided avoidance estimates, waiting-time bounds, and Borel–Cantelli records. No finite computation is substituted for an infinite-time proof. The invariant law is on the return Cantor set, not in ambient Lebesgue measure.
+
+**Originality — PASS within inspected evidence; priority provisional.** The full current source [1] proves countable symbolic dynamics, exponential inverse-branch geometry, dimension and measure existence but does not state a quantitative rare-winding record/waiting-time law. The earlier sliding Shilnikov source [2] covers analogous fractal structure for a different return map but not this return measure. Foundational CIFS literature [3] provides the general conformal framework, and generic dynamical extreme-value methods may recover the conclusion once the specific geometry is inserted. No inspected source was found directly making that system-specific implication with the coefficient \(|\kappa|/(2\pi s_U)\). This is a bounded novelty assessment, not a claim that all earlier mathematical literature has been exhausted.
+
+**Mathematical value — PASS.** A natural observable, the greatest spiral-sheet index seen in a finite itinerary, is quantified for an invariant probability newly constructed in [1]. Both an almost-sure record law and uniform finite-horizon rare-branch survival estimates are obtained, linking the fractal dimension and the local linearization through a sharp coefficient. These address frequency and waiting-time questions absent from the source's structural classification.
+
+The closest sources are Cunha–da Silva [1], Cunha–Novaes–Ponce [2], and Mauldin–Urbański [3]. Residual limitations include general extreme-value precedence, a section-dependent additive index convention, and a lack of assertions for typical ambient orbits or real elapsed time.
+
+Self-review: passed. Independent audit: not yet performed.
