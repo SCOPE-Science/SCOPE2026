@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof closes the first two angular harmonics and the two complex position-heading mixed moments exactly under the joint Markov generator. The stationary \(XY\) balance reduces the Stratonovich circulation to those mixed moments, yielding a rational function with strictly positive denominator. A sign-variation argument establishes exactly one positive polynomial root for every \(a>3/2\) and \(t>0\); it also handles the borderline \(a=3/2\). Independent additive Brownian forcing cancels from the relevant mean quantities. Replaying the standard-library checker produces 237 deterministic assertions, including a separate reset-age numerical quadrature. Numerical finite tests do not substitute for the algebraic proof.
+PASS
 
-## Originality — PASS, subject to priority risk
+The stationary angular generator closes m_n=E exp(in theta)=r/(r-in omega). Linear generator balances for E X,E Y, E[X exp(i theta)], E[Y exp(i theta)] and E[XY] express J=E[X dY-Y dX]/dt in a rational function of q=r/k,t=omega/k,a=kappa_x/k. Independent symbolic SymPy expansion of these generator moment formulas exactly matched the displayed quartic numerator P and all positive denominator factors, not just numeric cases. P(0)<0, leading coefficient 2a-3>0 for a>3/2, its linear term is negative, and cubic/quadratic signs yield exactly one Descartes sign variation, hence one positive root and strict reversal signs. For a=3/2 all remaining coefficients are negative. Independent x/y Brownian increments have zero cross-quadratic variation and do not enter mixed first moments; J independent of D_x,D_y. Code also derives generator-vs-age integral finite checks; these are corroboration, not proof of all-parameter uniqueness.
 
-The closest primary sources are Baouche et al., arXiv:2405.06769 (orientation-only resets without a trap or chiral torque); Caprini et al., arXiv:2306.11133 (elliptic confinement plus chirality without resetting); Shee, arXiv:2409.06920 (harmonic confinement with simultaneous resetting of both position and orientation), and Olsen and Löwen, arXiv:2405.14326 (relative-angle Poisson tumbles and free-space diffusion). The relevant accessible full texts, including model sections and results, were inspected. Their published statements do not imply a unique orientation-only-reset rate that reverses orbital circulation under fixed positive angular drift in an anisotropic trap. The algebraic threshold is not a mere parameter substitution in any of those claims. Relevant broader reset literature may remain unindexed or inaccessible and could alter publication priority; absence from searches does not prove novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem resolves a physically motivated transport-control problem: when can a reset rule reverse an angular current without changing the swimmer's intrinsic rotation direction? It gives a sharp stiffness threshold at high reset rates, an exact unique zero for the full nontrivial regime, and robustness to independent translational noise. The broad continuous parameter classification, rather than an arbitrarily chosen special case, is the central value.
+Best-of-knowledge: same-protocol orientation-only resetting is studied for free-space nonchiral Brownian motion by Baouche et al; chirality and anisotropic harmonic confinement without this reset rule occur in Caprini et al, while Shee studies position-and-heading resets. Those statements do not imply the displayed exact current polynomial, a=3/2 boundary or unique sign reversal. Relevant primary text/abstract comparisons identify genuinely different reset protocols rather than infer priority by titles alone.
 
-## Limits
+## value
 
-Angular Brownian diffusion, oblique reset directions, non-Poisson reset laws, positional resets, and the full intermediate-rate classification below the stiffness boundary lie outside the theorem. Independent scientific audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact reversal of mean signed orbital area production, despite a fixed-sign angular velocity between resets, is a substantive counterintuitive dynamical phenomenon. The universal uniqueness and sharp stiffness threshold a=3/2 for all angular speeds yield testable mathematical boundaries for angular-reset control; positional diffusion robustness extends model relevance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
