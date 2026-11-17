@@ -1,23 +1,21 @@
-# Scientific review: degree-one/three/five epidemic-size optimization
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is the asymptotic giant-component fraction after independent bond thinning of the configuration model, not a finite epidemic's expected size. The standard generating functions are \(G_0(u)=u^3+tu(1-u^2)^2\) and \(G_1(u)=G'_0(u)/3\). At supercriticality, canceling \(1-u\) yields the strictly increasing implicit function \(T^{-1}=\Psi(u,t)\); the no-giant threshold is exactly \(T=3/(6+8t)\). Direct exact algebra factors the optimizer derivative as \((1+u)P(u,t)/(3\Psi_u)\). The polynomial's coefficient signs give one positive root in \((1/2,1)\) for each admissible \(t\). Its negative parameter derivative makes the root increase, and the corresponding transmission frontier decreases strictly; the derivative therefore crosses sign at most once and in the asserted direction. Endpoint and subcritical cases are covered. The standalone verifier passed 26,587 assertions including exact rational identities and independent root computations. Finite tests corroborate but do not establish the infinite-graph conclusion; that limit rests on the cited branching theory.
+PASS
 
-## Originality — PASS (self-review, priority not certified)
+For bounded degrees D in {1,3,5}, mean 3 implies p1=p5=t, p3=1-2t, 0<=t<=1/2. Standard thinned configuration model giant fraction Xi=1-G0(u), u=min fixed point of u=1-T+T G1(u). On u<1, cancellation gives 1/T=Psi(u,t)=(1+u)(1+t(5u^2-1)/3), strictly increasing in u, Psi_u>=5/6. Explicit differentiation gives Xi_t=(1+u)P(u,t)/(3Psi_u), P polynomial as in RESULT.md. Independently verified this identity by exact SymPy expansion, and factorized P_t=(u^2-1)(10u^4+5u^3+u^2-u+1). Descartes sign variation gives exactly one positive P root z(t) in (1/2,1), increasing t; monotone frontier Tcal(t)=1/Psi(z(t),t) decreases from .642387380782 to .503512762467. Therefore all t tie T<=.3, t=.5 is unique max for .3<T<=Tlow, unique interior for Tlow<T<Thigh, and t=0 unique for T>=Thigh. Sample frontier at t=0,.1,.25,.5 checked. Infinite random graph limit relies on established configuration-model branching theorem, not numerical simulation.
 
-The full generating-function framework predates this finding. Leibenzon–Assaf (2023) describe a qualitative heterogeneity phase transition for network SIR sizes and a high-mean-degree approximation, but do not prove the exact all-transmissibility global optimizer on the fixed-mean distribution supported on \(\{1,3,5\}\). Britton–Trapman (2010/2012) optimize over *unrestricted* degree distributions and find a possible optimum with mass at zero and consecutive positive degrees, which does not imply a constrained three-odd-degree optimizer. Deijfen–Rosengren–Trapman (2017/2018) derive lower/upper bounds and show numerical dependence on low-degree masses, without the present two finite-degree algebraic thresholds. Published text and mathematical-record searches for the same degree law, its percolation/generating-function equivalents and broader extrema yielded no explicit covering statement. The principal residual risk is an unindexed treatment of the same restricted variation, or an unpublished implication from broader degree-ordering inequalities. Search absence is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Degree heterogeneity can help an epidemic start yet fragment its eventual reach. The smallest symmetric mean-preserving perturbation among three positive odd degree classes isolates that tension without changing average degree. The complete global phase diagram proves that the optimal variance passes through high, strictly interior and zero regimes with explicit algebraic thresholds, rather than merely illustrating the effect numerically. It can serve as a benchmark for constrained contact-degree design and a finite-degree counterpoint to large-mean-degree expansions. The exact family restriction is essential and reported openly; the result does not purport to optimize among arbitrary distributions.
+Britton–Trapman (2010) Theorem4.1 covers the *unrestricted* fixed-mean distributional optimizer with support {0,k,k+1}; the constrained family {1,3,5} is disjoint from this optimizer class and its paper explicitly does not give closed formulas for k or masses. Leibenzon–Assaf (2023) shows heterogeneity-dependent outbreak-size reversals, mainly in correlated populations and large-degree asymptotics; their full HTML does not give the two algebraic thresholds for the odd-degree, mean-3 independent-bond family. Resultary search returns the submitted claim and other unlike epidemic problems; no identical constrained optimization found. Priority remains bounded.
 
-## Closest sources and scientific limits
+## value
 
-- A. Leibenzon and M. Assaf, *Heterogeneity can markedly increase final outbreak size in the SIR model of epidemics* (arXiv:2306.09024, 2023), full accessible article equations and phase-transition discussion.
-- T. Britton and P. Trapman, *Maximizing the size of the giant* (arXiv:1010.0524, 2010), especially Theorem 4.1 on unconstrained thinned configuration-model optimization.
-- M. Deijfen, S. Rosengren and P. Trapman, *The Tail does not Determine the Size of the Giant* (arXiv:1710.01208, 2017), especially Sections 1.1–1.4 and Theorem 1.1.
+PASS
 
-No independent external mathematical audit, full-database novelty certification, finite-network concentration estimate, or dependent-transmission extension is claimed.
+The degree family {1,3,5} with mean3 is the smallest nontrivial positive odd-degree support allowing mean-preserving variance control; the sharp three-phase optimum, two algebraic thresholds, uniqueness and endpoint ties provide a useful exactly solvable benchmark for heterogeneity effects not mechanically implied by unrestricted optimizer theory. It is not presented as a global degree-law optimizer.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

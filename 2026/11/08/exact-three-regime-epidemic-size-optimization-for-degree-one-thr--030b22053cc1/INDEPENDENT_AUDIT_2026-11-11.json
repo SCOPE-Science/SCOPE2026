@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T14:02:59.834762Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For bounded degrees D in {1,3,5}, mean 3 implies p1=p5=t, p3=1-2t, 0<=t<=1/2. Standard thinned configuration model giant fraction Xi=1-G0(u), u=min fixed point of u=1-T+T G1(u). On u<1, cancellation gives 1/T=Psi(u,t)=(1+u)(1+t(5u^2-1)/3), strictly increasing in u, Psi_u>=5/6. Explicit differentiation gives Xi_t=(1+u)P(u,t)/(3Psi_u), P polynomial as in RESULT.md. Independently verified this identity by exact SymPy expansion, and factorized P_t=(u^2-1)(10u^4+5u^3+u^2-u+1). Descartes sign variation gives exactly one positive P root z(t) in (1/2,1), increasing t; monotone frontier Tcal(t)=1/Psi(z(t),t) decreases from .642387380782 to .503512762467. Therefore all t tie T<=.3, t=.5 is unique max for .3<T<=Tlow, unique interior for Tlow<T<Thigh, and t=0 unique for T>=Thigh. Sample frontier at t=0,.1,.25,.5 checked. Infinite random graph limit relies on established configuration-model branching theorem, not numerical simulation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Britton and Trapman 2010 Theorem4.1 says some global unrestricted optimizer has support 0 and two successive positive degrees; it does not characterize maximum over the forced nonconsecutive positive support {1,3,5}. Leibenzon-Assaf 2023 discusses a qualitative heterogeneity threshold, not these two exact finite-degree global optimizer boundaries."
+        ],
+        "reasoning": "A global optimizer outside a restricted family does not order constrained candidates or imply the restricted three-regime law.",
+        "searches": [
+          "https://arxiv.org/html/1010.0524v1",
+          "https://arxiv.org/html/2306.09024v1",
+          "configuration model degree 1 3 5 mean 3 bond percolation giant component optimal heterogeneity epidemic size three regimes"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1010.0524v1",
+        "https://arxiv.org/html/2306.09024v1",
+        "https://arxiv.org/abs/1010.0524",
+        "https://arxiv.org/abs/2306.09024",
+        "Resultary semantic search: configuration model degree 1 3 5 mean 3 bond percolation giant component optimal heterogeneity epidemic size three regimes"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Britton-Trapman Section4/Theorem4.1 support theorem allows degree zero and adjacent k,k+1; here all degrees are odd strictly positive. Leibenzon-Assaf full-text Sections1–2 concern correlated network/population heterogeneity and primarily asymptotic criticality, rather than constrained exact t*(T)."
+        ],
+        "reasoning": "The new exact optimizer is not a direct specialization of the earlier unrestricted optimum; constraints change the admissible support and induce an interior regime.",
+        "searches": [
+          "https://arxiv.org/html/1010.0524v1",
+          "https://arxiv.org/html/2306.09024v1",
+          "configuration model degree 1 3 5 mean 3 bond percolation giant component optimal heterogeneity epidemic size three regimes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The objective is giant fraction conditional on macroscopic outbreak in independent bond percolation, not one-seed unconditional outbreak probability. E[D]=3 forces symmetric endpoints, so this family is a one-parameter variance dial."
+        ],
+        "reasoning": "Comparison matches the thinning model rather than conflating epidemic-size definitions; existing different degree supports are not equivalent.",
+        "searches": [
+          "configuration model degree 1 3 5 mean 3 bond percolation giant component optimal heterogeneity epidemic size three regimes",
+          "https://arxiv.org/html/1010.0524v1",
+          "https://arxiv.org/html/2306.09024v1",
+          "configuration network 1 3 5 symmetric t variance 8t mean 3 epidemic optimum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No primary or Resultary numerical table with this exact two-frontier phase diagram identified; exact polynomial definitions and all-T uniqueness are established by monotonic derivative sign, not interpolation."
+        ],
+        "reasoning": "Even matching some plotted outbreak-size curves would not imply the unique optimizer, exact algebraic thresholds and boundary ties for every T.",
+        "searches": [
+          "configuration model degree 1 3 5 mean 3 bond percolation giant component optimal heterogeneity epidemic size three regimes",
+          "exact degree 1 3 5 epidemic mean three 0.503512762 0.642387381"
+        ]
+      },
+      "rationale": "Britton–Trapman (2010) Theorem4.1 covers the *unrestricted* fixed-mean distributional optimizer with support {0,k,k+1}; the constrained family {1,3,5} is disjoint from this optimizer class and its paper explicitly does not give closed formulas for k or masses. Leibenzon–Assaf (2023) shows heterogeneity-dependent outbreak-size reversals, mainly in correlated populations and large-degree asymptotics; their full HTML does not give the two algebraic thresholds for the odd-degree, mean-3 independent-bond family. Resultary search returns the submitted claim and other unlike epidemic problems; no identical constrained optimization found. Priority remains bounded.",
+      "residual_risks": [
+        "A specialized earlier optimization of odd-degree three-point distributions could be unindexed; no comprehensive global priority certification.",
+        "All statements are for independent bond thinning of configuration model and conditional macroscopic epidemic size only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNRESTRICTED_SUPPORT_NOT_COVERING_CONSTRAINED_OPTIMUM",
+          "evidence": "Theorem4.1 achieves unrestricted optimum at D in {0,k,k+1}, which generally violates forced support {1,3,5}. No formula for constrained t is present.",
+          "identifier_or_url": "https://arxiv.org/html/1010.0524v1",
+          "material_read": "Entire HTML sections 1–4, especially Theorem4.1 and proof and configuration-model definitions",
+          "method": "Open lawful arXiv HTML full text",
+          "title": "Maximizing the size of the giant",
+          "trigger": "Same independent-bond thinned configuration-model objective and fixed degree mean"
+        },
+        {
+          "assessment": "QUALITATIVE_ANALOGUE_NOT_IDENTICAL_THRESHOLDS",
+          "evidence": "Exhibits a heterogeneity transition in a different correlated/large-degree setting; not the exact pair Tlow/Thigh or unique odd-degree constrained solution.",
+          "identifier_or_url": "https://arxiv.org/html/2306.09024v1",
+          "material_read": "Accessible arXiv HTML sections through critical point derivation, figures and model definition",
+          "method": "Open lawful arXiv HTML full-text inspection of relevant sections",
+          "title": "Heterogeneity can markedly increase final outbreak size in the SIR model of epidemics",
+          "trigger": "Same epidemic-size-heterogeneity optimization motivation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The degree family {1,3,5} with mean3 is the smallest nontrivial positive odd-degree support allowing mean-preserving variance control; the sharp three-phase optimum, two algebraic thresholds, uniqueness and endpoint ties provide a useful exactly solvable benchmark for heterogeneity effects not mechanically implied by unrestricted optimizer theory. It is not presented as a global degree-law optimizer.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/1010.0524v1",
+    "https://arxiv.org/html/2306.09024v1",
+    "Resultary epidemiological optimization searches"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Limit of giant component, not expected finite outbreak from one seed; only independent percolation and degree support 1,3,5, no arbitrary correlated network generalization."
+  ],
+  "residual_risks": [
+    "A specialized earlier optimization of odd-degree three-point distributions could be unindexed; no comprehensive global priority certification.",
+    "All statements are for independent bond thinning of configuration model and conditional macroscopic epidemic size only."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "UNRESTRICTED_SUPPORT_NOT_COVERING_CONSTRAINED_OPTIMUM",
+      "evidence": "Theorem4.1 achieves unrestricted optimum at D in {0,k,k+1}, which generally violates forced support {1,3,5}. No formula for constrained t is present.",
+      "identifier_or_url": "https://arxiv.org/html/1010.0524v1",
+      "material_read": "Entire HTML sections 1–4, especially Theorem4.1 and proof and configuration-model definitions",
+      "method": "Open lawful arXiv HTML full text",
+      "title": "Maximizing the size of the giant",
+      "trigger": "Same independent-bond thinned configuration-model objective and fixed degree mean"
+    },
+    {
+      "assessment": "QUALITATIVE_ANALOGUE_NOT_IDENTICAL_THRESHOLDS",
+      "evidence": "Exhibits a heterogeneity transition in a different correlated/large-degree setting; not the exact pair Tlow/Thigh or unique odd-degree constrained solution.",
+      "identifier_or_url": "https://arxiv.org/html/2306.09024v1",
+      "material_read": "Accessible arXiv HTML sections through critical point derivation, figures and model definition",
+      "method": "Open lawful arXiv HTML full-text inspection of relevant sections",
+      "title": "Heterogeneity can markedly increase final outbreak size in the SIR model of epidemics",
+      "trigger": "Same epidemic-size-heterogeneity optimization motivation"
+    }
+  ]
+}
