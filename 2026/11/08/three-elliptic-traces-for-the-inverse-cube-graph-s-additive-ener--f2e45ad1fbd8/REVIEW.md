@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The two-sum normalization accounts separately for zero and nonzero first-coordinate sums. The diagonal value is exactly \(2q-5\), and the off-diagonal equation is factored and parametrized without missing excluded parameters. Character-sum corrections at \(0,-1,1\) and cube roots of unity produce the stated constant term. The reciprocal substitution splits the quintic character sum into two cubic elliptic sums; a further inversion handles the quartic elliptic sum with its one-point correction. Direct enumerations in 27 finite fields and the quadratic-extension trace recurrence were replayed from the saved verifier.
+## correctness
 
-## Originality
-PASS with historical limitations. The classical inverse graph calculation and the matched-exponent, character-averaged moment of Guo–Geng–Pan do not imply an unweighted mixed-exponent inverse-cube energy. Result comparisons addressed both rational-graph additive-energy formulations and complete two-parameter fourth moments, not only paper titles. The closest previously accessible inverse-square theorem has a distinct collision polynomial and only one elliptic correction, and does not cover three inverse-cube traces. Calderón–de Velasco–Zárate (2011) and Chen et al. (2013) have related fourth-moment themes but different described weighted averages; full texts were not accessible during this review, leaving a historical-priority risk.
+PASS
 
-## Mathematical value
-PASS. This is an exact, naturally motivated fourth-moment arithmetic invariant of a rational curve, computable over every extension of any prime field of characteristic at least seven from three prime-field elliptic counts. The reciprocal factorization of the apparent genus-two term into two elliptic corrections is structural rather than a renaming of the classical inverse graph identity. The formula also gives \(\mathcal E_q=4q(q-1)+O(q^{3/2})\) with an explicit oscillatory lower-order term, which cannot be recovered from the older unweighted inverse-graph energy.
+The sum-zero pairs contribute (q-1)^2; nonzero sum reduces to v=u(1-u), with r(v)=1+chi(1-4v). Off-diagonal rational factorization in t=w/v and reciprocal t+1/t character pairing produce one quartic and two cubic elliptic trace sums. Excluded t values and character signs are explicitly accounted for; the trace recurrence extends to all q=p^m, p>=7.
 
-## Limitations
-The result does not address characteristics \(2,3,5\). Search-based originality is not an independence certificate, and some relevant full texts were inaccessible. Verification by finite enumeration does not replace the infinite-field argument.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact unweighted fixed two-frequency fourth moment for (x,x^-3) and its three named elliptic curves is not implied by the published inverse-square energy result or the character-averaged generalized Kloosterman means inspected. Resultary targeted search returned the candidate plus different exponents, not an earlier dominating statement. Best of knowledge only, with missing full text of closer fourth-moment papers stated as risk.
+
+## value
+
+PASS
+
+The reciprocal genus-two-looking character sum separating into two elliptic traces is a nontrivial structural reduction for a natural inverse-power graph; it supplies energies over all extension fields from three prime-field traces, a useful exact spectral invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
