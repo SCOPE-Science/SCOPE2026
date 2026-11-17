@@ -1,19 +1,21 @@
-# Self-review of the sharp quadratic last-gap theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is about functions, not formal expressions. The CRT argument reduces global support to one nonzero prime-power component. The minimum valuation of function values divides every coefficient of the integer Newton expansion because these coefficients are integer combinations of values at the zero vector, unit vectors, doubled unit vectors, and pairs of distinct unit vectors. Dividing yields a nonzero modulo-prime Newton polynomial. At odd primes the degree-two finite-field root bound gives nonzero support at least \((p-2)/p\). At two, the binomial quadratic functions depend on independent low digit bits; every nonzero Boolean quadratic has support at least \(1/4\), and an affine one at least \(1/2\). The case of modulus two is separately reduced from an integral polynomial, so no spurious binomial quadratic is introduced. Scalar CRT witnesses attain the precise lower bound for all prime powers and mixed moduli. The companion exact verifier exhausts 450,011 coefficient arrays in sixteen configurations and checks 297 sharpness witnesses. None of these finite tests substitutes for the unrestricted argument.
+PASS
 
-## Originality — PASS, with historical-priority uncertainty
+CRT reduces support to one nonzero p-power component; minimal truncated p-adic value valuation divides every coefficient in an integral Newton basis. For odd p, the reduced nonzero degree<=2 polynomial function has nonzero proportion at least (p-2)/p by degree-two Schwartz-Zippel; for p=2, residue low bits turn Newton basis into a Boolean quadratic with support >=1/4 for n>=2 and an affine polynomial with support >=1/2 for n=1. Modulus 2 is separately handled as an ordinary integer polynomial. Explicit scalar-CRT witnesses attain the minimum over p|m for all m>=2,n>=1, nonzero polynomial *functions*; no complete zero-count spectrum claimed. Independent exhaustive small cases (2,2),(3,2),(4,2),(5,1),(6,1) agree; the larger 450011-vector packaged test was read but not independently repeated.
 
-Surowka and Regan, *Polynomials Modulo Composite Numbers* (arXiv:1404.4852, first public 18 April 2014), Section 8, explicitly conjecture the last zero-count gap at powers of two; Section 5 reports data and the main theorems concern divisibility and symmetries of solution counts. The present theorem proves that conjecture and gives a closed answer for every composite modulus. Field-only Reed–Muller minimum-distance bounds do not imply the prime-power normalization and mixed-modulus sharpness steps. The quaternary Plotkin/Gray-map Reed–Muller-like codes of Pujol, Rifà and Solov'eva (arXiv:0801.3024) use a potentially different evaluated family. Targeted database and literature queries did not identify an equivalent all-residue-ring assertion, although a coding-theory reformulation may be overlooked, and the Pujol full text was not inspected.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A published paper singled out the *last gap* between the two largest polynomial zero counts as a naturally motivated unsolved problem, and recorded unusual behavior for composite moduli. The present precise all-modulus theorem settles that problem in degree two: it determines the last gap over every modulus and proves the stated power-of-two pattern in arbitrary dimension. The Newton/Boolean-digit proof explains why composite rings present a sharp parity-dependent obstruction and how CRT carries it globally. It does not claim the full zero-count spectrum or higher-degree results.
+The 2014 source identifies the 2-power last-gap pattern as a conjecture in its discussed §8; its divisibility/symmetry results and finite tables do not establish the all-modulus extremal minimum support. Generalized Reed–Muller field bounds entail only odd p after valuation, not the p=2 Newton function evaluation or CRT sharpness. No indexed stronger theorem was located; coding-theoretic equivalent remains a real risk.
 
-## Closest literature and limitations
+## value
 
-The primary complete source is arXiv:1404.4852, especially §§2, 5, 8. The finite-field Reed–Muller comparison uses arXiv:1407.3433 and DOI:10.1109/FOCS.2010.71. The quaternary-code comparison uses the abstract of arXiv:0801.3024, not its full text. An independent literature and proof audit remains necessary.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural extremal support invariant of quadratic functions over nonreduced residue rings: proves a specifically posed power-of-two conjecture and supplies one uniform sharp CRT formula for every modulus and dimension. The 2-adic polynomial-function normalization is not a routine finite-field substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
