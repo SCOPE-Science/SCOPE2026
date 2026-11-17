@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification checks and limitations
+# Independent mathematical audit
 
-The accompanying standalone `verify.py` uses Python's `fractions.Fraction` and `math` libraries only. Execute `python verify.py` in the directory containing this report and the script. The program successfully completed **1,392 checks** in a fresh execution from these packaged paths.
+## correctness
 
-The code independently evaluates the conditional equal-cell triangular distribution and the geometric tail; compares it with the finite closed form for multiple integer bases, rational probabilities and cell scales; tests the reflected birth-death stationarity equations; and tests the critical linear-log coefficient, the bounded-density coefficient, the joining of lattice-phase endpoints, and the nonconstant phase value. Exact rational comparisons are used for finite identities; floating-point calculations are used only for asymptotic and phase diagnostics.
+PASS
 
-The infinite invariant-mixture summation, limit coefficients, lack of a normalized limit, and completeness of subsequential phases are proved in `RESULT.md`, not by finite program execution. Publication-priority comparisons are bounded by accessible literature.
+Contraction maps ν_h to ν_(h+1) averaged over m branches; expansion maps ν_h to ν_(h-1) for h>=1 and ν_0 to itself. Stationary reflected birth–death probabilities are (1-r)r^h from detailed balance. For two independent uniform positions in one cell, H(u)=2u-u² for u<=1 and 1 above, hence exactly the finite-sum formula plus geometric tail. Dominated convergence handles mr<1 without any m²r restriction; at mr=1 geometric S_n(mr)=n+1 supplies log term; at mr>1 elementary finite geometric identities give eps^alpha Φ(t) plus precise linear and quadratic remainders. Polynomial versus t^alpha proves Φ nonconstant; compact t phases yield complete subsequential range. Three independent exact rational mixture comparisons were computed for m=2,3,5 including critical/bounded cases.
+
+## originality
+
+PASS
+
+Homburg–Kalle 2022/2025 is the originating pair process and gives the stationary cell mixture and bounded-ratio near-diagonal growth statements; this foundation is credited. Their source defines its asymptotic ~ as bounded ratios, not ratio-one. The primary theorem/appendix does not provide the full exact distance distribution, critical log coefficient or nonconstant lattice periodic amplitude. Another 2026 paper bounds a different nonlinear circle two-point system. This is an exact new invariant of an existing model, not claim to new stationary measure.
+
+## value
+
+PASS
+
+The same natural near-synchronization event distinguishes a finite linear coefficient, a critical logarithmic enhancement, and a nonconvergent normalized power-law amplitude, providing a complete sharp observable phase diagram not fixed by two-sided exponent bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

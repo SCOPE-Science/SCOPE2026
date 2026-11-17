@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The stationary measure is derived from the invariant reflected nearest-neighbor level chain; all probability weights sum to one. Conditional separation follows from the triangular law for two independent points in a fixed cell. The exact finite-sum identity contains the entire distribution, and separate dominated-convergence, endpoint, and geometric-sum arguments cover all parameter regimes and quantifiers. The nonconstant phase is proved analytically; finite checks do not carry the infinite argument.
+## correctness
 
-**Originality (PASS within inspected evidence).** The full founding article [1,2] provides the affine pair dynamics, cell-mixture construction, and two-sided near-diagonal exponent bounds; its own definition of \(\sim\) means bounded-ratio order and does not assert a unique asymptotic constant. Its all-regime power-order wording is not compatible with the explicit mixture at or beyond the bounded-density transition; the elementary lower bound from the full-square component makes that distinction rigorous. Examination of the relevant original sections (including theorems, example, remark, and proof) found no explicit exact distance distribution, logarithmic critical coefficient, or nonconstant phase-and-subsequence classification. The nonlinear circle-map work [3] supplies only bounds for a different system. Research-record searches for these objects, aliases, critical phases and diagonal profiles uncovered no dominating equivalent result. Residual risk: a separate exact lattice-renewal calculation could be unindexed.
+PASS
 
-**Value (PASS).** The observable is the natural near-synchronization frequency of two trajectories subjected to identical noise. An exponent estimate alone cannot distinguish a finite linear coefficient, a logarithmic boundary enhancement, or the failure of normalized power-law convergence. All three phenomena occur within the standard positive-Lyapunov family, and the answer is an exact invariant with a full phase diagram, not a routine variant of a previously stated normalized asymptotic.
+Contraction maps ν_h to ν_(h+1) averaged over m branches; expansion maps ν_h to ν_(h-1) for h>=1 and ν_0 to itself. Stationary reflected birth–death probabilities are (1-r)r^h from detailed balance. For two independent uniform positions in one cell, H(u)=2u-u² for u<=1 and 1 above, hence exactly the finite-sum formula plus geometric tail. Dominated convergence handles mr<1 without any m²r restriction; at mr=1 geometric S_n(mr)=n+1 supplies log term; at mr>1 elementary finite geometric identities give eps^alpha Φ(t) plus precise linear and quadratic remainders. Polynomial versus t^alpha proves Φ nonconstant; compact t phases yield complete subsequential range. Three independent exact rational mixture comparisons were computed for m=2,3,5 including critical/bounded cases.
 
-**Limits.** Only the equal-base uniformly selected inverse-branch family and the stated absolutely continuous stationary law are addressed. Absolute general uniqueness, larger map families, and publication priority are not established. The standalone checker provides finite corroboration.
+## originality
 
-**Closest literature.** Homburg–Kalle, arXiv:2207.09987v1 and Advances in Mathematics 482 (2025), Theorem 3.10, Example 3.12, Remark 3.13 and Theorem 3.15; *Intermittent Two-Point Dynamics at the Transition to Chaos for Random Circle Endomorphisms* (2026), Proposition 5.5.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Homburg–Kalle 2022/2025 is the originating pair process and gives the stationary cell mixture and bounded-ratio near-diagonal growth statements; this foundation is credited. Their source defines its asymptotic ~ as bounded ratios, not ratio-one. The primary theorem/appendix does not provide the full exact distance distribution, critical log coefficient or nonconstant lattice periodic amplitude. Another 2026 paper bounds a different nonlinear circle two-point system. This is an exact new invariant of an existing model, not claim to new stationary measure.
+
+## value
+
+PASS
+
+The same natural near-synchronization event distinguishes a finite linear coefficient, a critical logarithmic enhancement, and a nonconvergent normalized power-law amplitude, providing a complete sharp observable phase diagram not fixed by two-sided exponent bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
