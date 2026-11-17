@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise domain is three independent surface-uniform points on \(S^{d-1}\) with integer \(d\ge3\), and the claimed perimeter uses shorter intrinsic great-circle arcs. Conditioning on a common vertex establishes pairwise independence of the sides. Expanding the centered cube leaves exactly six times their cyclic mixed moment. The arcsine inner-product kernel is positive trace-class by its positive tensor-power expansion, and its harmonic degree-one and degree-three eigenspaces force a strictly positive trace of the cube above the degree-one contribution. The gamma-function coefficient follows by an endpoint-safe beta integral. The two-term cubic asymptotic follows from exact contractions of two and four inner products plus an absolute Hölder bound on the degree-seven remainder; normal convergence follows from the three-dimensional Gaussian-product CLT. Numerical Gegenbauer and random-vector checks agree. Remaining correctness risk is limited to overlooked analytical subtleties; neither finite computations nor finite-dimensional sampling substitute for proof.
+PASS
 
-## Originality — PASS, with priority limitations
+Using Theta_ij=pi/2-arcsin(T_ij), conditional rotation invariance proves pairwise independence of the three sides; all one-side cubic and two-side mixed cubic terms vanish. Hence centered cubic moment equals -6 E[g(T12)g(T23)g(T31)] for g=arcsin. The odd-power expansion g(t)=sum_j a_j t^(2j+1) has positive coefficients and absolutely convergent sum pi/2 on [-1,1]; each kernel is a tensor-power Gram kernel, giving a positive trace-class spherical operator. Triple expectation is tr(T^3)=sum odd harmonic multiplicity*eigenvalue^3; positive l=1 and l=3 terms yield strict negative sign and strict l1 bound. Independent gamma recurrence/degree-one eigenvalue integration matched ell_d at d=3,4,8,16,32. Exact contractions E[T12 T23 T31]=1/d² and E[T12³ T23 T31]=3/[d²(d+2)] give first two cubic coefficients; higher odd terms bounded by absolute moment O(d^-7/2). Var=3 E[arcsin(T)^2]=3/d+3/d²+O(d^-3), giving cancellation of 1/d correction on standardized skewness; multivariate Gaussian coordinate CLT gives the stated normal limit. Finite quadrature/simulation corroborates but does not prove the series.
 
-The closest full-text sources, including Johan Philip’s 2015 *The Area and Perimeter of a Random Spherical Triangle* (Case 2, Section 9) and Finch and Jones's *Random Spherical Triangles* (arXiv:1009.5329, first posted September 27, 2010), cites the known complete density of **ordinary-sphere** triangle perimeter and develops integral representations for it. Therefore any assertion confined to ambient dimension three is already covered, notwithstanding a different representation. Its published density does not imply the theorem across every ambient dimension or the dimension-dependent strict skewness bound and two-term higher-dimensional asymptotic. Cai, Fan and Jiang (arXiv:1306.0256, first posted June 2, 2013) study one-angle marginals, empirical measures and extremes as the number of sphere points grows; their original paper does not establish the fixed-three cyclic cubic perimeter moment. The nearest mathematical-record hit on triangular correlation-matrix cumulants contains the linear Gram contraction used here, but not the nonlinear arcsine trace or exact finite-dimensional strict skewness statement. Related published results on random spherical **area**, acute triangles and geodesic triangle classifications do not entail the intrinsic **perimeter** cubic moment. This is a comparison of implications, not a claim that all historical literature has been exhausted; older harmonic-analysis formulations may still subsume the sign argument.
+## originality
 
-## Value — PASS
+PASS
 
-A triangle's three side lengths are pairwise independent even though the three together must satisfy spherical triangle constraints. The third cumulant is the first invariant exposing that hidden cyclic dependence; its sign is global in dimension, and the rigorous first-harmonic inequality quantifies it without a density formula. The high-dimensional coefficient and the cancellation of the relative first skewness correction give a natural, reusable accuracy benchmark beyond ordinary Gaussian concentration. This is a structural dependence law for a canonical random-geometric observable, not an arbitrary numerical slice or a restatement of the known two-sphere perimeter density.
+The full perimeter density for three vertices on the ordinary S² was already known, so the dimension-three moment and pairwise side independence are explicitly excluded from novelty. The candidate contributes uniform-in-d strictly signed cubic trace and sharp second term of the high-d expansion, including standardized correction cancellation. Inspected primary spherical-triangle density and high-dimensional angle-distribution papers do not supply these all-dimensional third-order identities.
 
-## Limits and closest sources
+## value
 
-The accessible full text of Johan Philip’s manuscript (dated May 7, 2015), including the exact Case 2 vertex-sampling perimeter law, was inspected. Full text of Finch and Jones (2010/2015 version, arXiv:1009.5329), especially Sections 2.3 and 6, and full text of Cai, Fan and Jiang (2013, arXiv:1306.0256), including its theorem statements and proofs, were inspected for relevant scope. Classical positive-definite kernel theory and published correlations of Gram matrices are acknowledged as ingredients. The exact two-sphere perimeter law and the pairwise-independence observation are known and explicitly excluded from priority. Independent audit and comprehensive historical-priority verification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It is notable that three spherical geodesic side lengths are pairwise independent but their perimeter has strictly negative skewness in every dimension. A full trace representation, sharp finite-dimensional sign and two-term high-dimensional correction supply natural geometric-probability invariants that are not implied by Gaussian first-order limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T05:15:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-negative-skewness-and-a-two-term-cubic-law-for-random-sph--2997a91b67d8/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-negative-skewness-and-a-two-term-cubic-law-for-random-sph--2997a91b67d8/check_perimeter.py",
+        "Independent degree-one gamma ratio and strict tr(T³) lower-bound checks across d=3,4,8,16,32"
+      ],
+      "rationale": "Using Theta_ij=pi/2-arcsin(T_ij), conditional rotation invariance proves pairwise independence of the three sides; all one-side cubic and two-side mixed cubic terms vanish. Hence centered cubic moment equals -6 E[g(T12)g(T23)g(T31)] for g=arcsin. The odd-power expansion g(t)=sum_j a_j t^(2j+1) has positive coefficients and absolutely convergent sum pi/2 on [-1,1]; each kernel is a tensor-power Gram kernel, giving a positive trace-class spherical operator. Triple expectation is tr(T^3)=sum odd harmonic multiplicity*eigenvalue^3; positive l=1 and l=3 terms yield strict negative sign and strict l1 bound. Independent gamma recurrence/degree-one eigenvalue integration matched ell_d at d=3,4,8,16,32. Exact contractions E[T12 T23 T31]=1/d² and E[T12³ T23 T31]=3/[d²(d+2)] give first two cubic coefficients; higher odd terms bounded by absolute moment O(d^-7/2). Var=3 E[arcsin(T)^2]=3/d+3/d²+O(d^-3), giving cancellation of 1/d correction on standardized skewness; multivariate Gaussian coordinate CLT gives the stated normal limit. Finite quadrature/simulation corroborates but does not prove the series.",
+      "residual_risks": [
+        "Only independent surface-uniform three vertices and intrinsic shorter great-circle sides; not chord perimeter or more vertices.",
+        "Asymptotic absolute remainder O(d^-7/2) is weaker than next integer-order terms and does not give an exact all-d CDF."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cai–Fan–Jiang analyze angle distributions/large number of sampled points, while Finch–Jones directly cover d=3 only."
+        ],
+        "reasoning": "The former does not give the same fixed-three perimeter cubic trace; the latter gives a low-dimensional specialization but no uniform d asymptotics.",
+        "searches": [
+          "https://arxiv.org/abs/1306.0256",
+          "https://arxiv.org/pdf/1009.5329",
+          "random spherical triangle geodesic perimeter three iid vertices negative skewness high dimensions arcsin trace"
+        ]
+      },
+      "checked_sources": [
+        "random spherical triangle geodesic perimeter three iid vertices negative skewness high dimensions arcsin trace",
+        "https://arxiv.org/pdf/1009.5329",
+        "https://arxiv.org/abs/1306.0256",
+        "https://people.kth.se/~johanph/spherical.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-variance-and-skewness-corrections-for-the-area-of-random-h--7b661ef786c0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known pairwise independence yields zero pair terms in third central moment but leaves cyclic triple moment; neither Gaussian marginal CLT nor d=3 density fixes all-dimensional sign or second asymptotic coefficient."
+        ],
+        "reasoning": "New positive trace-class kernel and exact all-dimensional contractions are needed to derive the stated result.",
+        "searches": [
+          "https://arxiv.org/pdf/1009.5329",
+          "https://arxiv.org/abs/1306.0256",
+          "https://people.kth.se/~johanph/spherical.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Finch–Jones give perimeter distribution specifically on the 2-sphere; companion high-dimensional area work concerns area, not perimeter."
+        ],
+        "reasoning": "An equivalent all-dimensional perimeter third-cumulant formula was not located in inspected literature, though high-dimensional Gram calculations can be reformulated.",
+        "searches": [
+          "random spherical triangle geodesic perimeter three iid vertices negative skewness high dimensions arcsin trace",
+          "https://arxiv.org/pdf/1009.5329",
+          "random Gram matrix triangle arcsin cyclic moment high dimensions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing d=3 exact density means every specific low-dimensional moment is computable and not independently novel."
+        ],
+        "reasoning": "The candidate does not seek a novel d=3 table: it proves positivity of an infinite spherical harmonic trace in all dimensions and a sharp d^-3 term.",
+        "searches": [
+          "https://arxiv.org/pdf/1009.5329",
+          "https://people.kth.se/~johanph/spherical.pdf",
+          "random spherical triangle geodesic perimeter three iid vertices negative skewness high dimensions arcsin trace"
+        ]
+      },
+      "rationale": "The full perimeter density for three vertices on the ordinary S² was already known, so the dimension-three moment and pairwise side independence are explicitly excluded from novelty. The candidate contributes uniform-in-d strictly signed cubic trace and sharp second term of the high-d expansion, including standardized correction cancellation. Inspected primary spherical-triangle density and high-dimensional angle-distribution papers do not supply these all-dimensional third-order identities.",
+      "residual_risks": [
+        "The complete S² perimeter law predates this result; any claim of a novel numerical d=3 third moment would be false.",
+        "An unindexed high-dimensional Gram-matrix/cumulant theorem could imply the expansions; full historical priority is not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIMENSION_THREE_COVERED",
+          "evidence": "Complete S² perimeter density predates candidate; does not address d>=4 sign and high-d expansion.",
+          "identifier_or_url": "https://arxiv.org/pdf/1009.5329",
+          "material_read": "Full primary PDF, section 2.3 and perimeter density formula for three S² vertices (page-level screenshot inspection)",
+          "method": "Read primary PDF and specific perimeter section",
+          "title": "Random Spherical Triangles (Finch–Jones)",
+          "trigger": "Original all-sided spherical triangle perimeter distribution"
+        },
+        {
+          "assessment": "LIMITED_NOT_DECISIVE",
+          "evidence": "Marginal and empirical angle laws are not by themselves the cyclic third moment, but source could contain relevant appendix.",
+          "identifier_or_url": "https://arxiv.org/abs/1306.0256",
+          "material_read": "ArXiv abstract and scope summary; full document not obtained in this run",
+          "method": "ArXiv metadata/summary",
+          "title": "Distributions of Angles in Random Packing on Spheres (Cai, Fan, Jiang)",
+          "trigger": "High-dimensional spherical angle laws"
+        },
+        {
+          "assessment": "MATERIAL_LIMITED",
+          "evidence": "S² density remains covered; all-dimensional third cumulant overlap unverified.",
+          "identifier_or_url": "https://people.kth.se/~johanph/spherical.pdf",
+          "material_read": "Indexed description and cited Case 2/Section 9; primary PDF not independently opened in this run",
+          "method": "Source reference/abstract comparison",
+          "title": "The Area and Perimeter of a Random Spherical Triangle (Philip)",
+          "trigger": "Independent older exact S² triangle perimeter treatment"
+        },
+        {
+          "assessment": "ASSESSED",
+          "evidence": "Trace(T³) and explicit positive l3 component establish strict finite-d sign; expansions are all-d asymptotics.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-negative-skewness-and-a-two-term-cubic-law-for-random-sph--2997a91b67d8",
+          "material_read": "Full RESULT.md, spectral operator trace proof, high-dimensional expansion and source verifier code",
+          "method": "Frozen Git blobs and independent eigenvalue checks",
+          "title": "Strict negative skewness and a two-term cubic law",
+          "trigger": "Candidate mathematical proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/1009.5329",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/strict-negative-skewness-and-a-two-term-cubic-law-for-random-sph--2997a91b67d8"
+      ],
+      "rationale": "It is notable that three spherical geodesic side lengths are pairwise independent but their perimeter has strictly negative skewness in every dimension. A full trace representation, sharp finite-dimensional sign and two-term high-dimensional correction supply natural geometric-probability invariants that are not implied by Gaussian first-order limits.",
+      "residual_risks": [
+        "Novelty resides in higher-dimensional law only; ordinary 2-sphere density and pairwise independence are classical."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only independent surface-uniform three vertices and intrinsic shorter great-circle sides; not chord perimeter or more vertices.",
+    "Asymptotic absolute remainder O(d^-7/2) is weaker than next integer-order terms and does not give an exact all-d CDF.",
+    "The complete S² perimeter law predates this result; any claim of a novel numerical d=3 third moment would be false.",
+    "An unindexed high-dimensional Gram-matrix/cumulant theorem could imply the expansions; full historical priority is not certified.",
+    "Novelty resides in higher-dimensional law only; ordinary 2-sphere density and pairwise independence are classical."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-## Reproducible computation
+## correctness
 
-Install the dependencies specified in `requirements.txt` and execute `python check_perimeter.py`. The checker computes the harmonic-degree-one gamma coefficient in dimensions \(3,4,8,16\) independently from Gauss–Jacobi quadrature and confirms the exact Legendre eigenvalue identity \(\lambda_{2k+1,3}=\pi \binom{2k}{k}^2/[8(k+1)^2 16^k]\) through degree 23. It evaluates truncated positive spectral cubic series, checks the strict first-harmonic lower bound, and samples 890,000 independent spherical triples across ambient dimensions \(3,8,24,64\). The fixed random seed ensures reproducible outputs.
+PASS
 
-The executed code returned `SPHERICAL_TRIANGLE_PERIMETER_CUBIC_CHECKS_OK`. The truncated spectral cubic moments were approximately \(-1.0907021095\), \(-0.5437720265\), \(-0.1130328571\), and \(-0.0257395475\) for these first four dimensions respectively. The corresponding strict harmonic bounds were approximately \(-1.0900644145\), \(-0.5436308026\), \(-0.1130298721\), and \(-0.0257394942\). Numerical quadrature does not certify the infinite series, and these finite experiments are not infinite-dimensional proofs. Analytic convergence and strict positivity are established in `RESULT.md`.
+Using Theta_ij=pi/2-arcsin(T_ij), conditional rotation invariance proves pairwise independence of the three sides; all one-side cubic and two-side mixed cubic terms vanish. Hence centered cubic moment equals -6 E[g(T12)g(T23)g(T31)] for g=arcsin. The odd-power expansion g(t)=sum_j a_j t^(2j+1) has positive coefficients and absolutely convergent sum pi/2 on [-1,1]; each kernel is a tensor-power Gram kernel, giving a positive trace-class spherical operator. Triple expectation is tr(T^3)=sum odd harmonic multiplicity*eigenvalue^3; positive l=1 and l=3 terms yield strict negative sign and strict l1 bound. Independent gamma recurrence/degree-one eigenvalue integration matched ell_d at d=3,4,8,16,32. Exact contractions E[T12 T23 T31]=1/d² and E[T12³ T23 T31]=3/[d²(d+2)] give first two cubic coefficients; higher odd terms bounded by absolute moment O(d^-7/2). Var=3 E[arcsin(T)^2]=3/d+3/d²+O(d^-3), giving cancellation of 1/d correction on standardized skewness; multivariate Gaussian coordinate CLT gives the stated normal limit. Finite quadrature/simulation corroborates but does not prove the series.
 
-## Analytical proof boundary
+## originality
 
-The critical nonstandard claim is strict positivity of the third cyclic arcsine kernel moment. It follows from an explicit positive tensor-power expansion, trace-class summability, and nonzero first- and third-harmonic eigenvalues. The coefficients of the \(d^{-2}\) and \(d^{-3}\) terms use exact spherical contractions; the term-by-term remainder is bounded through absolute moments and Hölder's inequality. The order \(d^{-2}\) error in standardized skewness uses cancellation, not a fitted numerical coefficient.
+PASS
 
-Independent mathematical review, exhaustive novelty proof, alternative-sampling models, and an all-dimensional closed-form perimeter density are outside these checks.
+The full perimeter density for three vertices on the ordinary S² was already known, so the dimension-three moment and pairwise side independence are explicitly excluded from novelty. The candidate contributes uniform-in-d strictly signed cubic trace and sharp second term of the high-d expansion, including standardized correction cancellation. Inspected primary spherical-triangle density and high-dimensional angle-distribution papers do not supply these all-dimensional third-order identities.
+
+## value
+
+PASS
+
+It is notable that three spherical geodesic side lengths are pairwise independent but their perimeter has strictly negative skewness in every dimension. A full trace representation, sharp finite-dimensional sign and two-term high-dimensional correction supply natural geometric-probability invariants that are not implied by Gaussian first-order limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
