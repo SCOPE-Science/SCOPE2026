@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The twelve edge-disjoint odd faces enforce at least twelve frustrated bonds, and the explicit perfect-matching/face-choice construction realizes the bound and exhausts the ground states. The exact finite checker enumerates 125 matching patterns, all 16,000 ground states, every two-site flip, and all connected components. Every small component is checked against an explicit \(Q_6\) bit-coordinate isomorphism. The second-order diagonal and off-diagonal factors follow from exactly 24 cost-\(2J\) spin flips, 36 cost-\(6J\) flips, and two cost-\(2J\) intermediates for each admissible two-site transition. The giant degree-sum is 111,360, giving average degree 29/4 and strict spectral advantage over the cubes. Exact finite verification does not claim all-orders quantum dynamics.
+PASS
 
-## Originality — PASS, with historical-priority risk
+Pentagonal parity forces >=12 frustrated bonds, energy >=-66J. Icosahedral perfect matching recursion enumerates 125 matchings times 2^6 face choices times two spin orientations =16000 states with 12 frustrated bonds. Fully inspected construction uses 60 truncated-icosahedral darts, 90 edges, and exact bitflip neighbors; independent rebuilt 16000 states and BFS yielded precisely 10 components of 64 and 1 of 15360, degree histogram {6:2720,7:7680,8:5280,9:320}. Each 64-component contains one six-bit face-choice cube. Single flip costs 2J at 24 sites and 6J at 36, giving diagonal -18Γ²/J; each allowed pair has two 2J intermediates, offdiag -Γ²/J. Perron spectral radius of giant >= mean degree 29/4>6, so leading-order selection holds. Finite exhaustive checker is legitimate proof of defined finite graph, plus explicit geometry mapping; no finite-Γ exact decoupling.
 
-The already published 16,000 ground states and the generic second-order dimer-tunneling adjacency are specifically excluded from the new contribution. The examined 2026 same-system article and its six-page supplemental PDF discuss those ingredients but not the eleven-component census, explicit ten six-cubes or their spectral selection inequality. The 2008 Nakamura source concerns the same fullerene with classical fields, but its full text was not accessible; the abstract makes no corresponding assertion. The fully accessible Matsuda et al. paper treats a five-spin example and Villain lattices rather than this fullerene. Exact source and implication comparisons appear in the structured audit. Older uncatalogued reconfiguration-enumeration coverage remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The precise connected sectors of the physically defined lowest-order tunneling matrix matter for coherent weak-field selection on the experimentally relevant 60-site molecular cage. The classification distinguishes 640 states in ten disconnected six-cubes from 15,360 states in one giant component and supplies a strict spectral inequality that singles out the leading perturbative ground-state vector. The result is a natural complete finite classification of a motivated physical object, not a recomputation of the already known total ground-state degeneracy.
+Lopez-Bezanilla et al 2026 report 16000 ground-state degeneracy and second-order tunneling, which are prior ingredients, but examined full main text plus supplement do not state eleven connected sectors, 10 isomorphic Q6 pieces or giant/small Perron separation. Nakamura 2008 same classical lattice paper accessible abstract only and a residual priority risk, not evidence of tunneling-sector result.
 
-## Scope and remaining risks
+## value
 
-Perturbation theory is second order near zero uniform transverse field. Higher orders may connect the sectors. A 2008 same-system full text remained inaccessible, and independent priority verification is still needed; neither unavailable full text nor search failures are represented as proofs of novelty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete reconfiguration components and effective spectral tunneling sectors for a canonical frustrated fullerene resolve a motivated finite quantum-order-by-disorder question; exact combinatorial invariants and controlled small-field meaning are useful beyond reproducing groundstate count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

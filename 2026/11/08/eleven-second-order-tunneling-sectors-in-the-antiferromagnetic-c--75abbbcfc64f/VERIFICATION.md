@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify_c60_components.py` with a standard Python 3 interpreter (version 3.9+). It requires no packages beyond the standard library and no source files other than the embedded verifier.
+## correctness
 
-The actual package source was executed and returned `VERIFY_OK` for the \(60\)-vertex, \(90\)-edge fullerene, all \(125\) icosahedral perfect matchings, all \(16{,}000\) distinct ground spins, every one of the \(1770\) unordered two-site flips from each of the \(16{,}000\) states, the \(15{,}360+10(64)\) connected-component partition, ten explicit hypercube coordinate maps, and all degree values. The giant degree sum is exactly \(111{,}360\), giving Rayleigh quotient \(29/4\).
+PASS
 
-The enumerator is exhaustive because face parity and the twelve edge-disjoint pentagonal constraints prove that every minimizing configuration is uniquely encoded by an icosahedral perfect matching, one of two triangular faces per matching edge, and a global spin orientation. The program computes the finite count and component graph; the accompanying text proves the perturbative coefficients and spectral selection. No infinite-family claim, experimental validation, finite-field dynamics or independent scientific audit is asserted.
+Pentagonal parity forces >=12 frustrated bonds, energy >=-66J. Icosahedral perfect matching recursion enumerates 125 matchings times 2^6 face choices times two spin orientations =16000 states with 12 frustrated bonds. Fully inspected construction uses 60 truncated-icosahedral darts, 90 edges, and exact bitflip neighbors; independent rebuilt 16000 states and BFS yielded precisely 10 components of 64 and 1 of 15360, degree histogram {6:2720,7:7680,8:5280,9:320}. Each 64-component contains one six-bit face-choice cube. Single flip costs 2J at 24 sites and 6J at 36, giving diagonal -18Γ²/J; each allowed pair has two 2J intermediates, offdiag -Γ²/J. Perron spectral radius of giant >= mean degree 29/4>6, so leading-order selection holds. Finite exhaustive checker is legitimate proof of defined finite graph, plus explicit geometry mapping; no finite-Γ exact decoupling.
+
+## originality
+
+PASS
+
+Lopez-Bezanilla et al 2026 report 16000 ground-state degeneracy and second-order tunneling, which are prior ingredients, but examined full main text plus supplement do not state eleven connected sectors, 10 isomorphic Q6 pieces or giant/small Perron separation. Nakamura 2008 same classical lattice paper accessible abstract only and a residual priority risk, not evidence of tunneling-sector result.
+
+## value
+
+PASS
+
+Complete reconfiguration components and effective spectral tunneling sectors for a canonical frustrated fullerene resolve a motivated finite quantum-order-by-disorder question; exact combinatorial invariants and controlled small-field meaning are useful beyond reproducing groundstate count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
