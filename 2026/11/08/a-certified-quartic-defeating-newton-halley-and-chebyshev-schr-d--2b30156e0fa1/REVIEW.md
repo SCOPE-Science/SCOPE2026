@@ -1,19 +1,21 @@
-# Review of the certified quartic three-method obstruction
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All three maps are specified exactly; the quartic has four simple roots by rational Euclidean polynomial division. The derivative identities were independently checked from the coefficients. Rational interval arithmetic, applied to all points of the indicated intervals and 64 exact subintervals for each derivative bound, proves denominator nonvanishing, root exclusion, five strict cyclic containments and return Lipschitz products strictly below one. The Banach fixed-point theorem and holomorphic stability give the asserted nonroot attracting cycles. Running the exact verifier yielded `VERIFY_OK`. The finite computation certifies full intervals, not just a collection of floating-point trajectories.
+PASS
 
-## Originality — PASS, with residual risk
+Checked direct substitution Newton N(0)=1,N(1)=0,Q(0)=33,Q(1)=-181,Q′(0)=-33,Q′(1)=-181,Q″(0)=0 and squarefree Q. Rebuilt exact Fraction rational interval arithmetic independently (not relying on script exit logs): on both Halley intervals and all three Schröder intervals, each split into 64 subsegments, enclosed polynomial values and derivative rational functions with all denominators sign-separated; Q excludes zero throughout. Derivative upper bounds H (<0.1,<1.5) and S (<0.9,<2.4,<0.05), image-center errors <1e-8 and <1e-17 respectively, strict cyclic interval containment. Banach contraction for H² and S³ (return bounds 0.15 and 0.108) yields primitive extraneous cycles, and analyticity gives open COMPLEX basins. This is exact full-interval certification, not finite sampling of orbits.
 
-Basti–Cremaschi's arXiv:2610.03246v1 provides the same polynomial and approximate periods and multipliers, but explicitly leaves the Halley and Schröder rigorous interval certificates absent. It proves a different Newton–Halley quartic. The new contribution is certification of a single simple-root quartic with extraneous attracting cycles for all three root finders. Collins–Hunter's 2025 published simultaneous three-map theorem is described by the primary source as covering degrees at least five, and Collins's 2017 abstract treats cycles of the higher-order maps, not the triple conjunction. The predecessor full texts were not obtained; independent exact certificates may exist outside the searched literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The degree-four simultaneous three-method case was highlighted by the primary source as numerical evidence lacking proof. A rigorous primitive attracting three-cycle for the Chebyshev/Schröder map, together with a separately certified Halley two-cycle and Newton's exact cycle, settles the status of the specific natural open candidate. Exact local complex attraction matters for genuine positive-area failure basins; approximate periodic motion alone would not suffice. No common basin or cubic impossibility is claimed.
+Most relevant Basti–Cremaschi paper explicitly proposed THIS exact quartic and offered numerical evidence for Newton, Halley, and Schröder extraneous cycles; source candidly credits polynomial and Newton cycle. Accessible abstract describes rigorous Newton–Halley obstruction for a DIFFERENT quartic while the three-method example remained numerical. New claim is rigorous rational 64-part interval enclosure proving the two additional cycles on the same quartic, with full complex local basins; not claiming original polynomial, numerical discovery or minimal degree. Full October paper could not be obtained (arxiv/OA access failure and Oxford VPN disconnected), so any hidden rigorous Appendix A remains a source-specific residual priority risk rather than fabricated NOT_COVERING.
 
-## Source and scope limitations
+## value
 
-The original quartic and the candidate points are credited to the 2026 authors. The 2025 Collins–Hunter full text and 2017 Collins full text were not accessible from the reviewed sources; their relevant scope was checked through available abstracts and the 2026 primary discussion. The result is exact-arithmetic, unsafeguarded root-finding dynamics only. No independent mathematical audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Rigorous resolution of a concrete previously numerically suggested degree-four three-method failure example. Exact trapping intervals turn candidate cycles into attracting orbits with certified nonzero open basins for Newton, Halley and Chebyshev–Schröder on the identical quartic, a motivated question in root-finding complex dynamics distinct from numerical plotting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

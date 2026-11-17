@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T05:56:23.327004Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-certified-quartic-defeating-newton-halley-and-chebyshev-schr-d--2b30156e0fa1/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-certified-quartic-defeating-newton-halley-and-chebyshev-schr-d--2b30156e0fa1/verify_cycles.py",
+        "independent /mnt/data/quartic_independent_check.py exact Fraction interval check with 64 subintervals per phase"
+      ],
+      "rationale": "Checked direct substitution Newton N(0)=1,N(1)=0,Q(0)=33,Q(1)=-181,Q′(0)=-33,Q′(1)=-181,Q″(0)=0 and squarefree Q. Rebuilt exact Fraction rational interval arithmetic independently (not relying on script exit logs): on both Halley intervals and all three Schröder intervals, each split into 64 subsegments, enclosed polynomial values and derivative rational functions with all denominators sign-separated; Q excludes zero throughout. Derivative upper bounds H (<0.1,<1.5) and S (<0.9,<2.4,<0.05), image-center errors <1e-8 and <1e-17 respectively, strict cyclic interval containment. Banach contraction for H² and S³ (return bounds 0.15 and 0.108) yields primitive extraneous cycles, and analyticity gives open COMPLEX basins. This is exact full-interval certification, not finite sampling of orbits.",
+      "residual_risks": [
+        "Shows three nonempty basins individually, not a point in their intersection.",
+        "No minimal degree claim or finite-precision/safeguarded iteration guarantee."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Basti Cremaschi rigorous Newton–Halley quartic not stated to be same as numerical Newton–Halley–Schröder example.",
+          "Collins–Hunter 2025 compares simultaneous failure for degree at least five, insufficient to imply degree-four example.",
+          "Collins constructs individual rootfinding-map cycles, not a single explicit common quartic with verified attracting periods 2,2,3."
+        ],
+        "reasoning": "Higher-degree existence and individual map realization do not entail the specific same-degree-four triple interval proof.",
+        "searches": [
+          "Basti Cremaschi arxiv:2610.03246 abstract and cited Sections 2,5,Appendix A",
+          "Collins Hunter 2025 Examples and Counterexamples 8(100191)",
+          "Collins DCDS 2017 Halley Schroder cycles"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-certified-quartic-defeating-newton-halley-and-chebyshev-schr-d--2b30156e0fa1/RESULT.md",
+        "https://arxiv.org/abs/2610.03246",
+        "https://doi.org/10.1016/j.exco.2025.100191",
+        "https://doi.org/10.3934/dcds.2017237"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Current H intervals I1/I2 have exact derivative maxima <1/10,3/2 and product <3/20; S intervals J1/J2/J3 have <9/10,12/5,1/20, product <27/250, strict cyclic containment.",
+          "The Newton 0<->1 cycle was already exact; contribution is certified Halley and Schröder."
+        ],
+        "reasoning": "Existing numerical cycles and general higher-degree theorems do not logically prove current particular three-cycle coexistence, absent an earlier identical rigorous certification in uninspected full Basti–Cremaschi text.",
+        "searches": [
+          "Basti Cremaschi numeric claim vs strict rational intervals",
+          "Collins Hunter degree>=5 vs current degree4",
+          "Collins individual maps vs common quartic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Newton two-cycle is 0<->1 with critical derivative 0, already known.",
+          "Earlier 2026 abstract calls three-method same-quartic failure NUMERICAL evidence, whereas current establishes strict exact rational full-interval contraction."
+        ],
+        "reasoning": "Distinguished numerical orbit candidates and one-method dynamics from rigorous common polynomial with attracting cycles in all three methods; no common basin claimed.",
+        "searches": [
+          "Resultary Newton Halley Schroeder same quartic attracting cycles rigorous certified interval Basti Cremaschi",
+          "Web arxiv 2610.03246 Basti Cremaschi quartic 395 -576 -33 +33 Section 5 numerical cycles",
+          "Collins Hunter 2025 polynomials defy convergence three methods degree 5",
+          "Collins 2017 constructing attracting cycles Halley Schroder",
+          "arxiv 2610.03246 Basti Cremaschi exact polynomial roots Newton Halley Schroder Chebyshev iteration",
+          "Resultary 395z4-576z3-33z+33 rational interval same-method",
+          "Collins 2017 prescribed nonroot cycles Halley Schrodinger"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier example supplies numerical centers, not guaranteed rigorous trapping enclosures in accessible abstract.",
+          "The 5 exact rational intervals here certify whole neighborhoods, not an external database entry of verified cycles."
+        ],
+        "reasoning": "A numerically recorded point/multiplier does not substitute for proof that genuine nearby attracting orbits exist at exactly those periods; no preexisting rigorous table found in inspected materials.",
+        "searches": [
+          "Resultary same exact polynomial and certified intervals",
+          "Basti Cremaschi Section 5 numerical cycle locations and multipliers",
+          "Source recorded rational intervals for Halley and Schroder"
+        ]
+      },
+      "rationale": "Most relevant Basti–Cremaschi paper explicitly proposed THIS exact quartic and offered numerical evidence for Newton, Halley, and Schröder extraneous cycles; source candidly credits polynomial and Newton cycle. Accessible abstract describes rigorous Newton–Halley obstruction for a DIFFERENT quartic while the three-method example remained numerical. New claim is rigorous rational 64-part interval enclosure proving the two additional cycles on the same quartic, with full complex local basins; not claiming original polynomial, numerical discovery or minimal degree. Full October paper could not be obtained (arxiv/OA access failure and Oxford VPN disconnected), so any hidden rigorous Appendix A remains a source-specific residual priority risk rather than fabricated NOT_COVERING.",
+      "residual_risks": [
+        "Highly relevant Basti–Cremaschi full arxiv:2610.03246 unavailable; authorized institutional retrieval reports VPN disconnected, so exact appendix priority remains open to human full-text check.",
+        "No exhaustive search for other independently certified quartics; the claim is existence for one specified quartic, not minimality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original polynomial, Newton cycle, numeric Halley/Schröder hints are fully credited; no whole-document exclusion of prior rigorous same-quartic certificate can be asserted.",
+          "evidence": [
+            "Abstract expressly calls three-method quartic phenomenon numerical evidence rather than an all-three certified theorem."
+          ],
+          "identifier_or_url": "arxiv:2610.03246v1",
+          "material_read": "ArXiv abstract and metadata, secondary preview of same-quartic Section 5; full paper HTML/PDF was not accessible through lawful initial attempts, and authorized Oxford reported VPN disconnected.",
+          "method": "Compared abstract distinction between proven different quartic Newton–Halley theorem and numerical three-method candidate.",
+          "title": "Simultaneous Global Convergence Failure of Newton’s and Halley’s Methods in Degree Four",
+          "trigger": "Identical quartic and Halley/Schröder orbit candidates"
+        },
+        {
+          "assessment": "Prior degree>=5 family does not imply existence of this certified degree-4 counterexample.",
+          "evidence": [
+            "Degree >=5 occurrence has no automatic implication for one specific quartic of degree 4."
+          ],
+          "identifier_or_url": "doi:10.1016/j.exco.2025.100191",
+          "material_read": "Published bibliographic abstract/summary and its characterization in Basti–Cremaschi, not full paper.",
+          "method": "Compared degree hypothesis and exact common quartic.",
+          "title": "A family of polynomials that defy general convergence in three methods",
+          "trigger": "Potential broader three-method obstruction"
+        },
+        {
+          "assessment": "No identified theorem forces one specified quartic to have all these cycles.",
+          "evidence": [
+            "Individual existential constructions do not imply simultaneous cycle existence on Q."
+          ],
+          "identifier_or_url": "doi:10.3934/dcds.2017237",
+          "material_read": "Published title/abstract/citation context, not full body.",
+          "method": "Compared individual-method construction against same quartic for three methods.",
+          "title": "Constructing attracting cycles for Halley and Schröder maps of polynomials",
+          "trigger": "Generic prescribed attracting cycles for two methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-certified-quartic-defeating-newton-halley-and-chebyshev-schr-d--2b30156e0fa1/RESULT.md",
+        "https://arxiv.org/abs/2610.03246"
+      ],
+      "rationale": "Rigorous resolution of a concrete previously numerically suggested degree-four three-method failure example. Exact trapping intervals turn candidate cycles into attracting orbits with certified nonzero open basins for Newton, Halley and Chebyshev–Schröder on the identical quartic, a motivated question in root-finding complex dynamics distinct from numerical plotting.",
+      "residual_risks": [
+        "Scientific increment is certification for specific known polynomial, not invention of the numerical candidate or degree minimality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Most relevant arxiv:2610.03246 full text inaccessible; its abstract comparison is not a whole-document exclusion claim.",
+    "Three open failure basins need not intersect."
+  ],
+  "schema_version": 1
+}

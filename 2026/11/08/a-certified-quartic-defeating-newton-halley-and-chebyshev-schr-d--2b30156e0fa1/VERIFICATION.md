@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-`verify_cycles.py` is a standalone Python 3 standard-library script. Run it with `python3 verify_cycles.py`; the executed program returned `VERIFY_OK` on the actual file supplied with this proof. The program verifies exact integer polynomial differentiation; an exact rational greatest-common-divisor computation establishing squarefreeness; the nonzero value of the quartic and the relevant map denominator on each of five intervals; and an enclosure of the derivative throughout 64 consecutive exact rational subintervals of each orbit interval. It then bounds the rational image of each center, verifies every cyclic inclusion by the mean value theorem and checks the strict return-contraction bounds \(3/20<1\) and \(27/250<1\).
+## correctness
 
-Every proof-relevant comparison uses rational integers and fractions. Diagnostics printed as decimals are not used as proofs. Existence of infinitely many orbit points, or dynamics outside the declared neighborhoods, is not inferred from a numerical sample; the fixed point and complex attraction follow analytically. Independent validation is not claimed. The proof does not establish a common open basin of the three algorithms, a minimal quartic degree, or stability under finite precision.
+PASS
+
+Checked direct substitution Newton N(0)=1,N(1)=0,Q(0)=33,Q(1)=-181,Q′(0)=-33,Q′(1)=-181,Q″(0)=0 and squarefree Q. Rebuilt exact Fraction rational interval arithmetic independently (not relying on script exit logs): on both Halley intervals and all three Schröder intervals, each split into 64 subsegments, enclosed polynomial values and derivative rational functions with all denominators sign-separated; Q excludes zero throughout. Derivative upper bounds H (<0.1,<1.5) and S (<0.9,<2.4,<0.05), image-center errors <1e-8 and <1e-17 respectively, strict cyclic interval containment. Banach contraction for H² and S³ (return bounds 0.15 and 0.108) yields primitive extraneous cycles, and analyticity gives open COMPLEX basins. This is exact full-interval certification, not finite sampling of orbits.
+
+## originality
+
+PASS
+
+Most relevant Basti–Cremaschi paper explicitly proposed THIS exact quartic and offered numerical evidence for Newton, Halley, and Schröder extraneous cycles; source candidly credits polynomial and Newton cycle. Accessible abstract describes rigorous Newton–Halley obstruction for a DIFFERENT quartic while the three-method example remained numerical. New claim is rigorous rational 64-part interval enclosure proving the two additional cycles on the same quartic, with full complex local basins; not claiming original polynomial, numerical discovery or minimal degree. Full October paper could not be obtained (arxiv/OA access failure and Oxford VPN disconnected), so any hidden rigorous Appendix A remains a source-specific residual priority risk rather than fabricated NOT_COVERING.
+
+## value
+
+PASS
+
+Rigorous resolution of a concrete previously numerically suggested degree-four three-method failure example. Exact trapping intervals turn candidate cycles into attracting orbits with certified nonzero open basins for Newton, Halley and Chebyshev–Schröder on the identical quartic, a motivated question in root-finding complex dynamics distinct from numerical plotting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
