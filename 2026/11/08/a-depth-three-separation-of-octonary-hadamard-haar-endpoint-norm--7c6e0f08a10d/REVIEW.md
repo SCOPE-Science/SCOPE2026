@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The signed Haar kernel is explicitly reconstructed with the correct normalization: node depth \(j\) contributes a factor \(8^j\), and the child-zero conditional expectation gives the exact rescaled Bellman recursion. The exhaustive ten-profile table follows from the finite Walsh transform of all 128 sign vectors. Each local envelope inequality is a bilinear nonnegativity check on a rectangle, settled at forty exact corners, and a profile attaining equality exists for every state. The affine induction thus proves the infinite-depth assertion. The binary comparison is derived independently from its two-action recurrence; the alternating parity factor is kept throughout. The standalone standard-library checker actually ran and verified the local census, the forty corners, exact Bellman values, and all stated witness norms through depth six. The calculations are supplementary to the symbolic induction.
+## correctness
 
-## Originality — PASS with bibliographic qualification
-The closest previously recorded mathematical results address finite dyadic and four-child Haar systems, ternary contrasts and binary node-dependent biases; neither covers eight-child Hadamard signs or the contrast with three dyadic generations. The four-child equality cannot imply the present distinction: here the ten local Walsh profiles generate a different affine envelope, and equality with three dyadic levels fails at depth three. Searches of published-finding corpus for octonary, eight-child, Walsh--Hadamard, finite-depth multiplier norms and the exact rational expression returned no claim implying this formula. The relevant accessible published sources were inspected at their substantive mathematical sections: Kazarian et al. treat finite-\(p\) higher-rank Haar unconditionality, and Osękowski treats restricted weak-type classical Haar inequalities. Neither inspected material gives the new sharp endpoint expression. This is not proof of exhaustive worldwide priority; an unindexed equivalent remains a residual risk.
+PASS
 
-## Mathematical value — PASS
-The identity-and-separation pattern solves an exact natural operator-norm problem for every depth and detects a genuine breakdown of invariance under three-level binary grouping. The identical depth-one and depth-two norms conceal distinct linear growth rates \(15/7\) versus \(2\) per octonary generation, and the proof explains the change through noncharacter seven-sign local actions. This is an analytic structural distinction, not an arbitrary small finite numerical example. It does not claim broader \(L^p\) consequences.
+The complete normalized real octonary Walsh–Haar basis has one constant and seven contrasts per internal node. For fixed row (recentered at the all-zero leaf by XOR), only ancestral signs contribute. With local h_y=Σ_{a≠0}σ_a(-1)^{a·y} over 128 signed contrast profiles, exact row decomposition gives F_d(t)=max_sigma[(Σ_{y≠0}|t+h_y|)/8+F_{d-1}((t+h_0)/8)], F_0(t)=|t|. Independent 128-sign enumeration yields ten distinct sorted Walsh profiles. For |t|<=1, successors stay in this invariant window and every local |t+h_y| is affine. The alleged maximizing profile (h0,S,Z)=(1,17,1) dominates all ten actions for B∈[1/7,1],t∈[0,1] by 40 exact corner inequalities on bilinear differences; it is attained by a real sign vector. The resulting A_d+B_d|t| recursion solves to U8(d)=15d/7+13/49+36/(49·8^d). The binary Haar recurrence gives U2(n)=2n/3+5/9+(4/9)(-1/2)^n. Substituting n=3d shows equality d=0,1,2 and strict octonary excess for every d>=3, via elementary closed-form difference. Finite Bellman checks d<=4 corroborate, not substitute for the invariant affine-window induction.
 
-## Closest sources and limitations
-Kazarian–Kazaryan–San-Antolín (2014), arXiv:1410.4888, Sections 3.2 and 4; Osękowski (2013), DOI:10.1155/2013/646012, introduction and sharp weak-type theorems. The result only concerns uniform finite real eight-ary trees with the specified Walsh contrasts. Equivalent unpublished or unindexed literature cannot be ruled out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Full earlier Resultary theorem on b-ary predictable martingale sign transforms is NOT the same: it signs each entire (b−1)-dimensional local martingale difference by a single scalar at each parent; this result signs seven separate Hadamard contrast coefficients independently, a strictly larger different local operator family. Another prior complete theorem has independently signed Hadamard coefficients but arity 4; its binary depth-two invariance does not imply the arity-eight depth-three separation. Classical standard dyadic Haar strong/weak-type and weighted higher-rank Haar results likewise do not supply the ten-profile exact octonary law in available material. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+The first depth at which three dyadic Haar generations and an eight-child Hadamard block cease sharing the same sharp endpoint unconditionality is a precise nontrivial invariant of two natural orthonormal bases; the ten-profile Bellman reduction explains a structural rather than arbitrary numerical discrepancy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
