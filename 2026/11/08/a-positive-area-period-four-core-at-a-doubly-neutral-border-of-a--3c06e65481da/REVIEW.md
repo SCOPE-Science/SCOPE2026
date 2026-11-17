@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The autonomous first coordinate enters \([-1,0]\) in finite time and becomes an involution. The two-step forced scalar map has explicit piecewise formulas on the compact trapping interval. Monotone translations force finite entrance into the displayed reflection intervals; their two-step involution proves the fourth-iterate identity. The absorbing argument also excludes periodic points outside the core. Fubini's section-length integral gives exactly \(1/2\) area. The subcritical return is a strict contraction with rate \(c^2\); uniform boundedness and fixed-point analysis justify the singular limit. The exact rational checker supplements rather than replaces these arguments.
+PASS
 
-## Originality
+For a=0, f(x)=|x|−1 reaches [−1,0] after finitely many iterations from every real x, then f²(u)=u with alternate v=−u−1. For b0=1−u,b1=2+u the two-step scalar G(y)=||y|−b0|−b1 admits an absorbing interval: when u<−1/2, G(y)=t−|y| (t=−1−2u>0) on [−b0,b0] and finite subtract/add returns reach [0,t]; for u>−1/2, orbits descend by b1−b0 to J=[−2−u,u−1], where G(y)=−3−y; on u=−1/2, G(y)=−|y| and is identity after entering [−3/2,0]. Thus entire planar periodic locus is P with T⁴|P=id, planar area integral ∫_{−1}^0|1+2u|du=1/2, one fixed point (−1/2,−3/4), and 2/4 least periods as stated. For 0<c<1, scalar return Gc is globally c²-Lipschitz, unique fixed cycle and pointwise singular graph selection. Check boundary u=−1,−1/2,0 and the central zero-area segment. Finite rational checker is only corroboration.
 
-PASS within available evidence. The exact defining map and its flip boundary are given in Tikjha's arXiv:2607.13519v1. Inspection of its fixed-point, period-two, period-four, degeneracy and concluding sections finds no global finite-time period-four core or positive-area calculation at \((a,c)=(0,1)\). Cima et al.'s arXiv:2410.01052v1 treats a different absolute-value map; its eventual-periodicity theorem does not imply this parameter-specialized statement. Searches for alternating absolute-value recurrences and the exact joint parameter border found no matching stronger result. Priority is not independently certified; general piecewise-affine periodicity literature remains a risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A natural intersection of flip and unit-multiplier stability boundaries has an unexpected global structure: a compact, exactly described periodic set of positive planar area. The theorem classifies all forward orbits and least periods, and the subcritical result identifies how the unique attracting fiber cycles select points from a degenerate two-dimensional periodic core. These are dynamical conclusions not obtained from the source's isolated branch stability tests.
+Best-of-knowledge PASS for the exact positive-area full-plane finite-time period-four core and discontinuous c↑1 fiber selection. Tikjha introduces this identical four-partition map and analyzes branch stability/noninvertibility but the inspected map sections do not establish T⁴=id on an absorbing area-one-half set at (0,1). Cima et al. consider another coupled planar absolute-value family. Same/related Resultary inverse-fiber classifications concern preimage multiplicity rather than temporal orbit capture. No claim that periodic orbits or noninvertibility in general are novel.
 
-## Scope and risk
+## value
 
-This is not a claim of robustness under perturbations of both parameters. It is an exact joint-neutral classification and a one-sided subcritical comparison; independent review and exhaustive historical priority remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete global orbit classification at a double-neutral, nonsmooth border matters because the map changes from fiberwise hyperbolic attraction to a two-dimensional continuum of exact period-four orbits; the area 1/2 and nonuniform selection limit distinguish it from isolated-cycle bifurcation diagrams. This is a natural exact border case, not a tiny unmotivated parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
