@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact invariant dyadic-step density is stated at all admissible parameters, including the resonant value \(p=2/3\). Conditional integration of the two observables gives the three-mode formula \(J_m=\mu/2+2^{-m}/12+Bc^m\). The pathwise doubling/halving identity involves the running maximum \(M_n\), not only the endpoint walk \(S_n\); its reflected-height Markov resolvent gives the displayed generating function. Centering cancels the physical pole at \(z=1\). Resolvent factorization determines the physical-sheet pole at \(2/(4-3p)\) only for \(p>4/5\) and the square-root branch points for lower parameters. The collision at \(p=4/5\) changes the polynomial exponent to \(-1/2\). All coefficients can be reconstructed from explicit rational functions and the square-root series. Exact independent finite-lag reflection enumerations agree with the symbolic generating function, but finite tests alone are not the proof.
+## correctness
 
-## Originality — PASS, with residual priority risks
-Yan–Majumdar–Ruffo–Sato–Beck–Klages (arXiv:2308.09269, section III and appendices) provide the invariant density and exact stationary short-lag correlations; they approximate general lags by a commuting surrogate. Monthus (arXiv:2409.19999, section VI E) gives the general binary-stack/reflected-walk mechanism and an autocorrelation transform *for a uniform initial density*, together with an exponential-scale crossover. That representation is a genuine antecedent, but it does not state the stationary coordinate-covariance transform, its three stationary dyadic moments, or the coefficients and polynomial exponents of all three asymptotic regimes. An earlier exact integrated stationary covariance is weaker than the lag-resolved theorem: a sum of covariances cannot recover the individual covariance sequence. The primary texts and publicly indexed related results examined did not exhibit the full stated claim. Equivalence or derivability in further literature remains possible, so no independent priority certification is claimed.
+PASS
 
-## Value — PASS
-The stationary law is the physically natural reference for random-map correlations. The original study expressly lacks exact all-lag stationary correlations, and the later exact binary approach uses another starting law. A closed algebraic stationary covariance generating function permits every lag to be computed and reveals a nontrivial change in polynomial prefactor at a precisely specified spectral crossover, with a two-sided oscillating branchpoint contribution in the lower regime. This is not a renaming or numerical refinement; it resolves a motivated time-correlation problem for an established intermittent random dynamical system.
+For fixed 1/2<p<=1 the invariant dyadic density gives J_m=E[X0 D^m(X0)]=mu/2+2^(-m)/12+B*c^m (checked independently by rational geometric sums at p=3/5,4/5,9/10 for m<=7). A random walk in doubling/halving decisions has exact identity X_n=2^(S_n-M_n)D^(M_n)X0; the reflected-height recurrence yields its generating resolvent Phi. Combining three modes and subtracting mu^2/(1-z) yields the stationary correlation generating function. Positive- and negative-edge square-root expansions and the t=1/2 physical-sheet pole determine the p<4/5, p=4/5 and p>4/5 fixed-parameter asymptotics. Independently enumerated exact walk probabilities and dyadic moments through lag 5 for three p; original packaged rational finite-lag verifier supplies further checks. No critical p=1/2 or uniform crossover theorem asserted.
 
-## Scope and scientific risks
-The law is annealed, concerns coordinate position and a fixed parameter in \(1/2<p\le1\), and excludes the infinite-measure transition at \(p=1/2\). It does not assert a uniform finite-size crossover scaling function, a quenched law, or a central limit theorem. The generic stack representation may allow the transform to be recovered independently and unindexed derivations may already exist. The proof supplies formulas rather than a machine-checked formal certificate. Further specialist examination is appropriate before a publication-priority claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Yan et al (2024) give invariant density and exact first small stationary lags, while their full-lag treatment uses approximation. Monthus (2024/2025) gives exact reflected walk and correlations for uniform rather than invariant initial law and observes the crossover scale. Neither inspected primary statement explicitly gives the new stationary three-mode algebraic transform and precise three-regime amplitudes; general machinery is a residual derivability risk.
+
+## value
+
+PASS
+
+Exact stationary correlations govern mixing and fluctuations in a well-studied noncommuting random map. Recovering all lags and exact p=4/5 singular transition amplitudes resolves a specific physically motivated quantitative gap left by low-lag/approximate treatments. No CLT or near-critical uniformity is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
