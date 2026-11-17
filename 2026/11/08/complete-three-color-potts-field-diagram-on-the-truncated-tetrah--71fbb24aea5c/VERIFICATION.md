@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-This finite claim was checked by two exact, exhaustive, independently encoded computations on the twelve-site graph. `verify_enum.cpp` lists the vertices as ordered pairs, constructs all eighteen edges directly, and iterates through every base-three code from 0 through 531440. `verify_blocks.py` represents the four triangles separately, contracts the six intertriangle bonds, and enumerates all 27 possibilities for each of four triangles. The two methods agree on all thirteen minimum same-color-edge counts and their multiplicities; both also verify the four critical-field degeneracies.
+# Independent mathematical audit
 
-The lower convex hull is checked using integer arithmetic, so real-valued field values between or at the four slopes require no numerical gridding or interpolation. Exact enumeration is a complete proof for this specific finite system, not evidence about any unbounded family of graphs. The independent audit remains unperformed, and historical priority is subject to separately checking unindexed sources.
+## correctness
 
-Commands from the extracted directory:
+PASS
 
-```
-c++ -O2 -std=c++17 verify_enum.cpp -o verify_enum
-./verify_enum
-python3 verify_blocks.py
-```
+The graph has twelve ordered-pair vertices and eighteen edges (four complete local triangles and six reverse-coordinate edges). Each three-color assignment has integer (k,e). Direct independent Python enumeration of all 3^12=531441 colorings reproduced the thirteen sector minima [4,3,2,1,0,1,2,4,6,9,12,15,18] and multiplicities [24,192,504,480,120,480,384,960,480,576,192,24,1]. The lower convex hull has vertices (0,4),(4,0),(6,2),(8,6),(12,18), hence exactly four field thresholds -1,1,2,3 and coexistence totals 1320,984,1824,1273 for ALL real h/J, not merely tested fields. Independent exhaustive enumeration supports this finite theorem, not a thermodynamic limit.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality PASS: the full zero-temperature three-color field-sector census and exact critical degeneracies on the twelve-vertex truncated tetrahedron are not implied by inspected vector/quantum Heisenberg, Ising-on-other-polyhedra, or Potts-on-other-graph results. Three-colorability and line-graph identities alone give none of the thirteen sector populations. A possible unpublished/tabulated finite-cluster census remains a live priority risk.
+
+## value
+
+PASS
+
+This is the full exactly enumerable zero-temperature field response of a natural Archimedean spin cluster, a motivated finite graph previously used in antiferromagnetism; sharp crossings and exact coexistence degeneracies provide precise reference data and demonstrate selection among frustrated Potts colorings. The result is confined to the finite model and does not claim a phase transition in the thermodynamic sense.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
