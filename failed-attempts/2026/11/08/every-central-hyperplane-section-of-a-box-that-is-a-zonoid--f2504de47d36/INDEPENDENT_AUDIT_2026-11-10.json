@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T12:57:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Diagonal invertible rescaling and coordinate sign changes reduce any box to the standard centered cube and normal coefficients a_i=s_i |u_i|. Active support at most three gives product of a centrally symmetric polygon (or segment/point) with intervals, hence a zonotope. Dominance makes the section the graph of a full cube. Otherwise every active-coordinate facet is an offset section of >=3 active cube coordinates. Its capped-simplex y_i in [0,b_i], sum delta=(sum b_i-|t|)/2 has forced hypothetical center coordinate min(b_i,delta)/2, but when no coefficient dominates the truncated sum strictly exceeds 2delta, contradicting the center lying in the slicing hyperplane. The obstruction is a nonsymmetric exposed face, impossible for a zonoid. Boundary equality and inactive factors are covered. Independently computed exact off-center 3-coordinate vertex reflections for all weights 1..3 and positive integral feasible offsets and found agreement; the analytic proof covers real parameters.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 18 theorem covers ALL dimensions n>=2, all real normals, inactive coordinates and dominance equality, with off-center lemma; source title singles out cubes but its theorem dominates arbitrary boxes under diagonal affine equivalence."
+        ],
+        "reasoning": "The previous all-dimensional theorem is mathematically broader in appearance only; after affine normalization it covers the entire claimed class without any leftover case.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-dominance-criterion-for-zonotopal-central-sections-of-cubes--fd7b9cd5f90d/RESULT.md",
+          "https://arxiv.org/abs/2305.18351"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-dominance-criterion-for-zonotopal-central-sections-of-cubes--fd7b9cd5f90d/RESULT.md",
+        "https://arxiv.org/abs/2305.18351",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/every-central-hyperplane-section-of-a-box-that-is-a-zonoid--f2504de47d36/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier proof has explicit off-center cube section lemma: for r>=3 and t!=0 slice centrally symmetric iff some u_k>=|t|+sum_{j!=k}u_j. Same facet-structure conclusion follows by affine scaling."
+        ],
+        "reasoning": "Prior statement implies the submitted theorem in one invertible diagonal variable change, and prior proof contains the allegedly new lemma. Every principal conclusion is covered; original cannot pass through a caveat or an extra certificate.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-dominance-criterion-for-zonotopal-central-sections-of-cubes--fd7b9cd5f90d/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 18 theorem: cube section zonoid iff zonotope iff m<=3 or 2*max_i |a_i|>=sum_i |a_i|, for all n; submitted box is the identical theorem with a_i=s_i |u_i|."
+        ],
+        "reasoning": "Invertible diagonal map x_i=s_i y_i sends box to cube and hyperplane <u,x>=0 to sum(s_i u_i)y_i=0, preserving zonoids, zonotopes, facets, and equality. This is exact equivalence, not merely close wording.",
+        "searches": [
+          "Resultary: zonoid cube slice arbitrary real normal dominance criterion all dimensions",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-dominance-criterion-for-zonotopal-central-sections-of-cubes--fd7b9cd5f90d/RESULT.md",
+          "Resultary: complete four-box central zonoid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier result has closed-form criterion rather than a table; every box parameter tuple maps to a cube tuple satisfying exact same threshold."
+        ],
+        "reasoning": "The exact predicate is already classified in symbolic form; enumerating 6827 finite box instances cannot create a new table-based contribution.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-dominance-criterion-for-zonotopal-central-sections-of-cubes--fd7b9cd5f90d/RESULT.md",
+          "Resultary: zonotopal central cube section exact threshold"
+        ]
+      },
+      "rationale": "FAIL: A fully read October 18 published theorem (A dominance criterion for zonotopal central sections of cubes) states EXACTLY the same all-dimensional equivalence for cubes with arbitrary real normal coefficients including zero coordinates, and contains the same off-center cube-section dominance iff and nonsymmetric-face obstruction. Every rectangular box is the diagonal invertible image of a cube, changing its normal precisely to scaled coefficients s_i u_i; zonoid/zonotope property is affine-invariant. Hence this submitted theorem is an immediate equivalence, not a new extension beyond four dimensions.",
+      "residual_risks": [
+        "No residual originality ambiguity: full published October 18 theorem decisively covers the entire claim, including all dimensions and equality cases.",
+        "Does not claim noncentral or higher-codimension general slices; rejected package remains unchanged."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_EXACTLY",
+          "evidence": "Theorem K(a) zonoid iff zonotope iff m<=3 or 2 max |a_i|>=sum |a_i|; cube is a diagonal affine normal form of each box.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-dominance-criterion-for-zonotopal-central-sections-of-cubes--fd7b9cd5f90d/RESULT.md",
+          "material_read": "FULL published RESULT.md: all-dimensional iff statement; off-center cube lemma and proof; coordinate facet obstruction; equality/zero-normal cases; limitations",
+          "method": "GitHub source read directly; blob e057f229078fb76440381bb0f786cb76b5a2439b",
+          "title": "A dominance criterion for zonotopal central sections of cubes (published 2026-10-18)",
+          "trigger": "Exact all-dimensional candidate found by semantic originality search"
+        },
+        {
+          "assessment": "BACKGROUND_PARTIAL",
+          "evidence": "Four-dimensional example and dominant sufficient condition; coverage already decisive from October 18 theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2305.18351",
+          "material_read": "Public abstract only in this run; earlier full-text conclusions quoted in new source records not claimed independently read",
+          "method": "arXiv indexed public abstract",
+          "title": "A cube Slice that is not a Zonoid (Anantharaman 2019/2023)",
+          "trigger": "Foundational positive/negative examples"
+        },
+        {
+          "assessment": "CLAIM_CORRECT_BUT_COVERED",
+          "evidence": "Its own diagonal reduction directly links the theorem to the prior all-dimensional cube statement.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/every-central-hyperplane-section-of-a-box-that-is-a-zonoid--f2504de47d36/RESULT.md",
+          "material_read": "Complete RESULT.md and all reviewed source package components, including checker",
+          "method": "Immutable pinned GitHub source/tree",
+          "title": "Every central hyperplane section of a box that is a zonoid (assigned)",
+          "trigger": "Submitted theorem itself"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL as an original scientific contribution: the full normal-support/dominance classification, equality cases, off-center rigidity lemma and exposed-facet obstruction are already proved for all dimensions by the October 18 primary theorem. Recasting it for rectangular boxes via coordinate scaling and a different proof of an identical lemma is a routine change of variables; 6827 finite checks add reproducibility but no new motivated invariant or classification.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-dominance-criterion-for-zonotopal-central-sections-of-cubes--fd7b9cd5f90d/RESULT.md",
+    "https://arxiv.org/abs/2305.18351",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/every-central-hyperplane-section-of-a-box-that-is-a-zonoid--f2504de47d36/RESULT.md"
+  ],
+  "disposition": "failed",
+  "final_claim": "For all rectangular boxes and all central hyperplane sections, zonoid=zonotope iff <=3 active normal coordinates or a largest scaled absolute coefficient dominates the sum of the others; otherwise every active-coordinate facet is nonsymmetric.",
+  "limitations": [
+    "No residual originality ambiguity: full published October 18 theorem decisively covers the entire claim, including all dimensions and equality cases.",
+    "Does not claim noncentral or higher-codimension general slices; rejected package remains unchanged."
+  ],
+  "residual_risks": [
+    "No residual originality ambiguity: full published October 18 theorem decisively covers the entire claim, including all dimensions and equality cases.",
+    "Does not claim noncentral or higher-codimension general slices; rejected package remains unchanged."
+  ],
+  "schema_version": 1
+}
