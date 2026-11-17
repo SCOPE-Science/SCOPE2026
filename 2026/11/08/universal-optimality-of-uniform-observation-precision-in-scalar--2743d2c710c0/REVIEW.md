@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The defined domain is \(s=a^2\ge0\), \(q>0\), positive initial variance, nonnegative finite precisions with positive Cesàro mean \(b\). Direct inversion of the scalar Riccati update yields the telescoping precision identity with endpoint residual bounded by \(1/q\). The function \(g(p)=1/p-1/(sp+q)\) is strictly decreasing and strictly convex for all positive \(p\) when \(s\ge1\). For \(0\le s<1\), every orbit eventually lies in an interval slightly larger than \((0,q/(1-s)]\) on which those signs still hold. Jensen gives the arbitrary-schedule long-run lower bound. The constant schedule converges to the positive algebraic fixed point and attains it. In the periodic case, the one-period Riccati map is positive, increasing, concave, and bounded, giving a unique attracting periodic orbit; strict Jensen equality implies identical covariances and identical precisions. The exact period-two example and rational/numerical diagnostics corroborate, rather than establish, the proof. A stand-alone script passed 7,609 assertions.
+PASS
 
-## Originality — PASS, with residual precedence risk
+The scalar Kalman inverse update yields u_n=1/P_n-1/(sP_(n-1)+q) and a telescoping precision-g(P) balance with uniformly O(1) endpoints. The reachable-domain g=1/p-1/(sp+q) is strictly decreasing and convex for s>=1, and eventually for s<1; Jensen gives lower liminf p_b for any Cesàro schedule with b>0. Constant u=b converges to p_b. Positive increasing concave periodic Riccati map has a unique attracting periodic orbit, and strict Jensen equality forces all P_i and u_i equal. Independent periodic numeric checks support, not substitute for, the infinite proof.
 
-The closest openly inspected 2021 papers analyze distinctly constrained objectives: Das–Bhattacharya optimize sensor precision for a prescribed error bound through a lifted-periodic convex formulation (with an expressly conservative covariance comparison), while Aspeel–Legay–Jungers–Macq optimize finite-horizon **prediction** error under a finite set of measurement times with fixed per-measurement noise. Neither inspected result states the exact constant-precision optimum for infinite-horizon average **posterior** error with an unconstrained divisible mean-precision budget, much less strict uniqueness for every period. The 2014 infinite-horizon schedule result handles discrete selection and approximation by periodic schedules; that general machinery does not imply this concrete fractional-precision optimizer. The 1995 Shakeri–Pattipati–Kleinman work is a particularly plausible precursor on variable measurement precision, but only its abstract could be inspected; it formulates and numerically solves a *finite-horizon* allocation problem, and no exact infinite-horizon theorem could be verified from accessible material. Existing ingredients, including the Kalman information recursion and Jensen's inequality, are not claimed as original. An earlier equivalent specialization may exist and warrants bibliographic verification; no exclusivity or definitive absence is asserted.
+## originality
 
-## Value — PASS
+PASS
 
-Sensor precision allocation is a natural and consequential numerical-control design problem. The theorem completely identifies the optimal allocation across every period and even establishes an unbounded-horizon lower bound over arbitrary time-varying schedules. It distinguishes two often-conflated resource models: fixed *measurement counts*, where irregular schedules can help, and fixed *total Gaussian precision*, where constant allocation uniquely minimizes periodic average posterior error on a homogeneous scalar system. The unstable \(s=2\) example has an exact, substantial difference (mean error \(1.799038\ldots\) versus \(1.280776\ldots\)) at the same average sensing precision. This is an exact motivated classification, not a routine change of symbols or a generic numerical example. It has no implication for nonlinear sensing costs, vector filters or arbitrary finite-time criteria.
+The fixed Cesàro-mean divisible observation-precision optimization for long-run scalar posterior variance and unique periodic constant allocation differ from finite-horizon discrete measurement placement, periodic precision under an error upper bound, and general discrete sensor scheduling. The information-balance Jensen proof delivers an exact all-stable/unstable frontier. An older unindexed scalar precision-allocation theorem remains possible.
 
-## Closest literature, checks, and limitations
+## value
 
-Full accessible text sections were inspected from Das–Bhattacharya (2021), DOI 10.13140/RG.2.2.22073.08806, and Aspeel et al. (2021), DOI 10.1186/s13634-021-00732-8. Abstracts and available publication descriptions were compared for Shakeri et al. (1995), DOI 10.1109/7.381919; the 2014 infinite-horizon scheduling paper, DOI 10.1109/TAC.2014.2314222; and Zinage et al. (2021), arXiv:2109.13854. Remaining risk: a specialist derivation of the same scalar exact optimizer not recovered from full text. No claim is made for state-dependent or random adaptive sensing, for the optimality of a sparse solution under other costs, or for independent scientific certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The choice between smooth and intermittent sensing is a natural precision-budget control problem. The theorem supplies the exact every-Cesàro-schedule lower bound and unique fixed-period optimizer even for unstable scalar systems, distinguishing divisible precision cost from discrete sensor count. It is a complete justified classification for its model, not merely a rephrased Jensen inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

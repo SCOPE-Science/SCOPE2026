@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T21:48:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The scalar Kalman inverse update yields u_n=1/P_n-1/(sP_(n-1)+q) and a telescoping precision-g(P) balance with uniformly O(1) endpoints. The reachable-domain g=1/p-1/(sp+q) is strictly decreasing and convex for s>=1, and eventually for s<1; Jensen gives lower liminf p_b for any Cesàro schedule with b>0. Constant u=b converges to p_b. Positive increasing concave periodic Riccati map has a unique attracting periodic orbit, and strict Jensen equality forces all P_i and u_i equal. Independent periodic numeric checks support, not substitute for, the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2014 TAC doi:10.1109/TAC.2014.2314222 develops infinite-horizon sensor scheduling with discrete sensors, not arbitrary nonnegative scalar precision allocation.",
+          "1995 Shakeri et al. abstract gives finite-horizon resource allocation, but full article was not recovered."
+        ],
+        "reasoning": "General periodic approximation or inverse-accuracy resource policies can inspire the proof but available primary descriptions do not dominate the exact universal continuous-precision posterior bound and all-period uniqueness.",
+        "searches": [
+          "scalar Kalman posterior average variance optimal constant measurement precision budget periodic uniformly",
+          "uniform precision Kalman filtering time averaged posterior variance",
+          "optimal constant observation precision scalar Kalman time averaged posterior variance",
+          "infinite horizon linear sensor scheduling periodic schedule optimal homogeneous precision budget"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2106.06906",
+        "https://doi.org/10.1186/s13634-021-00732-8",
+        "https://doi.org/10.1109/7.381919",
+        "https://doi.org/10.1109/TAC.2014.2314222",
+        "Resultary 2026-10-25 scalar Kalman sensing order transition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scalar information balance u_n=1/P_n-1/(sP_{n-1}+q) telescopes to mean g(P_n)=b+o(1).",
+          "Strictly decreasing convex g on the reachable domain forces Jensen equality only at constant posterior and hence constant precision each period; fixed point yields p_b."
+        ],
+        "reasoning": "Unlike a generic Jensen inequality, these facts identify the exact global constraint, all Cesàro schedules, strict periodic equality and unstable s>=1 cases for a specified physical cost.",
+        "searches": [
+          "scalar Kalman posterior average variance optimal constant measurement precision budget periodic uniformly",
+          "uniform precision Kalman filtering time averaged posterior variance",
+          "optimal constant observation precision scalar Kalman time averaged posterior variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Das–Bhattacharya arXiv:2106.06906 studies optimizing precision subject to a bounded estimation-error constraint using a periodic lifted formulation.",
+          "Aspeel et al. 2021 concerns finite-horizon sensor placement and mean prediction error with measurement-count budget."
+        ],
+        "reasoning": "The submitted objective minimizes infinite-horizon average posterior error with linear cost in continuously variable precision; neither fixed error bound nor count-constrained prediction error is logically equivalent.",
+        "searches": [
+          "scalar Kalman posterior average variance optimal constant measurement precision budget periodic uniformly",
+          "uniform precision Kalman filtering time averaged posterior variance",
+          "optimal constant observation precision scalar Kalman time averaged posterior variance",
+          "Kalman filtering scalar information form Jensen average precision error homogeneous constant schedule"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact p_b formula under the same fixed average precision and posterior-time-average objective was identified in retrieved published records.",
+          "The prior 1995 source is plausible but only abstract-level material was available."
+        ],
+        "reasoning": "A closed algebraic all-parameter optimizer displaces any isolated numerical schedule table; failure to locate a prior formula is not sufficient proof of historical priority.",
+        "searches": [
+          "scalar Kalman posterior average variance optimal constant measurement precision budget periodic uniformly",
+          "uniform precision Kalman filtering time averaged posterior variance",
+          "optimal constant observation precision scalar Kalman time averaged posterior variance",
+          "scalar Kalman stationary Riccati optimal constant measurement precision exact table all s q b"
+        ]
+      },
+      "rationale": "The fixed Cesàro-mean divisible observation-precision optimization for long-run scalar posterior variance and unique periodic constant allocation differ from finite-horizon discrete measurement placement, periodic precision under an error upper bound, and general discrete sensor scheduling. The information-balance Jensen proof delivers an exact all-stable/unstable frontier. An older unindexed scalar precision-allocation theorem remains possible.",
+      "residual_risks": [
+        "Full article of Shakeri–Pattipati–Kleinman 1995 was not obtained; possible equivalent scalar optimality result is explicitly unresolved historical risk.",
+        "No nonperiodic equality uniqueness is claimed; only liminf for arbitrary Cesàro schedules and strict equality in each fixed-period class.",
+        "Objective is posterior variance with linear precision cost; finite-horizon or nonlinear-cost conclusions do not follow."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different constraint and objective; complete-paper noncoverage not inferred",
+          "evidence": "Determines precision to meet bounded estimation error and uses lifted periodic formulation, not a fixed-budget posterior mean error minimum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.06906",
+          "material_read": "Open primary arXiv PDF introduction, model setup and optimization statement; relevant first displayed pages",
+          "method": "Opened and read primary PDF and screenshot page",
+          "title": "Optimal Sensor Precision for Multi-Rate Sensing for Bounded Estimation Error",
+          "trigger": "Closest contemporaneous variable-precision Kalman research"
+        },
+        {
+          "assessment": "Finite-horizon prediction/count objective differs from submitted scalar continuous-precision posterior limit",
+          "evidence": "Discrete measurement times with fixed-noise observations are not divisible precision expenditure at every time.",
+          "identifier_or_url": "https://doi.org/10.1186/s13634-021-00732-8",
+          "material_read": "Open publication information, abstract and objective description; full sections not verified here",
+          "method": "Inspected accessible public source description",
+          "title": "Optimal measurement budget allocation for Kalman prediction over a finite time horizon by genetic algorithms",
+          "trigger": "Potential optimal sensing placement theorem"
+        },
+        {
+          "assessment": "Residual priority risk; not asserted noncovering as whole document",
+          "evidence": "Abstract indicates finite-horizon resources but does not rule out an equivalent scalar infinite-horizon specialization within full text.",
+          "identifier_or_url": "https://doi.org/10.1109/7.381919",
+          "material_read": "Accessible bibliographic abstract only; full article inaccessible in this run",
+          "method": "DOI/metadata and historical synopsis",
+          "title": "Optimal measurement scheduling for state estimation",
+          "trigger": "Highly plausible historic variable-accuracy resource allocation"
+        },
+        {
+          "assessment": "Discrete sensor-selection model; possible uninspected special statement",
+          "evidence": "The known problem concerns selector schedules, unlike unrestricted positive real measurement precisions.",
+          "identifier_or_url": "https://doi.org/10.1109/TAC.2014.2314222",
+          "material_read": "Accessible abstract and scheduling description, not full text",
+          "method": "Published bibliographic/abstract comparison",
+          "title": "On the Optimal Solutions of the Infinite-Horizon Linear Sensor Scheduling Problem",
+          "trigger": "A broader sounding infinite-horizon sensor scheduling theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The choice between smooth and intermittent sensing is a natural precision-budget control problem. The theorem supplies the exact every-Cesàro-schedule lower bound and unique fixed-period optimizer even for unstable scalar systems, distinguishing divisible precision cost from discrete sensor count. It is a complete justified classification for its model, not merely a rephrased Jensen inequality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2106.06906",
+    "https://doi.org/10.1186/s13634-021-00732-8",
+    "https://doi.org/10.1109/7.381919",
+    "https://doi.org/10.1109/TAC.2014.2314222",
+    "Resultary 2026-10-25 scalar Kalman sensing order transition"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scalar linear-Gaussian state with q>0 and linear cost in nonnegative finite observation precision.",
+    "No unique optimum among all aperiodic Cesàro schedules is asserted; periodic uniqueness only.",
+    "Unretrieved 1995 specialist literature remains an originality risk."
+  ],
+  "residual_risks": [
+    "Full article of Shakeri–Pattipati–Kleinman 1995 was not obtained; possible equivalent scalar optimality result is explicitly unresolved historical risk.",
+    "No nonperiodic equality uniqueness is claimed; only liminf for arbitrary Cesàro schedules and strict equality in each fixed-period class.",
+    "Objective is posterior variance with linear precision cost; finite-horizon or nonlinear-cost conclusions do not follow."
+  ],
+  "schema_version": 1
+}
