@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytical proof in RESULT.md establishes the all-positive-moment recurrence, exact Wasserstein equality for times at least two, the almost-sure exponential rate and Gaussian fluctuation variance. No independent audit has been performed.
+# Independent mathematical audit
 
-The self-contained standard-library test `verify_focusing.py` computes the motion of rational starting points using exactly the dyadic strip translations, integrates the resulting piecewise translations exactly over every binary cylinder of depth \(t\), and sums the geometrically scaled starting strips. Run `python3 verify_focusing.py` from the package directory.
+## correctness
 
-The test compares the independent integral against the claimed recurrence for \(s\in\{1,2,3,4\}\) and \(0\le t\le10\); it also checks the Bernoulli digit waiting times at rational samples and the right-half-torus condition needed in the Wasserstein proof. The expected output is `PASS: 599 exact-rational checks (finite corroboration, not an infinite proof).` These finite tests cannot themselves certify the real-parameter theorem or limiting distribution.
+PASS
 
-The numerical constants in the closed-form formula are algebraically evaluated from the exact first two moments and the quadratic characteristic equation; no floating-point certificate is required. The mathematical limitation is that the initial distribution is normalized Lebesgue measure and the exceptional boundary extension must move \(x=0\) away to make the weak limit non-invariant.
+On dyadic strips the map advances normalized coordinate by 1/2 each step; a strip-index gain takes W=1 or2 iterates with iid fair binary-digit choices after regeneration. This gives M_s(t)=2^{-(s+1)}(M_s(t-1)+M_s(t-2)) for all real s>0 and t>=2 with explicitly integrated M_s(0),M_s(1); Perron root lambda_s^+ gives rate. Renewal SLLN/CLT yield typical exponent 2/3 and variance 2/27. For t>=2 points lie x>=1/2 so torus geodesic distance to zero equals d_t and y-coordinate is unchanged; coupling and Lipschitz dual yield exact W1=M1, rate (1+sqrt17)/8. Independently integrated rational cylinders for s=1,2, t<=6, matching recurrence. Boundary x=0 extension matters only to non-invariance, not Lebesgue pushforward.
+
+## originality
+
+PASS
+
+Best-of-knowledge quantitative strengthening of Blank qualitative countable dyadic-strip torus focusing example; no inspected primary result states all-order exact moments, renewal CLT or sharp W1 for that particular map.
+
+## value
+
+PASS
+
+A natural known example of concentration without local contraction gains a sharp quantitative split between typical-orbit and annealed transport decay. The exact positive-moment spectrum and Gaussian fluctuations make the non-invariant-limit phenomenon useful beyond qualitative existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
