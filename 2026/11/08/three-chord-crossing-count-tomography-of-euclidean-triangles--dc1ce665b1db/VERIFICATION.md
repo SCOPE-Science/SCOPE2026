@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification of three-chord crossing-count tomography
+# Independent mathematical audit
 
-The accompanying `verify_chord_tomography.py` is a standalone Python-standard-library verifier. To reproduce the check, run `python3 verify_chord_tomography.py` in the directory containing that file. It uses independent endpoint order comparisons, exactly excludes boundary-contained chords, and requires all checks to pass.
+## correctness
 
-The analytical identity depends on three substantive steps: the conditional proper-crossing probability for a fixed chord joining successive edges; exact averaging of its square over ordered edge pairs; and the covariance identity between two indicators sharing one of three sampled chords. The second-moment computation is an integral of low-degree bivariate polynomials, independently checked with three-point Gauss-Legendre quadrature (sufficiently high degree to integrate those polynomials exactly apart from floating rounding).
+PASS
 
-Reproduction output:
+The precise sampling is two independent arclength-uniform boundary endpoints per chord; same-side boundary segments do not intersect properly. For fixed distinct-side chord, exact conditional crossing polynomial 2[p_i p_j((1-x)(1-y)+xy)+p_i p_k(1-x)+p_j p_k y] has expectation e2. Summing over edge pairs gives E(g)=2e2^2 and E(g^2)=20 e2^3/9-4 e3^2/3. Shared-chord conditioning yields Var(C3)=3q(1-q)+6 Var(g). Viete reconstruction recovers positive e2,e3 and all normalized side lengths; exact distinct triangles (4/15,4/15,7/15) and (2/5,2/5,1/5) share e2=8/25, establishing two-chord nonidentifiability. Independently checked symbolic second-moment identity and rational ambiguity. No claim of statistical finite-sample identification.
 
-```
-case 0 histogram [63291, 38791, 12249, 5669] mean 0.669133 theory 0.666667 variance 0.708994 theory 0.705075
-case 1 histogram [64984, 38105, 11545, 5366] mean 0.644108 theory 0.639178 variance 0.689949 theory 0.684586
-case 2 histogram [67158, 37224, 10515, 5103] mean 0.613025 theory 0.6144 variance 0.667625 theory 0.665009
-VERIFY_OK exact_rational_cases=5 independent_gauss_integrals=10 reconstructions=5 nonidentifiability_pair=1 three_chord_trials=360000
-```
+## originality
 
-The rational checks use five admissible side-ratio triples. Two distinct triangles have exactly equal two-chord crossing parameters, proving the minimality example is not merely numerical. The random experiments check the count statistic in its original endpoint sampling model; they do not prove an infinite-family claim. No finite-sample inference guarantees, historical priority certification, or independent audit were performed.
+PASS
+
+Best-of-knowledge novel relative to inspected specific priors and primary literature; residual source-access risks as recorded.
+
+## value
+
+PASS
+
+A sharp minimal-observation inverse-geometry theorem: two moments of the crossing graph of three independent perimeter chords determine the triangle similarity class, although a complete two-chord law cannot. This is a natural geometric-inference invariant rather than an arbitrary small computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
