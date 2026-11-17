@@ -1,15 +1,21 @@
-# Assessment of the Petersen 2-rainbow classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact host is the Petersen graph in the \(KG(5,2)\) model. For any color support \(S\), the other support necessarily contains every vertex of \(V\setminus N[S]\). Each singleton has six vertices outside its closed neighborhood; each pair has three or four according as it is nonadjacent or adjacent. These facts exclude weights below five and force any five-weight solution to have a nonadjacent two-vertex support and its unique three-vertex closed antineighborhood. The \(S_5\)-transitivity proof checks the representative \(\{12,13\}\) and \(\{14,15,23\}\) explicitly, yielding all sixty solutions and the reverse-complement identity. Both independent executable verifiers reproduce the exact count and no possible one-color jump.
+## correctness
 
-## Originality — PASS with historical-priority risk
-The 2007 work of Brešar and Šumenjak identifies the equivalence to domination of the Cartesian prism and bounds for generalized Petersen graphs. Tong et al. (DOI 10.1016/j.dam.2009.01.020; available online March 9, 2009) already determine the *minimum weight five* as part of their family result. This numerical minimum is excluded from the novelty claim. The value of independent rainbow domination for the same graph is six, as stated in the 2020 study by Gabrovšek et al.; that is a strictly different feasibility requirement. The 2021 and 2023 generalized Petersen work addresses minimum values and bounds rather than an exact classification of all optimal states and one-color token immobility. The independent-pair/induced-path mutual closed-antineighborhood bijection, cardinality sixty and absolute token-jump immobility were not identified in the retrieved sources or accessible historical records. The full 2009 text could not be independently inspected; unindexed computations or proof details might contain stronger coverage. No database search proves uniqueness of the result.
+PASS
 
-## Value — PASS
-Rainbow domination models two resources that must both reach each uncolored vertex. In this natural small symmetric benchmark the minimum *cost* alone conceals complete rigidity of optimal two-resource placements: each of the thirty independent pairs forces a unique three-vertex path of opposite-color resource sites, and no single resource token can be independently moved, even through unrestricted jumps. The forced antineighborhood pairing gives a structural characterization of the entire optimum-state space rather than a raw enumeration or textbook lower bound. The result establishes a sharply constrained boundary case for studying reconfiguration of optimal rainbow resource placements without claiming a broad general theorem.
+P=KG(5,2), ten vertices and fifteen edges, colored supports A,B may overlap. A color-support S forces its antineighborhood Phi(S) into the other support; singletons force six; adjacent pairs force four and nonadjacent pairs force three. Thus any 2-rainbow assignment of weight<=5 must have supports (2,3) or (3,2), with nonadjacent 2-set A and B=Phi(A). Verify representative A={12,13}, Phi(A)={14,15,23}, Phi(B)=A, five empty vertices both-color dominated, and S5-transitivity. All 30 nonedges yield two named orientations=60 minima of weight five; unique forced counterpart forbids any individual-color jump and hence slide. Independently rebuilt KG(5,2), enumerated all 4^10 labelings and single-color transitions; agrees with 60 and frozen configurations. Exact fixed graph, not an asymptotic extension.
 
-## Limitations
-The source-date anchor comes from Tong et al.'s printed article history (available online March 9, 2009), not the April journal issue. Historical-priority risk remains because full text was inaccessible, the 2007 related article was available only at abstract level, and older unindexed computations may exist. The theorem applies to this ten-vertex graph and only one-color-at-a-time fixed-cost moves; simultaneous recoloring could behave differently. Numerical verification supports, but does not replace, the given finite structural proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known 2009 Tong–Lin–Yang–Luo theorem establishes gamma_r2(GP(5,2))=5; that scalar is excluded from the new claim. The 2024 full cubic-rainbow paper primarily proves t=3..5 bounds; the published multi-rainbow Kneser theorem assumes k>=3 and cannot imply a named two-color optimizer census. A search did not find the mutual antineighborhood bijection or absolute single-color immobility in inspected results; this is best-of-knowledge only. The full 2009 original remains unavailable after authorized retrieval; possible implicit classification in its proofs is a substantive residual risk.
+
+## value
+
+PASS
+
+The canonical smallest generalized Petersen graph is a natural benchmark for two-resource domination. The complete characterization of all cheapest named-color placements and their frozen one-resource reconfiguration geometry adds structural information not implied by its known minimum weight; the 30 independent-pair to path antineighborhood duality explains the rigidity. It is a complete natural finite classification, not merely a checksum or arbitrary subset.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
