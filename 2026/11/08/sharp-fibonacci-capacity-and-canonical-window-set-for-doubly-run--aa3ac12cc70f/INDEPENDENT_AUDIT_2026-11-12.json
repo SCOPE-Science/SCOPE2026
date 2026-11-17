@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T16:52:15.878619Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-fibonacci-capacity-and-canonical-window-set-for-doubly-run--aa3ac12cc70f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-fibonacci-capacity-and-canonical-window-set-for-doubly-run--aa3ac12cc70f/VERIFICATION.md",
+        "independent_checks.py",
+        "verify_git_trees.py"
+      ],
+      "rationale": "The directed length-n overlap graph of words avoiding 000 and 111 has 2F_(n+1) edges. Degree imbalance +1 occurs at 2F_(n−3) vertices with doubled first pair and undoubled last pair, obliging at least that many deletions for a closed trail with distinct windows. Deleting precisely the edges doubled at BOTH ends cancels all imbalances. Alternating extensions prove the retained graph is strongly connected, so it has an Euler tour of length 2(F_(n+1)−F_(n−3)). At equality an alternative deleted outgoing edge would terminate at a zero-imbalance vertex without outgoing deletion, so all deletions are forced, proving canonical window-set rigidity. Independent graph enumeration, Euler cycle and actual cyclic windows checked n=4..13. Infinite proof uses graph balance, not extrapolation.",
+      "residual_risks": [
+        "Finite direct Euler verification checks only n<=13; correct connectivity and forced balance arguments must carry all larger n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published two-sided shorter-cover theorem minimizes length while COVERING every legal window, allowing repetitions; this result MAXIMIZES number of DISTINCT legal cyclic windows in one no-triple host.",
+          "General de Bruijn Eulericity does not supply forced deletion count or uniqueness of surviving edge set."
+        ],
+        "reasoning": "Coverage/minimum-tour and simple-edge maximal-tour are dual-sounding but logically different optimizations. The old statement does not imply this extremal balanced subset by swapping an inequality.",
+        "searches": [
+          "https://arxiv.org/pdf/2403.01454",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-optimal-cyclic-covers-for-binary-words-without-three-equal-conse--f40c1b2102e9/RESULT.md",
+          "Resultary: two-sided run-limited shortest cyclic covers versus distinct windows"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2403.01454",
+        "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-optimal-cyclic-covers-for-binary-words-without-three-equal-conse--f40c1b2102e9/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-fibonacci-capacity-and-canonical-window-set-for-doubly-run--aa3ac12cc70f/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "New upper bound deletes 2F_{n-3} distinct outgoing arcs at positive-imbalance vertices and equality forces SAME-symbol deletions, whereas the all-window cover theorem repeats extra arcs to balance the full graph."
+        ],
+        "reasoning": "The new cardinality and especially unique window-set rigidity require the forced-deletion argument; neither cited prior source states or mechanically entails them.",
+        "searches": [
+          "https://arxiv.org/pdf/2403.01454",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-optimal-cyclic-covers-for-binary-words-without-three-equal-conse--f40c1b2102e9/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Chee et al. define (n,s) as runs of ZERO bounded by s while ones may be arbitrarily long. The present admissible graph forbids both 000 and 111, with a different imbalance and canonical retained edges."
+        ],
+        "reasoning": "Distinct-object constraint prevents interpreting the one-sided RLL theorem as the requested exact two-sided capacity. Complementing bits still leaves a one-sided constraint; the intersection is not the earlier theorem.",
+        "searches": [
+          "Resultary: maximum length cyclic binary 000 111 free no repeated n windows Fibonacci unique Euler subgraph",
+          "https://arxiv.org/pdf/2403.01454"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior one-sided RLL enumerations and classic Fibonacci word counts are insufficient to determine the extremal canonical edge set R_n for all n>=4."
+        ],
+        "reasoning": "Natural exact extremal constraint has infinite order range, not a standard finite de Bruijn table. No independently indexed exact both-sided maximal table was found.",
+        "searches": [
+          "Resultary: Fibonacci capacity canonical window set for doubly run-limited cycles",
+          "https://arxiv.org/pdf/2403.01454"
+        ]
+      },
+      "rationale": "PASS qualified: Chee et al. maximum-length RLL work restricts only runs of zeros, allowing arbitrarily many ones, whereas this forbids BOTH 000 and 111. Published two-sided Lucas/Fibonacci results concern shortest cycles COVERING all admissible factors, repeated windows allowed, not longest distinct-window cyclic trails and unique retained edge set. No general source inspected directly implies that rigidity.",
+      "residual_risks": [
+        "An unindexed two-sided RLL/de Bruijn maximum-length paper may compute the same value; failed indexed search cannot certify priority.",
+        "Finite Euler checks stop at n=13; analytic balance/connectivity/rigidity handles all n>=4."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering the two-sided 000/111-free circular maximum: its RLL definition restricts only consecutive zeros",
+          "evidence": "arXiv:2403.01454v2, p.2: (n,s)-word has longest run of consecutive zeros at most s.",
+          "identifier_or_url": "https://arxiv.org/pdf/2403.01454",
+          "material_read": "Full 25-page arXiv PDF retrieved; read definitions around pp.2-4, theorem/result areas and inspected one-sided run constraint, with page screenshot",
+          "method": "arXiv PDF textual sections and screenshot",
+          "title": "Maximum Length RLL Sequences in de Bruijn Graph (Chee et al.)",
+          "trigger": "Highly relevant same distinct-window optimization"
+        },
+        {
+          "assessment": "Minimum length covering all admissible words with repeats, different mathematical objective; possible method interaction retained as risk",
+          "evidence": "Published 2026-10-12 minimum two-sided cover: 2(L_n-1) rather than maximum simple-edge count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-optimal-cyclic-covers-for-binary-words-without-three-equal-conse--f40c1b2102e9/RESULT.md",
+          "material_read": "Complete published RESULT.md: forbidden-triple overlap graph, minimum all-window cover via balancing paths, exact Lucas overhead, proof and scope",
+          "method": "Full GitHub RESULT.md direct read",
+          "title": "Optimal cyclic covers for binary words without three equal consecutive symbols",
+          "trigger": "Same language and window graph but inverse objective"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2403.01454",
+        "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-optimal-cyclic-covers-for-binary-words-without-three-equal-conse--f40c1b2102e9/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-fibonacci-capacity-and-canonical-window-set-for-doubly-run--aa3ac12cc70f/RESULT.md"
+      ],
+      "rationale": "A natural two-sided run-length-limited synchronization constraint on de Bruijn cycles has a sharp infinite-family Fibonacci capacity and a uniquely forced set of windows, not merely a table of small examples. The balance/Euler obstruction and rigidity may be reused for constrained coding constructions.",
+      "residual_risks": [
+        "Does not count Euler tours, maximize one-sided constraints, or solve longer run caps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Binary alphabet, circular no-triple constraint, n>=4; optimal cycles need not have a unique word/rotation, only common window set."
+  ],
+  "schema_version": 1
+}

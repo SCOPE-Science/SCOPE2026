@@ -1,11 +1,21 @@
-# Scientific review: sharp two-sided run-constrained cyclic window capacity
+# Independent mathematical audit
 
-**Correctness — PASS.** The overlap graph's in/out imbalance gives an upper bound of \(2F_{n-3}\) omitted edges. The uniquely forced family with doubled initial and terminal symbol pairs repairs that imbalance. The remaining edges form a balanced, strongly connected graph by alternating-extension routes. The equality case identifies every omitted edge, yielding the common window set. The standalone checker reconstructs Euler cycles, edge sets and the claimed counts at orders 3–16, with additional exhaustive circular-word checks at orders 4–5. No empirical enumeration is being used as an infinite proof.
+## correctness
 
-**Originality — PASS (qualified).** The 2016 rotation-closed language theorem of Sawada, Williams and Wong does not cover the non-rotation-closed optimum window set. Chee et al.'s 2024 maximum-length RLL work explicitly addresses a one-sided zero-run restriction, not the simultaneous no-\(000\)/no-\(111\) restriction and canonical optimum set here. Direct statement and implication searches found no exact matching all-length result. There remains an unindexed-publication priority risk, particularly in the literature on constrained universal cycles.
+PASS
 
-**Value — PASS.** The cyclic uniqueness-of-windows condition is the synchronization/position-identification invariant of cut-down de Bruijn sequences. Simultaneously bounding runs of both symbols breaks full-graph Eulerian balance, so this exact all-length Fibonacci optimum and its uniquely determined window spectrum resolve a motivated structural capacity problem rather than an arbitrary enumeration. At order four the optimum eight windows exceeds the six cyclically admissible four-bit words, emphasizing why using only necklaces or cyclically admissible windows misses the optimum.
+The directed length-n overlap graph of words avoiding 000 and 111 has 2F_(n+1) edges. Degree imbalance +1 occurs at 2F_(n−3) vertices with doubled first pair and undoubled last pair, obliging at least that many deletions for a closed trail with distinct windows. Deleting precisely the edges doubled at BOTH ends cancels all imbalances. Alternating extensions prove the retained graph is strongly connected, so it has an Euler tour of length 2(F_(n+1)−F_(n−3)). At equality an alternative deleted outgoing edge would terminate at a zero-imbalance vertex without outgoing deletion, so all deletions are forced, proving canonical window-set rigidity. Independent graph enumeration, Euler cycle and actual cyclic windows checked n=4..13. Infinite proof uses graph balance, not extrapolation.
 
-**Limits.** Binary alphabet, both runs capped at two, \(n\ge4\). No count of Euler cycles, no higher-cap bounds. Historical-priority uncertainty persists; independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Chee et al. maximum-length RLL work restricts only runs of zeros, allowing arbitrarily many ones, whereas this forbids BOTH 000 and 111. Published two-sided Lucas/Fibonacci results concern shortest cycles COVERING all admissible factors, repeated windows allowed, not longest distinct-window cyclic trails and unique retained edge set. No general source inspected directly implies that rigidity.
+
+## value
+
+PASS
+
+A natural two-sided run-length-limited synchronization constraint on de Bruijn cycles has a sharp infinite-family Fibonacci capacity and a uniquely forced set of windows, not merely a table of small examples. The balance/Euler obstruction and rigidity may be reused for constrained coding constructions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
