@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact counting proof is reconstructed from the tree count \((2n-3)!!\), contraction bijections for one and two disjoint prescribed fringe subtrees, and laminarity of descendant leaf sets. Every four-leaf fringe node contains precisely two cherries if balanced or one if asymmetric. The resulting first moments and mixed moments give both rational covariance formulas. The exceptional boundary \(n=4\) is checked directly, \(n=5\) has no disjoint pair, and strict signs for all greater sizes follow by elementary polynomial inequalities. Asymptotics and the increasing ratio follow from the exact formulas. A separate enumeration implementation passed 146650 exact assertions through eight leaves. These finite checks reinforce but do not replace the counting proof.
+PASS
 
-## Originality — PASS, with risk
+In nonplane rooted PDA leaf-labeled trees the specified fringe topology on k marked leaves contracts bijectively to a tree on n-k+1 leaves; disjoint marked patterns contract twice. Laminarity exhausts cherry/four-fringe overlaps: balanced four-fringes contain two cherries, asymmetric four-fringes one. First moments and disjoint contributions give both rational expressions for all n≥6; n=4,5 require d_n=0 and direct substitution. At n=4 apparent negative 2n−9 denominator is handled correctly. The quadratic sign factors are strictly positive n≥5, and independent exact-Fraction contractions n=4..15 reproduce formulas. Ratio monotonicity follows from stated positive finite difference, not finite testing.
 
-Closest primary results inspected: Chang–Fuchs (2009/2010), a single-fringe-pattern framework; Wu–Choi (2015/2016), joint *rooted* cherry and pitchfork laws; Coronado et al. (2018/2019), *induced* rooted quartets; and Choi–Kaur–Thompson–Wu (2024), the complete four-subtree covariance vector for *unrooted* PDA trees. The last work is the closest comparison and is not being claimed new. The current statement is the explicit pair of mixed covariances under the **rooted** PDA law, including all finite sizes, strict signs and linear limits. The unrooted covariance vector alone cannot recover rooted four-leaf fringe counts; the five-leaf unrooted shape resulting from rooting four original leaves provides a counterexample to direct determination. Broad mixed-moment derivability from older pattern-count frameworks remains a priority risk. Searches do not certify uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Four leaves are the first subtree size at which rooted binary trees have distinct balance shapes. The exact, opposite-sign mixed dependence with the ubiquitous cherry count therefore characterizes how balanced and asymmetric microscopic motifs couple to a global shape statistic under the neutral rooted PDA model. The covariance magnitudes stay of order \(n\), and the comparison is relevant to joint calibration of phylogenetic shape diagnostics. It is a natural first nontrivial shape classification rather than an arbitrary numeric slice.
+Best-of-knowledge statement/implication comparison across relevant published findings and primary papers; no direct stronger theorem covering the precise final result was identified. Unread/inaccessible sources remain concrete priority risks rather than novelty certification.
 
-## Limits
+## value
 
-No independent audit has been performed; the claim is not an assertion about unrooted, induced-quartet, or non-PDA ensembles. The general single-pattern theory and newer unrooted four-pattern covariance results are nontrivial antecedents; implicit prior cross-moment specialization cannot be ruled out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A cross-covariance distinguishes local balanced and caterpillar motifs within the natural uniform rooted phylogenetic tree law, with opposite signs in all sizes, exact linear-scale asymptotics and a strict finite-size ratio trend. Rooted mixed pattern dependence is not a cosmetic marginal cherry count; the result supplies an independently usable exact small-motif statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
