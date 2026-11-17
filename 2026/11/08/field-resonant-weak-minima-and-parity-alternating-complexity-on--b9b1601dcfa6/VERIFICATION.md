@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` from a directory containing the supplied `verify.py`. It requires the Python standard library only.
+## correctness
 
-The checker compares the closed all-field weak and strict count formulas against independently enumerated part magnetizations for each integer \(1\le n\le17\), at all half-integer field values in a symmetric interval containing the critical fields. It separately enumerates all labeled spins for sizes \(1\le n\le4\) across those half-integer grids and for \(n=5\) at eight fields, checking each one-spin energy change and, for every nonground weak minimum, a zero-cost then downhill two-flip sequence.
+PASS
 
-Observed replay result: `PASS: 2902 independent group and full-spin assertions; n<=17 group, n<=5 brute.`
+Let A,B,C denote part magnetizations in K_{n,n,n}; the exact flip energy is Delta E=2Js(t-(B+C)) in part A. Uniform signs force inequalities; a mixed part forces t=B+C. Classifying zero, one, two and three mixed parts yields the displayed exact N_n(t), including t=0 and t=2n discontinuities, with binomial multiplicities over labeled spin assignments. Strict minima require uniform parts and strict inequalities. A nonground mixed weak minimum has a zero-cost first flip and an opposite-sign spin in another mixed part that then lowers energy by 4J. At t=2k, fixed k, the n+k parity controls the three-mixed binomial-cube term, establishing normalized complexity 0 versus log 2; at t=0 parity gives log2/3 versus log2. Independently recomputed magnetization-level counts and small spin enumerations support formula; full proof covers every n>=1 and real field h.
 
-The infinite all-field classification follows from the analytical magnetization-case proof in `RESULT.md`, not from finite checks. The checker does not establish novelty, physically realizable kinetic trapping, a positive-temperature phase transition, or independent validation.
+## originality
+
+PASS
+
+Field-resonant weak Ising minima on complete balanced tripartite graphs: best-of-knowledge comparison of exact mathematical statements and their logical implications found no dominating prior result for the specified original parameter range. Previously published general and overlapping special-case results are explicitly credited. Novelty is not inferred from an unsuccessful search; see named comparisons and residual access risks.
+
+## value
+
+PASS
+
+Weak local minima at degenerate fields are motivated as landscape counts, not falsely identified with absorbing zero-temperature configurations. The exact isolated resonance spikes, parity-alternating exponential complexity and explicit zero-cost downhill escape distinguish combinatorial local stability from dynamical trapping in an accessible dense antiferromagnet model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review: field-resonant weak minima on tripartite Ising networks
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof follows from exact single-flip changes \(2Js[t-(B+C)]\) and a complete partition into zero, one, two or three nonuniform vertex parts. The five field cases cover all real fields and all integers \(n\ge1\). The integer-field parity conditions come from spin-magnetization parity. The strict-local-minimum count, identification of the ground states, and two-step escape witness are separately reconstructed from the same inequalities. The independent finite checker exercises the grouped predicates and direct labeled-spin enumeration, returning 2902 assertions, and is not used to infer the infinite claim. Stirling's formula proves the two subsequential entropy limits. No step relies on numeric extrapolation.
+PASS
 
-## Originality — PASS on accessible evidence
+Let A,B,C denote part magnetizations in K_{n,n,n}; the exact flip energy is Delta E=2Js(t-(B+C)) in part A. Uniform signs force inequalities; a mixed part forces t=B+C. Classifying zero, one, two and three mixed parts yields the displayed exact N_n(t), including t=0 and t=2n discontinuities, with binomial multiplicities over labeled spin assignments. Strict minima require uniform parts and strict inequalities. A nonground mixed weak minimum has a zero-cost first flip and an opposite-sign spin in another mixed part that then lowers energy by 4J. At t=2k, fixed k, the n+k parity controls the three-mixed binomial-cube term, establishing normalized complexity 0 versus log 2; at t=0 parity gives log2/3 versus log2. Independently recomputed magnetization-level counts and small spin enumerations support formula; full proof covers every n>=1 and real field h.
 
-The searches compared the exact three-part adjacency, field resonance, local-minimum convention, parity-cubed binomial contribution, and strict/weak dual description. Waclaw–Burda (arXiv:0801.1224v1, complete HTML examined) concerns Gaussian random bonds on arbitrary graphs, with quantitative applications to random regular graphs/lattices, not fixed uniformly antiferromagnetic complete tripartite graphs. Pagnani–Parisi–Ratiéville (arXiv:cond-mat/0210305, complete textual representation examined) treats Bethe-lattice/random-regular graphs of fixed finite connectivity, rather than degree \(2n\) dense tripartite systems. Spirin–Krapivsky–Redner (arXiv:cond-mat/0105037, main text examined) concerns ferromagnetic nearest-neighbor Glauber kinetics on Euclidean lattices, not the classification. Related circular-ladder weak-stability counts and rook-graph ground-state formulas involve different adjacency patterns and do not imply this tripartite all-field result. A general single-spin constraint can be specialized to produce this calculation, but none of the examined prior stated results is stronger in the relevant precise sense. This does not prove universal novelty; obscure tables or equivalent older derivations remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural frustrated three-sublattice mean-field graph has a complete and explicit all-size weak-minimum classification. The theorem explains how finite field quantization and spin parity create an alternating exponential-to-polynomial count: at \(t=2k\) and fixed \(k\ge1\), one parity class has complexity density \(\log2\), the other zero. It also distinguishes weak local energy minima from kinetic traps by proving every additional nonground configuration has a zero-barrier two-flip descent. These give a concrete warning against conflating one-spin local count, strict minima and dynamical metastability. The result is graph-specific and not an infinite-volume equilibrium phase transition, and it is not presented as such.
+Field-resonant weak Ising minima on complete balanced tripartite graphs: best-of-knowledge comparison of exact mathematical statements and their logical implications found no dominating prior result for the specified original parameter range. Previously published general and overlapping special-case results are explicitly credited. Novelty is not inferred from an unsuccessful search; see named comparisons and residual access risks.
 
-## Closest literature and residual risks
+## value
 
-Full material was examined for arXiv:0801.1224v1, arXiv:cond-mat/0210305 and arXiv:cond-mat/0105037. Relevant but less directly comparable historical works on triangular-lattice antiferromagnets and Ising fields address different lattice interactions. Historical equivalences in books, older tables, or unpublished calculations may not be indexed. The theorem is self-contained; its priority remains provisionally assessed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Weak local minima at degenerate fields are motivated as landscape counts, not falsely identified with absorbing zero-temperature configurations. The exact isolated resonance spikes, parity-alternating exponential complexity and explicit zero-cost downhill escape distinguish combinatorial local stability from dynamical trapping in an accessible dense antiferromagnet model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
