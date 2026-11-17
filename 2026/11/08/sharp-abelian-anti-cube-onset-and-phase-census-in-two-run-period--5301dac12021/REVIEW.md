@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The theorem reduces block Parikh vectors to the continuous piecewise-affine zero-prefix function. Its only slope breakpoints are shifted run boundaries. On each interval every pairwise equality is either an identity or a single explicitly computed integer root, so the count is exact with the stated polynomial-in-order bound. For three blocks, the proof separately disposes of single-letter runs, two finite exceptional short-run hosts, constructive sharp threshold witnesses, and the six exhaustive two-letter-block arrangements. The packaged verifier cross-checks 16,642 direct counts, 2,500 threshold/multiplicity cases and seeded longer tests. Complexity counts arithmetic operations and does not pretend that bit operations cost one.
+## correctness
 
-## Originality (O): PASS, with residual bibliographic risk
-Fici–Postic–Silva, arXiv:1810.12275, develops Abelian-antipower existence for infinite sequences, especially paperfolding words; its relevant definitions, theorem statements, proof material and references were inspected. Kociumaka et al., arXiv:1812.08101, counts ordinary antipowers in arbitrary finite words, which is not the same as Parikh-distinct antipowers. Peltomäki–Whiteland, arXiv:2006.06307, concerns cyclic Abelian **power** avoidance (equal Parikh vectors) rather than Abelian **antipowers** (pairwise distinct vectors). Searches also considered synonyms `anti-cube`, `anti-power`, periodic binary hosts, cyclic windows, run-length encoding, and fast phase counting. No inspected source or recovered prior statement implies the simultaneous sharp onset, phase multiplicities, and period-independent census. This is a best-knowledge comparison, not a proof of worldwide uniqueness.
+PASS
 
-## Mathematical value (V): PASS
-The order-three threshold is a complete classification for an infinite two-run periodic family, with a sharp 1/3-period obstruction, two isolated exceptional avoidance profiles and exact phase multiplicities. The general count avoids scanning a period of arbitrary size: at most \(2(q+1)+2\) breakpoints suffice even when the period and block length are enormous. These facts give the precise onset and efficient occurrence statistics of a natural Abelian-antipower invariant, not an arbitrary finite slice.
+For X=(0^a1^b)^omega, p=a+b, and k=mp+r, the zero count of consecutive blocks equals ma+g_j(u) with g_j obtained as differences of the exact run-prefix function F. Every g_j is affine between the <=2(q+1)+2 residues -jr and a-jr (j=0..q); for each interval, equality of any two integer-affine functions is either identically true, impossible, or one integer root. Removing the union of O(q^2) roots across O(q) intervals exactly counts successful q-antipower phases in O(q^3 log q) arithmetic independent of p,k. Three distinct counts require at least {0,1,2}; for s=min(a,b)=1 none exist, while s=2 requires 3k>p, except the exhaustive p=4 and p=6 cases. For s=2,t=3 or t>=5, k=floor(p/3)+1 attains the bound at exactly 2 phases. For s>=3, the six realizable length-six transition factors show K=2 and count 2+2[a=3]+2[b=3]. Independent direct cyclic-phase brute force for all 225 ordered 1<=a,b<=15 verified the onset and exact first-length multiplicities, including all impossible residues. The infinite bounds rest on the floor-prefix derivation, not the finite experiments.
 
-## Limits
-The result counts periodic starting phases; it does not classify distinct antipower factor strings. It does not assert any faster general algorithm or independence from earlier unknown unpublished work. Finite tests support but do not establish the infinite proofs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original within the precise domain and invariant, based on actual relevant mathematical comparisons; source access limitations and priority risks are retained.
+
+## value
+
+PASS
+
+The shortest Abelian three-antipower length and exact phase count are natural invariants of the elementary but nontrivial two-run periodic family, displaying sharp exceptional periods and a one-third-period threshold. The general-order phase algorithm is genuinely independent of the numerical host period, and its exactness and bounded breakpoints could be useful for larger run lengths. A general algorithm is not asserted to be runtime-optimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
