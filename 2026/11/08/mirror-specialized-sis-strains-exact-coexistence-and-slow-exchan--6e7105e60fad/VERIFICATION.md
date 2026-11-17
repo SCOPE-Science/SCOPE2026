@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Mathematical and computational verification
+# Independent mathematical audit
 
-The reproducible `verify.py` requires Python 3 standard library only. Run `python verify.py` with `RESULT.md` in the same extracted package; the verified result is `VERIFY_OK 196 exact rational and numeric checks`.
+## correctness
 
-Exact-rational checks reconstruct all six differential equations from the paper's incidence and mixing rule, evaluate their residual at the all-positive state with \(a=1/2\), \(b=3\), \(d=3/2\), and verify the conserved total of two. The strict Perron equations, the quadratic, the reflection-block determinant identities, block Hurwitz signs, and an exact finite mixing cutoff are checked. A family of additional exact rational equilibria checks each original residual independently. Strong-migration checks at \(d=100,1000,10000,100000\) compare the finite eigenvalue and patch difference to their analytic leading constants. These finite tests are supplementary; none establishes the all-parameter and asymptotic theorems without the proof in RESULT.md.
+PASS
 
-At the exact rational example, direct full six-variable symbolic differentiation yields the Jacobian characteristic polynomial
-\[
-\frac{z(z+3)(8z^2+34z+5)(8z^2+34z+29)}{64}.
-\]
-The zero factor is the population conservation mode; the remaining modes are stable on the fixed-mass subspace.
+For the exact two-patch mass-action six-ODE model with 0<a<b, equal migration d>0 and mass N=2, stationarity of patch totals gives one mass per patch. Vanishing determinants of the two positive Metzler infection matrices subtract to (1+d)(b-a)(s1-s2)=0, so s1=s2. The unique positive Perron zero of L(s), increasing on [0,1], exists precisely if Lambda(d)>0; second determinant root cannot have positive Perron vectors. Equating per-patch infected mass forces equal strain amplitudes and unique (p,q,q,p). Linearization splits even/odd Hurwitz 2x2 blocks with negative trace and positive determinants, plus eigenvalue -2d on fixed total mass; this proves local, not global, attraction. As d grows with a+b>2, the odd slow eigenvalue is -[(b-a)^2(a+b-2)/(4(a+b)^2)]/d+o(1/d); the other slow even eigenvalue stays bounded negative. For a+b<2,b>1 the invasion cutoff is d_c=(b-1)(1-a)/(2-a-b), strict. Independently differentiated full six equations at a=1/2,b=3,d=3/2 and obtained residual zero and exact characteristic polynomial z(z+3)(8z²+34z+5)(8z²+34z+29)/64. Critical a+b=2 strong migration asymptotics not claimed.
 
-**Proof boundaries.** The no-coexistence assertion concerns strictly positive equilibria, not possible single-strain equilibria or the global outcome of trajectories. Exponential attraction is local. The \(d^{-1}\) spectral law applies for \(a+b>2\), not at critical mean transmission \(a+b=2\). The mathematical literature comparison is best-knowledge and is not an independently verified publication-priority certificate.
+## originality
+
+PASS
+
+The same-equations initiating 2023 source only supplies sufficient coexistence criteria, raises uniqueness/stability as future work, and does not give mirror Perron-root iff cutoff or the d^-1 strain-exchange coefficient. Later continuous-space and constant-transmission-ratio results overlap SIS epidemiology but are not established to imply the same parameterized finite-patch theorem. Best-knowledge priority retains inaccessible-PDE/full-literature risk.
+
+## value
+
+PASS
+
+A natural analytically solvable heterogeneous two-strain spatial SIS benchmark resolves an existence/uniqueness/local-stability gap, identifies exact migration viability boundary and proves near-neutral strain-composition relaxation despite strong spatial mixing. The sharp slow rate is not a routine threshold substitution and is relevant to coexistence timescales.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
