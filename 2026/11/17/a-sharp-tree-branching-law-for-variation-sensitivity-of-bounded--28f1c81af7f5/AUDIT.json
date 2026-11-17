@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "For each active subset F of tree edges the polyhedral nearest-point derivative is the orthogonal componentwise-constant projector Q_F; every F is realized with strict KKT multipliers. Tree cut indicators are a normalized ell-one basis modulo constants, giving exact Q_F variation norms. Boundary counting yields (|B| b_A+|A| b_B)/|S|; a two-vertex edge with degree sum at least five proves the 3/2 stability gap, and a broom provides the sharp n-vertex upper envelope. Finite distinct input pairs attain the local derivative ratios. Analytic quantifiers cover all finite trees; a standard-library exact-rational check tests 1441 trees and 43614 active forests plus finite KKT witnesses.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yeganova–Wilbur (2009), https://doi.org/10.1007/s10957-008-9477-0, studies Lipschitz-constrained monotone isotonic regression on a line and an algorithm, not symmetric tree caps and the sharp two-input variation norm.",
+        "Kyng–Rao–Sachdeva–Spielman (2015), arXiv:1505.00290, studies fixed-label lex-minimal Lipschitz extensions; this is not Euclidean closest-point fitting of every vertex observation.",
+        "The published edge-gradient projection stability result concerns the cut-space projector on edge vectors; such a global orthogonal edge projection is neither the active-component projector nor an implication for the nonlinear nearest-point map."
+      ],
+      "reasoning": "Even though the cited algorithmic papers treat Lipschitz constraints on some trees, their extra monotonicity or fixed-label hypotheses and their approximation objectives do not imply sharp two-input tree total-variation sensitivity. The stronger ambient Euclidean nonexpansivity controls a different norm and cannot bound the requested graph variation by one.",
+      "searches": [
+        "graph Lipschitz regression bounded slope least squares total variation path nonexpansive claw star instability",
+        "Euclidean Lipschitz regression on star tree bounded differences total variation amplification contractivity path claw",
+        "sharp norm of conditional expectation onto connected components of a forest in edge total variation and tree boundary"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1007/s10957-008-9477-0",
+      "https://arxiv.org/abs/0912.5182",
+      "https://arxiv.org/abs/1505.00290",
+      "Published graph edge-gradient projection stability findings (different operator)",
+      "Published descendant-subtree averaging findings (different operator)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem here: for every finite tree, the *two-input* TV Lipschitz modulus of the Euclidean nearest-point map to symmetric edge difference slabs equals a maximum of connected-subtree boundary weights.",
+        "The cited regression papers provide algorithms and properties for monotone/unimodal or fixed-label problems; the cut-space paper provides a different linear operator estimate. None of those claims identifies the nontrivial path/K1,3 contractivity class or the sharp near-linear broom envelope."
+      ],
+      "reasoning": "The claim cannot be deduced merely from the existence of the regression algorithms or Euclidean norm contraction: graph BV and Euclidean norms are not uniformly equivalent, and derivative/active-set geometry is specifically used to establish exact coefficients. Residual unindexed equivalence is not ruled out.",
+      "searches": [
+        "Euclidean projection on intersection of edge-difference slabs, metric projection onto discrete Lipschitz ball, sharp graph total variation Lipschitz amplification, connected active components",
+        "graph Lipschitz regression bounded slope least squares total variation path nonexpansive claw star instability",
+        "Euclidean Lipschitz regression on star tree bounded differences total variation amplification contractivity path claw",
+        "https://arxiv.org/abs/0912.5182",
+        "https://arxiv.org/abs/1505.00290"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A tree gradient identifies vertex signals modulo constants with an edge-coordinate ell-one space; each active set is an orthogonal component-average projection, unlike the orthogonal projection of arbitrary edge vectors onto the graph cut space.",
+        "Agarwal–Phillips–Sadri, arXiv:0912.5182, sections on Lipschitz-isotonic/unimodal regression, solve problems with an order or unimodality restriction, absent from the present symmetric bounded-slope polyhedron."
+      ],
+      "reasoning": "A possible equivalent is the largest graph-variation norm of a realizable active-forest conditional expectation. The unrestricted symmetric edge-cap fit produces all forests as local Jacobians; no checked prior work provides the maximum over these active subspaces or the connected-subtree boundary ratio.",
+      "searches": [
+        "Euclidean projection on intersection of edge-difference slabs, metric projection onto discrete Lipschitz ball, sharp graph total variation Lipschitz amplification, connected active components",
+        "cut variation norm of connected block averaging projection forest boundary subtree formula",
+        "sharp Lipschitz constants of projection onto graph Lipschitz functions total variation contraction classification tree path star"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Primary 2009 papers report algorithms and convergence/complexity, not exhaustive tables of variation amplification across tree shapes.",
+        "The sharp formulas include infinitely many connected-subtree boundary ratios and the n-vertex maximum, not simply any finite numerical census."
+      ],
+      "reasoning": "Searches for the bounded-difference projector, active subtree norm, boundary cuts and path/claw thresholds did not locate a table with the identical invariant. This negative retrieval is limited evidence, not a proof of priority.",
+      "searches": [
+        "cut variation norm of connected block averaging projection forest boundary subtree formula",
+        "sharp Lipschitz constants of projection onto graph Lipschitz functions total variation contraction classification tree path star",
+        "tree bounded slope least squares projection variation sharp formula path claw broom"
+      ]
+    },
+    "rationale": "Full primary-text comparisons with 2009 Lipschitz-isotonic path/tree regression and 2015 Lipschitz graph extension do not imply unconstrained symmetric bounded-slope least-squares projection graph-TV stability. Searches under active-forest component averaging, graph BV, constrained projection and equivalent cut formulations found no exact subtree-boundary formula, contractivity classification or sharp order-n envelope. Published linear cut-space orthoprojectors and predetermined averaging do not imply the nonlinear active-set family. Historical priority remains provisional.",
+    "residual_risks": [
+      "An unindexed older source on Euclidean projection onto graph edge-difference slabs or on active-forest TV norms may establish an equivalent formula.",
+      "The public literature searches and inspected full texts cannot establish global novelty or substitute for independent priority review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: monotone line regression and numerical solution, not unconstrained signed bounded slopes on trees nor exact TV stability",
+        "evidence": "The regression is isotonic with an upper Lipschitz constraint and focuses on efficient fitting and convergence; no two-input variation-operator norm or tree boundary formula.",
+        "identifier_or_url": "https://doi.org/10.1007/s10957-008-9477-0",
+        "material_read": "Full 15-page available primary PDF, including introduction, problem definitions, convergence statements, proof sections and references",
+        "method": "Reading full text and checking definitions, hypothesis restrictions, theorems and implications",
+        "title": "Isotonic Regression under Lipschitz Constraint",
+        "trigger": "Closest early Lipschitz-constrained least-squares problem on a path"
+      },
+      {
+        "assessment": "NOT_COVERING: monotonicity/unimodality assumptions are retained, no symmetric tree-slab projection norm formula",
+        "evidence": "Optimizes Lipschitz-isotonic or unimodal regression with order constraints, whereas present K_R permits arbitrary signed slopes and studies stability in graph TV.",
+        "identifier_or_url": "https://arxiv.org/abs/0912.5182",
+        "material_read": "Primary arXiv full text, mathematical problem setup and sections on paths and trees",
+        "method": "Full-text examination of algorithms, definitions, and theorems",
+        "title": "Lipschitz Unimodal and Isotonic Regression on Paths and Trees",
+        "trigger": "Extends Lipschitz-constrained regression algorithms to trees"
+      },
+      {
+        "assessment": "NOT_COVERING: fixed-label lex-minimal Lipschitz extension is different from Euclidean nearest-point fitting on all graph vertices",
+        "evidence": "The algorithm fixes labeled vertex values and minimizes Lipschitz extensions; no free-input least squares or two-input TV gain.",
+        "identifier_or_url": "https://arxiv.org/abs/1505.00290",
+        "material_read": "Full primary arXiv HTML sections covering introduction, graph notation, algorithms, stability and proofs",
+        "method": "Compare mathematical objectives, free/prescribed coordinates and result statements",
+        "title": "Algorithms for Lipschitz Learning on Graphs",
+        "trigger": "A general graph Lipschitz fitting/extension result might dominate the tree case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "28f1c81a-f7f5-4987-9747-86be2f34e5e5",
+  "value": {
+    "rationale": "The graph-total-variation gain is a natural robustness invariant for bounded-slope least-squares fitting, not controlled by Euclidean nonexpansivity. A complete connected-subtree exact formula, a sharp path/four-claw versus all-others contractivity discontinuity, and an attained near-linear worst-order broom law give structural characterization and practical stress-test witnesses. They are nontrivial from operator geometry and not routine restatements of a tabulated case.",
+    "status": "PASS"
+  }
+}
