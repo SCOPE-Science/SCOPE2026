@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T13:25:19.303999Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/three-euclidean-inball-phases-of-panhandle-matroid-base-polytope--3e805ae8aac8/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/three-euclidean-inball-phases-of-panhandle-matroid-base-polytope--3e805ae8aac8/VERIFICATION.md"
+      ],
+      "rationale": "Using the exact panhandle facet halfspaces, their projected Euclidean normals have lengths q=sqrt((n-1)/n) and beta=sqrt(st/n). Summing the eroded facet inequalities gives three necessary upper bounds for normalized inradius ν=qρ; symmetric feasibility intervals show sufficiency. Active equalities force the claimed unique/cube-section/simplex center strata and facet counts for 3<=r<s,t>=2. The isolated u/ν notational switch in Finding is unambiguously resolved by its definition and proof (the same minimum), without changing any mathematical statement.",
+      "residual_risks": [
+        "No Lean or external-expert formal attestation; finite diagnostics alone do not prove infinite scope."
+      ],
+      "status": "PASS",
+      "verified_checks": [
+        "Independent scipy.optimize.linprog unsymmetrized Chebyshev LP on (r,s,t)=(3,4,2),(3,9,2),(5,6,2),(3,8,2),(7,12,3) matched formula to <1e-8.",
+        "Inspected check_panhandle.py, confirming its LP imposes all lower/upper coordinate constraints plus the handle-sum facet, and its finite enumeration is not substituted for general proof.",
+        "Checked facet nonredundancy under r<s,t>=2 and center dimensions in all three strict regimes."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2201.12442",
+          "https://arxiv.org/abs/2311.01640",
+          "Prior studies develop Ehrhart polynomials and facets rather than metric incenter phases."
+        ],
+        "reasoning": "No inspected general matroid Chebyshev-center theorem with explicit panhandle three-phase specialization.",
+        "searches": [
+          "panhandle matroid base polytope Euclidean Chebyshev center inradius facet phases",
+          "https://arxiv.org/abs/2201.12442",
+          "panhandle matroid Euclidean inradius Chebyshev center"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-minkowski-asymmetry-and-center-strata-of-panhandle-matroid--d2c508399793/RESULT.md",
+        "https://arxiv.org/abs/2201.12442",
+        "https://arxiv.org/abs/2311.01640",
+        "panhandle matroid base polytope Euclidean Chebyshev center inradius facet phases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-minkowski-asymmetry-and-center-strata-of-panhandle-matroid--d2c508399793/RESULT.md",
+          "https://arxiv.org/abs/2201.12442",
+          "Knowing all facet inequalities plus asymmetry optimum does not give Euclidean metric distances without independently computing projected facet normals and solving a Chebyshev LP."
+        ],
+        "reasoning": "Candidate proof adds a distinct metric optimization; not an immediate corollary of affine invariant asymmetry.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-minkowski-asymmetry-and-center-strata-of-panhandle-matroid--d2c508399793/RESULT.md",
+          "https://arxiv.org/abs/2201.12442"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-minkowski-asymmetry-and-center-strata-of-panhandle-matroid--d2c508399793/RESULT.md",
+          "Minkowski asymmetry minimizes an affine reflection dilation; inradius minimizes Euclidean signed distances to facets with normals q and beta."
+        ],
+        "reasoning": "The source halfspace model is common, but different objective and norm coefficients prevent identifying the two exact invariants.",
+        "searches": [
+          "panhandle matroid base polytope Euclidean Chebyshev center inradius facet phases",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-minkowski-asymmetry-and-center-strata-of-panhandle-matroid--d2c508399793/RESULT.md",
+          "https://arxiv.org/abs/2201.12442"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-minkowski-asymmetry-and-center-strata-of-panhandle-matroid--d2c508399793/RESULT.md",
+          "Its formula max{t,(s+t-r)/r,r/(s-r+1)} differs from candidate min{r/(s+t),1/(t+sqrt(st/(n-1))),(s+1-r)/(s+sqrt(st/(n-1)))}."
+        ],
+        "reasoning": "Same combinatorial center dimensions occur in a different invariant; no exact inradius data/table found.",
+        "searches": [
+          "panhandle matroid base polytope Euclidean Chebyshev center inradius facet phases",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-minkowski-asymmetry-and-center-strata-of-panhandle-matroid--d2c508399793/RESULT.md"
+        ]
+      },
+      "rationale": "Earlier panhandle papers supply facet and Ehrhart descriptions, while a prior Resultary result computes affine-invariant Minkowski asymmetry and its center strata, not intrinsic metric inradius. Despite analogous center geometry, its dilation support conditions have different constants, and do not imply the Euclidean facet-normal weighted three-barrier optimum.",
+      "residual_risks": [
+        "Full Hanely et al. source did not load from arXiv HTML in this run, so a supplementary metric statement cannot be completely ruled out.",
+        "General generalized-permutohedron inball literature may supply a stronger abstract formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_DISTINCT_INVARIANT",
+          "evidence": "Asymmetry is affine invariant; no Euclidean inradius value",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-exact-minkowski-asymmetry-and-center-strata-of-panhandle-matroid--d2c508399793/RESULT.md",
+          "material_read": "Full published theorem and proof, including support-based inequalities and center dimensions",
+          "method": "GitHub published RESULT.md",
+          "title": "Exact Minkowski asymmetry and center strata of panhandle matroid base polytopes",
+          "trigger": "Same polytopes and center strata"
+        },
+        {
+          "assessment": "SOURCE_OF_HALFSPACE_DESCRIPTION_ONLY",
+          "evidence": "Ehrhart and hypersimplex slicing, not metric inballs",
+          "identifier_or_url": "https://arxiv.org/abs/2201.12442",
+          "material_read": "arXiv abstract/metadata and Proposition 4.4 as quoted in the inspected source, not independently full primary text",
+          "method": "arXiv public abstract; arxiv HTML retrieval failed",
+          "title": "Ehrhart Theory of Paving and Panhandle Matroids",
+          "trigger": "Defining exact facet description"
+        },
+        {
+          "assessment": "NO_INBALL_IN_ABSTRACT",
+          "evidence": "Ehrhart coefficient bounds",
+          "identifier_or_url": "https://arxiv.org/abs/2311.01640",
+          "material_read": "Abstract and available metadata",
+          "method": "arXiv",
+          "title": "Ehrhart Positivity of Panhandle Matroids and the Ehrhart-Coefficient Upper-Bound Conjecture for Paving Matroids",
+          "trigger": "Same object and plausible broad coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact Euclidean inradius and the complete locus of maximal inscribed-ball centers are natural quantitative polytope invariants; the three strict phases and unbounded positive-dimensional center families provide meaningful geometry beyond a routine single-parameter calculation.",
+      "residual_risks": [
+        "Full Hanely et al. source did not load from arXiv HTML in this run, so a supplementary metric statement cannot be completely ruled out.",
+        "General generalized-permutohedron inball literature may supply a stronger abstract formula."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full Hanely et al. source did not load from arXiv HTML in this run, so a supplementary metric statement cannot be completely ruled out.",
+    "General generalized-permutohedron inball literature may supply a stronger abstract formula.",
+    "No GitHub writes or publication performed; importer must validate all guards and destination.",
+    "Independent scientific review is not external certification."
+  ],
+  "schema_version": 1
+}

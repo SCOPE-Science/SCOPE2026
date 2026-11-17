@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The exact theorem is proved from the halfspace representation in `RESULT.md`, including all radius normalization factors and all quantifiers. The independent checker `check_panhandle.py` recomputes 495 unsymmetrized Chebyshev linear programs via SciPy/HiGHS, validates a constructive symmetric feasible center, and compares with the claimed closed formula. It also enumerates small base-incidence vectors, checks the declared facet ranks, and runs convex-hull computations for explicit cases. It prints `PANHANDLE_INBALL_TESTS_PASSED` upon success. Install requirements in `requirements.txt` and run `python check_panhandle.py`.
+# Independent mathematical audit
 
-The general conclusion relies on the analytic upper-bound and interval-feasibility argument, not finite numerical testing. The source H-description is Hanely et al., arXiv:2201.12442, Proposition 4.4. Every tested scenario is a finite check; neither exhaustive parameter search nor independent mathematical audit is claimed. The code does not implement a proof assistant.
+## correctness
+
+PASS
+
+Using the exact panhandle facet halfspaces, their projected Euclidean normals have lengths q=sqrt((n-1)/n) and beta=sqrt(st/n). Summing the eroded facet inequalities gives three necessary upper bounds for normalized inradius ν=qρ; symmetric feasibility intervals show sufficiency. Active equalities force the claimed unique/cube-section/simplex center strata and facet counts for 3<=r<s,t>=2. The isolated u/ν notational switch in Finding is unambiguously resolved by its definition and proof (the same minimum), without changing any mathematical statement.
+
+## originality
+
+PASS
+
+Earlier panhandle papers supply facet and Ehrhart descriptions, while a prior Resultary result computes affine-invariant Minkowski asymmetry and its center strata, not intrinsic metric inradius. Despite analogous center geometry, its dilation support conditions have different constants, and do not imply the Euclidean facet-normal weighted three-barrier optimum.
+
+## value
+
+PASS
+
+Exact Euclidean inradius and the complete locus of maximal inscribed-ball centers are natural quantitative polytope invariants; the three strict phases and unbounded positive-dimensional center families provide meaningful geometry beyond a routine single-parameter calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

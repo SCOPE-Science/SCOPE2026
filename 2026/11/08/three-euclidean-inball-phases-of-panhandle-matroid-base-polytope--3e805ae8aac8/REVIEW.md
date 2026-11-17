@@ -1,11 +1,21 @@
-# Scientific review: panhandle matroid inball phases
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement is restricted to \(3\le r<s\), \(t\ge2\) and the intrinsic Euclidean metric. Hanely et al.'s Proposition 4.4 supplies the complete halfspace representation. Orthogonal projections of each coordinate normal and the handle-sum normal have lengths \(\sqrt{(n-1)/n}\) and \(\sqrt{st/n}\), respectively. All three necessary inequalities follow from summing the eroded genuine facets; a constant-on-two-blocks center exists precisely when four interval comparisons hold, of which the fourth is redundant. Forced equality in the active barriers gives the entire center loci and relative-interior contact counts. The accompanying finite checker solves the unsymmetrized LP for 495 parameter triples, verifies explicit feasible symmetric centers and representative facet ranks, and does not purport to replace the proof.
+## correctness
 
-**Originality — PASS, with historical-priority uncertainty.** The 2022 panhandle-matroid source proves the polytope inequalities and Ehrhart formulas, not the new intrinsic Euclidean inradius, three-barrier phase classification, or full incenter geometry. The 2023 follow-up concerns Ehrhart coefficients and paving matroids; the lattice-path matroid manuscript concerns triangulations and Ehrhart theory. The published rank-two matroid-base inradius theorem covers rank two, so rank two is expressly excluded from the present claim. The published thin-hyperplane-slice-of-a-box result lacks the handle-sum facet and does not supply the three phases here. Exact-title/alias/parameter searches of accessible mathematical findings and the present ledger detected no covering result for rank at least three. A general theorem about Chebyshev centers of matroid base polytopes might imply this special formula and remains a residual priority risk.
+PASS
 
-**Mathematical value — PASS.** Panhandle matroid base polytopes are the natural pieces carved from hypersimplices in the study of paving matroids. Their maximal intrinsic Euclidean ball measures metric effects of this truncation, which neither Ehrhart enumeration nor the halfspace description computes. The result gives a complete all-parameter metric and center-locus classification with three genuinely different strict phases: uniqueness, an \((s-1)\)-dimensional cube section, and a \((t-1)\)-simplex. Both nonunique phase dimensions are unbounded, and exact contact classes change across the barriers. This is a motivated structural classification, not a finite numerical observation or a claim of a general result on all matroids.
+Using the exact panhandle facet halfspaces, their projected Euclidean normals have lengths q=sqrt((n-1)/n) and beta=sqrt(st/n). Summing the eroded facet inequalities gives three necessary upper bounds for normalized inradius ν=qρ; symmetric feasibility intervals show sufficiency. Active equalities force the claimed unique/cube-section/simplex center strata and facet counts for 3<=r<s,t>=2. The isolated u/ν notational switch in Finding is unambiguously resolved by its definition and proof (the same minimum), without changing any mathematical statement.
 
-**Closest literature and limits.** D. Hanely et al., *Ehrhart Theory of Paving and Panhandle Matroids*, arXiv:2201.12442, Proposition 4.4; D. Deligeorgaki et al., *Ehrhart Bounds for Panhandle and Paving Matroids Through Enumeration of Chain Forests*, arXiv:2311.01640; C. Benedetti-Velásquez et al., *On Lattice Path Matroid Polytopes*; published rank-two Euclidean inradius result. Source limitations and an explicit analytic proof are in `RESULT.md`. The code tests only finitely many parameter triples. No independent mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier panhandle papers supply facet and Ehrhart descriptions, while a prior Resultary result computes affine-invariant Minkowski asymmetry and its center strata, not intrinsic metric inradius. Despite analogous center geometry, its dilation support conditions have different constants, and do not imply the Euclidean facet-normal weighted three-barrier optimum.
+
+## value
+
+PASS
+
+Exact Euclidean inradius and the complete locus of maximal inscribed-ball centers are natural quantitative polytope invariants; the three strict phases and unbounded positive-dimensional center families provide meaningful geometry beyond a routine single-parameter calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
