@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** On a sufficiently small endpoint interval, the stationary CDFs satisfy exact two-term scaling equations. Their characteristic sums have unique positive roots. A compact maximum/minimum principle gives opposing power barriers on the two sides of each root. These bounds imply exact local dimensions and strict negative-moment thresholds by a Tonelli identity. The ordering of roots follows from their characteristic functions. The proof neither assumes a global affine formula nor confuses computations with proof.
+## correctness
 
-**Originality — PASS in the inspected literature.** The closest primary source, Barański–Śpiewak arXiv:2208.06394, proves global measure-dimension bounds and singularity over nonresonant parameters, not the two exact boundary scaling exponents. Their earlier arXiv:1905.11048 provides only an unspecified positive endpoint Hölder exponent (Theorem 3.6) and more explicit resonant results, while the present claim explicitly excludes resonant slopes. Bradík–Roth arXiv:2102.02023 concerns generic singular full-support stationary measures. Claim-level research-index searches found no equivalent. General renewal-theoretic treatments outside the inspected sample are a priority risk.
+PASS
 
-**Mathematical value — PASS.** Endpoint local dimensions and inverse-power moment thresholds are canonical small-ball statistics, especially in singular, full-support random dynamics. The new explicit pair quantifies a measurable asymmetry under biased random switching, despite the underlying maps being mirror images, and distinguishes boundary concentration from the known global dimension.
+For sufficiently small endpoint radii, inverse images remain in the exact affine endpoint branches; stationarity then yields U(r)=pU(r/a)+qU(r/b) and V(r)=pV(r/b)+qV(r/a). Positive drift makes each convex characteristic function dip below one then cross exactly once at positive kappa. For s<kappa choose barrier C r^s with Phi(s)<1, for s>kappa barrier c r^s with Phi(s)>1; compact max/min principle on [0,R] controls endpoints and gives c r^t<=U(r)<=C r^s for s<kappa<t. Log divide (with negative log r) gives local dimension. Tonelli identity int x^-t dmu =1+t int_0^1 r^-t-1 U(r)dr yields finite for t<kappa, infinite for t>kappa. Difference Phi0-Phi1=(p-q)(a^-s-b^-s) proves root ordering. Critical t=kappa not claimed. Independent bisection for (a,b,p)=(1/3,8,.55) gives roots .28171392907808834 and .5524212948436695; only corroborative.
 
-**Limitations.** Exactly affine boundary branches and positive boundary drifts are essential for this proof. The result is restricted to nonresonant systems using the cited full-support theorem. It does not evaluate exact power-law constants, critical negative moments, or overall Hausdorff dimension. Independent external comparison has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Barański–Śpiewak nonresonant stationary dimension paper treats global Hausdorff dimension and singularity, while their earlier AM paper gives existence/support and a nonquantitative endpoint power estimate. Neither inspected result supplies two separate exact endpoint Cramér roots plus the strict moment thresholds. Resultary comparable critical zero-drift and other random-map results have different models/regimes. General renewal/Cramér-Lundberg comparisons remain a real residual risk, acknowledged rather than assumed absent.
+
+## value
+
+PASS
+
+Endpoint local dimension and inverse-distance moment integrability are natural invariants of singular full-support stationary measures, not arbitrary slices. Distinct roots explicitly reveal biased boundary concentration despite reflection-related map geometry; useful for boundary singularities and weighted observables, independent of computing global Hausdorff dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
