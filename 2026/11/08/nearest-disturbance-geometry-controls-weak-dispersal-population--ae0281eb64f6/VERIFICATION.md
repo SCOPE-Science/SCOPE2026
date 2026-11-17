@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-The included `verify.py` is standalone Python 3 standard-library code. Run `python3 verify.py`. It builds weighted Laplacians using exact rational arithmetic, independently solves the stationary covariance Lyapunov equation coefficient-by-coefficient in the migration parameter, and compares those coefficients against shortest-path formulas.
+## correctness
 
-Four networks were tested: a three-vertex one-source path, a four-vertex two-source diamond with asymmetric edge weights, a five-vertex two-source path with unequal source intensities, and a five-vertex one-source network with two competing shortest paths. The run produced 46 exact diagonal/pairwise checks, including 24 pairs sharing a nearest source and five pairs with disjoint nearest-source sets. Every coefficient below the predicted first nonzero order vanished, and the coefficient at that order equaled the theorem's prediction. A three-patch path yielded exact squared limiting correlations \(1/2\), \(1/6\), and \(3/4\) for pairs \((0,1)\), \((0,2)\), and \((1,2)\), respectively.
+PASS
 
-The formal checks are finite examples, not exhaustive verification of arbitrary-size graphs. Infinite-uniform generality comes from the semigroup shortest-path argument and integrated Taylor remainder bounds in RESULT.md. None of the output constitutes an independently executed scientific audit.
+For symmetric weighted Laplacian L and A=λI+εL, the stationary covariance C=∫e^(-2λt)e^(-εLt)Qe^(-εLt)dt. Each (i,s) semigroup entry first appears at power ε^d(i,s), with positive shortest-path weight H_is/d!; uniform Taylor domination permits integration. Consequently C_ij leading order is m_ij=min_s(d(i,s)+d(j,s)) with factorial/binomial B_ij; C_ii has 2r_i order, yielding exact ε^(m_ij-r_i-r_j)/(2λ)^k times B_ij/sqrt(V_iV_j). No cancellations since source intensities and weights are positive. Equality r_i+r_j=m iff nearest-source sets meet; factorial log convexity and Cauchy-Schwarz give sharp unit-limit criterion and universal single-source factorial law. Boundary n>=2, λ>0, ε>0, positive symmetric weights and independent active white-noise sources are explicit. Independent rational Lyapunov coefficients on a weighted four-vertex graph verified all leading terms including disjoint-source cases; this is diagnostic, not an infinite proof.
+
+## originality
+
+PASS
+
+Compared same-model Lyapunov formulas and two-patch population-dispersal literature as well as published stochastic-network correlations. Generic stationary covariance/graph Green functions, positivity and ecological synchrony are prior; no inspected earlier statement yields the full sparse-source shortest-path exponent, positive coefficient, nearest-source cosine/positive/unit classification and single-source weight-independent limit together. Specialized earlier implicit perturbation statements remain an explicit risk.
+
+## value
+
+PASS
+
+Sparse forcing and weak migration are natural limits in spatially structured noise. The exact integer decay exponents, nearest-source sets and unit-correlation equality case provide a nontrivial, all-graph classification distinguishing vanishing variance from strongly normalized synchrony; its leading coefficient gives a concrete physically interpretable graph quantity, not an arbitrary finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

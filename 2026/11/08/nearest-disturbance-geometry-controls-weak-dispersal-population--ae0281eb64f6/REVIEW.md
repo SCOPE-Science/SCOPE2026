@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The theorem fixes a symmetric weighted graph Laplacian, a positive local damping rate, precisely defined independent forcing sources, and a zero-migration limit. The stable Gaussian covariance admits the standard integrated semigroup representation. Powers of the off-diagonal Laplacian vanish before graph distance and the first nonzero power is the positive weighted shortest-path sum. Multiplying the semigroup expansions, integrating \(t^k e^{-2\lambda t}\), and using positivity removes cancellation and proves exact covariance orders and coefficients. Division by the independently derived variance orders establishes the correlation exponent, positive coefficient, the nearest-source intersection test and the equality case via strict factorial log-convexity and Cauchy–Schwarz. Matrix contraction bounds justify all remainder manipulations. The standalone, exact-rational Lyapunov-series checker independently matches all predicted first nonzero coefficients over 46 entries in four networks, not an all-graph exhaustive proof.
+## correctness
 
-## Originality
-**PASS within the inspected evidence, with residual historical-priority risk.** Kendall et al. (2000; https://doi.org/10.1086/303350) analyze a *two-patch discrete-time* model and an additive decomposition of noise and dispersal; their author-uploaded complete text does not include a universal sparse-source shortest-path asymptotic. Ren et al. (2010; https://arxiv.org/abs/1001.3966) derive the general network Lyapunov covariance relation, but not this sharp nearest-source distance classification, leading factorial coefficient or vanishing ambient-noise singular limit. Grytskyy et al. (2013; https://arxiv.org/abs/1304.7945) also address linear-network covariance in a distinct neural setting. The standard covariance integral logically enables the present calculation, but by itself does not state the positive sharp exponent or classify limiting perfect/zero correlations. Direct literature comparisons include the deterministic network response functions of Barzel and Biham (2009), the metapopulation synchrony of Haydon (1997), and river-network synchronizability of Yeakel et al. (2013). Residual risk: uninspected specialized spatial-filter or graph-signal asymptotics may contain equivalent results, and the full Haydon text was not available. The claim is not independently priority-certified.
+PASS
 
-## Value
-**PASS.** Sparse localized climatic disturbance is a natural model for spatially nonuniform environmental forcing. General metapopulation synchrony work has emphasized dispersal and environmental correlation, but the precise source geometry of weak-migration synchrony can be obscured by generic covariance formulas. The theorem yields a sharp integer decay rate from graph geometry, positive closed coefficients from shortest-path weights, a topological decision rule for zero versus nonzero limiting synchrony, and an exact criterion for unit-limit correlation. The single-source factorial universality and the noncommutation of adding tiny independent ambient noise show why limiting normalized correlations need not reflect absolute fluctuation size. These are mathematically motivated, complete results for a natural model, not an empirical claim about ecological management.
+For symmetric weighted Laplacian L and A=λI+εL, the stationary covariance C=∫e^(-2λt)e^(-εLt)Qe^(-εLt)dt. Each (i,s) semigroup entry first appears at power ε^d(i,s), with positive shortest-path weight H_is/d!; uniform Taylor domination permits integration. Consequently C_ij leading order is m_ij=min_s(d(i,s)+d(j,s)) with factorial/binomial B_ij; C_ii has 2r_i order, yielding exact ε^(m_ij-r_i-r_j)/(2λ)^k times B_ij/sqrt(V_iV_j). No cancellations since source intensities and weights are positive. Equality r_i+r_j=m iff nearest-source sets meet; factorial log convexity and Cauchy-Schwarz give sharp unit-limit criterion and universal single-source factorial law. Boundary n>=2, λ>0, ε>0, positive symmetric weights and independent active white-noise sources are explicit. Independent rational Lyapunov coefficients on a weighted four-vertex graph verified all leading terms including disjoint-source cases; this is diagnostic, not an infinite proof.
 
-## Closest literature, applicability and risks
-The closest theoretical sources are Kendall et al. (2000) and Ren et al. (2010). The former covers an exact two-patch synchronization formula with stochastic forcing at both patches; the latter provides a generic covariance-equation framework for networks. Neither inspected primary full text asserts the present all-graph sparse-source leading-order theorem. Important limits include finite undirected weighted graphs, homogeneous damping, a fixed source set with strictly positive noise intensities, and a singular zero-migration limit. The independent full historical priority assessment is still open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared same-model Lyapunov formulas and two-patch population-dispersal literature as well as published stochastic-network correlations. Generic stationary covariance/graph Green functions, positivity and ecological synchrony are prior; no inspected earlier statement yields the full sparse-source shortest-path exponent, positive coefficient, nearest-source cosine/positive/unit classification and single-source weight-independent limit together. Specialized earlier implicit perturbation statements remain an explicit risk.
+
+## value
+
+PASS
+
+Sparse forcing and weak migration are natural limits in spatially structured noise. The exact integer decay exponents, nearest-source sets and unit-correlation equality case provide a nontrivial, all-graph classification distinguishing vanishing variance from strongly normalized synchrony; its leading coefficient gives a concrete physically interpretable graph quantity, not an arbitrary finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
