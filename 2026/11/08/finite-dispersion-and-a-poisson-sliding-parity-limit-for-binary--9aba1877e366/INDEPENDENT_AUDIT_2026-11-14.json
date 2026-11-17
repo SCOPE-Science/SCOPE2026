@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T23:02:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Deleting a contiguous fixed-length b-block at positions i and j gives identical descendants iff all x_t=x_{t+b} for i<=t<j, implying B_b(x)=1+sum_{i=0}^{n-b-1}1{x_i!=x_{i+b}}. Independent flip signs eta_j=(-1)^xi_j yield E Z_i=a^b, E Z_i Z_{i+h}=a^{2h} if h<b or a^{2b} otherwise; summing covariance proves stated exact mean and variance for n>=2, 1<=b<=n, p in [0,1], including N=0. For p_n=lambda/n and b_n/n->alpha in (0,1), sparse flips give Poisson point-process convergence; sliding-window parity Riemann approximation yields L=integral_0^(1-alpha) 1{Pi((t,t+alpha]) odd}dt, with mean, integrated variance, non-Gaussian atom and one-point density. Independent exhaustive deletion-output direct count over 1536 finite (n,b,word) cases and exact Bernoulli flip moments on small cases corroborated, rather than proving the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Resultary 2026-10-25 q-ary two-deletion result gives exact moments for arbitrary two deletions of iid letters and a growing-alphabet Poisson deficit.",
+          "Current p_n=lambda/n with fixed binary alphabet and b/n->alpha produces finite Poisson switches and sliding parity, not growing alphabet coincidences."
+        ],
+        "reasoning": "The similar word Poisson in an earlier limit denotes a different random variable and scaling. No inspected broader theorem implies the specific sliding parity law automatically.",
+        "searches": [
+          "Resultary search binary deletion ball variance Poisson",
+          "arXiv:2610.05696",
+          "Bogachev Ratanov occupation time distributions 2011"
+        ]
+      },
+      "checked_sources": [
+        "Assigned full RESULT.md blob 893abc86ae7424dec44f72cd1ff673ec51b42814; checker.py blob 0eef5265bed903ad33f4315d575b191601d6861b",
+        "Resultary full 2026-10-25 exact q-ary two-deletion variance and limit",
+        "arXiv 2610.05696 full abstract 2026-10-05",
+        "Independent direct deletion-output cardinalities and exact small Markov flip moments"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Current normalized law has atom >=exp(-lambda) at zero and a nondegenerate continuous component.",
+          "Prior double-deletion growing-alphabet deficit has two independent Poisson components and a different scale."
+        ],
+        "reasoning": "Neither channel/code construction result entails this correlated-binary sliding-window parity occupancy; it is not a corollary of a matching Poisson label.",
+        "searches": [
+          "Full Resultary 2026-10-25 exact q-ary two-deletion variance RESULT.md",
+          "Ye Ge 2026 arXiv abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior two-deletion sphere theorems delete two arbitrary positions rather than one contiguous length-b block.",
+          "Ye–Ge arXiv:2610.05696 constructs burst-deletion correcting codes and redundancy bounds, not the correlated-source one-burst output-count law."
+        ],
+        "reasoning": "A one-burst sphere cardinality has a different deterministic identity from arbitrary multi-position deletion spheres; telegraph occupation of one-time sign differs from lagged two-time parity.",
+        "searches": [
+          "Resultary: burst deletion sphere binary Markov source Poisson sliding parity exact variance",
+          "Resultary: binary burst deletion distinct outputs sliding parity Poisson rare flips deletion sphere variance",
+          "arXiv:2610.05696",
+          "Bogachev Ratanov 2011 telegraph occupation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "At p=1/2 and b fixed, current mean 1+(n-b)/2 and finite variance from overlap.",
+          "Previously published binary two-independent-deletion variance (n-1)(n-2)(2n-3)/32 concerns another channel."
+        ],
+        "reasoning": "No earlier exact Markov one-burst finite variance table covering all b,n,p verified in inspected material; routine special cases may be known.",
+        "searches": [
+          "Resultary published binary two-deletion variance",
+          "Resultary query finite dispersion binary burst deletion"
+        ]
+      },
+      "rationale": "Against full submitted theorem and inspected sources: Natural specific formula distinct from checked prior claims, with clear residual priority risks. The natural distinct-output count of a one-burst deletion channel under a correlated binary source admits exact finite dispersion and a non-Gaussian macroscopic-burst sparse-flip limit; the occupation/variance and atom a",
+      "residual_risks": [
+        "Elementary deterministic burst-history identity may be in classic channel literature, without the source-dependent stochastic theorem.",
+        "No explicit density of whole Poisson functional L for all jump counts; p_n=lambda/n and alpha in (0,1) only.",
+        "Telegraph parity occupancy more general sources may cover this special case under alternative names."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING one contiguous length-b burst",
+          "evidence": "Earlier deletes any two positions in iid q-ary words, and q increases with n for its Poisson law; current fixed binary alphabet uses sparse flips.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-q-ary-two-deletion-variance-and-a-two-scale-poisson-ambigu--1cbd5a76d8bf",
+          "material_read": "Complete published RESULT.md including greedy-embedding identity, second moments and Poisson regime",
+          "method": "GitHub primary RESULT.md full",
+          "title": "Exact q-ary two-deletion variance and a two-scale Poisson ambiguity transition",
+          "trigger": "Overlapping deletion-ball exact moments and Poisson limits"
+        },
+        {
+          "assessment": "NOT_DETERMINED full-document coverage",
+          "evidence": "Abstract gives code constructions/redundancy, not source probability law or Poisson sliding parity; cannot exclude buried lemma without full text.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.05696",
+          "material_read": "ArXiv title, full abstract, authors, posting date 2026-10-05; full text not inspected",
+          "method": "arXiv abstract through web",
+          "title": "Substring Edit Correcting Codes and Optimal Single Burst-Deletion Correcting Codes",
+          "trigger": "Directly relevant burst deletion terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The natural distinct-output count of a one-burst deletion channel under a correlated binary source admits exact finite dispersion and a non-Gaussian macroscopic-burst sparse-flip limit; the occupation/variance and atom are useful for typical channel ambiguity and represent a meaningful scaling boundary.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Elementary deterministic burst-history identity may be in classic channel literature, without the source-dependent stochastic theorem.",
+    "No explicit density of whole Poisson functional L for all jump counts; p_n=lambda/n and alpha in (0,1) only.",
+    "Telegraph parity occupancy more general sources may cover this special case under alternative names."
+  ],
+  "schema_version": 1
+}

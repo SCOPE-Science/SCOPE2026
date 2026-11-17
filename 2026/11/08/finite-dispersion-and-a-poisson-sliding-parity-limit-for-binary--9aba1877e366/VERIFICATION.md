@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Run `python3 checker.py` in the directory containing the files. The checker uses Python's standard library only, evaluates actual distinct deletion-output sets, compares the resulting counts with the deterministic identity for all binary words through length nine, then checks the exact finite Markov mean and variance using rational-weighted flip histories.
+# Independent mathematical audit
 
-Expected successful output includes `PASS: exact distinct-output checks 8192` and `PASS: exact moment checks 132 parameter pairs`. These finite computations are corroboration and do not certify the point-process convergence for infinitely many block lengths. The latter relies on rare Bernoulli point-process convergence, Riemann approximation for moving parity windows, and exact Poisson interval parity identities as shown in the proof. No independent scientific audit was performed.
+## correctness
+
+PASS
+
+Deleting a contiguous fixed-length b-block at positions i and j gives identical descendants iff all x_t=x_{t+b} for i<=t<j, implying B_b(x)=1+sum_{i=0}^{n-b-1}1{x_i!=x_{i+b}}. Independent flip signs eta_j=(-1)^xi_j yield E Z_i=a^b, E Z_i Z_{i+h}=a^{2h} if h<b or a^{2b} otherwise; summing covariance proves stated exact mean and variance for n>=2, 1<=b<=n, p in [0,1], including N=0. For p_n=lambda/n and b_n/n->alpha in (0,1), sparse flips give Poisson point-process convergence; sliding-window parity Riemann approximation yields L=integral_0^(1-alpha) 1{Pi((t,t+alpha]) odd}dt, with mean, integrated variance, non-Gaussian atom and one-point density. Independent exhaustive deletion-output direct count over 1536 finite (n,b,word) cases and exact Bernoulli flip moments on small cases corroborated, rather than proving the limit.
+
+## originality
+
+PASS
+
+Against full submitted theorem and inspected sources: Natural specific formula distinct from checked prior claims, with clear residual priority risks. The natural distinct-output count of a one-burst deletion channel under a correlated binary source admits exact finite dispersion and a non-Gaussian macroscopic-burst sparse-flip limit; the occupation/variance and atom a
+
+## value
+
+PASS
+
+The natural distinct-output count of a one-burst deletion channel under a correlated binary source admits exact finite dispersion and a non-Gaussian macroscopic-burst sparse-flip limit; the occupation/variance and atom are useful for typical channel ambiguity and represent a meaningful scaling boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
