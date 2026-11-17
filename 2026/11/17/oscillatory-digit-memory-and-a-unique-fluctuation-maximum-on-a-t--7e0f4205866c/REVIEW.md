@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The explicit three-step critical orbit gives a full three-cell Markov partition with constant invariant densities satisfying all Perron equations. Affine inverse cylinders establish the exact second-order digit rule and its forbidden triple, while the three-state characteristic polynomial proves the complete oscillatory covariance recurrence. Summation and the primitive finite-state CLT give a positive closed variance, and Descartes' sign rule proves the unique optimizing parameter. Symbolic rational-function checks and exact rational tests corroborate each nontrivial identity. The finite tests alone do not prove the infinite-dimensional statements.
+
+**Originality — PASS under accessible-source comparison.** Huang--Komornik--Zou give the underlying invariant-measure and support theory, not a three-step Markov digit characterization or sharp variance optimum. The closest available research record classifies *first-order* Markov parameters only, proving these lie on two curves different from this one. Direct inspection of its full RESULT.md finds no second-order curve or current covariance/optimum. Other relevant finite-type equal-slope literature has different branches and does not imply the parameter-dependent formulas. An unpublished or differently coded older Markov calculation remains a nonzero priority risk; database absence alone is not proof.
+
+**Mathematical value — PASS.** Three-step closure of the critical orbit selects a motivated full continuum of unequal-base maps. Its stationary digits have a complete, nontrivial two-step law and a complex correlation spectrum for every parameter. The exact, uniquely maximized fluctuation strength separates mean digit frequency from temporal variability and identifies a quantitative benchmark beyond a generic finite-state CLT. No global classification of double-base Markov loci is claimed.
+
+**Scope and risks.** The result concerns the canonical absolutely continuous stationary measure and one explicit postcritical parameter curve. The central-limit theorem and matrix pressure formalism are standard; the new part is their exact realization and sharp analytic parameter optimization in this family. Historical priority requires independent scrutiny.
+
+Self-review: passed. Independent audit: not yet performed.
