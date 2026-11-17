@@ -1,25 +1,21 @@
-# Scientific review: ordinary three-cut complex of \(KG(6,2)\)
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-**Domain and claim.** The vertex set consists of the 15 two-subsets of a six-element set, with disjointness edges. For the *ordinary* three-cut complex \(X\), the claim is \(X\simeq\bigvee^{10}S^9\vee\bigvee^{24}S^{10}\); it is not a statement about the open neighborhood complex, closed-neighborhood Čech nerve, total three-cut complex, or all Kneser graphs. The primary proof is supplied in RESULT.md.
+PASS
 
-**Critical proof checks.** A three-subset lies in the Alexander dual \(K\) iff its induced disjointness graph is connected. The 90 tetrahedra partition into ten joins of two triangular boundaries, each a combinatorial three-sphere; all 180 path triangles are disjoint across joins, and the other 15 triangles are the perfect matchings. Five-vertex faces are ruled out by counting the edge appearances in the five induced four-cycles (20 must be divisible by three). The ten disjoint boundary blocks have kernel rank one each and primitive image in their respective two-chain supports, so \(H_3(K;\mathbb Z)=\mathbb Z^{10}\) and \(H_2(K;\mathbb Z)\) is torsion-free. Every missing triangle is coned by a pair of unused ground points, giving \(\pi_1(K)=0\). Euler characteristic \(14\) gives \(H_2(K;\mathbb Z)=\mathbb Z^{24}\). Combinatorial Alexander duality sends these to \(H_9(X)\) and \(H_{10}(X)\). The absence of dual five-faces forces a complete nine-skeleton in \(X\), making it eight-connected. The next Hurewicz surjection and homological Whitehead theorem produce the asserted integral homotopy wedge. Every graph triple and every dual face is checked by verify.py, and the four finite-field rank computations agree. No finite-field inference is used to prove integral freeness.
+In KG(6,2), a connected induced triple is either a perfect-matching triangle (15 choices) or a two-edge path (180 triangles in ten complementary 3+3 partition blocks). The Alexander dual K of ordinary three-cut X has 15 vertices, 105 edges, 195 triangles and 90 tetrahedra, with no 5-vertex face. Every tetrahedron belongs to one of ten explicit joins ∂Δ²*∂Δ² ≅S³ whose 2-face supports are pairwise disjoint. Each 9-tetrahedron sphere boundary has rank8 primitive image, giving H3(K)=Z10 and torsion-free H2. Every missing triangle has union of ground labels of size at most four, so a complementary 2-subset w cones its boundary using three allowed triangles; π1(K)=0, hence H1=0. Euler reduced χ=14 implies H2(K)=Z24. Integral Alexander duality on 15 vertices and full 9-skeleton of X imply H9(X)=Z10,H10(X)=Z24 and X is 8-connected; Hurewicz and homological Whitehead yield wedge 10S9∨24S10. Independent exhaustive enumeration of all 2^15 subsets reproduced block decomposition, 260 missing-triangle cones and skeleton; no modular rank test was used as sole proof of torsion-freeness.
 
-**Limits and residual risk.** The structural proof depends on correct classification of every dual four-face and its unique three-plus-three partition, and on integral primitivity; both arguments are explicit and are independently checked on the finite domain. A formal or independent external audit has not occurred.
+## originality
 
-## Originality — PASS against inspected sources
+PASS
 
-The foundational cut-complex paper [1, Theorem 6.1 and Corollary 6.6] treats certain complete-skeleton cases and triangle-free Kneser *two*-cut complexes. The required complete ten-skeleton fails here: the 90 dual tetrahedra correspond to missing ten-faces. The 2018 Kneser open-neighborhood paper [2] has nineteen two-spheres, a different face predicate and dimensions. A public mathematics record for the intrinsic Čech scale-two complex of the same graph has 64 two-spheres and 15 seven-vertex facets, not this 260-facet ordinary three-cut complex. Another record treats the representation of the same graph's open-neighborhood complex. The two 2025 cut-related papers [3, 6] examine other constructions, recognition, and reconstruction, not the present integral homotopy type.
+Bayer et al arXiv:2304.13675 establishes ordinary cut-complex theory, but its Kneser Corollary 6.6 assumes triangle-free m<3r and cut k=2, whereas m=6=3r and k=3 here; Theorem 6.1 demands a complete next-to-top skeleton, which 90 missing 10-faces violate. Previous Resultary classifications on KG(6,2) concern k=4 ordinary cuts, scale-two Čech, and open-neighborhood complexes—different exact face predicates and homology degrees. No broader covered KG(6,2) ordinary k=3 theorem found. Structural ten-block dual decomposition is absent from the inspected prior claims.
 
-Named searches covered the graph's disjointness/two-subset aliases, three-cut/robust-clique/Alexander-dual formulations, the exact wedge dimensions, potentially dominating general graph-family theorems, the indexed mathematical research records and the available own-ledger claims. None of the inspected full result statements or relevant primary-theorem passages implies the claim. Search failure is not uniqueness proof. Unindexed equivalents, variants not captured by these terms, and uninspected appendices remain the residual risk.
+## value
 
-## Value — PASS
+PASS
 
-The first triangle-bearing two-subset Kneser graph is a canonical boundary for the triangle-free Kneser family, a natural object in graph and simplicial topology. The exact *integral* homotopy type was not implied by the identified theorems. Ten geometrically indexed three-sphere boundary blocks produce a nontrivial mixed-dimensional homology pattern, 10 and 24 generators in consecutive dimensions, and yield an explicit reason for torsion-freeness and nonshellability. An exact natural invariant with an explanatory structure can be valuable without an infinite-family theorem; here the one-graph scope is stated rather than inflated. Possible future use includes distinguishing nearby cut filtrations and their symmetry actions, which are not established here.
+The exact first triangle-bearing two-subset Kneser graph marks a natural boundary where earlier triangle-free Kneser 2-cut formula stops. The ten canonical 3-sphere blocks of its Alexander dual and torsion-free mixed (9,10) integral sphere wedge form a motivated structural classification, not just a numerical betti-table recomputation.
 
-## Literature and verification scope
-
-Primary supporting research: Bayer et al., *Topology of Cut Complexes of Graphs*, arXiv:2304.13675v1, first public 2023-04-26; Nilakantan–Singh, *Homotopy Type of Neighborhood Complexes of Kneser Graphs*, arXiv:1802.05848v1; Shen et al., *Neighborhood Complexes of Induced k-Independent Graphs*, arXiv:2512.09674v1; Shen et al., *Realizations and Uniqueness of Cut Complexes of Graphs*, arXiv:2512.12933v1. The two indexed comparison records are cited by public opaque identifiers in RESULT.md. The four-modulus calculation is finite corroboration, not an infinite-homotopy certificate. The status below reflects only this scientific review, not independent certification.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

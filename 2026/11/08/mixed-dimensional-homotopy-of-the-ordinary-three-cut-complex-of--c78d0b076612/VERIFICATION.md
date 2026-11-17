@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the integral homotopy calculation
+# Independent mathematical audit
 
-Run `python3 verify.py` with the Python 3 standard library, from the directory containing this document. `verify_output.txt` records its completed output. The program builds every 15-vertex subset mask and the 260 disconnected induced triples, independently checks the smaller-subset connected-triple rule, constructs ten explicit three-plus-three partition blocks, and verifies all 90 tetrahedra and all 195 dual triangles. It verifies the 260 missing-triangle cones and the complete nine-skeleton of the ordinary cut complex. Complete simplicial boundary ranks over characteristics 2, 3, 5, 7 are `(14,91,80)`. Every check covers its stated finite universe, and `VERIFY_OK` is emitted only if all assertions pass.
+## correctness
 
-Integral torsion-freeness is not inferred from those four modular ranks. It follows instead from disjoint two-face supports of the ten simplicial three-sphere boundary matrices and their primitive integral images. The high-dimensional Hurewicz and Whitehead steps are mathematical deductions from the complete lower skeleton, not checks performed by the finite script. No independent audit has been performed.
+PASS
+
+In KG(6,2), a connected induced triple is either a perfect-matching triangle (15 choices) or a two-edge path (180 triangles in ten complementary 3+3 partition blocks). The Alexander dual K of ordinary three-cut X has 15 vertices, 105 edges, 195 triangles and 90 tetrahedra, with no 5-vertex face. Every tetrahedron belongs to one of ten explicit joins ∂Δ²*∂Δ² ≅S³ whose 2-face supports are pairwise disjoint. Each 9-tetrahedron sphere boundary has rank8 primitive image, giving H3(K)=Z10 and torsion-free H2. Every missing triangle has union of ground labels of size at most four, so a complementary 2-subset w cones its boundary using three allowed triangles; π1(K)=0, hence H1=0. Euler reduced χ=14 implies H2(K)=Z24. Integral Alexander duality on 15 vertices and full 9-skeleton of X imply H9(X)=Z10,H10(X)=Z24 and X is 8-connected; Hurewicz and homological Whitehead yield wedge 10S9∨24S10. Independent exhaustive enumeration of all 2^15 subsets reproduced block decomposition, 260 missing-triangle cones and skeleton; no modular rank test was used as sole proof of torsion-freeness.
+
+## originality
+
+PASS
+
+Bayer et al arXiv:2304.13675 establishes ordinary cut-complex theory, but its Kneser Corollary 6.6 assumes triangle-free m<3r and cut k=2, whereas m=6=3r and k=3 here; Theorem 6.1 demands a complete next-to-top skeleton, which 90 missing 10-faces violate. Previous Resultary classifications on KG(6,2) concern k=4 ordinary cuts, scale-two Čech, and open-neighborhood complexes—different exact face predicates and homology degrees. No broader covered KG(6,2) ordinary k=3 theorem found. Structural ten-block dual decomposition is absent from the inspected prior claims.
+
+## value
+
+PASS
+
+The exact first triangle-bearing two-subset Kneser graph marks a natural boundary where earlier triangle-free Kneser 2-cut formula stops. The ten canonical 3-sphere blocks of its Alexander dual and torsion-free mixed (9,10) integral sphere wedge form a motivated structural classification, not just a numerical betti-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
