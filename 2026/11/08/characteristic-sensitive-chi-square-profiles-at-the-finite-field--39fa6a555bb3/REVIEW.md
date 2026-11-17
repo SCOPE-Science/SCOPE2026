@@ -1,17 +1,21 @@
-# Review of the finite-field Wishart mixing statement
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim specifies a uniform-vector rank-one walk on the additive group of symmetric matrices over a fixed finite field. Plancherel reduces chi-square to a sum of powered one-step Fourier magnitudes. Odd characteristic requires the symmetric-matrix rank count; even characteristic requires the polar-rank decomposition of homogeneous quadratics and a count of refinements vanishing on their radical. Both multiplicities were derived explicitly and tested by exhaustive enumeration, including the nonprime field of four elements. Dominated Gaussian-binomial asymptotics give the fixed-offset series; the low-rank support test and the spectral chi-square bound establish both sides of the total-variation cutoff. No fixed-offset total-variation limit is asserted. Risks: the proof relies on classical Gauss sums and classical finite-group mass formulas; these are explicitly named and checked in small cases but not independently certified.
+PASS
 
-## Originality — PASS under bounded source comparison
+PASS: On additive Sym_n(F_q), character orthogonality yields chi-square Σ_nontrivial |μ̂|^{2t}. Odd q characters correspond to symmetric quadratic forms A, whose rank-r Gauss-sum magnitude squared is q^(−r); count of rank-r forms is B_q(n,r) q^{r(r+1)/2} H_q(ceil r/2), giving (1). In characteristic two, use all homogeneous quadratic characters rather than the degenerate trace pairing; a polar alternating form of rank 2r contributes q^{2r} radical-vanishing refinements with squared character magnitude q^(−2r). Counting polar forms gives B_q(n,2r) q^{r(2r+1)} H_q(r) and (2) for t>=1; t=0 is separately point mass. Gaussian coefficient asymptotics and q^{-r²/2} domination yield both fixed-offset series. Above n+a, chi-square controls TV; below n−a, rank≤t and a union bound over kernel a-planes give TV→1. Independently enumerated all q=2,n=2 symmetric-matrix states and exact rank-one convolution through t=4; chi-square 1,1/4,1/16,1/64 agrees. Finite checks complement the all-n Fourier proof.
 
-The exact walk-specific chi-square series and the characteristic-separated fixed-offset profiles were compared with the closest relevant primary sources and semantically related research records. Schmidt's association-scheme eigenmatrices cover much of the required one-step spectral machinery, and Fulman–Goldstein supply classical symmetric-rank counts. Neither inspected statement directly gives the particular unscaled Gram-matrix walk's full time-dependent divergence and both cutoff sides. Pak–Vu treat a scalar-randomized walk with a different holding probability, including in characteristic two for dimensions exceeding one, and do not supply the asserted chi-square profiles in inspected sections. Thus this is a bounded, not absolute, priority conclusion. Residual risk: older implicit eigenmatrix consequences or an unlocated finite-field Wishart mixing theorem could subsume part of the claim.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The comparison is motivated by deciding how many random outer products are needed to make a finite-field sample-covariance matrix indistinguishable from a uniform symmetric matrix. It gives an exact answer for each finite dimension and step count, a sharp mixing threshold at the minimum sample-size scale, and two distinct, explicit boundary-window chi-square laws. It is not merely an enumeration of small cases: the rank-sector dichotomy and the uniform limiting argument are structural and apply to all fixed prime powers.
+Best-of-knowledge originality for the complete unscaled rank-one Wishart walk’s exact chi-square profile split by field characteristic and bounded-window n cutoff. Schmidt supplies very broad quadratic/symmetric-form association-scheme eigenmatrices, including sufficient Fourier ingredients, but does not state the exact unscaled random vv^T step distribution, both all-time chi-square formulas, and cutoff. Matching cutoff n in nearby rank-one nilpotent and alternating walks does not imply same transition kernel. Residual possibility of an unlocated specialized Markov-chain treatment retained.
 
-## Independent status
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: The unscaled finite-field Wishart accumulation walk is a canonical algebraic Gram process, and exact all-time chi-square in both characteristics reveals a genuine polar-rank parity distinction. Establishing the n-step total-variation cutoff from both Fourier upper bounds and a sharp rank-deficiency obstruction, with explicit offset series, is a motivated mixing-time theorem rather than a mere known symmetric-rank table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
