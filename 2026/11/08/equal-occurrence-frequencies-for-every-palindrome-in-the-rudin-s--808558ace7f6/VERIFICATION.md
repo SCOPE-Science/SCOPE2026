@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Reproduce using `python3 verify.py` with standard Python 3; no downloaded datasets or external libraries are needed. The script verifies all \(8\) possible states, the exactly-four-step reachability, the incoming-transition count and all \(128\) residue/state factor cases for each length \(1\) through \(16\). Each stated palindrome-and-multiplicity list and all long-factor starting positions are checked against their exact definitions. Direct prefix and high-index diagnostics are also performed.
+## correctness
 
-Observed output:
+PASS
 
-`VERIFY_OK exact_cases=2048 primitive_state_power=4 direct_windows=2097152 long_position_checks=80000`
+Independently re-derived Rudin–Shapiro recursion r(2q)=r(q), r(2q+1)=r(q) xor (q mod2) and the eight-state maps T0,T1. Verified all states are reachable and the 4-step child transition matrix is positive, giving uniform state frequencies. Exhausted 8*16=128 state-residue cases for every n=1..16, reproducing exactly the 36 listed palindromes, their per-word multiplicities 64,32,16,4,8,4,2,2,2,1,1 and zero at lengths 9,11,13,15,16. Every longer palindrome contains central 15/16 palindrome, hence excluded. Pair density 1/128, so every listed density and position rule follow for infinitely many starts. A finite 32768-start sample was slightly nonuniform (n=1: 16512 versus 16256), as expected for a prefix and not contrary to the limiting density theorem.
 
-The argument extending the finite certificate to every index is in RESULT.md: the exact binary-block formula and the primitive-substitution uniform-frequency theorem. The diagnostics do not establish infinitude on their own. Independent audit has not been performed.
+## originality
+
+PASS
+
+PASS best of knowledge. The 2001 Allouche–Baake–Cassaigne–Damanik paper gives palindrome-length cutoff; Schaeffer–Shallit determine maximal palindromic words; the earlier cyclic-prefix published Resultary paper lists the same 36-word language. None of those inspected source statements provides all per-factor limiting starting-position densities or the eight-state exact starting-position rule, and mere knowledge of factor existence cannot imply the frequency of occurrence. Older inaccessible 1997 source remains a bounded priority risk.
+
+## value
+
+PASS
+
+PASS. The uniform density across every palindromic word at a fixed length is a nontrivial quantitative structure of a canonical automatic sequence; the explicit 128-case rule supplies natural exact occurrence measures and positions, useful beyond mere language complexity or known length cutoffs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

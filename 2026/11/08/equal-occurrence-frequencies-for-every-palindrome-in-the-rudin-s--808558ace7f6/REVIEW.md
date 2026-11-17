@@ -1,19 +1,21 @@
-# Scientific assessment: exact Rudin–Shapiro palindrome frequencies
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument proves a length-two state substitution from the adjacent-pair parity recursion, with four-step primitivity and exactly two incoming transitions per state. It then derives exact symbols of every factor of length at most \(16\) from one of \(128\) state/residue cases. The self-contained standard-Python checker exhaustively verifies all \(2048\) finite cases, the claimed factor/multiplicity lists, and exact long-factor occurrence sets. State frequencies of \(1/8\) imply each case occurs with density \(1/128\); absence at lengths \(15\) and \(16\) excludes all longer palindromes. The larger prefix tests are diagnostic, not the proof of infinitude.
+PASS
 
-## Originality — PASS, with bibliographic limits
+Independently re-derived Rudin–Shapiro recursion r(2q)=r(q), r(2q+1)=r(q) xor (q mod2) and the eight-state maps T0,T1. Verified all states are reachable and the 4-step child transition matrix is positive, giving uniform state frequencies. Exhausted 8*16=128 state-residue cases for every n=1..16, reproducing exactly the 36 listed palindromes, their per-word multiplicities 64,32,16,4,8,4,2,2,2,1,1 and zero at lengths 9,11,13,15,16. Every longer palindrome contains central 15/16 palindrome, hence excluded. Pair density 1/128, so every listed density and position rule follow for infinitely many starts. A finite 32768-start sample was slightly nonuniform (n=1: 16512 versus 16256), as expected for a prefix and not contrary to the limiting density theorem.
 
-The inspected generalized Rudin–Shapiro palindrome-length cutoff in Allouche–Baake–Cassaigne–Damanik (arXiv:math/0106121) and maximal-palindrome descriptions in Schaeffer–Shallit (arXiv:1508.02074) supply background but not the stated starting-position densities or equal-frequency law. Frid–Laborde–Peltomäki (arXiv:2009.02934) studies prefix palindromic decompositions, not factor frequencies. Searches for aliases and density/frequency formulations did not locate a covering result. This is not a claim that failure of search proves novelty: an unindexed equivalent may exist, and one historically relevant 1997 full text was not accessible in the consulted format.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Factor occurrence frequencies are fundamental dynamical data beyond palindromic complexity or length spectra. The result computes them exactly for every palindrome of a natural automatic word and proves the unanticipated equal-frequency property using uniform eight-state dynamics. It gives exact, reusable position descriptions for all \(36\) palindromes and distinguishes this property from arbitrary factors, whose frequencies need not match within a fixed length. The classification is complete, infinite-position, and structurally motivated; the already known palindrome cutoff is not presented as the contribution.
+PASS best of knowledge. The 2001 Allouche–Baake–Cassaigne–Damanik paper gives palindrome-length cutoff; Schaeffer–Shallit determine maximal palindromic words; the earlier cyclic-prefix published Resultary paper lists the same 36-word language. None of those inspected source statements provides all per-factor limiting starting-position densities or the eight-state exact starting-position rule, and mere knowledge of factor existence cannot imply the frequency of occurrence. Older inaccessible 1997 source remains a bounded priority risk.
 
-## Sources and limitations
+## value
 
-The primary full-text comparisons were arXiv:math/0106121, arXiv:1508.02074 and arXiv:2009.02934. The result is restricted to the indicated binary coding. The checker is executable without external dependencies; independent external audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The uniform density across every palindromic word at a fixed length is a nontrivial quantitative structure of a canonical automatic sequence; the explicit 128-case rule supplies natural exact occurrence measures and positions, useful beyond mere language complexity or known length cutoffs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
