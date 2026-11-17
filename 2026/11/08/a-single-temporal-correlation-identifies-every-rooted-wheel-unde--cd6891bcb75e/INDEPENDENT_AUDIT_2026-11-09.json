@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T22:00:50.361605Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For wheel W_{n+1}=K1∨C_n, 0<ε<1, c=1−ε, q=c², stationary off-diagonal two-point covariance is a unique q-contraction fixed point under independent synchronous updates. Rim symmetry reduces the equations to a two-step cyclic Green kernel G=(I−q(T²+2I+T^(−2))/9)^(−1), giving the exact H_n=(1−t^ell_n)/(n δ(1+t^ell_n)), ell_n=n/gcd(n,2), δ=√(1−4q/9), t<1/6. The elementary bound 2(n+1)t^ell_n<1 for n≥3 proves H_n>H_{n+1}; F_q derivative is positive since 1−α(1+4k)=3(1−q)(9+q)/((3−q)(9−4q))>0, so R_n=c F_q(H_n) decreases strictly. Expansion H_n=(nδ)^(−1)+O(t^(n/2)/n) yields the positive n² gap limit. Fresh exact rational off-diagonal pair solves at q=1/4 for n=3,4,5,6 gave hub/rim 2/29,313/5884,2654/60551,1283/34196, strictly falling; tests are finite corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Benjamini et al. arxiv:2207.01224 Theorems 1.1–1.5 address complete graphs, cycles, certain trees and other examples; Section 6 addresses complete bipartite graphs.",
+          "Resultary has separate one-lag finite-path, two-lag clique-bouquet and clique-windmill results."
+        ],
+        "reasoning": "None of the inspected graph families contains all rooted wheels with the candidate hub-observed statistic as a theorem specialization; complete bipartite and bouquet/rim structures have distinct covariance Green functions.",
+        "searches": [
+          "Resultary: stationary synchronous noisy voter model rooted wheel graph hub autocorrelation temporal agreement strictly decreasing n",
+          "arxiv:2207.01224",
+          "arxiv:2112.01478"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md at Git blob c5b43f721f8bfd244467515dd9ac0e868bee9137",
+        "verify.py at Git blob 1f0a60620f49845e0cfe5705f3482b28e6eb96d7",
+        "Benjamini, Helman Tov and Zhukovskii, arxiv:2207.01224, Thms 1.1–1.5, Sec 6",
+        "Resultary query: stationary synchronous noisy voter model rooted wheel graph hub autocorrelation temporal agreement strictly decreasing n",
+        "Pymar and Rivera, arxiv:2112.01478"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Candidate formula H_n=(1−t^(n/gcd(n,2)))/(n δ(1+t^(n/gcd(n,2)))) and R_n=cF_q(H_n), proven decreasing for all n.",
+          "Published local noisy voter identifiability constructions use other graph sequences and sometimes more than one temporal statistic."
+        ],
+        "reasoning": "Strict one-lag rooted-wheel size recovery does not follow by known graph inclusion or general theorem from inspected results; two-step cyclic Green kernel and all-parity comparison are essential new work.",
+        "searches": [
+          "Resultary: stationary synchronous noisy voter model rooted wheel graph hub autocorrelation temporal agreement strictly decreasing n",
+          "arxiv:2207.01224",
+          "arxiv:2112.01478"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-lag hub agreement probability P(σ_t(h)=σ_{t+1}(h))=(1+R_n)/2; stationarity hub/rim covariance a satisfies R_n=(1−ε)a.",
+          "Benjamini–Helman Tov–Zhukovskii treat local single-site observation distributions and time correlations of other rooted graph families."
+        ],
+        "reasoning": "The candidate is equivalently strict monotonicity of one hub/rim covariance under rim enlargement. Published local-observation examples do not give this wheel-specific monotone function for all fixed noise.",
+        "searches": [
+          "Resultary: stationary synchronous noisy voter model rooted wheel graph hub autocorrelation temporal agreement strictly decreasing n",
+          "arxiv:2207.01224",
+          "arxiv:2112.01478"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact highest hit is the candidate; related entries concern other rooted graph families and differing observation lags.",
+          "The older full paper does not provide a table of all-n wheel hub correlations or equivalent n² separation law."
+        ],
+        "reasoning": "The claimed result is not a finite database lookup; no exact pre-existing wheel correlation formula was identified in searched sources.",
+        "searches": [
+          "Resultary exact: rooted wheels synchronous noisy voting temporal autocorrelation hub decreasing n",
+          "Benjamini Helman Tov Zhukovskii Theorems 1.1–1.5 Section 6",
+          "Git RESULT.md source wheel Green-resolvent formula"
+        ]
+      },
+      "rationale": "PASS on best-knowledge full-text and semantic comparison. Benjamini–Helman Tov–Zhukovskii develops stationarity/local identifiability for different graphs but no all-n rooted wheel one-lag strict ordering; complete bipartite or tree models are not wheel specializations. Related published Resultary cases use two lags or other graph types. Search does not certify absolute priority.",
+      "residual_risks": [
+        "Local observation problems can be phrased as coalescing ancestral walks; possible older wheel-specific calculation under that terminology remains a historical search risk.",
+        "Known ε, stationary observation, synchronous dynamics and n≥3 are essential; unknown noise or finite-sample size recovery is not established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: no theorem for universal-hub observations on all rooted wheels K1 join C_n or their strict all-noise size ordering",
+          "evidence": "Identifiability of complete graphs, cycles, certain perfect trees etc. does not specialize to rooted wheels; the wheel covariance recurrence is new object-specific calculation.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.01224",
+          "material_read": "Open-access full 42-page arXiv PDF; relevant Theorems 1.1–1.5, graph examples and complete-bipartite Section 6 read with page inspection",
+          "method": "Read original primary text, compared observation lags, graph objects and whether wheel family occurs",
+          "title": "Global information from local observations of the noisy voter model on a graph",
+          "trigger": "Highly relevant same synchronous model and local identifiability"
+        },
+        {
+          "assessment": "DIFFERENT: global density and update convention do not imply strict one-step hub autocorrelation on wheels",
+          "evidence": "Candidate is synchronously refreshed fair spins and hub-only single lag; no identical statistic was found.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.01478",
+          "material_read": "Abstract and stated model/results inspected, not every page",
+          "method": "Compared update convention, global density observable and fixed-wheel size quantifier",
+          "title": "Asymptotic behaviour of the noisy voter model density process",
+          "trigger": "Noisy-voter limiting correlation / density theory could dominate exact wheel local observation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: a single scalar stationary temporal observation at one distinguished vertex distinguishes every member of an infinite natural graph family and the exact n^(−2) adjacent separation quantifies statistical difficulty; nontrivial parity-dependent cyclic Green function and all-noise strict inequality are motivated structural results.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md at Git blob c5b43f721f8bfd244467515dd9ac0e868bee9137",
+    "verify.py at Git blob 1f0a60620f49845e0cfe5705f3482b28e6eb96d7",
+    "Benjamini, Helman Tov and Zhukovskii, arxiv:2207.01224, Thms 1.1–1.5, Sec 6",
+    "Resultary query: stationary synchronous noisy voter model rooted wheel graph hub autocorrelation temporal agreement strictly decreasing n",
+    "Pymar and Rivera, arxiv:2112.01478"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Local observation problems can be phrased as coalescing ancestral walks; possible older wheel-specific calculation under that terminology remains a historical search risk.",
+    "Known ε, stationary observation, synchronous dynamics and n≥3 are essential; unknown noise or finite-sample size recovery is not established."
+  ],
+  "residual_risks": [
+    "Local observation problems can be phrased as coalescing ancestral walks; possible older wheel-specific calculation under that terminology remains a historical search risk.",
+    "Known ε, stationary observation, synchronous dynamics and n≥3 are essential; unknown noise or finite-sample size recovery is not established."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING: no theorem for universal-hub observations on all rooted wheels K1 join C_n or their strict all-noise size ordering",
+      "evidence": "Identifiability of complete graphs, cycles, certain perfect trees etc. does not specialize to rooted wheels; the wheel covariance recurrence is new object-specific calculation.",
+      "identifier_or_url": "https://arxiv.org/abs/2207.01224",
+      "material_read": "Open-access full 42-page arXiv PDF; relevant Theorems 1.1–1.5, graph examples and complete-bipartite Section 6 read with page inspection",
+      "method": "Read original primary text, compared observation lags, graph objects and whether wheel family occurs",
+      "title": "Global information from local observations of the noisy voter model on a graph",
+      "trigger": "Highly relevant same synchronous model and local identifiability"
+    },
+    {
+      "assessment": "DIFFERENT: global density and update convention do not imply strict one-step hub autocorrelation on wheels",
+      "evidence": "Candidate is synchronously refreshed fair spins and hub-only single lag; no identical statistic was found.",
+      "identifier_or_url": "https://arxiv.org/abs/2112.01478",
+      "material_read": "Abstract and stated model/results inspected, not every page",
+      "method": "Compared update convention, global density observable and fixed-wheel size quantifier",
+      "title": "Asymptotic behaviour of the noisy voter model density process",
+      "trigger": "Noisy-voter limiting correlation / density theory could dominate exact wheel local observation"
+    }
+  ]
+}
