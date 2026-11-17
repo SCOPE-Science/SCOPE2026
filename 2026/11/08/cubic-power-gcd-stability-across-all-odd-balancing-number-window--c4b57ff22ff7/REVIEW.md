@@ -1,15 +1,21 @@
-# Review of cubic-power balancing-window gcd classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact Binet/geometric-sum identity proves that seven times each cubic window is the associated Pell factor times a cubic integer polynomial evaluated at a balancing number. The 3-cycle modulo seven proves divisibility of every polynomial value, while the explicit gcd at values one and six equals seven. Pure periodicity of an invertible recurrence modulo the putative gcd transfers those two initial values to the tail. Each quantifier (all positive odd lengths and all nonnegative window starts) is covered. The 70-by-13 finite tests are corroborative only, not the proof of the infinite statement.
+## correctness
 
-## Originality — PASS within checked evidence
-Mbirika–Schrader–Spilker (2023, arXiv:2301.05758), fully inspected, gives the first-power balancing gcd and partial squared-power results but not the all-odd-length cubic gcd. Rayaguru–Panda (2019), fully inspected, gives power-sum formulas without the exact gcd over all shifts; Kang (2024), fully inspected, concerns polynomial power-sum divisibility rather than this invariant. A comparison of the actual theorem statements with corresponding ordinary and cubic-power formulations and targeted mathematical-index searches found no covering statement. Previously recorded cubic Fibonacci even-window results and balancing-square results do not imply the present odd balancing-cube formula. Formula coincidence with the linear case does not itself establish cubic coverage. An unindexed equivalent result is a residual risk.
+PASS
 
-## Mathematical value — PASS
-For a naturally studied gcd invariant, all odd cubic balancing-number windows have an unexpectedly unchanged gcd relative to first powers. The exact formula covers an infinite family of windows and resolves one meaningful third-power case beyond the literature's first-power formulas and partial second-power discussion. Its proof explains the exceptional prime seven and why no other factor survives. The result is specific to cubic powers, as seventh powers already differ at length three, so it is not an arbitrary restatement of general odd-power behavior.
+The exact Binet identity B_{3t}=32B_t³+3B_t and symmetric geometric sums supply the polynomial identity 7*sum_{j=1}^{2m-1}B_{n+j}³=g[(4g²+3)B_{n+m}³+3(g²-1)B_{n+m}/8]. The parity recurrence for g (odd, g²≡1 mod16) makes H=3(g²-1)/8 integral. The balancing residues mod7 cycle 0,1,-1 and g residues 1,0,-1, making f_g(B_s) divisible by seven for all s. Explicit f_g(1)=7(5g²+3)/8 has exactly one factor of seven and no factors 2,3,5; if any p>=11 divided both f_g(1) and f_g(6), the differences would give p|A,H, contrary to 3A−32H=21. Thus gcd(f_g(1),f_g(6))=7. The companion recurrence matrix has determinant1 modulo every d, so its orbit is purely periodic: any common divisor of all tail polynomial values must divide the two initial values modulo d. Hence tail gcd exactly7, and cancelling the 7-factor in the whole-window identity gives g for all n>=0, not merely samples. Fresh independent exact arithmetic checked 12 odd lengths through k=23 at 23 starting indices each, verified the identity, primitive gcd and exponent-7 k=3 counterexample49.
 
-## Limits
-This is not a claim for even windows, other recurrence sequences, or all odd exponents. Finite checks cannot replace the symbolic proof. Independent scrutiny of the proof and publication novelty remains desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Mbirika–Schrader–Spilker 2023 primary 24-page article explicitly defines GCDs of windows of arbitrary power m but gives full six-sequence formulas only for m=1 and partial m=2. Its balancing Q_k first-power theorem is a premise, not a cubic consequence. Rayaguru–Panda 2019 full paper gives sums of powers including cubes and the B_{3u} identity; it does not analyze gcd over every shift (no gcd occurrence). An independently read published Resultary exact cubic-window theorem for Pell numbers has a different recurrence and yields gcd1 for odd Pell windows, while the balancing cubic result is Q_k>1 for k>1. A same-day balancing squared-window study treats exponent2, not3. The exact all-odd-length cubic GCD formula was not found as an earlier theorem under searched aliases.
+
+## value
+
+PASS
+
+An infinite all-length classification of a natural sliding-window gcd invariant extends the known first-power theory into a genuinely distinct nontrivial odd cubic-power case, and explains the exceptional prime seven by polynomial primitive content and recurrence periodicity. The fact that powers seven behave differently shows the finding is not an empty substitution or broad textbook identity. A precise family-wide formula and its proof suffice for mathematical value without requiring a wider general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
