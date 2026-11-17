@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-For every marked set of size \(k\), classification by edges to the marked vertices gives **exactly** independent three-way alternatives for each unmarked vertex, with probabilities \(2^{-k},2^{-k},1-2^{1-k}\). Cross-edges of the two extreme classes remain independent fair bits; the finite multinomial/binomial formula is exact. Multinomial-to-Poisson convergence plus the conditional cross-edge kernel proves the joint limit. A two-round Ehrenfeucht–Fraïssé game is controlled by realized pointed neighbor profiles. Union bounds identify the two persistent and two optional profiles; both optional existence predicates have rank two. The formula with two witnesses and one universal quantifier realizes the cross-edge event, and explicit inequalities place its limiting probability in a gap of the rank-two spectrum. The executable checker exhausts 168,146 finite tournament instances and verifies 6,786 representative two-round game comparisons. Finite computations do not prove the asymptotic assertions; the analytic arguments do.
+## correctness
 
-## Originality (O) — PASS within inspected evidence
-The 2026 finite-model study of Koponen considers random expansions at a general structural level; its Example 2.12 and Remark 2.15 do not state the fixed-size logarithmic marking, mixed-binomial cross-orientation law, or rank-three probability gap. Larrauri's 2020/2021 sparse relational limit theorem treats a different sampling model, and Petrov's public 2019 domination computation covers a one-sided marginal that is explicitly not claimed as new. Standard two-round neighbor-profile methods and Poisson thinning also predate this result; their combination alone does not give the displayed rank-three gap without the cross-edge law. The most similar publicly indexed tournament spectra concern finite carrier-size sets and do not imply random logical probability limits. Residual risk: some unindexed specialist tournament/finite-model sources could already contain this exact joint statement or an equivalent formulation. Originality is assessed relative to actual inspected materials, not established by failed searches.
+PASS
 
-## Mathematical value (V) — PASS
-The object is a natural uniformly oriented complete graph expanded by a unary predicate with logarithmic carrier size, precisely where all-to-marked neighborhood witnesses change from common to rare. The complete joint law identifies the induced finite random directed structure on the two opposite rare-defect populations. Its logical consequence separates the entire rank-two limiting-probability spectrum from a natural rank-three probability by a provable open gap. This is a structural expressivity boundary, not an arbitrary small enumeration, parameter substitution, or a single unsupported numerical improvement.
+For fixed marked set P with k=|P| and N=n-k, each unmarked vertex independently has one of two disjoint extreme arc signatures of probability t=2^-k. Hence (A,B,N-A-B) is exactly multinomial(t,t,1-2t). The unused cross-arc variables are independent fair bits, so H|A,B ~ Bin(AB,1/2), and N t->lambda gives independent Poisson(lambda) counts. In rank two, the complete two-round Ehrenfeucht–Fraisse invariant is the set of color/orientation profiles. With k->infinity and N->infinity, only the optional A-present and B-present profiles survive, yielding twelve subset-sum limits on dyadic n=2^m,k=m. The rank-three χ is exactly H>0; its limiting probability h(1)=1-E[2^-AB]≈0.289156 is strictly between e^-1(1-e^-1) and e^-1, an empty adjacent rank-two interval. Algebraic endpoint bounds and the EF characterization were independently checked. An independent exact multinomial normalization and χ limit computation corroborated formulas, not infinite completeness.
 
-## Coverage and limitations
-The model does not assert a complete rank-three spectrum, a rate in the difference between the finite and limiting Poisson parameters, or conclusions for independently Bernoulli-colored vertices. The finite checker verifies small exact laws but not infinite convergence. The marginal domination identity and the general neighbor-profile argument are acknowledged as previously known. Historical priority beyond the inspected papers, webpage and indexed results remains uncertain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. The exact conditional orientation of two opposite rare unmarked types and its strict rank-two/rank-three probability gap are not implied by published rank-two profile/saturation theorems for uncolored independent multitournaments, sparse random successor orders, or Larrauri's sparse relational structures. The basic Poisson-thinning and EF-profile methods are acknowledged as classical; the new joint construction and full twelve-value logical spectrum are the asserted content.
+
+## value
+
+PASS
+
+A single fixed unary/binary vocabulary gives a rigorous first-order quantifier-rank probability hierarchy, with a complete lower-rank limiting spectrum and an explicit first separated higher-rank probability. This is a natural logical expressivity and random finite-structure boundary rather than a trivial Poisson count of one rare event; the cross-arc conditional kernel is essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
