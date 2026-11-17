@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T20:06:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/exact-three-step-zero-digit-correlations-and-a-gaussian-law-at-a--f7bbd337d1d0/RESULT.md Git blob 98ffc935509dcd244d35d722fb8a5d3545bf0b5c",
+        "2026/11/08/exact-three-step-zero-digit-correlations-and-a-gaussian-law-at-a--f7bbd337d1d0/checker Git blob 7ebdc11b810e65b2c15df4689648b9f983db6e20",
+        "/mnt/data/scope05_run_20261114T1956/independent_checks.log"
+      ],
+      "rationale": "At alpha*=1+beta^-2 the seven interval endpoints ±1, ±beta^-1, ±beta^-2, ±beta^-3 give a full Markov partition. Direct branch-image and cell-length calculations yield the stated four-state reflection-lumped stochastic Q and invariant pi=(1,1,3-sqrt5,sqrt5-1)/4, giving r-mean=3/4. Characteristic polynomial t(t-1)(t²+beta^-2*t+beta^-4) implies three-step covariance recurrence for n>=1; initial C0,C1,C2,C3 and the geometric series give exact sigma²=sqrt5/32. Irreducible aperiodic finite-state Poisson-martingale CLT yields both stationary and normalized-Lebesgue initial laws with bounded initial bias. Independent symbolic transition/12-lag/resolvent calculations matched, but cannot themselves replace the Markov CLT.",
+      "residual_risks": [
+        "The initiating preprint was not inspected from first to last page; uninspected sections or later journal version could contain a matching fluctuation law",
+        "Only one endpoint parameter and branch-indicator observable, not a whole-plateau covariance classification",
+        "Markov CLT relies on standard finite-state theorem, not a newly proved general limit theorem"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dajani–Sanderson preprint Markov partition and ACIP",
+          "Standard irreducible finite Markov CLT"
+        ],
+        "reasoning": "Markov-chain CLT ensures Gaussianity in general but cannot compute the explicit covariance amplitudes or Green–Kubo constant without evaluating the endpoint Q. The base primary paper gives invariant measure and digit frequency but no inspected stronger covariance theorem.",
+        "searches": [
+          "golden skewed symmetric map alpha=1+beta^-2 zero-digit three-step autocorrelation central limit variance"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE pinned RESULT.md and check_golden_covariance.py",
+        "Independent algebraic seven-cell transitions, Q, pi, eigenpolynomial, 12-lag recurrence, Green–Kubo resolvent",
+        "Dajani/Sanderson arXiv:2301.08623 relevant full-text sections and selected screenshots",
+        "Resultary 2026-11-02 fixed-point-free golden map covariance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2301.08623 ACIP/3-4 mean plateau",
+          "Resultary different golden-coordinate covariance law"
+        ],
+        "reasoning": "The prior 3/4 mean is a single moment. The new covariance recurrence and CLT variance require the spectral polynomial of the observable transition matrix, not a corollary from a mean-plateau theorem.",
+        "searches": [
+          "golden skewed symmetric map alpha=1+beta^-2 zero-digit three-step autocorrelation central limit variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dajani–Sanderson arXiv:2301.08623, Theorems 1.1–1.2 and Section 3",
+          "Resultary 2026-11-02 fixed-point-free golden coordinate resonance"
+        ],
+        "reasoning": "The same 3/4 zero-digit plateau does not imply stationary lag correlations. Another golden map’s coordinate observable is not conjugate by an established observable-preserving transformation to this map’s branch-indicator process.",
+        "searches": [
+          "golden skewed symmetric map alpha=1+beta^-2 zero-digit three-step autocorrelation central limit variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Derived 7x7 Markov transition and 4x4 lumped Q",
+          "Independent exact 12-lag matrix and resolvent checks"
+        ],
+        "reasoning": "This is an all-lag algebraic dynamical law from a concrete endpoint, not a preexisting numerical digit-frequency table. A finite covariance table would not imply the exact third-order recurrence or Gaussian limit.",
+        "searches": [
+          "golden skewed symmetric map alpha=1+beta^-2 zero-digit three-step autocorrelation central limit variance"
+        ]
+      },
+      "rationale": "Dajani–Sanderson introduce precisely the golden-map family, uniqueness of ACIP and 3/4 plateau; those are credited premises. In relevant sections of primary preprint we inspected, the complete three-step zero-digit covariance law, exact Green–Kubo variance and CLT at this endpoint are not supplied. A different Resultary golden fixed-point-free map computes coordinate covariance for another transformation, not the same zero-digit observable.",
+      "residual_risks": [
+        "The initiating preprint was not inspected from first to last page; uninspected sections or later journal version could contain a matching fluctuation law",
+        "Only one endpoint parameter and branch-indicator observable, not a whole-plateau covariance classification",
+        "Markov CLT relies on standard finite-state theorem, not a newly proved general limit theorem"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides map/ACIP/plateau; no exact 3-step covariance sequence or CLT constant in the inspected source material",
+          "evidence": [
+            "Theorems 1.1–1.2 establish invariant measure and frequency plateau, not all-lag covariances"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.08623",
+          "material_read": "Primary PDF introduction and Theorems 1.1–1.2 plus relevant Markov partition in Section 2 and zero digit frequency discussion in Section 3; selected pages 1, 5 and 21 visually inspected; not a full 36-page inspection",
+          "method": "arXiv PDF extracted text and selected-page screenshots",
+          "title": "Ergodic properties of a parameterised family of symmetric golden maps: the matching phenomenon revisited",
+          "trigger": "Same map and endpoint parameter"
+        },
+        {
+          "assessment": "Different fixed-point-free map with coordinate covariance, not zero-digit golden plateau endpoint",
+          "evidence": [
+            "Resultary law zero except lags multiple three and σ²=√5/20, unlike this lag-one nonzero and √5/32"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-three-step-correlation-resonance-in-a-fixed-point-free-gol--d785f05c2cfe",
+          "material_read": "Published title, semantic search summary and differing map/observable and σ²",
+          "method": "Resultary search summary; not a full-document negative assessment",
+          "title": "Exact three-step correlation resonance in a fixed-point-free golden-ratio interval map",
+          "trigger": "Same golden ratio and three-step covariance resonance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE pinned RESULT.md and check_golden_covariance.py",
+        "Independent algebraic seven-cell transitions, Q, pi, eigenpolynomial, 12-lag recurrence, Green–Kubo resolvent",
+        "Dajani/Sanderson arXiv:2301.08623 relevant full-text sections and selected screenshots",
+        "Resultary 2026-11-02 fixed-point-free golden map covariance"
+      ],
+      "rationale": "The boundary of a maximal digit-frequency plateau is a natural singular dynamical parameter; the explicit three-lag oscillatory decay and exact variance √5/32 quantify fluctuations not determined by the mean 3/4. The exact Markov and CLT law is useful for studying digit statistics beyond first moments.",
+      "residual_risks": [
+        "The initiating preprint was not inspected from first to last page; uninspected sections or later journal version could contain a matching fluctuation law",
+        "Only one endpoint parameter and branch-indicator observable, not a whole-plateau covariance classification",
+        "Markov CLT relies on standard finite-state theorem, not a newly proved general limit theorem"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The initiating preprint was not inspected from first to last page; uninspected sections or later journal version could contain a matching fluctuation law",
+    "Only one endpoint parameter and branch-indicator observable, not a whole-plateau covariance classification",
+    "Markov CLT relies on standard finite-state theorem, not a newly proved general limit theorem"
+  ],
+  "schema_version": 1
+}

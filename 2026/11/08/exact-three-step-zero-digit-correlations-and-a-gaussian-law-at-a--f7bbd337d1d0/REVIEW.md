@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (PASS).** The branch endpoints and slopes yield a seven-state full Markov partition. Symmetry gives a strongly lumpable four-state stochastic matrix with a unique stationary probability. A complete spectral computation proves \(C(n+3)=\beta^{-6}C(n)\) for all \(n\ge1\), the three explicit residue-class constants, and \(\sigma^2=\sqrt5/32\). Primitive finite-state mixing and a Poisson-equation martingale decomposition establish the centered CLT, also from normalized Lebesgue starts. Exact symbolic tests of the geometric partition, first lags, covariance recurrence and resolvent passed; the all-lag argument is analytic, not finite enumeration.
+## correctness
 
-**Originality (PASS, best-knowledge).** The closest primary source is Dajani–Sanderson, arXiv:2301.08623v1, which establishes the family, unique invariant density and maximal \(3/4\) zero-digit frequency plateau, and discusses its endpoint Markov structure. Inspection of its §1–§3 does not reveal the explicit correlation spectrum, the variance \(\sqrt5/32\), or the corresponding fluctuation law. Generic Markov CLTs are prior mathematical background and are not asserted to be original. Searches of relevant mathematical records, numeric aliases and accessible earlier claims found no covering statement. A later journal version was not inspected in full; unindexed equivalent calculations are a residual priority risk.
+PASS
 
-**Value (PASS).** At a distinguished boundary of the maximum-frequency plateau, the exact second-order dynamics quantify how strongly dependent golden digits fluctuate: alternating three-lag correlations have a rigid decay, and the variance is a specific irrational constant substantially smaller than the independent-frequency benchmark. This closes a natural quantitative gap left by mean digit frequency alone, while remaining sharply limited to one endpoint.
+At alpha*=1+beta^-2 the seven interval endpoints ±1, ±beta^-1, ±beta^-2, ±beta^-3 give a full Markov partition. Direct branch-image and cell-length calculations yield the stated four-state reflection-lumped stochastic Q and invariant pi=(1,1,3-sqrt5,sqrt5-1)/4, giving r-mean=3/4. Characteristic polynomial t(t-1)(t²+beta^-2*t+beta^-4) implies three-step covariance recurrence for n>=1; initial C0,C1,C2,C3 and the geometric series give exact sigma²=sqrt5/32. Irreducible aperiodic finite-state Poisson-martingale CLT yields both stationary and normalized-Lebesgue initial laws with bounded initial bias. Independent symbolic transition/12-lag/resolvent calculations matched, but cannot themselves replace the Markov CLT.
 
-**Limitations.** No variance profile is proved elsewhere on the plateau, and no claim is made for pointwise exceptional orbits or arbitrary observables. Full independent mathematical validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dajani–Sanderson introduce precisely the golden-map family, uniqueness of ACIP and 3/4 plateau; those are credited premises. In relevant sections of primary preprint we inspected, the complete three-step zero-digit covariance law, exact Green–Kubo variance and CLT at this endpoint are not supplied. A different Resultary golden fixed-point-free map computes coordinate covariance for another transformation, not the same zero-digit observable.
+
+## value
+
+PASS
+
+The boundary of a maximal digit-frequency plateau is a natural singular dynamical parameter; the explicit three-lag oscillatory decay and exact variance √5/32 quantify fluctuations not determined by the mean 3/4. The exact Markov and CLT law is useful for studying digit statistics beyond first moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
