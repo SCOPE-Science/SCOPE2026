@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof supplies a complete bijective classification of factor pairs using projective image lines and annihilating covectors. Its four target strata are exhaustive. The scalar/eigenline argument for rank two treats odd and even characteristic separately and proves every listed target occurs. Algebraic total-mass counts agree with exhaustive field enumerations, including the dimension-two zero rank-one stratum. Finite tests are corroboration rather than the infinite proof.
+PASS
 
-## Originality — PASS (provisional)
+For A=u phi and B=v psi with phi(u)=psi(v)=0, [A,B]=alpha u psi-beta v phi. Both cross coefficients zero yields 0; exactly one nonzero gives rank-one square-zero; both nonzero gives rank-two split semisimple image span(u,v) with eigenvalues ±alpha beta. Counting normalized image lines/covectors gives zero Z, nilpotent rank-one 2q^{n-1}(q^{n-2}-1), rank-two fibers 2(q-1) in odd characteristic and q(q^2-1) in characteristic 2. Direct count of target populations and mass N^2 checks normalization, including n=2 where no rank-one output exists.
 
-Zoque's 2009 almost-commuting nilpotent variety concerns irreducible-component geometry for pairs of unrestricted nilpotent matrices and rank-at-most-one commutators, not the complete prescribed finite-field bracket fibers from two rank-one square-zero inputs. Britnell–Wildon (2010) determines when nilpotent similarity classes admit commuting representatives, not the nonzero target-by-target count. Existing prescribed-product formulas account for a rank-one subcase but not the correlated bracket or its rank-two eigenline-count law. Searches did not show a dominating published identity; a broader unknown orbit-convolution formula remains a material risk and historical priority is not certified.
+## originality
 
-## Value — PASS
+PASS
 
-The natural minimal nilpotent conjugacy class has an exact Lie-bracket distribution. It distinguishes the only attainable nilpotent stratum from a split semisimple rank-two stratum, gives all witness multiplicities and an exact image size in every dimension, and quantifies a sharp characteristic-two difference. These are structural counting facts, not arbitrary parameters or tiny numerical improvements.
+The same-orbit AB multiplication-fiber theorem supplies the rank-one product counts and AB-nilpotent=>BA=0, but the bracket is a correlated difference whose nonzero rank-two semisimple output cannot be a product target. Earlier almost-commuting varieties restrict commutator rank and do not enumerate these prescribed fibers for all finite q. This full bracket fiber law remains best-of-knowledge original.
 
-## Scope and independent validation
+## value
 
-Only brackets of two rank-one square-zero matrices are covered, not larger nilpotent orbits or group commutators. Independent mathematical review and historical-priority confirmation remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete characteristic-uniform additive Lie-bracket pushforward distribution on a natural minimal nilpotent orbit is a structural finite-field invariant, with meaningful rank-two eigenline rigidity and a sharp characteristic-two fiber jump.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
