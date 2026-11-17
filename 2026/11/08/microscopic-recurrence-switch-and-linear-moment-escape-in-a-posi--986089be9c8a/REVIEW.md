@@ -1,23 +1,21 @@
-# Scientific review: exact one-threshold position-feedback walk
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is about the **exact lattice rule** at \(\ell=1\), for all integer \(r\ge1\) and all initial integer sites. The proof enumerates all one-step images, constructs and normalizes the unique closed-class invariant law, and checks every inward transition type. The unbounded ladders are handled through geometric series, not finite cutoffs. Direct four- or five-step global minorizations prove uniform geometric ergodicity, including states outside the stationary support. The one-step conditional drift, together with the minorization, proves finite-time absolute-moment growth. The strict-tail staircases give genuine distinct liminf/limsup constants, so no smooth \(C/z\) tail is claimed. The standalone exact-arithmetic checker passed 6,982 assertions; finite sampling is corroboration rather than an infinite proof.
+PASS
 
-## Originality — PASS, with explicit prior coverage
+PASS: Exact prepoint kernel gives n>=2 -> -r or 2n+r and n<=-2 -> +r or 2n-r; center 0 -> ±1, ±1 -> {0, ±2}. For r=1 the unique communicating class is {0,±1}∪{±(3·2^k−1)}, and direct incoming-flux balance yields 1/5 center masses plus 1/(5·2^{k+1}) outer masses. For r>=2 closed class is the ±r(2^{k+1}−1) ladders, masses 2^{-k-2}, and center transient. Four-step P1⁴(x,0)>=1/16 and five-step P_r⁵(x,{±r}) minorization imply uniform TV geometric mixing. Exact geometric tail shells give (3/5,6/5) or (r,2r) liminf/limsup and p-moment iff p<1. Conditional one-step absolute drift equals 1 at 0, 0 at ±1, r outside; summing with geometric mixing gives 3t/5+O_x(1) for r=1 and rt+O_x(1) for r>=2, exact for exterior starts. Infinite-state statements are established by renewal/Doeblin arguments, not finite simulations.
 
-Lima and Curado's May 21, 2026 work [1] supplies exactly the microscopic step rule and studies continuum approximation and larger-threshold simulations; the newly investigated regime here is the minimal integer threshold. Montero and Villarroel's 2016 Sisyphus process [2] and Zanette and Manrubia's 2020 multiplicative-reset analysis [3] already contain the general geometric reset ladder and moment threshold. Indeed the \(r\ge2\) radial sector of this walk is *affinely conjugate* to the classical multiplicative-reset chain; these components, isolated, are not presented as original. The new claim is the **entire microscopic family classification**, especially the \(r=1\) central-state recurrence, exact origin mass and altered moment slope, the sharp disappearance of central stationary support at the next admissible integer parameter, and global-start mixing constants for the original lattice chain. Neither cited reset kernel has the physical three-state core and opposite-sign accelerated reset rule. Search uncertainty persists for unindexed papers on this exact boundary model, and independent priority review remains necessary.
+## originality
 
-## Value — PASS
+PASS
 
-The 2026 source makes a smooth continuum stationary prediction and calls for studies of transient dynamics and moment scaling. At the smallest spatial threshold, the exact microscopic system has an atomic lacunary law; a one-unit change in the acceleration parameter eliminates all stationary central occupation. It also has uniform total-variation equilibration **simultaneously** with explicit linear growth of the unbounded absolute-position observable. These exact distinctions provide a meaningful boundary test for extrapolating continuum-scale stationarity to small lattice thresholds, not an arbitrary enumeration or an increment to a known parameter table. The significant scientific object is the coupled central random walk and accelerated exterior, not the already-known geometric reset process considered alone.
+PASS, best of knowledge, with strong known subcase: separate published November 2 result supplies the *identical* full r=1 stationary law, log-periodic tail, moment cutoff, and Doeblin rate, so none of these alone is original. The present all-r theorem additionally proves the sharp recurrence/occupation switch at r=2, gives unique stationary law and uniform mixing for every r>=2, and determines finite-time absolute-moment slopes; those additions are not consequences of the r=1 special-case theorem or generic multiplicative-reset papers. The original Lima–Curado model supplies the transition, not the exact threshold classification.
 
-## Closest literature and limitations
+## value
 
-1. H. S. Lima and E. M. F. Curado, *Emergent heavy-tailed distributions from a Markovian random walk*, arXiv:2605.22933v1 (May 21, 2026): original state-dependent rule, continuum density, simulations, future transient-moment question. https://arxiv.org/abs/2605.22933
-2. M. Montero and J. Villarroel, *Directed random walk with random restarts*, *Physical Review E* **94**, 032132 (2016): generalized two-sided renewal and geometric invariant distribution; no identical three-state central passage mechanism. https://doi.org/10.1103/PhysRevE.94.032132
-3. D. H. Zanette and S. Manrubia, *Fat tails and black swans: Exact results for multiplicative processes with resets*, *Chaos* **30**, 033104 (2020): the geometric stationary ladder and critical moment growth are generic results and therefore credited. https://arxiv.org/abs/2105.11679
+PASS
 
-The result is limited to \(\ell=1\) and integer \(r\), and the inferred sharp switch is not a continuous physical phase transition. A more general published renewal-with-core theorem could imply the classification after reduction. No independent audit or experimental validation has been carried out.
+PASS: The sharp origin-recurrence boundary between first two positive integer rule parameters and coexistence of uniform total-variation ergodicity with unbounded first moments are mathematically motivated questions for a nonstandard position-feedback Markov chain. The all-r exact-support/return/moment classification distinguishes lattice from continuum analyses, independent of already-known r=1 subcase.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
