@@ -1,19 +1,21 @@
-# Review of quartic modular-graph progression theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full proof reduces consecutive quartic second differences to two polynomial divisibilities, separates the local regimes by the exact valuations of the step and midpoint, and counts each regime with disjoint prime-power strata. The dichotomy follows because the coefficient of the pure fourth-step term is divisible by five exactly at the critical exceptional prime. The fourth finite difference distinguishes extendible from nonextendible four-term configurations. The Chinese remainder theorem gives the full modulus claim. A standalone exact-integer verifier checks all pairs for 49 moduli through 150 and six additional prime powers, together with sampled and explicit exceptional pairs modulo 3125. The infinite statement is proved algebraically, not inferred from these finite tests.
+PASS
 
-## Originality — PASS, with bibliographic uncertainty
+PASS: Two consecutive quartic second differences at centered abscissa y=x+3h/2 give congruences N|h²(12y²+5h²) and N|12h³y, using 2 and 12 invertible. Prime-power valuation split is exhaustive: 4s>=k yields the extendible branch, while 4s<k forces t>s and only p=5,k=4s+1,t>=s+1. Fourth finite difference 24h^4 blocks extension exactly on the exceptional branch; counting disjoint valuation strata gives factors Bp(k), Ep(k) and CRT products. Explicit independent brute enumerations for N=5,7,11,25,35,49,55,125 matched (A4,A5); finite checks do not replace the p-adic proof.
 
-Cook and Magyar, arXiv:1011.5302, prove density/existence statements for constrained differences in high-dimensional prime-field vector spaces, not exact local quartic-graph progression counts. Green and Tao, arXiv:math/0509560, study density thresholds for four-term progressions in finite-field groups, not the polynomial graph over arbitrary prime powers. Existing aggregate additive-energy formulas for quartic graphs and earlier exact results on cubic graphs do not imply this four-term midpoint/valuation classification, nor its exceptional five-adic nonextension counts. Searches for quartic graph progressions, local nilpotent branches, and the exceptional five-adic exponent pattern recovered no covering statement. The possibility of equivalent unindexed local-congruence results remains.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete exact solution to a natural progression-counting problem on a fixed polynomial graph over every residue ring of characteristic coprime to six. It gives sharp squarefreeness thresholds for four versus five distinct terms and separates infinite affine-cycle behavior from isolated four-term configurations. The exceptional prime and exponent congruence reveal a genuine arithmetic boundary, rather than a renamed or arbitrary finite calculation.
+PASS, best knowledge: General additive-energy results for quartic graphs and prior finite-field density/existence theorems do not determine the exact nonunit-step, four-versus-five-extension valuation distinction or multiplicative count. The concrete p=5 exceptional branch is not derived from the inspected prior statements. Residual risk: unindexed arithmetic-progression computations modulo prime powers.
 
-## Scientific limits
+## value
 
-This result does not cover moduli divisible by 2 or 3, arbitrary collinear points not required to be equally spaced, or asymptotic density theorems for unrelated polynomial patterns. Earlier specialized publications may have contained some local identities. Verification is reproducible but does not constitute external review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The natural quartic polynomial graph has a genuine arithmetic boundary, with nonzero four-term progressions over F5 that cannot extend to five, and nilpotent steps over non-squarefree rings that do extend. A complete local-to-global classification and explicit exact counts isolate the five-adic obstruction, providing a useful structural invariant beyond aggregate additive energy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
