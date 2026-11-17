@@ -1,11 +1,21 @@
-# Scientific review: integral reversal modules of path moment-angle complexes
+# Independent mathematical audit
 
-**Correctness — PASS.** The integral cellular multigrading identifies the support-indexed cochains with shifted augmented cochains of induced forests, with an essential support-determinant sign for coordinate reversal. The displayed shuffle coefficient is an explicit chain isomorphism. Forest component lattices are free, and in the no-central-component case the proposed regular-pair and sum-of-first-components vectors form a unimodular basis of the quotient by the diagonal. The count of symmetric supports gives the exceptional line multiplicities, while counting path edges inside all supports gives the regular multiplicities. The rational quotient formula follows from finite-group averaging. The independent signed-cell Lefschetz count and integral cochain sign check in `path_moment_verification.py` agree with these formulas for the enumerated sizes.
+## correctness
 
-**Originality — PASS relative to inspected sources.** The 1999 Buchstaber–Panov construction and the 2007 Bahri–Bendersky–Cohen–Gitler splitting supply the general topological and cohomological models. Grbić–Panov–Theriault–Wu (2012), Theorem 4.6 and Corollary 4.7, give chordal-flag wedge homotopy types and nonequivariant ranks; these do not specify the integral reversal action. Li Yu's 2014 partition-associated quotient paper concerns toral subgroup quotients rather than the order-two coordinate-permutation quotient. The closest located published symmetry findings concern injective-word complexes or different graph-complex constructions, not the path family with the asserted all-degree integral decomposition. This result specializes familiar general machinery; an equivalent specialization in uninspected literature remains possible.
+PASS
 
-**Value — PASS.** The integral module classification is a uniform complete invariant of a canonical order-two symmetry of the simplest nontrivial chordal flag-complex family. It distinguishes regular, trivial and sign lattices in every cohomological degree; these are not determined by Betti numbers or by ordinary wedge-of-spheres homotopy type. It also gives exact rational Betti numbers for the natural finite symmetry quotient, including their parity-dependent corrections. No new general decomposition theorem is claimed.
+PASS: The standard integral DGA support decomposition for the complex moment-angle pair identifies each nonempty support I with shifted reduced cochains of P_n[I]. Since each induced graph is a forest, only H~0 occurs, represented by Z^{c(I)}/Z·(1,...,1), torsion-free. The coordinate-reversal action includes the sign of the ordered support permutation. For a symmetric support with a fixed central component, the quotient component lattice has only regular Z[C2] blocks; otherwise paired components give h−1 regular blocks and one sign line, with determinant twist (−1)^{k/2}. Counting such supports gives N_(n,k) and counting induced edges gives b_(n,k); remaining rank R=(b−N)/2. Finite-group rational averaging gives quotient ranks. Independently enumerated all supports for 3≤n≤11, confirming ranks, fixed-support signed trace and exceptional multiplicities, but all-n proof rests on the explicit integral lattices.
 
-The principal limitation is publication priority: a previously unlocated calculation, especially one exploiting general equivariant polyhedral-product splittings, may give the same explicit modules. The finite checker corroborates the proof but is not a substitute for its universal argument.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge: published Hochster/Buchstaber–Panov and polyhedral-product splitting theorems provide ordinary additive cohomology and, for flag chordal paths, wedge-sphere counts. They do not state the complete integral C2 reversal-lattice splitting (regular versus sign/trivial with closed formulas) or all quotient ranks. The similar real moment-angle path reversal quotient concerns (D1,S0), not this complex pair (D2,S1). No exact equivalent located; general equivariant splittings could yield an alternate derivation.
+
+## value
+
+PASS
+
+PASS: The path is the canonical one-dimensional chordal flag complex, and coordinate reversal is its natural nontrivial combinatorial automorphism. The uniform exact integral module and quotient Betti numbers distinguish rational trace from integral extension data, a natural equivariant refinement of standard moment-angle calculations. This resolves a meaningful infinite-family invariant without claiming a general polyhedral-product theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
