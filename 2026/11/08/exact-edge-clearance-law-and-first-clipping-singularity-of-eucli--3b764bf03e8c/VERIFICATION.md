@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
 
-The proof is analytic and self-contained in `RESULT.md`. The normalized point-to-edge distance was independently evaluated by enumerating actual finite cubical edges (dimensions 3–5). The closed cubic CDF was checked against direct one-dimensional ordered-statistic quadrature. The first-clipping correction was checked numerically in dimensions 3–8 using an independent quadrature of the exact beta-integral representation. Direct simulations used 1,200,000 uniform samples over specified radii, with reported tolerance checks. The squared moment was corroborated against generated examples in three tested dimensions. Execute `python check.py` after installing the packages in `requirements.txt`; the successful test concludes with `CUBIC_EDGE_CLEARANCE_EXACT_DISTRIBUTION_OK 1200000`.
+# Independent mathematical audit
 
-The finite tests cannot certify arbitrary dimension or the limiting exponents; those follow from the geometric integral and the dominated-convergence argument in `RESULT.md`. The stated small-radius cubic formula in dimension three is classical and excluded from the novelty claim. Historical priority is unconfirmed, especially relative to older intersecting-cylinder analyses. No independent audit or independent validation has been carried out.
+## correctness
+
+PASS
+
+For each free edge direction j, squared distance equals the sum of squared near-face gaps in the other d-1 coordinates; minimizing j removes the largest gap, so T_d² is the sum of the d-1 smallest squared iid Uniform[0,1] gaps. Joint order-statistic density d! gives an exact ordered-ball integral weighted 1-u_(d-1). Below t=1, homogeneity gives polynomial a_d t^(d-1)-b_d t^d. For 1<t<sqrt2 the clipped region has one coordinate v>1 and the others in an orthant ball; integrating its negative weight gives the stated positive correction. Beta integration yields K_d ε^((d+2)/2), hence sharp one-sided differentiability order. d=3 polar/arcsin integration, shrinking simplex at center for ε^d upper tail, and E(sum U_i²-max U_i²) produce the remaining formulas. Independently tested d=3 CDF at 8 points against order-statistic quadrature, exact endpoint and mean for d=3,4,5,9. Numerical checks do not replace the all-dimensional argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS. Classical three-cylinder intersection yields the d=3 small-t polynomial and is expressly excluded as novel. Primary two-point-distance studies of random cubes, intrinsic wireframe distances, and vertex-to-surface distances concern different random variables. The searched mathematical corpus did not show the complete finite-edge d=3 CDF, the general first face-clipping correction with dimension-dependent exact cusp, or the all-dimensional center tail. An inaccessible 2012 intersecting-cylinder report and potentially equivalent polytope tube formulas remain material priority risks; no full-text negative inference is made from their abstracts.
+
+## value
+
+PASS
+
+The Euclidean distance from an interior random point to the cubical wireframe is a natural clearance statistic. Its exact threshold at half-side is canonical—the first reach of a tubular neighborhood to the opposite faces. The sharp cusp order/constant, complete cubic distribution and center-tail law give concrete geometry across arbitrary dimensions; these are not implied by the already-known low-radius intersection volume or by generic two-point distances. Full d>3 middle CDF is explicitly outside scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

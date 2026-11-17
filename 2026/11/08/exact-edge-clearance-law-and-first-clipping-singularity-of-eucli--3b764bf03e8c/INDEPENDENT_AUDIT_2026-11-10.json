@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T18:57:41.591521Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each free edge direction j, squared distance equals the sum of squared near-face gaps in the other d-1 coordinates; minimizing j removes the largest gap, so T_d² is the sum of the d-1 smallest squared iid Uniform[0,1] gaps. Joint order-statistic density d! gives an exact ordered-ball integral weighted 1-u_(d-1). Below t=1, homogeneity gives polynomial a_d t^(d-1)-b_d t^d. For 1<t<sqrt2 the clipped region has one coordinate v>1 and the others in an orthant ball; integrating its negative weight gives the stated positive correction. Beta integration yields K_d ε^((d+2)/2), hence sharp one-sided differentiability order. d=3 polar/arcsin integration, shrinking simplex at center for ε^d upper tail, and E(sum U_i²-max U_i²) produce the remaining formulas. Independently tested d=3 CDF at 8 points against order-statistic quadrature, exact endpoint and mean for d=3,4,5,9. Numerical checks do not replace the all-dimensional argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mathai et al. 1999 treats distances between random pairs in a cube; Tong–Pan 2016 treats random point pair distances in planar polygons. Hildebrand et al. 2012 report title includes intersecting cylinders, but complete manuscript unavailable."
+        ],
+        "reasoning": "No accessible more-general tube formula with an explicit cube-one-skeleton clipped volume, cusp and endpoint constant was found. The inaccessible plausible source is a disclosed residual risk, not proof of absence.",
+        "searches": [
+          "Resultary search: distance to cube edges random point exact distribution first clipping differentiability high dimensions",
+          "https://rivista-statistica.unibo.it/article/view/1104",
+          "https://oeis.org/A349580"
+        ]
+      },
+      "checked_sources": [
+        "https://www.paulbourke.net/geometry/cylinders/",
+        "https://rivista-statistica.unibo.it/article/view/1104",
+        "https://arxiv.org/html/1602.03407v1",
+        "https://oeis.org/A349580"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Finite-edge segment clipping at t>1 and singularity ε_+^((d+2)/2) cannot be read from the infinite-cylinder overlap formula restricted to t<=1.",
+          "The order-statistic law concerns distance to one fixed geometric skeleton, whereas two-point distances integrate over two independently random positions."
+        ],
+        "reasoning": "The classical low-radius contribution is covered and not counted as new; it does not imply the specific new clipped interval, dimensional regularity, complete d=3 law or upper tail without substantive analysis.",
+        "searches": [
+          "https://www.paulbourke.net/geometry/cylinders/",
+          "https://arxiv.org/html/1602.03407v1",
+          "https://rivista-statistica.unibo.it/article/view/1104"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical Steinmetz intersection of three perpendicular cylinders reconstructs the low-radius d=3 polynomial only; random two-point cube distances and intrinsic surface-vertex distances are different observables."
+        ],
+        "reasoning": "Considered aliases tube volume of cube 1-skeleton, clearance to finite edges, nearest edge, three-cylinder union, trimmed tubes, and ordered face gaps. These do not produce an equivalent all-dimensional clipping/tail theorem in the inspected record.",
+        "searches": [
+          "Resultary search: nearest cube edge Euclidean distance distribution random point in cube analytic CDF",
+          "https://www.paulbourke.net/geometry/cylinders/",
+          "https://rivista-statistica.unibo.it/article/view/1104"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known classical cylinder union supplies d=3 polynomial only for t<=1. The inspected cube-distance source records different two-point variables."
+        ],
+        "reasoning": "No equal exact d=3 full CDF table or all-dimensional near-endpoint coefficient was encountered. This is a bounded best-knowledge finding, not proof that no such table exists.",
+        "searches": [
+          "Resultary search: edge clearance cube skeleton exact cdf",
+          "https://oeis.org/A349580"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. Classical three-cylinder intersection yields the d=3 small-t polynomial and is expressly excluded as novel. Primary two-point-distance studies of random cubes, intrinsic wireframe distances, and vertex-to-surface distances concern different random variables. The searched mathematical corpus did not show the complete finite-edge d=3 CDF, the general first face-clipping correction with dimension-dependent exact cusp, or the all-dimensional center tail. An inaccessible 2012 intersecting-cylinder report and potentially equivalent polytope tube formulas remain material priority risks; no full-text negative inference is made from their abstracts.",
+      "residual_risks": [
+        "The full 2012 Hildebrand et al. intersecting-cylinder report and the 1999 cube-distance manuscript were not read; hidden equivalent clipped-volume formulas are possible.",
+        "A general polytope-tube or integral-geometric result could imply this specific cube-skeleton CDF/cusp, although none was located in the bounded search.",
+        "d>3 middle-range CDF beyond the first clipping interval is not evaluated; earlier small-clearance d=3 polynomial is classical."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLASSICAL_LOW_RADIUS_SUBCASE",
+          "evidence": "For d=3 and small t, tubes about the three perpendicular cube edge directions behave as intersecting cylinders; finite-segment clipping at t>1 is not the same construction.",
+          "identifier_or_url": "https://www.paulbourke.net/geometry/cylinders/",
+          "material_read": "Public mathematical exposition, diagrams and geometric setup for cylinder intersections",
+          "method": "Public webpage inspection",
+          "title": "Intersecting cylinders",
+          "trigger": "classical low-radius three-cylinder union volume"
+        },
+        {
+          "assessment": "DIFFERENT_RANDOM_VARIABLE_LIMITED_READ",
+          "evidence": "The stated object is the pairwise distance between two independent random points, not nearest distance of one point to cubical edges; no whole-document absence claimed.",
+          "identifier_or_url": "https://rivista-statistica.unibo.it/article/view/1104",
+          "material_read": "Article catalog/abstract and description only; complete manuscript not obtained",
+          "method": "Journal abstract inspection",
+          "title": "Distance between random points in a cube",
+          "trigger": "same ambient cube and distance distribution terminology"
+        },
+        {
+          "assessment": "DIFFERENT_TWO_POINT_SETUP",
+          "evidence": "Planar two-point distances, not a d-dimensional interior-to-one-skeleton clearance random variable.",
+          "identifier_or_url": "https://arxiv.org/html/1602.03407v1",
+          "material_read": "ArXiv article title, abstract and two-point setup as reported in scientific file",
+          "method": "Public arXiv HTML bibliographic/theorem context",
+          "title": "Random Distances Associated with Arbitrary Polygons",
+          "trigger": "plausible polygonal edge-distance source"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE",
+          "evidence": "Title suggests related cylinder integrals, cannot justify a whole-document NOT_COVERING conclusion; remains priority risk.",
+          "identifier_or_url": "https://oeis.org/A349580",
+          "material_read": "Bibliographic record/title only; full manuscript inaccessible",
+          "method": "Public bibliographic record; no full scientific text",
+          "title": "Applications of n-dimensional Integrals: Random Points, Broken Sticks and Intersecting Cylinders",
+          "trigger": "potential earlier exact cylinder overlap/tube expressions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Euclidean distance from an interior random point to the cubical wireframe is a natural clearance statistic. Its exact threshold at half-side is canonical—the first reach of a tubular neighborhood to the opposite faces. The sharp cusp order/constant, complete cubic distribution and center-tail law give concrete geometry across arbitrary dimensions; these are not implied by the already-known low-radius intersection volume or by generic two-point distances. Full d>3 middle CDF is explicitly outside scope.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a volume-uniform point in a d-cube, d>=3, Euclidean clearance to its one-skeleton has exact low-radius polynomial and first-clipping integral with cusp exponent (d+2)/2 and positive coefficient, complete d=3 CDF, support endpoint sqrt(d-1), universal upper-tail constant, and exact second moment.",
+  "limitations": [
+    "The full 2012 Hildebrand et al. intersecting-cylinder report and the 1999 cube-distance manuscript were not read; hidden equivalent clipped-volume formulas are possible.",
+    "A general polytope-tube or integral-geometric result could imply this specific cube-skeleton CDF/cusp, although none was located in the bounded search.",
+    "d>3 middle-range CDF beyond the first clipping interval is not evaluated; earlier small-clearance d=3 polynomial is classical.",
+    "Independent bounded computations are corroborative rather than infinite proofs."
+  ],
+  "schema_version": 1
+}
