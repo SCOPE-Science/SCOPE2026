@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T09:58:03.520997Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/sharp-amplitude-trapping-and-quartic-return-convergence-in-a-fra--30eff0fddce0/RESULT.md",
+        "2026/11/08/sharp-amplitude-trapping-and-quartic-return-convergence-in-a-fra--30eff0fddce0/check.py"
+      ],
+      "rationale": "For 0<a<1/2, g_a(x)=x/(1+x^2)^a is odd strictly increasing and concave on positive halfline, so any nonfixed two-cycle of F(x)=x-eta g_a(x) must be {R,-R} with R=sqrt((eta/2)^(1/a)-1). Its period multiplier (1-2e_R)^2 is strictly below 1, e_R=(1+(1-2a)R^2)/(1+R^2). For H(r)=|F(r)| and 0<=r<=R, H=h(r)=eta*g_a(r)-r is concave with h(0)=0,h(R)=R. Its range remains <=R iff h'(R)>=0, yielding a<=1/4 or eta<=eta_c(a)=2(4a/(4a-1))^a. Then amplitudes inside (0,R) strictly increase to R, and those outside descend or cross inside. At critical eta, h'(R)=0 forces eventual crossing below R and Taylor coefficient B_a=(5a-1)sqrt(4a-1)/(4a)>0 in R-H(R+delta)=B_a delta^2+O(delta^3), yielding R-H^2(R+delta)=B_a^3 delta^4+O(delta^5). Finite-hit exceptions are countable. Independent symbolic second-derivative and high-precision critical coefficient checks corroborated the algebra.",
+      "residual_risks": [
+        "Only scalar map 0<a<1/2, eta>2, exact critical tuning for quartic rate; convergence outside trapping region is not excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ma et al. theorem on even convex losses and strictly decreasing curvature gives global two-cycle attraction, a general antecedent. Itin has broad kinetic map stability and numerics, but full inaccessible."
+        ],
+        "reasoning": "Broader eventual attraction does not imply an invariant amplitude barrier, exact tuning c=a,eta nor convergence order four, while inaccessible Itin remains a concrete comparison risk.",
+        "searches": [
+          "https://arxiv.org/pdf/2204.11326",
+          "https://arxiv.org/abs/2610.27321",
+          "Itin Physics-Inspired Optimizers period-two orbit elasticity global convergence"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.27321",
+        "https://arxiv.org/pdf/2204.11326",
+        "Resultary semantic: fractional kinetic map amplitude trapping quartic return"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior elasticity implies local attraction; prior 1D theorem gives almost-everywhere convergence under curvature conditions."
+        ],
+        "reasoning": "Neither prior statement entails the stronger precise one-step invariant-set condition or the quartic Taylor cancellation and its exact coefficient; they require an explicit derivative and curvature calculation.",
+        "searches": [
+          "https://arxiv.org/abs/2610.27321",
+          "https://arxiv.org/pdf/2204.11326",
+          "arxiv:2204.11326 section 4.1 theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Itin derives elasticity criterion 0<e_R<1 for symmetric cycles; our chosen g_a satisfies it for a<1/2."
+        ],
+        "reasoning": "The general local stability theorem is a prior equivalent description of the cycle multiplier. It does not by itself classify the global one-step [0,R] trapping or the zero-derivative tuned fourth-order return.",
+        "searches": [
+          "https://arxiv.org/abs/2610.27321",
+          "https://arxiv.org/pdf/2204.11326",
+          "fractional kinetic gradient map g(x)=x/(1+x²)^a exact superattracting two-cycle quartic rate and global interval trapping"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Available original abstract and competing Resultary summaries do not give the explicit a=1/4 and eta_c(a) threshold or B_a^3 coefficient."
+        ],
+        "reasoning": "Continuous sharp frontier and exact local constant are not a small finite table; absence from snippets is treated only as qualified best-of-knowledge evidence.",
+        "searches": [
+          "https://arxiv.org/abs/2610.27321",
+          "Resultary semantic: fractional gradient kinetic map exact superattracting two-cycle quartic rate global interval trapping"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge and conditional on named accessibility limitation: Itin 2026 gives the general elastic local stability criterion for symmetric period-2 kinetic-map cycles and numerical global-attraction studies, not (from available abstract and relevant summaries) an exact trapping threshold a=1/4 for the fractional g_a family or critical eta with global quartic convergence. Ma et al. 2022 proves a general almost-everywhere convergence result for 1D even-convex decreasing-curvature losses; that antecedent does not contain the one-step invariant amplitude classification or nonzero quartic coefficient. Itin full text could not be lawfully accessed after arXiv/OA efforts and Oxford VPN returned disconnected; NO full-text negative coverage assertion is made for it, and this remains a material priority risk.",
+      "residual_risks": [
+        "Itin full original body and appendices were inaccessible; Oxford authorized download reported VPN disconnected. A relevant exact family might appear there and needs later human/access-enabled comparison.",
+        "The supplied theorem explicitly excludes first-hit exceptional points and the parameter boundary eta=2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MATERIAL_INACCESSIBLE_PRIORITY_RISK",
+          "evidence": "Abstract states symmetric cycle elasticity 0<e<1 and numerical global attraction. No assertion made about unexamined body or appendices.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.27321",
+          "material_read": "Original abstract, title, methodological overview and accessible summary; full original text unavailable after arXiv and lawful open-access attempts",
+          "method": "Abstract and metadata; Oxford lawful institutional retrieval blocked by disconnected VPN; no publisher bypass",
+          "title": "Physics-Inspired Optimizers beyond the Edge of Stability: Period-Two Orbits and Delayed Instability",
+          "trigger": "Direct same kinetic-map framework, potential exact example or hidden appendix"
+        },
+        {
+          "assessment": "PRIOR_GLOBAL_CONVERGENCE_NOT_SHARP_TRAPPING_OR_QUARTIC",
+          "evidence": "Gives generic almost-everywhere attraction to two-cycle, not exact fractional parameter frontiers, one-step invariance or B_a^3 return coefficient.",
+          "identifier_or_url": "https://arxiv.org/pdf/2204.11326",
+          "material_read": "Full PDF available; relevant Section 4.1 and Theorem 1, checked in main body and rendered original page",
+          "method": "Primary PDF text and screenshot inspection",
+          "title": "Beyond the Quadratic Approximation: The Multiscale Structure of Neural Network Loss Landscapes",
+          "trigger": "Original paper proving global stable two-cycles for 1D decreasing-curvature systems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.27321",
+        "https://arxiv.org/pdf/2204.11326"
+      ],
+      "rationale": "PASS: the sharp finite invariant interval property for a concrete kinetic-gradient map and a unique tuning for nonzero quartic two-step convergence are natural discrete-dynamics invariants relevant to beyond-stability optimization models. The exponent a=1/4 gives a qualitative divide with explicit sharp threshold eta_c(a), rather than an arbitrary parameter slice or routine numerical approximation. Nonzero B^3 and exceptional-set scope are proved, without asserting attraction fails outside trapping.",
+      "residual_risks": [
+        "Only scalar map 0<a<1/2, eta>2, exact critical tuning for quartic rate; convergence outside trapping region is not excluded."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality; positive prior coverage for rejected result and specific residual risks for accepted ones.",
+    "Only scalar map 0<a<1/2, eta>2, exact critical tuning for quartic rate; convergence outside trapping region is not excluded.",
+    "Public metadata includes operational provenance; publication is withheld without verified sanitization."
+  ],
+  "schema_version": 1
+}

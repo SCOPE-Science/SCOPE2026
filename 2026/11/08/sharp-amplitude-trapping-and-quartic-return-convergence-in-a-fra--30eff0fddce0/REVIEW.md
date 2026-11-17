@@ -1,15 +1,21 @@
-# Review of the fractional kinetic amplitude-trapping theorem
+# Independent mathematical audit
 
-## Correctness
-The claim is established by exact differentiation and an elementary but global radius comparison. The derivative \(g_a'>0\) proves uniqueness of any prime-two orbit; the strict concavity \(g_a''<0\) makes the endpoint slope condition both necessary and sufficient for invariant trapping on \([0,R]\). All trajectories within the trapped interval increase toward \(R\), and the amplitude of an exterior trajectory decreases until it either enters the trapped interval or converges to the same boundary; at the critical parameter an exterior trajectory necessarily crosses below it. The vanishing derivative and nonzero second derivative at the boundary yield a nonzero quartic coefficient for the two-step return. Finite exception sets at each depth are accounted for. The companion checker passed and does not replace the infinite proof.
+## correctness
 
-## Originality
-The source arXiv:2610.27321 proves a general local period-two stability criterion and reports empirical attraction. The older arXiv:2204.11326 already establishes almost-everywhere convergence of scalar gradient descent for symmetric strictly subquadratic losses. Thus **neither the mere existence of a stable cycle nor generic global convergence is claimed as original**. The result instead supplies a precise two-parameter **one-step amplitude-trapping if-and-only-if**, its global monotone capture at the sharp boundary, the threshold exponent \(1/4\), and a computed nonzero order-four return law. No covering statement was found in the inspected full texts or targeted searches. Priority outside that inspected literature remains a risk.
+PASS
 
-## Mathematical value
-The no-overshoot region is a natural global basin-geometry property not determined by local Floquet stability; a locally stable two-cycle exists on both sides of the frontier. The exponent criterion identifies which regularized kinetic maps retain monotone-amplitude capture at every stepsize. At a nontrivial finite tuning the same barrier becomes an exact globally accessible fourth-order return, supplying both a structural boundary and a mathematically motivated fast-convergence regime. The claim is deliberately restricted to this dynamical invariant and does not extrapolate to realistic momentum optimizers.
+For 0<a<1/2, g_a(x)=x/(1+x^2)^a is odd strictly increasing and concave on positive halfline, so any nonfixed two-cycle of F(x)=x-eta g_a(x) must be {R,-R} with R=sqrt((eta/2)^(1/a)-1). Its period multiplier (1-2e_R)^2 is strictly below 1, e_R=(1+(1-2a)R^2)/(1+R^2). For H(r)=|F(r)| and 0<=r<=R, H=h(r)=eta*g_a(r)-r is concave with h(0)=0,h(R)=R. Its range remains <=R iff h'(R)>=0, yielding a<=1/4 or eta<=eta_c(a)=2(4a/(4a-1))^a. Then amplitudes inside (0,R) strictly increase to R, and those outside descend or cross inside. At critical eta, h'(R)=0 forces eventual crossing below R and Taylor coefficient B_a=(5a-1)sqrt(4a-1)/(4a)>0 in R-H(R+delta)=B_a delta^2+O(delta^3), yielding R-H^2(R+delta)=B_a^3 delta^4+O(delta^5). Finite-hit exceptions are countable. Independent symbolic second-derivative and high-precision critical coefficient checks corroborated the algebra.
 
-## Remaining scientific limits
-No statement of basin geometry outside the trapping regime beyond local oscillatory approach; no multidimensional coupling; no independence or final historical priority certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge and conditional on named accessibility limitation: Itin 2026 gives the general elastic local stability criterion for symmetric period-2 kinetic-map cycles and numerical global-attraction studies, not (from available abstract and relevant summaries) an exact trapping threshold a=1/4 for the fractional g_a family or critical eta with global quartic convergence. Ma et al. 2022 proves a general almost-everywhere convergence result for 1D even-convex decreasing-curvature losses; that antecedent does not contain the one-step invariant amplitude classification or nonzero quartic coefficient. Itin full text could not be lawfully accessed after arXiv/OA efforts and Oxford VPN returned disconnected; NO full-text negative coverage assertion is made for it, and this remains a material priority risk.
+
+## value
+
+PASS
+
+PASS: the sharp finite invariant interval property for a concrete kinetic-gradient map and a unique tuning for nonzero quartic two-step convergence are natural discrete-dynamics invariants relevant to beyond-stability optimization models. The exponent a=1/4 gives a qualitative divide with explicit sharp threshold eta_c(a), rather than an arbitrary parameter slice or routine numerical approximation. Nonzero B^3 and exceptional-set scope are proved, without asserting attraction fails outside trapping.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
