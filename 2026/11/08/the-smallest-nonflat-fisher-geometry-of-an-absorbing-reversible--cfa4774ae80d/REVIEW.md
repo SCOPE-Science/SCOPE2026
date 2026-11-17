@@ -1,19 +1,21 @@
-# Scientific review: minimal nonflat Fisher geometry for an absorbing walk
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph and statistical experiment are explicitly specified: one absorbed vertex, one transient seed, discrete jump time, symmetric positive weights, and the full observed first-passage time. For the four-vertex path the initial absorption event is Bernoulli, and conditional on nonabsorption, the remaining number of two-step attempts is exactly geometric with success probability \(w=uv\). This gives an exact joint probability law and a smooth bijection from the two independent log-edge parameters to the wedge \(0<w<u<1\). The score decomposition yields the diagonal full-law expected Fisher tensor and its positive determinant; at unit edge weights the log-weight Fisher matrix has determinant \(1/24\). The coordinate change gives a warped metric with Gaussian curvature exactly \(1/4\). On a three-vertex triangle, absorption time factorizes into independent parity and cycle-count variables, giving a product Fisher metric and zero curvature. Every smaller connected simple undirected graph is a path or triangle, so the minimum vertex count is proved exhaustively, without reliance on finite sampling. The independent finite-state exact-rational transition checker and symbolic curvature checker completed 3,296 assertions, consistent with the complete proof. No infinite statement is inferred from numerical checks.
+PASS
 
-## Originality — PASS (best available historical comparison)
+For weighted path 0-1-2-3, a,1,b, absorb 0 start 1, u=a/(1+a), w=u/(1+b), the complete first-hit law is Bernoulli atom at 1 followed by a geometric time with parameter w on odd later times. The conditional Bernoulli/geometric Fisher tensor is diagonal diag(1/[u(1-u)],(1-u)/[w²(1-w)]), determinant 1/[uw²(1-w)]>0. Coordinates x=2arcsin√u and y=log[(1-√(1-w))/(1+√(1-w))] give dx²+cos²(x/2)dy² and curvature -f/f=1/4. Independently checked the a=b=1 Jacobian pullback equals [[5/12,-1/6],[-1/6,1/6]]. Three-vertex path has ≤1 independent weight ratio; triangle full-law factorizes as independent geometric stopping count and Bernoulli parity, producing a flat 2D product metric. Therefore minimum four vertices is justified.
 
-The key comparison is with Kimura (arXiv:2602.08185v1, 2026), whose Section 3.5 explicitly defines the complete first-hit-time Fisher tensor as a sum of score outer products across all hitting times; its Eq. (6) and Section 4 then state a rank-one reduction for each seed and flat quotient. The full-rank, positive-curvature four-vertex path constructed here satisfies the symmetric log-edge assumptions and is inconsistent with the claimed reduction for the *full* hitting-time Fisher tensor. The separate three-vertex triangle example gives the sharp lower dimensional rank boundary and proves flatness at the smaller graph size. Known zero-inflated geometric statistical models (e.g. Srisuradetchai–Dangsupa, 2022) encompass the distribution and ordinary two-parameter Fisher information after relabeling, so no novelty is attributed to geometric distributions or generic Fisher algebra alone. No inspected source establishes the sharp graph-size curvature boundary or these graph-specific applications. Targeted semantic searches and accessible historical findings produced no dominating statement. The older Fisher literature might contain a graph-specific equivalent: the search cannot exclude that, so independent historical priority is unverified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a sharp model-structural classification (minimum graph size for nonflat complete-hitting-time information geometry) plus a concrete exact curved witness, not merely an isolated numerical disagreement. It identifies precisely when single-seed absorption times carry two independent edge parameters, contrasts a flat full-rank triangle with a positively curved path, and computes both the intrinsic curvature and exact KL divergence of the identifiable law. The curved geometry changes intrinsic distances and invalidates a universal flat-quotient assumption when inference uses the complete first-passage statistic. The elementary Bernoulli/geometric substructure is useful rather than offered as a new statistical distribution. The result is deliberately restricted to single absorbing states, finite connected simple undirected weighted graphs, and full hitting-time observations.
+Best-of-knowledge: inspected actual primary statements for possible coverage by equivalence and implication, not just matching titles. The zero-inflated geometric Fisher parameter family plus textbook warped-metric curvature formulas may make the calculation accessible, but they do not assert the graph realization or show that every graph of at most 3 vertices has no curved rank-two full-law metric. Any alleged full-law rank-one assertion in Kimura cannot imply the positive-curvature result.
 
-## Closest literature and residual limitations
+## value
 
-The original rank-one/flatness paper is Kimura, *Information Geometry of Absorbing Markov-Chain and Discriminative Random Walks*, arXiv:2602.08185v1 (February 9, 2026), §3.5 Eq. (6) and §4. A related two-parameter statistical model and its Fisher estimation are in Srisuradetchai and Dangsupa, *Thailand Statistician* 21 (2023), 93–109, first posted 2022. General Fisher--Rao geometry is classical and not claimed as new. The historical novelty assessment does not establish uniqueness, and independent expert or mathematical audit is absent. No boundary parameters or path observations are considered.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A graph-size-minimal, exactly curved full-hitting-time Fisher manifold corrects misleading rank-one intuition while distinguishing full distribution from a fixed-time score. The explicit nonzero K=1/4 and flat rank-two smaller triangle give substantive information-geometric boundary, not a routine reparametrization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

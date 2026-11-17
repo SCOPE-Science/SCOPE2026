@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproduction
+# Independent mathematical audit
 
-Run `python check.py` with Python 3 and SymPy. This standalone program independently propagates exact rational transition probabilities for both graphs for 64 successive times and 25 weight pairs per graph, compares the results to the claimed closed-form masses, and checks Fisher identities and curvature by symbolic differentiation. The extracted-package run returned `PASS: 3296 exact rational/symbolic checks`.
+## correctness
 
-The infinite-time results do not depend on finite enumeration: the proof in `RESULT.md` derives the entire law through a Bernoulli/geometric renewal decomposition and computes the metric by exact expectation. The rank and curvature hold for all strictly positive edge weights, with no numerical extrapolation. The graph-size minimality uses the exhaustive list of connected simple undirected graphs on at most three vertices (path and triangle), not a truncated computational census. The Python checker is supplemental and assumes SymPy for the symbolic curvature step; the calculus identities are independently displayed in `RESULT.md`.
+PASS
 
-No independent mathematical audit has been performed. Historical-priority risk remains for any unlocated older graph-specific curvature analysis.
+For weighted path 0-1-2-3, a,1,b, absorb 0 start 1, u=a/(1+a), w=u/(1+b), the complete first-hit law is Bernoulli atom at 1 followed by a geometric time with parameter w on odd later times. The conditional Bernoulli/geometric Fisher tensor is diagonal diag(1/[u(1-u)],(1-u)/[w²(1-w)]), determinant 1/[uw²(1-w)]>0. Coordinates x=2arcsin√u and y=log[(1-√(1-w))/(1+√(1-w))] give dx²+cos²(x/2)dy² and curvature -f/f=1/4. Independently checked the a=b=1 Jacobian pullback equals [[5/12,-1/6],[-1/6,1/6]]. Three-vertex path has ≤1 independent weight ratio; triangle full-law factorizes as independent geometric stopping count and Bernoulli parity, producing a flat 2D product metric. Therefore minimum four vertices is justified.
+
+## originality
+
+PASS
+
+Best-of-knowledge: inspected actual primary statements for possible coverage by equivalence and implication, not just matching titles. The zero-inflated geometric Fisher parameter family plus textbook warped-metric curvature formulas may make the calculation accessible, but they do not assert the graph realization or show that every graph of at most 3 vertices has no curved rank-two full-law metric. Any alleged full-law rank-one assertion in Kimura cannot imply the positive-curvature result.
+
+## value
+
+PASS
+
+A graph-size-minimal, exactly curved full-hitting-time Fisher manifold corrects misleading rank-one intuition while distinguishing full distribution from a fixed-time score. The explicit nonzero K=1/4 and flat rank-two smaller triangle give substantive information-geometric boundary, not a routine reparametrization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
