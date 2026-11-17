@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The orbit of a partial function is always a terminating chain or one lasso. Formulas \(\Theta_h\), \(P_d\), and \(\Lambda_{t,d}\) isolate the precise orbit invariant. Pointed forward-isomorphism preserves arbitrary program tests and loop formulas by induction. Without loops every nonterminating component is bisimilar to every other; terminating distances remain definable. Power-set formula meaning counts follow by disjoining characteristic formulas. Direct finite program-relation checking through eight worlds and exhaustive partial-map enumeration through five corroborate the unbounded proof.
+PASS
 
-## Originality — PASS within inspected evidence
+PASS: Iterating a partial function produces a terminal path or a unique lasso. The formulas Θ_h, loop(a^d) excluding loops at proper divisors, and Λ_(t,d) with the negative predecessor loop(a⁺) test isolate all labels t+d≤n. Isomorphism of the root-generated forward substructure preserves all permitted program interpretations including tests and loops by induction. Without loop every serial one-action component is bisimilar, while Θ_h separates terminating distances. Finite disjunctions realize every subset. Independently enumerated (n+1)^n labelled partial functions and all roots for n≤5 (38,880 at n=5) matching L_n.
 
-The 2026 primary full text by Bednarczyk and Swoboda defines return tests and proves a restricted finite-satisfiability complexity result, not this bounded deterministic variable-free classification. General PDL bisimulation results are not an exact LoopPDL quotient. Indexed variable-free KB studies concern different frame properties and lack program loops. Searches for the equivalent lasso/preperiod/period statements and exact semantic counts found no identified covering source. A comparable classical finite-unary argument might be present in unindexed literature and remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result is a natural complete expressivity classification for all bounded-size forward deterministic single-action models, giving structural characterizing formulas and a sharp quantitative comparison with and without the cycle-return operator. It describes precisely what is visible with no proposition letters, providing a finite semantic baseline for loop-sensitive model analysis. It neither claims to solve broad finite satisfiability nor extends to nondeterministic actions.
+PASS, best-of-knowledge: the exact finite partial-function quotient and power-set meaning algebra are not supplied by the inspected 2026 LoopPDL finite-satisfiability paper or by prior cycle-only arithmetic spectra. Characteristic orbit formulas are elementary but their unrestricted syntax invariance and sharp bounded counting form a separate exact classification. Older determinism-and-loop work remains a live priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: The complete model-theoretic quotient and sharp exponential semantic-algebra gap quantify exactly what the loop operator adds in a natural deterministic, atom-free test class. This is a useful finite baseline for return-sensitive program logic; it is not presented as a general finite-satisfiability solution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
