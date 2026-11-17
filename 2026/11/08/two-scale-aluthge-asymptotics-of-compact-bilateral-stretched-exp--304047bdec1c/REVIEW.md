@@ -1,19 +1,21 @@
-# Scientific review of two-scale bilateral Aluthge asymptotics
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the exact binomial log-weight recursion from the polar decomposition. A centered-binomial CLT with moment uniform integrability and strict Gaussian small-ball unimodality proves the general norm exponent. At the Laplace exponent, an exact telescoping binomial identity, local Stirling expansion, Berry--Esseen comparison of absolute-deviation increments, and a global quadratic/linear lower bound together justify the Gaussian local window and the **whole infinite** Schatten sum, not just a pointwise limit. At the quadratic exponent, the moment identity is exact and the irrational/rational cluster classification follows from the rotation orbit. The independent finite script passed 3,276 assertions but is not substituted for the infinite proof.
+PASS
 
-## Originality — PASS, qualified
+The generalized Aluthge transform maps positive bilateral weights w_k to w_k^{1−t}w_{k+1}^t. Iterating logarithms yields −a E|k+X_n|^α exactly. CLT with uniform moment bounds and strict minimization of E|Z+h|^α at h=0 yields logarithmic norm rate am_ασ_n^α for all α>0 (also α<1, using Gaussian unimodality rather than convexity). For α=1 a binomial absolute-deviation recursion and local Stirling give F_n(μ)=sqrt(2/π)σ+O(σ^{−1}); Berry–Esseen controls differences and a Gaussian center window of width sqrtσ, with domination justifying a full Schatten Riemann sum. For α=2 exact E(k+X)^2=σ²+(k+μ)² produces theta-sum formulas and irrational/rational lattice cluster sets. Independently verified quadratic identities with exact rational sums for n=5,15 and t=1/3,2/5; verified source check.py structure. Uniform p,α or whole spectral distribution beyond these claims not proved.
 
-The general binomial convolution identity and qualitative convergence of Aluthge iterates are prior-covered. Bala's 2026 compact-operator result proves norm convergence but no two-scale rate. The 2005 generalized-transform work and Stanković's November 2026 analysis cover qualitative Schatten convergence and a unilateral-shift binomial formula, but not the present **bilateral** Laplace prefactor or quadratic arithmetic pinning. The closest unilateral boundary-layer result has a fixed endpoint rather than a drifting Gaussian interior, with a different leading norm scale. The claim is limited to the new bilateral quantitative results. Priority risk: broader published discrete heat-kernel or Laplace asymptotics could imply the constants in another guise; an older weighted-shift paper was accessible only through its abstract.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For compact shifts, knowing convergence to zero says nothing about the number of singular values contributing to a Schatten norm. The theorem supplies an explicit sharp stretch-exponential norm exponent for all shape parameters and exhibits a **structural transition** between a widening Gaussian singular-value window and a lattice-pinned theta profile. The exact Schatten prefactor, its divergence relative to operator norm, and the rational/irrational modulation are quantitative invariants that require analysis beyond standard qualitative convergence. The scope is an explicit natural bilateral family and fixed parameters; universality outside that family is not claimed.
+Best-of-knowledge originality survives: primary full Stanković 2026 Prop 5.8 handles unilateral compact-shift Schatten convergence and provides known binomial averaging but not fixed-profile bilateral α=1 sharp window or α=2 theta cluster arithmetic; Bala 2026 covers general norm convergence only as publicly abstracted; same-day unilateral stretched-exponential boundary layer is a different one-sided regime. Broader local-limit/Laplace results could indirectly imply constants and remain a residual risk.
 
-## Limitations and closest literature
+## value
 
-The proof does not give uniform parameter limits or exact Schatten prefactors for arbitrary stretch exponent. Bala (arXiv:2602.07916), Antezana–Massey–Stojanoff (2005), Stanković (arXiv:2611.07728), and Rion (2017) are the closest literature considered. The first two are qualitative/general; Stanković's full relevant unilateral-shift proposition was compared by statement; Rion's full text was not accessible, so its absence of exact covering statements was not assumed. No independent mathematical audit was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two distinct singular-value concentration mechanisms under nonlinear operator iteration are quantitatively new, geometrically motivated, and finer than known operator/Schatten convergence. Sharp Gaussian-window constants, p-dependent prefactor and arithmetic theta cluster sets can guide operator-asymptotic comparisons; not merely renaming or finite sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
