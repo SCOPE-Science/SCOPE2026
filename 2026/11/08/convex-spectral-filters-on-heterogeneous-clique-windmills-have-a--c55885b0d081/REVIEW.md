@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement quantifies over all positive clique sizes, all nonnegative convex filters normalized at zero, and all nonnegative timesteps. The proof derives exact orthogonal projectors at Laplacian eigenvalues 0, 1, each \(p_i+1\), and \(n\). These yield the apex entry \((1-f(nh))/n\), the cross-blade Jensen residual, and the within-blade secant-slope comparison. Convexity controls both residuals, while nonnegativity of the scalar filter makes every diagonal strictly positive. Every even Taylor symbol is positive and strictly convex on the positive half-line; the unique scalar level-one crossing is rigorously established. The included checker passed 3,556 exact matrix instances and 182,728 entry equalities. A finite checker does not substitute for the proof.
+## correctness
 
-## Originality — PASS on inspected evidence, qualified
-The full 2001 Gottlieb--Shu--Tadmor paper establishes general SSP linear formulas and CFL theory; it does not state this graph-specific necessary-and-sufficient apex criterion. The full 2005 Horváth paper establishes general positivity thresholds but does not develop clique-windmill Laplacian projectors or this criterion. The 2014/2015 Horváth--Song--Terlaky abstract and the published Kooij generalized-windmill spectrum treatment were also compared for implications; one full relevant manuscript was inaccessible. Preexisting results for complete multipartite graphs and selected other network classes overlap at stars and complete graphs, but their hypotheses do not cover the heterogeneous multiple-clique windmills with nontrivial blades. General background cannot by itself settle publication priority; unindexed specialist coverage is the main residual risk.
+PASS
 
-## Mathematical value — PASS
-The exact condition applies to an infinite family of unequal-size clique-block networks and to every nonnegative convex spectral filter, not just one Runge--Kutta polynomial. It reduces an entrywise matrix-function question to a single scalar inequality, identifies a universal sharp even-order Taylor horizon, and proves all cross-clique entries remain positive despite the eventual loss at the apex. This is a structural classification for a natural graph family, rather than a recomputation of a known table or an arbitrary numeric instance.
+For K1 join of a disjoint union of r cliques of sizes p_i, Laplacian eigenvalues 0,1,p_i+1,n yield explicit entries. With a=f(h), b_i=f((p_i+1)h), c=f(nh), apex/base E=(1-c)/n; cross-blade D=(N+c-na)/(Nn)>=0 from convex Jensen f(h)<= (N+c)/n; within-blade W_i=D+(a-b_i)/p_i >= E from secant monotonicity (the identity D+(a-c)/N=E). All diagonals >0 from nonnegative spectral coefficients and 1/n all-ones projector. Thus E>=0 iff the whole matrix >=0, including r=1, singletons, h=0 and equality. Even Taylor F_p positive and F_p''=F_(p-2)>0, giving unique positive level-one return beta_p and threshold beta_p/n. Independent exact-rational matrix products matched projector formula/positivity implications in heterogeneous small graphs; cannot replace the unrestricted spectral proof.
 
-## Boundaries
-No extension to weighted networks, arbitrary base graphs, odd-order Taylor symbols outside their convex region, intermediate Runge--Kutta stage positivity, or nonlinear systems is claimed. Theoretical correctness is from the proof; program checks are finite corroboration. A specialist full-text comparison remains unresolved, and independent mathematical validation remains to be performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full accessible Kooij (2019) windmill paper develops spectra/clustering/robustness, not entrywise convex-filter positivity. Horváth (2005) and Horváth–Song–Terlaky (2014/2015) discuss general positivity/CFL thresholds; accessible abstracts do not establish the exact clique-block spectral iff. Resultary earlier complete multipartite graph criteria do not dominate the apex plus multiple nontrivial cliques. Contemporaneous sparse-core clique join Taylor result imposes n>=beta_p(k+Delta) and one filter family, whereas this result classifies every convex nonnegative filter at all n. Best-of-knowledge O PASS, noting specialist full-text access limits.
+
+## value
+
+PASS
+
+A uniform necessary-and-sufficient matrix-entry positivity test over every heterogeneous windmill and all normalized nonnegative convex spectral filters collapses to one scalar eigenvalue comparison, with a sharp even Taylor heat-timestep horizon independent of clique sizes. This is a natural structure-exploiting graph diffusion classification beyond individual numerical horizons; no extrapolation to arbitrary cones is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

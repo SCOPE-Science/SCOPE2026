@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T09:10:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K1 join of a disjoint union of r cliques of sizes p_i, Laplacian eigenvalues 0,1,p_i+1,n yield explicit entries. With a=f(h), b_i=f((p_i+1)h), c=f(nh), apex/base E=(1-c)/n; cross-blade D=(N+c-na)/(Nn)>=0 from convex Jensen f(h)<= (N+c)/n; within-blade W_i=D+(a-b_i)/p_i >= E from secant monotonicity (the identity D+(a-c)/N=E). All diagonals >0 from nonnegative spectral coefficients and 1/n all-ones projector. Thus E>=0 iff the whole matrix >=0, including r=1, singletons, h=0 and equality. Even Taylor F_p positive and F_p''=F_(p-2)>0, giving unique positive level-one return beta_p and threshold beta_p/n. Independent exact-rational matrix products matched projector formula/positivity implications in heterogeneous small graphs; cannot replace the unrestricted spectral proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sparse-core result only p-even Taylor and sufficient structural n>=beta_p(k+Delta); complete multipartite graphs do not include arbitrary unequal clique windmill blades."
+        ],
+        "reasoning": "Neither contains all filter functions and all heterogeneous cliques needed to imply this theorem; older general positivity abstract is not an exact model theorem.",
+        "searches": [
+          "Resultary 2026/11/08 sharp even-order Taylor positivity window for sparse-core clique joins",
+          "Resultary 2026/10/13 complete multipartite diffusion positivity",
+          "Horváth 2005 DOI:10.1016/j.apnum.2004.08.026"
+        ]
+      },
+      "checked_sources": [
+        "Kooij 2019 TU Delft OA full PDF Sections 1,2,6",
+        "Horváth 2005 DOI/abstract",
+        "Resultary 2026/11/08 sparse-core clique Taylor result",
+        "Resultary 2026/10/13 complete multipartite filter theorem",
+        "Resultary targeted windmill spectral filter query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kooij gives graph eigenvalues but not scalar convexity inequalities on projector entries; Horváth general positivity-step theorem has no verified graph-specific iff in accessible text."
+        ],
+        "reasoning": "Taking an arbitrary nonnegative convex f and heterogeneous p_i is not a corollary of the read specialized prior positivity statements.",
+        "searches": [
+          "Kooij 2019 Theorems 1–22",
+          "Horváth 2005 abstract",
+          "Resultary 2026/11/08 sparse-core Taylor theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Windmill Laplacian spectral decomposition is known for related homogeneous generalized windmills; the new necessary/sufficient entrywise f(hL)>=0 iff f(nh)<=1 is a different function-calculus statement."
+        ],
+        "reasoning": "Diagonalizing the graph is an ingredient, not an earlier arbitrary-convex-filter positivity classification; no exact equivalent found among top Resultary hits.",
+        "searches": [
+          "Resultary query: heterogeneous clique windmill Laplacian convex spectral filter entrywise positivity Taylor threshold",
+          "Kooij 2019 generalized windmill graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kooij tables list adjacency/Laplacian spectra and graph robustness quantities; not all-convex-filter entrywise sign tables."
+        ],
+        "reasoning": "No exact precomputed positivity table was identified; the result is infinite-family structural, not a table interpolation.",
+        "searches": [
+          "Resultary targeted windmill filter query top 10",
+          "Kooij 2019 PDF Sections 2 and 6"
+        ]
+      },
+      "rationale": "The full accessible Kooij (2019) windmill paper develops spectra/clustering/robustness, not entrywise convex-filter positivity. Horváth (2005) and Horváth–Song–Terlaky (2014/2015) discuss general positivity/CFL thresholds; accessible abstracts do not establish the exact clique-block spectral iff. Resultary earlier complete multipartite graph criteria do not dominate the apex plus multiple nontrivial cliques. Contemporaneous sparse-core clique join Taylor result imposes n>=beta_p(k+Delta) and one filter family, whereas this result classifies every convex nonnegative filter at all n. Best-of-knowledge O PASS, noting specialist full-text access limits.",
+      "residual_risks": [
+        "2014/2015 Horváth–Song–Terlaky full relevant manuscript and 2005 Horváth complete paper were not fully inspected here; a more general graph-specific positivity characterization might subsume the result.",
+        "Only unweighted one-apex cluster bases and convex nonnegative f(0)=1; no arbitrary cone or intermediate RK stages."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SPECTRAL_ANTECEDENT_NOT_FILTER_CRITERION",
+          "evidence": [
+            "Theorems 20–22 concern eigenvalue metrics, e.g. algebraic connectivity, effective resistance; no matching matrix-filter positivity theorem in inspected sections."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2018.11.025",
+          "material_read": "Lawful TU Delft full PDF: abstract, Sec 1 graph definitions, Sec 2 structural metrics and Sec 6 spectral/robustness theorems, plus search of PDF for positivity",
+          "method": "Read extracted PDF text and inspected defined theorem scopes; PDF visual screenshot attempt timed out",
+          "title": "On generalized windmill graphs",
+          "trigger": "Same graph class and Laplacian spectrum"
+        },
+        {
+          "assessment": "LIMITED_NOT_WHOLE_DOCUMENT",
+          "evidence": [
+            "Abstract concerns general positivity step thresholds and invariant sets, no exact windmill iff visible; cannot claim exhaustive noncoverage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+          "material_read": "Published abstract and publication metadata; full manuscript not obtained this run",
+          "method": "Checked scholarly institutional abstract",
+          "title": "On the positivity step size threshold of Runge–Kutta methods",
+          "trigger": "Closest general numerical-positivity work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A uniform necessary-and-sufficient matrix-entry positivity test over every heterogeneous windmill and all normalized nonnegative convex spectral filters collapses to one scalar eigenvalue comparison, with a sharp even Taylor heat-timestep horizon independent of clique sizes. This is a natural structure-exploiting graph diffusion classification beyond individual numerical horizons; no extrapolation to arbitrary cones is made.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kooij 2019 TU Delft OA full PDF Sections 1,2,6",
+    "Horváth 2005 DOI/abstract",
+    "Resultary 2026/11/08 sparse-core clique Taylor result",
+    "Resultary 2026/10/13 complete multipartite filter theorem",
+    "Resultary targeted windmill spectral filter query"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "2014/2015 Horváth–Song–Terlaky full relevant manuscript and 2005 Horváth complete paper were not fully inspected here; a more general graph-specific positivity characterization might subsume the result.",
+    "Only unweighted one-apex cluster bases and convex nonnegative f(0)=1; no arbitrary cone or intermediate RK stages."
+  ],
+  "residual_risks": [
+    "2014/2015 Horváth–Song–Terlaky full relevant manuscript and 2005 Horváth complete paper were not fully inspected here; a more general graph-specific positivity characterization might subsume the result.",
+    "Only unweighted one-apex cluster bases and convex nonnegative f(0)=1; no arbitrary cone or intermediate RK stages."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "SPECTRAL_ANTECEDENT_NOT_FILTER_CRITERION",
+      "evidence": [
+        "Theorems 20–22 concern eigenvalue metrics, e.g. algebraic connectivity, effective resistance; no matching matrix-filter positivity theorem in inspected sections."
+      ],
+      "identifier_or_url": "https://doi.org/10.1016/j.laa.2018.11.025",
+      "material_read": "Lawful TU Delft full PDF: abstract, Sec 1 graph definitions, Sec 2 structural metrics and Sec 6 spectral/robustness theorems, plus search of PDF for positivity",
+      "method": "Read extracted PDF text and inspected defined theorem scopes; PDF visual screenshot attempt timed out",
+      "title": "On generalized windmill graphs",
+      "trigger": "Same graph class and Laplacian spectrum"
+    },
+    {
+      "assessment": "LIMITED_NOT_WHOLE_DOCUMENT",
+      "evidence": [
+        "Abstract concerns general positivity step thresholds and invariant sets, no exact windmill iff visible; cannot claim exhaustive noncoverage."
+      ],
+      "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+      "material_read": "Published abstract and publication metadata; full manuscript not obtained this run",
+      "method": "Checked scholarly institutional abstract",
+      "title": "On the positivity step size threshold of Runge–Kutta methods",
+      "trigger": "Closest general numerical-positivity work"
+    }
+  ]
+}
