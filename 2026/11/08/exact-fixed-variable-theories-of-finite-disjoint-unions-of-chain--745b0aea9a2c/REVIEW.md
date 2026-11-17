@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof defines precise component lengths using two variable names: predecessor/successor depth formulas recover the exact rank and co-rank in a strict chain. A \(k\)-variable formula chooses up to \(k\) pairwise incomparable witnesses of a given chain length. In the other direction, the permanent \(k\)-pebble invariant tracks component lengths and within-component ranks; at most \(k-1\) occupied components remain after lifting a moving pebble. The invariant survives every move, proving all-quantifier-rank equivalence. The relative width formula, canonical minimum representative, and Euler product follow. Checks were independently replayed from packaged paths. No inference from finite checking to infinite cases is used.
+PASS
 
-## Originality — PASS, qualified
+In a strict chain, two-variable re-entrant predecessor/successor quantifiers define a given element rank/co-rank and thus its component length. Up to k pairwise incomparable such elements witness at least j chains of specified exact length; quantifier shadowing in separately evaluated length predicates does not increase variable width. In the converse permanent k-pebble game match occupied components by their exact lengths and ranks; moving a pebble leaves <=k-1 occupied components, guaranteeing an unused matching component when both multiplicities >=k. Capped multiplicities imply a unique minimum representative. Multiplicity choices 0..k at each length give product_l(1+z^l+...+z^{kl})=prod_{(k+1) not divides r}(1-z^r)^-1. Independent partition-count identities tested k=2..6 through n=17.
 
-Queries of mathematical research records and inspected source material did not identify the same all-width disjoint-chain classification or its logical partition spectrum. Grohe–Schweikardt (2005) studies variable-fragment succinctness on one linear order and supplies a length-detection ingredient, not arbitrary component multiplicities. Szwast–Tendera (2013) studies general transitive-relation models and does not state this special invariant in inspected sections; its broad decidability claim was subsequently corrected and is not relied upon. Nearby records about finite weak orders, directed paths, and complete multipartite graphs do not imply this exact statement in the strict-order signature without additional reasoning. A general finite-variable disjoint-union composition theorem might nonetheless cover the result; this is an explicit residual priority risk. The underlying partition Euler identity is classical and is not claimed as new.
+## originality
 
-## Value — PASS
+PASS
 
-The precise gap is a complete, sharp fixed-variable equivalence invariant for a natural infinite class of finite posets containing chains of arbitrarily many lengths and arbitrarily many components. In addition to the theorem, it gives a unique minimum representative, exact individual defining widths within the class, a strict hierarchy, and the unexpected identification of the theory spectrum with restricted integer partitions. These are mathematically motivated classification invariants rather than a single arbitrary numerical sample.
+A complete all-width strict-chain-disjoint-sum theory classification was not found in the actual compared published texts. Earlier quantifier-rank-three classification of at most three chains concerns bounded depth and contains nontrivial mergers not equivalent to unrestricted k-variable logic. Weak-order theorems classify ordinal sums of antichains and cannot be transported to incomparable disjoint chains by a mere relabeling. The Euler product identity is classical, but its exact logical-spectrum interpretation is a distinct application.
 
-## Limits
+## value
 
-Pure strict-order signature, nonempty finite disjoint-chain posets, no counting quantifiers, no claim for arbitrary posets or global defining width. Computations corroborate only finite samples. Novelty is provisional pending independent exhaustive literature review. Independent mathematical audit not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Disjoint unions of linear orders form a natural rich poset family. The theorem determines all unrestricted-depth counting-free k-variable theories, sharp component multiplicity cutoffs, unique minimum representatives and exact partition-theoretic theory spectrum. The connection between logical width and restricted partitions gives a useful complete classification beyond trivial single-chain examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

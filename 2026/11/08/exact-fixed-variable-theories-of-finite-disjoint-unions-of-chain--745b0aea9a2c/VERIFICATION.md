@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification instructions and limitations
+# Independent mathematical audit
 
-Run the two bundled programs with ordinary Python 3 from the root of the extracted package:
+## correctness
 
-```
-python verification/fo_k_poset_refinement.py
-python verification/partition_spectrum.py
-```
+PASS
 
-Compare the exact standard output against `verification/fo_k_refinement_output.txt` and `verification/partition_spectrum_output.txt`, respectively. The first program enumerates every nonempty disjoint-union-of-chains isomorphism class with at most eight, seven or six elements at widths two, three or four. It refines full ordered \(k\)-tuple types using existential successor *sets* (not counts), then compares all pairs to the conjectured capped-multiplicity classification. It does not assume the expected classification when computing colors. The independent second program enumerates all integer partitions of orders through thirteen and compares capped multiplicities, a bounded-product recurrence, and the no-multiple-of-\(k+1\) description. Both outputs should end with `VERIFY_OK` or `PARTITION_VERIFY_OK`.
+In a strict chain, two-variable re-entrant predecessor/successor quantifiers define a given element rank/co-rank and thus its component length. Up to k pairwise incomparable such elements witness at least j chains of specified exact length; quantifier shadowing in separately evaluated length predicates does not increase variable width. In the converse permanent k-pebble game match occupied components by their exact lengths and ranks; moving a pebble leaves <=k-1 occupied components, guaranteeing an unused matching component when both multiplicities >=k. Capped multiplicities imply a unique minimum representative. Multiplicity choices 0..k at each length give product_l(1+z^l+...+z^{kl})=prod_{(k+1) not divides r}(1-z^r)^-1. Independent partition-count identities tested k=2..6 through n=17.
 
-The proofs of length recognition, the permanent pebble invariant and the formal-series identity appear in `RESULT.md`. The finite experiments neither prove infinite quantifier-depth equivalence nor exclude an undiscovered earlier characterization. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+A complete all-width strict-chain-disjoint-sum theory classification was not found in the actual compared published texts. Earlier quantifier-rank-three classification of at most three chains concerns bounded depth and contains nontrivial mergers not equivalent to unrestricted k-variable logic. Weak-order theorems classify ordinal sums of antichains and cannot be transported to incomparable disjoint chains by a mere relabeling. The Euler product identity is classical, but its exact logical-spectrum interpretation is a distinct application.
+
+## value
+
+PASS
+
+Disjoint unions of linear orders form a natural rich poset family. The theorem determines all unrestricted-depth counting-free k-variable theories, sharp component multiplicity cutoffs, unique minimum representatives and exact partition-theoretic theory spectrum. The connection between logical width and restricted partitions gives a useful complete classification beyond trivial single-chain examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
