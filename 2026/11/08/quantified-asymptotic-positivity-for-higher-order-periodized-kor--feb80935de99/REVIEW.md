@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The signed weights are exactly the solution of a strictly positive-definite circulant Gram system; their discrete Fourier coordinates equal the kernel-weighted Fourier alias ratios. The proof bounds the complete Fourier distortion in \(\ell^1\) by \(O(N^{-1})\), hence each quadrature weight differs from a nonnegative density sample by \(O(N^{-2})\). Only a fixed number of sample nodes lie sufficiently close to the two linear zeros of the periodizing density to permit negative weights, yielding total negative mass \(O(N^{-2})\). The zero-frequency Fourier ratio gives the sharp leading total-mass defect. An explicit even-grid, large-kernel-weight argument shows the finite-grid obstruction. All quantifiers require fixed \(\alpha,\gamma\); none claims uniformity as \(\gamma\to\infty\). The 283 independent finite diagnostics corroborate the derived formulas and do not replace the proof.
+## correctness
 
-## Originality — PASS, with priority limits
-The 2026 motivating article defines this exact full-lattice rule and identifies asymptotic positivity as unresolved for its multivariate construction; it does not supply the one-dimensional high-order signed-weight bounds here. Earlier periodic Sobolev interpolation theory yields related equispaced cardinal formulas and, for unweighted integration, the equal-weight rectangular quadrature; it does not derive the signed total-variation bound for the present periodization density. A previous analysis of the \(\alpha=1\) version supplies a stronger finite-grid positivity classification at that order alone; that statement does not imply the higher-order result. Published mathematical-record searches and named related articles showed no direct higher-order quantitative positivity theorem. Unindexed equivalent formulations and classical spline-approximation consequences remain priority risks, not claims of exhaustive uniqueness.
+PASS
 
-## Mathematical value — PASS
-The nonsmooth density creates a genuine stability question for a high-order kernel quadrature rule. The all-orders \(\alpha\ge2\) Fourier-alias argument gives a quantitative, unmodified signed-weight answer, a sharp normalizing-mass constant, and a contrasting finite-grid negative-weight obstruction. It is useful for understanding worst-case noise amplification and stability without artificially projecting or clipping the quadrature weights. The restriction to one-dimensional full grids is essential: it does not resolve the paper's multivariate rank-one-lattice question, nor imply eventual individual positivity.
+For fixed integer alpha>=2 and gamma>0, the equispaced periodic Korobov kernel has Fourier coefficients 1 at zero and gamma |h|^(-2alpha) elsewhere, while the sine-periodization density has m_0=1,m_odd=0,m_even_nonzero=-1/(h^2-1). Exact Fourier aliasing of G w=kappa produces discrete transform W(r)=sum_{h≡r}a_h m_h/sum_{h≡r}a_h, and zero-mode W(0)=(1+gamma A_N)/(1+gamma B_N). Bounds on alias tails (a_h=O(|h|^-2alpha)) and density Fourier coefficients O(|h|^-2) give uniformly w_j=mu(j/N)/N+O(N^-2), hence negative total mass O(N^-2). Expanding B_N=2 zeta(2alpha)N^-2alpha and A_N=O(N^-2alpha-2) proves N^(2alpha)(1-sum w)->2gamma zeta(2alpha). For each fixed even N, the large-gamma limit at the endpoint is strictly negative by the even-h alias sign. Independent Fourier-alias computations across alpha=2,3, gamma=0.25,3 and N=8..128 verify the scaling, and alpha=2,3 on even N=4,6,8 at gamma=10^7 confirm endpoint negativity. High-precision mass defects at large alpha and N are cancellation-sensitive; the analytic expansion is the proof.
 
-## Closest literature and limitations
-Bartel et al., *A higher order lattice-based method for high-dimensional numerical integration using periodization*, arXiv:2610.01113v1, Sections 3 and 7.2, https://arxiv.org/html/2610.01113v1. Shadimetov, Hayotov and Mamatova, *Optimal interpolation formulas in the periodic function space of S. L. Sobolev*, arXiv:1012.1953, Sections 3–4 and 8, https://www.researchgate.net/publication/47868758_Optimal_interpolation_formulas_in_the_periodic_function_space_of_SL_Sobolev. Goda and Krieg, *A simple universal algorithm for high-dimensional integration*, https://doi.org/10.1007/s00211-025-01517-z. The present result applies to unmodified, full, one-dimensional lattice weights with fixed parameters and not to randomized subsampling or arbitrary multidimensional lattices.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Original and motivated high-order (alpha>=2) one-dimensional asymptotic sign-stability result, distinct from the already solved first-order sharp threshold and distinct from the still-open multivariate positivity question.
+
+## value
+
+PASS
+
+Negative quadrature weights affect noise amplification and stability even for a nonnegative target density. The higher-smoothness regime is the natural unresolved extension of a widely used periodized lattice method; proving O(N^-2) *total negative mass* with exact nonunit-mass defect and finite-grid negative endpoint exhibits a genuine stability boundary. This is not just routine consistency or parameter renaming, and does not falsely assert per-weight positivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

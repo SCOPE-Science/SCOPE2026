@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T09:54:01.042330Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed integer alpha>=2 and gamma>0, the equispaced periodic Korobov kernel has Fourier coefficients 1 at zero and gamma |h|^(-2alpha) elsewhere, while the sine-periodization density has m_0=1,m_odd=0,m_even_nonzero=-1/(h^2-1). Exact Fourier aliasing of G w=kappa produces discrete transform W(r)=sum_{h≡r}a_h m_h/sum_{h≡r}a_h, and zero-mode W(0)=(1+gamma A_N)/(1+gamma B_N). Bounds on alias tails (a_h=O(|h|^-2alpha)) and density Fourier coefficients O(|h|^-2) give uniformly w_j=mu(j/N)/N+O(N^-2), hence negative total mass O(N^-2). Expanding B_N=2 zeta(2alpha)N^-2alpha and A_N=O(N^-2alpha-2) proves N^(2alpha)(1-sum w)->2gamma zeta(2alpha). For each fixed even N, the large-gamma limit at the endpoint is strictly negative by the even-h alias sign. Independent Fourier-alias computations across alpha=2,3, gamma=0.25,3 and N=8..128 verify the scaling, and alpha=2,3 on even N=4,6,8 at gamma=10^7 confirm endpoint negativity. High-precision mass defects at large alpha and N are cancellation-sensitive; the analytic expansion is the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bartel et al. prove high-dimensional weighted integration error, kernel approximation, not sign controls of the optimal unmodified weights.",
+          "The first-order Korobov exact threshold alpha=1 gives eventual positivity for fixed gamma, not the higher alpha>=2 theorem."
+        ],
+        "reasoning": "No implication to alpha>=2 follows simply from the alpha=1 positivity threshold or generic convergence rate; quadrature error bounds concern test functions, not individual weight signs or signed total variation.",
+        "searches": [
+          "https://ins.uni-bonn.de/media/public/publication-media/2604.pdf?pk=1973",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-positivity-frontier-for-first-order-korobov-lattice-quadra--c97b58c7b287",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-positivity-and-constant-function-thresholds-in-one-dimensi--598f5f115f42",
+          "https://doi.org/10.1007/s11222-019-09901-0"
+        ]
+      },
+      "checked_sources": [
+        "https://ins.uni-bonn.de/media/public/publication-media/2604.pdf?pk=1973",
+        "https://arxiv.org/abs/2610.01113",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-positivity-frontier-for-first-order-korobov-lattice-quadra--c97b58c7b287",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-positivity-and-constant-function-thresholds-in-one-dimensi--598f5f115f42",
+        "https://doi.org/10.1007/s11222-019-09901-0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full Bonn preprint Section 7.2 states multivariate asymptotic positivity is unknown rather than proving it; the submitted 1D theorem does not solve the multivariate problem.",
+          "Alpha=1 weight threshold provides O(n) gamma frontier; at alpha>=2 current proof gives fixed gamma signed mass O(N^-2) and existence of negative endpoint for fixed N at large gamma."
+        ],
+        "reasoning": "The prior papers establish the setup, numerical approximation rate, and a first-order special case. None of the inspected statements implies all-alpha>=2 signed-mass bound plus the exact mass-defect constant and large-gamma obstruction.",
+        "searches": [
+          "https://ins.uni-bonn.de/media/public/publication-media/2604.pdf?pk=1973",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-positivity-frontier-for-first-order-korobov-lattice-quadra--c97b58c7b287",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-positivity-and-constant-function-thresholds-in-one-dimensi--598f5f115f42"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bartel et al. define the exact method and note positivity of multivariate periodized quadrature weights is not known (Section 7.2).",
+          "Earlier exact sign threshold is for alpha=1, including fixed gamma eventual strict positivity; current alpha>=2 is not a reparameterization of first-order Sobolev interpolation."
+        ],
+        "reasoning": "The full one-dimensional high-smoothness alias system is a distinct regime; alpha>=2 changes the spectral tail, cancels the alpha=1 tent identity, and yields only an O(N^-2) negative-mass theorem rather than finite-N all-positive weights.",
+        "searches": [
+          "Resultary: Korobov lattice quadrature periodized nonnegative weights Chebyshev density asymptotic positivity",
+          "https://ins.uni-bonn.de/media/public/publication-media/2604.pdf?pk=1973",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-positivity-frontier-for-first-order-korobov-lattice-quadra--c97b58c7b287",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-positivity-and-constant-function-thresholds-in-one-dimensi--598f5f115f42"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Located first-order endpoint threshold formula and n versus n^4 positivity/mass transitions.",
+          "No indexed table for higher-alpha total negative mass and sharp constant 2 gamma zeta(2alpha) was found in bounded search."
+        ],
+        "reasoning": "Existing precise formulas concern different alpha and cannot be reused without the higher-order alias calculation. No novelty proof is inferred from negative search alone.",
+        "searches": [
+          "Resultary: higher order periodized Korobov quadrature weight positivity",
+          "Resultary: sharp positivity first-order Korobov lattice under sine periodization",
+          "https://ins.uni-bonn.de/media/public/publication-media/2604.pdf?pk=1973"
+        ]
+      },
+      "rationale": "Original and motivated high-order (alpha>=2) one-dimensional asymptotic sign-stability result, distinct from the already solved first-order sharp threshold and distinct from the still-open multivariate positivity question.",
+      "residual_risks": [
+        "The 1D O(N^-2) negative-total-mass bound does not establish per-node positivity or resolve the multivariate question.",
+        "Potential older product-integration or spline theory with equivalent high-smoothness signed mass estimates remains unindexed.",
+        "Fixed alpha, fixed gamma conditions are crucial; gamma scaling with N is not included."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes quadrature setup and error rates, explicitly lacks multivariate asymptotic positivity theorem; does not give the precise one-dimensional fixed-alpha result",
+          "evidence": "Page 28 states asymptotic positivity is not known for the present multivariate method; the audited theorem makes a narrower claim.",
+          "identifier_or_url": "https://ins.uni-bonn.de/media/public/publication-media/2604.pdf?pk=1973",
+          "material_read": "Complete 31-page institutional-author open-access PDF: Sections 1.2, 3.2 and 7.2, equations (1)-(3),(23), and the explicit asymptotic positivity discussion on PDF page 28",
+          "method": "Primary lawful author-hosted PDF, extracted text and page screenshots",
+          "title": "A higher order lattice-based method for high-dimensional numerical integration using periodization",
+          "trigger": "Direct original method, exactly same density/kernel and asks about asymptotic positivity"
+        },
+        {
+          "assessment": "Provides exact all-N first-order threshold and eventual positivity, not alpha>=2 Fourier alias law",
+          "evidence": "Gamma_pos(N)=N+pi²/3+O(1/N) depends on piecewise-linear alpha=1 interpolation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-positivity-frontier-for-first-order-korobov-lattice-quadra--c97b58c7b287",
+          "material_read": "Full RESULT and its 1D spline/nugget threshold proof",
+          "method": "Complete mathematical record",
+          "title": "Sharp positivity frontier for first-order Korobov lattice quadrature under sine periodization",
+          "trigger": "Exact same density and lattice, but alpha=1"
+        },
+        {
+          "assessment": "Covers alpha=1 and its quartic mass-sign threshold; alpha>=2 exact mass-defect constant not supplied",
+          "evidence": "No alpha>=2 in its assumptions; substituting alpha changes denominator power and interpolant.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-positivity-and-constant-function-thresholds-in-one-dimensi--598f5f115f42",
+          "material_read": "Full RESULT, spectral tent identity, mass threshold and parity analysis",
+          "method": "Complete mathematical record",
+          "title": "Sharp positivity and constant-function thresholds in one-dimensional Chebyshev–Korobov quadrature",
+          "trigger": "Independent overlapping alpha=1 same method and mass sign"
+        },
+        {
+          "assessment": "General sufficient positivity under kernel/design hypotheses; no demonstrated implication for this nonsmooth density full-lattice Fourier alias",
+          "evidence": "Can be relevant for signs but its locally optimized total-positivity conditions are not assumed here.",
+          "identifier_or_url": "https://doi.org/10.1007/s11222-019-09901-0",
+          "material_read": "Bibliographic paper summary and nearby exact sources methodological comparison",
+          "method": "Bibliographic abstract and cited theorem scope, not full PDF",
+          "title": "On the positivity and magnitudes of Bayesian quadrature weights",
+          "trigger": "General positive-weight quadrature and possible all-kernel implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Negative quadrature weights affect noise amplification and stability even for a nonnegative target density. The higher-smoothness regime is the natural unresolved extension of a widely used periodized lattice method; proving O(N^-2) *total negative mass* with exact nonunit-mass defect and finite-grid negative endpoint exhibits a genuine stability boundary. This is not just routine consistency or parameter renaming, and does not falsely assert per-weight positivity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim that every fixed-grid weight becomes positive for alpha>=2; finite even grids can have a negative endpoint at large gamma.",
+    "The multivariate method remains an open positivity setting; result is restricted to one-dimensional full equispaced grids and fixed alpha,gamma.",
+    "Original package and full historical evidence preserved byte-for-byte. All publication modifications withheld because public operational provenance is not neutralized."
+  ],
+  "schema_version": 1
+}
