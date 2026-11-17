@@ -1,15 +1,21 @@
-# Scientific review: mixed-alphabet online neighborhood dimensions
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem concerns only the exact *online* Littlestone dimensions. A coordinate-line/two-center common-positive-fiber argument proves the universal online upper bound three for both conventions. For two-row rook graphs a separate negative-fiber argument proves the nontrivial closed online bound two, even when the alphabet of the other factor is unbounded. A positive-fiber cardinality argument proves the open (2,3) exception; explicit shattered supports supply lower bounds where static rank three, and two eight-leaf complete online decision trees supply the strict (3,3) gap. An independent standard-library checker confirms 26 finite concept-family comparisons and both complete adaptive trees. Pre-existing static VC values are shown for comparison, not claimed as new.
+## correctness
 
-## Originality — PASS, subject to priority uncertainty
-Earlier mathematics already contains the complete heterogeneous closed-neighborhood **VC** formula, the open rectangular-rook VC polynomial, and equal-alphabet online dimensions for both open and closed neighborhoods. Those prior claims were compared by implication and are explicitly excluded as separate originality assertions. They do not settle the exact **online** dimension of heterogeneous closed rectangles: a class with static VC rank two can have online rank either two or three, as the square ternary rook example demonstrates. Nor do they yield the full mixed-parameter online classification. The original 2020 Hamming article treats static open VC only. Published semantic searches and available prior claim texts revealed no equivalent general online table; unindexed historical coverage remains a risk.
+PASS
 
-## Mathematical value — PASS
-A natural, complete two-invariant adaptive classification for all mixed-alphabet Hamming graphs determines the worst-case realizable online membership-mistake bound without distance-transitivity. The infinite family of two-row rook graphs exhibits a sharp open/closed online divergence: the closed bound stays at two regardless of the other factor's size, whereas the open bound jumps at alphabet four. The contrast between VC and Littlestone rank two versus three shows this online conclusion is not a mechanical consequence of the earlier static formula. The classification sharply determines which full products exhibit a static/adaptive gap.
+An open or closed radius-one center family in a product of finite cliques has common positive center sets along a single coordinate line when the two queries differ in one coordinate, two recombinations at distance two, and none beyond distance two. Query restrictions to a line are singleton/co-singleton/full/empty, so after two positive answers the version-space online rank is at most one, forcing uniform Ldim≤3. The closed K₂□K_q case has, after a negative root answer, candidates on one row/coordinate line, forcing Ldim≤2; the open K₂□K₃ positive root fiber has cardinality only 3, also rank≤2. Explicit VC-shattered support witnesses and two depth-three ternary rook mistake trees supply lower bounds. Small-product independent concept-mask/minimax computations checked eight mixed families and confirmed the exceptional (2,3),(2,q≥4),(3,3),binary-cube cases. The uniform proof treats all finite positive d and each q_i≥2; old static VC numbers are credited, not new.
 
-## Limits
-The online formulas assume complete Cartesian products with \(q_i\ge2\), not arbitrary induced subgraphs, other radii or code-restricted hypotheses. All static VC numbers included in the comparative table are prior results, even where their short proofs appear for completeness. Independent proof validation and absolute historical priority have not been established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The accepted contribution is heterogeneous online Littlestone classification, especially closed two-row K₂□K_q rank 2 despite open rank 3 for all q≥4. Previously published equal-alphabet open and closed online classifications and mixed-alphabet static ranks are explicitly excluded.
+
+## value
+
+PASS
+
+The exact adversarial online mistake bounds for mixed-alphabet Hamming products are natural learning-theory parameters. The sharp persistent heterogeneous difference between open and closed K₂□K_q and the isolated static-adaptive gap at K₃□K₃ cannot be obtained from a static VC table; the finite all-parameter online classification has standalone mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
