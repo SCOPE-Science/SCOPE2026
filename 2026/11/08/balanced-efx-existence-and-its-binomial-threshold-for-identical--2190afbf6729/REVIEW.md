@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Formula (1) is derived from a complete pairwise EFX test: removing a low item is the strongest test whenever the target bundle contains one, and removing a high item is the test for all-high target bundles. For \(H>2L\), integrality forces all non-all-high bundles to have one common high count, while an all-high bundle can coexist with them only in the top layer. Balanced constructions prove sufficiency. Multinomial enumeration establishes formula (2), and the binomial CLT, Chernoff bounds and the local CLT give (3)--(5). The exact checker tests 34,080 count profiles, 936 existence parameters, 312 count formulas and 38 independent labeled-allocation cases. Tests are finite evidence, not the reason for the general theorem.
+PASS
 
-## Originality
+Write high-count h_i, value rL+(H−L)h_i. For target with a low good, removing low is strongest EFX inequality (H−L)(h_j−h_i)≤L; for all-high target, inequality (H−L)(r−h_i)≤H. When H≤2L, evenly spaced high counts h_i differing by ≤1 meet both; when H>2L, any not-full bundle must share the minimum high count a since integer positive differences violate first inequality. If full bundle coexists with mixed, (r−a)(H−L)≤H=(H−L)+L and H−L>L forces r−a=1; so either q multiple n or q>(r−1)n. Equal-count and top-layer constructions prove converse. Exact labelled goods multinomial counts follow by partitioning distinct high and low items into fixed h_i profiles, including q=nr. Independently enumerated all high-count vectors in 12 (n,r,H,L) small parameter tuples and verified feasibility iff. For iid high goods B_n~Bin(nr,p), exact event B_n>n(r−1) or B_n=jn for j≤r−1 gives CLT critical p*=(r−1)/r with scale β r^(3/2)/sqrt(r−1), Chernoff exponential tails, resonant local CLT n^-1/2 at j/r (1≤j≤r−2). At p=p* limit 1/2. Identical valuation total sum fixed makes every allocation fPO trivially, but does not prove EFX. These rigorous universal statements do not rely on finite checks.
 
-**PASS, qualified.** The closest balanced-allocation work proves existence of EF1 plus constrained fPO, not EFX; an unconstrained EFX result for two item types does not imply the same after exact cardinality constraints are imposed. Searches for balanced EFX with identical bivalued valuations, a high/low contrast threshold, modular high-good counts and probabilistic phase transitions did not reveal the particular classification or Gaussian window. Related unpublished/unindexed formulations remain an originality risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Exact cardinality balancing is motivated by equal team drafts and course-seat assignments, while EFX is the strong deletion-robust fairness requirement. The theorem completely classifies feasibility in a natural homogeneous bivalued domain, gives exact labeled allocation counts in the failing contrast regime, and identifies a sharp probabilistic phase transition (including arithmetic resonances) despite unconditional EF1. The contrast \(H=2L\) and high-good density \((r-1)/r\) are intrinsic to the EFX inequalities, not arbitrary numerical cutoffs.
+The closest balanced fair-allocation theorems guarantee EF1+fPO (Kawase–Mahara and Cookson–Shah–Verma), which does not imply EFX; the two-good-type EFX+PO existence theorem imposes no exact equal bundle sizes. The new iff criterion H<=2L or n|q or q>(r−1)n, complete labelled-allocation counts and binomial window/arithmetically resonant probabilities are not consequences of those earlier existence statements, and Resultary searches found no equivalent known fixed-cardinality two-valued formula. The conclusion is best-of-knowledge with named limitation: relevant complete arXiv primary texts were not retrievable in HTML in this run, so noncoverage is only established at the inspected statement level.
 
-## Closest literature and limitations
+## value
 
-Kawase--Mahara (arXiv:2603.05956) and Cookson--Shah--Verma (arXiv:2608.06325): balanced EF1/fPO. Gorantla--Marwaha--Velusamy (arXiv:2202.05186): unconstrained two-type EFX. Davidiuk et al. (arXiv:2601.03438): unconstrained two-type EFX/PO. The present finding is restricted to identical positive two-value additive preferences, exact equal bundle sizes, and fixed bundle size in the asymptotic model. No independent expert validation was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact-cardinality balanced EFX versus guaranteed weaker EF1 is a substantive natural fairness boundary: the ratio H/L=2 and arithmetic conditions on q create explicit impossibility patterns. Full labelled assignment counts and random sample-size threshold with exceptional resonance peaks can guide fair-division feasibility in identical two-valued drafts; not a routine rephrasing of known unconstrained EFX+PO existence, and precise invariant is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
