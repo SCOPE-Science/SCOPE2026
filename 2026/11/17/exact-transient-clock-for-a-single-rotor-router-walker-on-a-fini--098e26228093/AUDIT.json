@@ -1,0 +1,167 @@
+{
+  "correctness": {
+    "rationale": "For n>=3 simple cycles, p-k mod n is invariant, reducing the map to flipping the binary rotor bit at its Hamming-weight index. Explicit 2n recurrent words per offset, plus two exact decreasing potentials prove the piecewise preperiod formula for all rotor states including constant words. Strict rearrangement gives max (n-1)(n-2)/2 and precisely 2n maxima. An elementary independent-bit expectation gives (n^2-5n+8)/4-2^(1-n). Complete functional-graph and independent direct-update checks agree for n=3..14 and n=3..13, respectively; numerical tests support rather than replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Holroyd et al. (arxiv:0801.3306), recurrent iff unicycle, characterizes recurrent states, not transient depth.",
+        "Pham (arxiv:1403.5875) gives orbit-size and recurrent state information but no statewise preperiod.",
+        "Klasing et al. (2016), ring rotor walks, studies exploration/cover time and generic asymptotic behavior, not exact complete-state entry-time distribution.",
+        "Yanovski et al. (2003) available abstract addresses exploration/patrolling with general guarantees; full original text unavailable, so no negative whole-text assessment is asserted."
+      ],
+      "reasoning": "These broad recurrence and exploration results are compatible with, but do not logically imply, the exact transient formula and exact extremizer and expectation data. A theorem providing an exact statewise clock for all single-chip cycles would subsume the finding, but none was located in inspected primary portions; the inaccessible 2003 work remains a non-decisive risk.",
+      "searches": [
+        "arxiv:0801.3306",
+        "arxiv:1403.5875",
+        "doi:10.1007/s00453-003-1030-9",
+        "doi:10.1007/s00446-016-0282-y",
+        "rotor-router circle ring one chip exact preperiod maximum triangular (n-1)(n-2)/2 uniform random mean n^2/4",
+        "Eulerian walker cyclic graph rotor configuration binary rotations exact lock in transient length weight positional sum"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:cond-mat/9605094",
+      "arxiv:cond-mat/9611019",
+      "doi:10.1007/s00453-003-1030-9",
+      "arxiv:0801.3306",
+      "arxiv:1403.5875",
+      "doi:10.1007/s00446-016-0282-y"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Unicycle theorem identifies eventual recurrent state sets and Euler-tour cycle length but specifies neither which incoming initial states enter when nor the distribution of entry depths.",
+        "Ring cover-time asymptotics bound time to visit sites, which is a different stopping event from first return to periodic full-state dynamics.",
+        "The new rotor-relative binary map supplies a conservation reduction not present in the cited recurrence statement."
+      ],
+      "reasoning": "Combining recurrent-state classification with a generic O(n^2) exploration time does not fix exact preperiods, count maximal-delay states, or yield the rational mean. The proof requires explicit endpoint and displacement arguments in the transient functional graph. Hence the inspected statements do not subsume the exact new theorem.",
+      "searches": [
+        "arxiv:0801.3306 recurrent iff unicycle",
+        "arxiv:1403.5875 orbits rotor-router",
+        "doi:10.1007/s00446-016-0282-y rotor-router ring cover time",
+        "rotor router walk simple cycle exact maximum preperiod transient steps n(n-1)/2 unique worst initial rotor configurations",
+        "one chip rotor router cycle n vertex eventual unicycle transient time sharp extremizer count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Priezzhev (1996) introduces directed rotor walks and Eulerian recurrence; the 1996 Eulerian Walkers paper studies general recurrent behavior, not a statewise initial-to-unicycle distance on finite labelled rings.",
+        "No match for the conserved-offset Hamming-weight-index flip formula, the n-dependent exact mean, or the 2n maximizers in the returned published-finding corpus results."
+      ],
+      "reasoning": "The stated formula gives every initial-state first-recurrent-entry time, not merely eventual recurrence, cover time, Eulerian period or an asymptotic bound. Search variants using preperiod, first entry, transient clock and rotor walking produced no equivalent statement in the accessible examined literature. Missing archival texts prevent unconditional historical novelty claims.",
+      "searches": [
+        "rotor router walk simple cycle exact maximum preperiod transient steps n(n-1)/2 unique worst initial rotor configurations",
+        "one chip rotor router cycle n vertex eventual unicycle transient time sharp extremizer count",
+        "rotor-router circle ring one chip exact preperiod maximum triangular (n-1)(n-2)/2 uniform random mean n^2/4",
+        "arxiv:cond-mat/9605094",
+        "arxiv:cond-mat/9611019"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact statewise rotor-router preperiod table or formula identified in returned published-finding corpus ranked hits.",
+        "Closest published-finding corpus IDs: 2026/10/26/SCOPE-exact-transient-depth-census-for-cyclic-rule-250--c4bf745181f9 (different binary synchronous map); 2026/11/8/SCOPE-the-twist-dependent-transient-clock-on-cubic-circular-ladders--f6b8ed39dc12 (linear wave map); 2026/11/8/SCOPE-exact-chip-mass-polynomial-and-gaussian-law-for-primitive-two-cy--e5633f919c2a (parallel chip firing)."
+      ],
+      "reasoning": "Those exact database results count states or transients for distinct updates, not single-rotor-router first-entry times. Dataset partition does not constitute mathematical novelty proof; matched statements would override title differences.",
+      "searches": [
+        "rotor router walk simple cycle exact maximum preperiod transient steps n(n-1)/2 unique worst initial rotor configurations",
+        "one chip rotor router cycle n vertex eventual unicycle transient time sharp extremizer count",
+        "rotor-router circle ring one chip exact preperiod maximum triangular (n-1)(n-2)/2 uniform random mean n^2/4",
+        "Eulerian walker cyclic graph rotor configuration binary rotations exact lock in transient length weight positional sum",
+        "rotor-router cycle exact time to unicycle mean 2n extremizers",
+        "published-finding corpus semantic search: rotor-router cycle exact time to unicycle mean 2n extremizers"
+      ]
+    },
+    "rationale": "The inspected original rotor papers, unicycle recurrence result, orbit-size theorem and ring cover-time work do not imply the exact statewise initial-to-recurrence clock or its exact uniform average and extremizer population. published-finding corpus semantic searches returned only different maps/observables. Priority qualified by inaccessible 2003 original/2002 report and unindexed archive, not misrepresented as completely ruled out.",
+    "residual_risks": [
+      "The 2003 ant patrolling original paper and an earlier 2002 technical report could not be inspected in full; an exact cycle preperiod theorem there would challenge priority.",
+      "Semantic published-finding corpus, public indexing and accessible full-text searches cannot prove complete novelty; further expert archival verification is desirable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces model and recurrent phenomena but does not state this finite-cycle statewise preperiod clock.",
+        "evidence": [
+          "First submitted 1996-05-15",
+          "Original rotor update and Eulerian behavior; no explicit every-state finite-ring entry-time formula located"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/9605094",
+        "material_read": "Full accessible arXiv HTML presentation and abstract sections",
+        "method": "Read online primary text, inspect definitions and recurrent behavior and compare stopping-time target",
+        "title": "Self-organized criticality in self-directing walks",
+        "trigger": "Original archival rotor walk construction and 1996 source date"
+      },
+      {
+        "assessment": "Different general and infinite-line dynamical focus; not an exact labelled finite-ring transient census.",
+        "evidence": [
+          "First submitted 1996-11-04",
+          "Eulerian circuits and rotor-router recurrent regimes; no sharp 2n maximal-preperiod population established in examined work"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/cond-mat/9611019",
+        "material_read": "Accessible arXiv HTML primary full text",
+        "method": "Read recurrent/Eulerian dynamics and 1D discussion; compare recurrence versus transient entry",
+        "title": "Eulerian Walkers as a Model of Self-Organized Criticality",
+        "trigger": "Highly plausible early general rotor-walk theorem"
+      },
+      {
+        "assessment": "Recurrent iff unicycle, not an exact preperiod from arbitrary input on rings.",
+        "evidence": [
+          "Section 3 theorem characterizes recurrence via unicycle",
+          "Unicycle classification gives no time until condition is attained"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0801.3306",
+        "material_read": "Primary full-text HTML, including Section 3 unicycle criterion and orbit material",
+        "method": "Inspect Theorem 3.8 and compare its direction with first-periodic-entry formula",
+        "title": "Chip-Firing and Rotor-Routing on Directed Graphs",
+        "trigger": "General recurrence and classification potentially implying the theorem"
+      },
+      {
+        "assessment": "Exact orbit lengths/size, not transient waiting time for arbitrary initial rotors.",
+        "evidence": [
+          "Studies orbits and recurrent rotor states",
+          "No initial-state preperiod formula in inspected text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.5875",
+        "material_read": "Primary arXiv HTML complete accessible text",
+        "method": "Read orbit theorem and recurrent-state machinery",
+        "title": "Orbits of rotor-router operation and stationary distribution of random walks on directed graphs",
+        "trigger": "Orbit-size theorem might cover all-state dynamics"
+      },
+      {
+        "assessment": "Cover time and multi-agent exploration are different observables; no exact first-recurrence clock found.",
+        "evidence": [
+          "Single-walker comparison is asymptotic exploration time",
+          "Exploration stopping conditions differ from periodic full-state entry"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00446-016-0282-y",
+        "material_read": "Accessible publisher HTML full text and one-walker cover-time introductory discussion",
+        "method": "Read model, single-walker comparison and statements of cover-time bounds",
+        "title": "The multi-agent rotor-router on the ring: a deterministic alternative to parallel random walks",
+        "trigger": "Exact same ring geometry; possibly stronger predecessor"
+      },
+      {
+        "assessment": "No NOT_COVERING claim for the inaccessible main article; unresolved archival priority risk retained.",
+        "evidence": [
+          "Original 2003 title/abstract: deterministic patrolling and exploration bounds",
+          "Full source and earlier 2002 technical report not inspected"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00453-003-1030-9",
+        "material_read": "Bibliographic metadata, abstract and search-indexed information only; NOT the full text",
+        "method": "Searched arXiv and lawful OA full text unsuccessfully; tried authorized institutional access, returned VPN-disconnected, no access bypass",
+        "title": "A Distributed Ant Algorithm for Efficiently Patrolling a Network",
+        "trigger": "Highly relevant early walker on rings/graphs; historical priority"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "098e2622-8093-4765-8478-e96e12723480",
+  "value": {
+    "rationale": "Exact first-periodic-entry is a natural dynamics observable distinct from rotor Euler-circuit length and vertex cover time. A complete closed-state formula, sharp all-n worst-case transient, exact count 2n of extremizers, and rational mean with exponentially small correction give structurally motivated information for deterministic walk initialization, not a narrow arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
