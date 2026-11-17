@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The distance-gauging system is reconstructed from Euclidean vertex chords, solved exactly, and has a strictly positive denominator on its whole domain. The proof separately maximizes the negative mass in the two-negative and one-negative sectors, including sharp equality and nonattainment arguments. An exact derivative comparison establishes the integer breakpoint at five. The standalone symbolic and full-distance-matrix verifier passed 1,862 assertions. Numerical samples are corroboration only.
+
+**Originality — PASS, provisionally.** The complete 2026 source by Roff and Willerton (arXiv:2607.05349v2) provides the general microscopic-weight theory, not the bipyramid extremal-mass classification. Kamiyama's full 2026 paper (arXiv:2606.00707v1) concerns different cyclic two-chunk distance structures and limiting magnitude, not the two-height Euclidean optimization. A separate published regular-bipyramid theorem determines mechanical equilibrium counts for the identical two-height geometry; it gives no distance-matrix microscopic weighting or negative-mass extremal principle. The closest published geometric negative-weight result concerns staggered planar polygon orbits (published-finding corpus record 9ce6bbdc7f59), not an asymmetric-to-symmetric switch in globally maximal negative mass of genuine three-dimensional bipyramids. Relevant mathematical-record and literature searches found no dominating claim. Other literature could exist under alternate terminology.
+
+**Mathematical value — PASS.** This is a natural exact extremal question for the signed canonical measure introduced in a recent metric-geometry paper. The optimizing geometry changes discontinuously in kind between four and five equatorial vertices: a degenerate asymmetric limit versus a unique nondegenerate symmetric maximizer. The result determines sharp values, weights, extremizers and nonattainment throughout an infinite family of exposed-vertex configurations, rather than just displaying negative signs.
+
+The method uses Euclidean chord distance, not intrinsic graph or polyhedral-surface distance. It does not classify arbitrary polyhedra. No historical-priority guarantee or independent mathematical certification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
