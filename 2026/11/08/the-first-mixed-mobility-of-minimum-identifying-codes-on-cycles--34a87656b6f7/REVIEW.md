@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The local cyclic characterization is obtained by comparing closed-neighborhood signatures and enforcing domination. The omitted vertices of a minimum code form an independent four-set in the step-three eleven-cycle; all five rotation classes are classified explicitly, giving exactly three admissible eleven-element orbits. Direct representative-neighbor calculations give the exact \(11K_1\sqcup C_{22}\) token-slide decomposition and the connected \(4\)-regular jumping graph. The cutoff below eleven is an exhaustive search of at most \(2^{10}\) subsets per order. Two standalone and independently structured programs passed, with their actual outputs included. The jumping radius and diameter follow from complete BFS, not from unproved extrapolation.
+## correctness
 
-**Originality: PASS, subject to priority risk.** The known cycle code-size theorem and identifying-code criterion are excluded from the novelty claim. The primary 2009 preprint was inspected at its introduction and Section 2; it determines optimal cardinalities, not the configuration-space graph. Relevant older cycle papers establish code-size optimization. Accessible historical claims and an indexed mathematical research corpus were checked for cycle-specific identifying-code moves, their binary word formulations, and stronger reconfiguration classifications; no statement found implies the eleven-cycle mobility decomposition. Two historical primary full texts were not obtained and remain a specific residual risk. A failed search is not a uniqueness certificate.
+PASS
 
-**Value: PASS.** The result finds the first natural order at which an optimal identifying-code state space has coexistence of isolated and mobile states, and completely identifies the movable component as a \(22\)-cycle. It distinguishes physically local detector relocation from unrestricted reassignment, although both preserve the minimum detector budget. This is a motivated first-boundary classification, not a sample of arbitrary numerical cases.
+Comparison of cyclic closed neighborhoods gives necessary/sufficient omitted-vertex conditions: no pair i,i+3 and no three consecutive omitted vertices. In C11 omitted sets of size5 are all 11 maximum independent sets of the step-three cycle and fail domination; 55 independent omitted 4sets form five rotation orbits, exactly three valid. Representative move tables give 11 frozen and a C22 slide component, plus connected 4-regular jump graph. Direct independent complete code enumeration n=4..11 reproduces every minimum size and slide component and verifies jump 66 edges; exact BFS of 33 states proves radius4/diameter5. Statements are bounded to n<=11 cutoff and C11 structure.
 
-The exact claim is restricted to the first-coexistence cutoff and the order-eleven graphs. Independent assessment of publication priority and scholarly merit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical identifying-code cycle results give local separation criterion and minimum cardinality; they do not provide the optimal configuration reconfiguration graphs in the inspected primary Section 2. A ranked search found reconfiguration results for other graphs and other code constraints, not an equivalent C11 class. Historical priority remains best-of-knowledge, not certified against every code-reconfiguration article.
+
+## value
+
+PASS
+
+The first occurrence of mixed frozen/mobile optimum configurations and contrasting local slide versus arbitrary jump connectivity is a structurally natural finite classification of optimal code geometry and sensor relocation constraints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

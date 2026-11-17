@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_exhaustive.py` and `python3 verify_orbits.py` with standard Python. The captured standard outputs in `exhaustive_output.json` and `orbit_output.json` were reproduced exactly in a clean execution from extracted package contents. Every program uses only the standard library.
+## correctness
 
-The first program constructs every minimum identifying code through all-subsets enumeration for the labeled cycles of orders \(4\) through \(11\); it makes no assumption about the minimum size or the transition graph. The second program uses the independently derived omitted-vertex criterion and orbit classification and independently checks all representative one-move neighbors.
+PASS
 
-The cyclic-orbit proof uses exactly \(55\) independent omitted four-sets of the step-three \(11\)-cycle and rules out omitted five-sets via domination. Its three valid translation orbits are exhaustive, and its move table gives a purely combinatorial explanation of the frozen and mobile sectors. BFS verification of the jumping radius and diameter is an exhaustive finite computation only.
+Comparison of cyclic closed neighborhoods gives necessary/sufficient omitted-vertex conditions: no pair i,i+3 and no three consecutive omitted vertices. In C11 omitted sets of size5 are all 11 maximum independent sets of the step-three cycle and fail domination; 55 independent omitted 4sets form five rotation orbits, exactly three valid. Representative move tables give 11 frozen and a C22 slide component, plus connected 4-regular jump graph. Direct independent complete code enumeration n=4..11 reproduces every minimum size and slide component and verifies jump 66 edges; exact BFS of 33 states proves radius4/diameter5. Statements are bounded to n<=11 cutoff and C11 structure.
 
-The reported scope is the finite first-coexistence theorem. No claim is made about all larger cycle orders, different radii, or independent scholarly validation.
+## originality
+
+PASS
+
+Classical identifying-code cycle results give local separation criterion and minimum cardinality; they do not provide the optimal configuration reconfiguration graphs in the inspected primary Section 2. A ranked search found reconfiguration results for other graphs and other code constraints, not an equivalent C11 class. Historical priority remains best-of-knowledge, not certified against every code-reconfiguration article.
+
+## value
+
+PASS
+
+The first occurrence of mixed frozen/mobile optimum configurations and contrasting local slide versus arbitrary jump connectivity is a structurally natural finite classification of optimal code geometry and sensor relocation constraints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
