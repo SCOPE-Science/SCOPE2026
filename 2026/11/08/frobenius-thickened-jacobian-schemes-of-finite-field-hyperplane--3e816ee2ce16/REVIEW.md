@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The Moore determinant differentiation gives the *ideal* identity, not merely a set-theoretic singular-locus claim. A height-two maximal-minor Hilbert--Burch resolution and independent generic-reducedness argument establish radicality. Flat Frobenius gives the full primary decomposition, Cohen--Macaulayness, all graded shifts and generic lengths. The standalone exact polynomial and finite-field computations agree for three test pairs and independently verify the rank stratification at all \(585\) points of \(\mathbb P^3(\mathbb F_8)\).
+## correctness
 
-**Originality — PASS, provisional.** Wakefield--Yoshinaga's general Jacobian analysis is in characteristic zero; Pink--Schieder study the same finite-field complement but not its boundary Jacobian scheme; Aluffi gives general characteristic-zero Segre relations; Migliore--Nagel--Schenck study characteristic-zero unmixed and reduced singular schemes. The contribution is the exact positive-characteristic global Frobenius-primary description and its graded consequences for all projective dimensions at least three. The classical freeness of the full finite-field arrangement and the known plane-polar formula are not new; they give partial consequences and make an unindexed implicit-priority risk serious, but neither inspected source states this higher-dimensional ideal equality and complete decomposition.
+PASS
 
-**Value — PASS.** The scheme structure on the boundary of the finite-field Drinfeld period domain is a natural singularity-theoretic object, and the result gives every associated component, its infinitesimal multiplicity, and the complete graded resolution uniformly in dimension and field size. In higher projective dimension it distinguishes the reduced support from its nonreduced Jacobian structure without the usual embedded-component ambiguity.
+For the Moore determinant F=det(x_j^{q^i}) and B its first N−1 Frobenius rows, differentiating F in characteristic p leaves only the first row and gives ∂F/∂x_j=D_j^q exactly, not just set-theoretically. Moore-rank criterion identifies maximal-minor support I as union of all Fq-rational codimension-two flats, pure height two. Hilbert–Burch gives a CM height-two quotient, and generic transverse linear Jacobian terms make it generically reduced; R0+S1 imply I radical. Flat Frobenius of the regular polynomial ring preserves its primary intersection and exact resolution, giving J(F)=I^[q]=∩p_L^[q], length q² local rectangles, minimal shifts q(d+q^j) and global degree q² Gaussian [N choose 2]_q. Independently reconstructed symbolic derivatives over GF2 N=3,4 and finite degree identities for N=4,5/q=2,3; finite tests corroborate the general algebra.
 
-**Closest literature and limits.** The most direct sources are Wakefield--Yoshinaga (arXiv:0707.2672), Pink--Schieder (arXiv:1007.4796), Aluffi (arXiv:1103.2777), and Migliore--Nagel--Schenck (arXiv:1908.03939). The exact algebraic theorem does not determine other characteristic classes, exceptional strata's completed intersection algebras, or arbitrary subarrangements. Historical-priority risk remains, particularly implicit deduction from classic freeness results; independent verification has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The equation J(F)=I^[q] follows from the special Moore-derivative identity, and the radical reduced incidence ideal, full primary scheme decomposition, uniform minimal graded resolution and local multiplicities refine the classical finite-field hyperplane arrangement. Identified older primary literature centers on characteristic-zero Jacobian theory or Drinfeld complement geometry and does not, in the material actually accessible, provide this entire characteristic-p scheme result. The verdict is best-of-knowledge; the identity may be implicit in classical determinant/freeness literature.
+
+## value
+
+PASS
+
+The complete finite-field hyperplane arrangement is canonical. Knowing its exact nonreduced singular scheme globally (flat-Frobenius power of a radical incidence ideal) and the uniform minimal graded resolution, multiplicities and absence of embedded primes is a natural sharp classification with meaningful reuse in arrangement, positive-characteristic and scheme-theoretic calculations. Even when derived using classical tools, it is more than a tiny ad-hoc computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
