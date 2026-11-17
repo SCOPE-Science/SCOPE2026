@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T16:51:32.340523Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For prime p, each interior binomial C(p,k),C(p,k−1) has p-adic valuation one, so Narayana N(p,k)=C(p,k)C(p,k−1)/p has exactly one p. Since N(p,2)=p(p−1)/2, any additional common prime must divide p−1. For any odd ℓ|p−1, take k=ℓ^{vℓ(p−1)}+1; Lucas's theorem makes both binomials nonzero mod ℓ; likewise ℓ=2 when p−1 has an odd factor. If p−1=2^r, direct 2-adic valuation N(p,k) for k≥3 equals 2r−v2(k)−2v2(k−1)−v2(k−2), with k=2 giving r−1; parity bounds and explicit sharp witnesses give min{2,r−1}. All odd prime cases including p=3 and p=5 are handled. Independent Python exact gcd of every row for 96 odd primes p≤509 agreed; finite checks alone are not the unrestricted argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published October 26 valuation-polynomial results track the row-index prime q in n=mq^r, not arbitrary auxiliary factors of the row-p Narayana gcd; the claimed full-prime gcd is not an immediate corollary of the presented synopsis.",
+          "Bóna–Sagan Corollary 2.2 is the weaker compulsory p-divisibility claim."
+        ],
+        "reasoning": "Neither a general digit divisibility test nor the published q-adic row-index distributions explicitly provides the global common factor over all primes ℓ|p−1; no verified stronger theorem contains the exact Fermat-prime exception.",
+        "searches": [
+          "Resultary: exact valuation polynomials dilated Narayana rows p^r",
+          "Resultary: universal row content strong divisibility binomial arrays",
+          "Bóna Sagan original theorem p-power-index Narayana"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/math/0505382",
+        "https://doi.org/10.1111/j.1467-9590.2006.00337.x",
+        "https://oeis.org/A001263",
+        "https://oeis.org/A335965",
+        "Resultary: October 26 dilated Narayana valuation polynomials",
+        "Resultary: October 18 first two binary divisibility layers of Narayana triangle"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/math/0505382: necessary and sufficient criterion for one prime dividing one N(n,k); n prime power forces base prime factor.",
+          "https://doi.org/10.1111/j.1467-9590.2006.00337.x: available abstract concerns broader Lucas-type congruences, but complete potentially relevant article not read."
+        ],
+        "reasoning": "The p-divisibility theorem leaves open whether common factor p^2, extra odd primes and 2 occur; the new proof shows exactly p^1 and only Fermat-prime powers of two. It is not justified to infer all-paper noncoverage from Eu–Liu–Yeh abstract, so overlap with it remains an explicit risk.",
+        "searches": [
+          "Bóna–Sagan Theorem 1.2 Corollary 2.2 full paper",
+          "Eu Liu Yeh On the Congruences of Some Combinatorial Numbers 2006 DOI",
+          "Resultary: Narayana prime rows gcd 2-adic Fermat"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bóna–Sagan arXiv:math/0505382 Corollary 2.2 establishes p|N(p,k) for all 2≤k≤p−1, without gcd exactness or 2-adic exceptions.",
+          "OEIS A335965 counts odd entries by row rather than giving gcd at prime row p."
+        ],
+        "reasoning": "The row content gcd is a minimum across every prime-adic valuation of every interior entry; a divisibility predicate alone does not supply the exact p-adic and 2-adic minima.",
+        "searches": [
+          "Resultary: Narayana prime index row common divisor gcd all interior peak counts Fermat primes",
+          "web: Bona Sagan On divisibility of Narayana numbers by primes 2005",
+          "OEIS A001263 A335965 Narayana row gcd"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A001263 gives individual Narayana numbers and A335965 gives count of odd entries rather than symbolic all-prime interior gcd.",
+          "Resultary exact dyadic Narayana Mersenne rows concern n=2^r−1, not p=2^r+1 Fermat-prime rows."
+        ],
+        "reasoning": "Known tables allow numerical gcds for listed p, but do not entail the quantified all-odd-prime theorem or give the Fermat-prime classification without proof.",
+        "searches": [
+          "Resultary: Narayana prime-row exact gcd Fermat 5 17",
+          "OEIS Narayana triangle row odd entries parity density",
+          "published prime Narayana row contents gcd"
+        ]
+      },
+      "rationale": "Bóna–Sagan (2005), inspected in full, establishes p-divisibility of every interior Narayana number for n=p^m, but not the entire gcd, exact absence of other prime factors, or extra binary factors at Fermat primes. Resultary searches of Narayana row valuations, parity and gcd classification found no published theorem implying this exact all-odd-prime row content. This exact minimization requires Lucas witnesses and valuation optimization. The potentially relevant Eu–Liu–Yeh (2006) complete paper was not accessible; its abstract alone cannot establish noncoverage, so the priority risk is expressly retained, not used as a scientific failure.",
+      "residual_risks": [
+        "Eu–Liu–Yeh (2006), DOI 10.1111/j.1467-9590.2006.00337.x: full text not accessible on arXiv/OA; authorized institutional retrieval returned VPN disconnected; mathematical overlap remains unverified.",
+        "The exact p=2^r+1 gcd could be a hidden easy corollary of a broader published Narayana congruence criterion not read in full; best-of-knowledge assessment, no exhaustive priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Corollary 2.2 forces p in prime row interior; no exact gcd or auxiliary 2-adic Fermat-prime exponents proved.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0505382",
+          "material_read": "Entire arXiv paper, including Theorem 1.2, Corollary 2.2, discussion of higher valuations and relevant examples",
+          "method": "Open-access full PDF examined and rendered page image",
+          "title": "On divisibility of Narayana numbers by primes",
+          "trigger": "Closest primary Narayana divisibility result for prime/power row"
+        },
+        {
+          "assessment": "INACCESSIBLE_POSSIBLE_OVERLAP",
+          "evidence": "No valid whole-paper noncoverage inference; name and access risk preserved. Existing abstract focuses on Lucas congruences, potentially relevant to prime-index congruences.",
+          "identifier_or_url": "https://doi.org/10.1111/j.1467-9590.2006.00337.x",
+          "material_read": "Abstract and bibliographic description only; entire full text inaccessible",
+          "method": "arXiv/preprint and lawful OA full-text attempts unsuccessful, authorized institutional retrieval returned vpn_disconnected",
+          "title": "On the Congruences of Some Combinatorial Numbers",
+          "trigger": "Plausible primary 2006 result on Lucas congruences for combinatorial numbers"
+        },
+        {
+          "assessment": "NOT_DEMONSTRATED_COVERING",
+          "evidence": "Results about index-prime valuation distributions for n=mp^r do not directly supply all-prime row gcd or Fermat 2-exception; do not claim whole paper excluded.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-exact-valuation-polynomials-and-a-geometric-limit-for-dilated-na--bde71f25e69e",
+          "material_read": "Semantic record statement and parameter summary; full RESULT not inspected",
+          "method": "Resultary published-index comparison",
+          "title": "Exact valuation polynomials and a geometric limit for dilated Narayana rows",
+          "trigger": "Relevant published broader Narayana valuation results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The interior-row gcd is the maximal common modulus of all nontrivial Dyck path peak enumerators at prime semilength. A full all-prime classification with a sharp and rare Fermat-prime binary exception materially strengthens known prime divisibility and is a useful natural exact arithmetic invariant. Lucas nondivisibility witnesses and exact 2-adic minimization go beyond textbook substitution, despite being a bounded prime-row family.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every odd prime p, the gcd of all nonendpoint Narayana entries N(p,k), 2≤k≤p−1, equals p except for Fermat primes p=2^r+1, where it equals p·2^{min(2,r−1)} (3→3, 5→10, Fermat primes ≥17→4p).",
+  "limitations": [
+    "Only odd-prime Narayana rows and nonendpoint entries; composite rows and existence of further Fermat primes are not asserted. Eu–Liu–Yeh full text inaccessible (institutional VPN disconnected); its possible coverage remains a priority risk, not a scientific failure."
+  ],
+  "schema_version": 1
+}

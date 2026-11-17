@@ -1,15 +1,21 @@
-# Review of the prime-row Narayana gcd classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof checks the precise domain \(p\) odd prime and \(2\le k\le p-1\). The base identity is \(\mathcal N(p,k)=p^{-1}\binom pk\binom p{k-1}\). Both binomials have exactly one factor \(p\), leaving exactly one in every interior Narayana number. The entry at \(k=2\) bounds all other possible common prime factors by those of \(p-1\). For each odd \(\ell\mid p-1\), a specified interior witness \(k=\ell^{\nu_\ell(p-1)}+1\) is nonzero modulo \(\ell\), by Lucas's theorem. When the odd part of \(p-1\) exceeds one, the analogous binary witness is odd. When \(p=2^r+1\), all remaining binary valuations are calculated explicitly and minimized, with equality witnesses. These steps establish all exponents of the gcd. The checker independently computes exact rows for primes up to \(257\). Risk: finite computation alone cannot certify the general prime-index theorem; the proof supplies the general argument.
+PASS
 
-## Originality
+For prime p, each interior binomial C(p,k),C(p,k−1) has p-adic valuation one, so Narayana N(p,k)=C(p,k)C(p,k−1)/p has exactly one p. Since N(p,2)=p(p−1)/2, any additional common prime must divide p−1. For any odd ℓ|p−1, take k=ℓ^{vℓ(p−1)}+1; Lucas's theorem makes both binomials nonzero mod ℓ; likewise ℓ=2 when p−1 has an odd factor. If p−1=2^r, direct 2-adic valuation N(p,k) for k≥3 equals 2r−v2(k)−2v2(k−1)−v2(k−2), with k=2 giving r−1; parity bounds and explicit sharp witnesses give min{2,r−1}. All odd prime cases including p=3 and p=5 are handled. Independent Python exact gcd of every row for 96 odd primes p≤509 agreed; finite checks alone are not the unrestricted argument.
 
-**PASS within the stated archival search limits.** Bóna–Sagan's 2005 result concerns divisibility of individual Narayana numbers by a prime and includes the weaker fact that prime-power-indexed rows have divisible interior entries. It does not supply the exact gcd or higher binary exponents. The accessible descriptions of Eu–Liu–Yeh's 2006 congruence work and OEIS A335965's odd-entry census do not state this classification. Targeted source searches for interior-row gcd, Fermat primes and Narayana valuations found no covering statement. The closest prior theorem is compared by logical implication, not title similarity. Residual risk: an equivalent exact gcd formula may occur in less easily located literature; the full text of the Eu–Liu–Yeh paper was not obtained, although its available abstract has a different emphasis.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The full gcd of the interior Narayana row is the maximal modulus that divides every nontrivial peak-counting statistic for Dyck paths of a fixed prime semilength. This is the exact higher-power strengthening naturally suggested by prime-divisibility results: the common factor is almost always just the row prime, but at the Fermat primes it gains a sharply bounded extra power of two. The exact exceptions distinguish a natural arithmetic subclass and are not supplied by the older prime-divisibility theorem. No general classification of composite rows is claimed.
+Bóna–Sagan (2005), inspected in full, establishes p-divisibility of every interior Narayana number for n=p^m, but not the entire gcd, exact absence of other prime factors, or extra binary factors at Fermat primes. Resultary searches of Narayana row valuations, parity and gcd classification found no published theorem implying this exact all-odd-prime row content. This exact minimization requires Lucas witnesses and valuation optimization. The potentially relevant Eu–Liu–Yeh (2006) complete paper was not accessible; its abstract alone cannot establish noncoverage, so the priority risk is expressly retained, not used as a scientific failure.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The interior-row gcd is the maximal common modulus of all nontrivial Dyck path peak enumerators at prime semilength. A full all-prime classification with a sharp and rare Fermat-prime binary exception materially strengthens known prime divisibility and is a useful natural exact arithmetic invariant. Lucas nondivisibility witnesses and exact 2-adic minimization go beyond textbook substitution, despite being a bounded prime-row family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
