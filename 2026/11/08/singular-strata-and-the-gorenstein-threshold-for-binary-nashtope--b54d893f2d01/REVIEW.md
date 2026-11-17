@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof computes every Nashmatrix toric affine chart as an exact tensor product of a polynomial ring and a prime \(2\times(n-1)\) rank-one determinantal ring. Character independence rules out hidden relations. Normality, Cohen--Macaulayness, the entire singular locus, multiplicities and local canonical classes then follow from standard determinantal and cone geometry. The included exact verifier checks the monomial chart identifications and quadratic relations for \(3\le n\le8\), but no finite verification is substituted for the all-\(n\) proof.
+## correctness
 
-## Originality
-**PASS, qualified.** The motivating paper computes Nashface lattices and Euler obstructions for discriminant degrees, and reports prismatic obstruction two; it does not give the scheme-theoretic local singularity model, divisor-class group or Gorenstein threshold. The older Abo--Portakal--Sodomaco work **does** construct the three-player toric variety, determining its dimension and Chern--Mather volumes; that part is not new. The mathematical novelty here is the uniform classification, local rings and canonical divisor behavior for all \(n\ge3\). Relevant prior searches found no statement dominating that combination; historical priority may still be affected by implicit results in general toric or determinantal literature.
+PASS
 
-## Value
-**PASS.** Singular-locus completeness, uniform transverse analytic type, and the sharp Gorenstein/\(\mathbb Q\)-Gorenstein phase transition determine structural invariants of an infinite, natural family directly connected to Nashmatrix discriminant geometry. The local divisor-class group and non-\(\mathbb Q\)-factoriality clarify which canonical and intersection-theoretic methods are available for studying these toric models; these properties are not just counts of faces or special-case numerical coincidences.
+On any standard nonzero monomial Z_{i,δ}, the coordinate semigroup is exactly C[y_k:k≠i]⊗C[b_sj:s∈{0,1},j≠i]/I_2(B): every coordinate is a monomial in these generators, y exponent characters independent and kernel of Segre parameterization is prime 2-minors. The resulting chart is normal CM, dim 2n−1, singular exactly where B=0, yielding n disjoint Segre (P1)^{n−1} components; transverse multiplicity is n−1. The cone local class group is Z and canonical class maps to (n−3) times generator, so Gorenstein iff n=3 and non-Q-Gorenstein singularities for n≥4. Independent exponent-vector and lattice-rank verification checked all coordinates for n=3,4,5; infinite statement rests on the general semigroup isomorphism.
 
-## Residual limitations
-The theorem is restricted to the binary Nashmatrix toric variety in characteristic zero; it gives neither an analysis of Nash discriminant singularities nor a classification for nonbinary game formats. Priority remains subject to specialist historical verification, and there has been no independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Neuhaus et al Nashmatrix/Euler-obstruction framework, the older three-player param and general determinantal cone theory are credited. The same 2×(n−1) cone occurs in the previously published doubly punctured Segre but that is a different variety with 2n isolated points. No inspected prior theorem gives n positive-dimensional Nash singular strata and the uniform canonical threshold; primary full-text inaccessibility is a substantial residual risk.
+
+## value
+
+PASS
+
+This is a natural complete singularity and canonical-divisor classification for all binary multiplayer Nashmatrix toric varieties. Exact local ring, multiplicity and Gorenstein cutoff are meaningful structural data and nontrivially generalize the known n=3 monomial model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
