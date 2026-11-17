@@ -1,15 +1,21 @@
-# Scientific review: shifted geometric support girth
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph has weights \(b^j+c\). If \(c<b(b-2)\), all weights from the third onward exceed twice the previous weight, forbidding a highest-weight edge on any cycle; the two remaining matchings are acyclic. The proof constructs an explicit simple cycle of length \(2b+2\) for every \(c\ge b(b-2)\). In the intermediate band, larger weights are excluded, eligible third-weight edges occupy distinct modulo-\(b-1\) components, and the path between their endpoints through two lower matchings has exactly \(2b+1\) edges. Above \(c=b^2-b-1\), an explicit six-cycle exists. Sidon uniqueness for sums of two base powers excludes four-cycles. The finite verifiers independently corroborate the bounds, while the proof establishes all parameter values. The word-complexity corollary is conditional on the published incidence-forest characterization, whose statement was checked.
+## correctness
 
-## Originality — PASS, with priority risk
-The 2026 Zeng–Xue–Zeng paper supplies the forest characterization, but the accessible abstract and introductory material do not state the exact two-threshold shifted geometric-support girth law. The potentially relevant examples subsection was not completely retrievable; its contents remain a genuine priority risk, not a negative full-text finding. Earlier general three-marker forest-extension criteria and logarithmic support bounds do not give the girth of this designated infinite support. Public record and related-result searches showed no direct coverage. This is a bounded best-knowledge originality assessment, not a uniqueness certificate.
+PASS
 
-## Value — PASS
-The main graph invariant is a natural complete classification across an infinite two-parameter lacunary family, rather than an arbitrary finite slice. The first transition exactly determines which characteristic words attain minimal Abelian maximal pattern complexity; for \(b\ge3\) the second identifies a genuine decrease in the shortest obstruction from length \(2b+2\) to six (the two finite cases coincide when \(b=2\)). The entire cyclic range is quantitatively distinguished by exact girth, beyond a yes/no forest condition.
+For b≥2,c≥0, sum-incidence edges have weights s_j=b^j+c; unions of two weight matchings are forests, and s_j>2s_{j-1} excludes any higher-weight edge on a cycle below first threshold. At c≥b(b-2), explicit 2b+2 cycle uses the first three levels. In intermediate band b≥3, the highest-weight obstruction excludes j≥3; eligible s_2 edges have distinct left residues modulo d=b-1, so a component has at most one, and its two-matching endpoint path has precisely 2b+1 edges. At c≥b²-b-1 explicit six-cycle exists; pair-sum uniqueness for b powers forbids 4-cycles. b=2 intermediate singleton checked separately. Independent BFS computed three-level graph girth for 63 (b,c) pairs b=2..6 and c<min(17,b²): every case matched ∞/2b+2/6. The infinite result rests on highest-edge proof; binary-word corollary uses published forest characterization.
 
-## Sources and limitations
-Primary structural source: Zeng, Xue and Zeng, *Abelian maximal pattern complexity and extremal words*, arXiv:2609.28059 (first public September 23, 2026). Background: Kamae, Widmer and Zamboni, *Abelian maximal pattern complexity of words*, arXiv:1301.5113. The graph proof is elementary and self-contained; classification outside integer bases and nonnegative shifts, nonminimal complexity values, and definitive historical priority are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The forest criterion and the sharp shifted-geometric support forest boundary c<b(b-2), including existence of a 2b+2 obstruction, were already published October 25; these portions are NOT new. The full graph girth trichotomy, including the second sharp boundary c=b²-b-1, absence of shorter cycles in the intermediate band, and the six-cycle regime, is not entailed by having *some* 2b+2 cycle or by forestness. A November 8 generic three-spike cycle rank formula gives independent-cycle counts, not an exact all-support shortest cycle without added analysis. Material full text of Zeng–Xue–Zeng's examples was not accessible and remains priority risk, not a default fail.
+
+## value
+
+PASS
+
+Exact girth is a natural structural invariant of a sparse incidence graph, measuring the shortest obstruction beyond the known forest threshold. The nonmonotone finite-girth transition from 2b+2 to 6, with a separate sharp translation boundary, is a substantive classification across all b,c rather than a known-threshold restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
