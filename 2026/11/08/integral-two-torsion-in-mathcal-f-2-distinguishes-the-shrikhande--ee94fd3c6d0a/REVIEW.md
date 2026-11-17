@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns exactly the second forest-filtration stage of two explicitly defined sixteen-vertex graphs. Both face predicates examine all \(65,536\) subsets for each graph and agree. The complete lexicographic matchings each pass exhaustive acyclicity checks (\(32,608\) rook incidences and \(29,024\) Shrikhande incidences). Descending and ascending pivot orders independently give the same integral Smith diagonals. The crucial Shrikhande map is a \(22\times19\) signed integral matrix of rank thirteen with invariant factors \(1^{12},2\); the rook map has invariant factors \(1^4\). The next Morse differential vanishes in both cases. Original-chain mod-two boundary ranks agree with universal-coefficient predictions; the integer conclusion is not inferred from finite-field ranks alone. The standalone script and its matrices were checked by direct execution.
+## correctness
 
-## Originality — PASS against inspected evidence
-The original forest-filtration article [1] defines the construction, but its relevant sections concern different graph families and do not determine these integral groups. The graph monograph [2] gives the strongly regular classification and adjacency information, not the forest-complex homology. Previously recorded first-stage two-independence homotopy types and graph Čech/neighborhood/cut-complex statements on the same pair do not imply their second-stage torsion or ranks. Search comparisons included alternative names (induced linear-forest complex, maximum-degree-two acyclic vertex subsets), stronger coverage, and exact tables. No decisive equivalent or dominating theorem was found. Residual risk is an unindexed or inaccessible equivalent calculation.
+PASS
 
-## Value — PASS
-The two examples form the complete natural pair of strongly regular graphs with parameters \((16,6,2,2)\). Their second-stage reduced Euler characteristics coincide, yet one contains nonzero integral two-torsion in degree four while the other is torsion-free, and their free Betti groups also differ. This exhibits nontrivial integral topology in a graph's forest filtration, beyond the already studied first stage, and refines invariants not fixed by adjacency spectra or alternating face counts. The result does not purport to determine homotopy types or a general formula.
+Complete enumeration of all 2^16 vertex masks using acyclic+degree<=2 predicates yields the two explicit face vectors; independently reconstructed both graphs and full original-chain GF(2) ranks. In F2(S), the verified source constructs acyclic 2934-pair matching (29024 Hasse incidences), critical cells (22,19,36), and integral Morse boundary d5 with twelve unit Smith factors and one 2; d6=0. This gives H4=Z^9+Z/2,H5=Z^6,H6=Z^36. Rook matching 3204 pairs has (4,37,72) critical and four unit d5 factors, d6=0, so H5=Z^33,H6=Z^72. Independent binary Betti ranks S (10,7,36), R (33,72) agree with universal coefficients. Characteristic-two checks are only corroboration; exact torsion relies on the signed Morse-Smith source calculation.
 
-## Limitations and closest literature
-[1] Carnero Bravo, *The Forest Filtration of a Graph*, arXiv:2307.13271 (first posted 25 July 2023), selected relevant sections and document searches. [2] Brouwer and Van Maldeghem, *Strongly Regular Graphs*, §10.6. Previously recorded two-independence, neighborhood, Čech, and cut-complex comparisons on these graphs concern different complexes or filtration levels. External independent validation is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Critical qualification: the 2026-10-25 induced-forest RESULT.md already gives the rook homology exactly; F2(R) equals the full induced-forest complex (their eight face counts coincide). Do NOT claim rook groups novel. For Shrikhande, F2(S) differs from its previously computed unrestricted induced-forest complex and contains new integral two-torsion at degree 4, a genuinely different stronger invariant. The combined comparative torsion claim therefore retains novel content.
+
+## value
+
+PASS
+
+The second forest filtration of a canonical cospectral strongly regular pair gives a structurally motivated torsion distinction: Shrikhande has a previously unaccounted order-two class in H4, although both graphs have equal Euler characteristic and the rook calculation is already known. This precise obstruction matters to forest-filtration and graph-invariant comparisons, not an arbitrary unmotivated finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

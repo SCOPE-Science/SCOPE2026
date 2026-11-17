@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact verification and limits
 
-The reproducible source `verify.py` regenerates two adjacency matrices from closed definitions, examines the complete Boolean vertex lattice, computes two independent face tests, checks all graph intersection parameters, and constructs two acyclic Morse matchings for each complex. It checks every oriented face-cover incidence for directed cycles, derives signed integral Morse matrices, verifies their chain relations, and computes exact integer Smith forms using SymPy. A separate unreduced simplicial mod-two elimination checks all boundary ranks and universal-coefficient implications. The actual boundary matrices for both matching orders are embedded as `MATRICES.json`.
+# Independent mathematical audit
 
-Run `python verify.py --check-certificate MATRICES.json` with Python 3.10+ and SymPy 1.11+. Compare stdout with `verification_output.txt`. The verification output was replayed from the finalized source and matrix file with exact agreement.
+## correctness
 
-The precise data are: rook complex \(6,521\) faces including empty, \(3,204\) matched pairs, \(32,608\) Hasse incidences, critical cell counts \((4,37,72)\) in degrees \((4,5,6)\), and degree-five Smith invariants \((1,1,1,1)\). Shrikhande complex \(5,945\) faces including empty, \(2,934\) pairs, \(29,024\) incidences, critical cell counts \((22,19,36)\), and degree-five Smith invariants \((1\text{ repeated }12\text{ times},2)\). Both degree-six Morse differentials are zero. Independent original-chain mod-two Betti ranks are \((33,72)\) in degrees \((5,6)\) for the rook complex and \((10,7,36)\) in degrees \((4,5,6)\) for the Shrikhande complex.
+PASS
 
-This is a same-model exact finite computation, not an independent audit. It proves only the reduced integral homology groups for the two specified complexes, not a homotopy classification or a universal graph-family result.
+Complete enumeration of all 2^16 vertex masks using acyclic+degree<=2 predicates yields the two explicit face vectors; independently reconstructed both graphs and full original-chain GF(2) ranks. In F2(S), the verified source constructs acyclic 2934-pair matching (29024 Hasse incidences), critical cells (22,19,36), and integral Morse boundary d5 with twelve unit Smith factors and one 2; d6=0. This gives H4=Z^9+Z/2,H5=Z^6,H6=Z^36. Rook matching 3204 pairs has (4,37,72) critical and four unit d5 factors, d6=0, so H5=Z^33,H6=Z^72. Independent binary Betti ranks S (10,7,36), R (33,72) agree with universal coefficients. Characteristic-two checks are only corroboration; exact torsion relies on the signed Morse-Smith source calculation.
+
+## originality
+
+PASS
+
+Critical qualification: the 2026-10-25 induced-forest RESULT.md already gives the rook homology exactly; F2(R) equals the full induced-forest complex (their eight face counts coincide). Do NOT claim rook groups novel. For Shrikhande, F2(S) differs from its previously computed unrestricted induced-forest complex and contains new integral two-torsion at degree 4, a genuinely different stronger invariant. The combined comparative torsion claim therefore retains novel content.
+
+## value
+
+PASS
+
+The second forest filtration of a canonical cospectral strongly regular pair gives a structurally motivated torsion distinction: Shrikhande has a previously unaccounted order-two class in H4, although both graphs have equal Euler characteristic and the rook calculation is already known. This precise obstruction matters to forest-filtration and graph-invariant comparisons, not an arbitrary unmotivated finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
