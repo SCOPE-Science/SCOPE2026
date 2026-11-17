@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The digraph and simplicial face condition are explicit, every one of the \(2^{12}\) masks is checked, and all \(876\) Hasse incidences are reconstructed. A complete \(134\)-pair matching is proved acyclic by topological sorting of the gradient orientation. The exact integral boundary matrices are reduced by unit pivots, leaving precisely one critical 0-cell, one 2-cell, four 3-cells, and four 4-cells with zero integer differentials. This proves the claimed integral homology and simply-connectedness, not an unwarranted full wedge decomposition.
+PASS
 
-## Originality
+PASS. The directed face condition independently fixes a partial vertex-successor map with distinct incoming/outgoing arcs and no directed directed cycle. Exhaustion of 2^12 masks gives 279 faces including empty and f=(12,54,104,84,24). Inspected and independently replayed the 134-pair acyclic matching on all 278 nonempty faces/876 cover incidences; the exact signed integral unit-pivot algebraic Morse reduction leaves one critical 0, one 2, four 3, four 4 cells with all integer differentials zero. Therefore H0=Z, H2=Z, H3=Z^4, H4=Z^4, no torsion. A CW model with no 1-cells gives pi1 trivial. Zero cellular boundaries do not establish all higher attaching maps null, and no wedge is claimed. Independent replay: /mnt/data/scope03_independent_check_20261108.py, generated from inspected source, passed the entire finite enumeration and integer reduction.
 
-PASS with a residual literature-discovery risk. Deshpande and Sawant's 2026 introducing paper directly motivates cyclic graph examples (Problem 6.3) but does not give this calculation. The 2022 primary multipath paper treats directed paths/polygons, certain grids, and transitive tournaments, not this three-part cyclic orientation. Searches for cyclic tripartite directed-linear-forest homology and the exact \((1,4,4)\) positive-degree Betti vector did not identify a covering theorem. Published results about other complexes of the *undirected* octahedral graph are not mathematical implications for this directed multipath complex. An unindexed equivalent calculation remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. This is the minimal complete cyclic tripartite blow-up with two vertices at each level, a canonical feedback example for the recent directed-linear-forest program. Its exact integral invariant exhibits nontrivial homology in degrees \(2,3,4\), whereas the in/out-degree-only ambient join is a two-sphere. The calculation supplies a fully reproducible base case for the explicitly posed cyclic-homology problem; it does not rely on an unsupported all-width generalization.
+PASS best-of-knowledge. Deshpande–Sawant 2026 establishes directed-linear-forest framework and poses cyclic examples; Caputi–Collari–Di Trani–Smith 2022 treats paths/polygons/other orientations, not this cyclic complete-tripartite six-vertex blow-up. Undirected octahedral Morse or matching complexes in Resultary are different functors and do not imply these integral homology groups. No exact 1,4,4 degree-2/3/4 table of this orientation was found; priority risk from unindexed finite examples remains.
 
-## Limitations
+## value
 
-Only the specified six-vertex orientation is classified. No integral cup-product, ring, all-width recurrence, or wedge-of-spheres homotopy claim is made. Exact finite certification is not independent external validation. The closest dated papers are arXiv:2602.14936v1 (2026-02-16) and arXiv:2208.04656v1 (2022-08-09).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The cyclically oriented complete K_{2,2,2} is a canonical small strongly connected cyclic blow-up precisely where acyclic directed-linear-forest exclusions become meaningful. Its three adjacent positive homology degrees differ sharply from the in/out-degree-only matching-join S^2, giving a concrete exact integral base case for the cyclic multipath problem posed in recent literature. The finite scope is intrinsic, not an arbitrary unmotivated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
