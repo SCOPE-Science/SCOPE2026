@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
-The Hamiltonian counts each unordered pair once. Walsh diagonalization gives exact distance-one and distance-two eigenvalues, and the minimum eigenvalue is attained by a legal sign character, so the global energy formula is an equality rather than only a relaxation. Strict convexity fixes both boundary ratios and the support levels. Multiplication by full parity converts the five regimes into degree-zero, degree-at-most-one, degree-one, degree-one-or-two, and degree-two sign polynomials. The influence bound rigorously reduces the final classifications to four essential variables; exact integer truth-table enumeration covers every Boolean assignment on these at-most-four variables. The independently constructed multiplexer and signed-square families agree with the exhaustive classifications, and an independent direct four-cube Ising enumeration checks each predicted phase count. Computations are complete finite censuses; all-dimensional statements rest on the analytic reduction.
+## correctness
 
-## Originality: PASS, with stated priority risk
-The closest examined primary studies are the frustrated square-lattice Ising analysis by Kalz, Honecker and Moliner (2011), the foundational degree-of-Boolean-functions analysis by Nisan and Szegedy (1994), and the ferromagnetic single-distance hypercube metastability study by Jovanovski (2017). The first uses a different lattice, the second bounds relevant variables without counting the two-range Ising ground-state sectors, and the third has a different coupling sign and lacks distance-two bonds. The preceding known partial techniques have been acknowledged explicitly. Published mathematical summaries involving Boolean-cube Fourier moments and earlier finite-graph Ising records were searched for implications, not title coincidences; no examined statement yields the simultaneous thresholds and quartic degeneracy formula. Residual priority risk: an unindexed low-degree Boolean census or physical spin-model computation might imply these exact numbers.
+PASS
 
-## Mathematical value: PASS
-The two-range antiferromagnet is a canonical frustration mechanism, while the hypercube's Hamming-distance interactions permit an exact spectral solution. The nontrivial output is the complete multiplicity of spin ground states through two successive coupling thresholds, with a sharp quartic-size coexistence enhancement caused by genuinely four-coordinate configurations. These counts are reproducible finite-cluster benchmarks and are not advertised as thermodynamic phase transitions. The significance is the dimension-uniform exact degeneracy classification, not the standard Fourier spectral bound alone.
+The Hamiltonian counts undirected shells once. Distance-one Walsh eigenvalue d-2k and distance-two ((d-2k)^2-d)/2 give an attained Rayleigh lower bound because every character is a legal sign configuration. Strict convexity of the level polynomial gives both stated crossings and no hidden minimizing bands. Parity-character multiplication reduces equality to zero-mean degree<=2 and pure degree 2 Boolean functions. For every relevant variable, a nonzero affine discrete derivative has support at least half the cube; total Fourier influence <=2 implies at most four relevant variables. An independently written complete 2^(2^m) integer Walsh truth-table enumeration for each m=1,2,3,4 reproduced essential-support counts (2,2,24,24) for zero-mean functions and (0,2,0,24) for pure degree two. This is an exhaustive finite certificate for the reduced class, not a search over all d. At d=4,5 the upper interval has no subsequent positive third threshold; for d>=6 it excludes and does not classify beyond 1/(d-5).
 
-## Scientific limitations
-The high-coupling degeneracies beyond the next threshold in dimension at least six, magnetic fields, and positive-temperature behavior are not classified. Independent validation is not asserted. Priority is based on accessible comparisons, not a universal novelty certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified best-of-knowledge). The same graph with shell-distance 2 is not the antipodal distance-d folded cube. Published folded-cube exact Ising theorems have a different spectral family, two levels and linear, not quartic, coexistence counts. The square-lattice J1-J2 frustrated Ising paper is a different underlying graph. The degree/influence reduction is established Boolean analysis, but does not enumerate this shell-coupling table. Real search did not identify a stronger theorem implying the complete exact stated counts.
+
+## value
+
+PASS
+
+The two natural competing graph-distance couplings cause exact, sharp zero-temperature finite-volume frustration thresholds; the second boundary has a quartic labeled coexistence degeneracy, not the ordinary linear folded-cube count. Exact classification holds for every dimension in a natural distance-regular family, and uses a nontrivial finite truth-table theorem after a general analytic reduction. The result is not presented as a thermal phase transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

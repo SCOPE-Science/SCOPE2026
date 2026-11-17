@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the finite classifier and spectral proof
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing these files using standard Python 3. The script deterministically tests every \(\pm1\) truth table with one through four inputs (respectively \(4,16,256,65536\) tables), performs integer Walsh–Hadamard transforms, checks the zero-mean and Fourier-degree filters, and counts precisely the essential variables. It also constructs the signed-multiplexer and signed-cross-product classes independently and checks set equality with the full enumeration.
+## correctness
 
-The resulting exact essential-variable counts are \((2,2,24,24)\) for mean-zero Fourier degree at most two and \((0,2,0,24)\) for pure level two. Separately, the code exhausts all \(65536\) spin assignments on the sixteen-vertex \(Q_4\) using Gray-code single-spin updates and checks the five energy/degeneracy pairs in `RESULT.md`. Rational coupling samples confirm the proposed minimizing levels in dimensions four through twenty. The dimension-uniform result is proved analytically by Walsh decomposition, strict spectral convexity, and the four-coordinate influence bound; finite computations certify the local base cases and do not purport to establish infinite statements by sampling.
+PASS
 
-All inputs and dependencies are contained in this package. There is no assertion of an independent audit or of external verification.
+The Hamiltonian counts undirected shells once. Distance-one Walsh eigenvalue d-2k and distance-two ((d-2k)^2-d)/2 give an attained Rayleigh lower bound because every character is a legal sign configuration. Strict convexity of the level polynomial gives both stated crossings and no hidden minimizing bands. Parity-character multiplication reduces equality to zero-mean degree<=2 and pure degree 2 Boolean functions. For every relevant variable, a nonzero affine discrete derivative has support at least half the cube; total Fourier influence <=2 implies at most four relevant variables. An independently written complete 2^(2^m) integer Walsh truth-table enumeration for each m=1,2,3,4 reproduced essential-support counts (2,2,24,24) for zero-mean functions and (0,2,0,24) for pure degree two. This is an exhaustive finite certificate for the reduced class, not a search over all d. At d=4,5 the upper interval has no subsequent positive third threshold; for d>=6 it excludes and does not classify beyond 1/(d-5).
+
+## originality
+
+PASS
+
+PASS (qualified best-of-knowledge). The same graph with shell-distance 2 is not the antipodal distance-d folded cube. Published folded-cube exact Ising theorems have a different spectral family, two levels and linear, not quartic, coexistence counts. The square-lattice J1-J2 frustrated Ising paper is a different underlying graph. The degree/influence reduction is established Boolean analysis, but does not enumerate this shell-coupling table. Real search did not identify a stronger theorem implying the complete exact stated counts.
+
+## value
+
+PASS
+
+The two natural competing graph-distance couplings cause exact, sharp zero-temperature finite-volume frustration thresholds; the second boundary has a quartic labeled coexistence degeneracy, not the ordinary linear folded-cube count. Exact classification holds for every dimension in a natural distance-regular family, and uses a nontrivial finite truth-table theorem after a general analytic reduction. The result is not presented as a thermal phase transition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
