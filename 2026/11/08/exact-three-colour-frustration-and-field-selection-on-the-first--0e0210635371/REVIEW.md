@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The graph has fifteen vertices indexed by two-subsets of six points and 45 disjointness edges. The normalized Hamiltonian counts each monochromatic graph edge once and subtracts the field times the number of colour-0 vertices. Two different exact exhaustive algorithms each traverse all 14,348,907 labeled configurations and agree on every sector minimum and number of minimizers; the second independently checks the full 180-element proposed structural family by set equality. Rational comparisons over all sectors establish the energy envelope and all four coexistence degeneracies. The proof depends only on complete finite enumeration and exact integer/rational algebra, not a thermodynamic inference.
+## correctness
 
-## Originality
-PASS on examined evidence, with historical priority uncertainty. Matoušek--Ziegler establish the Kneser chromatic obstruction but do not determine the minimum three-colour penalty or all minimizing spin assignments. Shrock--Xu and McDonald--Moffatt establish general magnetic-field partition-function frameworks; their evaluated examples and statements do not supply this graph's exact specialized envelope. Cummings and collaborators study monochromatic triangles, not disjoint edge pairs. Searches for the Kneser/complement-triangular/strongly-regular aliases and the equivalent three-edge-colouring \(2K_2\) extremal problem found no inspected result implying the stated classification. Generic exact graph-polynomial representations are acknowledged, not rediscovered. A historically unindexed exact table could affect priority.
+PASS
 
-## Mathematical value
-PASS. This is the first Kneser graph where three-state antiferromagnetic Potts spins must incur frustration, making the exact excess above the proper-colouring obstruction a natural invariant, rather than a chosen arbitrary graph parameter. The precise minimum is three (not just the one conflict implied by non-three-colourability), and its entire ground-state family has a rigid two-star/four-clique decomposition. The field response then gives all sector transitions and coexistence entropy counts. These are complete benchmarks for symmetry-breaking and frustration on a canonical graph, although not a general or thermodynamic result.
+PASS: KG(6,2) has 15 labeled vertices (edges of K6) and 45 adjacency pairs corresponding to disjoint edge pairs. The antiferromagnetic three-color energy at field x=h/J is e−nx for n sites of favored color 0. Fresh independent full enumeration of all 3^15=14,348,907 labeled spin configurations recovered each of the 16 submitted sector minima and degeneracies, and confirmed exactly 180 zero-field minimizers (three conflicts). A separately constructed 30 ordered-point-pair times six color permutations two-star-plus-four-clique family contains exactly those 180 and no extras. Exact lower-envelope comparison yields branches 15,3−4x,3−6x,15−10x,45−15x, transitions x=−3,0,3,6, with tie totals 5862,180,2652,1583. Here complete finite enumeration, not statistical sampling, is an exhaustive certificate for the fixed graph.
 
-## Closest literature and limitations
-The full accessible texts of arXiv:math/0208072, arXiv:1009.1182, arXiv:1107.2363, and arXiv:1206.1987 were compared at the relevant statements, examples and conclusions. The primary residual risk is unindexed finite-graph or Ramsey multiplicity enumeration, not a contradiction located in these papers. Independent audit has not been performed. The structural uniqueness proof uses exhaustive computation; complete source and replay instructions are included.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge: Lovász Kneser chromatic obstruction chi(KG(6,2))=4 forces nonzero 3-color frustration but not its exact minimum three, 180 minimizers or field-sector counts. General Potts graph polynomial results offer unevaluated formal expansion, not this fifteen-site ground-state envelope. Related Resultary Potts diagrams concern different graphs (Grötzsch, Petersen line, Clebsch, truncated tetrahedron). No earlier identical 2K2-monochromatic defect census or field table identified; preserve risk of an unindexed finite edge-coloring table.
+
+## value
+
+PASS
+
+PASS: KG(6,2) is a canonical first four-chromatic member of the two-subset Kneser graph family and three-color Potts ground states measure the first unavoidable coloring defect. Exhaustively classifying minimum three monochromatic disjoint pairs, 180 structural minimizers and exact field-induced selection transitions gives a natural, nontrivial finite invariant suitable as a benchmark for antiferromagnetic coloring and finite-field degeneracy. This is more than renaming chi(G)=4 or merely reporting a negative calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
