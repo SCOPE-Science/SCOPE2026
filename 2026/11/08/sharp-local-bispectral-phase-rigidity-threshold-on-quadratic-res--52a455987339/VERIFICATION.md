@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Checks
+# Independent mathematical audit
 
-`python3 check_paley_bispectrum.py` prints `PALEY_BISPECTRAL_LOCAL_RIGIDITY_CHECK_PASS` and independently constructs supported Schur triples for every odd prime through \(101\), comparing ranks over two large finite coefficient fields with the theorem. Exact rational ranks are additionally checked through \(31\). The script checks that every relation annihilates the additive-character phase vector modulo \(p\) and directly exhibits the full two-parameter family at \(p=13\).
+## correctness
 
-## Scope of verification
+PASS
 
-No computational finite test establishes a theorem quantified over all primes. The exact mathematical proof is the character-diagonalization plus the quadratic-residue count and the sixth-root obstruction in `RESULT.md`. Rational rank is the object proved. A finite phase fiber may have multiple discrete components; only its identity-component dimension is established for all primes. The full two-torus is additionally established at \(p=13\). Independent mathematical validation has not been performed.
+Rational nullspace is diagonalized exactly by multiplicative characters of H. If D nonempty, χ(x)+χ(1-x)=1 forces conjugate sixth roots; the two-character-fiber bound and exact Legendre count preclude exceptional sectors for all other primes. The p=3,5 empty constraint sets and explicit p=13 relations exhaust the boundary cases. Independent rational ranks agree at fourteen primes; no extrapolation is used.
+
+## originality
+
+PASS
+
+After actual full/support-hypothesis comparisons, no earlier inspected result implies the sharp rational-rank classification on the proper multiplicative quadratic-residue mask. The rank and p=13 two-torus are not rephrasings of full-support bispectral uniqueness or a Paley fourth-moment extremizer statement.
+
+## value
+
+PASS
+
+A sharp complete local identifiability phase diagram for a natural half-density cyclic Fourier mask, with an isolated two-dimensional exceptional fiber at p=13, is an intrinsic inverse-problem invariant. It goes beyond a numerical example; global discrete ambiguities remain intentionally open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
