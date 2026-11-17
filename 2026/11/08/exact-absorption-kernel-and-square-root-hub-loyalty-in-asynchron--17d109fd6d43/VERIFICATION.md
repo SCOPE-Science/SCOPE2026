@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the exact friendship-graph absorption kernel
 
-The following checks were executed with Python 3 and only standard-library modules:
+# Independent mathematical audit
 
-- `python verify_absorption.py` — direct memoized exact rational recursion over all possible next changes, with no use of the proposed rank law, for each of the \(10,920\) labelled states at graph sizes \(1\leq k\leq6\). The computed complete absorption measures coincide with the rank/subset formulas, including zero-mass cases; their probabilities sum to one.
-- `python verify_formula.py` — independent multinomial evaluation of the exact hub-switch law and an independent binomial-series calculation of unanimity. Exact rational checks cover specified sizes through \(k=160\), and \(\sqrt{\pi k}\,p_k\) reaches approximately \(0.9961\) at \(k=160\), consistent with but not establishing the limiting constant.
+## correctness
 
-Outputs are included in `absorption_output.txt` and `formula_output.txt`. The argument establishing all sizes uses the exact relative order of eligible updates, the one-switch invariant, elementary binomial integration, and a normal limit with uniform integrability. Finite computation is not used as an infinite proof.
+PASS
 
-Scientific limits: no absorption-time distribution, no random tie-flipping dynamics, no unequal vertex-selection rates, no independent audit, and no guarantee against equivalent claims in all historical literature.
+As long as hub h remains fixed each mixed outer pair has exactly one unhappy vertex and resolves on its first effective update. Homogeneous pairs cannot change. If a support h, b oppose, j mixed, hub unhappiness after t resolutions is precisely t<b-a; the hub is uniformly ranked R among j+1 equal-rate relevant clocks and flips once iff R<=q=min(j+1,max(0,b-a)). Each chosen subset of r-1 previously resolved pairs has probability 1/((j+1)*binom(j,r-1)); remaining pairs follow the new hub, which never flips again. Summing all ranks/subsets normalizes the kernel. Binomial counting gives c_k, while iid ternary pair categories produce (b-a)/sqrt(k)->Normal(0,1/2), j/k->1/2 and UI yields sqrt(pi*k)*p_k->1. An independent exact full finite labelled-state Markov recursion for k=1..4 verified all 680 initial states, and the precise consensus rational identity for each k; finite checks cannot establish asymptotic claims.
+
+## originality
+
+PASS
+
+The 2026-10-26 Resultary same-friendship-graph basin theorem is SYNCHRONOUS and gives a different probability c_k=(3^k+1)/4^k. The present update scheduler is uniformly random sequential, with a combinatorial rank-conditioned labelled terminal kernel and polynomial hub-flip versus exponential consensus separation. General asynchronous majority reachability and synchronous models do not imply these probabilities. The previously known majority rule and pair-freezing principle are not claimed as new.
+
+## value
+
+PASS
+
+The exact full labelled absorption kernel is a natural stochastic observable for an infinite hub-network family and all initial configurations. Its contrast between inverse-square-root hub reversal and exponentially small unanimous consensus is a real dynamical separation not deducible from lists of reachable equilibria or synchronous basin counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Review of exact random-sequential majority absorption on friendship graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof treats the full labelled terminal kernel, not just scalar hub-switch probability. A mixed outer pair has one unhappy endpoint while the hub retains its label. Conditional on \(a\) supportive, \(b\) opposing and \(j\) mixed pairs, the hub's rank among \(j+1\) relevant updates is uniform and it switches exactly when that rank is at most \(b-a\). After switching, previously resolved homogeneous pairs remain frozen, and unresolved mixed pairs follow the new hub; another hub switch is impossible. The rank/subset law normalizes exactly. Multinomial averaging and an elementary integral yield the two exact global probabilities; a CLT and uniform integrability give \(\sqrt{\pi k}\,p_k\to1\). Exact rational full-state recursion verified every terminal mass for \(10,920\) labelled states across the first six graph sizes; finite checks are corroborative only.
+PASS
 
-## Originality — PASS (qualified)
+As long as hub h remains fixed each mixed outer pair has exactly one unhappy vertex and resolves on its first effective update. Homogeneous pairs cannot change. If a support h, b oppose, j mixed, hub unhappiness after t resolutions is precisely t<b-a; the hub is uniformly ranked R among j+1 equal-rate relevant clocks and flips once iff R<=q=min(j+1,max(0,b-a)). Each chosen subset of r-1 previously resolved pairs has probability 1/((j+1)*binom(j,r-1)); remaining pairs follow the new hub, which never flips again. Summing all ranks/subsets normalizes the kernel. Binomial counting gives c_k, while iid ternary pair categories produce (b-a)/sqrt(k)->Normal(0,1/2), j/k->1/2 and UI yields sqrt(pi*k)*p_k->1. An independent exact full finite labelled-state Markov recursion for k=1..4 verified all 680 initial states, and the precise consensus rational identity for each k; finite checks cannot establish asymptotic claims.
 
-Auletta et al. (arXiv:1402.4050v1) give a sequential majority framework but address existence of successful update sequences, not the probability of each labelled absorbing configuration under random updates. Mossel et al. (arXiv:1207.0893v1) focus on synchronous majority aggregation; Feldman et al. (arXiv:1408.5192v1) use private unannounced signals and different tie conventions. The inspected source statements do not imply the present kernel. Semantic and bibliographic searches also tested zero-temperature alignment, windmill/friendship graphs, and sequence-based aliases; no covering statement was found. Direct sequence-database access was incomplete, and an equivalent theorem in unindexed literature remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The kernel solves a natural stochastic-selection problem on a complete infinite family of hub networks, for every initial labelled state. It shows quantitatively that local leader reversal occurs at an inverse-square-root rate even though unanimous agreement occurs at an exponential rate. This distinction is not fixed by a general energy-decreasing convergence theorem or by knowing which absorbing states can be reached. Absorption time, different tie rules and unequal selection rates are outside the claim.
+The 2026-10-26 Resultary same-friendship-graph basin theorem is SYNCHRONOUS and gives a different probability c_k=(3^k+1)/4^k. The present update scheduler is uniformly random sequential, with a combinatorial rank-conditioned labelled terminal kernel and polynomial hub-flip versus exponential consensus separation. General asynchronous majority reachability and synchronous models do not imply these probabilities. The previously known majority rule and pair-freezing principle are not claimed as new.
 
-## Limitations and sources
+## value
 
-Primary comparisons: E. Mossel, J. Neeman and O. Tamuz, arXiv:1207.0893; V. Auletta et al., arXiv:1402.4050; M. Feldman et al., arXiv:1408.5192. Relevant inspected open-access material was confined to the identified sections and targeted full-text searches; priority is qualified. The independent exact computations are available in the accompanying two scripts. No independent scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact full labelled absorption kernel is a natural stochastic observable for an infinite hub-network family and all initial configurations. Its contrast between inverse-square-root hub reversal and exponentially small unanimous consensus is a real dynamical separation not deducible from lists of reachable equilibria or synchronous basin counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
