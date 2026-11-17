@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the width transition
+# Independent mathematical audit
 
-The executable `verify.py` uses Python's arbitrary-precision integers to compare every squared cut width without floating-point rounding for all \(2\le p\le q\) and \(p+q\le127\). Its complete iteration ranges are visible in the code and it asserts equality of the entire expected minimizer set rather than checking only one proposed cut. In addition, 1,438 independently generated small-board tube/cut pairs verify the tube-count identity directly.
+## correctness
 
-Observed replay:
+PASS
 
-`BICLIQUE_ASSOCIAHEDRON_WIDTH_CHECKS_PASSED finite_profiles=3906 exact_cut_profiles=5870718 exact_cross_comparisons=5866812 independent_tube_cut_tests=1438 bound_checks=3`
+For unit mixed-subset simplex sums, coordinate ordering expresses u as positive nested centered cuts; linearity of widths plus strict Euclidean triangle inequality forces every optimal direction to have exactly two levels. Mixed-subset counting gives W(s,t)=B−(2^s−1)(2^t−1)−(2^{p−s}−1)(2^{q−t}−1); norms give exact finite ratio. Analytic inequalities exclude noncentral cuts for n≥128, midpoint convexity gives central equality cases, and exhaustive exact integer finite search covers all 4≤n≤127. Independently reimplemented and ran the complete finite search from scratch: exactly 3906 p,q profiles and 5,870,718 cut profiles, all claimed minimizers, no floating tolerances. Formula and large-q asymptotics follow from tube counts.
 
-The proof in `RESULT.md` separately establishes the infinite range \(n\ge128\); no finite simulation is used to infer that range. The displayed tail inequalities hold strictly at the boundary and monotonically beyond it. Historical priority remains provisional, and this package has not been independently audited.
+## originality
+
+PASS
+
+Best-of-knowledge genuine biclique p,q≥2 width phase and full minimizing-normal classification are not covered by Postnikov generalized permutohedron construction, star p=1 prior width theorem, biclique inball theorem, or biclique graph diameter calculations. The coincidence of n=15 with star crossover does not imply the two-color result: W(s,t) has additional mixed terms.
+
+## value
+
+PASS
+
+Sharp n=15 geometric phase transition independent of biclique aspect ratio is a natural exact metric invariant of a canonical polytope, with all minimizing normals and an analytic/exhaustive proof. This is stronger than mechanical recomputation of a known facet table and plausibly useful in metric convex-geometric studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

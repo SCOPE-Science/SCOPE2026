@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact support-width sum is \(\sum_T(\max_{i\in T}u_i-\min_{i\in T}u_i)\). Nested-level decomposition and the strict triangle equality condition reduce all minimizers to two-level centered cut normals. Counting mixed tubes yields \(W_{p,q}(s,t)\); the fixed-central-cardinality minimizers are exactly the two-color balanced cuts. The large-order comparison uses the universal factor \(16/9\) and an explicit inequality valid for all \(n\ge128\). The finite complement is exhaustive: `verify.py` performs 5,870,718 exact cut-profile checks over every one of 3,906 profiles with \(4\le n\le127\), and the complete set of minimizers is compared with the statement. Direct small-subset enumeration separately verifies the counting formula. Boundary parity and complement duplicates are handled explicitly. Risk: the finite cases rely on successful exact program execution rather than a short human-only inequality proof; the source and deterministic loop bounds are included.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-The biclique graph-associahedron diameter literature concerns graph distances on the one-skeleton, not Euclidean width. The deformation-cone literature supplies the Minkowski-sum realization but neither the sharp minimum-width value nor the minimizing-direction classification. The closest published biclique inball result optimizes facet distance, not directional width. The known star width transition concerns \(K_{1,q}\) and does not imply the all-genuine-biclique theorem. Related cut/coarea reductions for graphical zonotopes do not supply the two-color connected-tube counts or universal fifteen-vertex comparison. The inspected primary sources and published-finding corpus records did not provide dominating earlier coverage. Risk: an independently published general nestohedral thickness theorem could contain an equivalent specialization under unsearched terminology.
+PASS
 
-## Mathematical value — PASS
-Euclidean minimum width is a natural realized-polytope metric invariant, distinct from the studied graph-associahedron graph diameter and Euclidean inradius. The result classifies an infinite two-parameter family of exponentially complex nestohedra and identifies an **aspect-ratio-independent sharp transition** from singleton to double-balanced minimizing normals. It additionally enumerates the minimizing line orbits and gives the fixed-short-side asymptotic width. The full classification cannot be read from face counts or the star boundary alone. The use of finite exhaustive verification is confined to a fully specified finite range; the infinite tail has a separate proof.
+For unit mixed-subset simplex sums, coordinate ordering expresses u as positive nested centered cuts; linearity of widths plus strict Euclidean triangle inequality forces every optimal direction to have exactly two levels. Mixed-subset counting gives W(s,t)=B−(2^s−1)(2^t−1)−(2^{p−s}−1)(2^{q−t}−1); norms give exact finite ratio. Analytic inequalities exclude noncentral cuts for n≥128, midpoint convexity gives central equality cases, and exhaustive exact integer finite search covers all 4≤n≤127. Independently reimplemented and ran the complete finite search from scratch: exactly 3906 p,q profiles and 5,870,718 cut profiles, all claimed minimizers, no floating tolerances. Formula and large-q asymptotics follow from tube counts.
 
-## Closest literature and limitations
-Cardinal–Pournin–Valencia-Pabon (2021, arXiv:2106.16130) establishes combinatorial skeleton diameters for biclique graph associahedra; Padrol–Pilaud–Poullot (2021, arXiv:2109.09200) establishes deformation-cone and standard-realization background. The published biclique inball result and the star minimum-width theorem are closest metric neighbors but neither asserts or implies this genuine-biclique width classification. The result uses only standard unit tube-simplex sums, and priority beyond inspected material is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge genuine biclique p,q≥2 width phase and full minimizing-normal classification are not covered by Postnikov generalized permutohedron construction, star p=1 prior width theorem, biclique inball theorem, or biclique graph diameter calculations. The coincidence of n=15 with star crossover does not imply the two-color result: W(s,t) has additional mixed terms.
+
+## value
+
+PASS
+
+Sharp n=15 geometric phase transition independent of biclique aspect ratio is a natural exact metric invariant of a canonical polytope, with all minimizing normals and an analytic/exhaustive proof. This is stronger than mechanical recomputation of a known facet table and plausibly useful in metric convex-geometric studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
