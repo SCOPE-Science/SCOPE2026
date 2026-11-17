@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The singular values follow a rank-preserving absolute-deviation recurrence. A strict two-above/two-below state becomes two equal pairs and then equal magnitudes, proving finite extinction. A one-above/three-below or three-above/one-below state reduces to a bounded affine ratio map with slope magnitude two; unless it is exactly symmetric, the orbit exits in finite time. Degenerate ties are contained in lower-dimensional branch hyperplanes, so the almost-everywhere quantifier is justified. The dyadic family follows from exact normalized ratios and rank-loss invertibility. Exact-rational computations were run independently as checks, not as a replacement for the infinite proof.
+## correctness
 
-## Originality — PASS (historical-priority qualified)
-The closest 2026 nuclear-scaled polar paper proves global linear convergence and invariant-direction rates, without this generic finite-time law or the exact dyadic resonance. The 2025 algorithm paper is about the method and general rates; the 2026 unscaled-polar study treats a distinct grid-confined update. The prior sign-projection finite-word theorem does not establish that the state-dependent sequence realizes an annihilating word almost surely. The absence of an indexed match is not proof of absolute novelty; an unindexed equivalent mean-absolute-deviation iteration is the principal residual risk.
+PASS
 
-## Value — PASS
-The sharp contrast between generic exact termination and exceptional convergent nontermination directly informs an unresolved rate/reachability question for a natural matrix optimizer. A complete four-mode dynamical mechanism is supplied, including a precise logarithmic singularity of stopping time and arithmetic resonances. This is more than a routine numerical example: it distinguishes fixed-step exact arithmetic from ordinary asymptotic convergence and identifies a structural nonuniformity invisible to smooth-condition-number bounds.
+The exact singular-value recurrence is a_i^+=|a_i-m| for positive a_i with m=sum(a_i)/4 and sticky zero entries. On r<4 nonzero support the signed linear chamber map I-ss^T/4 has eigenvalues 1 and 1-r/4>0, excluding finite annihilation; a direct squared-norm descent shows asymptotic convergence. A strict two-above/two-below step gives u,v,w,z, then two repeated-pair values, then equal magnitudes and zero, except lower-dimensional degeneracies. A one-versus-three chamber maps normalized ratios y_i to 1-2y_i, forcing finite exit except exactly equal one-third triplet; all exceptional ties are a countable union of proper hyperplanes on piecewise-linear branches, giving Lebesgue-a.e. finite termination. Along (3,1+t,1,1-t), the iteration and dyadic hit condition yield exact T=N(t)+5 and rank-deficient nontermination at dyadic resonances. Independent Fraction recurrence confirms T(1/5)=6, T(1/9)=7, T(1/100)=10, and nontermination at t=1/16,1/32. Those finite checks are not the almost-everywhere proof.
 
-## Limitations and closest literature
-The result covers isotropic quadratics with four singular modes, step \(1/4\), exact SVD/polar operations, and no momentum. It does not assert finite-precision termination or a claim of historical uniqueness. Relevant primary texts: arXiv:2610.27747 Section 4 and Appendix C; arXiv:2505.21799 on nuclear norm scaling; arXiv:2602.11948 Section 3.1 on unscaled polar grid confinement.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Relevant nuclear-scaled polar optimizer convergence studies prove linear rate guarantees, whereas the all-orbit exact-finite stopping mechanism at step1/4 and dyadic resonance are qualitatively different. An unscaled fixed-length polar-step theory has other dynamics. Primary exact full Muon-type scaling paper not accessible after legitimate open access attempts, so priority is best-of-knowledge with named residual risk.
+
+## value
+
+PASS
+
+The distinction between convergence and literal finite termination is mathematically substantive for a nonsmooth matrix optimizer. The explicit four-mode piecewise-linear dynamics and exceptional dyadic resonances give a sharp dynamical classification and show why uniform stopping-time bounds fail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
