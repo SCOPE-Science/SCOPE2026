@@ -1,17 +1,21 @@
-# Mathematical review: Sharp variance extremizers for two competing irreversible infections on finite trees
+# Independent mathematical audit
 
-## Correctness — PASS
-The path-interface argument supplies exactly m independent Bernoulli captures despite arbitrary side-branch event interleavings; attached subtrees have deterministic colors. For equal rates, strict covariance positivity forces all available extras inside, positive-definite indicator covariance forces maximizers to concentrate on one interior path position, and symmetric binomial monotonicity identifies exactly the central index/indices. The minimum and equality characterizations follow from strictly positive covariances. Standalone exact-rational CTMC recurrences agree in 75 cases; all 4,970 small parameter/component compositions meet exact bounds and equality cases; no finite enumeration is presented as the infinite proof.
+## correctness
 
-## Originality — PASS (within inspected material)
-The full proofs and definitions of Gouéré (2007), Karrer-Newman (2011), and the accessible full text of Sun-Saad-Lokhov (2019/2021) concern infinite spatial shapes, network ensemble phase diagrams, and exact node-marginal dynamic inference respectively; none examined source derives an extremal finite-tree final-territory variance theorem over all trees with fixed source distance and size. Nearby SI surveillance and colonization results concern different stochastic models and objectives and do not cover the statement. Novelty remains provisional due to potentially unindexed classical competition-on-trees results.
+PASS
 
-Closest primary literature: Gouéré (2007), Karrer and Newman (2011), and Sun, Saad and Lokhov (2019/2021), with explicit models and implication comparisons in the structured audit. Residual risk is undiscovered historical treatment of the same exact finite-tree extremal question; the lack of a matching search hit is not a proof of first priority.
+The two infective path frontiers each expose exactly one active edge at rates λ_A and λ_B until the gap is exhausted. Exponential memorylessness and time changes from peripheral infection events preserve the iid next-capture Bernoulli probability p=λ_A/(λ_A+λ_B). Hence X~Bin(m,p), and A territory Z_A=w_0+Σ_{j≤X}w_j, independent of off-path transition rates. In symmetric case, Var Z_A=m/4+2Σ b_j Cov(X,I_j)+Σ b_i b_j Cov(I_i,I_j). The covariances are positive; strict positive-definiteness of nested tail-indicator covariance implies maximizers concentrate B at one interior vertex, where central binomial and tail probability factors are largest. Minimum m/4 iff extras are seed-attached, maximum at center(s) with supplied formula. Independently exact evaluated m=3,B=4 gives maximum 31/4; m=2,B=2 gives both central maxima 9/4; boundary B=0 gives m/4. Finite CTMC checker was inspected but universal reasoning is analytical.
 
-## Value — PASS
-The number of peripheral contacts, their root attachment and the seed spacing are natural identifiable structural parameters in competitive irreversible spreading. The result completely and sharply determines both extremes of outcome-size uncertainty for all finite tree shapes, with equality classification and robust invariance under off-path edge rates. For m=3 and four peripheral vertices, topology alone changes variance from 3/4 to 31/4, a substantive order-of-magnitude separation without changing total size, path distance or path rates. It is not merely a single arbitrary computed number.
+## originality
 
-## Limitations
-The model assumes a finite undirected tree, two seeds, permanent mutual exclusion, positive edge transmissions, and homogeneous rates on the path. The central branching extremum additionally assumes equal rates. This is a theoretical result and is not an empirical epidemic forecast; independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The path-interface memoryless reduction is an elementary underlying mechanism and is not counted as independent novelty. Full exact variance maximization/minimization with all equality cases over every fixed-(n,m) finite tree is a separate shape-optimization statement. Sun–Saad–Lokhov gives exact DMP for discrete-time mutually exclusive processes on trees and finite-horizon resource decisions, not the explicit continuous-time binomial weighted-prefix *variance extremizer*. Related first-passage competition and outbreak-variance studies have distinct observables. Best-of-knowledge O PASS with residual risk from broader, unindexed tree-competition classifications.
+
+## value
+
+PASS
+
+Fixing seed distance and vertex count but allowing arbitrary branching naturally asks which tree geometry maximizes uncertainty in the final competing territory size. The sharp all-shapes central attachment theorem, both equality classes, and side-rate invariance provide a reusable exact benchmark, not an arbitrary tiny graph enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
