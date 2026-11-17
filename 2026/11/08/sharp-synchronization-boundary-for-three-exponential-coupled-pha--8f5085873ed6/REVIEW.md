@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full proof reduces global attraction to critical-state landscape via cited analytic gradient convergence and center-stable avoidance; all nonsynchronized collisions have an unstable direction, distinct equilibria have unimodal equal-gap forces, and rising/falling branch alternatives establish the sharp strict bound. The equilateral quotient eigenvalues are explicitly derived. The standalone symbolic checks are supplementary.
+## correctness
 
-## Originality — PASS within inspected evidence
-Polyanskiy–Rigollet–Yao (arXiv:2507.22857) already establish the lower-side obstruction for three particles and global synchronization for all particle counts at \(\beta\ge-0.16\), but do not prove the new strict interval for three. Criscitiello–Rebjock–McRae–Boumal (arXiv:2405.18273) cover positive exponential couplings. published-finding corpus searches for aliases and parameter implications found no equivalent statement. Full publication priority is provisional.
+PASS
 
-## Mathematical value — PASS
-The first nontrivial equilateral obstruction leads to an exact and meaningful minimal three-particle sharp threshold. It resolves a natural open negative parameter interval by structural equilibrium classification.
+For three ordered phases, gap derivatives equal -2f(u)+f(v)+f(w) and cyclic counterparts. Equilibrium requires common positive gap force with each gap in (0,pi). f_beta has exactly one interior maximum, so any nonsymmetric equilibrium repeats a rising or falling gap. Two falling equal gaps give a positive Hessian separation direction. Two rising and one falling imply beta=log(2t)/[(1-2t)(1+t)]<-1/(1+t)<-2/3, eliminating them for beta>-2/3. Nontrivial collision equilibria have positive growth eigenvalue 3e^-beta, and equilateral eigenvalues -3 f_prime(2pi/3) are positive for beta>-2/3. Gradient analyticity and Polyanskiy et al Lemma 2.2 prove almost-everywhere convergence to synchronization, avoiding unstable equilibria. Below -2/3 the equilateral quotient attracts a positive-volume basin; beta=-2/3 excluded. Independently checked derivative and equilateral eigenvalue.
 
-## Scientific limitations
-Exactly three equal particles under the unnormalized continuous-time flow. No assertion at \(\beta=-2/3\), for normalized dynamics or for larger systems. Standard gradient theorems are external; symbolic finite checks do not certify universal results. Historical priority remains independently unverified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Polyanskiy–Rigollet–Yao proved synchronization for any n at beta >= -0.16 and non-synchronization at beta<-2/3 for n multiples of three. Their general sufficient criterion does not cover the remaining n=3 interval; the direct three-gap classification completes that strict sharp interval, with the lower obstruction credited.
+
+## value
+
+PASS
+
+Closes a meaningful negative-coupling dynamical synchronization phase gap for the minimal nontrivial particle count, providing a sharp boundary and exact critical-state mechanism without claiming n>3.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
