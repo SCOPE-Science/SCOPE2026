@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T14:50:03Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md and verify.py; independent_checks.py R3",
+        "https://arxiv.org/pdf/2609.05195"
+      ],
+      "rationale": "Conditioned on nondegenerate lengths, pair inner products have variance 1/d and zero pairwise cross covariance. Gaussian polar coupling G_i=sqrt(d)R_iU_i yields H_d=d^-1/2 sum_h Y_h, iid variance-one Gaussian quadratic forms with trB=0, 2tr(B²)=1 and EY_h⁴=3+48tr(B⁴)<=15. Standard Wasserstein Stein bound gives 3*15^(3/4)/sqrt(d); independent radii and pair orthogonality give exact mean-square comparison 2Var(||G||/sqrt(d))<=2/d. Triangle bound <25/sqrt(d) uniformly in n and weights. Independent matrix checks on four weight arrays found 3*15^.75+sqrt2=24.280187229<25. No step-length moment assumptions are used except finite entries and Q>0.",
+      "residual_risks": [
+        "Unstated constants of general Stein inequality assumed standard; theorem is W1, not total variation or almost-sure coupling."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier CLTs work in equal-step, iid radial or restricted step-count regimes; Bignamini Theorem5.4 imposes convergence/moment conditions for first-order result."
+        ],
+        "reasoning": "No inspected theorem has uniform conditional W1 <=25/sqrt(d) over all deterministic weight arrays and n; special cases covered without needing new wording.",
+        "searches": [
+          "uniform quantitative Wasserstein Gaussian approximation arbitrary weighted Pearson random walk normalized squared length spherical directions dimension-free",
+          "Grundmann high dimensional radial random walks CLT",
+          "Kabluchko Marynych The Wiener Spiral theorem 3.3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2609.05195",
+        "https://arxiv.org/abs/2211.08538",
+        "https://arxiv.org/abs/1210.7090",
+        "uniform quantitative Wasserstein Gaussian approximation arbitrary weighted Pearson random walk normalized squared length spherical directions dimension-free"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bignamini Theorem5.4 proves first-order norm convergence, not the centered Gaussian distribution conditional on L. Earlier theorem under deterministic equal radial lengths does not dominate arbitrary dependent weight vectors."
+        ],
+        "reasoning": "A scalar law of large numbers does not entail an explicit Gaussian fluctuation or uniform W1 rate; Gaussian comparison establishes a new proposition.",
+        "searches": [
+          "uniform quantitative Wasserstein Gaussian approximation arbitrary weighted Pearson random walk normalized squared length spherical directions dimension-free",
+          "https://arxiv.org/pdf/2609.05195",
+          "https://arxiv.org/abs/2211.08538"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bignamini et al. arXiv:2609.05195 full PDF results: asymptotic norm and moment bounds; submitted normalized centered quadratic form uses pair sum Q(a)."
+        ],
+        "reasoning": "The new statistic is a normalized SECOND-order fluctuation, not the first-order radius limit.",
+        "searches": [
+          "uniform quantitative Wasserstein Gaussian approximation arbitrary weighted Pearson random walk normalized squared length spherical directions dimension-free",
+          "high dimensional radial random walks Berry Esseen Gaussian quadratic form conditional spherical directions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned current paper as closest; no earlier exact 25/sqrt(d) constant or arbitrary-weight bound found."
+        ],
+        "reasoning": "This bound is a uniform inequality, not a finite enumeration or tabulated invariant. Search absence alone is not proof of historical priority.",
+        "searches": [
+          "uniform quantitative Wasserstein Gaussian approximation arbitrary weighted Pearson random walk normalized squared length spherical directions dimension-free",
+          "Pearson random walk Wasserstein Gaussian dimension d normalized squared radius"
+        ]
+      },
+      "rationale": "The inspected 2026 Pearson walk primary source (Theorems 4.3/5.4, Lemma 5.3) gives first-order radius convergence and moment bounds, not conditional standard-normal W1 approximation at a dimension-only rate uniform in arbitrarily growing number of weighted steps. Fixed/equal-length radial CLTs are recognized special cases; present theorem strictly adds arbitrary dependent realized lengths and quantitative uniformity.",
+      "residual_risks": [
+        "A general Stein second-chaos normal-approximation theorem may imply the present bound abstractly; novelty of the precise uniform conditional statement remains best-of-knowledge.",
+        "Constant 25 is not proved optimal."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING conditional W1 rate",
+          "evidence": "Theorems focus on first-order radius convergence and moment bounds, with no uniform conditional CLT stated.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.05195",
+          "material_read": "Full arXiv PDF including model, Lemma5.3, Theorems4.3 and 5.4; selected page screenshots inspected",
+          "method": "full accessible primary PDF and page images",
+          "title": "Asymptotic Behaviour for Isotropic Pearson Random Walks (Bignamini–Casini–Martinelli, v2 2026-11-04)",
+          "trigger": "same weighted Pearson walk, arbitrary dependent lengths"
+        },
+        {
+          "assessment": "PRIOR SPECIAL CASE / residual risk",
+          "evidence": "Addresses high-dimensional walks with particular step structure, not demonstrated unconditional-in-count quantitative bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.08538",
+          "material_read": "Abstract and theorem scope as described by cited paper; not claimed full read",
+          "method": "bibliographic abstract plus submitted source comparison",
+          "title": "Random Walks in the High-Dimensional Limit I: The Wiener Spiral",
+          "trigger": "plausible dominating high-dimensional CLT"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2609.05195",
+        "https://arxiv.org/abs/2211.08538"
+      ],
+      "rationale": "A genuinely useful quantitative CLT for a canonical random-walk radial statistic with an explicit dimension-only rate, no restrictions on the number of steps and no moments/dependence assumptions on the length vector. This strengthens known first-order asymptotics and supplies a robust reusable estimate, beyond a textbook fixed-n special case.",
+      "residual_risks": [
+        "Uniformity still depends crucially on independent uniformly spherical directions and Q(L)>0."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific assessment is independent of prior package AUDIT PASS and external formal/expert verification; no such certification invented.",
+    "New finite computations are corroboration, not infinite proof.",
+    "Publication withheld owing to actual public-source operational provenance; complete mathematical decision remains intact."
+  ],
+  "schema_version": 1
+}
