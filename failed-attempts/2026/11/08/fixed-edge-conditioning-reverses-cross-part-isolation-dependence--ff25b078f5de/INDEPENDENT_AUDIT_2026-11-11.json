@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T19:01:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact row/column exclusion gives Cov_k(X,Y)=ab[binom((a-1)(b-1),k)/binom(ab,k) - binom(ab-b,k)binom(ab-a,k)/binom(ab,k)^2]. The cross-product identity gives product factors 1-t/((N-b-t)(N-a-t)), strict negative exactly for 2<=k<=ab-max(a,b), zero otherwise. Bernoulli covariance ab p(1-p)^(a+b-1)>0, sparse alpha,beta,c limit -c²exp[-c(1/alpha+1/beta)]/(2alpha beta) versus Bernoulli O(n), balanced correlations from row variances. Rebuilt derivation, checked zero ranges, and separately enumerated binary matrices 2x2, 2x3, 3x3 at all k. Correct even though covered.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 25 first result covers general a,b,k and general alpha,beta,gamma, plus with-replacement model",
+          "October 25 second covers every (r,s) mixed factorial moment; covariance is special case"
+        ],
+        "reasoning": "Both earlier statements dominate the full submitted sign and sparse-scale claims; the second proves genuinely stronger negative-moment inequalities.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-isolation-covariance-reverses-sign-across-three-bipartite-edge-s--1b1b6bf7f0df/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-cross-part-isolation-dependence-in-three-bipartite-samplin--090f133355a7/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-isolation-covariance-reverses-sign-across-three-bipartite-edge-s--1b1b6bf7f0df/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-cross-part-isolation-dependence-in-three-bipartite-samplin--090f133355a7/RESULT.md",
+        "https://arxiv.org/abs/1302.2446"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Submitted general limit -c² exp[-c(1/alpha+1/beta)]/(2alpha beta) is exactly October 25 theorem",
+          "Balanced correlation constants reduce to plugging known fixed-edge row variance and earlier covariance into Corr=Cov/sqrt(Var X Var Y)"
+        ],
+        "reasoning": "Direct implication is conclusive independent of titles; sparse and sign results cannot PASS originality, and minor algebraic normalization does not satisfy value bar.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-isolation-covariance-reverses-sign-across-three-bipartite-edge-s--1b1b6bf7f0df/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-cross-part-isolation-dependence-in-three-bipartite-samplin--090f133355a7/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact isolate counts X,Y and m edges selected uniformly without replacement in both texts",
+          "For r=s=1 of the earlier factorial-moment formula, obtain same covariance"
+        ],
+        "reasoning": "Terminological variations zero rows/columns and opposite-side isolate counts are identical random variables; published results apply without any reduction loss.",
+        "searches": [
+          "fixed edge conditioning negative covariance isolated opposite bipartite partitions sparse leading -c squared exp",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-isolation-covariance-reverses-sign-across-three-bipartite-edge-s--1b1b6bf7f0df/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-cross-part-isolation-dependence-in-three-bipartite-samplin--090f133355a7/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published exact formulas and thresholds form a direct existing finite table for all a,b,k",
+          "Same sparse covariance coefficient and model-by-model comparison"
+        ],
+        "reasoning": "No new exact database or instance is left; changing symbols from m to k is not novelty.",
+        "searches": [
+          "fixed edge conditioning negative covariance isolated opposite bipartite partitions sparse leading -c squared exp",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-isolation-covariance-reverses-sign-across-three-bipartite-edge-s--1b1b6bf7f0df/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-cross-part-isolation-dependence-in-three-bipartite-samplin--090f133355a7/RESULT.md"
+        ]
+      },
+      "rationale": "FAIL: The full October 25 publication Isolation covariance reverses sign across three bipartite edge-sampling ensembles proves the exact SAME all-a,b,k covariance formula and sign classification, general linear-aspect-ratio sparse constant, Bernoulli covariance and scale comparison. Another October 25 full text Exact cross-part isolation dependence in three bipartite sampling ensembles proves stronger all-factorial-moment negative dependence. The subsequent balanced correlation constants are immediate normalization by standard same-part zero-row variances and do not rescue the submitted principal claim.",
+      "residual_risks": [
+        "No scientific error detected; rejection is prior coverage",
+        "Possible even earlier matrix occupancy sources would only strengthen nonoriginality"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive identical principal claim",
+          "evidence": "Eq fixed Cov=ab[h_m((a-1)(b-1))-h_m((a-1)b)h_m(a(b-1))], strict finite sign range and general alpha-beta-gamma sparse constant match word for word mathematically",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-isolation-covariance-reverses-sign-across-three-bipartite-edge-s--1b1b6bf7f0df/RESULT.md",
+          "material_read": "Complete published RESULT.md, including all formulas, asymptotic theorem and proof",
+          "method": "Primary full-text GitHub read",
+          "title": "Isolation covariance reverses sign across three bipartite edge-sampling ensembles",
+          "trigger": "Exact same isolate variables and fixed-distinct-edge model"
+        },
+        {
+          "assessment": "Strictly broader coverage",
+          "evidence": "All (r,s) mixed factorial moments for two isolation counts and negative dependence; r=s=1 implies submitted covariance and sign; balanced limit identical",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-cross-part-isolation-dependence-in-three-bipartite-samplin--090f133355a7/RESULT.md",
+          "material_read": "Complete published RESULT.md, including factorial moment theorem and proof",
+          "method": "Primary full-text GitHub read",
+          "title": "Exact cross-part isolation dependence in three bipartite sampling ensembles",
+          "trigger": "Potential stronger mixed-moment result over same objects"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: The mathematical phenomenon is worthwhile, but the present submission recomputes an already published exact sign and sparse-scale theorem; adding routine correlation normalization for the balanced case does not create a distinctive motivated advance over the stronger prior factorial-moment classification.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-isolation-covariance-reverses-sign-across-three-bipartite-edge-s--1b1b6bf7f0df/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-cross-part-isolation-dependence-in-three-bipartite-samplin--090f133355a7/RESULT.md",
+    "https://arxiv.org/abs/1302.2446"
+  ],
+  "disposition": "failed",
+  "residual_risks": [
+    "No scientific error detected; rejection is prior coverage",
+    "Possible even earlier matrix occupancy sources would only strengthen nonoriginality"
+  ],
+  "schema_version": 1
+}
