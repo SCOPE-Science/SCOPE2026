@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T10:59:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS — Four distinct triples in J(n,3) are encoded up to ambient relabeling by fifteen membership-cell multiplicities m_t>=0 with four margins each equal to three. A three-element center has 0..3 outside coordinates; its trace on support i is positive iff it meets A_i in exactly two elements. This incidence encoding is necessary and sufficient for all supports and all n. Independent recursive exhaustive enumeration of the entire finite cell-margin space found 862 feasible vectors, exactly 40 shattered distinct-row vectors distributed (u,required outsiders)=(5,1):12,(6,0):12,(6,1):13,(7,0):3, compatible with five support orbits. Independent direct all-center/all-four-support test gave s4(5)=0,s4(6)=720,s4(7)=7035,s4(8)=28980. Orbit weighting produces s4(n)=(n)_5(6n²-17n-41)/48 for n>=7. Finite membership-census is an exhaustive proof thanks to complete incidence reduction, unlike direct finite-n tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior theorem bounds VC dimension four for all Johnson ranks, including rank three.",
+          "2024 computational VC-dimension algorithms decide size but are not evaluated rank-three support-count classifications."
+        ],
+        "reasoning": "The general VC bound is stronger in rank domain but weaker in enumerative output: knowing the maximum is four does not determine how many four-supports shatter or their five motifs. The numerical polynomial is not a formal corollary of a dimension bound alone.",
+        "searches": [
+          "rank three Johnson graph open neighborhood shattered 4 supports polynomial s4 n hypergraph motifs",
+          "arXiv:2007.16042",
+          "doi:10.4230/LIPIcs.SEA.2024.8"
+        ]
+      },
+      "checked_sources": [
+        "Resultary searches: rank three Johnson graph open neighborhood shattered 4 supports polynomial s4 n hypergraph motifs",
+        "Johnson graph J(n,3) open neighborhood shattered four supports exact count five hypergraph types",
+        "arXiv:2007.16042",
+        "doi:10.4230/LIPIcs.SEA.2024.8",
+        "Pinned RESULT.md, verify.py, direct_check.cpp description",
+        "Independent membership-cell and direct graph-trace computations"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known J(n,k) VC dimension four implies all supports of size >=5 cannot be shattered, not any count of size-four supports.",
+          "The verified fifteen-type incidence enumeration determines 40 accepted ordered cell vectors and five quotient types, yielding the exact falling-factorial polynomial."
+        ],
+        "reasoning": "Earlier local classification may be used to derive pieces of this global enumeration, but the submitted number and five global types require additional orbit-weighted counting and minimum-outsider analysis. That additional unrooted classification is not identified as an earlier theorem in the inspected sources.",
+        "searches": [
+          "rank three Johnson graph open neighborhood shattered 4 supports polynomial s4 n hypergraph motifs",
+          "Johnson graph J(n,3) open neighborhood shattered four supports exact count five hypergraph types",
+          "arXiv:2007.16042"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adler et al. derive VC dimension at most four and analyze local configurations around a fixed center; they enumerate rooted witness configurations.",
+          "The submitted incidence census enumerates unordered *support hypergraphs*, with five unrooted isomorphism types and ambient cutoffs."
+        ],
+        "reasoning": "The prior rooted local witness analysis concerns a different quotient and can include several witnesses for the same support. It establishes existence and upper bound, but no one-to-one equivalence to the present five global unrooted orbit counts is given.",
+        "searches": [
+          "rank three Johnson graph open neighborhood shattered 4 supports polynomial s4 n hypergraph motifs",
+          "Johnson graph J(n,3) open neighborhood shattered four supports exact count five hypergraph types",
+          "arXiv:2007.16042"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact counts for J(n,2) triangular graphs and closed-neighborhood analogues exist, but J(n,3) open neighborhoods are distinct.",
+          "No published exact coefficient s4(n) for rank three occurred in searched Resultary records other than the audited source."
+        ],
+        "reasoning": "Rank-two and closed-neighborhood counts are not interchangeable with rank-three/open neighborhoods. Earlier rank-three rooted cases are checked as partial geometric data, not a coefficient database.",
+        "searches": [
+          "Johnson graph J(n,3) open neighborhood shattered four supports exact count five hypergraph types",
+          "arXiv:2007.16042",
+          "Resultary open-neighborhood shattering polynomial of triangular graphs"
+        ]
+      },
+      "rationale": "PASS, qualified — Earlier Adler–Benediktsson–Macpherson establish VC dimension four for Johnson open neighborhoods and enumerate local cases rooted at a distinguished witness, so neither maximal size nor local feasibility is new. The unrooted rank-three complete five-hypergraph classification, smallest ambient embedding thresholds, exact labeled polynomial and asymptotic probability are additional evaluated invariant counts. The inspected full accepted manuscript did not state these formulas; its local classification is a substantial prerequisite and could be transformed into the census by separate work.",
+      "residual_risks": [
+        "The 2022 paper contains rooted local case analysis that might be capable of yielding the same motif count via a nontrivial unreported aggregation.",
+        "The complete count is limited to four-supports/open rank-three neighborhoods, not all shattering polynomial coefficients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_VC_BOUND_AND_LOCAL_CONFIGURATIONS",
+          "evidence": "Shows VC dimension four and rooted case analysis, does not give five unrooted rank-three motif counts or explicit s4(n).",
+          "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/178584/1/Adler_Benediktsson_Macpherson.pdf",
+          "material_read": "Full accepted manuscript, Section 3 Johnson proof/local sixteen cases and global dimension conclusions; PDF page screenshot inspected",
+          "method": "Read full OA accepted manuscript and inspected page image",
+          "title": "Vapnik–Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Closest Johnson open-neighborhood VC dimension and local witnesses"
+        },
+        {
+          "assessment": "CLAIM_RECONSTRUCTED",
+          "evidence": "Independent recursion reproduced 862/40 classification and all-support direct check through n=8.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/five-hypergraph-motifs-and-the-exact-maximum-shattering-count-in--eef69035d719",
+          "material_read": "Entire RESULT.md, verify.py, METADATA.json and direct_check.cpp description; independent membership and direct checks",
+          "method": "Read complete mathematical RESULT.md from pinned/published repository source",
+          "title": "Five hypergraph motifs and the exact maximum-shattering count in rank-three Johnson graphs",
+          "trigger": "Pinned exact count and certificate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS — The exact number of maximal shattered supports is a natural quantitative refinement of a sharp VC-dimension bound, and five motif classes explain which configurations contribute to maximum shattering. The asymptotic 3888/n^5 measures rarity of maximal supports; this is a useful finite combinatorial invariant even without the full shattering polynomial. Value is in the unrooted census, not merely re-proving VC dimension four.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All n>=3 follows from finite exhaustive incidence-type space and n-u<=3 sufficiency, not from direct enumerations up to n=8.",
+    "No closed neighborhoods, other ranks, or higher support counts claimed.",
+    "The 2022 paper contains rooted local case analysis that might be capable of yielding the same motif count via a nontrivial unreported aggregation.",
+    "The complete count is limited to four-supports/open rank-three neighborhoods, not all shattering polynomial coefficients."
+  ],
+  "schema_version": 1
+}
