@@ -1,15 +1,21 @@
-# Assessment of the single-channel Braess transition theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact identity and classification for all finite connected undirected weighted graphs with at least three vertices. First-step conditioning proves the global hitting-time normalization; Sherman–Morrison gives the rank-one trace update; the strict spectral inequality \(Q<AR\) ensures a positive quadratic slope; elementary polynomial sign analysis proves all global statements and equality cases. The independent exact grounded-matrix checker passed 700 symbolic/rational assertions on five distinct graphs. The finite cases are diagnostics, not the general proof. A two-vertex graph and a variable global conductivity budget are excluded.
+PASS
 
-## Originality — PASS, qualified
+For connected symmetric conductance network N>=3, first-step grounded Laplacian yields total ordered pair MFPT M(0)=T0 tr(G)/(N-1), where T0=2 sum_e g_e t_e, G=L^dagger. A single new edge of conductance w yields L+wbb^T and time loading T0+2tw; Sherman–Morrison gives G_w=G-[w/(1+wR)]Gbb^TG, hence M(w)=(T0+2tw)(A+Bw)/[(N-1)(1+Rw)]. Since G>0 on 1^perp dimension N-1>=2, A,R,Q>0 and B=AR-Q>0. Difference has numerator w(2tA-T0Q+2tBw), derivative has monotone polynomial 2tA-T0Q+4tBw+2tRBw², proving strict all-harm threshold t>=T0Q/(2A) or unique w* and wreturn in improving phase. Fresh symbolic four-cycle calculation gives A=5/4,R=1,Q=1/2,B=3/4,T0=8,t*=8/5, and t=1 leads derivative numerator proportional to w²+2w-1 with unique optimum sqrt(2)-1. The pinned independent grounded-Laplacian checker confirms finite graphs but is not the all-network proof.
 
-Gounaris–Katifori (arXiv:2303.02146) already prove the all-pairs mean-passage identity and recognize paradoxical shortcuts and gradient-based optimization; the theorem does not claim those. Predari et al. (arXiv:2309.08271) already prove the pure resistance rank-one update; the theorem does not claim that either. The new assessed statement is the **complete global single-link conductance phase law in the physical time-loaded search model**, including strict non-reentrance, exact beneficial time threshold, single crossover, and unique optimum for every weighted graph. Searches compared equivalent resistance and spectral formulations as well as the same physical model. The combination of existing identities is straightforward algebra once the new question is posed, and previously unindexed work may have written this specific synthesis; publication priority therefore remains qualified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete classification gives a practical and topology-independent design answer: a slow channel cannot be rescued by high conductance, while a sufficiently fast channel has one and only one optimal strength and a sharp limit on the beneficial range. The statement resolves an exact trade-off central to the motivating literature rather than simply recomputing a known graph invariant, and gives explicit measurable thresholds for arbitrary network topology.
+General transport MFPT spectral objective is established by Gounaris–Katifori; rank-one Laplacian trace updates are established by Predari et al. Their combination is credited and algebraically implies an explicit rational function, but the exact fixed-old-edge single-channel monotone derivative, sharp cost threshold, finite unique optimizer and return point are not stated in inspected full papers. A Resultary Kemeny biclique weighted-link optimization addresses stationary-target Kemeny constant, not uniform ordered-pair MFPT with edge traversal times. Originality is the sharp universal one-link classification, not either input identity.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The sign of a physical shortcut's effect competes between shorter electrical resistance and increased traversal loading, so a universal N>=3 classification of when it helps, the only optimum, and exact benefit interval is useful independently of any paper-sized global design result. It rules out delayed benefits for all connected weighted graph topologies; the restriction against changing old weights/budget is mathematically essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
