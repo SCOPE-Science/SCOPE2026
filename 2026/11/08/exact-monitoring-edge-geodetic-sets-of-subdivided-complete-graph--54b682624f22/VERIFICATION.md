@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and boundaries
 
-The labelled graph is constructed directly from its edges, with one midpoint per edge of the complete graph. For each graph edge, the verifier deletes that edge, runs independent breadth-first-search distance computations, and identifies a pair of selected probes that detects the distance change. This is a direct check of the original monitoring definition, not the proof's forced-subdivision-vertex criterion.
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or later. The executed standard-library-only verifier returned:
+## correctness
 
-```text
-VERIFY_OK direct_BFS_vertex_subsets=38856 exhaustive_orders=3,4,5 sampled_order=6 total_monitoring_sets=1581 total_minimal_sets=44 all_set_polynomials=PASS minimal_set_polynomials=PASS full_subdivision_structure=PASS symbolic_n3to24=PASS
-```
+PASS
 
-The 38,856 directly evaluated subsets comprise all 33,856 subsets across orders three through five and 5,000 deterministic samples at order six. The checker also independently tests the given polynomial coefficients against exhaustive counts and inclusion-minimality at orders three through five, and elementary symbolic consequences through order 24. A finite check cannot prove the theorem for arbitrary order; the proof relies on a complete classification of geodesic types. No external mathematical validation has been performed.
+For Sigma_n=once-subdivided K_n and n>=3, shortest-path cases (two original, original-subdivision adjacent/nonadjacent, subdivision pairs sharing/disjoint endpoints) show every monitored half-edge requires selecting one of its endpoints; conversely a vertex cover monitors each half-edge via selected adjacent pair or two selected subdivision neighbors at a missing original. Thus MEG sets coincide exactly with vertex covers. For k original vertices selected, N-C(k,2) subdivisions are forced, giving P_n; inclusion-minimal covers are S_A with |A|=0 or 2<=|A|<=n, giving Q_n, count 2^n-n, min n and upper N+1. Independently enumerated edge-deletion shortest-path witness pairs and all subsets for n=3,4,5: monitoring counts 18,113,1450 and inclusion-minimal 5,12,27, matching formula. Finite tests corroborate graph-theoretic all-n proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge vertex cover sufficiency is prior Foucaud et al. Theorem 6.3 for min degree>=2 and girth>=5. New converse/equivalence, exact all-set/inclusion-minimal polynomials and unbounded minimal-size gaps for full one-subdivided clique. Earlier published distance-edge-monitoring enumerators for same graph use a DIFFERENT probe-target definition and cannot be equated with MEG requiring both selected endpoints.
+
+## value
+
+PASS
+
+A natural, canonical graph family admits complete characterization of the entire geodesic edge-monitoring set system and inclusion-minimal size spectrum. Exact combinatorial polynomials, rigid min-cover classification, and arbitrarily large gaps are stronger and mathematically useful than a mere minimum parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
