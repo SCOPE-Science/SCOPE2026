@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The embedded `verify_cyclic_windows.py` implements the standard exact recursive Littlestone rank for all two-label point queries, independently from the proposed closed formula. For each tested parameter pair it checks the formula, the explicit balanced adaptive-tree witness, the one- and two-point shattering counts, and for small cycles the three-point obstruction. It also tests tree construction on larger cycles.
+## correctness
 
-Run `python verify_cyclic_windows.py` using Python 3 with no dependencies. The expected final output is recorded in `verification_output.txt`.
+PASS
 
-The general cyclic-block lemma and the rank upper bound are proven in `RESULT.md`; computational tests of finitely many cycle sizes do not prove the all-size theorem. The ultraproduct statement uses the standard Shelah 2-rank/stability correspondence and Łoś's theorem; no finite test is presented as an ultraproduct computation. Independent audit: not performed.
+PASS: Every query leaves ℓ positive and n−ℓ negative starts, hence a depth-d tree needs 2^(d−1)≤w=min(ℓ,n−ℓ). Root query at x=ℓ−1 leaves consecutive blocks of 2^floor(log₂w) starts on either branch. Every block of size ≤w can be split exactly at a chosen prefix by querying its cut position; balanced recursive cuts attain 1+floor(log₂w). Cyclic-gap traces yield 1+n z+n(w−1)z² (no triple can be shattered). Łoś transfers fixed finite-depth witnesses and finite 2-rank characterizes stability of this formula. Independent exact rank/minimax checks for all 136 (n,ℓ) pairs n=2..17 matched. Not a classification of the entire ultraproduct theory.
+
+## originality
+
+PASS
+
+PASS qualified: Existing general thicket/2-rank–stability equivalence, the 4-point translate special case, and fixed-width intervals on a finite chain do not themselves enumerate the exact cyclic-window adaptive rank for every width. Chain windows have boundaries and only n−r+1 starts, whereas here n cyclic starts with complementary width symmetry. Best-of-knowledge originality only; a reduction in unpublished circular-arc learning literature remains a risk.
+
+## value
+
+PASS
+
+PASS: Exact optimal online mistake bound for a natural one-parameter circular set family, with sharp growth despite static VC dimension ≤2, provides a quantitative example of how online rank diverges from VC. The ultraproduct bounded-minority-width criterion is an exact stability boundary and nontrivial natural complete classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
