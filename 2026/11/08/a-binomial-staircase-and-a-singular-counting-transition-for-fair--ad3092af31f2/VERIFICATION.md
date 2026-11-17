@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility checks and limits
 
-The standalone Python 3 program `verify_chores.py` enumerates every labeled two-agent assignment of \(2t\) chores for \(1\le t\le7\). It evaluates EFX item-by-item, checks positive-weighted fPO certificates against the explicit crossed-chore obstruction, and tests the closed count at exactly represented rational values including equality and both sides of the predicted jump thresholds.
+# Independent mathematical audit
 
-Actual replay from the packaged program: PASS, 85 distinct exact-parameter instances, 356,980 complete labeled allocation evaluations. The check uses no random inputs, floating-point approximations, network sources, or nonstandard libraries.
+## correctness
 
-The exhaustive checks are *finite*. They do not prove the formula for all positive integers or real ratios, do not certify published novelty, and do not establish the entropy limit. The universal mathematical justifications are the fractional exchange and weighted-sum certificates, the EFX inequalities and inclusion-exclusion count, and the binomial tail estimates using Stirling's formula in `RESULT.md`.
+PASS
+
+In the stated exactly-two-agent, two equally abundant chore-type model, r>1 crossed wrong-agent A and B chores permit a strict fractional Pareto improvement; absence of a cross is sufficient by strictly positive weighted-sum minimization. On either fPO branch, the binding EFX inequality is j≤t/2−(t−1)/(2r). The two branches contain binom(t,j) labeled allocations per j and overlap exactly once. At r=1, all allocations are fPO and EFX is exactly equal bundle cardinality. Integer floor crossing yields listed inclusive jump ratios; fixed r>1 binomial tail Stirling gives h2((r−1)/(2r)). Independently enumerated all 4^t labeled allocations for 1≤t≤5 at six exact rational r values, testing owner-by-owner EFX and crossed-case fPO, agreeing with formula in 30 parameter instances. Actual verify_chores.py read and checks more cases. Finite tests do not establish all real r or t.
+
+## originality
+
+PASS
+
+Aziz, Lindsay, Ritossa and Suzuki arXiv:2211.00879 already establish the two-chore-type fPO structural principle and EFX existence but the inspected Lemma 4.1, Theorem 5.1 and surrounding algorithmic results do not specify this symmetric labeled allocation census, its jumps or its fixed-parameter entropy law. Related EFX/fPO existence and other binary zero-cost chores census results concern different domains. The exact joint counting/phase theorem survives best-of-knowledge.
+
+## value
+
+PASS
+
+Counts the simultaneous fairness-and-fractional-efficiency feasible set rather than only its existence. The rational discontinuities, sharp r=1 collapse, and asymptotic probability exponent quantify a natural combinatorial economics statistic with distinct labeled chores.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
