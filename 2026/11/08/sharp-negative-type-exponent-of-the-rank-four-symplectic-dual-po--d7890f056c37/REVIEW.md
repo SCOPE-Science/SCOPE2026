@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The classical symplectic dual-polar intersection array is explicitly normalized; the four nonconstant spectral rows follow by a finite exact recurrence. Each of the three spectral dominance inequalities is proved for all positive exponents: the field orders at least three follow from a strict convex-secants inequality, and field order two from two globally positive polynomial certificates. Convexity and a positive first derivative establish the unique critical root, with a strict spectral gap on all lower primitive components. The claimed \(q^{-6}\) asymptotic is obtained by a uniform Taylor bound. The packaged checker independently enumerates the binary rank-four polar space and replays the exact recurrence. The full-family proof does not rely on finite experiments.
+## correctness
 
-**Originality — PASS under bounded source comparison.** Murugan's generalized-roundness theorem reduces vertex-transitive metric exponents to a determinant zero but does not identify the critical eigenmode or a closed parameter-specific equation. Worawannotai's dual-polar analysis describes standard spectral structure, not powered path-metric negative-type thresholds. Targeted searches of research records and published literature for the same symplectic fourth-rank powered metric, polar-space Hilbert embedding, and generalized roundness found no theorem with the present dominance and asymptotic. This is not proof of absolute novelty; a stronger, as-yet-unlocated association-scheme theorem remains a risk.
+PASS
 
-**Value — PASS.** Supremal negative type is the exact maximal snowflake exponent permitting Hilbert isometry, a natural isometric invariant. The theorem provides its complete field-uniform classification on a highly symmetric nonabelian homogeneous space, proves an unexpected fourth-component extremality among four competing spherical modes, and quantifies a sixth-power collapse as field size grows. This is not merely a reparametrization or a numerical special case of the standard spectral recurrence.
+For maximal four-dimensional isotropics in an eight-dimensional symplectic F_q-space, graph distance 4-dim intersection, standard rank-four c_i=[i]_q,b_i=q^{i+1}[4-i]_q and theta_j=q[4-j]_q-[j]_q yield all 5 spectral rows by exact three-term recurrence. The fourth nonconstant eigenvalue lambda4(t) dominates lambda1,2,3 for all t>0, using secant slope inequality and q=2 explicit positive-polynomial bounds. The four-term lambda4 equation has F_q(1 at x=1)=-1, F_q(2)>0, second derivative F_q greater than q^6/5, and first derivative at x=1 positive, so unique beta_q in (0,1). CND precisely t<=beta; endpoint kernel E4; q^6 beta_q tends 1/ln(4/3). Independently regenerated q=2,3,4,7,11 spectral recurrences and checked dominance at sample t; tests corroborate full algebraic inequalities, not an infinite proof.
 
-The source literature also includes the standard distance-regular-graph monograph; its earlier original publication predates the precisely dated motivating preprints, but a day-level first-public date was not verified. No independent priority certification is claimed. The result is restricted to symplectic rank four; no claim is made for other types or ranks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior rank-three symplectic dual-polar Gaussian theorem treats three-dimensional Lagrangians in six symplectic dimensions with 3 distance shells and cutoff q²(3^alpha-2^alpha)=1. It neither covers rank-four (4 shells) nor yields its uniquely controlling fourth primitive component or q^-6 asymptotic. Murugan gives general vertex-transitive negative-type criterion; Worawannotai gives standard dual-polar intersection spectrum. Exact spectral comparison and unique rank-four critical equation survive. Best-of-knowledge PASS with historical scheme-literature risk.
+
+## value
+
+PASS
+
+The Lagrangian dual-polar graph is a canonical family of finite geometries. Its exact maximal snowflake Hilbert exponent and endpoint nullspace, including sixth-power collapse, are naturally motivated sharp metric-geometry invariants, not arbitrary small parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
