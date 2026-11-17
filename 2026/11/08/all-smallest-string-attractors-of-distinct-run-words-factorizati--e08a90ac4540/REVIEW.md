@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every alphabet symbol occurs in exactly one run and forces at least one selected position, while rightmost positions give a matching \(q\)-position attractor. Mixed adjacent two-letter factors are unique, forcing the local last-or-first boundary conditions; these conditions also suffice to hit every longer mixed factor and every pure-run factor. Singleton runs separate independent blocks; counting left/right endpoint choices and at most one internal choice gives the exact product. The block generating functions yield the bivariate rational form and its binomial coefficients. A standalone definition-level Python enumerator agreed on 339 run-length vectors and 6,786 choices; 54 further coefficient checks agreed. No step assumes that finite testing proves the infinite formula.
+## correctness
 
-**Originality — PASS with residual bibliographic uncertainty.** Full-text comparison with Dvořáková–Hendrychová, Mantaci et al., and the complete 2026 enumeration of Banbara et al. shows fundamentally different families and claims. The generic concatenation bound of Mantaci et al. does not imply the exact equality, complete constraint classification, blockwise multiplicities or two-variable composition census. Searches of published mathematical research records and additional literature under distinct-run, run-unique symbol and all-minimum-attractor terminology did not locate the present full theorem. Previous repeated-block constructions with symbols reappearing across periods are not within this one-occurrence-per-symbol class. An equivalent result in unindexed or differently formulated work remains possible; neither distinct keywords nor unsuccessful search proves absolute priority.
+PASS
 
-**Value — PASS.** Counting *all* minimum attractors (not merely their size or one construction) is an independently motivated fine-grained measure of factor coverage, studied explicitly for classical families. Here the classification holds for every positive run-length composition over arbitrary distinct symbols; it reveals an exact multiplicative effect of singleton separators and a closed bivariate census by word length and alphabet size. This is a complete natural classification, not an isolated length-specific computation. The theorem does not imply a general algorithm for arbitrary repeated-symbol words.
+Each distinct run-letter c_i appears only in its own run, forcing at least one attractor position per run. Picking all run endpoints attains q. Each mixed adjacent bigram c_i c_{i+1} occurs once, forcing last(i) or first(i+1), which also suffices for any mixed factor; pure c_i^t has a sliding occurrence through any chosen position. Singleton runs split independent non-singleton blocks; a t-run block has t+1 all-endpoint configurations plus Σ(a_i−2) configurations with one interior choice, totaling 1+Σ(a_i−1). Block sequence GF yields xy/((1−x)(1−x−xy−x²y)), with [y^q] x^q(1+x)^{q−1}/(1−x)^{q+1}, hence binomial sum. Independent direct-occurrence enumeration covered 117 run vectors (lengths 1..3, 2..4 runs) and 30 coefficient comparisons; those are corroboration, not the proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+A full primary general attractor combinatorics paper and close published Resultary repeated-word/binary-family results were compared by model and implication. None inspected implies the local iff minimizer classification for one-run-per-letter words or the bivariate composition census. Unindexed simple run-factor equivalences remain a residual risk; qualified best-of-knowledge originality PASS.
+
+## value
+
+PASS
+
+The exact set of all minimum attractors of a natural language class, its block-factorized multiplicity and the complete two-parameter length/run census are independently useful structural/combinatorial facts, not mere minimum-size recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
