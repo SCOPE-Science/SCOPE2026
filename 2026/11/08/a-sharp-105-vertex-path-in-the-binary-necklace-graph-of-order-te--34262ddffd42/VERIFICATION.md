@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducible certificate verification
+# Independent mathematical audit
 
-Keep `CERTIFICATE.txt` and `verify.py` in the same directory. Run `python3 verify.py` using the Python 3 standard library. The supplied verification produced:
+## correctness
 
-```text
-CERTIFICATE_VALIDATED classes=108 even=56 odd=52 path=105 edges=104
-OMITTED 0001101001,0011110101,0110111111
-```
+PASS
 
-The verifier independently enumerates all 1024 words, takes every cyclic rotation, forms all 108 necklace classes, checks parity class sizes, checks each path element is the least rotation, tests all 104 consecutive graph edges, verifies that all 105 classes are distinct, and checks that only the specified three even classes are omitted. Those tests constitute a complete finite witness check, not a randomized or bounded search. The graph-theoretic upper bound follows from bipartiteness and the verified class census.
+Necklaces are binary length-10 words modulo rotation, with adjacency iff a single bit changes after choosing rotations. Complete orbit enumeration/Burnside gives 108 necklaces, 56 even-weight and 52 odd-weight. Single-bit adjacency is bipartite and any simple path has at most 52 odd and 53 even vertices, hence at most 105. The actual CERTIFICATE.txt has 105 pairwise distinct canonical representatives, and 104 successive pairs have Hamming-one representatives. Complete independent checks of all 1024 words and the certificate verify the finite lower bound; combined with the parity inequality this proves exact longest path 105 vertices (104 edges), without assuming a heuristic solver is exhaustive.
 
-The calculation neither proves general even-order sharpness nor establishes historical priority. This is a reproducible self-review; independent mathematical audit is not performed.
+## originality
+
+PASS
+
+Karhumäki–Puzynina–Rao–Whiteland give the general parity upper bound and conjectured its sharpness, earlier checking even orders through eight. Mütze’s 2023 survey states the even-order balancedness obstruction to Hamiltonian 1-Gray codes; Degni–Drisko’s earlier Gray orders and 2008 n=9 construction address different settings. No inspected primary passage supplied the exact order-ten 105-vertex witness. PASS best-of-knowledge with incomplete primary 2016 full-text and hidden-equivalent-path risks.
+
+## value
+
+PASS
+
+The exact next even instance of a stated path-sharpness conjecture is a natural finite boundary problem. A complete independently validated 105-word witness closes that natural n=10 case despite not solving the infinite-family conjecture; finite certificate is a legitimate exact structural result, not a randomly selected tiny graph statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review: 105-vertex path in the order-ten necklace graph
+# Independent mathematical audit
 
-## Correctness — PASS
-The order-ten graph has 108 necklace classes, with 56 even and 52 odd under Hamming-weight parity. Every graph edge flips parity, so every simple path uses at most 52 odd and 53 even vertices, giving the upper bound 105. The full explicit 105-line certificate is directly verified, including canonical rotations, 104 edges, all vertices distinct, all 52 odd classes, and exactly three omitted even classes. The transparent standalone script independently regenerates the complete graph by examining all binary length-ten strings. The argument is finite and complete, with no inference from sampling, optimization success, or a time-limited search.
+## correctness
 
-## Originality — PASS, with residual historical risk
-The sharp upper bound is already Proposition 7.4 of Karhumäki–Puzynina–Rao–Whiteland (2016); its Conjecture 7.5 is that the bound is attained. Their Table 2 exhibits witnesses for even orders 6 and 8, and the paper says only orders up to 8 have been checked. Whiteland's subsequent 2019 thesis likewise records only those small even cases. Degni–Drisko (2007) construct and analyze a different Gray ordering and near-Gray properties, without an explicit proof or certificate for a 105-vertex path in this quotient graph at order ten in the inspected sections. Searches of primary and indexed literature, as well as semantic research-record queries, found no prior statement that implies this exact lower bound at ten. Unindexed sources or implicit consequences of a more general construction are residual risks; lack of a search hit is not taken as proof of absolute novelty.
+PASS
 
-## Value — PASS
-The result settles the first even case beyond the original table of a natural published open conjecture. The fixed order is motivated by that precise documented frontier, not selected post hoc as an arbitrary graph parameter. The certificate is compact, independently checkable, and determines the exact maximum, leaving the infinite even-order question genuinely open.
+Necklaces are binary length-10 words modulo rotation, with adjacency iff a single bit changes after choosing rotations. Complete orbit enumeration/Burnside gives 108 necklaces, 56 even-weight and 52 odd-weight. Single-bit adjacency is bipartite and any simple path has at most 52 odd and 53 even vertices, hence at most 105. The actual CERTIFICATE.txt has 105 pairwise distinct canonical representatives, and 104 successive pairs have Hamming-one representatives. Complete independent checks of all 1024 words and the certificate verify the finite lower bound; combined with the parity inequality this proves exact longest path 105 vertices (104 edges), without assuming a heuristic solver is exhaustive.
 
-## Scope and limitations
-This result does not assert a Hamiltonian path, as bipartition imbalance rules one out; it does not solve the general conjecture or Conjecture 7.7 about maximal cycle decompositions. The scientific claim is limited to a single finite graph and an explicit witness. Historical priority and independent verification by other researchers remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Karhumäki–Puzynina–Rao–Whiteland give the general parity upper bound and conjectured its sharpness, earlier checking even orders through eight. Mütze’s 2023 survey states the even-order balancedness obstruction to Hamiltonian 1-Gray codes; Degni–Drisko’s earlier Gray orders and 2008 n=9 construction address different settings. No inspected primary passage supplied the exact order-ten 105-vertex witness. PASS best-of-knowledge with incomplete primary 2016 full-text and hidden-equivalent-path risks.
+
+## value
+
+PASS
+
+The exact next even instance of a stated path-sharpness conjecture is a natural finite boundary problem. A complete independently validated 105-word witness closes that natural n=10 case despite not solving the infinite-family conjecture; finite certificate is a legitimate exact structural result, not a randomly selected tiny graph statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
