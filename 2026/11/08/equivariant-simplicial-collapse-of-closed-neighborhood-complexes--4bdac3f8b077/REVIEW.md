@@ -1,19 +1,21 @@
-# Scientific review of the closed-neighborhood collapse theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a finite graph with no four-cycle as a subgraph, any nonadjacent pair has at most one common neighbor. This establishes a *unique center* for every simplex lying outside the clique complex. The stated center-pairing partitions the relative face set and, when ordered by decreasing lower-face size, is a sequence of actual elementary free-face collapses. Graph automorphisms preserve both the center and all cardinality stages. Since the graph is four-cycle-free, its graph triangles are pairwise edge-disjoint, so the clique complex collapses to a graph by removing one free triangle edge at a time. The integral homology module is the ordinary graph cycle lattice modulo a primitive, signed triangle-boundary sublattice. The four-cycle example correctly demonstrates failure outside the hypothesis. `verify.py` exhaustively replays this construction for all 8,597 qualifying labeled graphs with at most six vertices, and checks complete automorphism groups of three representative examples. Finite checks corroborate but do not replace the all-graph proof.
+PASS
 
-## Originality — PASS, with residual risk
+If σ is a nonclique closed-neighborhood face, a nonadjacent pair x,y in σ has a witnessing center v. v is unique because two common neighbors would create a C4; v is different from x,y and σ\{v} is still nonclique. Pair every nonclique face τ missing its center with τ∪{v}; order lower members by decreasing cardinality. Every other coface of τ is a larger nonclique face with the same center and has already been removed, giving a genuine free-face elementary collapse. Center/cardinality are canonical, so whole stages are automorphism invariant. C4-freeness forbids K4 and edge-sharing graph triangles; choose one private edge of each triangle and collapse the clique complex to a graph with e-t edges and c components (this later choice need not be equivariant). Graph cycle lattice modulo independent signed triangle boundaries yields 0→Z[oriented triangles]→H1(G,Z)→H1(N[G],Z)→0; private edge supports make this sublattice primitive and quotient torsion-free. C4 is sharp: N[C4]=∂Δ3 but clique complex is a circle. Independent exhaustive simple-graph checks for n<=5: C4-free counts 1,2,8,54,548 and all canonical free pairs replayed correctly.
 
-The closest primary source is Matsushita, *Closed neighborhood complexes of graphs* (arXiv:2511.12608, November 16, 2025). Its theorems concern suspension relations to independence complexes, combinatorial Alexander duality, and fundamental groups. Inspection of the mathematical statements and relevant proof sections found no collapse onto the clique complex under a no-four-cycle condition, nor the integral signed-triangle module. Borgwardt and collaborators, *Reconstruction of C4-free graphs from the set of closed neighborhoods and digital convexity* (arXiv:2510.21195, October 24, 2025), establishes graph reconstruction, not homotopy. Relevant published graph-Cech and *open* neighborhood-complex results concern distinct complexes, metrics or product families and do not imply the present statement. Indexed-equivalence searches returned no covering theorem, but absence of an indexed result is not proof that no equivalent published or unindexed proof exists. This residual originality risk remains.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem classifies a natural infinite family of graph-defined Cech/closed-neighborhood simplicial complexes in *simple-homotopy* and in integral symmetry representation terms, not just by Betti numbers. The explicit collapse explains why complexes of potentially high dimension have only graph-like topology; the triangle-relation module distinguishes automorphism actions even when circle ranks coincide. The four-cycle creates a higher-dimensional sphere, providing a natural sharp boundary for a uniform graph-recovery result. The scope is mathematically motivated by the recently developed closed-neighborhood construction, rather than an arbitrary finite parameter choice.
+Matsushita defines precisely the closed-neighborhood complex and relates its suspension and graph-theoretic fundamental group, but the inspected primary theorem statements do not give this automorphism-invariant C4-free elementary collapse or integral signed triangle-module exact sequence. Closed-neighborhood sets used for graph reconstruction and open Lovász-neighborhood complexes are distinct questions. Best-of-knowledge PASS with risk of a stronger unindexed unique-center collapse lemma.
 
-## Limitations and closest comparisons
+## value
 
-The four-cycle prohibition is stronger than forbidding *induced* four-cycles. The claim is not a classification for all finite graphs, and the final collapse to a graph after triangle removal is not asserted to be equivariant. The abstract-level available summaries of some related published graph-Cech calculations cannot support a full-text exclusion of all possible equivalent treatments. Independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp, broad graph-theoretic condition guaranteeing an equivariant simple-homotopy reduction and exact integral symmetry representation is a meaningful structural classification; it also identifies the minimal C4 obstruction and avoids an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

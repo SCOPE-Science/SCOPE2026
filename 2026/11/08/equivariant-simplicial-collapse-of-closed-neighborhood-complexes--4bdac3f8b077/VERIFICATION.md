@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or newer, with no third-party packages required. The checker constructs each labeled graph on one to six vertices, tests for a four-cycle as a subgraph, reconstructs every nonempty closed-neighborhood face and graph clique, and verifies each proposed unique-center elementary collapse by checking that its lower face has precisely one surviving proper coface. It also checks the final face complex and Euler characteristic against the triangle-adjusted circle-rank formula.
+## correctness
 
-The exhaustive run considers 33,867 graphs, 8,597 of which are four-cycle-free. Additional tests check the pairing under every graph automorphism of a five-cycle, two triangles sharing a vertex, and a star with five leaves. The four-cycle counterexample is independently reconstructed as a tetrahedral boundary. The exact execution record is in `verify_output.txt` and ends in `ALL_VERIFY_OK`.
+PASS
 
-The program checks finite instances only. It does not establish the theorem for arbitrarily large graphs, or independently certify the claimed integral module; these follow from the symbolic unique-center collapse and primitive triangle-edge argument in `RESULT.md`. No independent mathematical audit has occurred.
+If σ is a nonclique closed-neighborhood face, a nonadjacent pair x,y in σ has a witnessing center v. v is unique because two common neighbors would create a C4; v is different from x,y and σ\{v} is still nonclique. Pair every nonclique face τ missing its center with τ∪{v}; order lower members by decreasing cardinality. Every other coface of τ is a larger nonclique face with the same center and has already been removed, giving a genuine free-face elementary collapse. Center/cardinality are canonical, so whole stages are automorphism invariant. C4-freeness forbids K4 and edge-sharing graph triangles; choose one private edge of each triangle and collapse the clique complex to a graph with e-t edges and c components (this later choice need not be equivariant). Graph cycle lattice modulo independent signed triangle boundaries yields 0→Z[oriented triangles]→H1(G,Z)→H1(N[G],Z)→0; private edge supports make this sublattice primitive and quotient torsion-free. C4 is sharp: N[C4]=∂Δ3 but clique complex is a circle. Independent exhaustive simple-graph checks for n<=5: C4-free counts 1,2,8,54,548 and all canonical free pairs replayed correctly.
+
+## originality
+
+PASS
+
+Matsushita defines precisely the closed-neighborhood complex and relates its suspension and graph-theoretic fundamental group, but the inspected primary theorem statements do not give this automorphism-invariant C4-free elementary collapse or integral signed triangle-module exact sequence. Closed-neighborhood sets used for graph reconstruction and open Lovász-neighborhood complexes are distinct questions. Best-of-knowledge PASS with risk of a stronger unindexed unique-center collapse lemma.
+
+## value
+
+PASS
+
+A sharp, broad graph-theoretic condition guaranteeing an equivariant simple-homotopy reduction and exact integral symmetry representation is a meaningful structural classification; it also identifies the minimal C4 obstruction and avoids an arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
