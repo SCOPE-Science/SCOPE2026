@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The ball-growth argument computes the complete CDF for every finite positive-length metric tree, not merely for generic edge lengths. The separator identity proves the weighted vertex-distance moments and the cubic branching formula, and the Laplace expansion gives the strict mean gap. Independently coded exact rational edge-pair integrals agreed with the formulas across 116 test trees and 10,120 evaluated radii. The finite checks corroborate, but do not replace, the general analytical proof.
+## correctness
 
-**Originality — PASS, provisional historical priority.** The first two small-radius CDF coefficients match Mémoli–Needham, Lemma 6.6, and are explicitly credited. Their metric-tree example establishes global noninjectivity, not the asserted spline. Garijo–Márquez–Silveira give continuous mean-distance methods for weighted trees; their full accessible article does not state the weighted degree-deficit spline or the cubic branching deficit. Zmazek–Žerovnik address discrete vertex-pair Hosoya–Wiener polynomials; only the source abstract was accessible, so no document-wide claim of absence is made. Searches of accessible published research and comparisons to star/cactus/theta special cases did not identify the combined arbitrary-tree statement. An implicit or older equivalent is still possible; the priority assessment is not independent certification.
+PASS
 
-**Value — PASS.** The theorem compresses the full continuous two-point distance law for **arbitrary** weighted metric trees into a signed vertex-distance spline, revealing exact critical radii and cancellation. The accompanying cubic branching-mass formula measures how multiple branches strictly lower mean pair distance relative to a path of equal length. Both quantities are intrinsic, subdivision-independent, and motivated by network inverse problems and continuous Wiener geometry, rather than arbitrary finite parameters.
+Radial wavefront counting for an edge-interior source starts with two tips; crossing a vertex changes the count by degree(v)−2. Integrating vertex ball lengths and Fubini gives the density in signed degree deficits, then the displayed CDF. For any cut edge, the sum of 2−degree over one separated component is exactly one, which controls signed pair-path edge monomials. Expanding path distances gives S1=2L, S2=2L², S3=2L³−12B; the noncollinear triple-edge terms have unique median branch. A finite-distance Laplace transform yields E[D]=S3/(6L²). B>0 for every true branching vertex and zero for paths. Independently checked 30 exact rational CDF radii on a nonuniform three-arm star, as well as star mean 41/60, complementing the inspected all-tree source verifier. The infinite statement relies on wave counting/separator identities.
 
-**Closest implications and limits.** The small-radius prior law is subsumed but does not imply the all-radius knot coefficients as stated. Earlier results for a single metric star, cycle-with-arms, cactus, or three-path theta do not cover arbitrary multiply branching acyclic trees. General global histogram-to-tree reconstruction is expressly excluded. Historical-priority risk remains for an uninspected 2007 weighted-tree polynomial full text and potentially equivalent earlier continuum distance calculations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: the explicit statement is not implied by inspected stronger sources; limitations and plausible overlap recorded.
+
+## value
+
+PASS
+
+A complete exact all-radii probability distribution and cubic branch-sensitive mean are natural invariants for random points on metric trees; they quantify by how much branching lowers the interval’s mean and identify sharp equality for arbitrary lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

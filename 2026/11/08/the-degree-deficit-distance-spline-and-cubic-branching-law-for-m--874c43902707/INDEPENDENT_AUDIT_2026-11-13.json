@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T04:56:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Radial wavefront counting for an edge-interior source starts with two tips; crossing a vertex changes the count by degree(v)−2. Integrating vertex ball lengths and Fubini gives the density in signed degree deficits, then the displayed CDF. For any cut edge, the sum of 2−degree over one separated component is exactly one, which controls signed pair-path edge monomials. Expanding path distances gives S1=2L, S2=2L², S3=2L³−12B; the noncollinear triple-edge terms have unique median branch. A finite-distance Laplace transform yields E[D]=S3/(6L²). B>0 for every true branching vertex and zero for paths. Independently checked 30 exact rational CDF radii on a nonuniform three-arm star, as well as star mean 41/60, complementing the inspected all-tree source verifier. The infinite statement relies on wave counting/separator identities.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Garijo–Márquez–Silveira Proposition 4.1 gives linear-time continuous mean calculation for weighted trees and Proposition 4.4 uniform-tree comparison to paths.",
+          "Mémoli–Needham study metric-graph distance distributions and inverse obstructions."
+        ],
+        "reasoning": "The mean algorithms compute arbitrary instances, but do not state the universal cubic branch mass or full spline; the uniform-edge extremal inequality covers only a strict subclass of weighted trees and not its exact defect.",
+        "searches": [
+          "metric trees continuum pairwise distance distribution signed spline degree deficit mean cubic branching",
+          "Garijo Marquez Silveira weighted tree mean distance Proposition 4.1 and 4.4"
+        ]
+      },
+      "checked_sources": [
+        "Garijo et al. 2023 full HTML Propositions 4.1 and 4.4",
+        "Mémoli–Needham arxiv:1810.09646 / DOI:10.1111/sapm.12526 abstract only; Oxford VPN disconnected",
+        "Zmazek and Žerovnik 2007 abstract only",
+        "Resultary related metric-tree collision studies",
+        "assigned verify_tree_spline.py and independent exact three-arm star evaluation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Garijo’s cut-vertex mean recursion could compute E[D] tree by tree.",
+          "Mémoli–Needham small-radius tree distribution is a recognized predecessor."
+        ],
+        "reasoning": "Recursion or initial derivatives do not immediately furnish closed global CDF signed knot coefficients and cubic closed mean; an independent separator lemma and signed-moment computation are needed.",
+        "searches": [
+          "metric trees continuum pairwise distance distribution signed spline degree deficit mean cubic branching",
+          "Garijo 2023 Proposition4.1 cut vertex",
+          "Mémoli Needham 2018 Lemma6.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mémoli–Needham provide small-radius coefficients matching 2r/L+Qr²/(2L²) and qualitative piecewise-linear density for metric graphs.",
+          "The new claim supplies all knots and coefficient signs, not only a near-zero expansion."
+        ],
+        "reasoning": "A small-radius expansion cannot imply global signed coefficients at every vertex-pair distance; cancellations are additional exact information.",
+        "searches": [
+          "metric trees continuum pairwise distance distribution signed spline degree deficit mean cubic branching",
+          "metric tree continuous distance histogram signed degree deficit spline",
+          "Mémoli Needham arxiv 1810.09646 Lemma 6.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary exact collision tables for 9 or 15 vertex unit-edge trees presuppose pair-distance histograms but do not give this arbitrary positive-real-length formula.",
+          "The source exact verifier runs 116 rational-weight trees, while our direct independent star check is finite."
+        ],
+        "reasoning": "Known finite histograms do not imply arbitrary lengths and branching cubic identity; no exact database replaces unrestricted symbolic derivation.",
+        "searches": [
+          "metric trees continuum pairwise distance distribution signed spline degree deficit mean cubic branching",
+          "metric tree distance distribution vertex pair knot formula all trees",
+          "9-vertex metric tree histogram collisions Resultary"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: the explicit statement is not implied by inspected stronger sources; limitations and plausible overlap recorded.",
+      "residual_risks": [
+        "Mémoli–Needham full paper and Zmazek–Žerovnik full paper not inspected; possible implicit equivalent derivation remains.",
+        "Oxford authorized connection VPN disconnected; no access bypass.",
+        "General tree result relies on exact separator identity, not sampled numeric consistency."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Earlier linear-time mean algorithm and unit-edge path bound, not exact arbitrary-weight cubic branching defect",
+          "evidence": "Proposition 4.1 weighted-tree O(n); Proposition 4.4 uniform-tree path extremality",
+          "identifier_or_url": "https://doi.org/10.1007/s00025-023-01902-w",
+          "material_read": "full open-access HTML, introduction, sections 3–4 and Propositions 4.1 and 4.4 and proofs",
+          "method": "Springer full HTML",
+          "title": "Continuous Mean Distance of a Weighted Graph",
+          "trigger": "exact weighted tree mean literature"
+        },
+        {
+          "assessment": "INACCESSIBLE full text; no claim of whole-document not-covering based on abstract",
+          "evidence": "Mémoli–Needham 2018 preprint, 2022 publication; Lemma 6.6 cited in source proof as small-radius expansion",
+          "identifier_or_url": "https://doi.org/10.1111/sapm.12526",
+          "material_read": "arXiv abstract and publisher abstract/metadata; full text not accessible",
+          "method": "arXiv/OA retrieval unsuccessful; authorized Oxford attempt returned vpn_disconnected",
+          "title": "Distance distributions and inverse problems for metric measure spaces",
+          "trigger": "same arclength distance-histogram object"
+        },
+        {
+          "assessment": "Vertex-pair discrete distance polynomial, not enough full-text evidence to rule out continuum reformulation",
+          "evidence": "Zmazek–Žerovnik 2007 abstract",
+          "identifier_or_url": "https://hrcak.srce.hr/12827",
+          "material_read": "bibliographic abstract only",
+          "method": "publisher metadata",
+          "title": "The Hosoya–Wiener Polynomial of Weighted Trees",
+          "trigger": "weighted tree distances"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete exact all-radii probability distribution and cubic branch-sensitive mean are natural invariants for random points on metric trees; they quantify by how much branching lowers the interval’s mean and identify sharp equality for arbitrary lengths.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite positive-length metric tree, the uniform-arclength pair-distance CDF is an explicit signed quadratic spline with vertex degree-deficit coefficients, and mean L/3−2B(T)/L² with sharp equality only for paths.",
+  "limitations": [
+    "Finite acyclic connected trees, positive real lengths and uniform arclength sampling only.",
+    "Signed density knots may cancel; no inverse injectivity or stability claim."
+  ],
+  "schema_version": 1
+}
