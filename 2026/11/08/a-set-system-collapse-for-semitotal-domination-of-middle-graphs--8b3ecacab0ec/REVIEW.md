@@ -1,19 +1,21 @@
-# Review of the middle-graph semitotal-domination set-system theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The domination characterization reduces exactly to the selected original vertices and selected edge-vertices covering all original vertices. The proof establishes that every selected original vertex and every selected edge-vertex has a distinct selected partner at distance at most two using only connectedness and the at-least-three-vertices hypothesis. The finite sum follows from independent choices among already-covered original vertices. The path/cycle minimum census is exhaustive because capacity forces either a perfect matching (even order), one removed original vertex plus a perfect matching, or a one-overlap edge cover (odd order); these exhaust all equality cases. Independent enumeration on 1,004 connected root instances and paths/cycles through order 12 agreed.
+PASS
 
-## Originality
+Writing S=A∪F* makes domination equivalent to V\V(F)⊆A, since every unselected middle edge-vertex has an incident selected original vertex or a different selected incident middle edge. For each selected root vertex use one adjacent root neighbor and domination to find a distinct selected vertex at distance≤2; for each selected middle edge use an extra incident edge (guaranteed by connectedness and n≥3) plus domination to find a selected distance-two witness. This proves all-set equivalence, not merely equality of minimum sizes. Summing choices of A for fixed F gives ∑_F z^{|F|+n-|V(F)|}(1+z)^{|V(F)|}. Coverage-capacity equality yields only perfect matchings at even order and two disjoint odd-order cases (one root vertex plus matching, or one doubly covered root) with counts P_n:1 or n and C_n:2 or 2n. Independent exhaustive checks all connected labeled roots n=3,4, and all path/cycle optimizer sets through n=7 corroborate. K2 is a genuine excluded boundary.
 
-PASS, provisional priority. Full text of arXiv:2609.33932, particularly Theorem 2.2 and its proof, concerns the minimum independent domination layer, not all possibly nonindependent dominating sets. Full text of arXiv:2008.02975, particularly Sections 2 and 3, establishes the edge-cover equality and path/cycle scalar bounds but not the all-set semitotal equivalence or the exact enumerator and optimizer counts. Specific searches for equivalent set families, semitotal middle-graph domination polynomials, and minimum-solution enumerations did not disclose a covering statement. This is evidence of an uncovered gap, not proof of world-first priority. Classical 1978 sources are partially inaccessible and remain a named risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. An additional distance-two support constraint usually changes the feasible-set system, but disappears identically on an infinite graph-operator class. Consequently the whole semitotal-domination polynomial, not just its minimum degree, can be calculated from the original graph's edge-subset coverage data. Complete optimizer classifications and parity-sensitive exact counts on both paths and cycles give concrete non-scalar consequences. These facts are not implied by equality of the previously known minimum numbers.
+PASS best knowledge: earlier minimum independent/semitotal domination and minimum edge-cover results do not imply all-set equivalence or every polynomial coefficient. A 2026 result about TOTAL (adjacency-only) domination of middle graphs also computes a different polynomial, not semitotal. The arbitrary-dominating-set witness is nontrivial and new relative to inspected antecedents.
 
-## Closest sources and limitations
+## value
 
-The principal direct comparisons are arXiv:2609.33932 (2026) and arXiv:2008.02975 (2020). The result does not give a faster algorithm for general graph domination-polynomial computation, does not cover the connected two-vertex boundary, and does not claim the previously known minimum sizes as novel. Full texts of selected early 1978 sources could not be reviewed. No independent validation is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: a genuine all-feasible-set collapse of a distance-two domination condition on the natural middle-graph construction is stronger than a previously known scalar coincidence. An exact polynomial and complete parity-sensitive optimizer counts for paths and cycles are independently useful natural invariants, not unmotivated small-case recomputations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

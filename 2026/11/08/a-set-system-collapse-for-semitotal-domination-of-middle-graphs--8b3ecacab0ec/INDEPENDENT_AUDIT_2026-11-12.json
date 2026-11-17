@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T23:09:37.667725Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing S=A∪F* makes domination equivalent to V\\V(F)⊆A, since every unselected middle edge-vertex has an incident selected original vertex or a different selected incident middle edge. For each selected root vertex use one adjacent root neighbor and domination to find a distinct selected vertex at distance≤2; for each selected middle edge use an extra incident edge (guaranteed by connectedness and n≥3) plus domination to find a selected distance-two witness. This proves all-set equivalence, not merely equality of minimum sizes. Summing choices of A for fixed F gives ∑_F z^{|F|+n-|V(F)|}(1+z)^{|V(F)|}. Coverage-capacity equality yields only perfect matchings at even order and two disjoint odd-order cases (one root vertex plus matching, or one doubly covered root) with counts P_n:1 or n and C_n:2 or 2n. Independent exhaustive checks all connected labeled roots n=3,4, and all path/cycle optimizer sets through n=7 corroborate. K2 is a genuine excluded boundary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2008.02975 Lemma 2.1 uses replacement for minimum size; it does not preserve each set.",
+          "arXiv:2609.33932 Theorem 2.2 starts with minimum independent domination and proves that particular set semitotal.",
+          "Resultary 2026/10/26 perfect matching sieve enumerates TOTAL dominating sets, a strictly different neighbor requirement."
+        ],
+        "reasoning": "None of the inspected stronger-looking parameter results states or implies arbitrary-dominating-set distance-two support.",
+        "searches": [
+          "arxiv:2008.02975 middle graph domination number edge cover",
+          "arxiv:2609.33932 semitotal domination middle graph theorem 2.2",
+          "Resultary middle graph total domination perfect matching sieve"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.33932",
+        "https://arxiv.org/abs/2008.02975",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-perfect-matching-sieve-from-total-domination-of-middle-graphs--4d429ac2b8f4",
+        "https://doi.org/10.4153/CMB-1978-079-5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimum independent domination⊂all domination; knowing every minimum independent set has a distance-two partner does not imply every (possibly redundant) selected vertex does.",
+          "Known D(M(G)) scalar edge cover equality does not count all S.",
+          "Total domination requires adjacent selected vertices, so its perfect-matching signed sieve does not cover semitotal 2-neighbor support."
+        ],
+        "reasoning": "The submitted global distance-two witness argument and independent choice of already-covered vertices are mathematical operations absent from the antecedents; no implication from their statements was established.",
+        "searches": [
+          "arxiv:2609.33932 theorem 2.2",
+          "arxiv:2008.02975 lemma 2.1 theorem 2.10",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-perfect-matching-sieve-from-total-domination-of-middle-graphs--4d429ac2b8f4/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 paper asserts semitotality of minimum independent dominating sets, not all sets; its theorem works only with a selected optimum independent layer.",
+          "Full all-set equality is equivalent to D_t2(M(G);z)=D(M(G);z) coefficientwise; this is strictly stronger than scalar equal minima."
+        ],
+        "reasoning": "An optimizer replacement theorem cannot imply equality of feasible families; the submitted proof supplies a witness for every member of every dominating set.",
+        "searches": [
+          "middle graph semitotal domination all dominating sets set-system equality polynomial path cycle",
+          "arxiv:2609.33932 semitotal middle graph independent dominating sets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier papers supply scalar γ_t2(M(P_n)) and γ_t2(M(C_n))=ceil(n/2), not coefficients or minimum-set multiplicities.",
+          "All coefficient formula sums over 2^|E| edge subsets and is not merely a pre-existing table."
+        ],
+        "reasoning": "Natural all-set operator identity and optimizer census cannot be recovered from the scalar minimum table alone.",
+        "searches": [
+          "semitotal domination polynomial middle graphs path cycle coefficients minimum sets enumeration",
+          "Resultary semitotal domination middle graph edge subset enumerator"
+        ]
+      },
+      "rationale": "PASS best knowledge: earlier minimum independent/semitotal domination and minimum edge-cover results do not imply all-set equivalence or every polynomial coefficient. A 2026 result about TOTAL (adjacency-only) domination of middle graphs also computes a different polynomial, not semitotal. The arbitrary-dominating-set witness is nontrivial and new relative to inspected antecedents.",
+      "residual_risks": [
+        "1978 classical middle-graph articles were bibliographically located but their complete texts were not inspected; an unindexed all-set identity could exist.",
+        "All-set result fails at connected G=K2, correctly excluded; no general polynomial-time algorithm claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not cover arbitrary dominating-set equivalence",
+          "evidence": [
+            "Theorem 2.2 proves semitotality of minimum independent dominating sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.33932",
+          "material_read": "full accessible manuscript with Theorem 2.2, hypotheses and proof",
+          "method": "arXiv full text inspection",
+          "title": "On the (independent) semitotal domination in subdivision, middle, and central graphs",
+          "trigger": "same object and exact domination variant"
+        },
+        {
+          "assessment": "Only scalar minimum and set replacement, not all-set enumeration",
+          "evidence": [
+            "An edge-cover reduction for the minimum, not equality of all feasible sets."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.02975",
+          "material_read": "full manuscript, Lemma 2.1 and path/cycle scalar results",
+          "method": "arXiv full text inspection",
+          "title": "Domination number of middle graphs",
+          "trigger": "same middle graph root and edge-cover minima"
+        },
+        {
+          "assessment": "Different total-domination polynomial, no covering implication",
+          "evidence": [
+            "Total dominating requires selected neighbor at distance one, semitotal at distance up to two."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-perfect-matching-sieve-from-total-domination-of-middle-graphs--4d429ac2b8f4/RESULT.md",
+          "material_read": "complete Result and proof including canonical edge projection",
+          "method": "GitHub primary RESULT.md",
+          "title": "A perfect-matching sieve from total domination of middle graphs",
+          "trigger": "same middle graph with another domination notion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: a genuine all-feasible-set collapse of a distance-two domination condition on the natural middle-graph construction is stronger than a previously known scalar coincidence. An exact polynomial and complete parity-sensitive optimizer counts for paths and cycles are independently useful natural invariants, not unmotivated small-case recomputations.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Connected simple root order n>=3, K2 excluded.",
+    "Finite exhaustive tests are corroboration, not a general proof.",
+    "Classical older full texts not fully accessible."
+  ],
+  "schema_version": 1
+}

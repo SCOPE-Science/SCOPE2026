@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Direct reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with standard-library Python 3; no third-party packages are required. The verifier constructs each middle graph from its root independently of the mathematical proof. It enumerates every selected set and compares ordinary domination and semitotal domination, then checks the coefficient sequence against a separately computed edge-subset polynomial. It covers all connected labeled simple roots of orders 3–5 (4, 38, and 728 cases), plus 114 connected rooted instances on 6 vertices and 120 on 7 vertices. It exhaustively enumerates every candidate minimum-size set of middle paths and cycles for orders 3 through 12, comparing against the exact stated classifications. It also checks the connected two-vertex exception.
+## correctness
 
-Observed output ended with `GENERAL_CONNECTED_ROOTS_OK {3: 4, 4: 38, 5: 728, 6: 114, 7: 120} 1004`, the path/cycle lines concluding `MINIMUM_CLASSIFICATION_OK cycle 12 6 2`, `SHARP_TWO_VERTEX_BOUNDARY_OK`, and `VERIFY_OK`.
+PASS
 
-The implementation samples rather than exhausts all connected roots of orders 6–7, and stops the complete path/cycle comparison at order 12. Accordingly these finite tests are not an infinite proof. The proof in `RESULT.md` supplies that unrestricted argument. No independent mathematical audit or external certification has been performed.
+Writing S=A∪F* makes domination equivalent to V\V(F)⊆A, since every unselected middle edge-vertex has an incident selected original vertex or a different selected incident middle edge. For each selected root vertex use one adjacent root neighbor and domination to find a distinct selected vertex at distance≤2; for each selected middle edge use an extra incident edge (guaranteed by connectedness and n≥3) plus domination to find a selected distance-two witness. This proves all-set equivalence, not merely equality of minimum sizes. Summing choices of A for fixed F gives ∑_F z^{|F|+n-|V(F)|}(1+z)^{|V(F)|}. Coverage-capacity equality yields only perfect matchings at even order and two disjoint odd-order cases (one root vertex plus matching, or one doubly covered root) with counts P_n:1 or n and C_n:2 or 2n. Independent exhaustive checks all connected labeled roots n=3,4, and all path/cycle optimizer sets through n=7 corroborate. K2 is a genuine excluded boundary.
+
+## originality
+
+PASS
+
+PASS best knowledge: earlier minimum independent/semitotal domination and minimum edge-cover results do not imply all-set equivalence or every polynomial coefficient. A 2026 result about TOTAL (adjacency-only) domination of middle graphs also computes a different polynomial, not semitotal. The arbitrary-dominating-set witness is nontrivial and new relative to inspected antecedents.
+
+## value
+
+PASS
+
+PASS: a genuine all-feasible-set collapse of a distance-two domination condition on the natural middle-graph construction is stronger than a previously known scalar coincidence. An exact polynomial and complete parity-sensitive optimizer counts for paths and cycles are independently useful natural invariants, not unmotivated small-case recomputations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
