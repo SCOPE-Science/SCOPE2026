@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T22:15:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Eliminating velocity gives AR(2) with b=(1+a)^-2 and phi=[2(1+a)+a²(1-t)]/(1+a)², Gaussian innovation variance a³σ²/(1+a)^4. Jury conditions reduce exactly to Δ_t(a)>0 and t>0. The Yule–Walker covariance gives V_t=σ²(a²+2a+2)/(t(a+2)Δ_t). Independent symbolic derivative and factorization confirm F_t=B(a)[t-T(a)] and T'(a)=8(a+2)(a²-2a-2)(a²+2a+2)/[a²(a³+4a²+10a+8)²]. Thus T minimizes at a=1+√3, tc=(4+12√3)/13; each domain piece has claimed zero, one, or two extrema. Exact rational evaluation independently reproduces eleven-dimensional J'(1)=-10881433/143273691, J'(4)=40729/114967512, J'(20)=-2559661/557646408. This ensures total-error nonmonotonicity but not uniqueness of aggregate extrema.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The NAG-GS source has the Schur-stable domain and stationary covariance framework and so those ingredients are covered.",
+          "arxiv:2209.14937v3"
+        ],
+        "reasoning": "The original exact tc bifurcation and stable full-system reversal remain additional mathematics beyond stability and Lyapunov existence.",
+        "searches": [
+          "semi implicit NAG GS stationary noise covariance variance nonmonotone step size Schur stable threshold",
+          "semi implicit NAG GS momentum stationary variance monotonic nonmonotone curvature 1.9065",
+          "arxiv:2209.14937v3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2209.14937",
+        "https://arxiv.org/html/2209.11920v3",
+        "https://arxiv.org/abs/1805.10579"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even if original Lyapunov variance formula is recoverable from general equations, a global exact number and type of stationary extrema requires the T' sign factorization and witnessed aggregate reversal.",
+          "arxiv:2209.14937v3",
+          "arxiv:2209.11920v3"
+        ],
+        "reasoning": "Prior sufficient stability conditions cannot imply monotonicity or its failure without this separate curvature analysis.",
+        "searches": [
+          "semi implicit NAG GS stationary noise covariance variance nonmonotone step size Schur stable threshold",
+          "semi implicit NAG GS momentum stationary variance monotonic nonmonotone curvature 1.9065",
+          "arxiv:2209.14937v3",
+          "arxiv:2209.11920v3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General two-step momentum Lyapunov formulas are mathematically relevant and include analogous AR(2) stationary covariances; the semiimplicit path needs distinct parameter matching.",
+          "arxiv:2209.11920v3",
+          "arxiv:2209.14937v3"
+        ],
+        "reasoning": "A covariance formula alone does not state or directly imply the curvature-ratio threshold and sign-sequence theorem without the nontrivial rational turning-point optimization.",
+        "searches": [
+          "semi implicit NAG GS stationary noise covariance variance nonmonotone step size Schur stable threshold",
+          "semi implicit NAG GS momentum stationary variance monotonic nonmonotone curvature 1.9065",
+          "arxiv:2209.11920v3",
+          "arxiv:2209.14937v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searched the exact NAG-GS step-size variance profile and curvature 1.9065; no separate exact lookup table or classification identified.",
+          "https://arxiv.org/html/2209.11920v3"
+        ],
+        "reasoning": "General moment/noise tables depend on independent optimization parameters, not a tabulated threshold for this path.",
+        "searches": [
+          "semi implicit NAG GS stationary noise covariance variance nonmonotone step size Schur stable threshold",
+          "semi implicit NAG GS momentum stationary variance monotonic nonmonotone curvature 1.9065",
+          "https://arxiv.org/html/2209.11920v3"
+        ]
+      },
+      "rationale": "Leplat et al. NAG-GS already gives the scheme, quadratic Schur boundary and Lyapunov framework, and Mohammadi–Razaviyayn–Jovanović provides broad two-step moment/noise formulas. Those underpin the calculation, but the exact stationary-noise turning-point threshold for the specific fixed-damping step path and fully stable 11-mode reversal are not stated or mechanically forced by the published optimal tradeoff statements inspected. Resultary queries for tc and the specific semiimplicit noise law found the assigned record only. Historical parameter-equivalence remains a risk.",
+      "residual_risks": [
+        "An uninspected parameterized optimization theorem may imply tc after a straightforward specialization.",
+        "This concerns Brownian velocity increments of variance a and fixed damping gamma=mu, not arbitrary noisy-gradient implementations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_RECURSION_STABILITY_KNOWN",
+          "evidence": "Source already covers model and stability; inspected sections do not state threshold (4+12sqrt(3))/13 or eleven-dimensional witness.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.14937",
+          "material_read": "Primary PDF Sections 2.3, 3.2, 3.5 and Appendix D, especially Lyapunov covariance framework and Schur stability",
+          "method": "open PDF and inspect displayed page and text",
+          "title": "NAG-GS: A Semi-Implicit Stochastic Optimizer with Large-Step Stability",
+          "trigger": "Exact same algorithm and parameterization"
+        },
+        {
+          "assessment": "GENERAL_FORMULA_NOT_EXPLICIT_PHASE",
+          "evidence": "Covers general two-step stability and steady-state noise; inspected results do not identify this fixed-path curvature turning-point bifurcation.",
+          "identifier_or_url": "https://arxiv.org/html/2209.11920v3",
+          "material_read": "HTML full introduction, section IV-C on noise amplification and Appendix E Lyapunov covariance material",
+          "method": "primary arXiv HTML full-text reading",
+          "title": "Tradeoffs between convergence rate and noise amplification for momentum-based accelerated optimization algorithms",
+          "trigger": "Potential dominating two-step stationary variance formulas"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The threshold near 1.9065 separates monotone noise response from two extrema even when deterministic stability permits every step; the 11-mode exact witness shows the effect persists in an actual SPD problem rather than an isolated modal curve. This is a motivated counterexample to choosing step size solely by deterministic stability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "SPD quadratic modes; fixed damping, iid velocity Brownian steps; strictly Schur-stable domain; no finite-time or nonquadratic theorem.",
+    "An uninspected parameterized optimization theorem may imply tc after a straightforward specialization.",
+    "This concerns Brownian velocity increments of variance a and fixed damping gamma=mu, not arbitrary noisy-gradient implementations."
+  ]
+}
