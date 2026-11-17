@@ -1,0 +1,15 @@
+# Review of the Paley-tournament majority classification
+
+## Correctness — PASS
+The infinite-scope statements concern all finite tournaments and all finite regular tournaments. Their counting proofs use strict changes, the tournament identities for internal and cross arcs, and the out-degree averaging identity; every necessary inequality is explicitly derived in RESULT.md. These arguments are independent of finite-state experiments. The four Paley cases concern *exactly* the \(2^p\) labelled bit vectors at prime orders \(3,7,11,19\); all four cases have been fully enumerated. Python functional-graph traversal and independently implemented C direct iteration agree on all primitive periods, maximum entry times and period-resolved basin sizes. All recurring geometric classes are obtained by complete closure under certified automorphisms, complement and time shift, not by a sample of representatives. No assertion outside the stated finite orders is inferred from enumeration.
+
+## Originality — PASS, qualified
+The closest mathematical sources are Jørgensen (2014, arXiv:1410.8424), which establishes the Paley tournament family but not majority dynamics, and Benjamini et al. (2014, arXiv:1405.2486), which studies undirected majority maps whose universal eventual period-two property is *inapplicable* to oriented Paley tournaments. Published studies of Paley-19 neighborhood topology and finite Paley logical extension patterns involve the same directed graphs but different invariants. Goles (1985) is a relevant general threshold-network precursor; only its abstract was available, and no whole-document noncoverage claim is made. Targeted exact-value, alias, equivalent-dynamics and mathematical-record searches identified no stronger coverage of the complete Paley majority census, but absolute historical priority remains open. The general absence-of-two-cycles argument is presented as a structural ingredient, not as independently established historically novel work.
+
+## Mathematical value — PASS
+The first four Paley prime orders are canonical doubly regular tournament models. Their complete dynamical classification exhibits a sharp qualitative contrast unavailable from the usual symmetric majority theorem: a total consensus landscape on eleven vertices versus genuine four- and nineteen-step clocks on nineteen vertices, with a nontrivial yet very small symmetry quotient. The full attraction and first-entry census supplies natural finite dynamical invariants, rather than an unmotivated parameter tweak or a single computational witness. The exact classes support future comparison with other doubly regular tournaments and with weighted/asymmetric threshold systems; such comparisons are not claimed here.
+
+## Scope and residual risks
+The maximum entry and orbit census statements are only for four stated prime orders. The two structural tournament lemmas do not imply the special finite census by themselves. A relevant historical threshold-automata paper could not be read in full; an unindexed earlier computation is possible. No independent audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
