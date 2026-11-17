@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the two-cycle tree-extremal theorem
+# Independent mathematical audit
 
-The exact mathematical argument is contained in `RESULT.md`. The scripts below independently check its finite consequences rather than replacing the proof.
+## correctness
 
-Run `python3 checks/verify_direct.py` to enumerate complete nonnegative chip boxes \(0\le\sigma(v)<2\deg(v)\) for every nonisomorphic tree on 2–7 vertices, selected stars and paths through 10 vertices, and three additional connected graphs. The direct two-step tests are compared to the separate cross-cut enumerator. The output must end in `DIRECT_STATES_OK 33`.
+PASS
 
-Run `python3 checks/verify_tree_dp.py` to independently evaluate the rooted-tree recurrence, check every nonisomorphic tree through eight vertices, 2,200 reproducible sampled trees through 30 vertices, and the Pell addition identities for positive argument pairs up to 99. The output must end in `TREE_DP_OK 2247`.
+For primitive period two U²σ=σ≠Uσ, the two-step graph Laplacian forces every vertex to fire exactly once; a first-phase cut S gives exactly k_v(S) legal chip values at vertex v. Therefore N₂(G)=Σ_S∏_v k_v(S). On trees crossing-edge bits are independent up to two complementary vertex phases, and switching product sum yields N₂(T)=Σ_{neighbor maps f}2^{c(f)}, c(f) components of doubled-edge map. Every edge gives one component map, yielding N₂≥2(n−1), with extra maps iff tree contains two disjoint edges, i.e. is not a star. Rooted recurrence A=Σ_i b_i∏_{j≠i}(a_j+b_j), B=A+∏_i(a_i+b_i) and strict Pell identities show merging branches preserves A but strictly increases B. Thus N₂≤2P_{n−1} with equality only paths for n≥4; stars unique lower. Independently evaluated exact cut weight for all nonisomorphic trees through n=8; no finite-only inference.
 
-The captured output files `checks/direct_output.txt` and `checks/dp_output.txt` were produced from the corresponding packaged source files and matched on replay. They are finite tests: exhaustive over the explicitly enumerated small trees, not over all trees or all chip configurations with unbounded heights. The proof supplies the finite chip-height cutoff for exact two-cycles and the all-order bounds; no external audit has been performed.
+## originality
+
+PASS
+
+Prior October 25 path-mass law already establishes Pell count for open paths, and November 1 cut-degree theorem establishes general two-cycle cut enumerator and arbitrary-tree rooted DP, all of which must be credited. The surviving new statement is sharp tree-shape path/star extremality for every n with uniqueness and the strict branch-merging comparison, not the path Pell sequence or count formula. Bitar–Goles full 1992 paper could not be accessed; authorized Oxford tool returned VPN-disconnected and no bypass attempted.
+
+## value
+
+PASS
+
+A natural dynamical invariant (number of immediately primitive two-cycle states, not eventual basins) is optimized over an entire graph class, showing exponential contrast between path and star and proving unique extremizers. The strict rooted combinatorial inequality is structural and useful beyond a known single-path Pell census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

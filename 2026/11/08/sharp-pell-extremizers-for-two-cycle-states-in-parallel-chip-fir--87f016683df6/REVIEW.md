@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For each finite connected simple graph, the two-step Laplacian equation forces every vertex of a primitive two-cycle to fire once in two steps. The two interval tests produce the exact cross-cut product, with no omitted cases; on a tree, independent edge-crossing bits give the functional-digraph formula. For the lower extremum, each tree edge yields exactly one single-cycle neighbor map and a nonstar has an extra map with two two-cycles. For the upper extremum, the nonnegative rooted recursion, two Pell addition identities, and strict merging of multiple children establish the path as the unique maximizer. All boundary orders \(n=2,3\), nonnegativity, counting of distinct states versus orbits, and the exclusion of fixed points are explicit. Both complete direct checks and the distinct dynamic-programming checks match their embedded records.
+## correctness
 
-## Originality — PASS, with stated priority risk
-The relevant precedent in Jiang (2010), Proposition 2.5, already gives the equal-firing-count condition and thus supports the first preliminary reduction; it does not contain the sharp all-tree two-cycle-state enumeration and Pell extremal theorem. Jiang, Scully and Zhang (2012/2015), Sections 6–7, treat allowable firing patterns and tree-like subgraphs, not this exact count or the strict path/star extremal classification. Bitar and Goles (1992) prove the tree period restriction, while the original full text could not be read; that access limit leaves a historical-priority risk. Searches of published mathematical findings, aliases and specific Pell/count claims found no statement subsuming the final extremal theorem. Parallel diffusion is a distinct rule and supplies no implication. No independence or absolute novelty certification is asserted.
+PASS
 
-## Value — PASS
-The known restriction to periods one and two on trees does not quantify how many oscillations are possible. The sharp bounds give the complete extremal answer for the natural finite-tree class, including uniqueness, and reveal an exponential path-versus-star separation. The rooted inequality and functional-map interpretation explain the structural dependence, rather than merely fitting a sequence from finite experiments.
+For primitive period two U²σ=σ≠Uσ, the two-step graph Laplacian forces every vertex to fire exactly once; a first-phase cut S gives exactly k_v(S) legal chip values at vertex v. Therefore N₂(G)=Σ_S∏_v k_v(S). On trees crossing-edge bits are independent up to two complementary vertex phases, and switching product sum yields N₂(T)=Σ_{neighbor maps f}2^{c(f)}, c(f) components of doubled-edge map. Every edge gives one component map, yielding N₂≥2(n−1), with extra maps iff tree contains two disjoint edges, i.e. is not a star. Rooted recurrence A=Σ_i b_i∏_{j≠i}(a_j+b_j), B=A+∏_i(a_i+b_i) and strict Pell identities show merging branches preserves A but strictly increases B. Thus N₂≤2P_{n−1} with equality only paths for n≥4; stars unique lower. Independently evaluated exact cut weight for all nonisomorphic trees through n=8; no finite-only inference.
 
-## Scope and limitations
-The exact result concerns *initially primitive two-periodic* nonnegative-integer chip configurations on finite labelled trees; it does not count transients, fixed states or cycles of other lengths on non-trees. The complete 1992 Bitar–Goles text was inaccessible. Finite computations support the proof but do not certify the infinite theorem. Independent evaluation is still outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior October 25 path-mass law already establishes Pell count for open paths, and November 1 cut-degree theorem establishes general two-cycle cut enumerator and arbitrary-tree rooted DP, all of which must be credited. The surviving new statement is sharp tree-shape path/star extremality for every n with uniqueness and the strict branch-merging comparison, not the path Pell sequence or count formula. Bitar–Goles full 1992 paper could not be accessed; authorized Oxford tool returned VPN-disconnected and no bypass attempted.
+
+## value
+
+PASS
+
+A natural dynamical invariant (number of immediately primitive two-cycle states, not eventual basins) is optimized over an entire graph class, showing exponential contrast between path and star and proving unique extremizers. The strict rooted combinatorial inequality is structural and useful beyond a known single-path Pell census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
