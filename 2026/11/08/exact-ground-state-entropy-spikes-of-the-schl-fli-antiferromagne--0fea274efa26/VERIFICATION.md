@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python verify.py` in this directory with Python 3 and an available C++17 compiler. No network access or third-party packages are needed. The script compiles the two included implementations into a temporary directory, runs each executable, and checks their full outputs against the \(28\)-sector exact table. It also checks the graph's strongly regular parameters and its explicit nine-coclique partition, and verifies the spectral formula for every cardinality.
+## correctness
 
-The completed run printed `VERIFIED: 134217728 spin states; both exhaustive methods agree; all analytical profile/degeneracies verified.`. The Gray-code program uses exact incremental cut updates; the subset-DP program uses exact induced-edge recurrences. Each visits all \(2^{27}\) binary spin assignments, so the finite counts are exhaustive, not statistical estimates. The algebraic upper-bound proof and explicit construction establish the maximum-cut profile independently of enumeration.
+PASS
 
-No finite-temperature, infinite-volume or quantum-model conclusions are certified. Independent scientific audit has not been performed.
+Exact cubic-surface line intersection rules give the unique (27,16,10,8) Schläfli graph. The Laplacian eigenvalue-18 bound plus even-cut parity gives C(k)<=2 floor(k(27-k)/3); nine explicit independent triples with uniform between-class incidence attain it at every k. Independent compiled C++ Gray-code enumeration over all 134,217,728 masks reproduces submitted maximum-cut multiplicities and field degeneracy sums. The finite exhaustive enumeration is legitimate for the fixed 27-spin graph, while spectral reasoning proves the all-real-field branch selection.
+
+## originality
+
+PASS
+
+The known (27,16,10,8) strongly regular parameters, eigenvalues and nine-colouring give the size-restricted maximum cut envelope, but do not specify the exact multiplicity N_k of maximizers. The field-by-field labelled ground-state degeneracy census at h/J=0,4,8,12,16 is a distinct complete finite invariant; no earlier exact table was located despite model-/parameter-specific searches.
+
+## value
+
+PASS
+
+A complete labelled magnetization- and magnetic-field-resolved zero-temperature degeneracy census of a distinguished 27-vertex strongly regular graph is a natural, exact finite-physics invariant not supplied by its known spectrum/colouring. The critical-field entropy spikes are large, nontrivial combinations of constrained max-cut multiplicities; exact values are useful beyond the easily derived energy envelope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

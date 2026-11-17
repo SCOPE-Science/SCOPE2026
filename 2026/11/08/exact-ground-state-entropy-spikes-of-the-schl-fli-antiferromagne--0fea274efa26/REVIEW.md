@@ -1,19 +1,21 @@
-# Scientific review of the Schläfli antiferromagnet ground-state census
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The graph encoding is independently identified by all \((27,16,10,8)\) strongly regular parameters and the known unique-isomorphism-class result. The spectral upper bound \(C(k)\le(2/3)k(27-k)\), cut parity, and a nine-coclique partition prove the exact maximum cut for every cardinality. The resulting concave discrete cut profile yields the five energy branches and four transition fields without computation. Two separately implemented exhaustive integer enumerations verify every one of the \(134,217,728\) spin states and return identical counts by cardinality. The finite verification covers the full stated domain (one fixed graph); it is not an inference from sampling or a claim about other graphs.
+PASS
 
-## Originality
+Exact cubic-surface line intersection rules give the unique (27,16,10,8) Schläfli graph. The Laplacian eigenvalue-18 bound plus even-cut parity gives C(k)<=2 floor(k(27-k)/3); nine explicit independent triples with uniform between-class incidence attain it at every k. Independent compiled C++ Gray-code enumeration over all 134,217,728 masks reproduces submitted maximum-cut multiplicities and field degeneracy sums. The finite exhaustive enumeration is legitimate for the fixed 27-spin graph, while spectral reasoning proves the all-real-field branch selection.
 
-PASS on material examined, with explicitly limited historical-priority confidence. Brouwer's Schläfli graph description gives the spectrum, maximum cocliques, and nine-coloring. These *do* imply the cut profile and phase boundaries after an elementary spectral calculation and are acknowledged as covering those parts. The claimed additional content is the complete zero-temperature field-resolved **multiplicity** profile, especially the exact critical-field state counts. The primary full texts of Honecker–Schulenburg–Richter (2003) and Schmidt–Richter–Schnack (2005) study different frustrated quantum models, not this classical graph. The Metcalf–Yang (1978) abstract treats infinite square and triangular lattices. Targeted historical, alias, exact-number, and database searches, including published research-index searches, produced no implication covering these graph-specific exact counts. Residual risk: specialist enumerative graph tables could reproduce them under cut-enumerator or independent-triple terminology.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Exact residual ground-state entropy at magnetic transition fields is a natural statistical-mechanical observable, particularly in frustrated systems where degeneracy changes sharply at plateau boundaries. The five noncritical ground-state sectors and their singular multiplicities form a complete physical classification for a canonical \(27\)-vertex symmetric graph. The very large peak \(630,444\) at the first transition is not determined by the spectrum or graph coloring alone; exhaustive counting is mathematically substantive and reproducible. No claim of finite-size critical universality or a bulk phase transition is made.
+The known (27,16,10,8) strongly regular parameters, eigenvalues and nine-colouring give the size-restricted maximum cut envelope, but do not specify the exact multiplicity N_k of maximizers. The field-by-field labelled ground-state degeneracy census at h/J=0,4,8,12,16 is a distinct complete finite invariant; no earlier exact table was located despite model-/parameter-specific searches.
 
-## Verification and limits
+## value
 
-The package's `verify.py` compiles and runs `verify_gray.cpp` and `verify_dp.cpp`, checks the explicit line-model graph and nine-triple construction, and compares all \(28\) exact counts. Both methods passed. The finding depends on exact finite enumeration for degeneracies; human historical-priority review and independent scientific validation have not been performed. A known graph-theoretic cut profile should not be mistaken for a separate priority claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete labelled magnetization- and magnetic-field-resolved zero-temperature degeneracy census of a distinguished 27-vertex strongly regular graph is a natural, exact finite-physics invariant not supplied by its known spectrum/colouring. The critical-field entropy spikes are large, nontrivial combinations of constrained max-cut multiplicities; exact values are useful beyond the easily derived energy envelope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

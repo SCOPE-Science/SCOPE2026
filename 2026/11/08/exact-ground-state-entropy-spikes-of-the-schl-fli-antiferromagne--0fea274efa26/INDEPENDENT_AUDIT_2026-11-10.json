@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T22:46:27.850526Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact cubic-surface line intersection rules give the unique (27,16,10,8) Schläfli graph. The Laplacian eigenvalue-18 bound plus even-cut parity gives C(k)<=2 floor(k(27-k)/3); nine explicit independent triples with uniform between-class incidence attain it at every k. Independent compiled C++ Gray-code enumeration over all 134,217,728 masks reproduces submitted maximum-cut multiplicities and field degeneracy sums. The finite exhaustive enumeration is legitimate for the fixed 27-spin graph, while spectral reasoning proves the all-real-field branch selection.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Spectral Laplacian lambda_max=18 bounds C(k)<=2k(27-k)/3; using degree parity rounds down to 2floor(k(27-k)/3).",
+          "Nine independent triples realize equality for all k. This determines ground ENERGY but does not count all maximizing subsets."
+        ],
+        "reasoning": "The broader spectral inequality and nine-colouring cover the simple ground-energy envelope, explicitly excluded from novelty credit, not the exact critical-field degeneracies.",
+        "searches": [
+          "Brouwer Schläfli strongly regular parameters spectrum nine-coloring",
+          "Resultary: all-field Schläfli max cut spectrum",
+          "Schläfli graph independence polynomial cocliques"
+        ]
+      },
+      "checked_sources": [
+        "https://aeb.win.tue.nl/drg/graphs/Schlaefli.html",
+        "https://arxiv.org/abs/cond-mat/0309425",
+        "https://arxiv.org/abs/cond-mat/0501376",
+        "https://doi.org/10.1103/PhysRevB.18.2304"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previously known spectral and colouring data imply max cuts but not N_k.",
+          "Independent all-2^27 Gray enumeration reproduces 28 N_k rows; the four critical-entropy spikes require those counts."
+        ],
+        "reasoning": "The original contribution is the exact ground-state degeneracy distribution, not the elementary spectral bound or the model definition; selected earlier quantum magnetization results concern different Hamiltonians.",
+        "searches": [
+          "Brouwer Schläfli graph",
+          "Resultary full field-dependent Schläfli Ising maximum cut",
+          "Honecker Schulenburg Richter arXiv:cond-mat/0309425"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://aeb.win.tue.nl/drg/graphs/Schlaefli.html gives parameters and chromatic structure but not cut-sector multiplicities.",
+          "Exact submitted count vector N_0..N_13 = 1,27,135,45,2160,6750,1080,42120,86400,8400,247860,351216,22968,495720."
+        ],
+        "reasoning": "Equivalence of Ising ground states and maximum cuts of a fixed cardinality was checked explicitly: E/J=216-2c(S)-t(27-2k). No earlier equivalently phrased fixed-size cut enumerator/table for these precise counts was found.",
+        "searches": [
+          "Resultary: Schläfli antiferromagnet ground state field degeneracies 630444",
+          "Schlaefli graph maximum cut fixed size 27 magnetization",
+          "Brouwer Schläfli graph coclique nine coloring"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching earlier table appeared in actual searches; published Brouwer graph page has coclique counts, parameters, colouring, not full maximizing-cut polynomial.",
+          "At critical t=4,8,12,16 degeneracies 630444,138000,10035,208 are sums of four consecutive maximizing N_k values."
+        ],
+        "reasoning": "Searched the exact graph, physics observable, and characteristic numerical counts to test same-table coverage; search absence is not proof of historical novelty.",
+        "searches": [
+          "Resultary: Schläfli graph classical Ising degeneracy full 27",
+          "Schläfli graph fixed cardinality max cut multiplicity 495720",
+          "27 Schlaefli 630444 138000 10035"
+        ]
+      },
+      "rationale": "The known (27,16,10,8) strongly regular parameters, eigenvalues and nine-colouring give the size-restricted maximum cut envelope, but do not specify the exact multiplicity N_k of maximizers. The field-by-field labelled ground-state degeneracy census at h/J=0,4,8,12,16 is a distinct complete finite invariant; no earlier exact table was located despite model-/parameter-specific searches.",
+      "residual_risks": [
+        "Unindexed finite-graph cut/Ising partition tables could already contain N_k; search non-detection is not proof of priority.",
+        "The phase-energy staircase follows readily from published srg structure; novelty is confined to complete labelled degeneracies, particularly entropy spikes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_NOT_COVERING_COUNTS",
+          "evidence": "Graph parameter and colouring facts but no exact N_k cut census.",
+          "identifier_or_url": "https://aeb.win.tue.nl/drg/graphs/Schlaefli.html",
+          "material_read": "Full accessible graph-description webpage including srg parameters, spectrum, chromatic number, intersection data",
+          "method": "Primary mathematical graph reference via webpage",
+          "title": "Schläfli graph",
+          "trigger": "Same graph exact eigenvalues/colouring/coclique structure"
+        },
+        {
+          "assessment": "DIFFERENT_HAMILTONIAN",
+          "evidence": "Quantum spin lattice models, not classical Ising on Schläfli graph.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0309425",
+          "material_read": "Abstract and prior-source comparison; no claim of a comprehensive full-text inspection",
+          "method": "arXiv contextual reference",
+          "title": "Magnetization plateaus in frustrated antiferromagnetic quantum spin models",
+          "trigger": "Related phrase magnetization plateaux"
+        },
+        {
+          "assessment": "DIFFERENT_MODEL",
+          "evidence": "Quantum antiferromagnet on other polyhedra, no exact 27-node Schläfli degeneracies evidenced.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0501376",
+          "material_read": "Bibliographic metadata and model comparison; not complete text",
+          "method": "arXiv contextual comparison",
+          "title": "Frustration effects in magnetic molecules",
+          "trigger": "Finite frustrated magnetic polyhedra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete labelled magnetization- and magnetic-field-resolved zero-temperature degeneracy census of a distinguished 27-vertex strongly regular graph is a natural, exact finite-physics invariant not supplied by its known spectrum/colouring. The critical-field entropy spikes are large, nontrivial combinations of constrained max-cut multiplicities; exact values are useful beyond the easily derived energy envelope.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only classical finite 27-spin uniform coupling zero temperature; older unindexed graph cut or Ising tables remain priority risk."
+  ],
+  "schema_version": 1
+}
