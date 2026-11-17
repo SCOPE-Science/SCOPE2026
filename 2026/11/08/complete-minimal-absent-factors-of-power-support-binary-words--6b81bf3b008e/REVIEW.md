@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Consecutive markers have strictly increasing gap distances \(g_j=(b-1)b^j\), so a two-one core has a unique occurrence. Explicit one-sided contexts classify minimal absences with two ones. Matching occurring immediate prefixes and suffixes forces every minimally absent three-one core into the stated initial-boundary exception, and overlap uniqueness excludes four or more ones. Disjoint-family length accounting proves the exact formula; elementary unary regular-language theory proves nonregularity. The standalone verifier independently compares factor languages and predicted absent sets in finite complete-prefix instances. Its checks are supplementary, not a proof of the infinite theorem.
+## correctness
 
-**Originality — PASS, qualified.** The 2022 primary paper on minimal absent words in run-length-encoded strings establishes finite-string type decompositions and output algorithms, while the 2020 antidictionary paper develops finite-document computations. The inspected main results, introductions, structural sections, and accessible research comparisons do not provide the explicit minimal absent language of this infinite geometric-marker word, its \(N+\log_bN+O_b(1)\) cumulative law, or nonregularity. Previously recorded work on the same power-support word addresses binomial and palindromic factor complexity, which does not imply the minimal-absent-factor classification without new context analysis. An unindexed or uninspected equivalent specialization remains a real bibliographic risk.
+PASS
 
-**Mathematical value — PASS.** Minimal absent factors are canonical generators of the complement of a factorial language and carry antidictionary/compression significance. The precise infinite forbidden language of the power-support automatic word is a natural exact invariant; a uniform four-family classification, sharp maximum of three markers per minimal obstruction, exact length census, logarithmic correction, and nonregularity distinguish this from a finite table or routine boundary check.
+The strictly increasing consecutive-one gaps g_j=(b−1)b^j uniquely identify any occurring two-one core. The one-sided initial pre-gap is l0=1, and later left-zero spans are g_(j−1)−1, giving exact minimal overhangs. Any MAW with >=4 ones would have two occurring maximal factors sharing at least two ones and hence the unique occurrence, contradiction; the three-one case gives only b=2 and b=3 exceptions. Counting pair-gap and boundary families yields the stated exact M_b(N) and N+log_b N+O(1); intersecting with 10*1 proves nonregularity via unbounded geometric gaps. Fifteen independently coded b=2..6 finite-prefix MAW set comparisons through N=20 matched predictions; finite testing is not an infinite proof.
 
-**Scope and limits.** The ambient alphabet is fixed binary, the factors are contiguous rather than subsequences, and the word is one-sided with an initial zero. There is no claim about shortest absent subsequences, finite-prefix endpoint artifacts, or all lacunary supports. The two primary sources provide foundations and relevant comparison; their general algorithms are not asserted to be new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for uniform base b>=2 explicit infinite MAW language, exact cumulative count and nonregularity. Entire b=2 statement is already independently published, including identical exceptional boundaries, and must not be presented as novel. No inspected predecessor states the b>=3 classification or the b=3 and b>=4 boundary transition; finite RLE algorithms do not provide the claimed exact infinite specialization without extra mathematics. Search non-detection is not priority proof.
+
+## value
+
+PASS
+
+PASS: minimal forbidden factors describe the exact obstruction language of a naturally defined sparse infinite word; extending dyadic b=2 to every integer b includes genuinely different initial patterns and a simple exact logarithmic correction and nonregularity. These are useful structural and enumeration facts, not a routine reindexing of the dyadic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
