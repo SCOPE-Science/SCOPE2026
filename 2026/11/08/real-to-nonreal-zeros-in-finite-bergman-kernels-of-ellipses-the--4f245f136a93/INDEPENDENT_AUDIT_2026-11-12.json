@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T07:10:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the actual ellipse Chebyshev planar orthogonality, reconstructed K_2m(z,0)=sum_{k=0}^m (-1)^k(2k+1)U_2k(z/c)/U_2k(t), with identical odd-degree center slice. Thin-ellipse limit is (−1)^m U_m(2(z/a)²−1), giving exactly 2m simple interior real roots for sufficiently small b/a. Near-disk rescaling yields P_m(v)=sum_{k=0}^m (−1)^k(2k+1)v^k; its negative-real exclusion and Newton inequality contradiction for m≥2 show ≥4 nonreal roots. Independently recomputed K4 rational quadratic in x=(z/a)² and Δ=64(u−1)²u⁴Q(u+1/u), with Q(y)=225y⁴−600y³−14600y²−44000y−32624. Unique root y>2 gives strict four-real/two-double/four-nonreal transition; degree2 threshold x<1 iff u<1/3. Symbolic identities checked independently, not only a packaged VERIFY_OK.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Akemann–Nagao–Parra–Vernizzi 2019 orthogonality gives the basis, not an aspect-ratio zero-count theorem.",
+          "Nagao–Akemann–Kieburg–Parra 2019 studies large-degree limits and exact correlations; not an all-shape sharp zero classification."
+        ],
+        "reasoning": "Large-particle asymptotics and general reproducing-kernel identities do not determine finite-degree zero location or the exact quartic discriminant threshold; no dominating theorem among inspected material.",
+        "searches": [
+          "finite Bergman center kernel ellipse all zeros real for slender ellipses first nonreal degree four",
+          "Christoffel-Darboux kernel ellipse zeros planar orthogonal polynomials"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/real-to-nonreal-zeros-in-finite-bergman-kernels-of-ellipses-the--4f245f136a93/RESULT.md",
+        "https://arxiv.org/abs/1905.02397",
+        "https://arxiv.org/abs/1905.07977",
+        "https://dlmf.nist.gov/18"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:1905.02397 Appendix B orthogonality -> kernel formula only; arXiv:1905.07977 Section 5 asymptotics do not state fixed-m aspect-ratio zero counts.",
+          "The independent inequality (m−1)(2m−1)² < 2m(2m+1)(2m−3) for m≥2 is the missing new zero obstruction."
+        ],
+        "reasoning": "The claimed threshold requires a further exact quadratic discriminant and nonreal-zero argument. It follows neither formally from orthogonality nor from cited asymptotic results.",
+        "searches": [
+          "finite Bergman center kernel ellipse all zeros real for slender ellipses first nonreal degree four",
+          "planar kernel ellipse zero eccentricity Chebyshev Coulomb gas"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Akemann et al. arXiv:1905.02397 Appendix B Eq.(B.1) gives precisely U_j norms; this derives the center-kernel expansion but does not directly assert zero trajectory.",
+          "Nagao et al. arXiv:1905.07977 Section 5 Eq.(5.3) gives finite Coulomb-gas kernel, focusing on correlation functions and limits."
+        ],
+        "reasoning": "Identical kernel formulas do not imply its zeros move from real to nonreal. The analyzed object is a polynomial section K_d(z,0), not the infinite Bergman kernel and not a generic Chebyshev polynomial.",
+        "searches": [
+          "ellipse planar orthogonal polynomial finite Bergman kernel zeros center slice Chebyshev shape bifurcation",
+          "finite Bergman center kernel ellipse all zeros real for slender ellipses first nonreal degree four"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "NIST DLMF Chapter 18 tabulates Chebyshev polynomial zero formulas, not the shape-dependent finite-kernel combination.",
+          "No exact quartic Q(y) or ratio ~0.308151 was found in searched previously published kernel tables; this absence is not a novelty proof."
+        ],
+        "reasoning": "The Chebyshev zeros describe thin-limit polynomial, not a table of finite elliptical kernel zeros for 0<u<1; independent discriminant calculation establishes new phase boundaries.",
+        "searches": [
+          "ellipse planar orthogonal polynomial finite Bergman kernel zeros center slice Chebyshev shape bifurcation",
+          "degree four ellipse finite Bergman kernel critical aspect ratio 0.308151"
+        ]
+      },
+      "rationale": "The 2019 ellipse orthogonality and Coulomb-gas articles directly supply the exact finite kernel but do not establish the center-fiber aspect-ratio zero bifurcation, the all-m thin and near-circle dichotomy, or the exact degree-four algebraic critical ratio. Earlier published disk weighted-kernel zero families are different domains/weights. Accept best-of-knowledge with residual unindexed elliptic Christoffel-zero risk.",
+      "residual_risks": [
+        "Elliptic planar Christoffel/reproducing-kernel root-locus literature not indexed in these searches may contain an equivalent degree-four calculation.",
+        "No claim of unique transition for every degree m>2 or off-center kernel sections."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides norm U_j(t)/(j+1), the core input; no finite center-slice aspect-ratio transition in inspected theorems",
+          "evidence": "Appendix B Eq.(B.1) and center evaluation U_2k(0)=(-1)^k.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.02397",
+          "material_read": "Full available 37-page primary PDF accessed; inspected first page and relevant Corollary 4.4/Appendix B norm formulas including Eq.(B.1)",
+          "method": "Read PDF via web, inspected specific sections and screenshot first page",
+          "title": "Gegenbauer and other planar orthogonal polynomials on an ellipse in the complex plane",
+          "trigger": "Same exact normalized planar Chebyshev basis and ellipse measure"
+        },
+        {
+          "assessment": "Finite kernel formula is established but analysis addresses correlation limits; inspected results do not supply the claimed fixed-m root transition",
+          "evidence": "Sec.5 Eq.(5.3) kernel; large-particle asymptotics are different quantifiers.",
+          "identifier_or_url": "https://arxiv.org/abs/1905.07977",
+          "material_read": "Full accessible 43-page primary PDF accessed; inspected Sections 3 and 5 and Eq.(5.3), first-page screenshot",
+          "method": "Read PDF via web with page-specific locations",
+          "title": "Families of two-dimensional Coulomb gases on an ellipse: correlation functions and universality",
+          "trigger": "Direct finite kernel formula for same ellipse and Chebyshev weights"
+        },
+        {
+          "assessment": "Root formulas aid thin limit only, not shape threshold",
+          "evidence": "U_m(cos θ) standard zeros distinct.",
+          "identifier_or_url": "https://dlmf.nist.gov/18",
+          "material_read": "Background Chebyshev polynomial formulas cited and compared, no asserted full-paper review",
+          "method": "Reference lookup",
+          "title": "NIST Digital Library of Mathematical Functions, Chapter 18",
+          "trigger": "Classical Chebyshev identities used in both limiting regimes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The root locus of the finite complex polynomial reproducing kernel on an ellipse is a natural analytic question, unlike generic infinite Bergman zeros. It yields a sharp first degree and exact shape transition with a nontrivial Newton obstruction for arbitrary degree; the explicit algebraic cutoff is reusable in finite-rank planar kernel studies.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/real-to-nonreal-zeros-in-finite-bergman-kernels-of-ellipses-the--4f245f136a93/RESULT.md",
+    "https://arxiv.org/abs/1905.02397",
+    "https://arxiv.org/abs/1905.07977",
+    "https://dlmf.nist.gov/18"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The center slice is a finite-rank polynomial K_d(z,0), not the infinite Bergman kernel; near-circle nonreal zeros may leave ellipse.",
+    "No global all-m transition uniqueness, no off-center classification, no independent formal proof."
+  ],
+  "residual_risks": [
+    "Elliptic planar Christoffel/reproducing-kernel root-locus literature not indexed in these searches may contain an equivalent degree-four calculation.",
+    "No claim of unique transition for every degree m>2 or off-center kernel sections."
+  ],
+  "schema_version": 1
+}

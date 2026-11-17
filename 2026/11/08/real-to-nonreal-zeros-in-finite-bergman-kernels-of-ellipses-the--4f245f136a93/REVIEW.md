@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Akemann–Nagao–Parra–Vernizzi's exact normalized planar Chebyshev norms yield the finite center kernel. The thin-ellipse limit is a single Chebyshev polynomial with simple interior real zeros. The near-circle scaling produces a polynomial whose positive-real-root possibility is excluded for every index at least two by an explicit strict Newton inequality. The degree-four discriminant is exactly a reciprocal octic reduced to a quartic with a unique positive root above two; its sign and coefficient signs establish all three root regimes. The degree-two calculation establishes minimality. Symbolic checker `check.py` reproduces the critical finite identities, without purporting to prove all-index claims.
+## correctness
 
-**Originality — PASS, provisional.** The two relevant 2019 primary full texts were inspected at their finite-kernel formulas, global-limit derivations, and appendix orthogonality, and neither states the aspect-ratio root transition or the degree-four critical quartic. Public published-record searches for elliptic Christoffel kernels and Gegenbauer partial sums found no theorem implying the complete center-slice statement. An unlocated special-function result or earlier planar Christoffel zero study could change priority; search noncoverage cannot establish absolute novelty.
+PASS
 
-**Value — PASS.** The result supplies a qualitative transition for every fixed polynomial order, locates the least order at which it occurs, and computes the exact sharp geometric transition at that order. This solves a motivated finite-rank kernel zero-location problem for a canonical noncircular planar domain, independently of any prospective asymptotic application.
+From the actual ellipse Chebyshev planar orthogonality, reconstructed K_2m(z,0)=sum_{k=0}^m (-1)^k(2k+1)U_2k(z/c)/U_2k(t), with identical odd-degree center slice. Thin-ellipse limit is (−1)^m U_m(2(z/a)²−1), giving exactly 2m simple interior real roots for sufficiently small b/a. Near-disk rescaling yields P_m(v)=sum_{k=0}^m (−1)^k(2k+1)v^k; its negative-real exclusion and Newton inequality contradiction for m≥2 show ≥4 nonreal roots. Independently recomputed K4 rational quadratic in x=(z/a)² and Δ=64(u−1)²u⁴Q(u+1/u), with Q(y)=225y⁴−600y³−14600y²−44000y−32624. Unique root y>2 gives strict four-real/two-double/four-nonreal transition; degree2 threshold x<1 iff u<1/3. Symbolic identities checked independently, not only a packaged VERIFY_OK.
 
-The result does not classify higher-degree thresholds or infinite-dimensional kernel zeros. Same-variable zeros outside the ellipse are deliberately included when discussing the near-circle regime.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2019 ellipse orthogonality and Coulomb-gas articles directly supply the exact finite kernel but do not establish the center-fiber aspect-ratio zero bifurcation, the all-m thin and near-circle dichotomy, or the exact degree-four algebraic critical ratio. Earlier published disk weighted-kernel zero families are different domains/weights. Accept best-of-knowledge with residual unindexed elliptic Christoffel-zero risk.
+
+## value
+
+PASS
+
+The root locus of the finite complex polynomial reproducing kernel on an ellipse is a natural analytic question, unlike generic infinite Bergman zeros. It yields a sharp first degree and exact shape transition with a nontrivial Newton obstruction for arbitrary degree; the explicit algebraic cutoff is reusable in finite-rank planar kernel studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
