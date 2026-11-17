@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The included standard-library Python 3 checker `verify.py` was executed. It returned `VERIFY_OK exact_matrix_and_return_checks= 110 q_integers=3..9 pressure_q=10,20,40,80`. Its exact rational checks include stationary Markov vectors, characteristic-polynomial equalities at enough integer points to establish identities for each tested degree, and each first-return subinterval for parameters 3 through 9. Numerical Perron-root comparisons cover 10, 20, 40, and 80.
+## correctness
 
-The all-integer invariant law and the all-real tilt pressure and asymptotic claims are proved analytically in `RESULT.md`, not inferred from finite checks. The classical renewal counting CLT is invoked after demonstrating genuine independent identically distributed bounded return times. Explicitly, the asymptotic variance is the variance of the waiting time divided by the cube of its mean. The supplied checker does not perform independent external scientific validation.
+PASS
+
+The q-cell Markov partition for the rank-one planar map is primitive, has transition P(0,j)=1/q and deterministic countdown j→j−1, and gives pi_j=2(q-j)/(q(q+1)). Its returns to state zero are iid uniform 1,...,q; the standard renewal CLT gives variance Var(R)/E(R)^3=2(q−1)/[3(q+1)^2]. The Feynman–Kac/Perron positive eigenvalue for the visit-count tilt satisfies lambda^q=(e^t/q)sum_{j=0}^{q−1}lambda^j; the untitled pressure gives 0 and tilt log(q) gives topological entropy. Root bracketing at t=log q+s yields lambda→1+e^s and log lambda→log(1+e^s); with s=0 the same root yields log2−2^(−q−1)+O(q4^(−q)). Independent reconstruction checked the Perron-root identity at 45 (q,t) values for q=3..11 and exact stationary pi. Finite tests corroborate, while primitive Markov and root arguments establish all q≥3 and real t.
+
+## originality
+
+PASS
+
+The same family, invariant density, iid uniform return law, physical and topological entropies, and large-q entropy separation are decisively covered by the Nov 1 published Resultary theorem. Those components are explicitly excluded from novelty credit. What survives is the exact full real-tilt pressure for visits to the expanding branch, its Gaussian fluctuation variance, and especially the distinguished t=log(q)+s limiting logistic-pressure crossover, which are not stated in the inspected earlier full text. No equivalent complete tilted-pressure formula or crossover found in same-model or classical primary papers. This is best-of-knowledge originality only: routine finite Markov-chain tools make a short independent deduction possible.
+
+## value
+
+PASS
+
+Visits to the intermittent expanding cell are a natural observable whose rare-event tilting quantifies the contrast between physical return statistics and topological orbit growth. The full pressure function and sharp log q tilt-scale crossover answer a mathematically meaningful quantitative question beyond the pre-existing two endpoint entropies. While CLT variance and PF machinery are standard, the explicit parameter-uniform crossover is a natural exact asymptotic invariant, not an arbitrary lookup or small-instance gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
