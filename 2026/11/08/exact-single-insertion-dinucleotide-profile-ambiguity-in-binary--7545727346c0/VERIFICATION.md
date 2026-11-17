@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Executable checks
+# Independent mathematical audit
 
-Run `python3 verify_direct.py` in the directory containing this file. It enumerates all binary source words of lengths 1 through 16; generates inserted **words** at every position using both symbols; collects distinct **linear adjacent-pair multiplicity profiles**; checks the five-indicator pointwise formula for every source word; verifies all four Fibonacci–Lucas enumeration formulas; and checks the four length-five extremizers. Observed result: PASS.
+## correctness
 
-Run `python3 verify_structural.py` in the same directory. It verifies the transfer-matrix trace formula by independent matrix multiplication and exhaustive word enumeration through length 16, and separately checks that any word exhibiting six deletion profiles also exhibits six insertion profiles through length 12. Observed result: PASS.
+PASS
 
-Representative observed distributions \((C_3,C_4,C_5,C_6)\): length 4 gives \((2,6,8,0)\); length 5 gives \((0,16,12,4)\); length 6 gives \((2,18,34,10)\); length 9 gives \((0,88,260,164)\); length 16 gives \((2,2438,33056,30040)\).
+PASS. Exact all-length invariant is number of distinct linear binary dinucleotide-count profiles after exactly one insertion. From actual RESULT.md six distinct delta vectors arise: e00,e11,e01,e10,e01+e10-e00,e01+e10-e11, with endpoint, present-symbol and equal-pair conditions yielding I(w)=1+[w1=wn]+[0]+[1]+[00]+[11]. Fibonacci no-00 and Lucas trace(M^(n-1)) endpoint counts plus inclusion-exclusion establish C3..C6, with n=1 checked separately. Direct independently constructed output strings/profiles through n=12 match, including n5=(0,16,12,4), n6=(2,18,34,10), n9=(0,88,260,164). Deletion six requires opposite cross-pair boundary changes and both equal-pair internal changes; this forces the insertion-six conditions. Finite checks corroborate but algebraic enumeration proves all n.
 
-## Analytical limits
+## originality
 
-The indefinite-length statements are proved by a complete enumeration of the six possible local profile-change vectors, a two-state integer transfer matrix for equal endpoints avoiding repeated zeros, and inclusion–exclusion; the finite tests are confirmation, not a replacement for those proofs. The results exclude multiple insertions, nonbinary alphabets and cyclic profiles. Scientific historical-priority review has not been performed independently.
+PASS
+
+Best-of-knowledge PASS: exact local single-insertion dinucleotide-frequency neighborhood and four-class Fibonacci/Lucas distribution are not given by the inspected global Markov-profile census or the different one-deletion local profile distribution. Structural deletion-six implication also survives the comparison. Targeted Resultary searches did not locate a covering insertion counterpart; absence is not proof of priority.
+
+## value
+
+PASS
+
+PASS. Single-insertion local profile ambiguity is a natural source-dependent invariant for dinucleotide-frequency DNA sequencing channels. The pointwise six-vector classification, all-length population law and deletion/insertion saturation implication are not mere spelling changes of global code size; they give exact error-ball behavior and realistic finite-width observability limits. The bound and distribution remain independently useful without a new code capacity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

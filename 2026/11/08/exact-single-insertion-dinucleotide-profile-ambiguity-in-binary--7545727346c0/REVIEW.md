@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact output object and quantifiers are defined for every linear binary source word of positive length. There are six and only six possible single-insertion pair-profile changes; each arises exactly under the specified occurrence or endpoint indicator. Counting words avoiding \(00\) via Fibonacci numbers, and the endpoint-matching subset by the trace of \(\begin{pmatrix}0&1\\1&1\end{pmatrix}^{n-1}\), yields the four classes without approximating an infinite enumeration by finite data. The separate length-one case and every extremal boundary are explicit. Independently written direct-insertion and transfer checks replay the claims through lengths 16 and 12, respectively. The deletion-to-insertion implication follows from the necessary first/last-pair conditions for both cross-type deletion changes.
+PASS
 
-## Originality — PASS, with residual historical risk
+PASS. Exact all-length invariant is number of distinct linear binary dinucleotide-count profiles after exactly one insertion. From actual RESULT.md six distinct delta vectors arise: e00,e11,e01,e10,e01+e10-e00,e01+e10-e11, with endpoint, present-symbol and equal-pair conditions yielding I(w)=1+[w1=wn]+[0]+[1]+[00]+[11]. Fibonacci no-00 and Lucas trace(M^(n-1)) endpoint counts plus inclusion-exclusion establish C3..C6, with n=1 checked separately. Direct independently constructed output strings/profiles through n=12 match, including n5=(0,16,12,4), n6=(2,18,34,10), n9=(0,88,260,164). Deletion six requires opposite cross-pair boundary changes and both equal-pair internal changes; this forces the insertion-six conditions. Finite checks corroborate but algebraic enumeration proves all n.
 
-The oldest inspected source is the 2014 DNA-storage-channel framework; its 2015 expanded sequence-profile analysis is closer in definitions. Its global profile counting and coding constructions do not supply the exact fixed-source one-insertion profile ball or the complete ball-size distribution. The full inspected published result *Exact binary two-multispectrum code size and singleton classification* counts all possible adjacent-pair spectra and singleton classes, rather than local insertion neighborhoods; no implication establishes this theorem from its formulas. Jacquet–Knessl–Szpankowski's Markov-type enumeration likewise treats global and cyclic objects. The one-deletion profile-ball calculation is not the same problem, and its all-length statistics differ. Searches for binary insertion dinucleotide profiles and insertion multispectra found no explicit equivalent. Incomplete indexing, terminology under Markov types, or unpublished notes are residual priority risks; absence of search hits alone is not novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-Distinct dinucleotide multiplicity profiles are natural observables in substring-spectrum reconstruction and DNA-storage models. The profile uncertainty of a **single insertion** is a channel-specific invariant distinct from the raw inserted-word ambiguity. A universal bound of six, a pointwise source-word characterization, complete exact all-length distribution, a sharp first saturation threshold, and a comparison implication with deletion are motivated features of that observable. The half–half limiting distribution sharply distinguishes the insertion channel from the one-deletion profile channel. This is a complete classification for a natural finite-alphabet edit operation, not a chosen isolated parameter or a recalculation of the global Markov-type count.
+Best-of-knowledge PASS: exact local single-insertion dinucleotide-frequency neighborhood and four-class Fibonacci/Lucas distribution are not given by the inspected global Markov-profile census or the different one-deletion local profile distribution. Structural deletion-six implication also survives the comparison. Targeted Resultary searches did not locate a covering insertion counterpart; absence is not proof of priority.
 
-## Limits and closest literature
+## value
 
-The result does not establish a new reconstruction-code capacity, nonbinary extension, multi-edit law, or general finite-state transducer theorem. The closest literature is Kiah–Puleo–Milenkovic (arXiv:1410.8837 and arXiv:1502.00517), Jacquet–Knessl–Szpankowski (*Counting Markov Types*, DOI:10.46298/dmtcs.2768), and the published *Exact binary two-multispectrum code size and singleton classification* (2026). Full historical coverage is not asserted; the mathematical assessment needs independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Single-insertion local profile ambiguity is a natural source-dependent invariant for dinucleotide-frequency DNA sequencing channels. The pointwise six-vector classification, all-length population law and deletion/insertion saturation implication are not mere spelling changes of global code size; they give exact error-ball behavior and realistic finite-width observability limits. The bound and distribution remain independently useful without a new code capacity theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
