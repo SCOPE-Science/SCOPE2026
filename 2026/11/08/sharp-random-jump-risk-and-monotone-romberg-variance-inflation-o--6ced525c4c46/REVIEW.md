@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result starts from the exact sawtooth expression for the composite trapezoid error of a one-jump step family. Direct integration proves the covariance, which diagonalizes into uncorrelated nested-grid increments and yields the exact quadratic risk. Conditional expectation given the sample vector proves the universal MSE optimum. For geometric Romberg coefficients, the displayed Pochhammer-product interpolation formula and strict alternating-tail difference inequalities prove increasing normalized risk at *every* depth; the uniform superexponential bound ensures a finite limit. An independent exact-rational verifier checked 375 finite assertions, including direct integration; those computations are supplements, not infinite proofs. The ratio's comparison baseline is the same finest grid, not the same total number of function evaluations across depths.
+## correctness
 
-## Originality — PASS (subject to historical priority)
-The directly relevant jump-discontinuity treatment by Berrut and Trummer, full accessible 2022 online article, develops correction based on *known* jump locations and does not state this phase-averaged nested covariance, all-depth strict Romberg risk sequence, or Bayes interpretation for an unknown jump. Wu's 2020 randomized trapezoidal article addresses a different continuous-function regularity class. Camargo treats positive classical Romberg weights; a relevant published generalized-integer-Romberg record treats weight positivity and optimal bounded-sample-error conditioning. Its complete scientific result was compared and does not imply the phase-MSE theorem. Actual semantic and parameter-alias searches against published-finding corpus found no matching claim. The elementary conditional mean is explicitly not claimed a freestanding mathematical advance. The possibility of an older error-analysis source containing an equivalent covariance or variance penalty is a live risk; inaccessible specialized works were not represented as inspected.
+PASS
 
-## Value — PASS
-Discontinuities violate the even-power smooth-error model on which classical Richardson extrapolation relies. The new exact MSE law answers a motivated practical question: does increasing Romberg depth improve the quality of an integral estimate when a jump is unlocated but samples are available? It proves a strict normalized penalty and quantifies its saturation, while establishing the strongest baseline optimality within the fixed step-family sampling experiment. The criterion is scientifically precise and falsifiable, and the result is not presented as a guarantee for arbitrary discontinuities.
+For f_C=1_{x>C}, C uniform(0,1), composite trapezoid error equals h B_1({NC}). Splitting a coarse phase into integer fine subdivisions shows Cov(E_i,E_j)=min(h_i,h_j)²/12. Successive coarsening differences are orthogonal, giving the exact sum-of-squares risk for constant-exact coefficients and unique finest-only minimizer. Given the finest-grid sample vector the jump remains uniformly distributed within one cell, and T_finest is its conditional-mean integral, proving optimality among all measurable finite-MSE estimators including independent randomization. The geometric Richardson coefficients follow from Lagrange interpolation at even-power nodes. With q=r^(−2)≤1/4, the signed tails alternate with decreasing absolute coefficients; differences on increasing depth have same initial tail sign and strictly positive magnitude, so every old tail square strictly increases and one new term appears. Uniform q^{j(j+1)/2} domination yields a finite exact infinite-depth limit; for dyadic r=2 the first factors 1,4/3,208/135 and limiting approximation 1.625991555. Independent exact rational finite-depth integration confirms formulas without standing in for all-depth proof.
 
-## Scope and priority limits
-The statistical model fixes a uniform single jump, and the extrapolation comparison holds at the same finest-grid spacing. No claim is made for multijump functions, adaptive meshes, arbitrary nonsmooth families, or floating-point effects. General historical extrapolation literature is broad; exact equivalence remains possible and independent literature assessment is advisable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge: classical Romberg even-power cancellation, positivity of collected weights and the conditional-mean property are not independently novel. The new integrated uniformly unknown jump phase covariance, fully nonparametric sample-vector MSE optimum within the specified step family, and strictly increasing normalized integer-ratio all-depth Romberg risk are not implied by the inspected known-jump correction or sample-noise sup-norm stability results. Broad numerical quadrature literature leaves some priority uncertainty.
+
+## value
+
+PASS
+
+For an unknown discontinuity, smooth-function Romberg cancellation is an unreliable heuristic. The exact covariance and the strict all-depth relative risk penalty quantify a natural and important failure mode, while the conditional-mean theorem establishes a sharp information baseline. The result is a motivated statistical quadrature classification, not merely a textbook fact about extrapolation coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

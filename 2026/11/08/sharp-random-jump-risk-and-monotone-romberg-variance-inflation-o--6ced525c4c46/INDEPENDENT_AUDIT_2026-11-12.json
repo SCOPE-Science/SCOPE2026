@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T20:42:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For f_C=1_{x>C}, C uniform(0,1), composite trapezoid error equals h B_1({NC}). Splitting a coarse phase into integer fine subdivisions shows Cov(E_i,E_j)=min(h_i,h_j)²/12. Successive coarsening differences are orthogonal, giving the exact sum-of-squares risk for constant-exact coefficients and unique finest-only minimizer. Given the finest-grid sample vector the jump remains uniformly distributed within one cell, and T_finest is its conditional-mean integral, proving optimality among all measurable finite-MSE estimators including independent randomization. The geometric Richardson coefficients follow from Lagrange interpolation at even-power nodes. With q=r^(−2)≤1/4, the signed tails alternate with decreasing absolute coefficients; differences on increasing depth have same initial tail sign and strictly positive magnitude, so every old tail square strictly increases and one new term appears. Uniform q^{j(j+1)/2} domination yields a finite exact infinite-depth limit; for dyadic r=2 the first factors 1,4/3,208/135 and limiting approximation 1.625991555. Independent exact rational finite-depth integration confirms formulas without standing in for all-depth proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published integer-divisibility-chain Richardson theorem proves strictly positive collected trapezoid sample weights and minimum bounded absolute sample-noise sensitivity, not a random-jump MSE law.",
+          "Classical extrapolation error cancellation assumes smooth even-power error asymptotics, violated by a jump."
+        ],
+        "reasoning": "Sample-weight positivity is consistent with but does not imply MSE optimality or monotone normalized variance inflation under correlated random phase error.",
+        "searches": [
+          "Romberg extrapolation random jump trapezoid phase mean squared error monotone variance inflation",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-positive-weight-richardson-romberg-quadrature-on-every-nested-in--663b06718b7c/RESULT.md",
+          "https://doi.org/10.1007/s11075-022-01462-0"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1007/s11075-022-01462-0",
+        "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-positive-weight-richardson-romberg-quadrature-on-every-nested-in--663b06718b7c/RESULT.md",
+        "https://arxiv.org/abs/2011.15086",
+        "Resultary semantic search: Romberg extrapolation random jump trapezoid phase mean squared error monotone variance inflation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known-jump corrections can restore accuracy, but do not imply this no-location Bayesian optimum.",
+          "Sup-norm error conditioning of collected Romberg samples says nothing about phase-induced covariance or strict increasing risk for r≥2 every m."
+        ],
+        "reasoning": "The proof supplies independent Bernoulli polynomial covariance and alternating-tail monotonicity not present in named earlier theorems.",
+        "searches": [
+          "https://doi.org/10.1007/s11075-022-01462-0",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-positive-weight-richardson-romberg-quadrature-on-every-nested-in--663b06718b7c/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berrut–Trummer assumes known discontinuity location for correction and different extrapolation design.",
+          "Wu models different randomized nodes/functions with fractional Sobolev continuity; not an unlocated single uniformly distributed step."
+        ],
+        "reasoning": "Condition on unobserved jump location and nested shared samples is essential to the submitted covariance, unlike prior known-location correction.",
+        "searches": [
+          "Romberg extrapolation random jump trapezoid phase mean squared error monotone variance inflation",
+          "https://doi.org/10.1007/s11075-022-01462-0",
+          "Wu randomized trapezoidal quadrature arxiv:2011.15086",
+          "unknown random step jump Bernoulli phase trapezoid covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact dyadic factors 4/3, 208/135 and infinite limit 1.625991555 were not supplied in inspected prior scientific results."
+        ],
+        "reasoning": "Negative exact-number/table search alone does not establish priority; mathematical model and theorem are compared to sources.",
+        "searches": [
+          "Romberg extrapolation random jump trapezoid phase mean squared error monotone variance inflation",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-positive-weight-richardson-romberg-quadrature-on-every-nested-in--663b06718b7c/RESULT.md",
+          "single jump Romberg variance 208/135 1.625991555",
+          "Berrut Trummer 2023 Numerical Algorithms"
+        ]
+      },
+      "rationale": "Best of knowledge: classical Romberg even-power cancellation, positivity of collected weights and the conditional-mean property are not independently novel. The new integrated uniformly unknown jump phase covariance, fully nonparametric sample-vector MSE optimum within the specified step family, and strictly increasing normalized integer-ratio all-depth Romberg risk are not implied by the inspected known-jump correction or sample-noise sup-norm stability results. Broad numerical quadrature literature leaves some priority uncertainty.",
+      "residual_risks": [
+        "Older generalized Romberg error-analysis literature is extensive and could contain an equivalent phase-covariance special case.",
+        "Only exact single uniform jump, noiseless nested integer grids, own finest-resolution comparison; not general nonsmooth quadrature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING in materially read sections: jump location is supplied/corrected; no uniform-unknown jump integrated covariance or all-depth normalized MSE",
+          "evidence": "Published Numerical Algorithms 92 (2023), online 2022; develops extrapolation from known jump locations, a different information model.",
+          "identifier_or_url": "https://doi.org/10.1007/s11075-022-01462-0",
+          "material_read": "Open full Springer article HTML, Introduction, core construction, known-jump assumption and principal error results",
+          "method": "Read primary open-access article text and mathematical sections",
+          "title": "Extrapolation quadrature from equispaced samples of functions with jumps",
+          "trigger": "Same extrapolation/quadrature in the presence of discontinuities"
+        },
+        {
+          "assessment": "Different norm/observable; exact collected-weight positivity does not imply random-jump MSE sequence",
+          "evidence": "Theorem minimizes l_infty sample perturbation norm among constant-exact formulas; no uniform single-jump probability or covariance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-positive-weight-richardson-romberg-quadrature-on-every-nested-in--663b06718b7c/RESULT.md",
+          "material_read": "Entire published RESULT.md, positive sample-weight argument and stated objective",
+          "method": "Read complete scientific primary published finding",
+          "title": "Positive-weight Richardson–Romberg quadrature on nested integer refinement chains",
+          "trigger": "Direct similar integer-ratio Romberg theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an unknown discontinuity, smooth-function Romberg cancellation is an unreliable heuristic. The exact covariance and the strict all-depth relative risk penalty quantify a natural and important failure mode, while the conditional-mean theorem establishes a sharp information baseline. The result is a motivated statistical quadrature classification, not merely a textbook fact about extrapolation coefficients.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The limit decimal is numerical approximation to explicit infinite series; not certified interval.",
+    "Comparisons are at each rule’s own finest spacing, not equal total work or fixed starting coarse spacing.",
+    "Historical specialized extrapolation treatment not exhaustively excluded."
+  ],
+  "schema_version": 1
+}
