@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The exact identity is derived by Poisson thinning of independent hub excursions, Wald's identity, and a dominated-convergence asymptotic of a maximum of independent petal-completion times. The full mathematical argument appears in `RESULT.md`.
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, SymPy, SciPy and NumPy. Exact rational computations agree among the finite binomial expansion and petal-state first-step recurrences for \(1\le m\le10\). An independent full visited-set Markov-chain solver agrees for \(1\le m\le4\). Numerical integration checks a sequence of scaled gaps against the asymptotic coefficient; these numbers are corroborative and not substitutes for the proof. The infinite limit is justified by an explicit integrable dominator and the evaluation of the gamma integral.
+## correctness
 
-Unverified limits: no proof of sign for every finite \(m\) and no result for peripheral starting points. Priority among all possible historical literature is not independently certified.
+PASS
+
+Hub excursions in F_m have mean three and petal completion probabilities 1/2 from untouched and 3/4 from half-covered. Poisson splitting into m independent rate-1/m petal streams gives survival 2exp(-3u/4)-exp(-u) and the exact integral; Wald plus the last return correction -2 converts excursion count to discrete edge steps. Star excursions give 4mH_(2m)-1. Comparison with a shifted exponential maximum, x=y/m and a dominated-convergence bound yields positive deficit coefficient 2^{2/3} Gamma(4/3) m^{2/3}; algebra of the harmonic correction is lower order. Independently solved exact rational two-state petal recursion for m=1..5, finding 3,89/7,18981/770,571073/15015 and 67881771/1293292, and computed the coefficient 1.4175166160510755. Infinite limit rests on analytic dominance, not finite simulation.
+
+## originality
+
+PASS
+
+PASS for the precise friendship-versus-star fractional-power cover-time gap, not for general finite-graph cover-time formulas or the star coupon collector. General graph inclusion-exclusion is algorithmically applicable but does not mathematically state or mechanically yield the m^{2/3} asymptotic; the related published clique-windmill theorem uses a nonbacktracking walk and clique size >=3 with a Gumbel first-order law. Specialty unlocated windmill-cover treatments remain a risk.
+
+## value
+
+PASS
+
+A sharp non-integer subleading edge-time improvement quantifies the effect of pairing leaves under a natural minimal graph perturbation while the leading coupon-collector order remains unchanged. The exact finite formula and asymptotic coefficient distinguish local intra-petal exploration from global exploration and are useful for cover-time comparisons; not an arbitrary size slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

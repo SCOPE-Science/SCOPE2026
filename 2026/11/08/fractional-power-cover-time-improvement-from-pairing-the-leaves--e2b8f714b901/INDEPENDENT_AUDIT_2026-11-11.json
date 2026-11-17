@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T21:00:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Hub excursions in F_m have mean three and petal completion probabilities 1/2 from untouched and 3/4 from half-covered. Poisson splitting into m independent rate-1/m petal streams gives survival 2exp(-3u/4)-exp(-u) and the exact integral; Wald plus the last return correction -2 converts excursion count to discrete edge steps. Star excursions give 4mH_(2m)-1. Comparison with a shifted exponential maximum, x=y/m and a dominated-convergence bound yields positive deficit coefficient 2^{2/3} Gamma(4/3) m^{2/3}; algebra of the harmonic correction is lower order. Independently solved exact rational two-state petal recursion for m=1..5, finding 3,89/7,18981/770,571073/15015 and 67881771/1293292, and computed the coefficient 1.4175166160510755. Infinite limit rests on analytic dominance, not finite simulation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zlatanov–Kocarev 2009 gives a formal exact cover-time inclusion-exclusion expression for arbitrary graphs and evaluates complete/cycle/path examples.",
+          "Published Nov 2 nonbacktracking-windmill theorem concerns m>=3 peripheral clique sizes and a different walk with leading-order Gumbel limits."
+        ],
+        "reasoning": "An arbitrary-graph expression trivially encompasses the finite cover time, but the explicit friendship integral and exact m^{2/3} correction are not given or a direct numeric tabulation from that formula; nonbacktracking comparison is not a specialization to m=2 ordinary walking.",
+        "searches": [
+          "arxiv:0910.3545",
+          "friendship windmill star random walk cover time m two thirds gamma",
+          "A sharp nonbacktracking cover-time law for clique windmills"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/0910.3545",
+        "https://www.stat.berkeley.edu/users/aldous/RWG/Book_Ralph/Ch6.S2.html",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-nonbacktracking-cover-time-law-for-clique-windmills--ebe962cf66b0/RESULT.md",
+        "Resultary semantic search: friendship windmill star random walk cover time m two thirds gamma"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General distribution theorem requires full absorbing walk calculation and does not specify this Gamma correction.",
+          "The star C_S=4m H_(2m)-1 is acknowledged prior elementary coupon collector."
+        ],
+        "reasoning": "The new component is the exact friendship-petal completion distribution and singular 4/3-power correction to exponential maxima; prior star/general formulas alone do not give that asymptotic without further analysis.",
+        "searches": [
+          "arxiv:0910.3545",
+          "Aldous Fill Reversible Markov Chains chapter 6 section 6.2",
+          "friendship windmill star random walk cover time m two thirds gamma"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The event all m petals complete has product distribution (1-2e^(-3u/4)+e^-u)^m after exact excursion Poissonization.",
+          "Aldous–Fill Chapter 6 §6.2 computes the star leaf coupon collector, not paired triangles."
+        ],
+        "reasoning": "This is a generalized coupon-collector maximum of correlated within-petal discoveries; the limiting fractional correction requires a nonstandard correction to a shifted exponential maximum.",
+        "searches": [
+          "friendship windmill star random walk cover time m two thirds gamma",
+          "arxiv:0910.3545",
+          "star friendship graph coupon collector petal poissonization cover time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No previously indexed cover-time table for F_m paired-star improvements found; checked full evaluated examples in 2009 paper."
+        ],
+        "reasoning": "The statement is an all-m formula plus an infinite asymptotic, not a known numerical table. Absence of a table is not proof of priority.",
+        "searches": [
+          "friendship windmill star random walk cover time m two thirds gamma",
+          "friendship graph expected cover time exact m fractional power"
+        ]
+      },
+      "rationale": "PASS for the precise friendship-versus-star fractional-power cover-time gap, not for general finite-graph cover-time formulas or the star coupon collector. General graph inclusion-exclusion is algorithmically applicable but does not mathematically state or mechanically yield the m^{2/3} asymptotic; the related published clique-windmill theorem uses a nonbacktracking walk and clique size >=3 with a Gumbel first-order law. Specialty unlocated windmill-cover treatments remain a risk.",
+      "residual_risks": [
+        "A specialized older exact friendship graph cover-time study might contain an equivalent asymptotic despite broad negative search.",
+        "The theorem assumes a hub start and claims eventual positivity, not sign for every finite m; walk lengths and sampled excursion lengths are correlated, but Wald correctly uses stopping-time structure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD_NOT_EXPLICIT_ASYMPTOTIC",
+          "evidence": "No evaluated friendship hub-started fractional power correction in inspected main computations.",
+          "identifier_or_url": "https://arxiv.org/pdf/0910.3545",
+          "material_read": "Full primary PDF accessible; inspected global formula and evaluated complete graph/path/cycle examples, with rendered-page screenshot",
+          "method": "Primary PDF inspected by mathematical sections",
+          "title": "Random walks on networks: cumulative distribution of cover time",
+          "trigger": "General cover-time framework, potentially dominating theorem"
+        },
+        {
+          "assessment": "STAR_SPECIALIZATION_ONLY",
+          "evidence": "Known star coupon-collector leading formula; no m petal triangle maximum.",
+          "identifier_or_url": "https://www.stat.berkeley.edu/users/aldous/RWG/Book_Ralph/Ch6.S2.html",
+          "material_read": "Public chapter and relevant star section description; not an exhaustive reading of the book",
+          "method": "Online chapter comparison",
+          "title": "Reversible Markov Chains and Random Walks on Graphs, Chapter 6 Section 6.2",
+          "trigger": "Star cover-time coupon collector"
+        },
+        {
+          "assessment": "DIFFERENT_WALK_AND_REGIME",
+          "evidence": "Nonbacktracking versus simple walk, clique size >=3 versus triangle petals, first-order Gumbel law versus subleading fractional improvement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-nonbacktracking-cover-time-law-for-clique-windmills--ebe962cf66b0/RESULT.md",
+          "material_read": "Complete published primary RESULT.md retrieved and read, including full main proof and assumptions",
+          "method": "Original published record through authorized GitHub read",
+          "title": "A sharp nonbacktracking cover-time law for clique windmills",
+          "trigger": "Same windmill geometry and cover-time notion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp non-integer subleading edge-time improvement quantifies the effect of pairing leaves under a natural minimal graph perturbation while the leading coupon-collector order remains unchanged. The exact finite formula and asymptotic coefficient distinguish local intra-petal exploration from global exploration and are useful for cover-time comparisons; not an arbitrary size slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/0910.3545",
+    "https://www.stat.berkeley.edu/users/aldous/RWG/Book_Ralph/Ch6.S2.html",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-sharp-nonbacktracking-cover-time-law-for-clique-windmills--ebe962cf66b0/RESULT.md",
+    "Resultary semantic search: friendship windmill star random walk cover time m two thirds gamma"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A specialized older exact friendship graph cover-time study might contain an equivalent asymptotic despite broad negative search.",
+    "The theorem assumes a hub start and claims eventual positivity, not sign for every finite m; walk lengths and sampled excursion lengths are correlated, but Wald correctly uses stopping-time structure."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review: paired-leaf random-walk cover time
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact law follows from the two-site excursion outcomes (untouched petal complete with probability \(1/2\), partial petal complete with probability \(3/4\)), rate-one Poisson splitting among \(m\) petals, and the resulting single-petal survival \(2e^{-3u/4}-e^{-u}\). Wald's identity converts the number of completed excursions into jump time, with the final-hub-return correction of exactly two expected jumps. The asymptotic expansion is derived by comparing to maxima of shifted exponentials, with an integrable dominating function and a gamma integral. The exact rational sum, petal recurrence, and independent full visited-set Markov equations agreed on all reported tests. Both finite identities and the limiting coefficient follow by proof, not merely numerical pattern.
+PASS
 
-## Originality — PASS on examined evidence, provisional
+Hub excursions in F_m have mean three and petal completion probabilities 1/2 from untouched and 3/4 from half-covered. Poisson splitting into m independent rate-1/m petal streams gives survival 2exp(-3u/4)-exp(-u) and the exact integral; Wald plus the last return correction -2 converts excursion count to discrete edge steps. Star excursions give 4mH_(2m)-1. Comparison with a shifted exponential maximum, x=y/m and a dominated-convergence bound yields positive deficit coefficient 2^{2/3} Gamma(4/3) m^{2/3}; algebra of the harmonic correction is lower order. Independently solved exact rational two-state petal recursion for m=1..5, finding 3,89/7,18981/770,571073/15015 and 67881771/1293292, and computed the coefficient 1.4175166160510755. Infinite limit rests on analytic dominance, not finite simulation.
 
-The closest broad source is Zlatanov–Kocarev's 2009 cover-time distribution formula for arbitrary graphs, which does not supply the specialized friendship-graph sharp fractional-power correction. Aldous–Fill's 1994 treatment explicitly obtains the star coupon-collector result, but not the paired-star comparison. Published mathematical-result records contain related work on mixing on spiders, cover times for different processes, and edge metric dimension of friendship graphs; the compared scientific claims neither state nor imply the \(m^{2/3}\) coefficient here. Risk: an unindexed prior windmill calculation may exist; no global priority certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The comparison isolates the quantitative gain of adding a perfect matching among star leaves. The leading asymptotic cover times agree, but the improvement has an unexpected nonintegral exponent and an explicit gamma coefficient, providing a reproducible sharp benchmark for a natural infinite graph family. This is not a renaming of the coupon-collector leading term nor an arbitrary small graph table. Its significance is in resolving the first nonzero scale and constant; it does not claim a universal network optimization rule.
+PASS for the precise friendship-versus-star fractional-power cover-time gap, not for general finite-graph cover-time formulas or the star coupon collector. General graph inclusion-exclusion is algorithmically applicable but does not mathematically state or mechanically yield the m^{2/3} asymptotic; the related published clique-windmill theorem uses a nonbacktracking walk and clique size >=3 with a Gumbel first-order law. Specialty unlocated windmill-cover treatments remain a risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A sharp non-integer subleading edge-time improvement quantifies the effect of pairing leaves under a natural minimal graph perturbation while the leading coupon-collector order remains unchanged. The exact finite formula and asymptotic coefficient distinguish local intra-petal exploration from global exploration and are useful for cover-time comparisons; not an arbitrary size slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
