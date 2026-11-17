@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T22:02:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-token-slide-connectivity-thresholds-for-minimum-total-domi--c5a0fb3c1e10/RESULT.md",
+        "Pinned source verification script(s) inspected",
+        "Independently recomputed finite boundaries as detailed in scientific_checks"
+      ],
+      "rationale": "For m,n>=3, every two-cell set lies inside a row-column cross and is not total dominating, while precisely the distinct-row/distinct-column triples are minimal; count 6 C(m,3) C(n,3). A product-edge slide changes both coordinates and must place the moved cell in a previously unoccupied row and column: each of three selected cells has (m-3)(n-3) choices. If min(m,n)=3 this freezes all states. At (4,4) completing the matching to four pairs partitions 96 states into 24 K4. For min>=4,max>=5 three explicit legal slide templates implement generating row/column exchanges, connecting all partial matchings; one-coordinate jumps with spare slots connect all n,m except (3,3). Independently generated state graphs for (3,3),(3,5),(4,4),(4,5),(5,5) and obtained predicted degrees/components; direct_check.py and matching_check.py source inspected. The infinite result rests on the written templates, not finite enumeration.",
+      "residual_risks": [
+        "Finite state graph checks do not independently prove connectivity for unbounded m,n."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/1603.02428v3",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimal-total-domination-in-tensor-products-of-two-complete-grap--b38db5e11608/RESULT.md",
+          "Resultary 2026/11/8 spectra and spanning-tree complexity of two-token sliding on categorical clique products"
+        ],
+        "reasoning": "Kazemi studies upper minimum total-domination cardinalities, and the newer minimal-set polynomial covers all inclusion-minimal sets; neither compares configurations under constrained minimum-only slides. The two-token independent-set theorem concerns a different combinatorial state family.",
+        "searches": [
+          "token sliding minimum total dominating sets categorical direct product complete graphs Km times Kn connectivity partial permutation matching",
+          "Kazemi upper k tuple total domination cross product complete graphs",
+          "token sliding independent sets categorical clique products"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1603.02428v3",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimal-total-domination-in-tensor-products-of-two-complete-grap--b38db5e11608/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-token-slide-connectivity-thresholds-for-minimum-total-domi--c5a0fb3c1e10/RESULT.md",
+        "Resultary semantic search: token sliding minimum total dominating sets categorical direct product complete graphs Km times Kn connectivity partial permutation matching"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/1603.02428v3",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimal-total-domination-in-tensor-products-of-two-complete-grap--b38db5e11608/RESULT.md",
+          "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-token-slide-connectivity-thresholds-for-minimum-total-domi--c5a0fb3c1e10/RESULT.md"
+        ],
+        "reasoning": "The prior upper-bound or enumeration formulas imply which configurations exist, not that the 4x4 full-matching completion is slide-invariant or that a spare row and two spare columns suffice to generate all row/column permutations. The latter assertions require the explicit legal path templates.",
+        "searches": [
+          "token sliding minimum total dominating sets categorical direct product complete graphs Km times Kn connectivity partial permutation matching",
+          "Henning Kazemi k tuple total domination cross products complete graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimal-total-domination-in-tensor-products-of-two-complete-grap--b38db5e11608/RESULT.md",
+          "https://arxiv.org/html/1603.02428v3"
+        ],
+        "reasoning": "Partial 3-matchings are equivalent state descriptions of optimal total domination on K_m tensor K_n, but the operative adjacency is replacing one matching edge by a disjoint-coordinate edge, not abstract exchange nor ordinary rook motion. The published minimal-set census identifies state space but not this adjacency metric.",
+        "searches": [
+          "token sliding minimum total dominating sets categorical direct product complete graphs Km times Kn connectivity partial permutation matching",
+          "minimal total dominating sets matching direct product graph row column token sliding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimal-total-domination-in-tensor-products-of-two-complete-grap--b38db5e11608/RESULT.md",
+          "Finite independent state enumeration: 96 optima, 24 components of size 4 at (4,4); 240 connected optima at (4,5)"
+        ],
+        "reasoning": "The 3-cell partial matching count was known. Exact component phase boundaries and slide edge formula are not in the inspected count tables; finite enumerations alone do not imply the global threshold.",
+        "searches": [
+          "token sliding minimum total dominating sets categorical direct product complete graphs Km times Kn connectivity partial permutation matching",
+          "token slide 24 K4 4x4 total domination direct product"
+        ]
+      },
+      "rationale": "Best-of-knowledge slide-configuration mobility phase diagram for the categorical product, not the previously known minimum total domination number or minimal-set polynomial. The all-size minimum triples are explicitly credited to published direct-product total domination work; Kazemi cross-product work and same-day complete minimal-set census do not give constrained one-edge token-slide components or the (4,4) obstruction. Other token-slide literature concerns independent sets, identifying codes or different graph products. No matching general reconfiguration theorem observed.",
+      "residual_risks": [
+        "A general partial-matching reconfiguration theorem with the exact special-move restriction may implicitly cover these connectivity thresholds.",
+        "Finite state graph checks do not independently prove connectivity for unbounded m,n."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counts upper minimal set sizes, not one-token slide connectivity",
+          "evidence": [
+            "Section 5 defines cross product, Proposition 7 treats K_n×K_2 and Question 1 asks a wider upper-number question."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1603.02428v3",
+          "material_read": "Full arXiv HTML, especially Section 5, Proposition 7 and Question 1",
+          "method": "Full text inspected via arXiv HTML",
+          "title": "Upper k-tuple total domination in graphs",
+          "trigger": "Earlier result on same categorical product"
+        },
+        {
+          "assessment": "KNOWN STRUCTURAL INPUT, NOT COVERING SLIDE DYNAMICS",
+          "evidence": [
+            "The first family is three disjoint row/column cells; remaining paper counts inclusion-minimal four-sets and Γ_t, with no slide connectivity theorem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimal-total-domination-in-tensor-products-of-two-complete-grap--b38db5e11608/RESULT.md",
+          "material_read": "Full published RESULT.md including all three/four-cell classifications and proof",
+          "method": "GitHub published full text",
+          "title": "Minimal total domination in tensor products of two complete graphs",
+          "trigger": "Exact same host graph and optimum-state classification"
+        },
+        {
+          "assessment": "Infinite templates reconstructed and finite components independently checked",
+          "evidence": [
+            "Slide sequences implement transposition, spare-row change, spare-column change."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-token-slide-connectivity-thresholds-for-minimum-total-domi--c5a0fb3c1e10/RESULT.md",
+          "material_read": "Whole RESULT and source of direct_check.py/matching_check.py",
+          "method": "Pinned Git files and independently constructed graph",
+          "title": "Assigned complete-product minimum total-domination slide theorem",
+          "trigger": "Current exact source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-token-slide-connectivity-thresholds-for-minimum-total-domi--c5a0fb3c1e10/RESULT.md",
+        "https://arxiv.org/html/1603.02428v3",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimal-total-domination-in-tensor-products-of-two-complete-grap--b38db5e11608/RESULT.md"
+      ],
+      "rationale": "A natural mobility invariant for minimum total-dominating configurations has a genuine sharp 3/4/5 spare-coordinate transition, an exceptional 24-component critical case and exact regularity. Unlike merely counting known minimum sets, the edge-adjacency constraint creates structural dynamics and a useful constructive connectivity classification.",
+      "residual_risks": [
+        "A general partial-matching reconfiguration theorem with the exact special-move restriction may implicitly cover these connectivity thresholds."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/1603.02428v3",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-minimal-total-domination-in-tensor-products-of-two-complete-grap--b38db5e11608/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-token-slide-connectivity-thresholds-for-minimum-total-domi--c5a0fb3c1e10/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No general historical novelty certification; originality best-of-knowledge with specific source inspections and residual risks.",
+    "Independent finite verification is limited to explicitly enumerated cases, not a replacement for an unbounded proof.",
+    "Source public-bound metadata include sensitive provenance, so publication is withheld."
+  ],
+  "residual_risks": [
+    "A general partial-matching reconfiguration theorem with the exact special-move restriction may implicitly cover these connectivity thresholds.",
+    "Finite state graph checks do not independently prove connectivity for unbounded m,n."
+  ],
+  "schema_version": 1
+}

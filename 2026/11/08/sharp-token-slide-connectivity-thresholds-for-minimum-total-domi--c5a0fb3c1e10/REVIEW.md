@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all \(m,n\ge3\), the total domination argument excludes two selected vertices and proves the exact iff characterization of optimal triples by pairwise distinct coordinates. A slide can replace one selected pair only by a pair using an unused row and unused column. This supplies the degree and counting formulas. The invariant completion to a full four-edge permutation matching gives \(24K_4\) at the square boundary. The three explicit legal templates generate all row and column transpositions with one spare row and two spare columns, yielding connectivity in the rectangular regime. Transposition covers the reverse regime. Token-jump connectedness follows from one-coordinate replacements with a spare index. Both standalone programs passed and their outputs matched the embedded records. Finite enumeration supplements, but is not substituted for, the general proof.
+PASS
 
-## Originality — PASS, historically qualified
+For m,n>=3, every two-cell set lies inside a row-column cross and is not total dominating, while precisely the distinct-row/distinct-column triples are minimal; count 6 C(m,3) C(n,3). A product-edge slide changes both coordinates and must place the moved cell in a previously unoccupied row and column: each of three selected cells has (m-3)(n-3) choices. If min(m,n)=3 this freezes all states. At (4,4) completing the matching to four pairs partitions 96 states into 24 K4. For min>=4,max>=5 three explicit legal slide templates implement generating row/column exchanges, connecting all partial matchings; one-coordinate jumps with spare slots connect all n,m except (3,3). Independently generated state graphs for (3,3),(3,5),(4,4),(4,5),(5,5) and obtained predicted degrees/components; direct_check.py and matching_check.py source inspected. The infinite result rests on the written templates, not finite enumeration.
 
-Henning–Kazemi (2011 online; 2012 journal), Corollary 15, gives the minimum total domination cardinality for the product but not this optimal-set transition graph. Alikhani–Fatehi–Mynhardt (2017) analyzes addition/removal total domination with a different configuration space and adjacency. The 2020 reconfiguration survey describes move models but does not specialize to the current tensor products. Targeted primary-literature and mathematical-record searches were compared at the implication level, including aliases for the tensor product and for partial-matching exchanges. No dominating equivalent claim was identified; an unindexed equivalent theorem remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The precise issue is whether an optimum can be rearranged while never temporarily raising the total domination number. The answer exhibits two distinct, naturally sharp obstructions: no unused coordinate at factor order three, then a perfect-matching completion invariant at the \(4\times4\) boundary. One further spare column removes every sector obstruction, as certified by uniform four-, three-, and two-move templates. This infinite-family classification reveals a local-mobility phase transition not implied by the scalar total domination number, and provides exact counts and degrees throughout.
+Best-of-knowledge slide-configuration mobility phase diagram for the categorical product, not the previously known minimum total domination number or minimal-set polynomial. The all-size minimum triples are explicitly credited to published direct-product total domination work; Kazemi cross-product work and same-day complete minimal-set census do not give constrained one-edge token-slide components or the (4,4) obstruction. Other token-slide literature concerns independent sets, identifying codes or different graph products. No matching general reconfiguration theorem observed.
 
-## Limitations
+## value
 
-The connected graphs' diameters are not computed. Historical-priority confidence is limited by incomplete indexing of older exchange literature; standard matching-exchange rules may use different endpoints and cannot be silently identified with sliding on a tensor product. Computational checks cover only stated finite instances. The research is not an external certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural mobility invariant for minimum total-dominating configurations has a genuine sharp 3/4/5 spare-coordinate transition, an exceptional 24-component critical case and exact regularity. Unlike merely counting known minimum sets, the edge-adjacency constraint creates structural dynamics and a useful constructive connectivity classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
