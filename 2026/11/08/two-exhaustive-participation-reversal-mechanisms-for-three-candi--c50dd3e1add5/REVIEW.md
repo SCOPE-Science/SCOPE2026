@@ -1,11 +1,21 @@
-# Review of the two-mechanism classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The universal claim follows from exhaustive mathematical partition of the old and new lowest-score sets, integer score increments \((2,1,0)\), and monotonicity of two-candidate majority under a new supporting ballot. Neither two-mechanism necessity nor sufficiency relies on a finite experiment. The integer-only verifier checks 605,682 election additions for initial electorate sizes through 17. It exhaustively includes all \(\binom{n+5}{5}\) six-type anonymous profiles for each size through 11, establishing the sharp finite boundary and six-event orbit.
+## correctness
 
-**Originality — PASS, with residual historical-priority risk.** Narodytska–Walsh–Xia (2011) analyze a different low-score tie convention and computational manipulation. Brandt–Matthäus–Saile (2022), Section 4.9 and Table 2, already provide the 12-voter minimum and a witness under the same simultaneous-elimination convention; the 12-voter minimum is explicitly *not new*. The inspected text does not state the general all-size iff score/margin criteria or the six-event orbit. Older voting-paradox frequency literature could not all be inspected fully; historical priority on the new characterization remains provisional.
+PASS
 
-**Value — PASS.** The source's minimal witness does not explain which score changes cause *every* possible participation reversal. The all-order classification isolates only two structural tie mechanisms, provides necessary and sufficient diagnostic score conditions, and distinguishes unique-winner failures from artifacts of a different tie-breaking rule. The first-order orbit census gives a natural sharp completeness check, not an arbitrary invariant.
+C: For the extra ballot A>B>C, first-round Borda increments are (2,1,0) and pairwise margins change by one toward the added ballot. Case splitting all before/after lowest sets yields only old singleton A -> new tied lowest {A,B}, with s_B=s_A+1, s_C>=s_A+3 and margin B>C positive; or old tied {B,C} -> new singleton C, with s_B=s_C<s_A and margin B>A at least 2. All other singleton/pair transitions have a weakly preferred new winner or are excluded by nonunique winners. Independent exhaustive enumeration of 74,256 profile/added-ballot comparisons for n=0..11 confirmed iff; exactly six adverse n=11 cases, none earlier. The 12-voter type-II witness was independently rechecked at score level.
 
-The statements are for a specific simultaneous-lowest-elimination convention, unweighted strict three-alternative profiles, and unique initial/final winners. No broader participation theorem is implied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+O: PASS best-of-knowledge for the complete two-mechanism necessity/sufficiency and first-boundary orbit, not the known 12-total-voter minimum. Brandt–Matthäus–Saile (2022) uses simultaneous tied-lowest elimination and proves the first witness/minimum but does not give the inspected arbitrary-electorate iff or six-orbit classification. The 2019 Lepelley–Smaoui comparison and 2016 BER analyses concern monotonicity changes, and full relevant publisher text was unavailable, retained as risk.
+
+## value
+
+PASS
+
+V: PASS. Exact behavioral classification isolates both tie-creation and tie-breaking causes of a no-show violation for every electorate; the six minimal directed examples provide a sharp enumeration boundary. This is a motivated structural strengthening of a known witness, not a mere parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
