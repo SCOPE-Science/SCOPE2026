@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof checks the sign-at-zero convention, verifies every intermediate branch of the first return to the nonnegative horizontal ray, and uses two consecutive even-block itineraries to deduce a primitive \(2b+1\)-cycle for each odd-block point. The even blocks are completely covered by the two disjoint orbit families, and a forward-crossing argument ensures that every lattice point reaches the ray. Exact positive/negative flight-time sums establish primitive planar periods and the cycle multiplicity. `CHECK.py` independently evaluates finite collections by direct integer iterations (22,160 assertions); this check supplements, rather than establishes, the infinite theorem.
+## correctness
 
-**Originality — PASS within inspected primary evidence.** The originating paper (Alwani–Vivaldi, arXiv:1709.08904, Sections 1–4 and concluding discussion) proves full-density periodicity for odd reduced parameters but explicitly conjectures all-point periodicity. Its first-return formula covers the ingredients of the section map, but not the global cycle decomposition and exact multiplicity presented here. Research-record searches for the original map, its unit-gap parameters, first-return order, primitive spectra, and lattice rotation aliases returned no statement implying this theorem. Related exact-period results concern different maps, such as the gingerbreadman homeomorphism, the Bogdanov map, and finite automata. The main residual risk is a special-case derivation or unindexed follow-up missed by the available search.
+PASS
 
-**Value — PASS.** An explicit infinite one-parameter classification resolves the all-orbits property on a natural arithmetic boundary of a conjectured stability region, gives an unbounded exact period spectrum, and counts all cycles of each least period. These are global dynamical invariants, not a finite observed sample or a mere re-expression of density-one periodicity. The result does not resolve other parameter relations.
+For b≥1, a=2b+1 and sign(0)=+1, direct integer branch iteration establishes the two piecewise first-return formulas on disjoint blocks A_m≤x<A_(m+1). The proof checks nonnegative, negative and returning affine segments and their first-hit inequalities. Every plane point eventually crosses the nonnegative ray y=0; the inverse is explicit, so the return-cycle exhaustion implies all points periodic. The orbit decomposition consists of an O_m starting coordinate and b E_(m+1) plus b E_m entries, yielding return period 2b+1 and flight-time sum 4m(2b+1). Distinct O_m representatives give exactly m primitive plane cycles of each period. Independently direct-simulated returns and exact primitive planar periods for b=1..5, m≤12 are corroboration, not the infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge distinct claim after exact comparison with the originating source, adjacent indexed literature and stronger published findings; gaps are expressly recorded.
+
+## value
+
+PASS
+
+Every-lattice-point periodicity on a natural unit-gap line of a conjectural two-parameter system and exact unbounded primitive period/multiplicity counts are substantial global dynamical invariants. They strengthen prior density-one periodicity and give a complete infinite family rather than a finite experiment. They do not solve the general two-parameter conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
