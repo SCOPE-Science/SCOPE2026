@@ -1,15 +1,21 @@
-# Scientific review: two exponential scales of Pareto failure
+# Independent mathematical audit
 
-## Correctness (PASS)
-The statement specifies all quantifiers: fixed integers \(m\ge2\), \(1\le k<m\), independent fair-coin approvals, and all integers \(n\ge1\). An ordered exchange \((X,Y)\) admits a size-\(k\) filler exactly when \(|X|=|Y|\le\min(k,m-k)\), so the union of exchange events is equivalent to some committee being Pareto dominated. Independent binomial counts give exact per-voter probabilities \(3/4\), \(11/16\), and \(21/32\), and all-voter ties are explicitly subtracted. A complete eight-bit exhaustive certificate bounds every pairwise overlap of order-one and order-two exchange events. Bonferroni bounds and the union bound establish the stated finite error, not merely a numerical asymptotic. The separate nonlocal law correctly excludes all weak candidate-column containments and bounds resulting losses. The companion verifier successfully recomputes the complete finite overlap table and 14,336 finite profile comparisons, including an explicit nonlocal witness. A computer-assisted *finite fixed lemma* remains part of the proof; it is separately reproducible.
+## correctness
 
-## Originality (PASS, with residual risk)
-The nearest directly relevant primary text is Schünke's 2026 work (arXiv:2605.30490) on structural and reconfiguration properties of Pareto-optimal approval committees and the Single Dominance Only (SDO) restriction. Its available complete text, including definitions, restricted-domain SDO arguments, unrestricted section and outlook, does not state a random independent-approval finite error or the two asymptotic exchange probabilities. Becker et al. (arXiv:2606.11160) analyze the distinct, stronger fractional Pareto optimum and its deterministic structural properties. Aziz, Lang and Monnot (arXiv:1803.06644) study decision complexity under preference extensions. Those results neither imply the displayed Bernoulli-approval event probabilities nor count the independent one- and two-exchange mechanisms. Searches for the exact probabilities, equivalent swap inequalities, alternative Pareto terminology and random-approval counting found no covering primary claim in the accessible material. Inaccessibility and unindexed equivalent results remain residual originality risks; absence from a search does not prove priority.
+PASS
 
-## Mathematical value (PASS)
-Schünke's SDO characterization raises a natural quantitative question outside restricted profile domains: how frequently can a genuinely multi-candidate Pareto improvement survive despite the absence of even one pairwise candidate-column containment? The present result gives the sharp leading probability of that event and an explicit second exponential rate, not just an upper bound. The \(11/16\) frontier appears if and only if the committee and its complement can both change at least two candidates, while the \(3/4\) frontier describes the qualitatively different one-candidate mechanism. The finite error bounds allow concrete approximation at any electorate size. An explicit five-voter witness establishes that the second mechanism is not merely an artifact of inclusion-exclusion. This quantifies a genuine nonlocal limitation of local efficiency checks and provides a natural random-profile benchmark. It is not a solution to the unrestricted deterministic reconfiguration problem.
+C: A dominated committee pair has an ordered disjoint equal-cardinality exchange t<=min(k,m-k). For one voter, P[#Y>=#X] = (1+binom(2t,t)/4^t)/2, yielding rho_1=3/4, rho_2=11/16, rho_3=21/32 and decreasing higher-t terms. All-equality probabilities are (binom(2t,t)/4^t)^n. An independent, fully exhaustive 256-row bitmask calculation over all 56 t=1 and 420 t=2 events gave sharp maximal pair overlaps 160/256,160/256,152/256 for (1,1),(1,2),(2,2). Bonferroni and union bounds therefore prove the displayed finite-n error envelopes and the nonlocal conditional law; the five-voter four-column witness (3,5,10,28) demonstrates true two-swap improvement. Finite certificate handles fixed eight-bit overlap only; all n follow from analytic bounds.
 
-## Closest literature and limitations
-References: Schünke (2026), arXiv:2605.30490; Becker et al. (2026), arXiv:2606.11160; Aziz, Lang and Monnot (2018), arXiv:1803.06644. The statement is restricted to independent Bernoulli-\(1/2\) approvals with fixed \(m,k\), integral size-\(k\) committees and additive approval utilities. The overlap bound relies on a reproducible exhaustive finite combinatorial lemma; an inaccessible or unindexed equivalent probabilistic calculation could change priority attribution.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+O: PASS best-of-knowledge. Schünke (2026) full primary text establishes structural Single Dominance Only in interval approval domains and discusses unrestricted multi-exchange phenomena, not the fair-coin probability or exact 3/4 and 11/16 exponents. General fractional-PO and committee-testing literature addresses different predicates. A direct bound for all committees under iid approvals was not found; unindexed probability enumerations remain a residual risk.
+
+## value
+
+PASS
+
+V: PASS. Quantifies when single-candidate efficiency checks mislead on unrestricted random profiles and supplies the exact leading rate of genuinely nonlocal committee Pareto failures, with an all-finite-n error bound and explicit witness. The two scales are mathematically motivated by minimal exchange sizes, rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
