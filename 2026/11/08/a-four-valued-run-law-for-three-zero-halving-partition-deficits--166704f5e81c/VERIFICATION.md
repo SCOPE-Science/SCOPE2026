@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,21 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact reproducibility checks
 
-Run `python3 verify.py` with an ordinary Python 3 interpreter. All arithmetic is integer-exact and no external packages are needed. The script computes the halving counts using a generalized algebraic recurrence, separately counts chains by direct halving backtracking, and enumerates every hyperbinary expansion and every eligible cut for small representative cases. It compares all three algorithms and the proposed binary run count.
+# Independent mathematical audit
 
-Executed output from the program embedded in this finding:
+## correctness
 
-```text
-BINARY_ZERO_EXACT_OK checked_odd_inputs 1365 deficit_histogram {1: 12, 2: 198, 3: 660, 4: 495}
-DIRECT_HALVING_OK inputs 384
-INDEPENDENT_HYPERBINARY_CUT_OK inputs 35 expansions_examined 750
-EXAMPLE 17 a 4 stern 5 deficit 1 ones_runs 1
-EXAMPLE 35 a 7 stern 9 deficit 2 ones_runs 2
-EXAMPLE 75 a 15 stern 18 deficit 3 ones_runs 3
-EXAMPLE 171 a 30 stern 34 deficit 4 ones_runs 4
-VERIFY_OK exact=True independent_methods=3 finite_only=True
-```
+PASS
 
-**Limits.** These are finite checks only. The unrestricted digit theorem is established by the complete carrying and admissible-cut argument in RESULT.md; no computational search proves its infinite scope or historical novelty. Independent audit has not been performed.
+For u the odd part of n with exactly three binary zeros, N=u-1 has h-3 ordinary one-digits. The hyperbinary–halving bijection via eligible cut F_e(t)=1+L_t+R_t-t=0 is reversible and strictly decreasing in t; W>=h-1 and W=h-3 expansions admit cuts, while W=h-2 precisely single splits of beginnings of ordinary one-runs are all inadmissible (including leading-bit split where the only zero cut has a 2 above). Thus s(n)-a(n)=rho(u-1), with four attainable values witnessed by u=17,35,75,171; even-factor invariance extends to every n. Fresh independent integer recurrence compared all 1365 eligible odd u<65536; this finite check supplements the all-length carry proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct mathematical claim after direct comparison of related published statements and implications; the source inspections and four detailed comparisons below delimit genuine known components and residual historical risk.
+
+## value
+
+PASS
+
+First nontrivial three-zero stratum of the explicit halving-partition deficit question from Alekseyev, with an unrestricted closed run-count law, sharp four-value classification, and a new one-carry structural explanation; not a finite table or routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

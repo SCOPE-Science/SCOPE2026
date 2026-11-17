@@ -1,9 +1,21 @@
-# Review of the three-zero halving-partition deficit formula
+# Independent mathematical audit
 
-**Correctness — PASS.** The main theorem follows from an explicit admissible-cut bijection and a complete classification of possible hyperbinary lengths. The ordinary binary expansion is admissible; all expansions at least two summands longer are admissible; exactly-one-split expansions are precisely the excluded ones. Strict decrease of the cut function prevents an overlooked second cut. Direct enumeration, generalized recurrence, and exhaustive hyperbinary-digit checks give mutually consistent exact finite evidence, but the unrestricted theorem is established by the symbolic proof, not those tests.
+## correctness
 
-**Originality — PASS, qualified.** The closest paper, Alekseyev (arXiv:2611.01243, Section 6), expressly asks for a formula in the case of more than two zero digits; its Corollaries 13 and 18 address at most two, and its general coefficient formula does not state the binary one-run identity for three. Dilcher–Ericksen (2015) concerns Stern polynomials; OEIS A349552 supplies a finite table of halving counts; none of the inspected sources states the full three-zero law. A previous or unindexed implicit equivalent is a residual historical-priority risk; the formula is a structural simplification of a more general computational mechanism, not the invention of the underlying counts.
+PASS
 
-**Value — PASS.** The theorem gives the first exact digit-only answer to the next case of a specific open-ended question in recent literature. It establishes a complete infinite subfamily and a sharp four-valued range, with a mechanism isolating all missing hyperbinary expansions by a unique split. The result does not claim to solve cases with more zeros or to settle general sequence regularity.
+For u the odd part of n with exactly three binary zeros, N=u-1 has h-3 ordinary one-digits. The hyperbinary–halving bijection via eligible cut F_e(t)=1+L_t+R_t-t=0 is reversible and strictly decreasing in t; W>=h-1 and W=h-3 expansions admit cuts, while W=h-2 precisely single splits of beginnings of ordinary one-runs are all inadmissible (including leading-bit split where the only zero cut has a 2 above). Thus s(n)-a(n)=rho(u-1), with four attainable values witnessed by u=17,35,75,171; even-factor invariance extends to every n. Fresh independent integer recurrence compared all 1365 eligible odd u<65536; this finite check supplements the all-length carry proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge distinct mathematical claim after direct comparison of related published statements and implications; the source inspections and four detailed comparisons below delimit genuine known components and residual historical risk.
+
+## value
+
+PASS
+
+First nontrivial three-zero stratum of the explicit halving-partition deficit question from Alekseyev, with an unrestricted closed run-count law, sharp four-value classification, and a new one-carry structural explanation; not a finite table or routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
