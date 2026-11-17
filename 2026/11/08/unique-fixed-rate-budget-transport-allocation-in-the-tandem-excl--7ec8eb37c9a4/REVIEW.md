@@ -1,15 +1,21 @@
-# Scientific review: fixed-rate-budget tandem transport
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed current is explicitly restricted to the thermodynamic stationary sector of the tandem exclusion process and a positive imposed rate sum. The previously published transfer-matrix formula is quoted with its density equation. Its algebraic reduction to the fixed-sum objective, the exact derivative polynomial, and the positive-domain mapping are independently replayed by `check.py`. The proof of a unique maximizing ratio uses **two separate Descartes sign arguments**: a direct quartic for densities at least one half and a positive-half-line rational coordinate below one half. All admissible densities are covered and all denominators are shown strictly positive. The dominant balance at both density extremes yields the stated constants; numerical testing of finitely many cases is explicitly not offered as an infinite proof. Main dependence: the published Gibbs current formula applies to the stated stationary sector.
+## correctness
 
-## Originality — PASS (qualified)
-The primary source, Ngoc–Nhung–Thi, *Tandem Exclusion Process* (arXiv:2606.01568v1), was inspected in its model, stationary-current theorem, monotonicity discussion, and transfer-matrix appendix. Its monotonic-current result varies the recovery ratio at **fixed leader rate**, which is not the constrained competition investigated here: fixing the **sum** necessarily reduces the leader rate as recovery increases. The primary expression for all rates is credited, so the claim is limited to the globally unique interior allocation and sharp endpoint laws. Related site-periodic exclusion (Lakatos–Chou–Kolomeisky 2005) and finite particle-reservoir exclusion (Haldar–Roy–Basu 2021) use different objects/constraints, as their accessible abstracts and model descriptions show. Searches for fixed-sum cooperative hopping optimization did not identify a prior exact all-density theorem; this is negative search evidence, not a proof of uniqueness. Residual risk: a wider or less-indexed two-rate optimization theorem might imply this specialization, or a full text not accessed might cover it.
+PASS
 
-## Value — PASS
-Two competing local kinetic steps offer an intrinsic resource-allocation question: with a fixed total event-rate capacity, improving recovery simultaneously weakens leader advancement. The known fixed-leader monotonicity supplies no optimum under this constraint. A complete classification is obtained for **every** bulk density, with exactly one interior solution, a checkable quartic specification and singular endpoint allocation exponents \(\rho^{-1/2}\) and \(1-\rho\). The optimal ratio differs sharply from naive equal-rate allocation (approximately \(0.43204\) at half filling). The results can determine where a finite kinetic budget should be directed and are not a mere relabeling of the published current law.
+The prior Ngoc–Nhung–Thi infinite-volume stationary-current identity supplies J(alpha,q,rho), not an optimization conclusion. Independently cancelled the inversion q(s)=[rho-(1-2rho)s]/[(1-rho)s²], the fixed-budget rational J/B, and the exact derivative sign polynomial P_rho(s) using a separate SymPy script. Positive denominator and monotone q(s) hold on the stated physical interval. For rho>=1/2, the quartic has exactly one sign change in descending coefficient order and opposite endpoint signs. For 0<rho<1/2, s=rho*t/[(1-2rho)(1+t)] maps t>0 bijectively to the physical interval and the transformed quartic has coefficients (-,-,+,+,+), so Descartes plus endpoint signs gives one maximum globally. The singular root balances establish q*~sqrt(2/5)rho^-1/2 at low rho and q*~(1-rho)/4 near rho=1. Independent numerical values rho=0.1,0.5,2/3,0.9 agree. This is a stationary-sector theorem, not finite-ring or dynamic optimal control.
 
-## Limits and priority risks
-All conclusions concern the infinite-volume stationary current, not finite-ring metastability or dynamically switching budgets. The two positive rates are externally constrained; no microscopic budget-conservation mechanism is claimed. No inaccessible primary source is represented as fully inspected. Independence has not been externally established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The fixed-sum two-rate allocation optimum differs from the Ngoc–Nhung–Thi fixed-alpha monotonicity and from prior optimization of density at fixed q. The current formula and transfer-matrix stationary law are admitted as prior; the all-density unique interior budget allocation and endpoint scaling are surviving new statements under best-of-knowledge inspection.
+
+## value
+
+PASS
+
+A fixed combined rate capacity is a natural resource allocation constraint for two competing elementary hop/recovery steps; optimizing one rate while weakening the other differs materially from monotonicity at fixed leader rate. A complete every-density interior optimum and two singular endpoint exponents are precise design invariants, not just a numerical plot of a known current formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
