@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The proof derives a common geometric-mean envelope from Stanković's singular-value log-majorization; proves its boundedness for all positive finite Lorentz indices by a separate dyadic Hardy argument; uses rearranged dominated convergence and the little weak tail condition; and establishes the weak counterexample by exact binomial-weight formulas. Limits and indexing include zero singular values and algebraic eigenvalue multiplicities. Finite computational checks corroborate formulas only. Main external premise: Theorem 1.1 and equation (6) of arXiv:2611.07728v1.
+
+**Originality — PASS (best-knowledge, with residual risk).** Stanković's source gives coordinatewise limits, Ky Fan behavior and a Schatten limit under a strictly smaller input exponent; it does not state Lorentz-scale convergence or the full-weak endpoint failure. The earlier same-index Schatten improvement is acknowledged and not reasserted as novel. Bala's operator-norm theorem does not imply ideal-scale convergence. The closest indexed examples concern specific weighted shifts and singular-value asymptotics rather than an all-operator Lorentz theorem. Classical Lorentz geometric-mean inequalities may already contain the analytic lemma but do not establish this application. Older unindexed equivalent dynamical statements remain possible.
+
+**Mathematical value — PASS.** The finding determines a natural and widely used operator-ideal boundary: all finite Lorentz secondary indices enjoy strong singular-value-sequence convergence; the order-continuous weak subideal also does, while full weak ideal convergence fails even for a compact quasinilpotent shift whose operator norms vanish. This identifies exactly why bounded weak singular-value tails alone do not give global ideal convergence and gives a structural bridge from log-majorization to Lorentz regularity beyond the known Schatten endpoint.
+
+**Limits.** These are singular-value sequence statements, not operator-valued convergence assertions. The weak counterexample proves failure of a universal full-weak conclusion, not necessity of the little-weak condition for each individual operator. Bibliographic priority beyond inspected sources is not guaranteed.
+
+Self-review: passed. Independent audit: not yet performed.
