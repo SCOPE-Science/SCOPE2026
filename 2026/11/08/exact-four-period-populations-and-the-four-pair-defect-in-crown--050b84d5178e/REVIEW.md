@@ -1,9 +1,21 @@
-# Review of the primitive-four census
+# Independent mathematical audit
 
-**Correctness — PASS.** Each active local trajectory under the three-state update has minimal period at least three; at global period four, connectedness forces every vertex to be active, and hence to have exactly one excited phase. The two local phase conditions were checked in both directions directly against the update. If a forbidden opposite-phase pair co-occurs across shores, all four phases are forced to singleton matched pairs, yielding exactly four indices and 24 exceptional assignments. Otherwise an alternating two-phase-per-shore pattern is forced; the robust/singleton split counts every valid pattern once. Exhaustive state iteration and independently implemented phase-assignment enumeration confirm the closed formula on the stated finite test range. This is an unrestricted combinatorial proof, not a finite-data conjecture.
+## correctness
 
-**Originality — PASS, qualified.** Durrett--Griffeath (1993) study excitable automata on lattices. Gravner--Lyu--Sivakoff (2016) prove general circulation/synchronization criteria, but the inspected full text does not give the crown graph's labelled primitive-four census or its exceptional four-matched-pair correction. Closest exact family comparisons concern intact complete bipartite graphs, one-edge deletions, majority on crown graphs, and parity automata: these are not the same graph/rule pair and do not imply the claimed numbers. Targeted public and mathematical-database searches located no covering statement. Unindexed prior work and derivability from other undeclared exact enumerators remain residual priority risks.
+PASS
 
-**Value — PASS.** This is a complete exact population for a natural, nontrivial primitive period on an infinite family of connected degree-\(n-1\) graphs. The fully deleted matching changes the recurrence of excitation compared with the intact graph and causes a sharp four-pair exceptional class; the structural classification specifies *all* four-period states, not merely an example or simulation. This is a motivated recurrent-orbit invariant, without claiming a complete census of other temporal periods.
+For synchronous 3-state GH on Cr_n=K_{n,n}-M_n, every nonconstant four-periodic full state activates every vertex exactly once per four times (an always-rest vertex next to periodic excitation would activate). Assign phase p(v); local update is equivalent to excluding adjacent phase p+2 and requiring adjacent phase p-1. Cross-shore opposite-phase supports must be singleton matched pairs; coexistence forces four distinct matched indices and n=4, yielding exactly 4!=24 exceptional assignments. Otherwise each shore uses both phases of one parity, opposite shore both of other; writing s=2^n-2, r=s-2n, robust assignments count r, singleton-phase shore assignments 2n, no pair of both shores singleton compatible, yielding 2sr. Thus P4(n)=2(2^n-2)(2^n-2-2n)+24*1_{n=4} for every n>=3. Independently enumerated complete 3^(2n) microscopic dynamics for n=3,4,5 (0,192,1200). Source finite phase checker also inspected; infinite result follows from phase classification.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The 2016 general GHM graph cycle-integral theorem describes eventual dynamics but does not yield the exact initially primitive-four state count for the crown family. Published November 2 crown dynamics theorem classifies allowable periods, maxima of entry times, and exceptional 6/10 period basins via clipped matched-type signatures; its full RESULT.md inspected and no explicit P4(n) population formula or 24-state phase defect appears. Its machinery might support deriving the count with additional counting work, but this is not a direct stated numerical corollary.
+
+## value
+
+PASS
+
+The crown graph is a natural all-size minimally defective complete bipartite family; exact four-period population and isolated four-pair phase exception quantify effects of deleting a full matching and complement period classification with an exact labeled state count. The n=4 anomaly and all-n formula are natural structural information, not an arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
