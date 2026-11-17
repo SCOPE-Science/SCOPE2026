@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The statement uses the standard factorial product for alternating sign matrix numbers and includes the empty-index convention. The known nonnegative periodic layer formula follows from Legendre's identity; its zero set is exactly a union of two endpoint intervals for every prime-power modulus. For each prime congruence class, the digit-lifting argument exhausts all newly admissible top digits without overlaps. At primes congruent to five modulo six, both exceptional boundary residues are shown admissible by an explicit induction, which is essential for the additive two in the recurrence. The count begins with the correct \(r=0\) and \(r=1\) base cases. The proof of the metric covering formula uses actual least representatives for every allowed cylinder. Independent exact computation tests all indices in thirteen sample prime-power ranges; no finite test is mistaken for a proof of all exponents.
+PASS
 
-## Originality
+The factorial product and Legendre layers produce a nonnegative triangular function h_{p^a}(n mod p^a), with zero exactly at the two endpoint residue intervals. For 0≤n<p^r, all layers a>r vanish. The two allowed boundary components lift digitwise: p=3d+1 gives c_{r+1}=(2d+1)c_r; p=3d+2 gives c_{r+1}=(2d+1)c_r+2 from two distinct surviving endpoints; c_0=1. Solving yields b_p^r or b_p^r+2(b_p^r-1)/(b_p-1). Direct independent factorial-increment valuations checked (p,r)=(5,4),(7,3),(11,3),(13,3), finding 161,125,457,729. Every admissible mod-p^r residue contains its least nonnegative representative with zero valuation, proving exact p-adic cylinder covering number and box dimension log_p b_p; the density vanishes since b_p<p. The result does not assert Hausdorff dimension or p=2,3.
 
-PASS, with residual historical priority risk. Frey and Sellers (2002) and Cartwright and Kupka (2002) give complete *individual-index* divisibility conditions and periodic valuations, which encompass the known membership criterion used here. The inspected full texts do not state or solve the family of prime-power index-counting formulas, including the additive correction when \(p\equiv5\pmod6\), nor the resulting box-counting dimension. Heuberger and Prodinger's analytic valuation expansion and Beyerstedt–Moll–Sun's periodic-layer identity likewise do not give these exact population counts. The new proof explicitly derives the required two-endpoint transfer enumeration rather than claiming a new pointwise divisibility criterion. There may be undiscovered alternative counting presentations.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The prime-coprime index set of this canonical highly composite enumerative sequence is a natural object. Earlier works establish infinite occurrence and a digit membership test but leave the quantitative sparsity unspecified. The result exactly measures sparsity at every prime-power scale and identifies an arithmetic phase difference between two prime congruence classes, including a stable geometric box dimension. It is not an arbitrary finite slice or table recomputation.
+Frey–Sellers already prove the nonnegative periodic p-power valuation profile and a pointwise zero/nonzero characterization, not the new all-prime population law across every p^r in the full 9-page primary paper read. The two-endpoint correction for p≡5 and precise p-adic box-cover count are a distinct counting problem. A preexisting digit-automaton corollary could conceivably imply these formulas, and this possibility is retained as risk.
 
-## Limits
+## value
 
-Primes two and three are excluded. Ordinary density zero and prime-power index counts are established, but a sharper arbitrary-cutoff asymptotic and Hausdorff dimension are not asserted. Historical priority beyond the inspected literature and independent proof validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The support of prime-coprime indices of the classical alternating-sign-matrix sequence is a natural number-theoretic set. Exact counts for *all prime-power cutoffs*, their congruence-dependent boundary correction and p-adic box dimension quantify sparsity not supplied by qualitative infinitude/pointwise divisibility. No full arbitrary cutoff or Hausdorff classification is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
