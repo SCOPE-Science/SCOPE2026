@@ -1,0 +1,15 @@
+# Scientific review: heterogeneous activation thresholds on complete bipartite graphs
+
+## Correctness
+**PASS.** The six initial-state classes remain homogeneous for all subsequent updates. Because both activation thresholds are at most two, truncating each class size to \(0\), \(1\) or at least \(2\) loses no information needed to determine future classes or detect first repetition. There are exactly \(3^6=729\) initial signatures, and the supplied finite exhaustive recurrence proves that first entry is at most five and only least periods \(1\), \(3\), \(4\) occur. The exhaustive table identifies every recurrent profile; simple labelled occupancy counts yield the closed formulas. The independent full-state implementation reproduces complete joint entry/period counts for ten different shore-size pairs. The proof hinges on the exhaustive 729-case lemma and is computer-replayable, not a bare finite-size extrapolation.
+
+## Originality
+**PASS, qualified by remaining historical priority risk.** The closest inspected full primary articles study homogeneous spatial lattice thresholds (Fisch–Gravner–Griffeath, 1991), or common threshold-one three-color excitable media on arbitrary graphs (Gravner–Lyu–Sivakoff, 2018). The closest complete-bipartite published records separately impose threshold one on both shores or threshold two on both. Their threshold-uniform orbit and transient counts do not imply an asymmetric \((1,2)\) rule, because increasing a threshold does not preserve temporal periods. In particular, under the mixed rule the onset of four-cycles is \((m,n)=(4,2)\), whereas the documented homogeneous threshold-two onset is \((4,4)\). Published repository full texts could not be accessed for direct inspection, so priority beyond abstracts and the inspected full primary literature remains unresolved.
+
+## Mathematical value
+**PASS.** The natural problem of heterogeneously responsive coupled populations has a sharp finite response: replacing one shore's two-contact rule by one-contact excitation retains a five-step global transient but lowers the onset of period-three synchronization from \((6,6)\) to \((6,3)\) and period-four propagation from \((4,4)\) to \((4,2)\). The result includes structural recurrent-profile classifications, exact labelled formulas, and an all-size time-resolved basin enumerator, not merely one example or a parameter renaming. The asymmetry cannot be obtained by relabelling the shores of a uniform-threshold graph.
+
+## Scope and limitations
+The proof concerns synchronous three-state excitation, complete bipartite graphs and a fixed threshold pair one/two. It does not assert a period classification for general heterogeneous graphs. Computer assistance is restricted to an explicit exhaustive finite lemma with complete source; small-graph simulations are supplementary. Earlier literature may remain unindexed, and the primary-day archival source date is not a claim that no older year-only publications exist.
+
+Self-review: passed. Independent audit: not yet performed.
