@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Finite reproducibility check: extract `VERIFY.py` beside this document and run `python VERIFY.py` with Python 3 and standard library only. The checker derives substitution prefixes afresh, computes conjugacy classes and closing extensions, and tests the asserted multiset identity for every integer from 4 through 64. It also checks the complete dyadic size spectrum and complete rotation-class witness for lengths 4, 8, 16, 32, 64 and 128. Successful execution ends in `VERIFY_OK`.
+# Independent mathematical audit
 
-The finite checker does not establish an all-length theorem. The necessary infinite arguments are the unique parity synchronization and the two circular pair matchings detailed in RESULT.md, together with the substitution induction for closed-end factors. The cited factor-complexity recurrence is taken from the primary literature; its use and the base counts are explicitly recorded in the proof. Originality is subject to historical-priority search limitations, and no independent external audit is claimed.
+## correctness
+
+PASS
+
+For all n>=4 unique parity synchronization of length-four factors separates even-start mu(u) and odd-start b(v). Even circular shifts preserve the desubstituted conjugacy class; closed-end extensions add one odd-start member, while non-closed odd-start words have a forced internal equal-pair obstruction and no distinct occurring rotation. This yields the all-length inflation multiset. Desubstitution of closed extensions and the explicitly checked n=4 base gives the full dyadic spectrum one n-class, three 2-classes and 2n-8 singletons. The proof is infinite; prefix enumeration verifies only n<=128.
+
+## originality
+
+PASS
+
+Earlier cyclic-complexity papers calculate numbers of circular classes and coarse full-rotation/nonrotation information, not the multiset of partially occurring rotations. Krawchuk-Rampersad Proposition 1 gives c(2^k)=2^(k+1)-4; it is compatible with but does not imply the detailed spectrum. The all-length class-inflation mechanism is separate.
+
+## value
+
+PASS
+
+An exact infinite family of cyclic orbit intersection distributions plus an all-length inflation rule is a natural refinement of cyclic complexity; it distinguishes the unique full rotation class, all partial two-classes and singleton multiplicities that the known scalar complexity cannot recover.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
