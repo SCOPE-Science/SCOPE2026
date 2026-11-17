@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized loss is derived directly from the three positive Debye kernels, then transformed into a rational function of \(\cosh y\). Differentiating yields the displayed quadratic \(Q\); its exact discriminant controls outer peak creation, and \(Q(1)\) controls central peak type. The proof covers all strict inequalities, the two center-degeneracy boundaries, and the shoulder boundary without extrapolating numerical experiments. The standard-library program `verify.py` passed exact rational onset tests, original-versus-reduced comparisons at 42 sample points, and independent derivative-crossing checks for four selected spacings. These computations validate examples, not the infinite theorem by themselves.
+## correctness
 
-**Originality — PASS on accessible evidence, provisional priority.** The 2014 open-access Bauer et al. paper was materially inspected, including the Debye formula, three-component fitting discussion, and its figures; its non-Debye alpha/beta components and experimental nonlinear response do not supply the present three-*Debye* symmetric exact modal phase diagram. The 2023 Nguyen et al. open paper includes an explicit three-Debye susceptibility equation and actual fitted spectra, but no parameter-sweep reentrant four-regime classification. An earlier four-equal-Debye case differs in both weights and number of processes, and its non-reentrant conclusion does not imply this finding. Search of scientific literature and published semantic research records using mode-count, reentrance, three-Debye, shifted-sech, parameter and source aliases found no demonstrable equivalent claim. Older Hurt (1985) full text was inaccessible, so an unindexed implicit statement remains a risk. A failed search is not a uniqueness proof.
+PASS
 
-**Mathematical value — PASS.** This is a complete continuous-parameter classification on a natural experimentally motivated three-process susceptibility slice. It exposes an unusual reappearance of the central loss peak despite *monotonically increasing* time separation, and identifies three exact boundaries, including fourth-order-flat critical centers. It is not merely a new plot or a routine component-count increment: the loss of a central peak and its later recovery depends on a nontrivial narrow strength interval \((1/2,4/(3\sqrt6))\). The value is an exact peak-resolution benchmark, not a claim of a new physical mechanism or experimentally demonstrated transition.
+Independent symbolic differentiation confirmed F(c)=a/(2c)+sc/(c²+s²−1), Q(z), discriminant 4s(s−4a)(s²−1)² and center factor s(as³−2s²+4). The quadratic sign sequence and monotone a0(s) prove all four intervals and shoulder/equality types; numerical sampled roots are only corroboration.
 
-Historical-priority limitations: source abstracts and keyword search cannot exclude equivalent general mixture-mode theorems; a plausible 1985 multiterm-dispersion article was not available in full. Scientific scope limitations: ideal linear Debye shapes, symmetric times and equal outer weights, mathematically strict peaks, no instrumental resolution model.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: the earlier full equal-strength triple classification gives only 1→3 with a=1; the current unequal-central-strength interval has qualitatively different 1→3→2→3 phase and exact two center transitions.
+
+## value
+
+PASS
+
+This is a natural complete phase classification for three positive ideal Debye components in a continuous central-strength slice, with exact central peak disappearance and reappearance and fourth-order flat transition points, not generic experimental claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
