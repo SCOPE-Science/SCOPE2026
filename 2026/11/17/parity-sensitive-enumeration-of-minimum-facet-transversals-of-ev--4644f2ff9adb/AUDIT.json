@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "Gale evenness is reduced to k-matchings in the n-cycle. Each proper induced subgraph is a union of paths, so alpha(Y)=|Y|-nu(Y). The maximum complement is h+k-1 and equality implies a maximum cycle-independent set plus exactly k-1 vertices. The cyclic binary run proof divides all odd-n optimizers into two exhaustive, uniquely rooted classes. The independent verifier tested 34 parameter configurations and 1232 direct Gale facets; finite tests corroborate the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dobbins--Lee, arXiv:2603.16298, abstract and introduction, concerns arbitrarily high transversal ratios and weak chromatic numbers in dimension at least five.",
+        "Novik--Zheng, arXiv:2407.19693v2, Sections 1, 2.2 and 2.4, compares transversal-number bounds and sibling cyclic polytopes.",
+        "Briggs--Dobbins--Lee, arXiv:2111.06560, Section 3.3, supplies the exact transversal minimum."
+      ],
+      "reasoning": "Existing broader theorems about minimum size, ratios, and neighboring polytope constructions do not entail the number of optimal transversals without a separate equality-case analysis. No stronger theorem that enumerates every optimizer was identified in the inspected materials.",
+      "searches": [
+        "\"transversal number\" \"cyclic polytope\" facets exact",
+        "\"cyclic polytope\" \"minimum transversals\" counting optimal",
+        "arxiv:2603.16298 full text",
+        "arxiv:2407.19693v2 full text"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2603.16298 (first posted 2026-03-17)",
+      "arxiv:2111.06560 (first posted 2021-11-12)",
+      "arxiv:2407.19693 (first posted 2024-07-29)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 Proposition 3.6 formula is tau=ceil((n-2k)/2)+1, identical to our admitted tau value, so that part is covered.",
+        "The new minimum-solution number is 2*C(h,k-1) for even n and n*C(h,k-1) for odd n. These distinct counts cannot be deduced from the tau value alone; the proof classifies all maximum facet-free sets."
+      ],
+      "reasoning": "The old theorem implies only the minimum size, not uniqueness or number of minimizers. The new result is the stronger complete equality-case classification, with a nontrivial parity difference in its enumeration; it does not rebrand the known tau identity.",
+      "searches": [
+        "Briggs Dobbins Lee Proposition 3.6 cyclic polytope exact transversal number",
+        "Dobbins Lee 2026 Polytopes with large transversal ratio",
+        "Novik Zheng transversal numbers simplicial polytopes spheres and pure complexes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gale facets are unions of disjoint cycle edges; minimum transversals correspond to largest subsets inducing matching number at most k-1.",
+        "Briggs--Dobbins--Lee, arXiv:2111.06560, Proposition 3.6 and proof, gives the minimum cardinality, not the complete equality-family count."
+      ],
+      "reasoning": "The matching-free induced-subset and optimal-hypergraph-transversal formulations are mathematically equivalent. Neither the inspected source statement nor its proof gives their enumeration; our distinct cyclic-run argument supplies it.",
+      "searches": [
+        "\"cyclic polytope\" \"minimum hitting sets\" enumeration facets",
+        "\"cyclic polytope\" \"number of transversals\" minimum",
+        "minimum hitting sets cyclic polytope Gale evenness matching maximum independent cycle counting"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Research records returned related cyclic-polytope topology and facet-section counts, including the public result titled \"Three parity components in four-tuplings of cyclic eight-polytope boundaries\", not facet-transversal optimizer tables.",
+        "The paper arXiv:2111.06560 has an exact size formula but no tabulation of minimum transversal sets in the inspected relevant section."
+      ],
+      "reasoning": "The object is a whole family of labeled minimum hitting-set enumerators, not one previously tabulated numerical invariant. A finite computational search through 13 vertices was carried out independently; absence of a retrieved table is not proof that no such table exists.",
+      "searches": [
+        "\"cyclic polytope\" \"number of minimum transversals\"",
+        "exact number of minimum vertex-facet transversals even dimensional cyclic polytopes parity n choose n/2",
+        "number of optimum transversals facets even dimensional cyclic polytope odd even n"
+      ]
+    },
+    "rationale": "The classical extremal size is explicitly not claimed as new. For the same cyclic-polytope facet hypergraphs, the new theorem enumerates and classifies every minimum hitting set; the 2021/2023 source computes only the minimum size. Other full-text comparisons concern ratios and different simplicial polytopes. Actual keyword and semantic research-record searches found no dominating or equivalent enumeration, but this is provisional historical priority.",
+    "residual_risks": [
+      "A prior graph-theoretic enumeration of large subsets of cycles with prescribed maximum matching number could imply the formula without naming cyclic polytopes.",
+      "A revised or otherwise uninspected section of the 2026 motivating manuscript might have additional optimizer data; only the cited accessible material was read.",
+      "No general originality theorem follows from failed keyword or semantic searches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS minimum cardinality only; does NOT cover an exact count or exhaustive classification of all minimizers in that section.",
+        "evidence": "Proposition 3.6 specifies tau, and its proof constructs one minimum transversal and excludes smaller ones; no optimizer-count formula appears.",
+        "identifier_or_url": "https://arxiv.org/pdf/2111.06560",
+        "material_read": "Full-text introduction and full §3.3, especially Proposition 3.6 and the succeeding proof and remark (pages 8-9 of the PDF).",
+        "method": "Direct inspection of the accessible primary PDF text and relevant page images.",
+        "title": "Transversals and colorings of simplicial spheres",
+        "trigger": "Exact cyclic-polytope facet-transversal number potentially covers the claim"
+      },
+      {
+        "assessment": "Studies large ratio constructions and weak colorings, not the number of optimizers for cyclic even-dimensional polytopes; there remains partial-access risk outside the material read.",
+        "evidence": "Theorem 1.1 gives simplicial d-polytopes with ratios arbitrarily near one for d>=5.",
+        "identifier_or_url": "https://arxiv.org/html/2603.16298",
+        "material_read": "Accessible abstract and introduction including Theorem 1.1 and methodological context; source HTML was retrieved. Later full-text fetch attempts became unavailable.",
+        "method": "Primary arXiv HTML inspection and submission-date record.",
+        "title": "Polytopes with large transversal ratio",
+        "trigger": "Recent motivating source, same facet-transversal invariant"
+      },
+      {
+        "assessment": "Quotes the prior minimum size and develops bounds/constructions, but does not enumerate all optimum hitting sets in the relevant sections.",
+        "evidence": "Introduction explicitly cites the 2021 exact transversal-number result; Theorem 2.1 supplies Gale evenness.",
+        "identifier_or_url": "https://arxiv.org/html/2407.19693v2",
+        "material_read": "Full-text introduction, Sections 2.2 and 2.4, the cyclic-polytope reference to Proposition 3.6, and relevant construction statements in Sections 3-4.",
+        "method": "Primary arXiv HTML passage and term inspection.",
+        "title": "Transversal numbers of simplicial polytopes, spheres, and pure complexes",
+        "trigger": "Closely related published study of cyclic and sibling polytopes and transversal bounds"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "4644f2ff-9adb-4dc8-84e8-58c284e2f1d9",
+  "value": {
+    "rationale": "The number and full structure of optimal facet transversals are natural extremizer data for the transversal-ratio invariant. The formula applies uniformly to all even dimensions, with a sharp parity bifurcation in polynomial growth: n^(k-1) versus n^k at fixed dimension 2k. This is not determined by the known minimum cardinality and helps distinguish stability and abundance of optimizers.",
+    "status": "PASS"
+  }
+}
