@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational reproducibility and limits
+# Independent mathematical audit
 
-Execute `python verification/verify.py` with Python 3 and no third-party packages. The verifier enumerates all distinct subsequence strings, forms their set intersection, constructs insertion-maximal elements directly, and compares them with the exact symbolic prediction. In equal-power cases it also tests equality of the complete common-subsequence language with the union of the two proposed downward closures.
+## correctness
 
-The packaged source was run and returned `PASS 1144 cases; 92735 common subsequence strings checked`. The test includes all nonempty strings of lengths at most three over each of two separate two-letter alphabets when the expanded inputs have length at most thirteen, plus five more repeated-letter block pairs with power exponents one and two. These are finite checks only: the full all-length and all-power conclusion rests on the proof in `RESULT.md`. Alphabet overlap is deliberately not allowed in the theorem; `RESULT.md` gives a direct counterexample to extending the language identity without this hypothesis.
+PASS
 
-No independent audit has yet been performed.
+Proof reconstructed from frozen RESULT.md: for r!=s the shorter source is an actual contiguous factor of the longer. In equal powers, U and V are contiguous overlaps in both; a common subsequence not embedding in U must use initial A of X and final A of Y, so it embeds in X with final B removed, namely V. Multiplicity of letters in each disjoint alphabet proves U and V incomparable. Exact lengths and all-positive-integer boundaries follow. Independently implemented scattered subsequence generation and one-character insertion maximality for 108 small disjoint-block/r/s cases, all matching. Tests are diagnostic; proof is general.
+
+## originality
+
+PASS
+
+Best-of-knowledge new exact structural language classification, in contrast to general MCS DAG algorithms or reversed permutation-block results; searches and materially read theorems did not imply it. No global novelty guarantee.
+
+## value
+
+PASS
+
+Maximal common subsequences differ materially from longest ones. This natural periodic-string family has a complete two-generator downward-language description and unbounded exact maximal-versus-longest gap; it is a useful algorithmic benchmark, not merely a filename or parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

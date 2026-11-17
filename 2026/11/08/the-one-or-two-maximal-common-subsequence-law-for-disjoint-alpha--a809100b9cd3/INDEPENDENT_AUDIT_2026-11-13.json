@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T14:01:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md blob 8550e043b49e7a992852c5b50390119e93252655",
+        "frozen verification/verify.py blob 9514d5410bb70f48a8bd40a14ad15758a19f4e74"
+      ],
+      "rationale": "Proof reconstructed from frozen RESULT.md: for r!=s the shorter source is an actual contiguous factor of the longer. In equal powers, U and V are contiguous overlaps in both; a common subsequence not embedding in U must use initial A of X and final A of Y, so it embeds in X with final B removed, namely V. Multiplicity of letters in each disjoint alphabet proves U and V incomparable. Exact lengths and all-positive-integer boundaries follow. Independently implemented scattered subsequence generation and one-character insertion maximality for 108 small disjoint-block/r/s cases, all matching. Tests are diagnostic; proof is general.",
+      "residual_risks": [
+        "An embedding argument beyond the stated disjoint-alphabet hypothesis is invalid; overlapping example in source confirms necessity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Conte–Grossi–Punzi–Uno (2023) provides an algorithm for arbitrary string pairs; it can process this pair without explicitly furnishing the closed 1-or-2 MCS classification.",
+          "The October 18 theorem describes the reverse-permutation family, not all two-block conjugate powers."
+        ],
+        "reasoning": "General MCS enumeration is broader in input domain but not a stronger explicit bound or formula on the family. A generic algorithm alone does not predetermine two incomparable maxima or their exact gap; no actually inspected stronger theorem yields the audited result.",
+        "searches": [
+          "maximal common subsequences conjugate powers (AB)^k (BA)^k disjoint alphabets exactly two downward closures",
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol283-isaac2023/LIPIcs.ISAAC.2023.21/LIPIcs.ISAAC.2023.21.pdf",
+          "https://arpi.unipi.it/handle/11568/1139265"
+        ]
+      },
+      "checked_sources": [
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol283-isaac2023/LIPIcs.ISAAC.2023.21/LIPIcs.ISAAC.2023.21.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-maximal-common-subsequences-collapse-to-longest-ones-for-reverse--0509ac1ee874",
+        "https://arpi.unipi.it/handle/11568/1139265"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For r<s, (AB)^r occurs contiguously in (BA)^s; at r=s, the two shared overlaps are incomparable by counts of letters from disjoint alphabets.",
+          "The reverse-permutation theorem forces every MCS to be longest, in contrast to a nonzero length gap whenever |A| != |B|."
+        ],
+        "reasoning": "The searched prior statements do not imply the universal two-downset classification on this input family; the arithmetic and embedding comparison are structurally distinct. Checked actual primary and published theorem text rather than only titles.",
+        "searches": [
+          "maximal common subsequences conjugate powers (AB)^k (BA)^k disjoint alphabets exactly two downward closures",
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol283-isaac2023/LIPIcs.ISAAC.2023.21/LIPIcs.ISAAC.2023.21.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-maximal-common-subsequences-collapse-to-longest-ones-for-reverse--0509ac1ee874"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The October 18 reversed-permutation-power theorem concerns P^m and reverse(P)^m, with all MCS longest of length 2m-1; the audited two-block rotated powers allow exactly two MCS and an unbounded gap.",
+          "Conte et al. ISAAC 2023 studies generic MCS enumeration and compact DAGs."
+        ],
+        "reasoning": "Reversed permutation powers are not the same as (AB)^r versus (BA)^s with disjoint composite blocks: different block concatenation, partial-order language, and length-gap behavior. Algorithmic DAG representations give generic computability but do not explicitly imply the simple two-generator downset identity.",
+        "searches": [
+          "maximal common subsequences conjugate powers (AB)^k (BA)^k disjoint alphabets exactly two downward closures",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-maximal-common-subsequences-collapse-to-longest-ones-for-reverse--0509ac1ee874",
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol283-isaac2023/LIPIcs.ISAAC.2023.21/LIPIcs.ISAAC.2023.21.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A direct Resultary search returned adjacent-swap/permutation-power spectra, reversed-permutation theorem and related enumerators, but no actual matching 1-or-2 downset table or classifier for arbitrary disjoint A,B."
+        ],
+        "reasoning": "No exact published table identified for all positive r,s and arbitrary internal repetitions of A,B; search incompleteness remains a risk, not proof of priority.",
+        "searches": [
+          "maximal common subsequences conjugate powers (AB)^k (BA)^k disjoint alphabets exactly two downward closures",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-maximal-common-subsequences-collapse-to-longest-ones-for-reverse--0509ac1ee874"
+        ]
+      },
+      "rationale": "Best-of-knowledge new exact structural language classification, in contrast to general MCS DAG algorithms or reversed permutation-block results; searches and materially read theorems did not imply it. No global novelty guarantee.",
+      "residual_risks": [
+        "Full text of 2022 enumeration paper not read; an older exact conjugate-word lemma may exist under a different name.",
+        "A finite 108-case independent test cannot certify unbounded quantifiers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General DAG representation/enumeration/rank-select, not an inspected theorem for opposite two-block conjugate powers.",
+          "evidence": "ISAAC 2023 paper DOI:10.4230/LIPIcs.ISAAC.2023.21",
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol283-isaac2023/LIPIcs.ISAAC.2023.21/LIPIcs.ISAAC.2023.21.pdf",
+          "material_read": "Accessible 15-page proceedings PDF: abstract, introduction, main algorithmic theorem/section structure and page images of first and fourth PDF pages; not all page details checked.",
+          "method": "PDF text and two page screenshots",
+          "title": "A Compact DAG for Storing and Searching Maximal Common Subsequences",
+          "trigger": "Direct general MCS algorithms might contain an exact characterization."
+        },
+        {
+          "assessment": "Different reverse ordered permutation family; opposite conclusion all MCS are LCS, whereas non-equal block lengths here give nonlongest MCS.",
+          "evidence": "Full RESULT.md, 2026-10-18; q>=2,m>=1; longest 2m-1",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-maximal-common-subsequences-collapse-to-longest-ones-for-reverse--0509ac1ee874",
+          "material_read": "Complete RESULT.md including finding, proof, transfer-matrix count, relationship and limitations.",
+          "method": "Frozen published GitHub RESULT.md blob",
+          "title": "Maximal common subsequences collapse to longest ones for reversed periodic permutations",
+          "trigger": "Adjacent Resultary result about MCS of periodic inputs."
+        },
+        {
+          "assessment": "Cannot conclude whole full text lacks special-case formula; the abstract describes polynomial-delay enumeration.",
+          "evidence": "Conte et al., Algorithmica 84 (2022) 757–783; DOI:10.1007/s00453-021-00898-5",
+          "identifier_or_url": "https://arpi.unipi.it/handle/11568/1139265",
+          "material_read": "Accessible scholarly repository abstract and metadata only, not complete paper.",
+          "method": "Scholarly repository landing page",
+          "title": "Enumeration of Maximal Common Subsequences Between Two Strings",
+          "trigger": "General MCS characterization and enumeration."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol283-isaac2023/LIPIcs.ISAAC.2023.21/LIPIcs.ISAAC.2023.21.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-maximal-common-subsequences-collapse-to-longest-ones-for-reverse--0509ac1ee874"
+      ],
+      "rationale": "Maximal common subsequences differ materially from longest ones. This natural periodic-string family has a complete two-generator downward-language description and unbounded exact maximal-versus-longest gap; it is a useful algorithmic benchmark, not merely a filename or parameter renaming.",
+      "residual_risks": [
+        "Applications beyond the structured two-block family are unproved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any nonempty disjoint-alphabet words A,B and r,s>=1, unequal powers have the shorter source itself as the unique maximal common scattered subsequence; at r=s=k exactly the two incomparable overlap words B(AB)^(k-1) and A(BA)^(k-1) generate the entire common-subsequence downward language; length gap ||A|-|B||.",
+  "limitations": [
+    "No overlapping alphabets or cyclic alignment; counted distinct strings rather than embeddings.",
+    "108 independently computed finite cases; generality rests on proof."
+  ],
+  "schema_version": 1
+}
