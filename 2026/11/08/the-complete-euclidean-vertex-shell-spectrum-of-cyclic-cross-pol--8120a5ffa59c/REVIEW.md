@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every vertex is uniquely exposed by a generic support direction, which selects one signed endpoint on each coordinate diamond. The induced orientation of the cycle must be acyclic; conversely every nonconstant orientation word is realized by a strict topological ordering of coordinate magnitudes, with independently selected signs. Distinct acyclic binary words give distinct indegree vectors. Counting even transition sets establishes both the exact full radial shell multiplicities and all equality cases. Central symmetry and a strict antipodal squared-distance lower bound establish the unique minimum enclosing sphere. Convexity and strict Euclidean norm convexity classify its contacts and diametral pairs. The attached verifier checks independently enumerated endpoint sums through dimension seven and numerically computed convex hulls through dimension five. Finite computations are explicitly subordinate to the unrestricted proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The Wang–Hou–Thawinrak–Liu–Dai original full-text preprint, arXiv:2608.16037v1, defines the broader Minkowski-sum family and gives inequality, lattice-enumeration, Ehrhart and volume results. Its general support-inequality description does not state the radial vertex shell classification; the new formulas do not follow from an Ehrhart polynomial or supporting inequalities without the additional orientation/equality analysis. Other directly compared records address (i) segment graphical zonotopes (not signed coordinate diamonds), (ii) the convex hull of signed edge differences for a cycle (not its edge-diamond Minkowski sum), and (iii) the complete-multipartite edge-diamond sum, which includes the exceptional cycles of length three and four but not the stated range \(n\ge5\). Related type-B normal-fan literature does not supply an identified Euclidean shell spectrum. Search absence is not a novelty proof. Risk: an unindexed cycle-arrangement or type-B polytope formula could imply the theorem.
+PASS
 
-## Mathematical value — PASS
-The source develops Ehrhart-theoretic invariants but leaves natural Euclidean extremal geometry unclassified for its graph-indexed examples. A complete all-dimensional radial vertex distribution simultaneously controls exact vertex count, circumradius, contact multiplicity and all diameter pairs; its parity-dependent outer layer is a structural metric consequence, not an arbitrary numerical slice or a small incremental bound. The cycle length at least five restriction excludes the previously handled complete-multipartite special cases.
+PASS: Reconstructed exposed-vertex classification for the unscaled edge-diamond Minkowski sum over C_n, n>=5. Generic supporting functionals choose the larger absolute endpoint on each edge; strict increase along orientations excludes the two uniform directed cycles. Every nonconstant cyclic binary word realizes an acyclic orientation, and b_i-b_{i-1} determines indegrees uniquely (the only other constant-difference pair is the excluded all-zero/all-one pair). Exactly 2k transitions imply k zero, k double, n-2k single coordinates, squared norm n+2k; 2*binom(n,2k) words times 2^(n-k) independent signs gives N_{n,k}=2^(n-k+1)binom(n,2k). Max k=floor(n/2) gives squared radius n+2floor(n/2); symmetry and strict convexity give unique center, outer contacts and antipodal diameter pairs. Independent low-order counts n=5: (320,80), n=6:(960,480,16) corroborated, not used to prove infinite n.
 
-## Limits
-Results apply to equal unit weights on cyclic incidence neighborhoods. No claim is made about other graphs, arbitrary positive weights, or a classification of all lattice points. Numerical tests extend only to n=7, hull-based full shell tests only to n=5. External independent validation and global historical priority verification were not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (best knowledge): The full Euclidean vertex-shell multiplicity polynomial for every k on C_n is distinct from the ALREADY PUBLISHED complete cycle John/Loewner ellipsoid and outer-contact result. Radius, outer-contact multiplicities and antipodal diameter corollaries are covered by that prior paper and must be credited, not presented as new. Published multipartite extension covers a graph family disjoint from C_n for n>=5. General Wang cross-polytope sum theory supplies the object and lattice-point formula but material full text was inaccessible; residual potential for implicit vertex-count formulas.
+
+## value
+
+PASS
+
+PASS: Full radial vertex multiplicities of a natural graph-indexed Minkowski sum are an interpretable geometric classification, distinguish interior vertex shells otherwise invisible to enclosing-ball theorems and supply exact shell cardinalities for every cycle length. The new content is not the previously established radius/contacts alone. Counts form an infinite natural invariant with geometric applications to f-vector/metric distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,7 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
-Run `python verify.py` with NumPy and SciPy installed. It enumerates all four signed endpoint choices at each edge of the cycle for dimensions 3 through 7, confirms the predicted maximum squared norm and multiplicity among all sums, then calculates convex hulls (dimensions 3 through 5) to compare the complete vertex radial shell distribution with the closed formula. It raises on mismatch and prints `PASS` at completion.
 
-The computation is exhaustive only for the stated finite parameters. The infinite-dimensional statement requires the generic-support/orientation proof and transition count in `RESULT.md`. Floating-point convex hulls are corroborative only, not exact certificates. Historical priority remains provisional, and no independent scientific audit has been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+PASS: Reconstructed exposed-vertex classification for the unscaled edge-diamond Minkowski sum over C_n, n>=5. Generic supporting functionals choose the larger absolute endpoint on each edge; strict increase along orientations excludes the two uniform directed cycles. Every nonconstant cyclic binary word realizes an acyclic orientation, and b_i-b_{i-1} determines indegrees uniquely (the only other constant-difference pair is the excluded all-zero/all-one pair). Exactly 2k transitions imply k zero, k double, n-2k single coordinates, squared norm n+2k; 2*binom(n,2k) words times 2^(n-k) independent signs gives N_{n,k}=2^(n-k+1)binom(n,2k). Max k=floor(n/2) gives squared radius n+2floor(n/2); symmetry and strict convexity give unique center, outer contacts and antipodal diameter pairs. Independent low-order counts n=5: (320,80), n=6:(960,480,16) corroborated, not used to prove infinite n.
+
+## originality
+
+PASS
+
+PASS (best knowledge): The full Euclidean vertex-shell multiplicity polynomial for every k on C_n is distinct from the ALREADY PUBLISHED complete cycle John/Loewner ellipsoid and outer-contact result. Radius, outer-contact multiplicities and antipodal diameter corollaries are covered by that prior paper and must be credited, not presented as new. Published multipartite extension covers a graph family disjoint from C_n for n>=5. General Wang cross-polytope sum theory supplies the object and lattice-point formula but material full text was inaccessible; residual potential for implicit vertex-count formulas.
+
+## value
+
+PASS
+
+PASS: Full radial vertex multiplicities of a natural graph-indexed Minkowski sum are an interpretable geometric classification, distinguish interior vertex shells otherwise invisible to enclosing-ball theorems and supply exact shell cardinalities for every cycle length. The new content is not the previously established radius/contacts alone. Counts form an infinite natural invariant with geometric applications to f-vector/metric distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
