@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The analytical argument and its normalizations are given in `RESULT.md`. Run the local checker using `python verify_gaussian_norm.py` with Python 3.10+, SymPy 1.14+ and mpmath 1.3+. It checks symbolic Taylor and saddle identities and numerically integrates the exact defining Gaussian norm in 15 cases, at \(n=80,160,320\) for \(c=0.4,1,1.3,2,4\). The expected message begins `SUPEROSCILLATION_NORM_VERIFY_PASS 5 symbolic-identities=6`. The representative ratio at \(n=320\) is 0.999479837 for \(c=0.4\), 1.01283151 at \(c=1\), 1.01772685 for \(c=1.3\), 1.00170694 for \(c=2\), and 1.00002883 for \(c=4\).
+## correctness
 
-These finite checks are not a proof of asymptotic behavior, uniqueness, or originality. The entire \(n\)-parameter theorem follows analytically from dominated convergence and the two-saddle Laplace argument. No full parameter-uniform error bound has been established near \(c=1\). The cited source with arXiv ID 2306.03963 was accessible at the abstract level only; that limitation remains relevant to historical priority. Independent mathematical audit has not been performed.
+PASS
+
+From |cos theta+ia sin theta|^2=1+(a^2-1)sin^2 theta, rebuilt the exact Gaussian norm integral. For c<1 the e^{-(1-c)x^2} global majorant proves norm and TV limit. At c=1, x=n^{1/4}u yields quartic limit -u^4/2 and integrable upper bound; integral equals 2^{-3/4}Gamma(1/4)/sqrt(pi). For c>1, global comparison -y²+log(1+cy²) has precisely two maximizers ±sqrt((c-1)/c), I(c)=log c-1+1/c; independently expanded the O(1/n) exponent q(y)=-cy^4/[3(1+cy²)] giving claimed nontrivial prefactor and weak two-peak limit. All limits are for fixed c and do not imply uniform crossover.
+
+## originality
+
+PASS
+
+Exact finite Gaussian-windowed superoscillation norm identities are known, but inspected Fock and STFT papers use fixed oscillation parameter and do not derive a_n^2-1=cn three-regime sharp global norms, quartic critical law, finite exponential prefactor and intensity measure bifurcation. Best-of-knowledge originality with residual older general Laplace-asymptotic risk.
+
+## value
+
+PASS
+
+The natural global Gaussian Hilbert energy of an increasingly superoscillatory bandwidth-limited sequence has a sharp norm/measure transition and explicit critical constants. These resolve nontrivial changing-target asymptotics not mechanically implied by fixed-a finite-sum identities.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
