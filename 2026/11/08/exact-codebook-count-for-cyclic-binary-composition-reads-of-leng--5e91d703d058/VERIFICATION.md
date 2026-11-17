@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The closed finite sum in RESULT.md is derived from an exact all-length run classification; finite programs are checks rather than a proof by enumeration.
+## correctness
 
-Run `python3 code/formula_check.py` to check the sharp integer incidence intervals for run counts through eight and compute the sum through length 30. It prints `EDGE_INTERVAL_OK` and `FORMULA_CHECK_OK` on success.
+PASS
 
-Compile `code/direct_enum.cpp` with `c++ -std=c++17 -O3 -o direct_enum code/direct_enum.cpp`, then run `./direct_enum` to count the 14-coordinate array for every indexed binary word through length 20. The counts must match `data/counts_1_20.tsv` and the first 20 terms of the formula script.
+The cyclic Hamming-composition spectra for lengths k<=4 invert to seven run statistics (a,r,p,q,v0,v1,e). Counts T_{k,j} in assigned RESULT.md recover those by triangular equations even for n<4 with wrap. The V_r(m,u) cases correctly count feasible numbers of length-two runs; remaining run lengths can absorb arbitrary nonnegative excess. The singleton incidences form a 2r-cycle bipartition with p and q selected; induced edges attain sharp L and H bounds and integer intermediate values via adjacent transpositions changing incidence by at most one, with r=1 double-incidence separately. Thus summing V0*V1*(H-L+1) gives all distinct arrays without requiring counting rotational source necklaces. Independently exhaustively enumerated cyclic binary words for n<=12 against finite-sum values; first separation of <=3 and <=4 occurs n=8. Finite enumeration corroborates but does not establish the all-n theorem.
 
-Run `python3 code/threshold_check.py` to independently verify that length-four compositions do not refine shorter-read classes at lengths one through seven, but do refine them at length eight. It prints `SHARP_READ_THRESHOLD_OK` on success. The proof gives an explicit pair of witnesses for every length eight or more.
+## originality
 
-These executable tests do not independently certify historical priority, a complete literature search, or the unbounded theorem. The mathematical proof states the unrestricted steps separately. No independent scientific audit has been performed.
+PASS
+
+Earlier cyclic binary trigram composition-spectrum results are strictly weaker observations. Ordered 4-gram profiles count richer data than composition-only windows, and length-four run<=2 restrictions do not cover arbitrary binary rings. Published linear composition reconstruction and restricted-read codes are not an all-n exact codebook capacity for cyclic composition windows of lengths 1..4.
+
+## value
+
+PASS
+
+Exact maximal zero-error codebook cardinality for a natural cyclic composition-only observation is a motivated information-theoretic invariant; interval realization of singleton-run incidences gives a useful structural constructive result. The n=8 first strict improvement gives a sharp finite boundary; not a mere restatement of known full 4-gram profiles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
