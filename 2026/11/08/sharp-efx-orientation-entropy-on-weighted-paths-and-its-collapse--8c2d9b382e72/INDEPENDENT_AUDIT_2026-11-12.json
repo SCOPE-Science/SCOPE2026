@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T17:56:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed literal zero-inclusive EFX criterion: a two-incoming-edge sink 01 at internal vertex v_j requires outer incoming edges b_(j-2)=0,b_(j+1)=1 and comparisons w_(j-2)>=w_(j-1), w_(j+1)>=w_j. A word with no 01 is 1^a0^(m-a), giving universal lower m+1 and exact minimum for strictly increasing weights. For equal weights the allowed 0011-flanked 01 language has generating function 1/((1-z)^2-z^4), yielding U_m=sum_k binom(m-2k+1,2k+1) and asymptotic coefficient (1/2+1/sqrt5)*phi^m with bounded correction. Arbitrarily small strictly monotone perturbation collapses U_m to m+1. Independently compared literal pair/removal EFX with local condition on 55,986 weighted orientations; finite tests supplement the all-m run argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zeng–Mehta prove bipartite EFX orientation existence; Christodoulou et al graphical goods framework and existence/complexity; Deligkas et al EF1/EFX algorithmic complexity."
+        ],
+        "reasoning": "Existence in the superset of bipartite graphs does not imply number of solutions or the sharp min/max EFX orientation count under arbitrary positive path weights. Complexity results likewise do not imply enumeration.",
+        "searches": [
+          "EFX fair orientations symmetric weighted paths sharp counting binary forbidden 01 patterns exponential Fibonacci",
+          "arXiv:2404.13527",
+          "arXiv:2409.13616"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md blob 77da23c0e3aa0249d87a7c52c5c33a69abd6025c",
+        "Assigned verify.py blob 049354ce074ff5cc127e973dab8717d30bb1a562",
+        "Full Resultary 2026 Nov8 one-edge cycle theorem",
+        "Christodoulou et al 2023 author PDF sections 1-5",
+        "Zeng–Mehta arXiv:2404.13527",
+        "Deligkas et al arXiv:2409.13616",
+        "Resultary query EFX fair orientations symmetric weighted paths sharp counting binary forbidden 01 patterns exponential Fibonacci"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The cyclic theorem permits only one exceptional edge and retains exponentially many orientations; path theorem permits all weights and reaches polynomial m+1 minimum with coherent monotone perturbation. Their local run constraints do not directly entail the path upper envelope or extremal range."
+        ],
+        "reasoning": "The prior comparisons are graph- or parameter-distinct without a dominating theorem; the complete weighted path census and exponential entropy collapse remain original at best of knowledge.",
+        "searches": [
+          "EFX fair orientations symmetric weighted paths sharp counting binary forbidden 01 patterns exponential Fibonacci",
+          "arXiv:2404.13527",
+          "Resultary 2026/11/08/SCOPE-a-one-edge-perturbation-removes-a-fixed-fraction-of-fair-cycle-o--385079c4c473"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "EFX0 orientation is an allocation of each graph-edge good to an endpoint, with removal of ANY good even if valuer assigns it zero. Existing cycle theorem also reduces EFX0 to forbidden short runs but has cyclic boundary conditions, not path endpoints."
+        ],
+        "reasoning": "The closest binary-word equivalence has different graph topology and enumerator: cycles have Lucas/periodic counts with a one-edge disturbance, whereas paths have m+1 minima for monotone all-edge weights and a different rational path generating function.",
+        "searches": [
+          "EFX fair orientations symmetric weighted paths sharp counting binary forbidden 01 patterns exponential Fibonacci",
+          "arXiv:2404.13527",
+          "Resultary 2026/11/08/SCOPE-a-one-edge-perturbation-removes-a-fixed-fraction-of-fair-cycle-o--385079c4c473"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related exact cycle enumeration N_n(1)=L_n+2cos(n*pi/3) is genuinely a different exact count. No path EFX0 census table found in semantic searches; finite source enumeration through m=13 corroborates but is not exhaustive all m."
+        ],
+        "reasoning": "The upper sequence U_m is a natural count for this path fairness model, not a looked-up standard table credited as new; the regular-language method is elementary but the fairness interpretation and sharp weight sensitivity are distinct.",
+        "searches": [
+          "EFX fair orientations symmetric weighted paths sharp counting binary forbidden 01 patterns exponential Fibonacci",
+          "Resultary 2026/11/08/SCOPE-a-one-edge-perturbation-removes-a-fixed-fraction-of-fair-cycle-o--385079c4c473"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Existence in the superset of bipartite graphs does not imply number of solutions or the sharp min/max EFX orientation count under arbitrary positive path weights. Complexity results likewise do not imply enumeration. The prior comparisons are graph- or parameter-distinct without a dominating theorem; the complete weighted path census and exponential entropy collapse remain original at best of knowledge.",
+      "residual_risks": [
+        "The full multigraph and EFX structural literature has not been exhaustively inspected; a path-specialization tucked into an appendix is possible.",
+        "The count formula is an elementary regular-language calculation; value relies on the natural fairness model and sharp sensitivity phenomenon, not on novelty of rational-function enumeration."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Local criterion and run decomposition sound",
+          "evidence": "55,986 literal EFX weighted orientation states, source reports 397,362 more.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-efx-orientation-entropy-on-weighted-paths-and-its-collapse--8c2d9b382e72",
+          "material_read": "Entire RESULT.md, REVIEW.md and verify.py",
+          "method": "GitHub blob read and independently implemented all-pair-removals test",
+          "title": "Sharp EFX orientation entropy on weighted paths and its collapse under monotone perturbations",
+          "trigger": "Assigned claim"
+        },
+        {
+          "assessment": "Related but non-covering: simple cycles and one exceptional edge; path has open endpoints and unrestricted weights",
+          "evidence": "Cycle counts L_n+2cos(n*pi/3) and F_(n+1)+delta_n, not m+1..U_m weighted-path classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-one-edge-perturbation-removes-a-fixed-fraction-of-fair-cycle-o--385079c4c473",
+          "material_read": "Entire RESULT.md including local criterion, transfer matrix and exact cycle counts",
+          "method": "GitHub raw full text",
+          "title": "A one-edge perturbation removes a fixed fraction of fair cycle orientations",
+          "trigger": "Same zero-inclusive graphical EFX0, nearby topology"
+        },
+        {
+          "assessment": "Graphical fair allocation existence, algorithms and complexity; no exact arbitrary-weight path entropy theorem in inspected sections",
+          "evidence": "Graph model and zero-inclusive EFX predicate distinct from complete counting.",
+          "identifier_or_url": "https://www.cs.ox.ac.uk/people/elias.koutsoupias/Personal/Papers/fair-allocations-on-graphs.pdf",
+          "material_read": "Primary PDF sections 1–5 and relevant formal definitions, inspected as text with first-page screenshot",
+          "method": "Web PDF reading and screenshot",
+          "title": "Fair Allocation in Graphs / EFX Allocations on Graphs",
+          "trigger": "Originating graphical EFX model and existence question"
+        },
+        {
+          "assessment": "Existence in bipartite graphs not sufficient for counting; unread sections are a residual risk",
+          "evidence": "Zeng–Mehta 2024 structural existence result.",
+          "identifier_or_url": "https://arxiv.org/abs/2404.13527",
+          "material_read": "Abstract and reported Lemma 4.1, not whole primary text",
+          "method": "Primary abstract and cited theorem statement",
+          "title": "On the Structure of EFX Orientations on Graphs",
+          "trigger": "Bipartite orientability directly includes paths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Counting all fair solutions and their sharp sensitivity on the simplest path graph gives an exact, natural measure of fairness prevalence, beyond known existence results. An arbitrarily small coherent change in symmetric positive edge values induces a sharp exponential-to-linear collapse, a motivated structural instability rather than an arbitrary sequence count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md blob 77da23c0e3aa0249d87a7c52c5c33a69abd6025c",
+    "Assigned verify.py blob 049354ce074ff5cc127e973dab8717d30bb1a562",
+    "Full Resultary 2026 Nov8 one-edge cycle theorem",
+    "Christodoulou et al 2023 author PDF sections 1-5",
+    "Zeng–Mehta arXiv:2404.13527",
+    "Deligkas et al arXiv:2409.13616",
+    "Resultary query EFX fair orientations symmetric weighted paths sharp counting binary forbidden 01 patterns exponential Fibonacci"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The full multigraph and EFX structural literature has not been exhaustively inspected; a path-specialization tucked into an appendix is possible.",
+    "The count formula is an elementary regular-language calculation; value relies on the natural fairness model and sharp sensitivity phenomenon, not on novelty of rational-function enumeration."
+  ],
+  "schema_version": 1
+}
