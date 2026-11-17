@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T14:51:09.849822Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The first chosen winner and next chosen winner yield only two nonabsorbed branches (m,k) and (m-1,k+1), with weights (k-1)/m and k(m-k)/[m(k+1)] for k>=2, and then unbiased two-player ruin on 0..m+k. Boundary k=0 absorbs at time1; k=1 has first-step absorption 1/m; k=m omits second branch. Solving the discrete harmonic ruin PGF yields the claimed cosh formula and exact mean 2+k(m-2)+k^2/m for k>=2, E tau=m for k=1. For k/m->alpha>0 the Laplace transform converges to Brownian first-exit with generator (1/2)d²/dx². For sparse k=o(m), the killed sine series must control high negative eigenvalue modes as the proof explicitly does; dominated convergence yields Phi(t) and the mixture weights yield the m/k prefactor. Reflection principle plus half-line survival bound shows tau/(mk)->0 and Tonelli gives ∫Phi=1. Independent direct unreduced rational Markov simulation matched ruin-mixture survival for every m=2..6, k=0..m, t=0..10; finite checks are supplementary only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source proves general quadratic bounds and discusses first-two-round approximation; no full mixture, theta tail or inverse-mean typical collapse in the inspected mathematical text."
+        ],
+        "reasoning": "General expected-time order bounds do not imply all-time survival probabilities or a sparse-excess rare event profile. Broader source covers other initial distributions but not these stronger specific distributional conclusions.",
+        "searches": [
+          "simple sticky walk multiplayer war with m players initial one or two cards exact absorption time Brownian rare tail gambler ruin",
+          "simple sticky walk k two card m one card players exact tail first two rounds gambler ruin expectation rare diffusive 2026",
+          "arXiv:2409.05201v2 Section 3-5",
+          "arXiv:2302.03535"
+        ]
+      },
+      "checked_sources": [
+        "A. Adjei, N. Krishnan and E. Mossel, Multiplayer Games of War, arXiv:2409.05201v2 (2026), Remark 3.4 and Sections 2-5.",
+        "Bhatia et al., When Will (Game) Wars End? arXiv:2302.03535 (bibliographic comparison only)",
+        "Resultary search nearest full sticky-walk claim and related ruin records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Remark 3.4: two-round reduction and roughly m*o(m) expected time, with no scaled theta profile and no demonstration of non-uniform integrability."
+        ],
+        "reasoning": "First-two-round insight plus gambler ruin can be used as the main ingredient but requires full branching weights and a uniform spectral edge regime to prove the claimed complete law and rare long-tail asymptotics; latter not stated by prior source.",
+        "searches": [
+          "simple sticky walk multiplayer war with m players initial one or two cards exact absorption time Brownian rare tail gambler ruin",
+          "simple sticky walk k two card m one card players exact tail first two rounds gambler ruin expectation rare diffusive 2026",
+          "arXiv:2409.05201v2 Remark 3.4",
+          "arXiv:2302.03535"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A. Adjei, N. Krishnan and E. Mossel, Multiplayer Games of War, arXiv:2409.05201v2 (2026), Remark 3.4 and Sections 2-5. describes near-equal card counts and two-round heuristic."
+        ],
+        "reasoning": "Model identity was checked (uniform winner among active players, zero players removed). The prior qualitative ruin story is equivalent as an observation, but not a complete distributional or rare-event theorem.",
+        "searches": [
+          "simple sticky walk multiplayer war with m players initial one or two cards exact absorption time Brownian rare tail gambler ruin",
+          "simple sticky walk k two card m one card players exact tail first two rounds gambler ruin expectation rare diffusive 2026",
+          "arXiv:2409.05201v2 Remark 3.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Adjei–Krishnan–Mossel Table 1 contains Monte Carlo average durations for selected (m,n), not exact rational all-m,k tail or PGF."
+        ],
+        "reasoning": "A simulation table cannot imply an infinite explicit law; exact finite enumerations of other games do not match the initialization and absorption statistics.",
+        "searches": [
+          "simple sticky walk multiplayer war with m players initial one or two cards exact absorption time Brownian rare tail gambler ruin",
+          "simple sticky walk k two card m one card players exact tail first two rounds gambler ruin expectation rare diffusive 2026",
+          "arXiv:2409.05201v2 Table 1"
+        ]
+      },
+      "rationale": "Adjei–Krishnan–Mossel 2026 v2 Remark 3.4 already explains the qualitative first-two-round reduction near one card each and predicts the mk order at sparse excess. These ideas and classic gambler ruin are credited, not presented as new. Their relevant full text does not give the exact all-(m,k) finite law/PGF, positive-density Brownian exit transform, rare diffusive theta tail, or proof of collapse in probability despite mean growth.",
+      "residual_risks": [
+        "Undiscovered versions of sticky-walk absorption results or generalized ruin limits might cover the special tail despite no identified theorem.",
+        "The published two-round reduction and mk-order heuristic are already known and cannot be credited as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Mathematical argument and new finite checks support the stated limited domain.",
+          "evidence": [
+            "RESULT.md Steps 1-5 and verified tree a52e42223a60d1c27ab1389f5f81086161c59b6f."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-absorption-laws-and-rare-diffusive-tails-for-near-critical--58cdc0bc3c4a/RESULT.md",
+          "material_read": "Entire RESULT.md, all five proof steps, VERIFY/REVIEW/METADATA and independent checker source.",
+          "method": "Frozen Git tree and exact rational independent transitions",
+          "title": "Assigned simple sticky walk full finite-law theorem",
+          "trigger": "All-size finite law and rare-event scaling"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE: qualitative two-round ruin transition and sparse-excess mk heuristic are prior, but no exact finite distribution, theta rare tail, or mean/typical discrepancy.",
+          "evidence": [
+            "Remark 3.4 at lines 391-396 specifically starts m players with 1 or 2 cards and describes two rounds to gambler ruin; Table 1 simulation means."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2409.05201v2",
+          "material_read": "Entire public HTML full text including Sections 2-5, Remark 3.4, and Table 1.",
+          "method": "Open-access arXiv HTML",
+          "title": "Multiplayer Games of War (v2)",
+          "trigger": "Same simple sticky process and near-equal one/two card initialization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact hitting-time law resolves a concrete transition case raised in the motivating primary paper. Its sparse-excess mean mk is dominated by rare m²-scale trajectories even though the typical duration divided by mk converges to zero. The explicit theta-series rare tail and all-m,k finite law are useful natural invariants, not mere simulation improvements.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For m>=2 and 0<=k<=m, simple sticky walks started with k two-card and m-k one-card players have exact two-round-conditioned gambler-ruin mixture law for all finite absorption-time probabilities and generating functions; when 1<=k=o(m), E tau~mk yet tau/(mk)->0 in probability and (m/k)P(tau>floor(t*m^2))->Phi(t)=4 sum_{j>=0} exp(-((2j+1)^2 pi^2/2)*t) for each fixed t>0.",
+  "limitations": [
+    "Finite initial holdings exactly one or two, uniform current-active winner; all m>=2.",
+    "Brownian limit assumes k/m->alpha in (0,1]; sparse-tail limit holds only each t>0 with k=o(m).",
+    "Finite experiments are not an infinite proof; stronger inaccessible literature may exist."
+  ],
+  "schema_version": 1
+}

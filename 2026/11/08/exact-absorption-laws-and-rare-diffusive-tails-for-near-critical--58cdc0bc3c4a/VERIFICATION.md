@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify_sticky.py` in a Python 3 interpreter. No installation, network access or external data are needed. The code independently constructs and updates the original absorbing many-player Markov chain without applying the proposed first-two-round reduction, and derives finite-state rational transforms and expectations by Gaussian elimination. It then separately calculates the proposed gambler’s ruin mixture. The observed output was:
+## correctness
 
-```
-EXACT_CHECKS_OK 2205 survival m<=10, t<=32; pgf and mean m<=8
-```
+PASS
 
-The 2,205 assertions consist of every survival time \(0\le t\le32\) for all \(2\le m\le10\), \(0\le k\le m\), plus independent rational probability-generating-function checks at \(z=1/2\) and \(z=2/3\) and exact expected-duration checks for \(2\le m\le8\). They do not constitute an exhaustive check for unbounded \(m\) or a numerical verification of limits. General validity follows from the first-two-round conditioning proof, gambler's ruin recurrence, spectral diagonalization and uniform domination argument in `RESULT.md`.
+The first chosen winner and next chosen winner yield only two nonabsorbed branches (m,k) and (m-1,k+1), with weights (k-1)/m and k(m-k)/[m(k+1)] for k>=2, and then unbiased two-player ruin on 0..m+k. Boundary k=0 absorbs at time1; k=1 has first-step absorption 1/m; k=m omits second branch. Solving the discrete harmonic ruin PGF yields the claimed cosh formula and exact mean 2+k(m-2)+k^2/m for k>=2, E tau=m for k=1. For k/m->alpha>0 the Laplace transform converges to Brownian first-exit with generator (1/2)d²/dx². For sparse k=o(m), the killed sine series must control high negative eigenvalue modes as the proof explicitly does; dominated convergence yields Phi(t) and the mixture weights yield the m/k prefactor. Reflection principle plus half-line survival bound shows tau/(mk)->0 and Tonelli gives ∫Phi=1. Independent direct unreduced rational Markov simulation matched ruin-mixture survival for every m=2..6, k=0..m, t=0..10; finite checks are supplementary only.
 
-For the continuous-density limit, substitute \(z=e^{-s/m^2}\) into the proved exact generating function, and verify \(m\operatorname{arcosh}(e^{s/m^2})\to\sqrt{2s}\). For sparse excess, use the exact killed-chain sine expansion including eigenvalues near \(-1\), and retain the \(N/a\) entrance factor. The source's two-step idea is credited; the quantified laws and all quoted assumptions are explicit. No independent audit or formal proof-assistant certification has been performed.
+## originality
+
+PASS
+
+Adjei–Krishnan–Mossel 2026 v2 Remark 3.4 already explains the qualitative first-two-round reduction near one card each and predicts the mk order at sparse excess. These ideas and classic gambler ruin are credited, not presented as new. Their relevant full text does not give the exact all-(m,k) finite law/PGF, positive-density Brownian exit transform, rare diffusive theta tail, or proof of collapse in probability despite mean growth.
+
+## value
+
+PASS
+
+The exact hitting-time law resolves a concrete transition case raised in the motivating primary paper. Its sparse-excess mean mk is dominated by rare m²-scale trajectories even though the typical duration divided by mk converges to zero. The explicit theta-series rare tail and all-m,k finite law are useful natural invariants, not mere simulation improvements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

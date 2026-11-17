@@ -1,25 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is about the exact specific simple sticky walk of [1], not all generalized war models. Two first-step conditioning branches and their second-step continuations exhaust the state space; on the nonabsorbing outcomes exactly two active players remain and evolve as ordinary unbiased gambler’s ruin. The exact generating function solves the correct boundary-value equation and reproduces the exact expected-time formula, with the \(k=0\), \(k=1\), and \(k=m\) edge cases treated separately. The dense-excess limit follows by explicit Laplace-transform convergence with fixed Brownian diffusion normalization. The sparse-excess theta tail follows from the full killed-walk sine spectrum; negative eigenvalue modes are controlled, rather than dropped. An elementary reflection bound proves the collapse in probability despite the mean scaling. A completely independent, unreduced finite Markov-chain checker passed 2,205 exact-rational survival, transform and expectation comparisons. The infinite theorems rest on the mathematical proof, not on these tests.
+PASS
 
-## Originality — PASS, with residual priority risk
+The first chosen winner and next chosen winner yield only two nonabsorbed branches (m,k) and (m-1,k+1), with weights (k-1)/m and k(m-k)/[m(k+1)] for k>=2, and then unbiased two-player ruin on 0..m+k. Boundary k=0 absorbs at time1; k=1 has first-step absorption 1/m; k=m omits second branch. Solving the discrete harmonic ruin PGF yields the claimed cosh formula and exact mean 2+k(m-2)+k^2/m for k>=2, E tau=m for k=1. For k/m->alpha>0 the Laplace transform converges to Brownian first-exit with generator (1/2)d²/dx². For sparse k=o(m), the killed sine series must control high negative eigenvalue modes as the proof explicitly does; dominated convergence yields Phi(t) and the mixture weights yield the m/k prefactor. Reflection principle plus half-line survival bound shows tau/(mk)->0 and Tonelli gives ∫Phi=1. Independent direct unreduced rational Markov simulation matched ruin-mixture survival for every m=2..6, k=0..m, t=0..10; finite checks are supplementary only.
 
-The closest paper is Adjei–Krishnan–Mossel [1], which *already* supplies the model and the qualitative two-round gambler’s ruin argument in Remark 3.4, and predicts an \(mk\)-order duration when \(k=o(m)\). That overlap is substantive, explicitly credited and not presented as new. Its actual statements and relevant later-version full text do not state the exact full finite absorption law, the arbitrary positive-density Brownian scaling theorem, or the explicit sparse-excess \(m^2\)-tail theta profile that isolates rare-event domination. The classical two-player ruin law [2] is an ingredient, not the claimed novel result. Relevant mathematical-record queries and previous accessible claims yielded no identical or stronger implication. A complete priority guarantee is not available; related preprints or unpublished general hitting-time results may be overlooked.
+## originality
 
-## Value — PASS
+PASS
 
-The source explicitly highlights the transition between immediate absorption when the number of cards equals the number of players and quadratic duration at positive excess density. Exact first and second-round probabilities distinguish typical and mean duration and provide a complete law rather than an order estimate. The surprising \(\tau_{m,k}/(mk)\to0\) in probability together with \(\mathbb E\tau_{m,k}\sim mk\) and the explicit \(\Phi(t)\) identifies precisely how rare long paths control the expectation. The object and scaling are source-motivated, not arbitrary parameters added to a known formula.
+Adjei–Krishnan–Mossel 2026 v2 Remark 3.4 already explains the qualitative first-two-round reduction near one card each and predicts the mk order at sparse excess. These ideas and classic gambler ruin are credited, not presented as new. Their relevant full text does not give the exact all-(m,k) finite law/PGF, positive-density Brownian exit transform, rare diffusive theta tail, or proof of collapse in probability despite mean growth.
 
-## Scientific limitations
+## value
 
-Only uniform winner selection and one/two-card initial configurations are covered. The limiting theta profile concerns fixed positive diffusive times and not the full distribution on all scales; no uniform error rate is asserted. Historical priority still warrants independent expert literature checking.
+PASS
 
-## References
+The exact hitting-time law resolves a concrete transition case raised in the motivating primary paper. Its sparse-excess mean mk is dominated by rare m²-scale trajectories even though the typical duration divided by mk converges to zero. The explicit theta-series rare tail and all-m,k finite law are useful natural invariants, not mere simulation improvements.
 
-[1] Adjei, Krishnan and Mossel, *Multiplayer Games of War*, https://arxiv.org/abs/2409.05201 (first public version 2024-09-08; relevant updated complete text pp. 3–5, 13–14).
-
-[2] Bhatia, Chin, Mani and Mossel, *When Will (Game) Wars End?*, https://arxiv.org/abs/2302.03535.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
