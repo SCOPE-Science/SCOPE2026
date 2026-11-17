@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T11:01:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Strong next false at final position makes precisely n-1 monotone clauses (-r_i or d_i or d_{i+1}). A set of locks guarantees satisfaction iff it hits the set of true literals of every clause: if a clause has no locked true literal, its three atoms can consistently be flipped to make it false, because every occurrence of an atom has a consistent polarity. Minimal locks are exactly minimal transversals of the clause-edge hypergraph; minimal unlock sets permitting a failure are inclusion-minimal true-literal clause edges. Every full-edge vertex lies in some minimal transversal (private r witness or delivery with private other clauses), so deleting any true vertex strictly reduces count; the all-true-literal valuation uniquely maximizes modulo unused final r. For each delivery selection binary b_j, private request literals are precisely at 00 adjacent pairs; indispensability of delivery forbids 111 and endpoint 11. Four-state transfer gives Tribonacci 3,5,9..., all sizes floor(n/2)..n-1 and four largest-size explanations for n>=3; CXps are n-1 distinct three-element edges. Independently enumerated lock/transversal sets for small n and inspected verifier; analytic hypergraph proof is all-length.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General hitting-set duality and enumeration applies to arbitrary formulae but does not give this explicit maximum, uniqueness or size polynomial. Ferrère et al treat implication-based temporal diagnostics for different semantics."
+        ],
+        "reasoning": "General framework results are not an exact numerical theorem for a specified formula; the submitted extremal answer requires nontrivial hypergraph and transfer analysis.",
+        "searches": [
+          "Fionda Ielo Ricca 2026 arXiv:2610.35169 finite-trace explanations duality",
+          "Ferrère Maler Ničković 2015 Trace Diagnostics Using Temporal Implicants"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.35169v1 (accessible-level not full)",
+        "Ferrère Maler Ničković 2015 PDF",
+        "OEIS:A000213",
+        "Resultary finite-trace persistence profile",
+        "SCOPE2026 pinned RESULT.md/REVIEW.md/METADATA.json/AUDIT.json/verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fionda gives general AXp/CXp definitions and a constructed N AXp vs 2^N CXp case with growing formula/alphabet; the submitted example has fixed formula/alphabet and opposite exponential/linear rates, plus exact extrema. The persistence formula is a different truth condition."
+        ],
+        "reasoning": "No retrieved proved implication yields this fixed-formula extremal count or uniqueness. The hypergraph derivation supplies the missing statement; remaining priority risks acknowledged.",
+        "searches": [
+          "Fionda arxiv:2610.35169 explanation definitions and synthetic example",
+          "Ferrère 2015 original temporal implicants theorem/algorithm",
+          "Resultary 2026/11/8 exact persistence explanations comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The A_n scalar sequence equals shifted classical Tribonacci A000213; the temporal formula gives additional exact maximizing valuations, size generating polynomial and CXp separation, not just a sequence renaming."
+        ],
+        "reasoning": "Integer sequence coincidence is acknowledged; count as an exact fixed-formula explanation invariant rather than as a new recurrence. A combinatorial private-witness translation is an implementation of the proof and does not by itself demonstrate prior temporal-formula coverage.",
+        "searches": [
+          "Resultary query: abductive explanation temporal logic requests deliveries Tribonacci AXp CXp formula",
+          "OEIS A000213 Tribonacci numbers and standard ladder-hypergraph transversal enumerations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known Tribonacci entries match A_n but contain no AXp size polynomial or proof of precisely two maximizing compliant traces for this LTLf formula."
+        ],
+        "reasoning": "The sequence itself is known; novelty pertains to the natural logical realization and structural explanation count. Finite tables alone could not prove all n.",
+        "searches": [
+          "OEIS A000213 shifted recurrence 3,5,9,17",
+          "Resultary closest finite-trace persistence explanation profiles record"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Fionda–Ielo–Ricca 2026 studies LTLf AXp/CXp duality and a growing-formula opposite separation, but its inspected accessible theorem-level material does not state a *fixed* guarded response formula with exact optimal count, unique traces and full size polynomial. Ferrère–Maler–Ničković 2015 considers temporal implicants and diagnostics in another trace framework rather than this finite-trace sharp extremal question. OEIS A000213 catalogs the Tribonacci integer sequence but not these satisfying-trace explanations or uniqueness. Related prior minimal transversal combinatorics may give a shorter solution; exact temporal realization and sharp maximizers are not mechanically implied by general duality.",
+      "residual_risks": [
+        "Fionda full original PDF not accessed in this execution; best-of-knowledge priority risk remains.",
+        "Unindexed graph/hypergraph minimal-transversal theorem could encode the same numbers; sequence is not claimed novel.",
+        "CXp and AXp claims restricted to satisfying traces with strong-next nonfinal guard."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General definitions and one opposite separation do not establish fixed two-event sharp optimum by the inspected material.",
+          "evidence": "Fionda, Ielo and Ricca (2026); their constructed family grows with N and has exponentially many CXps.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.35169",
+          "material_read": "Accessible abstract, source-cited explanation definitions, published general hitting-set characterization, and comparison of N versus 2^N example; complete primary full text not accessed in this run.",
+          "method": "Accessible arXiv overview and theorem-level comparison; do not claim whole-PDF negative search.",
+          "title": "Formal Explanations for Linear Temporal Logic over Finite Traces",
+          "trigger": "Defines precisely the explanation notion and relevant separation."
+        },
+        {
+          "assessment": "Concerns temporal implicants and trace diagnostics, not a proof of the stated fixed-length sharp optimal AXp count.",
+          "evidence": "Ferrère, Maler, Ničković (2015): temporal implicant semantics and constructive diagnostics.",
+          "identifier_or_url": "https://thomasferrere.com/TraceDiagnosticsUsingTemporalImplicants.pdf",
+          "material_read": "Original 16-page PDF, introductory definitions, formal implicant construction and diagnostic discussion; PDF pages inspected visually.",
+          "method": "Primary PDF read with page-image inspection of selected sections.",
+          "title": "Trace Diagnostics using Temporal Implicants",
+          "trigger": "Potential equivalent older implicant characterization."
+        },
+        {
+          "assessment": "Matches scalar recurrence, not the logical realization or size-refined theorem.",
+          "evidence": "Known A000213 is not claimed novel.",
+          "identifier_or_url": "https://oeis.org/A000213",
+          "material_read": "Sequence identification and initial entries as given in public catalogue.",
+          "method": "Sequence/database comparison.",
+          "title": "OEIS A000213 Tribonacci numbers",
+          "trigger": "Exact numerical identity potential."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The single two-atom bounded-response requirement is natural in temporal monitoring and explanation. It demonstrates sharp exponential growth of minimal sufficient explanations on a single compliant trace versus linearly many minimal interventions, exposing a concrete explainability enumeration bottleneck without scaling the formula or alphabet. Complete finite-length count, precise maximizers and size distribution are useful standalone invariants; not falsely claiming discovery of Tribonacci numbers.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2610.35169v1 (accessible-level not full)",
+    "Ferrère Maler Ničković 2015 PDF",
+    "OEIS:A000213",
+    "Resultary finite-trace persistence profile",
+    "SCOPE2026 pinned RESULT.md/REVIEW.md/METADATA.json/AUDIT.json/verify.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For strong-next finite-trace formula G((X true and r)->(d or X d)) on a fixed 2-atom alphabet, length n>=2, the maximum number of subset-minimal satisfaction AXps is A2=3,A3=5,A4=9 and Tribonacci thereafter, uniquely attained by two traces: all deliveries true and all nonfinal requests false, final request arbitrary. The full AXp size polynomial is a binary-word transfer over words avoiding 111 and endpoint 11; CXps number at most n-1 and exactly n-1 three-literal clauses at the maximizers.",
+  "limitations": [
+    "Strong next and fixed n crucial; final r is irrelevant; excludes violation-side extremum and arbitrary formulas."
+  ],
+  "schema_version": 1
+}
