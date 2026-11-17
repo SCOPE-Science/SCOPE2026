@@ -1,19 +1,21 @@
-# Review of canonical-curve information loss and liftable symmetries
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS, within the explicitly stated inputs. The canonical curve is calculated from the weighted equations by identifying the residual sign in the weight-two chart and obtaining a degree-two cover of \(\mathbb P^1\) with six simple branch points. The complete branch stabilizer follows from the finite-subgroup classification of \(\operatorname{PGL}_2(\mathbb C)\), with explicit hexagonal and octahedral normalizations. Diagonal and exchange transformations exhibit 72 surface automorphisms, reaching the independently published upper bound. The kernel of restriction and complete moduli-fiber criterion follow. The exact mathematical proof, not the four numerical stabilizer counts, certifies the all-parameter assertions.
+PASS
 
-## Originality
+Restricting the two weighted sextics to x0=0 gives w²=(t³−r²)/(t³−1), hence genus-two hyperelliptic y²=(t³−1)(t³−r²). Six distinct branch points imply smooth genus 2. The S3 stabilizer of two rotated triangles has generic reduced order 6; regular hexagon s=−1 gives 12 and octahedral s²+52s+1=0 gives 24. Double lifts produce 12,24,48. The explicit 72-member surface subgroup and six-element diagonal restriction kernel yield image order 12, using published upper bound. Original surface classification identifies r~1/r; curve s~1/s; then u=v²−2. Independent symbolic identity and polynomial checks corroborate. Finite complex stabilizer samples alone do not prove the uniform classification.
 
-PASS with priority qualifications. The 2026 primary source establishes the automorphism-72 family, its equations and surface isomorphism criterion. Cardona--Quer provide the classical genus-two dihedral classification, so the genus-two statements in isolation are not treated as new. The claim here is the complete canonical-divisor map for the recent family, its two-to-one information loss, the six-element restriction kernel, and precisely located failures of lifting. Available source material and claim-level searches did not identify this combined statement. Full inspection of all older canonical-divisor literature was not possible; an implicit published corollary remains a material risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. On this naturally parametrized moduli curve, a distinguished geometric invariant (the unique canonical curve) fails to distinguish two distinct surfaces, and this failure is quantified by an explicit quadratic map with one finite critical point. The theorem simultaneously determines exactly which canonical-curve symmetries extend to the surface and where the failure jumps. These are structural properties of a geometrically distinguished family, not a free-standing recomputation of genus-two automorphism tables.
+The full 72-automorphism surface family and r~1/r classification are already in Duque Franco–Liendo–Montero. Genus-two D12/dihedral automorphism loci are classical. The tested combined surface-to-canonical-curve map, generic two-to-one information loss, and exact nonliftable automorphism indices do not appear in available summaries or searched published records. No full text of the principal 2026 primary source was accessible; thus PASS is explicitly qualified best of knowledge.
 
-## Limits and closest comparisons
+## value
 
-The surface classification input is Duque Franco--Liendo--Montero (2026); the genus-two automorphism theory input is Cardona--Quer (2002). The finding is not a classification of arbitrary \(K^2=p_g=1\) surfaces or of the Torelli map. A specialist literature and independent proof review remain desirable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural canonical-divisor invariant fails to separate distinct surfaces: u=v²−2 is an explicit non-Torelli map, and the exceptional index-two/index-four extension obstructions locate where new curve symmetries are not global surface symmetries. These are geometric structural facts, not an arbitrary parameter calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The accompanying `verify.py` uses only the Python 3 standard library. Running `python3 verify.py` prints `VERIFY_OK` if all assertions pass.
+# Independent mathematical audit
 
-The checker verifies coefficientwise identities for the exchange automorphism in rational samples, exact integer identities for the two values of the octahedral parameter, and the canonical-moduli polynomial identity. It reconstructs all 120 possible ordered-image triples for six branch points and, using a complex tolerance of \(10^{-7}\), counts respectively 6, 12, 24 and 24 reduced symmetries at four selected configurations. This enumeration is complete at those sampled inputs only, is numerical rather than a formal certificate for the algebraic numbers, and does not establish the all-parameter theorem.
+## correctness
 
-The all-parameter proof uses the hyperelliptic branch-set reduction, the finite-subgroup classification of \(\operatorname{PGL}_2(\mathbb C)\), and the published complete automorphism and isomorphism classification of the surface family. This verifier does not independently reprove that input or provide independent mathematical auditing.
+PASS
+
+Restricting the two weighted sextics to x0=0 gives w²=(t³−r²)/(t³−1), hence genus-two hyperelliptic y²=(t³−1)(t³−r²). Six distinct branch points imply smooth genus 2. The S3 stabilizer of two rotated triangles has generic reduced order 6; regular hexagon s=−1 gives 12 and octahedral s²+52s+1=0 gives 24. Double lifts produce 12,24,48. The explicit 72-member surface subgroup and six-element diagonal restriction kernel yield image order 12, using published upper bound. Original surface classification identifies r~1/r; curve s~1/s; then u=v²−2. Independent symbolic identity and polynomial checks corroborate. Finite complex stabilizer samples alone do not prove the uniform classification.
+
+## originality
+
+PASS
+
+The full 72-automorphism surface family and r~1/r classification are already in Duque Franco–Liendo–Montero. Genus-two D12/dihedral automorphism loci are classical. The tested combined surface-to-canonical-curve map, generic two-to-one information loss, and exact nonliftable automorphism indices do not appear in available summaries or searched published records. No full text of the principal 2026 primary source was accessible; thus PASS is explicitly qualified best of knowledge.
+
+## value
+
+PASS
+
+A natural canonical-divisor invariant fails to separate distinct surfaces: u=v²−2 is an explicit non-Torelli map, and the exceptional index-two/index-four extension obstructions locate where new curve symmetries are not global surface symmetries. These are geometric structural facts, not an arbitrary parameter calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
