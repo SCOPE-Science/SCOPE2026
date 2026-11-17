@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The stationary Poisson renewal decomposition gives the exact Gaussian covariance segment \(C(y)=Q+y(S-Q)\) with a Beta age weight. Direct matrix differentiation yields \(f'=-u^{\mathsf T}Bu\) and \(f''=2(Bu)^{\mathsf T}C^{-1}(Bu)\), proving strict convexity unless the rate is exactly flat. Standard one- and two-sided Laplace integrals give five explicit constants and the conditional reset-age limits, including both derivative-zero boundaries. The exact two-dimensional witness is verified algebraically, while the standalone checker independently evaluates 130 diagnostic assertions. Restrictions and uniformity limits are explicit.
+PASS
 
-## Originality: PASS (qualified)
+Poisson resets with rate r and scalar harmonic contraction give independent elapsed A~Exp(r), Y=exp(-2κA)~Beta(α,1), and exact stationary Gaussian mixture with covariance C(y)=Q+y(S-Q). For u=C^-1e the identities f′=-u^tBu, f″=2(Bu)^t C^-1(Bu) show strict convexity or globally flat BQ^-1e=0. Standard local changes y∼t^-2, t^-1, y-y*∼t^-1, 1-y∼t^-1,t^-2 reproduce the five exact Gamma/Gaussian prefactors and conditional age laws; no alternative minimizer. Checked Q=I,S=diag(4,1/4),e=(1,1)/sqrt2 exactly: y*=2/9, f=9/10 vs endpoints 1 and 17/8. Independent SciPy positive mixture quadratures for t=8,12,20 over interior ray agreed with sharp asymptotic within ratios 0.9791,0.9924,0.9972. These finite tests supplement, not prove, Laplace asymptotics.
 
-The closest complete primary source is Olsen (2023, arXiv:2310.04840, DOI:10.1103/PhysRevE.108.044120). Its Sections II–IV and conclusions give renewal equations and one-dimensional moment hierarchies, so that foundation is explicitly prior. Its statements do not supply the anisotropic point-density minimizer, the possibility of *intermediate* optimal reset ages, or the five power-law prefactors and conditional-age limits. Trajanovski et al. (2023, DOI:10.1103/PhysRevE.107.054129) concern OU resetting on comb constraints, while the 2026 viscoelastic resetting study (DOI:10.1088/1367-2630/ae868c) has an endpoint-dominated one-dimensional variance mixture. Closely related but unindexed multivariate Gaussian scale-mixture tail asymptotics could establish broader coverage, so publication priority is not asserted absolutely.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-A natural physical question not resolved by a stationary moment hierarchy is: which last-reset ages generate extremely unlikely *joint* observations? The answer has a genuinely multivariate interior-age regime impossible for monotone scalar conditional variances, plus sharp critical angular boundaries and different polynomial tail exponents. This determines both the rare-observation spatial decay and the inferred history of a particle; the \(Q=I_2\), \(S=\operatorname{diag}(4,1/4)\) witness gives a strict rate improvement over **both** endpoint Gaussian laws. These are structural classifications, not isolated numerical constants.
+Olsen 2023 establishes last-renewal framework and 1D harmonic moments, not the multivariate inverse-covariance ray minimizer and its five sharp regimes. One-dimensional projected tails maximize affine variance at an endpoint, whereas the submitted 2D joint density has an explicit strict interior minimizer, a different mathematical phenomenon. Generic Laplace methods are standard and not themselves new. No decisively covering source found; broader anisotropic Gaussian-mixture asymptotic literature could contain equivalent formulations.
 
-## Scope and uncertainty
+## value
 
-Only pointwise ray density under scalar harmonic relaxation and centered SPD Gaussian reset locations is proved. The formulas are not claimed uniform near angle thresholds or for arbitrary drift matrices, and no independent scientific audit has taken place. The analytical proof establishes the infinite-distance statements; finite numerical quadrature only diagnoses implementation and constants. Unindexed broader Gaussian-mixture results remain a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete fixed-direction boundary/interior classification with exact decay powers and reset-age conditional laws is a coherent natural exact asymptotic for multivariate rare fluctuations under Gaussian resetting. The strict interior-age example establishes a meaningful joint-versus-projection distinction not captured by averaged moments or scalar tail heuristics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
