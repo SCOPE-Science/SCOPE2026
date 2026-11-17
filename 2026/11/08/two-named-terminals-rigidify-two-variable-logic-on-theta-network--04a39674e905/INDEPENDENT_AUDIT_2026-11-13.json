@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T16:49:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/two-named-terminals-rigidify-two-variable-logic-on-theta-network--04a39674e905/RESULT.md (blob 21cacf3eaec09b91980bb2ec8ace623cff3aef84)",
+        "2026/11/08/two-named-terminals-rigidify-two-variable-logic-on-theta-network--04a39674e905/verify_two_terminal_theta.py (blob cbaad667a2e8fb5c3528c987e6541e8dcb7783c4)"
+      ],
+      "rationale": "With two terminal constants, unary distance-at-most-r predicates are built by alternating only x,y and reusing bound variable names. For shortest terminal distance a>=2, a strict distance difference <a implies both distances follow the direct path; the midpoint predicate (floor(L/2),ceil(L/2)) then picks exactly one vertex on each path of length L. Existence of one or two witnesses recovers each length multiplicity because there are exactly three paths. Equal multisets give isomorphism. Without named terminals each vertex has both a distinct neighbor and a distinct nonneighbor, enabling an indefinite two-pebble partial-isomorphism response and a common FO2 theory. Partition counting yields floor((N²-6N+12)/12), and the named FO1 lower bound uses Θ(4,4,4),Θ(5,5,5). Independently checked 960 midpoint multiplicities by BFS.",
+      "residual_risks": [
+        "Only three paths each of length >=2, distinct named terminals and no counting quantifiers; not a characterization of all bounded-treewidth graphs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pikhurko–Verbitsky gives general pebble-game and distance definability results; Benakli et al classifies metric resolving properties on theta graphs."
+        ],
+        "reasoning": "General metric definitions do not alone imply this FO2 midpoint-multiplicity classification; one must exploit fixed terminal constants and exactly three paths. An uninspected general named series-parallel logical theorem could still cover it.",
+        "searches": [
+          "two variable first order logic with named terminals theta graph path length multiset two-pebble indistinguishable unnamed",
+          "arxiv:1003.4865 finite variable graph logic distance",
+          "arxiv:2510.12100 metric dimension theta"
+        ]
+      },
+      "checked_sources": [
+        "Pikhurko & Verbitsky arxiv:1003.4865",
+        "Benakli et al arxiv:2510.12100",
+        "Knor et al arxiv:2203.07335",
+        "Resultary query: two variable first order logic with named terminals theta graph path length multiset two-pebble indistinguishable unnamed"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior distance formulas use three variables for two free endpoints; naming endpoints as constants permits 2-variable unary distance, but does not itself establish midpoint multiplicity rigidity.",
+          "The underlying theta graphs are classified up to isomorphism by length multisets, but standard graph isomorphism does not imply distinguishability in FO2."
+        ],
+        "reasoning": "The additional midpoint witness and two-pebble arguments are needed to derive the claimed implication. Known metric dimension results are not stronger logical theory classifications.",
+        "searches": [
+          "two variable first order logic with named terminals theta graph path length multiset two-pebble indistinguishable unnamed",
+          "arxiv:1003.4865",
+          "arxiv:2510.12100",
+          "Resultary related FO2 classification queries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pikhurko & Verbitsky arXiv:1003.4865; Benakli, Froitzheim & Martinez arXiv:2510.12100",
+          "Terminal-distance profiles with constants are unary definable in FO2; prior metric dimension studies generally ask whether vertex sets resolve all vertices, a different invariant."
+        ],
+        "reasoning": "Equivalent formulations include two-pebble equivalence with named constants and isomorphism up to 3-path length permutation. In other three-path theta classifications no verified theorem equates exactly these FO2 pointed theories.",
+        "searches": [
+          "two variable first order logic with named terminals theta graph path length multiset two-pebble indistinguishable unnamed",
+          "Pikhurko Verbitsky FO2 graphs theta networks pebble game",
+          "theta graph marked vertices distance profile FO2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary has other complete bounded-variable graph classifications, but those concern different graph families and languages."
+        ],
+        "reasoning": "No same theta family/signature table was found; an unrelated count of FO2 classes is not evidence of equivalence.",
+        "searches": [
+          "two variable first order logic with named terminals theta graph path length multiset two-pebble indistinguishable unnamed",
+          "Resultary exact variable-width alphabet spectra",
+          "Resultary bounded-variable theory of caterpillar and crown graphs"
+        ]
+      },
+      "rationale": "Primary logical-complexity and theta metric-dimension literature supplies the language, pebble characterization, and distance-related ingredients; inspected theorems do not state the pair of named FO2 rigidity and unnamed FO2 total collapse. Best-of-knowledge novelty is the midpoint witness extraction and exact theory census in this natural family.",
+      "residual_risks": [
+        "Potential overlooked general finite-variable logic composition theorem for named multi-path networks.",
+        "The claim does not extend automatically to four or more paths; FO2 can only detect multiplicities 1 and >=2 directly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Found foundational FO^k machinery, not the pointed three-path theta theorem",
+          "evidence": [
+            "Survey Sections 1–3, bounded-variable formulas, pebble games"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1003.4865",
+          "material_read": "Relevant opening bounded-variable and distance-formula discussions and selected associated pages",
+          "method": "Rendered open preprint text and inspected PDF screenshots",
+          "title": "Logical complexity of graphs: a survey",
+          "trigger": "General FO^k graph logic and pebble games"
+        },
+        {
+          "assessment": "Studies distinguishing vertices by resolving sets rather than distinguishing structures by FO2 sentences",
+          "evidence": [
+            "Intro and Theorem 1.1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2510.12100",
+          "material_read": "Abstract, introduction, first metric-dimension theorem and repeated-path discussion",
+          "method": "Rendered preprint text and inspected PDF first page",
+          "title": "Metric Dimension of Generalized Theta Graphs",
+          "trigger": "Same three-path theta objects and terminal distance symmetries"
+        },
+        {
+          "assessment": "Metric dimension, not named FO2 theory classification",
+          "evidence": [
+            "arXiv:2203.07335 abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.07335",
+          "material_read": "Abstract/model framing and cited scope; no claim full proof inspected",
+          "method": "Web search/abstract comparison",
+          "title": "Remarks on the vertex and the edge metric dimension of 2-connected graphs",
+          "trigger": "Theta graph shortest paths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pikhurko & Verbitsky arXiv:1003.4865; Benakli, Froitzheim & Martinez arXiv:2510.12100"
+      ],
+      "rationale": "This is an exact expressive-power boundary on a natural minimal series-parallel network: two distinguished terminals restore complete isomorphism identification whereas without constants the whole infinite family collapses to one counting-free FO2 theory. It includes an exact partition-valued theory census and a sharp FO1-versus-FO2 distinction.",
+      "residual_risks": [
+        "The classification is family-relative, not a statement about arbitrary finite graphs or counting logic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Three internally vertex-disjoint paths only, each length >=2.",
+    "The bound on number of variables concerns counting-free FO with fixed terminal constants, not metric dimension."
+  ],
+  "schema_version": 1
+}

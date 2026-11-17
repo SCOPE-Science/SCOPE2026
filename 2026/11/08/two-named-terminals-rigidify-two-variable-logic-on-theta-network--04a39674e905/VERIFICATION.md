@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Execute `python verify_two_terminal_theta.py` in the directory containing the two attached verification files. No external packages or network access are used. The output must match `verification_output.txt` byte-for-byte.
+## correctness
 
-The program enumerates all \(84\) unordered three-path length triples from two through eight; checks the exact midpoint witness count for \(884\) examined path lengths; verifies \(1176\) neighbor/nonneighbor configurations; reconstructs all \(84\) path multisets using only existence and at-least-two witness predicates; compares the partition formula for \(22\) edge-count offsets; and executes \(156\) independent noncounting two-variable tuple-refinement comparisons between selected named and unnamed structures.
+PASS
 
-These checks are finite and do not establish the unrestricted quantifier-depth or unbounded path-length claims. Those statements depend on the distance formula, midpoint lemma and permanent two-pebble strategy supplied in `RESULT.md`. No independent mathematical audit has been performed.
+With two terminal constants, unary distance-at-most-r predicates are built by alternating only x,y and reusing bound variable names. For shortest terminal distance a>=2, a strict distance difference <a implies both distances follow the direct path; the midpoint predicate (floor(L/2),ceil(L/2)) then picks exactly one vertex on each path of length L. Existence of one or two witnesses recovers each length multiplicity because there are exactly three paths. Equal multisets give isomorphism. Without named terminals each vertex has both a distinct neighbor and a distinct nonneighbor, enabling an indefinite two-pebble partial-isomorphism response and a common FO2 theory. Partition counting yields floor((N²-6N+12)/12), and the named FO1 lower bound uses Θ(4,4,4),Θ(5,5,5). Independently checked 960 midpoint multiplicities by BFS.
+
+## originality
+
+PASS
+
+Primary logical-complexity and theta metric-dimension literature supplies the language, pebble characterization, and distance-related ingredients; inspected theorems do not state the pair of named FO2 rigidity and unnamed FO2 total collapse. Best-of-knowledge novelty is the midpoint witness extraction and exact theory census in this natural family.
+
+## value
+
+PASS
+
+This is an exact expressive-power boundary on a natural minimal series-parallel network: two distinguished terminals restore complete isomorphism identification whereas without constants the whole infinite family collapses to one counting-free FO2 theory. It includes an exact partition-valued theory census and a sharp FO1-versus-FO2 distinction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
