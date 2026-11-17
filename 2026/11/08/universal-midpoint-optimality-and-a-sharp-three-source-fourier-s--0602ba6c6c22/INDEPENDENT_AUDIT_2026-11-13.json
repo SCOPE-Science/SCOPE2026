@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T17:51:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Taylor expansion in powers δ yields column moment vectors u_r and row node monomials v_r. The leading second exterior-power norm is δ sqrt(µ2) sqrt(6+2t²), while the third is δ³(1-t²)sqrt(µ2 Δ): the 1/2 quadratic Taylor factor cancels the Vandermonde determinant 2(1-t²). Largest singular value tends sqrt3, so the ratio gives the exact smallest-singular-value coefficient. Reflection symmetry removes odd moments, µ2>0 and Δ>0 avoid rank loss. For t>0, d(log f)/dt=-2t/(1-t²)-2t/(6+2t²)<0, giving unique midpoint. Independently constructed high-precision Fourier Gram matrices at t=0,.5 and δ=0.002 agreed to about 1e-7 relative error. This checks examples, not the asymptotic universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broader clustered-node count and geometry theorems give singular-value inequalities and orders, not exact all-apodization single-cluster leading constants."
+        ],
+        "reasoning": "A broader parameter class with two-sided estimates does not mathematically imply this equality and strict shape optimization as a prior exact result.",
+        "searches": [
+          "three source Fourier superresolution optimal midpoint smallest singular value symmetric frequencies",
+          "Batenkov Diederichs Goldman Yomdin arXiv:1909.01927 Theorem 2.3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1809.00658",
+        "https://arxiv.org/abs/1909.01927",
+        "https://doi.org/10.1007/s11075-020-00974-x",
+        "Resultary semantic search: three source Fourier superresolution optimal midpoint smallest singular value symmetric frequencies"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing rates imply σ_min=Θ(δ²) under comparable nondegeneracy but not the coefficient sqrtΔ(1-t²)/sqrt(6+2t²)."
+        ],
+        "reasoning": "Sharpening big-Theta to sharp equality and proving global optimizer needs the exterior-power determinant computation.",
+        "searches": [
+          "three source Fourier superresolution optimal midpoint smallest singular value symmetric frequencies",
+          "arXiv:1809.00658",
+          "arXiv:1909.01927"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Clustered Vandermonde matrix singular-value asymptotics and Prony-type conditioning share the matrix object; the assigned theorem extracts an exact three-node constant for every symmetric aperture."
+        ],
+        "reasoning": "Equivalent Vandermonde formulations establish rate equivalence but inspected bounds do not state the sharp coefficient nor optimizer.",
+        "searches": [
+          "three source Fourier superresolution optimal midpoint smallest singular value symmetric frequencies",
+          "Batenkov Demanet Goldman Yomdin arXiv:1809.00658"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two-node near-collision tables and classical equispaced prolate examples are different order/special subcases from three-node weighted midpoint optimization."
+        ],
+        "reasoning": "No prior exact three-node all-symmetric-aperture constant table identified; the integer-aperture polynomial is a special corollary rather than a novelty by itself.",
+        "searches": [
+          "three source Fourier superresolution optimal midpoint smallest singular value symmetric frequencies",
+          "Kunis Nagel pairs of nearly colliding nodes DOI:10.1007/s11075-020-00974-x"
+        ]
+      },
+      "rationale": "Batenkov–Demanet–Goldman–Yomdin (2018) and Batenkov–Diederichs–Goldman–Yomdin (2019) derive singular-value scaling orders and bounds for arbitrary clustered Vandermonde samples. Their inspected stated theorems do not give this reflection-symmetric weighted leading constant or universal unique midpoint optimization. Equispaced prolate special cases are not credited. Potential equivalent interpolation-formula literature remains risk.",
+      "residual_risks": [
+        "A general confluent Vandermonde or interpolation result could state the exact shape constant in equivalent notation.",
+        "Claims hold for fixed finite aperture and fixed t; do not establish finite-δ midpoint optimality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Scaling-level prior, not exact weighted midpoint coefficient",
+          "evidence": "General lower asymptotic rate under clustering, not this shape-optimal constant.",
+          "identifier_or_url": "https://arxiv.org/pdf/1809.00658",
+          "material_read": "Main theorem and scaling estimates in accessible PDF sections/pages",
+          "method": "PDF mathematical theorem reading",
+          "title": "Conditioning of partial nonuniform Fourier matrices with clustered nodes",
+          "trigger": "Same Fourier cluster conditioning"
+        },
+        {
+          "assessment": "No established exact all-weights coefficient in inspected theorem",
+          "evidence": "General cluster inequalities and decompositions with constants not evaluated as this universal formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/1909.01927",
+          "material_read": "Relevant main theorems 2.2/2.3 and scope from available PDF text",
+          "method": "Primary theorem comparison",
+          "title": "The spectral properties of Vandermonde matrices with clustered nodes",
+          "trigger": "Potential stronger general Vandermonde theorem"
+        },
+        {
+          "assessment": "Correctness reconstruction",
+          "evidence": "Second- and third-wedge asymptotics and strict derivative support theorem.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/universal-midpoint-optimality-and-a-sharp-three-source-fourier-s--0602ba6c6c22/RESULT.md",
+          "material_read": "Entire proof and normalization, limits",
+          "method": "Frozen GitHub blob reading",
+          "title": "Assigned three-source Fourier RESULT.md",
+          "trigger": "Final theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The weight-independent optimal placement and explicit conditioning constant address a motivated three-source measurement design question; exact constant sharpens existing mere δ²-order estimates across arbitrary finite apodization. Explicitly excludes nonlinear support recovery and variable-bandwidth limits.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a fixed finite reflection-symmetric positively weighted Fourier aperture with Δ=µ4-µ2²>0, the three-source cluster x=(-1,t,1) has σ_min(Aδ(t))/δ²→sqrt(Δ)(1-t²)/sqrt(6+2t²), uniquely maximized at midpoint t=0; the sharp leading condition number there is 3sqrt(2)/sqrt(Δ).",
+  "limitations": [
+    "Fixed positive symmetric aperture, Δ>0, fixed t ∈(-1,1); no joint bandwidth/separation scaling.",
+    "Linear complex-amplitude conditioning, not nonlinear location inference.",
+    "Frozen source file blobs inspected; connector cannot independently list complete source tree; no publication ready assertion."
+  ],
+  "schema_version": 1
+}
