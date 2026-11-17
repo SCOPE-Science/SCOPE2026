@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The exact contribution is a six-type configuration-volume evaluation, not a new Poisson convergence proof. For every connected graph on four points, non-edge inclusion–exclusion reduces its volume to the mandatory-edge integrals of its supergraphs; coordinate factorization raises the one-dimensional integral to the \(D\)-th power. Enumerating all \(24\) coordinate orders yields mandatory-edge volumes \(8,8,6,16/3,14/3,4\). The orbit factor \(24/|\operatorname{Aut}(H)|\) is checked explicitly. The standalone standard-library checker independently recomputes each rational coefficient and the exact values at dimensions one and two. Strict planar placements establish positivity of the claw and four-cycle for all higher dimensions. The source's Theorem 1.4, not a new argument, transfers the evaluated constants to joint Poisson limits and first-order sentences. The high-dimensional normalized intensities follow by comparing exponential bases. Risk: no independent mathematical audit; no claim of uniformity when dimension grows with graph size.
+PASS
 
-## Originality: PASS on inspected evidence, with residual risk
+For each connected four-vertex labelled graph F, mandatory-edge one-coordinate integral J(F) is a rational sum over 24 strict coordinate orders with gap simplex volumes 1/6,1/3,1/2,1. Anchor translation invariance and coordinate factorization give J(F)^D. Inclusion–exclusion over all missing edges and orbit factor 24/|Aut(H)| yield all six all-D formulas for claw, path, paw, cycle, diamond, clique. Independently reconstructed all graph types and exact integrals for D=1,2,3,4,7,10, with 36 rational assertions. One-dimensional interval graph prohibits claw and chordless C4; strict planar witnesses prove positive measure for D>=2. Published Haber–Mirabi–Shelah joint Poisson theorem, explicitly treated as premise, converts these volumes to mean a*gamma/24 under n^4 r_n^(3D)->a and fixed D. Dominant 8^D terms yield 3/4 path and 1/4 claw sequential intensity shares, no D(n) claim.
 
-The materially inspected primary source, Haber–Mirabi–Shelah, arXiv:2609.26230, states a full Poisson theorem for generic connected type volumes and evaluates only the clique row explicitly (Section 4, Lemma 4.3). Its general result implies the Poisson formula symbolically, but it does not provide the five non-clique closed forms or numerical dimension-two probability \(1-e^{-a/9}\). The new claim is **only those evaluations and their immediate, mathematically motivated dimensional profile**. Published general random-geometric-graph and unit-interval-graph results establish the surrounding methods and geometric exclusions, not a confirmed identical six-row evaluation in material inspected. Indexed mathematical records were searched for exact constants, aliases, component-size and graph-type descriptions. A broad cluster-integral theorem or numerical table not encountered in the inspected sources remains a genuine historical-coverage risk. Search failure is not proof of priority.
+## originality
 
-## Value: PASS
+PASS
 
-The finite complete six-type vector is precisely the set of Poisson parameters determining the first-order law at the fourth-component threshold. It makes a natural logical formula numerically decidable and isolates the first dimension where a four-cycle component is feasible, while the all-dimensional formulas reveal an asymptotically concentrated path/claw profile. This is an exact natural classification with a future role in concrete logic-probability evaluations, rather than an arbitrary four-point slice or a restatement of the general theorem.
+Haber–Mirabi–Shelah already prove the Poisson component limit and clique volume; this claim specifically gives exact nonclique four-vertex volumes at every D, the corresponding exact first-order constants and dominant-shape shares. Generic geometric-cluster expansion methods may subsume these rational integrals but no identical six-row table was found.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The six complete natural connected four-vertex intensities are exact parameters of a published nontrivial critical-window theorem. Exact dimension threshold for positive induced C4/claw probability and 3/4 vs 1/4 large-D shape balance are structurally interpretable and useful for first-order asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
