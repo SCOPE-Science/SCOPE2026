@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification procedure
+# Independent mathematical audit
 
-Execute `python verify.py` (Python 3 standard library only). All calculations use exact rational fractions, not floating-point tolerances. The checker computes factorial moments, recovers the entire residual-component distribution by inversion, and tests positivity, normalization and factorial-moment reconstruction at every size \(3\le n\le13\). For \(3\le n\le6\) it **independently** enumerates every simple-edge state reachable in the uniform-new-edge graph process and compares both the residual distribution and full expected label-recovery count against the formulas. Repeated pair draws are explicitly included in the direct expected-time first-step equation, with geometric waiting until a new edge. The recorded run passed 79 assertions.
+## correctness
 
-Selected exact outputs: at \(n=3\), \(\mathbb E Q_n=5/2\); at \(n=4\), \(\Pr(Y_n=2)=1/5\) and \(\mathbb E Q_n=41/10\); at \(n=5\), \(\Pr(Y_n=1)=11/42\) and \(\mathbb E(Q_n-T_n)=55/126\); at \(n=6\), \(\mathbb E(Q_n-T_n)=3425/8008\).
+PASS
 
-**Scope:** This is exact finite verification for the displayed test sizes; there is no infinite-size computational certification. The mathematical proof in `RESULT.md` verifies the quantifiers and general formulas for every integer \(n\ge3\). The code does not download external material or require any unpublished data.
+The first appearances of distinct uniform sampled edges form a random permutation equivalent to independent exponential first-ring clocks. An ordered r-tuple of vertex-disjoint proposed size-two components survives until the last vertex is covered precisely when its own matching-edge completion time and complement coverage time both precede the first forbidden edge. Integrating b exp(−bt)(1−exp(−t))^r against inclusion-exclusion complement coverage produces the finite A_r factorial moments. Finite falling-factorial inversion yields p_y. Conditional on r remaining disjoint edges after coverage, 2r(n−r−1) eligible edges eliminate one/two components and the probability of a two-at-once elimination is (r−1)/(n−r−1); the h_r recurrence and E(Q−T)=Σp_yh_y follow. Ordinary inclusion-exclusion gives E T. Independent exact rational stopping-graph enumeration reproduced the full distributions for n=3,4,5,6, including p2(n=4)=1/5 and extra mean 3/10, with no graph-state Markov assumptions in the derivation. All n≥3 proof is the stated independent-clock and inclusion-exclusion argument, not finite extrapolation.
+
+## originality
+
+PASS
+
+The 2025 foundational Type-II Labeled Coupon Collector full text gives a graph/separation-class Markov chain and expected values for n=3..6, including E Q_II(4,2)=41/10, which are prior and receive no credit. Other 2025 papers treat random sample sizes, partial recovery or asymptotic upper bounds on isolated pairs. None of the inspected sources computes the all-n exact distribution of Y_n at the **random first full-coverage stopping graph** by a matching factorial-moment formula or the resulting closed binomial-rational all-n expectation avoiding state equations. Searches uncovered no stronger covering theorem. Best-of-knowledge historical priority qualified.
+
+## value
+
+PASS
+
+The random-coverage residual number of two-vertex components is a natural graph-process state variable that completely determines Type-II postcoverage ambiguity. Its exact all-n distribution and explicit binomial-rational mean allow direct symbolic evaluation without state-space Markov inversion, addressing a natural exact enumeration missing from foundational papers. This is a useful uniform finite-size invariant even without new asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
