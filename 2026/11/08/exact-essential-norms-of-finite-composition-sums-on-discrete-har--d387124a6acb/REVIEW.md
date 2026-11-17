@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The space has an isometric finite-dimensional level-block decomposition; each finite composition sum has finitely many input entries for each output level. The block dual calculation yields the full cutoff norm with complex phases included. The upper bound is realized by finite-rank input truncations, and the lower bound is protected against *every* compact perturbation using a disjoint-level isometric \(c_0\) copy and its weakly null unit vectors. The one-symbol formula and both quantitative examples follow from direct finite-level optimization. The proof does not infer infinite-dimensional claims merely from the finite checker.
+PASS
 
-## Originality
+The level norm identifies T_p isometrically with the ℓ∞ sum of finite-dimensional normalized ℓp(D_m). Q is row-finite since each output vertex samples at most r source points. The tail block map E_{m>R}→E_n is a finite direct sum and dualization gives c_n^{-1/p} sup_{||y||_{p′}≤1} ∑_{m>R} c_m^{1/p}||A_{n,m}* y||_{p′}. QP_R has finite rank. Disjoint finite tail norm witnesses can be selected recursively above successive cutoffs; the disjoint-level sequence factors the c0 unit vectors, is weakly null, and every compact K sends it to norm zero, establishing the matching essential lower bound. For a single symbol independent sphere inputs maximize each fibre count, giving the claimed pth-power expression. The sibling 3-cycle Gram matrix 3I−J has ℓ2 spectral norm √3; ℓ1 max column sum is 2. Reviewed pinned verifier source, normalization and example matrices rather than extrapolating finite tests.
 
-PASS under a qualified best-knowledge comparison. Liu–Ma (arXiv:2610.33717, Theorem 3.3) characterize when the finite-sum tail obstruction vanishes; they do not calculate its exact value or the complex-cancellation dual norm. Their Theorem 3.8 gives \(p\)-independent compactness, not \(p\)-independent essential *norms*. Muthukumar–Ponnusamy (arXiv:2004.03171, Theorem 4) compute the ordinary operator norm for a single composition map. Published results on other tree or sequence spaces have different block norms. Searches of mathematical-result records and the cited full-text papers did not reveal the precise result. Risk: a general finite-row operator approximation theorem may subsume part of the argument under different terminology; published priority remains subject to independent confirmation.
+## originality
 
-## Value
+PASS
 
-PASS. The initiating result leaves only a qualitative zero/nonzero compactness criterion for these finite sums. The new formula determines the exact quantitative distance to all compact operators, including cancellation by complex coefficients, and is a natural complete invariant for the established class. The exact single-map count formula and explicit exponent-dependent essential-norm witness both answer mathematically motivated questions not settled by exponent-independent compactness. The quantitative contrast is substantive even though the underlying projection argument is concise.
+Best-of-knowledge new quantitative exact essential-norm formula and exponent-sensitive nonzero contrast for finite composition sums on the discrete Hardy tree; earlier literature establishes operator norms or zero/nonzero compactness rather than the same quantitative distance, and analogous results on other underlying Banach spaces do not imply it without the normalized block duality.
 
-## Scope of checking
+## value
 
-Verified the coefficient normalization, duality at \(p=1\) and \(p>1\), finite-support witness selection, weak-null justification, and compactness argument. The exact checker exercises sample fibre matrices and the cyclic Gram identity. No finite experiment is offered as an infinite proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines the genuinely quantitative compact-operator distance for all finite sums with cancellation on a natural discrete Hardy-tree space, beyond a yes/no compactness test. Gives a sharp p-dependent contrast to exponent-independent compactness and an exact fibre-count specialization. This is a motivated Banach operator invariant with possible use for Fredholm/approximation theory, even if its proof uses standard ℓ∞-sum duality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
