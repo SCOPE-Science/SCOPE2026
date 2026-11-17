@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-The analytical proof in `RESULT.md` establishes the limit. The standalone `thin_shell_check.py` generates the shell exactly from the product of cone measure on the boundary and the radial density proportional to the scale factor. It detects failure of convex position by an oriented-cross-product test for inclusion of a point in another three-point triangle.
+# Independent mathematical audit
 
-The checker uses exact rational arithmetic for the angular polynomial integral, confirming the coefficients \(1,3,963/8,20\) in the mean of \((1+\varepsilon\cos3\theta)^4(1-8\varepsilon\cos3\theta)^2\). With 900,000 independent four-point samples per tested configuration, the observed ratios \((1-Q)/(\delta\log(1/\delta))\) were:
+## correctness
 
-| Shape | \(\delta=0.02\) | \(\delta=0.005\) | \(\delta=0.001\) | Exact asymptotic coefficient |
-| --- | ---: | ---: | ---: | ---: |
-| Disk | 0.254742 | 0.240538 | 0.233232 | 0.202642 |
-| Threefold support, \(\varepsilon=0.10\) | 0.278131 | 0.264948 | 0.256555 | 0.238676 |
+PASS
 
-These are diagnostics, **not** a numerical proof of convergence: the logarithmic approach is slow and binomial sampling error is nonzero. The sign of the coefficient and its shape dependence are also established analytically. Independent review remains unperformed.
+Homothetic sampling disintegrates exactly into cone density h/(2A) on boundary arclength and independent radial factor lambda. Nonconvexity of four generic samples means one contained point; the near-neighbor signed turn has expansion kappa uv(u+v)/2 minus delta h(u+v) times the weighted depth difference. Only two adjacent small-gap sectors produce log scale, since uv=O(delta); the kernel integral equals (2h/kappa)/6 using E[(U0-U1)_+]=1/6. Multiplying 4 choices and six neighbor orderings gives A^-3 integral h^4/kappa ds. The source separates macroscopic gap and fourth-point-close contributions; its multiscale bounds are qualitative (no explicit effective remainder). Independent symbolic integration confirmed exactly 1+3epsilon²+963epsilon⁴/8+20epsilon⁶ for the support perturbation and disk coefficient 2/pi².
+
+## originality
+
+PASS
+
+The inspected published convex-position studies sample within a convex body or from its boundary, not from a shrinking nonconvex homothetic shell with the given delta-log coefficient. The nearest shell-avoidance theorem asks whether the entire convex hull avoids the inner homothet, a different event; its smooth-body zero limit does not supply this fixed-four-point rate. Relevant 1991 original full text remains inaccessible (VPN), with explicit priority risk.
+
+## value
+
+PASS
+
+The nonanalytic boundary-layer defect and curvature/support affine-invariant coefficient connect a classical probabilistic geometry question to smooth centro-affine shape; the ellipse constant and nonelliptic perturbation distinguish meaningful shapes. This is a natural geometric limit across all positively curved smooth bodies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
