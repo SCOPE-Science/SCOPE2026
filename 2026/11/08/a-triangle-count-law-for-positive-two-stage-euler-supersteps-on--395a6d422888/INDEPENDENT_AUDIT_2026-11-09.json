@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T18:52:23Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Directly reconstructed P=(I-h2L)(I-h1L)=I-(s/d)L+(q/d^2)L^2, with s=dh1+dh2,q=(dh1)(dh2). Since (A^2)_ii=d, edge entries (A^2)_ij=c_ij and off-edge entries nonnegative, diagonal positivity exactly 1-s+(1+1/d)q>=0 and worst-edge condition exactly s>=(2-t/d)q. For noncomplete connected regular graph, t<=d-2, combine q<=(s/(2-t/d)) and q>=(s-1)/(1+1/d) for s>1 to get sharp s*=(2d-t)/(d-1-t). Equal stages x=y for 0<s<=4/(2-t/d), then q=s/(2-t/d) and positive roots for larger s, attain all totals. At s*, both constraints tight; q*=d/(d-1-t), discriminant (t^2+4d)/(d-1-t)^2>0 yields unique unordered positive stages and extremal stochastic P*=(A²-tA-dI)/(d(d-1-t)). On K_(d+1), h2=1/(d+1) projects onto constants regardless of h1, proving unbounded time. Independent exact rational identities verified for d,t=(2,0),(3,0),(4,1),(4,2),(6,2),(8,0); checked that provided verification program forms matrices correctly. Finite graph tests are supporting only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://doi.org/10.1137/S003614450036757X",
+          "Resultary: Sharp Radau IIA positivity cutoffs on finite paths and cycles"
+        ],
+        "reasoning": "Known generic SSP coefficients bound all-generator/stagewise positivity, but no retrieved theorem dominates exact graph-dependent maximal time with potentially negative intermediate step. Radau IIA/pade methods have different rational update polynomials.",
+        "searches": [
+          "Resultary: two stage Euler nonnegative endpoint graph heat sharp regular triangle count",
+          "Gottlieb Shu Tadmor strong stability preserving method graph Laplacian"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1002/(SICI)1099-0887(199601)12:1%3C31::AID-CNM950%3E3.0.CO;2-5",
+        "https://doi.org/10.1137/S003614450036757X",
+        "https://doi.org/10.1111/j.1365-2966.2012.20744.x",
+        "https://arxiv.org/abs/1502.03496",
+        "Resultary semantic searches graph diffusion positivity/Euler/Radau IIA"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://doi.org/10.1002/(SICI)1099-0887(199601)12:1%3C31::AID-CNM950%3E3.0.CO;2-5",
+          "https://doi.org/10.1137/S003614450036757X",
+          "https://doi.org/10.1111/j.1365-2966.2012.20744.x"
+        ],
+        "reasoning": "A Chebyshev or Legendre optimal spectral stability time does not imply entrywise positive matrix, while an SSP stagewise restriction is sufficient but can be arbitrarily conservative here (complete-graph projection). Current exact entry test and optimization add a distinct graph-combinatorial implication.",
+        "searches": [
+          "Alexiades 1996 super-time-stepping two stage Chebyshev factors",
+          "Gottlieb Shu Tadmor SSP 2001 sufficient stage convex positivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://doi.org/10.1002/(SICI)1099-0887(199601)12:1%3C31::AID-CNM950%3E3.0.CO;2-5",
+          "https://doi.org/10.1137/S003614450036757X",
+          "Resultary: Radau IIA positivity windows and Taylor-Runge-Kutta graph diffusion"
+        ],
+        "reasoning": "Stagewise SSP asks whether each stage preserves positive states, whereas current definition only constrains product of two Euler factors. Stability on eigenvalue interval concerns spectral radius, not entrywise nonnegativity; those notions cannot be substituted.",
+        "searches": [
+          "Resultary: regular graph two stage Euler endpoint positivity super time stepping minimum common neighbors triangle count maximal step",
+          "Search Chebyshev supertimestepping positivity of Euler factorizations"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://doi.org/10.1111/j.1365-2966.2012.20744.x",
+          "Assigned analytic extremal stochastic kernel and verification script"
+        ],
+        "reasoning": "Resultary numerical positivity tables concern Radau IIA/Legendre/Taylor updates, not the exact signed kernel (A^2-tA-dI)/(d(d-1-t)) or universal sharp t-law. No prior identical database lookup was identified.",
+        "searches": [
+          "Resultary graph heat positivity edge triangle count t Euler 2 stages",
+          "Meyer Balsara Aslam positivity STS"
+        ]
+      },
+      "rationale": "The endpoint property is not stagewise strong-stability-preserving positivity or Chebyshev scalar spectral stability. Alexiades--Amiez--Gremaud established multi-Euler supertimestepping; Gottlieb--Shu--Tadmor established stagewise SSP sufficient conditions. Neither inspected statement supplies an exact nonnegative final kernel depending only on min triangles per edge or the universal regular-graph sharp maximum. Resultary found numerous Radau IIA, Gauss--Legendre and RK positivity thresholds for graph families, but not this factored two-Euler endpoint condition. Specialist Legendre STS full text remained inaccessible; best-of-knowledge priority retains explicit risk.",
+      "residual_risks": [
+        "Full specialist Legendre supertimestepping paper not accessible due to authorized VPN disconnection; potential overlapping graph-positivity results not excluded.",
+        "No claim that large endpoint-positive step accurately approximates heat dynamics or that an individual intermediate Euler stage is positive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior proves supertimestepping concept, not retrieved exact min-edge-triangle endpoint positivity theorem",
+          "evidence": "Alexiades–Amiez–Gremaud 1996, Section 2 discussion as cited",
+          "identifier_or_url": "https://doi.org/10.1002/(SICI)1099-0887(199601)12:1%3C31::AID-CNM950%3E3.0.CO;2-5",
+          "material_read": "Bibliographic data and method description including multi-stage Euler acceleration; full text not represented as read",
+          "method": "Author-hosted OA and DOI search",
+          "title": "Super-time-stepping acceleration of explicit schemes for parabolic problems",
+          "trigger": "Original factored-Euler STS predecessor"
+        },
+        {
+          "assessment": "SSP sufficient positivity at each stage does not imply necessity for a positive endpoint with overlarge internal steps",
+          "evidence": "Gottlieb–Shu–Tadmor 2001, SIAM Review 43",
+          "identifier_or_url": "https://doi.org/10.1137/S003614450036757X",
+          "material_read": "Abstract and cited SSP sufficient framework; full paper not represented as read",
+          "method": "OA metadata and abstract search",
+          "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+          "trigger": "Potential stagewise positivity theorem"
+        },
+        {
+          "assessment": "Related Legendre-based multistage integrator but full-text coverage not ruled out; explicit priority risk retained",
+          "evidence": "Meyer–Balsara–Aslam 2012, MNRAS 422",
+          "identifier_or_url": "https://doi.org/10.1111/j.1365-2966.2012.20744.x",
+          "material_read": "Abstract and bibliographic citation; not full content",
+          "method": "Open/arXiv lookup, then authorized Oxford returned vpn_disconnected job b91e3d83c84404b63b17536886eb856c",
+          "title": "A second-order accurate Super TimeStepping formulation for anisotropic thermal conduction",
+          "trigger": "Specialist high-order STS positivity comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact graph-local triangle invariant t classifies endpoint order preservation and determines the largest practical two-stage positivity-preserving block, including an explicit stochastic/nonbacktracking kernel and unexpected arbitrary long intermediate violation on cliques. It is a natural sharp theorem connecting graph triangles and positivity of numerical diffusion; it carefully excludes accuracy and internal-stage guarantees.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1002/(SICI)1099-0887(199601)12:1%3C31::AID-CNM950%3E3.0.CO;2-5",
+    "https://doi.org/10.1137/S003614450036757X",
+    "https://doi.org/10.1111/j.1365-2966.2012.20744.x",
+    "https://arxiv.org/abs/1502.03496",
+    "Resultary semantic searches graph diffusion positivity/Euler/Radau IIA"
+  ],
+  "disposition": "passed",
+  "final_claim": "For two nonnegative forward Euler substeps on each connected simple d-regular graph, endpoint matrix positivity iff the diagonal and worst-edge inequalities using min common-edge-neighbor t hold; for noncomplete graphs maximal normalized total time is (2d-t)/(d-1-t), with unique unordered optimal stages and stochastic extremal kernel (A^2-t A-d I)/[d(d-1-t)]; complete graphs have unbounded total time.",
+  "limitations": "Unweighted connected simple undirected regular graphs; two nonnegative Euler substeps and endpoint only, no variable generator, accuracy or stagewise monotonicity.",
+  "residual_risks": [
+    "Full specialist Legendre supertimestepping paper not accessible due to authorized VPN disconnection; potential overlapping graph-positivity results not excluded.",
+    "No claim that large endpoint-positive step accurately approximates heat dynamics or that an individual intermediate Euler stage is positive."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Review of the sharp two-stage Euler graph-positivity theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For a fixed finite connected unweighted regular graph, the exact diagonal, edge and nonedge entries of the quadratic Euler polynomial are reconstructed from \(L=dI-A\). The minimum edge common-neighbor count is the only active edge constraint. For noncomplete graphs, the diagonal and edge inequalities imply an exact finite upper bound on normalized cumulative time. Explicit feasible positive substeps cover every total below the bound; simultaneous equality at the bound proves uniqueness up to order. The extremal matrix is nonnegative and stochastic entry by entry. Complete graphs are handled by a separate rank-one projection, and the scalar-discriminant boundaries are verified. The exact-arithmetic standalone checker tested 173 connected labeled regular graph cases and 8,304 rational step pairs; this is supplementary, not an infinite proof.
+PASS
 
-## Originality
+Directly reconstructed P=(I-h2L)(I-h1L)=I-(s/d)L+(q/d^2)L^2, with s=dh1+dh2,q=(dh1)(dh2). Since (A^2)_ii=d, edge entries (A^2)_ij=c_ij and off-edge entries nonnegative, diagonal positivity exactly 1-s+(1+1/d)q>=0 and worst-edge condition exactly s>=(2-t/d)q. For noncomplete connected regular graph, t<=d-2, combine q<=(s/(2-t/d)) and q>=(s-1)/(1+1/d) for s>1 to get sharp s*=(2d-t)/(d-1-t). Equal stages x=y for 0<s<=4/(2-t/d), then q=s/(2-t/d) and positive roots for larger s, attain all totals. At s*, both constraints tight; q*=d/(d-1-t), discriminant (t^2+4d)/(d-1-t)^2>0 yields unique unordered positive stages and extremal stochastic P*=(A²-tA-dI)/(d(d-1-t)). On K_(d+1), h2=1/(d+1) projects onto constants regardless of h1, proving unbounded time. Independent exact rational identities verified for d,t=(2,0),(3,0),(4,1),(4,2),(6,2),(8,0); checked that provided verification program forms matrices correctly. Finite graph tests are supporting only.
 
-**PASS on inspected material, with publication-priority risk.** The closest direct antecedent is Alexiades–Amiez–Gremaud (1996): it uses the *same product of Euler factors* but optimizes spectral stability via Chebyshev arguments. That does not assert endpoint entrywise positivity or identify the minimum-edge-triangle invariant and the sharp stochastic kernel. Gottlieb–Shu–Tadmor (2001) give sufficient strong-stability-preserving conditions built from individually stable stages; the new extremizer permits an overlarge stage and does not follow from their stagewise condition. Cheng et al. (2015) use nonnegative random-walk polynomial coefficients, whereas the present extremal adjacency polynomial is signed. Meyer–Balsara–Aslam (2012) treat a different Legendre method, but only the abstract was accessible and hidden specialist comparisons cannot be excluded. No directly covering statement appeared in the inspected published research records. A failed search alone is not a proof of priority.
+## originality
 
-## Value
+PASS
 
-**PASS.** Super-time-stepping is an established acceleration technique, but spectral stability alone does not protect positivity of diffusion state variables. The theorem gives a complete exact answer for *all* connected regular simple graphs, reducing a global two-step matrix inequality to a local triangle statistic, including a sharp finite/unbounded transition, unique optimal durations, and an explicit probabilistic interpretation of the boundary transition. In particular, on balanced multipartite graphs the extreme superstep becomes a within-part jump, and on triangle-free graphs it becomes the nonbacktracking two-walk. These are structural classifications, not a numerical improvement of an arbitrary parameter choice. Practical accuracy at the large sharp bound remains unaddressed.
+The endpoint property is not stagewise strong-stability-preserving positivity or Chebyshev scalar spectral stability. Alexiades--Amiez--Gremaud established multi-Euler supertimestepping; Gottlieb--Shu--Tadmor established stagewise SSP sufficient conditions. Neither inspected statement supplies an exact nonnegative final kernel depending only on min triangles per edge or the universal regular-graph sharp maximum. Resultary found numerous Radau IIA, Gauss--Legendre and RK positivity thresholds for graph families, but not this factored two-Euler endpoint condition. Specialist Legendre STS full text remained inaccessible; best-of-knowledge priority retains explicit risk.
 
-## Closest literature and limitations
+## value
 
-See Alexiades et al. (1996), Gottlieb et al. (2001), Meyer et al. (2012), and Cheng et al. (2015), with identifiers and inspected sections in `RESULT.md` and `AUDIT.json`. The conclusion is endpoint-only, unweighted, regular, autonomous and first-order as an Euler composition. Publication priority is provisional in view of incomplete access to some specialist literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact graph-local triangle invariant t classifies endpoint order preservation and determines the largest practical two-stage positivity-preserving block, including an explicit stochastic/nonbacktracking kernel and unexpected arbitrary long intermediate violation on cliques. It is a natural sharp theorem connecting graph triangles and positivity of numerical diffusion; it carefully excludes accuracy and internal-stage guarantees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
