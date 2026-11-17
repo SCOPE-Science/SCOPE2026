@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 standard library from the directory holding this file and `verify.py`.
+## correctness
 
-The verifier directly enumerates every labeled mapping of chores to the genuine agents or the housekeeper. It rejects any agent load exceeding its budget and applies the literal exact-EF integer comparison \(\min(a_i,b_j)\le a_j\) for every source bundle \(i\), including the housekeeper, and each genuine agent \(j\). It does **not** derive EF from the proposed classification when testing these assignments.
+PASS
 
-It compares the direct count with the closed multinomial sum on 1206 instances, comprising 6,066,226 labeled assignments. It separately checks the sharp uniform-capacity threshold for 182 parameter settings and the heterogeneous threshold for 19,525 ordered positive capacity vectors. Expected examples: four agents with capacity five each and eleven chores have zero exact-EF allocations; with twelve chores they have 369600.
+Definition-1 exact EF for unit chores reduces to min(a_i,b_j)<=a_j for every source i including housekeeper and every agent j. An unsaturated agent a_j<b_j must be a global load maximum; all unsaturated agents have the same level t, every saturated agent has b_i<=t and h<=t. This proves precisely the all-full and water-level vectors a_i=min(b_i,t), 0<=t<max b_i. Multinomial counting of distinct assignments is exact and disjoint. The band I_t=[F(t),F(t)+t] has next-start increment R(t+1); R is nonincreasing, so the last missing interval ends at F(t_*)-1 and all subsequent work levels are covered. Handles m=0, n=2, B=1 and all-full. Independently enumerated small labelled assignment sets and matched formulas; not an infinite proof.
 
-The finite enumeration is only a consistency check. The unbounded result follows from the three lemmas in RESULT.md. No random experiments, floating-point approximations or external datasets are needed. Priority comparisons are limited by the visibility of published sources; no independent audit has been performed.
+## originality
+
+PASS
+
+The inspected budgeted-chores primary paper defines this housekeeper-inclusive exact EF comparison but establishes weaker indivisible EF1/EF2/EFX guarantees and exact EF for divisible chores. The close budgeted-goods counterpart also supplies weakened fairness rather than the complete unit-indivisible exact EF census or sharp eventual workload conductor. Their shared integer reduction was explicitly considered, not used as a novelty distinction; no published stronger exact all-capacity enumeration was found in relevant Resultary search or accessible primary statements. Best-of-knowledge with unindexed-equivalent risk.
+
+## value
+
+PASS
+
+Complete exact EF feasibility, all load vectors, labelled allocation census and sharp eventual workload cutoff for every integer capacity profile solve natural questions in a canonical budgeted fair-division model. The strict-Durfee last gap is a meaningful arithmetic boundary even when weaker EF1/EFX are always possible. Four budget-five agents have no exact EF with 11 chores, but 369600 labelled EF assignments with 12 and feasibility thereafter. Neither a textbook renaming nor an arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
