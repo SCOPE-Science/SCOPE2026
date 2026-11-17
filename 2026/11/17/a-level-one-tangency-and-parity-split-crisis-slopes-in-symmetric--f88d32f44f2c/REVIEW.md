@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The exact renormalisation gives vanishing first-order derivatives for the determinant entries after the first iterate, and an explicit two-dimensional trace perturbation recurrence. Its eigenvalues are \(2\) and \(-1\). Differentiating the exact source corner function yields the closed all-depth coefficient. At the first depth the linear term vanishes; direct symbolic differentiation gives the nonzero quadratic coefficient. The implicit-function hypotheses and the neighboring region signs are proved at each fixed depth. The checked standalone script corroborates the algebra and 18 exact-equation numerical roots, but it is not used as an infinite proof.
+
+**Originality (PASS with residual priority risk).** The exact renormalisation, corner function, and attractor-component theorem were established by Ghosh and Simpson, and are not claimed anew. Full-text comparison with the 2021 paper and its 2024 follow-up finds no closed parity-dependent determinant response or exceptional quadratic first-level displacement. Ou's 2022 Lozi work concerns the creation of individual periodic itineraries, not the component crisis hierarchy. The new formula is deduced from published implicit surfaces; a substantially broader, as-yet-undetected perturbation theorem could subsume it.
+
+**Mathematical value (PASS).** The Lozi parameter plane is a canonical two-parameter model of robust chaos, and the countably many crisis boundaries govern changes in the number of connected pieces of its attracting set. Their sensitivity to a small genuine two-dimensional determinant is a natural bifurcation observable. The exceptional first tangency and the opposite linear drift at every deeper level reveal a structural distinction invisible from the zero-determinant diagram alone. This is an explicit finite-depth comparison, not a claim of a uniform-in-depth scaling law.
+
+**Limits.** The theorem holds at each fixed depth in a sufficiently small positive-determinant neighborhood, and cannot be extended to a simultaneous high-depth limit without new estimates. No external audit or confirmation of publication priority has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
