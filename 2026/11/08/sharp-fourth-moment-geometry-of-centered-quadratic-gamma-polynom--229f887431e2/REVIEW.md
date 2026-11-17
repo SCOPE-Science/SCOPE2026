@@ -1,15 +1,21 @@
-# Scientific review: centered quadratic Gamma fourth moments
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact Gamma raw moments \(\mathbb EX^j=(\kappa)_j\) give the orthogonal two-mode basis and the displayed second/fourth moment polynomial. Symbolic reconstruction verifies the derivative and exact discriminant factorization; the explicit representation \(R(\kappa)=(2\kappa^2-5\kappa/2-21)^2+63\kappa^2/4+63\kappa\) is strictly positive for every \(\kappa>0\). A negative quartic discriminant, signs at zero and infinity, and projective-boundary nonstationarity give both *global*, not merely local, extrema with complete equality cases. Exact example \(\kappa=2\) and Gaussian-limit moment convergence are checked separately. The supplied checker and its actual execution substantiate these critical identities. The universal quantifier depends on algebraic proof, not root sampling.
+PASS
 
-## Originality
+For every Gamma(shape κ>0, unit scale), the real mean-zero degree≤2 polynomial plane is spanned by P₁=X−κ and P₂=X²−2(κ+1)X+κ(κ+1). Exact rising-factorial moments yield E(P₁+tP₂)²=κ[1+2(κ+1)t²] and the stated quartic Bκ(t). Symbolic differentiation gives Kκ′=−48(κ+1)Qκ(t)/[κ(1+2(κ+1)t²)³]. The quartic discriminant is strictly negative because its positive factor is (2κ²−5κ/2−21)²+(63/4)κ²+63κ; with Qκ(0)=−1 and positive leading coefficient, exactly two simple real roots t₋<0<t₊ exist. The directional derivative in projective coordinate s=1/t is nonzero at pure P₂, so t₋ and t₊ give unique global minimum and maximum. γ→normal eighth-moment convergence supports endpoint limits 3,15. Independently rederived exact moment/derivative/discriminant identities with symbolic algebra and verified κ=2 minimum 15/7 at t=−1/6. Finite diagnostics alone are not the universal proof.
 
-**PASS, subject to bibliographic limits.** In the inspected original Laguerre semigroup paper of Nowak–Stempak (2010), the relevant results address \(L^p\)-contractivity of operators and hypercontractivity, not extremal normalized fourth moments of the first two eigenmodes. Mohsenipour–Provost (2013) provide moment expressions for gamma quadratic forms and approximate their distributions; the inspected moment formula does not imply the sharp all-coefficient endpoint classification. Koekoek's standard Laguerre identities give input rather than optimization. Related extremal results for Gaussian quadratic/linear mixtures and isolated Gaussian Hermite spaces use different input laws and polynomial degrees, and do not imply these all-shape gamma statements. An equivalent unindexed formula or specialized thesis result remains possible, and no claim of independent novelty certification is made.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is the entire natural centered degree-at-most-two Gamma polynomial subspace, not a selected coefficient slice or a recomputation of a known table. The theorem gives sharp upper and lower norm invariants simultaneously for every positive shape, classifies all equality directions as mixed Laguerre modes, supplies a uniform explicit rigidity mechanism through the discriminant certificate, and identifies the Gaussian endpoint geometry. Its exact finite-shape lower value \(15/7\) at \(\kappa=2\) is a concrete consequence. Higher degrees, other moments and multivariate gamma chaos remain outside scope.
+Best-of-knowledge PASS for the entire centered quadratic Gamma polynomial space at every positive shape, with exactly two mixed Laguerre endpoint directions and an explicit quartic/discriminant certificate. Standard Laguerre orthogonality and hypercontractive semigroup work supply context but not this exact all-shape 2-mode norm geometry. The quadratic-Gamma-forms paper computes moments/distribution approximations but not the optimization over the full centered plane. Priority remains qualified for unindexed equivalent work.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The first two nonconstant Laguerre modes are a canonical full mean-zero polynomial subspace for Gamma laws; the sharp attained kurtosis interval and strict mixed-mode equality directions are natural exact geometric invariants of that space, not an arbitrary polynomial slice. Uniform positive-shape classification and Gaussian limit provide a meaningful distributional interpolation and a reusable endpoint benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
