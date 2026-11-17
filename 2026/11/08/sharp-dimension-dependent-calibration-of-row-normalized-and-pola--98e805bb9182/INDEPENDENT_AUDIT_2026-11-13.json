@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T16:19:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-dimension-dependent-calibration-of-row-normalized-and-pola--98e805bb9182/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-dimension-dependent-calibration-of-row-normalized-and-pola--98e805bb9182/verify.py"
+      ],
+      "rationale": "For unit-row full-rank V the Gram G is PD, tr G=m, diagonal 1, and row sums off diagonal<=delta=(m-1)/R. Its eigenvalues lie in [1-delta,1+delta] by Gershgorin. Spectral/nuclear norm duality gives efficiency exactly m/(sqrt(lambda_max)*sum sqrt(lambda_i)); Cauchy bounds the denominator by H_m(lambda_max)=lambda_max+sqrt((m-1)lambda_max(m-lambda_max)). Its unique maximum lambda*=(m+sqrt m)/2 on [1,m] produces claimed Lambda and exact minimax. Positive equicorrelation Gram with rho=(Lambda-1)/(m-1) is full-rank, unit-diagonal, admissible and attains equality. Polar gap=max_i |sqrt(lambda_i)-1|, and signed equicorrelation matrices attain upper/lower branches or approach PD singular boundary as required. Independent eigenvalue formula calculations were performed at (m,R)=(2,1.1),(3,2),(5,2),(16,4),(256,16) and matched the expression; package verify.py was read, not merely its PASS count.",
+      "residual_risks": [
+        "The comparison calibrates unit spectral-norm budgets; not optimizer training behavior or unequal-row momentum Gram.",
+        "Near-singular lower branch is supremum for delta>=1, never attained by forbidden singular G."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "RMNP Theorems in Section 5 supply expected nonconvex convergence guarantees; Pethick et al. present row and spectral norm linear minimization oracles."
+        ],
+        "reasoning": "Neither gives exact constrained worst-case m/(Lambda+sqrt(...)) or the signed sharp polar-gap supremum for all m,R.",
+        "searches": [
+          "row normalization polar spectral norm optimization dimension coherence Gershgorin equicorrelation sharp minimum efficiency",
+          "https://arxiv.org/html/2603.20527v1",
+          "https://arxiv.org/abs/2502.07529"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2603.20527v1",
+        "https://arxiv.org/abs/2502.07529",
+        "https://arxiv.org/abs/2609.39114",
+        "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-row-coherence-defect-pdnqp-diagonal-steps--30698826464a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical SVD duality/Gershgorin/Cauchy are premises; optimizing their jointly sharp simultaneous equality with admissible equicorrelation Grams is additional."
+        ],
+        "reasoning": "General ingredients alone do not provide the problem-specific sharp equality and saturation without a nontrivial construction; no complete dominating statement was observed.",
+        "searches": [
+          "row normalization polar spectral norm optimization dimension coherence Gershgorin equicorrelation sharp minimum efficiency",
+          "https://arxiv.org/html/2603.20527v1",
+          "https://arxiv.org/abs/2502.07529"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unit-row Gram diagonal-dominance condition translates to a row-sum spectral enclosure; RMNP measures r_min on its momentum Gram before normalization."
+        ],
+        "reasoning": "The operations concern differently normalized objects and optimization constraints; matching diagnostic names alone is not equivalent.",
+        "searches": [
+          "row normalization polar spectral norm optimization dimension coherence Gershgorin equicorrelation sharp minimum efficiency",
+          "https://arxiv.org/html/2603.20527v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "RMNP Appendix B reports empirical r_min/r_avg/r_max across networks, rather than extremal matrices for all dimensions."
+        ],
+        "reasoning": "An empirical table cannot cover an all-real-matrix minimax formula; no published exact parameter table found in inspected sources.",
+        "searches": [
+          "row normalization polar spectral norm optimization dimension coherence Gershgorin equicorrelation sharp minimum efficiency",
+          "https://arxiv.org/html/2603.20527v1"
+        ]
+      },
+      "rationale": "The March 2026 RMNP primary manuscript was read in full-text HTML and PDF sections: Section 3.2 and Appendix B define and empirically measure off-diagonal row ratios, Section 5 proves optimization convergence, not the sharp deterministic spectral-ball minimax under a prescribed unit-row Gram floor. Norm-constrained LMO work describes primal/dual norm steps without this constrained cross-norm frontier. A published PDNQP coherence obstruction treats a different step-initialization setting. No exact theorem in inspected sources implies the sharp Lambda saturation and signed-equicorrelation polar gap. Priority remains best-of-knowledge; a general matrix spectral extremum could give a reduction.",
+      "residual_risks": [
+        "General sharp matrix norm/Gram-matrix optimization theorem may subsume this specialization despite no match.",
+        "The source measures unscaled actual momentum Gram whereas the reviewed statistic applies after row normalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: empirical ratio and convergence, not sharp spectral-ball efficiency frontier",
+          "evidence": "Equation (6) defines r_min; Theorems 5.5,5.7,5.9 bound optimization convergence",
+          "identifier_or_url": "https://arxiv.org/html/2603.20527v1",
+          "material_read": "Full HTML v1 main and Appendix B sections; PDF v3 sections 3.2,5 and Appendix B with explicit ratio equation and optimizer convergence theorems",
+          "method": "Primary arXiv HTML and PDF (PDF page 10 screenshot inspected)",
+          "title": "RMNP: Row-Momentum Normalized Preconditioning for Scalable Matrix-Based Optimization",
+          "trigger": "Introduces exact r_min row diagnostic and proposed row normalization"
+        },
+        {
+          "assessment": "RELATED; broader possible implicit reduction remains residual risk",
+          "evidence": "Known duality of norm-ball LMOs",
+          "identifier_or_url": "https://arxiv.org/abs/2502.07529",
+          "material_read": "Referenced theoretical LMO statements/summary; full text not independently read in this run",
+          "method": "Bibliographic/context comparison; no whole-document exclusion inferred",
+          "title": "Training Deep Learning Models with Norm-Constrained LMOs",
+          "trigger": "General row vs spectral LMO reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-dimension-dependent-calibration-of-row-normalized-and-pola--98e805bb9182/RESULT.md",
+        "https://arxiv.org/html/2603.20527v1"
+      ],
+      "rationale": "The exact, attainable all-dimensional calibration replaces a qualitative high-row-ratio heuristic with a necessary-and-sufficient uniform condition delta=(m-1)/R->0, and reveals an m=q^2,R=q family where r_min grows but efficiency decays like q^{-1/2}. The sharply constrained diagnostic is motivated by a real matrix preconditioner, not an arbitrary tiny example. The result has deliberately limited one-step scope.",
+      "residual_risks": [
+        "Not an end-to-end training guarantee; calibrated unit-row domain must not be conflated with observed unscaled ratios."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The comparison calibrates unit spectral-norm budgets; not optimizer training behavior or unequal-row momentum Gram.",
+    "Near-singular lower branch is supremum for delta>=1, never attained by forbidden singular G.",
+    "General sharp matrix norm/Gram-matrix optimization theorem may subsume this specialization despite no match.",
+    "The source measures unscaled actual momentum Gram whereas the reviewed statistic applies after row normalization.",
+    "Not an end-to-end training guarantee; calibrated unit-row domain must not be conflated with observed unscaled ratios."
+  ],
+  "schema_version": 1
+}
