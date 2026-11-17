@@ -1,15 +1,21 @@
-# Scientific review — A square-root crossover in the probability of fair orientations of multistars
+# Independent mathematical audit
 
-## Correctness: PASS
-The result is proved by reducing literal all-agent, all-good EFX (including deletion of zero-valued goods) to independent leaf binomial counts. In the dominant-spoke regime, the center must retain more goods on the dominant spoke than the entire subsidiary inventory, forcing the other leaves to meet exact half-quota thresholds. This gives the finite central-binomial slice with an explicit odd-parity correction. Binomial concentration, normal convergence, and a uniform local limit theorem prove the Gaussian transition and sharp subcritical equivalent. The standalone exact checker exercises labeled-good deletions on 85 small multistars and exact dominant-spoke formulas. Computer checks corroborate but do not replace the analytic proof.
+## correctness
 
-## Originality: PASS, qualified
-The closest available full text is Afshinmehr et al., *EFX allocations and orientations on bipartite multi-graphs: a complete picture* (2026), DOI:10.1007/s10458-026-09754-8, particularly its EFX definition and existence result for multistars. Its existential/algorithmic results do not give a distribution of the uniform orientation's success probability. Afshinmehr et al., *EFX Allocations Exist on Multi-Graphs*, arXiv:2606.18665v1, gives far more general allocation existence, but the accessible abstract does not establish the random-orientation result; its full text was inaccessible, which remains an originality risk. Neoh and Teh, *Understanding EFX Allocations: Counting and Variants* (AAAI 2025), studies general counting but the available abstract does not cover this exact independent-binomial crossover; its full text was likewise not accessible. The actual published-finding corpus semantic searches and closest IDs appear in AUDIT.json. No equivalent was identified, but this is not a uniqueness certificate.
+PASS
 
-## Value: PASS
-The work answers a natural success-probability question distinct from mere existence, in a star domain already singled out by modern EFX orientation theory. The exact event handles the convention-sensitive zero-valued deletion; the nontrivial square-root transition determines when subsidiary relationships become numerous enough to permit a positive chance of fairness. The sharp subcritical constant provides additional quantitative information. The model is deliberately limited to unit-valued endpoint goods, independent orientations and a fixed number of leaves with divergent subsidiary multiplicities.
+Checked the literal all-agent every-good EFX quantifiers. For each leaf i, its envy of center is blocked iff X_i>=Y_i-1{sum_{j!=i}Y_j=0}; center envy of leaves requires S+1>=max_i X_i. Distinct labelled orientations induce independent binomial X_i and give the stated exact sum. When m>3R+2, center-to-dominant-leaf comparison forces Y_1>R, yielding B=intersection_{i>=2}{X_i>=ceil(r_i/2)}, central binomial slice H_m(Y) and an exact single odd-m exception (Y=0,X_1=(m-1)/2). Under each subsidiary r_i→infinity and fixed k, P(B)→2^{-(k-1)}, Y/R→1/2 in probability, so standardized central window tends to Phi(gamma/2)-1/2 or 1/2; local central binomial estimate and R→infinity yields the sharp small-R equivalent. Independently checked direct all-bundle deletion versus reduced conditions over selected multistars up to four goods per spoke; this finite check does not prove the CLT.
 
-## Scientific and verification limits
-The asymptotics are analytic; the finite verifier cannot independently certify an infinite limit. Full text for two plausible counting/existence sources could not be inspected. No independent scientific review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge novelty survives direct full-text comparisons: existence of a fair multistar orientation, exact counts for equal-spoke multistars, and EFX0 counts on simple bicliques do not determine the probability that a random orientation is fair when one spoke diverges and the subsidiary aggregate scales as sqrt(m). The exact weighted formula plus sharp Gaussian and subcritical windows are new motivated counting information; unindexed direct count remains a residual risk.
+
+## value
+
+PASS
+
+The EFX0 random-orientation probability of a natural graphical fair-division family and its exact supply-imbalance transition are meaningful quantitative refinements of existential fair allocations. The sqrt aggregate auxiliary supply scale and explicit constants explain when random assignment is likely to be fair; not a routine known homogeneous-count substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
