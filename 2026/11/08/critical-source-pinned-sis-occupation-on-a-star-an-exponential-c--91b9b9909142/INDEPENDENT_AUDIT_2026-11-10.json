@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T10:48:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The pinned source is one leaf, so the exact unforced count generator has (hub x, k leaves), hub birth lambda k, hub recovery 1, leaf birth x lambda(n-k) and leaf recovery k. The smooth potential u0(z)=int_0^z int_0^1 exp(t(a-y))dt dy and u1=u0+int_0^1 exp(t(a-z))dt, a=c², solves the limiting Poisson equations and u1(0)=(exp(a)-1)/a. Uniform Taylor errors at all k=0..n are O(lambda): z-weighted derivatives decay and the boundary rates vanish correctly. Starting from any initial configuration, leaf domination followed by a bounded-probability hub-recovery/no-reinfection extinction block of length O(log n) controls the first two extinction moments. Dynkin's stopped identity yields E S_n=(exp(c²)-1)/c²+O(log n/sqrt n). In the backward Harris dual a permanently infected leaf generates source-to-hub arrows, so p_hub=E[1-exp(-lambda S_n)] exactly. The moment correction is O((log n)²/n), and stationary ordinary-leaf birth/recovery balance gives E K_n=lambda E[H(n-K_n)]=exp(c²)-1+O((log n)²/sqrt n). All for c>0 fixed, ordinary leaves excluding pinned source; no inference of distributional limit or unforced survival. This is an analytic argument, not established by the 268-check verification log.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cator Van Mieghem use global epsilon forcing or forbidden extinction, threshold sqrt(log n/n), not one pin at rate c/sqrt(n).",
+          "Cai et al mention one pinned leaf numerically, but its complete Appendix was inaccessible."
+        ],
+        "reasoning": "General exact star-state methods do not automatically give the claimed leading forced stationary occupation constant; full Schwartz-Stone and Cai texts are material priority risks, not asserted absent coverage.",
+        "searches": [
+          "Cator Van Mieghem 2013 star epsilon SIS regularizations",
+          "Cai Wu Holme 2021 star pinned Appendix B",
+          "Schwartz Stone 2013"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1103/PhysRevE.87.012811 (abstract)",
+        "https://pubmed.ncbi.nlm.nih.gov/23679481/ (abstract)",
+        "https://arxiv.org/abs/2103.05881 (Cai-Wu-Holme, Appendix B cited; full text not obtained)",
+        "Resultary query: contact process star permanently infected leaf source critical transmission c over sqrt n stationary infected hub exponential c squared"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The submitted exponential e^(c²)-1 arises from unforced hub occupation potential plus a rare source leaf.",
+          "K2,n source hub has O(sqrt(n)) ordinary infections, not O(1)."
+        ],
+        "reasoning": "The inspected statements do not mathematically imply the same pinned-leaf limit; inaccessible full texts remain noted and permit best-of-knowledge O PASS rather than guessed rejection.",
+        "searches": [
+          "Cator Van Mieghem 2013",
+          "Schwartz Stone 2013",
+          "Resultary K2,n permanent source"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published same-slot K_{2,n} result uses a permanent HUB source, not a leaf source.",
+          "Schwartz-Stone abstract discusses exact SIS steady proportions without the forcing definition."
+        ],
+        "reasoning": "A pinned leaf differs from a pinned hub: the critical limits and state-space scales differ; no exact equivalent theorem was established from accessible prior text.",
+        "searches": [
+          "Resultary: contact process star permanently infected leaf source critical transmission c over sqrt n stationary infected hub exponential c squared",
+          "Schwartz Stone 2013 exact star"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The direct Resultary hit is the assigned formula; indexed related K_{2,n} density is different.",
+          "Finite-state steady-state solutions are not a recorded table of the c-dependent asymptotic under pinned-leaf forcing."
+        ],
+        "reasoning": "No exact tabulation found, but search absence alone does not certify originality; a finite exact formula could imply the limit and remains a risk.",
+        "searches": [
+          "Resultary pinned star c/sqrt n occupancy exponential crossover",
+          "Schwartz Stone star steady state exact"
+        ]
+      },
+      "rationale": "Originality assessed against semantic published research and the listed primary sources; substantial previously established components explicitly credited. The final model-specific statement is not shown implied by examined prior results; inaccessible full texts remain explicitly qualified.",
+      "residual_risks": [
+        "Schwartz-Stone 2013 exact-state article full text remains uninspected: it could indirectly encode finite-n pinned-source quantities despite abstract ambiguity.",
+        "Cai-Wu-Holme 2021 Appendix B of a similarly pinned star was not independently read in full; claims about its limitations are made cautiously.",
+        "Extinction argument is uniform in state with constants depending arbitrarily on c; no c-uniform result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Both regularizations differ: spontaneous infection at all vertices or suppressed last recovery, not a single permanently infected peripheral vertex",
+          "evidence": "Phys Rev E 87, 012811 (2013), abstract states epsilon-SIS and prevented-extinction SIS, threshold approx sqrt(log n/n)",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.87.012811",
+          "material_read": "Read journal abstract and publication metadata; did not inspect whole paper",
+          "method": "APS journal abstract and PubMed abstract",
+          "title": "Susceptible-infected-susceptible epidemics on the complete graph and the star graph: Exact analysis",
+          "trigger": "Star SIS exact steady-state methods and threshold"
+        },
+        {
+          "assessment": "Exact moment equations and an analytic steady state are claimed, but abstract does not specify a pinned peripheral source, c/sqrt(n) limit or exponential prefactor; NOT assessed as whole-document noncoverage",
+          "evidence": "Schwartz and Stone, Phys Rev E 87 042815 (2013), PubMed PMID 23679481",
+          "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/23679481/",
+          "material_read": "Read PubMed abstract and article metadata; full text not obtained",
+          "method": "Primary journal abstract indexed by PubMed; public OA search",
+          "title": "Exact epidemic analysis for the star topology",
+          "trigger": "Same star and exact steady proportions might imply the claim"
+        },
+        {
+          "assessment": "K_{2,n} has source at a hub and another switching hub; its infected leaves scale sqrt(n), whereas single sourced star has a rare hub and O(1) leaves; no implication",
+          "evidence": "Finite generator (y,k), limit density exp(c²u)u^(c²-1), c>0",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-an-exact-stationary-continuum-law-for-the-two-hub-contact-proces--9bdd50cdba51/RESULT.md",
+          "material_read": "Read entire Finding, hypotheses, generator, limit proof and comparison",
+          "method": "Published mathematical RESULT.md primary text",
+          "title": "An exact stationary continuum law for the two-hub contact process with a permanent source",
+          "trigger": "Same permanent-source contact process with c/sqrt(n) on another graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. The permanent peripheral infection source is a natural epidemic boundary condition distinct from quasi-stationary regularizations. The nontrivial exact exponential burden at the n^(-1/2) hub-threshold scale is an independently useful model-specific limiting invariant and elucidates why vanishing hub prevalence coexists with O(1) total leaf load.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Schwartz-Stone 2013 exact-state article full text remains uninspected: it could indirectly encode finite-n pinned-source quantities despite abstract ambiguity.",
+    "Cai-Wu-Holme 2021 Appendix B of a similarly pinned star was not independently read in full; claims about its limitations are made cautiously.",
+    "Extinction argument is uniform in state with constants depending arbitrarily on c; no c-uniform result."
+  ],
+  "schema_version": 1
+}

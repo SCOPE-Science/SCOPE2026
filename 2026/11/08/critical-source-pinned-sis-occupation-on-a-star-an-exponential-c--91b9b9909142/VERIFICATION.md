@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification scope
+# Independent mathematical audit
 
-Run `python verify.py` with NumPy, SciPy, and SymPy. The script constructs exact labeled and permutation-reduced finite continuous-time generators, exact rational stationary measures, the unforced dual occupation/hitting linear equations, and separately built banded and sparse finite-size solvers. It checks the full-to-reduced marginal identities, the exact source-to-hub graphical duality hitting identity, the stationary ordinary-leaf balance, and residuals of the two-function critical generator potential. A completed replay passed 268 assertions. These checks are independent implementations of the finite models and formulas but do not constitute an independent scientific audit.
+## correctness
 
-The infinite-size conclusion depends on the all-size extinction block estimate, the uniform Taylor-generator bound, Harris graphical duality, and stationary generator balance proved in `RESULT.md`. Numerical trends or finite rational enumeration alone do not establish the asymptotic theorem. The source's historical-priority comparison remains provisional because one potentially relevant paper could be accessed only at abstract level.
+PASS
+
+PASS. The pinned source is one leaf, so the exact unforced count generator has (hub x, k leaves), hub birth lambda k, hub recovery 1, leaf birth x lambda(n-k) and leaf recovery k. The smooth potential u0(z)=int_0^z int_0^1 exp(t(a-y))dt dy and u1=u0+int_0^1 exp(t(a-z))dt, a=c², solves the limiting Poisson equations and u1(0)=(exp(a)-1)/a. Uniform Taylor errors at all k=0..n are O(lambda): z-weighted derivatives decay and the boundary rates vanish correctly. Starting from any initial configuration, leaf domination followed by a bounded-probability hub-recovery/no-reinfection extinction block of length O(log n) controls the first two extinction moments. Dynkin's stopped identity yields E S_n=(exp(c²)-1)/c²+O(log n/sqrt n). In the backward Harris dual a permanently infected leaf generates source-to-hub arrows, so p_hub=E[1-exp(-lambda S_n)] exactly. The moment correction is O((log n)²/n), and stationary ordinary-leaf birth/recovery balance gives E K_n=lambda E[H(n-K_n)]=exp(c²)-1+O((log n)²/sqrt n). All for c>0 fixed, ordinary leaves excluding pinned source; no inference of distributional limit or unforced survival. This is an analytic argument, not established by the 268-check verification log.
+
+## originality
+
+PASS
+
+Originality assessed against semantic published research and the listed primary sources; substantial previously established components explicitly credited. The final model-specific statement is not shown implied by examined prior results; inaccessible full texts remain explicitly qualified.
+
+## value
+
+PASS
+
+PASS. The permanent peripheral infection source is a natural epidemic boundary condition distinct from quasi-stationary regularizations. The nontrivial exact exponential burden at the n^(-1/2) hub-threshold scale is an independently useful model-specific limiting invariant and elucidates why vanishing hub prevalence coexists with O(1) total leaf load.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
