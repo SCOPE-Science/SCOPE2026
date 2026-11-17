@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T02:51:37Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/negative-regression-and-residual-dependence-between-birthday-and--7fa239303a54/RESULT.md",
+        "2026/11/08/negative-regression-and-residual-dependence-between-birthday-and--7fa239303a54/verify.py",
+        "2026/11/08/negative-regression-and-residual-dependence-between-birthday-and--7fa239303a54/METADATA.json",
+        "2026/11/08/negative-regression-and-residual-dependence-between-birthday-and--7fa239303a54/AUDIT.json",
+        "/mnt/data/scope_worker03_20261112T0235Z/independent_checks.py"
+      ],
+      "rationale": "For iid uniform draws on n labels, conditioning on birthday time B=t leaves exactly n-t+1 unseen coupons, so C|B=t=t+sum_{r=1}^{n-t+1}Geom(r/n), with exceptional B=n+1 giving deterministic C=n. Coupling consecutive t using the same geometric increments gives strictly decreasing first-order stochastic order and negative covariance for nondecreasing transforms. Expressing B as indicators of initial unit discovery waits and summing independent geometric covariances gives the displayed exact negative double sum. Birthday survival product yields Rayleigh scaling, dominated Riemann sums give Cov(B,C)/sqrt(n)→-sqrt(pi/8), coupon variance n²π²/6 and birthday variance n(4-pi)/2 give the Pearson constant. The independent Rayleigh/Gumbel joint weak limit follows by coupling C to an independent complete geometric sum, with difference o_P(n). Verified exact covariance n=2,3,4,8 from separate rational formula. These finite checks are not the all-n proof.",
+      "residual_risks": [
+        "Bounded independent computation is corroborative only; the all-parameter proof is analytical."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October12 gives full conditional PGF, exact negative double-sum covariance and strict stochastic order, and stronger L² asymptotic conditional regression. November2 independently gives identical stochastic order and sharp residual scales."
+        ],
+        "reasoning": "Full joint generating law dominates the submitted conditional law; the strict negative-regression and covariance theorem are special cases/corollaries.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/12/SCOPE-first-collision-versus-full-collection-times-exact-negative-regr--2d3dc1ccb992/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-birthday-to-coverage-negative-regression-with-sharp-covariance-d--5b6258e3fa64/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/negative-regression-and-residual-dependence-between-birthday-and--7fa239303a54/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/negative-regression-and-residual-dependence-between-birthday-and--7fa239303a54/METADATA.json",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/12/SCOPE-first-collision-versus-full-collection-times-exact-negative-regr--2d3dc1ccb992/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-birthday-to-coverage-negative-regression-with-sharp-covariance-d--5b6258e3fa64/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier October12 B_n and T_n full conditional PGF, strict negative stochastic regression, same sums and same Rayleigh covariance; standard coupon collector Gumbel and birthday Rayleigh limits provide the two-scale independent joint limit using geometric-stage coupling."
+        ],
+        "reasoning": "Every nontrivial submitted statistic is an explicit published conclusion, and its weak joint convergence is readily obtained from that stronger prior joint law. Finite independent checks do not create priority.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/12/SCOPE-first-collision-versus-full-collection-times-exact-negative-regr--2d3dc1ccb992/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-birthday-to-coverage-negative-regression-with-sharp-covariance-d--5b6258e3fa64/RESULT.md",
+          "https://arxiv.org/abs/1006.3531"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier October12 uses T_n instead of C_n but explicitly defines the SAME first full-collection time on the SAME sample stream; finite joint PGF determines all conditional distributions."
+        ],
+        "reasoning": "After renaming T_n=C_n, all exact conditional and covariance statements coincide; this is theorem-level identity, not just similar language.",
+        "searches": [
+          "Resultary: birthday first repeat coupon collector full collection joint covariance negative dependence",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/12/SCOPE-first-collision-versus-full-collection-times-exact-negative-regr--2d3dc1ccb992/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-birthday-to-coverage-negative-regression-with-sharp-covariance-d--5b6258e3fa64/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both earlier theorems list exact n=2,3 values -1/2, -8/9 and formulas for arbitrary n; the later exact formula is term for term the same."
+        ],
+        "reasoning": "This is an exact formula/table match under identical event indexing, not a numerically coincidental sequence.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/12/SCOPE-first-collision-versus-full-collection-times-exact-negative-regr--2d3dc1ccb992/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-birthday-to-coverage-negative-regression-with-sharp-covariance-d--5b6258e3fa64/RESULT.md",
+          "Resultary: birthday first repeat coupon collector full collection joint covariance negative dependence"
+        ]
+      },
+      "rationale": "Complete primary earlier publication dated October 12, 2026 already proves exact joint law via conditional PGF, identical strict negative regression, identical finite covariance double sum, and both identical asymptotic constants; it also proves stronger L² conditional regression. Another earlier November 2 result independently states the same stochastic ordering and limits. The remaining jointly independent Rayleigh/Gumbel normalization is a standard consequence of this conditional joint law and established marginal occupancy limit, not an independent original claim rescuing the submitted aggregate.",
+      "residual_risks": [
+        "The finite unnormalized joint covariance claim is directly covered, including its unusual B=n+1 boundary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT STRONGER COVERAGE dated October 12, 2026",
+          "evidence": "Conditional PGF E[z^T|B=b], strict stochastic order, Cov=-Σ S[n,j]Σ k/(n-k), lim covariance/sqrt(n)=-sqrt(pi/8), lim n Corr identical",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/12/SCOPE-first-collision-versus-full-collection-times-exact-negative-regr--2d3dc1ccb992/RESULT.md",
+          "material_read": "Full original published RESULT: Finding, complete joint PGF, stochastic order, exact covariance, conditional regression, asymptotic proof and scope",
+          "method": "Read complete raw published primary mathematical result",
+          "title": "First-collision versus full-collection times: exact negative regression and a Rayleigh covariance scale",
+          "trigger": "Exactly same first repeat and coverage stopping times"
+        },
+        {
+          "assessment": "DIRECT COVERAGE dated November 2, 2026",
+          "evidence": "Strict stochastic decrease, negative quadrant dependence, sharp covariance and correlation constants",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-birthday-to-coverage-negative-regression-with-sharp-covariance-d--5b6258e3fa64/RESULT.md",
+          "material_read": "Full earlier published RESULT: conditional geometric law, coupling, exact covariance and limits",
+          "method": "Read complete raw published primary result",
+          "title": "Birthday-to-coverage negative regression with sharp covariance decay",
+          "trigger": "Identical model and negative regression/covariance asymptotics"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/negative-regression-and-residual-dependence-between-birthday-and--7fa239303a54/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/12/SCOPE-first-collision-versus-full-collection-times-exact-negative-regr--2d3dc1ccb992/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-birthday-to-coverage-negative-regression-with-sharp-covariance-d--5b6258e3fa64/RESULT.md"
+      ],
+      "rationale": "Conditional negative regression and sharp residual covariance are compelling natural invariants, but these exact statements are already published with more detail. The only marginally additional two-scale weak independence follows from the preexisting joint PGF and classical coupon collector Gumbel and birthday Rayleigh limits by a routine coupling; no distinct nontrivial unknown parameter/classification remains.",
+      "residual_risks": [
+        "The scientifically rejected original must be preserved unedited in its complete failed package; no speculative salvage is certified."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The finite unnormalized joint covariance claim is directly covered, including its unusual B=n+1 boundary.",
+    "Weak joint Rayleigh/Gumbel independence itself is not written in the two earlier results inspected, but is a standard scale-separation consequence of their complete conditional law; this remainder does not support a distinct valuable claim."
+  ],
+  "schema_version": 1
+}
