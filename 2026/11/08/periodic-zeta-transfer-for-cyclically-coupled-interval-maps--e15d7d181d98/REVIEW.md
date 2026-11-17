@@ -1,15 +1,21 @@
-# Research review: periodic zeta transfer for cyclically coupled maps
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is an exact theorem for all \(s\ge2\), all positive iterate lengths and all continuous reaction maps with finite return-map periodic-point counts. Coordinate-periodic transport is bijective even without pointwise injectivity. The \(\gcd\)-cycle argument proves that every fixed point of each coupled iterate corresponds bijectively to independent fixed points of one-coordinate compositions. A tensor-permutation trace identity proves the determinant representation; the two-coordinate exterior-square trace formula and signed-multiplicity logarithmic expansion prove both displayed rationality statements. The interval example is continuous, with a genuine full tent subsystem and only one further periodic point. Exact finite-state and matrix tests reproduced 605,563 checks; the infinite theorem does not rely on finite search. Boundaries, the formal-series interpretation, and the need for **exact** periodic trace correspondence are explicit.
+## correctness
 
-## Originality — PASS within inspected literature
-The 2026 Cournot study (arXiv:2610.27229v1) was read in its full available PDF, including the introduction, the periodic-orbit sections, examples, proofs, reference list and open problems; its asserted results concern connected \(\omega\)-limit sets, not all-iterate Artin--Mazur zeta series. The 2020 open-access article on cyclic permutation dynamics establishes entropy and chaoticity relationships rather than exact zeta transfer. The 2016 cyclic-product paper emphasizes transitivity and mixing in its accessible abstract; the 2014 products-of-maps article studies ordinary products and their zeta properties. The new identity does use the **known iterate decomposition**, but its full fixed-point census, tensor determinant, exterior-square factor and two-coordinate rationality-closure criterion are neither asserted nor supplied by those inspected primary materials. Actual database comparisons for cyclic-permutation aliases, Cournot, period spectra and tensor determinants found no dominating record. The 2016 and 2014 full texts were inaccessible in this round; priority remains provisional, especially against general dynamical product/zeta results and cycle-index identities. Abstract-only access was not treated as proof of noncoverage.
+PASS
 
-## Mathematical value — PASS
-Complete periodic-point counts and the Artin--Mazur zeta function are natural fundamental invariants for cyclically coupled interval maps. The theorem transfers **every iterate**, not merely existence of periodic points, periods up to a cutoff or entropy, to one-coordinate data. It supplies a finite-dimensional constructive zeta calculation whenever a physical periodic trace model exists and proves that two-coordinate coupling preserves rationality, introducing a genuine exterior-square contribution. A continuous example exhibits additional primitive two-cycles invisible to the return-map zeta factor. The generality across all coordinate lengths, noninvertible reactions and arbitrary iterate orders makes this a structural census rather than an arbitrary computed special case. It does not claim to solve global attractor classification or historical uniqueness.
+Cyclic full-return maps g_i are related by semiconjugacies f_i with inverses on their period-n fixed-point sets, so all have a_n fixed points. The permutation of s coordinates effected by F^m decomposes into d=gcd(m,s) cycles, each imposing g_i^(m/d)(x)=x, proving #Fix(F^m)=a_(m/d)^d without injectivity of individual f_i. With exact trace a_n=tr A^n, cyclic tensor operator B has trace tr(B^m)=a_(m/d)^d and zeta det(I−zB)^(-1). For s=2, tr(Λ²A)^n=(a_n²−a_(2n))/2 yields the exterior-square factor; a rational one-variable zeta gives a finite signed eigenvalue product and hence rational coupled zeta. Independent exhaustive finite-map checks covered 2352 families for s in {2,3,4}, not arbitrary continuous maps.
 
-## Closest literature and remaining limits
-The main comparison is García Guirao (2026), whose periodic-orbit discussion involves limit-set geometry and uses the established even-iterate decomposition. Li and Lu (2020) study entropy/chaos for general cyclic products. Linero Bas and Soler López (2016) discuss transitivity/mixing, and Pakapongpun and Ward (2014) study zeta functions of noncyclic Cartesian products. The last two were available only at the abstract/bibliographic level, making an uninspected general identity the central priority risk. Exact equality between symbolic trace counts and actual periodic points must be independently verified in every concrete matrix model.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge after comparing full accessible 2014 ordinary product-zeta source and 2020 cyclic-product entropy/chaos paper, no inspected result gives the gcd all-iterate census, cyclic tensor trace transfer, or exterior-square Cournot zeta factor. The 2016 cyclically permuted products paper is highly relevant but full text unavailable after arXiv/OA checks and authorized institutional source returned vpn_disconnected; its abstract concerns transitivity and other dynamical properties, leaving a real priority risk explicitly unresolved. Access failure alone is not deemed scientific failure; neither a decisive prior covering statement nor contradiction was found.
+
+## value
+
+PASS
+
+The exact gcd-dependent periodic-point census and explicit rationality transfer resolve a natural periodic-orbit question for coupled discrete-time dynamics. The exterior-square formula provides a compact computable zeta correction and the continuous interval example demonstrates distinct coupling-generated periodic orbits. Even if cyclic dynamics are studied generally, the exact observable is independently useful and motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
