@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T22:53:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing the probability in the first state as x converts any 2x2 row-stochastic letter matrix to f_a(x)=q_a+(p_a-q_a)x; nonnegative determinant makes the update monotone. For acceptance in the first/second state, upper/lower envelopes optimize at each step. Their iterates form a monotone orbit, and active distinct affine functions must have strictly ordered slopes along that orbit, forbidding any return to a letter after a different active letter. A unique word forces strict action at each prefix. Conversely the explicit rational f_(a_i)(x)=(r+(i-1)eps)x+c−eps*sum_{h<i}T_h have ordered crossing thresholds T_i between baseline orbit points. The orbit error is <=1/(5000 n^2), strictly below the half-spacing 3/(64n); all f maps send [0,1] strictly inside (0,1) with positive slopes. The prescribed runs are the only greedy itinerary. Counting ordered distinct run labels and compositions gives the formula. Independently enumerated all run-distinct words q=2,3,4 through length 6 and matched the expression; this is corroboration, not proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gill Theorem 4.1 includes binary alternating patterns (not admitted by the order-preserving model).",
+          "Kjos-Hanssen Theorem 2 establishes A_P(w)<=3 for every word."
+        ],
+        "reasoning": "An unrestricted 3-state upper bound does not imply exact 2-state monotone existence/obstruction; binary-only unrestricted result likewise cannot enumerate multiletter monotone winners.",
+        "searches": [
+          "Gill Probabilistic automatic complexity of finite strings Theorem 4.1",
+          "Kjos-Hanssen Every string has probabilistic automatic complexity at most three arxiv 2607.26275"
+        ]
+      },
+      "checked_sources": [
+        "Kenneth Gill, Probabilistic automatic complexity of finite strings, arXiv:2402.13376, Theorem 4.1 and §4.1",
+        "Bjørn Kjos-Hanssen, Every string has probabilistic automatic complexity at most three, arXiv:2607.26275, Theorem 2",
+        "Resultary 2026/11/8 parity-run-obstruction-for-decreasing-two-state-probabilistic-au--fae7dee5b08e",
+        "SCOPE pinned RESULT.md, checker.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gill Theorem 4.1 accepts i^n(ji)^m among unrestricted binary witnesses, which violates run-distinctness when m>1.",
+          "The decreasing-two-state published result is about reversing rather than preserving the order on state probabilities."
+        ],
+        "reasoning": "A different restriction changes both necessary structure and explicit witnesses. Neither source states or entails the q-letter positive-determinant iff classification.",
+        "searches": [
+          "Gill arXiv:2402.13376 Theorem 4.1, Corollary 4.18",
+          "Kjos-Hanssen arXiv:2607.26275 Theorem 2",
+          "Resultary 2026/11/8 parity-run obstruction for decreasing two-state probabilistic automata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nonnegative determinants are equivalent to increasing affine maps of [0,1].",
+          "Gill 2024 maps two-state PFAs to affine iterated function systems but classifies unrestricted binary words."
+        ],
+        "reasoning": "Greedy unique maximizing itineraries of monotone affine systems can be expressed as the distinct-run condition; the existing unrestricted binary IFS classification does not cover all q or the positive-determinant subclass.",
+        "searches": [
+          "Gill arXiv:2402.13376 Theorem 4.1 §4.1",
+          "Resultary: order preserving two-state probabilistic automata unique maximizing word distinct symbol runs positive determinant monotone affine maps"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier independent q,n-count table for the order-preserving model among inspected Resultary hits; current assigned target is indexed, not prior proof."
+        ],
+        "reasoning": "The binomial sum itself is routine combinatorial enumeration after a nontrivial iff; a pre-existing word-count table would be relevant only if it identifies the same class from the monotone machine constraint.",
+        "searches": [
+          "Resultary: two-state order preserving PFA word maximizers exact count distinct runs",
+          "Web: probabilistic automatic complexity two-state strings with positive determinant"
+        ]
+      },
+      "rationale": "Gill’s 2024 theorem classifies unrestricted *binary* two-state PFAs and includes alternating motifs requiring orientation-reversing letters; it does not determine the all-alphabet orientation-preserving model. Kjos-Hanssen’s 2026 three-state upper bound supplies existence for unrestricted words, not a minimal-two-state constrained if-and-only-if theorem. Resultary adjacent decreasing-two-state parity-run obstruction concerns the opposite sign of determinant. The monotone-affine envelope formulation was explicitly compared. Best-of-knowledge passes; an older affine control/greedy-envelope theorem could contain a close equivalent.",
+      "residual_risks": [
+        "Possible equivalent old affine-envelope control system classification outside PFA literature.",
+        "Later published automata appendices not all individually read; targeted principal theorems are compared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Binary unrestricted classification, not all-alphabet positive-determinant classification.",
+          "evidence": [
+            "Theorem 4.1 includes i^n j^m, i^n j^m i, i^n(ji)^m and i^n(ji)^m j; §4.1 shows affine IFS reduction."
+          ],
+          "identifier_or_url": "https://nowheredense.github.io/PFAcomplexity.pdf",
+          "material_read": "Primary complete text available; Theorem 4.1, §4.1 IFS correspondence, §§4.3–4.4 binary proof/extra-alphabet context, introduction and main statements",
+          "method": "Full-text PDF reading, targeted text search and page screenshots",
+          "title": "Probabilistic automatic complexity of finite strings",
+          "trigger": "Exact same PFA notion and 2-state binary classification"
+        },
+        {
+          "assessment": "Three-state universal bound cannot replace restricted two-state iff or count.",
+          "evidence": [
+            "Theorem 2 gives A_P(w)<=3 via coordinate (u,u^2) embedding; no nonnegative-determinant two-state characterization."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.26275",
+          "material_read": "Detailed accessible scholarly full-text extract including Theorem 2 and explicit 3-state construction, not a claim of all appendices read",
+          "method": "OA abstract and accessible full-text scientific reader",
+          "title": "Every string has probabilistic automatic complexity at most three",
+          "trigger": "Later stronger upper bound, potentially overlaps two-state model"
+        },
+        {
+          "assessment": "All maps order-reversing, inapplicable to everywhere order-preserving theorem.",
+          "evidence": [
+            "Its odd/even subsequence obstruction applies to negative-determinant transitions."
+          ],
+          "identifier_or_url": "2026/11/8/SCOPE-parity-run-obstruction-for-decreasing-two-state-probabilistic-au--fae7dee5b08e",
+          "material_read": "Indexed theorem summary, not complete proof",
+          "method": "Resultary search",
+          "title": "Parity-run obstruction for decreasing two-state probabilistic automata over arbitrary finite alphabets",
+          "trigger": "Same general automata but opposite determinant sign"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The order-preserving determinant restriction is an intrinsic stochastic dynamics condition, not a mere arbitrary word subset, and admits a complete finite-alphabet structural classification with rational positive witnesses. Exact enumeration separates polynomially growing accepted families for fixed q from all q^n words, and also explains the new role of orientation reversal in unrestricted binary witnesses.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kenneth Gill, Probabilistic automatic complexity of finite strings, arXiv:2402.13376, Theorem 4.1 and §4.1",
+    "Bjørn Kjos-Hanssen, Every string has probabilistic automatic complexity at most three, arXiv:2607.26275, Theorem 2",
+    "Resultary 2026/11/8 parity-run-obstruction-for-decreasing-two-state-probabilistic-au--fae7dee5b08e",
+    "SCOPE pinned RESULT.md, checker.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For q>=2 and n>=1, a length-n word is uniquely maximized by a two-state probabilistic automaton with nonnegative determinants for every letter iff its maximal constant runs have pairwise distinct labels. Every admitted word has a strictly positive rational transition witness; the exact count is sum_m (q!/(q-m)!) binom(n-1,m-1).",
+  "limitations": [
+    "Only nonnegative-determinant two-state PFAs; unrestricted negative-determinant machines can isolate recurring-letter words.",
+    "Witness isolation gaps and bit complexity are not optimized."
+  ],
+  "residual_risks": [
+    "Possible equivalent old affine-envelope control system classification outside PFA literature.",
+    "Later published automata appendices not all individually read; targeted principal theorems are compared."
+  ],
+  "schema_version": 1
+}

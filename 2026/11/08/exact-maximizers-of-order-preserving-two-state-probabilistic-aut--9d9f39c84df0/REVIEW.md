@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The state-1 mass of a two-state PFA obeys a one-dimensional affine update. A nonnegative transition determinant makes every update nondecreasing. Greedy maximization/minimization then yields a monotone orbit and a monotone sequence of active-line slopes, forcing distinct constant runs. Conversely, the specified rational lines have strictly increasing slopes and ordered crossing thresholds between consecutive baseline states; the quantitative perturbation bound is smaller than half the minimum baseline spacing. Every desired run is therefore the unique greedy choice. All transition endpoints lie strictly inside the unit interval. The counting formula follows by choosing an injective sequence of run labels and a composition of length. The standalone rational checker passed finite independent checks; the proof covers all lengths and alphabets.
+## correctness
 
-## Originality — PASS against inspected evidence
-Gill (arXiv:2402.13376, Theorem 4.1 and §4.4) classifies unrestricted binary witnesses and discusses enlargement of the ambient alphabet, which does not imply this all-alphabet order-preserving two-state classification. Kjos-Hanssen (arXiv:2607.26275) proves the universal three-state result and introduces an explicit affine construction but does not state the restricted two-state classification in the inspected material. Index, primary-source, and historical-claim searches located no equivalent statement or stronger theorem implying it. Residual risk: an older source on affine control/envelope dynamics could implicitly contain the argument; accessible later sections of the 2026 paper could not all be re-opened.
+PASS
 
-## Value — PASS
-This is a complete structural classification for a natural restriction of probabilistic automata, with a concrete positive rational witness for every admitted word. It answers a precise multiletter state-minimization question outside the binary-only classification, and its exact formula exposes polynomial rather than exponential growth in the number of uniquely isolatable words for fixed alphabet size. The restriction is essential: arbitrary two-state PFAs may have negative-determinant transitions and exhibit alternating maximizers.
+Writing the probability in the first state as x converts any 2x2 row-stochastic letter matrix to f_a(x)=q_a+(p_a-q_a)x; nonnegative determinant makes the update monotone. For acceptance in the first/second state, upper/lower envelopes optimize at each step. Their iterates form a monotone orbit, and active distinct affine functions must have strictly ordered slopes along that orbit, forbidding any return to a letter after a different active letter. A unique word forces strict action at each prefix. Conversely the explicit rational f_(a_i)(x)=(r+(i-1)eps)x+c−eps*sum_{h<i}T_h have ordered crossing thresholds T_i between baseline orbit points. The orbit error is <=1/(5000 n^2), strictly below the half-spacing 3/(64n); all f maps send [0,1] strictly inside (0,1) with positive slopes. The prescribed runs are the only greedy itinerary. Counting ordered distinct run labels and compositions gives the formula. Independently enumerated all run-distinct words q=2,3,4 through length 6 and matched the expression; this is corroboration, not proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Gill’s 2024 theorem classifies unrestricted *binary* two-state PFAs and includes alternating motifs requiring orientation-reversing letters; it does not determine the all-alphabet orientation-preserving model. Kjos-Hanssen’s 2026 three-state upper bound supplies existence for unrestricted words, not a minimal-two-state constrained if-and-only-if theorem. Resultary adjacent decreasing-two-state parity-run obstruction concerns the opposite sign of determinant. The monotone-affine envelope formulation was explicitly compared. Best-of-knowledge passes; an older affine control/greedy-envelope theorem could contain a close equivalent.
+
+## value
+
+PASS
+
+The order-preserving determinant restriction is an intrinsic stochastic dynamics condition, not a mere arbitrary word subset, and admits a complete finite-alphabet structural classification with rational positive witnesses. Exact enumeration separates polynomially growing accepted families for fixed q from all q^n words, and also explains the new role of orientation reversal in unrestricted binary witnesses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
