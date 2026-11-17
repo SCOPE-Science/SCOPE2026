@@ -1,19 +1,21 @@
-# Assessment of the thirteen-point one-flex Hermitian-relative quartics
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** Smoothness and genus follow from the displayed partial derivatives. The rational-inflexion criterion follows from the exact characteristic-three tangent substitution. The standalone program exhausts the eight coefficients over \(\mathbb F_9\) and the three distinguished coefficients over \(\mathbb F_{81}\) and \(\mathbb F_{729}\), verifying all field structures and every affine pair. The Weil functional equation and Newton identities uniquely reconstruct degree-six numerator polynomials from the three counts. Rational irreducibility of the quartic Frobenius factor is proved directly and establishes the simple-surface isogeny factor; all normalized eigenvalues are roots of unity. A code execution is reproducible, but mathematical verification remains a self-review.
+PASS
 
-## Originality
+The displayed quartic F=x³z−cxy³+cxz³−yz³ has in characteristic 3 gradient (c(z³−y³),−z³,x³), with no common projective zero for c≠0, giving smooth genus 3. The two infinity points have tangent order 3. At affine (X,Y), tangent substitution yields coefficient (1−cXa³)t³−ca³t⁴ where a=c(1−Y³), so order-4 rational inflexions are decidable by exact F9 evaluation. Independent enumeration for all eight c gives N1=16,13,10,13,7,10,13,7 and flex count 0,1,2,1,0,2,1,0; exactly c=−1,1±i have (13,1). Independent exhaustive F81/F729 finite-field fiber enumeration for these c gives N2=(109,73,73) and N3=(676,676,676), with complete per-y histograms. Newton identities and the genus-three Weil functional equation uniquely produce P_-1=(1−3T+9T²)(1+3T+9T²)^2 and P_(1±i)=(1+3T+9T²)(1−9T²+81T⁴). Q(X)=X⁴−9X²+81 is irreducible over Q by rational quadratic comparison; Honda–Tate decomposition gives a simple abelian surface in the latter type. P(1) gives Jac orders 1183,949, and normalized Frobenius factors are cyclotomic, hence supersingularity. The finite census is exhaustive over the stated F9, F81, F729, not an extrapolation.
 
-**PASS, qualified.** Homma–Kim 2026 classify only \((N_9,I_9)\)-types and parameter counts (Theorem 46); here the new invariant is the *complete* two-class zeta/isogeny decomposition within their single \((13,1)\) stratum. Homma–Kim 2024 imply geometrical supersingularity and Frobenius-root-of-unity restrictions but not the explicit arithmetic factorization. Meagher–Top's classic twist tables explicitly exclude characteristic three, so their similar-sounding result does not imply the present finite-field classification. The closely related one-rational-point Hermitian-relative quartic calculations have a different base-field point count and the cube numerator \((1-3T+9T^2)^3\), and neither they nor their family-wide formulas cover this thirteen-point stratum. Targeted external and research-database searches found no exact numerical or implication coverage. A comprehensive specialist survey of characteristic-three unitary twists could yet uncover an implicit equivalent classification.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is a complete classification of arithmetic isogeny decomposition in the smallest smooth nonelliptic case (degree-four Hermitian relatives) of a natural published rational-point/flex stratum. The boundary changes not just a point count but the dimension of simple factors in the Jacobian: an elliptic cube versus an elliptic curve times a simple abelian surface. These are intrinsic arithmetic-geometric invariants relevant to Jacobian arithmetic, Prym-type decompositions, and finite-field twist classification; the precise field and parameter slice are motivated by the source's three-member type, not selected after an arbitrary census.
+PASS, qualified: Homma–Kim 2026 Theorem 46 already identifies the natural three-member (13 rational points, one flex) F9 stratum, and 2024 results show all family members are Hermitian twists with supersingular normalized Frobenius eigenvalues; these are not new. Those inspected statements do NOT specify the two exact degree-six Weil numerators or the elliptic×simple-surface versus 3-elliptic decomposition. The published earlier one-rational-point Hermitian-relative zeta theorem is a different one-point family, so cannot imply these 13-point numerators. Meagher–Top 2010 full text sections 7 and 8 treat Dyck–Fermat/Klein twists in characteristic at least five and thus do not supply these F9 characteristic-three polynomials. A general Hermitian-twist table elsewhere remains a priority risk.
 
-## Closest literature and limitations
+## value
 
-Sources: Homma–Kim, arXiv:2610.09672v1, main classification and full Section 4; Homma–Kim, arXiv:2402.14192, Sections 1–3; Meagher–Top (2010), particularly Sections 3, 7–8. The result does not assert pairwise nonisomorphism of the two \(c=1\pm\iota\) curves, full Jacobian group structure, or a classification beyond the displayed normal form. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: within a naturally preclassified complete three-parameter rational point/flex stratum, the exact F9 Jacobian isogeny decomposition splits into two classes despite identical rational-point and tangent-contact profiles. Two exact zeta numerators are invariant classification data a researcher can use to distinguish arithmetic types; the statement is not a mere recomputation of an already known zeta table. Distinction is meaningful and exact even though the census is finite.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
