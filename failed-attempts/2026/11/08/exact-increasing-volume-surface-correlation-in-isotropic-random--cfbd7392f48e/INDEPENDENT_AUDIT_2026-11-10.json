@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T22:55:45.613381Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The zonotope intrinsic volume identities are A_n=2 sum_{i<j}|U_i cross U_j| and V_n=sum_{i<j<k}|det(U_i,U_j,U_k)|. For s=|U_i cross U_j|, E s=pi/4, E s^2=2/3, and E(|det| conditional on first two directions)=s/2. Centered pair kernel b=s/2-pi/8 has Var(b)=nu/16; the degenerate triple kernel g=d-(s_ij+s_ik+s_jk)/2+pi/4 has Var(g)=kappa, is pair-orthogonal and has uncorrelated distinct triple indices. Exact Hoeffding decomposition implies the stated covariance, variance and correlation, including strict monotonicity from the positive constants. Independent direct simulation of 20,000 n=4 zonotopes computed area and volume geometrically and measured covariance 0.59167 versus theoretical 0.59780 (1.03% relative deviation); exact algebraic correlation identity checked at n=3,4,5,8,30,120. Simulation is only corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "November 1 gives the same full n-dependent second- and third-order volume terms, variance and additionally the non-Gaussian asymptotic distribution of n^-2 volume fluctuations."
+        ],
+        "reasoning": "The prior stronger volume fluctuation result specializes mechanically to the residual variance and area correlation using the classical 3D intrinsic-volume identity; not merely matching parameters.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-second-order-volume-fluctuations-of-isotropic-three-dimensional--31c1b1c50e42/RESULT.md",
+          "Resultary: volume random zonotope second-order fluctuation exact Hoeffding decomposition spherical harmonics"
+        ]
+      },
+      "checked_sources": [
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-second-order-volume-fluctuations-of-isotropic-three-dimensional--31c1b1c50e42/RESULT.md",
+        "https://arxiv.org/abs/2202.06774"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published volume decomposition V-EV=(n-2)sum b + R, with R orthogonal to pair kernels; A-EA=4sum b, Var(A)=nu*binom(n,2)."
+        ],
+        "reasoning": "Substitution gives R=V-EV-(n-2)(A-EA)/4 and Cov(V,A)=(n-2)Var(A)/4; dividing by sigmaV sigmaA produces exactly [1+16kappa/(3(n-2)nu)]^-1/2 and its strict growth.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-second-order-volume-fluctuations-of-isotropic-three-dimensional--31c1b1c50e42/RESULT.md",
+          "https://arxiv.org/abs/2202.06774"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier second-order volume paper uses pair kernel b=1/2 |u cross v|-pi/8, identical to the submitted pair kernel."
+        ],
+        "reasoning": "The standard boundary area is A=2 sum|u cross v|, so centered area is exactly 4 sum b; hence the two canonical decompositions are equivalent.",
+        "searches": [
+          "random isotropic zonotope volume surface area covariance correlation exact Hoeffding decomposition three dimensions",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-second-order-volume-fluctuations-of-isotropic-three-dimensional--31c1b1c50e42/RESULT.md",
+          "https://arxiv.org/abs/2202.06774"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior published expression Var(V_n) and canonical pair/triple kernel determine all submitted finite-n moments; Schneider 2022 supplies intrinsic-volume expectation framework."
+        ],
+        "reasoning": "This is exact theorem coverage, not an external numerical table; the formula for correlation is algebra from already known quantities.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-second-order-volume-fluctuations-of-isotropic-three-dimensional--31c1b1c50e42/RESULT.md",
+          "https://arxiv.org/abs/2202.06774"
+        ]
+      },
+      "rationale": "FAIL: The November 1 2026 publication on isotropic 3D random-zonotope volume proves the identical exact Hoeffding decomposition V-EV=(n-2)sum_{i<j}b(U_i,U_j)+sum h3, where b=|Ui cross Uj|/2-pi/8 and h3 is the same fully degenerate triple kernel. Substituting the standard, already known surface-area formula A-EA=4sum b gives exactly this submission's proposed surface-volume orthogonal relation and covariance. The prior volume-variance computation already supplies the second-order variance; the remainder variance and monotone explicit correlation are immediate algebraic corollaries. The added presentation does not establish a new independent theorem.",
+      "residual_risks": [
+        "Attribution to the earlier second-order-volume theorem is decisive; no claim of formal historical chronological priority beyond the dated public corpus."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_COVERING",
+          "evidence": [
+            "Pair kernel and third-order residual exactly match; surface area is the same pair U-statistic up to factor four, forcing the submitted correlation theorem."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/1/SCOPE-second-order-volume-fluctuations-of-isotropic-three-dimensional--31c1b1c50e42/RESULT.md",
+          "material_read": "Entire prior RESULT.md: exact determinant volume formula, shared-two-indices covariance, canonical Hoeffding kernel and orthogonal cubic remainder, exact variance, subsequent non-Gaussian limit",
+          "method": "Read full primary theorem and proof via GitHub raw or arXiv HTML; compared mathematical statements and definitions",
+          "title": "Second-order volume fluctuations of isotropic three-dimensional random zonotopes",
+          "trigger": "Earlier same spherical unit-vector model and canonical volume fluctuation theorem"
+        },
+        {
+          "assessment": "BACKGROUND_NONCOVERING",
+          "evidence": [
+            "Known intrinsic-volume valuations and expectations; not alone the decisive finite joint second moments."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.06774",
+          "material_read": "Accessible arXiv mathematical text: random-segment model, intrinsic volumes, valuation identities, expectation and CLT discussion",
+          "method": "Read arXiv open-access mathematical text plus previously inspected PDF relevant pages",
+          "title": "Random zonotopes and valuations",
+          "trigger": "Original primary expectation and valuation framework for stochastic zonotopes"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: Although surface-volume correlation is a natural geometric question, its complete asserted answer is a short mechanical repackaging of the previously published exact canonical volume kernel and standard surface intrinsic-volume identity. No separate higher-dimensional classification, new boundary phenomenon, distinct conditional law or independently motivated unknown fact survives the stronger prior theorem.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For a 3D random zonotope of n>=3 independent uniform unit segments, Corr(volume,boundary area)=[1+16kappa/(3(n-2)nu)]^(-1/2), nu=8/3-pi^2/4 and kappa=pi^2/32-5/18, strictly increases to 1; volume centered equals (n-2)/4 times centered surface area plus an orthogonal third-order remainder of variance binom(n,3)kappa.",
+  "limitations": [
+    "Unit directions isotropic in R^3; nonzero residual variance ensures nonperfect finite-n correlation.",
+    "No independently new finite-sample correlation theorem after the previously established canonical volume decomposition."
+  ],
+  "schema_version": 1
+}
