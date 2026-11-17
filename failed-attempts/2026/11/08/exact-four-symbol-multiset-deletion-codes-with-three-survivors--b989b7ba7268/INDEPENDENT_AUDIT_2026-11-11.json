@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T01:58:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n-element unordered four-symbol vectors x,y, a common three-symbol output exists iff Omega(x,y)=sum min(x_i,y_i)>=3, hence a code is a clique under Omega<=2. Heavy-coordinate packing bounds cardinality by four for n>=9, pure vectors attain; the source checker exhaustively searches nonexistence of cliques of sizes 12,7,6,6,6 at n=4..8. Independently implemented complete increasing-index bitmask clique backtracking and checked absence for each forbidden size, plus the explicit witnesses. Values 20 at n=3, 11 at n=4, 6 at n=5, 5 at n=6..8, and 4 at n>=9 are correct. The finite combinatorial searches prove only finite exceptional sizes, while heavy-coordinate argument proves infinite tail.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oct25 proves 6/5/4 for n>=5, Nov2 proves general q+1 versus q for q+2<=n<=2q versus n>=2q+1, and Oct18 classifies ALL length-four optimum codes and quotes established size q+binom(q,2)+D(q,4,3)."
+        ],
+        "reasoning": "The union of earlier exact formulas covers all substantive parameter values; the different proof method does not escape implication.",
+        "searches": [
+          "Resultary exact quaternary three-survivor multiset deletion spectrum October 25",
+          "Resultary exact three-survivor multiset deletion codes over arbitrary alphabets November 2",
+          "Resultary optimal four-multiset deletion codes as graph pairings October 18"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-quaternary-three-survivor-multiset-deletion-spectrum--10c1013a7401/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-three-survivor-multiset-deletion-codes-over-arbitrary-alph--da6ffbe21ef7/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-optimal-four-multiset-deletion-codes-as-graph-pairings-over--25c40b5490b2/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The submitted cardinality formula restricted to n>=5 is identical to October 25 Finding, and n=4 is the q=4 specialization of October 18 pre-established optimal identity with D(4,4,3)=1."
+        ],
+        "reasoning": "Every nontrivial n is directly implied by earlier stronger/equivalent results. No independent surviving useful novel claim. Original package preserved for scientific rejection.",
+        "searches": [
+          "Resultary Oct25 Exact quaternary three-survivor multiset deletion spectrum",
+          "Resultary Nov2 Exact three-survivor multiset deletion codes over arbitrary alphabets",
+          "Resultary Oct18 The optimal four-multiset deletion codes as graph pairings over quadruple packings"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two fixed-n multiset source vectors are compatible iff intersection Omega<=2; equals half-l1 distance threshold and standard one-deletion code for n=4."
+        ],
+        "reasoning": "The earlier published papers use precisely the same unordered multiset channel and the same optimal cardinality; not an ordered-string comparison.",
+        "searches": [
+          "Resultary four-symbol multiset deletion codes three survivors exact cardinality S_4(n,n-3)",
+          "Resultary one deletion correct multiset code length 4 alphabet 4 optimal cardinality 11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published exact entries n=5:6; n=6,7,8:5; n>=9:4; q=4,n=4:4+6+1=11. At n=3:binom(6,3)=20 is routine output counting."
+        ],
+        "reasoning": "An exact matching table exists, with a preceding structural classification for the missing n4 line.",
+        "searches": [
+          "Resultary October 25 quaternary three survivor exact spectrum",
+          "Resultary October 18 graph pairing weight four optimal deletion code"
+        ]
+      },
+      "rationale": "Decisively covered. FULL published October 25 quaternary theorem proves exactly S4(n,n-3)=6 at n5, 5 at n6..8 and 4 at n>=9, including all constructions and stronger analytic upper bounds. FULL November 2 arbitrary-q theorem contains n>=6 via q=4. FULL October 18 graph-pairing theorem explicitly credits the already-known exact length-four one-deletion cardinality q+binom(q,2)+D(q,4,3), giving 4+6+1=11 when q=4. The remaining n=3 value 20 counts all three-multisets, a trivial equality. Hence the entire five-piece cardinality claim is already known, despite different finite certificates.",
+      "residual_risks": [
+        "No scientific novelty remains in the proposed cardinality-only final claim, irrespective of source checker."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact same n>=5 table; decisive coverage",
+          "evidence": "Published Finding: S4(n,n-3)=6 (n5), 5 (6<=n<=8), 4 (n>=9).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-quaternary-three-survivor-multiset-deletion-spectrum--10c1013a7401/RESULT.md",
+          "material_read": "Entire RESULT.md: theorem, heavy/light vector partition, n5 triangle-free proof, n6..8 construction and tail",
+          "method": "GitHub connector fetch_file, full primary text",
+          "title": "Exact quaternary three-survivor multiset deletion spectrum",
+          "trigger": "Identical alphabet and survival channel, exact table"
+        },
+        {
+          "assessment": "General q formula specializes q=4 to n6..8:5 and n>=9:4",
+          "evidence": "S_q=q+1 for q+2<=n<=2q; q afterwards.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-three-survivor-multiset-deletion-codes-over-arbitrary-alph--da6ffbe21ef7/RESULT.md",
+          "material_read": "Entire RESULT.md, theorem, light/heavy bound, complete construction and sharpness",
+          "method": "GitHub connector fetch_file, full primary text",
+          "title": "Exact three-survivor multiset deletion codes over arbitrary alphabets",
+          "trigger": "General dominating q,n classification"
+        },
+        {
+          "assessment": "Prior optimal cardinality at q=4,n=4 is 11 and stronger classification",
+          "evidence": "Exact |C|=q+C(q,2)+D(q,4,3), D(4,4,3)=1, so 11; source credits Chen Ma Zhang 2020 Theorem III.2",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-optimal-four-multiset-deletion-codes-as-graph-pairings-over--25c40b5490b2/RESULT.md",
+          "material_read": "Entire RESULT.md, including established cardinality formula, complete optimizer parameterization, proof and citation to Chen–Ma–Zhang 2020",
+          "method": "GitHub connector fetch_file, full primary text",
+          "title": "The optimal four-multiset deletion codes as graph pairings over quadruple packings",
+          "trigger": "n=4 previously uncovered in October 25 table"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Scientific value as a new contribution fails because every segment is either an already published exact cardinality (n>=4) or elementary counting (n=3). Recomputing a published optimal-code table with alternative clique certificates supplies no distinct extremal structure or new mathematical consequence. The original claim cannot be made new by citing a different checker.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-quaternary-three-survivor-multiset-deletion-spectrum--10c1013a7401/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-three-survivor-multiset-deletion-codes-over-arbitrary-alph--da6ffbe21ef7/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-optimal-four-multiset-deletion-codes-as-graph-pairings-over--25c40b5490b2/RESULT.md"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "No scientific novelty remains in the proposed cardinality-only final claim, irrespective of source checker.",
+    "Independent finite clique enumeration does not claim a classification of all maximizers."
+  ],
+  "residual_risks": [
+    "No scientific novelty remains in the proposed cardinality-only final claim, irrespective of source checker.",
+    "Independent finite clique enumeration does not claim a classification of all maximizers."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Exact same n>=5 table; decisive coverage",
+      "evidence": "Published Finding: S4(n,n-3)=6 (n5), 5 (6<=n<=8), 4 (n>=9).",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-quaternary-three-survivor-multiset-deletion-spectrum--10c1013a7401/RESULT.md",
+      "material_read": "Entire RESULT.md: theorem, heavy/light vector partition, n5 triangle-free proof, n6..8 construction and tail",
+      "method": "GitHub connector fetch_file, full primary text",
+      "title": "Exact quaternary three-survivor multiset deletion spectrum",
+      "trigger": "Identical alphabet and survival channel, exact table"
+    },
+    {
+      "assessment": "General q formula specializes q=4 to n6..8:5 and n>=9:4",
+      "evidence": "S_q=q+1 for q+2<=n<=2q; q afterwards.",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-three-survivor-multiset-deletion-codes-over-arbitrary-alph--da6ffbe21ef7/RESULT.md",
+      "material_read": "Entire RESULT.md, theorem, light/heavy bound, complete construction and sharpness",
+      "method": "GitHub connector fetch_file, full primary text",
+      "title": "Exact three-survivor multiset deletion codes over arbitrary alphabets",
+      "trigger": "General dominating q,n classification"
+    },
+    {
+      "assessment": "Prior optimal cardinality at q=4,n=4 is 11 and stronger classification",
+      "evidence": "Exact |C|=q+C(q,2)+D(q,4,3), D(4,4,3)=1, so 11; source credits Chen Ma Zhang 2020 Theorem III.2",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-the-optimal-four-multiset-deletion-codes-as-graph-pairings-over--25c40b5490b2/RESULT.md",
+      "material_read": "Entire RESULT.md, including established cardinality formula, complete optimizer parameterization, proof and citation to Chen–Ma–Zhang 2020",
+      "method": "GitHub connector fetch_file, full primary text",
+      "title": "The optimal four-multiset deletion codes as graph pairings over quadruple packings",
+      "trigger": "n=4 previously uncovered in October 25 table"
+    }
+  ]
+}
