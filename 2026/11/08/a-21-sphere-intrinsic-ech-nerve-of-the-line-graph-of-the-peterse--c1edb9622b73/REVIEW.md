@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The 15-vertex graph is reconstructed canonically as the line graph of \(KG(5,2)\). The odd-scale Čech facets are justified by the geometric metric-graph witness lemma of Adams–Shukla–Singh. A program independent of graph packages exhaustively compares face closure and ball-witness membership on all 32768 subsets, counts 2141 faces and all 8955 incidences, and constructs two matchings (opposed tie orders). Each pairing is globally checked acyclic by directed Hasse topological sort, leaves one critical zero-cell and 21 three-cells, and hence establishes the full integral homotopy equivalence. Independent mod-two simplicial boundary ranks are consistent, but not substituted for the integral homotopy proof.
+## correctness
 
-**Originality — PASS against checked evidence.** The primary Čech paper [2] treats hypercubes, and the primary line-graph paper [1] treats clique complexes, not odd-scale graph Čech nerves. The closest published scale-two line-graph collapse [3] does not address scale three; the scale-three vertex-truncation result [4] applies to a twice-as-large line graph of a subdivided Petersen graph. Actual literature, research-record and accessible own-claim searches did not identify an equivalent graph/parameter claim or stronger implication. This is best-knowledge originality, not a guarantee against unindexed work.
+PASS
 
-**Value — PASS.** The object is the line graph of the smallest snark, a canonical four-regular 15-vertex graph, rather than an arbitrary sliced example. The result determines a complete natural integral homotopy invariant at the first odd scale beyond the known line-graph scale-two collapse theorem. A six-dimensional pure nerve reduces to precisely 21 three-spheres, furnishing a motivated, exact non-shellability benchmark with substantial topological dimension loss. No paper-sized generalization is asserted or needed.
+The 15 vertices of L(KG(5,2)) and its 30 edges were reconstructed independently from disjoint Petersen 2-subsets. At r=3, the odd-threshold ball witness lemma yields the 30 distinct sets N[u]∪N[v] of cardinality seven. Direct independent enumerator found 2140 nonempty faces and f=(15,105,430,765,585,210,30). An independently coded free-face critical-facet algorithm produced 1059 pairs and critical vector one 0-cell plus 21 3-cells; oriented all 8955 Hasse incidences and topologically sorted the full graph. Forman then gives an integral wedge of 21 S^3, not just a mod-two homology claim. Pure 6-dimensional and H_3 nonzero gives non-shellability. The inspected verify.py additionally checks all 32768 ball-witness masks, reverse tie order and mod-two boundary ranks (14,91,339,405,180,30), not re-executed in this audit.
 
-**Residual scientific limits.** One specific graph and scale; no naturality or persistence maps; no equivariant classification; equivalent unindexed work remains possible. The proof is computation-assisted but finite and complete for the claimed graph.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The value 21 is a graph-specific scale-three Čech homotopy classification and not a numerical specialization of the known scale-two line-graph collapse, the hypercube nerve theorem, or the once-subdivided line-graph scale-three result. The target graph has 15 vertices, whereas the latter object L(S(P)) has 30. Published Resultary Petersen Čech persistence applies to P (10 vertices), not L(P); Rips/clique complexes likewise differ. Searches include the exact object, parameter, nerve aliases and stronger class claims. Best-knowledge only; inaccessible or unindexed works could still cover.
+
+## value
+
+PASS
+
+The line graph of the Petersen graph is a canonical small highly symmetric four-regular graph, not an arbitrary enumerative slice. Its first odd Čech scale beyond the known scale-two collapse exhibits a complete integral homotopy type with a six-to-three dimension drop and non-shellability. This gives an exact reproducible benchmark for graph metric topology; no family theorem is needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
