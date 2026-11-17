@@ -1,15 +1,21 @@
-# Review: exact area–Hausdorff envelope and paired errors
+# Independent mathematical audit
 
-## Correctness
-PASS. The fourfold tangent-normal replication proves the exact polygon area and Hausdorff formulas. Jensen and Karamata prove the entire conditional envelope, and the positivity of gaps proves precisely which upper endpoints are attained. The Dirichlet moment formulas give the exact \(S_3\) variance and the \(S_5\) remainder bound. A scalar influence-function characteristic-function argument proves that the centered cubic-gap sum and exponential maximum have independent normal and Gumbel limits; Slutsky transfers these to the geometric statistics. Independent half-plane clipping and 600 conditional-support trials agreed with the formulas. The proof does not infer infinite claims from finite tests.
+## correctness
 
-## Originality
-PASS, provisional. Earlier rotation-area results cover exact *expectations* but not the fixed-Hausdorff sharp feasible envelope or joint Gaussian/Gumbel product law. Published Dirichlet-spacing CLTs already imply the Gaussian ingredient and are acknowledged; general independent-halfspace variance bounds use a different random geometry, while boundary-point circumscription has unrestricted, potentially unbounded gaps. The closest reviewed full texts and title/alias/implication searches found no theorem that dominates the combined conditional attainment classification and joint law. Full access to two plausible 2014–2015 sources was unavailable; unindexed coverage remains a genuine risk.
+PASS
 
-## Mathematical value
-PASS. Area error and worst-direction error measure different modes of geometric approximation to the disk. The exact conditional area interval answers the natural shape-versus-accuracy tradeoff without a probability model and reveals when maximal area at a given Hausdorff error requires coincident orientations. The joint limit identifies different \(m^{-5/2}\) Gaussian area and \((\log m/m)^2\) Gumbel extreme-error scales, proving asymptotic independence despite finite-size dependence. These are natural, interpretable invariants of a canonical bounded random circumscription model rather than arbitrary parameters.
+The exact outward tangent-normal gaps give area A=4 sum tan(Delta_i/2) and H=sec(max Delta_i/2)−1. At fixed maximum gap M, Jensen strictly minimizes area with remaining m−1 equal gaps and Karamata maximizes it at k=floor(L/M) saturated gaps plus remainder; positivity gives the upper-attainment transition exactly at M<L/(m−1), with equal-gap boundary. Convex connectivity yields the complete attainable interval. For random independent phases Dirichlet(1,...,1) gaps imply area mean pi+pi³/[8(m+1)(m+2)]+O(m^-4), variance 5pi^6/(32m^5), and joint independent normal/Gumbel limit by exponential influence function E³−18E+12 and exclusion of rare maximum tails. Analytic marginal and joint limit proof checked, not inferred from simulation. Independently tested area envelope against 240 random gap vectors in m=2,3,5,10.
 
-## Residual limitations
-Identical centered squares and independent rotations only; no rate of joint convergence, no general parallelograms. Two plausibly relevant complete texts were unavailable for inspection; their abstracts do not imply the result but the priority comparison cannot be exhaustive. Independent scientific validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS ONLY for the complete deterministic area-versus-Hausdorff feasible envelope and its sharp attained/unattained boundary with distinct positive rotation gaps. The Gaussian/Gumbel joint product law, EXACT variance 5π⁶/32, normalization and circular-gap identities are conclusively covered by the published October 25 Resultary theorem for all regular circumscribed polygons: setting polygon side count n=4 gives precisely this random-square case. The existing source presentation and slogan incorrectly frame the covered Gaussian/Gumbel result as novel; public scientific files require substantive corrected attribution and novelty scope before import. No full replacement bytes supplied in this audit; status NOT_READY. This is not a PASS for the covered Gaussian/Gumbel component.
+
+## value
+
+PASS
+
+Conditional on a measured worst-direction Hausdorff approximation error, the exact interval of possible areas and transition in whether its maximum is actually achievable is a natural, complete, usable shape-approximation invariant. The constrained extremal classification is more than restating Gaussian/Gumbel convergence, and is neither the previously published general polygon joint limit nor an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

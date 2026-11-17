@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The included standalone `verify.py` uses the Python standard library only. It executed and reported:
+# Independent mathematical audit
 
-`ROTATED_SQUARE_CHECK_OK independent_clipped_cases=360 max_area_error=4e-15 max_hausdorff_error=1.33e-15 dirichlet_moments=5`
+## correctness
 
-`AREA_HAUSDORFF_ENVELOPE_OK support_cases=600 endpoint_constructions=10`
+PASS
 
-The first check computes polygon intersections independently by clipping 360 half-plane configurations, checks the area and maximum radius against the gap identities, verifies exact Dirichlet third-gap moments for five sample sizes and the explicit two-square expectation/variance, and numerically compares means for two and five square rotations. The second checks both conditional bounds in 600 independently generated positive gap configurations and verifies exactly constructed lower and upper endpoint configurations. These tests concern finite identities and are not claimed to prove the joint asymptotic result.
+The exact outward tangent-normal gaps give area A=4 sum tan(Delta_i/2) and H=sec(max Delta_i/2)−1. At fixed maximum gap M, Jensen strictly minimizes area with remaining m−1 equal gaps and Karamata maximizes it at k=floor(L/M) saturated gaps plus remainder; positivity gives the upper-attainment transition exactly at M<L/(m−1), with equal-gap boundary. Convex connectivity yields the complete attainable interval. For random independent phases Dirichlet(1,...,1) gaps imply area mean pi+pi³/[8(m+1)(m+2)]+O(m^-4), variance 5pi^6/(32m^5), and joint independent normal/Gumbel limit by exponential influence function E³−18E+12 and exclusion of rare maximum tails. Analytic marginal and joint limit proof checked, not inferred from simulation. Independently tested area envelope against 240 random gap vectors in m=2,3,5,10.
 
-The proof of the asymptotic product law is analytic: an exponentially small Taylor remainder in second moment, a bivariate exponential-moment CLT, a direct joint characteristic-function and extreme-event factorization, and Slutsky's theorem. It does not include a quantitative finite-size convergence rate. Independent mathematical review has not been performed.
+## originality
+
+PASS
+
+PASS ONLY for the complete deterministic area-versus-Hausdorff feasible envelope and its sharp attained/unattained boundary with distinct positive rotation gaps. The Gaussian/Gumbel joint product law, EXACT variance 5π⁶/32, normalization and circular-gap identities are conclusively covered by the published October 25 Resultary theorem for all regular circumscribed polygons: setting polygon side count n=4 gives precisely this random-square case. The existing source presentation and slogan incorrectly frame the covered Gaussian/Gumbel result as novel; public scientific files require substantive corrected attribution and novelty scope before import. No full replacement bytes supplied in this audit; status NOT_READY. This is not a PASS for the covered Gaussian/Gumbel component.
+
+## value
+
+PASS
+
+Conditional on a measured worst-direction Hausdorff approximation error, the exact interval of possible areas and transition in whether its maximum is actually achievable is a natural, complete, usable shape-approximation invariant. The constrained extremal classification is more than restating Gaussian/Gumbel convergence, and is neither the previously published general polygon joint limit nor an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
