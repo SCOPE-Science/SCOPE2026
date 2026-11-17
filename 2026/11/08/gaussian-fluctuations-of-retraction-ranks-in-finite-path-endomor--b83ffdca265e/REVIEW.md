@@ -1,11 +1,21 @@
-# Review of the path retraction rank theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement counts distinct labeled graph endomorphisms whose neighboring images differ by exactly one. Idempotence is equivalent to fixing an image interval; the two outside tails contribute an exact convolution. The sine spectral formula includes the negative principal eigenvalue when the path size is odd, and the proof explicitly bounds this parity correction and the remaining modes before using Laplace's method. The resulting normal variance and centering are derived, not inferred from finite experiments. The executable checks exact counts independently through eleven vertices; this is corroboration, not infinite proof.
+## correctness
 
-**Originality — PASS relative to inspected evidence.** The 2018 path-endomorphism monoid paper computes generator ranks and related structure, not a random idempotent's image-rank central limit theorem. The 2012 path-homomorphism paper computes unrestricted walk counts. The 2012 path/cycle endo-regularity thesis already proves the fixed-interval idempotent criterion; that background is expressly credited. A distinct weak-cycle result has a cubic-root concentration scale, but its statement neither includes these strict path endomorphisms nor supplies their non-lazy Gaussian fluctuations. No identical local Gaussian theorem was found in the actual literature and research-record searches. Priority beyond inspected sources is unverified.
+PASS
 
-**Mathematical value — PASS.** Idempotents are precisely the retractions in this transformation monoid, and image size is the natural measure of a retract's dimension. The theorem resolves the full finite rank count and shows the nontrivial coexistence of a sublinear cubic-root typical rank and Gaussian fluctuations on the smaller sixth-root scale. It refines coarse concentration and links semigroup structure to spectral boundary effects. It is neither a parameter relabeling nor a finite-table exercise.
+The image of a graph endomorphism is a contiguous interval, and idempotency fixes that interval; left/right exterior walks are independent and give the exact convolution. Verified sine eigenvalues and principal endpoint coefficient b_r~4/r including the negative parity eigenvalue, controlled spectral remainder summability, uniform saddle r~c n^(1/3), second derivative -(3 log2/c)n^-1/3 and Gaussian n^1/6 window with exponential tails. Independent direct enumeration of all endomorphisms for n=2..9 agrees with walk convolution, including n=9 histogram (8,44,38,22,10,5,2,1); this alone is not an infinite proof.
 
-**Residual risks.** A general, unpublished transfer-matrix saddle-point theorem could subsume the local limit. The published structural statements themselves are not new. The result is restricted to strict undirected paths. Exhaustive computational coverage is finite, and independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Resultary reflection-orbit classification of the same strict P_n endomorphism monoid published October 26 already provides the identical exact rank convolution and is explicitly credited as COVERING that finite identity. The submitted principal Gaussian n^1/6 rank limit and explicit variance are not stated there, in the separate Margolis–Rhodes partial strict graph-semigroup idempotent theorem, or in the Dimitrova et al semigroup-generator-rank paper. Thus original final result survives on the Gaussian asymptotic; historical broader asymptotic risks remain.
+
+## value
+
+PASS
+
+Sharp random image-size law for a canonical strict-graph transformation monoid, a natural distribution refining exact rank census and making a cubic-root-to-sixth-root fluctuation transition precise; the Gaussian law is not a plain rewrite of the known finite convolution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

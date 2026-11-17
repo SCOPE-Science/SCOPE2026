@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The executable `verify.py` performs direct exhaustive enumeration of graph endomorphisms for each integer \(2\le n\le11\), applies the idempotency equation and records all image ranks. It independently computes each candidate rank polynomial by adjacency-walk dynamic programming. The two computations agreed for all ten sizes and the run terminated with `VERIFY_OK`.
+# Independent mathematical audit
 
-Additional exact dynamic-programming calculations of rank histograms for \(n=30\), \(100\), and \(300\) returned mode/mean values \((6,6.60287)\), \((9,10.28334)\), and \((14,15.24143)\), respectively. These observations are not used as proofs of the asymptotic law.
+## correctness
 
-The proof uses an exact path-retraction bijection, the explicit sine eigenbasis of a path adjacency matrix, uniform spectral-remainder estimates, and a one-dimensional Laplace local limit. Those nonfinite arguments, including the tail estimates, are written in `RESULT.md`. No independent mathematical audit has been performed.
+PASS
+
+The image of a graph endomorphism is a contiguous interval, and idempotency fixes that interval; left/right exterior walks are independent and give the exact convolution. Verified sine eigenvalues and principal endpoint coefficient b_r~4/r including the negative parity eigenvalue, controlled spectral remainder summability, uniform saddle r~c n^(1/3), second derivative -(3 log2/c)n^-1/3 and Gaussian n^1/6 window with exponential tails. Independent direct enumeration of all endomorphisms for n=2..9 agrees with walk convolution, including n=9 histogram (8,44,38,22,10,5,2,1); this alone is not an infinite proof.
+
+## originality
+
+PASS
+
+Resultary reflection-orbit classification of the same strict P_n endomorphism monoid published October 26 already provides the identical exact rank convolution and is explicitly credited as COVERING that finite identity. The submitted principal Gaussian n^1/6 rank limit and explicit variance are not stated there, in the separate Margolis–Rhodes partial strict graph-semigroup idempotent theorem, or in the Dimitrova et al semigroup-generator-rank paper. Thus original final result survives on the Gaussian asymptotic; historical broader asymptotic risks remain.
+
+## value
+
+PASS
+
+Sharp random image-size law for a canonical strict-graph transformation monoid, a natural distribution refining exact rank census and making a cubic-root-to-sixth-root fluctuation transition precise; the Gaussian law is not a plain rewrite of the known finite convolution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
