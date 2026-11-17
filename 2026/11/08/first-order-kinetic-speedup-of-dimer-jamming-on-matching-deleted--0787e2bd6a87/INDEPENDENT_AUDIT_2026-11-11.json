@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T18:02:52.374446Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After each dimer deposition, m unoccupied vertices remain per side and k labels are shared. There are m^2-k available rate-one edges partitioned into counts k(k-1), 2k(m-k), (m-k)^2, proving the transform recurrence with terminal (m,k)=(1,0)/(1,1). Verified mean exactly for n=2..8 from a separately implemented rational dynamic program. Symbolically verified nonnegative F_m drift and exact waiting-time partial fraction identity in Sympy. The factorial-moment upper bound controls cumulative drift O(log n/n^2), giving E T_n=H_n^(2)-1/n+O(log n/n^2); the finite n=2 case has opposite sign and is correctly not claimed uniformly.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior same-graph recurrence gives q_n~2/n and standard factorial moments; present recurrence involves denominators m^2-k+s and time mean"
+        ],
+        "reasoning": "The prior full chain provides a starting point and some estimates, but does not state or trivially yield the signed -1/n first-order effect without the new waiting-time analysis.",
+        "searches": [
+          "Resultary: random greedy matching matching deleted K n n crown graph continuous time dimer adsorption last success jamming speedup",
+          "A sharp dimer-jamming defect law on crown graphs RESULT.md",
+          "Pippenger doi:10.1137/0402034"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-dimer-jamming-defect-law-on-crown-graphs--5c96cef9c347/RESULT.md",
+        "doi:10.1137/0402034 (abstract)",
+        "arXiv:1210.3581 general hypergraph matching"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Terminal failure probability 2/n differs from last-success-time E T_n=H_n^(2)-1/n+O(log n/n^2)."
+        ],
+        "reasoning": "The sharp sign and coefficient require rate-sum decomposition and control of all intermediate k moments, not only terminal q_n.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-dimer-jamming-defect-law-on-crown-graphs--5c96cef9c347/RESULT.md",
+          "doi:10.1137/0402034"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform-edge discrete greedy matching is the jump chain, whereas continuous-time last successful deposition weights each step by 1/(m^2-k)"
+        ],
+        "reasoning": "Process equivalence at the jump-chain level does not make terminal defect probability and total physical time equivalent statistics.",
+        "searches": [
+          "Resultary: random greedy matching matching deleted K n n crown graph continuous time dimer adsorption last success jamming speedup",
+          "Resultary: crown graph jamming last deposition time",
+          "Pippenger 1989 graph dimer adsorption"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior crown records list terminal size and probability, not first-order deposition-time correction; current record alone gives this Laplace transform in retrieved results"
+        ],
+        "reasoning": "No demonstrated earlier time-spectrum table; independent exact small-n checks do not establish novelty.",
+        "searches": [
+          "Resultary last successful dimer jamming crown graph kinetic",
+          "web crown graph expected saturation time"
+        ]
+      },
+      "rationale": "A same-graph published defect theorem gives the overlap-state chain and q_n asymptotics, but not physical-time Poisson Laplace transform nor a sharp negative 1/n mean-time correction. The new rate-weighted expectation proof and cancellation establish a different kinetic observable with a nontrivial sign.",
+      "residual_risks": [
+        "Pippenger 1989 full text not inspected; Oxford vpn_disconnected job retained",
+        "An older unindexed continuous-time crown model might imply the kinetic formula; no such source established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same embedded chain and terminal defect, but not the continuous-clock Laplace law or negative 1/n time correction",
+          "evidence": "States q_n=2/n+O(log n/n^2), while reviewed claim concerns E(last successful deposition time)",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-dimer-jamming-defect-law-on-crown-graphs--5c96cef9c347/RESULT.md",
+          "material_read": "Full published RESULT.md read, including state transition recurrence, factorial-moment estimate and sharp terminal failure probability",
+          "method": "exact GitHub published source blob d00993ef0fe1c976748c5a3fa1abd62ae902e4f0",
+          "title": "A sharp dimer-jamming defect law on crown graphs",
+          "trigger": "Identical graph, random greedy matching process, and (m,k) chain"
+        },
+        {
+          "assessment": "Full-text coverage unresolved; not counted as proof of noncoverage",
+          "evidence": "Abstract treats general edge occupation dynamics and jamming, not a stated crown graph first-order mean-time law",
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "Publisher abstract and institutional repository abstract; Oxford full text blocked by disconnected VPN, job 70f769f9fb1289f62d91464fdc8830e8",
+          "method": "OA/preprint search and authorized Oxford request",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Foundational graph dimer kinetics with possible broader methods"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Saturation time is a physical-time observable intrinsic to irreversible adsorption; the sign reversal from removing edges is counterintuitive and the explicit first-order -1/n coefficient is a meaningful asymptotic kinetic comparison. Neither correctness nor code alone is used as the reason for value.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-sharp-dimer-jamming-defect-law-on-crown-graphs--5c96cef9c347/RESULT.md",
+    "doi:10.1137/0402034 (abstract)",
+    "arXiv:1210.3581 general hypergraph matching"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Pippenger 1989 full text not inspected; Oxford vpn_disconnected job retained",
+    "An older unindexed continuous-time crown model might imply the kinetic formula; no such source established."
+  ],
+  "schema_version": 1
+}

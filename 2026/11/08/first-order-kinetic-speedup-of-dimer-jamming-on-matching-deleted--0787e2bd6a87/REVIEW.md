@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The actual absorbing continuous-time chain has rate \(m^2-k\) at state \((m,k)\) and the three successor coefficients sum to this rate. Conditioning yields the rational Laplace transform for the entire last-success-time law. The exact martingale-drift identity, bounded second factorial moment and nonnegative remainder prove the \(-1/n\) kinetic correction with an explicit \(O(\log n/n^2)\) bound. Exact labeled-mask enumeration confirms the reduction for \(2\le n\le7\), with distinct Laplace arguments; these finite checks are not substituted for proof.
+## correctness
 
-**Originality — PASS on examined evidence, provisional.** Cadilhe–Araújo–Privman survey conventional lattice and patterned-substrate RSA; Pippenger treats graph adsorption generically; Dyer–Frieze study uniform-edge greedy matching; Bennett–Bohman supply high-degree matching bounds; Arnosti compares random-edge matching sizes with alternative procedures. The closest available prior statement on this exact graph determines the jammed **matching-size** defect but expressly does not give time-resolved kinetics. The new claim is a continuous-time **last successful event** distribution, with its first-order asymptotic mean difference from the full bipartite process. It does not follow from the terminal-size probability alone; rates and the sequence of overlap moments are essential. Searches for crown/matching-deleted graphs, Poisson absorption clocks, random-edge last-success times and equivalents found no stated exact kinetic correction. Historical priority remains limited by incomplete access to older full manuscripts and potentially unindexed material.
+PASS
 
-**Mathematical value — PASS.** Jamming kinetics is a standard independent observable of irreversible adsorption, not a numerical re-labeling of the final number of dimers. The theorem gives a natural complete finite-size transform plus a sharp signed finite-size speedup, a counterintuitive distinction between reduced instantaneous rates and earlier terminal times, and an exactly controlled approach to the dense-network limit.
+After each dimer deposition, m unoccupied vertices remain per side and k labels are shared. There are m^2-k available rate-one edges partitioned into counts k(k-1), 2k(m-k), (m-k)^2, proving the transform recurrence with terminal (m,k)=(1,0)/(1,1). Verified mean exactly for n=2..8 from a separately implemented rational dynamic program. Symbolically verified nonnegative F_m drift and exact waiting-time partial fraction identity in Sympy. The factorial-moment upper bound controls cumulative drift O(log n/n^2), giving E T_n=H_n^(2)-1/n+O(log n/n^2); the finite n=2 case has opposite sign and is correctly not claimed uniformly.
 
-**Scope and risks.** The model requires homogeneous Poisson clocks and the specified matching-deleted bipartite geometry. The first-order comparison is for expected time and does not imply stochastic dominance. Full texts of some early general matching sources were inaccessible, and independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A same-graph published defect theorem gives the overlap-state chain and q_n asymptotics, but not physical-time Poisson Laplace transform nor a sharp negative 1/n mean-time correction. The new rate-weighted expectation proof and cancellation establish a different kinetic observable with a nontrivial sign.
+
+## value
+
+PASS
+
+Saturation time is a physical-time observable intrinsic to irreversible adsorption; the sign reversal from removing edges is counterintuitive and the explicit first-order -1/n coefficient is a meaningful asymptotic kinetic comparison. Neither correctness nor code alone is used as the reason for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
