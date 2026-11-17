@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T20:19:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Both adjacency matrices defined on (Z/4Z)^2 are 6-regular and satisfy A²=4I+2J, yielding the common (16,6,2,2) parameters and spectrum. Hitting-time inclusion–exclusion over 2^15-1 nonempty forbidden subsets correctly converts max vertex-hit times to first exit times, and Cramer ratios of (6I-A[B]) give exact rationals. Distinct visited-set Bellman equations were independently implemented here with descending subset order and Gaussian elimination for both 16-vertex graphs: rook 55.120239522685985, Shrikhande 55.120643817526684, difference 0.000404294840699, matching the certificate interval (40429484,40429485)/10^11. This numerical solver independently corroborates the value/sign, not the many-digit certificate. Source exact_cover.cpp, cover_dp.cpp, verify.py and CERTIFICATE.json were inspected as supplied; exact 32767-subset determinant generation, not mere VERIFY_OK, is the claimed finite exhaustive certificate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feige–Rabinovich §2.6 supplies general approximate inclusion–exclusion and subset first-hit computations",
+          "General algorithms can evaluate either graph but do not present or imply a numerical ordering without carrying out the exact calculation"
+        ],
+        "reasoning": "Algorithmic computability is acknowledged; the fixed-pair exact inequality is a separately motivated test of spectral insufficiency.",
+        "searches": [
+          "Resultary search rook graph Shrikhande cover time random walk",
+          "web search Shrikhande rook graph expected cover time exact random walk",
+          "Feige Rabinovich Deterministic approximation cover time 2003 Section 2.6"
+        ]
+      },
+      "checked_sources": [
+        "Feige and Rabinovich, Deterministic approximation of the cover time (2003), https://static.aminer.org/pdf/PDF/001/051/963/deterministic_approximation_of_the_cover_time.pdf Section 2.6",
+        "Rudinger et al 2012 arXiv:1207.4535 (quantum walk distinguishes strongly regular graphs; distinct observable)",
+        "Resultary cover-time search (closest named match is submitted graph-pair calculation)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Feige/Rabinovich identities allow exact subset-hit sums but stop at algorithms and bounds",
+          "Given certified C_S-C_R>0, same SRG spectrum does not determine cover time"
+        ],
+        "reasoning": "The earlier general algorithm does not itself imply the strict sign for these networks; no known result forces equal cover times.",
+        "searches": [
+          "Resultary search rook graph Shrikhande cover time random walk",
+          "web search Shrikhande rook graph expected cover time exact random walk",
+          "Feige Rabinovich Deterministic approximation cover time 2003 Section 2.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent classical random-walk cover time as expected maximum vertex first-hitting times or expected total visited-state recurrence",
+          "Rudinger et al graph distinguishability uses quantum-walk signatures"
+        ],
+        "reasoning": "Quantum-walk distinctions and ordinary pairwise hitting statistics do not imply a strict classical mean cover-time gap; direct values are required.",
+        "searches": [
+          "Resultary search rook graph Shrikhande cover time random walk",
+          "web search Shrikhande rook graph expected cover time exact random walk",
+          "Feige Rabinovich Deterministic approximation cover time 2003 Section 2.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Targeted Resultary graph-name and cover-time queries returned no earlier same-pair rational table",
+          "Assigned exact certificate contains large rational fractions for both 16-site networks"
+        ],
+        "reasoning": "No alternate published table of their precise expected cover times was identified; lack of discovery is not proof of nonexistence.",
+        "searches": [
+          "Resultary search rook graph Shrikhande cover time random walk",
+          "web search Shrikhande rook graph expected cover time exact random walk",
+          "Feige Rabinovich Deterministic approximation cover time 2003 Section 2.6"
+        ]
+      },
+      "rationale": "The exact expected cover-time distinction for the canonical rook/Shrikhande strongly regular pair was not found in published Resultary or targeted primary-source searches. Standard exact cover-time algorithms and inclusion–exclusion are explicitly prior; the result is a mathematically motivated exact finite counterexample to cover time being determined by adjacency spectrum or strong-regularity parameters. Historical exact numerical tables remain a residual risk.",
+      "residual_risks": [
+        "An older exact graph-cover-time table or unpublished computation could contain the same tiny difference.",
+        "Only floating-point independent visited-state replay was performed here; full exact-rational certificate was source-inspected rather than rerun in this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General hitting-set inclusion–exclusion and approximate algorithms, no named 16-vertex graph-pair evaluation in material read",
+          "evidence": "§2.6 page 5 expresses cover time as weighted sum of subset first-hit times; no rook/Shrikhande constants.",
+          "identifier_or_url": "https://static.aminer.org/pdf/PDF/001/051/963/deterministic_approximation_of_the_cover_time.pdf",
+          "material_read": "Read introduction and Section 2.6 text, checked page 0 and page 5 images",
+          "method": "lawful open PDF via web, visual page checks",
+          "title": "Deterministic approximation of the cover time (preliminary version)",
+          "trigger": "General approach could cover exact pair values"
+        },
+        {
+          "assessment": "Different quantum-walk observable; cannot assert entire document omits classical cover time",
+          "evidence": "The cited comparison studies graph-isomorphism certificates from quantum dynamics.",
+          "identifier_or_url": "https://arxiv.org/abs/1207.4535",
+          "material_read": "Bibliographic and abstract/source description; full text not obtained",
+          "method": "arXiv lookup and source comparison",
+          "title": "Comparing algorithms for graph isomorphism using discrete- and continuous-time quantum random walks",
+          "trigger": "Same canonical SRG pair; potentially a graph distinguishing invariant"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Shrikhande/4x4-rook pair is the canonical nonisomorphic pair with identical SRG parameters; exact covering-time separation probes a natural non-spectral transport invariant. The 0.0004-jump difference is small but a strict exact inequality establishes a clean natural counterexample rather than an arbitrary tiny improvement. The finite case is fully specified, reproducible, and motivated independently of numerical size.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No general order theorem for cospectral graphs or minimality claim.",
+    "Full exact-rational 32767-term certificate not independently regenerated in this run; a different double-precision Bellman formulation was rerun."
+  ],
+  "schema_version": 1
+}
