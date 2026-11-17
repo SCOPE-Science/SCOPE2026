@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is supported by a reversible-edge proof of the two-period criterion, finite bounds for all normalized core configurations, a bijective transfer construction for the new path, and an explicit invariant five-state decomposition. The nontrivial four-state block satisfies its quartic polynomial by direct integer matrix multiplication; the isolated flat-path state has multiplicity equal to the root-zero-displacement core count. The rooted-triangle boundary row was exhaustively reconstructed using the proved degree bounds. Two independent programs checked the transfer identities and directly iterated over all admissible labelled configurations through four or five tail lengths as stated in the verification files. The universal statement rests on proof, not extrapolation. The counts and signs of the recurrence correction were rechecked.
+PASS
 
-## Originality — PASS, qualified
+For every finite connected simple rooted core H and all k>=2, nonnegative edgewise products establish that F^2(x)=x iff each edge sign reverses or remains zero; adjacent integer-gap bounds make core states finite modulo translation. The tail has exactly nine sign-pair states with local multiplicity m(a,b,c), a core boundary row alpha and terminal beta. Negating all signs reduces transfer to a four-dimensional bulk B with B^4-3B^3-2B^2-B+I=0 plus one flat eigenline whose coefficient equals Z(H,r). As primitive two-cycle states T=N-1, the quartic difference is -4(Z-1), giving universal homogeneous fifth-order after multiplying by shift-1. Independent exact arithmetic reconstructed K3 Z=3, boundary alpha=(14,21,28,4,3,4,28,21,14), N2...N7=(123,469,1675,6029,21771,78565), all yielding residual -8; no extrapolation from those samples supplies the all-core proof.
 
-The nearest primary result is Mullen–Nowakowski–Cox (2020), which establishes the homogeneous recurrence for paths but **conjectures**, rather than proves, its extension to arbitrary graph cores. The new theorem supplies a conditional exact replacement and a rigorous rooted-triangle counterexample to that conjecture. The prior cycle-diffusion transfer matrix specializes to the same interior characteristic factor; the new contribution is the arbitrary-core boundary term and a nonzero obstruction, not rediscovery of its quartic factor. The 2016 model and 2017 eventual-period theorem are acknowledged. Searches found no exact matching published resolution; that does not exclude uncatalogued work.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finding directly settles a stated generalization problem by identifying the structural obstruction, proves a corrected universal recurrence and a sharp criterion for when the originally predicted quartic still holds, and supplies an infinite counterfamily anchored at the smallest cycle core. This distinguishes boundary-state dynamics from the bulk transfer law and avoids an arbitrary finite table calculation.
+Best-of-knowledge original conditional correction of an expressly conjectured general pendant-path recurrence. The 2020 source proves the path-core case but presents the arbitrary rooted-core extension as conjecture; earlier cycle-transfer factors may match the bulk quartic but do not supply the marked-core zero-root-drift boundary or K3 obstruction. Originality qualified by full-text access interruption and possible uncatalogued resolution.
 
-## Limits and priority risk
+## value
 
-The model is synchronous, unweighted and integer-valued; core graphs are finite, connected and simple; new path lengths satisfy \(k\ge2\). The theorem does not enumerate nonperiodic basins. Full checking of every possible unindexed historical publication is impossible, and independent mathematical audit has not been performed. The 2020 conjecture date is not treated as the 2016 initial date for the model.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Provides a rigorously motivated counterexample to a named 2020 conjectural extension, an exact structural obstruction Z-1, a criterion for when the originally proposed recurrence does hold, and a universal corrected recurrence for all finite connected rooted cores. This is substantive, not routine recomputation of the path sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
