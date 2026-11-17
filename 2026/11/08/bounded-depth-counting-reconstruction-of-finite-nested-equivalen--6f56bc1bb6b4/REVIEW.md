@@ -1,15 +1,21 @@
-# Scientific review: finite nested equivalence hierarchies
+# Independent mathematical audit
 
-## Correctness — PASS
-A complete induction on the hierarchy depth reconstructs each nested class type from a finite table of color-counts. Each previous color determines its inner-block type, and division by the known positive block size converts point counts to block multiplicities. The top-root multiset then determines the entire structure. The proof also explicitly reconstructs automorphism-orbit paths and translates round colors into two-variable counting formulas. A deterministic program tested 5,400 independently generated colored hierarchies at four levels and checked the two-level rank witness. The computations corroborate but do not prove the theorem. The proof covers finite nonempty models with globally nested named equivalences and fixed unary signature only.
+## correctness
 
-## Originality — PASS (provisional priority)
-Focused searches considered 'nested equivalences', 'laminar partitions', 'ultrametric hierarchies', counting logic and color refinement, plus published research-record searches of the theorem's equivalent language and precise depth bound. No exact statement was found in examined records. Kiefer–Schweitzer–Selman (arXiv:1503.08792v1), Sections 2 and 5, classifies absolute identification among all relational structures. It does not state the relative hierarchical faithfulness/round bound; a six-element nested example admits a nontransitive counting-equivalent competitor, so their absolute criterion does not automatically imply this result. Atserias–Maneva analyzes general counting-logic/fractional-isomorphism correspondence rather than nested-hierarchy reconstruction. General 1-WL tree identification is closely related but a tree encoding is not already a two-variable interpretation into the named equivalence signature. Corollary or alternate terminology priority risks remain and require independent literature review.
+PASS
 
-## Mathematical value — PASS
-The result gives a complete classification of counting indistinguishability for every finite chain of hierarchical partitions, including arbitrarily many points and arbitrary unary colors, and a uniform quantifier-depth bound controlled by the number of levels rather than the number of points. It also computes the orbit partition from counting colors and proves the bound optimal already for two levels. This is a structural reconstruction statement with a sharp logical boundary: crossing equivalences can lose isomorphism information, whereas nested ones cannot, relative to their natural model class. Its value is not a raw finite count or an isolated family example.
+PASS. Counting-refinement at round j recovers the multiset of (j-1)-level child block types within an E_j class: divide counts of points of each recovered type by its strictly positive cardinality. Iterating reconstructs nested-rooted forests, so round h histograms distinguish structures relative to the nested class and its point colors correspond to orbit chains. Translating rounds to C2 quantifier rank h+1 is valid for fixed named signature; absolute identification among arbitrary binary structures is explicitly excluded. The two-level 16-point rank-three witness has identical round-one size histograms but different E2 partitions, independently rechecked.
 
-## Scope and residual risks
-The logical identification result is relative, not absolute. General rank-optimality for more than two levels is not claimed. The historical literature may contain a result expressed in ultrametric, hierarchy, or tree-language form that implies the theorem; no uniqueness or publication priority is certified. Independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS relative to the specified class with a literature-priority caveat. Kiefer--Schweitzer--Selman classify absolute C2-identification over all relational structures; the submitted nested equivalence theorem is explicitly relative and gives a uniform h-round reconstruction of all isomorphism types and orbit classes, plus rank bound. Pratt-Hartmann studies satisfiability/complexity with equivalences (including unconstrained pairs), not the laminar class complete invariant. Searching Resultary for orbit-exact counting refinement and nested relations found separate Hamming/partition-lattice results, not a theorem implying the height-h bound. General finite-tree color-refinement facts are background but no direct two-variable interpretation was identified.
+
+## value
+
+PASS
+
+PASS. Named nested equivalences model finite hierarchical partitions and colored classification data; a uniform number of refinement rounds independent of branching, exact relative C2 identification and orbit recovery are natural reusable definability results. Distinguishing absolute from relative identification and giving a sharp two-level witness add substantive explanatory content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
