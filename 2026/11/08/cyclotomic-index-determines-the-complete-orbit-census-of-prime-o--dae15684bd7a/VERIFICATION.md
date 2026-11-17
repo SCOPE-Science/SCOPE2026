@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of cyclotomic generalized Paley automata
 
-From a directory containing the accompanying standard-library scripts, run `python3 verify_matrix.py`, `python3 verify_moments.py`, and `python3 verify_orbits.py`. Captured exact standard output appears in `verify_matrix.out`, `verify_moments.out`, and `verify_orbits.out` respectively; each script ran successfully from its packaged source and generated exactly its captured output.
+# Independent mathematical audit
 
-`verify_matrix.py` constructs the undirected prime-order adjacency matrix and checks the full nilpotent rank filtration and selected exact iterate fixed-space dimensions in 15 eligible parameter families with primes at most 43. `verify_moments.py` independently checks root-of-unity power sums, first surviving binomial coefficient, and integrality of the period counts in 89 eligible families with odd primes at most 127. `verify_orbits.py` enumerates the entire 823,543-state functional graph for the seven-vertex cycle endpoint over \(\mathbb F_7\), verifying its 1/16/39,214 orbit counts at least periods 1/3/21.
+## correctness
 
-No finite computation is claimed to prove the universally quantified statement. The characteristic-\(p\) subgroup moment identity and nilpotent-shift argument in `RESULT.md` supply the proof for all allowed primes, indices, and finite state fields. Historical priority and independent external validation remain open.
+PASS
+
+The cyclic prime translation S acts as one J_p(1) over state characteristic p; Z=S−I has Z^p=0 and exactly one nilpotent chain. For subgroup H of order d even, power sums sum_{h∈H}h^j vanish for 1≤j<d and equal d at j=d, so A−dI=(S−I)^d U(S−I) with U(0)=d/d!≠0. The kernel dimensions min(dt,p) imply blocks (k+1,k,...,k) with k=(p−1)/d; the exact eigenvalue d is nonzero, hence invertibility. For ℓ=ord_p(d)>1, A^p=dI; A^t−I has zero kernel except when ℓ|t; if ℓ|t and p∤t it has the same kernel as A−dI of dimension d, and for pℓ|t it is zero. Subtracting nested fixed populations yields orbit lengths 1,ℓ,pℓ and counts 1,(Q^d−1)/ℓ,(Q^p−Q^d)/(pℓ). Independently constructed finite matrices at (p,k,d)=(7,3,2),(13,3,4),(19,3,6) and confirmed nilpotent ranks [2,4,6,7], [4,8,12,13], [6,12,18,19] for increasing powers, compatible with the block claims. Quantifiers require odd p, even d and Q=p^f, not arbitrary state characteristic.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for prime-order generalized Paley defining-characteristic Jordan blocks and the complete labelled temporal-orbit census. Classical generalized Paley characteristic-zero Gaussian-period spectra and algebraic graph symmetries do not determine the nilpotent Jordan structure after reduction modulo p; other prime-field circulant/Jordan results could, however, imply the simple subgroup-moment argument. Priority is qualified, and the elementary power-sum lemma itself is not new.
+
+## value
+
+PASS
+
+An exact, uniform Jordan decomposition and all-cycle census for the natural prime-order generalized Paley neighbor-sum system is a meaningful finite-field dynamics classification. It identifies only three possible least periods independently of size and gives their exact populations and zeta function, a substantive structural refinement of adjacency spectra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
