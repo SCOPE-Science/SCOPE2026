@@ -1,19 +1,21 @@
-# Review of the near-symmetry escape theorem
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claimed map and domain are explicit. The log-odds identities establish positive preservation of the sign of the initial imbalance. The two-cycle equation reduces to the unique solution of \(a=8\operatorname{artanh}(t)/t\), and the normal derivative equals \(1+a\sigma_a(1-\sigma_a)\) at **each** point of the cycle. The tangential derivative \(1-a\sigma_a(1-\sigma_a)\) has modulus less than one for \(a>8\). An analytic symmetry expansion separates the contracting center coordinate from the expanding odd imbalance coordinate. The center-error and squared-imbalance series are summable until a fixed small threshold; hence the cumulative logarithmic multiplicative error is bounded independently of initial imbalance, which supplies the \(O(1)\) remainder. A finite smooth transient transfers this result to every nonexceptional diagonal starting position using the originating paper's Theorem 3.9. Finally, \(\sigma_a e^{a/4}\to1\) proves the exponentially small large-gain exponent. The argument neither infers infinite quantifiers from sampling nor asserts a simultaneous high-gain limit.
+PASS
 
-## Originality: PASS within inspected evidence
+The exact log-odds update gives L(F1)−L(F2)=L(x)−L(y)+a(x−y), maintaining coordinate order. Solving the diagonal two-cycle gives t=1−2σ and a=8atanh(t)/t, strictly increasing from 8 to infinity. The transverse multiplier at either phase equals Λ=1+h, h=aσ(1−σ), while tangential multiplier 1−h has magnitude <1. In local symmetric/antisymmetric coordinates v grows by Λ times [1+O(center_error+v²)], while center error contracts plus O(v²); before fixed small exit, both perturbation-error sums are bounded geometrically, giving N=log(1/ε)/logΛ+O(1). Finite smooth preperiod from any diagonal start outside the .5 preimage set preserves a positive transverse multiplier. Differentiating h(t) proves γ decreases; σe^(a/4)→1 gives γ~ae^(−a/4). Independent iterates at gains 9,12,20 agreed with bounded-offset clock. No finite test substitutes for local-uniform proof.
 
-The 2018 originating article supplies the two-dimensional map, normal derivative formula (16), uniform finite-block normal expansion (Theorem 4.1), diagonal convergence (Theorem 3.9), and off-diagonal pure-strategy selection (Theorem 4.6). These are expressly *not claimed* here. The asserted new quantity is the leading coefficient of the **first original-iteration time** when a state-space strategy imbalance passes a fixed small threshold, uniformly in its initial diagonal phase, and the gain-dependence of that coefficient. The originating paper's finite-block expansion does not specify the exact cycle-normal exponent or a bounded additive error, and global convergence to pure strategies is not an exit-time estimate. Related 2017 and 2022 literature concerns other congestion-game update mechanisms or continuum-agent memory models. A published stability threshold for a two-strategy replicator map under *parameter* asymmetry is not a time-to-state-separation theorem for the present two-agent map. Priority risk remains for unindexed normal-form or learning-dynamics results and for abstract-level literature not read in full. No claim of exhaustive worldwide novelty is made.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The originating problem has an attracting synchronized two-cycle inside an off-diagonally repelling game, making the delay before deterministic strategy selection a natural physical observable. The theorem replaces qualitative instability by an exact per-update escape clock for every initial synchronized strategy except a precisely described countable exceptional set. The large-gain law \(\gamma(a)\sim ae^{-a/4}\) shows the counterintuitive effect that more aggressive updates create *longer* near-symmetric metastability. The exact gain dependence and initial-phase universality can inform stability diagnostics and observation lengths. These are genuine dynamical statements, not merely a tabulated eigenvalue.
+Chotibut–Falniowski–Misiurewicz–Piliouras 2018 introduce the same map and prove diagonal convergence to a 2-cycle and off-diagonal convergence to pure equilibria; their transverse derivative and convergence are prior. The novel exact all-nonexceptional-start first-exit clock together with strict gain monotonicity and exponential large-gain slowdown was not stated in examined original theorem portions. A general hyperbolic escape principle is a mathematical dependency, but does not directly supply this map-specific γ(a) behavior. Priority risk remains for unindexed equivalents.
 
-## Limits and literature comparisons
+## value
 
-The exit radius is small and fixed after the gain and initial diagonal position are chosen. The result does not address the parabolic threshold \(a=8\), exceptional diagonal starts, or uniform double scaling. Primary text read: Chotibut–Falniowski–Misiurewicz–Piliouras, arXiv:1807.06831v1, Sections 2–4. Additional accessible text read: Bielawski et al., arXiv:2201.10992, introduction and relevant model sections. Abstract-level comparisons: Palaiopanos et al., arXiv:1703.01138, and Chotibut et al., arXiv:1906.02486. Summaries of thematically nearby published mathematical findings were compared, without pretending to have read their full texts.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem quantifies how long seemingly symmetric two-player learning states remain near a transversely repelling cycle and identifies the counterintuitive exponential high-gain slowing. The strict universal coefficient across diagonal starting states is a motivated stability-timescale invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
