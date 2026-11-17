@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T14:02:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The conditional average over relabelings is a five-overlap-type inversion count: probabilities 0,1/3,1,2/3,1/2 yield E[inv|C_1,C_2]=n(n-1)/4+n(1-C_1)/6-C_1(C_1-1)/12+C_2/6. Classical cycle factorial moments then yield covariance -(n+1)/6 at j=1, 1/12 at j=2, 1/6 at j=n, and zero at other j, including n=3 and j=n-1 cancellation. Independently enumerated all permutations n=3..7 to verify the class regression and n=3..6 for cycle-count covariances.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hultman Theorem 6.2 applies to all conjugacy classes of S_n, giving the exact same conditional expectation in a more representation-theoretic form.",
+          "Classical cycle factorial moments E prod_j(C_j)_{r_j}=prod_j j^{-r_j} on supported total lengths then evaluate all covariances."
+        ],
+        "reasoning": "Determine whether prior conjugacy-character theorem dominates the proposed regression.",
+        "searches": [
+          "conditional expectation of inversion count given permutation cycle type fixed points 2 cycles covariance cycle counts"
+        ]
+      },
+      "checked_sources": [
+        "Hultman arXiv:1301.0430, Theorem 6.2; Adv. Appl. Math. 54 (2014), DOI 10.1016/j.aam.2013.10.003",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-positional-sign-phases-of-inversions-conditioned-on-one-prescrib--864afb1f1ca5/RESULT.md",
+        "Classical factorial-moment identities for random permutations",
+        "Published Resultary semantic search query: conditional expectation of inversion count given permutation cycle type fixed points 2 cycles covariance cycle counts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For j=n-1, the terms Cov(C_j,(C_1)_2)=-1/(n-1) and Cov(C_j,C_2)=-1/(2(n-1)) cancel.",
+          "For j=n, the same moments give 1/6; for 3<=j<n-1 all supported cycle lengths leave enough labels and covariance terms vanish."
+        ],
+        "reasoning": "Earlier character class regression implies equation (1) by direct substitution; standard factorial moments imply every entry in (2).",
+        "searches": [
+          "conditional expectation of inversion count given permutation cycle type fixed points 2 cycles covariance cycle counts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hultman (2013), Theorem 6.2: overline inv = n(n-1)/4 chi^(n) -(n+1)/6 chi^(n-1,1) -1/6 chi^(n-2,1,1).",
+          "For chi^(n-1,1)=C_1-1 and chi^(n-2,1,1)=binom(C_1-1,2)-C_2 this algebraically equals submitted (1)."
+        ],
+        "reasoning": "Compare irreducible-character expression for class mean in Hultman Theorem 6.2 with C_1,C_2 expression.",
+        "searches": [
+          "conditional expectation of inversion count given permutation cycle type fixed points 2 cycles covariance cycle counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published 2026-11-02 positional-two-cycle result states Cov(inv,C_2)=1/12 and explicitly calls it an implication of known conjugacy-class expectations.",
+          "Other three entries follow from Hultman class mean plus basic moments; no unknown exact table remains."
+        ],
+        "reasoning": "Check previously published individual covariance and not merely aggregate values.",
+        "searches": [
+          "conditional expectation of inversion count given permutation cycle type fixed points 2 cycles covariance cycle counts"
+        ]
+      },
+      "rationale": "FAILED by exact earlier general theorem. Axel Hultman, Permutation statistics of products of random permutations (2013 preprint, 2014 journal), Theorem 6.2, gives conjugacy mean of inversions as n(n-1)/4 chi^(n) -(n+1)/6 chi^(n-1,1) -1/6 chi^(n-2,1,1). The elementary identities chi^(n-1,1)=C_1-1 and chi^(n-2,1,1)=binom(C_1-1,2)-C_2 transform it EXACTLY into submitted formula (1) for every n>=3. The covariance entries are routine evaluations via the established cycle factorial moments, with j=2 previously explicitly reported as prior by 2026-11-02 positional-two-cycle work. This is implication coverage despite different character language.",
+      "residual_risks": [
+        "Source differences in notation do not alter decisive character-to-cycle identity.",
+        "A complete historical inventory unnecessary to reject: a known earlier theorem already implies submitted principal claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS",
+          "evidence": "Theorem 6.2 exact conditional mean in irreducible-character basis; same numerical theorem after explicit expansion.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.0430",
+          "material_read": "Primary Theorem 6.2 and relevant preceding character expansions; journal indexed full-text theorem excerpt",
+          "method": "arXiv open/preprint and publisher-indexed full mathematical theorem",
+          "title": "Permutation statistics of products of random permutations",
+          "trigger": "Exactly same conjugacy-class mean inversion statistic"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "States 1/12 aggregate as known, but different new positional question.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-positional-sign-phases-of-inversions-conditioned-on-one-prescrib--864afb1f1ca5/RESULT.md",
+          "material_read": "Full published RESULT.md and proof, especially aggregate covariance and historical credit",
+          "method": "GitHub read of published mathematics",
+          "title": "Positional sign phases of inversions conditioned on one prescribed two-cycle",
+          "trigger": "Check the j=2 covariance originality"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The apparently substantive full cycle-type regression is identical to Hultman Theorem 6.2; the remaining three-support covariance is a short mechanical consequence using classical disjoint-cycle factorial moments. There is no independently motivated new structural theorem beyond existing class projection plus routine linear covariance evaluations. Exactness and executable checks do not restore distinct value.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Hultman arXiv:1301.0430, Theorem 6.2; Adv. Appl. Math. 54 (2014), DOI 10.1016/j.aam.2013.10.003",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-positional-sign-phases-of-inversions-conditioned-on-one-prescrib--864afb1f1ca5/RESULT.md",
+    "Classical factorial-moment identities for random permutations",
+    "Published Resultary semantic search query: conditional expectation of inversion count given permutation cycle type fixed points 2 cycles covariance cycle counts"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Rejection is scientific coverage, NOT a claim that the inversion formula is false.",
+    "The work establishes only first conditional moment, not conditional inversion distribution."
+  ],
+  "residual_risks": [
+    "Source differences in notation do not alter decisive character-to-cycle identity.",
+    "A complete historical inventory unnecessary to reject: a known earlier theorem already implies submitted principal claim."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS",
+      "evidence": "Theorem 6.2 exact conditional mean in irreducible-character basis; same numerical theorem after explicit expansion.",
+      "identifier_or_url": "https://arxiv.org/abs/1301.0430",
+      "material_read": "Primary Theorem 6.2 and relevant preceding character expansions; journal indexed full-text theorem excerpt",
+      "method": "arXiv open/preprint and publisher-indexed full mathematical theorem",
+      "title": "Permutation statistics of products of random permutations",
+      "trigger": "Exactly same conjugacy-class mean inversion statistic"
+    },
+    {
+      "assessment": "PARTIAL_COVERAGE",
+      "evidence": "States 1/12 aggregate as known, but different new positional question.",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-positional-sign-phases-of-inversions-conditioned-on-one-prescrib--864afb1f1ca5/RESULT.md",
+      "material_read": "Full published RESULT.md and proof, especially aggregate covariance and historical credit",
+      "method": "GitHub read of published mathematics",
+      "title": "Positional sign phases of inversions conditioned on one prescribed two-cycle",
+      "trigger": "Check the j=2 covariance originality"
+    }
+  ]
+}
