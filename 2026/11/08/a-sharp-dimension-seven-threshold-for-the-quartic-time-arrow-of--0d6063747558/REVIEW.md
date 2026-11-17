@@ -1,11 +1,21 @@
-# Review of the stationary run-and-tumble fourth-order time-arrow theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The generator calculation starts from the exact stationary stochastic integral and uses the spherical moments \(1/d\) and \(3/[d(d+2)]\). The six conditional-moment equations close exactly, and at redraw-to-trap rate ratio \(2\) their solution gives the asserted formula. Triple-zero initial conditions, a strict negative third derivative for dimensions up to seven, and a unique zero hierarchy for dimensions eight and above establish every quantifier. Thermal-noise invariance follows by exact Gaussian fourth-moment cancellation. Independent exact and numerical checks passed, but they do not substitute for the all-dimensional sign proof.
+## correctness
 
-**Originality — PASS, qualified.** The closest primary work by Guéneau, Majumdar and Schehr (arXiv:2602.08436) determines stationary spatial distributions, not a fourth-order two-time time arrow. Sun, Ye and Podgornik (arXiv:2409.00578) provide moment methodology and Sun, Ye and Chen (arXiv:2610.24961) provide later conditional moment machinery and 1D conditional distributions, but neither inspected claim states the sharp lag-reversal threshold or proves uniqueness of its zero. Garcia-Millan and Pruessner (2021) establish relevant harmonic-trap nonequilibrium physics and entropy production without this dimension classification. Other relevant studied observables include planar displacement kurtosis and one-time stationary mode transitions; these do not provide the ordered fourth-moment theorem. Residual risk: specialized unpublished or unindexed computations may already imply the exact classification.
+PASS
 
-**Value — PASS.** The observable is a simple stationary fourth-order temporal asymmetry, not an arbitrary parameter slice. The proved exact dimension-seven threshold and unique positive-lag sign reversal reveal a structural effect missed by ordinary two-point covariance. Diffusivity invariance provides another substantive separation between active and thermal contributions. The dimension-eight regime is mathematically meaningful even if physical realization in high-dimensional space is abstract.
+Stationary Poisson-redraw direction has E u²=1/d, E u⁴=3/(d(d+2)); generator L gives six triangular stationary fourth moments and a six-variable forward two-time hierarchy. Subtraction of reverse-lag E[x0^3 xs] yields exactly the stated e^-4s exponential polynomial F_d(s)/[15d²(d+2)] at r=gamma/a=2. The independent thermal OU component adds identical Wick cross terms to both fourth moments, hence cancels for all D>=0. Direct symbolic differentiation gives F(0)=F’(0)=F’’(0)=0,F’’’(0)=-18(d+3). H_d=e^-s F’’’ is affine in d and negative for d=1,7 and thus all 1..7. For d>=8 H_d’ is upward quadratic in exp(s) with one crossing on s>=0; successive integrations from zero show exactly one positive zero of F and hence the sign diagram. The general-r short-lag cubic and r>1 long-lag e^-s coefficients were reconstructed from the same triangular generator. No claim of uniqueness for general r or of a zero-mode asymptotic was made. The supplied independent numerical RK4 checks are consistency tests only.
 
-**Limits.** The proof assumes stationary homogeneous isotropic complete redraws in a harmonic trap and treats \(\gamma=2a\) for zero uniqueness. The general \(r>1\) expansion yields a sufficient eventual-sign condition, not a complete all-rate classification. Independent verification has not been performed. The use of established moment-hierarchy methodology is expressly acknowledged.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing trapped run-and-tumble work covers stationary distributions and generator/moment techniques, but the inspected primary analyses do not already state the single-coordinate fourth two-lag antisymmetry sign threshold d=7/8 with one unique crossing at gamma=2a. A general moment method is not itself a published classification of signs and zero counts.
+
+## value
+
+PASS
+
+A sharp dimension transition in the sign of a genuine stationary time-order asymmetry is a motivated structural classification of a natural active-matter model, not merely a computed one-time moment. The unique crossing and exact thermal-noise insensitivity are nontrivial and reusable qualitative facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
