@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.10 or later. The file uses only the Python standard library, a fixed random seed, direct nested midpoint quadrature of the conditional spherical integral, and independent uniform-sphere Monte Carlo with intrinsic angle sign tests.
+## correctness
 
-A successful execution returns `ACUTE_SPHERE_CHECK_OK`, numerically confirming the exact baseline, weighted cosine moment, dipole response at \(\varepsilon=0.7\), and local pinned Fisher derivative. The fixed quadrature uses 1000 conditional side-distance panels and 600 conditional longitude panels. The stochastic portion uses 550,000 independent triples and a separate pinned test from the same samples. Its tolerances are intentionally finite and do not establish exactness or exhaustive coverage.
+PASS
 
-The critical symbolic integral reduction is provided in RESULT.md, including the two inner integrals \(J_0\) and \(J_1\). The numerical verifier is supplementary, not a replacement for that argument. The complete event is defined by three strict tangent-vector dot-product tests; right-angle cases have probability zero.
+For normalized uniform area on S², the side separation has density sin(d)/2; the two angle-at-endpoint conditions restrict longitude to |t|<d/2, while the third-angle inequality gives the latitude cutoff and excludes d>=π/2. Integrating in the fixed domain gives M0=1/(2π)-1/8 and M1=(π-2)/64; independent nested numerical integration gave 0.0341549430918961 and 0.017837385212327146, agreeing with those exact values. Common antipodal reversal cancels odd dipole terms; rotational isotropy of the rank-2 tensor gives three M1/3 cross terms, hence the full exact dipole law p0+ε²M1 on [-1,1]. Normalization and Taylor expansion of the von Mises–Fisher likelihood give the pinned derivative 2M1=(π-2)/32 and three-iid even quadratic coefficient M1. Strictly acute intrinsic spherical angles and measure-zero degeneracies are handled; local Fisher expansions are not asserted global.
 
-No independent audit has been performed.
+## originality
+
+PASS
+
+The original weighted cosine moment and all-parameter dipole probability are distinct from Maeda’s known uniform type probability and Li–Cooper–Eum’s numerically observed pinned Fisher response. No matched or dominating weighted-result theorem was established in inspected material; best-of-knowledge PASS with explicitly material literature risks.
+
+## value
+
+PASS
+
+The exact initial concentration response to a previously studied pinned directional sampling model is a natural probability quantity. A single nontrivial weighted spherical moment also yields an exact whole-interval first-harmonic perturbation law, not just a numerical slope or textbook symmetry restatement. These geometric-probability and directional-statistics quantities are independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

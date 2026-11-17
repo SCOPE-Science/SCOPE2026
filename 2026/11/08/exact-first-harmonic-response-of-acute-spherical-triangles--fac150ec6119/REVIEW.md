@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact two-dimensional spherical integral. Normalized pair-distance density is \(\sin d/2\); both base angles are acute only within a longitude wedge, and the third-angle inequality yields an explicitly integrated latitude cutoff. The second term in that integral is reduced to two elementary fixed-range integrals, giving both the known unweighted baseline and the new weighted moment \((\pi-2)/64\). The dipole identity follows exactly (not perturbatively) by antipodal cancellation and rotational tensor averaging. The pinned and three-iid von Mises–Fisher coefficients follow from properly normalized likelihood expansions. The supplied standard-library verifier independently checks both moments, nonzero-dipole probability, and pinned derivative. Numerical tests do not substitute for the analytic steps.
+PASS
 
-## Originality — PASS, provisional
+For normalized uniform area on S², the side separation has density sin(d)/2; the two angle-at-endpoint conditions restrict longitude to |t|<d/2, while the third-angle inequality gives the latitude cutoff and excludes d>=π/2. Integrating in the fixed domain gives M0=1/(2π)-1/8 and M1=(π-2)/64; independent nested numerical integration gave 0.0341549430918961 and 0.017837385212327146, agreeing with those exact values. Common antipodal reversal cancels odd dipole terms; rotational isotropy of the rank-2 tensor gives three M1/3 cross terms, hence the full exact dipole law p0+ε²M1 on [-1,1]. Normalization and Taylor expansion of the von Mises–Fisher likelihood give the pinned derivative 2M1=(π-2)/32 and three-iid even quadratic coefficient M1. Strictly acute intrinsic spherical angles and measure-zero degeneracies are handled; local Fisher expansions are not asserted global.
 
-Uniform angle-type probabilities are classical, including Maeda's 2008 classification: the uniform acute probability is **not** a novel assertion. The 2013 Li–Cooper–Eum paper was inspected in its relevant full sections: §§2.7–2.8 give an unweighted acute-triangle integral and approximate the uniform probability, while §§3.1–3.5 numerically analyze a von Mises–Fisher distribution with one vertex pinned at the mean. They do not evaluate the cosine-weighted uniform moment, the full dipole family, or the exact pinned concentration derivative. The closest retrieved mathematical database findings concern Euclidean planar triangle moments or projections of polyhedra and do not imply the claimed spherical weighted moment. Maeda's complete article and Le's earlier cap-density article were not accessible in full; historical priority remains provisional, and the relationship to these sources warrants human examination.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-There is a concrete, independently motivated nonuniform probability question in the 2013 spherical-triangle study, where the onset of the pinned probability curve was only estimated numerically. One exact weighted spherical moment supplies the onset coefficient and, by a genuine symmetry cancellation, determines the *entire* (not merely leading-order) acute probability under a natural first-harmonic family of nonuniform densities. The unconditional uniform probability already being known makes the weighted response the substantive point. This exact, parameter-uniform probability law is a structural bridge between classical geometric probability and directional statistics, not a gratuitous parameter substitution.
+The original weighted cosine moment and all-parameter dipole probability are distinct from Maeda’s known uniform type probability and Li–Cooper–Eum’s numerically observed pinned Fisher response. No matched or dominating weighted-result theorem was established in inspected material; best-of-knowledge PASS with explicitly material literature risks.
 
-## Limitations and historical risk
+## value
 
-The Fisher expansions are local at zero and do not prove global monotonicity. The exact dipole law is specific to the first-harmonic family with \(|\varepsilon|\le1\). Historic shape-density literature and Maeda's complete primary source were not retrieved; no claim of established worldwide priority or independent validation is made. The relevant 2013 paper's text was inspected in full, while only abstracts and metadata were available for the earlier Maeda and Le papers.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact initial concentration response to a previously studied pinned directional sampling model is a natural probability quantity. A single nontrivial weighted spherical moment also yields an exact whole-interval first-harmonic perturbation law, not just a numerical slope or textbook symmetry restatement. These geometric-probability and directional-statistics quantities are independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
