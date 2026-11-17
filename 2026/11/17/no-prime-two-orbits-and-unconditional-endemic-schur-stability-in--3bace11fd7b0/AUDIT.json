@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The all-state probability simplex is invariant for bounded H and e+t<=1. A hypothetical two-cycle with adopter discrepancy Delta>0 must have inactive discrepancy tDelta/(1+z), and monotonicity bounds the incidence difference below by -(1-t/(1+z))Delta, contradicting the exact value -(1+e)Delta. At p=1 the primed class contracts, so this covers the full published model. Strict decrease of H(a)/a establishes equilibrium uniqueness above the known threshold; the three exact Jury signs and transverse multiplier establish local Schur stability. A rationally verified smooth nonmonotone response produces the claimed comparison cycle, outside the original hazard family. Standard-library finite checks passed; no finite test is used to prove universality.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Schreiber et al. 2021, Theorem 4.1 and Section 9: different exponential-escape recurrence, extinction/persistence and endemic attraction only under extra restrictions.",
+        "Zhou et al. 2014, equation (3) and Theorem 4.1: Euler-style linear incidence model with a flip bifurcation."
+      ],
+      "reasoning": "Neither broader SIR framework specializes to the exact-round competing-risk update at every positive rho, nu, tau. A restricted-parameter attraction theorem for a different map does not imply the universal period-two obstruction or monotonicity boundary.",
+      "searches": [
+        "Muñoz Nuño Meacci arxiv 2611.08353 p=1 one-stage synchronous competing hazards exactly no primitive period two orbit all parameters and Schur stable endemic equilibrium",
+        "2026 discrete two-stage contagion one-stage p=1 unique stable positive equilibrium all rates no period doubling",
+        "nonlinear incidence monotone probability discrete-time SIR map exclusion of cycles period two planar"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2611.08353v1",
+      "https://doi.org/10.1137/20M1339015",
+      "https://doi.org/10.1186/1687-1847-2014-168",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-disease-free-two-cycle-family-at-an-omitted-double-flip-re--400f3dcbeeba",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-exact-basin-separation-and-nonoscillatory-convergence-for-probab--0361bc134978",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-global-exclusion-of-prime-two-coexistence-cycles-in-the-discrete--8dd374b0e558"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2611.08353v1 Proposition 4 supplies the invasion threshold and Proposition 5 the equilibrium parametrization; Section 6.1 reports computed p=1 equilibrium attraction.",
+        "Own prior claim 805e988e-68e0-4c15-862a-cd88f4e88987 treats critical invasion dynamics, including p=1; claims dfef9719-f4d1-487f-bb8a-3d42f38cb940 and 639ff3c3-3c61-45b4-9846-3fbbaaeae468 treat local p-dependent threshold degeneracies.",
+        "Own prior claim e84fa5f1-70f7-414c-ae26-7b998953ee1d rules out two-cycles of a structurally different ideal-storage map."
+      ],
+      "reasoning": "Known local threshold expansions do not constrain finite-amplitude two-cycles away from threshold. Equilibrium parametrization gives no global orbit obstruction. The ideal-storage proof works with a stock balance different from the exact-round contagion simplex. The new implication is all-parameter no-prime-two plus all-rate local endemic stability for the concrete p=1 model.",
+      "searches": [
+        "Muñoz Nuño Meacci arxiv 2611.08353 p=1 one-stage synchronous competing hazards exactly no primitive period two orbit all parameters and Schur stable endemic equilibrium",
+        "2026 discrete two-stage contagion one-stage p=1 unique stable positive equilibrium all rates no period doubling",
+        "Muñoz Nuño Meacci 2611.08353 one-stage case no period two exact theorem"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Original map in arXiv:2611.08353v1, Definition 1, equations (2), and its one-stage reduction.",
+        "published-finding corpus published record 2026/11/8/SCOPE-global-exclusion-of-prime-two-coexistence-cycles-in-the-discrete--8dd374b0e558 concerns plankton, not contagion."
+      ],
+      "reasoning": "The invariant-core map has a linear recovered reservoir coupled to a bounded increasing adoption probability; the prior storage and plankton no-cycle results use different balance laws and neither yields the present all-parameter statement by a change of variables without an additional argument.",
+      "searches": [
+        "map (a,r) -> (e a+H(a)(1-a-r), t a+z r), increasing incidence H, no period two and no flip, smooth nonmonotone counterexample",
+        "general bounded monotone probability incidence simplex triangular recovery reservoir period two impossible",
+        "round-based epidemic discrete time competing risks no period two absence of flip bifurcation one-stage contagion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus indexed records closest to the topic concern SIR Euler double-flip, probability-admissible SIS convergence, and plankton prime-two exclusion: 2026/10/4/SCOPE-exact-disease-free-two-cycle-family-at-an-omitted-double-flip-re--400f3dcbeeba, 2026/10/25/SCOPE-exact-basin-separation-and-nonoscillatory-convergence-for-probab--0361bc134978, 2026/11/8/SCOPE-global-exclusion-of-prime-two-coexistence-cycles-in-the-discrete--8dd374b0e558"
+      ],
+      "reasoning": "No indexed exact-parameter table or previously published record encountered contains the universal p=1 competing-risk period-two theorem. This is a bounded finding, not a proof of unique priority.",
+      "searches": [
+        "Muñoz Nuño Meacci arxiv 2611.08353 p=1 one-stage synchronous competing hazards exactly no primitive period two orbit all parameters and Schur stable endemic equilibrium",
+        "map (a,r) -> (e a+H(a)(1-a-r), t a+z r), increasing incidence H, no period two and no flip, smooth nonmonotone counterexample",
+        "2026 discrete two-stage contagion one-stage p=1 unique stable positive equilibrium all rates no period doubling"
+      ]
+    },
+    "rationale": "The originating 2026 paper defines the finite-round map and gives linear invasion and numerical one-stage stabilization, but not all-parameter prime-two nonexistence, all-parameter endemic Schur stability, or a monotonicity sharpness witness. The 2021 discrete SIR recurrence differs in infection/turnover accounting and has only a parameter-restricted global endemic stability theorem; the 2014 Euler-incidence model admits period-doubling because it is a distinct update, and cannot cover the bounded competing-risk family. Accessible own claims concern local threshold behavior or stochastic branching for the same source, not the global two-cycle obstruction. Searches cannot rule out unindexed general sign theorems.",
+    "residual_risks": [
+      "General planar competitive-map or nonlinear-incidence no-two-cycle theorems predating 2026 may imply this special case without model-identifying terms; bounded literature searches cannot certify absolute novelty.",
+      "No claim that higher-period orbits or chaotic compact invariant sets are absent.",
+      "Original paper already contains the invasion threshold and an equilibrium parametrization: neither is newly claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The full map and known threshold are covered; a universal p=1 prime-two theorem and all-parameter proof of endemic stability are not given.",
+        "evidence": [
+          "Source Definition 1 equation (2), Proposition 4, Proposition 5; sections 6.1 and 8 acknowledge numerical scope."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.08353v1",
+        "material_read": "Definition 1 and Propositions 3--5, sections 2, 4--8, and one-stage stability/chaos discussion",
+        "method": "Read full public arXiv HTML, equations and surrounding results; searched full HTML for period-two and two-cycle",
+        "title": "From elementary processes to chaos: a discrete-time two-stage contagion model and its continuous limit",
+        "trigger": "Exact motivating equation and one-stage statements"
+      },
+      {
+        "assessment": "Different exponential-escape recurrence; endemic global convergence only for a subset; not a theorem for the exact-round competing-risk p=1 map.",
+        "evidence": [
+          "Equations (4.1) and Theorem 4.1; Section 9 proof of extinction and persistence."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/20M1339015",
+        "material_read": "SIR formula (4.1), Theorem 4.1, Section 9 proof, and stochastic SIR comparison",
+        "method": "Read OA PDF text and inspected relevant PDF page image",
+        "title": "Extinction and Quasi-Stationarity for Discrete-Time, Endemic SIS and SIR Models",
+        "trigger": "Potentially stronger discrete SIR convergence theory"
+      },
+      {
+        "assessment": "Proves flip behavior for linear-incidence Euler-type recursion, not for bounded probability competing-risk response.",
+        "evidence": [
+          "Equation (3) and Theorem 4.1 for the different map."
+        ],
+        "identifier_or_url": "https://doi.org/10.1186/1687-1847-2014-168",
+        "material_read": "Full accessible article, equation (3), Theorem 4.1, introduction and summary",
+        "method": "Read OA Springer HTML and explicit different update law",
+        "title": "Bifurcations for a deterministic SIR epidemic model in discrete time",
+        "trigger": "Plausible dominating theorem on Euler-SIR period doubling"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3bace11f-d7b0-4213-8a5d-e905045c286f",
+  "value": {
+    "rationale": "The source contrasts numerical one-stage stabilization with two-stage chaos but lacks an all-step-size proof. A universal period-two obstruction, strict all-rate endemic Schur stability, and a smooth probability-preserving counterexample when monotonicity is removed expose the exact mechanism preventing period-doubling in the physically derived one-stage map. This is a motivated structural result, not a numerical threshold increment or a restatement of the known invasion formula.",
+    "status": "PASS"
+  }
+}
