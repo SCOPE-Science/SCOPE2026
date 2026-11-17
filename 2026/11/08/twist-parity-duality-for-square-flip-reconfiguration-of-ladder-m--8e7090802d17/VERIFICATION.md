@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-The all-order proof establishes a bitstring bijection and exact move correspondence for both closures. The following computations are independent finite cross-checks, not an infinite proof:
+# Independent mathematical audit
 
-1. `python3 verify_binary_model.py` regenerates perfect matchings, compares every state of the binary model and its entire local-move neighborhood against direct enumeration for each \(5\le n\le14\) in the prism and Möbius cases, and checks the two exceptional frozen states precisely when predicted.
-2. `g++ -std=c++17 -O2 verify_direct.cpp -o checker && ./checker` uses separate C++17 edge-mask enumeration, square-mask toggling and exhaustive breadth-first search to check component orders, edge counts, radii and diameters for each \(5\le n\le13\).
+## correctness
 
-Both completed successfully when run from the packaged scientific sources. The resulting finite confirmations do not establish originality or independence. In disconnected cases the reported radius and diameter concern the nontrivial moving component only. Scientific priority is qualified by the directly relevant 2013 cyclic-fibonacene analogue and an incompletely accessible 2020 matching-count paper.
+PASS
+
+For every n>=5, a perfect matching containing a rung is uniquely tiled by synchronized horizontal pairs between rungs, indexed by an independent subset of the cyclic square positions. Rung-free cases yield exactly two unmatched frozen states for even prisms and odd Möbius ladders. A legal designated square flip toggles exactly one independent-set bit; deletion before insertion attains Hamming distance. Majority of three independent bitsets is independent, so the connected sector is median; disjoint maximum independent sets prove diameter 2 floor(n/2), while empty set proves radius floor(n/2). Independent direct edge-recursion enumerations confirmed both closures for n=5..8; this is corroboration, not the infinite proof.
+
+## originality
+
+PASS
+
+PASS is restricted to the untwisted prism square-flip classification and the simultaneous reversal of exceptional-state parity under twisting. An October 26 theorem already proves the entire Möbius-ladder half, including metrics and frozen states. The 2020 prism/Möbius paper counts matchings, and classical Lucas-cube median and edge enumerations are prior mathematics; neither counting alone implies all prism switches. This is not credit for the covered Möbius theorem.
+
+## value
+
+PASS
+
+The new prism-local-switch connectivity and parity comparison classify a natural reconfiguration problem for two structurally adjacent cubic graph families; they expose precisely which twist changes frozen states while retaining a common moving geometry. Not merely a count of known Lucas-cube vertices, although much of the algebraic structure is already classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

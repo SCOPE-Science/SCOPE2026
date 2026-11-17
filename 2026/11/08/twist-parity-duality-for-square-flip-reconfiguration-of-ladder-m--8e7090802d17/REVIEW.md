@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The matching-exhaustion argument separates matchings with at least one rung (forced synchronized longitudinal pairs) from no-rung cases (explicitly classified by closure and parity). Every legal rung-square exchange toggles one cycle-independent-set coordinate, and exceptional matchings have no alternating rung square. This proves graph isomorphisms and all geodesic claims for every \(n\ge5\). Two independent exhaustive programs reproduce the entire correspondence, and separately the component metrics, over finite test ranges. The proof, not those tests, supplies the universal quantifier.
+## correctness
 
-## Originality — PASS, historically qualified
-Cao–Ren's full 2016 primary article counts states and colourings, not the described matching-flip transitions; a count does not imply an adjacency graph. Klavžar (2005) already proves Lucas cubes are median and derives their edge counts. Žigert Pleteršek–Berlič (2013), Theorem 4.2, proves the same abstract type for another family, cyclic fibonacenes under hexagon flips; that is explicitly excluded as a novel abstract theorem. Lekshmi–West (2020) independently counts perfect matchings of both prism and Möbius ladders and their parity exceptions; this known count is also excluded from novelty. The assessed contribution is the simultaneous *specific* square-flip geometry on these two cubic graph families, its sharp connectedness change under a twist, and explicit shortest transformations. Full text of the 2020 paper could not be inspected, and an equivalent earlier local-move analysis cannot be ruled out.
+PASS
 
-## Value — PASS
-Square flips are the basic nearest-neighbor local transformation in perfect-matching models. In these two canonical three-regular periodic families, matching counts alone cannot reveal whether the dynamics is connected, where absorbing states occur, or how many steps separate reachable configurations. The twist changes whether even or odd periods have frozen states, while the moving component stays a median graph with computable exact geodesics. This supplies a natural complete classification with a direct boundary-condition interpretation, not an arbitrary finite slice or a claim of new Lucas-cube enumeration.
+For every n>=5, a perfect matching containing a rung is uniquely tiled by synchronized horizontal pairs between rungs, indexed by an independent subset of the cyclic square positions. Rung-free cases yield exactly two unmatched frozen states for even prisms and odd Möbius ladders. A legal designated square flip toggles exactly one independent-set bit; deletion before insertion attains Hamming distance. Majority of three independent bitsets is independent, so the connected sector is median; disjoint maximum independent sets prove diameter 2 floor(n/2), while empty set proves radius floor(n/2). Independent direct edge-recursion enumerations confirmed both closures for n=5..8; this is corroboration, not the infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS is restricted to the untwisted prism square-flip classification and the simultaneous reversal of exceptional-state parity under twisting. An October 26 theorem already proves the entire Möbius-ladder half, including metrics and frozen states. The 2020 prism/Möbius paper counts matchings, and classical Lucas-cube median and edge enumerations are prior mathematics; neither counting alone implies all prism switches. This is not credit for the covered Möbius theorem.
+
+## value
+
+PASS
+
+The new prism-local-switch connectivity and parity comparison classify a natural reconfiguration problem for two structurally adjacent cubic graph families; they expose precisely which twist changes frozen states while retaining a common moving geometry. Not merely a count of known Lucas-cube vertices, although much of the algebraic structure is already classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
