@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T17:50:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. The source proves the exact one-edge availability probability e^{-t} u_i(1-e^{-t})u_{n-i}(1-e^{-t}), with u_k(v)=sum_{j=0}^{k-1}(-v)^j/j!. Uniform Taylor remainders give mean available-edge count e^{-2-x} at t=log n+x. Influence of distant first-attempt clocks requires a strictly decreasing consecutive priority chain, probability <=2/R!, and R=ceil(3 log n) produces a finite-range dependent approximation. Distinct-index factorial moments converge to those of Poisson(e^{-2-x}); saturation is exactly the absence of available edges. The compensator of the superposed (n-1)-rate Poisson trial process makes T_n/n-tau_n tend to zero. The earlier 2026-10-18 full mathematical proof gives stronger spatial late-success Poisson count and same Gumbel limit. The sources distinguish first attempted edge clocks from successful arrivals. The all-order result is analytic, not inferred from the finite checker.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026-10-18 open-path theorem supplies full marked spacetime Poisson field and O(log n/n) approximation to late accepted dimers, stronger than a single scalar count; cyclic variant 2026-10-25 is different boundary."
+        ],
+        "reasoning": "The open-path source covers the exact boundary/model and quantitatively refines the submitted Poisson/Gumbel limit. Cyclic result is corroboration, not primary reason.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-spatial-poisson-limits-for-late-dimer-arrivals-in-page-r-nyi-par--472861c917c3/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-poisson-late-availability-and-a-gumbel-jamming-time-for-cyclic-d--0335952f8ba4",
+          "Page Renyi dimer parking last arrival poisson rare available edges spatial poisson line open path"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-spatial-poisson-limits-for-late-dimer-arrivals-in-page-r-nyi-par--472861c917c3/RESULT.md",
+        "https://arxiv.org/abs/1411.8002",
+        "https://arxiv.org/abs/cond-mat/0202465",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-poisson-late-availability-and-a-gumbel-jamming-time-for-cyclic-d--0335952f8ba4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior W_n count Poisson(e^-2-x) and max accepted xi Gumbel; event A_n=W_n with probability tending one; Poisson superposition N_n(t)/(n-1)-t ->0 uniformly on O(log n) window by Doob L2."
+        ],
+        "reasoning": "All three final assertions follow from earlier stronger same-path model and standard Poisson clock de-Poissonization, not just a matching title.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-spatial-poisson-limits-for-late-dimer-arrivals-in-page-r-nyi-par--472861c917c3/RESULT.md",
+          "https://arxiv.org/abs/cond-mat/0202465",
+          "Page Rényi random parking dimer saturation time Gumbel Poisson available edges last successful attempt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier 2026-10-18 RESULT.md: W_n(x)=# successful dimers after log n+x tends to Poisson(e^{-2-x}) in total variation; later successful arrivals form a spatial Poisson point field."
+        ],
+        "reasoning": "Available edges A_n(t) differ from eventually successful late edges W_n(t) only if an adjacent pair of first-attempt clocks both exceed t; chance <=O(n exp(-2t))=O(1/n) at t=log n+x. Same limit follows.",
+        "searches": [
+          "Page Rényi random parking dimer saturation time Gumbel Poisson available edges last successful attempt",
+          "Page Renyi dimer parking last arrival poisson rare available edges spatial poisson line open path",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-spatial-poisson-limits-for-late-dimer-arrivals-in-page-r-nyi-par--472861c917c3/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier full theorem gives exact per-edge acceptance integral and Poisson late count; 2002 source already states scalar Gumbel with shift e^-2 for dimers."
+        ],
+        "reasoning": "No new exact natural invariant/table survives; the finite endpoint polynomial and terminal center are in earlier mathematical derivations or direct consequences.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-spatial-poisson-limits-for-late-dimer-arrivals-in-page-r-nyi-par--472861c917c3/RESULT.md",
+          "https://arxiv.org/abs/cond-mat/0202465",
+          "https://arxiv.org/abs/1411.8002"
+        ]
+      },
+      "rationale": "Older published work gives the stronger *spatial* Poisson limit of late accepted dimers on the same finite open path, with quantitative O(log n/n) total-variation control for late success counts and the identical Gumbel terminal-time limit; it explicitly traces scalar Gumbel to 2002. At t=log n+x, the count A_n(t) of currently available edges equals the count W_n(t) of edges that will succeed after t with probability 1-O(1/n): any currently available edge later blocked without succeeding needs a neighboring edge with an independent first-attempt time >t; union bound O(n)e^{-2t}. Thus the earlier W_n Poisson theorem implies the A_n Poisson theorem. Converting continuous last-success time to trial count with a rate-(n-1) superposed Poisson clock is a routine martingale LLN and gives the submitted normalized Gumbel trial count. No independently valuable unaddressed final claim remains.",
+      "residual_risks": [
+        "Exact current availability vs future success count is asymptotic, not a pathwise identity at all times; prior implication uses a separate O(1/n) argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_STRONGER_COVERAGE",
+          "evidence": "Same path, unit-rate exponential first attempts; late successful count Poisson with O(log n/n) TV and Gumbel with constant e^-2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-spatial-poisson-limits-for-late-dimer-arrivals-in-page-r-nyi-par--472861c917c3/RESULT.md",
+          "material_read": "Complete RESULT.md including Finding, complete five-step proof, exact edge acceptance integral, quantitative Poisson approximation and references",
+          "method": "Fetched published full GitHub mathematical text",
+          "title": "Spatial Poisson limits for late dimer arrivals in Page–Rényi parking",
+          "trigger": "Earlier same-path late-dimer point process and Gumbel law"
+        },
+        {
+          "assessment": "BACKGROUND_FIRST_ORDER",
+          "evidence": "Earlier T_n/(n log n)->1, not by itself the decisive Gumbel source.",
+          "identifier_or_url": "https://arxiv.org/abs/1411.8002",
+          "material_read": "Classical first-order scale from citations in source and abstract; no new complete full-text inspection in this run",
+          "method": "Bibliographic comparison",
+          "title": "The Page–Rényi parking process",
+          "trigger": "Classical open-path model and first-order attempts"
+        },
+        {
+          "assessment": "PRIOR_SCALAR_GUMBEL_REPORTED",
+          "evidence": "Earlier paper explicitly attributed the scalar late dimer Gumbel shift e^-2; the 2026-10-18 stronger result independently decisive.",
+          "identifier_or_url": "https://arxiv.org/abs/cond-mat/0202465",
+          "material_read": "Section 5 finding quoted with citation in the full 2026-10-18 primary mathematical result; full 2002 text not independently read",
+          "method": "Source-to-source priority crosscheck",
+          "title": "Jamming, freezing and metastability in one-dimensional spin systems",
+          "trigger": "Historically earlier Gumbel jamming centering for dimers"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Jamming time and late-edge fluctuations are motivated natural invariants, but the submitted Poisson and Gumbel limits are already consequences of a strictly stronger published open-path spatial point-process theorem, including quantitative TV approximation. De-Poissonizing the terminal clock is a routine short additional step. Correctness and independent finite verification cannot transform this known result into independently valuable new science.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Open path and homogeneous unit-rate dimers only, fixed x as n grows; available count equals future-success count only asymptotically, not exactly for finite n. Prior point-process theorem is stronger."
+  ],
+  "schema_version": 1
+}
