@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T16:53:04.796090Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md",
+        "pinned verify_sis.py",
+        "/mnt/data/scope_worker03_20261111T1638Z/independent_checks.py"
+      ],
+      "rationale": "The SIS generator Poisson equations on each nonempty infected subset have off-diagonal infection rate lambda*d_S(v), recovery rate1, and reward |S|; the absorbing empty state gives a unique positive finite expectation. Coupling with shared recovery/infection clocks proves burden strictly increases on adding an edge for uniformly seeded infections. Deleting any vertex from n<=4 leaves <=3 vertices, for which each possible residual edge count corresponds to a nested graph isomorphism type, hence maximum-degree vaccination is optimal uniformly in lambda. For the n=5 graph edges {01,02,04,12,13,23}, deletion 0 gives K3+K1, deletion 1/2 gives P4, and other deletions have strictly larger burden. Independent exact 15-state rational Poisson solves reproduce B_K3+K1=(3lambda²+3lambda+2)/2 and the displayed degree-eight rational B_P4. Their signed difference has numerator lambda²(lambda+1)(48lambda^5+136lambda^4+99lambda^3-78lambda²-156lambda-72), with positive denominator. Descartes sign variation and endpoint signs prove exactly one positive root, bracketed numerically at 1.0282979668; optimum switches {1,2} to {0} with tie {0,1,2}. This proves the claim for all positive rates, not just tested samples.",
+      "residual_risks": [
+        "No claim for n>5 or vaccination choices beyond exactly one perfectly removed vertex."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Holme 2017 uses SIR ever-infected objectives; Resultary records on five-vertex bond epidemic vaccination switch at p=1/4, not the SIS rate lambda≈1.0283."
+        ],
+        "reasoning": "General node-importance and vaccine optimization results do not imply this reinfecting SIS exact burden classification or the P4-vs-triangle rational quintic.",
+        "searches": [
+          "SIS single vertex vaccination optimal target switches infection rate expected cumulative infected time P4 triangle isolated five vertices",
+          "https://arxiv.org/abs/1708.06456",
+          "Resultary five-vertex vaccination switches"
+        ]
+      },
+      "checked_sources": [
+        "SIS single vertex vaccination optimal target switches infection rate expected cumulative infected time P4 triangle isolated five vertices",
+        "https://arxiv.org/abs/1802.08849",
+        "https://arxiv.org/abs/1708.06456"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known threshold p=1/4 in static SIR/percolation and finite SIS extinction-time formulas involve different stochastic laws or rewards."
+        ],
+        "reasoning": "Neither implies the sharp n=5 transition for SIS integrated burden; the new exact generator comparison and Descartes sign analysis are needed.",
+        "searches": [
+          "SIS single vertex vaccination optimal target switches infection rate expected cumulative infected time P4 triangle isolated five vertices",
+          "https://arxiv.org/abs/1802.08849",
+          "https://arxiv.org/abs/1708.06456"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holme–Tupikina 2018 analyzes SIS extinction-time rankings across initial infected sets, not uniform-seed time-integrated prevalence after vertex removal."
+        ],
+        "reasoning": "Integral reward |I_t| is different from extinction-time reward 1; either Poisson solution may be obtained numerically, but the optimizer ordering need not transfer.",
+        "searches": [
+          "SIS single vertex vaccination optimal target switches infection rate expected cumulative infected time P4 triangle isolated five vertices",
+          "https://arxiv.org/abs/1802.08849"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 12,110-small-graph SIS analysis tabulates extinction times and rankings of initial states, rather than cumulative infection person-time under a removed vertex."
+        ],
+        "reasoning": "A finite graph catalogue by itself is not a published table of this intervention objective for every lambda; no matching five-node integrated-prevalence optimizer profile was found.",
+        "searches": [
+          "SIS single vertex vaccination optimal target switches infection rate expected cumulative infected time P4 triangle isolated five vertices",
+          "https://arxiv.org/abs/1802.08849"
+        ]
+      },
+      "rationale": "Earlier graph vaccination switches in Reed–Frost bond-percolation/SIR models concern final outbreak size, while SIS survival studies typically concern extinction time or initial infected-set rankings. The finite-graph intervention objective here is integrated infected person-time, including reinfections. No inspected earlier theorem yields the present all-rate cutoff and unique algebraic crossover.",
+      "residual_risks": [
+        "Earlier finite-state SIS intervention calculations may exist under integrated prevalence or network occupancy terminology.",
+        "Experimental interpretation depends on the stipulated objective and homogeneous rates, not biological vaccine efficacy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Measures time to extinction, not integrated |I_t| after single-vertex vaccination and uniform index case.",
+          "identifier_or_url": "https://arxiv.org/abs/1802.08849",
+          "material_read": "Accessible original manuscript text on SIS extinction-time calculation and ranking of initial infection configurations",
+          "method": "Read accessible manuscript text and compare definitions of observables",
+          "title": "Epidemic extinction in networks: Insights from the 12,110 smallest graphs",
+          "trigger": "Same SIS process and small finite graphs"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "SIR final-size node ranking under perfect removal, not reinfecting SIS cumulative burden.",
+          "identifier_or_url": "https://arxiv.org/abs/1708.06456",
+          "material_read": "Original publication article model/objective sections and abstract",
+          "method": "Inspected primary article and model scope",
+          "title": "Three faces of node importance in network epidemiology: Exact results for small graphs",
+          "trigger": "Small-graph vaccination optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1802.08849",
+        "SIS single vertex vaccination optimal target switches infection rate expected cumulative infected time P4 triangle isolated five vertices"
+      ],
+      "rationale": "Exact order-four universality and the first order-five rate-dependent vaccination reversal establish a sharp decision-theoretic boundary on a natural stochastic network model. The crossover compares a connected corridor with a dense core plus isolate under time-integrated prevalence, a quantity not interchangeable with SIR final size or SIS extinction time. Unique algebraic threshold and complete optimizer sets are independently useful finite structural facts.",
+      "residual_risks": [
+        "No policy claim for empirical vaccination or heterogeneous networks."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly one perfectly vaccinated vertex, uniformly random initial infected person among survivors, one-unit recovery, no imports, cumulative person-time loss."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs SIS Poisson equations for all nonempty infected subsets and shows that the expected accumulated infection burden has the state-size reward rather than the constant reward for extinction time. An attractive graphical coupling yields edge monotonicity, and the classification of all at-most-three-vertex residual graphs establishes the exact lower-order optimum. The explicit five-vertex residuals reduce the decision to a path versus a triangle plus isolated vertex. The self-contained script symbolically checks both 15-state rational solutions, their factorization, the sole positive root, residual graph isomorphisms and five independent rational-parameter optimum tests. The finite rational tests do not replace either the coupling proof or the all-parameter polynomial sign argument.
+PASS
 
-## Originality — PASS (best-knowledge assessment)
+The SIS generator Poisson equations on each nonempty infected subset have off-diagonal infection rate lambda*d_S(v), recovery rate1, and reward |S|; the absorbing empty state gives a unique positive finite expectation. Coupling with shared recovery/infection clocks proves burden strictly increases on adding an edge for uniformly seeded infections. Deleting any vertex from n<=4 leaves <=3 vertices, for which each possible residual edge count corresponds to a nested graph isomorphism type, hence maximum-degree vaccination is optimal uniformly in lambda. For the n=5 graph edges {01,02,04,12,13,23}, deletion 0 gives K3+K1, deletion 1/2 gives P4, and other deletions have strictly larger burden. Independent exact 15-state rational Poisson solves reproduce B_K3+K1=(3lambda²+3lambda+2)/2 and the displayed degree-eight rational B_P4. Their signed difference has numerator lambda²(lambda+1)(48lambda^5+136lambda^4+99lambda^3-78lambda²-156lambda-72), with positive denominator. Descartes sign variation and endpoint signs prove exactly one positive root, bracketed numerically at 1.0282979668; optimum switches {1,2} to {0} with tie {0,1,2}. This proves the claim for all positive rates, not just tested samples.
 
-The closest primary works are Ball–Britton–Neal (2014), on total life-time reward for homogeneous-mixing birth–death and SIS processes; van de Bovenkamp–Van Mieghem (2015), on exact SIS extinction time; Holme (2017), on exact SIR size-based node deletion; and Holme–Tupikina (2018), on finite-graph SIS extinction time rankings. The new statement is a sharp, transmission-rate-dependent optimal vaccination threshold for *SIS cumulative infected person-time*, with a different Markov-reward right-hand side and different quantifiers. No inspected paper or screened prior claim provided this theorem or implied it via a stronger coverage theorem. The remaining risk is unlocated small-graph SIS reward or optimization work under equivalent terminology; the searches do not establish definitive historical uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Unlike an arbitrary small-graph numerical comparison, the result proves a natural first possible network size, a unique positive rate transition, the full optimizer sets for every rate, and an exact algebraic threshold. This is an interpretable theoretical benchmark for reinfecting epidemic-control objectives and illustrates how clustering versus connectivity changes prevention priorities. It does not claim empirical policy value.
+Earlier graph vaccination switches in Reed–Frost bond-percolation/SIR models concern final outbreak size, while SIS survival studies typically concern extinction time or initial infected-set rankings. The finite-graph intervention objective here is integrated infected person-time, including reinfections. No inspected earlier theorem yields the present all-rate cutoff and unique algebraic crossover.
 
-## Evidence and limitations
+## value
 
-The primary proof is in `RESULT.md`; executable exact symbolic checks are in `verify_sis.py`. Independent confirmation beyond this review has not been performed. All assumptions are finite homogeneous SIS, one uniformly seeded initial case and one fully protected vertex. Related SIR final-size and SIS extinction-time results do not automatically transfer to this cost.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact order-four universality and the first order-five rate-dependent vaccination reversal establish a sharp decision-theoretic boundary on a natural stochastic network model. The crossover compares a connected corridor with a dense core plus isolate under time-integrated prevalence, a quantity not interchangeable with SIR final size or SIS extinction time. Unique algebraic threshold and complete optimizer sets are independently useful finite structural facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
