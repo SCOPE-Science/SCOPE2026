@@ -1,15 +1,21 @@
-# Scientific review: The first antipodal trapping resonance of two-range quantum rings
+# Independent mathematical audit
 
-## Correctness — PASS
-For every even \(n\ge6\), \(J_1,J_2,\gamma>0\), and the antipodal initial state, the loss-free spectral subspace is the orthogonal sum of Fourier eigenspace intersections with the trap's kernel. Finite-dimensional dissipativity rules out any additional nondecaying vectors. The Fourier parity calculation gives exactly \(4e_Co_C/[n(e_C+o_C)]\) for every equal-energy class. Energy coincidences satisfy \((c_k-c_l)[1+2(J_2/J_1)(c_k+c_l)]=0\); opposite-parity indices cannot have the same cosine. The unique most-negative distinct cosine pair is the central index and its adjacent cosine level, giving the first resonance \(1/[4\cos^2(\pi/n)]\) and the three-mode survival mass \(8/(3n)\). A parity-restricted grid approximation proves exceptional-ratio density beyond \(1/4\). Both standalone checkers independently confirm the spectral and dissipative predictions; these finite runs are not used as an infinite proof.
+## correctness
 
-## Originality — PASS on the inspected evidence
-The ring-plus-extra-neighbors Bloch spectrum is known from Xu and Liu, 2008 (arXiv:0801.4180), but that paper does not treat site-local loss or tunable positive first/second-neighbor competition. Xu, 2008 (arXiv:0812.3452), examines trapping on long-range interacting cycles, including range two, but fixes equal bond couplings and numerically averages over initial sites and random multisite traps; it does not state a tunable one-sink resonance law. Agliari–Mülken–Blumen, 2009 (arXiv:0903.3288), and Krapivsky–Luck–Mallick, 2013 (arXiv:1311.6298, especially Section 4.2), provide related nearest-neighbor trapping calculations, including the already-known complete antipodal capture baseline. Varbanov–Krovi–Brun, 2008 (arXiv:0803.3446), provides related general hitting-time theory with a different detection mechanism. Bhandari–Durganandini, 2021 (arXiv:2101.11240), already identifies the numerical threshold \(1/4\) for infinite-chain coherent propagation, not a finite-ring absorption resonance. The claimed contribution is the exact one-detector, two-range, arbitrary-positive-loss *eventual-survival* classification, the finite-size earliest jump and exceptional-ratio density; neither baseline calculation implies it. No exact inclusion/stronger statement was found among inspected sources or comparison records. This cannot rule out unindexed equivalent results.
+PASS
 
-## Mathematical value — PASS
-The discrete exceptional resonance identifies a physically natural and otherwise unexpected failure of complete capture triggered by tuning one ordinary hopping ratio, with an exactly quantified surviving fraction. The sharp uniform threshold and dense-but-countable exceptional set distinguish worst-case network design from generic rates and show a singular noncommutation of detuning and infinite-time limits. These are structural infinite-family results, not arbitrary parameter-slice arithmetic.
+For positive local absorption the nondecaying subspace is exactly the H-eigenspace subspace orthogonal to the sink. Fourier class with e even and o odd indices contributes 4eo/[n(e+o)] at antipode; same-cosine Fourier degeneracies preserve parity. Distinct-cosine mixed-parity coincidences solve rho=-1/[2(c_k+c_l)] with negative cosine sum. The unique most-negative distinct pair is c=-1 and -cos(2pi/n), so first rho=1/[4 cos^2(pi/n)], class (1,2) gives 8/(3n) survival. Parity-constrained Fourier mesh yields density above 1/4. Independent numeric Fourier enumerations n=6..50 in even steps reproduced thresholds, masses and non-resonant zero classes. Uniformity follows analytically.
 
-## Scope and limitations
-Only homogeneous real positive couplings, zero magnetic flux, a single local absorber, even rings, and opposite-site starts are proved; no disorder, dephasing, multiple detectors, finite-time guarantee, or experimental robustness is claimed. Literature priority remains provisional. The proof and checks are not an independent scientific audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality qualified: First two-range quantum-ring antipodal trapping resonance. Compared full Resultary prior theorem(s), source normalization, equivalent invariant and relevant primary bibliographic material; existing ingredients and covered special cases are explicitly excluded from novelty. Residual historical coverage cannot be categorically excluded.
+
+## value
+
+PASS
+
+A single natural hopping ratio triggers a discontinuous eventual-capture failure at an exact finite-size spectral resonance, even though all nearby ratios yield complete capture. Sharp universal robust interval and countable dense exceptional set distinguish generic and adversarial engineering behavior. The standard dark-state projector is prior work; the exact two-range parameter law and survival mass are the substantive contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

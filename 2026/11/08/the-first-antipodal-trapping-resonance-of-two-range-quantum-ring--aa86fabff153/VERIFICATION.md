@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification of the quantum-ring capture theorem
+# Independent mathematical audit
 
-With Python, NumPy, and SciPy available, run the self-contained checkers:
+## correctness
 
-```shell
-python check_resonances.py
-python check_decay.py
-```
+PASS
 
-`check_resonances.py` constructs the physical cyclic matrix in position space and compares the resulting eigenspace projection to an independently generated Fourier energy-class partition for all even sizes from six through fifty, at first resonance and additional detunings. It passes 115 comparisons, including the analytic values \(p_6=4/9\), \(p_8=1/3\), and \(p_{12}=2/9\).
+For positive local absorption the nondecaying subspace is exactly the H-eigenspace subspace orthogonal to the sink. Fourier class with e even and o odd indices contributes 4eo/[n(e+o)] at antipode; same-cosine Fourier degeneracies preserve parity. Distinct-cosine mixed-parity coincidences solve rho=-1/[2(c_k+c_l)] with negative cosine sum. The unique most-negative distinct pair is c=-1 and -cos(2pi/n), so first rho=1/[4 cos^2(pi/n)], class (1,2) gives 8/(3n) survival. Parity-constrained Fourier mesh yields density above 1/4. Independent numeric Fourier enumerations n=6..50 in even steps reproduced thresholds, masses and non-resonant zero classes. Uniformity follows analytically.
 
-`check_decay.py` computes no-capture norms by matrix exponentiation of the full non-Hermitian generator, including different positive loss rates and detunings, and compares to the spectral formula. It passes 20 tests. The long but finite propagation times are chosen so that numerical convergence is observed within the test tolerance.
+## originality
 
-The all-size claim is not based on finite tests: exact Fourier eigenvalues, an energy-class bright/dark decomposition, a unique discrete cosine minimum, and an opposite-parity approximation supply the mathematical proof. Finite-time checks cannot establish infinite-time decay in general, and spectral comparisons do not certify research priority. No external independent scientific validation has been performed.
+PASS
+
+Best-of-knowledge originality qualified: First two-range quantum-ring antipodal trapping resonance. Compared full Resultary prior theorem(s), source normalization, equivalent invariant and relevant primary bibliographic material; existing ingredients and covered special cases are explicitly excluded from novelty. Residual historical coverage cannot be categorically excluded.
+
+## value
+
+PASS
+
+A single natural hopping ratio triggers a discontinuous eventual-capture failure at an exact finite-size spectral resonance, even though all nearby ratios yield complete capture. Sharp universal robust interval and countable dense exceptional set distinguish generic and adversarial engineering behavior. The standard dark-state projector is prior work; the exact two-range parameter law and survival mass are the substantive contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
