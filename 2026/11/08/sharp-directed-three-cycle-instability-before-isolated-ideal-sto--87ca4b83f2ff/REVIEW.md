@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns only the precise stated map, positive fixed point, parameter line, and linear stability. The homogeneous fixed point follows from the logistic equation. The real block Jacobian and modal quadratic are differentiated directly, with the determinant identity verified independently against the original six-dimensional Jacobian. The three real Jury inequalities are strictly positive for every real stochastic eigenvalue in \([-1,1]\), proving symmetric-network and one-/two-site stability without assuming diagonalizability. The directed three-cycle has spatial eigenvalues \(1,\omega,\bar\omega\). The exact complex Schur–Cohn inequality becomes the sign of a quartic with a single positive zero, with strict sign on either side. At equality exactly one root of each complex spatial mode lies on the unit circle; above it one root of each complex spatial mode is exterior. No finite sample substitutes for the analytic parameter-uniform argument. The included script rechecks the algebra with exact symbolic arithmetic; direct six-dimensional eigenvalues at one rational parameter provide only a diagnostic.
+PASS
 
-## Originality — PASS within inspected evidence
+The homogeneous fixed point S=c/r,R=r and delta=5c(1-r) produce per-eigenvalue polynomial p_w(z)=z^2-(1-r+delta w)z+delta[r+(1-r)w]. Real |w|<=1 satisfies all three Jury inequalities for 0<delta<1, proving every symmetric row-stochastic W stable and all 1- or 2-site row-stochastic W stable (their spectra are real). At r=1/2 directed three-cycle w=exp(2pi i/3), the Schur–Cohn deficit equals -P(delta)/16, P=3delta^4+14delta^3+17delta^2-10delta-12. Descartes plus exact signs isolate the unique positive root in (0.8141,0.8142); at delta=5/6, P=49/48 and an exterior complex-conjugate multiplier pair appears while the homogeneous mode stays stable. Independently recomputed symbolic quartic identity and exact endpoint signs in Sympy; numerical spectral estimate is ancillary.
 
-The 2026 ideal-storage cellular automaton paper studies the scalar Neimark–Sacker region and symmetric Moore-neighborhood spatial averaging; it neither states nor implies the minimal asymmetric three-cycle threshold. The 2010 model introduction covers a symmetric two-dimensional nearest-neighbor architecture, not a directed three-node weighted cycle. Directed-topology instability itself is established by Asllani and coauthors in continuous-time reaction–diffusion systems, so only the exact discrete ideal-storage model theorem and minimality are claimed as new. Search comparisons include directed graph instability, three-cycle Schur thresholds, ideal-storage recurrence stability, and related exact coupled-map results. The inspected coverage does not imply the explicit Schur–Cohn quartic or the two-site obstruction. This is provisional historical priority; related unpublished work or other directed discrete-time models may remain undiscovered.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The 2026 motivation identifies parameter-limited oscillatory and spiral behavior on symmetric cellular-automaton couplings. The theorem isolates a distinct topology-controlled mechanism: three directed sites can lose local stability while the isolated and every symmetric interaction system remain strictly stable at exactly the same physical parameters. The minimum network size, exact algebraic threshold, and rational counterexample with \(C_r<2\) distinguish a model-specific boundary rather than a general observation that directed graphs sometimes destabilize systems. It answers a natural structural question about the effect of directional coupling and provides a benchmark for directed extensions.
+An exact minimal three-node directed-vs-symmetric Schur stability separation is not a corollary of the inspected/available primary descriptions of symmetric ideal-storage cellular automata or continuous-time directed diffusion instabilities. The model-specific quartic, exact physical parameter slice and n<=2 minimality survive those comparisons. The very plausible 2026 ideal-storage full text could not be accessed; risk remains explicit.
 
-## Closest literature and limits
+## value
 
-Hordijk (2026), arXiv:2610.38710v1, is the source of the recurrence and symmetric spatial motivation. Dress, Hordijk, Wei and Serocka (2010), doi:10.4230/DagSemProc.10231.8, develops the cellular-automaton setting. Asllani et al. (2014), doi:10.1038/ncomms5517, already establishes the general directed-topology instability mechanism for different continuous-time equations. This result does not prove a nonlinear periodic orbit, spiral, invariant curve, or a claim beyond the specified parameter line. Historical priority and independent verification remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first possible network size for a genuinely directed instability, accompanied by a sharp algebraic physical threshold and simultaneous stability for every symmetric row-stochastic network, is a motivated structural boundary; it separates graph-induced from single-node instability in an established coupled-map model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

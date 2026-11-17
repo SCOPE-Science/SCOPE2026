@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-The accompanying standalone `verify.py` was run with Python and SymPy. It verifies the modal Jacobian characteristic polynomial by direct algebra and independently matches the full real six-dimensional Jacobian determinant to the product of the homogeneous and conjugate nonhomogeneous mode factors. It also proves by exact symbolic expansion that the complex quadratic Schur–Cohn deficit equals negative one sixteenth of the quartic claimed in the result.
+## correctness
 
-It computes exact rational signs at the endpoints of \((0.8141,0.8142)\), the exact value \(P(5/6)=49/48\), and the three complete real-Jury inequalities as identities; the unique positive root follows analytically by Descartes' rule, not from numerical root finding. At \(\delta=5/6\) it additionally evaluates the six multipliers to confirm the expected two exterior and four interior eigenvalues, with spectral radius approximately \(1.020441989493\).
+PASS
 
-Reproduction: `python verify.py` (requires SymPy). Expected diagnostic prefix: `VERIFY_OK`. The numerical root approximation is a check, not a proof of uniqueness or a certificate for other parameters. Exact symbolic polynomial identities together with the mathematical Schur–Cohn/Jury criteria establish the infinite-family assertion. No nonlinear invariant objects or independent scientific audit have been checked.
+The homogeneous fixed point S=c/r,R=r and delta=5c(1-r) produce per-eigenvalue polynomial p_w(z)=z^2-(1-r+delta w)z+delta[r+(1-r)w]. Real |w|<=1 satisfies all three Jury inequalities for 0<delta<1, proving every symmetric row-stochastic W stable and all 1- or 2-site row-stochastic W stable (their spectra are real). At r=1/2 directed three-cycle w=exp(2pi i/3), the Schur–Cohn deficit equals -P(delta)/16, P=3delta^4+14delta^3+17delta^2-10delta-12. Descartes plus exact signs isolate the unique positive root in (0.8141,0.8142); at delta=5/6, P=49/48 and an exterior complex-conjugate multiplier pair appears while the homogeneous mode stays stable. Independently recomputed symbolic quartic identity and exact endpoint signs in Sympy; numerical spectral estimate is ancillary.
+
+## originality
+
+PASS
+
+An exact minimal three-node directed-vs-symmetric Schur stability separation is not a corollary of the inspected/available primary descriptions of symmetric ideal-storage cellular automata or continuous-time directed diffusion instabilities. The model-specific quartic, exact physical parameter slice and n<=2 minimality survive those comparisons. The very plausible 2026 ideal-storage full text could not be accessed; risk remains explicit.
+
+## value
+
+PASS
+
+The first possible network size for a genuinely directed instability, accompanied by a sharp algebraic physical threshold and simultaneous stability for every symmetric row-stochastic network, is a motivated structural boundary; it separates graph-induced from single-node instability in an established coupled-map model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
