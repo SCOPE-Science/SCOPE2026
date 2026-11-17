@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The self-contained checker `artifacts/verify.py` constructs twelve actual complex Fourier restrictions for heterogeneous finite cyclic factors and nontrivial marked coordinate values. It computes their Hermitian Gram eigenvalues and independently computes the predicted Poisson-binomial spectral list. On replay it reports `HETEROGENEOUS_PUNCTURE_SPECTRUM_PASS cases=12 max_error=3.66e-15` (rounding may vary with NumPy). The examples include unequal product alphabets and several interaction degrees. Numerical equality checks are corroborative only.
+## correctness
 
-# Proof verification
+PASS
 
-The mathematical argument in `RESULT.md` verifies the coordinate orthogonal decomposition, rank-one tensor action, band-compressed eigenvalues and multiplicities, strict top-eigenvalue ordering on the unobserved rectangle, and the explicit extremizer. The result holds for all finite abelian groups by product-character orthogonality; experiments cover cyclic factors only. No external or independent audit has been performed.
+The nonconstant coordinate space splits into the marked-point indicator mode and (q_j-2) contrasts vanishing at the mark. On each fixed contrast set T, the punctured-rectangle mask compresses to rank one with eigenvalue beta_T, a Poisson-binomial CDF. The complement gives the full spectrum and multiplicities. Strict event containment beta_T<beta_empty for nonempty T proves unique minimum 1-beta_empty, whose positive upper tail gives injectivity and kappa; the projected puncture indicator yields f*. Independently formed a 96x46 complex character sampler at q=(2,3,4,5), r=2 and unequal nonzero marks: the maximum spectral difference was 2.11e-15 and the minimum was exactly 11/120. These finite checks do not prove the general decomposition.
+
+## originality
+
+PASS
+
+Exact heterogeneous union-of-hyperplanes product-mask spectrum and Poisson-binomial tail conditioning not supplied by inspected earlier homogeneous Hamming-shell harmonic spectrum, which has a different observation set and a forced kernel. Filmus treats binary slices; Vasil'eva concerns homogeneous eigenspace reconstruction. Classical rank-one tensor compression is credited; no assertion of priority for it.
+
+## value
+
+PASS
+
+Coordinate-hyperplane observation is a natural structured missingness pattern for multivariate categorical interactions. The complete finite spectral law, sharp conditioning and unique unstable direction answer a genuine recovery-stability question for every heterogeneous alphabet; this is more than checking injectivity or a small finite instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
