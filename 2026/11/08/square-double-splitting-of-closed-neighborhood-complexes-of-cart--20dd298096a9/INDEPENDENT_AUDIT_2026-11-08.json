@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-08",
+  "audited_at_utc": "2026-11-08T19:47:05Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git frozen RESULT.md",
+        "verify.py",
+        "verify_output.txt",
+        "Git tree 43ea0f32ef5d70352ed99ee8b70124411fa3e70c"
+      ],
+      "rationale": "PASS. For finite connected H,J with no triangle or four-cycle, the common-center argument distinguishes length-two pairs with a unique midpoint from exactly two midpoints at opposite corners of a mixed Cartesian square. Every face consisting of at least three neighbors of a center has that unique generating closed ball; pair it with its center and remove in decreasing face-cardinality order. Remaining unique-midpoint edges are genuinely free edges of their single incident triangles. The residue is G=H□J with both diagonals and four triangular faces of each mixed square, the tetrahedron boundary. One diagonal triangulation for each square produces the CW square decomposition of |H|×|J|; the second disk has already-null rim, giving exactly e_H e_J additional 2-spheres. This proves homotopy and integral H1/H2, including boundary H=K2 and cycles C_m,C_n (m,n≥5). Directly inspected verify.py enumerates full closed balls, checks each pair is free at removal and compares entire residual face sets and mod-two boundary ranks; its saved ten-case results include C5□C5 with 575 nonempty faces, 175 actual collapses, f=(25,100,100), beta=(2,26). Saved output was not independently rerun in this execution and the ten cases are not a proof for unbounded factors.",
+      "residual_risks": [
+        "Finite cases did not independently rerun; universal proof depends on unique-center collapse lemma and CW disk-attachment argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published prism formula H□K2 gives H ∨ |E(H)| S², recovered for J=K2.",
+          "Published clique-fiber H□K_m formula H ∨ |E(H)|(m−1)² S² for m≥3 involves factors with triangles."
+        ],
+        "reasoning": "One theorem is strictly narrower in the product-factor domain; the other covers distinct complete-fiber graphs. Neither implies two arbitrary four-cycle-free connected factors.",
+        "searches": [
+          "closed neighborhood graph complex Cartesian product girth at least five product square double spheres Čech H square J topology",
+          "2026/10/11/SCOPE-a-high-girth-prism-ech-collapse-and-its-integral-symmetry-module--e4f536ceab68",
+          "2026/10/11/SCOPE-clique-fiber-ech-nerves-over-graphs-of-girth-at-least-five--bcf5b8b96c75"
+        ]
+      },
+      "checked_sources": [
+        "Git frozen RESULT.md, SLOGAN.txt, AUDIT.json, METADATA.json, REVIEW.md, VERIFICATION.md, verify.py, verify_output.txt",
+        "Matsushita arXiv:2511.12608 Example 3.5",
+        "Adams–Shukla–Singh arXiv:2212.05871",
+        "Resultary 2026/10/11/SCOPE-a-high-girth-prism-ech-collapse-and-its-integral-symmetry-module--e4f536ceab68",
+        "Resultary 2026/10/11/SCOPE-clique-fiber-ech-nerves-over-graphs-of-girth-at-least-five--bcf5b8b96c75"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "H□K2 and H□K_m each fix one factor and do not determine a nontrivial high-girth second factor.",
+          "Hypercubes are products of edges, and do not provide the nonfree pi1 of C5□C5."
+        ],
+        "reasoning": "The actual homotopy, not just a Betti count, must follow from prior premises; none of these results entails the asserted general splitting.",
+        "searches": [
+          "2026/10/11/SCOPE-a-high-girth-prism-ech-collapse-and-its-integral-symmetry-module--e4f536ceab68",
+          "2026/10/11/SCOPE-clique-fiber-ech-nerves-over-graphs-of-girth-at-least-five--bcf5b8b96c75",
+          "arXiv:2511.12608 Example 3.5",
+          "arXiv:2212.05871 scale-two hypercube theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closed graph neighborhoods coincide with graph Čech scale-two vertex nerve, but not the Lovász open neighborhood complex.",
+          "Matsushita Example 3.5 has K_m□K_n, not two independent large-girth factors."
+        ],
+        "reasoning": "Equivalent closed-ball/Čech terminology checked. No equivalent all-(H,J) splitting found in these inspected sources; not an exhaustivity claim.",
+        "searches": [
+          "closed neighborhood graph complex Cartesian product girth at least five product square double spheres Čech H square J topology",
+          "arXiv:2511.12608 closed neighborhood complexes graph Cartesian products",
+          "arXiv:2212.05871 graph Čech hypercube"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The open-neighborhood torus classification does not give closed-neighborhood torus ∨ mn S².",
+          "No database entry/table located for integral two-factor closed ball nerve with arbitrary b_H,b_J."
+        ],
+        "reasoning": "Compared invariant and complex definitions before numerical parameter matching; finite graph checks are not a previously published exact table.",
+        "searches": [
+          "closed neighborhood graph complex Cartesian product girth at least five product square double spheres Čech H square J topology",
+          "Resultary query: toroidal grid neighborhood complexes collapse to one or two tori"
+        ]
+      },
+      "rationale": "PASS, best of knowledge. The two-high-girth-factor closed-neighborhood splitting is not entailed by the published high-girth H□K2 prism or H□K_m clique-fiber theorems: the former is a proper special case and the latter has triangles in its second factor for m≥3. Matsushita's Cartesian example uses complete graphs, and Adams–Shukla–Singh covers hypercubes at scale two, neither computing general products of independent high-girth graphs with nonfree direct-product fundamental group. Resultary's toroidal-grid neighborhood paper concerns the different Lovász open nerve. A general unindexed square-completion theorem remains a priority risk.",
+      "residual_risks": [
+        "Unindexed stronger square-completion or graph Čech Cartesian-product theorem could imply special cases.",
+        "Finite cases did not independently rerun; universal proof depends on unique-center collapse lemma and CW disk-attachment argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING general high-girth-product theorem",
+          "evidence": "Example 3.5 only both factors complete, outside high-girth except K2.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.12608",
+          "material_read": "Full accessible manuscript and Example 3.5; statement for K_m□K_n and general framework",
+          "method": "arXiv PDF visual/text inspection",
+          "title": "Closed neighborhood complexes of graphs",
+          "trigger": "same closed-neighborhood object and Cartesian graph product"
+        },
+        {
+          "assessment": "NOT_COVERING arbitrary H□J",
+          "evidence": "Hypercube factors are edges; no all-two-factor theorem with b_H,b_J.",
+          "identifier_or_url": "https://arxiv.org/abs/2212.05871",
+          "material_read": "Full accessible manuscript, graph Čech definitions and hypercube homotopy results",
+          "method": "arXiv PDF visual/text inspection",
+          "title": "Čech complexes of hypercube graphs",
+          "trigger": "same radius-one closed-neighborhood Čech model"
+        },
+        {
+          "assessment": "COVERED_SPECIAL_CASE",
+          "evidence": "H□K2 exact case already published; new claim explicitly excludes priority for it.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-a-high-girth-prism-ech-collapse-and-its-integral-symmetry-module--e4f536ceab68/RESULT.md",
+          "material_read": "Full published RESULT.md statement, proof and limitations",
+          "method": "public full result/proof read",
+          "title": "A high-girth prism Čech collapse and its integral symmetry modules",
+          "trigger": "same construction with H□K2"
+        },
+        {
+          "assessment": "NOT_COVERING two high-girth factors",
+          "evidence": "Second factor K_m with m>=3 has triangles; different parameter domain.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-clique-fiber-ech-nerves-over-graphs-of-girth-at-least-five--bcf5b8b96c75/RESULT.md",
+          "material_read": "Full published RESULT.md statement, proof and limits",
+          "method": "public full result/proof read",
+          "title": "Clique-fiber Čech nerves over graphs of girth at least five",
+          "trigger": "Cartesian graph products and same Čech scale"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Git frozen RESULT.md, SLOGAN.txt, AUDIT.json, METADATA.json, REVIEW.md, VERIFICATION.md, verify.py, verify_output.txt",
+        "Matsushita arXiv:2511.12608 Example 3.5",
+        "Adams–Shukla–Singh arXiv:2212.05871",
+        "Resultary 2026/10/11/SCOPE-a-high-girth-prism-ech-collapse-and-its-integral-symmetry-module--e4f536ceab68",
+        "Resultary 2026/10/11/SCOPE-clique-fiber-ech-nerves-over-graphs-of-girth-at-least-five--bcf5b8b96c75"
+      ],
+      "rationale": "PASS. This classifies a natural first closed-ball Čech thickening for all products of two independent high-girth graph factors. The product can have nonfree direct-product fundamental group (e.g. Z² for C_m□C_n), and the local squares contribute precisely one additional integral sphere each; the explicit elementary-collapse mechanism is stronger than a finite face-count calculation and not mechanically given by the previously known single-edge factor.",
+      "residual_risks": [
+        "Unindexed stronger square-completion or graph Čech Cartesian-product theorem could imply special cases.",
+        "Finite cases did not independently rerun; universal proof depends on unique-center collapse lemma and CW disk-attachment argument."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed stronger square-completion or graph Čech Cartesian-product theorem could imply special cases.",
+    "Finite cases did not independently rerun; universal proof depends on unique-center collapse lemma and CW disk-attachment argument.",
+    "Scientific acceptance is best-of-knowledge and not external certification.",
+    "Publication withheld: public source files require provenance/privacy sanitization; no GitHub modifications performed."
+  ],
+  "schema_version": 1
+}
