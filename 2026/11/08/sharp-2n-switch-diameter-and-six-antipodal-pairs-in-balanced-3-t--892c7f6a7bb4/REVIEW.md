@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof covers every positive integer \(n\) and the exact nonnegative unit-rectangle move set. The perfect-matching decomposition supplies the global \(2n\) upper bound, a nine-rectangle signed potential gives an exact lower bound, and the common-cell/disjoint-support split, including a three-switch two-layer compression, proves there are no other diameter pairs. The last step counts exactly six unordered pairs. Both independent finite implementations reconstruct the graphs through margin eight and agree; neither program is used as an infinite proof.
+## correctness
 
-## Originality — PASS, with historical qualifications
-The standard 2-by-2 Markov basis, elementary connectivity, and the n=6 diameter twelve were explicitly found as prior results and are credited. The published 3-by-3 small-margin census (published-finding corpus 2026-09-08, full RESULT.md inspected) limits its 9331 margins to entries at most six; it cannot imply a formula for every n, nor does it state the six-pair classification. The transportation-polytope literature treats a distinct real-vertex adjacency graph. Neither inspected result implies the exact all-n theorem. Full public-text priority is not certified; other papers or tables may use alternative terminology.
+PASS
 
-## Value — PASS
-This is a sharp all-scale finite-state reconfiguration theorem in the smallest nontrivial transportation fiber family. Unlike mere connectivity or state counting, it gives a uniform exact worst-case number of elementary Markov moves and characterizes *all* extremal pairs. The six-pair rigidity makes the worst cases transparent and distinguishes the lattice-point Markov metric from the underlying real polytope's skeleton. It supplies a precise benchmark for combinatorial move-path algorithms, without implying a mixing-time result.
+Every nonnegative 3x3 integer table with row/column margin n decomposes into n permutation matrices, and any permutation pair differs by at most two legal unit 2x2 switches, proving connectivity and diameter <=2n. The explicit integer potential W has rectangle increments only 0 or +/-3, and disjoint scaled three-cycle permutations differ in potential by 6n, giving equality. For nonextremal pairs, a common positive cell yields a first-layer one-switch match, and disjoint support forces matrices onto two complementary permutation supports, with a three-switch route 2P->Q+R saving one move unless both pure. Thus exactly six antipodal unordered pairs. Independently enumerated all states and full all-pairs BFS for n=1..4, obtaining 6,21,55,120 states, diameters 2,4,6,8 and six antipodal pairs in each; finite checks corroborate the all-n proof.
 
-## Closest literature and limitations
-Diaconis–Sturmfels (1998) supply the fundamental Markov moves and connectivity. De Loera et al. (arXiv:0709.2189v1) treat transportation-polytope graphs, not these unit-step lattice fibers. The 2026 public finite census covers balanced margins only through six. The original Stanford technical report is known to be dated June 1993 without a verified precise first-public day; the chosen exact source date is the verified 2007-09-14 initial arXiv posting among the dated source records considered. Residual priority risk concerns unindexed or synonymous all-margin switch-diameter results. Independent external audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete 2026/9/8 public small-margin census proves n=6 diameter 12 and has scope explicitly limited to entries <=6, not an all-n formula or six antipodal pairs. Classical Markov-basis connectivity and transportation-polytope vertex-edge diameters differ from the unit lattice-step metric. Thus the universal diameter and equality-case classification survive, with historical risk because two older primary PDFs could not be read.
+
+## value
+
+PASS
+
+Exact all-scale graph diameter and a rigid six-pair classification of the natural balanced 3x3 contingency fiber furnish a meaningful structural invariant, not a bounded recomputation or a statement about the distinct real-polytope graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
