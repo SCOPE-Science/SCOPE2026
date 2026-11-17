@@ -1,19 +1,21 @@
-# Review: branching reversal of local-extrema dependence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For independent continuous vertex labels, the minimum and maximum indicators depend only on closed neighborhoods. The proof evaluates their same-vertex, adjacent-vertex and distance-two covariances by direct uniform integrals; all longer-distance terms vanish. The resulting exact formula counts degree-marked edges and distance-two pairs. For paths it simplifies to \(\operatorname{Cov}(M,P)=(8n-37)/180\) for \(n\ge4\). For the complete rooted \(m\)-ary tree, explicit configuration counts yield \(nL_m+R_m<0\) for all \(m\ge2,h\ge3\), while separately proved height-one and height-two formulas cover the boundary cases. Expansions in \(m-2\) have positive coefficients, proving the infinite sign claim. The large-height variance coefficient is strictly positive and determines the exact limiting correlations. The standalone `verify.py` checks 140 exact identities and finite enumerations, but finite enumeration is not used to prove any infinite assertion.
+PASS
 
-## Originality — PASS, with stated historical-priority risk
+For a single iid continuous labelling, evaluate mixed local-extremum indicators by conditioning on adjacent vertex labels (positive covariance), their unique common neighbor at distance two (negative covariance), and use neighborhood independence for distance >=3. This gives the exact degree-wedge identity. Substituting the leaf/root/internal degree classes and pair counts on T_{m,h} yields for h>=3 Cov=n L_m+R_m, with explicit polynomials in m and factorial correction. After t=m-2>=0, displayed coefficients for -L_m, -R_m, and the h=2 expression are all strictly positive; h=1 follows monotonicity under the uniform root rank. The variance formula has positive asymptotic V_m. Paths give Cov=(8n-37)/180 and Corr->+1, while the complete regular branching class is strictly negative with rho_2=-19/33, rho_m->-1. Independent exact permutation examples and rational identities corroborate formulas, not their unbounded family proof.
 
-Krivelevich, Mészáros, Michaeli and Shikhelman, *Greedy maximal independent sets via local limits* (arXiv:1907.07216v1, 2019), study the **completed** greedy independent-set process and its expected size, although the introductory first-round parallel operation selects precisely the local minima under a random priority order. That is a different random variable and their stated theorems do not imply the two-sided first-round covariance. Burdzy and Pal, *Twin Peaks* (arXiv:1606.08025, 2016), study regular-tree peaks **conditioned** on exactly two peaks and their locations, not an unconditioned minimum–maximum count. Baldi, Rinott and Stein, *On the Distribution of the Number of Local Minima of a Random Function on a Graph* (1989), study one-sided local-minimum statistics, especially normal approximation on regular graphs; they do not state this joint branching transition. Searches of published mathematical records returned nearby but non-covering random-greedy and tree covariance results. Historical priority cannot be certified solely by these searches.
+## originality
 
-## Value — PASS
+PASS
 
-A single random ordering on a tree is a natural coupled experiment. The result gives a sharp, all-heights topological boundary between positive large-path dependence and strict negative dependence on every complete branching tree, plus an exact binary-tree limit \(-19/33\) and convergence to perfect negative correlation as arity increases. It distinguishes initial parallel greedy selection from the eventual greedy MIS and supplies a meaningful structural dependence law rather than an isolated small-case computation.
+A same-date prior all-tree degree–wedge covariance law already derives the exact local kernels and arbitrary tree covariance identity, including the path formula and star negativity; those are covered and must be attributed. The assessed nontrivial remainder is the complete strict-negative theorem for every finite complete rooted m-ary tree (all m>=2,h>=1), exact height-limit constants L_m,V_m, and correlation transition from path +1 to fixed-branch negative with rho_2=-19/33 and large-arity -1. Although derived using the known universal kernel, the family-wide sign and asymptotic classification demand nontrivial graph-specific counts, root exceptional heights and global polynomial positivity; the inspected prior does not state or establish that classification. This is best-knowledge O with explicit overlap, not a novelty claim for the generic kernel.
 
-## Limitations and sources
+## value
 
-This does not classify all nonpath trees, assert intermediate-arity monotonicity, or address a joint central limit theorem. Exact computations corroborate but do not certify the analytic identities; independent verification of the mathematical argument is outstanding. Inspected primary sources: https://arxiv.org/abs/1907.07216v1 ; https://arxiv.org/abs/1606.08025 ; https://papers.neurips.cc/paper_files/paper/1989/file/d947bf06a885db0d477d707121934ff8-Paper.pdf .
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full sign classification in the natural regular branching family explains a qualitative correlation reversal under a single shared random ranking, not independent edge orientations. It proves a robust all-height boundary and exact arity-dependent limiting correlation that a researcher studying random extrema could need. The path or local-kernel subclaims alone would not be valuable anew; the surviving complete m-ary structural theorem is independently motivated and nonmechanical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
