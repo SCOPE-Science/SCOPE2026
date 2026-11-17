@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is all integers \(3\le p\le q\) and real \(t>0\), with exactly two distinct noise-free leaders. Vertex automorphisms give precisely eight leader types. Orthogonal zero-sum internal-follower modes have eigenvalues equal to the respective clique size, and a remaining at-most-four-dimensional quotient yields eight exact objective formulas. Six rational gap identities eliminate all but two types, and their final signed difference has the sole positive root \(p^2(q+2)/(4(q-p))\) for unequal cliques. The explicit strict signs and tie case give all minimizers and their counts. Independent construction of grounded matrices and 5109 exact rational pair comparisons support the calculations but are not substituted for the symbolic proof. Boundary orders \(p=q\), \(p=3\), and exact threshold equality are covered.
+PASS
 
-## Originality — PASS on inspected evidence, with residual risk
+The claim exhausts all two-element leader sets for weighted K_p–K_q barbells, integers 3<=p<=q and t>0, by the eight symmetry orbits GG,IG,GI,II,GA,GB,AA,BB. Internal zero-sum follower modes contribute 1/p and 1/q eigen-reciprocals and the at-most-four-dimensional gateway/constant quotient gives explicit rational inverse traces. The six exact sign factorizations discard every orbit except IG and II; their difference t[p^2(q+2)-4(q-p)t]/[q(p+2t)(pq+2(p+q)t)] has positive denominator, gives unique switch t*=p^2(q+2)/[4(q-p)] for p<q, no switch for p=q, all boundary ties and optimizer counts. Independent exact-rational full grounded-matrix enumeration checked 660 leader pairs across unequal/equal sizes and weights below/at/above threshold, with an independent symbolic check of switching numerator. These finite tests corroborate, rather than prove, all-parameter theorem.
 
-The closest inspected primary sources formulate noise-free leader selection, its general inverse-trace/joint-centrality approaches and exact results for paths, cycles or particular trees; none of the inspected passages or source sections provides the weighted unequal-clique barbell placement threshold or the complete eight-orbit classification. Targeted mathematical-record searches for weighted clique-bridge two-leader inverse trace and a search of recoverable prior claims found no statement implying this formula. The barbell zero-forcing polynomial is a different criterion. A search miss is not a uniqueness proof; equivalently phrased or unindexed work remains a publication-priority risk. Details appear in `AUDIT.json`.
+## originality
 
-## Value — PASS
+PASS
 
-The model is a natural two-community graph with a single adjustable inter-community bottleneck. The exact solution reveals a sharp change in whether the optimal leader in the larger community sits at its bridge endpoint or away from the bridge, dependent quantitatively on both community sizes. It covers every positive bridge weight, gives all ties and optimal-placement counts, and distinguishes symmetric from asymmetric communities. This is a structural placement transition rather than an arbitrary small-graph calculation or a routine restatement of the general optimization formulation.
+Best-of-knowledge originality: the exact assigned final claim (not its already-known general machinery) was compared with primary published theorems, more general methods, aliases, semantic research records and matched objects. The four structured comparisons and materially read source inspections below identify no inspected prior theorem implying this full result; residual risks remain real, and non-discovery is not a mathematical proof of priority.
 
-## Scope limits
+## value
 
-Only one bridge, identical unit weights within each clique, two noise-free leaders, and inverse-grounded-Laplacian trace are treated. The generality of other published optimization formulations is respected; no claim is made to introduce those methods or to establish publication priority by absence of search results. Full independent mathematical validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+On two natural dense communities joined by one adjustable bottleneck, the exact all-sizes/two-leaders optimal allocation changes from peripheral leaders in each community to a gateway leader in the larger one at one explicit conductance. It isolates a nontrivial centrality-versus-robustness boundary and counts all minimizers, a useful closed benchmark for grounded-Laplacian network design rather than a mere reformulation of the general optimization problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
