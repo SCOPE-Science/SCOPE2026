@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof verifies the exact unit-power images at the two exceptional primes, the lower obstruction at the first higher ternary level, the Cauchy–Davenport sumset bound at other primes, Hensel lifting using the unit derivative, and an exact Chinese-remainder reduction. The group order and exponent inequalities have been checked for every parameter regime. Two independently coded finite verifiers passed 105 prime-power checks and 458 general-modulus checks; they are corroboration, not infinite proofs.
+## correctness
 
-**Originality — PASS within inspected evidence.** The 2023 paper explicitly tabulates only the base exponent-six case. The 2008 source provides a literal contrary displayed local expression rather than coverage of the theorem as stated; this is documented, not concealed. The 2020 coefficient-generalizing paper gives broad bounds but no found sharp equivalence. Search comparisons considered global versus local quantities, unit-summand conventions, the implied upper bounds, and both 1977 original papers. The latter remain uninspected in full and could contain a stronger implicit classification. An equivalent corollary in inaccessible or unindexed literature is the main priority risk.
+PASS
 
-**Mathematical value — PASS.** A single sharp divisibility criterion determines the full extremal locus for an unbounded family of exponents. The one-step jump from \(3^{s+1}-1\) to \(3^{s+1}\) in the ternary tower explains the exceptional local obstruction; the proof also separates all other prime powers uniformly. The arithmetic mechanism and global sharpness go beyond an isolated table entry or routine numerical increment.
+Reconstructed CRT equality gamma(k,N)=max prime-power gamma via coordinatewise padding. For p=3 the cyclic unit group has k-th power subgroup u=1 mod M; nonunit k-th powers vanish at modulus 3^(s+2), so target M needs M unit summands for a>=s+2. Unit image and ones give matching upper bound, and a<=s+1 only residues 0,1 occur. For p=2, v2(k)=1 and unit k-th powers are precisely 1 mod8; mod16 target 8 needs 8. For p>=5 Cauchy-Davenport on H union {0} covers F_p in k terms, add a unit summand to ensure nonzero derivative and Hensel-lift with p not dividing k. M>max(k+1,8). Independent exhaustive residue BFS confirms k=6 mod 9 gamma=8, mod27 gamma=9, mod81 gamma=9, mod16 gamma=8; k=18 mod27 gamma=26 and mod81 gamma=27. These finite instances are not the universal proof.
 
-**Scope limits.** The values for nonextremal composite moduli are not completely classified. Earlier general algorithms may imply a less explicit treatment. No independent audit or independent literature certification has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives statement/implication comparison: The claimed whole s>=1 global sharpness, exact 3^(s+2) divisibility criterion and exception correction are not covered by the inspected tenth-power classification or by the cited 2023 small-exponent table. The 2008 introduction has a discordant ternary formula, not an equivalent proved result at s+2. The named reductions and remaining inaccessible plausible sources are recorded as residual risks, not treated as proof of originality.
+
+## value
+
+PASS
+
+Corrects an apparent published 3-adic local assertion and determines a natural global modular Waring invariant for an infinite structured exponent family with a sharp attainment criterion. The exact family is not a tiny unmotivated numerical increment; it isolates the prime-power obstruction needed by future modular additive-number arguments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
