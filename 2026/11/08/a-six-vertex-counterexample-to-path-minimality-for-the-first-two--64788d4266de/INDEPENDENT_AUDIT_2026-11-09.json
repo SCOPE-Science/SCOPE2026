@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T19:53:34Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The first-fit algorithm is unambiguous for each of the n! equally likely labelled orders. Fresh independent enumeration of all 720 orders on P6 and the explicitly defined degree-three T6 produces exact X histograms P6 {5:350,6:370}, T6 {4:30,5:330,6:360}, hence 397/72 and 131/24 and strict 1/18 reversal. For n<=5, the Prufer bijection gives exactly n^(n-2) labelled trees (1,1,3,16,125 for n=1..5), and full orders for each yield exact minima equal to paths, including n4=15/4 and n5=14/3. This is exhaustive finite enumeration of precisely the stated finite-size minimum-order claim, not finite data extrapolated into a purported theorem for larger n. Two supplied algorithms (permutation and multiplicity-preserving state DP) were inspected and agree.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/1907.07216",
+          "2026-11-08 Resultary The path uniquely minimizes random greedy independent-set expectation on finite trees"
+        ],
+        "reasoning": "The stronger path-minimizes-first-class theorem covers only E|color1|, not E(|color1|+|color2|). The first-fit two-stage coloring is not an independent repeated first-class experiment; no reduction from the earlier result was found.",
+        "searches": [
+          "two first greedy colouring classes six vertex tree 1/18 path counterexample",
+          "random priority greedy independent set path uniquely minimizes trees"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-six-vertex-counterexample-to-path-minimality-for-the-first-two--64788d4266de/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-six-vertex-counterexample-to-path-minimality-for-the-first-two--64788d4266de/verify.py",
+        "https://arxiv.org/abs/1907.07216",
+        "https://arxiv.org/abs/2110.14003"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/1907.07216",
+          "https://arxiv.org/abs/2110.14003"
+        ],
+        "reasoning": "The earlier published question and one-color theorem do not imply the strict inequality; this six-vertex witness explicitly refutes a proposed extension of path extremality. The exact minimum order is separately certified by Prufer exhaustion.",
+        "searches": [
+          "two first greedy colouring classes six vertex tree 1/18 path counterexample",
+          "first two colour classes random greedy first-fit tree path minimality published question"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/1907.07216",
+          "https://doi.org/10.1002/rsa.21141"
+        ],
+        "reasoning": "A first-fit initial color-1 class is the random greedy maximal independent set, but color-2 is obtained after removing the first class with induced order and cannot be inferred from the first-class expectation. The source Section 9 treats the two-class conjectural extension as a separate question.",
+        "searches": [
+          "two first greedy colouring classes six vertex tree 1/18 path counterexample",
+          "Greedy maximal independent sets via local limits Section 9 second colour"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-six-vertex-counterexample-to-path-minimality-for-the-first-two--64788d4266de/verify.py",
+          "https://arxiv.org/abs/2110.14003"
+        ],
+        "reasoning": "The finite table is recomputed independently from all labelled trees <=5 and the two 720-permutation distributions; the compared prior connected-greedy-coloring problem concerns worst-case color counts, not this uniform-order expectation. No earlier identical exact counterexample table was located.",
+        "searches": [
+          "two first greedy colouring classes six vertex tree 1/18 path counterexample",
+          "six vertex tree first two first-fit colouring exact 397/72 131/24"
+        ]
+      },
+      "rationale": "The primary source Krivelevich–Mészáros–Michaeli–Shikhelman proves path minimality for the first GREEDY independent-set class but explicitly asks in Section 9 whether the first TWO classes together are minimized by the path. It does not contain this six-vertex counterexample or the exact minimum-order certificate. Other greedy-colouring source concerns connected arrival orders and different extrema. Resultary alternatives for one-class or tree shift notions do not imply the two-class reversal.",
+      "residual_risks": [
+        "A small counterexample may have been independently reported in unindexed literature; the source paper question was checked but priority is not certified.",
+        "No claims made about larger trees or unique extremal shapes above order six."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Poses the extension to first TWO colours rather than solving it; current result answers negatively",
+          "evidence": "Krivelevich et al, theorem 1.4 and Section 9.",
+          "identifier_or_url": "https://arxiv.org/abs/1907.07216",
+          "material_read": "Theorem 1.4 on greedy first class and Section 9 The second colour in accessible primary manuscript",
+          "method": "Read mathematical theorem and Section 9 text via accessible public article",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Same random arrival order and an explicit published two-colour question"
+        },
+        {
+          "assessment": "Different restricted arrival orders and worst-case coloring statistic; no all-uniform-order expectation comparison",
+          "evidence": "Beaudou et al arXiv:2110.14003, connected-order formulation",
+          "identifier_or_url": "https://arxiv.org/abs/2110.14003",
+          "material_read": "Mathematical problem statement and connected-order restrictions",
+          "method": "Read accessible abstract and model definitions",
+          "title": "Connected greedy colourings of perfect graphs and other classes: the good, the bad and the ugly",
+          "trigger": "Another plausible title about greedy coloring of graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a smallest-order exact counterexample to a specific published extension question in random greedy coloring. The endpoint n=6 and gap 1/18 are not arbitrarily sliced statistics; the exhaustive Prufer certificate gives a meaningful finite boundary, and the counterexample changes the correct mathematical expectation of path extremality. A finite witness can carry standalone scientific value without an infinite classification.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only uniform unrestricted permutation with sequential first-fit coloring on trees, first two classes jointly.",
+    "Does not determine minimizers for n>=7 or imply first-class-only path minimality fails."
+  ],
+  "schema_version": 1
+}

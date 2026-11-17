@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Exact reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no additional packages.
+## correctness
 
-The script evaluates both \(P_6\) and the arm-length-\(2,2,1\) tree by all \(720\) vertex orders, independently computes the same distributions by partial-colouring dynamic programming, and asserts the displayed exact integer counts. It then enumerates all labelled trees of orders one to five through Prüfer sequences and verifies the path bound for every one. The full script was executed and completed successfully.
+PASS
 
-The six-vertex check gives expected values \(397/72\) and \(131/24\), with strict gap \(1/18\). The smaller-order minima are respectively \(1\), \(2\), \(3\), \(15/4\), and \(14/3\). These are exhaustive finite results, not extrapolations beyond six vertices.
+The first-fit algorithm is unambiguous for each of the n! equally likely labelled orders. Fresh independent enumeration of all 720 orders on P6 and the explicitly defined degree-three T6 produces exact X histograms P6 {5:350,6:370}, T6 {4:30,5:330,6:360}, hence 397/72 and 131/24 and strict 1/18 reversal. For n<=5, the Prufer bijection gives exactly n^(n-2) labelled trees (1,1,3,16,125 for n=1..5), and full orders for each yield exact minima equal to paths, including n4=15/4 and n5=14/3. This is exhaustive finite enumeration of precisely the stated finite-size minimum-order claim, not finite data extrapolated into a purported theorem for larger n. Two supplied algorithms (permutation and multiplicity-preserving state DP) were inspected and agree.
 
-No stochastic simulation, unexecuted computational dependency, or third-party certificate is required. Independent validation remains unperformed.
+## originality
+
+PASS
+
+The primary source Krivelevich–Mészáros–Michaeli–Shikhelman proves path minimality for the first GREEDY independent-set class but explicitly asks in Section 9 whether the first TWO classes together are minimized by the path. It does not contain this six-vertex counterexample or the exact minimum-order certificate. Other greedy-colouring source concerns connected arrival orders and different extrema. Resultary alternatives for one-class or tree shift notions do not imply the two-class reversal.
+
+## value
+
+PASS
+
+This is a smallest-order exact counterexample to a specific published extension question in random greedy coloring. The endpoint n=6 and gap 1/18 are not arbitrarily sliced statistics; the exhaustive Prufer certificate gives a meaningful finite boundary, and the counterexample changes the correct mathematical expectation of path extremality. A finite witness can carry standalone scientific value without an infinite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

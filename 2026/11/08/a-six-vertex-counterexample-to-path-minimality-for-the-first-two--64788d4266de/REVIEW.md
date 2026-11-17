@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every one of the \(720\) labelled vertex orders of each named six-vertex tree is evaluated by the explicit first-fit recursion. Both permutation enumeration and a separate multiplicity-preserving partial-state recursion produce the identical output histograms and the exact strict gap \(1/18\). All trees on fewer than six vertices are covered by the bijective Prüfer sequence encoding and exact order enumeration, proving the stated minimum order rather than assuming it from samples. The checker was executed successfully with integer arithmetic only; no numerical or infinite-limit step is needed.
+PASS
 
-## Originality
+The first-fit algorithm is unambiguous for each of the n! equally likely labelled orders. Fresh independent enumeration of all 720 orders on P6 and the explicitly defined degree-three T6 produces exact X histograms P6 {5:350,6:370}, T6 {4:30,5:330,6:360}, hence 397/72 and 131/24 and strict 1/18 reversal. For n<=5, the Prufer bijection gives exactly n^(n-2) labelled trees (1,1,3,16,125 for n=1..5), and full orders for each yield exact minima equal to paths, including n4=15/4 and n5=14/3. This is exhaustive finite enumeration of precisely the stated finite-size minimum-order claim, not finite data extrapolated into a purported theorem for larger n. Two supplied algorithms (permutation and multiplicity-preserving state DP) were inspected and agree.
 
-PASS, qualified. The motivating primary paper arXiv:1907.07216, Section 9, explicitly leaves first-two-colour path minimality as a question while Theorem 1.4 proves a first-colour statement. The latter cannot imply the former, because this example reverses the expected-count comparison. Full-text inspection of arXiv:2110.14003 distinguishes extremal connected-order colouring from random unrestricted-order two-class expectations. Searches for the precise question, six-vertex exceptions, equivalent random first-fit statements, and related published records revealed no statement that implies the displayed comparison. This is best-knowledge originality, not an exhaustive historical-priority guarantee.
+## originality
 
-## Value
+PASS
 
-PASS. The small finite counterexample is directly motivated by an explicit question in a published research paper. Its exact probabilities, transparent witness, and certified least counterexample order settle that question's universal yes/no form without suggesting an unproved general classification. The result demonstrates that the established first-colour path extremality cannot be extended unmodified to two colours.
+The primary source Krivelevich–Mészáros–Michaeli–Shikhelman proves path minimality for the first GREEDY independent-set class but explicitly asks in Section 9 whether the first TWO classes together are minimized by the path. It does not contain this six-vertex counterexample or the exact minimum-order certificate. Other greedy-colouring source concerns connected arrival orders and different extrema. Resultary alternatives for one-class or tree shift notions do not imply the two-class reversal.
 
-## Scope and priority risks
+## value
 
-The calculation is finite and does not classify extremizers for larger trees. Related research on online random-order FirstFit may contain unindexed finite examples; no independent expert literature review has been completed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a smallest-order exact counterexample to a specific published extension question in random greedy coloring. The endpoint n=6 and gap 1/18 are not arbitrarily sliced statistics; the exhaustive Prufer certificate gives a meaningful finite boundary, and the counterexample changes the correct mathematical expectation of path extremality. A finite witness can carry standalone scientific value without an infinite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
