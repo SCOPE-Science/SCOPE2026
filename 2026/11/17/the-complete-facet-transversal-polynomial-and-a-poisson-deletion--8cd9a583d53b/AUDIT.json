@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Gale evenness gives exactly k disjoint cycle edges per facet. For nonempty T, complement paths give matching rank sum floor(g_i/2); elementary compositions and parity choices give H(n,k,s) with n/s marked-vertex correction. Empty and simplex boundaries are explicitly proved. Fixed k Poisson limit follows from factorial moments; overlap and supercritical cases handled. Independent full facet enumeration and recursive matching oracle passed 295 plus 1368 finite checks; these checks are not treated as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Briggs–Dobbins–Lee, arXiv:2111.06560v3, Proposition 3.6 determines the minimum transversal number.",
+        "Dobbins–Lee, arXiv:2603.16298v1, §1 studies very high-transversal-ratio polytopes and references known cyclic minima.",
+        "Novik–Zheng arXiv:2407.19693, relevant full sections 1–2 and 4: cyclic minimum cited, distinct sibling-polytope construction, no all-cardinality cyclic hitting-set polynomial in read material."
+      ],
+      "reasoning": "Neither minimum-size theorem nor a construction of different polytopes fixes all coefficients H(n,k,s); their implications cannot determine the polynomial or its random deletion threshold.",
+      "searches": [
+        "\"cyclic polytopes\" \"transversal\" \"generating function\"",
+        "\"cyclic polytope\" \"facet\" \"transversal\" \"polynomial\" \"count\"",
+        "random facet transversal cyclic polytope Poisson threshold vertex retention adjacent pairs"
+      ]
+    },
+    "checked_sources": [
+      "Briggs, Dobbins & Lee, arXiv:2111.06560v3 §3.3 (relevant full text)",
+      "Dobbins & Lee, arXiv:2603.16298v1 (available full author text)",
+      "Novik & Zheng, arXiv:2407.19693 (relevant full author-preprint sections)",
+      "Gale evenness combinatorial-facet equivalence",
+      "Previous exact minimum-layer classification and enumerator (minimum coefficient only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known: minimum size is ceil((n-2k)/2)+1, and its labeled minimum-set counts are known for even and odd n.",
+        "New: H(n,k,s) for every 0≤s≤n, in particular intermediate coefficients, and random deletion law with scale sqrt(n)."
+      ],
+      "reasoning": "The prior minimum-layer claim determines a single smallest nonzero coefficient; it cannot imply remaining coefficients. The new formula specializes back to that known coefficient and makes no claim of novelty for it. The Poisson limit describes random removal, not optimal choice.",
+      "searches": [
+        "all minimum facet transversals of even dimensional cyclic polytopes exact number two binomial odd even",
+        "Polytopes with large transversal ratio Dobbins Lee March 2026 full text",
+        "Transversals and colorings of simplicial spheres Gale evenness Proposition 3.6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gale-evenness facets of C(n,2k) coincide exactly with k-matchings of the cyclic adjacency graph; therefore the same cardinality polynomial counts cycle-vertex subsets whose induced matching number is at most k-1.",
+        "Relevant reviewed sources discuss cyclic-polytopal minimum transversals and/or matching polynomials, not the full vertex-subset enumeration."
+      ],
+      "reasoning": "The alternate graph-theoretic formulation is expressly recognized and searched. The ordinary matching polynomial counts edge matchings, not vertex subsets bounded by induced-subgraph maximum matching; hence it does not directly supply the asserted coefficient formula.",
+      "searches": [
+        "facet-transversal polynomial cyclic 2k polytope all size enumeration",
+        "\"cyclic polytope\" \"transversal\" \"generating function\"",
+        "count subsets vertices of cycle induced matching number at most k generating polynomial"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Full-size coefficients for n=9,k=2 and n=10,k=3 independently recomputed by direct Gale-facet enumeration.",
+        "Nearest retrieved research-record titles concern parity homology of doubles of cyclic polytopes and other transversal concepts, rather than this full coefficient family."
+      ],
+      "reasoning": "No exact table or formula covering the full family was retrieved. Lack of a hit is not a uniqueness proof; the claim rests on comparison of actual statements rather than title similarities.",
+      "searches": [
+        "complete facet-transversal size polynomial even dimensional cyclic polytopes",
+        "vertex-deletion threshold for preserving a facet hitting set on cyclic polytopes",
+        "\"cyclic polytope\" \"random transversal\" probability facets"
+      ]
+    },
+    "rationale": "The complete all-cardinality vertex-facet transversal polynomial and fixed-dimension Poisson erasure window are not implied by the established minimum size and minimum-layer classification. The 2026 motivating text treats high ratios via a different construction; the 2021 paper proves only the minimum for cyclic polytopes. Direct matched-object and alternative-terminology searches found no dominating full polynomial. Earlier bounded-matching vertex-subset enumerations remain a residual priority risk. The k=1 special case is ordinary cycle vertex-cover enumeration and is not presented as novel.",
+    "residual_risks": [
+      "Unindexed or alternate-terminology counts of induced cycle vertex subsets with bounded maximum matching number could imply the polynomial.",
+      "The Poisson approximation for rare adjacent successes is classical, not claimed independently original.",
+      "Independent mathematical and literature review has not occurred.",
+      "The k=1 specialization is classical; novelty concerns the unified higher-dimensional full spectrum and its associated geometric threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes Gale criterion and minimum cardinality but not full all-size polynomial or Poisson window",
+        "evidence": [
+          "Theorem 3.5 states Gale evenness for facets.",
+          "Proposition 3.6 states tau=ceil((n-d)/2)+1 for even d."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2111.06560v3",
+        "material_read": "Full section 3.3 and introductory definitions and statements of exact minimum, especially Theorem 3.5 and Proposition 3.6",
+        "method": "Primary open-access full HTML read and claim comparison",
+        "title": "Transversals and colorings of simplicial spheres",
+        "trigger": "Exact same cyclic polytope and facet transversal parameter"
+      },
+      {
+        "assessment": "Studies high-ratio constructions in dimension at least five and quotes known cyclic minima; does not determine cyclic full-size counts or random threshold",
+        "evidence": [
+          "Theorem 1.1 constructs d>=5 polytopes with arbitrary high transversal ratio.",
+          "Introduction recalls minimum cyclic transversal size, without listing the transversal-size distribution."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/402611992_Polytopes_with_large_transversal_ratio",
+        "material_read": "Available full text including introduction, problem statement, cyclic-polytope comparison and construction statement",
+        "method": "Open-access author preprint full HTML; compared object, hypotheses, quantified claims",
+        "title": "Polytopes with large transversal ratio",
+        "trigger": "2026 literature motivation and same geometric hypergraph invariant"
+      },
+      {
+        "assessment": "Determines bounds and constructs sibling polytopes, cites the known cyclic minimum; does not state a cyclic all-size transversal polynomial or random Poisson deletion threshold in inspected material",
+        "evidence": [
+          "Introduction explicitly credits the established cyclic minimum ratio.",
+          "Theorem 2.1 restates Gale criterion; Section 4 constructs sibling polytopes with new facet forms, not all-size counts for the original cyclic polytope."
+        ],
+        "identifier_or_url": "https://sites.math.washington.edu/~novik/publications/transversal-final.pdf",
+        "material_read": "Relevant full manuscript sections 1–2 and 4, in particular Theorem 2.1 on cyclic facets and the constructions of sibling polytopes; searched for all-transversal enumerators",
+        "method": "Open-access author PDF read with source-page image inspection and relevant text/claim comparison",
+        "title": "Transversal numbers of simplicial polytopes, spheres, and pure complexes",
+        "trigger": "Potential stronger polytope-transversal theorem and same-object cyclic facets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8cd9a583-d53b-4495-9e77-60ed33ab673c",
+  "value": {
+    "rationale": "Full facet-transversal size distribution is a natural, previously undetermined geometric-hypergraph invariant. It yields exact probabilities for every Bernoulli retention rate and a sharp sqrt(n) window at fixed geometric dimension; this contrasts sharply with established near-half-size optimally selected transversals and is not just a recomputation of the minimum.",
+    "status": "PASS"
+  }
+}
