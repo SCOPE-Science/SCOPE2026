@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The translation from local epistemic uncertainty to having positive in- and outdegree is immediate from equivalence-class semantics. The directed-walk induction gives the full stage profile; the acyclic bound follows from concatenating predecessor and successor walks through an arc, and the cyclic bound follows because a directed cycle remains forever. Explicit directed paths and cycle-with-tail examples attain the inequalities for all sizes. The packaged verifier independently compares actual semantics and the graph formula for all models through five worlds, sampled six-world models, and specific large extremizers. The argument is about finite models and does not use the finite enumeration as an infinite proof.
+PASS
 
-## Originality — PASS within checked evidence
+Ordinary world-deleting announcement that neither S5 agent knows p is exactly simultaneous deletion of oriented incidence edges meeting vertices with zero current indegree or outdegree. For an arc e:u->v, survival to t is equivalent to existence of directed walks of length at least t entering u and leaving v, giving the exact disappearance time min(h^-(u),h^+(v))+1 when finite; cyclic walks give infinity. In an acyclic digraph, predecessor+arc+successor is a directed path with at most N arcs, bounding strict rounds by ceil(N/2), attained by an alternating bipartite path. If there is a directed cycle, the 2-arc (multigraph) or 4-arc (proper frame) minimum persistent cycle leaves at most N-2 or N-4 deletable arcs, attained by an outward attached path. This proves both sharp maxima including N=1 and stable-core cases. Independently implemented direct S5 partition-color restrictions vs oriented-walk recurrence for all 2,16,200,3600 labeled partition-pair/valuation instances at N=1..4, obtaining maxima (1,1,2,2) with proper same; finite checks corroborate the general induction.
 
-The closest motivating article, Yamada (arXiv:2609.24006v1), studies announcement eventuality, especially believed (arrow-deleting) updates rather than this ordinary world-deleting common-ignorance iteration. Fan–Wang–van Ditmarsch (arXiv:1312.0144v1) develop knowing-whether logic and iterated public-announcement applications, not an exact worldwise disappearance-time/small-model extremal formula. Pittel–Poole (arXiv:1405.4022v1) already introduce directed \((1,1)\)-core peeling, so this graph notion and its terminal-core characterization are not newly claimed. The quantitative simultaneous profile and sharp ordinary/proper S5 laws were not found in the inspected texts or targeted mathematical-record queries. A historical-priority risk remains if such a formula was already established under other graph-peeling terminology. Related previous finite believed-announcement sharp bounds concern another update mechanism.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem gives a complete all-size quantitative answer to how many rounds of public uncertainty elimination are possible in a natural two-agent S5 model, rather than a mere existence/stabilization observation. Its per-world times allow reconstruction of the entire announcement filtration; the sharp difference between proper and general models identifies the structural contribution of parallel observationally indistinguishable worlds. These are motivated finite-model invariants for repeated epistemic updates, distinct from known qualitative core existence.
+The eventual directed (1,1)-core and its random digraph deletion process are established in Pittel–Poole, while knowing-whether and repeated announcement semantics predate this theorem. The submitted exact per-world *synchronous* deletion-time formula and the two different all-N tight size laws for ordinary S5 world restriction were not established by Resultary or inspected accessible prior statements. Yamada's believed/arrow-deleting update framework is non-equivalent. Earlier fully general synchronous core peeling could imply this specialized law and remains a residual risk because its complete primary literature was not exhaustively read.
 
-## Limitations
+## value
 
-The two-agent, one-atom, fixed-formula, world-restriction and finite-model assumptions are essential to the stated result. No extension to arbitrary formulas or believed announcements is asserted. Older synchronous core peeling literature is not exhaustively indexed; independent priority validation remains pending.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact number of potentially informative communication rounds in a finite two-agent information model is a natural complexity invariant. The directed-walk normal form gives every world's disappearance stage and sharp proper-vs-multigraph world-count thresholds, going beyond a generic finite termination bound or anecdotal puzzle. The all-N extremizers supply motivated structural comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
