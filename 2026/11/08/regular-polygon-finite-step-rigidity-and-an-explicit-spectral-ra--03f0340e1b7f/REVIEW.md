@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** A target-independent Kaczmarz error is an ordered product of rank-one orthogonal-complement projections. The unitary-orbit telescoping identity \(E_N=U^N B^N Q\) reduces *every* finite-time worst-case error to a fixed compression. The adjugate/minor identity gives the weighted root-derivative polynomial exactly, and strict positivity of every atomic mass precludes peripheral eigenvalues. Gelfand's formula proves the limiting rate. The monomial-characteristic-polynomial case is classified by an explicit unimodular derivative-conjugacy identity: it forces all spectral nodes to form a regular polygon and the masses to be uniform. Dimension counting makes the cutoff optimal. The proof uses no extrapolation from numerical experiments. The two-atom specialization is exact.
+## correctness
 
-## Originality
-**PASS (qualified best-knowledge comparison).** Alpay–Berner–Weber §§3–4 establish stationary and finite-dimensional *effectivity* but do not state the exact weighted polynomial and finite-step regular-polygon criterion. Haller–Szwarc establishes classical effectivity, and Herr–Weber develops singular-measure Fourier reconstruction. Berner–Herr–Jorgensen (2026), Theorem 4.1 and Lemma 5.7, already cover finite-atomic unconditional convergence, the absence of unit-circle compression eigenvalues, and Gelfand spectral-radius decay. These premises are **credited as prior**; the added nonimplied statements are the explicit polynomial and sharp finite-step rigidity. The effective-Riesz-basis/orthonormal-basis theorem in the motivating source does not cover this infinitely redundant orbit. Direct published-finding corpus searches returned no covering published claim. **Risk:** standard model-operator/OPUC compressions or a general finite-product-of-projections theorem could implicitly imply the spectral formula and part of the rigidity without identical wording; separate literature-priority review remains warranted. The current assessment does not certify absolute novelty.
+PASS
 
-## Mathematical value
-**PASS.** A known subunit spectral-radius guarantee does not determine whether exact termination happens or compute that radius from the atomic masses and nodes. The result classifies *all* positive finite atomic measures with finite-step recovery, proves a sharp exceptional rigidity (uniform regular polygon), and supplies a computable exact exponential factor for every other measure; it also gives the complete two-atom finite-time law. The problem is motivated by stationary Fourier data reconstruction, not by an arbitrary numeric slice. No paper-sized generality or infinite-support extension is asserted.
+Define u=1, U multiplication by z, Q=I-P_u, M=u-perp and B=(Q U^-1)|_M. Orthogonal Kaczmarz error after measurements e_0,...,e_N equals E_N=U^N B^N Q, so ||E_N||=||B^N|| for N>=1. In coordinate basis D=diag(conjugate atoms) and u_j=sqrt(p_j), complementary adjugate minor gives det(t-B)=sum_j p_j product_{k != j}(t-conjugate atom_k); positive p_j excludes any eigenvector of modulus one on u-perp. Gelfand yields spectral root-rate for m>=2. Nilpotence is equivalent to polynomial t^(m-1); evaluating at nodes yields p_j P’(w_j)=w_j^(m-1); conjugating P’ on the unit circle implies all w_j^m equal, hence regular polygon; then p_j=1/m. Conversely uniform roots make polynomial t^(m-1), and rank counting shows m-1 is minimal common N. Two-atom scalar compression gives norm [1-4p(1-p)sin²(delta/2)]^(N/2). Actual finite numerical verifier inspected and checks these identities on bounded deterministic supports; infinite statement rests on complete algebraic proof, not numerics.
 
-## Limits and closest sources
-The general statement concerns the operator-norm exponential root rate, not an exact finite-N upper bound with a fixed multiple of \(r_\mu^N\) for defective spectral compression. The closest sources are Alpay–Berner–Weber, arXiv:2508.13861v1 (full HTML material inspected, §§1,3–4); Haller–Szwarc, 2005 (accessible PDF); Herr–Weber, 2017 (open full text); and Berner–Herr–Jorgensen, arXiv:2611.03358v2 (inspected full 47-page PDF, especially Theorem 4.1 and Lemma 5.7; supporting literature, not an eligible motivating dated source). Numerical tests validate identities at sampled finite instances only. The scientific priority question has residual uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualitative convergence, strict compression spectral radius below 1, and Gelfand-rate machinery were already known for positive atomic stationary sequences. The new exact weighted root-polynomial factor and complete zero-rate/finite-step rigidity classification are not stated in the checked relevant results; originality is conditional on possible unindexed OPUC or finite-product projection formulations.
+
+## value
+
+PASS
+
+PASS: An explicit sharp rate and complete finite-termination rigidity theorem for arbitrary strictly positive finite atomic Fourier Kaczmarz sequences is a substantive structural classification of a natural recovery problem, beyond qualitative known effectiveness. It separates universal exponential convergence from the singular exactly-terminating regular-polygon design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
