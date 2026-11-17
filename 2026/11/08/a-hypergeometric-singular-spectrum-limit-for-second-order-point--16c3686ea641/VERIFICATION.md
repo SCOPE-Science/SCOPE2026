@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The standalone `verification.py` uses Python's standard library `fractions.Fraction` and `math.factorial`. Run `python verification.py` to reproduce 670 assertions using exact rational arithmetic: the first six coefficients of the characteristic function, both trace normalizations, a rigorous tail bound and sign bracket for its first positive root, the negative derivative on the first unit interval, exact row and column Gram identities for four rational parameter values, and continuous-limit trace moments.
+## correctness
 
-The analytic theorem requires the written Hilbert–Schmidt step-kernel estimate, the compact singular-value perturbation inequality, and the fourth-order eigenvalue/entire-determinant boundary equivalence. The finite checker does not replace those infinite-dimensional arguments. The bracket for the first zero is certified only at four decimal places; the longer decimal in the text is approximate.
+PASS
 
-The relevant recent primary manuscript was accessible only in part, and the priority comparison is therefore qualified. No independently conducted mathematical audit is claimed. The characteristic equation does not separately assert equality of analytic zero multiplicity with singular eigenspace dimension, and no sharp large-index root asymptotic is claimed.
+The discrete coefficients r^n(n-j+1), step-kernel K_h and h^2 scaling agree: cell values h e^{-nh}(n-j+1) converge in L2 to e^{-x}(x-y)+; Hilbert-Schmidt O(h) gives l2 singular perturbation. Differentiating Tf twice gives the fourth-order boundary equation u_fourth=lambda^-1 e^-2x u with u(0)=u'(0)=0. F and xF+G give the two at-most-linear-growth solutions and the characteristic determinant. Independently simplified exact fourth moment rational identity and computed delta(0.5568)>0, delta(0.5569)<0. Singular eigenvalue simplicity follows F(w)>0 on w>0. This assesses r in (0,1), h->0+, all singular ranks; not a sharp higher-rank asymptotic.
+
+## originality
+
+PASS
+
+Order-two point-mass operator is a direct specialization of Tang-Xie generalized Cesaro, but its singular spectrum and hypergeometric half-line boundary determinant are not a consequence of their H^p-to-H^q mapping criteria. Distinct interval n-fold Volterra and order-one geometric Rhaly have different kernels/scalings. Best knowledge PASS with remaining weighted fourth-order spectral priority risk.
+
+## value
+
+PASS
+
+The full l2 singular-profile convergence identifies a natural boundary-layer operator and spectral characteristic rather than only boundedness or one norm. Exact moments and first-root limit are useful checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

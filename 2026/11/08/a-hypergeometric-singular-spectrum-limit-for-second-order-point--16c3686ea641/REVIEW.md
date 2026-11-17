@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the coefficient-normalized Hardy Hilbert space, the order-two point-mass operator has the exact lower-triangular matrix given in `RESULT.md`. Reindexing the geometric Gram sum gives the stated column kernel; summing its diagonal gives the Hilbert–Schmidt trace. The fourth moment comes from the squared Gram kernel. The step-function isometry converts the scaled matrix into an exponentially weighted Volterra kernel, with a direct global Hilbert–Schmidt difference bound of order \(O(h)\). The Hilbert–Schmidt singular-value perturbation inequality then controls the entire singular-value sequence in \(\ell^2\). For the continuum operator, the positive Gram kernel and fourth-order boundary equation are derived by differentiating the two integrations and the adjoint. Entire solutions with prescribed constant/linear behavior at infinity are constructed explicitly; exponential-tail uniqueness establishes completeness. The two boundary conditions at zero give the characteristic determinant, and the converse eigenfunction construction forces every root to be positive and gives one-dimensional positive eigenspaces. A 670-assertion exact-rational standalone check validates the displayed coefficient and trace calculations, including a rigorous rational first-root bracket. It does not establish the infinite-dimensional results. A possible technical concern is the need for both tail conditions and the left boundary conditions in the fourth-order problem; these are supplied in the proof.
+PASS
 
-## Originality — PASS, with residual bibliographic risk
+The discrete coefficients r^n(n-j+1), step-kernel K_h and h^2 scaling agree: cell values h e^{-nh}(n-j+1) converge in L2 to e^{-x}(x-y)+; Hilbert-Schmidt O(h) gives l2 singular perturbation. Differentiating Tf twice gives the fourth-order boundary equation u_fourth=lambda^-1 e^-2x u with u(0)=u'(0)=0. F and xF+G give the two at-most-linear-growth solutions and the characteristic determinant. Independently simplified exact fourth moment rational identity and computed delta(0.5568)>0, delta(0.5569)<0. Singular eigenvalue simplicity follows F(w)>0 on w>0. This assesses r in (0,1), h->0+, all singular ranks; not a sharp higher-rank asymptotic.
 
-The motivating 2026 Tang–Xie work concerns mapping criteria between Hardy spaces. Its general definition includes the present point-mass order-two operator, but the accessible introduction did not formulate the singular-spectrum boundary limit. Its later sections were not completely available, so the comparison is expressly qualified. The fully read published geometric Rhaly theorem identifies the **order-one** fixed-parameter singular spectrum through Hahn–Exton zeros. The order-two matrix has an additional factor depending on the row–column distance; the fixed-parameter order-one determinant does not algebraically imply the new half-line fourth-order limit. A fully read published Hardy–Volterra commutator result treats the **finite-interval** kernel \((x-y)/x\), whose ODE has coefficient \(x^{-2}\) and different endpoints. Ramlau–Koutschan–Hofmann derive spectral equations for unweighted repeated integration on a finite interval with constant ODE coefficients; Putinar–Tener study square-root-derivative weighted composition operators. Neither implies this exponential half-line determinant without additional analytic work. Earlier Volterra singular-value estimates concern the large-index decay rate, not this full fixed-rank hypergeometric profile. The literature and published mathematical-record comparisons identified no direct cover; failure of search is not proof of absolute novelty. Further bibliographic checking of weighted-fourth-order eigenproblems is warranted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The order-two member of the generalized Cesàro family exhibits a natural singular boundary at which its compact discrete spectrum diverges. The theorem supplies the **complete** renormalized singular spectrum, not just the leading norm or one Schatten moment, and proves a global \(\ell^2\)-rate across every approximation number. An explicit entire characteristic equation turns the continuum problem into reproducible scalar root computation; the independently derived exact second/fourth moments fix normalization. This is a structural boundary spectral law relevant to numerical approximation and weighted Volterra operator theory, rather than a routine symbolic reformulation of a mapping criterion.
+Order-two point-mass operator is a direct specialization of Tang-Xie generalized Cesaro, but its singular spectrum and hypergeometric half-line boundary determinant are not a consequence of their H^p-to-H^q mapping criteria. Distinct interval n-fold Volterra and order-one geometric Rhaly have different kernels/scalings. Best knowledge PASS with remaining weighted fourth-order spectral priority risk.
 
-## Scope and prior-source limits
+## value
 
-The order-one geometric Rhaly characteristic and the finite-interval Hardy–Volterra characteristic were checked at the level of their complete published mathematical statements and proofs. Accessible sections of the recent Hardy mapping manuscript were examined, but not all portions. No independent mathematical or publication-priority audit has been performed. The estimate is \(O(h)\) in singular-sequence \(\ell^2\), with no claimed optimal constant or general-measure extension.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full l2 singular-profile convergence identifies a natural boundary-layer operator and spectral characteristic rather than only boundedness or one norm. Exact moments and first-root limit are useful checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
