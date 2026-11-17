@@ -1,0 +1,15 @@
+# Scientific review: five-step quadratic-population horseshoe
+
+## Correctness
+PASS. The first-coordinate map matches equations (2.1)–(2.2) of Abdurakhimova and Rozikov. Two disjoint rational intervals have proved five-step branch itineraries `LRLLR` and `LRLRL`; their images strictly cover the same rational interval. Exact rational interval propagation and endpoint derivative products give expansion greater than \(2\) on both branches. Inverse branches consequently contract, form a disjoint-image Cantor coding and produce an exact full one-sided two-symbol shift for the fifth iterate. Every intermediate image avoids the discontinuities, so the five-phase union is a compact invariant subsystem where the original map is continuous and entropy scaling is legitimate. `CHECK.py` is executable and supplies all finite arithmetic comparisons; it is not used as an infinite proof.
+
+## Originality
+PASS within inspected evidence. The source's Theorem 8 describes trapping of population trajectories in the relevant parameter chamber, but its explicit classifications do not establish a two-branch full-shift repeller inside that region. The closest same-family result found in prior indexed work is a uniqueness/repulsion theorem for fixed admissible branch words; it supplies neither admissibility of arbitrary symbolic continuations nor the two simultaneous covering intervals. A published affine-map horseshoe and general coding theorems concern different maps or generic constructions and do not imply this concrete same-model certificate. Searches for the paper's aliases, both discontinuity locations, quadratic branches, horseshoes and entropy did not identify an equivalent result. This is limited evidence, not a proof of global publication priority.
+
+## Mathematical value
+PASS. The source's central population question is what long-run behavior is possible for a three-parameter state-dependent heredity map. A robust full shift inside its known trapping band is a qualitative advance over interval trapping and isolated periodic-point information: it proves arbitrarily complicated admissible histories, unbounded periodic orders and a positive lower bound for entropy in a continuous subsystem. The certificate is explicit and verifiable without numerical orbit inference. The fact is specific to a canonical boundary pair of biological mixing parameters but persists in an admissible neighborhood and for every third-region coefficient.
+
+## Closest literature and limits
+Abdurakhimova–Rozikov, arXiv:2103.14834v1, equation (2.2) and Theorem 8; the 2022 journal edition. Prior indexed uniqueness of fixed-itinerary quadratic compositions is not sufficient for this existence theorem. A different discontinuous affine full-shift example verifies general feasibility but not the present model. No claim is made about global entropy or a physical chaotic attractor. Some equivalent results could exist outside the inspected sources.
+
+Self-review: passed. Independent audit: not yet performed.
