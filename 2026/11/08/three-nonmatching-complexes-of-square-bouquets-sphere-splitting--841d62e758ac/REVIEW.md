@@ -1,15 +1,21 @@
-# Scientific review: three-nonmatching complexes of square bouquets
+# Independent mathematical audit
 
-## Correctness — PASS
-The face classification uses the central-spoke matching restriction and the fact that each square's two outer edges intersect, while outer edges from different squares are disjoint. This gives an exhaustive dichotomy by the number of active outer blocks. The exact decomposition is into a contractible simplex-join core and one three-ball for each pair of square blocks, with the boundary of every ball exactly its intersection with the core and with pairwise overlaps contained in the core. Collapsing a contractible CW subcomplex produces the integral homotopy equivalence. Oriented join chains give an explicit integral basis and the signed automorphism action, including the even sign when two interval factors are exchanged. The independent finite verifier checks the full face-poset identity, intersections, mod-two boundary ranks and oriented integral relative chains for all four small widths. The proof, rather than these finite cases, covers arbitrary positive integers.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest primary source is Shan–Wang, arXiv:2609.02621 (2026-09-02). Its persistent-degree theorem requires a cycle with at least six edges for the three-nonmatching case; the graph here has circumference four. Its complete-bipartite special results are for a different host graph. Holmsen–Lee, arXiv:2003.11270, gives a dimension-vanishing bound but neither these ranks nor homotopy groups. Linusson–Shareshian–Welker, arXiv:math/0410345, classifies complete/complete-bipartite host graphs, not arbitrary subgraphs thereof. Recorded published-finding corpus queries on nonmatching complexes, square bouquets and equivalent edge-subgraph descriptions returned nearest findings about *ordinary matching*, degree-bounded two-matching, Morse, or other graph complexes; none of their stated claims implies this theorem. The accessible earlier ledger claims were checked for these objects and parameters and had no overlapping statement. Residual risk: equivalent unindexed or unpublished special-case calculations and stronger general matching-complex theorems not located by the searches.
+PASS
 
-## Mathematical value — PASS
-The result gives a complete integral homotopy classification for an infinite family of natural sparse bipartite cactus graphs, with a quadratic third-Betti number and an explicit integral automorphism module. Its central structural mechanism is a pair-indexed family of three-ball attachments. In contrast with the long-cycle sufficient criterion from recent nonmatching-complex literature, nonzero top-allowed homology occurs even though every simple cycle has length four. The exact integral representation cannot be inferred from the homology rank or the general Leray bound.
+For any face with selected outer-edge blocks T, |T|>=3 forces a 3-matching, while |T|<=1 is precisely the full spoke simplex U joined to disjoint edges L. For |T|=2, possible spokes and outer edges form exactly Y_i*Y_j where Y_i is the three-edge path p_i-q_i-r_i-s_i; these are closed 3-balls, their intersections with the contractible core A=U*L are exactly their entire 2-sphere boundaries, and any distinct ball intersections lie in A. Thus quotienting by the nonempty contractible CW subcomplex A gives wedge of one 3-sphere per unordered block pair, universally in m. A relative integral three-cycle is the oriented join of path fundamental chains, and swapping two 1-dimensional factors contributes (-1)^4=+1, while a path reflection contributes -1, yielding the stated signed permutation action. Independent exhaustive direct forbidden three-matching face checks for m=1..4 found 16/137/715/3478 faces and verified local balls/core; bounded experiments confirm, not prove, the general construction.
 
-## Scope and limitations
-The claim is restricted to three-nonmatching complexes of squares meeting at one vertex, not arbitrary square books or other matching thresholds. The classification is not an equivariant homotopy equivalence, and independent audit has not been performed. The risk of a stronger unindexed covering result remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: the exact final claim and its critical new proof or torsion representation are not logically implied by checked stronger/related sources; known numerical/theorem components are explicitly attributed. Inaccessible plausible primary full text is recorded as residual risk and never represented as read.
+
+## value
+
+PASS
+
+Natural cactus graph with all simple cycles of length four lies outside the previously known six-cycle sufficient condition for NM3 homology. The exact all-m integral homotopy and natural automorphism action exhibit an explicit structural family and pair-indexed basis of H3, independently useful beyond the general vanishing bound and unrelated complete-graph classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

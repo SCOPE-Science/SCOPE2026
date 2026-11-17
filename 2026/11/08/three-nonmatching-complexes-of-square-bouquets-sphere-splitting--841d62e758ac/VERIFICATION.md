@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Executable and theoretical verification
+# Independent mathematical audit
 
-Run the embedded standalone `verify.py` under Python 3. No external Python modules, third-party source papers or network access are needed. The supplied `verify_output.txt` records the observed successful execution.
+## correctness
 
-The program enumerates each face directly using the graph-theoretic criterion that no three selected graph edges are mutually disjoint. Independently it generates the contractible core and each two-path join. For every size \(1\le m\le4\), it asserts equality of the entire face sets, every ball–core boundary intersection and all pairwise ball overlaps. It computes the simplicial mod-two boundary ranks, checking \(\widetilde H_3\) has rank \(\binom m2\) and all other reduced mod-two groups vanish. It builds relative integral fundamental three-chains of the nine-tetrahedron joins, checks their boundaries lie in the core, and checks local-reflection and adjacent-block-permutation signs on those actual chains.
+PASS
 
-Observed counts include the empty face: 16, 137, 715 and 3478 for \(m=1,2,3,4\), respectively. All checks returned `PASS` and the run ended with `ALL_VERIFY_OK`.
+For any face with selected outer-edge blocks T, |T|>=3 forces a 3-matching, while |T|<=1 is precisely the full spoke simplex U joined to disjoint edges L. For |T|=2, possible spokes and outer edges form exactly Y_i*Y_j where Y_i is the three-edge path p_i-q_i-r_i-s_i; these are closed 3-balls, their intersections with the contractible core A=U*L are exactly their entire 2-sphere boundaries, and any distinct ball intersections lie in A. Thus quotienting by the nonempty contractible CW subcomplex A gives wedge of one 3-sphere per unordered block pair, universally in m. A relative integral three-cycle is the oriented join of path fundamental chains, and swapping two 1-dimensional factors contributes (-1)^4=+1, while a path reflection contributes -1, yielding the stated signed permutation action. Independent exhaustive direct forbidden three-matching face checks for m=1..4 found 16/137/715/3478 faces and verified local balls/core; bounded experiments confirm, not prove, the general construction.
 
-These finite checks do not prove the theorem for arbitrarily many blocks. The general proof is the exhaustive active-outer-block classification, exact simplicial decomposition, three-ball boundary identity, and CW quotient argument in `RESULT.md`. The possible scientific limitations are a misidentification of an existing stronger classification or an unstated change in the graph-identification hypothesis; neither is resolved by finite experiments. The result has undergone self-review only; no independent audit or external certification is asserted.
+## originality
+
+PASS
+
+Best-of-knowledge originality: the exact final claim and its critical new proof or torsion representation are not logically implied by checked stronger/related sources; known numerical/theorem components are explicitly attributed. Inaccessible plausible primary full text is recorded as residual risk and never represented as read.
+
+## value
+
+PASS
+
+Natural cactus graph with all simple cycles of length four lies outside the previously known six-cycle sufficient condition for NM3 homology. The exact all-m integral homotopy and natural automorphism action exhibit an explicit structural family and pair-indexed basis of H3, independently useful beyond the general vanishing bound and unrelated complete-graph classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
