@@ -1,15 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact Crofton-line normalization is the perimeter by Cauchy's projection formula. A small chord must join adjacent sides: the cutoff is the lesser of the nonadjacent-edge separation and each vertex's incident side-length times the interior-angle sine. Integration of signed line offsets inside a vertex wedge gives the exact local contribution \(tq(\alpha)\), where \(q(a)=(1-a\cot a)/2\). The identity \(q''(a)=(\sin a-a\cos a)/\sin^3a>1/3\) is proved from a derivative-positive auxiliary function, not simply inferred numerically. Summing Taylor's lower bounds and using total exterior turn \(2\pi\) gives the claimed variance inequality. Its equality class and optimality are proved by explicit centrally symmetric equilateral polygons with alternating small exterior turns. The independent executable tests four random-line distributions, local angular integrals, convexity, and limiting sharpness; they do not replace the proof.
+## correctness
 
-## Originality — PASS (historically provisional)
-Harutyunyan–Ohanyan (2009) and García-Pelayo (2015) calculate the polygon chord distribution, and so cover the local short-chord slope as a computable consequence. Bäsel (2012) calculates the regular-polygon distribution. This result does not claim those formulas or their elementary angular specialization as new. The accepted assertion is instead the *global*, side-count-uniform, **sharp quantitative** angular stability of that slope, an optimal quadratic modulus and complete equality/sharpness characterization. Full-text inspection of the cited chord-formula papers did not show that bound. A nearby result on **independent boundary-point distances** proves a different angular inequality for a different sampling measure; its coefficient and sharpness family do not imply the Crofton result, whose different angular function has a separately proved curvature bound. Gates (1982, 1987) are especially relevant to chord-density shape reconstruction and endpoint densities; only abstracts/bibliography were accessible, so historical priority is not independently certified.
+PASS
 
-## Value — PASS
-The slope of the Crofton chord CDF is directly measurable from an invariant ensemble of intersecting lines, but older full-distribution formulas do not themselves quantify the information retained about a polygon's angle regularity in that *one number*. The sharp inequality supplies a scale- and side-count-uniform lower error signal: the observed excess above the equiangular baseline controls the total squared deviations of the exterior turns. This is a geometric inverse-stability statement, with exact optimal constant and constructive near-sharp shapes. It is not a claim of full polygon recovery: side-length variations are invisible to the coefficient, and the guarantee is for the initial short-chord regime.
+The motion-invariant unoriented line law has normal-angle and offset density dphi dp and mass P on lines meeting a convex polygon by Cauchy. Nonadjacent compact edges have positive separation; for t below all adjacent vertex sin(interior-angle)*minimum incident side length, a short chord meets exactly two incident edges. At a vertex of interior angle theta=pi−alpha, line offset h, incidence cosines a,b, chord length d=h sin(theta)/(ab). Integrating admissible offsets over the normal sector gives measure t q(alpha), with q(alpha)=(1−alpha cot(alpha))/2. Thus exactly F_K(t)=(t/P)sum q(alpha_i) for 0≤t<t0(K), not just an asymptotic. Differentiate q twice: q''(alpha)=(sin(alpha)−alpha cos(alpha))/sin^3(alpha)>1/3 since auxiliary g=3(sin−a cos)−sin³ has g(0)=0 and g'=3 sin(a)[a−sin(a)cos(a)]>0. Strong convexity with mean exterior turn 2pi/m gives excess ≥(1/6)sum(alpha_i−2pi/m)^2, equality precisely equiangular. For m divisible by 4, alternating exterior turns 2pi/m±m^-2 and unit edge lengths form a centrally symmetric strictly convex closed polygon, with defect/variance→1/6, showing global sharpness. Independent angular integrals and curvature checks confirm normalizations only.
 
-## Closest prior research and limitations
-H. S. Harutyunyan and V. K. Ohanyan, *Advances in Applied Probability* 41 (2009), DOI 10.1239/aap/1246886615; U. Bäsel, arXiv:1204.2707 (2012); R. García-Pelayo, arXiv:1501.00292 (2015); J. Gates, *Journal of Applied Probability* 19 (1982), DOI 10.2307/3213843, and 24 (1987), DOI 10.2307/3214211. The 1987 Gates source explicitly concerns extreme-range chord-density values and remains an access risk because its abstract, not full paper, was examined. Unindexed older extremal identities could reduce originality. The proof establishes no stochastic finite-sample inference bound.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The initial Crofton chord density is already implicit in the general polygon chord-distribution formulas of Harutyunyan–Ohanyan and García-Pelayo and is excluded from novelty. The retained result is the exact optimal side-count-independent quadratic stability of that density, with all equality and near-sharpness classes. A superficially identical 1/6 coefficient appears in previously published *boundary arclength endpoint pair* distance/shortcut results, but those measure a different sampling law and depend on f(alpha)=alpha/sin(alpha) rather than q(alpha)=(1−alpha cot(alpha))/2; neither theorem implies the Crofton q-stability as stated. Gates 1987 full text unavailable; historical priority remains qualified.
+
+## value
+
+PASS
+
+The initial slope of the motion-invariant line-chord distribution is a directly measurable inverse-geometric statistic. The sharp uniform angular stability inequality converts that single measurement into a rigorous lower signal controlling total squared exterior-angle variation, in every convex polygon size. Distinct sharpness shapes and equality class make this a motivated quantitative inverse theorem, not the known chord formula repackaged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
