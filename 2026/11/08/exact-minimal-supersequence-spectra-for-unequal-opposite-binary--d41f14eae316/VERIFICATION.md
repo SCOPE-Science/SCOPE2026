@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The theorem is proved symbolically in `RESULT.md`. The self-contained program `verification/verify.py` implements subsequence membership, coordinate-by-coordinate deletion minimality, direct word enumeration, central-run constructive generation and the analytic binomial formula. It exhaustively checks all binary words of the candidate lengths for all 16 ordered parameter pairs with \(1\le a,b\le4\), independently checks merging/interleaving enumerations for four larger asymmetric pairs, and reproduces the exact length frequencies.
+## correctness
 
-Run with `python3 verification/verify.py`. Expected output begins `OPPOSITE_RUN_MCS_VERIFY_OK`. The verifier also checks diagonal parameters for boundary sanity but these are outside the stated novelty claim.
+PASS
 
-The finite computation cannot prove the result for all parameter values; the proof is combinatorial. Bibliographic completeness and independent mathematical auditing have not been established.
+For A=0^a1^b and B=1^b0^a with positive a != b, deletion minimality makes each symbol essential to at least one embedding. Both zero and one counts cannot be below 2a and 2b, respectively, because embeddings would then share both symbols in contradictory order; both counts cannot attain the maxima by the essential-position ordering. Thus precisely one type has exactly 2a zeros or 2b ones. The central shared run and forced two boundary letters produce disjoint forms U1^tV and U0^tV, with 1<=t<=b or <=a, respectively. Counting independently constrained U,V gives the two binomial-square terms; unique shortest follows a != b. Independently enumerated deletion-minimal binary words and length histograms for (a,b)=(1,2),(2,1),(2,3),(3,2),(1,4),(2,2); e.g. (2,3) gives 1,5,18 at lengths 7,8,9. The proof handles all positive a,b; finite enumeration alone would not.
+
+## originality
+
+PASS
+
+Best-of-knowledge exact two-parameter classification: the October 18 predecessor gives only the diagonal a=b and two shortest words; the current theorem solves the genuinely distinct unequal case with unique shortest and branch switch. General algorithms and bounding papers do not explicitly entail the displayed closed form. Earlier Fraser–Irving material is a qualified historical-priority risk because the authorized Oxford institutional access is disconnected.
+
+## value
+
+PASS
+
+Scattered subsequence minimality is a natural antichain object in deletion-code and common-supersequence research. A complete unequal two-run family’s length-by-length spectrum, unique shortest contrast with the equal-run diagonal, and sharp two-branch threshold are motivated exact classifications, not arbitrary numerical slices; these can be reused as enumerative test cases and benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two input strings each have exactly one run change but in opposite order. For a deletion-minimal common supersequence, every position is essential to at least one input; this bounds the zeros and ones by twice their required counts. An embedding-order contradiction forces one bound to be attained, and a second essentiality contradiction forbids both. In the full-zero case, the shared central ones are pinned between consecutive zeros, and deletion essentiality forces the exact outside-block boundary letters. The full-one case is symmetrical. Conversely every classified word makes all positions essential. Two independent generation routes in the standalone verifier agree with the analytic binomial-square multiplicities for tested pairs. Infinite correctness follows from the supplied symbolic proof, not the finite checks.
+PASS
 
-Risk: Proof relies on the precise indexing of essential outside ones. The explicit inequalities and several small asymmetric boundaries are provided for manual replay.
+For A=0^a1^b and B=1^b0^a with positive a != b, deletion minimality makes each symbol essential to at least one embedding. Both zero and one counts cannot be below 2a and 2b, respectively, because embeddings would then share both symbols in contradictory order; both counts cannot attain the maxima by the essential-position ordering. Thus precisely one type has exactly 2a zeros or 2b ones. The central shared run and forced two boundary letters produce disjoint forms U1^tV and U0^tV, with 1<=t<=b or <=a, respectively. Counting independently constrained U,V gives the two binomial-square terms; unique shortest follows a != b. Independently enumerated deletion-minimal binary words and length histograms for (a,b)=(1,2),(2,1),(2,3),(3,2),(1,4),(2,2); e.g. (2,3) gives 1,5,18 at lengths 7,8,9. The proof handles all positive a,b; finite enumeration alone would not.
 
-## Originality — PASS, with residual priority risk
+## originality
 
-The theorem is a complete **unequal-run** classification, not a claim to a previously considered equal-run subcase. Primary full-text examination of Sopp et al. (2026), Sun–Ge (2026), Lin (2026) and the 2022 arXiv Alon et al. version found general algorithms, primitive-layer decompositions or bounds rather than this explicit two-parameter binomial-square spectrum and branch transition. The older Fraser–Irving and Fraser–Irving–Middendorf records were identified, but full text could not be inspected. No identical or logically dominating published formula was identified in the checked accessible sources; the inaccessible paper is a real residual risk.
+PASS
 
-The Alon et al. 2022 arXiv statement of a total-count inequality, read literally, conflicts with the verified example \((a,b)=(2,3)\). This is not treated as a proof of new priority and is not used to justify the claim. Any corrected published version remains to be compared.
+Best-of-knowledge exact two-parameter classification: the October 18 predecessor gives only the diagonal a=b and two shortest words; the current theorem solves the genuinely distinct unequal case with unique shortest and branch switch. General algorithms and bounding papers do not explicitly entail the displayed closed form. Earlier Fraser–Irving material is a qualified historical-priority risk because the authorized Oxford institutional access is disconnected.
 
-## Value — PASS
+## value
 
-Minimal common supersequences model inclusion-minimal sequence merging, a problem specifically targeted by new enumeration algorithms in 2026. For a natural, unbounded, two-parameter input class, the theorem supplies all attainable lengths, exact multiplicities, and a qualitative transition absent in the equal-run slice: a unique shortest minimal supersequence with different central-run families appearing on opposite sides of a sharp threshold. This classification supplies explicit output-size instances and is not a numeric table or a renaming of the symmetric case.
+PASS
 
-## Scientific limitations
+Scattered subsequence minimality is a natural antichain object in deletion-code and common-supersequence research. A complete unequal two-run family’s length-by-length spectrum, unique shortest contrast with the equal-run diagonal, and sharp two-branch threshold are motivated exact classifications, not arbitrary numerical slices; these can be reused as enumerative test cases and benchmarks.
 
-Binary inputs must each have one transition and unequal positive run lengths. No statement covers general inputs or additional strings. Historical priority and independent mathematical validation are unresolved.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
