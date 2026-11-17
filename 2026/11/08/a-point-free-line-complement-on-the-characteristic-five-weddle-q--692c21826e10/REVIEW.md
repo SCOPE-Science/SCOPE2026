@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The six geometric nodes follow from explicit characteristic-five Gröbner bases and Hessian determinants. Exact full enumeration covers every projective point and line over the base field (156 and 806, respectively); the binary-quartic degree bound converts pointwise vanishing into actual containment of a line. Independently, the genus-two Weil polynomial from the \(\mathbb F_5\) and \(\mathbb F_{25}\) point counts, together with the odd-characteristic Weddle/Kummer correspondence and six-versus-sixteen rational exceptional curves, proves the point formula for *all* extension degrees. This yields the complement's zeta function. The reported program outputs were replayed from the packaged code.
+## correctness
 
-**Originality — PASS, qualified.** Bolognesi's full 2006 text gives the Weddle/Kummer relationship and the classical 25-line construction, but not the characteristic-five rational-point saturation or the exact zeta of their complement. Dolgachev's full 2024 §2 gives the determinant web and odd-characteristic birationality, not this arithmetic evaluation. Shimada (2012) and Katsura–Kondō–Shimada (2013) treat the characteristic-five supersingular K3 but do not discuss Weddle quartics under that name in their inspected full texts. The June 2026 *Weddle schemes* abstract is relevant; its inaccessible full text is an acknowledged residual coverage risk. No directly implying classification or numerical table was located in the documented published-record and literature comparisons; lack of a match alone is not proof of historical priority.
+PASS
 
-**Mathematical value — PASS.** Deleting the 25 distinguished lines is a natural geometric open part of the Weddle quartic. Its complete failure of base-field rational points, despite 460 points over the quadratic extension, is a sharp finite-field saturation phenomenon tied to the six rational Weierstrass points and the superspecial Kummer model. The complete zeta of the open complement is a precise arithmetic invariant with potential use in studying rational points on open K3 surfaces and finite-field line configurations. This is more than the classical existence of 25 lines; the arithmetic exhaustion and extension-degree counts require the specific geometric and Frobenius comparison.
+The characteristic-five quartic arises from the determinant of gradients of four independent quadrics through the full six-point twisted-cubic configuration. Independent SymPy algebra verified det(gradient q)=2f and on a=1 and d=1 the Jacobian Groebner ideals are (b-d^3,c-d^2,d^5-d) and (a-c^3,b-c^2,c^5-c); complementary a=d=0 has no node, yielding six reduced rational nodes, with nondegenerate Hessians in the package. Independently enumerated 156 P^3(F5) points and all 806 rational projective lines: W has exactly 66 rational points, 25 wholly contained F5-lines, and incidence 6 fivefold, 60 double, union covering W(F5). Six F5 points per line and quartic degree prove actual line containment. Independent F25 arithmetic found W(F25)=1026 and genus-two C(F25)=6, hence U(F25)=460. For every extension degree the proof invokes the classical odd-characteristic Weddle/Kummer isomorphism of minimal K3 resolutions over F5, with 16 versus 6 rational exceptional P1 replacing nodes; genus-2 Weil L=(1-5T^2)^2 then yields W_n and U_n=Q^2-13Q+4(-1)^n Q+60. Exact zeta follows from exponential generating series. Independent finite checks alone cannot justify infinite-degree zeta or the descent of the classical correspondence; that named geometry theorem remains essential.
 
-**Closest coverage and residual uncertainty.** The exact 25-line incidence geometry is substantially contained in the classical Weddle literature, and generic Kummer point-count formulas are standard; the asserted new content is the *specific* characteristic-five exhaustion and its full open zeta. Full-text priority against all historical special-model tables is not guaranteed. More geometric lines might exist over extension fields; the claim is explicitly restricted to \(\mathbb F_5\)-lines.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original evaluated claim after statement/implication comparison with cited literature; see four checks and residual risks. No negative search is taken as priority proof.
+
+## value
+
+PASS
+
+Arithmetic of an explicit rational-line arrangement on a classical K3-associated quartic has a natural geometric motivation: the entire base-field point set is covered by geometrically distinguished lines while the open complement first acquires points over F25. The exact rational line classification and full extension-count zeta are independently useful arithmetic invariants, not arbitrary numerical slicing or recomputation of an already known table. The classical 15+10 lines and Weddle/Kummer geometry are credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
