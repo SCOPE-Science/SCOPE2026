@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T16:56:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Bubble-sort inversion removals preserve 321-avoidance, giving a length inv(pi)+inv(sigma) upper bound. Every 321-avoider splits into two increasing subsequences, so inv≤floor(n²/4), with one even-n maximizer and two odd-n maximizers. A forced first crossing of the middle letter makes each small-large pair reverse twice, giving sharp lower bound 2hℓ+h+ℓ. The unique odd diametral pair follows from the two max-inversion permutations. Independent full BFS on all 321-avoiders for n=1..6 reproduces 0,1,4,7,12,17 and odd uniqueness. Earlier published proof independently establishes diameter and the extremizer classification via weak-order meets.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier theorem additionally proves d(u,v)=inv(u)+inv(v)-2 inv(u∧v) for every pair."
+        ],
+        "reasoning": "This pointwise distance formula is stronger than the new diameter-only statement.",
+        "searches": [
+          "Resultary: adjacent transposition graph diameter 321-avoiding permutations Catalan graph constrained Kendall distance",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-diameter-of-the-321-avoiding-adjacent-swap-graph--91a983c81cec/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-diameter-of-the-321-avoiding-adjacent-swap-graph--91a983c81cec/RESULT.md",
+        "https://arxiv.org/abs/math/0112131"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior proof: odd n has exactly two maximum inversion elements T_m,T_{m+1} and their meet is identity, so d=2m(m+1); any diametral pair must use these two elements."
+        ],
+        "reasoning": "This proves the submitted additional odd uniqueness without needing it to be separately stated as a headline; complete coverage.",
+        "searches": [
+          "Resultary: adjacent transposition graph diameter 321-avoiding permutations Catalan graph constrained Kendall distance",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-diameter-of-the-321-avoiding-adjacent-swap-graph--91a983c81cec/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both source theorems define vertices as classical 321-avoiders and edges as adjacent-position swaps preserving avoidance."
+        ],
+        "reasoning": "Graph and metric coincide exactly, with same parity diameter formula.",
+        "searches": [
+          "Resultary: adjacent transposition graph diameter 321-avoiding permutations Catalan graph constrained Kendall distance",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-diameter-of-the-321-avoiding-adjacent-swap-graph--91a983c81cec/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published all-order formula is analytical and includes verified BFS through n=8."
+        ],
+        "reasoning": "Any finite diameter table is subsumed by the previous all-order theorem.",
+        "searches": [
+          "Resultary: adjacent transposition graph diameter 321-avoiding permutations Catalan graph constrained Kendall distance",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-diameter-of-the-321-avoiding-adjacent-swap-graph--91a983c81cec/RESULT.md"
+        ]
+      },
+      "rationale": "FAIL: published October 26 result determines exactly this all-n graph diameter, using the identical graph and an even stronger all-pairs weak-order metric formula. The prior proof identifies exactly the two maximum-inversion permutations at odd n; combining rank upper bound with its attained distance gives the submitted odd uniqueness. Alternative forced-crossing proof does not add a new theorem.",
+      "residual_risks": [
+        "No scientific coverage uncertainty remains for the submitted theorem; alternate lower-bound argument alone does not establish a new result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITIVELY COVERS and is mathematically stronger",
+          "evidence": "Theorem gives all-pairs meet metric, exact diameter, and proof identifies exactly two odd maximum-rank elements.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-diameter-of-the-321-avoiding-adjacent-swap-graph--91a983c81cec/RESULT.md",
+          "material_read": "Entire earlier RESULT.md: theorem, metric lemma, distributive weak-order proof, inversion-maximizer rigidity and sharp pairs",
+          "method": "Primary repository full-text reading",
+          "title": "Sharp diameter of the 321-avoiding adjacent-swap graph",
+          "trigger": "Exact same graph and parity diameter"
+        },
+        {
+          "assessment": "Background, not needed for prior coverage",
+          "evidence": "Fully commutative characterization and weak-order setting established decades earlier.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0112131",
+          "material_read": "Arxiv abstract only",
+          "method": "Abstract-level inspection",
+          "title": "On 321-avoiding permutations in affine Weyl groups",
+          "trigger": "Background fully commutative permutation equivalence"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: the only substantive claim (diameter and odd antipode uniqueness) is a direct consequence of earlier published all-pairs distance and maximizer classification; the different proof is not a separately motivated new lemma or invariant.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-diameter-of-the-321-avoiding-adjacent-swap-graph--91a983c81cec/RESULT.md",
+    "https://arxiv.org/abs/math/0112131"
+  ],
+  "disposition": "failed",
+  "final_claim": "The 321-avoiding adjacent-position-swap graph has diameter (n²-1)/2 for odd n and n²/2-1 for even n, with a unique diametral unordered pair for odd n≥3.",
+  "limitations": "Primary literature comparisons are best-of-knowledge, not exhaustive priority certification; finite tests corroborate without proving universal cases; primary-source accessibility individually identified.",
+  "residual_risks": [
+    "No scientific coverage uncertainty remains for the submitted theorem; alternate lower-bound argument alone does not establish a new result."
+  ],
+  "schema_version": 1
+}
