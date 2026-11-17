@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Execute `python verify.py` with SymPy installed. The script performs exact arithmetic for: conjugate map iterate numerator; third-iterate sextic discriminant; double cubic at \(A=3\); two cubics at \(A=4\) and all three sign-change brackets in each; factorization into the invariant cubics; invariance under the rational map; multiplier formulas from symmetric polynomials; and the rational polynomial determining the flip boundary. It also compares the multiplier products at four rational sample parameters against direct numerical products over the three cubic roots.
+# Independent mathematical audit
 
-The proof in `RESULT.md` supplies non-computational arguments not inferable from these finite tests: absence of negative real cycles, root-count continuation across \(1<A<3\) and \(3<A<4\), positivity of roots and the compact trapping interval to which Sharkovskii's theorem applies. It distinguishes the special \(y=1\) point at infinity from finite original coordinates, and excludes the original pole. The symbolic tests are exact identities in the indicated polynomial ring, not samples over the parameter continuum. The sample tests are sanity checks only. No independent external audit was performed; the 1992 related source was not available in complete text.
+## correctness
+
+PASS
+
+Reconstructed y=1-1/x conjugacy to F_A(y)=y-A+A/y and positivity of relevant y for A in (1,4). Substitution gives period-three sextic P_A with discriminant 5184*A^15*(A-3)^3*(A^2-3*A+3)^2; exact symbolic re-evaluation confirms discriminant and factorization P_3=3*(y^3-6y^2+9y-3)^2. A=1 excludes positive cycles; nonzero discriminant propagates root count to A<3, A=4 has six positive simple roots and continuation gives exactly two cycles for A>3. Invariance of the two orbit cubics gives multipliers 1+2(A-3)^2 +/-2A sqrt(A(A-3)), and uniqueness of the flip root follows from strictly decreasing 1-27d-25d^2-9d^3. For A>=3 an invariant compact interval contains a 3-cycle, allowing Sharkovskii forcing; finite tests alone are not the all-period proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality survives statement/implication comparison: Alexanian 2022 gives numerical mu=-1/2 period-three examples, while this is an exact A-dependent census with discriminant, multiplier spectrum and flip boundary. The related Resultary K_mu rational map has a different denominator 1+x and parameter interval. The named reductions and remaining inaccessible plausible sources are recorded as residual risks, not treated as proof of originality.
+
+## value
+
+PASS
+
+The number and stability of primitive periodic orbits in a specified singular logistic branch determine a natural bifurcation boundary and a complete exact multiplier classification, rather than a routine numerical instance. Square-root onset and first flip are independently meaningful even though period-three forcing itself is classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

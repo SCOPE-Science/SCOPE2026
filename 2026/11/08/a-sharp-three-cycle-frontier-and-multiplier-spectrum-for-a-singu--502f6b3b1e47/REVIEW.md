@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Möbius change of variables is explicitly invertible on all finite primitive three-cycles. Positivity on \(1<A<4\) and strict descent on negative coordinates isolate the whole real problem. The exact rational third iterate produces the sextic with discriminant \(5184A^{15}(A-3)^3(A^2-3A+3)^2\); a root-count argument from \(A=1\) excludes three-cycles below the critical parameter. Rational sign brackets establish three double positive roots at \(A=3\) and six simple positive roots above it. Each of the two factor cubics is invariant under the map, and elementary symmetric polynomials yield its return multiplier. The flip frontier follows from a strictly decreasing cubic. An explicit compact invariant interval makes the classical period-three forcing theorem applicable. The standalone verification program replays all critical polynomial identities, plus independent sample calculations, from the enclosed files. Finite numerics are not used to infer global root counts or all periods.
+## correctness
 
-## Originality — PASS within the inspected evidence
-Alexanian (2022), equation (13) and Figure 11, already exhibits a period-three orbit at \(\mu=-1/2\), and other figures demonstrate higher periods. Therefore neither that single-parameter existence statement nor the general period-three-implies-all-periods theorem is claimed as new. The distinct contribution is the *sharp absence below* \(\mu=-1/2\), a complete 1-to-2 primitive three-cycle count through that parameter, exact two-orbit multiplier spectra, the attracting window with algebraic flip threshold and the root-splitting characterization. They are not implied by exhibiting one period-three orbit or by generic Sharkovskii forcing. The 1992 antecedent's abstract discusses qualitative bifurcations; its complete text was inaccessible, and may contain overlapping exact results. Similar published entries about three-cycles of second-order rational recurrences, negative-doubling holes and other systems do not imply these formulas by parameter substitution, reduction or known equivalence. The residual risk is material but no inspected source decisively covers the proposed exact formulas.
+PASS
 
-## Value — PASS
-The original paper's fixed-parameter numerical examples do not locate the first all-period onset or establish whether their observed period-three orbit is attracting. A precise parameter frontier, neutral three-point saddle-node and narrow stable-three-cycle regime substantially change the interpretation of the model's orbit diagrams. The explicit multiplier and root laws supply natural quantitative invariants of a previously studied singular one-dimensional dynamical family, directly motivating follow-on bifurcation or basin studies. The result is not merely an arbitrary special-point computation: it completely classifies all real primitive three-cycles across a natural maximal positive-invariance parameter branch.
+Reconstructed y=1-1/x conjugacy to F_A(y)=y-A+A/y and positivity of relevant y for A in (1,4). Substitution gives period-three sextic P_A with discriminant 5184*A^15*(A-3)^3*(A^2-3*A+3)^2; exact symbolic re-evaluation confirms discriminant and factorization P_3=3*(y^3-6y^2+9y-3)^2. A=1 excludes positive cycles; nonzero discriminant propagates root count to A<3, A=4 has six positive simple roots and continuation gives exactly two cycles for A>3. Invariance of the two orbit cubics gives multipliers 1+2(A-3)^2 +/-2A sqrt(A(A-3)), and uniqueness of the flip root follows from strictly decreasing 1-27d-25d^2-9d^3. For A>=3 an invariant compact interval contains a 3-cycle, allowing Sharkovskii forcing; finite tests alone are not the all-period proof.
 
-## Closest literature and limitations
-M. Alexanian, *One-dimensional Dynamics for a Discontinuous Singular Map and the Routes to Chaos* (2022, arXiv:2212.12033), pp. 156–158; M. Alexanian, *One-dimensional dynamics for a discontinuous map*, Physica A 181 (1992), 53–68 (abstract only); O. M. Sharkovskii, *Co-existence of cycles of a continuous mapping of the line into itself* (1964). The 1992 antecedent remains an incomplete priority comparison. The theorem does not claim extension to the full two-parameter family, global attraction or nonlinear bifurcation dynamics beyond the stated multipliers. It has not received independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality survives statement/implication comparison: Alexanian 2022 gives numerical mu=-1/2 period-three examples, while this is an exact A-dependent census with discriminant, multiplier spectrum and flip boundary. The related Resultary K_mu rational map has a different denominator 1+x and parameter interval. The named reductions and remaining inaccessible plausible sources are recorded as residual risks, not treated as proof of originality.
+
+## value
+
+PASS
+
+The number and stability of primitive periodic orbits in a specified singular logistic branch determine a natural bifurcation boundary and a complete exact multiplier classification, rather than a routine numerical instance. Square-root onset and first flip are independently meaningful even though period-three forcing itself is classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
