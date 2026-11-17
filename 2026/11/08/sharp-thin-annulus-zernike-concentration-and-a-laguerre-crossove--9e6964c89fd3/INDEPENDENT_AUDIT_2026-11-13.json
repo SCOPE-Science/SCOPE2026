@@ -1,0 +1,88 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T01:53:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: In squared-radius variable u with v=1-u, the disk and outer-annulus radial Gram matrices are G_ij=B(m+1,i+j+1), B_ij(eps)=int_0^eps v^(i+j)(1-v)^m dv, and their generalized eigenvalues are concentration eigenvalues (common pi cancels). Since B(eps)/eps tends to e_0e_0^T, lambda_max/eps tends to (G^-1)00=(n+1)(n+m+1), the Jacobi endpoint Christoffel kernel. Write B=D_eps(H+O(eps))D_eps, D_jj=eps^(j+1/2), H_ij=1/(i+j+1). Then eps^(2n+1) B^-1G tends to (H^-1)nn e_ne_n^T G, whose only positive eigenvalue is (2n+1)binom(2n,n)^2 B(m+1,2n+1); reciprocation gives sharp lambda_min and spectral condition number. At n=1, m->infinity with eps=tau/(m+1), the measure tends to exp(-x)dx, so the two eigenvalues of its 2x2 [1,1-x] restricted moment Gram matrix are Lambda_+/-=1-e^-tau(1+tau^2/2) +/- tau e^-tau sqrt(1+tau^2/4). Positive mass on both sides gives 0<Lambda_-<Lambda_+<1. Independent high-precision beta-moment generalized eigenvalues at three (m,n) pairs and two thicknesses matched leading constants; finite checks corroborate but do not prove fixed-n or m-growing limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SIAM J Sci Comput 46 (2024) A3448–A3476 abstract describes annular basis/PDE conditioning rather than restriction from full disk norm."
+        ],
+        "reasoning": "Papadopoulos et al construct generalized annular Jacobi/Zernike bases and sparse PDE discretizations; Khalid et al study three-dimensional ball localization in a Fourier-Laguerre band. No accessible theorem dominates the submitted fixed-disk radial restriction with sharp eps spectral constants.",
+        "searches": [
+          "https://arxiv.org/abs/2310.07541",
+          "https://arxiv.org/abs/1403.5553"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2310.07541",
+        "https://arxiv.org/abs/1403.5553",
+        "https://doi.org/10.1364/AO.52.001136"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "lambda_min~eps^(2n+1)/((2n+1)binom(2n,n)^2 Beta(m+1,2n+1)); lambda_max~(n+1)(n+m+1)eps; neither is the eigenvalue of an annulus-only basis Gram."
+        ],
+        "reasoning": "Classical Jacobi endpoint formula and monic Legendre norm imply the constants after assembling a nonstandard two-Gram singular perturbation; the cited annular basis or Slepian theorems do not state the combined asymptotic. The high-m tau limit needs separate Laguerre scaling.",
+        "searches": [
+          "https://arxiv.org/abs/2310.07541",
+          "https://arxiv.org/abs/1403.5553"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "G^-1B is continuous disk-to-annulus restriction on fixed azimuthal sector; inverse problem differs from annular orthogonal-basis condition numbers."
+        ],
+        "reasoning": "The problem equals extreme generalized eigenvalues of two Jacobi moment matrices; searched equivalents include boundary Christoffel kernels, Hilbert inverse corners, annular Zernike and radial Slepian concentration. Classical identities prove components, not previously located complete assertion.",
+        "searches": [
+          "Resultary semantic search: Zernike disk annulus shrinking boundary concentration smallest eigenvalue Jacobi Laguerre high angular order",
+          "https://arxiv.org/abs/2310.07541"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source tables of numerical PDE conditioning are for a different operator and normalization."
+        ],
+        "reasoning": "These are analytic all-(m,n) endpoint coefficients and an entire tau-crossover function, not a computed table; no prior exact database matching the small-eps singular values was identified.",
+        "searches": [
+          "https://arxiv.org/abs/2310.07541",
+          "Resultary semantic search: Zernike disk annulus shrinking boundary concentration smallest eigenvalue Jacobi Laguerre high angular order"
+        ]
+      },
+      "rationale": "Qualified PASS: Related Zernike/Jacobi and Slepian papers concern constructing bases, PDE operators or different ball/Fock localization; no inspected older result gives this disk-norm outer-annulus generalized-eigenvalue condition number coefficient together with n=1 high-m Laguerre crossover. The endpoint Christoffel/Hilbert and Laguerre ingredients themselves are classical; residual classical moment-method equivalence and inaccessible annular-Jacobi primary full-text risk are recorded.",
+      "residual_risks": [
+        "Potential equivalent truncated Hankel-moment theorem or classical optical aberration literature not fully ruled out.",
+        "Primary Papadopoulos et al full text inaccessible through tried lawful routes; possible relevant appendix not inspected.",
+        "Only n=1 high-azimuthal crossover is established, not arbitrary growing n or discrete sensors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The accessible description concerns spectral PDE basis construction, not enough material to exclude undisclosed full-text moment theorem",
+          "evidence": "Published online 2024-11-05, SIAM J Sci Comput 46 (2024) A3448–A3476",
+          "identifier_or_url": "https://arxiv.org/abs/2310.07541",
+          "material_read": "Publisher abstract and bibliographic information, not whole paper",
+          "method": "OA/arXiv HTML unavailable; institutional route returned vpn_disconnected",
+          "title": "Building hierarchies of semiclassical Jacobi polynomials for spectral methods in annuli",
+          "trigger": "Exact Zernike/Jacobi annular objects and numerical conditioning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Observability and conditioning of a natural finite Zernike azimuthal subspace under only thin-ring measurements is a motivated inverse problem. The precise eps^(-2n) divergence with coefficient and the noncommuting large-azimuthal scaling identify meaningful numerical-conditioning boundaries; not an arbitrary one-off small calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed nonnegative azimuthal m and positive radial n for small eps; no uniform m,n rates.",
+    "Continuous annulus measurement and unnormalized area on both sides.",
+    "Potential equivalent truncated Hankel-moment theorem or classical optical aberration literature not fully ruled out.",
+    "Primary Papadopoulos et al full text inaccessible through tried lawful routes; possible relevant appendix not inspected.",
+    "Only n=1 high-azimuthal crossover is established, not arbitrary growing n or discrete sensors."
+  ],
+  "schema_version": 1
+}
