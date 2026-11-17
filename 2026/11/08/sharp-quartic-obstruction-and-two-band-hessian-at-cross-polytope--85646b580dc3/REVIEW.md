@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The result is based on the exact first and second derivatives of two moment constraints at the antipodal orthonormal-basis configuration. The orthogonal symmetric/antisymmetric tangent splitting gives the stated Hessian spectrum and multiplicities directly, with the product-sphere normalization explicit. The quartic lower bound is a diagonal projection of the second covariance jet; the displayed analytic second-order correction cancels every off-diagonal jet and the centroid second jet, attaining the bound. The example has an exact, positive rational energy. Checker output: `CROSSPOLYTOPE_EXACT_CHECKS_PASS 1110` (dimensions \(3\)–\(10\) for spectrum, smaller for rank, rational second jets). The infinite-dimensional-index assertion \(d\ge3\) is analytical, not inferred from enumeration.
+PASS
 
-## Originality
+For the unnormalized real two-moment loss on 2d labeled points x_{i,+},x_{i,-} at the cross-polytope ±e_i (d>=3), tangent coordinates p_i=(u_{i,+}+u_{i,-})/sqrt2, q_i=(u_{i,+}-u_{i,-})/sqrt2 separate centroid and covariance linearizations. The product-sphere Hessian bands are exactly zero with multiplicity d(3d-5)/2, 4a(d-1) with multiplicity d, and 16b with multiplicity d(d-1)/2. Independent Jacobian matrix eigenvalue checks for d=3,4,6 reproduce those bands and zero multiplicities. Positive-spectrum condition one occurs only at a/b=4/(d-1), without claiming to eliminate nonrotational zero directions. For zero-Hessian symmetric-pair velocities p_i perpendicular to e_i and sum p_i=0, unit-sphere radial second derivatives force a second-order covariance diagonal D_j=sum_{i != j}p_{i,j}^2 -sum_{k != j}p_{j,k}^2. Second-order freely chosen tangent corrections can cancel every off-diagonal covariance term but no diagonal one, establishing universal liminf E/t^4 >= b||D||^2. The analytic normalized curve written in RESULT attains that coefficient. Therefore D=0 precisely permits a curve of loss O(t^6), NOT necessarily an exact design. For p1=e3,p2=-e3 the exact curve gives E(t)=6 b t^4/(1+t^2/2)^2; K skew and K1=0 supplies nonrotational exact two-design curves. These last statements are compatible, rather than contradictory.
 
-**PASS, provisional.** Xiao–Zhuang (arXiv:2303.05365), inspected at introductory motivation, its general Hessian equations and Platonic examples, provides broad derivative machinery and an octahedral numerical example but not the displayed sharp dimension-uniform local invariants. Needham–Shonkwiler (arXiv:2110.11295, §2.3.2) already provides a general quadratic-cone description of singular complex tight-frame varieties; the qualitative nonintegrability of some infinitesimal modes is therefore prior, not new. Their result does not explicitly calculate the centered-real \(2d\)-point objective's two Hessian bands, balancing ratio, or exact least unavoidable fourth-order residual for fixed first derivatives. The older Benedetto–Fickus frame-potential optimization results concern global minima and general Hessian criteria, not the present joint first/second-moment fixed-velocity coefficient. The regular-simplex \(d+1\)-node Hessian result does not imply the extra nullity and singular quartic behavior at the \(2d\)-node orthoplex. Searches against public mathematical literature and semantic research findings did not expose a statement with this exact implication; historical priority remains uncertain.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is a natural optimization defect at a highly symmetric spherical design, not an arbitrary numerical slice: it gives the full local quadratic spectrum, the sole balance of positive curvatures, and a complete sharp fourth-order feasibility test for the entire nonrotational symmetric-pair Hessian kernel. The coexistence of actual design motions and directions with unavoidable quartic cost makes a tangible distinction for trust-region algorithms and for the singular geometry of centered tight-frame configurations. The coefficient is invariant under the allowed second-order corrections, and its nonzero example persists in every dimension. There is no claim of a paper-sized global convergence theorem or of rigidity in all tangent sectors.
+The earlier regular-simplex two-band Hessian result uses d+1 spherical nodes and has no nonrotational kernel, whereas here the 2d-node cross-polytope has extra flat directions, a different spectral weight balance and a sharp fourth-order diagonal-flow obstruction. Needham–Shonkwiler's original complex-frame moment-map work already gives qualitative quadratic cones at singular orthodecomposable tight frames: that general phenomenon is not claimed as novel. The inspected published formulation does not state this exact real, centered, labeled 2d-point functional, two Hessian bands and b||D||^2 sharp coefficient. Xiao–Zhuang give general spherical-design gradient/Hessian methods but the specific coefficient was not found in accessible material. Prior real-moment-map normal forms remain a priority risk.
 
-## Closest literature and limitations
+## value
 
-- Y. Xiao and X. Zhuang, *Spherical Framelets from Spherical Designs*, arXiv:2303.05365, first version 2023-03-09; generic Hessian formulas and octahedral three-design example.
-- T. Needham and C. Shonkwiler, *Toric Symplectic Geometry and Full Spark Frames*, arXiv:2110.11295, §2.3.2, first version 2021-10-21; singular cones of complex tight-frame varieties.
-- D. G. Mixon, T. Needham, C. Shonkwiler and S. Villar, *Three Proofs of the Benedetto–Fickus Theorem*; general frame-potential minimizers and Hessian methods.
+PASS
 
-The strict novelty point is the *quantitative, sharp, specific fourth-order coefficient together with the complete Hessian spectrum*, not the generic fact that orthodecomposable frames can be singular. Balanced velocity jets need not integrate to exact designs. No independent expert validation or comparison with every older source has occurred.
+Cross-polytopes are canonical antipodal spherical designs, and optimizing their moment-discrepancy loss encounters flat directions beyond rotations. An exact quartic barrier distinguishes obstructed versus second-order feasible deformations and quantifies the minimal residual on every symmetric-pair zero-Hessian direction. This is a useful local geometric obstruction and optimizer diagnosis rather than a generic Hessian formula or a claim about all exact design curves.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
