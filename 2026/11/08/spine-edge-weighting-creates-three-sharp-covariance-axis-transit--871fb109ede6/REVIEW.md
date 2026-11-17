@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The parameterization by page-sum coordinates and spine coordinate is injective, its Gram determinant gives exactly the claimed intrinsic Jacobian, and its fiber width is \(t+\sum_j(1-|s_j|)\). Therefore the uniform-volume measure is not confused with uniform edge-coefficient measure. Exact width-weighted moments produce the tensor and eigenvalues, while the sign of a factored cubic settles each parameter regime. Full independent low-dimensional convex-hull integration confirmed eight cases; exact-rational cubature and polynomial identity checks confirmed 36 cases. The proof covers all integers \(q\ge2\) and real \(t\ge0\); finite tests are supplementary.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The closest established endpoint is the unit-page, zero-spine bipartite zonotope. Its exact covariance and its integer page-count spectral transition do not determine the rational continuous-weight curve or the three positive spine-weight crossings. The inspected primary graphical-zonotope deformation literature, and full texts of closest identified public results about complete multipartite circumspheres, bipartite Löwner ellipsoids, and weighted inradii, concern different functionals and do not imply the asserted interior second moments. Searches also used the aliases triangular book, thagomizer, complete tripartite, inertia tensor, and projected cube. Historical priority remains provisional because equivalent zonotope moment calculations might be indexed under different terminology.
+PASS
 
-## Mathematical value — PASS
-A standard family of \(q\) triangles sharing a single edge has an explicit full covariance tensor, exact Euclidean volume, and complete principal-axis transition law as that edge is strengthened. The transitions occur only for two, three, or four pages, creating a nontrivial metric phase boundary not supplied by face counts, circumspheres, or the already-studied unweighted bipartite endpoint. The key width-density bias explains geometrically why uniform random interior points cannot be replaced by random coefficients.
+The fiber image x=Σs_j c_j+h d is one-to-one, with |h|<= [t+Σ(1−|s_j|)]/2 and constant Euclidean Jacobian sqrt(q+2). Integrating the fiber width yields volume 2^q(t+q/2)sqrt(q+2); conditional h variance ℓ²/12 and width-weighted second moments give exact a,b. The c Gram matrix I+J/2 diagonalizes covariance into leaf, collective and hub sectors. Independently recomputed symbolic common-denominator identity 2b−(q+2)a/2=F_q(t)/(24D), the q=2 factorization, q=3,4 positive-root sign and positivity for q>=5. The independent numerical/symbolic checks corroborate the all-q analytic sign proof.
 
-## Closest sources and limitations
-Padrol–Pilaud–Poullot, arXiv:2111.12422v2, Sections 1.3 and 2 (graphical-zonotope/deformation foundations); Chapoton–Pilaud, arXiv:2201.06896v1 (graph joins/shuffles); Grujić, arXiv:1604.06931 (face enumeration); public complete-multipartite circumsphere result and complete-bipartite Löwner ellipsoid result. Restrictions: uniform page weights, a common nonnegative spine weight, and intrinsic-volume sampling; no general all-graph covariance or independent external audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete K2,q interior covariance exists already and equals the t=0 endpoint of this theorem; the published general weighted complete-split result concerns vertex-uniform covariance, not volume-uniform. The current finding adds nontrivial interior-volume integration with continuously varying spine length and exactly three sharp page-specific crossings. Padrol–Pilaud–Poullot provides the zonotope structure but not this moment law in inspected sections.
+
+## value
+
+PASS
+
+The exact covariance spectrum of an overlapping-cycle graphical zonotope is a natural intrinsic metric invariant; identifying parameter-dependent principal inertia transitions is a motivated complete classification. The novel continuously weighted family is neither a renamed t=0 calculation nor a vertex-cloud covariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

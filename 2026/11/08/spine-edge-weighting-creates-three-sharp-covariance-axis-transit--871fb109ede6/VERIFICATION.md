@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limits
 
-Run `python3 verify.py` with standard Python 3 for exact rational tensor cubature and the crossing polynomial. It verifies 36 parameter profiles for \(q=2,\ldots,7\) and weights \(t=0,1/8,1/4,1,2,7/2\). The 299-page-count sign and polynomial checks establish finite corroboration, not an infinite theorem. If NumPy and SciPy are installed, an independent direct convex-hull integration checks eight low-dimensional cases for \(q=2,3\) and weights \(t=0,1/4,1,2\). Expected terminal markers are `EXACT_TENSOR_CUBATURE_AND_SPECTRAL_CHECKS_PASSED`, `INDEPENDENT_CONVEX_HULL_MOMENTS_PASSED`, and `BOOK_GRAPH_ZONOTOPE_CHECKS_PASSED`.
+# Independent mathematical audit
 
-The infinite statement is proved by exact injective fiber integration and the cubic coefficient sign argument in `RESULT.md`. The optional convex-hull checks use low dimensions only because triangulation of higher-dimensional nonsimplicial facets can be numerically unstable. No external or formal certification is asserted.
+## correctness
+
+PASS
+
+The fiber image x=Σs_j c_j+h d is one-to-one, with |h|<= [t+Σ(1−|s_j|)]/2 and constant Euclidean Jacobian sqrt(q+2). Integrating the fiber width yields volume 2^q(t+q/2)sqrt(q+2); conditional h variance ℓ²/12 and width-weighted second moments give exact a,b. The c Gram matrix I+J/2 diagonalizes covariance into leaf, collective and hub sectors. Independently recomputed symbolic common-denominator identity 2b−(q+2)a/2=F_q(t)/(24D), the q=2 factorization, q=3,4 positive-root sign and positivity for q>=5. The independent numerical/symbolic checks corroborate the all-q analytic sign proof.
+
+## originality
+
+PASS
+
+The complete K2,q interior covariance exists already and equals the t=0 endpoint of this theorem; the published general weighted complete-split result concerns vertex-uniform covariance, not volume-uniform. The current finding adds nontrivial interior-volume integration with continuously varying spine length and exactly three sharp page-specific crossings. Padrol–Pilaud–Poullot provides the zonotope structure but not this moment law in inspected sections.
+
+## value
+
+PASS
+
+The exact covariance spectrum of an overlapping-cycle graphical zonotope is a natural intrinsic metric invariant; identifying parameter-dependent principal inertia transitions is a motivated complete classification. The novel continuously weighted family is neither a renamed t=0 calculation nor a vertex-cloud covariance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
