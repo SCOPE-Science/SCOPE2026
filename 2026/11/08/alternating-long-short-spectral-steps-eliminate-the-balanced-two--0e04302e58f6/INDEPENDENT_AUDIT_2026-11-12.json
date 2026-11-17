@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T18:42:40.144733Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Frozen RESULT.md uses two positive SPD eigenvalues a>b>0 and delayed BB1 on odd k, BB2 on even k with an undelayed first BB1. Exact mode ratio epsilon_k=||P_a r_k||^2/||P_b r_k||^2 obeys epsilon_1=1/epsilon_0 and epsilon_(k+1)=c_k epsilon_k/epsilon_(k-1)^2, c_odd=1,c_even=(b/a)^2, verified independently by Fraction iterates for three (a,b) and nine mixed initials through seven delayed steps. Thus phi_(k+1)=phi_k-2phi_(k-1)+{0,-2log(a/b)}. The bounded forced 2-cycle p_even=-L/4,p_odd=-3L/4 is incompatible with phi1=-phi0 when L>0, so a genuine homogeneous oscillation with roots sqrt2 e^{±i theta} remains. Every four phases contain positive and negative excursions bounded below relative to (sqrt2)^k since theta∈(pi/3,pi/2), yielding two-sided exp(-C(sqrt2)^k) mode norm bounds and double-log exponent log(sqrt2). Pure eigenspace terminates in first step. Finite computation not used as proof of asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang–Yuan global R-linear upper bound is weaker than R-double-exponential two-mode result for this alternating scheme; Li–Jiang–Hong non-superlinear BB1 counterexample requires n>=4 dimensions/open sets."
+        ],
+        "reasoning": "A general R-linear guarantee is not a sharp two-eigenvalue all-start rate for a parity-mixed method. Failure of unmixed BB1 in >=4D does not cover two-mode alternating dynamics.",
+        "searches": [
+          "two spectral eigenvalues Barzilai Borwein delayed alternating long short steps double exponential convergence balanced two mode",
+          "https://arxiv.org/abs/2607.21579",
+          "https://arxiv.org/abs/2609.12100"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/alternating-long-short-spectral-steps-eliminate-the-balanced-two--0e04302e58f6",
+        "https://arxiv.org/abs/2609.12100",
+        "https://arxiv.org/abs/2607.21579",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-universal-log-periodic-gradient-envelope-for-two-mode-barzilai--80f835ec743a",
+        "https://doi.org/10.1093/imanum/8.1.141",
+        "two spectral eigenvalues Barzilai Borwein delayed alternating long short steps double exponential convergence balanced two mode"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unmixed BB1 envelope admits balanced geometric orbit; the alternating scheme's forced particular cycle violates φ1=-φ0, eliminating that exceptional trajectory."
+        ],
+        "reasoning": "The prior unmixed theorem does not imply absence of an exceptional alternating orbit; that depends on the specific new inhomogeneous recurrence and phase-excursion argument.",
+        "searches": [
+          "https://arxiv.org/abs/2609.12100",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-universal-log-periodic-gradient-envelope-for-two-mode-barzilai--80f835ec743a",
+          "two spectral eigenvalues Barzilai Borwein delayed alternating long short steps double exponential convergence balanced two mode"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yang–Yuan Theorem 3.4 is for fixed W=I, H or other fixed positive spectral weight; assigned W alternates with update parity, and initialization α0 uses current residual."
+        ],
+        "reasoning": "Fixed-weight cone conjugacy cannot directly identify the time-periodic BB1/BB2 composition, whose forced two-cycle and all-start exceptional exclusion are new assertions.",
+        "searches": [
+          "two spectral eigenvalues Barzilai Borwein delayed alternating long short steps double exponential convergence balanced two mode",
+          "https://arxiv.org/abs/2609.12100",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-universal-log-periodic-gradient-envelope-for-two-mode-barzilai--80f835ec743a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact nonlinear two-mode dynamics derives a forced linear recurrence; no finite published numerical table of BB step sizes implies the all-k limit."
+        ],
+        "reasoning": "The claimed sharp log-log exponent is an infinite dynamical classification, not a known tabulated two-point parameter calculation.",
+        "searches": [
+          "two spectral eigenvalues Barzilai Borwein delayed alternating long short steps double exponential convergence balanced two mode",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-universal-log-periodic-gradient-envelope-for-two-mode-barzilai--80f835ec743a"
+        ]
+      },
+      "rationale": "BB1/BB2 and two-eigenmode superlinear phenomena are classical; Yang–Yuan arxiv:2609.12100 proves R-linear global bounds for each FIXED BB spectral weight, not the alternating parity-dependent weight and its sharp all-initial double-log exponent. The published Resultary same-day unmixed BB1 log-periodic envelope explicitly retains an exceptional balanced geometric orbit. No prior inspected theorem supplies this exact alternating-delay escape and sharp exponent; priority remains best-of-knowledge.",
+      "residual_risks": [
+        "An unindexed study may contain the exact alternating delayed BB1/BB2 rule; priority is not formally certified.",
+        "Exact arithmetic is necessary; two eigenvalues only, no numerical precision stability or n>=3 spectrum extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_ALTERNATING_SHARP_RATE",
+          "evidence": [
+            "Equation (3.4) fixes a single W for all k; Theorem 3.4 provides uniform R-linear bounds, not sqrt2 double-log exponent."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.12100",
+          "material_read": "Abstract and full accessible arXiv rendered text, Sections 2 and 3 including equations (3.2)-(3.11), Theorem 3.4",
+          "method": "Read full arxiv abstract/text rendering, compared fixed-weight W with parity-switching W",
+          "title": "R-Linear Convergence of Barzilai–Borwein Methods on Strictly Convex Quadratics via Closed-Cone Homogeneous Dynamics",
+          "trigger": "Same delayed Rayleigh-step family and fixed BB1/BB2 convergence"
+        },
+        {
+          "assessment": "RELATED_UNMIXED_NOT_DECISIVE",
+          "evidence": [
+            "Claims universal phase profile for matched BB1 nonbalanced ratios and explicit retained balanced geometric trajectory; not mixed BB1/BB2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-universal-log-periodic-gradient-envelope-for-two-mode-barzilai--80f835ec743a",
+          "material_read": "Published Resultary title, detailed result abstract and parameter summary; not full RESULT.md",
+          "method": "Read Resultary semantic-search record",
+          "title": "A universal log-periodic gradient envelope for two-mode Barzilai–Borwein descent",
+          "trigger": "Closest Resultary same two-mode BB1 model"
+        },
+        {
+          "assessment": "CORRECT_WITH_TWO_SPECTRAL_VALUES",
+          "evidence": [
+            "All-start nonzero forced oscillation follows from α0 initialization, then √2 characteristic modulus."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/alternating-long-short-spectral-steps-eliminate-the-balanced-two--0e04302e58f6",
+          "material_read": "Complete RESULT.md with formulas and phase proof; inspected verify.py, SLOGAN and source-tree Git objects",
+          "method": "GitHub frozen blob read, independent exact-rational iteration",
+          "title": "Alternating long–short spectral steps eliminate the balanced two-mode slowdown",
+          "trigger": "Assigned exact history rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exceptional balanced orbit is a genuine dynamical obstacle to superlinear BB1 convergence on an entire class of two-eigenmode systems. A precisely specified alternate long–short history eliminates it for every mixed starting residual, with a sharp asymptotic decay rate. This is a motivated structural algorithmic result rather than renaming an existing recurrence.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/alternating-long-short-spectral-steps-eliminate-the-balanced-two--0e04302e58f6",
+    "https://arxiv.org/abs/2609.12100",
+    "https://arxiv.org/abs/2607.21579",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-universal-log-periodic-gradient-envelope-for-two-mode-barzilai--80f835ec743a",
+    "https://doi.org/10.1093/imanum/8.1.141",
+    "two spectral eigenvalues Barzilai Borwein delayed alternating long short steps double exponential convergence balanced two mode"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No higher-spectrum, finite-precision, or per-step Q-superlinear assertion."
+  ],
+  "residual_risks": [
+    "An unindexed study may contain the exact alternating delayed BB1/BB2 rule; priority is not formally certified.",
+    "Exact arithmetic is necessary; two eigenvalues only, no numerical precision stability or n>=3 spectrum extension."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING_ALTERNATING_SHARP_RATE",
+      "evidence": [
+        "Equation (3.4) fixes a single W for all k; Theorem 3.4 provides uniform R-linear bounds, not sqrt2 double-log exponent."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2609.12100",
+      "material_read": "Abstract and full accessible arXiv rendered text, Sections 2 and 3 including equations (3.2)-(3.11), Theorem 3.4",
+      "method": "Read full arxiv abstract/text rendering, compared fixed-weight W with parity-switching W",
+      "title": "R-Linear Convergence of Barzilai–Borwein Methods on Strictly Convex Quadratics via Closed-Cone Homogeneous Dynamics",
+      "trigger": "Same delayed Rayleigh-step family and fixed BB1/BB2 convergence"
+    },
+    {
+      "assessment": "RELATED_UNMIXED_NOT_DECISIVE",
+      "evidence": [
+        "Claims universal phase profile for matched BB1 nonbalanced ratios and explicit retained balanced geometric trajectory; not mixed BB1/BB2."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-universal-log-periodic-gradient-envelope-for-two-mode-barzilai--80f835ec743a",
+      "material_read": "Published Resultary title, detailed result abstract and parameter summary; not full RESULT.md",
+      "method": "Read Resultary semantic-search record",
+      "title": "A universal log-periodic gradient envelope for two-mode Barzilai–Borwein descent",
+      "trigger": "Closest Resultary same two-mode BB1 model"
+    },
+    {
+      "assessment": "CORRECT_WITH_TWO_SPECTRAL_VALUES",
+      "evidence": [
+        "All-start nonzero forced oscillation follows from α0 initialization, then √2 characteristic modulus."
+      ],
+      "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/alternating-long-short-spectral-steps-eliminate-the-balanced-two--0e04302e58f6",
+      "material_read": "Complete RESULT.md with formulas and phase proof; inspected verify.py, SLOGAN and source-tree Git objects",
+      "method": "GitHub frozen blob read, independent exact-rational iteration",
+      "title": "Alternating long–short spectral steps eliminate the balanced two-mode slowdown",
+      "trigger": "Assigned exact history rule"
+    }
+  ]
+}

@@ -1,15 +1,21 @@
-# Mathematical assessment: alternating delayed long–short steps
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact step multipliers yield the forced log-weight recurrence. Its period-two particular orbit is incompatible with the first undelayed long step when the two eigenvalues differ. Every nonzero homogeneous solution has complex characteristic roots of modulus \(\sqrt2\). A four-phase angular covering lemma forces both spectral components to suffer exponentially large cumulative log losses, establishing sharp two-sided double-exponential bounds. Exact-rational replay of the actual update rule and a separate recurrence verifier produced `VERIFY_OK 2256 exact-rational and independent recurrence checks`. This is an analytic infinite-step proof supplemented by finite tests; the result is limited to exact arithmetic and two spectral values.
+## correctness
 
-## Originality — PASS with historical-priority risk
-Barzilai–Borwein (1988) and Friedlander et al. (1999) already give individual delayed-step rules and convergence, and classical two-dimensional BB superlinearity is expressly acknowledged. Yang–Yuan (arXiv:2609.12100) gives R-linear behavior for **fixed** spectral weights; it does not cover time-alternating BB1/BB2. Li–Jiang–Hong (arXiv:2607.21579) establishes higher-dimensional open sets of failure for fixed BB1. Gu (arXiv:2610.32705) studies cyclic reuse of historical Ritz values, a different algorithm. Xu (arXiv:2611.02743, published after the source-window anchor) treats delayed residual rules one at a time and does not assert this alternating exception-elimination result. Search results and accessible full-text comparisons identified no directly covering alternating all-start two-mode theorem. Older analyses of alternating spectral steps may contain equivalent specialized formulas; expert priority review is recommended.
+PASS
 
-## Value — PASS
-The two-eigenvalue balanced orbit is a real worst-case obstruction to generic superlinear claims. The theorem supplies a minimal, low-storage alternation that provably removes that obstruction from all initializations and gives the sharp root-exponential scaling. This is a concrete method-design result for numerical quadratic optimization and a useful test case for handling historical steps; it is not a general multidimensional convergence theorem.
+Frozen RESULT.md uses two positive SPD eigenvalues a>b>0 and delayed BB1 on odd k, BB2 on even k with an undelayed first BB1. Exact mode ratio epsilon_k=||P_a r_k||^2/||P_b r_k||^2 obeys epsilon_1=1/epsilon_0 and epsilon_(k+1)=c_k epsilon_k/epsilon_(k-1)^2, c_odd=1,c_even=(b/a)^2, verified independently by Fraction iterates for three (a,b) and nine mixed initials through seven delayed steps. Thus phi_(k+1)=phi_k-2phi_(k-1)+{0,-2log(a/b)}. The bounded forced 2-cycle p_even=-L/4,p_odd=-3L/4 is incompatible with phi1=-phi0 when L>0, so a genuine homogeneous oscillation with roots sqrt2 e^{±i theta} remains. Every four phases contain positive and negative excursions bounded below relative to (sqrt2)^k since theta∈(pi/3,pi/2), yielding two-sided exp(-C(sqrt2)^k) mode norm bounds and double-log exponent log(sqrt2). Pure eigenspace terminates in first step. Finite computation not used as proof of asymptotic.
 
-## Limits and closest literature
-Historical fixed-BB and delayed methods are not novel. The exact conclusion relies on alternating parity and the initial undelayed long step. The BB literature has numerous variants, so unindexed specialized priority remains a risk. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+BB1/BB2 and two-eigenmode superlinear phenomena are classical; Yang–Yuan arxiv:2609.12100 proves R-linear global bounds for each FIXED BB spectral weight, not the alternating parity-dependent weight and its sharp all-initial double-log exponent. The published Resultary same-day unmixed BB1 log-periodic envelope explicitly retains an exceptional balanced geometric orbit. No prior inspected theorem supplies this exact alternating-delay escape and sharp exponent; priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+The exceptional balanced orbit is a genuine dynamical obstacle to superlinear BB1 convergence on an entire class of two-eigenmode systems. A precisely specified alternate long–short history eliminates it for every mixed starting residual, with a sharp asymptotic decay rate. This is a motivated structural algorithmic result rather than renaming an existing recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
