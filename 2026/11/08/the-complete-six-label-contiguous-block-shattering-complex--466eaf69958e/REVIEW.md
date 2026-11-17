@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The claimed polynomial is exact for the fully defined six-label, 56-query universe. The reproducible certificate checker exhaustively represents all 360 distinct patterns, cross-checks two independently written predicates, performs monotone full-face enumeration, certifies all facets and symmetry orbits, checks all all-positive trace witnesses for intrinsic boundary rank, and checks explicit realizers. Finite enumeration proves the finite theorem, not a larger-order result.
+## correctness
 
-**Originality (PASS within accessible comparisons).** Bhaskar's 2017 analysis concerns VC and thicket frameworks generally. Tenner's 2020 interval-poset paper studies consecutive-value intervals, and the 2023 blockwise-simple-permutation paper studies interval-poset restrictions; neither of the inspected portions supplies the arbitrary-label subset-query shattering polynomial, its nonpure facets, or its boundary-rank stratification. Searches using 'shattering', 'VC dimension', 'consecutive ones', 'interval posets' and permutation blocks did not identify a covering exact table. This is qualified by possible historical results under alternative terminology, particularly consecutive-ones and PQ-tree theory. A failed search is not proof of novelty.
+PASS
 
-**Mathematical value (PASS).** The complete natural six-label shattering complex captures structure invisible to the VC dimension alone: two incomparable maximal-face dimensions and 76 symmetry classes. The rank-four stratum of 5,040 maximum supports disproves a tempting linear-independence requirement and supplies concrete benchmark data for interval-representation and combinatorial-learning questions. The scope is a meaningful complete finite cutoff, not an arbitrary subcollection of queries.
+For each of 720 permutations, the 56 Boolean queries (unlabeled subsets of sizes 2..5) produce exactly 360 distinct response masks, paired by reversal. Both sliding-window and position-span definitions match. Hereditary exact bitset splitting enumerates all supports and gives [1,56,1540,17640,54810,20160,0], facets4=25830, facets5=20160. Complete all-positive-order mod-2 elimination gives rank4=5040, rank5=15120, independent of chosen positive order, with orbit sizes 47 and 29. Separately reconstructed integer enumeration and orbit checks corroborated these exact finite outcomes, not sampling.
 
-**Closest literature and limitations.** Bhaskar (2017), arXiv:1702.03956; Tenner (2020), arXiv:2007.06142; Bagno et al. (2023), arXiv:2303.13115. The theorem is finite only. Historical priority beyond accessible inspected sources is a residual risk. No independent expert audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: the directly relevant interval-poset literature studies intervals of consecutive VALUES, not querying every arbitrary unordered subset of labels for consecutiveness. No inspected primary source supplies the 56-query six-label shattering polynomial, nonpure 25,830/20,160 facet strata or 5,040 mod-2 boundary-rank obstruction. Exact normal-form enumeration is fully scoped to n=6.
+
+## value
+
+PASS
+
+PASS: the natural set system of permutation consecutive blocks has a complete nonpure finite shattering complex, with all maximal supports and a surprising rank-deficient extremal family. The six-point cutoff is mathematically motivated by simultaneous all-subset block constraints; exact classification and boundary-rank counterexample are usable independently of any all-n theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

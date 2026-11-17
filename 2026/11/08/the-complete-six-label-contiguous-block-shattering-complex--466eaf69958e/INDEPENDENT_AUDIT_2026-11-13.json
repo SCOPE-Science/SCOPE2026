@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T07:20:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each of 720 permutations, the 56 Boolean queries (unlabeled subsets of sizes 2..5) produce exactly 360 distinct response masks, paired by reversal. Both sliding-window and position-span definitions match. Hereditary exact bitset splitting enumerates all supports and gives [1,56,1540,17640,54810,20160,0], facets4=25830, facets5=20160. Complete all-positive-order mod-2 elimination gives rank4=5040, rank5=15120, independent of chosen positive order, with orbit sizes 47 and 29. Separately reconstructed integer enumeration and orbit checks corroborated these exact finite outcomes, not sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tenner Theorems 4.8/5.1 discuss interval-poset structure; Bagno et al Theorem 4.4 counts interval-poset features in blockwise-simple permutations; Bhaskar gives general thicket/VC formalism."
+        ],
+        "reasoning": "No source reviewed implies the exact 56-query shattering counts or all-positive mod-two rank distribution. General VC definitions are not an enumeration theorem.",
+        "searches": [
+          "https://arxiv.org/pdf/2007.06142",
+          "https://arxiv.org/pdf/2303.13115",
+          "https://arxiv.org/abs/1702.03956"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2007.06142",
+        "https://arxiv.org/pdf/2303.13115",
+        "https://arxiv.org/abs/1702.03956",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/the-complete-six-label-contiguous-block-shattering-complex--466eaf69958e/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Our separate exact bitset checker reproduced the full polynomial and 76 relabeling orbits, including rank4 5040; earlier interval-poset theorems have different input predicates."
+        ],
+        "reasoning": "Results from the prior interval-poset problem do not determine arbitrary-subset block shattering. No stronger covering implication found in inspected sections.",
+        "searches": [
+          "https://arxiv.org/pdf/2007.06142",
+          "https://arxiv.org/pdf/2303.13115",
+          "https://arxiv.org/abs/1702.03956"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tenner definition of interval poset uses consecutive values mapped to a consecutive block; here each of 56 queries is any subset B of size 2..5."
+        ],
+        "reasoning": "The ground-set/query family differs, despite overlapping terminology. Neither paper establishes a VC-shattering complex of arbitrary labeled block tests.",
+        "searches": [
+          "Resultary: contiguous blocks consecutive subsets of permutations shattering VC dimension six labels",
+          "https://arxiv.org/pdf/2007.06142",
+          "https://arxiv.org/pdf/2303.13115"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Candidate enumerates all 360 possible response masks and all shattered supports by an exact hereditary recursion; source tables concern different interval invariants."
+        ],
+        "reasoning": "No equivalent published six-label table located. This failed search is not proof of novelty; older consecutive-ones datasets are a residual risk.",
+        "searches": [
+          "Resultary: contiguous blocks consecutive subsets of permutations shattering VC dimension six labels",
+          "https://arxiv.org/pdf/2007.06142",
+          "https://arxiv.org/pdf/2303.13115"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: the directly relevant interval-poset literature studies intervals of consecutive VALUES, not querying every arbitrary unordered subset of labels for consecutiveness. No inspected primary source supplies the 56-query six-label shattering polynomial, nonpure 25,830/20,160 facet strata or 5,040 mod-2 boundary-rank obstruction. Exact normal-form enumeration is fully scoped to n=6.",
+      "residual_risks": [
+        "Older consecutive-ones/permutation block databases may contain equivalent six-label facet counts under different terminology, not established from inspected material.",
+        "The result does not imply any all-n VC dimension; bounded finite classification only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_FOR_DIFFERENT_QUERY",
+          "evidence": [
+            "Consecutive-value intervals differ from arbitrary labeled subsets."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.06142",
+          "material_read": "Full accessible 14-page PDF: definition 1.1, Theorems 4.8/5.1 and section 6",
+          "method": "Web PDF text and page screenshot inspected",
+          "title": "Interval posets for permutations",
+          "trigger": "Potentially identical term interval"
+        },
+        {
+          "assessment": "NOT_COVERING_FOR_DIFFERENT_INVARIANT",
+          "evidence": [
+            "Does not tabulate all Boolean block-query traces or shattered facets."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2303.13115",
+          "material_read": "Full accessible 17-page PDF, Definition 4.1, Theorem 4.4 and supporting discussion",
+          "method": "Web PDF text and screenshot inspected",
+          "title": "Blockwise simple permutations",
+          "trigger": "Permutation-block and interval-poset coverage"
+        },
+        {
+          "assessment": "FRAMEWORK_ONLY",
+          "evidence": [
+            "No inference of six-label exact table from abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1702.03956",
+          "material_read": "Abstract/overview only",
+          "method": "Abstract and semantic index, not full paper",
+          "title": "Thicket Density",
+          "trigger": "Broad generalized VC framework"
+        },
+        {
+          "assessment": "SUPPORTED",
+          "evidence": [
+            "Hereditary trace recursion is logically exhaustive for all supports."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/the-complete-six-label-contiguous-block-shattering-complex--466eaf69958e/RESULT.md",
+          "material_read": "Full proof and interval6_verify.py, tree SHA and certificate paths",
+          "method": "Read entire RESULT.md and checker; independent exact enumeration",
+          "title": "The complete six-label contiguous-block shattering complex",
+          "trigger": "Assigned exact finite proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: the natural set system of permutation consecutive blocks has a complete nonpure finite shattering complex, with all maximal supports and a surprising rank-deficient extremal family. The six-point cutoff is mathematically motivated by simultaneous all-subset block constraints; exact classification and boundary-rank counterexample are usable independently of any all-n theory.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite exhaustive proof is valid only for exactly six labeled elements; numerical tabulation is justified by complete search space, not a general combinatorial recurrence."
+  ],
+  "schema_version": 1
+}
