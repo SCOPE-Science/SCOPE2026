@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T03:59:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/periodic-near-saturation-without-attainment-for-fixed-gap-diviso--db31f8efe5ad/RESULT.md",
+        "https://arxiv.org/abs/2610.31832",
+        "frozen verify.py blob 1fcfa9b4421717fc6ef9a27b7ad36cc318c99bb1"
+      ],
+      "rationale": "For fixed M, writing tau(n)=sum_{uv=n}1 and partitioning u modulo M gives each residue mass W_M(a)=M^(-2) sum_{u mod M} gcd(u,M)1_{gcd(u,M)|a}, positive and summing to 1. Squarefree primorial CRT gives local weights (p-1)/p² and (2p-1)/p². Remove the lower-weight endpoint of every circular forbidden edge 1<=d<=h to obtain an h-separated periodic independent set. Hellinger affinity factors H_p for p∤d; H_p=1-(3-2sqrt 2)/p+O(p^-2), so Mertens gives missing weight O_h((log Y)^-(3-2sqrt 2)). Every nontrivial periodic spacing pattern omits a positive-mass residue, proving no attainment. Independently verified exact CRT weights and circular independence for moduli 6,30,210; prime-product proof is analytic and not inferred from tests.",
+      "residual_risks": [
+        "h fixed, period chosen prior to X→∞; no uniformity when period grows with X.",
+        "Convergence rate relies on Mertens prime-reciprocal theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chatterjee main theorem proves asymptotic unrestricted maximum for spacing y in polylogarithmic range, not fixed-modulus periodization."
+        ],
+        "reasoning": "The stronger ambient optimization S(X,h)~XlogX does not imply existence of a fixed periodic witness whose limit coefficient approaches 1, let alone the rate or nonattainment.",
+        "searches": [
+          "Periodic separated divisor-weight sums primorial arithmetic residue independent sets near saturation",
+          "divisor spacing periodic pattern positive density arithmetic weights fixed modulus",
+          "https://arxiv.org/abs/2610.31832"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/periodic-near-saturation-without-attainment-for-fixed-gap-diviso--db31f8efe5ad/RESULT.md",
+        "https://arxiv.org/abs/2610.31832",
+        "Periodic separated divisor-weight sums primorial arithmetic residue independent sets near saturation",
+        "divisor spacing periodic pattern positive density arithmetic weights fixed modulus"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The proposed proof supplies the new low-weight endpoint deletion and Hellinger-product argument that bridges the quantifiers."
+        ],
+        "reasoning": "Chatterjee’s X-dependent optimal configurations cannot be replaced by a fixed periodic A without a new construction; no logical implication of fixed-pattern existence from unrestricted asymptotics.",
+        "searches": [
+          "Periodic separated divisor-weight sums primorial arithmetic residue independent sets near saturation",
+          "divisor spacing periodic pattern positive density arithmetic weights fixed modulus",
+          "https://arxiv.org/abs/2610.31832"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "W_M(a) CRT weights use arithmetic-progression divisor average; prior unrestricted S(X,y) concerns arbitrary A⊂[1,X] changing with X."
+        ],
+        "reasoning": "Weighted residue-graph independent sets can be represented as periodic separated sets, but Chatterjee’s X-adaptive greedy selections are not equivalent to a single fixed arithmetic period uniformly for all X.",
+        "searches": [
+          "Periodic separated divisor-weight sums primorial arithmetic residue independent sets near saturation",
+          "divisor spacing periodic pattern positive density arithmetic weights fixed modulus",
+          "https://arxiv.org/abs/2610.31832"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent CRT and vertex-cover checks on M=6,30,210; local H_p prime product analytically tends to 0."
+        ],
+        "reasoning": "Finite tables for primorial M≤210 verify coefficients and construction but do not give arbitrarily large fixed-period near-saturation or prime-product decay.",
+        "searches": [
+          "Periodic separated divisor-weight sums primorial arithmetic residue independent sets near saturation",
+          "divisor spacing periodic pattern positive density arithmetic weights fixed modulus",
+          "https://arxiv.org/abs/2610.31832"
+        ]
+      },
+      "rationale": "Chatterjee establishes the unrestricted maximum divisor-sum asymptotic for suitable separations but does not show that one fixed X-independent periodic pattern captures arbitrarily nearly all XlogX coefficient; the submission constructs it with an explicit primorial Hellinger convergence rate and strict nonattainment. No previously inspected source or Resultary comparison proves this structural refinement.",
+      "residual_risks": [
+        "An older number-theoretic periodic extremal set construction not indexed by semantic searches could precede this result.",
+        "Asymptotic O_h constant and fixed-h quantifiers should not be extrapolated to h growing with X."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_PERIODIC_REFINEMENT",
+          "evidence": "Proves unrestricted asymptotic for families depending on X; no construction of one repeating arithmetic residue pattern with quantifier order lim_X first, then Y.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.31832",
+          "material_read": "Full accessible primary arXiv HTML including main extremal result and sections describing construction; searched for periodic fixed-modulus residues",
+          "method": "Read parsed primary arXiv full-text sections and inspected search results",
+          "title": "Divisor Sums with Spacing Constraints",
+          "trigger": "Directly relevant unrestricted divisor-sum spacing theorem"
+        },
+        {
+          "assessment": "CLAIM_ASSESSED",
+          "evidence": "Explicit h-fixed independent set with O_h((log Y)^-c) deficiency and strict nonattainment.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/periodic-near-saturation-without-attainment-for-fixed-gap-diviso--db31f8efe5ad/RESULT.md",
+          "material_read": "Full frozen RESULT.md and local arithmetic verification file",
+          "method": "Read complete frozen source and independently rebuilt CRT/cover finite cases",
+          "title": "Periodic near-saturation without attainment for fixed-gap divisor sums",
+          "trigger": "Assigned proof and precise order of limits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/periodic-near-saturation-without-attainment-for-fixed-gap-diviso--db31f8efe5ad/RESULT.md",
+        "https://arxiv.org/abs/2610.31832"
+      ],
+      "rationale": "A prescribed arithmetic-periodic set repeated at every scale is a meaningful structural strengthening of an adaptive unrestricted extremum. It supplies an explicit quantitative approximation rate, a constructive modular packing method and a nonattainment theorem; these are not automatic consequences of classical divisor summatory asymptotics.",
+      "residual_risks": [
+        "The result does not sharpen the already known unrestricted S(X,h) bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed h, fixed M before X→∞, and no uniform growing-period bound.",
+    "Arithmetic affinity rate does not require the finite verified residues to extrapolate."
+  ],
+  "schema_version": 1
+}
