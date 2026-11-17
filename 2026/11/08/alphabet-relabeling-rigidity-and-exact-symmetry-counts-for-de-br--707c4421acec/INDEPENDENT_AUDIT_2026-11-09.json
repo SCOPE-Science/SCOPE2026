@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T23:11:47.316162Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For an ordinary de Bruijn cyclic word of length q^n, all n-blocks occur exactly once; the word has full primitive period. If sigma(S) is a rotation, its rotation has the order of sigma and must act freely on block positions. Considering constant blocks a^n forces every cycle of sigma to have that same length d>=2. Under this free action the de Bruijn digraph quotient is a voltage graph with q^n/d labeled edge orbits. For n>=3 each source representative has q outgoing edges with one common phase offset, so the total voltage is 0 mod d and a lifted quotient Euler tour cannot be one de Bruijn cycle. For n=2 the total voltage V=m^2*d(d-1)/2 (mod d), generating the phase group iff d=2 and m=q/2 is odd. The directed BEST theorem and matrix-tree cofactor of 2mI-2J yield T_m((2m-1)!)^m with T_m=2^{m-1}m^{m-2} (T_1=1). For n=1, orbit phase indexing and division by q rotations yields phi(d)d^{m-1}(m-1)!. Explicit counting of anchored quotient Euler tours independently yields 1,72,20736000 for m=1,2,3; only m odd lift to de Bruijn cycles. This treats nonidentity alphabet permutations, including uneven and fixed-point cycles, and n=1 boundary. Existence/count is analytical, not inferred from enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Etzion 2025/2026 counts general self-dual sequences and constructs single-track Gray codes; Burris–Motta–Shipman treats unoriented reversals; Kari–Xu pseudo de Bruijn uses anti-morphisms."
+        ],
+        "reasoning": "Broader sequence families and different symmetries do not supply the exact ordinary de Bruijn count for every sigma without an additional proof; none inspected dominates.",
+        "searches": [
+          "https://arxiv.org/pdf/2512.09655",
+          "https://arxiv.org/abs/1608.08480",
+          "https://research.google/pubs/de-bruijn-sequences-revisited/"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2512.09655",
+        "https://arxiv.org/abs/1608.08480",
+        "https://research.google/pubs/de-bruijn-sequences-revisited/",
+        "https://etzion.net.technion.ac.il/publications/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General self-dual period counts do not impose exactly-once coverage of each n-block, and reversal/anti-morphic operations are not symbolwise sigma."
+        ],
+        "reasoning": "The submitted if-and-only-if n=2, d=2, m odd and exact BEST enumerator need extra quotient-voltage and spanning-tree reasoning beyond compared earlier results.",
+        "searches": [
+          "https://arxiv.org/pdf/2512.09655",
+          "https://arxiv.org/abs/1608.08480",
+          "https://research.google/pubs/de-bruijn-sequences-revisited/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A fixed de Bruijn necklace under symbolwise sigma is a special self-dual sequence for additive cyclic sigma but not all self-dual sequences are de Bruijn; the full paper gives enumeration of the larger class, not fixed de Bruijn cycles."
+        ],
+        "reasoning": "Tested alias complement/self-dual, additive alphabet invariance, graph-quotient Euler tour and cycle relabeling; ordinary full de Bruijn coverage changes the enumeration and order cutoff.",
+        "searches": [
+          "Resultary: de Bruijn cycle alphabet relabeling rotation symmetry self-dual involution q=2mod4 fixed cycles",
+          "https://arxiv.org/pdf/2512.09655"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary same-date record matches the submitted claim itself; other de Bruijn catalog entries address coverage variants, BWT and reflection; Etzion counts SDS but not order-two full de Bruijn enumeration."
+        ],
+        "reasoning": "No independent earlier full table of N_sigma(q,n) for all alphabet permutations located. The older Etzion 1987 full text remains uninspected.",
+        "searches": [
+          "Resultary: de Bruijn cycle alphabet relabeling rotation symmetry self-dual involution q=2mod4 fixed cycles",
+          "Etzion 1987 Self-dual sequences JCTA fixed order two de Bruijn",
+          "https://arxiv.org/pdf/2512.09655"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Etzion 2025/2026 full six-page primary text defines general binary and nonbinary self-dual cyclic sequences under complement/addition and studies feedback shift registers and single-track Gray codes. It is a broader *class of sequences*, not a stronger theorem counting ordinary complete de Bruijn cycles fixed by arbitrary symbol permutations; full text does not provide the all-permutation voltage-based q^n enumeration. The known binary complement case is explicitly not new; Burris–Motta–Shipman 2016 and Kari–Xu study reversal or antimorphic pseudo/unoriented variants, which do not imply symbolwise relabeling preservation of all n-blocks. No equivalent complete all-q all-n count found in semantic searches. Inaccessible Etzion 1987 article and 2024 monograph are genuine residual priority risks, not automatic novelty failures.",
+      "residual_risks": [
+        "Older Etzion 1987 self-dual primary article and 2024 monograph were not available in full; they might contain a stronger de Bruijn fixed-cycle corollary or exact count.",
+        "The binary complement case is known; novelty rests on uniform all-permutation order cutoff and all-q exact enumeration, not on that special case.",
+        "Full Burris–Motta–Shipman or Kari–Xu texts not re-read this run; their stated anti-morphism setting differs but an implicit special-case result remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classifies more general self-dual sequences and constructs single-track Gray codes, without exact fixed ordinary de Bruijn enumeration",
+          "evidence": [
+            "https://arxiv.org/pdf/2512.09655"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.09655",
+          "material_read": "Complete six-page arXiv v3 (June 29, 2026) text, Sections I–VI including nonbinary sequences, theorems, references and visual pages 1,4",
+          "method": "Primary PDF full-text reading and screenshots",
+          "title": "Binary and Non-Binary Self-Dual Sequences and Maximum Period Single-Track Gray Codes",
+          "trigger": "Most plausible recent broader self-dual sequence theorem, possibly dominating de Bruijn symmetry"
+        },
+        {
+          "assessment": "Reversal-unoriented operation, not alphabet-symbol permutation; complete noncoverage not inferred from an abstract",
+          "evidence": [
+            "https://arxiv.org/abs/1608.08480"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1608.08480",
+          "material_read": "Original abstract and background; full paper not read in this run",
+          "method": "Primary arXiv bibliographic/abstract search",
+          "title": "An Unoriented Variation on de Bruijn Sequences",
+          "trigger": "Related complete universal-cycle variants"
+        },
+        {
+          "assessment": "UNINSPECTED plausible antecedent: could affect binary or nonbinary subcases and priority; explicitly residual",
+          "evidence": [
+            "https://doi.org/10.1016/0097-3165(87)90035-5"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0097-3165(87)90035-5",
+          "material_read": "Historical bibliography in complete 2025 source and external citation. Authorized institutional retrieval of the 1987 full text returned vpn_disconnected; original 1987 contents not read",
+          "method": "Open-access/preprint search followed by institutionally authorized retrieval, blocked by disconnected VPN; no authentication bypass",
+          "title": "Self-dual sequences, JCTA 44 (1987), 288–298",
+          "trigger": "Older closest title for binary complement-de Bruijn relationship"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete feasibility classification and exact labeled-alphabet count for symmetry-constrained universal cycles is a natural exact combinatorial invariant, not an arbitrary small census. The quotient-voltage obstruction explains why ordinary complete cycles cannot have any nontrivial alphabet symmetry at order >=3 and pinpoints the exceptional q=2 mod 4 order-two case; BEST converts that structural classification into exact counts.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2512.09655",
+    "https://arxiv.org/abs/1608.08480",
+    "https://research.google/pubs/de-bruijn-sequences-revisited/",
+    "https://etzion.net.technion.ac.il/publications/"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only ordinary complete de Bruijn cycles, rotations rather than permutation-orbit quotienting; reversal, reverse complement, pseudo or partial cycles are excluded."
+  ],
+  "residual_risks": [
+    "Older Etzion 1987 self-dual primary article and 2024 monograph were not available in full; they might contain a stronger de Bruijn fixed-cycle corollary or exact count.",
+    "The binary complement case is known; novelty rests on uniform all-permutation order cutoff and all-q exact enumeration, not on that special case.",
+    "Full Burris–Motta–Shipman or Kari–Xu texts not re-read this run; their stated anti-morphism setting differs but an implicit special-case result remains possible."
+  ],
+  "schema_version": 1
+}
