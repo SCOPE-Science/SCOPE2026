@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The Dirichlet Green kernel is explicit, continuous, zero at endpoints, and has unit derivative jump; distributional measure representation gives each cell error. Its sup equals 0.5*tan(h/2); direct integration yields cos(t-h/2)/cos(h/2)-1 with maximum sec(h/2)-1. The pi-periodic curvature measure gives each antipodal paired open interval equal variation and at most M/2, producing the global 0.25*tan(h*/2) factor. The rank-one seminorm |<v,x>| has exactly two interior curvature atoms of weight 2, M=4, so both ratios attain the claimed constants. Sum of half-circle gaps pi and strict monotonicity prove minimax uniqueness. A 372-case finite checker passed; no infinite result is inferred from tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "M. Unser, J. Fageot and J. P. Ward, Splines are Universal Solutions of Linear Inverse Problems with Generalized-TV Regularization, arXiv:1603.01427, abstract and Theorem 1 discussion.",
+        "P. E. Koch, Collocation by L-Splines at Transformed Gaussian Points, SIAM J. Numer. Anal. 21 (1984), 1107-1114; abstract describes leading collocation error, not interval error TV constant.",
+        "published-finding corpus 2026/10/11/SCOPE-clipped-curvature-minimax-sampling-for-hausdorff-and-area-approx--7dfc7d4760ff: planar convex curve Hausdorff/area minimax sampling, uses different curvature objective",
+        "published-finding corpus 2026/10/11/SCOPE-sharp-positive-n-direction-cauchy-quadrature-and-angular-rigidit--33b1062b46ae: Cauchy perimeter quadrature, uses different invariant and error functional"
+      ],
+      "reasoning": "Nonuniform L-splines and sampling optimization are broad subjects, but the 2016 paper proves existence of sparse generalized-TV minimizers rather than the operator norm of the sample interpolant. The inspected 2026 article provides uniform-grid bounds. The 1984 collocation paper is only abstract-accessible and could theoretically contain a related error-constant special case; no decisive stronger implication was established.",
+      "searches": [
+        "optimal angular knot placement for planar quasi-seminorm approximation by conic splines, irregular grid, minimax 41A15",
+        "conic spline sharp planar Hessian total variation sampling interpolation norm sup L1 curvature measure unequal angles Green 2026 Unser",
+        "best constants L1 trigonometric spline interpolation second derivative plus identity total variation nonuniform",
+        "quasi-norms conic splines interpolant nonuniform sharp global L1 Hessian variation constants"
+      ]
+    },
+    "checked_sources": [
+      "M. Unser, Quasi-norms on R^d: Characterization and Approximation by Conic Splines, arXiv:2611.06212v1, Proposition 5.2, equations (79)-(80), proof with Dirichlet Green kernel; first public 2026-11-04.",
+      "M. Unser, J. Fageot and J. P. Ward, Splines are Universal Solutions of Linear Inverse Problems with Generalized-TV Regularization, arXiv:1603.01427, abstract and Theorem 1 discussion.",
+      "I. J. Schoenberg, On trigonometric spline interpolation, J. Math. Mech. 13 (1964), 795-825; bibliography located in Koch (1984), not full-text inspected.",
+      "P. E. Koch, Collocation by L-Splines at Transformed Gaussian Points, SIAM J. Numer. Anal. 21 (1984), 1107-1114; abstract describes leading collocation error, not interval error TV constant.",
+      "D. Dryanov, P. Petrov, Interpolation and L1-approximation by trigonometric polynomials and blending functions, J. Approx. Theory, doi:10.1016/j.jat.2012.05.009; abstract only.",
+      "published-finding corpus 2026/10/11/SCOPE-sharp-positive-n-direction-cauchy-quadrature-and-angular-rigidit--33b1062b46ae (Cauchy perimeter quadrature)",
+      "published-finding corpus 2026/10/11/SCOPE-clipped-curvature-minimax-sampling-for-hausdorff-and-area-approx--7dfc7d4760ff (Hausdorff/area sampling)",
+      "published-finding corpus 2026/10/4/SCOPE-sharp-monotone-range-defect-of-uniform-four-point-cubic-lagrange--1fad48a6c445 (cubic Lagrange error)",
+      "published-finding corpus 2026/10/11/SCOPE-a-logarithmic-boundary-layer-in-sharp-discrete-dirichlet-interpo--489778b0342d (discrete half-line Green interpolation)",
+      "published-finding corpus 2026/10/11/SCOPE-a-sharp-periodic-green-bound-lowers-the-singular-multiplicity-wi--c7ff87cc352f (periodic forcing Green correction)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "M. Unser, Quasi-norms on R^d: Characterization and Approximation by Conic Splines, arXiv:2611.06212v1, Proposition 5.2, equations (79)-(80), proof with Dirichlet Green kernel; first public 2026-11-04.",
+        "M. Unser, J. Fageot and J. P. Ward, Splines are Universal Solutions of Linear Inverse Problems with Generalized-TV Regularization, arXiv:1603.01427, abstract and Theorem 1 discussion.",
+        "I. J. Schoenberg, On trigonometric spline interpolation, J. Math. Mech. 13 (1964), 795-825; bibliography located in Koch (1984), not full-text inspected.",
+        "P. E. Koch, Collocation by L-Splines at Transformed Gaussian Points, SIAM J. Numer. Anal. 21 (1984), 1107-1114; abstract describes leading collocation error, not interval error TV constant.",
+        "D. Dryanov, P. Petrov, Interpolation and L1-approximation by trigonometric polynomials and blending functions, J. Approx. Theory, doi:10.1016/j.jat.2012.05.009; abstract only."
+      ],
+      "reasoning": "Proposition 5.2 furnishes the local pointwise Green inequality (a key premise, credited) but not the sharp global signed-measure L1 bound, arbitrary antipodal fans, simultaneous extremizer or minimax uniqueness. Its L1 coefficient 0.5*h*tan(h/2) is strictly larger for 0<h<pi than sec(h/2)-1. The 2016 result addresses gTV inverse-problem minimizers, not nodal error norms. The 1984 and 1964 titles are plausible classical sources but inaccessible in complete form, so no whole-document NOT_COVERING conclusion is asserted. The narrower new theorem is not a restatement of their confirmed accessible results.",
+      "searches": [
+        "sharp L1 and Linfty error constants for trigonometric conic spline interpolation of homogeneous quasi-norms planar on arbitrary symmetric nonuniform fans; total Hessian variation, Green kernel extremizers absolute linear function",
+        "Michael Unser Quasi-norms Characterization and Approximation by Conic Splines 2026 sharp L1 interpolation constants",
+        "conic spline sharp planar Hessian total variation sampling interpolation norm sup L1 curvature measure unequal angles Green 2026 Unser",
+        "2026 Michael Unser quasi-norm conic splines Proposition 5.2 optimal constants equality seminorm",
+        "Schoenberg 1964 On trigonometric spline interpolation full text pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "M. Unser, Quasi-norms on R^d: Characterization and Approximation by Conic Splines, arXiv:2611.06212v1, Proposition 5.2, equations (79)-(80), proof with Dirichlet Green kernel; first public 2026-11-04.",
+        "published-finding corpus comparison with 2026/10/11/SCOPE-a-logarithmic-boundary-layer-in-sharp-discrete-dirichlet-interpo--489778b0342d (sharp discrete Dirichlet point evaluations; not continuous D^2+1 interpolation)",
+        "Classical Peano/Green operator-norm interpretation derived from the explicit kernel, not claimed independently novel."
+      ],
+      "reasoning": "The theorem is equivalently the exact curvature-measure-to-uniform and curvature-measure-to-L1 errors of a centrally symmetric piecewise trigonometric nodal interpolation projector, followed by best fan design. The source has the Green representation but only a nonsharp integrated coefficient. No equivalent full-circle nonuniform norm formula or exact minimax characterization was located in the searched material; classical generalities could contain local identities and remain a priority risk.",
+      "searches": [
+        "sharp L1 and Linfty error constants for trigonometric conic spline interpolation of homogeneous quasi-norms planar on arbitrary symmetric nonuniform fans; total Hessian variation, Green kernel extremizers absolute linear function",
+        "sharp Peano kernel measure to L1 bound for Dirichlet differential D^2+1 trigonometric spline interpolation, sec(h/2)-1",
+        "\\sec(h/2)-1 sharp L1 trigonometric hat spline Green function interval curvature measure",
+        "trigonometric spline interpolation Green function optimal L1 error total variation nonuniform secant constant"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published-finding corpus searches returned entries 2026/10/4/SCOPE-sharp-monotone-range-defect-of-uniform-four-point-cubic-lagrange--1fad48a6c445 (cubic Lagrange monotone-range defect) and 2026/10/11/SCOPE-a-logarithmic-boundary-layer-in-sharp-discrete-dirichlet-interpo--489778b0342d (discrete half-line Green constants), but no table for planar conic interpolation with curvature-measure normalization.",
+        "No exact-data table needed: each numerical coefficient is an analytic elementary function of the largest angular gap."
+      ],
+      "reasoning": "The values are not a specialized numerical lookup: the exact constants are universal parametric formulas, attained by a one-direction seminorm on every fan. Existing indexed interpolation tables concern different polynomial/reconstruction operators, so their entries do not imply these formulas.",
+      "searches": [
+        "sharp Peano kernel measure to L1 bound for Dirichlet differential D^2+1 trigonometric spline interpolation, sec(h/2)-1",
+        "\\sec(h/2)-1 sharp L1 trigonometric hat spline Green function interval curvature measure",
+        "2026 Michael Unser quasi-norm conic splines Proposition 5.2 optimal constants equality seminorm",
+        "trigonometric spline interpolation Green function optimal L1 error total variation nonuniform secant constant"
+      ]
+    },
+    "rationale": "The closest original full text, Unser 2026 Proposition 5.2, proves the uniform-grid curvature-variation bounds and uses the same Green kernel, but its full-circle L1 estimate is the larger 0.5*h*tan(h/2); it does not give the exact L1 coefficient sec(h/2)-1, the global symmetric normalized Linfty constant 0.25*tan(h*/2) on arbitrary nonuniform antipodal fans, simultaneous rank-one-seminorm equality, or the unique minimax fan. The earlier generalized-TV representer theorem solves a different inverse problem. Actual semantic database searches and accessible historical claims found no implication covering this full claim. Older general spline literature leaves an explicit priority risk; those abstract-only works are not labeled decisively noncovering.",
+    "residual_risks": [
+      "Exact interval Green operator norms may already be implicit or explicit in classical trigonometric, Chebyshevian or L-spline texts; historical full texts of Schoenberg (1964) and Koch (1984) were not reviewed.",
+      "There is a possibility that a general theorem about worst-case interpolation of periodic functions under second-order variation constraints implies the formulas, even without mentioning conic splines.",
+      "The authors of the 2026 motivating paper might subsequently publish refined constants; earliest public source date and comparison refer to the specified v1."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Strongest nearby prior: uniform-grid upper bounds and exact local pointwise kernel; sharpened integrated norm and arbitrary nonuniform minimax not stated in inspected theorem/proof.",
+        "evidence": "Proposition 5.2 uses h=pi/N<=pi/2, displays L1 bound 0.5*h*tan(h/2)*HTV and Green bound 0.5*tan(h/2); source explicitly gives kernel but no sec(h/2)-1 formula.",
+        "identifier_or_url": "https://arxiv.org/abs/2611.06212",
+        "material_read": "Full HTML text, including definitions of CH class, Section 5.1 planar profiles and Section 5.2 Proposition 5.2 equations (79)-(80) and proof.",
+        "method": "Author full text in web-rendered HTML, not an abstract-only evaluation.",
+        "title": "Quasi-norms on R^d: Characterization and Approximation by Conic Splines",
+        "trigger": "Direct motivating 2026 source with same sample interpolant, curvature measure and planar Green kernel."
+      },
+      {
+        "assessment": "The paper establishes inverse-problem representer solutions with bounded number of knots; the actual objective is regularized reconstruction, not deterministic nodal error worst-case constants.",
+        "evidence": "Theorem 1 described in Introduction as extrema of generalized-TV constrained recovery being nonuniform splines with fewer knots than measurements.",
+        "identifier_or_url": "https://arxiv.org/abs/1603.01427",
+        "material_read": "Accessible full parsed article, including title, abstract, Introduction and Theorem 1 discussion of sparse gTV interpolation representers.",
+        "method": "Read author full article HTML and compared the variational object against fixed-knot worst-case interpolation norms.",
+        "title": "Splines are Universal Solutions of Linear Inverse Problems with Generalized-TV Regularization",
+        "trigger": "Potential broader nonuniform generalized-TV spline theorem which might subsume mesh constants."
+      },
+      {
+        "assessment": "Related L-splines but paper states leading error for collocation of boundary-value problems; cannot rule out a general Green norm identity from the unseen body.",
+        "evidence": "SIAM Journal on Numerical Analysis 21 (1984), 1107-1114, abstract states transformed Gaussian-point collocation and trigonometric spline application.",
+        "identifier_or_url": "https://doi.org/10.1137/0721068",
+        "material_read": "Publisher abstract, bibliographic data and source reference list only; full text access not established.",
+        "method": "Publisher abstract and bibliography; no whole-document conclusion.",
+        "title": "Collocation by L-Splines at Transformed Gaussian Points",
+        "trigger": "Classical L-spline collocation with trigonometric examples may supply a dominating interpolation theorem."
+      },
+      {
+        "assessment": "Substantial unresolved general historical priority risk for local interpolation constants; no claim to exclude the work.",
+        "evidence": "Cited as reference 6 by Koch, *Collocation by L-Splines at Transformed Gaussian Points* (1984).",
+        "identifier_or_url": "I. J. Schoenberg, Journal of Mathematics and Mechanics 13 (1964), 795-825",
+        "material_read": "Bibliographic information in the Koch (1984) reference list and open index references; full paper not obtained.",
+        "method": "Citation-index and bibliography check, not full-text inspection.",
+        "title": "On trigonometric spline interpolation",
+        "trigger": "Plausible historical precursor under almost matching interpolation title."
+      },
+      {
+        "assessment": "Described operator is trigonometric polynomial Hermite-Lagrange interpolation, not fixed piecewise D^2+1 conic interpolation; remains limited-inspection priority risk.",
+        "evidence": "Journal of Approximation Theory (2012), abstract describes odd-order differential operators D times products of D^2+k^2 and Hermite-Lagrange transfinite blending.",
+        "identifier_or_url": "https://doi.org/10.1016/j.jat.2012.05.009",
+        "material_read": "Publisher search-result abstract describing Hermite-Lagrange trigonometric polynomials and multivariate blending; full article inaccessible.",
+        "method": "Abstract-only conceptual comparison.",
+        "title": "Interpolation and L1-approximation by trigonometric polynomials and blending functions",
+        "trigger": "Possible trigonometric L1 interpolation error formula under a different operator name."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c5a57483-8a8a-4c87-ada4-4df22d8b4403",
+  "value": {
+    "rationale": "A natural recent quasi-norm/conic-spline approximation question calls for exact cost of a finite number of sampling rays under Hessian/curvature variation. The result computes both sharp whole-circle errors for EVERY nonuniform centrally symmetric fan, gives a single geometric seminorm saturating both, and determines the unique minimax angular placement. On uniform grids the L1 constant is asymptotically half the published coefficient, which is meaningful for quantitative regularizer discretization. These are natural complete operator constants, not an artificial numerical slice; higher-dimensional analogues remain open.",
+    "status": "PASS"
+  }
+}
