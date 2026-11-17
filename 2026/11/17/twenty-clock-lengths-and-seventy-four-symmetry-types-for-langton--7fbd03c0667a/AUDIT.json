@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "The update has an explicit two-sided inverse. Exhaustive Python enumerates every one of the 196608 states, checks inverse and symmetry commutation, and obtains the full temporal and geometric cycle census. An independent C++17 implementation verifies bijectivity by indegree one, reconstructs all primitive periods, and computes symmetry-class counts via Burnside fixed-cycle sums. Both outputs agree on every one of 20 table rows, the 2480 cycles, 74 symmetry types, and all boundary conditions. The assertions are finite exhaustive statements and make no larger-grid inference.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Tsukiji and Hagiwara (2011): PSPACE-hard recognition of repeatable configurations of generalized ants on infinite grids, with time-reversibility in its preliminaries.",
+        "Hagiwara and Tsukiji (2020): macroscopic approximation hardness for ants on a twisted torus, not an enumeration of cycles on the ordinary 3-by-4 torus.",
+        "The torus discussion establishes general period-divisibility bounds and conservation laws without an all-state exact census for the 3-by-4 geometry."
+      ],
+      "reasoning": "General reversibility proves that every finite-torus state is periodic but does not determine least periods, their populations or spatial symmetry orbit counts. Complexity results do not imply the small-state exact table. Known parity lower bounds permit all listed lengths but cannot force their precise numbers.",
+      "searches": [
+        "Langton ant finite torus periodic trajectories complete classification paper cycle lengths",
+        "Langton ant torus parity invariant all configurations",
+        "doi:10.3390/a13120344",
+        "doi:10.3390/a4010001"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.3390/a4010001",
+      "https://doi.org/10.3390/a13120344",
+      "https://math.stackexchange.com/questions/3296855/what-is-the-period-of-langtons-ant-on-a-torus",
+      "https://oeis.org/A386970",
+      "https://oeis.org/A309251"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior time-reversibility proves only the no-transient portion of the new theorem.",
+        "Prior geometric symmetry descriptions provide the group action but not fixed temporal-cycle counts under its members.",
+        "The cited uniform-board period 72 is reproduced, while the new table also has nineteen other periods and 74 geometric classes."
+      ],
+      "reasoning": "The stronger total-graph enumeration requires all 196608 initial states and a 48-element action on the resulting 2480 cycles. None of the prior implications fixes the required Burnside sums, hence their theorems do not subsume the present finite classification.",
+      "searches": [
+        "Langton's ant exact symmetry-resolved recurrent cycles finite rectangular tori",
+        "Langton's ant period 312 on 3-by-4 torus",
+        "https://math.stackexchange.com/questions/3296855/what-is-the-period-of-langtons-ant-on-a-torus",
+        "doi:10.3390/a4010001",
+        "doi:10.3390/a13120344"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2019 discussion gives turn-flip-move dynamics and the two 3-by-4 uniform-board heading-dependent periods 72 and 56, not the full state-space cycle spectrum or 74 symmetry classes.",
+        "Tsukiji–Hagiwara (2011) uses an arrival/turn convention, equivalent after state phase change, but investigates infinite-lattice generalized-ant repeatability rather than the 3-by-4 toroidal functional graph."
+      ],
+      "reasoning": "Conjugating between turn-then-move and move-then-turn conventions preserves orbit lengths, so the compared object is the actual dynamical map rather than a trivial naming difference. None of the inspected sources gives the per-cycle list or geometric equivalence classes. Smaller square and two-row torus classifications concern different underlying state sets and cannot imply the claimed counts.",
+      "searches": [
+        "Langton's ant on rectangular tori cycle decomposition periods reversal symmetries",
+        "Langton's ant on three by four toroidal grid complete periodic orbit classification",
+        "\"Langton's ant\" \"3x4\" \"cycles\" orbits",
+        "https://math.stackexchange.com/questions/3296855/what-is-the-period-of-langtons-ant-on-a-torus"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A386970 explicitly tabulates return times from a uniform board with one fixed heading on n-by-3 tori; its n=4 entry is 72 for the designated heading along the three-site axis.",
+        "The 2019 Mathematics Stack Exchange table has a 3-row/4-column entry of 72 (and 4-row/3-column entry 56) for its particular initially uniform configuration.",
+        "No full 20-period/74-type table was identified in the searched resources; negative search alone is not used as proof of novelty."
+      ],
+      "reasoning": "A single-state period 72 gives only one cycle membership, and even all-white periods for all sizes cannot determine the 564 period-72 cycles or the 18 symmetry types at that period. The exact 3-by-4 all-state table is an additional mathematical question.",
+      "searches": [
+        "https://oeis.org/A386970",
+        "https://oeis.org/A309251",
+        "\"Langton's ant\" \"2480\" torus",
+        "\"Langton's ant\" \"74\" \"3x4\" torus",
+        "\"Langton's ant\" \"3x4\" \"cycles\" orbits"
+      ]
+    },
+    "rationale": "The exact 20-period primitive-cycle population, 48-element geometric quotient and 74 symmetry classes for all 196608 states of the 3-by-4 ordinary torus are not implied by the checked prior statements. The most relevant prior explicit entry is the periods 72 and 56 of a uniform board under different initial heading axes; general reversibility and line-parity bounds only constrain possible cycles. Primary material on the infinite lattice and twisted tori addresses different domains. Unindexed enumeration remains a residual historical risk.",
+    "residual_risks": [
+      "Unindexed or unpublished small-grid exhaustive enumerations may contain the same table; search absence does not certify historical priority.",
+      "The comparison uses the accessible material described in source_inspections and does not assert that every publication ever written was examined."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes general reversibility and PSPACE results on infinite lattices with generalized rules; no full ordinary 3-by-4 torus census in the inspected stated results",
+        "evidence": [
+          "Published 2011-01-28, Algorithms 4(1), pages 1–15; its Section 1.2 states the time reversibility of the generalized ant."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/a4010001",
+        "material_read": "Open-access HTML abstract, sections 1.1–1.4, statements of Theorems 1–3 and discussion of time-reversibility and rule conventions",
+        "method": "Read primary article HTML and compared mathematical domains and statements",
+        "title": "Recognizing the Repeatable Configurations of Time-Reversible Generalized Langton’s Ant Is PSPACE-Hard",
+        "trigger": "Earliest verified public archival ant source and possible recurrence coverage"
+      },
+      {
+        "assessment": "White-board 3-by-4 period 72, symmetry and parity bounds already reported; does not report all 2480 cycles or 74 group orbits",
+        "evidence": [
+          "Connor Harris 2019 rectangular grid table, 3 rows and 4 columns: 72.",
+          "Derek Ledbetter 2019 answer: general parity lower bounds and row/column conserved charges."
+        ],
+        "identifier_or_url": "https://math.stackexchange.com/questions/3296855/what-is-the-period-of-langtons-ant-on-a-torus",
+        "material_read": "Complete question, rectangular period table, all three answer bodies, edits and comments concerning symmetry and conservation laws",
+        "method": "Read full accessible discussion and checked its 3-by-4 entry against the enumerated period 72",
+        "title": "What is the period of Langton’s ant on a torus?",
+        "trigger": "Directly matching torus domain, small size and symmetry/period bounds"
+      },
+      {
+        "assessment": "Proves computational approximation hardness for twisted-torus encodings; contains no stated exact orbit classification for the 3-by-4 ordinary torus",
+        "evidence": [
+          "Published 2020-12-16, Algorithms 13(12), article 344; its abstract and introduction specify twisted-torus macroscopic approximation hardness."
+        ],
+        "identifier_or_url": "https://doi.org/10.3390/a13120344",
+        "material_read": "Open-access HTML abstract, introduction, main problem statement and sections concerning gates and lattice embedding",
+        "method": "Read primary article HTML and compared twisted versus ordinary torus and objectives",
+        "title": "Hardness of Approximation for Langton’s Ant on a Twisted Torus",
+        "trigger": "The most directly torus-named primary paper"
+      },
+      {
+        "assessment": "Contains return periods from one uniform initial board, not an all-state temporal-cycle or symmetry-quotient classification",
+        "evidence": [
+          "Carlos Moya Garcia sequence submitted 2025-08-11; the n=4 value is 72."
+        ],
+        "identifier_or_url": "https://oeis.org/A386970",
+        "material_read": "Sequence definition, terms, program annotation, first publication attribution and linked background",
+        "method": "Read sequence page and verified initial-state convention and n=4 value",
+        "title": "OEIS A386970: Period of Langton’s ant on an n X 3 torus",
+        "trigger": "An exact small-torus numerical table could subsume the period data"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7fbd03c0-667a-4dbb-ab18-4531c670e125",
+  "value": {
+    "rationale": "The 3-by-4 torus is the smallest unequal-sided periodic square lattice with at least three sites in each direction; loss of quarter-turn symmetry motivates its geometric classification. The exact 2480-cycle census and its 74 geometric types address a natural complete finite dynamical invariant not determined by previously reported uniform-board periods or generic parity bounds. Period 72 alone contains 18 inequivalent geometric types while the maximum period 312 contains exactly two, proving that temporal period does not classify the orbit geometry in this first rectangular case. No unproved all-size significance is asserted.",
+    "status": "PASS"
+  }
+}
