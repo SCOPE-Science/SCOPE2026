@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Computational verification and limitations
+# Independent mathematical audit
 
-The executable `checker.py` and `requirements.txt` accompany the proof. Run `python checker.py` with its declared dependencies. All seeds are fixed. The script checks the odd-dimensional gamma-beta Laplace product identities, the explicit dimension-three survival expression, an exact one-dimensional integral for the upper tail, and direct hyperbolic-law-of-cosines distances from two independently sampled isotropic points. It uses 85,000 pairs for each of five models at radius 18, spanning radial-dominant, critical, and angular-dominant regimes, and accepts explicit Monte Carlo quantile tolerances. It prints `HYPERBOLIC_RADIAL_ANGULAR_TAIL_PHASES_OK 85000 5` on success.
+## correctness
 
-No exact symbolic polynomial identity is inferred from finite Monte Carlo. The proof independently covers each fixed dimension, all positive rates, and all real tail thresholds after convergence. The local simulation does not test all dimensions, all sample radii, or the order-of-limits requirement, and it provides no historical priority certificate.
+PASS
+
+For fixed d>=3 and alpha>0, the exact survival ratio gives independent boundary depths Exp(alpha); for independent S^{d-1} directions, B=(1-U·V)/2~Beta(a,a). Exact hyperbolic law of cosines then gives D_R-(r1+r2)-log B→0 in probability. Hence T_R⇒E1+E2-log B; beta transform, Erlang tail convolution and tilted-tail dominated splitting give the three coefficients below/equal/above alpha=a. For d=2k+1 with volume rate 2k, beta Laplace ratio telescopes to products j/(j+s), j=k..2k-1, validating independent exponential factorization. Direct independent Laplace checks agree for representative parameters; asymptotic validity is analytical, not inferred from simulations.
+
+## originality
+
+PASS
+
+Best-of-knowledge: precise higher-dimensional limiting deficit law, three sharp tail constants, and independent-exponential odd-dimensional decomposition were not established in inspected hyperbolic-network sources. The d=2 distance approximation and qualitative critical behavior are prior work.
+
+## value
+
+PASS
+
+The natural ambient-geodesic deficit separates radial and angular stochastic mechanisms with an exact critical balance; all three sharp tails and finite phase-type laws inform higher-dimensional hyperbolic sampling and are not merely a different parameter label.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

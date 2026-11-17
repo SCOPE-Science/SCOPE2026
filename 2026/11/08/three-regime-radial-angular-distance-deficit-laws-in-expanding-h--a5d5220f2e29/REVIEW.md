@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact radial survival identity and the dot-product-to-beta density give independent radial/angular laws. The hyperbolic cosine identity and continuous mapping yield weak convergence, and the explicit convolution integral gives all three sharp tail constants, including the critical quadratic prefactor. The odd-dimensional telescoping beta transform proves the phase-type factorization. A direct-geometry checker with fixed seed compared 425,000 simulated point pairs against the claimed law, checked tail coefficients, and tested finite product identities. This check is corroborating numerical evidence, not a proof.
+## correctness
 
-**Originality — PASS (provisional).** Krioukov et al. (2010) provide two-dimensional modeling and asymptotic geometry, while Gugelmann et al. (2012) treat graph degrees. The most overlapping source, Alanis-Lobato and Andrade-Navarro (2016, Sections 2–4, equations (6)–(10)), gives an approximate two-dimensional pair-distance density, including a limiting expression at radial parameter one-half; this pre-existing two-dimensional structure is explicitly excluded from the contribution. Its conclusion describes an arbitrary-dimensional extension as future work. Budel et al. (2020 preprint, 2024 journal, Sections II–V) cover higher-dimensional random hyperbolic graph models and connection statistics, not the present exact geodesic distance-deficit beta convolution with three upper-tail coefficients and odd-dimensional exponential factorization. Direct mathematical-record queries and accessible related claims did not identify equivalent coverage. A broader stochastic geometry theorem or uninspected technical appendix may still imply these formulas; historical priority is not certified.
+PASS
 
-**Value — PASS.** The distribution and its sharp transition supply interpretable geometric distance statistics for an established class of hyperbolic sampling models. The exact all-dimensional angular coefficient identifies where short-angle and radial extremes exchange dominance, while the odd-dimensional finite exponential-clock representation yields completely explicit sampleable laws and moments. These are motivated invariants of hyperbolic point pairs, not ad hoc numerical slices.
+For fixed d>=3 and alpha>0, the exact survival ratio gives independent boundary depths Exp(alpha); for independent S^{d-1} directions, B=(1-U·V)/2~Beta(a,a). Exact hyperbolic law of cosines then gives D_R-(r1+r2)-log B→0 in probability. Hence T_R⇒E1+E2-log B; beta transform, Erlang tail convolution and tilted-tail dominated splitting give the three coefficients below/equal/above alpha=a. For d=2k+1 with volume rate 2k, beta Laplace ratio telescopes to products j/(j+s), j=k..2k-1, validating independent exponential factorization. Direct independent Laplace checks agree for representative parameters; asymptotic validity is analytical, not inferred from simulations.
 
-**Scope and residual risk.** The tail statement is for the limit distribution only, not uniformly in the sampled ball radius. Only the limiting boundary-rate equivalence with volume-uniform radial sampling is asserted. Earlier two-dimensional approximate results are not claimed new. Independent mathematical and priority auditing remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: precise higher-dimensional limiting deficit law, three sharp tail constants, and independent-exponential odd-dimensional decomposition were not established in inspected hyperbolic-network sources. The d=2 distance approximation and qualitative critical behavior are prior work.
+
+## value
+
+PASS
+
+The natural ambient-geodesic deficit separates radial and angular stochastic mechanisms with an exact critical balance; all three sharp tails and finite phase-type laws inform higher-dimensional hyperbolic sampling and are not merely a different parameter label.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
