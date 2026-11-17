@@ -1,9 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The first-coordinate bound forces every integer state into a forward-invariant half-plane, and an exhaustive integer case analysis sends every nonfixed state to the same representative point. The fixed state is shown to have no other preimage. Four exact, distinct-state orbit certificates establish all primitive periods, including a parameter-independent argument beyond the last threshold. The quadratic transient is calculated symbolically. The separate standard-library program independently exercised 210378 finite checks; exhaustive finite checks are supporting evidence, not the infinite proof.
+## correctness
 
-**Originality — PASS under the inspected evidence.** The source of the recurrence, arXiv:2607.15627v1, contains an unbalanced example and structural qualitative observations but not a complete balanced integer-state basin theorem or the period plateau. Primary texts arXiv:2107.09300 and arXiv:2402.06230 concern a different first-component/second-component max-plus recurrence and do not imply these periods or absorption statements. Related records about other maps and the accessible preexisting result collection were compared at the level of transition laws and mathematical consequences. Residual risk: the full text of a 2007 related ultradiscretisation paper was inaccessible; a specialized earlier theorem might imply this result.
+PASS
 
-**Mathematical value — PASS.** The balanced family is the natural equality line of two parameters in the newly studied predator–prey model, and the integer lattice is its fundamental cellular-automaton state setting. A global all-initial-state period classification for an infinite state lattice is not a finite orbit example. The sharp four-phase period plateau and exact quadratic hitting-time family show both dynamical rigidity and slow transients. The result is deliberately limited to integer states, with no claim of Euclidean stability or rational-state classification.
+For all integer x,y, x’<=1; in the invariant x<=1 half-plane the exhaustive cases x<=-1/y>0, x<=-1/y<=0, x=0, x=1 force descent then finite entry at (1,2), except (0,1). Direct preimage case analysis proves the fixed state has no other predecessor. Four explicit certificates for c=1,2,3,4+ give distinct full cycles and exact closure; c>=4 universality follows because every listed first coordinate >=-4 so max(0,c+x)-c=x along the orbit. Independently reconstructed all four complete cycle sequences and checked every transition and distinctness at c=1,2,3,4,5,9,100, periods 18,19,22,24; independently checked exact first-hit N²+2N+2 for N=2..20. Finite checks supplement exhaustive all-Z² branch reasoning and symbolic parameter argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge: Willox 2026 defines this ultradiscrete predator–prey family and describes unbalanced periodic examples, but no verified broader statement provides the all-integer balanced family global basin and four exact period values. Ohmori–Yamazaki max-plus equations are different (second coordinate resets rather than carries old y), so published period tables do not directly cover this recurrence. The inaccessible 2007 paper and unindexed related results remain explicit priority risks, not automatic failure.
+
+## value
+
+PASS
+
+The balanced equality line of the published ultradiscrete predator–prey family is mathematically natural, and a global finite-time attracting-cycle classification for all Z² is a nontrivial infinite-state result. The exact transition periods and c>=4 plateau, together with quadratic unbounded transient times, distinguish attractor rigidity from slow capture in a way useful for future analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
