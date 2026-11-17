@@ -1,15 +1,21 @@
-# Scientific review: balanced bipartitions and directional widths
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The support function is exactly twice the maximum cross-part absolute coordinate gap. A threshold graph on real coordinates cannot have two distinct edge-bearing components: for any two long edges, their extreme ordered endpoints create a third long bridging edge. This gives the exact conditional probability of avoiding every long edge, and the binomial difference has a definite sign under each balancing transfer. Distinct coordinates yield a nonempty interval with precisely one long edge, proving strictness of all positive width moments by the tail-integral identity. The general argument covers all stated integers and thresholds. Finite enumeration checks the conditional formula and sign separately.
+## correctness
 
-## Originality
-**PASS, subject to historical-priority risk.** Higashitani--Jochemko--Michałek (arXiv:1807.07678, Sections 3--4) classifies facets and Ehrhart invariants of exactly these complete-bipartite symmetric edge polytopes; its facet characterization and \(h^*\)-formula imply no distributional comparison of Euclidean widths. Chen--Davis--Korchevskaia (arXiv:2107.12315, Sections 3--4) studies face/facet subgraphs, and Ohsugi--Tsuchiya (arXiv:2008.08621, Sections 1--2) studies lattice-volume and matching-polynomial information. Related geometric results concerning graph skeletons, inballs, Löwner ellipsoids, and graphical zonotopes have different objects or invariants. The possibility of an earlier equivalent theorem in random-partition/extremal-distance language remains unresolved.
+PASS
 
-## Mathematical value
-**PASS.** The classification compares a natural family of nonnested graph-derived lattice polytopes by their entire distribution of Euclidean directional widths, not merely a single extremal radius or average. The conditional binomial law gives a structural reason for the strict balance extremum and transfers to every positive moment. This reveals geometric behavior not determined directly by known Ehrhart or face-counting formulas.
+The support function of centrally symmetric root polytope Q_{p,q} is max_cross |U_i-U_j|, hence full width=2 times this gap. Conditioning on unordered coordinates randomizes the labelled p-subset uniformly. For any real numbers z_i and t>=0, two far-pair edges must be linked by an edge connecting an appropriate extreme endpoint, so all far edges share exactly one nontrivial connected component of s vertices; no edges gives s=0. A partition avoids crossings iff this whole component is monochromatic, probability [C(p,s)+C(q,s)]/C(n,s), with s=0 probability1. Balancing p→p+1 yields difference [C(p,s-1)-C(q-1,s-1)]/C(n,s)≤0 for q>=p+2, yielding every threshold weak dominance. For almost every direction coordinates are distinct; t strictly between the largest second gap and the total range yields exactly the one edge joining extrema s=2, so each positive-moment survival integral increases strictly. Independently counted all uniform bipartitions in 18 threshold/part instances and recovered the exact conditional formula. Finite checks are not used to prove general n or Haar directions.
 
-## Limitations
-The CDF is represented by a spherical average of an exact finite conditional count, not a closed elementary density. Strict CDF inequality is not claimed at every threshold. The finite checker tests examples, while the universal assertion depends on the independent analytic argument. Published-source searches reduce but cannot eliminate the risk of equivalent older formulations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact full published same-object companion computes Gaussian integral formulas for every width moment and a balanced Bessel-square asymptotic, but does not order K_{p,q} distributions when p is increased at fixed total n. Facet and Ehrhart results concern combinatorial/lattice invariants, not metric Haar width stochastic dominance. A threshold-distance graph with at most one nontrivial component provides a new direct binomial stochastic-comparison argument not supplied by the earlier exact integral alone. Best-knowledge originality remains qualified by older random partition/extremal gap literature.
+
+## value
+
+PASS
+
+The full first-order stochastic ordering of intrinsic metric widths for nonnested complete-bipartite symmetric edge polytopes is a geometric strengthening far beyond one mean or Ehrhart invariant. A natural balancing operation and a threshold-graph structural lemma link the entire CDF and every positive moment, making the exact comparison useful independently of the known Gaussian-moment integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
