@@ -1,19 +1,21 @@
-# Mathematical assessment: logarithmic-multiplicity uniform subset coverage
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof fixes the domain \(p_N=d_N/N\to p\in(0,1)\), \(m_N=\lceil\alpha\log N\rceil\) with \(\alpha>0\), and independently sampled uniform \(d_N\)-subsets in successive integer rounds. The large-deviation rate equation has one solution beyond \(\alpha/p_N\); the derivative of the entropy exponent is \(-\log r_N\), giving both the local survival ratio and the \(-\frac12\log\log N\) displacement. Exact hypergeometric pattern probabilities show multiplicative joint survival approximation, stronger than an additive total-variation estimate at \(N^{-h}\) rarity. Negative pairwise covariance of deficient indicators controls the early tail; the binomial conditional boundary mass controls the late tail. These facts justify the Poisson law and additive \(o(1)\) first-two-moment errors. `verify.py` passed 3,326 finite exact/numerical assertions. No numerical experiment is treated as a proof of the limit.
+PASS
 
-## Originality — PASS, subject to historical priority risk
+For p_N=d_N/N→p∈(0,1), m_N=ceil(α log N) with fixed α>0, the binomial lower tail at t≈β_N log N has a geometric endpoint factor and saddle prefactor (log N)^(-1/2). The unique β_N>α/p_N solves β_N D(α/β_N||p_N)=1 and the time-shift exponent is s_N=-log((1-p_N)β_N/(β_N-α))>0, giving b_N=β_N log N-(log log N)/(2s_N)+O(1). Uniform fixed-h coupon inclusion-pattern likelihood ratios are 1+O_h(log N/N) over O(log N) rounds, enough at probability N^-h for Poisson deficient-count factorial moments. Negative covariance of two below-quota indicators and geometric tail ratios control both time tails, yielding uniform discrete-Gumbel CDF and o(1) expectation/variance via uniform integrability. Boundary p in (0,1) and fixed α are required. Exact finite pattern and binomial identities checked; no finite test establishes the infinite limit.
 
-The closest sources have different assumptions or conclusions. Castro–Marinho (2026) treats one coupon per round and a growing multiplicity; the terminal window grows and has a continuous Gumbel law. Berend–Sher (2026) treats proportional-size subsets but one occurrence per type. Schilling–Henze (2021) treats fixed coverage multiplicity, while Betken–Thäle (2023) controls the zero-occupancy statistic. Their statements do not directly imply the nontrivial growing-multiplicity entropy saddle, the phase-dependent lattice ratio, and the half-log-log correction together. The pre-existing fixed-multiplicity phase law likewise does not cover \(m_N\) diverging. Searches for aliases, group allocation, binomial maxima, quota and multiple-coverage regimes did not identify a stronger directly covering result. Shioda's quota framework and older general occupancy/extreme-value literature are residual priority risks; absence of a retrieved theorem is not evidence of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-Logarithmic collection multiplicity is the natural scale where a single type is deficient with exponentially small probability at a logarithmic number of rounds. This regime requires a binary-entropy rate instead of the fixed-quota geometric tail. The second-order \(-\frac12\log\log N\) correction is larger than the constant-width final fluctuation; omitting it miscenters the distribution. The phase-dependent discrete law and its moment formulas quantify the number of batches necessary to achieve multiple repeated observations of each item, relevant to repeated pooled sampling and batch coverage. The result is a natural scaling regime, not a small fixed-parameter computation.
+Best of knowledge: available dense coupon-batch works establish lattice laws for fixed multiplicity or coverage of zero-count coupons, not quotas growing as ceil(α log N); single-draw growing-multiplicity works operate on a continuous rather than integer-width terminal window. The relative-entropy saddle and negative half-log-log centering are not implied by the fixed-quota formulas. Older occupancy/extremes literature is a live residual priority risk.
 
-## Scientific limitations
+## value
 
-Only the logarithmic multiplicity regime and fixed interior batch fraction are proved. The periodic lattice phase need not settle to a fixed value; claims therefore retain the moving \(\theta_N\). The complete 2021 Schilling–Henze article and Shioda's older quota paper were not available in full text for decisive comparison, although their accessible abstracts indicate distinct hypotheses. A more general unlocated theorem could subsume the result. The analysis has not received independent mathematical review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The required quota m_N≈αlog N is the natural boundary where binomial large deviations of one coupon drive extreme completion in a constant integer-round window. The -0.5 log log N correction exceeds the scale of the final fluctuation: omitting it yields an incorrect completion probability. The phase-dependent lattice law and additive o(1) moment formulas quantify repeated positive-fraction batch sampling, a motivated problem not answered by fixed-quota collection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

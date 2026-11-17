@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T20:45:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p_N=d_N/N→p∈(0,1), m_N=ceil(α log N) with fixed α>0, the binomial lower tail at t≈β_N log N has a geometric endpoint factor and saddle prefactor (log N)^(-1/2). The unique β_N>α/p_N solves β_N D(α/β_N||p_N)=1 and the time-shift exponent is s_N=-log((1-p_N)β_N/(β_N-α))>0, giving b_N=β_N log N-(log log N)/(2s_N)+O(1). Uniform fixed-h coupon inclusion-pattern likelihood ratios are 1+O_h(log N/N) over O(log N) rounds, enough at probability N^-h for Poisson deficient-count factorial moments. Negative covariance of two below-quota indicators and geometric tail ratios control both time tails, yielding uniform discrete-Gumbel CDF and o(1) expectation/variance via uniform integrability. Boundary p in (0,1) and fixed α are required. Exact finite pattern and binomial identities checked; no finite test establishes the infinite limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Castro–Marinho model samples one coupon per round (batch fraction→0), whereas here p_N→p>0; their time window is continuous after rescaling.",
+          "Berend–Sher macroscopic group drawing handles one-copy completion, m=1, not logarithmic multiplicity."
+        ],
+        "reasoning": "Neither prior regime dominates the simultaneous dense-batch and growing-quota large deviation saddle, even though standard Poisson defect techniques overlap.",
+        "searches": [
+          "Castro Marinho 2026 many coupon collections one per draw",
+          "https://arxiv.org/abs/2610.33199",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-lattice-multicoverage-laws-for-macroscopic-uniform-coupon-batche--4d7aa030800c/RESULT.md",
+          "https://arxiv.org/html/2605.06953v1"
+        ]
+      },
+      "checked_sources": [
+        "Source RESULT.md and verify.py in frozen Git tree",
+        "Resultary fixed-c macroscopic batch theorem read in full",
+        "Berend–Sher arXiv:2605.06953 dense coupon group theorem",
+        "Schilling–Henze 2021 fixed c group drawing",
+        "Castro–Marinho arXiv:2610.33199 growing quota one coupon",
+        "Related Resultary zero-coupon dense-batch concentration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed c has terminal ratio 1-p and (c-1)log log N coefficient, while αlog N has terminal ratio r=(1-p)β/(β-α) depending on α and p, and a negative half-log-log coefficient.",
+          "The joint-label history comparison must hold multiplicatively at rare probability N^-h, which the submitted argument derives."
+        ],
+        "reasoning": "There is no direct prior implication by parameter substitution from either fixed quota or one-at-a-time growing quota; both differ in a structural asymptotic scaling.",
+        "searches": [
+          "Compare macroscopic fixed quota vs logarithmic growing quota",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-lattice-multicoverage-laws-for-macroscopic-uniform-coupon-batche--4d7aa030800c/RESULT.md",
+          "https://arxiv.org/abs/2610.33199",
+          "https://arxiv.org/html/2605.06953v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier fixed-c result uses one-type binomial tail ~q^t t^(c-1), whereas current m_N~α log N needs binomial large deviations exp(-tD).",
+          "At fixed c, centering b_N=[log N+(c-1)log log N]/(-log(1-p))+O(1); growing m gives β(α,p)log N-(log log N)/(2s)+O(1)."
+        ],
+        "reasoning": "The fixed quota c is not an alias for a quota growing with N; their ratio and center have different limiting parameters and cannot be obtained by fixing c then sending N→∞.",
+        "searches": [
+          "Resultary: positive-fraction uniform group coupon sampling fixed batch size logarithmic multiplicity all types at least alpha log N lattice discrete Gumbel",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-lattice-multicoverage-laws-for-macroscopic-uniform-coupon-batche--4d7aa030800c/RESULT.md",
+          "https://arxiv.org/html/2605.06953v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior published table/law exactly gives fixed-c lattice CDF, means and variance; no indexed exact table for m=ceil(α log N) or beta relative entropy saddle was found.",
+          "Schilling–Henze 2021 fixed quota c; not an exact growing quota database."
+        ],
+        "reasoning": "The natural comparison is exact limit law, not tabulated finite-N counts; existing fixed-c formulas do not yield the claimed negative half-log-log correction.",
+        "searches": [
+          "Resultary fixed multiplicity lattice multicoverage",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-lattice-multicoverage-laws-for-macroscopic-uniform-coupon-batche--4d7aa030800c/RESULT.md",
+          "https://doi.org/10.1017/jpr.2021.15"
+        ]
+      },
+      "rationale": "Best of knowledge: available dense coupon-batch works establish lattice laws for fixed multiplicity or coverage of zero-count coupons, not quotas growing as ceil(α log N); single-draw growing-multiplicity works operate on a continuous rather than integer-width terminal window. The relative-entropy saddle and negative half-log-log centering are not implied by the fixed-quota formulas. Older occupancy/extremes literature is a live residual priority risk.",
+      "residual_risks": [
+        "Older general dependent binomial-maximum and group-allocation literature might contain an equivalent growing-quota theorem in a different parameterization.",
+        "Some 2026 growing-quota preprints were inspected at abstract level only, so whole-document exclusion is not claimed.",
+        "No error rate for uniform lattice convergence is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING: c is fixed independently of N, hence excludes m_N=ceil(α log N)",
+          "evidence": "Finding assumptions and Theorem b_N expression; Section single-type scale and joint rare-defect lemma",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-lattice-multicoverage-laws-for-macroscopic-uniform-coupon-batche--4d7aa030800c/RESULT.md",
+          "material_read": "Entire published RESULT.md: exact fixed-quota theorem, proof via binomial tail, tagged-coupon factorial moments, covariance tail bounds, mean/variance series",
+          "method": "Fetched full GitHub paper and compared every limiting quantifier",
+          "title": "Lattice multicoverage laws for macroscopic uniform coupon batches",
+          "trigger": "Same positive-fraction batch sampling and lattice terminal law"
+        },
+        {
+          "assessment": "NOT COVERING: considers one hit per type, not logarithmically many",
+          "evidence": "Definitions of group drawing and order-one phase correction for one-copy completion",
+          "identifier_or_url": "https://arxiv.org/html/2605.06953v1",
+          "material_read": "Accessible full HTML theorem statements and relevant proof for one-copy dense group draws",
+          "method": "Lawful open preprint browser review",
+          "title": "Asymptotic Results for Uniform Group Drawing in the Coupon Collector’s Problem",
+          "trigger": "Most relevant dense-group coupon primary work"
+        },
+        {
+          "assessment": "NOT COVERING under its stated fixed-threshold assumptions",
+          "evidence": "Fixed number of required copies and group size hypotheses",
+          "identifier_or_url": "https://doi.org/10.1017/jpr.2021.15",
+          "material_read": "Accessible source text/sections relating to fixed c; PDF visual inspection not confirmed",
+          "method": "Read accessible publisher/preprint parsed text",
+          "title": "Two Poisson limit theorems for the coupon collector’s problem with group drawings",
+          "trigger": "Classical group-coupon multicoverage"
+        },
+        {
+          "assessment": "Potential priority comparator but stated model samples one coupon per draw",
+          "evidence": "One-sampled-coupon regime and continuous Gumbel scale",
+          "identifier_or_url": "https://arxiv.org/abs/2610.33199",
+          "material_read": "Accessible abstract and scope; complete paper not confirmed read",
+          "method": "ArXiv bibliographic/abstract review",
+          "title": "Cutoff profile for the coupon collector with many collections",
+          "trigger": "Growing quota but one-at-a-time comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The required quota m_N≈αlog N is the natural boundary where binomial large deviations of one coupon drive extreme completion in a constant integer-round window. The -0.5 log log N correction exceeds the scale of the final fluctuation: omitting it yields an incorrect completion probability. The phase-dependent lattice law and additive o(1) moment formulas quantify repeated positive-fraction batch sampling, a motivated problem not answered by fixed-quota collection.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Quota exactly ceil(α log N) and p_N→interior p; other batch/retention models excluded.",
+    "No asserted fixed full-sequence lattice phase θ_N; moving θ_N retained.",
+    "Historical priority subject to inaccessible or differently phrased general group-allocation limit literature."
+  ],
+  "schema_version": 1
+}
