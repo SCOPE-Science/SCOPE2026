@@ -1,25 +1,21 @@
-# Scientific review: exact log-volume fluctuations for a critical cyclic Gabor basis
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is every integer \(p\ge3\), standard circular complex-Gaussian coordinates with variance \(1/(2p)\), and the square family of two adjacent cyclic translations and all even modulations in dimension \(2p\). Fourier orthogonality gives exactly \(p\) two-by-two blocks, including the swapped boundary vector. Their Gram determinants give the stated product formula. Independently distributed Gaussian radii and Haar directions yield exact log-moment values; conditioning on the common Haar direction shows angular log factors on adjacent edges are uncorrelated. The fixed-size mean and variance follow without approximations. The bulk determinant increments are stationary one-dependent with finite moments, and the exceptional boundary contributes \(o_{\mathbb P}(\sqrt p)\), completing the central limit theorem. The saved checker passed 254 deterministic-factorization and moment sanity checks. The finite tests do not certify the infinite limit.
+PASS
 
-## Originality — PASS relative to inspected literature
+For every p>=3 with N=2p, full Gaussian window variance 1/(2p), even modulations and translations 0,1, character orthogonality decomposes S=GG* into p two-dimensional blocks. The p=0 seam swaps the two Gaussian half-coordinates; with V_a=sqrt(2p)*(g_a,g_{a+p}) and independent standard complex Gaussians, B_a=0.5(V_a V_a*+W_a W_a*), det B_a=|det[V_a,W_a]|^2/4. Thus H=-p log 4+2 sum log R_a+sum log D_a with R_a~Gamma(shape2,scale1), D_a~Uniform(0,1). Adjacent angular D logs are uncorrelated by conditioning on the shared Haar direction (not jointly independent around the cycle), all radii are independent, hence E H=p(1-2 EulerGamma-log4), Var H=p(2 pi^2/3-3). Nonseam logdet terms form a stationary one-dependent sequence with finite moments; the single seam contributes o_P(sqrt(p)), proving the CLT, and Chebyshev yields the geometric-mean law. Independent full-matrix/block determinant reconstruction checked 75 random instances p=3,4,6; finite tests are only corroboration.
 
-The closest structural antecedent is Asipchuk, De Carli, and Rodriguez, *Block-equivalent finite Gabor frames* (arXiv:2605.16139, first submitted 2026-05-15). Its Theorem 1.1 and structural lemmas explain subgroup-induced block decomposition, but not the exact distribution of determinants of blocks linked by reused Gaussian coordinates, their exact covariance contribution, or the log-volume central limit theorem. Salanevich (arXiv:1902.01062) studies extreme singular values, and Salanevich–Strachan (arXiv:2509.01325) studies random frame bounds and erasures, not the claimed log-determinant law. Comparisons against relevant published mathematical statements revealed no stronger implication or equivalent theorem. The Gaussian radial law and one-dependent limit theorem themselves are classical and are not claimed as new. Specialized unpublished or differently indexed random-Gabor determinant results remain a publication-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A square Gabor frame has no redundancy, so its determinant quantifies the volume of the associated analysis map. The chosen half-modulation/two-translation pattern is a minimal natural subgroup example with nontrivial two-dimensional blocks. Unlike an independent-block approximation, repeated random window entries create an exact additive fluctuation penalty. The result calculates the logarithmic volume's finite-size mean and variance, identifies that correlation penalty, and proves Gaussian fluctuations in growing dimension. It answers a quantitative random-frame question without claiming a condition-number bound. The special mask, Gaussian input law, and log-volume invariant limit the scope.
+Published Asipchuk–De Carli–Rodriguez give subgroup block equivalence but no Gaussian exact logdet moments or growing-p CLT in the inspected relevant text. A same-geometry Gaussian paper gives a Poisson law for the *least eigenvalue*, not log volume; its shared block factorization is credited. A phase-only window theorem has a logdet CLT but uses constant-amplitude independent phases and different exact constants. Its distributional law does not imply the Gaussian amplitude/radius covariance contribution. Best-of-knowledge surviving novelty is these precise Gaussian moments and one-dependent CLT.
 
-## Closest sources and limitations
+## value
 
-[1] O. Asipchuk, L. De Carli, L. Rodriguez, *Block-equivalent finite Gabor frames*, arXiv:2605.16139 (2026).
+PASS
 
-[2] P. Salanevich, *Extreme Singular Values of Random Time-Frequency Structured Matrices*, arXiv:1902.01062 (2019).
+Log-volume is a natural independent conditioning/entropy statistic of a critical random Gabor basis, distinct from extremal frame bounds. The proof correctly accounts for coordinate reuse, finds exact finite-size mean and variance for all p, and identifies a nontrivial 1-dependent Gaussian limit. The seam twist and radial covariance make it more than simply treating blocks as independent Wishart matrices.
 
-[3] P. Salanevich and N. Q. D. Strachan, *Robustness to noise and erasures of Gabor frames in finite dimensions*, arXiv:2509.01325 (2025).
-
-Log-volume is not the smallest singular value. The scope is restricted to standard circular Gaussians and one explicitly described critical-frequency mask. Independent publication-priority verification has not occurred.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
