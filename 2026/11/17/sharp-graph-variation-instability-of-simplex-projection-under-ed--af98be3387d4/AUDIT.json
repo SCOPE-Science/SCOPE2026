@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed every quantitative step: the full-dimensional KKT support cells yield J_A; edge coarea reduces exactly to cut indicators; for k active vertices and a,b on opposite sides the internal-edge contribution is <=ab(n-k)/k and cross-cut contribution <=|∂S|. The maximum of floor(k²/4)(n-k)/k has the claimed n(mod 4) closed form via exact deficit identity. Matching q bridges between active endpoints of two sufficiently large cliques and arbitrary inactive vertices attain both inequalities. The two cliques have edge-connectivity exactly q and nearby inputs remain on same support cell, giving exact finite-pair attainment. Exact rational checker from package path passed 685,194 exhaustive support/cut comparisons over all connected labelled graphs with 2 to 5 vertices, plus 45,000 randomized inequalities and 45 exact matching-bridge nonlinear witness tests. Finite diagnostics support but do not replace the proof. For n=2,3 the q=1 construction uses an empty inactive group as required.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Martins–Astudillo prove Euclidean derivative formulas and discuss model applications; Euclidean nonexpansivity does not dominate graph-TV variation, because the graph-TV seminorm has graph-dependent conditioning.",
+        "Condat 2014 proves projection algorithms and threshold representation; no all-graph perturbation inequality occurs in the inspected treatment."
+      ],
+      "reasoning": "Theoretically a stronger claim giving arbitrary-graph TV stability as a corollary would cover this one regardless of terminology, but no such dominating result was found in reviewed material. Cyclic result is restricted to a fixed graph, and complete-graph Gini exact stability is another graph-specific quotient rather than a universal edge-connectivity theorem.",
+      "searches": [
+        "simplex projection graph total variation sharp operator modulus 1 + (n^2-1)/16 or 1+n^2/16",
+        "Euclidean simplex projection graph variation two-input connected bridged cliques quadratic",
+        "total variation sensitivity Euclidean projection onto simplex arbitrary graphs active support cut",
+        "simplex projection two input total variation seminorm graph edges edge connectivity Lipschitz sparsemax sharp bound",
+        "Full text: Martins and Astudillo 2016 sections 2 and appendix",
+        "Full text: Condat 2014 introduction/threshold/conclusions"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~jduchi/projects/DuchiShSiCh08.pdf",
+      "https://optimization-online.org/wp-content/uploads/2014/08/4498.pdf",
+      "https://arxiv.org/pdf/1602.02068",
+      "https://www.lellmann.net/work/_media/files/lellmann_ssvm09.pdf",
+      "https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-sharp-cyclic-variation-amplification-of-euclidean-simplex-projec--95284892279a/RESULT.md",
+      "https://doi.org/10.1145/1390156.1390191"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Duchi et al. 2008 supplies the mass-threshold simplex projection algorithm.",
+        "Condat 2014 and Martins–Astudillo 2016 establish KKT threshold and active-set derivative, which are proof ingredients but not the graph-edge cut norm.",
+        "Lellmann et al. 2009 imposes spatial TV on a field of label-probability vectors, not the two-input edge variation of one projected vertex-vector.",
+        "The published cyclic published-finding corpus calculation grows linearly with n; new unrestricted connected-graph extremal values grow quadratically, so the new statement cannot be deduced simply by specializing the cycle result."
+      ],
+      "reasoning": "Algorithmic threshold, Jacobian, and scalar nonexpansivity are mathematically insufficient to infer the exact TV_G two-input constant; deriving the cut reduction, edge-connectivity bound, discrete parity optimizer, and attained q-bridge examples requires additional arguments. Opposite directions of implication fail: a graph-general upper envelope need not recover the cycle-specific sharp value.",
+      "searches": [
+        "Full source: 2026/10/26/SCOPE-sharp-cyclic-variation-amplification-of-euclidean-simplex-projec--95284892279a/RESULT.md",
+        "Primary preprints: https://web.stanford.edu/~jduchi/projects/DuchiShSiCh08.pdf; https://optimization-online.org/wp-content/uploads/2014/08/4498.pdf; https://arxiv.org/pdf/1602.02068; https://www.lellmann.net/work/_media/files/lellmann_ssvm09.pdf",
+        "Euclidean projection simplex graph total variation contraction differences cut connectivity sensitivity quadratic",
+        "Gini graph total variation norm simplex projection sparsemax graph theoretical stability Lipschitz"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact published cyclic-variation result defines variation on a single cycle, obtaining a sharp multiplier of order n/4; its own scope expressly does not assert arbitrary-graph or edge-connectivity behavior.",
+        "Martins–Astudillo arXiv:1602.02068 derives simplex projection active-support Jacobians, not a graph-total-variation operator modulus."
+      ],
+      "reasoning": "Same nonlinear simplex projector has several names: sparsemax, Euclidean probability-simplex nearest point, positive-part thresholding with a mass constraint. Its active linear pieces J_A are relevant, but the new graph-TV quotient is over arbitrary connected graph gradients; no inspected result supplies either the all-graph cut formula or the sharp O(n^2/q) envelope.",
+      "searches": [
+        "Euclidean simplex projection sharp graph total variation Lipschitz constant over all connected graphs n vertices quadratic amplification bridge clique",
+        "sparsemax nonexpansive Euclidean Gini total variation bridge graph cut active support Jacobian universal maximum",
+        "two input graph total variation sensitivity of probability simplex projection and cut indicator general graph",
+        "sparsemax edge variation graph bridges Jacobian cut and active sets",
+        "published-finding corpus record 2026/10/26/SCOPE-sharp-cyclic-variation-amplification-of-euclidean-simplex-projec--95284892279a"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus hits indexed the same-map cyclic variation formula, not the connectivity-parametrized F_n/q envelope.",
+        "The new exact rational checker enumerates 6, 168, 7,980, and 677,040 support/cut pairs on all connected labelled graphs with 2, 3, 4, and 5 vertices, respectively. These are diagnostic checks, not claimed as novel published database results."
+      ],
+      "reasoning": "No exact existing table supplying the all-n parity formula, actual two-clique q-matching witnesses, or the graph-general active/cut formula was located. Negative searches are limited evidence, not proof of absolute novelty.",
+      "searches": [
+        "Euclidean simplex projection sharp graph total variation Lipschitz constant over all connected graphs n vertices quadratic amplification bridge clique",
+        "simplex projection graph total variation sharp operator modulus 1 + (n^2-1)/16 or 1+n^2/16",
+        "absolute cut expansion of sparsemax Jacobian probability simplex finite graphs",
+        "published-finding corpus 2026/10/26/SCOPE-sharp-cyclic-variation-amplification-of-euclidean-simplex-projec--95284892279a",
+        "published-finding corpus search simplex graph total variation star graph"
+      ]
+    },
+    "rationale": "Compared exact claims and their implications with simplex algorithm literature, sparsemax Jacobian work, spatial TV with simplex constraints, a published exact cyclic-variation theorem for this map, and distinct historical local graph denoising/complete-graph claims. These establish ingredients or narrower/different norms, but not the arbitrary connected-graph exact cut formula or sharp F_n/q extremal envelope with matching-bridge sharpness. Indexed search is not exhaustive; residual implicit or unindexed older general projection theorems remain possible.",
+    "residual_risks": [
+      "An unindexed equivalent sharp graph-total-variation seminorm projection theorem may exist under generalized simplex clipping terminology.",
+      "An abstract projection-variation upper bound might specialize to the bound without matching the same presentation; no decisive full-text stronger antecedent was found.",
+      "A relevant sparsemax Jacobian alone is an old ingredient; novelty is asserted only for the exact combined edge connectivity envelope and explicit witnesses."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supplies threshold and algorithm, not graph-edge two-input variation modulus.",
+        "evidence": [
+          "https://web.stanford.edu/~jduchi/projects/DuchiShSiCh08.pdf",
+          "https://doi.org/10.1145/1390156.1390191"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~jduchi/projects/DuchiShSiCh08.pdf",
+        "material_read": "Author manuscript abstract and simplex projection algorithm / optimality formulas, introductory method and supporting 2008-07-05 publication record.",
+        "method": "Lawfully accessible author PDF textual inspection; publisher dated metadata; screenshot not available for this copy.",
+        "title": "Efficient Projections onto the l1-Ball for Learning in High Dimensions",
+        "trigger": "2008 lead source for simplex KKT and first-public date"
+      },
+      {
+        "assessment": "Projection algorithms and complexity; no claimed graph edge-TV two-input constant.",
+        "evidence": [
+          "https://optimization-online.org/wp-content/uploads/2014/08/4498.pdf"
+        ],
+        "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2014/08/4498.pdf",
+        "material_read": "Seven-page lawful open-access PDF: introduction, simplex threshold representation, algorithmic derivation and conclusion.",
+        "method": "Opened PDF text and examined first-page and additional page screenshots.",
+        "title": "Fast Projection onto the Simplex and the l1 Ball",
+        "trigger": "Potentially broader sharp simplex projection sensitivity result"
+      },
+      {
+        "assessment": "Establishes exact J_A derivative used in the new proof; does not treat arbitrary graph-total-variation seminorm or matching-bridge bound.",
+        "evidence": [
+          "https://arxiv.org/pdf/1602.02068"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1602.02068",
+        "material_read": "ArXiv PDF sections 2.1–2.5 including gradient/Jacobian, abstract, use cases and closing discussion.",
+        "method": "Viewed PDF textual pages and page screenshots.",
+        "title": "From Softmax to Sparsemax",
+        "trigger": "Same map under sparsemax alias; explicit Jacobian could dominate new claim"
+      },
+      {
+        "assessment": "Spatial edge variation between pixels of vector-valued fields and optimization objective; not the sharp graph-edge two-input seminorm of simplex projection.",
+        "evidence": [
+          "https://www.lellmann.net/work/_media/files/lellmann_ssvm09.pdf"
+        ],
+        "identifier_or_url": "https://www.lellmann.net/work/_media/files/lellmann_ssvm09.pdf",
+        "material_read": "Open-access paper abstract and sections describing spatial TV penalty and simplex labelling; introductory and formulation pages inspected.",
+        "method": "PDF text plus page screenshots.",
+        "title": "Convex Multi-Class Image Labeling by Simplex-Constrained Total Variation",
+        "trigger": "Overlap of TV and simplex projection in title"
+      },
+      {
+        "assessment": "Covers only cyclic graph, reports exact O(n) instability; explicitly disclaims arbitrary graph case, so no implication to the global graph edge-connectivity envelope.",
+        "evidence": [
+          "https://github.com/published-finding corpus/2026/blob/main/2026/10/26/SCOPE-sharp-cyclic-variation-amplification-of-euclidean-simplex-projec--95284892279a/RESULT.md"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/26/SCOPE-sharp-cyclic-variation-amplification-of-euclidean-simplex-projec--95284892279a",
+        "material_read": "Entire RESULT.md, including theorem, proof, scope, references and limitations; exact cyclic support-interval optimization.",
+        "method": "Fetched actual public source file through GitHub and read the complete text.",
+        "title": "Sharp cyclic-variation amplification of Euclidean simplex projection",
+        "trigger": "Exact same nonlinear operator with a graph-variation two-input metric"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "af98be33-87d4-4857-9163-80043c3fd8bd",
+  "value": {
+    "rationale": "Graph TV of perturbations is a natural stability quantity when simplex clipping enforces nonnegative mass-constrained node signals on networks. The exact all-graph cut/active-support formula, sharp hierarchy by edge connectivity, attained bridge-clique construction and quadratic n²/16 extreme instability are structurally informative, unlike a small finite table. The contrast with single-signal contraction is substantive. No downstream general theorem is claimed.",
+    "status": "PASS"
+  }
+}
