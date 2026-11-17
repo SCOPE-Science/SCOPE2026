@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The theorem follows from exact layer-cake decomposition into binary cuts, a per-pair Gini loss at least the pair gap, a geometric lower bound for binary carry differences, equality at monotone suffix binary blocks, and a proved integer ratio comparison for every n. All assumptions, boundary n=2 and n=5 ties, and precise asymptotics are explicit. Embedded exact checker exhausts binary cuts n=2..12 and tests balanced minimizers n=9..160, without passing off these finite computations as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Charron-Bost–Függer–Nowak (2014) prove generic approximate-consensus possibility and time upper bounds across dynamic communication networks, not sharp complete-pair Gini contraction in this particular deterministic ordered path.",
+        "Boyd–Ghosh–Prabhakar–Shah (2006) analyze randomized gossip through expected dynamics and spectral estimates, not the deterministic path-sweep Gini operator norm.",
+        "Liu et al. (2011) §3 studies periodic spectral convergence, not the same metric or one-sweep maximization."
+      ],
+      "reasoning": "General convergence in a chosen spectral or coordinate norm implies qualitative consensus, but without a sharp norm-preserving comparison it does not imply the exact Gini contraction coefficient. The current theorem supplies an attained numerical constant in every dimension.",
+      "searches": [
+        "sharp all-pairs absolute difference sum contraction of product of adjacent T transforms doubly stochastic matrices",
+        "complete gossip sequence on path exact Gini mean difference sweep norm",
+        "arxiv:1408.0620",
+        "DOI:10.1109/TIT.2006.874516"
+      ]
+    },
+    "checked_sources": [
+      "Liu et al., Deterministic Gossiping, DOI:10.1109/JPROC.2011.2159689",
+      "Liu et al., Contraction Coefficient of a Complete Gossip Sequence, DOI:10.1007/978-3-642-11278-2_19 (abstract and excerpts only)",
+      "Charron-Bost et al., arXiv:1408.0620",
+      "Boyd et al., DOI:10.1109/TIT.2006.874516",
+      "Cao, arXiv:2108.07904"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The newly proved claim includes the sharp two-input coefficient for a specified deterministic sweep, a family of attaining suffix cuts, and exact balanced-block transition.",
+        "Prior generic l2 convergence, matrix seminorm contraction and stochastic Gini decay make neither these exact metric constants nor the optimizer block sizes logically necessary."
+      ],
+      "reasoning": "The candidate is not obtained by inserting special parameters into a known stronger Gini operator-norm statement among the accessed sources; a per-step weak decrease would yield only coefficient at most 1, strictly weaker than the n-dependent attained value below 1.",
+      "searches": [
+        "exact Gini contraction coefficient one sequential sweep adjacent pairwise arithmetic means on a finite path deterministic gossip",
+        "sharp all-pairs absolute difference sum contraction of product of adjacent T transforms doubly stochastic matrices",
+        "ordered deterministic gossip left-to-right sequential averaging pairwise absolute differences Gini seminorm sharp contraction n",
+        "complete gossip sequence on path exact Gini mean difference sweep norm",
+        "DOI:10.1109/JPROC.2011.2159689; arxiv:1408.0620; arxiv:2108.07904"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liu et al. (2011) §4.3 defines a matrix seminorm as the minimum of induced p-matrix norms after subtracting a rank-one constant-row matrix, rather than sum over all pairwise coordinate-value differences.",
+        "The 2010 complete gossip coefficient abstract specifies a Euclidean seminorm; the exact Gini coefficient is an induced vector functional and is not this seminorm."
+      ],
+      "reasoning": "Replacing the coordinate-pair Gini variation by an induced matrix l1, l2, or l∞ norm is not an equivalence: they have different unit balls, hence different possible sharp constants. No textual or implication match with the reported exact n-dependent expression was found.",
+      "searches": [
+        "exact Gini contraction coefficient one sequential sweep adjacent pairwise arithmetic means on a finite path deterministic gossip",
+        "ordered deterministic gossip left-to-right sequential averaging pairwise absolute differences Gini seminorm sharp contraction n",
+        "Deterministic Gossiping DOI:10.1109/JPROC.2011.2159689, sections 2, 3, 4.3",
+        "The Contraction Coefficient of a Complete Gossip Sequence DOI:10.1007/978-3-642-11278-2_19"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Cao (2021) gives stochastic/mean-field Gini decay; its exact coefficients are not finite path deterministic sweep norm tables.",
+        "The 2010 source emphasizes complete gossip sequence Euclidean contraction but does not state a Gini coefficient table in its identifiable abstract and indexed text."
+      ],
+      "reasoning": "No relevant exact indexed table matching the rational sequence 0, 1/2, 2/3, 3/4, 13/16 or the all-n geometric formula was identified; this is not a proof that no such table exists.",
+      "searches": [
+        "total variation complete pair dispersion adjacent averaging sweep binary cut n squared contraction",
+        "cyclic adjacent pair balancing absolute pairwise dispersion two-level suffix minimizer",
+        "arxiv:2108.07904",
+        "DOI:10.1007/978-3-642-11278-2_19"
+      ]
+    },
+    "rationale": "The complete-pair Gini seminorm of an explicitly ordered deterministic path sweep differs mathematically from spectral, Euclidean matrix seminorm, Dobrushin oscillation, single-step graph-edge total variation, random-matching spectral rank and mean-field Gini decay. The inspected primary literature develops the same underlying averaging operation but does not provide the all-n exact induced Gini norm or identify balanced trailing-cut extremizers. The search does not prove worldwide uniqueness; inaccessible specific comparisons remain a residual priority risk.",
+    "residual_risks": [
+      "The complete 2010 Springer paper could not be fully inspected; its stated Euclidean seminorm does not imply this metric, but hidden related results may exist.",
+      "Unindexed published literature might include an equivalent Gini/mean-absolute-difference operator-norm calculation under another terminology.",
+      "No expert independent originality or correctness evaluation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "§3 identifies eigenvalue order-independence on trees, §4.3 characterizes induced matrix seminorms, especially second-largest singular value and p=1 rank-one-subtraction seminorm; none is Gini sum of all pairwise signal gaps for this sweep."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/JPROC.2011.2159689",
+        "material_read": "Author-uploaded 2010 preprint text corresponding to the 2011 article, particularly introduction, definitions, periodic tree theorem, and §4.3 matrix seminorm statements and proofs",
+        "method": "Examined primary author-uploaded HTML extraction with relevant theorem sections and exact §4.3 p=1 formula, plus full-text term search",
+        "title": "Deterministic Gossiping",
+        "trigger": "Closest deterministic complete-gossip protocol and contraction study"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "The results address coordinated dynamic directed networks, solvability and precision-time complexity, not the same exact Gini one-pass norm. Public first submission August 4, 2014."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1408.0620",
+        "material_read": "Open full-text HTML source; read introduction, §1.2 contribution, relevant model, main results and their statements",
+        "method": "Read directly from full-text arXiv HTML, focusing on relevant model and result statements, compared hypotheses and conclusions",
+        "title": "Approximate Consensus in Highly Dynamic Networks: The Role of Averaging Algorithms",
+        "trigger": "Archival precise public-date lead source for averaging operators and consensus rates"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "The stochastic edge schedules and spectral/mean-squared convergence estimates do not calculate the deterministic one-sweep complete-pair Gini norm."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2006.874516",
+        "material_read": "Lawful open primary PDF, introductory setup and randomized-gossip convergence analysis",
+        "method": "PDF text and page rendering for the primary source; compared half-averaging update and spectral mixing claim",
+        "title": "Randomized Gossip Algorithms",
+        "trigger": "Basic pairwise arithmetic gossip update and potential stronger spectral coverage"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Its model is stochastic repeated averaging with a mean-field description; the current fixed finite path edge order, binary cut theorem, and exact finite-n norm are absent."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2108.07904",
+        "material_read": "Open arXiv HTML, abstract, introductory model and main Gini decay theorem through §2",
+        "method": "Read relevant arXiv HTML introductory and theorem sections; compared stochastic kinetic population law against fixed finite-dimensional ordered linear map",
+        "title": "Explicit decay rate for the Gini index in repeated averaging model",
+        "trigger": "Most direct overlapping Gini name and averaging dynamics"
+      },
+      {
+        "assessment": "INCOMPLETE_PRIMARY_COMPARISON",
+        "evidence": [
+          "The stated contraction is for a Euclidean matrix seminorm; exact Gini coefficient is not reported in accessible material. Full appendix/derivation was not inspected."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-3-642-11278-2_19",
+        "material_read": "Abstract and extended publicly indexed excerpt, but not complete primary full text",
+        "method": "Publisher summary, author-posted indexed extract; full-page retrieval unavailable",
+        "title": "The Contraction Coefficient of a Complete Gossip Sequence",
+        "trigger": "Explicit potentially dominating exact contraction coefficient for complete sequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a87a1a4c-a010-4f9e-9e25-01ddc97b68c4",
+  "value": {
+    "rationale": "The complete-pair absolute-difference contraction of a canonical one-pass ordered gossip sweep is a natural finite-stage stability invariant, not an arbitrary numerical slice. The exact dimension law and attained suffix extremizers determine a sharp deficit asymptotic 8/n² and an optimizer transition at n=9, information unavailable from qualitative convergence or ordinary l2 spectral estimates. It informs comparison of consensus ordering choices without claiming a downstream theorem.",
+    "status": "PASS"
+  }
+}
