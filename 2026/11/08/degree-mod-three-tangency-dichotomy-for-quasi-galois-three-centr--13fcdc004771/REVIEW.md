@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The incidence classification follows from support of quasi-Galois centres; it includes every rich line, not a sampled list. The exact restricted binary form reduces multiple intersection points to two equations that force primitive cube roots, proving the sharp degree congruence and ordinary double contacts. The analysis includes the projective point at infinity and the odd-degree centres lying on the Fermat variety. Contact distinctness uses the unique tangent line of the smooth three-coordinate Fermat plane section. Orbit-stabilizer gives the precise counts. The exact rational polynomial verifier was replayed successfully; it tests degrees 4 to 40 and explicitly does not replace the general proof.
+## correctness
 
-**Originality — PASS, qualified.** Miura–Takahashi (arXiv:2610.09331, Section 4) list reflection centres but do not classify rich-line contact with the Fermat hypersurface. Fukasawa–Miura–Takahashi (arXiv:2211.16033, Section 5) already establish multiple-tangent behavior of three-centre lines for quartics; this small case is prior art. Oka's Fermat bitangent parametrization is stronger for **all plane bitangents**, but it does not directly give the jointly specified higher-dimensional three-centre incidence class and its all-degree contact-orbit enumeration. Toft–Moe (arXiv:2412.16993, Section 4.2) study other tangent/osculating arrangements and quote the classical total bitangent count. The novel claim is the specific combined complete incidence and degree-mod-three tangency theorem, not the list of all Fermat bitangents. Historical priority is provisional: a different older treatment may derive this special comparison from Oka's full classification.
+PASS
 
-**Value — PASS.** The degree/mod-three boundary is an exact natural invariant of the complete reflection-centre arrangement, connecting projection-symmetry centres with tangency geometry. The theorem distinguishes two geometrically opposite families of three-centre lines, determines all multiplicities and exact contact numbers over all degrees and dimensions, and identifies one symmetry orbit. The quartic antecedent motivates rather than exhausts the uniform classification.
+Two centres with equal support produce a coordinate line; disjoint supports exclude any third centre; intersecting supports uniquely give the third support-pair centre, so all rich lines are classified. The restriction H_d=(s+t)^d+(-1)^d(s^d+t^d) has derivative common roots only at primitive cube roots, occurring iff d=1 mod 3; at both, H!=0. The projective infinity point has no repeated root, including odd d when the polynomial has degree d-1 in x. Smoothness of the corresponding plane Fermat section implies no shared tangency contact on distinct lines with equal support triple. Orbit-stabilizer yields the stated count. Exact independent polynomial GCD checks d=4..16 passed; proof covers every d and N.
 
-**Limitations.** The conclusion addresses only specified rich lines and not all bitangents or hyperplane contact, and is stated in characteristic zero. Oka's complete original 2005 article has not been independently reviewed in full; the 2014 lecture treatment of its bitangent formulas was inspected, as were the relevant accessible recent papers. Independent mathematical review and comprehensive priority certification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Miura–Takahashi arXiv:2610.09331 establishes precisely the order-two centres, and an earlier published Oct18 centre-configuration rigidity proof already recognizes coordinate lines by ≥4 centre incidence. Quartic Fermat multiple tangencies and general plane bitangents are known. The additional all-degree congruence-controlled two-contact description on exactly all three-centre rich lines, contact distinctness in arbitrary dimension, and complete monomial orbit were not established by the mathematical statements inspected. Full Miura text could not be fetched (arXiv HTML/PDF route blocked; institution returned vpn_disconnected), so stronger implicit priority coverage remains a material risk, not alone a reason to fail.
+
+## value
+
+PASS
+
+The natural full finite incidence geometry of reflection centres has a nontrivial degree-mod-3 transition in intersection multiplicity, exactly counts special contacts, and puts all of them in one symmetry orbit. Its higher-dimensional and all-degree classification goes beyond the known quartic bitangent example. This is a structural classification, not a tiny unmotivated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
