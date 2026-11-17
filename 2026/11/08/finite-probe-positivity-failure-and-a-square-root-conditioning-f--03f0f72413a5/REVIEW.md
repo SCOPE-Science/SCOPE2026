@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The one-step Lanczos reduction gives the explicit compressed and Schur blocks, while the source construction's boundary moments and deterministic trace correction cancel exactly. Full two-dimensional projected Lanczos quadrature yields the two independent chi-square terms. The finite-\(N\) probability follows by convolution; the sharp joint limit uses a chi-square CLT, a law of large numbers, and Chebyshev concentration. The irreducibility extension follows by continuity on a full-measure set of probe vectors. The standalone checker tests exact-rational identities and representative finite cases; the proof, not simulation, establishes the quantifiers.
+PASS
 
-## Originality — PASS, with residual priority risk
+For A_kappa=[[1,1/2,0],[1/2,1,0],[0,0,kappa]], kappa>=1, its SPD eigenvalues are 1/2,3/2,kappa. One exact Lanczos step leaves the diagonal compressed complement diag(1,kappa). Schur boundary gamma=1/4 produces correction +1/3 and boundary subtraction -4/3; two-node Gaussian P-SLQ then evaluates Z_1^2+Z_2^2/kappa exactly, giving (chi_N^2 + kappa^-1 chi_N^2)/N -1. Independently checked rational Schur entries and the exact N=2 exponential convolution. At all finite N the lower tail is positive. CLT+Slutsky give Phi(-tau/sqrt(2)) for sqrt(N)/kappa -> tau finite; variance/Chebyshev treats infinity, subsequences prove iff N/kappa^2 -> infinity. Continuity and SPD Sylvester determinant for epsilon^2<3kappa/4 extend finite risk to irreducible tridiagonals. No simulation is used for asymptotic proof.
 
-The 2026 primary method proves consistency and supplies equations for the corrected isotropic variance but does not itself give its finite-sample non-PSD probability or the sharp \(N/\kappa^2\) condition. The 2022 and 2016 primary stochastic-quadrature and trace-estimation studies address spectral-sum accuracy, without the same subtracted Schur-complement covariance. Targeted published-record and accessible prior-claim searches uncovered no stronger statement whose implication directly establishes this full algorithm-specific law. General chi-square concentration is classical; a historical derivation combining those tools with covariance subtraction cannot be ruled out.
+## originality
 
-## Value — PASS
+PASS
 
-Positive semidefiniteness is necessary for a real Gaussian covariance and its square root. This exact small-dimensional counterexample exposes a failure of an otherwise consistent matrix-free covariance sampler, isolates it from quadrature error, proves it robust under irreducible perturbations, and quantifies how probes must grow with the complement condition number. It is a specific actionable risk benchmark, not merely a normalization check or a general statement that Monte Carlo estimators fluctuate.
+Best-of-knowledge: the original 2026 P-SLQ method provides the Schur-corrected bulk variance and consistency but the accessible abstract/references and related published results do not establish the exact finite-chi-square sign law or the joint square-root probe/conditioning frontier, even when Lanczos quadrature is exact. Relevant full primary text could not be inspected due to arXiv/OA retrieval difficulty and authorized Oxford VPN disconnection; that is a concrete residual risk, not an automatic rejection.
 
-## Scope and remaining limitations
+## value
 
-The theorem is limited to exact arithmetic, Gaussian probes, the particular Schur-subtracted P-SLQ completion, and the explicit matrix family. In particular, it does not preclude clipping, deflation, or separate positive estimators. Existing broader probability inequalities may yield conservative bounds, and historical priority is not guaranteed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Finite-sample covariance indefiniteness is a concrete algorithmic correctness failure even if Krylov quadrature and boundary moments are exact. Its exact failure probability and the necessary-and-sufficient N >> kappa^2 frontier quantify what probe budget prevents the defect, rather than merely exposing a trivial negative type or numerical roundoff. The irreducible SPD persistence makes the diagnostic relevant beyond a block-decomposed toy model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

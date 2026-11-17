@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T09:57:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For A_kappa=[[1,1/2,0],[1/2,1,0],[0,0,kappa]], kappa>=1, its SPD eigenvalues are 1/2,3/2,kappa. One exact Lanczos step leaves the diagonal compressed complement diag(1,kappa). Schur boundary gamma=1/4 produces correction +1/3 and boundary subtraction -4/3; two-node Gaussian P-SLQ then evaluates Z_1^2+Z_2^2/kappa exactly, giving (chi_N^2 + kappa^-1 chi_N^2)/N -1. Independently checked rational Schur entries and the exact N=2 exponential convolution. At all finite N the lower tail is positive. CLT+Slutsky give Phi(-tau/sqrt(2)) for sqrt(N)/kappa -> tau finite; variance/Chebyshev treats infinity, subsequences prove iff N/kappa^2 -> infinity. Continuity and SPD Sylvester determinant for epsilon^2<3kappa/4 extend finite risk to irreducible tridiagonals. No simulation is used for asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The earlier rank-inflation theorem concerns population covariance rank and posterior singularity. The quadrature paper controls stochastic spectral-sum estimation errors, not sign of this Schur-subtracted covariance scalar."
+        ],
+        "reasoning": "General estimator consistency or spectral errors do not imply the stated exact negative-tail probability or sharp iff threshold; relevance is methodological rather than coverage.",
+        "searches": [
+          "Resultary 2026/10/26 generic one-rank inflation in trace-matched Lanczos computational uncertainty",
+          "Chen Trogdon Ubaru arXiv:2204.01941 randomized matrix-free quadrature bounds"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.10080 (abstract only; full-text access unsuccessful)",
+        "arXiv:2204.01941 (method and bounds)",
+        "arXiv:1605.04893 (trace estimation background)",
+        "Resultary 2026/10/26 rank-inflation finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Method supplies gamma and sigma_u, but its consistency claim alone does not yield sign probability; an exact additional distributional calculation is needed.",
+          "Related rank inflation addresses whether the covariance has surplus rank, not whether the finite sampled scalar is negative."
+        ],
+        "reasoning": "The precise event follows by a new full two-dimensional Gaussian-trace calculation for the fixed SPD family and is not a stated corollary of the accessible earlier theorems.",
+        "searches": [
+          "Fifen Karambal Hennig arXiv:2609.10080",
+          "Resultary generic one-rank inflation 2026/10/26"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original paper describes trace estimator consistency and a rank-one boundary plus isotropic bulk. Submitted risk is an exact probability distribution of the Schur-subtracted scalar and identifies negative-eigenvalue events."
+        ],
+        "reasoning": "Hutchinson chi-square trace laws are background, but subtracting exact boundary variance changes the event. No accessible same-model paper was found stating the finite sign probability and full joint limit.",
+        "searches": [
+          "Resultary: Schur complement stochastic Lanczos quadrature Gaussian finite probes covariance negative variance chi square conditioning sqrt probes",
+          "Fifen Karambal Hennig Stochastic Lanczos Quadrature for Computational Uncertainty in Linear Algebra arXiv:2609.10080"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching finite-probe sign-risk table was located; the claimed function is a continuous-parameter chi-square convolution, not a finite lookup."
+        ],
+        "reasoning": "No exact prior table or universal formula for the specified corrected Gaussian covariance was identified; this is search evidence, not novelty proof.",
+        "searches": [
+          "Resultary semantic search exact Gaussian P-SLQ covariance chi-square negative finite probes",
+          "Saibaba Alexanderian Ipsen arXiv:1605.04893 trace estimators"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the original 2026 P-SLQ method provides the Schur-corrected bulk variance and consistency but the accessible abstract/references and related published results do not establish the exact finite-chi-square sign law or the joint square-root probe/conditioning frontier, even when Lanczos quadrature is exact. Relevant full primary text could not be inspected due to arXiv/OA retrieval difficulty and authorized Oxford VPN disconnection; that is a concrete residual risk, not an automatic rejection.",
+      "residual_risks": [
+        "The full originating P-SLQ 2026 preprint could not be inspected; Oxford vpn_disconnected requires owner to re-enable access. A direct equation-level overlap remains possible.",
+        "Specific exact risk family and asymptotic frontier are narrower than a general impossibility theorem; no global guarantee for every P-SLQ implementation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PROOF_SUPPORTED",
+          "evidence": "One-step Schur complement, chi-square identity, N=2 convolution, CLT/LLN/Chebyshev and irreducible perturbation.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/finite-probe-positivity-failure-and-a-square-root-conditioning-f--03f0f72413a5",
+          "material_read": "Entire RESULT.md and verify.py, equation-by-equation and finite checker construction",
+          "method": "Pinned Git source text",
+          "title": "Finite-probe positivity failure and a square-root conditioning frontier for projected Lanczos covariance completion",
+          "trigger": "Actual final theorem"
+        },
+        {
+          "assessment": "POSSIBLE_COVERAGE_UNRESOLVED_ACCESS",
+          "evidence": "Methods specify P-SLQ Schur-corrected trace estimator; full proof/equations unavailable this run.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.10080",
+          "material_read": "Abstract/bibliography and cited algorithm/equation references; full primary mathematical text NOT accessed",
+          "method": "arXiv abstract search, direct arXiv/PDF and OA attempts; authorized Oxford returned vpn_disconnected job 864e34a2067732038b1740bffaaf06c6",
+          "title": "Stochastic Lanczos Quadrature for Computational Uncertainty in Linear Algebra",
+          "trigger": "Direct originating algorithm and plausible prior for covariance scalar"
+        },
+        {
+          "assessment": "DISTINCT_RESULT",
+          "evidence": "Population covariance rank-vs-true conditioning, not finite stochastic sign risk.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-generic-one-rank-inflation-in-trace-matched-lanczos-computationa--a28ee80a3cfb",
+          "material_read": "Published abstract and result summary, not full mathematical proof",
+          "method": "Resultary semantic result summary",
+          "title": "Generic one-rank inflation in trace-matched Lanczos computational uncertainty",
+          "trigger": "Closest published model by semantic search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite-sample covariance indefiniteness is a concrete algorithmic correctness failure even if Krylov quadrature and boundary moments are exact. Its exact failure probability and the necessary-and-sufficient N >> kappa^2 frontier quantify what probe budget prevents the defect, rather than merely exposing a trivial negative type or numerical roundoff. The irreducible SPD persistence makes the diagnostic relevant beyond a block-decomposed toy model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact risk formula is for one resolved Lanczos step, a two-dimensional complement, independent real Gaussian probes and specified SPD family.",
+    "Unclipped covariance, not arbitrary regularized/postprocessed estimators; epsilon perturbation is fixed finite-parameter continuity only.",
+    "Full Fifen et al. primary access blocked by VPN; qualified best-of-knowledge originality."
+  ],
+  "schema_version": 1
+}
