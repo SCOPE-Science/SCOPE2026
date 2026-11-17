@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Checks and limits
+# Independent mathematical audit
 
-1. Reindexed coordinates \((u,v_0,y)\) and \((x_0,U^*x,z)\) directly show two-sided unitary equivalence to a scalar plus triangular diagonal blocks.
-2. Recomputed characteristic polynomial \(z^2-(2+t^2)z+1\) of the positive Gram matrix, giving reciprocal singular values.
-3. Verified the scalar coupling crossover by solving \(F(c)=c^{-1}\), obtaining \(c=1/\sqrt2\), and showed the monotone branches meet at value \(2\).
-4. Checked positivity-constrained lower and attainment at \(c_0=\max\{1,\mu\}\) and \(c_j=\mu\) for higher coordinates.
-5. Executed standalone `CHECK.py` from this package with 7,752 exact-rational assertions passing; these are corroboration of finite identities, not a proof of an infinite-dimensional statement.
-6. Examined the motivating 2026 preprint's main theorem and proof. Public-record and topical literature searches did not reveal an exact covering singular-value/condition-number result, but publication priority has not been independently certified.
+## correctness
 
-The formulas do not apply without modification to nondiagonal couplings; no numerical or finite test establishes a full class theorem absent the direct analytical reduction.
+PASS
+
+The coordinate split v=v0 e0+U y gives two-sided unitary equivalence of T_C to [c0] plus triangular [[1,D],[0,1]], with D diagonal entries c_(j+1). Gram characteristic polynomial z^2-(2+t^2)z+1 yields F(t),1/F(t). Supremum and reciprocal norms, sharp C>=mu bound, scalar crossing at c=1/sqrt(2), nonattained all-positive infimum 1, unitary rank-one bridge, and all-p Schatten difference follow exactly. Independently checked 2-by-2 singular pairs for t=.1,.7,3 and scalar optimum 2; reviewed frozen CHECK.py (finite only). Invertible even if inf c_j=0 because only scalar c0 must be inverted and D is bounded.
+
+## originality
+
+PASS
+
+The shift-block statement is a singular-spectrum and optimal-conditioning result, not the invariant-subspace result in Ji-Wang. The published power-growth shift block has same operator shape but addresses ||T^n||/n, not T*T singular magnitudes. No dominating parameter/general theorem located in the performed searches; priority remains best-of-knowledge because full Ji-Wang manuscript could not be read.
+
+## value
+
+PASS
+
+A natural Cowen-Douglas/shift-pair model has striking distinction between optimal scalar and anisotropic positive couplings; the full singular spectrum, uniform-positivity condition number, and precise Schatten distance to an explicit unitary bridge are usable quantitative operator invariants. The two-sided reduction is elementary but the combined optimality boundary is motivated, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

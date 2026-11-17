@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain-to-target reindexing is explicitly two-sided unitary, not a similarity. It reduces the infinite positive diagonal shift-pair coupling to one scalar block and a norm-bounded orthogonal sum of 2-by-2 triangular blocks. Their Gram determinant is one, trace is \(2+t^2\), and singular values are exactly \(F(t)\) and its reciprocal. The sharp lower bound and examples follow by strict monotonicity, not numerical extrapolation. The difference from the unitary rank-one bridge is an off-diagonal diagonal operator, making its complete Schatten membership exact even for exponents less than one. The finite checker was replayed from the package directory and passed all 7,752 assertions. No finite test substitutes for the analytical direct-sum proof.
+## correctness
 
-## Originality — PASS (best-knowledge, not exhaustive)
-Ji and Wang, arXiv:2610.39605v1, prove invertibility and inverse-invariant-subspace existence under strictly positive arbitrary coupling; their inspected theorem, proof, inverse formula, and references do not give the full singular-modulus spectrum or sharp conditioning law. Fang, Hou, Jiang and Zhang, arXiv:2610.11202, is a structurally relevant paper cited therein, but its original full text could not be retrieved in this check; no negative full-document claim is made. Related public records on weighted shifts, triangular operator matrices, and Schatten perturbations do not state or dominate this simultaneously exact shift-pair singular spectrum and conditioning profile. The elementary two-by-two reduction raises a real risk of an older equivalent observation in block-operator literature; this is an explicit residual publication-priority risk.
+PASS
 
-## Value — PASS
-The strictly positive hypothesis in the motivating infinite-dimensional result is highly nonuniform. The quantitative distinction is meaningful: diagonal positive couplings can make an invertible Cowen–Douglas shift pair arbitrarily close to a bilateral unitary even in any Schatten \(\mathcal S_p\), while positive scalar couplings have a sharp condition-number barrier of \(2\). A uniform positive lower bound has the exact, attained optimal conditioning barrier \(F(\mu)^2\). The result is a complete natural class calculation, not a new general invariant-subspace theorem. The broader setting remains open for analogous quantitative formulas.
+The coordinate split v=v0 e0+U y gives two-sided unitary equivalence of T_C to [c0] plus triangular [[1,D],[0,1]], with D diagonal entries c_(j+1). Gram characteristic polynomial z^2-(2+t^2)z+1 yields F(t),1/F(t). Supremum and reciprocal norms, sharp C>=mu bound, scalar crossing at c=1/sqrt(2), nonattained all-positive infimum 1, unitary rank-one bridge, and all-p Schatten difference follow exactly. Independently checked 2-by-2 singular pairs for t=.1,.7,3 and scalar optimum 2; reviewed frozen CHECK.py (finite only). Invertible even if inf c_j=0 because only scalar c0 must be inverted and D is bounded.
 
-## Closest literature and limits
-Primary: K. Ji and Z. Wang, *Riccati Equations and the Third Problem of Halmos*, arXiv:2610.39605v1 (2026), especially main theorem and last-page proof. Related: J. Fang, B. Hou, C. Jiang and Y. Zhang, *The Invariant Subspace Problem and Rosenblum Operators II*, arXiv:2610.11202 (2026), cited by the primary source; full-text access limitation noted. The Wold decomposition and classical finite triangular-matrix singular values are necessary background; neither alone states the joint optimization for this concrete positive-coupling family. External publication priority has not been certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The shift-block statement is a singular-spectrum and optimal-conditioning result, not the invariant-subspace result in Ji-Wang. The published power-growth shift block has same operator shape but addresses ||T^n||/n, not T*T singular magnitudes. No dominating parameter/general theorem located in the performed searches; priority remains best-of-knowledge because full Ji-Wang manuscript could not be read.
+
+## value
+
+PASS
+
+A natural Cowen-Douglas/shift-pair model has striking distinction between optimal scalar and anisotropic positive couplings; the full singular spectrum, uniform-positivity condition number, and precise Schatten distance to an explicit unitary bridge are usable quantitative operator invariants. The two-sided reduction is elementary but the combined optimality boundary is motivated, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
