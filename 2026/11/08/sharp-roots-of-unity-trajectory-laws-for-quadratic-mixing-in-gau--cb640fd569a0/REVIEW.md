@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full centered quadratic Markov spectrum is derived from the exact Gaussian oscillator transition. Cauchy--Schwarz bounds cross-mode eigenvalues, so optimizing the largest diagonal multiplier is equivalent to minimizing worst quadratic integrated autocorrelation. A Fejér-square nonnegativity certificate gives the sharp bound for all integer dimensions, roots-of-unity averaging attains it at the required expected-duration budget, and the equality analysis uses a pointwise zero-set plus invertible discrete Fourier transform. The standalone checker passed 339 deterministic groups; the analytic inequalities, not the finite checks, establish the universal theorem. Assumptions are exact integration, iid duration draws on \([0,\pi]\), fresh full momentum, and the arithmetic frequency spectrum.
+## correctness
 
-**Originality — PASS (qualified).** Relevant primary full texts were examined for exact same objects, parameter restrictions, equivalent integration-time designs, stronger stationary quadratic spectral coverage, and potentially dominating results. Apers--Gribling--Szilágyi (2022) provide Gaussian oscillator equations and random finite integration-time sets for total-variation mixing, but no fixed-mean minimum of maximal quadratic IACT or classification of all minimizers. Hoffman--Radul--Sountsov (2021) consider quadratic-statistic autocorrelations for trajectory-length tuning but not this all-mode minimax distributional result. Wang--Wibisono (2022) develop deterministic Chebyshev varying schedules for Wasserstein convergence; Bou-Rabee--Sanz-Serna (2015) use exponentially randomized durations. A general Fejér inequality is classical and is not claimed new. Independent literature coverage is incomplete; specialist equivalences could exist.
+PASS
 
-**Value — PASS.** The exact cost-constrained minimax benchmark answers a natural variance-reduction design question for Gaussian covariance estimation with randomized HMC. The worst-case observable ranges over all centered quadratic forms, not a selected coordinate. The theorem also supplies an exact extremizer census and an interpretable rigidity transition: uniqueness at one to three modes but a continuum of equal-budget optima from four modes onward. It demonstrates why one deterministic duration can be catastrophically resonant even at the same mean cost. No promise of performance for numerical HMC, arbitrary spectra or nonquadratic observables is made.
+The exact Gaussian modal transition Y_j^+=cos(jT)Y_j+sin(jT)ξ_j gives Hermite-quadratic eigenvalues ρ_j=E cos²(jT), γ_ij=E cos(iT)cos(jT). Cauchy–Schwarz bounds every |γ_ij| by ρ*=max_jρ_j and hence maximizes IACT at ρ*. Nonnegative Fejér-square identity for N=K+1 forces max_j E cos(2jT)≥−1/K. Uniform nontrivial N-th roots with T=mπ/N attain the bound while satisfying E T=π/2; saturation forces all c_j=−1/K, grid support, symmetric weights 1/K by discrete Fourier inversion and the listed antisymmetric mean constraint. For K≤3 the constraint kills all antisymmetric degrees, while for K≥4 there are nonzero feasible small perturbations. Boundary K=1 yields IACT=1, and persistent modes are assigned infinity. The source verifier code and analytic argument were inspected; finite K=1..18 spectral diagnostics do not prove the universal bound.
 
-**Closest literature and limitations.** Apers et al. (arXiv:2209.12771v1, Sections 2.3--3); Hoffman et al. (PMLR 130, 2021, Sections 2.1--2.2); Wang and Wibisono (arXiv:2207.02189v1); Bou-Rabee and Sanz-Serna (arXiv:1511.09382v1). First public source date used for the motivating numerical-sampling direction: 2022-09-26 UTC. Unindexed historical overlap and the restrictive exact-integration/arithmetic-spectrum model remain explicit risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An exact, practically motivated finite-dimensional trigonometric design classification for all centered quadratic probes, including a sharp uniqueness-to-degeneracy transition.
+
+## value
+
+PASS
+
+Sharp cost-constrained design of randomized ideal HMC durations for a fixed arithmetic multimodal Gaussian target; exact global minimax value and all optimizing measures are natural structural data, beyond routine reproduction of Fejér inequality. Limited to exact integration, quadratic observables and fixed mean integration time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T02:07:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact Gaussian modal transition Y_j^+=cos(jT)Y_j+sin(jT)ξ_j gives Hermite-quadratic eigenvalues ρ_j=E cos²(jT), γ_ij=E cos(iT)cos(jT). Cauchy–Schwarz bounds every |γ_ij| by ρ*=max_jρ_j and hence maximizes IACT at ρ*. Nonnegative Fejér-square identity for N=K+1 forces max_j E cos(2jT)≥−1/K. Uniform nontrivial N-th roots with T=mπ/N attain the bound while satisfying E T=π/2; saturation forces all c_j=−1/K, grid support, symmetric weights 1/K by discrete Fourier inversion and the listed antisymmetric mean constraint. For K≤3 the constraint kills all antisymmetric degrees, while for K≥4 there are nonzero feasible small perturbations. Boundary K=1 yields IACT=1, and persistent modes are assigned infinity. The source verifier code and analytic argument were inspected; finite K=1..18 spectral diagnostics do not prove the universal bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Apers–Gribling–Szilágyi use uniform time meshes to suppress resonance over Gaussian spectral ranges, not an exact all-quadratic min-max equality classification.",
+          "Implicit-midpoint optimal two-point distributions apply to a different transition operator."
+        ],
+        "reasoning": "Their bounds and optimum laws cannot be specialized mechanically to this exact HMC operator and fixed integer-frequency target.",
+        "searches": [
+          "Resultary: bounded random time steps optimally trade off Gaussian midpoint autocorrelations",
+          "https://arxiv.org/abs/2209.12771",
+          "https://arxiv.org/abs/2207.02189"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2209.12771",
+        "https://proceedings.mlr.press/v130/hoffman21a.html",
+        "https://arxiv.org/abs/2207.02189",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-bounded-random-time-steps-optimally-trade-off-gaussian-midpoint--9e7410d18068",
+        "Git blob RESULTS 32685c286b7b8548ee7626492c15b90152b05ae8; verify.py ee91992c95e2b922a7cd1c8918aaedadebc1d0cd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Apers et al. §§2.3/3 control modal cosines for mixing; Hoffman–Radul–Sountsov use squared-state correlation as a tuning metric; Wang–Wibisono choose Chebyshev deterministic nonidentically distributed times."
+        ],
+        "reasoning": "The cited earlier implications do not yield minimax IACT=(3K−1)/(K+1) and its complete set of iid optimal mean-cost laws.",
+        "searches": [
+          "https://arxiv.org/abs/2209.12771",
+          "https://proceedings.mlr.press/v130/hoffman21a.html",
+          "https://arxiv.org/abs/2207.02189"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ideal exact HMC time randomization has quadratic Hermite multipliers; Fejér trigonometric moment bound and DFT are classical."
+        ],
+        "reasoning": "Other optimization criteria (Wasserstein or total variation, deterministic time schedule, implicit midpoint) are not equivalent to the same full-quadratic per-transition IACT minimax with iid durations and fixed mean.",
+        "searches": [
+          "Resultary: integer-frequency Gaussian HMC trajectory root-of-unity Fejér minimax",
+          "arxiv:2209.12771"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No finite database/table found specifying the mass polytope for all K; the Fejér square supplies an analytic proof for arbitrarily many modes."
+        ],
+        "reasoning": "A table of small K would not imply the full equality-case affine polytope; no claimed exhaustive database.",
+        "searches": [
+          "Resultary: root-of-unity quadratic autocorrelation exact distribution K+1",
+          "Gaussian HMC IACT exact frequency grid table"
+        ]
+      },
+      "rationale": "An exact, practically motivated finite-dimensional trigonometric design classification for all centered quadratic probes, including a sharp uniqueness-to-degeneracy transition.",
+      "residual_risks": [
+        "Unindexed HMC experimental-design theorem may be equivalent.",
+        "Per-transition autocorrelation with fixed mean integration time is not an equal-gradient-cost result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the exact fixed-mean full-quadratic IACT minimax and equality classification",
+          "evidence": "Random-mesh mixing controls frequency resonance rather than all quadratic eigenvalues simultaneously.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.12771",
+          "material_read": "Original primary PDF, §§2.3 and 3; spectral and finite-grid mixing argument",
+          "method": "Primary PDF read and inspected",
+          "title": "Hamiltonian Monte Carlo for efficient Gaussian sampling: long and random steps",
+          "trigger": "Same Gaussian exact HMC and random trajectory lengths"
+        },
+        {
+          "assessment": "RELATED_NOT_IMPLYING",
+          "evidence": "Adaptive tuning rather than constrained distributional minimax.",
+          "identifier_or_url": "https://proceedings.mlr.press/v130/hoffman21a.html",
+          "material_read": "Abstract and relevant §§2.1–2.2 of primary article",
+          "method": "Primary article text inspection",
+          "title": "An Adaptive-MCMC Scheme for Setting Trajectory Lengths in Hamiltonian Monte Carlo",
+          "trigger": "Same squared-state autocorrelation motivation"
+        },
+        {
+          "assessment": "NOT_COVERING different implicit-midpoint Markov kernel",
+          "evidence": "Implicit midpoint is not exact HMC with arithmetic frequencies.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-bounded-random-time-steps-optimally-trade-off-gaussian-midpoint--9e7410d18068",
+          "material_read": "Published finding statement and model/transition comparison",
+          "method": "Resultary semantic search",
+          "title": "Bounded random time steps optimally trade off Gaussian midpoint autocorrelations",
+          "trigger": "Matching keyword optimal quadratic autocorrelations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp cost-constrained design of randomized ideal HMC durations for a fixed arithmetic multimodal Gaussian target; exact global minimax value and all optimizing measures are natural structural data, beyond routine reproduction of Fejér inequality. Limited to exact integration, quadratic observables and fixed mean integration time.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed HMC experimental-design theorem may be equivalent.",
+    "Per-transition autocorrelation with fixed mean integration time is not an equal-gradient-cost result."
+  ],
+  "schema_version": 1
+}
