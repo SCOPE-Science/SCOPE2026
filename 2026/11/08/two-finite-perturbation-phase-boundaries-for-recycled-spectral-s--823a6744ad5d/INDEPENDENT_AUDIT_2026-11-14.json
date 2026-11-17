@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T18:17:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "check_preconditioner.py",
+        "https://arxiv.org/html/2610.28808v2"
+      ],
+      "rationale": "Direct congruence gives 2x2 SPD block with diagonal theta,b and offdiagonal sqrt(theta*v), and m copies of c. Since lambda_+>b>c, kappa=lambda_+/min(lambda_-,c); lambda_-=c iff theta(d-v)=cd, possible uniquely for v<d. Before collision block condition number decreases up to theta=b by maximizing theta(b-v)/(theta+b)^2, after collision lambda_+/c strictly increases. This establishes unique theta*=min(b,theta_coll), transition v1=d²/b and both closed minimum formulas. Three eigenvalues imply generic exact CG minimal-polynomial degree 3; two eigenvalues yield universal <=2 CG steps. Independent rational samples validate numeric examples but not the entire real parameter domain.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General diagonal-scaling convex minimization can numerically obtain a minimizer",
+          "Resultary 2026-11-02 sharp Frobenius robustness for different spectral whitening question"
+        ],
+        "reasoning": "General optimization feasibility does not identify the precise branch threshold v1 or the distinct loss of two-step universality at d.",
+        "searches": [
+          "spectral preconditioner recycled eigenvector condition number CG finite perturbation spectral scaling two-step",
+          "recycled eigenvector 2 by 2 SPD preconditioner distinct spectrum optimal condition number two eigenvalues",
+          "https://arxiv.org/html/2610.28808v2",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-frobenius-robustness-radius-for-recycled-spectral-whitenin--1b44d0ea8c9c"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.28808v2",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-frobenius-robustness-radius-for-recycled-spectral-whitenin--1b44d0ea8c9c",
+        "spectral preconditioner recycled eigenvector condition number CG finite perturbation spectral scaling two-step",
+        "recycled eigenvector 2 by 2 SPD preconditioner distinct spectrum optimal condition number two eigenvalues"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Diouane arXiv:2610.28808v2 perturbative eigenvector error bounds and spectral outlier treatment",
+          "Eigenvalue collision theta(d-v)=cd, optimal theta=b when v>v1, and impossibility for v>=d derived by explicit spectrum"
+        ],
+        "reasoning": "Perturbative norm bounds cannot yield the sharp universal two-step cutoff and unbounded conditioning penalty at theta_coll as v approaches d.",
+        "searches": [
+          "spectral preconditioner recycled eigenvector condition number CG finite perturbation spectral scaling two-step",
+          "recycled eigenvector 2 by 2 SPD preconditioner distinct spectrum optimal condition number two eigenvalues",
+          "https://arxiv.org/html/2610.28808v2",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-frobenius-robustness-radius-for-recycled-spectral-whitenin--1b44d0ea8c9c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Diouane et al., arXiv:2610.28808v2, studies recycled spectral eigenvectors, perturbations, deflation and PCG",
+          "CG two-step universality is equivalently minimal-polynomial degree at most 2 for all residuals"
+        ],
+        "reasoning": "Prior analyses give perturbative PCG comparisons, but not exact all-amplitude threshold where the preconditioned 3-point spectrum collapses to 2 values.",
+        "searches": [
+          "spectral preconditioner recycled eigenvector condition number CG finite perturbation spectral scaling two-step",
+          "recycled eigenvector 2 by 2 SPD preconditioner distinct spectrum optimal condition number two eigenvalues",
+          "https://arxiv.org/html/2610.28808v2",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-frobenius-robustness-radius-for-recycled-spectral-whitenin--1b44d0ea8c9c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary queries for recycled spectral scaling and two-step iteration returned no older exact table of this 2x2-plus-flat-bulk parametric phase diagram",
+          "Exact numerical rational cases independently checked"
+        ],
+        "reasoning": "Finite sampled cases cannot cover positive real a>b>c, all m and v; proof solves continuous joint extremum.",
+        "searches": [
+          "spectral preconditioner recycled eigenvector condition number CG finite perturbation spectral scaling two-step",
+          "recycled eigenvector 2 by 2 SPD preconditioner distinct spectrum optimal condition number two eigenvalues",
+          "https://arxiv.org/html/2610.28808v2",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-frobenius-robustness-radius-for-recycled-spectral-whitenin--1b44d0ea8c9c"
+        ]
+      },
+      "rationale": "The finite perturbation exact two-threshold classification of optimal reference-vector scaling versus universal PCG termination is not implied by inspected perturbative bounds, general diagonal scaling algorithms, or other separately published preconditioner risk theorems.",
+      "residual_risks": [
+        "Other more general numerical linear algebra scaling results may imply the closed form by specialization.",
+        "External full-text bibliography comparison not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT EXACT COVERAGE",
+          "evidence": "Studies asymptotic/perturbative PCG-vs-deflated CG, no all-v flat-bulk condition-number optimum and exact collision breakdown",
+          "identifier_or_url": "https://arxiv.org/html/2610.28808v2",
+          "material_read": "Full accessible preprint HTML, including algorithm, setup, Section 3 perturbative theorems and comparison statements",
+          "method": "full HTML read in this run",
+          "title": "Deflation-Based Spectral Preconditioning for Sequences of Perturbed Linear Systems",
+          "trigger": "same recycled-eigenvector spectral-preconditioning mechanism"
+        },
+        {
+          "assessment": "DIFFERENT OBJECTIVE",
+          "evidence": "Robustness against arbitrary Frobenius perturbations is not a two-dimensional offdiagonal exact CG iteration classification",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-frobenius-robustness-radius-for-recycled-spectral-whitenin--1b44d0ea8c9c",
+          "material_read": "Published title, semantic summary, claim scope",
+          "method": "semantic search summary (not full primary)",
+          "title": "Sharp Frobenius robustness radius for recycled spectral whitening",
+          "trigger": "closest published Resultary same-wording scaling result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2610.28808v2",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-frobenius-robustness-radius-for-recycled-spectral-whitenin--1b44d0ea8c9c"
+      ],
+      "rationale": "Motivated distinction between condition-number minimization and finite-step Krylov termination for recycled spectral preconditioners; exact transition and divergence of a forced two-step scale exhibit a quantitative cost of imperfect reference eigenvectors.",
+      "residual_risks": [
+        "Other more general numerical linear algebra scaling results may imply the closed form by specialization.",
+        "External full-text bibliography comparison not exhaustive."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Real SPD, flat c-bulk and single reference-eigenvector scaling only; finite experiments supplement explicit algebra."
+  ],
+  "schema_version": 1
+}
