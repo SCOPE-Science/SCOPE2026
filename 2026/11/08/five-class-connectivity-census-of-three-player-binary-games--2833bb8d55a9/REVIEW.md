@@ -1,19 +1,21 @@
-# Scientific review: Five-class connectivity census of three-player binary games
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A strict three-player binary best-response graph is an arbitrary orientation of the twelve edges of the three-cube. The two structural implications have self-contained geometric proofs by sink location and source/sink bipartition. The complete 4096-orientation enumeration, class labels, and 112 symmetry classes are checked by the embedded standard-library verifier. Independent reverse graph searches, topological sorting, Burnside counting, and exact sink-factorial moments check critical computations without statistical inference. The exact domain excludes ties and larger games.
+PASS
 
-## Originality — PASS, with priority risk
+Each of the twelve unilateral comparisons in a strict binary three-player game is independently orientable; the resulting best-response graph is exactly an arbitrary orientation of Q3, with no implicit payoff-table identification. The reachability-based weak/connected/super-connected and DAG predicates were reconstructed, including the treatment of sinks, sources, and zero-length paths. The analytic sink-neighborhood proof excludes cyclic equilibrium-bearing nonconnected graphs; the bipartition/source-sink argument excludes acyclic super-connected graphs. Independent complete enumeration of all 4096 orientations reproduces exactly the five class sizes 962,642,888,1220,384, the sink counts 962,2232,844,56,2 and the 112 automorphism orbits; this IS an exhaustive finite proof of the stated finite census, not a sample.
 
-The connected and super-connected definitions and asymptotic typicality results originate with Johnston, Savery, Scott and Tarbush (arXiv:2309.10609, September 19, 2023); their full accessible text's Appendix H gives simulations rather than this exact table. Fabrikant, Jaggard and Schapira (2013, Lemma 5) already prove the weak acyclicity of strict three-player binary games with an equilibrium, so that implication and the general weak-acyclicity concept are expressly prior work. No checked source gave this five-class joint census, orbit breakdown, or the combined structural restrictions as stated. Existing acyclic-orientation and cube unique-sink classifications make an independently published equivalent possible; an unindexed table remains the principal originality risk. The result is not claimed as independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-This is the smallest three-player binary game size, with 4096 possible response-direction graphs and nontrivial separation of connected, super-connected and acyclic dynamics. The exact connected proportion among games having equilibria is \(1246/1567\), while the exact super-connected proportion is only \(192/1567\); these provide finite-scale benchmarks for existing asymptotic theorems and replace sampling uncertainty. The no-cyclic-nonconnected and no-acyclic-super-connected restrictions are sharp structural information that a table of marginal counts would not supply. No extrapolation to other game sizes is made.
+Best-of-knowledge novel exact JOINT five-class enumeration and symmetry-orbit refinement; established definitions and known equilibrium-implies-weak-acyclic lemma are correctly credited. The inspected main game-connectivity publication gives asymptotic theorems and sampled small cases rather than these exact 4096-type counts. No published record found in searches that implies the complete joint table or its two structural exclusions. This does not certify exhaustive historical priority.
 
-## Closest literature and remaining limits
+## value
 
-The primary game-connectivity paper includes the definitions, large-player results and simulations for small samples, but not these exact joint counts in the inspected text. The 2013 weak-acyclicity lemma provides a known part of the result, not the remaining joint classification. Graph-orientation literature may hide equivalent combinatorial counts; no comprehensive publication-priority guarantee is possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The cube Q3 is the complete minimal three-player binary-game orientation model, and connected versus super-connected have explicit implications for adaptive best-response convergence. Exact five-way counts and 112 symmetry-orbits distinguish genuinely different game dynamics and replace Monte Carlo estimates; two finite structural impossibility implications are additional nontrivial content. These are not arbitrary slices of an unknown infinite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
