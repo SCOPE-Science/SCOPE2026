@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-The theorem is proved for every integer \(m\ge1\) and every field of characteristic other than \(2,3\). No finite enumeration is used to infer the infinite family. Its decisive proof steps are (1) an exact signed-graph description of all intersections and hence a field-independent inclusion-exclusion polynomial, (2) an exact coefficient count of balanced nonzero projective coordinate tuples, and (3) equality of two polynomials over infinitely many odd prime-power cardinalities. The extension-field counts and zeta function follow formally.
+# Independent mathematical audit
 
-The four standalone scripts embedded with this result ran successfully using Python's standard library:
+## correctness
 
-- `python3 verify_family.py` — independent enumeration of designated spaces over finite fields for dimensions \(m=1,2,3,4\) and comparison to the exact generating-series coefficients.
-- `python3 verify_intersections.py` — exhaustive subset inclusion-exclusion on the \(15\) planes when \(\(m=3\)\), independently verifying the motivic polynomial \(15\mathbb L^2-30\mathbb L+25\).
-- `python3 verify_planes.py` — exact plane-based multiplicity census at field cardinalities \(5,7,11,13\).
-- `python3 verify_combinatorics.py` — independent projective-vector enumeration at field cardinalities \(5,7\).
+PASS
 
-The tests in characteristic three check only the combinatorial incidence formula, not smoothness of the ambient cubic (which is excluded). The experiment range is not asserted to exhaust all dimensions, fields, or isomorphism classes. No independent mathematical audit has been performed.
+For each matching of 2m coordinates, equations x_i+x_j=0 define P^{m-1} inside the Fermat cubic since opposite cubes cancel. For any nonempty subset of matchings, the union-edge graph imposes alternating signs; each connected bipartite component contributes one scalar, nonbipartite components are forced zero in characteristic !=2. Thus every intersection is P^{b-1} or empty, giving a field-independent integer-polynomial motivic inclusion-exclusion class Q_m(L). Over odd finite fields, a nonzero coordinate vector lies on some designated plane exactly when zero coordinates occur in even number and nonzero values occur in opposite pairs with matching multiplicities. Exponential coefficient extraction counts all vectors including zero as (2m)![t^{2m}]cosh(t)Phi(t)^((q-1)/2); subtract 1 and divide by q-1 for projective points. Equality with Q_m(q) for infinitely many odd q proves polynomial equality P_m=Q_m, hence the Grothendieck class over every field char !=2,3, and extension counts yield zeta. Independent rational coefficient reconstruction gives P1=1, P2=3z, P3=15z²−30z+25, P4=105z³−525z²+1120z−917, matching the frozen proof; finite experiments alone are not used to infer arbitrary m.
+
+## originality
+
+PASS
+
+Degtyarev–Itenberg–Ottem (2023) explicitly enumerate 405 Fermat cubic-fourfold planes, including 15 coordinate sign-pairing planes, and study their lattice classes; the geometry of these planes is known. The exact all-m motivic class and cosh/Bessel generating function for the reduced *union* of the selected matching subspaces is not provided by that primary source. Related Segre cubic 15-plane Frobenius incidence and cubic Fano variety/zeta results address different incidence/Frobenius objects. The explicit uniform formula, its signed-graph intersection proof and all extension-field zeta products form a distinct claim. A classical unindexed arrangement characteristic polynomial could imply the same generating series; priority is therefore qualified.
+
+## value
+
+PASS
+
+The perfect-matching coordinate planes are canonical subspaces of Fermat cubics, and their reduced union is a natural geometric arrangement with nontrivial overlap. A single explicit all-dimension Grothendieck class and Hasse–Weil zeta products solve exact natural motivic and enumerative invariants; the proof supplies genuine signed-component combinatorics and a generating-series bridge, not a mere isolated small table. This value stands independently of any conjectured downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T22:53:40Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/a-uniform-motivic-generating-series-for-coordinate-pairing-plane--00285587931d/RESULT.md Git blob 2b173b59f4314833cc1d5dca2012658d3ef55c3a",
+        "2026/11/08/a-uniform-motivic-generating-series-for-coordinate-pairing-plane--00285587931d/verify_family.py Git blob daf4225771642434f02e5207e4841cd8b053112f",
+        "2026/11/08/a-uniform-motivic-generating-series-for-coordinate-pairing-plane--00285587931d/verify_intersections.py Git blob 25993577d13a9944742dd73c7c0c9754595c1f24",
+        "Independent rational generating-series coefficient computation m=1,2,3,4",
+        "Degtyarev–Itenberg–Ottem, Planes in cubic fourfolds, arXiv:2105.13951 §2.5"
+      ],
+      "rationale": "For each matching of 2m coordinates, equations x_i+x_j=0 define P^{m-1} inside the Fermat cubic since opposite cubes cancel. For any nonempty subset of matchings, the union-edge graph imposes alternating signs; each connected bipartite component contributes one scalar, nonbipartite components are forced zero in characteristic !=2. Thus every intersection is P^{b-1} or empty, giving a field-independent integer-polynomial motivic inclusion-exclusion class Q_m(L). Over odd finite fields, a nonzero coordinate vector lies on some designated plane exactly when zero coordinates occur in even number and nonzero values occur in opposite pairs with matching multiplicities. Exponential coefficient extraction counts all vectors including zero as (2m)![t^{2m}]cosh(t)Phi(t)^((q-1)/2); subtract 1 and divide by q-1 for projective points. Equality with Q_m(q) for infinitely many odd q proves polynomial equality P_m=Q_m, hence the Grothendieck class over every field char !=2,3, and extension counts yield zeta. Independent rational coefficient reconstruction gives P1=1, P2=3z, P3=15z²−30z+25, P4=105z³−525z²+1120z−917, matching the frozen proof; finite experiments alone are not used to infer arbitrary m.",
+      "residual_risks": [
+        "Char2 excluded because alternating-sign graph consistency fails; char3 excluded for smooth Fermat ambient cubic, not because intersection formula itself requires 3 invertible.",
+        "Only selected sign-pairing subspaces, not all (possibly 405) cubic-fourfold planes; Grothendieck class does not fix individual cohomology."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary cubic-fourfold paper analyzes all 405 geometric planes and their lattice relations, broader in collection but restricted to m=3; twisted Segre cubic is a different model."
+        ],
+        "reasoning": "None of the accessed broader all-planes/finite-field works computes the uniform motivic class of these designated unions as m varies. The submitted result is narrower in selected subspaces but broader in dimension.",
+        "searches": [
+          "Planes in cubic fourfolds §2.5",
+          "Resultary Segre 15-plane boundary twisted zeta",
+          "Debarre–Laface–Roulleau cubic hypersurface Fano schemes"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query: Fermat cubic 15 coordinate pair planes motivic generating series all dimensions perfect matching union",
+        "Degtyarev–Itenberg–Ottem arXiv:2105.13951 Planes in cubic fourfolds §2.5",
+        "Debarre–Laface–Roulleau arXiv:1510.05803 lines on cubic hypersurfaces",
+        "Resultary 2026/11/8/SCOPE-frobenius-incidence-of-the-fifteen-plane-boundary-on-segre-cubic--fa9729d9c277"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier article: Fermat cubic fourfold contains 405 planes, among them 15 sign-pairing ones. New: ∀m≥1 over every field char not2,3, [U_m]=P_m(L) via cosh/Bessel coefficient extraction and all zeta factors."
+        ],
+        "reasoning": "Prior geometric enumeration does not imply an all-m motivic generating series without additional intersection-combinatorics and point-count calculations; the implication from new to m=3 polynomial data is clear, the converse fails.",
+        "searches": [
+          "Degtyarev–Itenberg–Ottem full article §2.5",
+          "Resultary Fermat cubic perfect matchings motivic series"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Current identity is also the characteristic-polynomial evaluation of projective intersections of a signed-perfect-matching subspace arrangement. The classical 15-plane Segre configuration is its m=3 instance."
+        ],
+        "reasoning": "Even when translated into subspace arrangement combinatorics, the claim is a dimension-uniform exact class formula, not the mere existence of matching planes. Neither inspected classical configuration nor m=3 incidence table yields all dimensions as stated.",
+        "searches": [
+          "Resultary sign-pairing planes Fermat cubic union motivic",
+          "Classical 15-plane Segre cubic primal geometry",
+          "Degtyarev–Itenberg–Ottem Fermat cubic plane list"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known 15/405 plane counts and Segre incidence are acknowledged. P3=15z²−30z+25 is one coefficient instance among P_m for all m."
+        ],
+        "reasoning": "A known m=3 table does not determine P_m for arbitrary m or the exact generating series. The final claim does not appropriate the 15-plane configuration as new.",
+        "searches": [
+          "Resultary m=3 15-plane incidence zeta",
+          "Degtyarev–Itenberg–Ottem 405 planes"
+        ]
+      },
+      "rationale": "Degtyarev–Itenberg–Ottem (2023) explicitly enumerate 405 Fermat cubic-fourfold planes, including 15 coordinate sign-pairing planes, and study their lattice classes; the geometry of these planes is known. The exact all-m motivic class and cosh/Bessel generating function for the reduced *union* of the selected matching subspaces is not provided by that primary source. Related Segre cubic 15-plane Frobenius incidence and cubic Fano variety/zeta results address different incidence/Frobenius objects. The explicit uniform formula, its signed-graph intersection proof and all extension-field zeta products form a distinct claim. A classical unindexed arrangement characteristic polynomial could imply the same generating series; priority is therefore qualified.",
+      "residual_risks": [
+        "Possibility of an older matching-arrangement characteristic polynomial or Segre cubic motivic identity expressing the same series was not exhaustively eliminated.",
+        "Direct all-m primary literature coverage is limited; historic priority remains best-of-knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS known planes and their classical geometry; not shown to cover the dimension-uniform union generating series",
+          "evidence": "§2.5 plane equations/family counts; no all-m motivic class established by inspected material.",
+          "identifier_or_url": "https://content.algebraicgeometry.nl/2023-2/2023-2-007.pdf",
+          "material_read": "Primary PDF pages 1 and 7 including §2.5 on 405 planes and the 15 sign-pairing planes, plus related geometric setup; not claimed that entire article was read",
+          "method": "Lawful open-access PDF, web text and page screenshots",
+          "title": "Planes in cubic fourfolds",
+          "trigger": "Directly relevant full Fermat cubic fourfold plane enumeration"
+        },
+        {
+          "assessment": "Dimension-uniform motivic formula reconstructed from inclusion-exclusion and exact projective point counts",
+          "evidence": "Every S matchings intersection is P^{b(S)-1} or empty; P_m via coefficient and count polynomial identity.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-uniform-motivic-generating-series-for-coordinate-pairing-plane--00285587931d/RESULT.md",
+          "material_read": "Full RESULT.md and four checker file paths/tree; symbolic m<=4 crosscheck",
+          "method": "Frozen Git primary package",
+          "title": "A uniform motivic generating series for coordinate-pairing planes on Fermat cubics",
+          "trigger": "Current theorem, definition of designated union"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/08/a-uniform-motivic-generating-series-for-coordinate-pairing-plane--00285587931d/RESULT.md",
+        "Degtyarev–Itenberg–Ottem arXiv:2105.13951 §2.5"
+      ],
+      "rationale": "The perfect-matching coordinate planes are canonical subspaces of Fermat cubics, and their reduced union is a natural geometric arrangement with nontrivial overlap. A single explicit all-dimension Grothendieck class and Hasse–Weil zeta products solve exact natural motivic and enumerative invariants; the proof supplies genuine signed-component combinatorics and a generating-series bridge, not a mere isolated small table. This value stands independently of any conjectured downstream theorem.",
+      "residual_risks": [
+        "Not a classification of every linear space on Fermat cubics; a known arrangement identity could limit historical novelty if later located."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Same C/O/V assessment criterion used across all records; verified finite computations treated only as corroboration, not infinite proofs.",
+    "Best-of-knowledge bibliography and reading risks are retained in the respective originality objects.",
+    "Source-tree SHA from assigned frozen commit independently matched exact Git tree object, and no GitHub mutations were performed."
+  ],
+  "schema_version": 1
+}
