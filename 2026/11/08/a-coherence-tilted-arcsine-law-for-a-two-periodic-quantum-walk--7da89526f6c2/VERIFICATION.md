@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The embedded `check.py` was run with NumPy and returned exactly:
+## correctness
 
-`PASS: 198 finite diagnostic assertions; no assertion asserts an infinite-time proof`
+PASS
 
-It checks nine normalized initial states, including \(a=b\), both orders of unequal hoppings, zero coherence and maximal chirality; it compares the first nine Bloch velocity moments with the claimed formulas and evaluates finite-time wavefunction characteristic functions directly via FFT at two times. The finite-time tests use stated numerical tolerances and provide diagnostics only.
+Cell Bloch H(k) has bands ±sqrt(a²+b²+2ab cos k), physical velocity v=-2ab sin k/E; projection weight s_even(k)-(w/a)v(k). Parity cancels s_even, and the phase angular pushforward gives arcsine with factor 1-(w/a)y. The a=b gap closing is correctly handled by ordinary one-site Fourier. Independent 65536-point half-grid Bloch moment calculations for a<b, a>b, a=b and four phases agree through moment order 8; weak limit proof requires band differentiation and moment tightness, not finite grids.
 
-The analytical justification is independent: separated-band Fourier differentiation for unequal bonds, direct homogeneous Fourier analysis for equal bonds, a global angular change of variables for the speed distribution, and density integration for the claimed moments and bias. The proof does not rely on a finite numerical fit. No formal proof assistant or external certification is asserted.
+## originality
+
+PASS
+
+The new content is the evaluation/classification, not claiming a new convergence principle; no inspected earlier theorem states that closed form.
+
+## value
+
+PASS
+
+A complete closed-form ballistic probability law with a coherence-only chirality parameter and sharp maximal directional imbalance for a canonical dimer walk is a usable nontrivial exact special case beyond the known localized-state law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
