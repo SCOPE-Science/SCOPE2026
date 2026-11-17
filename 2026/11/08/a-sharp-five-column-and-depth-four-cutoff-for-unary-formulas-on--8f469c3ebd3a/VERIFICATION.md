@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The scientific certificate is finite and may be replayed from the accompanying files using Python 3 without third-party libraries:
+## correctness
 
-```
-python3 checker.py
-python3 direct_check.py
-```
+PASS
 
-`checker.py` builds all 255 nonempty supports of the eight binary column triples. It checks 3072 pointed support worlds, validates that successive modal types refine the preceding types, and verifies the displayed depth-by-width table through depth five. Identical depth-four and depth-five type counts, together with the explicitly checked refinement property, show that the partition is a fixed point. `direct_check.py` does not use support compression; it independently processes every valuation on the labelled three-by-m grid for each m from 1 through 5. It checks 8, 64, 512, 4096 and 32768 valuations, respectively, yielding the same type counts.
+A 3-by-m Boolean one-letter bimodal frame maps surjectively by the 3-bit word of each column to a support quotient H_S, preserving and reflecting both row and column successor sets; hence every valuation is represented by one of 255 nonempty supports S subset {0,1}^3, with 3072 pointed states. Finite depth signature tau_(d+1)=(tau_d,sets of horizontal and vertical tau_d successor types) is exactly modal depth equivalence by characteristic-formula induction. I independently constructed and refined all 3072 states in a separate program: depth 3 counts by support-cap 1..8 are [4,28,88,136,140,140,140,140], depth 4 [4,28,88,146,164,164,164,164], and depth 5 identical. This fixed point proves no further depth distinctions. Every type admits finite-depth characteristic formula, so exactly 2^N_m formula-equivalence classes; strict depth3/4 and cap4/5 counts prove sharpness.
 
-The proof in `RESULT.md` establishes that these finite computations suffice for all column counts via a surjective bounded-morphism support map. It also constructs finite modal-depth characteristic formulas, so the type census determines the full Boolean formula algebra. No statement about more than one proposition, additional modalities, or independent human verification is made.
+## originality
+
+PASS
+
+The standard bounded-morphism and bisimulation machinery is credited; the exact 164 pointed types, depth-four optimality, five-column realization bound, and all-width classification for a natural fixed-three-row S5 product family were not stated in the inspected qualitative product modal logic work or any non-self indexed table. Best-of-knowledge with possible specialist combinatorial tables.
+
+## value
+
+PASS
+
+A natural one-variable quotient algebra of the product of equivalence frames is fully classified by a sharp finite semantic bound. Exact finite column/depth thresholds are useful model-theoretic information; support compression proves a genuine all-width result from finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
