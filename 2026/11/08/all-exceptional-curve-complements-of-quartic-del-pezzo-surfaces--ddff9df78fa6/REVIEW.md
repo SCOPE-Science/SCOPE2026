@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The geometric blow-up model gives exactly 16 (-1)-curves and 40 ordinary double nodes; a Hamming-distance-four model reproduces all intersections and excludes triple nodes. The normalization/conductor identity explicitly accounts for 80 branches, including rational nodes with conjugate branches. Picard Frobenius trace and these conductor counts prove the formula for all finite fields/extension degrees. An exhaustive 1920-element signed-permutation check generates 18 types and verifies the first-extension table and distinct symbolic zeta profiles. A finite-field F9 arc verifies existence of the unique new nonsplit q=3 zero case; five F5 conic points give the already-known split case. Independent external verification is not asserted.
+## correctness
 
-## Originality — PASS, with priority qualification
-The split q=5 result is known from Hirschfeld (Knecht–Reyes §1) and excluded; complete-surface zeta is covered by Rybakov and Banwait–Fité–Loughran, and classical 16-line incidences are known. The assessed new statement is the explicit 18-form exceptional-boundary zeta and the nonsplit F3 full quartic constructed from a 1+2+2 arc. Source comparisons concern implications, not title matching, and no inspected source states these open-boundary results. Historical priority remains provisional, especially for old full-surface tables and specialist moduli literature.
+PASS
 
-## Mathematical value — PASS
-The natural complete exceptional divisor is the canonical union of all (-1)-curves on a smooth quartic del Pezzo. Its complement is also a very-stable locus in related moduli geometry. The all-forms zeta arithmetic determines an exact invariant across every Frobenius conjugacy class; the unexpected nonsplit F3 all-rational-points-on-boundary example closes the full-surface existence question beyond the classical split classification. Both are structural, motivated results rather than arbitrary slices or merely recomputing 16 intersections.
+For the REPAIRED final claim, the only new existence witness is the Frobenius-stable five-point arc over F_9, consisting of one F_3 point and two conjugate pairs. The ten triple determinants are all nonzero; the blowup is a smooth quartic del Pezzo. Its positive signed type (1,2,2) yields q^2-2q-3=0 at q=3. Geometric normalization accounts for all sixteen exceptional curves, forty nodes and eighty branches; rational nodes with two conjugate branches must count. A finite EXHAUSTIVE 1920-element Weyl enumeration yields the fourteen first-field quadratic polynomials; testing q=2,3,4,5 and bounding polynomials for q>=6 proves the only possible fields are q=3,5. The known split q=5 conic blowup supplies sufficiency. Checked actual dp4_verify.py and independently regenerated 18 class polynomials and q=3/5 zero cases. Does not require realization of all formal classes over small fields. Published general zeta statement was removed from the originality claim.
 
-## Literature boundary and limitations
-The oldest directly cited complete-surface zeta predecessor is Rybakov (2005); the exact split-fullness statement is in Knecht–Reyes (2015), attributed to Hirschfeld. An 18-class open-boundary zeta table was not located in the inspected sources; that is a limited search result, not a uniqueness certificate. The proof does not require every formal Weyl class to occur over every small finite field. No external or independent validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+REPAIRED claim excludes the broad all-extension zeta classification: the earlier published same-day Resultary theorem explicitly already provides it for all odd characteristic, including the fifteen incidence profiles and every extension count, so that original assertion was covered. The repaired result uniquely centers an explicit rational-point-free complement at q=3 using a 1+2+2 Frobenius arc, and thus completes the q=3/q=5 existence dichotomy together with known q=5. The covering zeta source states formal polynomial q^2-2q-3 but does NOT construct a realizable F_3 surface; a formal q=3 zero does not prove existence. Another prior torus source constructs five-cycle forms, not a 1+2+2 witness. Priority of explicit F3 arc in older finite-geometry tables is residual.
+
+## value
+
+PASS
+
+The new nonsplit F3 construction answers a natural realizability question that earlier abstract Weyl spectra alone leave open; it proves an actual smooth surface whose every rational point lies on the complete exceptional divisor and, with the classical split F5 example, gives the sharp field-existence classification. This is an exact geometric finite-field witness, not a new label for the covered zeta table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
