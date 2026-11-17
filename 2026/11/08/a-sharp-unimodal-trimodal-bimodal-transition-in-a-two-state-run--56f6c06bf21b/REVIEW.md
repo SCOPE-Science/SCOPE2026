@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The stationary zero-current equation directly reconstructs the positive, normalizable marginal and its logarithmic derivative. The triple-angle substitution \(z=\tanh^2(ux)\) converts all positive stationary critical points to intersections of \(u\) with a rational function having exactly one interior minimum. Its exact derivative, boundaries, and sign intervals prove the three-mode window without numerical root counting. The extra gradient-necessity statement follows from the monotonicity of \(\tanh(gx)/\tanh(ux)\) when \(g\le u\). All 60 embedded standard-library diagnostics passed; none replaces the analytical proof.
+## correctness
 
-## Originality
-PASS with publication-priority qualification. The nearest source, Jain and Chatterjee, arXiv:2405.13521v2, supplies the exact stationary density and extrema equation but conditions its unimodal/bimodal classification on an unproved restriction of the number of maxima. The new, explicitly legal two-state parameters instead produce three maxima, with a sharp intermediate phase and an independent no-trimodality theorem for \(g\le u\). The existing three-internal-state trap literature is not equivalent. Search and historical-claim comparisons did not identify a stronger theorem with this exact model and phase diagram. An unindexed follow-up or general velocity-jump mode theorem remains possible.
+PASS
 
-## Mathematical value
-PASS. This is a qualitative stationary morphology missing from the original phase picture, not a small adjustment to an already-known threshold. It identifies a mechanism (faster saturation of the switching response), proves where it cannot operate, and gives exact onset and disappearance parameters with explicit critical-point locations. The theorem supplies a natural target for a full gradient-ratio classification; it makes no downstream experimental claims.
+Stationary zero-current solution is p_+ = Ce^I/v_+, p_- = Ce^I/v_- with I prime=gamma_-/v_- - gamma_+/v_+. Positivity and p(x) asymptotic exp(-2|x|) establish normalizability. Independently differentiated the stated exact log-density expression symbolically, recovering p prime/p=2 tanh(ux)[u(1+2z-3z^2)-(7+5z)]/[(4-z)(1+3z)], z=tanh^2(ux). U(z)=(7+5z)/(1+2z-3z²) decreases to 25/4 at z=1/5 then diverges; U(0)=7. Therefore 1/3/2 modes across u<=25/4, 25/4<u<7, u>=7, with tangencies and symmetry handled. At u=13/2 verified polynomial -(13z-1)(3z-1)/2. For g<=u the ratio tanh(gx)/tanh(ux) is nondecreasing and the derivative bracket strictly decreases, giving at most 2 modes.
 
-## Closest literature and limitations
-The full relevant stationary sections and Appendix A of arXiv:2405.13521v2 were examined, especially equations (3), (4), (7), (13)–(17) and the conditional modality assumption. The sharp classification is limited to \(g=3u\) at fixed amplitudes; the exclusion result covers \(g\le u\) with broader parameters. Finite-time behavior and a complete multidimensional phase diagram remain unproved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: Jain–Chatterjee 2024 derives the stationary law and the implicit extremum equation for the same saturating-rate two-state process, but its asserted unimodal-bimodal division relies on an unproved at-most-two-modes assumption. The explicit g=3u three-peak window and the g<=u structural impossibility result resolve that gap; a 3-internal-state harmonic-trap model is not an equivalent dynamical formulation.
+
+## value
+
+PASS
+
+PASS: Exhibits a genuine trimodal counterexample within an established stationary family, with a sharp emergence and loss mechanism and a separate necessary-gradient bound. Corrects a scientifically motivated mode-count assumption, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
