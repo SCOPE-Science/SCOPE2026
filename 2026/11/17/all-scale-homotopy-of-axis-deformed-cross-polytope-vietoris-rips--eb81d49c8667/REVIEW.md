@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The squared Euclidean distances have only the two claimed forms, \(w_i+w_j\) between different axes and \(4w_i\) along an antipodal axis. Every induced weighted-sum graph has one nontrivial component if it has edges, with a minimum-weight universal axis. Below \(4w_1\) this supplies an exact simplicial join with \(S^0\) and a terminating suspension recurrence. At and above \(4w_1\), the active component is an exact join with an edge and contracts; isolated fibers have the stated component counts. Equality thresholds are included. All homology groups are free because the homotopy model is a wedge of spheres. The 570 independent mod-two chain tests in `VERIFY.py`/`VERIFY_OUTPUT.txt` agree; they support but do not replace the proof.
+
+## Originality — PASS with residual risk
+The closest primary paper is Saleh–Titz Mite–Witzel, arXiv:2302.14388, Theorem and Lemma 2.2: regular Platonic solids and symmetric antipodal sphere stages. That does not settle arbitrarily unequal radii, their many threshold orders, or mixed-degree homology. Carnero Bravo, arXiv:2307.14321, Theorem 7/Corollary 8 addresses broad suspended polyhedral joins; its explicit warnings about desuspension make the unstabilized homotopy classification a further step, and it does not state the Euclidean scale thresholds or this recurrence. Adamaszek–Adams, arXiv:2103.01040, uses graph/Hamming distances for hypercubes. Compared against the accessible prior local claims (including axis-aligned rectangular-box and twisted-double-polygon Euclidean Rips claims) and live published-finding corpus similarity results, no prior equivalent statement or a published theorem directly implying all its geometric and unstabilized conclusions was found. The broad polyhedral-join theory and unindexed literature remain residual coverage risks; absence of a search hit is not itself proof of originality.
+
+## Value — PASS
+The result determines a complete topological phase classification, with an explicit finite recurrence, for every real axis deformation and every scale in every dimension. Unlike the regular orthoplex, a naturally deformed four-axis example has \(S^2\vee 2S^1\) at one Euclidean scale; the universal killing of positive homology at the first antipodal edge is a sharp geometric boundary. The object is a canonical deformation of a cross-polytope, and these exact ranks, dimensions, torsion-free conclusions and phase boundary are useful in controlled topological-data-analysis examples. The claim does not purport to give persistent maps or an independent certification.
+
+## Sources and limitations
+Primary source comparison: Saleh–Titz Mite–Witzel, arXiv:2302.14388 (first available 2023-02-28), especially pages 1–2 and 5; Carnero Bravo, arXiv:2307.14321 (first available 2023-07-26), especially introductory claims, Corollary 8, and Theorem 28; Adamaszek–Adams, arXiv:2103.01040 (2021-03-01), page 1. The source-specific residual risks are set out in AUDIT.json. The checks are scientific self-review, not independent third-party review.
+
+Self-review: passed. Independent audit: not yet performed.
