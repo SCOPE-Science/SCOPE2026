@@ -1,19 +1,21 @@
-# Review of a global prime-two-orbit classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem is proved for all real \(r>0\), \(c,m\ge0\), \(c+m>0\), with cycles restricted to distinct \(0<u<v<1\). A first exact symmetric identity from \(u f_r(u)=v f_r(v)\) forces \(s=u+v>1\) and gives the product \(p(s)\). The other symmetric equation forces \(r=R(s)\). The discriminant is positive precisely on \(1<s<s_*\); an independent complementary-product identity ensures that the two roots are inside \((0,1)\). The rational function \(R(s)\) is strictly decreasing from infinity to \(r_*\), proving the complete if-and-only-if and uniqueness, including both coefficient boundary cases. Exact product limits yield the two different endpoint power laws. Five symbolic identities and 54 high-precision orbit/boundary instances were reproduced by the included checker. Computations corroborate but are not the infinite proof.
+PASS
 
-## Originality
+Every positive primitive 2-cycle 0<u<v<1 satisfies u f(u)=v f(v), forcing equal values of unimodal H(x)=x^2(1-x)(c+mx). Symmetric division with s=u+v,p=uv gives p=s(s-1)(c+ms)/(c+m(2s-1)), then r=R(s)=[c+m(2s-1)]/[(s-1)(c+ms)(c+m(s-1))]. Discriminant equals -s[2ms²+3(c-m)s-4c]/[c+m(2s-1)], positive exactly s in (1,s*), where 1<s*<2 is the unique positive root. R strictly decreases from infinity to r*, thus precisely one unordered primitive 2-cycle for r>r* and none otherwise. Exact complementary product proves u,v lie inside (0,1). As s↓1, singular expansion yields c>0: ru→1/c and r²(1-v)→1/[c(c+m)]; c=0: sqrt(mr)u→1 and (mr)^(3/2)(1-v)→1. Symbolic elimination and boundary expansion independently reconstructed. Restriction to positive cycles, not a claim that all x∈[0,1] remain forward-invariant for all r.
 
-**PASS, with priority caveats.** The full accessible text of Pires–Andrade–Herrmann (arXiv:2606.05351v1) was compared through the model equations, equilibrium calculations, chaotic/period-doubling discussion, conclusions, and references. It establishes the family and numerical period-doubling scenario, but not a global one-branch parametrization of all positive primitive two-cycles nor the distinct high-growth endpoint exponents. A previous local flip analysis already gives the threshold and near-onset two-cycle; those facts are not asserted as novel here. The cubic map's all-growth uniqueness and exact boundary rates are strictly stronger and cannot be deduced merely from local bifurcation existence. The standard logistic case is already known and is included only as a boundary check. Jung et al. (2020) study an earlier Allee special model; only its abstract was accessible, so possible historical priority for that special case is unresolved. General sources on cubic and logistic dynamics could contain an equivalent result under alternative parametrization; historical novelty is provisional pending independent exhaustive review.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The most immediate question after a period-doubling calculation is whether the born period-two cycle is the only one and whether it persists through higher-period and chaotic regimes. For a general cubic map, the sixth-degree nonfixed factor of the second iterate permits multiple two-cycles; a local flip theorem cannot answer the global census. Here the nonnegative Allee-logistic structure forces one and only one positive orbit for the entire parameter ray, with a monotone exact parametrization. The linear-growth degeneracy changes both high-growth endpoint powers sharply. Such classification provides an exact periodic-orbit benchmark, though extrapolation to high growth is algebraic and may leave the interval-invariant biological regime.
+The Pires–Andrade–Herrmann June 2026 source develops this generalized Allee-logistic cubic and local fixed-point/period doubling and chaos. Earlier Resultary November 2 theorem establishes c=0 sector sharp no-period-two bound and its existence, but not all-r uniqueness and contrasting two-parameter boundary scales; logistic m=0 is classical. Inspected published formulations do not imply full nonnegative (c,m) uniform global two-cycle uniqueness and singular endpoint rate change. Best-of-knowledge priority only, particularly since Jung et al 2020 special Allee-map full paper was not inspected.
 
-## Closest literature and limits
+## value
 
-Pires et al. (2026, arXiv:2606.05351v1): map, extinction transitions and numerically displayed period-doubling/chaos. Jung et al. (2020, DOI:10.3938/jkps.76.533): earlier special Allee model, abstract only. Wolfram MathWorld, *Logistic Map*: classical quadratic endpoint. The classification excludes strong Allee \(c<0\), all higher periods, stability after first flip, global attraction and physical invariance of \([0,1]\) for arbitrarily high growth.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact all-growth prime-two census for a natural cubic population-map family settles whether additional period-two branches can appear even after higher-period bifurcations. Distinct large-r boundary exponents at c=0 are a meaningful singular parameter boundary. Nontrivial exact classification extends substantially beyond the classical logistic endpoint and narrow c=0 existence threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
