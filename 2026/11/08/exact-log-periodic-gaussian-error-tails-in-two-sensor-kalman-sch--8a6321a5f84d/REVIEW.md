@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact posterior-error representation follows from a perfect reset after each coordinate observation and an independent geometric sensor-run age. Geometric sums yield the variance distribution and moment thresholds. Uniform domination of the Gaussian survival series gives the periodic error tail; a Mellin transform proves all Fourier coefficients and their nonvanishing using the zero-free gamma function. Strict convexity gives the unique switching-cost optimizer. Independent fraction-based finite Markov checks, series quadrature, Fourier quadrature, and a dense-grid optimization check were executed from the packaged `check.py`. The analytical proof, not finite experiments, supplies infinite quantifiers.
+## correctness
 
-**Originality — PASS, qualified.** General Kalman covariance-tail criticality, actual error heavy tails, and geometric-age exponents are prior art and are not presented as novel. Marelli et al. (arXiv:1806.08098) cover random observation equations and multi-sensor scheduling stability. Mo–Sinopoli (doi:10.1109/TAC.2011.2166309) cover covariance-tail exponents. Pezzutto–Schenato–Dey (doi:10.1016/j.ejcon.2019.05.003) prove non-arithmetic actual-error tail asymptotics, and in their Section 5 explicitly distinguish arithmetic exact resets as having difficult coefficients. The computed nonconstant periodic Gaussian-error amplitude and its nonzero explicit Fourier spectrum are additional to the inspected results, as is the switch-price minimizer for this precisely delimited two-sensor model. A specialized undiscovered lattice-renewal or exact-reset result remains a publication-precedence risk; the claim of novelty is consequently scoped narrowly.
+PASS
 
-**Value — PASS.** Intermittent observation of unstable systems is a mathematically motivated filtering problem; interpreting mean-square criticality alone can conceal the actual tail shape. An exact example where genuine Gaussian process noise does *not* smooth away lattice periodicity resolves a specific gap identified in the closest source. The sharp switching-price policy gives a concrete scheduling consequence without claiming general optimality over other protocols. The Fourier coefficients provide a reproducible nonasymptotic phase diagnostic; no new broad general Kalman theorem or algorithmic speedup is claimed.
+Perfect measurement resets exactly the observed coordinate error. The symmetric two-state Markov sensor has stationary consecutive run K with P(K=k)=eps r^(k-1), and the other coordinate error has conditional normal variance C(B^k-1), independent of K. This yields exact covariance tail, moments, mean q/(1-rB), and a Gaussian scale mixture for |E|. Rescaling z²/C=B^(N+theta), geometric upper-j tail and super-Gaussian lower-j tail justify uniform phase-dependent convergence; Mellin transform gives Fourier coefficients proportional 2^s Γ(s+1/2)/s, nonzero for all harmonics. Strict convexity yields the stated unique switching-price optimum in the symmetric Markov family. Independently evaluated 9 phase-tail asymptotic cases, first complex Fourier harmonic and switching-cost grid.
 
-**Limitations and remaining risk.** Perfect observations, isotropic independent Gaussian noise, two identical unstable modes, and symmetric Markov allocation restrict applicability. The exact-reset scalar-law equivalence means the heavy-tail exponents themselves are not new. External independent verification and a comprehensive specialist publication-priority audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical packet-loss Kalman studies establish power exponents/moment thresholds and mention difficult arithmetic-case coefficient calculations. The complete inspected 2019 primary article does not specify this period-one Gaussian-error amplitude with every nonzero complex Fourier coefficient, nor the exact Markov sensor-switching price optimum. Existing related Resultary papers treat different packet-loss staging/sensor problems; no dominating theorem found.
+
+## value
+
+PASS
+
+It isolates the exact Gaussian rather than covariance tail in a natural two-sensor scheduling model, proves the genuinely nonconstant lattice modulation at every harmonic, identifies sharp moment bounds and gives an explicit price-dependent sensor switching policy within a well-stated class. The precise arithmetic amplitude resolves a coefficient question left open/difficult in the relevant general theory and is a useful tail-quantile diagnostic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

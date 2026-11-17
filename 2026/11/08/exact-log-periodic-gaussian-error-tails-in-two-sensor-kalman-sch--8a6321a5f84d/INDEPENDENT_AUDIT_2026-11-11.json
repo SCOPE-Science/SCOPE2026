@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T03:51:32.984366Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md dea3d1431209b53b224089f10490467e472af3a8",
+        "pinned check.py 1f8e6da527548023ea6f8a903c07a93759b04e66",
+        "independent_checks.log KALMAN"
+      ],
+      "rationale": "Perfect measurement resets exactly the observed coordinate error. The symmetric two-state Markov sensor has stationary consecutive run K with P(K=k)=eps r^(k-1), and the other coordinate error has conditional normal variance C(B^k-1), independent of K. This yields exact covariance tail, moments, mean q/(1-rB), and a Gaussian scale mixture for |E|. Rescaling z²/C=B^(N+theta), geometric upper-j tail and super-Gaussian lower-j tail justify uniform phase-dependent convergence; Mellin transform gives Fourier coefficients proportional 2^s Γ(s+1/2)/s, nonzero for all harmonics. Strict convexity yields the stated unique switching-price optimum in the symmetric Markov family. Independently evaluated 9 phase-tail asymptotic cases, first complex Fourier harmonic and switching-cost grid.",
+      "residual_risks": [
+        "Stationarity of measurement errors (not unstable latent state); exact noiseless observations, two identical modes, ε>0, no general adaptive-policy optimum."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier 2019 theorem yields pure power coefficient under non-arithmetic conditions, and the authors expressly distinguish their arithmetic no-measurement-noise case.",
+          "Staged packet-loss theorem yields logarithmic corrections for other Markov persistence, not the present explicit periodic Fourier coefficients."
+        ],
+        "reasoning": "General stability and heavy-tail exponent results cover important aspects but not the exact lattice amplitude under perfect two-coordinate reset and symmetric Markov schedule.",
+        "searches": [
+          "Pezzutto-Schenato-Dey 2019 Theorem 7 and Remarks 2,3",
+          "Resultary 2026/10/25 staged Markov packet-loss burst tails",
+          "Mo–Sinopoli 2012 critical threshold"
+        ]
+      },
+      "checked_sources": [
+        "Pezzutto Schenato Dey 2019 DOI 10.1016/j.ejcon.2019.05.003 full OA PDF",
+        "Mo–Sinopoli 2012 DOI 10.1109/TAC.2011.2166309",
+        "arXiv:1806.08098",
+        "Resultary 2026/10/25 31bc59402dfa",
+        "Resultary 2026/11/02 721e7e00a960"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior theorem requires non-arithmetic distribution for its pure asymptotic and does not specialize to the deterministic gain B on a geometric lattice; earlier optimal sampling period under packet-loss channel differs from choosing symmetric Markov switch probability with per-switch price."
+        ],
+        "reasoning": "Arithmetic lattice coefficients, their universal nonzero harmonics, and the convex restricted-policy optimum require additional calculations and are not implied by the cited prior theorems.",
+        "searches": [
+          "2019 Theorem 7, Remark 2, Remark 3",
+          "Resultary 2026/11/02 sharp two-step greedy noiseless Kalman sensor schedule"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The conditional model is an arithmetic geometric-reset Gaussian mixture, one of the arithmetic scenarios discussed in 2019. Their bound c_a ≤ liminf s^α P ≤ limsup ≤ c_b is not an exact Fourier-phase amplitude."
+        ],
+        "reasoning": "Translated periodic variance multipliers into arithmetic renewal/perpetuity tails; the periodic-gamma Fourier series is a stronger explicit statement than exponent and liminf/limsup bounds.",
+        "searches": [
+          "Pezzutto Schenato Dey 2019 Heavy-tails in Kalman filtering with packet losses Remarks 2-3",
+          "Resultary exact log-periodic Gaussian error tails two sensors search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2019 paper says calculating arithmetic-case tail coefficients c_a,c_b in its bound (13) is difficult; it provides no exact coefficient series or gamma Fourier spectrum for the present model."
+        ],
+        "reasoning": "No same finite table or explicit periodic Mellin transform found, while source code independently evaluates nonvanishing first harmonic; finite computation is corroborative.",
+        "searches": [
+          "2019 full PDF Section 5, Remarks 2-3",
+          "Resultary sensor schedule exact Gaussian tail harmonic"
+        ]
+      },
+      "rationale": "Classical packet-loss Kalman studies establish power exponents/moment thresholds and mention difficult arithmetic-case coefficient calculations. The complete inspected 2019 primary article does not specify this period-one Gaussian-error amplitude with every nonzero complex Fourier coefficient, nor the exact Markov sensor-switching price optimum. Existing related Resultary papers treat different packet-loss staging/sensor problems; no dominating theorem found.",
+      "residual_risks": [
+        "The periodization/Gamma formula may exist in broader arithmetic perpetuity or Mellin renewal literature under different terminology; exhaustive historical priority not certified.",
+        "Periodic oscillations can be numerically tiny; finite samples may not identify all nonzero harmonics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Remark 2 explicitly identifies arithmetic zero-measurement-noise case as more complicated; coefficient calculation in bounds (13) difficult, not an exact all-Fourier periodic amplitude.",
+          "identifier_or_url": "https://mural.maynoothuniversity.ie/id/eprint/16360/1/out.pdf",
+          "material_read": "Full lawfully accessible journal PDF sections on tail behavior, Theorem 7, p.67 Remark 2-3 and their bound (13); rendered screenshot p.67 inspected",
+          "method": "lawful institutional OA PDF and PDF-page screenshot",
+          "title": "Heavy-tails in Kalman filtering with packet losses",
+          "trigger": "Same arithmetic stationary Kalman error heavy-tail phenomenon"
+        },
+        {
+          "assessment": "SUBMITTED_CLAIM",
+          "evidence": "Geometric run K, Gaussian scale mixture, phase periodization and Mellin coefficient proof.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026",
+          "material_read": "Complete pinned RESULT.md and check.py, including gamma expression and exact scope",
+          "method": "pinned Git full files",
+          "title": "Exact log-periodic Gaussian-error tails in two-sensor Kalman scheduling",
+          "trigger": "Source theorem and certificate scope"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2019 Pezzutto et al Remark 2",
+        "independent Mellin/harmonic and switching-price tests"
+      ],
+      "rationale": "It isolates the exact Gaussian rather than covariance tail in a natural two-sensor scheduling model, proves the genuinely nonconstant lattice modulation at every harmonic, identifies sharp moment bounds and gives an explicit price-dependent sensor switching policy within a well-stated class. The precise arithmetic amplitude resolves a coefficient question left open/difficult in the relevant general theory and is a useful tail-quantile diagnostic.",
+      "residual_risks": [
+        "Scope does not extend to general Kalman filters or unconstrained adaptive sensor scheduling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent numerical/finite checks are not formal proofs; unrestricted statements rely on reconstructed analytical arguments.",
+    "Best-of-knowledge historical originality and precise residual risks recorded in originality axis.",
+    "Publication withheld: public-file privacy-safe replacements not completed and verified."
+  ],
+  "schema_version": 1
+}
