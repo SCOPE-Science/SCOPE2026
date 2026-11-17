@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim is limited to real rank-one-spiked positive-semidefinite Gram matrices, deterministic unit starts of positive gap, fresh isotropic tangent directions, and exact two-plane Ritz optimization. The equality for the gap ratio follows from optimal projection of the leading eigenvector, conditional isotropy yields independent Beta factors, and the finite-dimensional gamma moment formula follows by the Beta integral. Dimension-scale gamma ratios produce a differentiable scaled cumulant generating function with steep upper boundary; exponential tilting and concentration prove matching lower exponents and exponential tightness supplies the full large-deviation upper bound. The Legendre transform and the one-sided monotonicity give the exact stated rate and tails. The independent numerical script checks 320 direct Ritz updates, 12 moments, and 12 analytic limiting identities, but finite tests are not substituted for proof.
+PASS
 
-## Originality: PASS (with residual priority risk)
+For H=lambda_perp I+Delta uu^T the Ritz optimum is squared norm of u projected onto span(v,x), so the exact spectral-gap factor is W=1-(p dot x)^2. A uniform tangent x in dimension d-1 has squared fixed-direction overlap Beta(1/2,(d-2)/2); thus each W is Beta(a_d,1/2), a_d=(d-2)/2, and conditional distribution independent of past proves the factors iid. The exact gamma-ratio formula for E[W^q] holds for q>-a_d, and at k_d=floor(cd) its scaled log moment generating function converges for theta<1/2 to -c/2 log(1-2theta). The derivative range (0,infinity), tilted variance O(1/d), and exponential tightness prove full speed-d LDP with I_c(s)=(s-c-c log(s/c))/2 on s>0 and +infinity for s<=0, plus the two one-sided exponent statements. Under all finite d>=3 the gap stays positive almost surely. The package verify.py was read and checks independent Ritz eigensolutions; no finite tests are used as the LDP proof.
 
-The closest comparison is Bresch–Melnyk (2026), Algorithm (2), Example 2.4, and Proposition 2.5. Their exact spiked ascent identity, expected contraction factor, and Beta spherical-cap probabilities establish the building blocks, and the elementary iid Beta reduction is not represented as a separate fundamental discovery. Their displayed results do not assert the simultaneous dimension-and-iteration large-deviation rate \(I_c\), or both sharp success/failure exponents. Earlier Bresch et al. (2024; 2025) cover the algorithm and almost-sure/sublinear convergence in broader settings, rather than this dimension-scale rate. The independently identified historical comparison of random sections of spiked ellipsoids concerns a one-shot geometric radius law, not the iterative logarithmic-gap sum. Literature and published-record searches are not a proof of absence; an unlocated equivalent application of a generic Gamma/Beta-product LDP is a residual risk.
+## originality
 
-## Value: PASS
+PASS
 
-The question answers how many random tangent-plane steps are reliable in dimensions growing with the budget. Expected-error convergence does not give the probability of meeting a prescribed spectral tolerance. The sharp rate gives exponential success and failure thresholds on both sides of the natural \(k\sim cd\) scale, and a concrete log-rate/mean-rate separation in dimension three. This is a natural algorithm-specific reliability invariant, not an arbitrary low-dimensional parameter slice or a routine numerical recomputation.
+Bresch–Melnyk (October 30, 2026) primary full 25-page manuscript was materially inspected: Algorithm (2), Example 2.4 and Proposition 2.5 supply exact spiked expected contraction and one-step spherical cap estimates, but not the dimension-linear k_d~cd logarithmic gap full LDP or its both-sided success/failure rates. The known conditional Beta law and generic Gartner–Ellis/Cramer machinery are ingredients, not separate inventions. Related Resultary codimension-only Beta law concerns repeated maximal eigenvalues and fixed-step small-gap local asymptotics, not joint dimension-iteration rank-one rate I_c. A hidden general Gamma/Beta-product theorem may make this rate a corollary, so best-of-knowledge priority only.
 
-## Scientific limits
+## value
 
-Single spectral spike; real sphere; exact independent Haar tangent sampling; exact Ritz maximization; dimension-linear iteration scaling. No extension to general eigenvalue spectra, numerical inexactness, or complex tangent geometry is asserted. Independent verification remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The probability of obtaining a specified multiplicative Rayleigh-error reduction after a budget proportional to dimension is a natural algorithm-reliability question. The exact two-sided rare-event exponent distinguishes expected contraction from high-probability performance and supplies precise success/failure thresholds inaccessible from expectation alone. The new joint asymptotic is a substantive motivated classification even though its Beta and Gamma ingredients are classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

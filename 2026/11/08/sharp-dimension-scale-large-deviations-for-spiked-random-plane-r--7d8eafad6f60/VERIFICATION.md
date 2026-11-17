@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The supplied standalone `verify.py` is the same script used for the reported numerical checks. It requires Python, NumPy, and SciPy, and returns `VERIFY_OK direct_ritz=320 beta_moments=12 scaled_mgf_and_rate=12` when run successfully. It exercises independent matrix eigensolves of two-dimensional Ritz problems for the one-step law, seeded Beta draws for finite-dimensional moments, gamma-ratio asymptotics for scaled cumulants, and the stationary-point Legendre transform. No numerical test is treated as proof of an infinite-dimensional or asymptotic quantifier.
+## correctness
 
-The proof's critical independent steps are: (1) exact rank-one Ritz projection, (2) conditional spherical-coordinate Beta distribution and independence, (3) moment normalization and gamma asymptotics, and (4) exponential tilting with variance of order inverse dimension, plus exponential tightness. At the boundary \(s=0\), rate infinity follows by approaching zero from positive \(s\), while nonpositive gap improvements are impossible with these strictly positive contraction factors.
+PASS
 
-The checked source's exact rank-one expected contraction and spherical-cap discussion are credited as inputs. Novelty is limited to the sharp large-deviation reliability conclusion. Historical-priority completeness and independent mathematical audit remain unperformed.
+For H=lambda_perp I+Delta uu^T the Ritz optimum is squared norm of u projected onto span(v,x), so the exact spectral-gap factor is W=1-(p dot x)^2. A uniform tangent x in dimension d-1 has squared fixed-direction overlap Beta(1/2,(d-2)/2); thus each W is Beta(a_d,1/2), a_d=(d-2)/2, and conditional distribution independent of past proves the factors iid. The exact gamma-ratio formula for E[W^q] holds for q>-a_d, and at k_d=floor(cd) its scaled log moment generating function converges for theta<1/2 to -c/2 log(1-2theta). The derivative range (0,infinity), tilted variance O(1/d), and exponential tightness prove full speed-d LDP with I_c(s)=(s-c-c log(s/c))/2 on s>0 and +infinity for s<=0, plus the two one-sided exponent statements. Under all finite d>=3 the gap stays positive almost surely. The package verify.py was read and checks independent Ritz eigensolutions; no finite tests are used as the LDP proof.
+
+## originality
+
+PASS
+
+Bresch–Melnyk (October 30, 2026) primary full 25-page manuscript was materially inspected: Algorithm (2), Example 2.4 and Proposition 2.5 supply exact spiked expected contraction and one-step spherical cap estimates, but not the dimension-linear k_d~cd logarithmic gap full LDP or its both-sided success/failure rates. The known conditional Beta law and generic Gartner–Ellis/Cramer machinery are ingredients, not separate inventions. Related Resultary codimension-only Beta law concerns repeated maximal eigenvalues and fixed-step small-gap local asymptotics, not joint dimension-iteration rank-one rate I_c. A hidden general Gamma/Beta-product theorem may make this rate a corollary, so best-of-knowledge priority only.
+
+## value
+
+PASS
+
+The probability of obtaining a specified multiplicative Rayleigh-error reduction after a budget proportional to dimension is a natural algorithm-reliability question. The exact two-sided rare-event exponent distinguishes expected contraction from high-probability performance and supplies precise success/failure thresholds inaccessible from expectation alone. The new joint asymptotic is a substantive motivated classification even though its Beta and Gamma ingredients are classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
