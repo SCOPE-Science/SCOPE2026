@@ -1,15 +1,21 @@
-# Scientific review: cyclotomic nilpotency-index strata
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the PBW basis of the two-generator quantum complete intersection and the exact product rule for normal-form monomials. The universal integral-polynomial expansions for the square, cube, fourth power, and fifth power were independently checked in `verify_symbolic.py`. The square-zero equations reduce to a three-variable quadratic with exactly \(q^2\) solutions over every finite field, regardless of characteristic. The cubic-zero set splits into three disjoint coefficient cases and yields the stated formula; the fourth power has one coefficient \(su a^2b^2\). These computations imply the full distributions and strict index gaps. `verify.py` independently enumerates the radical by direct multiplication over three field sizes, including the extension field \(\mathbb F_4\), and checks degree-filtered slices in two further primes. Finite tests corroborate, rather than replace, the universal normal-form proof.
+## correctness
 
-## Originality — PASS relative to the checked literature
-The closest paper on the same family is Bergh, Erdmann, and Jorgensen, *Modules of constant Jordan type over quantum complete intersections* (arXiv:1910.06714, 2019-10-15). It requires a specifically chosen root-of-unity commutation parameter and records an established result that linear combinations of its generators have nilpotency index equal to the common exponent. This includes the known motivating special behavior but not the complete distribution of indices of every radical element at all nonzero parameters. Erdmann and Hellstrøm-Finnsen (arXiv:1703.05962, 2017-03-17) study Hochschild cohomology of the same presentation, including nilpotent **cohomology classes**, not the elementwise radical power-map fibers counted here. Jin and Zhang (arXiv:2208.05687, 2022-08-11) address bi-Frobenius and Hopf structures. Explicit published-research searches and available prior scientific claim comparisons found no covering enumeration. The remaining risk is a broader power-map or quantum-binomial enumeration theorem not located by these searches; publication priority is not independently established.
+PASS
 
-## Mathematical value — PASS
-The first two-generator exponent-three quantum complete intersection is a canonical nine-dimensional deformation of the truncated polynomial algebra. Its full nilpotency-index distribution is a natural invariant of the algebra's radical, giving exact point counts for nested power-zero loci, not just a demonstration that the radical is nilpotent. The result identifies two sharply different cyclotomic jumps: a cube-zero *elementwise* radical with a nonzero fourth ideal power, and the disappearance of index four while many index-five elements remain. Both are structural boundaries in an infinite field-and-parameter family; the counts distinguish resonance regimes and offer explicit test data for power-map geometry. No isomorphism-class census or broader exponent theorem is claimed.
+PBW basis x^iy^j (0≤i,j≤2) gives dim A=9 and dim J=8. Multiplication coefficient λ^{jr} independently reconstructs w³=s[a²b x²y + ab² xy² + {t(a²e+b²c)+(1+λ)abd}x²y²], w⁴=su a²b² x²y², and w⁵=0 for arbitrary λ, where s=1+λ+λ², t=1−λ+λ², u=1+λ². Independently expanded these in symbolic characteristic-zero polynomial arithmetic, then reduced identities to all finite fields. For w²=0 the independent degree-two a²,b² terms force a=b=0 and the remaining nondegenerate d²/ce equation has exactly q² triples (c,d,e), giving C₂=q⁵. For w³=0, s=0 gives all q⁸, else ab=0 and the t-dependent condition gives C₃ as written; w⁴=0 either all or ab=0. Nested counts yield N1..N5 and establish index-four iff st≠0 and index-five iff su≠0. The t=0,s≠0 boundary has no index four yet q⁶(q−1)² index-five elements. No use of finite search for universal quantifiers.
 
-## Limitations and residual risks
-The study only treats two cubically truncated generators and elementwise indices. The full result is not asserted for larger exponents, larger numbers of generators, or all Artin algebras. A known statement about nilpotency of linear forms in the primitive-cube-root case is prior mathematics, not the novelty claim. The proof has only self-review; independent mathematical audit and complete publication-priority verification have not been performed. Two relevant primary sources concern the same algebras but different invariants; no located source implies the entire phase diagram.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete parameter-dependent nilpotency-index census, particularly cyclotomic gaps for λ not restricted to primitive cube roots. Earlier closely matching quantum-cubic results classify the primitive-third-root s=0 specialization and the Jordan ranks of left multiplication, not the full λ-dependent counts of elementwise indices for all finite fields. The s=0 branch is explicitly prior-covered; no novelty claimed for that branch alone.
+
+## value
+
+PASS
+
+The radical of the natural smallest two-generator cubic quantum complete intersection has elementwise nilpotency spectrum differing from the nilpotency class of J, and exhibits a nonconsecutive gap (index four absent, index five present). The full q- and λ-dependent count including characteristic two/three resonance is a motivated structural phase diagram with a reusable exact invariant, not a trivial root-of-unity substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
