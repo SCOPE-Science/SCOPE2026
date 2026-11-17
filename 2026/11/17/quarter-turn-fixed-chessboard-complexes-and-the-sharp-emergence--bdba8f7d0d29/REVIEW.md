@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** A direct orbit-barycenter argument proves the PL fixed-space model for every square board size. For each pair of distinct antipodal index pairs there are exactly two admissible four-square quarter-turn orbits; compatible families are precisely colored matchings. On odd boards the central square is a cone vertex. The established integer vertex-inflation splitting and integral matching-complex homology give a sharp first torsion threshold at fourteen. Exact Smith forms on the seven-label matching-complex boundary independently reproduce its unique factor three. Small boundary cases are explicitly included, with an empty even fixed set at board order two.
+
+**Originality — PASS within the inspected evidence.** The closest indexed transpose-fixed chessboard theorem has a different orbit type and torsion-free sphere wedge. The indexed doubled-cross-polytope boundary uses a fourfold matching-complex inflation rather than the twofold inflation from a quarter-turn chessboard. The foundational 1994 chessboard paper and the general inflation theorem do not imply any specific fixed locus without the new geometric orbit identification. The resulting numerical homology is a corollary of the established theorem after this identification, not a new independent homology theory. An older unindexed equivalence under rotating-rooks terminology remains possible.
+
+**Mathematical value — PASS.** The PL classification is uniform over all board orders, sharply locates the first nontrivial integral torsion in geometric quarter-turn fixed spaces, and turns a natural symmetry-topology question into matching-complex topology with a known integral decomposition. It is more structural than a finite enumeration or an Euler-characteristic computation.
+
+**Closest sources and boundaries.** See Björner–Lovász–Vrećica–Živaljević (1994), Björner–Wachs–Welker (Theorem 6.2 and Corollary 6.3), Shareshian–Wachs (2004), Mondal–Mukherjee–Saha (2023), and the indexed transpose-fixed and fourfold-inflated matching-complex results cited in RESULT.md or AUDIT.json. The work does not claim an integral wedge decomposition for the torsion-bearing fixed space, any full equivariant homotopy type, or a classification of all group actions.
+
+Self-review: passed. Independent audit: not yet performed.
