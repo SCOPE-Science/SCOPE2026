@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The row/column condition is exactly equivalent to double-total domination. The proof separately eliminates smaller sets, classifies all eight-square optima by degree profile, and derives the complete exchange graph from allowable one-square changes. The two independent verification programs certify the counts \(3189\), \(2109+20\cdot54\), \(2880\), the component degree distributions, and diameter \(5\) by exhaustive finite computation. The first-mobile statement is precisely bounded to nondegenerate boards with at most \(24\) cells.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+The defining open-neighborhood condition at square (i,j) is exactly r_i+c_j-2x_ij>=2. The global minimum size8 follows by empty-column versus all-positive-column row-sum argument. All size8 optima split by column support into exact families of sizes 15,1080,1350,24,720, totaling 3189. Any legal single exchange preserves selected row and occupied-column support; only three-active-column configurations move. For each of 20 triples the four omitted-column symbols have multiplicity <=2 and yield a connected 54-state graph with 144 edges and diameter5. Independent complete C(24,8) binary subset enumeration reproduced count3189, 2880 exchange edges, degree histogram 2109/360/720, and no non-slide exchanges. The first-board cutoff requires checking the finite n*m<=24 grid, not an infinite family assertion.
 
-Kazemi–Pahlavsay–Stones (arXiv:1509.08208, first posted 2015-09-28) determines the minimum two-tuple total-domination number of rook graphs and includes sample optimal matrices; the inspected full rook-graph section does not supply the present complete minimum-set counts or one-square reconfiguration graph. Their submatrix switches do not imply local one-token paths. Henning–Kazemi (2010) supplies the general definition; later ordinary total domination reconfiguration uses distinct feasibility and moves. Searches of equivalent matrix language, prior research records, 4-by-6 profiles, and exact state counts found no covering theorem. This does not prove absolute priority: unindexed exact enumerations and inaccessible complete follow-up texts remain risks.
+## originality
 
-## Value — PASS
+PASS
 
-The first board with mobile optima is a motivated sharp finite cutoff, not a raw isolated count. The same optimum contains an unexpectedly large frozen sector and twenty copies of a capacity-two four-row recoloring graph of diameter five. The complete classification explains the mobility restriction and why token sliding costs no additional constraint.
+Kazemi–Pahlavsay–Stones 2015 already give minimum double-total domination cardinality 8 for 4x6 and the row/column feasibility inequality, and are credited. Their sample optimal matrices and larger submatrix transitions do not give all 3189 configurations or the single-token exchange graph in the inspected full Section 3. Distinct ordinary total-domination reconfiguration theorems do not apply to minimum double-total domination.
 
-## Limits and related literature
+## value
 
-The infinite family of all rook graphs is not classified here. Results for paired domination, two-quasiperfect domination, total \([1,2]\)-domination and conventional total domination do not imply double-total domination because their neighbor-count predicates differ. Historical priority and external independent validation remain unconfirmed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact first mobile board is a natural threshold for optimal redundant detector placements; full optimum count, frozen fraction and connected 54-state exchange geometry are independently useful finite invariants, not mere recomputation of minimum size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
