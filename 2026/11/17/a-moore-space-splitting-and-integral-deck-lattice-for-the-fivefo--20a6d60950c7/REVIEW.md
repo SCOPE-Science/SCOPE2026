@@ -1,0 +1,12 @@
+# Scientific assessment: fivefold chessboard quotient
+
+## Correctness — PASS
+The quotient has precisely three vertex orbits, twelve edge orbits, and twelve triangle orbits; freeness follows because a nontrivial column rotation cannot preserve a nonempty matching with distinct row labels. After collapsing two spanning-tree edges, the twelve triangle words have the explicit form \(a_i c_{j-i}b_j^{-1}\). Nine generator eliminations, each witnessed by a relation containing the corresponding generator exactly once, leave two opposite degree-five relators and one trivial relator. One 2-cell slide yields the standard Moore-space-plus-two-spheres homotopy type. The universal-cover cellular complex then yields \(I_{C_5}\oplus\mathbb Z[C_5]^2\). The embedded dependency-free verifier enumerates and checks each finite combinatorial and free-group step. Risk: this is a CW homotopy classification, not a homeomorphism or canonical chain-level equivariant basis.
+
+## Originality — PASS relative to checked evidence
+The 1994 chessboard-complex introduction and connectivity paper, the 2000 Reiner–Roberts rational representation calculation, and the 2026 generalized-chessboard homotopy classification concern the unquotiented complex and/or rational characters, not the degree-five CW attaching map in this ordinary geometric cyclic orbit. The published three-row two-matching cyclic quotient studies capacity two per row/column rather than capacity one; inclusion or substitution does not imply the present quotient homotopy type. Searches for the same quotient under rook/matching, Moore, augmentation-lattice, and column-permutation formulations returned no identical theorem. Risk: search incompleteness and an unindexed equivalent result; no independent publication-priority certification is asserted.
+
+## Value — PASS
+Three rows and five columns are the smallest member of the usual stable shellable three-row range, giving a natural finite test of how a cyclic column action changes topology. The result simultaneously identifies nontrivial five-torsion in the orbit space, determines the entire homotopy type rather than Betti numbers, and fixes the integral deck lattice on the fourteen-dimensional second homology of the covering complex. Rational symmetric-group characters cannot alone distinguish that lattice. The conclusion is exact and natural, without needing a general theorem for all board widths.
+
+Self-review: passed. Independent audit: not yet performed.
