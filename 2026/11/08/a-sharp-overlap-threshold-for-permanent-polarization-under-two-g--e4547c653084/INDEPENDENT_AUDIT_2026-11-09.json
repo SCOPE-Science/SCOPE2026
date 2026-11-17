@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T16:50:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two hyperedges are the entire vertex set; each is odd and neither contains the other. If both inactive, shared vertices force global consensus. The first effective clock event chooses uniformly among active groups. After one group becomes monochrome, only the other can act; after it acts, the two private blocks have fixed opposing opinions. Every subsequent shared-block flip is dominated by its private block exactly when 2s<a and 2s<b, yielding a closed alternating class; otherwise consensus occurs within four effective updates. Fair-initial averaging correctly includes the sole-active clock correction. An independently written state enumerator (not the supplied verify.py) checked every labelled configuration in six structures including (3,3,1),(5,5,s=1,2,3),(3,5,1),(5,7,2), and reproduced probabilities 1/4,5/16,1/8,0,9/32,5/32.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adaptive rewiring, density equations for triplets, and infinite spatial blocks have different model conditions."
+        ],
+        "reasoning": "Those dynamics do not imply exact per-configuration polarization on an arbitrary pair of distinct intersecting odd hyperedges.",
+        "searches": [
+          "Golovin Mölter Kuehn arxiv:2308.03640 adaptive hypergraph voter majority",
+          "Noonan Lambiotte 2021 hypergraph majority rule",
+          "Lanchier Neufer arxiv:1301.0151 lattice blocks"
+        ]
+      },
+      "checked_sources": [
+        "Assigned package RESULT.md, verify.py, AUDIT.json, METADATA.json, SLOGAN.txt, VERIFICATION.md at 4fc0ff7d0f056fcd04e9e8f4d1b686eb5573e3ed",
+        "2021 Noonan–Lambiotte primary PDF introduction and model sections",
+        "Resultary query hypergraph two-edge and loose hyperstar",
+        "Independent all-bit state recurrence and rational averaged-law checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The first source develops triplet mean-field/modular drift, not private-block majority dominance and two-edge recurrence; the second permits topology changes not assumed here."
+        ],
+        "reasoning": "Distinct hypotheses/preparation and lack of an all-odd-size exact result preclude logical implication from inspected claims.",
+        "searches": [
+          "Noonan Lambiotte PhysRevE 104 024316 (2021) §§I–III",
+          "Golovin Mölter Kuehn 2308.03640"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2021 primary paper chooses group size 3; its Fig.2 shows two triplets but does not state the all-size alternating-class classification."
+        ],
+        "reasoning": "Small loose-hyperstar triplet special case is covered; no all-size equivalent found.",
+        "searches": [
+          "Resultary: two overlapping odd hyperedges Poisson majority polarization threshold",
+          "Noonan Lambiotte 2021 Dynamics of Majority Rule on Hypergraphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Loose-hyperstar result supplies 3-uniform cases including 1/4 for the two-triplet overlap; assigned formula extends to any odd a,b and 1<=s<min(a,b)."
+        ],
+        "reasoning": "The table/special case is acknowledged and does not dominate the full parameter family.",
+        "searches": [
+          "Resultary exact recurrent classes and consensus probability majority loose hyperstar",
+          "Resultary two overlapping odd hyperedges"
+        ]
+      },
+      "rationale": "The 3-uniform loose hyperstar/two-triplet case is explicitly known and not new. The all-odd-group-size, all-overlap conditional first-event law and averaged binomial-tail boundary were not implied by inspected 3-body, mean-field, adaptive or lattice-block works. Identical title in Resultary is the assigned finding. Best-of-knowledge with residual sparse-hypergraph priority risk.",
+      "residual_risks": [
+        "Other exact two-clique/hyperstar majority Markov-chain treatments could contain equivalent parameter laws; no absolute negative proof.",
+        "Unequal Poisson rates and even group sizes excluded; at most four counts effective updates, not elapsed time."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_FULL_PARAMETER_COVERAGE",
+          "evidence": "Authors restrict to 3-body interactions and focus on mean-field/modular density dynamics.",
+          "identifier_or_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevE.104.024316/fulltext",
+          "material_read": "Primary 2021 PDF; read introduction, Fig.2 model, triplet analysis and scanned first page.",
+          "method": "Open primary PDF",
+          "title": "Dynamics of Majority Rule on Hypergraphs",
+          "trigger": "Same hypergraph majority update mechanism"
+        },
+        {
+          "assessment": "COVERED_SPECIAL_CASE_ONLY",
+          "evidence": "k=2 triplet loose hyperstar yields polarization probability 1/4; cannot infer arbitrary odd sizes or overlap.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-recurrent-classes-and-consensus-probability-for-majority-v--d8865592de87",
+          "material_read": "Published finding title and Resultary summary inspected (not complete full text).",
+          "method": "Resultary semantic index",
+          "title": "Exact recurrent classes and consensus probability for majority voting on a loose hyperstar",
+          "trigger": "Potential exact 2-petal special case"
+        },
+        {
+          "assessment": "SELF_MATCH_ONLY",
+          "evidence": "Assigned result is not independent priority evidence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-overlap-threshold-for-permanent-polarization-under-two-g--e4547c653084",
+          "material_read": "Resultary index summary matched assigned result",
+          "method": "Resultary search",
+          "title": "A sharp overlap threshold for permanent polarization under two-group majority dynamics",
+          "trigger": "Same-title duplication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete class/absorption classification for a natural minimal overlapping-group model, with exact conditional and fair-initialization probabilities and sharp structural overlap boundary. It isolates permanent polarization despite connectivity and distinguishes active updates from time.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Other exact two-clique/hyperstar majority Markov-chain treatments could contain equivalent parameter laws; no absolute negative proof.",
+    "Unequal Poisson rates and even group sizes excluded; at most four counts effective updates, not elapsed time."
+  ],
+  "schema_version": 1
+}

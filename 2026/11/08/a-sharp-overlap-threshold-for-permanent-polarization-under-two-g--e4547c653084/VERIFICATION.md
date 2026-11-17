@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The complete standalone script `verify.py` uses only Python's standard library and exact `fractions.Fraction` arithmetic. Run with `python3 verify.py`. It computes the stochastic first-effective-event average separately from the theorem's direct majority-indicator expression, enumerates the subsequent forced transition graph, and declares nonconsensus only upon detecting a repeated state. It checks \(18{,}544\) labeled initial states over \(27\) structures and compares fair-Bernoulli exact averages over all profiles against the closed binomial-tail formula for \(46\) structures. The four named small examples are asserted exactly. The program reports `PASS` only if every comparison agrees.
+## correctness
 
-The finite tests do not prove the universal all-size claim. The proof independently establishes the initial-event decomposition, the sharp private-vs-intersection inequalities, the closed alternating communication class, and the fair-initialization averaging identity. No independent external scientific audit has occurred.
+PASS
+
+The two hyperedges are the entire vertex set; each is odd and neither contains the other. If both inactive, shared vertices force global consensus. The first effective clock event chooses uniformly among active groups. After one group becomes monochrome, only the other can act; after it acts, the two private blocks have fixed opposing opinions. Every subsequent shared-block flip is dominated by its private block exactly when 2s<a and 2s<b, yielding a closed alternating class; otherwise consensus occurs within four effective updates. Fair-initial averaging correctly includes the sole-active clock correction. An independently written state enumerator (not the supplied verify.py) checked every labelled configuration in six structures including (3,3,1),(5,5,s=1,2,3),(3,5,1),(5,7,2), and reproduced probabilities 1/4,5/16,1/8,0,9/32,5/32.
+
+## originality
+
+PASS
+
+The 3-uniform loose hyperstar/two-triplet case is explicitly known and not new. The all-odd-group-size, all-overlap conditional first-event law and averaged binomial-tail boundary were not implied by inspected 3-body, mean-field, adaptive or lattice-block works. Identical title in Resultary is the assigned finding. Best-of-knowledge with residual sparse-hypergraph priority risk.
+
+## value
+
+PASS
+
+A complete class/absorption classification for a natural minimal overlapping-group model, with exact conditional and fair-initialization probabilities and sharp structural overlap boundary. It isolates permanent polarization despite connectivity and distinguishes active updates from time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
