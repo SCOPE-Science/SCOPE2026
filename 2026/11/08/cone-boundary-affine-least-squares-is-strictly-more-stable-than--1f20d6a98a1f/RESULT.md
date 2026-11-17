@@ -1,86 +1,80 @@
-# Cone-boundary affine least squares is strictly more stable than volume least squares, with a sharp hypercube gap
+# Exact cone-boundary affine projection on cubes and its sharp surface–volume gap
 
 ## Finding
-Let \(K\subset\mathbb R^d\), \(d\ge 2\), be a centrally symmetric convex body with nonempty interior and center at the origin. Let \(\nu_K\) be the cone probability on \(\partial K\), and let \(\mu_K\) be normalized Lebesgue probability on \(K\). For each measure, take the real \(L^2\)-orthogonal projection onto the traces of affine functions, with the corresponding supremum norm. Then
+Let \(d\ge2\), let \(Q_d=[-1,1]^d\), and consider real \(L^2\)-orthogonal projection onto affine functions. Write \(P_{\partial,d}\) for projection using normalized Hausdorff measure on the entire boundary \(\partial Q_d\), and \(P_{\mathrm{vol},d}\) for projection using normalized volume on \(Q_d\). Equip inputs with their respective essential-supremum norms and outputs with the supremum norm over the corresponding support. Define, for \(n\ge1\),
 \[
-\boxed{\|P_{\nu_K}\|_{L^\infty(\nu_K)\to L^\infty(\partial K)}<\|P_{\mu_K}\|_{L^\infty(\mu_K)\to L^\infty(K)}.}
+ B_n(z)=\frac1{2^n(n+1)!}\sum_{j=0}^n(-1)^j\binom nj(n-2j-z)_+^{n+1},
+ \qquad a_d=\frac{3d}{d+2},\quad x_+=\max(x,0).
 \]
-The comparison is between different input measures and different underlying domains; it does not assert inclusion or an operator ordering.
-
-For the cube \(Q_d=[-1,1]^d\), \(d\ge2\), normalized Hausdorff surface probability equals cone probability. Define \((u)_+=\max(u,0)\), and for any integer \(n\ge1\) and real \(z\), define the explicit finite sum
+Then the exact sharp norms are
 \[
-B_n(z)=\frac{1}{2^n(n+1)!}\sum_{j=0}^n(-1)^j\binom nj(n-2j-z)_+^{n+1},\qquad a_d=\frac{3d}{d+2}.
+\boxed{\|P_{\partial,d}\|=a_d\left[1+B_{d-1}\!\left(1+\frac1{a_d}\right)+B_{d-1}\!\left(1-\frac1{a_d}\right)\right],}\qquad
+\boxed{\|P_{\mathrm{vol},d}\|=1+6B_d(1/3).}
 \]
-The *exact* norms of the two affine least-squares projectors on the cube are
+The latter volume formula and its vertex norming property are established earlier results and are included as the comparison benchmark, **not as new independent findings**. For boundary projection, the norm is attained at precisely the \(2^d\) vertices and at no other evaluation locations. At each finite \(d\ge2\), \(\|P_{\partial,d}\|<\|P_{\mathrm{vol},d}\|\), and their sharp difference has the dimension-limit
 \[
-\boxed{L_{\partial}(d)=a_d\biggl[1+B_{d-1}\!\left(1+\frac1{a_d}\right)+B_{d-1}\!\left(1-\frac1{a_d}\right)\biggr],\qquad L_{\rm vol}(d)=1+6B_d\!\left(\frac13\right).}
+ \boxed{\lim_{d\to\infty}\sqrt d\,\bigl(\|P_{\mathrm{vol},d}\|-\|P_{\partial,d}\|\bigr)=\sqrt{6/\pi}.}
 \]
-For **both** cube projectors, precisely the \(2^d\) cube vertices are norming evaluation locations. In every finite dimension \(L_{\partial}(d)<L_{\rm vol}(d)\), and the *sharp scaled gap* satisfies
-\[
-\boxed{\lim_{d\to\infty}\sqrt d\,[L_{\rm vol}(d)-L_{\partial}(d)]=\sqrt{\frac6\pi}.}
-\]
-Each norm separately has leading behavior \(L_{\partial}(d)/\sqrt d\to\sqrt{6/\pi}\) and \(L_{\rm vol}(d)/\sqrt d\to\sqrt{6/\pi}\). Illustratively, \(L_{\partial}(2)=5/3\) versus \(L_{\rm vol}(2)=233/108\), and \(L_{\partial}(3)=94/45\) versus \(L_{\rm vol}(3)=415/162\).
+Both norms divided by \(\sqrt d\) converge to \(\sqrt{6/\pi}\). For example, in dimensions two and three the boundary norms are \(5/3,94/45\), respectively, while the volume norms are \(233/108,415/162\). The strict general inequality for **every centrally symmetric convex body** is an established theorem (October 18, 2026, cited below), and **is not claimed as original here**. The new contribution is the exact continuous boundary-cube norm and its fully quantified comparison with the already known volume norm.
 
 ## Assumptions and scope
-The cone probability is defined without boundary smoothness assumptions: if \(X\sim\mu_K\) and \(\|\cdot\|_K\) is the Minkowski functional of \(K\), then \(Y=X/\|X\|_K\) has law \(\nu_K\). The radial variable \(R=\|X\|_K\) is independent of \(Y\), and \(\mathbb P(R\le r)=r^d\) for \(0\le r\le1\). In general \(\nu_K\) is not Euclidean surface-area probability. On a cube the facet distances to the origin are equal, hence these probabilities agree.
-
-Projections are taken in real \(L^2\), while their reported norms are from bounded inputs to bounded affine outputs. The notation \(\|P_{\nu_K}\|\) means the operator from essentially bounded \(\nu_K\)-measurable functions to continuous affine traces on \(\partial K\), measured in the supremum norm; analogously for \(\mu_K\). All functions, covariance matrices and measures are real and probability-normalized. No degree beyond one is considered.
+The boundary measure is normalized physical \((d-1)\)-dimensional surface measure, which for a centered cube agrees with its radial cone measure because all facets have equal distance from the origin. On an arbitrary centrally symmetric body, cone and surface measures need not agree. The result does not concern higher-degree polynomial spaces, unequal boundary weights, empirical sampling, or nonlinear projection. All statements are valid for every integer \(d\ge2\), with limits taken as \(d\to\infty\).
 
 ## Proof
-**1. Radial disintegration and reproducing kernels.** By dilation, \(\mu_K(rK)=r^d\). Polar disintegration with respect to the Minkowski functional implies \(X=RY\), with \(Y\sim\nu_K\) independent of \(R\), \(\mathbb E R=d/(d+1)=:r_1\), and \(\mathbb E R^2=d/(d+2)=:r_2\). Central symmetry gives \(\mathbb E Y=0\), and the positive-definite matrix \(\Sigma=\mathbb E[YY^T]\) exists. Consequently \(\mathbb E[XX^T]=r_2\Sigma\). Orthogonality of constants and linear coordinate functions gives the affine projection kernels, at evaluation \(x\),
+**1. Exact boundary kernel.** Let \(Y\) have normalized cube-boundary measure. It can be generated by choosing an index \(I\) uniformly from \(\{1,\dots,d\}\), putting \(Y_I=\varepsilon\) with symmetric \(\varepsilon\in\{-1,1\}\), and choosing the remaining coordinates independently uniformly on \([-1,1]\). Hence \(\mathbb EY=0\) and
 \[
-K_\nu(x,y)=1+x^T\Sigma^{-1}y,\qquad K_\mu(x,u)=1+r_2^{-1}x^T\Sigma^{-1}u.
+ \mathbb E[YY^\mathsf T]=\frac{1}{d}\left(1+\frac{d-1}{3}\right)I_d=\frac{d+2}{3d}I_d.
 \]
-Their evaluation norms equal the respective integrals of the absolute kernels. The sign of the kernel is an extremal input almost everywhere, so these norms are sharp.
+The reproducing kernel for the real affine subspace is therefore \(K_{\partial}(x,y)=1+a_dx\cdot y\). Its \(L^\infty\)-evaluation norm at \(x\) is exactly \(\mathbb E|1+a_dx\cdot Y|\); the input equal to the sign of this kernel shows sharpness. This expression is convex in \(x\), so its global maximum over \(Q_d\), and hence over its boundary, is attained at some vertex. Signed coordinate permutations make every vertex equivalent.
 
-**2. Strict domination.** For \(x\in K\), put \(Z_x=x^T\Sigma^{-1}Y\) and \(g_x(t)=\mathbb E|1+tZ_x|\). Since \(Z_x\) is symmetric,
+**2. No nonvertex maximizers.** Let \(v,v'\) be distinct vertices and choose a coordinate \(i\) with \(v_i=-v'_i\). On the positive-measure portion of the facet \(Y_i=-v_i\) where all other coordinates are sufficiently close to zero, the kernels \(1+a_dv\cdot Y\) and \(1+a_dv'\cdot Y\) have strictly opposite signs, because \(a_d>1\) for \(d\ge2\). Thus \(\mathbb E|1+a_d(\theta v+(1-\theta)v')\cdot Y|\) is strictly smaller than the common vertex norm whenever \(0<\theta<1\). Every nonvertex point of \(Q_d\) is a convex combination of at least two vertices with positive weights, and the same sign separation gives strict triangle inequality for the integral, excluding all nonvertices.
+
+**3. Exact boundary norm.** At the vertex \(\boldsymbol1=(1,\ldots,1)\), the random sum \(\boldsymbol1\cdot Y\) has the law \(W=\varepsilon+S_{d-1}\), where \(S_n\) is the sum of \(n\) independent \(\mathrm{Unif}[-1,1]\) variables. The standard inclusion-exclusion integration of their piecewise-polynomial density gives \(\mathbb E(S_n-z)_+=B_n(z)\). For \(a>0\) and real \(b\), symmetry implies
 \[
-g_x(t)=\mathbb E\max\{1,t|Z_x|\}\quad(t\ge0),
+ \mathbb E|b+aS_n|=b+2a B_n(b/a).
 \]
-so \(g_x\) is convex and nondecreasing on the positive half-line. The two evaluation norms are \(g_x(1)\) and \(\mathbb E_R g_x(R/r_2)\). Jensen's inequality yields
+Conditioning on \(\varepsilon=\pm1\), with \(a=a_d\), gives
 \[
-\mathbb E_R g_x(R/r_2)\ge g_x(r_1/r_2),\qquad\frac{r_1}{r_2}=\frac{d+2}{d+1}>1.
+\begin{aligned}
+ \mathbb E|1+aW|
+ &=\frac12\{(1+a)+2aB_{d-1}(1+1/a)
+ +(1-a)+2aB_{d-1}(1/a-1)\}\\
+ &=1+a[B_{d-1}(1+1/a)+B_{d-1}(1/a-1)].
+\end{aligned}
 \]
-For each \(x\in\partial K\), choose a supporting functional \(\ell\) normalized by \(\ell(x)=1\). Central symmetry gives \(|\ell(Y)|\le1\). Cauchy--Schwarz in the \(\Sigma\)-metric gives
+Using the exact symmetry identity \(B_n(-z)=B_n(z)+z\) for \(z\ge0\), and \(a>1\), this is the announced boundary expression. The already established volume kernel is \(K_{\mathrm{vol}}(x,u)=1+3x\cdot u\); at a vertex, its norm is \(\mathbb E|1+3S_d|=1+6B_d(1/3)\). We use this known volume formula as a benchmark rather than claim it anew.
+
+**4. Strict gap.** Radial disintegration of uniform cube volume gives \(X=RY\), where \(Y\) has the cone-boundary law just described, \(R\) is independent and has density \(dr^{d-1}\) on \([0,1]\). Put \(r_1=\mathbb ER=d/(d+1)\) and \(r_2=\mathbb ER^2=d/(d+2)\). The boundary kernel is \(1+(1/r_2)x\cdot Y\), while the volume kernel at \(x\) is \(1+(R/r_2)x\cdot Y\). At a vertex define \(g(t)=\mathbb E|1+tW|=\mathbb E\max(1,t|W|)\), \(t\ge0\), where \(W=\varepsilon+S_{d-1}\). It is nondecreasing and convex in \(t\). Hence Jensen gives
 \[
-1=(\ell^Tx)^2\le (\ell^T\Sigma\ell)(x^T\Sigma^{-1}x)\le x^T\Sigma^{-1}x=\mathbb E Z_x^2.
+ \|P_{\mathrm{vol},d}\|=\mathbb E_Rg(R/r_2)
+ \ge g(r_1/r_2)>g(1)=\|P_{\partial,d}\|.
 \]
-Thus \(\mathbb P(|Z_x|>r_2/r_1)>0\); the formula for \(g_x\) proves \(g_x(r_1/r_2)>g_x(1)\). The convex continuous function \(x\mapsto g_x(1)\) attains its maximum over compact \(K\) on its boundary. Evaluating the volume projector at such a maximizer proves the strict global norm inequality.
+The final strict inequality holds because \(r_1/r_2=(d+2)/(d+1)>1\) and \(W\) has positive probability in the region \(|W|>1\); on that region \(t\mapsto\max(1,t|W|)\) is strictly increasing for \(t\ge1\). This proves strict separation in all dimensions without appealing to the already known more general inequality.
 
-**3. Cube kernel, exact sums, and all norming points.** On \(Q_d\), a uniform surface point \(Y\) is generated by choosing one coordinate uniformly to be \(+1\) or \(-1\), and choosing all other coordinates independently uniformly on \([-1,1]\). Therefore \(\Sigma=\frac{d+2}{3d}I\), and the kernel at \(x\) is \(1+a_d x\cdot Y\); for uniform volume it is \(1+3x\cdot X\). Both evaluation norms are convex in \(x\), and every cube vertex is equivalent under signed coordinate permutations. Therefore every vertex is norming.
-
-No nonvertex is norming. Indeed, take any two distinct vertices \(v,v'\) and a coordinate \(i\) where they differ. On the positive-measure portion of the facet \(Y_i=-v_i\) where the other coordinates are sufficiently close to zero, \(1+a_d v\cdot Y<0<1+a_d v'\cdot Y\), because \(a_d>1\). Strictness in the triangle inequality holds there for any convex combination with positive weights on these vertices. Every nonvertex is a convex combination of at least two distinct vertices; the same sign-change argument establishes a strictly smaller evaluation norm. For the volume kernel use a positive-volume neighborhood of the analogous point with \(X_i\) close to \(-v_i\) and other coordinates close to zero; here the coefficient is \(3>1\). Thus the set of norming evaluation points is *exactly* the vertices in both cases.
-
-Let \(S_n\) be a sum of \(n\) independent uniform variables on \([-1,1]\). A sum-of-uniforms (Irwin--Hall) density integration gives
+**5. Sharp scaled asymptotic.** Put \(h_d(t)=\mathbb E\max(1,t|W|)\) and \(q_d(t)=\mathbb E(1-t|W|)_+\). Then \(h_d(t)=t\mathbb E|W|+q_d(t)\). The two norms, evaluated at vertices, are \(\mathbb E_Rh_d(3R)\) and \(h_d(3r_2)\), so
 \[
-\mathbb E(S_n-z)_+=B_n(z).
+ \|P_{\mathrm{vol},d}\|-\|P_{\partial,d}\|
+ =3(r_1-r_2)\mathbb E|W|
+ +\bigl(\mathbb E_Rq_d(3R)-q_d(3r_2)\bigr).
 \]
-At the vertex \((1,\ldots,1)\), the cube-volume norm is \(\mathbb E|1+3S_d|=1+6B_d(1/3)\). For the surface law, write \(W=\varepsilon+S_{d-1}\), with \(\varepsilon\in\{-1,1\}\) symmetric and independent. Then \(L_{\partial}(d)=\mathbb E|1+a_d W|\). Applying \(\mathbb E|b+a S_n|=b+2a\,B_n(b/a)\) for \(a>0\) and real \(b\), followed by the symmetry identity \(B_n(-z)=B_n(z)+z\) for \(z\ge0\), gives the displayed finite sum. Here \(1-1/a_d>0\) for \(d\ge2\).
-
-**4. Exact asymptotic gap.** For the cube, the radial disintegration has \(W=\sum_i Y_i\) as above, while \(\sum_i X_i=RW\). Set \(h_d(a)=\mathbb E\max(1,a|W|)\) and \(q_d(a)=\mathbb E(1-a|W|)_+\). Then \(h_d(a)=a\mathbb E|W|+q_d(a)\) and
+For \(t\ge1\), \(|q_d'(t)|\le1/t\le1\) wherever differentiable. On \(R<1/3\) use \(0\le q_d\le1\), and for the complementary region use this Lipschitz estimate. Because \(\mathbb P(R<1/3)=3^{-d}\),
 \[
-L_{\rm vol}(d)-L_{\partial}(d)=3(r_1-r_2)\mathbb E|W|+\bigl(\mathbb E q_d(3R)-q_d(3r_2)\bigr).
+ \bigl|\mathbb E_Rq_d(3R)-q_d(3r_2)\bigr|
+ \le 3\mathbb E|R-r_2|+3^{-d}=O(d^{-1}),
 \]
-For \(a\ge1\), \(q_d\) is 1-Lipschitz since its derivative where defined is \(-\mathbb E[|W|\mathbf1_{a|W|<1}]\), of magnitude at most \(1/a\). As \(\mathbb P(R<1/3)=3^{-d}\) and \(0\le q_d\le1\),
+where \(\mathbb E|R-r_2|\le |r_1-r_2|+\sqrt{\mathrm{Var}(R)}=O(d^{-1})\). Finally \(W=\varepsilon+\sum_{j=1}^{d-1}U_j\) has mean zero and variance \((d+2)/3\); the central limit theorem and bounded normalized second moments yield uniform integrability and
 \[
-|\mathbb E q_d(3R)-q_d(3r_2)|\le3\mathbb E|R-r_2|+3^{-d}
-\le\frac{3}{d+1}+\frac{6}{d+2}+3^{-d}=O(d^{-1}).
+ \frac{\mathbb E|W|}{\sqrt d}\longrightarrow\sqrt{\frac2{3\pi}}.
 \]
-Finally \(W=\varepsilon+\sum_{j=1}^{d-1}U_j\), with independent centered unit-interval uniforms of variance \(1/3\). The central limit theorem and bounded second moments imply \(\mathbb E|W|/\sqrt d\to\sqrt{2/(3\pi)}\). Since \(r_1-r_2=d/((d+1)(d+2))\), multiplication by \(\sqrt d\) yields \(\sqrt d(L_{\rm vol}-L_{\partial})\to3\sqrt{2/(3\pi)}=\sqrt{6/\pi}\). Also \(L_{\partial}(d)=3r_2\mathbb E|W|+O(1)\), giving the individual leading-order limits.
+Since \(r_1-r_2=d/((d+1)(d+2))\), multiplication by \(\sqrt d\) gives the asserted constant \(3\sqrt{2/(3\pi)}=\sqrt{6/\pi}\). The individual \(\sqrt d\) leading terms follow from \(h_d(3r_2)=3r_2\mathbb E|W|+O(1)\) and the same decomposition for volume.
 
-## Verification
-Run `python verify_cube_cone.py` with SymPy installed. This standalone script independently integrates the exact Irwin--Hall density on every polynomial cell, including all absolute-value breakpoints, and checks the resulting rational values against the closed finite sums for dimensions two through ten. It separately verifies the covariance and radial-moment identities for dimensions two through twenty-four and evaluates exact norm comparisons for dimensions two through thirty-eight. These finite checks corroborate the formulas but do not prove the all-dimension inequalities or limits; the arguments above do.
+## Verification and boundaries
+The unchanged reproducibility script `verify_cube_cone.py` separately integrates the exact Irwin–Hall density and checks the norm formulas in dimensions 2 through 10, with rational moment and comparison checks through larger finite dimensions. An independent exact-rational recalculation confirmed the boundary and volume finite-sum inequalities in dimensions 2 through 9 and the stated two- and three-dimensional values. Neither computation proves the universal all-dimensional statements; those are proved in the five mathematical steps above.
 
-## Relationship to prior work
-General analysis of the \(L^\infty\) norm of \(L^2\) projectors appears in the kernel-approximation literature, including Hangelbroek, Narcowich, Sun and Ward (2010). That paper's main theorem treats localized kernel approximation spaces on smooth manifolds and bounds operator norms; it does not assert a cone-boundary versus interior-volume ordering for affine projection on every symmetric convex body. Trefethen (2016) investigates multivariate polynomial approximation on hypercubes via degree-dependent analytic convergence rates, not the present boundary-versus-volume exact affine projection constants. Białas-Cież, Kenne, Sommariva and Vianello (2023) give rigorous numerical polynomial-mesh bounds on Lebesgue constants for finite-node interpolation and least-squares on cubes, simplices and balls; their Proposition 1 and least-squares experiments do not compare continuous cone-boundary and uniform-volume affine projectors or determine this sharp gap.
-
-Previously reported exact simplex results under volume and boundary measures do not imply the theorem here: simplices are not centrally symmetric, and their boundary facet mixture is not the cube's radial cone law. The present general inequality and cube asymptotic are not claimed to follow from a title or unsuccessful search; unindexed equivalents remain possible.
-
-## Limitations
-The universal comparison requires *central symmetry*, *cone probability*, and *affine* approximation. It is not a theorem about arbitrary Euclidean surface-area sampling on asymmetric convex bodies or about higher-degree polynomials. The hypercube exact sums and scaled limit use equal side lengths and unweighted facet area; the full universal theorem does not assert a dimension-independent quantitative gap for all convex bodies. Scientific novelty is based on the specified accessible comparisons, not an exhaustive global literature certificate.
+The **prior** general volume-versus-cone theorem is *Uniform volume has strictly larger affine projection amplification than cone-boundary sampling* (October 18, 2026); it proves even a pointwise inequality for centered convex bodies and strict norm separation for symmetric ones, so universal separation is expressly excluded from the present originality claim. The **prior** exact volume-cube formula and vertex norming are also covered by *Exact cube affine-projection norms and a second-order stability law* (November 8, 2026). The current theorem adds the complete boundary-cube norm and the exact asymptotic difference. General numerical Lebesgue-constant and kernel-projection results, for example arXiv:1005.2424 and arXiv:2311.18656, do not provide this surface-cube sum or its sharp gap in the inspected statements. Unindexed equivalent surface-cube calculations remain a possible historical-priority risk.
 
 ## References
-1. T. Hangelbroek, F. J. Narcowich, X. Sun, J. D. Ward, *Kernel Approximation on Manifolds II: The \(L^\infty\)-norm of the \(L^2\)-projector*, first arXiv version May 13, 2010, arXiv:1005.2424, https://arxiv.org/abs/1005.2424 .
-2. L. N. Trefethen, *Multivariate polynomial approximation in the hypercube*, first arXiv version August 7, 2016, arXiv:1608.02216, https://arxiv.org/abs/1608.02216 .
-3. L. Białas-Cież, D. J. Kenne, A. Sommariva, M. Vianello, *Evaluating Lebesgue constants by Chebyshev polynomial meshes on cube, simplex and ball*, first arXiv version November 30, 2023, arXiv:2311.18656, https://arxiv.org/abs/2311.18656 .
-4. Standard Irwin--Hall distribution identity for sums of independent uniform variables; the needed identity is derived through density integration in the proof and reproduced independently in `verify_cube_cone.py`.
+1. *Uniform volume has strictly larger affine projection amplification than cone-boundary sampling*, published October 18, 2026, scientific theorem and proof at `2026/10/18/uniform-volume-has-strictly-larger-affine-projection-amplificati--012d525c4466/RESULT.md`.
+2. *Exact cube affine-projection norms and a second-order stability law*, published November 8, 2026, mathematical proof at `2026/11/08/exact-cube-affine-projection-norms-and-a-second-order-stability--041f25f92a74/RESULT.md`.
+3. Hangelbroek, Narcowich, Sun, Ward, *Kernel Approximation on Manifolds II: The L-infinity norm of the L2-projector*, arXiv:1005.2424.
+4. Białas-Cież, Kenne, Sommariva, Vianello, *Evaluating Lebesgue constants by Chebyshev polynomial meshes on cube, simplex and ball*, arXiv:2311.18656.

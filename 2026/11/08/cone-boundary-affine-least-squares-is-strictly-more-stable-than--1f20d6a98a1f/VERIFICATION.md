@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ],
+    "status": "passed"
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,8 @@
 }
 ---
 
-# Reproduction and boundaries
+# Reproduction and limits
 
-Use Python 3.10+ with the dependencies in `requirements.txt`, then execute `python verify_cube_cone.py`. The script independently integrates the piecewise polynomial Irwin--Hall density, splitting each cell at any absolute-value sign change, and compares the result to exact closed truncated-power sums. It tests cube dimensions 2 through 10 with exact rational arithmetic; radial covariance identities are checked in dimensions 2 through 24; a further exact finite survey covers dimensions 2 through 38.
+The existing `verify_cube_cone.py` performs exact rational checks of the Irwin–Hall surface and volume affine projector formulas and covariance identities in bounded dimensions. No change to that scientific checker is required for the narrower cube theorem. An additional independent exact-rational calculation checked the boundary and volume finite-sum formulas in dimensions 2–9, including the strict comparison and exact values in dimensions two and three. The arbitrary-dimension conclusion follows from the proof in `RESULT.md`, not from these finite checks.
 
-The executed checker reports:
-
-```
-INDEPENDENT_EXACT_IRWIN_HALL_INTEGRALS_OK 9
-EXACT_COVARIANCE_AND_RADIAL_MOMENT_IDENTITIES_OK 23
-EXACT_STRICT_COMPARISONS_AND_ASYMPTOTIC_SANITY_OK 37
-ALL_CONE_CUBE_AFFINE_PROJECTION_CHECKS_OK
-```
-
-The rigorous universal convex-body inequality is proved by the radial probability disintegration, covariance-reproducing kernels, Jensen's inequality and strictness from a support functional. The exact cube kernel formula, strict vertex maximizers and asymptotic scaled gap are proved in `RESULT.md`. Finite calculations do not certify claims for all dimensions or all convex bodies. No independent external scientific audit has been performed.
+The general cone-volume versus uniform-volume inequality on symmetric convex bodies and the exact volume-cube formula were previously established and are explicitly credited mathematical premises. Formal proof and external expert attestation remain unperformed.
