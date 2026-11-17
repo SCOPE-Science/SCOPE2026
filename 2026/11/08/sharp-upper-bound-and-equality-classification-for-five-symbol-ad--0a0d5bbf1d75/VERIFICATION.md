@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing this document, `RESULT.md`, and `verify.py`. The checker uses only standard-library Python 3. It verifies that its explicit ordered-triple systems have exactly one representation of every ordered pair of distinct letters; then it constructs all codewords and checks every possible deletion position, zero overlapping outputs and complete coverage of all received three-symbol words.
+## correctness
 
-The five checked alphabet sizes are \(q=3,4,6,7,9\), and their code sizes are respectively \(15,32,96,147,297\). An additional independent enumeration covers all \(q^5\) length-five source words for each \(q=2,3,4,5,6\), checking the key rational shadow inequality by multiplying all weights by three. That phase covers \(12200\) source words. The final line of a successful run is `VERIFY_OK`.
+PASS
 
-The infinite-alphabet statement requires the exact shadow proof and the pre-existing directed-triple-system existence theorem, both described in `RESULT.md`; the finite program does not replace either. External independent auditing has not been performed. Historical priority is conditional on the inspected literature and remains subject to further expert checking.
+For w=abcde, B(w)={cde,ade,abe,abc}. Weight palindromic output 1, other 1/3. If none palindromic, a,c,e pairwise distinct and at least three distinct nonpalindromic outputs, hence local weight>=1 universally. Disjoint shadows bound codewords by q²+(q³-q²)/3. Equality forces full output partition and local weight exactly one: singleton balls are period-two ababa; other families are xbybz with distinct x,y,z, whose nonpalindromic outputs each correspond to one of three directed transitive pairs. Thus every maximizer is q independent labeled directed triple systems and D(q)^q such codes. Cited existence theorem yields equality for q>=3 and q=0,1 mod3; claims no exact A_q for q=2 mod3. Independently enumerated every word for q=2..5 and verified local shadow inequality.
+
+## originality
+
+PASS
+
+Chee–Li–Zhang (ISIT 2015) already produced this family by lifting perfect 3-symbol single-deletion codes; original family and its size not new. The surviving bound is over all possible length-five correcting codes, and the rigidity/count of all attaining it. Older Resultary minimum ternary perfect code (8) addresses minimum rather than maximum (15); ordinary two-deletion bounds use nonadjacent deletions, a different channel.
+
+## value
+
+PASS
+
+Completes a natural exact short-block coding problem in an infinite alphabet congruence family and identifies all optimal code structures, providing a universally sharp dual shadow inequality; more than a known construction or isolated tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

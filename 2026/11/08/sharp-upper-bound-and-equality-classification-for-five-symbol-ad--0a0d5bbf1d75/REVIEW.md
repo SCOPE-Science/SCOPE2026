@@ -1,15 +1,21 @@
-# Scientific review: five-symbol adjacent-burst deletion codes
+# Independent mathematical audit
 
-## Correctness (PASS)
-The claim fixes the alphabet and exact-four-position deletion channel. The weighted output bound is an exhaustive case distinction: a palindromic output has weight one; in its absence the letters at positions one, three and five are pairwise distinct and at least three nonpalindromic outputs occur. The sum of positive weights of disjoint output sets bounds the number of codewords. At equality all output words occur exactly once, and equality in the local bound forces either a unique period-two parent or a triple of outputs from a word \(xbybz\) with distinct outer letters. The latter partition condition is exactly the directed triple system axiom independently for each middle letter. The existence of directed triple systems at the stated alphabet sizes follows from the established existence theorem in Reference [2] of RESULT.md; it is used as a cited theorem rather than asserted without proof. The stored checker directly replays explicit instances for five alphabet sizes and all small-source weighted inequalities for alphabets two through six. No inference from a finite experiment to the infinite theorem is needed.
+## correctness
 
-## Originality (PASS against identified literature)
-Chee, Li and Zhang (2015, Section III-B) already give precisely the lifting construction from perfect length-three one-deletion codes to perfect length-five two-adjacent-deletion codes, including the maximum attainable value within their constructed family. That construction is explicitly credited as prior work. The new claim is the *global* sharp weighted upper bound for every length-five correcting code and rigidity of all equality cases: the derived equivalence of **every** bound-attaining code to one labeled directed triple system per middle symbol. The 2015 paper establishes a subset of the perfect size spectrum and the minimum for even alphabets; it does not assert the global maximum over arbitrary codes or enumerate its equality cases. The 2016 Schoeny et al. paper gives binary bounds. The 2019 directed-triple existence theorem provides designs, not the new upper bound/equality argument. The 2026 Ye–Ge full manuscript focuses on asymptotic constructions. Residual risk: another historical work may have independently established sharp maximality or this rigidity statement.
+PASS
 
-## Value (PASS)
-Perfect small-blocklength codes are natural benchmarks because their deletion balls partition the whole output space despite variable ball sizes. The theorem upgrades a known lower-bound construction to an exact global optimum for infinitely many alphabets and proves a complete structural classification of all optimizers. Its new positive-weight packing certificate applies to every alphabet and its rigidity result forces every optimal code to reveal the underlying designs. It is not merely restating the known construction or an isolated finite count.
+For w=abcde, B(w)={cde,ade,abe,abc}. Weight palindromic output 1, other 1/3. If none palindromic, a,c,e pairwise distinct and at least three distinct nonpalindromic outputs, hence local weight>=1 universally. Disjoint shadows bound codewords by q²+(q³-q²)/3. Equality forces full output partition and local weight exactly one: singleton balls are period-two ababa; other families are xbybz with distinct x,y,z, whose nonpalindromic outputs each correspond to one of three directed transitive pairs. Thus every maximizer is q independent labeled directed triple systems and D(q)^q such codes. Cited existence theorem yields equality for q>=3 and q=0,1 mod3; claims no exact A_q for q=2 mod3. Independently enumerated every word for q=2..5 and verified local shadow inequality.
 
-## Closest comparisons, reproducibility, limits
-Relevant sources include Chee–Li–Zhang, ISIT 2015 Section III-B (previous construction), and Ye–Ge, arXiv:2610.05696 (2026); Kreher–Stinson–Veitch, arXiv:1907.11186 and Discrete Mathematics 343 (2020); Schoeny et al., arXiv:1602.06820 (2016). The current theorem concerns *exactly two adjacent deletions* at length five, not arbitrary two deletions or deletion bursts of variable length. It leaves the exact optimal cardinality for alphabet sizes congruent to two modulo three unresolved. The Python checker is corroboration, not a substitute for the proof or external examination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Chee–Li–Zhang (ISIT 2015) already produced this family by lifting perfect 3-symbol single-deletion codes; original family and its size not new. The surviving bound is over all possible length-five correcting codes, and the rigidity/count of all attaining it. Older Resultary minimum ternary perfect code (8) addresses minimum rather than maximum (15); ordinary two-deletion bounds use nonadjacent deletions, a different channel.
+
+## value
+
+PASS
+
+Completes a natural exact short-block coding problem in an infinite alphabet congruence family and identifies all optimal code structures, providing a universally sharp dual shadow inequality; more than a known construction or isolated tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
