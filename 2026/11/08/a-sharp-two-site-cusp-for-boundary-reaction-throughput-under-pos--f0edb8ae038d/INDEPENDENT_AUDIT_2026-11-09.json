@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T18:44:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: With reflected Brownian generator D∂xx, boundary local time D times the near-boundary occupation density, and independent rate-r Poisson jumps relocating only position, the Neumann boundary resolvent is e^{-x√((s+r)/D)}/√(D(s+r)). The rank-one reset resolvent gives G^r_s(0,0)=[1+(r/s)A(√((s+r)/D))]/√(D(s+r)). At X=0 when local time grows, strong Markov and Poisson memorylessness make inverse local time a subordinator; occupation-density inversion yields φ(s)=s√((s+r)/D)/(s+rA). An independent first-contact renewal sum yields initial-μ prefactor (s+r)A/(s+rA); differentiating s↓0 gives exactly both stated means. Inverting the inverse-subordinator LLN gives throughput J=√(Dr)A(√(r/D)). For two reset sites, J=(D/a)F(y), F(y)=y[p e^{-y}+(1-p)e^{-βy}], β=b/a, y=a√(r/D). All interior F' zeros are Hβ(y)=p/(1-p), y∈(1/β,1), H=e^{-(β-1)y}(βy-1)/(1-y). Independently differentiated log H: -(β-1)+1/(y-1/β)+1/(1-y). Its minimum criterion yields discriminant β²−6β+1, cusp 3+2√2, exact three-stationary-point region. Log high/low peak ratio strictly increases with p, with opposite endpoint signs, so exactly one coexistence crossing. Independently bracketing roots reproduces p*(10)=.1228819699964 and rates .020660588845 and .983120201416. Assumes positive R and thresholds ℓ>0; finite checks supplement rather than prove universal uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bressloff §2.3 is a general propagator for retained local time but its half-line exact MFPT case uses a fixed reset point, and no all-weight two-atom optimizer.",
+          "Julián-Salgado two-site first-passage optimization has different critical parameters and initial-condition dependence."
+        ],
+        "reasoning": "General resetting resolvents contain ingredients for deriving the new transform, but do not state or dominate the two-atom cumulative-throughput maximin phase classification; qualitative bistability does not imply identical critical ratio.",
+        "searches": [
+          "reflected Brownian position resetting retained boundary local time two reset locations throughput bistability cusp 3+2sqrt2",
+          "two exponential mixture x p exp(-a x) cusp coexistence 3+2 sqrt2 throughput resetting",
+          "https://arxiv.org/pdf/2203.04868",
+          "https://arxiv.org/html/2311.11897v4"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2203.04868",
+        "https://arxiv.org/html/2311.11897v4",
+        "https://doi.org/10.1007/s10955-025-03527-5",
+        "reflected Brownian position resetting retained boundary local time two reset locations throughput bistability cusp 3+2sqrt2",
+        "two exponential mixture x p exp(-a x) cusp coexistence 3+2 sqrt2 throughput resetting"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bressloff's eq (3.17) at one reset site gives Eτℓ = (ℓ/√(Dr)+1/r(e^{a√(r/D)}−1)), matching μ-start single atom.",
+          "Two-site absorbing first hit minimizes (1−e^{-kx0})/[r(p e^{-ka}+(1-p)e^{-kb})], not maximizes √(Dr)[p e^{-ka}+(1-p)e^{-kb}]."
+        ],
+        "reasoning": "The shared Laplace mixture is an ingredient but the multiplicative sqrt(r) objective and uniform threshold βc need fresh optimization, and are not corollaries of absorbing-target MFPT results.",
+        "searches": [
+          "reflected Brownian position resetting retained boundary local time two reset locations throughput bistability cusp 3+2sqrt2",
+          "two exponential mixture x p exp(-a x) cusp coexistence 3+2 sqrt2 throughput resetting",
+          "https://arxiv.org/pdf/2203.04868",
+          "https://arxiv.org/html/2311.11897v4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bressloff 2022 (arXiv:2203.04868), section 3 equation (3.17), computes position-only retained-local-time MFPT for a single fixed reset point.",
+          "Julián-Salgado et al. arXiv:2311.11897v4 §§III–V derive two-site absorbing-boundary first-passage survival/MFPT, with discontinuous optimal r."
+        ],
+        "reasoning": "Same reset terminology is not equality of objectives: finite absorbing first hit vs cumulative boundary local time threshold. Single-site Bressloff recovered when μ is an atom; two-site sharp throughput is not in that statement.",
+        "searches": [
+          "reflected Brownian position resetting retained boundary local time two reset locations throughput bistability cusp 3+2sqrt2",
+          "two exponential mixture x p exp(-a x) cusp coexistence 3+2 sqrt2 throughput resetting",
+          "https://arxiv.org/pdf/2203.04868",
+          "https://arxiv.org/html/2311.11897v4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact 3+2√2 ratio, spinodal Hβ profile, or p*(β) was identified in examined prior tables of local-time threshold models."
+        ],
+        "reasoning": "No finite database is central; checked exact coexistence formulas of two-reset-point literature instead of looking for coincident terminology.",
+        "searches": [
+          "reflected Brownian position resetting retained boundary local time two reset locations throughput bistability cusp 3+2sqrt2",
+          "two exponential mixture x p exp(-a x) cusp coexistence 3+2 sqrt2 throughput resetting"
+        ]
+      },
+      "rationale": "PASS (qualified): Bressloff (2022) establishes retained-local-time first-passage means for a SINGLE reset distance and normalizes the same boundary local time. Julián-Salgado–Dagdug–Boyer (2024) show abrupt optimal-rate changes for TWO sites but in the mean first-hitting-time objective with absorbing boundary and different threshold equation. The exact two-site retained-contact throughput, positive-distance ratio 3+2√2, and unique weight-driven coexistence do not follow from either inspected published claim, even though the two-exponential mixture technique and qualitative first-order switching are related.",
+      "residual_risks": [
+        "An unindexed general theorem for bimodality of x-weighted two-exponential mixtures might derive the same 3+2√2 cusp; priority is best-of-knowledge.",
+        "Finite local-time threshold optimal r need not coincide with throughput maximizing r; model assumes Poisson and position-only resetting.",
+        "Colantoni–D'Ovidio–Pagnini 2025 known boundary-reset subordinator result was cross-checked by formula, not fully reread here."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Single positive reset-site result with directly comparable normalization; no two-site coexistence law",
+          "evidence": "Bressloff eq (3.17): retained-local-time MFPT for reset to x0; source PDF page 15.",
+          "identifier_or_url": "https://arxiv.org/pdf/2203.04868",
+          "material_read": "Entire 23-page open-access arXiv PDF with section 2 general formulation and half-line section 3, eqs (3.11)–(3.17); page-15 screenshot independently inspected",
+          "method": "arXiv PDF text and page screenshot",
+          "title": "Threshold surface reactions and local time resetting",
+          "trigger": "Same retained local time and position-only resetting"
+        },
+        {
+          "assessment": "Highly relevant two-site switching but first-hit absorbing boundary objective rather than retained-local-time throughput",
+          "evidence": "arXiv:2311.11897v4 §III Eq (3), §§IV–V, abstract.",
+          "identifier_or_url": "https://arxiv.org/html/2311.11897v4",
+          "material_read": "Full arXiv HTML §§II–VI, renewal MFPT equation (3), optimization critical-point analysis and initial-distribution variant",
+          "method": "arXiv open-access HTML complete manuscript",
+          "title": "Diffusion with two resetting points",
+          "trigger": "Two-site discontinuous optimal resetting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Keeping accumulated local time is a natural surface-reaction memory mechanism; long-run boundary contact predicts completion-time scaling for large local-time demand. The exact universal geometry threshold, bistable optimizing rates and unique mixing-weight switch provide a motivated structural phase diagram and operational reset design insight. It is not merely the old single-site or first-hitting result with changed notation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No full physical entropy/work model; local time retained, not reset, and ℓ finite optimum differs from long-run throughput optimum.",
+    "Only one-dimensional reflected BM, strictly positive two sites, Poisson resetting and exact known local-time normalization."
+  ],
+  "schema_version": 1
+}
