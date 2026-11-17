@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T19:50:05.460807Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md ad6339a9ab3e3f0f6b6e58001d31d769c61a2e05",
+        "Frozen verify.py source",
+        "Earlier full 2026-11-02 RESULT.md at https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-covariance-twins-and-displacement-only-identification-o--d13d753808a7/RESULT.md",
+        "independent_checks.py sympy direct comparison"
+      ],
+      "rationale": "Equilibrium redraws produce the exact bivariate mixture w times the stationary OU Gaussian pair plus (1-w) independent equilibrium endpoints, w=e^{-rt}. Wick's rule gives K(t)=2v² e^{-(r+2lambda)t}(1-e^{-rt})>0. Its derivative has one positive root t*=r^(-1)log[2(r+lambda)/(r+2lambda)], and reparameterizing s=rt establishes the monotone peak and two endpoint limits. The same-covariance Gaussian has smaller mutual information by the strict Gaussian maximum-entropy/KL identity. Independent symbolic calculation checked K against the earlier *general four-time cumulant* with coincident endpoints and verified the maximum derivative. The finite numerical checks are not necessary to establish the identities.",
+      "residual_risks": [
+        "Statement is only stationary equilibrium independent Gaussian redraws with finite lag t>0.",
+        "Maximum optimizes the raw fourth cumulant, not signal-to-noise-normalized detection power."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November 2 theorem establishes all ordered four-time cumulants and complete covariance mimicry for arbitrary positive lags.",
+          "The current submission focuses only on the paired times 0,t and an elementary peak thereof."
+        ],
+        "reasoning": "The four-time formula is strictly stronger than the submitted two-time cumulant; this comparison is decisive even if generic resetting papers do not state it.",
+        "searches": [
+          "equilibrium resetting OU Poisson refresh Gaussian stationary marginals two time fourth cumulant maximum lag mutual information",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-covariance-twins-and-displacement-only-identification-o--d13d753808a7/RESULT.md",
+          "Mori Olsen Krishnamurthy distribution resetting OU renewal"
+        ]
+      },
+      "checked_sources": [
+        "equilibrium resetting OU Poisson refresh Gaussian stationary marginals two time fourth cumulant maximum lag mutual information",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-covariance-twins-and-displacement-only-identification-o--d13d753808a7/RESULT.md",
+        "arxiv:2211.15372",
+        "arxiv:2310.04840"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior cumulant with a=c=0 gives K(t)=2v² exp(-(r+2lambda)t)(1-exp(-rt)).",
+          "Differentiating this known two-exponential function yields t*, monotone rate peak and endpoint limits; strict KL from non-Gaussian same-covariance law is Gaussian entropy extremality."
+        ],
+        "reasoning": "The earlier theorem and standard implications entail the central claimed formulas, leaving no substantial independent mathematical statement.",
+        "searches": [
+          "equilibrium resetting OU Poisson refresh Gaussian stationary marginals two time fourth cumulant maximum lag mutual information",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-covariance-twins-and-displacement-only-identification-o--d13d753808a7/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier velocity process V_t has stationary law N(0,sigma²), drift gamma, redraw rate r and is identical in distribution to current position process X_t after gamma=lambda, sigma²=D/lambda.",
+          "Its connected four-time function is 2sigma^4 e^{-(gamma+r)(a+2b+c)}(e^{rb}-1)."
+        ],
+        "reasoning": "The earlier a=c=0,b=t limit equals current two-time fourth cumulant, independent of which physical coordinate is named position or velocity.",
+        "searches": [
+          "equilibrium resetting OU Poisson refresh Gaussian stationary marginals two time fourth cumulant maximum lag mutual information",
+          "Gaussian covariance twins displacement-only identification Poisson rethermalized OU fourth cumulant"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier exact four-time identity is a continuous formula, not just a finite database or numerical table.",
+          "The submitted K(t) matches its endpoint-coincident row for every parameter."
+        ],
+        "reasoning": "No finite-table exception can rescue novelty: the continuum parameter identity already has a stronger analytical source.",
+        "searches": [
+          "equilibrium resetting OU Poisson refresh Gaussian stationary marginals two time fourth cumulant maximum lag mutual information",
+          "Poisson rethermalization fourth cumulant time lag exact analytic"
+        ]
+      },
+      "rationale": "The earlier November 2 published theorem on Poisson-rethermalized OU motion gives precisely the same process as its stationary velocity, matching covariance, and the full connected four-time cumulant 2sigma^4 exp[-(gamma+r)(a+2b+c)](exp(rb)-1), including repeated time limits. Set a=c=0, b=t, gamma=lambda, sigma²=v to obtain the submitted K(t) IDENTICALLY; the time maximizing this difference of two exponentials follows by a one-line derivative. The bivariate mixture is immediate from the same renewal process, and the strict mutual-information excess is the standard Gaussian entropy extremality for that positive cumulant. Thus the main quantitative claim and natural consequences are subsumed; a fresh proof cannot restore originality.",
+      "residual_risks": [
+        "The prior source concerns the exact same OU rethermalization as a velocity process, not a superficially related different mechanism.",
+        "The maximal-lag formula is not verbatim in the earlier theorem, but it follows immediately by differentiating its fully explicit specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE STRONGER PRIOR COVERAGE",
+          "evidence": "Its connected four-time formula specializes identically to the submitted K(t), so t* is elementary optimization.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-covariance-twins-and-displacement-only-identification-o--d13d753808a7/RESULT.md",
+          "material_read": "Full published RESULT.md, including finding, assumptions, exact 4-time cumulant proof, repeated-time limit assertion, and formulas for displacement moments",
+          "method": "Authorized GitHub connector primary full source reading",
+          "title": "Gaussian covariance twins and displacement-only identification of Poisson-rethermalized Ornstein–Uhlenbeck motion",
+          "trigger": "Same exact process and a stronger fourth-cumulant statement"
+        },
+        {
+          "assessment": "MODEL PRECURSOR, but stronger coverage is the November 2 direct theorem",
+          "evidence": "General Poisson renewal/distribution-reset framework already known.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.15372",
+          "material_read": "Relevant primary full arXiv PDF passages on general resetting-to-distribution and invariant law; PDF page screenshot inspected",
+          "method": "Lawful full text PDF and screenshot",
+          "title": "Entropy production of resetting processes",
+          "trigger": "Generic distribution resetting dynamics"
+        },
+        {
+          "assessment": "General stationary moment tool; not necessary for decisive coverage",
+          "evidence": "Moment recurrences for arbitrary resetting distributions are already standard and are not treated as novel here.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.04840",
+          "material_read": "Accessible primary article relevant stationary-moment sections",
+          "method": "Lawful open full-text HTML",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "Potential earlier moment identity"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "2026-11-02 exact four-time Poisson-rethermalized OU theorem",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-gaussian-covariance-twins-and-displacement-only-identification-o--d13d753808a7/RESULT.md",
+        "independent_checks.py direct identity"
+      ],
+      "rationale": "The proposed novel fourth-order lag peak is a routine extremization of an exact fourth-order correlation function already available for this identical model from a stronger prior theorem. The bivariate mixture and strict mutual-information inequality are immediate conditioning and Gaussian extremality, not independent motivated gaps after that coverage; correctness and a physical interpretation alone do not create distinct mathematical value.",
+      "residual_risks": [
+        "There may be independent applied significance of a peak-lag diagnostic, but no nontrivial statistical sample-size or robust detection theorem is provided; no scientific repair was attempted."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Statement is only stationary equilibrium independent Gaussian redraws with finite lag t>0.",
+    "Maximum optimizes the raw fourth cumulant, not signal-to-noise-normalized detection power.",
+    "The prior source concerns the exact same OU rethermalization as a velocity process, not a superficially related different mechanism.",
+    "The maximal-lag formula is not verbatim in the earlier theorem, but it follows immediately by differentiating its fully explicit specialization.",
+    "There may be independent applied significance of a peak-lag diagnostic, but no nontrivial statistical sample-size or robust detection theorem is provided; no scientific repair was attempted."
+  ],
+  "schema_version": 1
+}
