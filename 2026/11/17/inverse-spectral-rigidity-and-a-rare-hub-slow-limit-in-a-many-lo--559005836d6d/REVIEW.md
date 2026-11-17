@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The proof derives the exact stochastic fiber map from the quadratic equations and uses reversible positivity to control the spectrum. A Schur complement yields the polynomial identity, whose nonzero coefficient multipliers provide unique inversion even at repeated coupling values. An exact error recursion and summable initial hub layer establish the uniform slow limit. The distinct-coupling secular equation gives interlacing; the trace identifies the fast mode. Exact symbolic algebra and finite numerical checks are supplementary, not substitutes for infinite proof.
+
+**Originality — PASS within inspected evidence.** The originating full text [1] proves invariant-fiber linearization and convergence, not spectrum-only reconstruction or the singular star slow limit. The closest structured-arrowhead inverse-eigenvalue paper [2] requires additional principal-submatrix spectral data, and its matrices need not satisfy the conservative coupling constraints. Related indexed mathematical findings concern directed cycle equilibrium-selection fluctuations, different permutation quadratic maps, or generic weighted-star optimization. Actual searches and individual implication comparisons are in AUDIT.json. The possibility of a general structured inverse-eigenvalue theorem already implying the polynomial identity remains a publication-priority risk.
+
+**Mathematical value — PASS.** The natural observable is the entire relaxation spectrum of a finite invariant genetic fiber, and the natural unknowns are its physical star coupling rates. Exact recovery including repeated rates gives a nontrivial identifiability classification. At vanishing hub population, the emerging complete-graph interaction between initially disconnected peripheral loci and the two-time-scale spectral splitting reveal the qualitative mechanism behind slow equilibration; both are directly relevant to the model's dynamics.
+
+Scientific limits: fixed positive couplings; known hub and equal leaf masses; full noiseless spectrum; finite accelerated horizons; interlacing requires distinct rates. Numerical inversion can be ill-conditioned. Broad equivalences in uninspected literature are possible. No independent mathematical audit was attempted.
+
+Self-review: passed. Independent audit: not yet performed.
