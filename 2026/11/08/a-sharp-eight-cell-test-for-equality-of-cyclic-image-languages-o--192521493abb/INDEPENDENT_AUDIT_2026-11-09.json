@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T14:54:46Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md de Bruijn proof; verify.py complete BFS and classes.json; independently reconstructed Boolean relation automata and all short outputs"
+      ],
+      "rationale": "Each Wolfram rule r has a four-state de Bruijn graph with vertices 2-bit words ab and arcs ab→bc labeled rule(abc); cyclic inputs are exactly labeled closed walks, including n=1,2 repeated neighbors. A target word belongs to the one-step image iff the Boolean matrix product has a nonzero diagonal. The deterministic automaton of 4x4 Boolean relations has at most 2^16 states and accepts all word lengths. Exhaustive direct enumeration through length 8 partitions the 256 rules into 100 short-signature classes with profile 8 singletons,75 doubles,10 quadruples,3 sextuples,4 tenfold. Complete synchronized relation-automata BFS for all 156 representative-to-member pairs shows no longer distinguishing word: maximum visited product 2375 states for rules 22,104. Every unlike short-signature pair already differs by n<=8. Independently reconstructed all 256 direct image sets and the complete finite-product BFS; confirmed prefix counts (3,8,40,72,75,92,99,100), sharp pair 57,99 with target 00010011 from predecessor 11100101, and compact class table SHA256 8046dbeaba56d5cdec15119e6407b9c712af515a19d6c70adc31613f9a841cee. Finite-state exhaustion, not extrapolation from n<=8, certifies equality for all n.",
+      "residual_risks": [
+        "Finite computation is exhaustive only for the specified 256 binary radius-one rules; verification depends on correctly implementing the finite relation automaton correspondence, whose proof is supplied. No claims about multi-update, nonperiodic or necklace outputs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Salo arxiv:1804.03913 section on image subshifts and finite labeled de Bruijn methods; Resultary 2026/10/26 second-update loss and 2026/11/02 Rule110 counts address distinct invariants."
+        ],
+        "reasoning": "General formal-language and automaton machinery does not imply numerical 100 classes or optimal cutoff eight without the submitted exhaustive finite-state comparison.",
+        "searches": [
+          "Resultary: elementary cellular automata identical cyclic image languages 100 equality classes eight length threshold",
+          "arxiv:1804.03913",
+          "arxiv:1306.5577",
+          "Resultary: 2026/10/26/SCOPE-a-sharp-twelve-symbol-threshold-for-second-update-image-loss-in--5742d176c6e4",
+          "Resultary: 2026/11/2/SCOPE-exact-one-step-image-counts-for-cyclic-elementary-cellular-autom--ce660bdc5af3"
+        ]
+      },
+      "checked_sources": [
+        "Salo arxiv:1804.03913 public primary PDF",
+        "arxiv:1306.5577",
+        "Elementary CA Zoo Gardens of Eden",
+        "Resultary ECA cyclic image language query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Salo studies image subshifts and periodic predecessor properties, not a simultaneous equality comparison of all 256 one-step cyclic image languages. A full-shift image language, even when related, is not automatically identical to fixed-period cyclic image language."
+        ],
+        "reasoning": "The 100 classes and n8 optimality are not direct consequences of his qualitative classification or familiar reflection/complementation quotient.",
+        "searches": [
+          "Resultary: elementary cellular automata identical cyclic image languages 100 equality classes eight length threshold",
+          "arxiv:1804.03913",
+          "arxiv:1306.5577",
+          "Resultary: 2026/10/26/SCOPE-a-sharp-twelve-symbol-threshold-for-second-update-image-loss-in--5742d176c6e4",
+          "Resultary: 2026/11/2/SCOPE-exact-one-step-image-counts-for-cyclic-elementary-cellular-autom--ce660bdc5af3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Martínez arxiv:1306.5577 88 usual elementary rule classes quotient by reflection/state symmetry; submitted equality is literal indexed output words with no output complementation."
+        ],
+        "reasoning": "Two rules conjugate by output relabeling need not generate identical unrelabeled output-word sets; 88 symmetry classes are not a substitute for 100 exact image-language classes.",
+        "searches": [
+          "Resultary: elementary cellular automata identical cyclic image languages 100 equality classes eight length threshold",
+          "arxiv:1804.03913",
+          "arxiv:1306.5577",
+          "Resultary: 2026/10/26/SCOPE-a-sharp-twelve-symbol-threshold-for-second-update-image-loss-in--5742d176c6e4",
+          "Resultary: 2026/11/2/SCOPE-exact-one-step-image-counts-for-cyclic-elementary-cellular-autom--ce660bdc5af3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Public Elementary CA Zoo Garden-of-Eden finite-ring census includes finite counts but not exact indexed-language equality at all n; classes.json recomputed with matching canonical SHA256."
+        ],
+        "reasoning": "An exact prior 100-class equivalence database would directly cover, but no such specific prior was located; current table is independently exhaustive under disclosed rules.",
+        "searches": [
+          "Resultary: elementary cellular automata identical cyclic image languages 100 equality classes eight length threshold",
+          "arxiv:1804.03913",
+          "arxiv:1306.5577",
+          "Resultary: 2026/10/26/SCOPE-a-sharp-twelve-symbol-threshold-for-second-update-image-loss-in--5742d176c6e4",
+          "Resultary: 2026/11/2/SCOPE-exact-one-step-image-counts-for-cyclic-elementary-cellular-autom--ce660bdc5af3"
+        ]
+      },
+      "rationale": "The exact 100 classes of indexed cyclic one-step image languages and sharp eight-cell deciding cutoff are not the usual 88 symmetry classes, preimage multiplicity results or selected finite-size Garden-of-Eden counts. A prior exhaustive equality table might exist in an unindexed source, but no identical implication in the inspected primary automata literature or indexed results was found.",
+      "residual_risks": [
+        "An unindexed older complete cyclic-language equality table cannot be ruled out by a bounded search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_METHOD_NOT_COVERING",
+          "evidence": "Image-subshift discussion and selected rule forbidden-word phenomena, no 100 exact cyclic-language class or n8 sharp cutoff",
+          "identifier_or_url": "https://villesalo.com/article/OvNRoCA.pdf",
+          "material_read": "Read PDF section on elementary cellular automata and images, relevant statements and methods; visually checked PDF page as part of inspection",
+          "method": "Public lawful primary PDF text and page rendering",
+          "title": "On von Neumann regularity of cellular automata",
+          "trigger": "Primary detailed de Bruijn/image-subshift results potentially implying classification"
+        },
+        {
+          "assessment": "DIFFERENT_EQUIVALENCE",
+          "evidence": "Classes modulo reflection/complementation, not literal indexed output-word equality",
+          "identifier_or_url": "https://arxiv.org/abs/1306.5577",
+          "material_read": "Abstract/classification description; full text not independently read here",
+          "method": "Public arxiv abstract",
+          "title": "A Note on Elementary Cellular Automata Classification",
+          "trigger": "Familiar 88 ECA classes"
+        },
+        {
+          "assessment": "FINITE_COUNTS_NOT_ALL_LENGTH_EQUIVALENCE",
+          "evidence": "Per-length counts cannot decide equality of actual output sets at every ring length",
+          "identifier_or_url": "https://cellular.solves.ca/gardens-of-eden",
+          "material_read": "Public webpage finite count/table descriptions; not full independent table audit",
+          "method": "Public computational page",
+          "title": "Gardens of Eden — Elementary CA Zoo",
+          "trigger": "Finite image counts potentially giving exact language comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact 100-class partition, exhaustive product BFS, sharp 57-vs-99 counterexample to cutoff 7"
+      ],
+      "rationale": "A complete optimal finite cutoff for equality of an infinite family of cyclic image languages is an intrinsically useful invariant/classification of the natural complete 256-rule elementary automaton space. The sharp length-eight witness and compact canonical 100-class table are nontrivial computational mathematics under a transparent finite-automaton exhaustion proof, not merely listing a few small cases.",
+      "residual_risks": [
+        "Limited to one synchronous binary radius-one update and same-length cyclic preimages; other equivalences require separate study."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite computation is exhaustive only for the specified 256 binary radius-one rules; verification depends on correctly implementing the finite relation automaton correspondence, whose proof is supplied. No claims about multi-update, nonperiodic or necklace outputs.",
+    "An unindexed older complete cyclic-language equality table cannot be ruled out by a bounded search.",
+    "Limited to one synchronous binary radius-one update and same-length cyclic preimages; other equivalences require separate study."
+  ],
+  "schema_version": 1
+}
