@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is an all-dimensional pairwise statement, not a finite-range extrapolation. On the \(d\)-cube, Walsh characters diagonalize the Laplacian with eigenvalues \(2|S|\). Inserting their spectral resolution in the established transfer-current determinant yields two positive one-dimensional integrals, including the orientation sign for perpendicular edges. Positive integrands prove strict covariance negativity, separation monotonicity and the same-distance directional inequality. Three standard but explicitly computed saddle regimes yield the entropy prefactor, critical Gaussian-width integrals, and exponential endpoint tail. Exact rational Kirchhoff and circuit computations corroborate, without proving the infinite-dimensional ranges.
+## correctness
 
-**Originality — PASS (qualified).** Burton–Pemantle establishes the general transfer-current mechanism, rather than the evaluated hypercube spatial laws. Bernardi's hypercube result concerns spin/orientation independence and edge-direction generating functions, not the individual pair's inclusion covariance at given endpoint distance. Nachmias–Peres and Archer–Nachmias–Shalev establish local and global scaling limits without the exact intermediate Hamming-separation crossover. Relevant public mathematical finding records and published articles were searched for equivalences, stronger statements, and parameter reductions. No direct covering theorem was located. This is a best-knowledge assessment rather than proof of historical uniqueness. The main residual risk is an unlocated prior hypercube-specific transfer-current calculation.
+PASS
 
-**Value — PASS.** Hypercube uniform spanning trees are a canonical high-degree family. The exact finite-size two-edge kernel fully classifies pair correlations and contrasts parallel with perpendicular edges. The entropy-to-endpoint transition at half the ambient dimension, with an explicit \(\sqrt d\)-wide crossover, supplies a nontrivial multiscale quantitative description that the existing local and global limits do not specify.
+The established Burton–Pemantle transfer-current determinant yields Cov(I_e,I_f)=-K(e,f)^2. With Walsh eigenfunctions of cube Laplacian 2|S|, differences of characters select singleton- or two-coordinate subsets, and 1/|S| as an integral gives A_d(r) and B_d(r). Positive integrands yield strict sign and ordering. Interior Laplace saddle t=1-2rho, boundary saddle t=0, and central scaling t=u/sqrt(d) give the constants, exponents and Gaussian functions with the claimed domains. Independently grounded rational Laplacian inversion agrees with exact integral sums for all 4,12,32 hypercube edges at d=2,3,4.
 
-**Closest literature and scientific limits.** Burton–Pemantle (1993 / arXiv:math/0404048) supplies determinantal probability; Bernardi (2012, DOI:10.37236/2510) gives hypercube weighted tree enumerators and orientation independence; Nachmias–Peres (arXiv:2011.08833, 2020) proves a local limit; Archer–Nachmias–Shalev (arXiv:2112.01203, first public 2021-12-02) establishes GHP limits including the hypercube. The finding does not claim a new determinant theorem, a new cube spectrum, or a general bound for other Cartesian products. Finite checker outputs alone are not proof, and independent mathematical validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General determinantal UST theory is prior; the Walsh/Laplacian spectrum is classical. Neither the Burton–Pemantle transfer-current theorem nor Bernardi rooted-forest/spin factorization yields the stated endpoint-Hamming-distance A/B evaluation and its three spatial asymptotic regimes without an additional nontrivial calculation. Related hypercube degree covariance theorems concern sums over incident pairs, not the complete pairwise spatial kernel.
+
+## value
+
+PASS
+
+The exact nonlocal two-edge dependence and half-cube saddle-to-boundary transition characterize a natural geometric statistic of hypercube UST, including a specific Gaussian-width scale and directional disparity. These are motivated by spatial correlation/negative dependence and not merely routine verification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

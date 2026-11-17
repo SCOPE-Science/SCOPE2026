@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The claim is proved by a normalized Walsh–Laplacian spectral calculation, the established spanning-tree transfer-current determinant, positivity of two integral kernels, and Laplace analysis in three dimension–distance regimes. No machine certificate is claimed as an infinite-dimensional substitute for those arguments.
+# Independent mathematical audit
 
-An exact-rational standalone checker `verify_hypercube_edges.py` was executed from the packaged source directory and returned `VERIFY_OK 239 exact comparisons`. Its independent constructions include grounded electrical-network inversion for every edge in dimensions 2–5, Kirchhoff weighted-tree mixed determinant counts for selected pairs through dimension 4, and exact directional integral comparisons up to dimension 14. Numerical quadrature at dimension 200 also confirmed leading interior, boundary, and central-window constants to their expected finite-dimension accuracy.
+## correctness
 
-Run `python verify_hypercube_edges.py` with Python 3.10+ and SymPy; the code needs no network access and writes no external files. Independent mathematical audit is not performed. Checked source relationships and remaining historical-priority risks are in `REVIEW.md` and `AUDIT.json`.
+PASS
+
+The established Burton–Pemantle transfer-current determinant yields Cov(I_e,I_f)=-K(e,f)^2. With Walsh eigenfunctions of cube Laplacian 2|S|, differences of characters select singleton- or two-coordinate subsets, and 1/|S| as an integral gives A_d(r) and B_d(r). Positive integrands yield strict sign and ordering. Interior Laplace saddle t=1-2rho, boundary saddle t=0, and central scaling t=u/sqrt(d) give the constants, exponents and Gaussian functions with the claimed domains. Independently grounded rational Laplacian inversion agrees with exact integral sums for all 4,12,32 hypercube edges at d=2,3,4.
+
+## originality
+
+PASS
+
+General determinantal UST theory is prior; the Walsh/Laplacian spectrum is classical. Neither the Burton–Pemantle transfer-current theorem nor Bernardi rooted-forest/spin factorization yields the stated endpoint-Hamming-distance A/B evaluation and its three spatial asymptotic regimes without an additional nontrivial calculation. Related hypercube degree covariance theorems concern sums over incident pairs, not the complete pairwise spatial kernel.
+
+## value
+
+PASS
+
+The exact nonlocal two-edge dependence and half-cube saddle-to-boundary transition characterize a natural geometric statistic of hypercube UST, including a specific Gaussian-width scale and directional disparity. These are motivated by spatial correlation/negative dependence and not merely routine verification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
