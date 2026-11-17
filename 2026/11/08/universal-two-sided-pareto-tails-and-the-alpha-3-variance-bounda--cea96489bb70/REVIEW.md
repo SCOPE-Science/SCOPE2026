@@ -1,15 +1,21 @@
-# Review of universal Pareto tails in a conditionally reset quantum lattice
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized stationary renewal-age law, irreducible embedded two-mark transition matrix, and exact unforced quantum Bessel propagator determine the occupation mixture. The classical equal-order Bessel Mellin formula supplies its finite-power tail, the integral correction on the bounded early-age interval is factorially small, and the complementary gamma shifts cancel the order-inverse first correction. Hence the reset-mark mean enters only through the opposite directional order-inverse terms. Nonnegative comparison yields every absolute moment threshold, and Tonelli plus the exact free-walk second moment give the finite-variance formula and borderline logarithm. The package checker completed 90 numerical tests; none substitutes for the infinite-lattice proof.
+## correctness
 
-## Originality — PASS, with residual risks
-The closest same-model source, Acharya and Gupta, arXiv:2308.14040, develops conditional two-site quantum resetting, the bare Bessel propagator and Pareto waits (especially Sec. V). It does not explicitly give the sharp stationary two-tail amplitude or the first reset-bias correction. Singh, Górska and Sandev, arXiv:2203.04046, supply earlier general renewal equations; their diffusion variance criterion is not the ballistic quantum-tail result. DLMF 10.22.57 already contains the requisite integral, and that formula is credited rather than claimed new. Searches for exact, equivalent, broader and tabulated results did not show a claim-level match in the compared scientific literature. Broader implicit coverage by general renewal/Mellin theory cannot be ruled out; lack of search matches is not a novelty proof.
+PASS
 
-## Mathematical value — PASS
-The motivated question is whether a conditional reset bias survives in the extreme spatial tails, and when a stationary lattice occupation has finite moments. The result gives a universal leading symmetric power tail, an exact first asymmetry coefficient carrying the mean reset site, and a sharp observable phase boundary at \(\alpha=3\). These refine a specific infinite-volume question whose finite-size simulations can appear saturated at the boundary.
+The finite irreducible embedded reset chain has unique pi; stationary renewal-age density is survival(t)/E tau, not the original Pareto density. Its Bessel-square integral equals an exact gamma ratio by Weber-Schafheitlin; the small-t correction decays faster than powers and the ratio has no first 1/k term since the gamma shifts sum to 1. Translating k=n-j and mixing over pi gives the +/-alpha b/n skew and K_alpha. Positive tails imply moment q iff alpha>q+1, while ballistic Bessel identity E[(X-j)^2|t]=gamma^2 t^2/2 gives the finite second moment via E tau^3/(3 E tau). At alpha=3, two tails yield gamma^2 tau0^2/3 log N. Independently integrated the Bessel Mellin integral at alpha=2.3, order 9, cutoff 800 with relative discrepancy 8.5e-6, accounted for by finite tail. This is not a finite-lattice variance assertion.
 
-## Scope and caveats
-The proof assumes an infinite nearest-neighbor lattice, independent Pareto renewal intervals, and complete localization to two finite reset sites; it does not cover finite chains, driven hopping, or reset times conditioned on the starting mark. The reported limits are stationary ensemble results rather than measured finite-time observations. Independent scientific review remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Acharya and Gupta establish the same conditional-reset model and investigate Pareto experiments; their finite-41-site MSD simulation and apparent saturation do not establish the infinite-lattice tail or alpha=3 threshold. Renewal formulas and Mellin integral are acknowledged as old. Sharp two-sided coefficients and first reset-mean asymmetry survive as best-of-knowledge new.
+
+## value
+
+PASS
+
+Addresses a physical finite-size vs infinite-volume discrepancy: existence of a stationary normalized profile for alpha>1 does not imply bounded stationary variance until alpha>3; sharp symmetric Pareto tails with an asymmetric first correction identify when reset asymmetry reappears.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

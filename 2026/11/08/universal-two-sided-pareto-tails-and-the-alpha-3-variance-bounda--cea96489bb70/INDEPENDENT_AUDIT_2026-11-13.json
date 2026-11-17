@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T21:15:58Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite irreducible embedded reset chain has unique pi; stationary renewal-age density is survival(t)/E tau, not the original Pareto density. Its Bessel-square integral equals an exact gamma ratio by Weber-Schafheitlin; the small-t correction decays faster than powers and the ratio has no first 1/k term since the gamma shifts sum to 1. Translating k=n-j and mixing over pi gives the +/-alpha b/n skew and K_alpha. Positive tails imply moment q iff alpha>q+1, while ballistic Bessel identity E[(X-j)^2|t]=gamma^2 t^2/2 gives the finite second moment via E tau^3/(3 E tau). At alpha=3, two tails yield gamma^2 tau0^2/3 log N. Independently integrated the Bessel Mellin integral at alpha=2.3, order 9, cutoff 800 with relative discrepancy 8.5e-6, accounted for by finite tail. This is not a finite-lattice variance assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2308.14040v2",
+          "https://arxiv.org/abs/2203.04046"
+        ],
+        "reasoning": "General renewal reward gives an occupation integral but not the explicit Bessel Mellin asymptotic or signed 1/n correction; earlier reset-label memory uses an exponential clock, not Pareto.",
+        "searches": [
+          "Resultary: quantum walk Pareto two-sided reset stationary tail alpha=3",
+          "arxiv:2203.04046 quantum reset renewal"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md SHA b768ed52b32472b349ca0d9047e762088d483c7a and verify_stationary_tails.py SHA cf4b0a97851a8b4ee78ad1552ddbdbbfb7a90fa9",
+        "https://arxiv.org/html/2308.14040v2",
+        "https://arxiv.org/abs/2203.04046",
+        "https://dlmf.nist.gov/10.22.E57",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-hidden-exponentially-persistent-reset-label-memory-in-a-conditio--42cf90c4a9a4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/2308.14040v2",
+          "https://dlmf.nist.gov/10.22.E57"
+        ],
+        "reasoning": "Original recurrence and the classical Bessel Mellin identity are ingredients, but require renewal-age integration, sharp gamma ratio and mixing to imply the all-reset-sites two-tail statement. A generic third-waiting-time variance criterion alone would not give the skew correction.",
+        "searches": [
+          "Resultary: conditional quantum walk two reset sites Pareto waiting stationary two-sided tails alpha=3 variance threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2308.14040v2",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-hidden-exponentially-persistent-reset-label-memory-in-a-conditio--42cf90c4a9a4"
+        ],
+        "reasoning": "Source conditional model matches exactly; earlier statements concern model and finite simulated stationary profiles, not the two-sided Mellin-derived infinite-lattice asymptotics.",
+        "searches": [
+          "Resultary: conditional quantum walk two reset sites Pareto waiting stationary two-sided tails alpha=3 variance threshold",
+          "arxiv:2308.14040 conditional resets Pareto"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/html/2308.14040v2"
+        ],
+        "reasoning": "Finite 41-site plots are not an infinite-lattice coefficient table, and a finite lattice cannot falsify any infinite-lattice moment-divergence criterion.",
+        "searches": [
+          "Resultary: conditional quantum walk two reset sites Pareto waiting stationary two-sided tails alpha=3 variance threshold"
+        ]
+      },
+      "rationale": "Acharya and Gupta establish the same conditional-reset model and investigate Pareto experiments; their finite-41-site MSD simulation and apparent saturation do not establish the infinite-lattice tail or alpha=3 threshold. Renewal formulas and Mellin integral are acknowledged as old. Sharp two-sided coefficients and first reset-mean asymmetry survive as best-of-knowledge new.",
+      "residual_risks": [
+        "Conditional-reset asymptotic may be implicit in older renewal/Bessel papers not indexed with this exact statement.",
+        "Only one independent bounded Mellin numerical case was rerun; no independent numerical verification of all reset-mark stationary weights."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covering model/propagator and simulations, not established full infinite-lattice two-sided coefficients",
+          "evidence": "Pareto case on 41-site lattice describes apparent finite-volume saturation and alpha>1 stationarity.",
+          "identifier_or_url": "https://arxiv.org/html/2308.14040v2",
+          "material_read": "Model section and Pareto discussion in Sec. V, including finite-lattice numerical stationary MSD claims",
+          "method": "Lawful open full-text HTML reading",
+          "title": "Tight-binding model subject to conditional resets at random times",
+          "trigger": "Identical conditional two-site quantum walk and Pareto reset clock"
+        },
+        {
+          "assessment": "Renewal propagator accepted as old; no document-wide noncoverage claim",
+          "evidence": "A reset renewal formula is weaker than a two-sided tight-binding Bessel asymptotic.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.04046",
+          "material_read": "Abstract and cited renewal interpretation; complete text not checked",
+          "method": "ArXiv abstract search",
+          "title": "General approach to stochastic resetting",
+          "trigger": "Potential general renewal theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Addresses a physical finite-size vs infinite-volume discrepancy: existence of a stationary normalized profile for alpha>1 does not imply bounded stationary variance until alpha>3; sharp symmetric Pareto tails with an asymmetric first correction identify when reset asymmetry reappears.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "alpha>1, infinite Z, independent holding times, finite irreducible reset marks; normalization excludes alpha<=1.",
+    "Finite cutoff quadrature is corroborative and cannot establish the infinite tail or nonexistence of moments."
+  ],
+  "schema_version": 1
+}

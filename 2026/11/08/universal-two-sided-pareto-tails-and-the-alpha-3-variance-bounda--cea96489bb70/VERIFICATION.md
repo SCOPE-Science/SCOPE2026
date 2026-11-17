@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The standalone file `verify_stationary_tails.py` runs using Python with NumPy and SciPy. The final package checker was executed and returned `PASS: 90 numerical assertions`, with tests covering: equilibrium-age normalization; independent numerical quadrature versus the exact Mellin gamma expression; positive- and negative-position tail expansions across four Pareto exponents; convergence to the first directional skew coefficient; stationary age-square moment when the third reset-time moment is finite; the critical truncated logarithmic coefficient; and the elementary free quantum-walk ballistic second-moment identity.
+## correctness
 
-The proof in `RESULT.md` independently establishes the non-lattice Markov-renewal stationary mixture, the classical Weber--Schafheitlin Bessel Mellin identity's applicability, the super-algebraically small short-age correction, the complement-shift cancellation in gamma-ratio asymptotics, the two-sided expansion, and the exact infinite-lattice moment thresholds. No finite simulation or checker timeout is presented as proof of an infinite assertion.
+PASS
 
-The computation requires no external dataset, uploaded code, or downloaded paper. To reproduce: `python verify_stationary_tails.py` after installing `numpy` and `scipy`. Expected output includes four exponent-specific summaries and the final PASS count.
+The finite irreducible embedded reset chain has unique pi; stationary renewal-age density is survival(t)/E tau, not the original Pareto density. Its Bessel-square integral equals an exact gamma ratio by Weber-Schafheitlin; the small-t correction decays faster than powers and the ratio has no first 1/k term since the gamma shifts sum to 1. Translating k=n-j and mixing over pi gives the +/-alpha b/n skew and K_alpha. Positive tails imply moment q iff alpha>q+1, while ballistic Bessel identity E[(X-j)^2|t]=gamma^2 t^2/2 gives the finite second moment via E tau^3/(3 E tau). At alpha=3, two tails yield gamma^2 tau0^2/3 log N. Independently integrated the Bessel Mellin integral at alpha=2.3, order 9, cutoff 800 with relative discrepancy 8.5e-6, accounted for by finite tail. This is not a finite-lattice variance assertion.
 
-Limitations: tests use a few explicit positive parameters and do not numerically certify all quantifiers; the mathematical statements rely on the analytic proof. No independent audit or external validation has been conducted.
+## originality
+
+PASS
+
+Acharya and Gupta establish the same conditional-reset model and investigate Pareto experiments; their finite-41-site MSD simulation and apparent saturation do not establish the infinite-lattice tail or alpha=3 threshold. Renewal formulas and Mellin integral are acknowledged as old. Sharp two-sided coefficients and first reset-mean asymmetry survive as best-of-knowledge new.
+
+## value
+
+PASS
+
+Addresses a physical finite-size vs infinite-volume discrepancy: existence of a stationary normalized profile for alpha>1 does not imply bounded stationary variance until alpha>3; sharp symmetric Pareto tails with an asymmetric first correction identify when reset asymmetry reappears.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
