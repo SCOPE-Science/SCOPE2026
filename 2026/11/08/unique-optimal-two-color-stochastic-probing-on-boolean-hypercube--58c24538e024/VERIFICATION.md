@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-## Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.10 or newer and no additional dependencies. The recorded result from the included code was:
+## correctness
 
-```
-VERIFY_OK: 9685 exact rational and exhaustive/sampled assertions; all true
-```
+PASS
 
-The checker verifies exact shifted-Laplacian inverses in hypercube dimensions one through four for three positive rational shifts; exact Fourier-level degeneracies, strict ordering, and variance identities; all colorings in dimensions at most three; deterministic samples of colorings in dimension four; a two-atom positive heat mixture; and full outcome enumeration of the three-cube estimator for parity and a nonuniform partition. All essential computations are carried out with `fractions.Fraction` and integer operations, without floating-point tolerances.
+The product formula for cube heat kernels makes B(x,y)=b(x xor y). The squared entrywise kernel W has Walsh eigenvalues Lambda_r given by double integral A(s,t)^{d-r}D(s,t)^r, where A=(1+e^{-2(s+t)})/2, D=(e^{-2s}+e^{-2t})/2 and A-D=(1-e^{-2s})(1-e^{-2t})/2. Since the finite positive mixing measure gives positive mass to (0,infty), Lambda_0>...>Lambda_d>0. Independence and Rademacher fourth moment produce Var=N(Lambda_0-2w(0))+sigma^T W sigma. Walsh Parseval then gives the exact nonnegative excess sum and unique equality when sigma is ± top-degree parity character. Independently constructed rational Green kernel for d=3,B=(I+L)^-1 and enumerated all 256 sign maps, finding optimum 1024/3675 attained exactly twice. This finite check corroborates, but does not replace, the all-d/full-measure proof.
 
-## Analytic versus computational scope
+## originality
 
-The proof in `RESULT.md`, not the finite tests, establishes the theorem for every integer dimension and every finite positive mixing measure with nonzero positive-time mass. The code does not certify claims for arbitrary dimensions or arbitrary measures by enumeration. The proof requires exactly the standard Rademacher variance identity, the coordinate-product heat kernel, Tonelli/Fubini for finite measures, Walsh orthogonality, and the strict positivity of the spectral-order integrand for positive times.
+PASS
 
-Independent validation has not been performed.
+Best-of-knowledge: the Frommer–Rinelli–Schweitzer general variance identity for any fixed coloring and distance-color bounds supply the framework but not the globally optimal parity partition among all (even improper/unbalanced) partitions of the cube or the strict Walsh spectral identity. Published screened-cycle checkerboard and complete-bipartite stochastic probing classifications treat different graph kernels; neither logically supplies this all-dimensional heat-mixture result.
+
+## value
+
+PASS
+
+A unique globally minimum-variance partition is a natural optimization invariant for the widely used stochastic trace estimator on the hypercube, not a relabeling of a generic formula. The all-positive-heat-mixture assertion and exact spectral gap quantify robustness to every competing two-coloring and are useful for designing stochastic probes, including resolvent kernels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

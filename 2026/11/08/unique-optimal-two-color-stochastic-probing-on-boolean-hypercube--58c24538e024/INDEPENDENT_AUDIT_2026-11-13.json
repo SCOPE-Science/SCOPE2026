@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T16:55:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/unique-optimal-two-color-stochastic-probing-on-boolean-hypercube--58c24538e024/RESULT.md at Git blob 4878e3cb6d9cd4c4ba1a3c47fe7aa7e385fe54a1",
+        "2026/11/08/unique-optimal-two-color-stochastic-probing-on-boolean-hypercube--58c24538e024/verify.py at Git blob 24ef7e6fdf108ae9c8496ea240ec6732617b73ee",
+        "Independent exact rational cube d=3 all 2^8 partitions"
+      ],
+      "rationale": "The product formula for cube heat kernels makes B(x,y)=b(x xor y). The squared entrywise kernel W has Walsh eigenvalues Lambda_r given by double integral A(s,t)^{d-r}D(s,t)^r, where A=(1+e^{-2(s+t)})/2, D=(e^{-2s}+e^{-2t})/2 and A-D=(1-e^{-2s})(1-e^{-2t})/2. Since the finite positive mixing measure gives positive mass to (0,infty), Lambda_0>...>Lambda_d>0. Independence and Rademacher fourth moment produce Var=N(Lambda_0-2w(0))+sigma^T W sigma. Walsh Parseval then gives the exact nonnegative excess sum and unique equality when sigma is ± top-degree parity character. Independently constructed rational Green kernel for d=3,B=(I+L)^-1 and enumerated all 256 sign maps, finding optimum 1024/3675 attained exactly twice. This finite check corroborates, but does not replace, the all-d/full-measure proof.",
+      "residual_risks": [
+        "The theorem optimizes variance only, with one probe per color, not fixed computational cost or tail risk."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original Frommer et al full primary text inspected for §§3.2–3.4, including upper bounds for supplied distance colors.",
+          "Resultary checkerboard screen cycles and K_mn resolvent phase transition have different convolution/association structures."
+        ],
+        "reasoning": "Broader class stochastic-probing theorems give estimators and generic bounds, not global cube all-partition minimizers across every positive heat mixture. A stronger association-scheme result remains a residual risk.",
+        "searches": [
+          "stochastic trace probing two colors Boolean hypercube parity Walsh squared heat kernel global variance optimum",
+          "hierarchical stochastic probing hypercube distance coloring optimal variance",
+          "arxiv:2308.07722 Section 3.4"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2308.07722",
+        "Resultary query: stochastic trace probing two colors Boolean hypercube parity Walsh squared heat kernel global variance optimum",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-checkerboard-probing-uniquely-minimizes-two-color-trace-variance--ad9f3c6dc76a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general colorwise fourth-moment identity is prior; strict positivity of Lambda_r-Lambda_{r+1} exploits a specific cube tensor heat kernel and positive mixing measure."
+        ],
+        "reasoning": "The general formula plus cube-specific spectral inequality yields this result, but the inspected primary source does not itself assert the inequality, global optimizer or uniqueness; prior framework is credited rather than claimed new.",
+        "searches": [
+          "stochastic trace probing two colors Boolean hypercube parity Walsh squared heat kernel global variance optimum",
+          "https://arxiv.org/pdf/2308.07722"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frommer–Rinelli–Schweitzer arXiv:2308.07722 Theorem 3.3 gives the variance for any supplied partition, not optimization over all partitions.",
+          "On a cube, squared heat-mixture entry kernel is an XOR convolution; top Walsh eigenvalue ordering is a direct specialized result."
+        ],
+        "reasoning": "A general fixed-color variance identity cannot force parity uniqueness without the additional strict Walsh eigenvalue ordering; no equivalent cube extremal theorem found.",
+        "searches": [
+          "stochastic trace probing two colors Boolean hypercube parity Walsh squared heat kernel global variance optimum",
+          "stochastic probing Hutchinson trace variance graph coloring hypercube parity Walsh spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent d=3 exact benchmark minimum variance 1024/3675, two parity extremizers among 256 partitions.",
+          "No prior table giving this arbitrary-dimension heat-mixture excess identity was located."
+        ],
+        "reasoning": "A finite rational example is checked, but originality centers on the unrestricted spectral classification; known finite enumerations, even if found, would not settle all mixtures and d.",
+        "searches": [
+          "stochastic trace probing two colors Boolean hypercube parity Walsh squared heat kernel global variance optimum",
+          "hypercube stochastic trace estimator exact variance parity d3 rational Green"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the Frommer–Rinelli–Schweitzer general variance identity for any fixed coloring and distance-color bounds supply the framework but not the globally optimal parity partition among all (even improper/unbalanced) partitions of the cube or the strict Walsh spectral identity. Published screened-cycle checkerboard and complete-bipartite stochastic probing classifications treat different graph kernels; neither logically supplies this all-dimensional heat-mixture result.",
+      "residual_risks": [
+        "An unidentified generalized association-scheme theorem or specialist hierarchical probing work may imply the Walsh optimum; current conclusion is best-of-knowledge, not certified priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Framework covered; specialized hypercube minimax assertion not in inspected theorem",
+          "evidence": "Theorem 3.3 variance formula for a fixed partition; §§3.4 distance-coloring upper bounds",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.07722",
+          "material_read": "Parsed original 22-page full PDF, focused on Theorem 3.3, §§3.2 and 3.4 and graph/distance coloring bounds",
+          "method": "arXiv PDF full text with page render of relevant theorem",
+          "title": "Analysis of stochastic probing methods for estimating the trace of a matrix function",
+          "trigger": "Same estimator variance with partitioned independent sign probes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2308.07722",
+        "2026/11/08/unique-optimal-two-color-stochastic-probing-on-boolean-hypercube--58c24538e024/RESULT.md"
+      ],
+      "rationale": "A unique globally minimum-variance partition is a natural optimization invariant for the widely used stochastic trace estimator on the hypercube, not a relabeling of a generic formula. The all-positive-heat-mixture assertion and exact spectral gap quantify robustness to every competing two-coloring and are useful for designing stochastic probes, including resolvent kernels.",
+      "residual_risks": [
+        "Does not claim speedup at equal computational cost across different probe counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any d>=1 and nontrivial finite positive heat-mixture kernel B on the Boolean cube, the parity bipartition is the unique (up to swapping labels) global minimum-variance two-color Rademacher trace probing partition, with exact Walsh spectral excess-variance identity for all sign assignments.",
+  "limitations": [
+    "Nontrivial positive finite measure is required; at t=0-only the optimum is not unique.",
+    "No confidence statement about arbitrary signed mixtures or graph families beyond cubes."
+  ],
+  "schema_version": 1
+}
