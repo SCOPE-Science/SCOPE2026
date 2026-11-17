@@ -1,15 +1,21 @@
-# Review of the stabilized signed Fibonacci forcing formula
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The six forbidden-prefix classes are exactly those in the cited modified Tribonacci recurrence. The minimum absolute-value estimates isolate two sign-opposite prefixes when \(0<|n|\le F_{k-4}\), and the affine change of lower digits \(d_j=1+\varepsilon_j\) is bijective. The two repeated unit Fibonacci weights are kept distinct. The coefficient is unchanged by all later Fibonacci factors because their weights exceed \(|n|-1\). Summing coefficients counts exactly the bounded-digit vectors; bounding by \(3^J\) above and \(3^{J-4}\) below gives the claimed power exponent. The attached exact-integer verifier independently evaluates both sides and the recurrence for finite checks. Computational checks supplement rather than replace the proof.
+## correctness
 
-## Originality
-**PASS, qualified by historical-priority uncertainty.** The central primary source proves stabilization for each fixed integer but does not evaluate its limiting forcing function by a product, specify the effective index bound, or establish its summatory growth. Its proof contains the prefix inequalities that enable the new identification; those inequalities are credited rather than claimed novel. Full-text comparisons with the distinct Fibonacci partition literature and the earlier positional quaternary literature do not supply the missing bounded-digit Fibonacci statement. OEIS A000119, A007000, and A103577 have different digit and unit conventions. Actual semantic searches of mathematical research records for signed Fibonacci forcing, bounded-digit partition products, and the exponent yielded no directly covering match. The negative search is not a proof of priority, and unindexed equivalents remain possible.
+PASS
 
-## Value
-**PASS.** The source explicitly treats the stabilized forcing values as an otherwise unexplained sequence, despite their importance in its recurrence. Identifying those values at every integer changes the object from a limit of long signed-string counts into a finite partition problem with a computable generating product. The explicit stabilization threshold is uniform over a growing interval of integer arguments; the summatory exponent gives a global quantitative answer absent from the existence-only theorem. These are naturally demanded structural and asymptotic properties of that precise forcing function, not arbitrary coefficient slices. The growth estimate does not claim a limit constant.
+Checked signed-representation recurrence and six leading-digit forbidden-prefix classes against Anders–Dawsey–Vandehey Section 4. For |n|<=F_(k-4), lower bounds exclude all but prefix (1,0,-1) for positive n and its sign reverse for negative; f(0;k)=0. Substituting d_j=1+eps_j on remaining k−3 slots transforms n=F_(k−1)+sum eps_jF_j into n=1+sum d_jF_j bijectively; F1=F2=1 are distinct labeled slots. Larger product factors exceed n−1, proving exact stable coefficient identity over all n. Summing products counts finite vectors, with 3^(J−4)<=T(X)<=3^J when F_J<=X−1<F_(J+1), and Binet yields exponent log3/log(phi). Independently computed signed counts and product coefficients for k=5..21 and all prescribed boundary n; checked exact count and both directions, no finite-to-infinite extrapolation.
 
-## Prior literature and limitations
-Closest source: Anders–Dawsey–Vandehey, arXiv:2604.15446v1, Theorem 1.2 and Section 4 (the exact correction is defined, eventual stabilization proved). Other examined sources: Chow–Slattery arXiv:2009.08222v1, Anders et al. arXiv:2505.04589v1, and OEIS A000119, A007000, A103577. No result stronger than the present product on the same signed-Fibonacci forcing term was found. The all-integer formula is proved from the published precursor's combinatorial decomposition, so priority for closely related variants cannot be guaranteed. No independent expert review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: earlier central source proves eventual fixed-n stabilization and the prefix inequalities, but not the explicit global bounded-digit partition product, uniform effective threshold, or summatory exponent. Classical Fibonacci partition sequences differ in whether repeated F1=F2 are labeled and whether multiplicity is 0/1 or 0/1/2. Indexed alternative Tribonacci and Zeckendorf records do not imply the particular correction f(n). The proof credits every source identity used.
+
+## value
+
+PASS
+
+PASS: the original signed-representation recurrence leaves its stabilized forcing function implicit. A closed generating product at every integer, an effective simultaneous n-versus-k stabilization region and the exact summatory growth exponent resolve mathematically natural identification, algorithmic computation and density questions for that precise prior-work quantity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

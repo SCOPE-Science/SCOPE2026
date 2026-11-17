@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T23:56:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Checked signed-representation recurrence and six leading-digit forbidden-prefix classes against Anders–Dawsey–Vandehey Section 4. For |n|<=F_(k-4), lower bounds exclude all but prefix (1,0,-1) for positive n and its sign reverse for negative; f(0;k)=0. Substituting d_j=1+eps_j on remaining k−3 slots transforms n=F_(k−1)+sum eps_jF_j into n=1+sum d_jF_j bijectively; F1=F2=1 are distinct labeled slots. Larger product factors exceed n−1, proving exact stable coefficient identity over all n. Summing products counts finite vectors, with 3^(J−4)<=T(X)<=3^J when F_J<=X−1<F_(J+1), and Binet yields exponent log3/log(phi). Independently computed signed counts and product coefficients for k=5..21 and all prescribed boundary n; checked exact count and both directions, no finite-to-infinite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary source Theorem 1.2/Section 4 gives pointwise eventual stabilization, no generating product and no summatory power estimate; distinct Fibonacci partition counts have different digit multiplicities."
+        ],
+        "reasoning": "Pointwise stabilization does not logically imply this explicit coefficient formula or the uniform k-dependent interval without new argument.",
+        "searches": [
+          "https://arxiv.org/pdf/2604.15446",
+          "signed Fibonacci representations Tribonacci correction stable generating function bounded Fibonacci partitions digits 0 1 2"
+        ]
+      },
+      "checked_sources": [
+        "signed Fibonacci representations Tribonacci correction stable generating function bounded Fibonacci partitions digits 0 1 2",
+        "https://arxiv.org/pdf/2604.15446",
+        "https://arxiv.org/abs/2009.08222",
+        "https://oeis.org/A000119",
+        "https://oeis.org/A007000",
+        "https://oeis.org/A103577"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published six-prefix decomposition supplies the inputs; surviving prefix (1,0,-1) yields one plus a sum of 0/1/2 Fibonacci digits, and counting all choices at weights up to F_J gives Theta(3^J)."
+        ],
+        "reasoning": "The cited source is strictly weaker (existence of stable forcing). The explicit digit-partition identification and exponent are mathematical deductions beyond its stated theorem.",
+        "searches": [
+          "https://arxiv.org/pdf/2604.15446",
+          "signed Fibonacci representations Tribonacci correction stable generating function bounded Fibonacci partitions digits 0 1 2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anders–Dawsey–Vandehey define f(n;k) as the signed count recurrence defect, with six exceptional prefix types. Chow–Slattery treat distinct-part Fibonacci partitions rather than bounded ternary digits per indexed weight."
+        ],
+        "reasoning": "Identified the forcing term under prefix-defect, Zeckendorf, bounded-digit partition and indexed Fibonacci multiset aliases; equality with the new product requires an explicit bijection not given by the cited partition literature.",
+        "searches": [
+          "signed Fibonacci representations Tribonacci correction stable generating function bounded Fibonacci partitions digits 0 1 2",
+          "https://arxiv.org/pdf/2604.15446",
+          "https://arxiv.org/abs/2009.08222"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS Fibonacci partition conventions include distinct digits or unbounded multiplicities; present product permits exactly 0,1,2 per position and treats duplicate unit positions independently."
+        ],
+        "reasoning": "These databases/sequence definitions do not tabulate an exact same bounded-digit generating product for the signed recurrence correction in the evidence inspected; failure of exact match is not priority proof.",
+        "searches": [
+          "signed Fibonacci representations Tribonacci correction stable generating function bounded Fibonacci partitions digits 0 1 2",
+          "https://arxiv.org/abs/2009.08222",
+          "https://oeis.org/A000119",
+          "https://oeis.org/A007000",
+          "https://oeis.org/A103577"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: earlier central source proves eventual fixed-n stabilization and the prefix inequalities, but not the explicit global bounded-digit partition product, uniform effective threshold, or summatory exponent. Classical Fibonacci partition sequences differ in whether repeated F1=F2 are labeled and whether multiplicity is 0/1 or 0/1/2. Indexed alternative Tribonacci and Zeckendorf records do not imply the particular correction f(n). The proof credits every source identity used.",
+      "residual_risks": [
+        "Potential unindexed generating functions for bounded-digit Fibonacci partitions might imply the same coefficient sequence independently.",
+        "Leading-prefix inequalities derive from the cited primary source; this contribution is the new bijective identification/growth, not a new recurrence.",
+        "Summatory result is two-sided Theta growth, not a leading limit constant or pointwise coefficient asymptotic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INPUT_BUT_NOT_FULL_COVERAGE",
+          "evidence": "Source proves six exceptional prefixes and existence of limiting forcing sequence, which are explicitly credited; no all-integer bounded-digit GF or uniform stabilization threshold stated.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.15446",
+          "material_read": "Complete 6-page arXiv PDF, definitions and recurrence Theorem 1.2, Section 4 six-prefix decomposition and pointwise stabilization proof, references",
+          "method": "Open-access arXiv PDF with page screenshots of Section 4",
+          "title": "Non-standard Zeckendorf decompositions; or, Tribonacci within Fibonacci (Anders, Dawsey, Vandehey, 2026)",
+          "trigger": "Same exact signed representation B(n;k), four-term correction f(n;k)"
+        },
+        {
+          "assessment": "DIFFERENT_DIGITS_PARTIAL_READ",
+          "evidence": "Classical distinct Fibonacci partitions have binary 0/1 multiplicities, unlike indexed digits {0,1,2} at each weight. No whole-document noncoverage asserted on a snippet alone.",
+          "identifier_or_url": "https://arxiv.org/abs/2009.08222",
+          "material_read": "ArXiv bibliographic summary, abstract and distinct-part convention; full text not fully inspected in this run",
+          "method": "ArXiv available abstract/preprint snippets; partial reading only",
+          "title": "On Fibonacci partitions (Chow, Slattery, 2020)",
+          "trigger": "Potential equivalence to Fibonacci digit partitions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: the original signed-representation recurrence leaves its stabilized forcing function implicit. A closed generating product at every integer, an effective simultaneous n-versus-k stabilization region and the exact summatory growth exponent resolve mathematically natural identification, algorithmic computation and density questions for that precise prior-work quantity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "signed Fibonacci representations Tribonacci correction stable generating function bounded Fibonacci partitions digits 0 1 2",
+    "https://arxiv.org/pdf/2604.15446",
+    "https://arxiv.org/abs/2009.08222",
+    "https://oeis.org/A000119",
+    "https://oeis.org/A007000",
+    "https://oeis.org/A103577"
+  ],
+  "disposition": "passed",
+  "final_claim": "The stabilized signed-Fibonacci forcing f(n) has generating series sum_(n>=1)f(n) z^n=z product_(j>=1)(1+z^(F_j)+z^(2F_j)), with effective stabilization 0<|n|<=F_(k-4), and cumulative magnitude Theta(X^(log3/log phi)).",
+  "limitations": "Actual literary comparisons remain best-of-knowledge. Finite computational checks are corroborative, not universal proofs. No Lean proof, expert attestation or priority certification asserted.",
+  "residual_risks": [
+    "Potential unindexed generating functions for bounded-digit Fibonacci partitions might imply the same coefficient sequence independently.",
+    "Leading-prefix inequalities derive from the cited primary source; this contribution is the new bijective identification/growth, not a new recurrence.",
+    "Summatory result is two-sided Theta growth, not a leading limit constant or pointwise coefficient asymptotic."
+  ],
+  "schema_version": 1
+}
