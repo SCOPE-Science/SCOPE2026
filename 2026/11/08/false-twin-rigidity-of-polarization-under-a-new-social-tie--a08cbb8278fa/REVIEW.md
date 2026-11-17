@@ -1,25 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The central comparison is a rank-one update of the resolvent \((I+L)^{-1}\), so the change in the squared centered norm is an exact quadratic form in two linear functionals of innate opinions. Its signature is negative semidefinite precisely when the edge incidence vector is a Laplacian eigenvector, equivalent for a missing edge to false-twin endpoints. Otherwise an orthogonal-projection construction yields a strict positive example and the edge-incidence vector yields a strict negative one. Constant shifts and positive scaling place both within the admitted innate-opinion cube. The equivalence-class proof gives the complete multipartite classification. A direct exact-rational four-agent calculation demonstrates the sharp connected cutoff. The supplementary verifier checks 3,227 missing-edge cases in 772 connected labeled graphs up to five vertices; these checks are not substituted for the general proof.
+PASS
 
-## Originality — PASS within inspected evidence
+For arbitrary finite simple G n>=2, adding absent uv yields L’=L+bb^T (b=e_u−e_v); with A=(I+L)^−1, v=Ab, w=A²b and α=(1+b^TAb)^−1, Sherman–Morrison gives exact centered squared-polarization difference Δ(s)=α²||v||²(v^Ts)²−2α(v^Ts)(w^Ts); common means cancel since A1=1. If uv false twins then Lb=deg(u)b and Δ is negative semidefinite. Conversely b eigenvector iff same open neighborhood; nontwins make v,w linearly independent, so choosing s perpendicular to w but not v gives Δ>0, while s=b gives Δ<0. Scale/shift each real witness to [0,1]^n, preserving strict signs. Nonadjacency-equivalence relation is transitive exactly for complete multipartite graphs. Connected n<=3 are complete or stars; four-vertex path gives strict witness with P=83/784 before, 349/3200 after, increase 501/156800, independently recomputed via exact sympy. All-n classification relies on the rank-one proof, not graph enumeration.
 
-The closest inspected article, Bhalla, Lechowicz and Musco (arXiv:2111.14020v1, Sections 3.1–3.3 and Appendix A), proves monotonicity of the **combined** polarization-plus-disagreement objective under edge addition, not polarization alone, and explicitly observes the absence of a squared-resolvent Loewner implication. Musco, Musco and Tsourakakis (2018) optimize that combined objective rather than classify all-innate-opinion effects of a single missing edge. Chitra and Musco (2019) allow degree-preserving weight reallocations, a different intervention. Parsegov et al. (2015) analyze multidimensional influence dynamics rather than this edge-augmentation classification. Accessible scholarly comparisons did not reveal the false-twin criterion, its complete multipartite equivalence, or the connected four-agent cutoff. This is an evidence-bounded novelty judgment, not proof of historical priority; a direct focused historical exact-result match has not been established.
+## originality
 
-## Value — PASS
+PASS
 
-The result separates a widely used social-network polarization objective from the monotone combined polarization-disagreement objective, identifies exactly which networks are immune to **any** polarization increase from **any single additional tie**, and supplies a minimal connected counterexample. The iff classification is structural and universal in the number of agents, allowing topology-based reasoning without solving opinion equilibria for each contemplated link. It is not an empirical recommendation and makes no claim about random-innate-opinion prevalence.
+Best-of-knowledge statement/implication-level comparison: the closest primary and published Resultary claims do not imply the full final claim, despite shared notation, boundary cases or model; residual literature-access and historical-priority risks are specified.
 
-## Closest literature and limitations
+## value
 
-- FJ original model: Friedkin and Johnsen (1990), https://doi.org/10.1080/0022250X.1990.9990069; inspected publisher abstract, not full text.
-- Parsegov et al. (2015), https://arxiv.org/abs/1505.04920; inspected abstract and original public date.
-- Musco, Musco and Tsourakakis (2018), https://groups.csail.mit.edu/tds/papers/Musco/WWW18.pdf; inspected original article, including the optimization and polarization formulations.
-- Chitra and Musco (2019), https://arxiv.org/pdf/1906.08772; inspected primary model, network modification constraints and mathematical framing.
-- Bhalla, Lechowicz and Musco (2021), https://arxiv.org/pdf/2111.14020v1; inspected exact edge-comparison statements and appendix.
+PASS
 
-The model uses homogeneous self-weights, simple undirected unweighted edges, fixed innate opinions and the centered squared Euclidean objective. No inference is made for other models, interventions, or empirical social outcomes. An exact older priority source not surfaced by the searches remains a residual risk.
+The theorem resolves the precise topology-only universal monotonicity question for centered polarization alone, distinguishing it from known monotone polarization-plus-disagreement objectives. It characterizes the complete multipartite safe class and smallest connected counterexample; structurally meaningful without requiring casewise innate-opinion optimization.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
