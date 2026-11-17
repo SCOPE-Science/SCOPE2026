@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-Run `python3 verify_cayley.py`, `python3 verify_latin.py`, and `python3 verify_equivariant.py` from the directory containing all embedded files, retaining `isomorphism.txt` beside `verify_cayley.py`. All programs use only the Python standard library and fail with an assertion if a required claim is false. The first counts every three- and four-edge candidate and checks a complete 32-vertex/48-edge isomorphism certificate; the second independently constructs the complementary cyclic Latin-square graph and computes all 32 exchange eccentricities; the third independently verifies the explicit Z4^2 translation-orbit map and adjacency-voltage correspondence.
+## correctness
 
-Recorded outputs: `CAYLEY_OUTPUT.txt`, `LATIN_OUTPUT.txt`, `EQUIVARIANT_OUTPUT.txt`. These were captured after successful execution. The cardinality proof is an exhaustive finite certificate, not a non-enumerative general theorem. No separate independent audit is claimed.
+PASS
+
+Reconstructed S=Cayley(Z4²,{±(1,0),±(0,1),±(1,1)}), its 48 edges and induced matching endpoint criterion. Independent enumerator checked all 17296 edge triples: 32 passing, and all 194580 quadruples: 0 passing; each original edge belongs to exactly 2 maximum matchings, and no pair of maxima shares 2 edges, yielding R1=32 isolates, R2=48 edges, cubic. Two 16-element translation orbits of maxima map to the two 16-element orbits of triangles via L(x,y)=(2x+3y,x+y) mod4; voltage sets {00,13,21} map to {00,30,33}, verifying all adjacencies. BFS from each of 32 states finds eccentricity5 and shortest cycle6. Checked actual verify_equivariant.py and independent reconstruction; all claims finite and exhaustible.
+
+## originality
+
+PASS
+
+Oct25 earlier paper already computes exactly 32 size-three max induced matchings in S and R1=32 isolated, so those are not original. Novel and retained: complete R2 two-edge exchange graph identification with the Dyck graph and explicit voltage isomorphism; the older theorem never discusses two-edge exchanges. Dyck identification with Shrikhande triangle-incidence graph is classical and attributed, not claimed as new.
+
+## value
+
+PASS
+
+Sharp first mobile exchange budget, exact new configuration-space geometry, and an explicit canonical graph isomorphism for a natural 16-vertex strongly regular graph are mathematically motivated finite facts beyond re-enumerating 32 optima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
