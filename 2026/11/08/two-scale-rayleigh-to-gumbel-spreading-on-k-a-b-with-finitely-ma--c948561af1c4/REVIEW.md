@@ -1,15 +1,21 @@
-# Scientific review: two-scale push–pull broadcasting on \(K_{a,b}\)
+# Independent mathematical audit
 
-## Correctness — PASS
-The vertex-clock process splits exactly into independent edge clocks of rate \(1/a+1/b\). First-step counting gives a two-dimensional increasing continuous-time Markov chain. On the early \(b^{-1/2}\) scale its generator tends to a well-defined piecewise-deterministic Markov process with bounded finite hub jumps and deterministic drift between jumps. A direct independent-hazard argument gives the finite first-extra-hub law and the Rayleigh limit. After the last hub is informed, independent per-leaf clocks of rate \(1+a/b\) give the Gumbel law; because the hub activation time is \(o_{\mathbb P}(1)\) and the number of susceptible leaves is \(b-o_{\mathbb P}(b)\), the terminal law is asymptotically independent of the early trajectory. The standalone rational labeled-state and transient-killed-generator checks passed, but are not being mistaken for an infinite proof.
+## correctness
 
-## Originality — PASS, with priority risk
-The most relevant earlier sources are Acan et al. (2014, asynchronous push–pull and stars), Pourmiri–Mans (2020, dynamic-network bounds and cut rates), Aalto–Leskelä (2014, early/final asymptotic independence in a many-transmitter homogeneous mixing model), and Doerr–Kostrygin (2023, synchronous protocols on fully connected networks). The shared exponential-edge representation and generic Gumbel extreme-value fact are established background. The fixed-\(a\) activated-hub PDMP, its joint limit with independent terminal completion, and the explicit all-parameter first-extra-hub law are not consequences of the inspected theorems, whose underlying regimes or conclusions differ. A further unnoticed first-passage-percolation specialization remains possible, so historical priority is not independently certified.
+PASS
 
-## Value — PASS
-Two physically distinct broadcast phases become rigorously decoupled: a random hub-discovery cascade in vanishing physical time, then the slowest of nearly \(b\) remaining leaf discoveries. The result gives a complete fixed-hub-count asymptotic description, with a nontrivial random early process and an explicit Rayleigh boundary case, rather than only a logarithmic runtime bound. It is relevant to heterogeneous contact networks and provides a benchmark for multiscale epidemic approximations.
+Splitting rate-one caller Poisson processes into directed edges gives independent undirected contact clocks of rate 1/a+1/b. Thus leaf/hub birth rates are h(b−l)c_b and (a−h)lc_b. On the s=√b·t scale the scaled leaf coordinate has drift h/a with vanishing quadratic variation and the hub jump intensity approaches (a−h)y/a; the finite-jump PDMP is uniquely constructed from integrated hazards and all hubs activate almost surely by finite scaled time. The first extra-hub time is the minimum of b independent two-stage Exp(c_b)+Exp((a−1)c_b) waits, with quadratic small-t cdf and Rayleigh scaling. Once hubs activate by o_P(1) time, b−o_P(b) leaves have independent Exp(1+a/b) residual clocks; conditional extreme-value limits give Gumbel independent of the early path. Rechecked exact birth rates and hypoexponential survival formulas for a=2,3,5 and b=1,4,20. Finite checks corroborate but do not prove J1 joint convergence.
 
-## Limitations
-Only the fixed-\(a\) unweighted graph and one-hub starting condition are proved. The result does not assert a general epidemic theorem for arbitrary networks, a growing-hub limit, or convergence of expectations. Source coverage and historical priority are subject to independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS only for the early √b activation PDMP, exact first-extra-hub distribution/Rayleigh law, and its joint independence from the late Gumbel. A prior fixed-width biclique theorem already established standard Gumbel completion from a hub seed, so that component is not new and cannot separately support originality. Read exact prior proof and compared identical per-edge rate/state model, not merely a title.
+
+## value
+
+PASS
+
+The first random activation of an initially tiny fixed hub set and its complete finite-jump PDMP are a distinct, motivated epidemic phase preceding known Gumbel flooding; the exact Rayleigh hazard and joint separation provide useful distributional information not implied by a terminal cover time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
