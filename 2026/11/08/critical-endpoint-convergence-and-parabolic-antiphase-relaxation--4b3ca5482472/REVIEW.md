@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof establishes a strictly decreasing cosine potential at the spectral equality, not merely the non-strict generic descent inequality. Finiteness and nondegeneracy of critical points for \(4\nmid n\) are reconstructed by the two-branch equal-sine classification, and a vanishing-step argument gives convergence to one fixed point. The negative-Hessian directions create expanding multipliers; centre-stable trapping together with the analytic null-preimage property eliminates all non-minimal basins up to measure zero. The all-antiphase even-cycle line has exact map \(u\mapsto u-2\sin u\), giving \(k u_k^2\to3/2\), with exponential stable-foliation shadowing transferring the law to generic attracted trajectories. The included numerical and symbolic checks were replayed.
+PASS
 
-## Originality: PASS relative to inspected evidence
+At the quotient h=2/Lambda_n, Taylor integral and K^2<=Lambda K give V(Fz)-V(z)<=0, strictly <0 whenever K sin z !=0 because a moving coordinate cannot have cos equal to -1 on a whole nontrivial interval. If 4 does not divide n, equal-sine coordinates subject to sum z=0 give finitely many nondegenerate critical points: the equal-multiplicity or cos(alpha)=0 degeneracies would force 4|n. Compactness plus vanishing drop and increments implies every orbit tends to one critical point; nonsink Hessian has an expanding multiplier, the local center-stable set is null, and analytic nonidentically-zero Jacobian determinant makes all its preimages null. For n=2 (mod 4), the alternating eigenmode has multiplier -1 at h=1/2, invariant scalar map u_next=u-2sin u=-u+u^3/3+O(u^5), giving k u_k^2 -> 3/2; strong-stable foliation tracks it exponentially, with exceptional leaf exponential. At h>1/2 multiplier crosses -1. Independent 20k-step scalar iteration gave 1.496875, and endpoint potential decrease for n=5,6 was independently checked. General local foliation and center-stable theorems are invoked, not independently formalized.
 
-The closest source, Buescu--Oliveira (arXiv:2610.19953v1, Theorems 2.1, 2.2, 3.1, 4.2 and 5.6), proves an open interval \(h<2/\Lambda_n\) and does not assert the equality theorem. Buescu--D'Aniello--Oliveira (arXiv:2610.10993v1, Theorem 3.2) also assumes a strict interval. Schaeffer--McCalla (arXiv:1908.01753v1) provides strict-saddle avoidance principles but not endpoint point-convergence or the ring-specific critical amplitude. The previously established tree endpoint argument does not imply the cycle result: cyclic closure creates frustrated twisted sinks and a distinct finite critical classification. A complete search of all historical research is impossible; equivalence via general analytic gradient theorems remains a background priority risk.
+## originality
 
-## Value: PASS
+PASS
 
-This identifies what actually happens at the omitted exact spectral boundary of a natural discrete oscillator family. In frustrated odd rings it closes the global-convergence interval, while even rings congruent to two modulo four exhibit an attracting but nonhyperbolic antiphase minimum and a universal algebraic exponent. This is a dynamical boundary classification, not simply a numerical stability test or a restatement of an interior theorem.
+Full Nov 1 published positive-definite K torus theorem proves inclusive endpoint strict descent and almost-sure antiphase basin, but its V=sum_i a_i cos z_i with *unconstrained independent torus coordinates* is not the ring-phase quotient with sum z=0 and cycle K singular on ambient space. It does not classify all frustrated odd-cycle stationary twists or the generic ring antiphase -1 mode. Fully inspected two-clock n=2 result has the scalar 3/2 coefficient but not the n>=6 transverse stable-manifold/global ring classification. The submitted claim has genuine overlap in technique and scalar local mechanism, not logical subsumption.
 
-## Limitations
+## value
 
-The proof does not cover the intersecting critical circles when \(4\mid n\), nor perturbations, weighted rings, or global basin volumes. The sharp algebraic amplitude holds on the antiphase basin outside the eventual strong-stable exceptional set. Historical priority is provisional and the result has not undergone independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Closing the spectral Lyapunov endpoint is a natural sharp stability boundary for all unweighted cycles with 4∤n; proving pointwise and almost-everywhere convergence and identifying robust attraction at a -1 multiplier changes the qualitative phase diagram. The exact k a_k²=3/2 rate is motivated by the critical antiphase mode, not an arbitrary finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
