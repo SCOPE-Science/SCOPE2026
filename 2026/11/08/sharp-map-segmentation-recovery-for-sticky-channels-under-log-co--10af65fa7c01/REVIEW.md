@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The exact finite-block MAP optimum is the sum over observed run totals of their maximum joint duration mass. Given the source, maximal input and output constant runs match, and independence makes these maxima factor across input runs. A positive composition of length \(r\) and sum \(L\) has an extreme candidate with mass \(a_1^{r-1}a_{L-r+1}\); summing over all totals proves the universal lower bound. For positive log-convex dwell laws, pairwise outward transfers increase products, giving equality at every total, not merely asymptotically. Log-concave inward transfers give balanced maximizing compositions and the stated double-series formula. The strict comparison at length \(L=r+2\) proves the strict gap. Conditional stochastic processing cannot increase the optimal exact-guessing probability. The Markov source identity follows by tilting only diagonal transitions. All assumptions and exceptional cases are explicitly stated. The exact-rational checker passes independent finite tests, with no claim that finite tests replace proof.
+PASS
 
-## Originality: PASS against inspected literature, with priority risk
+With known source word, a noiseless replicated output reveals precisely the output lengths for each maximal constant-symbol input run. For each observed total L the MAP posterior contribution is the maximum product over positive compositions of L, so summing gives U_r and multiplying over independent runs gives P*. The extreme composition lower bound yields a1^(m-c); pairwise outward transfer for nondecreasing ratios proves equality for every strictly positive log-convex law and normalized geometric sharpness. Inward balancing for nonincreasing ratios proves the displayed double series, and a2^2>a1*a3 yields strict improvement for r>=2. Markov-path weighting gives πM^(m-1)1; downstream noise cannot increase Bayes success by data processing. Finite positive-composition max checks were independent corroboration.
 
-The full accessible arXiv:2606.06808 sections defining geometric duplication, soft alignment and information-rate expressions do not establish the exact all-duration MAP success functional. Its conditional Shannon-entropy penalty does not imply the zero-one exact guessing probability. The complete author-hosted text of Mitzenmacher (2008) discusses general run-duration capacity but no source-given posterior-maxima law or log-curvature universality. Cheraghchi–Ribeiro arXiv:1806.06218 addresses capacity bounds. The accessible abstract of arXiv:2608.01433 is not sufficient to rule out implicit coverage; this specific gap and unindexed equivalent work remain possible. Indexed-result searches of duration recovery, log-convex MAP segmentation and equal-sum modes found no exact equivalent; absence from an index alone is not a proof. General extremal-product lemmas are acknowledged as classical rather than presented as newly invented. The combined conditional-channel recovery interpretation, exact all-parameter factorization and sharp dwell-class boundary are the assessed claim.
+## originality
 
-## Value: PASS
+PASS
 
-Individual dwell-time recovery is a natural operational synchronization task in nanopore and sticky replication channels, distinct from decoding the unknown source. The result solves its noiseless finite-block MAP probability for every known word and every positive iid dwell law, yields a sharp distribution-free envelope at fixed one-sample mass, and gives an unexpected entire log-convex universality class rather than merely geometric replication. The complementary log-concave series identifies how light-tailed dwell laws change the optimal segmentation, while a tilted transition matrix supplies exact Markov-source averages and a sharp downstream-noise converse. These are useful channel invariants, not arbitrary finite parameter slices.
+Sticky-channel capacity and entropy results address the unknown source or information rate, not known-word all-coordinate duration-vector MAP success. Pairwise balancing is classical, but the posterior-max product and run factorization are separate mathematical work. Recent geometric-duplication paper full text not accessible and remains a priority caveat.
 
-## Residual limitations
+## value
 
-Source information is given to the decoder; iid positive dwell assumptions and a distinguishable noiseless readout are essential. The paper arXiv:2608.01433 could not be inspected beyond its abstract; implicit priority or general posterior-guessing results may exist elsewhere. This self-review is not independent certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact full labeled duration-vector recovery probability and universal sharp dwell-law curvature dichotomy is a motivated inference limit for sticky replication channels; it is not a capacity bound or elementary rename of log-convex products. The Markov source formula and noise converse make the sharp benchmark useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
