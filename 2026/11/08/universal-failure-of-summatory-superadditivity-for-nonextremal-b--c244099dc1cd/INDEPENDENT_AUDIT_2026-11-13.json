@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T17:05:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob bfc695b2fd7b9f363efaa49af559646725a978b7, verify.py blob 1226e11fdafa92c4bcfd6f143d559c4f0597f456",
+        "Independent exact h=3..8 substring enumeration"
+      ],
+      "rationale": "For a word of integer value v and H=2^h, a bit-window occurrence at position j is exactly the disjoint integer intervals [2^j(Hq+v), 2^j(Hq+v+1)-1], q>=0. For strict interior H/2<v<H-1, counting all j windows below m=v+1, n=H+v+1, m+n=H+2v+2 gives offset 0 contributions (1,2,2), offset 1 (0,2,2), and offsets >=2 none: 4v>=m+n and 2H+v>=m+n close the interval checks. Thus defect=4-1-4=-1 uniformly for all h>=3. The count of words is 2^(h-1)-2, with excluded endpoints not assessed. An independent direct canonical substring-count and bit-window program verified all 240 strict-interior patterns h=3..8; finite test not substituted for interval proof.",
+      "residual_risks": [
+        "Leading-zero words require different conventions; endpoints 10^(h-1),1^h intentionally not claimed; zero representation does not add occurrences of leading-one words."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sobolewski Theorem 1.2 estimates natural densities of individual count changes N^w(n+t)-N^w(n) for shifts with many runs of ones, not F_w(m+n)-F_w(m)-F_w(n) at explicit short m,n.",
+          "Published all-one positive theorem applies only to excluded endpoint 1^h."
+        ],
+        "reasoning": "Different quantifiers (random starting n vs all h, every strict interior w, specific addends) prevent inference. Positive endpoint cannot imply negative interior.",
+        "searches": [
+          "arXiv:2412.15851 Theorem 1.2",
+          "arXiv:2309.00142",
+          "Resultary 2026/10/4 6618f31b8fde"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query: summatory binary block occurrence non-superadditivity all words Graham all except 10^h 1^h",
+        "Resultary: Superadditivity of summatory all-one block counts (2026/10/4 6618f31b8fde)",
+        "arXiv:2311.16806 Sections 1 and 8",
+        "arXiv:2412.15851 Theorem 1.2 and preliminaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The block-change CLT does not yield a sign of the summatory two-argument defect at m=v+1 and n=2^h+v+1; even an asymptotically Gaussian distribution cannot force the displayed exact identities.",
+          "All-one summatory superadditivity is deliberately excluded."
+        ],
+        "reasoning": "The new all-h strict-interior witness is not an established corollary of inspected statements. Originality remains historical-priority qualified.",
+        "searches": [
+          "Sobolewski 2412.15851 Theorem 1.2",
+          "Allouche–Stipulanti 2311.16806 Section 8",
+          "Resultary 6618f31b8fde"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Allouche–Stipulanti discuss possible generalizations of Graham-type summatory sum-of-digits inequalities to block counts but do not state the all-interior explicit (1,4,4) failure in the inspected discussion."
+        ],
+        "reasoning": "A general question about superadditivity for digit-block counts is not an answered all-word negative classification.",
+        "searches": [
+          "Resultary: summatory binary block occurrence non-superadditivity all words Graham all except 10^h 1^h",
+          "arXiv:2311.16806"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching previously published all-h exception table found; the theorem supplies one uniform algebraic interval-count proof rather than a finite list of counterexamples."
+        ],
+        "reasoning": "A finite table of h<=10 would not prove the all-h classification; the result is not a mere lookup.",
+        "searches": [
+          "Resultary binary block summatory superadditive exact witness",
+          "arXiv:2311.16806"
+        ]
+      },
+      "rationale": "The published all-one positive theorem concerns the endpoint 1^h, while primary additive block-count fluctuation work proves Gaussian laws for differences under shifts, not deterministic finite counterexamples to a summatory inequality simultaneously for all interior words. The explicit uniform all-length obstruction is neither a corollary of those distributional results nor known-table recomputation on reviewed sources. Best-of-knowledge with bounded coverage.",
+      "residual_risks": [
+        "A dedicated older source addressing all binary blocks at small summation arguments could include the same counterexample but is not indexed in the checked sources."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for the precise uniform counterexamples",
+          "evidence": "Section 8 asks about generalizing inequalities, including 11 block; does not give strict-interior h-wide m,n=(v+1,H+v+1) witness.",
+          "identifier_or_url": "https://arxiv.org/pdf/2311.16806",
+          "material_read": "Full accessible article skimmed and its Section 8 block-counting question read",
+          "method": "Read arXiv PDF text; visually checked first page",
+          "title": "Summing the sum of digits",
+          "trigger": "Direct motivation: Graham-type sum-of-digits summatory inequalities for block patterns"
+        },
+        {
+          "assessment": "NOT_COVERING for submitted summatory inequality",
+          "evidence": "Theorem 1.2 is Gaussian density for count increments at large shifts containing many 1-runs, not a deterministic F_w(m+n)<F_w(m)+F_w(n) classification.",
+          "identifier_or_url": "https://arxiv.org/pdf/2412.15851",
+          "material_read": "Main theorem 1.2 and initial sections on N^w(n+t)-N^w(n); PDF first page visually inspected",
+          "method": "Read arXiv PDF theorem and relevant definitions",
+          "title": "On the behavior of binary block-counting functions under addition",
+          "trigger": "Same binary word occurrence count but under shifts"
+        },
+        {
+          "assessment": "INAPPLICABLE to strict interior binary words",
+          "evidence": "Its only word 1^h is exactly one of the two excluded endpoints.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-superadditivity-of-summatory-all-one-block-counts--6618f31b8fde",
+          "material_read": "Exact published finding summary specifying w=1^r and equality examples",
+          "method": "Resultary semantic result, not full text",
+          "title": "Superadditivity of summatory all-one block counts",
+          "trigger": "Potential stronger summatory result for binary blocks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Allouche–Stipulanti, arXiv:2311.16806",
+        "Sobolewski, arXiv:2412.15851",
+        "Resultary all-one positivity 6618f31b8fde"
+      ],
+      "rationale": "A uniform obstruction for all 2^(h-1)-2 nonextremal leading-one binary blocks is a meaningful boundary result in the Graham-style summatory digit inequality problem. The explicit universal witness separates the two genuinely special endpoint candidates, rather than merely computing an arbitrary small exception or taking a limit without motivation.",
+      "residual_risks": [
+        "No determination is made for 10^(h-1) or for words with leading zeros, hence this is not a full all-word classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every length h>=3 leading-one binary word except 10^(h-1) and 1^h, its canonical binary occurrence-count summatory F_w(N)=sum_{0<=t<N} c_w(t) violates superadditivity at the explicit m=v+1,n=2^h+v+1, with F(m)=1,F(n)=4,F(m+n)=4 and defect -1.",
+  "limitations": "The classification is only of the strict-interior leading-one failures, not either endpoint and not leading-zero words. Exact interval proof, not finite tests, establishes all h.",
+  "schema_version": 1
+}

@@ -1,9 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every potential digit-window occurrence lies in an explicitly defined integer interval. Counting these interval elements at the three given cutoffs gives \(1\), \(4\), and \(4\) exactly for every \(h\ge3\) and every strict interior \(v\). The bounds on \(v\) justify all exclusions, so this is an infinite proof, not a finite extrapolation. The independent string and bit-window implementations agree through length \(10\).
+## correctness
 
-**Originality — PASS in inspected evidence.** Sobolewski–Spiegelhofer's 2023 work gives shifted binary-block count distributions, rather than summatory Graham inequalities. Allouche–Stipulanti explicitly ask about inequalities for other blocks. The later all-words Gaussian theorem also concerns distributions, not the exact finite inequality. A reported positive superadditivity result for all-one blocks is disjoint from the present strict-interior family. Targeted mathematical searches and the inspected published sources showed no implication covering the new statement. There remains a risk from unindexed equivalent work; the all-one result was available only through an indexed scientific summary.
+PASS
 
-**Mathematical value — PASS.** This supplies a uniform explicit obstruction in a published direction, excluding all but two candidate leading-one words at every length. The boundary conditions explain why the standard all-one situation is genuinely exceptional. It does not resolve the other boundary case or classify blocks beginning with zero.
+For a word of integer value v and H=2^h, a bit-window occurrence at position j is exactly the disjoint integer intervals [2^j(Hq+v), 2^j(Hq+v+1)-1], q>=0. For strict interior H/2<v<H-1, counting all j windows below m=v+1, n=H+v+1, m+n=H+2v+2 gives offset 0 contributions (1,2,2), offset 1 (0,2,2), and offsets >=2 none: 4v>=m+n and 2H+v>=m+n close the interval checks. Thus defect=4-1-4=-1 uniformly for all h>=3. The count of words is 2^(h-1)-2, with excluded endpoints not assessed. An independent direct canonical substring-count and bit-window program verified all 240 strict-interior patterns h=3..8; finite test not substituted for interval proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The published all-one positive theorem concerns the endpoint 1^h, while primary additive block-count fluctuation work proves Gaussian laws for differences under shifts, not deterministic finite counterexamples to a summatory inequality simultaneously for all interior words. The explicit uniform all-length obstruction is neither a corollary of those distributional results nor known-table recomputation on reviewed sources. Best-of-knowledge with bounded coverage.
+
+## value
+
+PASS
+
+A uniform obstruction for all 2^(h-1)-2 nonextremal leading-one binary blocks is a meaningful boundary result in the Graham-style summatory digit inequality problem. The explicit universal witness separates the two genuinely special endpoint candidates, rather than merely computing an arbitrary small exception or taking a limit without motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
