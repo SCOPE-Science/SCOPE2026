@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-Run `python3 check.py` beside `CERTIFICATE.json` with Python 3.9 or later. Both files are included in the same package. The checker reconstructs all binary words and output subsequences, verifies every witness code, checks all dual-coverage inequalities by exact rational arithmetic, and computes the eight upper bounds independently from the certificate entries.
+# Independent mathematical audit
 
-Verified output:
+## correctness
 
-```
-PASS n=3 optimum=2 upper=2 source_words=8 outputs=1 witness=2 slack=0
-PASS n=4 optimum=3 upper=3 source_words=16 outputs=2 witness=3 slack=1
-PASS n=5 optimum=4 upper=4 source_words=32 outputs=4 witness=4 slack=0
-PASS n=6 optimum=4 upper=4 source_words=64 outputs=8 witness=4 slack=0
-PASS n=7 optimum=4 upper=4 source_words=128 outputs=16 witness=4 slack=0
-PASS n=8 optimum=7 upper=22/3 source_words=256 outputs=32 witness=7 slack=2
-PASS n=9 optimum=10 upper=659/60 source_words=512 outputs=64 witness=10 slack=6
-PASS n=10 optimum=14 upper=2693/180 source_words=1024 outputs=128 witness=14 slack=13
-ALL EIGHT EXACT OPTIMA VERIFIED
-```
+PASS
 
-The finite verification does not claim any value beyond length ten. The dual certificates are exact and complete, not optimization status logs. Independent mathematical audit has not been performed.
+The three-deletion channel relation is A_yx=1 iff y is a length-(n-3) subsequence of binary source x. Each given witness has at most two sources containing any output, and rational dual weights w_y plus s_x=max(0,1-sum_y A_yx w_y) obey 1<=sum_y A_yx w_y+s_x for every binary source. Thus any feasible code has size <=2 sum_y w_y+sum_x s_x. For n=3..10 the exact certificate provides upper bounds 2,3,4,4,4,22/3,659/60,2693/180, whose floors equal the witness sizes 2,3,4,4,4,7,10,14. Independent BigInt exact enumeration of every source x and received word y and all eight certificate datasets verified all list capacities, rational upper-bound identities, and rounding gaps. These exhaustive finite checks prove the precise finite claim via duality; no unbounded n is asserted.
+
+## originality
+
+PASS
+
+Lin arxiv:2609.26650 concerns the same t-list k-deletion predicate and proves asymptotic bounds. A substantial accessible rendered portion of Lin paper was examined; it gives parameter-general asymptotics but no listed exact n=3..10 optima. Other Resultary prior findings concern 1- or 2-deletions and different list capacities, not three-deletion list two. No exact table matching all eight values appeared in Resultary searches. This is best-of-knowledge priority, not proof no prior unindexed finite computational census exists.
+
+## value
+
+PASS
+
+Two-list three-deletion codes are a natural adversarial channel problem; the short-length optimal profile and the first length eight that exceeds four codewords supply exact finite cutoffs for coding design. The eight integers include genuinely nontrivial n=8..10 bounds proved by independently checkable rational packing certificates and are not merely recomputed standard tables. No asymptotic or long-length claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

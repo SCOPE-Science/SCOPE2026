@@ -1,19 +1,21 @@
-# Review: exact binary two-list three-deletion profile
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For each of the eight lengths the result reduces to a fully enumerated binary subsequence-incidence matrix. Each explicit witness is checked against all possible deletion outputs. Nonnegative rational output weights and the derived nonnegative slack for every input word supply a dual upper bound strictly below the next integer, so the witness is provably optimal. The supplied standalone checker independently reconstructs every incidence by greedy subsequence testing; no floating-point optimization output is used as mathematical evidence.
+PASS
 
-## Originality
+The three-deletion channel relation is A_yx=1 iff y is a length-(n-3) subsequence of binary source x. Each given witness has at most two sources containing any output, and rational dual weights w_y plus s_x=max(0,1-sum_y A_yx w_y) obey 1<=sum_y A_yx w_y+s_x for every binary source. Thus any feasible code has size <=2 sum_y w_y+sum_x s_x. For n=3..10 the exact certificate provides upper bounds 2,3,4,4,4,22/3,659/60,2693/180, whose floors equal the witness sizes 2,3,4,4,4,7,10,14. Independent BigInt exact enumeration of every source x and received word y and all eight certificate datasets verified all list capacities, rational upper-bound identities, and rounding gaps. These exhaustive finite checks prove the precise finite claim via duality; no unbounded n is asserted.
 
-PASS against inspected sources, with historical-priority uncertainty. Lin (arXiv:2609.26650, full eight-page text inspected) proves general asymptotic bounds using deletion hypergraphs and does not state an exact small-length three-deletion/two-list profile. Guruswami–Håstad (arXiv:2007.10592, accessible abstract and bibliographic information inspected) concerns asymptotic two-deletion list codes; that statement does not imply the listed values. Indexed related exact results address either two-deletion/two-list optimization or three-deletion pairwise reconstruction, neither of which implies the present two-list/three-deletion integer program. Unindexed finite tables and uninspected full secondary manuscripts remain priority risks.
+## originality
 
-## Value
+PASS
 
-PASS. The fixed first nontrivial list size and three-deletion count give a natural first exact finite benchmark in a model primarily studied asymptotically. The first eight blocklengths display a nontrivial four-codeword plateau followed by a sharp increase at length eight, and the two larger values have independently checkable rational optimality certificates. Such exact small instances can benchmark hypergraph methods and code constructions without requiring an asymptotic theorem.
+Lin arxiv:2609.26650 concerns the same t-list k-deletion predicate and proves asymptotic bounds. A substantial accessible rendered portion of Lin paper was examined; it gives parameter-general asymptotics but no listed exact n=3..10 optima. Other Resultary prior findings concern 1- or 2-deletions and different list capacities, not three-deletion list two. No exact table matching all eight values appeared in Resultary searches. This is best-of-knowledge priority, not proof no prior unindexed finite computational census exists.
 
-## Limits
+## value
 
-The theorem covers only binary lengths three through ten, exactly three deletions and output-list size two. It does not establish encoding complexity, further lengths or uniqueness. The self-review is not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two-list three-deletion codes are a natural adversarial channel problem; the short-length optimal profile and the first length eight that exceeds four codewords supply exact finite cutoffs for coding design. The eight integers include genuinely nontrivial n=8..10 bounds proved by independently checkable rational packing certificates and are not merely recomputed standard tables. No asymptotic or long-length claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
