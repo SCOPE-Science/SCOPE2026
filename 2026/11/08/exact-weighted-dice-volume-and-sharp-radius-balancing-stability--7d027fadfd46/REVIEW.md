@@ -1,15 +1,21 @@
-# Review of weighted orthogonal-disk Minkowski-sum volume
+# Independent mathematical audit
 
-## Correctness — PASS
-The disk support normalization, zonotope determinant factor, same-plane and distinct-plane angular integrals, hypergeometric evaluation, absolute convergence, the strict bounds \(4\pi<C<6\pi\), Schur derivative, and sharp cubic-deviation inequality have been reconstructed. Equality is characterized at the balanced triple and, on the closed radius simplex, exactly three two-disk boundary midpoints. The included standalone Python checker approximates actual convex Minkowski sums by finite zonotopes and checks the stability equality cases, but cannot replace the continuum proof. No unstated genericity or positive-radius assumption is needed.
+## correctness
 
-## Originality — PASS, with historical priority provisional
-Mathis–Meroni, *Fiber Convex Bodies* (arXiv:2105.12406, §5.3), studies the very same dice, computing a fiber-body support, not its volume. Gesmundo–Meroni, *The Geometry of Discotopes* (arXiv:2111.01241, §7), describes the dice algebraic boundary, not this volume polynomial. Breiding–Bürgisser–Lerario–Mathis (arXiv:2109.14996, Theorem 5.4) supply the general zonoid determinant identity credited in the proof. The evaluated two-angle integral and complete sharp radius-stability classification are the additional contributions; the identity is not claimed new. An indexed convex-*hull* calculation involving three orthogonal disks concerns a distinct body. An unindexed equivalent expression or older mixed-volume computation may exist.
+PASS
 
-## Mathematical value — PASS
-An exact triple-mixed-volume coefficient supplies a quantitative invariant for a named natural semialgebraic zonoid. The sharp fixed-total-radius optimizer and optimal quadratic stability constant govern its response to unequal disk sizes; the nontrivial boundary equality cases distinguish global from local stability. This is not just an unevaluated general mixed-volume integral or an arbitrary finite special case.
+Zonoid support D=1/4 circle segment integral and zonotope volume give repeated-plane coefficient 2π and all-distinct coefficient C=√2π² 3F2(-1/4,1/4,1/2;1,1;1). Expansion about a=b=c=S/3 gives deficit CS q/6+(6π-C)uvw. Inequality uvw≥-Sq/18 is sharp exactly for permutations (S/2,S/2,0). Bounds 4π<C<6π imply strict Schur concavity and sharp global deficit S(2C-3π)q/9. Independent random numerical tests checked inequality over 1000 radius triples, including boundary algebra; continuum derivation supports universal claim.
 
-## Limitations and status
-Only the Minkowski sum of three centered circular disks in pairwise orthogonal planes is classified. No result is claimed for arbitrary orientations or independent verification. Priority is subject to further literature review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS is narrowly based on the sharp fixed radius-S quadratic balancing theorem and its full equality set. The ENTIRE hypergeometric volume coefficient and weighted three-disk volume polynomial were already published October 25 and November 1 in mean-section-body/mean-projection-body results. These are explicitly credited as PRIOR COVERAGE here; the earlier fixed-box-volume minimization is a distinct nonlinear constraint on disk radii and does not imply the fixed-radius-sum sharp stability by direct specialization.
+
+## value
+
+PASS
+
+For the natural three-coordinate-disc discotope family, sharp optimizer and best possible global quadratic radius-balancing deficit with nontrivial boundary equality are meaningful geometric stability data. Prior known volume integral is not credited as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

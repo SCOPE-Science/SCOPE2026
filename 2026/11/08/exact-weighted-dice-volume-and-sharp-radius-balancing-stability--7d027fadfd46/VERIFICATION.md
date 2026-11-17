@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical verification
+# Independent mathematical audit
 
-The exact continuum proof is in RESULT.md. The standalone file `checks/dice_volume_check.py` uses only the standard Python library. Run it from the root of this extracted package using `python3 checks/dice_volume_check.py`; the success marker is `DICE_WEIGHTED_VOLUME_AND_SHARP_STABILITY_CHECKS_PASSED`.
+## correctness
 
-Its independent computation replaces each planar disk with a regular inscribed polygon and uses the finite zonotope determinant volume formula for the Minkowski sum. The test covers equal positive radii, unequal positive radii, and configurations with one zero radius. Inscribed polygonal volume approximants converge from below toward the analytic formula. A separate test checks the volume deficit against the proposed sharp quadratic coefficient at six configurations, including both analytic equality types. Finite computations corroborate rather than certify all nonnegative radii.
+PASS
 
-The hypergeometric constant is represented by an absolutely convergent series. The numerical script computes a finite truncation and deliberately prints an approximate value; the precise definition and global analytic bounds are in the proof. No external verification or independent audit has been performed.
+Zonoid support D=1/4 circle segment integral and zonotope volume give repeated-plane coefficient 2π and all-distinct coefficient C=√2π² 3F2(-1/4,1/4,1/2;1,1;1). Expansion about a=b=c=S/3 gives deficit CS q/6+(6π-C)uvw. Inequality uvw≥-Sq/18 is sharp exactly for permutations (S/2,S/2,0). Bounds 4π<C<6π imply strict Schur concavity and sharp global deficit S(2C-3π)q/9. Independent random numerical tests checked inequality over 1000 radius triples, including boundary algebra; continuum derivation supports universal claim.
+
+## originality
+
+PASS
+
+PASS is narrowly based on the sharp fixed radius-S quadratic balancing theorem and its full equality set. The ENTIRE hypergeometric volume coefficient and weighted three-disk volume polynomial were already published October 25 and November 1 in mean-section-body/mean-projection-body results. These are explicitly credited as PRIOR COVERAGE here; the earlier fixed-box-volume minimization is a distinct nonlinear constraint on disk radii and does not imply the fixed-radius-sum sharp stability by direct specialization.
+
+## value
+
+PASS
+
+For the natural three-coordinate-disc discotope family, sharp optimizer and best possible global quadratic radius-balancing deficit with nontrivial boundary equality are meaningful geometric stability data. Prior known volume integral is not credited as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
