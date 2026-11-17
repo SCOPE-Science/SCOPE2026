@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3.8+ with no nonstandard packages. The script reports exact exhaustive graph enumeration for all integers \(1\le N\le16\), checks the combinatorial count of maximizers, compares it against independently computed kernel-component maximum sizes, and computes the finite tie-count formula for \(N=10^2,10^3,10^4,10^5,10^6,10^7\). The final printed predicted constant uses a prime-product truncation below 100000 and therefore is numeric, not a proof of product convergence or a certified interval.
+## correctness
 
-All finite outputs are in `verify_output.txt`; compare them directly with a fresh run. The infinite theorem is proved in RESULT.md using graph decomposition, a local squarefree sieve, area integration, and tail bounds. No finite extrapolation establishes the asymptotic. Independent mathematical validation has not been performed.
+PASS
+
+Every integer equals a unique cube-free kernel r times a cube; complementary kernels uv² and u²v give independent complete-bipartite forbidden components, while kernel 1 forms a clique of all cubes. A maximum set chooses the larger class uniquely, or either side if equally positive: exactly floor(N^(1/3))*2^H(N) possibilities. In x=u/N^(1/3),y=v/N^(1/3), equal cube-root floor heights describe slabs in s=xy²,t=x²y with Jacobian 1/[3(st)^(2/3)]; summing area 3/[j²(j+1)²] gives pi²-9. Pair squarefree CRT local density product delta and quantified noncompact-tail estimates give H~delta(pi²-9)N^(2/3)/2. An independent exhaustive maximum-set census through N=15 and finite Euler-product computation corroborate the exact statement but not the asymptotic.
+
+## originality
+
+PASS
+
+Yang–Zhao and Fleiner et al establish same kernel-component decomposition and maximum-cardinality problem, and Yang–Zhao covers general d. The target here is **multiplicity of maximizing sets**, in which the equal-positive paired cube-free kernel class frequencies produce a distinct square-slab area pi²−9 and entropy constant; maximal size alone does not imply number of attaining configurations. Full Yang–Zhao primary text was inaccessible; unindexed exact count remains risk.
+
+## value
+
+PASS
+
+Counting all extremizers rather than computing maximum size is a natural arithmetic combinatorics invariant: it measures degeneracy/entropy of a constrained extremal problem already studied for perfect power products. The new N^(2/3) entropy and exact tie factors quantify a substantive different question; not a recomputation of known maximal size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

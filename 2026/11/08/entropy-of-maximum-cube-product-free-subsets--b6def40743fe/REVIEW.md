@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement concerns maximum cardinality, not maximal-by-inclusion sets, and excludes repetitions in forbidden pairs. The exact exponent counts complementary cube-free kernel pairs whose two *positive* class sizes agree; the only diagonal fixed kernel is 1, contributing \(\lfloor N^{1/3}\rfloor\) rather than a factor of two. The asymptotic proof includes the correct density of squarefree coprime coordinate pairs, the full Jacobian \(\frac13(st)^{-2/3}\), an exact square-slab area \(\pi^2-9\), and quantified upper bounds on the tails of the noncompact region. On compact Jordan regions the elementary CRT/squarefree sieve gives the required local product. Direct exhaustive subset checks for \(N\le16\) and exact tie counts for six larger \(N\) values corroborate the formulas without substituting for the infinite proof. Risks: no explicit remainder constant and no independently checked error term.
+PASS
 
-## Originality — PASS, qualified
+Every integer equals a unique cube-free kernel r times a cube; complementary kernels uv² and u²v give independent complete-bipartite forbidden components, while kernel 1 forms a clique of all cubes. A maximum set chooses the larger class uniquely, or either side if equally positive: exactly floor(N^(1/3))*2^H(N) possibilities. In x=u/N^(1/3),y=v/N^(1/3), equal cube-root floor heights describe slabs in s=xy²,t=x²y with Jacobian 1/[3(st)^(2/3)]; summing area 3/[j²(j+1)²] gives pi²-9. Pair squarefree CRT local density product delta and quantified noncompact-tail estimates give H~delta(pi²-9)N^(2/3)/2. An independent exhaustive maximum-set census through N=15 and finite Euler-product computation corroborate the exact statement but not the asymptotic.
 
-The closest work is Yang–Zhao, arXiv:2608.11921v1, Section 2, which already gives the complete-bipartite complementary-kernel argument and observes tied choices. Their main theorem and subsequent estimates determine maximal *sizes*, not the number of size-maximizing subsets or its leading entropy; thus those proven size statements do not imply the new positive square-slab constant. Fleiner–Juhász–Kövér–Pach–Sándor, arXiv:2405.12088, treat cube-product-free extremal sizes and opposite-kernel classes without claiming an extremizer entropy asymptotic. Targeted searches of accessible mathematical records and published literature did not locate a statement with the same object and constant. Unindexed equivalent enumeration and reinterpretations of earlier size arguments remain residual historical-priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural extremal-size problem has many optimizers, and exact degeneracy is not determined by the known cardinality asymptotic. The theorem identifies the precise exponential scale and a closed-form positive arithmetic-geometric coefficient. Its two-dimensional tie-region and squarefree local density expose why the number of optimizers has an order-\(N^{2/3}\) logarithm rather than being merely polynomial; this is structural information not supplied by the extremal size alone.
+Yang–Zhao and Fleiner et al establish same kernel-component decomposition and maximum-cardinality problem, and Yang–Zhao covers general d. The target here is **multiplicity of maximizing sets**, in which the equal-positive paired cube-free kernel class frequencies produce a distinct square-slab area pi²−9 and entropy constant; maximal size alone does not imply number of attaining configurations. Full Yang–Zhao primary text was inaccessible; unindexed exact count remains risk.
 
-## Scope and independence
+## value
 
-The result does not count all admissible or maximal-by-inclusion subsets; it fixes cubic products only. All computational checks are finite. Literature priority is conditional on sources inspected; no claim of independent certification is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Counting all extremizers rather than computing maximum size is a natural arithmetic combinatorics invariant: it measures degeneracy/entropy of a constrained extremal problem already studied for perfect power products. The new N^(2/3) entropy and exact tie factors quantify a substantive different question; not a recomputation of known maximal size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
