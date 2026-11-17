@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "A complete proof identifies B_alpha=alpha(I-Q)+(2alpha-1)Q on star edge gradients with Q rank-one idempotent, computes exact l1 column norm of B_alpha^m including negative-eigenvalue sign regimes, and proves global unique optimum by monotonicity and a single derivative sign change for each parity and leaf count. Exact-rational direct-vertex-iteration checks (4368), general signed-input checks (2050), and even-step scalar checks (3150) passed; 300300 grid points corroborate, not prove, odd optimum. The real-input, positive horizon, all k>=1 and endpoint cases are treated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd–Diaconis–Xiao (2003) technical report, §§1.1–1.2: optimization of symmetric Markov transition matrices by spectral mixing rate, not this fixed non-symmetric star chain in edge-variation norm.",
+        "Kolmogorov–Pock–Rolinek (arXiv:1502.07770), intro, §§2–5: exact minimization of variation-penalized energies on trees; no Markov iterates/finite-horizon holding optimization.",
+        "published-finding corpus 2026-10-26 weighted-tree heat theorem computes continuous-time variation contraction via logarithmic matrix norm; the discrete-star finite-horizon optimum is not stated or implied by its heat-flow contraction criterion."
+      ],
+      "reasoning": "General Markov spectral contraction does not determine the induced non-Hilbertian edge-l1 norm at finite horizons; continuous-time generator norm gives small-time bounds but no closed finite-power laziness optimizer. The exact rank-one algebra supplies a new comparison and piecewise optimizing parameter.",
+      "searches": [
+        "published-finding corpus: finite horizon star graph lazy walk optimal laziness after odd and even number of steps graph variation norm",
+        "published-finding corpus: discrete-time graph heat neighbor averaging total variation one-step degree contractivity tree",
+        "Web: Boyd Diaconis Xiao fastest mixing Markov chain on a graph 2004 star graph",
+        "Web: total variation on a tree Kolmogorov Pock Rolinek 2015 full preprint"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1307.0468",
+      "arxiv:1502.07770",
+      "Boyd–Diaconis–Xiao, Stanford technical report 2003-04 / SIAM Review 2004",
+      "published-finding corpus/2026/11/2/77f0e7590ff5",
+      "published-finding corpus/2026/10/26/5e5efd39850a",
+      "published-finding corpus/2026/10/26/9fedb9294a7c",
+      "Accessible own 2026-11_week2 ledger claims through generation p0001_g000037"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The biclique theorem permits recovering a related m=1 star coefficient, but its result has no power m and no parity-sensitive minimizing parameter.",
+        "The triangle theorem optimizes distributional TV from stationarity, not graph edge differences of signals.",
+        "Sandryhaila–Moura define shift variation ||f-A_norm f||_1, distinct from sum of edge differences.",
+        "Kolmogorov–Pock–Rolinek optimize TV plus unary terms, and do not compute norms of lazy walk powers."
+      ],
+      "reasoning": "The new all-horizon theorem is not a corollary of the cited displayed statements without new power decomposition and convex/cusp minimization. The m=1 coefficient and the projector spectral decomposition individually are not asserted as new. No decisive stronger covering result was found in the inspected primary material.",
+      "searches": [
+        "published-finding corpus record 77f0e7590ff5 full RESULT.md: theorem, hypotheses p,q>=2, exact one-step lazy biclique coefficient",
+        "published-finding corpus record 5e5efd39850a full RESULT.md: exact finite-horizon distributional TV optimal directed triangle",
+        "published-finding corpus record 9fedb9294a7c full RESULT.md: tree heat variation logarithmic generator",
+        "arXiv:1307.0468 full HTML §III and §V; arXiv:1502.07770 full HTML introductory problem and §§2–5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The graph-edge star operator is conjugate on gradients to B=alpha I-(1-alpha)11^T/k; its full power and l1 norm yield two competing branches.",
+        "published-finding corpus 2026-11-02 exact lazy biclique one-step result explicitly assumes both bipartition sizes >=2; algebraically its one-step formula can extend to stars but not to m>=2.",
+        "Accessible own row c5ce79ad-9331-4224-8f56-449883a61dcb treats powers of non-lazy walks on balanced double stars rather than optimization of lazy star powers."
+      ],
+      "reasoning": "Aliases include graph BV, edge l1 gradient, star K_{1,k}, iterated neighbor averaging and holding/laziness optimization. The closest one-step special case is acknowledged as prior-compatible; the claim at issue is the all-horizon exact minimization, including universal even-horizon scalar edge action and the k=4 odd-horizon cusp/interior boundary.",
+      "searches": [
+        "published-finding corpus: star graph lazy random walk uniform holding probability optimal m-step edge total variation norm spectral α^m and (2α−1)^m 1/3 even powers",
+        "published-finding corpus: sharp variation norm powers of lazy random walk on complete bipartite star optimal horizon parameter",
+        "Web: lazy star random walk finite-horizon optimal holding probability total variation contraction edge seminorm",
+        "Local historical claims: all accessible 37 finding rows in private research ledger, exact subject aliases star, lazy, power, odd, holding"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No published-finding corpus hit identified the formula max(|2alpha-1|^m, [2(k-1)alpha^m-(k-2)(2alpha-1)^m]/k) with its all-horizon optimizer table.",
+        "Local row references with stars and powers refer to different operators (non-lazy double stars or maximal/median/heat filters).",
+        "The published published-finding corpus lazy-biclique record 77f0e7590ff5 gives only m=1 with p,q>=2."
+      ],
+      "reasoning": "Absence of an exact table is a bounded search finding rather than proof of historical uniqueness. The closest special-case algebra can recover one-step star optimal laziness but neither the even-step collapse nor the odd k>=4 interior optimum.",
+      "searches": [
+        "published-finding corpus: star random walk edge gradient power matrix rank-one odd even optimal laziness",
+        "published-finding corpus: balanced double star simple random walk edge total variation one step norm 3-8/n",
+        "Web: stars repeated neighbor averaging optimal lazy parameter m-step total variation Gini graph signal",
+        "Current-week accessible local own claim and item-id scan (37 rows): search terms lazy, star, power, finite-horizon, odd"
+      ]
+    },
+    "rationale": "Inspected relevant primary full texts and closest published published-finding corpus claims. One-step lazy-star coefficient is algebraically compatible with a published biclique result and not represented as new; the combined exact multistep norm, unique parity-sensitive minimizers, universal even-horizon scalar edge identity, and k=4 odd-horizon phase change are not implied by the closest inspected results. Originality retains the possibility of an unindexed earlier rank-one computation.",
+    "residual_risks": [
+      "An unindexed earlier finite-horizon star-averaging calculation could contain an equivalent rank-one norm and optimum; search does not certify absolute historical priority.",
+      "The discrete-time one-step lazy-star coefficient is already mathematically accessible from earlier biclique-style calculations, so only the combined higher-horizon parity theorem is treated as candidate novel contribution."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Uses the shift discrepancy ||f-A_norm f||_1 and eigenvector frequency ranking, not the edge-sum variation norm or horizon-optimal star walk",
+        "evidence": "arXiv:1307.0468, original submission 2013-07-01; Definition 1; §III.",
+        "identifier_or_url": "https://arxiv.org/html/1307.0468v2",
+        "material_read": "Source HTML introduction, excerpts of §§II–III (including Definition 1 and formula (18)), filtering discussion and references",
+        "method": "Source HTML open and search in §III and filter-design sections",
+        "title": "Discrete Signal Processing on Graphs: Frequency Analysis",
+        "trigger": "Relevant early graph-signal variation and filtering definitions"
+      },
+      {
+        "assessment": "Solves variation-regularized variational minimization using tree dynamic programming, not lazy neighbor averaging powers or variation operator norms",
+        "evidence": "arXiv:1502.07770, original submission 2015-02-26; abstract, Introduction, §2, §4, §5.",
+        "identifier_or_url": "https://arxiv.org/abs/1502.07770",
+        "material_read": "Source HTML preprint, introduction and excerpts of §§2–5; searched random-walk terminology",
+        "method": "Open source full HTML and inspect sections and text search",
+        "title": "Total variation on a tree",
+        "trigger": "Closest primary finite-tree edge-total-variation framework"
+      },
+      {
+        "assessment": "Spectral mixing optimization for symmetric doubly stochastic chains. Does not address the fixed family P_alpha generally nonsymmetric in counting measure, edge BV powers, or optimizing finite-horizon edge variation",
+        "evidence": "Stanford technical report 2003-04, cover Feb 2003, eqs. (1)–(3), §§1.1.2–1.1.3.",
+        "identifier_or_url": "https://www.math.ucdavis.edu/~deloera/MISC/LA-BIBLIO/trunk/Diaconis/Diaconis7.pdf",
+        "material_read": "Public 2003 technical report cover, abstract, §§1.1–1.2 including spectral objective and distributional TV bound (PDF lines 0–180)",
+        "method": "Opened scholarly PDF, read source text and visually inspected a screenshot of the PDF",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Potential dominating spectral optimization of Markov transition parameters"
+      },
+      {
+        "assessment": "Only one step and p,q>=2; one-step star value algebraically compatible; higher powers and parity-optimal holding not given",
+        "evidence": "published-finding corpus record suffix 77f0e7590ff5; statements and step 5 proof.",
+        "identifier_or_url": "published-finding corpus/2026/11/2/77f0e7590ff5",
+        "material_read": "Full publicly posted RESULT.md theorem, proof, qualifications, references",
+        "method": "Read exact repository RESULT.md via authorized GitHub fetch",
+        "title": "Sharp edge-variation contraction of lazy walks on complete bipartite graphs",
+        "trigger": "Same lazy walk and variation but one-step biclique"
+      },
+      {
+        "assessment": "Directs a triangle chain and optimizes TV distance to stationary distribution, not variation of real signals on star edges",
+        "evidence": "published-finding corpus record suffix 5e5efd39850a; theorem and assumptions.",
+        "identifier_or_url": "published-finding corpus/2026/10/26/5e5efd39850a",
+        "material_read": "Full publicly posted RESULT.md theorem, objective, proof and limitations",
+        "method": "Read exact repository RESULT.md via authorized GitHub fetch",
+        "title": "Exact finite-horizon total-variation optimizers for a lazy directed triangle",
+        "trigger": "Same finite-horizon optimization language"
+      },
+      {
+        "assessment": "Continuous-time generator/logarithmic norm and topology classification, not optimized finite iterates of a discrete lazy walk",
+        "evidence": "published-finding corpus record suffix 9fedb9294a7c; generator formula and limitations.",
+        "identifier_or_url": "published-finding corpus/2026/10/26/9fedb9294a7c",
+        "material_read": "Full publicly posted RESULT.md theorem and incidence-matrix proof",
+        "method": "Read exact repository RESULT.md via authorized GitHub fetch",
+        "title": "A conductance-independent contraction criterion for weighted tree heat flow in total variation",
+        "trigger": "Potential stronger heat variation coverage for all weighted trees"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "7b9a354b-6356-4f0d-ade5-43d6ca0be808",
+  "value": {
+    "rationale": "Fixed-horizon tuning of a standard graph-averaging filter in an edge-BV stability norm is a motivated stability-design invariant. The theorem supplies an all-leaf-count/all-horizon attained exact norm and unique optimizer, distinguishes every even horizon from odd horizons, identifies the first interior odd-horizon transition at four leaves, and shows universal exact scalar smoothing of edge gradients at two steps and all even horizons. These facts distinguish spectral asymptotic mixing from finite-step signal perturbation stability and are not arbitrary small computations.",
+    "status": "PASS"
+  }
+}
