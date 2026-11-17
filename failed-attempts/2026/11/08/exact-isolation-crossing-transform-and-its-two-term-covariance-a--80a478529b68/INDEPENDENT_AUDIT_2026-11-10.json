@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T23:51:21.549809Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Fixing a distinguished isolated chord leaves two independent noncrossing arcs of lengths a and b=n−1−a; the crossing count is the sum of crossings in independent arc matchings. Counting all oriented chords twice yields E[J_n z^{X_n}]=n/(2n−1)!! sum_a Q_a(z)Q_b(z). The expectation E X_n=n(n−1)/6 and conditional E[X|isolation]=(a(a−1)+b(b−1))/6 give exact negative covariance −n/3 sum_a p_{n,a}(n−1+ab), zero at n=1. Ratio tail estimates justify −n/3−1/6+O(n−1). Independent exhaustive pairings through five chords reproduced every polynomial coefficient and small exact covariances. No infinite inference from enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nov 8 prior covariance is −n/3−1/6−5/(6n)+O(n−2), stronger than claimed two-term −n/3−1/6+O(n−1). It gives same exact finite covariance formula."
+        ],
+        "reasoning": "Prior all-n theorem dominates covariance and full conditional distribution entails the weighted generating transform.",
+        "searches": [
+          "Resultary query: chord diagram isolated chord crossing polynomial Q_a(z) Q_b(z) prior covariance first moment",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-persistent-crossing-covariance-footprint-of-rare-non-simple-is--c2a530e05e03/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-isolated-chords-impose-an-exact-crossing-count-penalty-with-a-no--0f60fb4dde2a/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-persistent-crossing-covariance-footprint-of-rare-non-simple-is--c2a530e05e03/RESULT.md",
+        "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf",
+        "https://arxiv.org/abs/1501.01489"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Oct12 derives the same negative covariance exactly and its −n/3−1/6 asymptotic. Nov8 says conditional X_n = X_a+X_b in distribution and proves a sharper O(n−2) expansion."
+        ],
+        "reasoning": "Prior stronger result mathematically implies every component of the submitted finding with no further nonstandard lemma. A generating-function spelling-out cannot rescue the original science.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-isolated-chords-impose-an-exact-crossing-count-penalty-with-a-no--0f60fb4dde2a/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-persistent-crossing-covariance-footprint-of-rare-non-simple-is--c2a530e05e03/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oct 12 prior same J_n/X_n chord-intersection-graph statistics and exact sum; Nov 8 theorem explicitly conditions isolated chord and says crossings equal sum of independent arc crossing counts."
+        ],
+        "reasoning": "The full polynomial convolution is exactly the probability-generating function of the conditional independent sum already described in prior mathematical text. No independent new formulation.",
+        "searches": [
+          "Resultary query: isolation crossing transform covariance two term",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-isolated-chords-impose-an-exact-crossing-count-penalty-with-a-no--0f60fb4dde2a/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-persistent-crossing-covariance-footprint-of-rare-non-simple-is--c2a530e05e03/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior full identical exact rational sum and second asymptotic coefficient. Classical Touchard–Riordan Q_m is known; inserting those in the prior arc-splitting statement yields all weighted coefficients."
+        ],
+        "reasoning": "No numerical table novelty; the full polynomial coefficients are known via the stronger conditional distribution plus classical Q_m, independent of exact wording.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-isolated-chords-impose-an-exact-crossing-count-penalty-with-a-no--0f60fb4dde2a/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-persistent-crossing-covariance-footprint-of-rare-non-simple-is--c2a530e05e03/RESULT.md",
+          "https://algo.inria.fr/flajolet/Publications/FlNo00.pdf"
+        ]
+      },
+      "rationale": "An October 12 published exact theorem already gives identical finite covariance and two-term asymptotic. Its derivation explicitly says isolation splits into independent uniform arc matchings. A November 8 stronger published theorem explicitly states the full crossing count under isolation has the distribution of independent arc-count sum, immediately implying the entire submitted weighted polynomial via standard generating functions, and improves the covariance expansion. Therefore principal claim is covered even without identical polynomial typography.",
+      "residual_risks": [
+        "The marginal polynomial presentation may be independently useful expository material, but it is an immediate consequence of previously published stronger conditional distribution, not a genuinely new contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE COVERAGE of exact covariance and −n/3−1/6+O(1/n)",
+          "evidence": "Same n/(3 M_n) sum_a M_a M_b(n−1+ab), same strict sign and two-term expansion",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-isolated-chords-impose-an-exact-crossing-count-penalty-with-a-no--0f60fb4dde2a/RESULT.md",
+          "material_read": "Entire RESULT.md: definition, exact covariance proof, arc decomposition, tail asymptotics",
+          "method": "Read complete RESULT.md from published Git source",
+          "title": "Isolated chords impose an exact crossing-count penalty with a nonvanishing rare-event correction",
+          "trigger": "Identical isolated chord count/crossing covariance"
+        },
+        {
+          "assessment": "DECISIVE COVERAGE: exact same covariance, strictly stronger expansion; conditional independent arc distributions imply polynomial convolution",
+          "evidence": "Explicit full conditional distribution of crossing sum, with p_{n,a}, gives product Q_a(z) Q_b(z) after z-transform",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-persistent-crossing-covariance-footprint-of-rare-non-simple-is--c2a530e05e03/RESULT.md",
+          "material_read": "Entire RESULT.md: theorem, conditioning proof, three-term covariance and cross-statistic variance",
+          "method": "Read complete RESULT.md from published Git source",
+          "title": "A persistent crossing-covariance footprint of rare non-simple isolated chords",
+          "trigger": "Stronger and explicitly conditional random-chord result"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Despite intrinsic mathematical interest of a mixed chord-statistics transform, the exact finite covariance, asymptotic, and underlying full conditional distribution already occur in prior results. Expressing an existing independent-sum law as a product/convolution of familiar generating polynomials is routine, with no distinct new invariant or motivated boundary left.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Scientific rejection for coverage, not computational failure.",
+    "Full source package preserved for guarded relocate_to_failed_path; no public change performed."
+  ],
+  "schema_version": 1
+}
