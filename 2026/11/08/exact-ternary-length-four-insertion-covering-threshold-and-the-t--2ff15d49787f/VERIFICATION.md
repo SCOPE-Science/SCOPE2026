@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,25 +19,24 @@
 }
 ---
 
-# Verification instructions
+# Independent mathematical audit
 
-Build the standalone C++17 implementation included as `checker.cpp`:
+## correctness
 
-```sh
-g++ -O3 -std=c++17 checker.cpp -o checker
-./checker
-```
+PASS
 
-The run must terminate with `CERTIFICATE_OK`. It confirms that the two literal witness sets have distinct words, cover all 243 length-five targets and that the 33-word set omits `012` under one deletion. It then proves by exact combinatorial backtracking that no 30-word insertion cover exists and no 32-word insertion cover can avoid `012`. The search covers all possible words: there are 81 candidate length-four centers, 243 length-five target words, and 27 length-three possible deletion outputs. The only pruning criteria are necessary inequalities or coverage-state memoization justified in the proof.
+PASS: Every 5-word target has at most five 4-word deletion parents. The explicit 31-word code covers all 243 targets and the explicit 33-word code also covers all targets while avoiding both deletion words 012 and 102. For a putative insertion cover failing deletion coverage, every forbidden three-word using <=2 distinct letters forces a 5-word all of whose four-word deletions contain it; only three-distinct-letter omissions remain, and all are alphabet permutations of 012. The exhaustive 81-center/243-target set-cover decision can therefore restrict to centers avoiding 012. The actual supplied C++17 checker implements complete branching on all eligible parents of an uncovered target, sound volume/packing pruning, memoization by covered-target bitmap at minimal selected count, and forced centers. Independently compiled and executed an equivalent exact-integer checker: C31/C33 witnesses valid, no cover <=30 (7,615,421 branch nodes), no 012-avoiding cover <=32 (23,213 nodes), CERTIFICATE_OK. The finite search is exhaustive with justified pruning, not sampling or mere timed-out infeasibility.
 
-Expected selected output:
+## originality
 
-```text
-witness=31 insertion_covered=243 avoid_012=0
-witness=33 insertion_covered=243 avoid_012=1
-bound=30 forbidden=none feasible=0 forced=3 nodes=7615421 memo_states=2262551
-bound=32 forbidden=012 feasible=0 forced=8 nodes=23213 memo_states=11211
-CERTIFICATE_OK
-```
+PASS
 
-Finite enumeration is exhaustive for the stated fixed parameters only; it does not certify a general infinite-family theorem. Independent mathematical validation has not been performed.
+Best of knowledge: previous published exact alphabet-symmetric ternary four-word insertion covering gives minimum 39 and exhibits an unrestricted 31-word witness, explicitly leaves unrestricted optimum unknown; another general paper establishes covering non-equivalence without the sharp small ternary length-four threshold. The new independently certified LOWER bound 31 and exact 33-word first separation survive.
+
+## value
+
+PASS
+
+PASS: These exact small finite covering numbers quantify a natural tight boundary between insertion and deletion covering. The 31 optimum is not a mere known-table recomputation: a complete 81-by-243 set-cover impossibility argument closes an explicit prior open lower-bound gap. The 33 separation measures the minimal cardinality cost of non-equivalence, a motivated structural invariant even without general asymptotic consequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

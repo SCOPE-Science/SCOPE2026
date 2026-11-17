@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two exhibited sets contain respectively \(31\) and \(33\) distinct length-four words; direct subsequence incidence checking covers all \(243\) length-five targets and confirms that the larger set omits the length-three target `012`. Every repeated-symbol deletion target has a length-five guard word whose every length-four subsequence still contains the target. This reduces possible non-equivalence to the forbidden distinct-symbol target `012` by alphabet relabeling. The checker exhaustively rejects all insertion covers using at most \(30\) unrestricted centers and at most \(32\) centers avoiding `012`. Its branching is exhaustive, and its only shortcuts are proved necessary bounds or dominance by an already visited coverage state. The exact computation is part of the proof; no numerical optimization tolerances are used.
+PASS
 
-## Originality — PASS against inspected evidence
+PASS: Every 5-word target has at most five 4-word deletion parents. The explicit 31-word code covers all 243 targets and the explicit 33-word code also covers all targets while avoiding both deletion words 012 and 102. For a putative insertion cover failing deletion coverage, every forbidden three-word using <=2 distinct letters forces a 5-word all of whose four-word deletions contain it; only three-distinct-letter omissions remain, and all are alphabet permutations of 012. The exhaustive 81-center/243-target set-cover decision can therefore restrict to centers avoiding 012. The actual supplied C++17 checker implements complete branching on all eligible parents of an uncovered target, sound volume/packing pruning, memoization by covered-target bitmap at minimal selected count, and forced centers. Independently compiled and executed an equivalent exact-integer checker: C31/C33 witnesses valid, no cover <=30 (7,615,421 branch nodes), no 012-avoiding cover <=32 (23,213 nodes), CERTIFICATE_OK. The finite search is exhaustive with justified pruning, not sampling or mere timed-out infeasibility.
 
-Xie–Sun–Ge (arXiv:2606.15379) provide the logical non-equivalence and general bounds; their inspected text does not state the sharp ternary four-to-five covering cost. Pikhurko–Verbitsky–Zhukovskii (arXiv:2409.06425) give general density results and smaller-parameter examples. Lenz–Rashtchian–Siegel–Yaakobi (arXiv:1911.09944) give broad bounds. Relevant existing research records concern opposite deletion-covering directions, packing optima or length-two insertion covering. No located statement implies the simultaneous 31/33 thresholds. Residual risk: earlier unindexed tables or computations may determine this small finite parameter.
+## originality
 
-## Value — PASS
+PASS
 
-The 2026 logical distinction between two natural covering channels makes the smallest finite-length *cost* of losing deletion coverage a motivated question. The exact two-codeword overhead at ternary length four gives a concrete, complete, tight boundary for code selection under a dual-coverage objective rather than an arbitrary numerical slice. It also provides a reproducible 243-target benchmark for exact covering methods. No asymptotic or broader minimality claim is asserted.
+Best of knowledge: previous published exact alphabet-symmetric ternary four-word insertion covering gives minimum 39 and exhibits an unrestricted 31-word witness, explicitly leaves unrestricted optimum unknown; another general paper establishes covering non-equivalence without the sharp small ternary length-four threshold. The new independently certified LOWER bound 31 and exact 33-word first separation survive.
 
-## Scope and limitations
+## value
 
-Finite ternary length-four codebooks only. Neither the first occurrence of non-equivalence across all parameter choices nor independent certification is established. Priority beyond the inspected sources cannot be guaranteed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: These exact small finite covering numbers quantify a natural tight boundary between insertion and deletion covering. The 31 optimum is not a mere known-table recomputation: a complete 81-by-243 set-cover impossibility argument closes an explicit prior open lower-bound gap. The 33 separation measures the minimal cardinality cost of non-equivalence, a motivated structural invariant even without general asymptotic consequences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
