@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-The `verify.py` program uses only the Python standard library. From this directory run `python3 verify.py`. It computes exact terminal distributions by two distinct constructions: (i) recursively evaluating all labeled occupancy bitmasks and distinct three-site paths, and (ii) recursively evaluating the pair of unoccupied part sizes. All 16 cases with both part sizes between one and four give exactly identical rational distributions. Across 9,798 admissible count states, the conditional drift and variance formulas are checked using rational arithmetic. The deterministic seeded simulations of three larger systems are exploratory diagnostics only.
+## correctness
 
-The proof of the limiting distribution is in `RESULT.md`, including the deterministic drift normalizer, the martingale central limit theorem conditions, a negligible final stochastic increment, and the first-boundary-crossing argument. An analytic asymptotic claim cannot be certified by finite simulation alone. No independent scientific audit has been performed.
+PASS
+
+Derived path counts a*C(b,2) and b*C(a,2), giving exact count-chain probabilities (b-1)/(s-2) and (a-1)/(s-2) for increments xi=+1 and -1 respectively; drift -d/(s-2). The stopped normalization h_{j+1}=h_j(s-3)/(s-2) makes M=d/h a martingale with h~(s/m)^(1/3). Variance sum until mesoscopic level s_c~sqrt(m) has asymptotic m, bounded normalized increments establish martingale CLT; Doob bounds early absorption. Below s_c fluctuations are o(sqrt m), so terminal |d|=s implies R/m^(1/4)->|Z+mu|^(3/2); macroscopic fluid intersection solves |delta|(s/m)^(1/3)=s/m. Independently reproduced exact small-state DP: for 8+8 terminal residue R=1 with 85/88 or R=4 with 3/88; for 8+6 R=2 with 211/216 or R=5 with 5/216. Asymptotic relies on full martingale/variance proof; finite DP not substitute.
+
+## originality
+
+PASS
+
+The genuinely new portion of the complete claim survived statement-level search and primary-source comparisons to best of knowledge; the named known special cases and inaccessible priority risks are explicit.
+
+## value
+
+PASS
+
+The explicit quarter-power non-Gaussian vacancy limit for a natural dense three-uniform hypergraph adsorption process is an independently useful critical-jamming invariant; identifies window scale, side selection, and deterministic macroscopic imbalance law, none of which are routine finite enumerations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
