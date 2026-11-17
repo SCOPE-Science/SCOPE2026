@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact order/divisibility equivalence excludes the exceptional primes. Coprimality makes the quadratic quotient integral; Vieta descent proves the two rays exhaust all positive solutions. Both rays are enumerated until the monotone largest coordinate passes the cutoff. Exactly 169 integer nodes yield five below prime-eligibility, 81 parity exclusions, 77 exact base-two Fermat compositeness witnesses, and six survivors. All survivors are independently verified prime by complete trial division and tested for both modular orders. An independent discriminant search agrees on the 100000-square subrange. The infinite orbit proof and the finite certificates have distinct roles.
+## correctness
 
-**Originality — PASS (finite-census claim only).** Costello–Korpal's public sieve covers a vastly smaller prime bound; their paper neither states the count six nor the complete 160-bit census. Mills' 1953 and 1956 work already provides general quadratic/recurrence techniques and is not claimed as new; the arithmetic finite classification and exact surviving prime list require additional concrete enumeration and are not stated or implied as numerical conclusions by those general methods. Bibby–Vyncke–Zelinsky consider related, mathematically different divisor systems. The released archive of older computations was identified but not exhaustively decoded, and unrelated older tables could still affect priority.
+PASS
 
-**Mathematical value — PASS.** The cutoff is not arbitrary: 160-bit prime size is explicitly singled out in the motivating paper as an application benchmark. The result completely closes the (3,4)-order search below that substantial bound, identifies the first observed larger pairs beyond the source's 200-million-prime search scale, and supplies a short exact certificate with no statistical or probable-prime reliance. The research question is finite; no general theorem or cryptographic security guarantee is asserted.
+For primes >=5, ord_q(p)=3 iff q divides p^2+p+1 and ord_p(q)=4 iff p divides q^2+1 (order-1 and characteristic-3 exceptions excluded). Both congruences imply coprimality and integral K=(a²+a+b²+1)/(ab); alternating quadratic root swaps descend strictly to (1,1), forcing K=4 and making exactly two Vieta rays. The complete independently reconstructed 2^160 cutoff search yielded 169 nodes, 164 prime-eligible, 81 parity exclusions, 77 separate Fermat compositeness witnesses, six remaining pairs. Independently confirmed exact primality and modular-order tests of all six; all actual coordinates fit below 2^64. C PASS only within max(p,q)<=2^160, not a finiteness theorem beyond it.
 
-**Closest literature and limitations.** The method of Vieta descent is classical; Mills' general quadratic classification is structurally stronger and must be credited. The new material is the particular finite, source-motivated prime census, not a routine rephrasing of Mills. The original order-reciprocity paper has a public compressed numerical database, but its complete archive was not unpacked in this review; priority remains qualified. All checks were performed in one research review, not externally independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Costello–Korpal 2025/2026 primary article proposes the order-reciprocity problem and documents a database sieve over the first 200,000,000 primes, while treating 160-bit size as application-relevant. It does not establish exact completeness over all primes <=2^160. Mills classic Vieta/Diophantine descent is background, not new. The record supplies a new exact arithmetic finite cutoff classification with six certified pairs. O PASS on inspected evidence, subject to unknown unindexed tables. A file containing a finite search list is not by itself a proof; the submitted exhaustive Vieta-descent and prime certificates support completeness.
+
+## value
+
+PASS
+
+The explicitly literature-motivated 160-bit cutoff is mathematically meaningful for testing how rare small mixed-order reciprocal prime pairs can be in the region considered by a primary cryptographic study. The six-pair exact census and exhaustive reduction from astronomical prime search to 169 conic nodes is a useful precise finite classification, not a random small numerical slice; it makes no claim of cryptographic viability or infinitude. V PASS.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

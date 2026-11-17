@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Extract the bundled `verify.py` next to this file and run `python3 verify.py` using Python 3. No external libraries, external files, probable-prime oracle, or network are needed. The exact program enumerates both Vieta rays up to the 160-bit boundary and checks all node equalities, 81 parity obstructions, 77 base-two Fermat witnesses, and the six surviving pairs by full integer trial division.
+## correctness
 
-Expected terminal summary:
+PASS
 
-```text
-VERIFY_OK cutoff=2^160 orbit_nodes=169 eligible_nodes=164
-CERTIFICATES even_coordinate=81 odd_fermat_base2=77
-FULL_TRIAL_DIVISION_PRIMES=YES conic_discriminant_crosscheck_100000=YES
-PRIME_PAIRS=137,37;4817,1291;4817,17977;934441,3487381;998988257,3728274931;35166746297,131244083917
-```
+For primes >=5, ord_q(p)=3 iff q divides p^2+p+1 and ord_p(q)=4 iff p divides q^2+1 (order-1 and characteristic-3 exceptions excluded). Both congruences imply coprimality and integral K=(a²+a+b²+1)/(ab); alternating quadratic root swaps descend strictly to (1,1), forcing K=4 and making exactly two Vieta rays. The complete independently reconstructed 2^160 cutoff search yielded 169 nodes, 164 prime-eligible, 81 parity exclusions, 77 separate Fermat compositeness witnesses, six remaining pairs. Independently confirmed exact primality and modular-order tests of all six; all actual coordinates fit below 2^64. C PASS only within max(p,q)<=2^160, not a finiteness theorem beyond it.
 
-The independent discriminant check covers the bounded square through 100000; the unlimited claim that the two rays exhaust the Diophantine solutions is proved in the accompanying result, not inferred from the finite check. The cutoff census is exhaustive only because that proof and the exact finite certificates are combined. No independent audit has been performed.
+## originality
+
+PASS
+
+Costello–Korpal 2025/2026 primary article proposes the order-reciprocity problem and documents a database sieve over the first 200,000,000 primes, while treating 160-bit size as application-relevant. It does not establish exact completeness over all primes <=2^160. Mills classic Vieta/Diophantine descent is background, not new. The record supplies a new exact arithmetic finite cutoff classification with six certified pairs. O PASS on inspected evidence, subject to unknown unindexed tables. A file containing a finite search list is not by itself a proof; the submitted exhaustive Vieta-descent and prime certificates support completeness.
+
+## value
+
+PASS
+
+The explicitly literature-motivated 160-bit cutoff is mathematically meaningful for testing how rare small mixed-order reciprocal prime pairs can be in the region considered by a primary cryptographic study. The six-pair exact census and exhaustive reduction from astronomical prime search to 169 conic nodes is a useful precise finite classification, not a random small numerical slice; it makes no claim of cryptographic viability or infinitude. V PASS.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

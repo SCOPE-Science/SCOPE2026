@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T07:49:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For primes >=5, ord_q(p)=3 iff q divides p^2+p+1 and ord_p(q)=4 iff p divides q^2+1 (order-1 and characteristic-3 exceptions excluded). Both congruences imply coprimality and integral K=(a²+a+b²+1)/(ab); alternating quadratic root swaps descend strictly to (1,1), forcing K=4 and making exactly two Vieta rays. The complete independently reconstructed 2^160 cutoff search yielded 169 nodes, 164 prime-eligible, 81 parity exclusions, 77 separate Fermat compositeness witnesses, six remaining pairs. Independently confirmed exact primality and modular-order tests of all six; all actual coordinates fit below 2^64. C PASS only within max(p,q)<=2^160, not a finiteness theorem beyond it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original Costello–Korpal full paper pp.1–7 studies various small orders and searches the first 200m primes, not all <=2^160.",
+          "Mills 1953 descent theory handles classes of quadratic Diophantine equations but not the specific finite prime list."
+        ],
+        "reasoning": "General framework and other order configurations do not imply six-prime census; 160-bit range dwarfs their reported indexed prime database.",
+        "searches": [
+          "order reciprocity prime pairs ord_q(p)=3 ord_p(q)=4 exact prime pair list 160-bit Vieta",
+          "https://eprint.iacr.org/2025/150.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://eprint.iacr.org/2025/150.pdf",
+        "https://github.com/gkorpal/order-reciprocity",
+        "https://arxiv.org/abs/2608.03268",
+        "https://msp.org/pjm/1953/3-1/pjm-v3-n1-p15-p.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full primary original report records small-order searches and flags 160-bit scale but no sharp exact cutoff list.",
+          "The submitted proof combines standard Vieta descent with new application-specific residue exclusion counts 169/164/81/77/6."
+        ],
+        "reasoning": "A prior sieve through prime index 200m does not logically certify absence of 160-bit primes. Established Vieta theory alone does not determine which of the cutoff ray nodes are prime.",
+        "searches": [
+          "https://eprint.iacr.org/2025/150.pdf",
+          "https://github.com/gkorpal/order-reciprocity",
+          "order reciprocity prime pairs ord_q(p)=3 ord_p(q)=4 exact prime pair list 160-bit Vieta"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The submitted conditions ord_q(p)=3 and ord_p(q)=4 reduce to q|Phi_3(p) and p|Phi_4(q), equivalent to the Vieta conic K=4.",
+          "Costello and Korpal discuss general (k,k-prime) reciprocal pairs, not the exact six-pair all-160-bit census."
+        ],
+        "reasoning": "Aliases searched for prime-order reciprocity, cyclotomic Phi_3/Phi_4 divisibility and Vieta quadratic descent; no inspected equivalent exact classification for this cutoff.",
+        "searches": [
+          "order reciprocity prime pairs ord_q(p)=3 ord_p(q)=4 exact prime pair list 160-bit Vieta",
+          "https://eprint.iacr.org/2025/150.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Costello–Korpal public gkorpal/order-reciprocity database has two CSV archives for first and next 100 million primes, not a complete all-primes-below-2^160 certificate.",
+          "Actual conic census finds exactly the six listed ordered primes."
+        ],
+        "reasoning": "The existing source tables cover a substantially smaller prime-index cut; a possible unindexed or independent finite table is a documented residual risk rather than assumed absent.",
+        "searches": [
+          "order reciprocity prime pairs ord_q(p)=3 ord_p(q)=4 exact prime pair list 160-bit Vieta",
+          "https://github.com/gkorpal/order-reciprocity"
+        ]
+      },
+      "rationale": "Costello–Korpal 2025/2026 primary article proposes the order-reciprocity problem and documents a database sieve over the first 200,000,000 primes, while treating 160-bit size as application-relevant. It does not establish exact completeness over all primes <=2^160. Mills classic Vieta/Diophantine descent is background, not new. The record supplies a new exact arithmetic finite cutoff classification with six certified pairs. O PASS on inspected evidence, subject to unknown unindexed tables. A file containing a finite search list is not by itself a proof; the submitted exhaustive Vieta-descent and prime certificates support completeness.",
+      "residual_risks": [
+        "Unindexed independent numerical tables or an exact earlier mixed-order Vieta census could reduce novelty; primary literature and database search is not exhaustive.",
+        "Finite bound is max(p,q)<=2^160 only; no implication about larger prime pairs or secure elliptic-curve pairings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "Search uses first 200 million primes; 2^160 motivates the cutoff; no proof of this six-pair exhaustive conic census.",
+          "identifier_or_url": "https://eprint.iacr.org/2025/150.pdf",
+          "material_read": "All 7 pages of textual PDF extraction including research problem, tables/search bounds, and security discussion; screenshot attempts blocked by 403",
+          "method": "Read web-extracted full mathematical paper, cross-checked official public repository readme/database scope",
+          "title": "On pairs of primes with small order reciprocity",
+          "trigger": "exact same order-reciprocity parameters and cryptographic cutoff"
+        },
+        {
+          "assessment": "FINITE_DATABASE_SMALLER",
+          "evidence": "Database defined by prime-index slices, not all 160-bit primes.",
+          "identifier_or_url": "https://github.com/gkorpal/order-reciprocity",
+          "material_read": "Complete README and API listing of data folder: two tar.gz segments prime_pairs-1_100e6 and prime_pairs-100e6plus1_200e6",
+          "method": "Read original Github repository files and database index",
+          "title": "order-reciprocity: original public code/data",
+          "trigger": "check exact database/table coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The explicitly literature-motivated 160-bit cutoff is mathematically meaningful for testing how rare small mixed-order reciprocal prime pairs can be in the region considered by a primary cryptographic study. The six-pair exact census and exhaustive reduction from astronomical prime search to 169 conic nodes is a useful precise finite classification, not a random small numerical slice; it makes no claim of cryptographic viability or infinitude. V PASS.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Primality checks independent via SymPy exact integer primality functions; original package uses full trial division and has compact coordinates. Visual screenshot of ePrint PDF blocked; its full extracted text was inspected."
+  ],
+  "schema_version": 1
+}
