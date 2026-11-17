@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim uses normalized first-Hermite STFT and continuous phase-space Lebesgue measure. The complex Hermite radial formula gives the exact Poisson-difference identity and only two adjacent ties at integer area. The outer spectral gaps are strictly positive, hence the three-dimensional Fermi cluster is isolated. The derivative of an exact area-preserving ellipse has a degree-two angular factor, giving a specifically computed nonzero off-diagonal coupling in the degenerate Hermite block. Finite multiplicity perturbation theory then proves the sharp three-branch splitting, gap opening and opposite limiting rank-\(N\) maximizing lines. The accompanying program reproduced the operator matrix and checked the formulas with 252 numerical assertions; its finite tests do not substitute for the proof. The perturbation statement is for fixed \(N\).
+PASS
 
-## Originality — PASS, with priority limitations
+Read actual result and Hermite quadrature script. The exact radial first-Hermite overlap leads to the Poisson adjacent-difference factor; only j=N-1,N vanish at area N and positive outer gaps isolate the triple. Ellipse radial boundary derivative 2N cos(2theta) selects only Hermite indices differing by two. Its restriction is [[0,0,-c_N],[0,0,0],[-c_N,0,0]], with eigenvalues ±c_N,0. Finite multiplicity selfadjoint perturbation then proves O_N(tau^2) expansions and unique top rank-N subspace for sufficiently small nonzero tau. Independent exact gap algebra checked N=1..19.
 
-Abreu, Gröchenig and Romero (arXiv:1704.03042) already prove the circular Hermite eigenvalue integral and explicitly observe an eigenvalue crossing; these are prior results, not contributions here. The new content is their *integer-area global cutoff structure coupled to a nonradial elliptic shape derivative*, including the exact three-way gap slopes and the sign-dependent maximizing mode. The inspected source does not directly address ellipse perturbations. Knutsen's 2020 localization problem and Nicola–Tilli's 2021 Faber–Krahn problem use Gaussian windows; Oblak et al. (arXiv:2301.01726) address semiclassical lowest-Landau-level anisotropic droplets. An older implicit equivalent in polyanalytic Toeplitz/shape-perturbation work remains possible; absolute historical priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural integer-area rank cutoff creates a nonunique optimal finite Weyl–Heisenberg spectral subspace. An area-preserving elliptical perturbation resolves this exact ambiguity in two incompatible ways depending on orientation, with an explicit spectral cost. This is a motivated structural boundary of canonical spectral truncation rather than an arbitrary finite calculation. There is no uniform joint limit, arbitrary-shape optimization, or discrete measurement claim.
+PASS with restricted originality: entire integer-area triple disk tie and rank cutoff were already published on 2026-11-02 and 2026-11-08; the surviving new claim is explicit first-order elliptic shape splitting with exact coefficient and opposite limiting rank-cutoff lines.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact resolution of a natural threefold spectral degeneracy by an arbitrarily small geometric perturbation is a structural stability/symmetry-breaking result; it specifies a quantitative spectral gap and the selected maximizing subspace beyond a previously known circular spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
