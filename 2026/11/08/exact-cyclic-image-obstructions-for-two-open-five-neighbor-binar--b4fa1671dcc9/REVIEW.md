@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** For both five-site rules an exact five-variable polynomial identity gives the factorization into shift, nonlinear involution and adjacent difference. The involution has a self-contained case proof showing invariance of every local trigger; complement conjugacy handles the second rule. The difference map has exactly two preimages of each even-parity ring word and exactly two preimages of each full-shift word. This proves the cyclic nonlinear parity criterion and fiber counts for all lengths. Trigger counting proves the sparse boundary statements for all ring lengths at least seven. The included `verify.py` passed 15022 independent finite checks, which corroborate but do not replace the proof.
+## correctness
 
-**Originality: PASS within inspected primary material.** The 2026 primary source gives the two-to-one classification and the very same local rules, so neither the rules nor their bi-infinite two-to-one property is claimed as new. Haugland--Omland's earlier near-lifting study treats collision counts, image sizes and general image structure, and their reversible-automata study treats the involution building blocks. The exact nonlinear target-membership criterion on every finite ring and the contrasting forbidden one- and two-marker patterns are not stated or supplied by those inspected results. Dedicated semantic searches returned closest work on other finite-ring reversibility phenomena, not this image classification. A stronger unpublished or specialized finite-ring image characterization remains a priority risk.
+PASS
 
-**Value: PASS.** Restricting an open, two-to-one bi-infinite automaton to a finite ring can create Garden-of-Eden outputs; their exact identities, rather than just global multiplicity, are natural dynamical and finite-state invariants. The result supplies a complete all-size image test and shows that two rules with identical global multiplicity, fiber cardinalities and image fractions have qualitatively different sparsest forbidden patterns. Such finite-ring image structure is explicitly motivated in prior almost-lifting research. This is a family-wide classification, not a tabulation of small rings or a merely formal restatement of the two-to-one theorem.
+Reconstructed F_A=σH_A D, F_C=σH_C D over F_2, where D is adjacent XOR and H_A,H_C are involutions (the latter complement-conjugate). Direct trigger invariance proves H_A^2=id; on a ring D has even-parity image and exactly two preimages. Hence the parity functional Phi_A(y)=Σ_i[y_i+y_(i−1)(1+y_(i+1))y_(i+2)] and Phi_C(y)=Σ_i[y_i+(1+y_(i−1))y_(i+1)(1+y_(i+2))] precisely decide whether each indexed ring output has two or zero preimages for every n>=1. The sparse pattern classification requires n>=7: A prohibits every single marker and exactly n distance-three two-marker outputs; C permits all single markers but prohibits exactly 2n distance-one-or-two pairs. Independently enumerated all 2^n inputs and target fibers for n<=9, and all sparse patterns for n=7,8,10. Finite checks corroborate rather than replace the involution/difference-map proof; no locally-eventually-onto conclusion is claimed.
 
-**Scope and risks.** No claim resolves the source's locally-eventually-onto question. The analogous finite-ring structure of its second two-to-one rule remains untreated. The proof covers all ring lengths for the parity test, but sparse distance formulas only for lengths at least seven. Prior-work comparison is provisional, and independent audit is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for explicit nonlinear periodic image tests and opposing sparse obstructions for two specific previously known non-bipermutive automata. Haugland–Larsen–Omland–Rustad (2026) Appendix B already lists these exact Boolean rules and bi-infinite two-to-one behavior, and earlier landscape papers supply the general involution framework; these are NOT original here. Full relevant Appendix B and proof context were inspected; no equivalent all-ring parity decision or separated sparse-marker classification was located. Unindexed or unpublished special cyclic classifications remain a stated risk.
+
+## value
+
+PASS
+
+A concrete exact reachability decision for every periodic target in two naturally identified atypical surjective cellular automata, with all-period fiber multiplicities and sharply contrasting forbidden sparse words. These are structurally motivated finite-ring image invariants, not a vacuous reparametrization of the known bi-infinite two-to-one fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

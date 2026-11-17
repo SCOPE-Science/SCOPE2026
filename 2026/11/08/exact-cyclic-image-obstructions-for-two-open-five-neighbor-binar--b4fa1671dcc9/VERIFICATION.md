@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification limits
+# Independent mathematical audit
 
-Use a Python 3 interpreter with only the standard library and execute `python3 verify.py` in the same directory. The checker tests the independently coded original five-variable rules against the shift--involution--difference composition and exhaustively confirms the exact fiber-parity identity for every cyclic input and target on rings through ten sites. It also tests all one- and two-marker words on rings of seven through twelve sites. A successful execution prints `VERIFY_OK checks=15022`.
+## correctness
 
-The mathematical proof of the all-ring theorem depends on the local Boolean factorization, the involutive trigger invariant, and the elementary image/kernel structure of the difference map. Finite tests are not a proof of any unbounded statement. Independent scientific audit, historical-priority determination, and a result about local eventual onto-ness have not been performed.
+PASS
+
+Reconstructed F_A=σH_A D, F_C=σH_C D over F_2, where D is adjacent XOR and H_A,H_C are involutions (the latter complement-conjugate). Direct trigger invariance proves H_A^2=id; on a ring D has even-parity image and exactly two preimages. Hence the parity functional Phi_A(y)=Σ_i[y_i+y_(i−1)(1+y_(i+1))y_(i+2)] and Phi_C(y)=Σ_i[y_i+(1+y_(i−1))y_(i+1)(1+y_(i+2))] precisely decide whether each indexed ring output has two or zero preimages for every n>=1. The sparse pattern classification requires n>=7: A prohibits every single marker and exactly n distance-three two-marker outputs; C permits all single markers but prohibits exactly 2n distance-one-or-two pairs. Independently enumerated all 2^n inputs and target fibers for n<=9, and all sparse patterns for n=7,8,10. Finite checks corroborate rather than replace the involution/difference-map proof; no locally-eventually-onto conclusion is claimed.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for explicit nonlinear periodic image tests and opposing sparse obstructions for two specific previously known non-bipermutive automata. Haugland–Larsen–Omland–Rustad (2026) Appendix B already lists these exact Boolean rules and bi-infinite two-to-one behavior, and earlier landscape papers supply the general involution framework; these are NOT original here. Full relevant Appendix B and proof context were inspected; no equivalent all-ring parity decision or separated sparse-marker classification was located. Unindexed or unpublished special cyclic classifications remain a stated risk.
+
+## value
+
+PASS
+
+A concrete exact reachability decision for every periodic target in two naturally identified atypical surjective cellular automata, with all-period fiber multiplicities and sharply contrasting forbidden sparse words. These are structurally motivated finite-ring image invariants, not a vacuous reparametrization of the known bi-infinite two-to-one fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
