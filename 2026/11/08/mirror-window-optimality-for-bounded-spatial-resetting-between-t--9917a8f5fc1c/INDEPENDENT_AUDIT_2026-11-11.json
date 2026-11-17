@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T20:55:32.848835Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For D,L,R>0 and reset site a∈(0,L), the proposed piecewise C² value V satisfies V(0)=V(L)=0, derivative and second derivative matching at a and L-a, and D V″+min_{0≤u≤R}u(V(a)-V(x))=-1. The strict signs V(x)<V(a) outside (b,L-b) and > inside prove bang-bang selector for b=min(a,L-a), with centered a=L/2 correctly yielding zero resetting. A uniform exponential tail follows from a positive-probability no-proposal Brownian boundary hit in fixed blocks under any bounded predictable reset rate; stopped Dynkin gives E tau≥V, equality for feedback proves all-starting-point adapted-control optimality. Independently symbolically verified C² matching, HJB identities, and sign at a=.3,L=D=1,R=4; proof handles arbitrary parameter and controller, no finite lattice extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Aspman–Mastropietro–Mareček (2025/2026), accessible full arXiv HTML, analyze spatially prescribed restarting profiles with one-target potential landscapes.",
+          "De Bruyne–Mori provide general resetting Bellman framework, but no corresponding two-exit zero-cost value in their finite-interval example."
+        ],
+        "reasoning": "A general Bellman paradigm is broad in applicability but does not supply explicit globally optimal reset window or value without the new C² boundary solution.",
+        "searches": [
+          "Brownian absorption two endpoints optimal state dependent Poisson resetting bounded rate reset site central interval mirror switching control HJB",
+          "https://arxiv.org/html/2509.11809",
+          "https://arxiv.org/pdf/2112.11416"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1107.4225",
+        "https://arxiv.org/pdf/2112.11416",
+        "https://arxiv.org/html/2509.11809",
+        "https://arxiv.org/abs/2502.09127",
+        "Resultary search: Brownian absorption two endpoints optimal state dependent Poisson resetting bounded rate reset site central interval mirror switching control HJB"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "De Bruyne–Mori Appendix B: discounted reward functional (B1) and instantaneous reset at boundary, not zero-boundary first-exit payoff.",
+          "Evans–Majumdar equations (29)–(33): first passage to a single origin on unbounded line."
+        ],
+        "reasoning": "Neither specific prior payoff/geometry entails the rate-independent finite mirror switching coordinates. The submitted C² HJB verification supplies a genuinely evaluated missing case.",
+        "searches": [
+          "https://arxiv.org/pdf/2112.11416",
+          "Brownian absorption two endpoints optimal state dependent Poisson resetting bounded rate reset site central interval mirror switching control HJB",
+          "https://arxiv.org/html/2509.11809"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Evans–Majumdar §3.2 (2011) optimize spatial resetting with one target on unbounded line and exterior resetting around a central nonresetting window.",
+          "De Bruyne–Mori Appendix B studies discounted finite-interval payoff and boundary reinjection, not exit at the first hitting of either endpoint."
+        ],
+        "reasoning": "Reflecting a reset site does not make two absorbing exits equivalent to one-target first passage. The optimal-control selector in general HJB is prior, but exact mirror-window solution is an evaluated, different boundary-value theorem.",
+        "searches": [
+          "Brownian absorption two endpoints optimal state dependent Poisson resetting bounded rate reset site central interval mirror switching control HJB",
+          "https://arxiv.org/pdf/1107.4225",
+          "https://arxiv.org/pdf/2112.11416"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary known window is a one-absorber half-line expression, not a table of two-exit mirrored finite-ceiling selectors."
+        ],
+        "reasoning": "No finite tabulation could imply a statement uniform over every L,D,R,a and adaptive control; targeted search nonmatches are auxiliary only.",
+        "searches": [
+          "Brownian absorption two endpoints optimal state dependent Poisson resetting bounded rate reset site central interval mirror switching control HJB",
+          "https://arxiv.org/pdf/1107.4225"
+        ]
+      },
+      "rationale": "Generic HJB resetting-control mechanisms and one-target nonresetting windows are earlier literature; the fully evaluated two-absorbing-end first-exit boundary problem, mirror window (b,L-b), finite-ceiling independence of switching locations and exact tanh value are distinct from the inspected prior statements. Potential unindexed exact two-exit treatment is retained as risk.",
+      "residual_risks": [
+        "Specialized alternative first-exit optimal resetting papers may exist outside searched index.",
+        "Only perfect absorption, instantaneous cost-free point resets, fixed reset destination, fully observed one-dimensional driftless Brownian motion covered."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE of reset-window idea; source is single target and nonresetting interval",
+          "evidence": [
+            "Section 3.2 and equations 29–33: absorbing trap at origin, half-line nonresetting window about initial site."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1107.4225",
+          "material_read": "Read 17-page PDF mathematical description and Sections 2–3 including §3.2 equations 29–33 and Figure 3; screenshot inspected page 8",
+          "method": "Direct full-text first-passage boundary-conditions and statement comparison",
+          "title": "Diffusion with Optimal Resetting",
+          "trigger": "Closest original position-dependent reset windows"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE: general HJB and bang-bang mechanism, distinct finite-interval discounted-payoff problem",
+          "evidence": [
+            "Appendix A equation (A2) is generic HJB; Appendix B equation (B1) has discounted payoff and boundary reinjection."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.11416",
+          "material_read": "Read 11-page paper with Bellman derivation and finite-interval Appendix B; PDF page 6 visually inspected",
+          "method": "Compare optimization payoff, boundary data and optimal-control selector",
+          "title": "Resetting in Stochastic Optimal Control",
+          "trigger": "Potentially dominating HJB optimal resetting theorem"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE: one-target potential-dependent preset rates, no inspected two-exit mirror policy",
+          "evidence": [
+            "Full HTML model uses potential landscape and one absorbing target rather than two perfectly absorbing endpoints with adaptive rate control."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.11809",
+          "material_read": "Read accessible full arXiv HTML model, equations, sections on one-target potentials and Appendices",
+          "method": "Compare targets, rate prescription, rate-ceiling optimization",
+          "title": "First passage time in space-dependent stochastic resetting",
+          "trigger": "Closest recent spatial-rate resetting paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Solves a natural constrained continuous-time stochastic-control problem exactly, producing a simple implementable optimal policy against even history-adapted strategies and closed-form rate-dependent benefit. The two absorbing endpoints change geometry, and fixed switching coordinates are a structural observation not routine one-target reuse.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1107.4225",
+    "https://arxiv.org/pdf/2112.11416",
+    "https://arxiv.org/html/2509.11809",
+    "https://arxiv.org/abs/2502.09127",
+    "Resultary search: Brownian absorption two endpoints optimal state dependent Poisson resetting bounded rate reset site central interval mirror switching control HJB"
+  ],
+  "disposition": "passed",
+  "final_claim": "Bounded spatial-resetting mirror window globally minimizes Brownian two-endpoint exit time",
+  "limitations": [
+    "Audit scope is only the specific original RESULT.md theorem and assumptions, not a claim of general external validation.",
+    "Independent bounded finite calculations are corroborating only; the all-parameter assertions were checked via supplied mathematical arguments.",
+    "Originality compares actual same-object mathematical implications and retains explicit incomplete-primary-access and unindexed-history risks.",
+    "No public source-file mutations, certification, institutional authentication bypass, Lean check or human expert attestation was performed."
+  ],
+  "residual_risks": [
+    "Specialized alternative first-exit optimal resetting papers may exist outside searched index.",
+    "Only perfect absorption, instantaneous cost-free point resets, fixed reset destination, fully observed one-dimensional driftless Brownian motion covered."
+  ],
+  "schema_version": 1
+}
