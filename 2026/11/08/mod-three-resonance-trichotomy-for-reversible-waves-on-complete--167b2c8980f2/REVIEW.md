@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all \(a,b\ge2\) and every finite field of characteristic three, the proof establishes the transition identity, the relevant adjacency invariant subspaces/Jordan partitions, and each temporal primary factor. All displayed exponents follow from those factors by exact polynomial gcd/nullity calculations. The allowed primitive periods follow from positive Möbius populations. Replayed independent exact matrix tests cover 1,176 dimensions; separate direct dynamics cover 597,051 states. These bounded checks only corroborate the unrestricted algebraic argument.
+PASS
 
-## Originality — PASS, qualified
+For a,b>=2 and q=3^f, T(u,v)=(Au-v,u) is invertible, with A rank two and A^3=abA. When 3∤ab the two constant-shore modes split off from n-2 zero-adjacency modes; the degree-four temporal factor is (X²−1)² at ab=1 and X⁴+1 at ab=2. Characteristic-three Jordan sizes give fixed dimensions E(t) and sharp orders 12/8. When 3|ab the A Jordan partitions (3,1^{n-3}) or (2,2,1^{n-4}) lift to temporal (X²+1)^k modules of order 12. The resulting fixed kernels, Möbius-inverted least-period populations and supports are correct; independent GF(3) matrix ranks checked 168 cases.
 
-The closest primary mechanisms are Toffoli–Margolus (1990, §5.4), which explicitly presents the generic previous-state subtraction recurrence, and Vlasov's arXiv:1311.4297 (sections 3 and 6.2), which explicitly applies it to ternary cell states. Neither inspected account derives the characteristic-three complete-bipartite fixed-space/period trichotomy. Fredkin–Toffoli (1982) provides broader historical motivation but no exact claim in the portions accessible here. The general adjacency spectrum of \(K_{a,b}\) does not by itself count generalized temporal eigenspaces in the modular-resonant cases. Searches of published dynamical-systems literature and accessible scientific results did not disclose an implication covering the exact result. Residual risk includes unindexed work, a general characteristic-three theorem implying this specialization, and non-access to some classic review full text.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete bipartite family is natural for graph-coupled automata, and the number of periodic states of each least period is a natural invariant of a reversible finite-state map. The classification is uniform in two unbounded shore parameters and field extension degree, with a sharp residue-class transition between orders eight and twelve and the appearance of new primitive periods in precisely one phase. It resolves the entire orbit census, not a selected small graph or a restatement of reversibility.
+The generic reversible second-order recurrence was known and is not novel. The three characteristic-three residues, nonsemisimple fixed-space calculations, all-time population formula and primitive-period trichotomy are an object-specific classification not provided by the inspected general construction.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Exact orbit supports and counts in a natural finite-field graph-wave family reveal resonance phase boundaries; this is a complete and potentially reusable finite-field dynamical classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
