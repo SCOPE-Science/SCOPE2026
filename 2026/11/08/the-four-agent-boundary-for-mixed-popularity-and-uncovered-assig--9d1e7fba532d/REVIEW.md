@@ -1,15 +1,21 @@
-# Scientific review: four-agent mixed-popularity support boundary
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Exact integer arithmetic reconstructs the majority matrices and all three distinct strict covering definitions over every normalized preference profile through three agents and every normalized four-agent profile for McKelvey covering. For each covered-set indicator, a nonnegative rational multiplier is checked coordinatewise to dominate that indicator; the skew-symmetry and mixed-popularity inequalities then force zero mass on covered assignments. The explicit Bordes and Gillies examples have all \(24\) pure-opponent inequalities and their covering relations checked directly. Household-relabeling symmetry makes the enumeration exhaustive; a finite sample would not suffice, but this is complete for its stated dimensions.
+## correctness
 
-## Originality
-**PASS, qualified.** The directly motivating 2026 paper on majoritarian assignment rules explicitly identifies mixed-popular support inside uncovered sets as unresolved, while its main theorems treat other domains and questions. Classical essential-set inclusion results use the sign-only majority game and cannot be applied without proof to variable-magnitude assignment majority margins. Rank-maximality and probabilistic-serial efficiency are different properties. No previously available result among the inspected sources or relevant record searches supplies both the sharp Bordes/Gillies boundary and the universal four-agent McKelvey containment. Broad/unindexed prior work remains a publication-priority risk.
+PASS
 
-## Mathematical value
-**PASS.** This precisely delimits how two strengthened majority-cover concepts can exclude outcomes of equilibrium lottery assignment while the ordinary McKelvey concept cannot do so in the same four-agent domain. It resolves a naturally motivated finite boundary of an explicitly posed 2026 assignment-rule question, with separate exact witnesses, a universal positive statement and independently replayable finite certificates.
+For every normalized complete strict house-preference profile, compute skew majority matrix M and three distinct strict covering masks. The rational separating condition y≥0, y^T M≥1_covered proves zero covered mass for every p≥0 with Mp≤0. Independently generated rational certificates by LP construction and verified EVERY inequality in exact integer arithmetic for all 2 n=2, 36 n=3, and 13,824 n=4 profiles (McKelvey n=4), treating house relabeling symmetry exactly. The explicit four-agent Bordes and Gillies violating lotteries were independently checked against all 24 assignments for nonnegative margins and the stipulated covering witnesses. The binary gzip original dual file was inaccessible through GitHub text fetch, but an independent complete exact-rational certificate reconstruction verifies the universal finite claims.
 
-## Closest literature and limitations
-Brandt et al., *Majoritarian Assignment Rules*, arXiv:2602.14816v1, especially the uncovered-set definitions and concluding question, is the closest primary source. Duggan, *Uncovered Sets*, provides the classical uncovered/essential-set context; its sign-game comparisons do not settle the magnitude-sensitive assignment result. The McKelvey question for five or more agents, and theoretical classification beyond finite certificate enumeration, remain open. No claim of priority over inaccessible or unindexed material is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Inspected primary Brandt et al Majoritarian Assignment Rules explicitly poses mixed-popular support in uncovered sets; the given four-agent sharp Bordes/Gillies failure and McKelvey persistence are not established by the available original. Ordinary tournament essential-set theorems use sign-majority, not cardinal vote margins or these strict ties; distinct conventions prevent automatic transfer. Best-of-knowledge new complete finite boundary.
+
+## value
+
+PASS
+
+An exact first-size boundary for whether a standard probabilistic social-choice solution avoids alternatives covered in three classical senses resolves a natural posed support question, identifies exact small counterexamples and avoids conflating covering variants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
