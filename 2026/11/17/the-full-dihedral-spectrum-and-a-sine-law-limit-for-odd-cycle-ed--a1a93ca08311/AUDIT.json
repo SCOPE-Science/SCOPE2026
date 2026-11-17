@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "The vertex matrix A=I+S for odd order has B=A^{-1}=1/2 sum_{h=0}^{n-1}(-S)^h. Projecting each barycentric row onto the zero-sum tangent space gives exact Gram diagonal (n^2-1)/(4n) and off-diagonal [(-1)^d n(n-2d)-1]/(4n). Minus normalized Gram gives the interior cosine. There are n unordered facet pairs at every cyclic distance. The odd/even cosine subsequences have opposite signs, strict within-parity order, and mesh 4/n yielding the uniform-cosine limit with O(1/n) Kolmogorov error. Volume and radii are checked by determinant, facet distance and squared-distance averaging. The attached no-dependency rational checker reconstructed BA=I and all 5130 pairwise facet-normal identities over odd orders 3..39, and tested four larger empirical distributions; no finite test is substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ohsugi--Hibi (1999), p. 522, explicitly states that an odd-cycle ordinary edge polytope has normalized lattice volume one; its scope includes the known lattice-volume subclaim.",
+        "General simplex facet-normal theory computes angles from a supplied inverse Gram matrix, but supplies neither the closed cyclic cosine spectrum nor the dimension-asymptotic sine law as a specific consequence."
+      ],
+      "reasoning": "The normalized lattice-volume, graph-to-polytope construction and generic Gram method are credited and not advanced as novel. They do not directly state or dominate the full angle multiplicity classification and distributional limit in the fixed inherited Euclidean normalization.",
+      "searches": [
+        "odd cycle edge polytope inradius 2/sqrt(n(n^2-1)) and volume sqrt(n)/(n-1)!",
+        "Euclidean exterior angle distribution of odd-cycle edge simplices, asymptotically uniform cosine and exact acute obtuse count",
+        "\"edge polytope of a cycle\" \"simplex\" odd"
+      ]
+    },
+    "checked_sources": [
+      "Nagaoka--Tsuchiya (first public 2017-12-17), arXiv:1712.06078v1; HTML v2 https://arxiv.org/html/1712.06078v2",
+      "Ohsugi--Hibi (1999), Journal of Algebra 218, pp. 509--527; section 4 p.522 https://page.mi.fu-berlin.de/~chaase/lehre/ohsugiHibiQuadratic.pdf",
+      "Numata--Takahashi--Tamaki (first public 2022-03-28), arXiv:2203.14521v1 https://arxiv.org/html/2203.14521v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ohsugi--Hibi (1999), sec. 4 p. 522: known normalized volume one, and thus known lattice simplicity; this fact does not specify Euclidean facet normal correlations.",
+        "Nagaoka--Tsuchiya (2017), sec. 1 and Cor. 2.4: edge-polytope dimension and reflexive lift are unimodular/affine statements, not angle statements.",
+        "A cycle Laplacian-column simplex uses L(C_n)e_i in the zero-sum hyperplane; this differs from the ordinary edge-incidence sum simplex and has different facet Gram data."
+      ],
+      "reasoning": "The new conclusions are exact alternating interior angle cosines for every cyclic ridge class, multiplicities and a sine-density weak limit. Neither known graph-polytope algebra nor the distinct Laplacian simplex angle spectrum directly implies them in this Euclidean realization. Generic matrix inversion could be specialized but does not itself yield the explicit finite and asymptotic classification.",
+      "searches": [
+        "odd cycle edge polytope (not symmetric), vertices e_i+e_{i+1}, exact Euclidean dihedral angles and normal Gram matrix",
+        "Laplacian simplex of cycle complete explicit interior dihedral angle spectrum cyclic distance",
+        "\"edge polytope\" \"odd cycle\" \"simplex\" \"dihedral\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nagaoka--Tsuchiya, arXiv:1712.06078v2, sec. 1 defines unsigned edge polytopes by e_i+e_j and sec. 2 treats reflexive lifts; no dihedral metric appears.",
+        "Numata--Takahashi--Tamaki, arXiv:2203.14521v1, definition 3.1 and theorem 1.2 treat e_i-e_j directed edge polytopes, not unsigned edge incidence."
+      ],
+      "reasoning": "Checked the explicit vector models rather than similarly named objects. A coordinatewise sign or arbitrary unimodular map does not generally preserve Euclidean angles; the closest papers do not give an equal-angle formula under a demonstrated orthogonal equivalence. Exact graph simplex angles are computed here from the metric-preserving embedding.",
+      "searches": [
+        "odd cycle ordinary edge polytope (not symmetric), vertices e_i+e_{i+1}, exact Euclidean dihedral angles and normal Gram matrix",
+        "\"edge polytope\" \"dihedral\" \"cycle\" simplex",
+        "\"circulant simplex\" \"dihedral angles\" cyclic edge incidence",
+        "odd cycle edge simplex \"dihedral\" Euclidean"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2017 ordinary-edge-polytope HTML full text has a dimension lemma and reflexive-lift statements, without a Euclidean angular table.",
+        "The 1999 paper supplies an existing normalized-volume table-level fact for odd cycles, which is excluded from the novelty assertion."
+      ],
+      "reasoning": "No exact matching table or formula for the ordinary odd-cycle edge-simplex dihedral-angle multiset or its limiting law was identified in the inspected primary material. Search absence is only bounded evidence, not a uniqueness or priority proof.",
+      "searches": [
+        "cycle graph edge polytope simplex Euclidean facet normal Gram matrix curvature",
+        "circulant 0-1 incidence simplex cycle C_(2k+1) facet angle distribution converges to sine density sin theta /2",
+        "\"edge polytope\" \"circulant\" simplex angles"
+      ]
+    },
+    "rationale": "The new claim concerns all intrinsic Euclidean ridge angles and a nonconcentrating sine-density distribution for the unsigned edge polytope of an odd cycle. The primary ordinary-edge-polytope literature covers its lattice description, dimension, reflexive lifts and previously known normalized volume. The directed and symmetric edge polytopes use difference rather than sum vectors and are not Euclidean-congruent to the object here. Known general inverse-Gram constructions or an angle spectrum for cycle Laplacian simplices do not explicitly imply this alternating cosine classification or the limiting distribution without the new analysis. Priority remains provisional; exact earlier equivalents remain a residual risk.",
+    "residual_risks": [
+      "Older geometric literature on cyclic/circulant simplices may express the same cosine law under different names not found in bounded searches.",
+      "An unindexed exact angular table or uninspected appendix might predate the statement; historical priority has not been independently certified.",
+      "The limiting law is for uniform ridge counts only, not geometric ridge-volume weighting."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Explicit ordinary graph edge construction and lattice results do not include a dihedral-angle spectrum or sine limit",
+        "evidence": [
+          "Sec. 1, lines 71-82, defines graph edge polytope as conv(e_i+e_j).",
+          "Corollary 2.4, lines 208-216, gives a reflexive lift; its unimodular map is not stated to preserve Euclidean angles."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1712.06078v2",
+        "material_read": "HTML introduction, entire defining section 1, main statements and proof of theorem 2.1/corollary 2.4, normality section 3 lemma and references; keyword searches for dihedral, angle and cycle",
+        "method": "Read accessible author full text and compared e_i+e_j definition, dimension and reflexive claims with metric formula",
+        "title": "Reflexive polytopes arising from edge polytopes",
+        "trigger": "Same ordinary unsigned edge-polytope construction and earliest in-scope lead"
+      },
+      {
+        "assessment": "Covers normalized volume one, cited as known; no asserted implication for full Euclidean angle spectrum or limiting sine law",
+        "evidence": [
+          "Section 4 page 522 expressly lists odd cycles with normalized volume one among minimal-volume edge polytopes."
+        ],
+        "identifier_or_url": "https://page.mi.fu-berlin.de/~chaase/lehre/ohsugiHibiQuadratic.pdf",
+        "material_read": "Journal PDF introduction, graph edge-ring setup, and section 4 page 522 (verified against rendered page image); examined relevant statements on odd-cycle normalized volume",
+        "method": "Read full-text PDF relevant sections and page image, checked object and volume statement",
+        "title": "Toric Ideals Generated by Quadratic Binomials",
+        "trigger": "Older priority risk: ordinary odd cycle edge polytopes and normalized volume"
+      },
+      {
+        "assessment": "Defines directed difference edge vectors e_i-e_j and determines combinatorial faces, not metric angles for the unsigned sum model",
+        "evidence": [
+          "Definition 3.1, lines 183-203, uses e_i-e_j; Theorem 1.2, lines 63-76, is a facet characterization."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2203.14521v1",
+        "material_read": "HTML introduction with theorems 1.1-1.3 and corollary 1.4, definitions 2.1-2.8 and 3.1, dimensional and face characterization sections; searched for Euclidean/dihedral terminology",
+        "method": "Read author full text material for geometric model, all main statements and scope",
+        "title": "Faces of Directed Edge Polytopes",
+        "trigger": "Closest similarly titled 2022 work involving cycle faces and incidence geometry"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "a1a93ca0-8311-40b7-9f64-00e60a7f2a44",
+  "value": {
+    "rationale": "The family is natural in graph edge-polytope geometry, yet all odd-cycle examples are combinatorial simplices and their normalized lattice volume is already known. In the canonical unscaled metric, the theorem completely classifies an intricate n-dependent ridge-angle invariant, including exact acute/obtuse multiplicities and extremizers, and establishes an unexpected nonconcentrating sin(theta)/2 law in unbounded dimension. This is a natural complete metric classification with a meaningful asymptotic geometry contrast, not an arbitrary finite slice or routine rescaling. Limitations are explicitly scoped.",
+    "status": "PASS"
+  }
+}
