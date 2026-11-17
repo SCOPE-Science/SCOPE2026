@@ -1,12 +1,21 @@
-# Scientific review: a twelve-nodal Fermat hyperplane orbit
+# Independent mathematical audit
 
-## Correctness — PASS
-For the displayed smooth Fermat quartic threefold and \(\alpha^4=-1\), elimination gives \(G=\sum x_i^4-S^4\). The four partial derivatives force \(S\ne0\), then \(x_i\in\mu_3\) and \(S=1\). Cyclotomic coefficient comparison gives precisely the twelve permutations of \((1,1,\omega,\omega^2)\). The Hessian is an invertible diagonal matrix minus a rank-one matrix with one-dimensional kernel, hence every singularity is an ordinary node. The standard dual multiplicity/Milnor-number formula gives exactly twelve; the diagonal-coordinate permutation group has orbit-stabilizer quotient \(30720/24=1280\). This verifies all asserted quantifiers; the standalone checker cross-checks the finite algebra and arithmetic conjugation. No global upper bound is claimed.
+## correctness
 
-## Originality — PASS, with disclosed risks
-Dimca–Ilardi (arXiv:2301.06952, full text read) prove general existence/multiplicity at least four, not the Fermat twelve-nodal witness or the large enumerated dual orbit. Dolgachev–Kondō (arXiv:2505.01033, Sections 1–3 read) state classical twelve-nodal desmic quartic geometry, not their appearance as this orbit in the dual Fermat threefold; twelve-node quartics themselves are not novel. Jacobi–Madden (doi:10.1080/00029890.2008.11920519, abstract only) explicitly study the identical section equation, so neither its equation nor its original discovery is claimed. Its inaccessible full text and possible older explicit Fermat-dual classifications are genuine historical-priority risks. The specific dual multiplicity and 1280-point Fermat automorphism orbit were not identified in actual targeted published-literature and mathematical-record searches or accessible own claim history. Failed search alone is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The paper of Dimca–Ilardi motivates locating high-multiplicity points of projective duals. Here the highly symmetric smooth Fermat threefold admits explicitly and simultaneously 1280 distinct twelvefold dual points, three times the general guaranteed multiplicity four, with completely specified reduced nodal sections and tangent cones. The exact rational singular closed-point scheme gives an additional natural arithmetic description. Unlike simply citing the known existence of twelve-nodal quartics, the contribution determines a geometrically constrained incidence orbit on a fixed smooth threefold. It does not claim a maximal count or a classification of all orbits.
+For Fermat V: Σ_{i=0}^4 X_i⁴=0⊂P⁴_C and H=X0+X1+X2+X3+αX4=0 (α⁴=−1), eliminating X4 gives G=Σ_{i=0}³x_i⁴−S⁴. Gradient zero implies S≠0 and, scaling S=1, each x_i³=1 and Σx_i=1. Cyclotomic counting gives twelve permutations (1,1,ω,ω²), none omitted; their Hessian D−11ᵀ has rank3 modulo radial direction, hence 12 ordinary nodes and finite singular scheme. The section is irreducible as reducible quartic components must intersect in a curve, then give nonisolated singularities. Standard characteristic-zero dual-Milnor formula gives multiplicity12 and twelve distinct tangent cone factors. Diagonal µ4 and S5 action yields exact orbit size 5*4⁴=1280. Rational section's twelve nodes conjugate-pair to six Q(ω) points. Independent integer cyclotomic enumeration produced 12 and orbit 1280. Does not assert global maximality or completeness of dual locus.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the precise new component only; earlier mathematically overlapping statements are credited in the four comparisons. Full source limitations and residual risks recorded, no failed search treated as proof.
+
+## value
+
+PASS
+
+The dual of a classical concrete quartic threefold has an explicitly constructible finite orbit of 1280 high-multiplicity singular points, with exact node-count/tangent-cone and arithmetic splitting. This is a motivated lower-bound witness for global dual singularity geometry, beyond generic existence of four tangencies. The quartic section equation and twelve-nodal quartic surfaces as objects are acknowledged classical; value lies in this precise incidence with the dual Fermat threefold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
