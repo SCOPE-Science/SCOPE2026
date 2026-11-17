@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The permanent four-pebble strategy proves equivalence of three-extension and counting-free four-variable equivalence to the random tournament. The deletion quantifiers reduce exactly to the least three-pattern witness multiplicity. Expansion of the three-factor quadratic-character indicator uses the standard identities \(\sum\chi(x-a)=0\), \(\sum\chi((x-a)(x-b))=-1\) for distinct anchors, and the cubic Hasse bound \(2\sqrt q\). Excluding three anchors costs at most twelve, giving the correct lower bound \(8N\ge q-15-2\sqrt q\). Both standalone checkers reproduce the ten low-order exact minima, including a separately constructed field of order \(27\); the analytic bound covers all remaining admissible orders. The general conclusion is proved analytically, not inferred from the finite checks.
+## correctness
 
-## Originality
-**PASS, provisionally.** The strongest directly equivalent published *definition* is Property \(P_{3,j}\) from Duffy–MacGillivray–Sopena (2018). Its verified single examples, including the order-\(67\) guarantee, do not imply five exact field-order cutoffs. The 2010 existential-closure work proves baseline existence and constructions, not a full witness-multiplicity/deletion table. The 2026 prime-order orientation-pattern study does not classify arbitrary prime-power fields or sharp deletion robustness. Published research-record searches for Paley tournament deletion, orientation-pattern minima, and counting-free four-variable equivalence located no direct covering statement. Historical novelty remains subject to further independent priority review, particularly of obscure Paley-tournament multiplicity tables.
+PASS
 
-## Value
-**PASS.** The cutoffs determine an intrinsic, adversarial robustness invariant of the canonical Paley-tournament family and its associated bounded-variable theory. They exhibit genuinely different regimes of vertex, pair, triple, and quadruple resilience, including the extension-field transition at order \(27\). This is a natural finite sequence of sharp thresholds for an established orientation-pattern property, rather than an arbitrary enumeration.
+A finite tournament has the same counting-free FO4 theory of the random tournament at unrestricted depth iff it has the three-extension property: the four-pebble Duplicator strategy and the missing-pattern four-variable sentence establish both directions. Deleting at most t vertices preserves the property iff its minimum three-anchor pattern witness multiplicity m(q)>=t+1. Character-indicator expansion for three anchors, quadratic pair sums -1, degree-three Hasse/Weil bound 2 sqrt(q), and removal of at most 12 anchor contributions imply 8N>=q-15-2sqrt(q), covering all admissible large q. Exact exhaustive minima for all remaining q=3,7,11,19,23,27,31,43,47,59 are 0,0,0,1,1,2,2,3,4,5. Independent prime-field three-anchor enumeration and separate genuine GF(27) polynomial arithmetic reproduced the table; thus q-thresholds 19,27,43,47,59 for t=0..4 are sharp for all eligible prime powers. The finite computation does not substitute for the uniform character bound.
 
-## Limits
-The theorem concerns only deletion budgets through four, pure directed-edge logic, and Paley tournaments of prime-power order \(q\equiv3\pmod4\). Small-order minima are exhaustive computations with two checkers; higher orders rely on a classical character-sum inequality. An independent mathematical and historical-priority audit has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: established general criteria and overlapping special cases are explicitly credited. Fresh exact finite/arithmetic or spectral classification not mathematically implied by inspected broader statements. Inaccessible plausible primary sources are retained as risks, not falsely described as read.
+
+## value
+
+PASS
+
+For a natural finite-field pseudorandom tournament family, determine exact robustness of unrestricted four-variable elementary theory against zero to four arbitrary vertex deletions. The tight thresholds include the genuine extension field of order 27 and multiple distinct exceptional transitions; meaningful finite cutoffs and the general character-sum bound jointly classify an infinite family, beyond a routine restatement of known three-extension theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
