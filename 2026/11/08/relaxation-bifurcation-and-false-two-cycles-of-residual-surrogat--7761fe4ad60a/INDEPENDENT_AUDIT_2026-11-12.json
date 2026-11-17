@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T12:00:54.093800Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/relaxation-bifurcation-and-false-two-cycles-of-residual-surrogat--7761fe4ad60a/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/relaxation-bifurcation-and-false-two-cycles-of-residual-surrogat--7761fe4ad60a/verify.py"
+      ],
+      "rationale": "For b=Ax*+z with A^T A=λI, z in ker A^T nonzero, e=x−x* obeys A^Tr=−λe and ||r||²=||z||²+λ||e||². The exact update is e'=−(ω−1+ω c/||e||²)e with c=||z||²/λ>0, so it is always defined from nonzero e for 1≤ω<2 and the error direction alternates. Radius ρ'=(ω−1)ρ+ωc/ρ gives an exact involution at ω=1. When 1<ω<2, the rescaled s map is (ω−1)s+(2−ω)/s, a strict contraction in |log s| with a compactness argument for convergence to s=1. Thus the two subsequences approach a false 2-cycle of radius sqrt(ωc/(2−ω)), and adjacent midpoints approach x*. Local derivative is 2ω−3; at ω=3/2 the radius is the Newton/Babylonian iteration ρ'=(ρ+3c/ρ)/2 with exact quadratic error (ρ−sqrt(3c))²/(2ρ). Independent SymPy algebra and direct 480-step vector tests across four relaxation values agree; source code tests are additional corroboration, not an infinite proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://doi.org/10.12286/jssx.j2025-1306",
+          "https://doi.org/10.1007/s10092-024-00605-0",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-graph-gram-frontier-and-a-residual-consistency-barrier-f--029f60e61b0f"
+        ],
+        "reasoning": "The published extended Kaczmarz methods correct for inconsistent data through a different state/update, so even a general convergence theorem for those methods does not imply properties of the unextended residual surrogate rule. The graph-Gram consistency barrier is a different preconditioner context.",
+        "searches": [
+          "residual based surrogate hyperplane inconsistent least squares cycles relaxation Babylonian iteration"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2406.15082",
+        "https://doi.org/10.12286/jssx.j2025-1306",
+        "https://doi.org/10.1016/j.aml.2023.108704",
+        "https://doi.org/10.1007/s10092-024-00605-0",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-graph-gram-frontier-and-a-residual-consistency-barrier-f--029f60e61b0f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://doi.org/10.1016/j.aml.2023.108704",
+          "https://doi.org/10.12286/jssx.j2025-1306",
+          "https://arxiv.org/abs/2406.15082"
+        ],
+        "reasoning": "Consistent-system results set z=0, eliminating c/ρ and the false cycle; the extended normal-equation algorithms subtract/estimate the inconsistent component and are not the submitted iteration. Thus their theorems do not entail global false attraction at ω∈[1,2).",
+        "searches": [
+          "residual based surrogate hyperplane inconsistent least squares cycles relaxation Babylonian iteration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2406.15082",
+          "https://doi.org/10.1016/j.aml.2023.108704"
+        ],
+        "reasoning": "Recast the unextended algorithm as scalar rational radius dynamics/Newton iteration on orthogonal columns. Classical Newton/Babylonian square-root convergence is known; the nontrivial issue is why a full-residual projection of inconsistent tall data realizes it as a wrong periodic attractor.",
+        "searches": [
+          "residual based surrogate hyperplane inconsistent least squares cycles relaxation Babylonian iteration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/2406.15082",
+          "https://doi.org/10.12286/jssx.j2025-1306"
+        ],
+        "reasoning": "This is an all-dimensional exact dynamics theorem, not a finite database. Neither inspected standard convergence study supplies a phase diagram or coefficient table for this fixed-noise, equal-orthogonal-column unextended update.",
+        "searches": [
+          "residual based surrogate hyperplane inconsistent least squares cycles relaxation Babylonian iteration"
+        ]
+      },
+      "rationale": "The 2023 surrogate hyperplane paper assumes consistency; the 2024 sparse variant is a different regularized model; the 2026 residual double/triple algorithms use extended normal equations and avoid precisely this unextended full-residual map. The resulting precise global false-cycle bifurcation and quadratic attraction to a wrong solution are not consequences of those convergence statements. Qualified best-of-knowledge PASS, especially because the closest 2026 complete publisher article was not accessible.",
+      "residual_risks": [
+        "The full 2026 extended-normal-equation primary article and a possible classical analysis of the *unextended* map were not accessible for exhaustive historical comparison.",
+        "Equal singular values, orthogonal columns and fixed noise are restrictive; no general matrix or stochastic solver convergence claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_SPARSE_PROXIMAL_MODEL",
+          "evidence": [
+            "Does not analyze a fixed inconsistent full-residual unextended least-squares cycle"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.15082",
+          "material_read": "Accessible full arXiv HTML, definitions of the residual-weighted hyperplane and regularization/consistency assumptions, relevant theorem sections",
+          "method": "Read primary HTML",
+          "title": "The sparse Kaczmarz method with surrogate hyperplane for the regularized basis pursuit problem",
+          "trigger": "Primary earlier surrogate-hyperplane update variant"
+        },
+        {
+          "assessment": "RELATED_BUT_ACCESS_LIMITED",
+          "evidence": [
+            "Extended normal equations are explicitly a different iterative scheme; no whole-document noncoverage asserted"
+          ],
+          "identifier_or_url": "https://doi.org/10.12286/jssx.j2025-1306",
+          "material_read": "Publisher abstract, algorithm description and publication data, including different double/triple extended update; not complete primary PDF",
+          "method": "Read accessible publisher material",
+          "title": "Residual-based surrogate hyperplane double and triple Kaczmarz algorithms for solving extended normal equations",
+          "trigger": "Same residual-surrogate idea but 2026 inconsistency treatment"
+        },
+        {
+          "assessment": "CONSISTENT_ONLY",
+          "evidence": [
+            "With z=0 the nonzero 2-cycle mechanism disappears"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.aml.2023.108704",
+          "material_read": "Bibliographic abstract plus accessible theorem statement about consistent equations",
+          "method": "Primary accessible abstract",
+          "title": "A surrogate hyperplane Kaczmarz method for solving consistent linear equations",
+          "trigger": "Original surrogate method and consistency hypothesis"
+        },
+        {
+          "assessment": "RELATED_DISTINCT",
+          "evidence": [
+            "Different update and source of residual inconsistency"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-a-sharp-graph-gram-frontier-and-a-residual-consistency-barrier-f--029f60e61b0f",
+          "material_read": "Published summary about use of inaccurate factor residual vs correct gradient",
+          "method": "Published mathematical statement comparison",
+          "title": "A sharp graph-Gram frontier and a residual-consistency barrier for row-split least squares",
+          "trigger": "Potential previous inconsistency counterexample"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://doi.org/10.1016/j.aml.2023.108704",
+        "https://doi.org/10.12286/jssx.j2025-1306"
+      ],
+      "rationale": "This is a sharply motivated algorithmic failure mode: a standard-looking full-residual projection on an inconsistent problem has exact false two-cycles even when all singular values coincide. The exact global bifurcation, unexpected quadratic attraction to the wrong cycle at ω=3/2 and provably consistent midpoint averaging are useful diagnostics for numerical linear algebra and model design, not a cheap generic pathology.",
+      "residual_risks": [
+        "Only fixed inconsistent data and orthogonal equal-length columns; not the corrected extended, sparse proximal or randomized methods.",
+        "Relaxation interval [1,2), nonoptimal initial points; no statement about x0=x*."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed inconsistent data and orthogonal equal-length columns; not the corrected extended, sparse proximal or randomized methods.",
+    "Relaxation interval [1,2), nonoptimal initial points; no statement about x0=x*.",
+    "Full text of the contemporary extended method was not inspected; no assertion of exhaustive historical priority."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The orthogonal-column and fixed-noise assumptions imply an exact radial recurrence without probabilistic or asymptotic approximation. At unit relaxation this map is an involution. Above one, normalization yields a strict contraction of the absolute logarithmic radius error, proving global attraction; differentiation and exact algebra give the local rate and its quadratic exception. The midpoint identity gives recovery of the least-squares solution. The symbolic/exact arithmetic verifier and direct vector tests corroborate the proof but are not substituted for it.
+## correctness
 
-## Originality
-**PASS, subject to stated historical-priority risk.** Actual searches compared the 2026 extended normal-equation paper, the original consistent-equation surrogate-hyperplane paper, the sparse surrogate-hyperplane update, the extended least-squares method, fixed-noise Kaczmarz and related published research records. The former establish convergence for different algorithms or the consistent case, while this claim identifies all nonoptimal initial trajectories of the specifically defined *unextended* residual map on an entire orthogonal-column family, the global relaxation bifurcation and the special quadratic false attractor. No covering claim was identified in the available material. The complete 2026 and 2023 papers were not accessible, so exact historical priority is not certified.
+PASS
 
-## Value
-**PASS.** This is a natural best-conditioned test family for inconsistent data. It rigorously demonstrates that an unextended surrogate projection can turn fixed residual noise into nonvanishing oscillation, and that a seemingly superior quadratic stabilization rate can attract to the wrong solution. The exact error radius quantifies noise amplification, while adjacent averaging gives a limited, explicit recovery mechanism. It helps explain the mathematical purpose of extended correction schemes without conflating their guarantees.
+For b=Ax*+z with A^T A=λI, z in ker A^T nonzero, e=x−x* obeys A^Tr=−λe and ||r||²=||z||²+λ||e||². The exact update is e'=−(ω−1+ω c/||e||²)e with c=||z||²/λ>0, so it is always defined from nonzero e for 1≤ω<2 and the error direction alternates. Radius ρ'=(ω−1)ρ+ωc/ρ gives an exact involution at ω=1. When 1<ω<2, the rescaled s map is (ω−1)s+(2−ω)/s, a strict contraction in |log s| with a compactness argument for convergence to s=1. Thus the two subsequences approach a false 2-cycle of radius sqrt(ωc/(2−ω)), and adjacent midpoints approach x*. Local derivative is 2ω−3; at ω=3/2 the radius is the Newton/Babylonian iteration ρ'=(ρ+3c/ρ)/2 with exact quadratic error (ρ−sqrt(3c))²/(2ρ). Independent SymPy algebra and direct 480-step vector tests across four relaxation values agree; source code tests are additional corroboration, not an infinite proof.
 
-## Boundaries and risk
-The result addresses a defined fixed-data unextended map, not the double/triple extended algorithms. Its complete-dimensional guarantee is restricted to orthogonal columns with a common norm and \(1\le\omega<2\). Earlier unavailable full texts may contain equivalent special-case observations. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2023 surrogate hyperplane paper assumes consistency; the 2024 sparse variant is a different regularized model; the 2026 residual double/triple algorithms use extended normal equations and avoid precisely this unextended full-residual map. The resulting precise global false-cycle bifurcation and quadratic attraction to a wrong solution are not consequences of those convergence statements. Qualified best-of-knowledge PASS, especially because the closest 2026 complete publisher article was not accessible.
+
+## value
+
+PASS
+
+This is a sharply motivated algorithmic failure mode: a standard-looking full-residual projection on an inconsistent problem has exact false two-cycles even when all singular values coincide. The exact global bifurcation, unexpected quadratic attraction to the wrong cycle at ω=3/2 and provably consistent midpoint averaging are useful diagnostics for numerical linear algebra and model design, not a cheap generic pathology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
