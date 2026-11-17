@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact block power is obtained by induction; the nonnegative entries of its off-diagonal block satisfy row and column Schur bounds by maximal length-window sums. Flat vectors along arbitrarily long near-maximizing windows establish the matching lower estimate for every fixed power. Subadditivity and a scalar triangular majorant then yield the limit for all positive bounded couplings. An explicit inverse and the constant-coupling equality case check boundary conditions. The companion finite verifier is not used as proof of an infinite statement.
+## correctness
 
-**Originality — PASS (best-knowledge, not publication certification).** The closest 2026 Ji–Wang theorem is about inverse-invariant subspaces, while the earlier Ji–Jiang–Wang work treats a sufficient subexponential-growth hypothesis. Garcia's Foguel norm calculations involve differently oriented blocks and do not imply the upper Banach mean formula identified here. Actual published-finding corpus and own-ledger searches for the same operators, moving averages, Cesàro and Banach-density aliases produced only non-dominating weighted-shift and finite-horizon growth results. A wider unpublished or classic weighted-Foguel computation remains a priority risk; no definitive claim of uniqueness is made.
+PASS
 
-**Mathematical value — PASS.** The sharp coefficient is a natural orbit-growth invariant for an entire class of positive-coupling blocks studied in current invertible-operator questions. It distinguishes sparse spikes from long dense intervals, gives a complete sublinear-versus-linear classification and an exact all-power formula in the homogeneous benchmark; these are not provided by mere boundedness or invertibility.
+The positive diagonal coupling  T=[S D_c;0 S*]  has exact power upper-right block H_n=sum_{j=0}^{n-1} S^{n-1-j}D_c(S*)^j. Its nonnegative row and column sums each run over at most n consecutive c entries, so Schur gives ||H_n||<=b_n=sup_m sum_{j=0}^{n-1}c_{m+j}. The b_n are subadditive (finite, nM bounded); thus beta=lim b_n/n=inf b_n/n. For any fixed n choose near-optimal long windows length L; flat normalized vectors in an L+O(n) window give ||H_n||>=n(b_L-1-3nM)/sqrt((L+2n+1)(L-2n)), hence ||H_n||>=n beta. Triangular scalar majorant gives ||T^n||<=(b_n+sqrt(b_n^2+4))/2. Combining and dividing by n gives lim ||T^n||/n=beta for every bounded sequence 0<c_j<=M (no uniform positive lower bound). The inverse is x=S*u-S*D_c S v, y=S v+(u_0/c_0)e_0; S*D_c e_0=0 makes the omitted scalar term vanish. For constant t, flat vectors far from boundary saturate the majorant, giving ||T^n||=(nt+sqrt(n^2t^2+4))/2. Independently constructed finite-section matrix products matched H_n, Schur bounds and upper majorants for 20 cases; 12 truncated constant-coupling norms approached (not equaled) the infinite formula. Finite sections do NOT certify the infinite limit; the analytic arbitrary-L lower bound does.
 
-**Limits.** This is not a general assertion for non-diagonal positive couplings and does not solve a new invariant-subspace problem. The comparison against classic Foguel literature is best-knowledge rather than independent priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge searches and original theorem-level readings distinguish the claim from the Ji-Wang positive-coupling invertibility/invariant-subspace theorem, Garcia's exact Foguel norm formula and sharp uniform-in-c power bound (oppositely oriented blocks), and the same-day single-power singular-spectrum result. None supplies the exact beta(c) moving-window asymptotic for every nonuniform positive c. This is not a universal originality guarantee.
+
+## value
+
+PASS
+
+The exact upper Banach mean controls the natural linear growth invariant of all bounded positive diagonal shift couplings. It rigorously classifies sublinear power growth versus long high-coupling windows, including sparse large entries, and refines the classical uniform ||c||∞ power bound. The precise asymptotic coefficient is independently useful within a motivated invertible Cowen–Douglas block family rather than an arbitrary finite parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

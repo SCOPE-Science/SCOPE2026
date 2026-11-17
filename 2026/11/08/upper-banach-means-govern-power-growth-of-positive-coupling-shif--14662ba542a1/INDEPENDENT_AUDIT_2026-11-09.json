@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T04:47:29.623774Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/08/upper-banach-means-govern-power-growth-of-positive-coupling-shif--14662ba542a1/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/08/upper-banach-means-govern-power-growth-of-positive-coupling-shif--14662ba542a1/CHECK.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/08/upper-banach-means-govern-power-growth-of-positive-coupling-shif--14662ba542a1/VERIFICATION.md",
+        "independent_checks.py: block identities, finite Schur bounds, and 12 approximate constant-coupling norms"
+      ],
+      "rationale": "The positive diagonal coupling  T=[S D_c;0 S*]  has exact power upper-right block H_n=sum_{j=0}^{n-1} S^{n-1-j}D_c(S*)^j. Its nonnegative row and column sums each run over at most n consecutive c entries, so Schur gives ||H_n||<=b_n=sup_m sum_{j=0}^{n-1}c_{m+j}. The b_n are subadditive (finite, nM bounded); thus beta=lim b_n/n=inf b_n/n. For any fixed n choose near-optimal long windows length L; flat normalized vectors in an L+O(n) window give ||H_n||>=n(b_L-1-3nM)/sqrt((L+2n+1)(L-2n)), hence ||H_n||>=n beta. Triangular scalar majorant gives ||T^n||<=(b_n+sqrt(b_n^2+4))/2. Combining and dividing by n gives lim ||T^n||/n=beta for every bounded sequence 0<c_j<=M (no uniform positive lower bound). The inverse is x=S*u-S*D_c S v, y=S v+(u_0/c_0)e_0; S*D_c e_0=0 makes the omitted scalar term vanish. For constant t, flat vectors far from boundary saturate the majorant, giving ||T^n||=(nt+sqrt(n^2t^2+4))/2. Independently constructed finite-section matrix products matched H_n, Schur bounds and upper majorants for 20 cases; 12 truncated constant-coupling norms approached (not equaled) the infinite formula. Finite sections do NOT certify the infinite limit; the analytic arbitrary-L lower bound does.",
+      "residual_risks": [
+        "The proof uses the infinite-volume flat-vector limit; finite truncations at N=80 cannot be taken as equality or exhaustive verification.",
+        "Checks do not prove claims beyond bounded positive diagonal couplings of the unilateral S/S* pair."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ji–Wang, arxiv:2610.39605 Main Theorem: T^{-1} has an invariant subspace for positive coupling; no coefficient norm(T^n)/n.",
+          "Garcia, The norm and modulus of a Foguel operator (2009), Cor.3: ||R_T^n|| <= (n||T||+sqrt(n²||T||²+4))/2, sharp for T=I but not nonuniform c-dependent Banach mean.",
+          "SCOPE2026/2026/11/08/exact-singular-spectrum...75434db8999c/RESULT.md determines the n=1 singular values and inverse norm of the same forward/backward block, not n→∞ power growth."
+        ],
+        "reasoning": "The earlier single-power norm and constant-coupling bound are strictly less informative than the all-c sharp growth coefficient; Ji-Wang proves a different target and does not dominate.",
+        "searches": [
+          "arxiv:2610.39605 Main Theorem and Section 3",
+          "arxiv:2610.12857 abstract",
+          "Garcia arxiv:0908.0479 / Indiana Univ Math J 2009 Corollary 3",
+          "Resultary 2026/11/8/SCOPE-exact-singular-spectrum-and-sharp-conditioning-of-diagonal-posit--75434db8999c"
+        ]
+      },
+      "checked_sources": [
+        "Ji and Wang arxiv:2610.39605 body Sections 1 and 3",
+        "Garcia 2009 original preprint Corollaries 2–3",
+        "Ji, Jiang, Wang arxiv:2610.12857 abstract",
+        "Same-day SCOPE result 75434db8999c full RESULT.md",
+        "Resultary targeted searches for upper Banach mean and Foguel power norms"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Garcia provides the weaker uniform n||D|| bound; b_n≤n||D|| but b_n/n may be 0 even when ||D||>0.",
+          "Ji–Wang inverse-invariant-subspace existence neither implies nor is implied by the exact beta(c) growth formula.",
+          "n=1 singular spectrum alone does not determine the limit of norms of products."
+        ],
+        "reasoning": "Use c_j=1/(j+1): ||c||∞=1 but beta=0, separating the new theorem sharply from uniform-coupling majorants; c with arbitrarily long unit blocks has beta=1 regardless of sparse global density.",
+        "searches": [
+          "Garcia 2009 Corollaries 2-3 and T=I example",
+          "Ji–Wang 2610.39605 Main Theorem",
+          "SCOPE2026 75434db8999c RESULT.md",
+          "Resultary upper Banach mean 2026 November records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary 2026/11/8/SCOPE-upper-banach-means...14662ba542a1 was the only identical result and is this very assignment, not independent prior work.",
+          "Resultary 2026/10/11/SCOPE-exact-power-growth-and-norm-attaining-vectors-for-critical-dyadi--64652a093836 studies a c0-sum dyadic backward shift, not S/S* diagonal coupling.",
+          "Garcia (2009) Corollaries 2 and 3 calculate Foguel norms and uniform power bounds with diagonals S*,S, not the b_n/n limit for nonuniform positive c."
+        ],
+        "reasoning": "Upper Banach mean b_n/n is the invariant under aliases maximal sliding-window average/upper uniform Cesaro mean; no matching independent claim located. Similar words “power growth” without identical operator and parameter family do not imply it.",
+        "searches": [
+          "Resultary Q: positive diagonal D shift S and adjoint S* triangular operator T powers operator norm n upper Banach mean c subadditive",
+          "Resultary Q: Foguel operator S D_c 0 S* exact norm growth asymptotic upper Cesaro Banach density constant coupling",
+          "web: Foguel operator powers triangular shift adjoint norm growth coupling Hankel upper Banach mean"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same-block spectral record gives explicit singular spectrum of |T|, no table of asymptotic beta(c).",
+          "The lazy shift result records rates for another weighted-shift class, not a database of triangular block c sequences."
+        ],
+        "reasoning": "The theorem is a quantified analytic expression for all bounded positive c, not an entry in a finite lookup table. Retrieved records did not reproduce this formula except the target itself.",
+        "searches": [
+          "Resultary all-positive shift power spectral keywords",
+          "SCOPE2026 same-block singular spectrum result 75434db8999c",
+          "Resultary 2026/10/18/SCOPE-sharp-power-growth-and-power-difference-decay-for-positive-lazy--c5f2f187c821"
+        ]
+      },
+      "rationale": "Best-of-knowledge searches and original theorem-level readings distinguish the claim from the Ji-Wang positive-coupling invertibility/invariant-subspace theorem, Garcia's exact Foguel norm formula and sharp uniform-in-c power bound (oppositely oriented blocks), and the same-day single-power singular-spectrum result. None supplies the exact beta(c) moving-window asymptotic for every nonuniform positive c. This is not a universal originality guarantee.",
+      "residual_risks": [
+        "Unindexed early Foguel power-norm calculations could yield the upper Banach mean in disguised form.",
+        "Ji–Jiang–Wang 2610.12857 was not fully read; present assessment does not claim to exclude every formulation there.",
+        "Comparison search cannot certify global priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Invertibility and inverse-invariant subspaces; no exact upper-Banach-mean asymptotic.",
+          "evidence": [
+            "Main Theorem: A* Cowen–Douglas, C>0 implies T^-1 intransitive; main proof uses Riccati Hamiltonian invariant subspaces."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.39605",
+          "material_read": "Full web-rendered arXiv paper, introduction/Main Theorem, Section 3 lemmas/proof and conclusion (lines 18–35, 101–405)",
+          "method": "Read exact main theorem hypotheses and proof goal versus claimed power growth",
+          "title": "Riccati Equations and the Third Problem of Halmos",
+          "trigger": "Exact same positive-coupling upper triangular structural family"
+        },
+        {
+          "assessment": "Exact scalar norm for Foguel blocks and uniform power upper bound; not the claimed nonuniform upper Banach mean equality.",
+          "evidence": [
+            "Corollary 3 gives (n||T||+sqrt(n²||T||²+4))/2 upper bound, equality example T=I."
+          ],
+          "identifier_or_url": "doi:10.1512/iumj.2009.58.3735 / https://www.researchgate.net/publication/45865831_The_norm_and_modulus_of_a_Foguel_operator",
+          "material_read": "Author-deposited preprint text of Corollaries 2–3, equations (19)–(22), power-block formula and examples (web lines 607–802)",
+          "method": "Compared block orientation, dependence on coupling and exact vs upper-bound quantifiers",
+          "title": "The norm and modulus of a Foguel operator",
+          "trigger": "Classical exact norm and power-bound result for triangular shift blocks"
+        },
+        {
+          "assessment": "A power-growth assumption is used for inverse-invariant-subspace property; complete-text priority is not resolved.",
+          "evidence": [
+            "arXiv public abstract lists bundle preservation and subexponential growth cases."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.12857",
+          "material_read": "Title, author/date and public abstract; no full paper body relied upon",
+          "method": "Scoped comparison of published abstract conclusion",
+          "title": "Geometric operators and the third problem of Halmos",
+          "trigger": "Powers mentioned among hypotheses for inverse invariant-subspace results"
+        },
+        {
+          "assessment": "Contains n=1 norm, inverse norms and conditioning; not the power-growth beta formula.",
+          "evidence": [
+            "Source exhibits two-sided unitary decomposition T≈[c_0]⊕⊕_{j≥1}[[1,c_j],[0,1]], which does not compute ||T^n|| for arbitrary n."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/714ffe431fa275bea4d66401ea42cdcab136ef07/2026/11/08/exact-singular-spectrum-and-sharp-conditioning-of-diagonal-posit--75434db8999c/RESULT.md",
+          "material_read": "Entire RESULT.md including proof via two-sided unitary block decomposition, theorem, limits, verification and references",
+          "method": "Compared singular-value formula for T against n-power norm limit",
+          "title": "Exact singular spectrum and sharp conditioning of diagonal positive couplings of a shift pair",
+          "trigger": "Identical S/D/S* operator family and c_j parameters"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact upper Banach mean controls the natural linear growth invariant of all bounded positive diagonal shift couplings. It rigorously classifies sublinear power growth versus long high-coupling windows, including sparse large entries, and refines the classical uniform ||c||∞ power bound. The precise asymptotic coefficient is independently useful within a motivated invertible Cowen–Douglas block family rather than an arbitrary finite parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent checks are finite supplementary evidence; infinite quantifiers rely on analytically reconstructed proof.",
+    "Best-of-knowledge bibliographic comparison is not a global uniqueness proof or third-party mathematical certification.",
+    "All public-facing source files contain provenance/operational fields and have not been completely sanitized and semantically verified for new publication.",
+    "No GitHub writes or dispatcher closeout were performed."
+  ],
+  "schema_version": 1
+}
