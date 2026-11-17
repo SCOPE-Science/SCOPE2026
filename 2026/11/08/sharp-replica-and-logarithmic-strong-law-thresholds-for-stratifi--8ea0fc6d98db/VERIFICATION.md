@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. The program is standalone and uses only `math`, `random`, and `fractions`; it runs deterministic, rational and finite-series checks of the first-stratum inversion, median survival identity, variation estimates, and the critical parameter arithmetic. The result of the included run is preserved as `verification_output.txt` and records **889 passing checks**. Re-run the file against the embedded standalone package to reproduce those computations.
+## correctness
 
-For an analytical verification, decompose each quadrature estimate into the first random stratum and a remainder bounded uniformly by the total variation of the integrand away from zero, divided by the number of strata. Invert the exact first-stratum threshold and insert the resulting probability into the exact binomial median survival formula. Apply the power-log series criterion to these two-sided equivalent probabilities. The first and second Borel–Cantelli lemmas give the two almost-sure regimes; the second requires the stipulated independence between complete designs for distinct sample sizes. A separate fixed-sample power-log tail integration yields the moment threshold. These infinite arguments are in `RESULT.md`, not in a numerical certificate.
+PASS
 
-Boundary checks: \(0<\alpha<1\), \(r\ge1\) integer, real \(\beta\); the critical case \(\alpha=r/(r+1)\) converges strongly exactly when \(\beta>1/(r+1)\), with equality divergent. Independent audit and independent validation have not been performed. Precedence risk remains in any unavailable specialist literature.
+PASS: For 0<alpha<1, beta real, and 2r-1 independent strata-wise jitters at every n (also independent across n), total variation of f outside the first stratum provides deterministic o(1) remainder. The first-stratum crossing occurs at u~(alpha^beta/epsilon)^{1/alpha} n^{-(1-alpha)/alpha}(log n)^{-beta/alpha}. A binomial median tail gives exact leading choose(2r-1,r)*u^r. The integral test and both Borel–Cantelli lemmas yield a.s. convergence iff alpha<r/(r+1), or critical with beta>1/(r+1); independence across n is necessary for the failure direction. Fixed-n tail integration gives p-moment iff p<r/alpha or the equality log condition r beta/alpha>1. Remaining variance bound yields L1 convergence for all parameters. Source verifier checked, but finite checks cannot establish Borel–Cantelli.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Hofstadler–Rudolf provides general sufficient median-Latin-hypercube consistency under integrability and replication but not this family-specific necessary-and-sufficient sharp logarithmic boundary, divergence limsup, or exact tail prefactor. The exact critical alpha/beta/r frontier is a meaningful addition even where prior sufficient hypotheses overlap.
+
+## value
+
+PASS
+
+PASS: The complete strong-law and finite-moment phase diagram gives a sharp example where fixed-sample finite variance and convergence in mean coexist with arbitrarily large a.s. spikes. The log boundary clarifies the actual robustness gained by a given replication count for a standard endpoint singularity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

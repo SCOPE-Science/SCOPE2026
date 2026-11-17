@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T00:15:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: For 0<alpha<1, beta real, and 2r-1 independent strata-wise jitters at every n (also independent across n), total variation of f outside the first stratum provides deterministic o(1) remainder. The first-stratum crossing occurs at u~(alpha^beta/epsilon)^{1/alpha} n^{-(1-alpha)/alpha}(log n)^{-beta/alpha}. A binomial median tail gives exact leading choose(2r-1,r)*u^r. The integral test and both Borel–Cantelli lemmas yield a.s. convergence iff alpha<r/(r+1), or critical with beta>1/(r+1); independence across n is necessary for the failure direction. Fixed-n tail integration gives p-moment iff p<r/alpha or the equality log condition r beta/alpha>1. Remaining variance bound yields L1 convergence for all parameters. Source verifier checked, but finite checks cannot establish Borel–Cantelli.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The full-text Hofstadler–Rudolf generic sufficient theorem restricts L^p and number of replications; it does not assert a necessary criterion with the critical logarithmic beta boundary.",
+          "Loh's classical LHS L2 strong laws and scrambled-net nesting theorems address different sufficient assumptions/design couplings."
+        ],
+        "reasoning": "An existing general sufficient condition does not imply the sharp if-and-only-if divergence region, nor finite-n precise tail equivalences.",
+        "searches": [
+          "arXiv:2203.17010 Proposition 3.4 Example 3.6",
+          "Resultary semantic search: stratified Latin hypercube quadrature endpoint singular power log median of replicas almost sure Borel Cantelli"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2203.17010",
+        "https://doi.org/10.1214/aos/1069362310",
+        "https://arxiv.org/abs/2201.09413"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed r, the original theorem's full sufficient range is narrower than the critical equality in cases such as alpha=2/3, r=2, beta>1/3.",
+          "The source theorem here also proves a.s. limsup=infinity outside the region through cross-n independence, not provided by sufficient conditions."
+        ],
+        "reasoning": "Prior median consistency implies portions of PASS cases but not the all-parameter conclusion or the exact negative direction.",
+        "searches": [
+          "arXiv:2203.17010 Proposition 3.4",
+          "Resultary semantic search: stratified Latin hypercube quadrature endpoint singular power log median of replicas almost sure Borel Cantelli"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independent jittering of one point per interval is one-dimensional Latin hypercube sampling, up to permutation.",
+          "Median of 2r-1 samples is a binomial order statistic; prior general median consistency statements use this same estimator but differ in quantification."
+        ],
+        "reasoning": "The estimator itself is not new, while the exact power-log family threshold and constants are the candidate new content.",
+        "searches": [
+          "Resultary semantic search: stratified Latin hypercube quadrature endpoint singular power log median of replicas almost sure Borel Cantelli",
+          "Hofstadler–Rudolf arXiv:2203.17010"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected published exact table for alpha=r/(r+1), beta=1/(r+1) as phase boundaries or the tail prefactor was found.",
+          "The median binomial identity and power-log integral test are standard ingredients, not the assembled theorem."
+        ],
+        "reasoning": "There is no external exact numerical database/table in which this continuum-parameter phase classification is a routine lookup; no stronger direct match was located.",
+        "searches": [
+          "Resultary semantic search: stratified Latin hypercube quadrature endpoint singular power log median of replicas almost sure Borel Cantelli",
+          "arXiv:2203.17010"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Hofstadler–Rudolf provides general sufficient median-Latin-hypercube consistency under integrability and replication but not this family-specific necessary-and-sufficient sharp logarithmic boundary, divergence limsup, or exact tail prefactor. The exact critical alpha/beta/r frontier is a meaningful addition even where prior sufficient hypotheses overlap.",
+      "residual_risks": [
+        "Classical heavy-tail order-statistic Borel–Cantelli generalizations might imply the special family phase diagram with a direct transfer.",
+        "Failure direction requires fully independent sampling across n; not established for nested, scrambled-net or common random numbers.",
+        "Fixed-n moment conditions do not imply full-sequence strong consistency."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERING: sufficient convergence for medians of LHS, no family-specific necessity or sharp tail",
+          "evidence": [
+            "Proposition 3.4 relies on integrability and replication inequalities rather than the boundary alpha=r/(r+1), beta=1/(r+1)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2203.17010",
+          "material_read": "read arXiv full-text section containing Proposition 3.4 and Example 3.6 and inspected PDF pp.11–12",
+          "method": "arXiv PDF text and page image",
+          "title": "Consistency of randomized integration methods",
+          "trigger": "same randomized quadrature and median replication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The complete strong-law and finite-moment phase diagram gives a sharp example where fixed-sample finite variance and convergence in mean coexist with arbitrarily large a.s. spikes. The log boundary clarifies the actual robustness gained by a given replication count for a standard endpoint singularity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classical heavy-tail order-statistic Borel–Cantelli generalizations might imply the special family phase diagram with a direct transfer.",
+    "Failure direction requires fully independent sampling across n; not established for nested, scrambled-net or common random numbers.",
+    "Fixed-n moment conditions do not imply full-sequence strong consistency."
+  ],
+  "schema_version": 1
+}
