@@ -1,15 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact limiting law follows from the finite irreducible reflecting single-wall class on each pinned interval and independence of update clocks. Explicit convolution and a sign-changing difference of two trapezoidal discrete-uniform convolution laws prove every balancing step in convex order. Convexity of the affine-secant residual makes the sign proof rigorous, including the endpoints and strictly convex losses. Finite integer-majorization transfers establish the universal extremizers. `checker.py` obtained 39,942 exact assertions; independent generator computations were included. These checks supplement rather than replace the universal proof.
+## correctness
 
-## Originality — PASS within checked evidence
-Mobilia, Petersen and Redner (2007), Sections 4.1–4.2, supply the original ring domain-wall and large-gap Fourier analysis; that mechanism is deliberately credited. Yildiz et al. (2011 manuscript, 2013 journal version) supply general stubborn-agent stationary moments and influence-maximizing placement; the manuscript explicitly says variance-optimal placement is left for future work. Neither inspected source states the present all-parameter strict convex-order ranking of positive integer gaps, nor its unique universal convex-risk extremizers. Semantic searches across the relevant research database and targeted original literature found no broader dominating claim. A preexisting majorization theorem in another guise remains a residual priority risk, not an asserted impossibility.
+PASS
 
-## Value — PASS
-In a natural finite opinion-dynamics model, the question is how to distribute a fixed number of permanent opposing voices to reduce sustained fluctuations. Convex order answers every convex population-imbalance penalty simultaneously, including asymmetric costs and large-deviation-sensitive functions, not only quadratic variance. The exact finite-size all-integer classification pinpoints optimal and worst placement multisets without a large-population approximation. It is restricted to alternating pinned opinions and uniform undirected nearest-neighbor copying, rather than a general intervention prescription.
+With alternating opposite pinned boundary opinions, each open voter interval has an odd nonincreasing number of discordant edges; every multi-wall class can eliminate a pair of walls with positive probability, leaving its sole recurrent reflecting-wall chain. The latter has uniform edge position and disjoint intervals evolve independently. Thus X_g=r+sum_i U_{g_i} with E=n/2 and Var=sum_i(g_i²-1)/12. The exact discrete-trapezoid PMF difference under (a,b)->(a+1,b-1), b>=a+2, changes sign from positive tails to negative interior and has mass and first moment zero; affine-secant convexity proves strict all-test improvement. Integral majorization gives unique gap-multiset extrema. Independent rational uniform convolution gave variance 8/3 for (3,3,3,3) versus 20/3 for (9,1,1,1). n=m, m=2 and gaps one are included.
 
-## Limits and closest literature
-The ring domain-wall mechanism, its uniform limiting positions, and approximate distribution were already established by Mobilia et al.; only the further strict convex ordering and placement criterion are proposed as the finding. The checked general-graph stubborn-voter source gives stationary moments but does not settle this placement problem. A literature search cannot itself establish historical priority. Verification used finite state spaces and exact fractions, with the general proof supplied separately.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: Mobilia--Petersen--Redner (2007) establish uniformly wandering single walls between opposing frozen opinions. Yildiz et al. analyze general stubborn-agent mean/variance, but no located earlier theorem proves the all-convex-payoff, strict integer-gap majorization order and its unique balanced/concentrated spacing optima. The exact finite convolution formula alone is not the accepted novelty.
+
+## value
+
+PASS
+
+PASS: Placement of fixed opinion sources is a natural finite-cycle control problem. A simultaneous, strict ordering for every convex stationary count loss, plus unique integer spacing extremizers, goes materially beyond the classical domain-wall mechanism and asymptotic variance, without requiring a general-graph extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
