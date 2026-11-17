@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Performed checks
+# Independent mathematical audit
 
-The proof independently derives the Gaussian squared-modulus identity by the difference substitution and additive-character orthogonality. It identifies the radical dimension for every quadratic parameter by the trace-pairing rank map, handles the relative-trace subfield case separately, and counts the complete distributions. A standalone, standard-library implementation (`CHECK.py`) independently enumerates the phase histograms of each finite Fourier sum and checks their exact cyclotomic zeros and squared magnitudes to an absolute numerical tolerance below one millionth.
+## correctness
 
-Full checked fields: 27, 125, and 81 elements (four representative planes, including both plane types in the last field). Complete two-plane classification examined 13, 31, and 130 planes in these respective fields. Parseval and all predicted magnitude and fiber counts were checked. The checker was replayed from the packaged file bytes.
+PASS
 
-## Limits
+Let Q_a(x)=Tr(a x^2) and B_a(h,y)=Tr(2ahy) on the two-dimensional F_p-space H. Orthogonality after x-y=h gives |S_H(a,b)|^2=p^2 sum_(h in radical B_a) psi(bh), since Q_a(h)=B_a(h,h)/2=0 for odd p. Thus the nonzero magnitude is p^(1+d_a/2) and occurs for q/p^d values of b. For H=<u,v>, a maps to the symmetric matrix whose entries pair a with u^2,uv,v^2; its image has rank dim span{1,r,r^2}, r=v/u. It is 3 except when r belongs to quadratic subfield, equivalently H=u F_(p^2) and m even. The generic symmetric-matrix rank counts 1,p^2-1,p^3-p^2, and exceptional relative-trace pairing counts q/p^2 zero forms and no rank-one forms. Substitution proves every zero count, nonzero amplitude level, zero-fiber multiplicity, and exact exceptional-plane count. Independent F_27 finite-field rank enumeration found d=2,1,0 counts 1,8,18 and Z=168, as theorem. No finite test substitutes for field-linear proof.
 
-The finite checks do not establish all-prime/all-extension claims. Those rely on the supplied proof. The literature overlap review is not a guarantee of global priority. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+Quadratic Gauss-sum magnitude rules, trace nondegeneracy and counts of binary symmetric form ranks are classical and expressly credited. Li’s primary prime-field uncertainty theorem concerns arbitrary coefficients on proper F_p subsets, not additive 2-planes in extension field F_(p^m). Resultary Fourier/frame literature studies self-restriction, quadratic shells and other support objects; no covering all-H exact parabolic magnitude histogram, with subfield-line rigidity and zero-minimization, was found. A coding-theory rank-weight-enumerator equivalent is a specific priority risk.
+
+## value
+
+PASS
+
+The natural Fourier transform of a partial finite parabola has a sharp support-dependent zero/spectral classification: precisely two histograms, a subfield-line rigidity theorem, and an extremal zero-count ratio. It distinguishes geometrically exceptional additive planes, useful to finite-field uncertainty, harmonic analysis and support design; the exact histogram is not a cosmetic recomputation of Gaussian rank counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

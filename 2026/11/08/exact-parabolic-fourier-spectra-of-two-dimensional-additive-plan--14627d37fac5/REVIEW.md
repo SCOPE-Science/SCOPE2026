@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes prime characteristic, extension degree, support dimension, additive-character normalization and the complete frequency range. The squared-modulus derivation uses \(x-y\) and exact orthogonality on \(H\); the radical is quadratic-null because the characteristic is odd, and the trace-annihilator contains exactly \(q/p^d\) linear frequencies. This yields all nonzero amplitude levels without approximations. The rank-map classification uses nondegeneracy of the absolute and relative field traces; for a basis ratio \(r\), linear dependence of \(1,r,r^2\) occurs exactly in the quadratic-subfield case. Classical symmetric-matrix rank counts and plane enumeration produce every claimed multiplicity. The stand-alone checker independently compared every frequency over four representative planes in fields of sizes 27, 125 and 81, and enumerated all 174 two-planes across those fields. The finite tests are supplementary to the general proof. No unproved infinite extrapolation is used.
+PASS
 
-## Originality — PASS relative to inspected sources
+Let Q_a(x)=Tr(a x^2) and B_a(h,y)=Tr(2ahy) on the two-dimensional F_p-space H. Orthogonality after x-y=h gives |S_H(a,b)|^2=p^2 sum_(h in radical B_a) psi(bh), since Q_a(h)=B_a(h,h)/2=0 for odd p. Thus the nonzero magnitude is p^(1+d_a/2) and occurs for q/p^d values of b. For H=<u,v>, a maps to the symmetric matrix whose entries pair a with u^2,uv,v^2; its image has rank dim span{1,r,r^2}, r=v/u. It is 3 except when r belongs to quadratic subfield, equivalently H=u F_(p^2) and m even. The generic symmetric-matrix rank counts 1,p^2-1,p^3-p^2, and exceptional relative-trace pairing counts q/p^2 zero forms and no rank-one forms. Substitution proves every zero count, nonzero amplitude level, zero-fiber multiplicity, and exact exceptional-plane count. Independent F_27 finite-field rank enumeration found d=2,1,0 counts 1,8,18 and Z=168, as theorem. No finite test substitutes for field-linear proof.
 
-The motivating Li work (arXiv:2609.16030, sections 1 and 3, first submitted September 11, 2026) is a sharp coefficient-uniform zero theorem on the **prime** parabola and does not state this classification in extension degree at least three. Iosevich–Liu–Mayeli–Pakianathan (arXiv:1601.03473) analyze bandwidth and annihilating sets on finite vector spaces; Iosevich–Koh (arXiv:0804.4505) analyze extension bounds for quadratic surfaces; Biró–Lev (arXiv:1808.07424) establish general finite-plane uncertainty inequalities. The inspected results neither give this two-type classification nor imply its explicit complete amplitude multiplicities without the independent trace-restriction analysis. Schmidt (arXiv:1803.04274, full accessible HTML, Sections 1–2 and rank-distribution framework) covers general quadratic and symmetric-form ranks, but not the special trace-quadratic pencil from arbitrary prime-field two-planes in extension fields. The Gaussian formula for a quadratic form, the symmetric two-by-two matrix rank counts, and the trace-pairing fact are standard and are not claimed as original. Related published research records concerning finite-parabola zero bounds, finite Fourier frames, and finite-ring quadratic extension were compared. Risk remains of unindexed work, especially a coding-theoretic rank-weight enumerator from which the histogram could follow.
+## originality
 
-## Value — PASS
+PASS
 
-The precise magnitude histogram is a natural invariant for sparse quadratic Fourier measurements and determines both the exact number and distribution of impossible measurement outcomes. The theorem classifies every two-dimensional additive-plane support over every odd prime-power extension, detects a sharp subfield-invariance transition, proves an exact exceptional/minimal-zero criterion, and counts exceptional planes. It is not a single arbitrary finite computation or an informal consequence of a prime-field zero estimate; it uses a complete all-field structural dichotomy. It does not address arbitrary support geometries or arbitrary complex coefficients.
+Quadratic Gauss-sum magnitude rules, trace nondegeneracy and counts of binary symmetric form ranks are classical and expressly credited. Li’s primary prime-field uncertainty theorem concerns arbitrary coefficients on proper F_p subsets, not additive 2-planes in extension field F_(p^m). Resultary Fourier/frame literature studies self-restriction, quadratic shells and other support objects; no covering all-H exact parabolic magnitude histogram, with subfield-line rigidity and zero-minimization, was found. A coding-theory rank-weight-enumerator equivalent is a specific priority risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The natural Fourier transform of a partial finite parabola has a sharp support-dependent zero/spectral classification: precisely two histograms, a subfield-line rigidity theorem, and an extremal zero-count ratio. It distinguishes geometrically exceptional additive planes, useful to finite-field uncertainty, harmonic analysis and support design; the exact histogram is not a cosmetic recomputation of Gaussian rank counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
