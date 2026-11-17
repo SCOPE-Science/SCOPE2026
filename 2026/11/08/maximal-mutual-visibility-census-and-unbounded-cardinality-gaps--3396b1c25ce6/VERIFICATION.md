@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible finite and structural checks
 
-Run `python3 verify.py` with Python 3 and no external libraries. The initial 2360-state check is exhaustive *as a theorem of the four-coordinate threshold-capping lemma given in RESULT.md*: counts greater than four can be capped at four with no change in any current or one-addition visibility predicate. Without this separate lemma, enumerating 2360 states would establish only a finite sample and not the stated infinite theorem.
+# Independent mathematical audit
 
-A second, independent test constructs \(G_n\) from bipartite adjacency lists, calculates distances by breadth-first search, checks the geodesic definition for every subset, and tests inclusion-maximality by attempting every single addition. Graph orders \(n=4\) through \(9\) yield \(1,397,760\) checked subsets, \(1,351,121\) visible sets and \(3,456\) maximal sets. The program compares their complete cardinality polynomials against the theorem and asserts exact agreement.
+## correctness
 
-Sample maximal-set polynomials: \(n=4\) yields \(8z^5+10z^6+32z^7+z^8\); \(n=5\) yields \(10z^6+2z^7+20z^8+50z^9+z^{10}\). These computations do not themselves prove any asymptotic or general statement. No independent mathematical audit has been performed.
+PASS
+
+For G_n=K_(n+1,n+1)-M_n and n>=4, distances are 1 for present cross-edges, 2 for same-shore pairs, 3 for missing matched pairs. Checking allowed internal vertices gives the three explicit conditions L,R,P in occupancy classes (c,d,e,h) plus unmatched omission flags u,v. Every omitted vertex maps to one of six occupancy updates; all comparisons have thresholds <=3, so capping counts at 4 preserves both current visibility and all single-addition maximality decisions. The 2360 capped states exhaust the parametrized classification into seven disjoint cases, giving the six-term polynomial and all boundary coefficients. Fresh independent BFS direct visibility through n=6 agreed, as did independent 2360-state check.
+
+## originality
+
+PASS
+
+This is ordinary mutual visibility requiring a geodesic avoiding other selected vertices, not total/dual visibility; near-crown K_(n+1,n+1)-M_n has two unmatched vertices and is not the perfect crown K_(n,n)-M_n. Bujtas, Klavzar, Tian visibility-polynomial theory includes complete bipartite classes and general definitions. A Resultary theorem on matching-deficient TOTAL mutual visibility concerns a different predicate, so its polynomial does not imply the maximal ordinary mutual-visible sets here. An all-subset polynomial of the perfect crown or a total-visibility enumerator cannot be specialized to the new graph and maximality criterion without additional geodesic and extension analysis; the explicit capping classification establishes the missing implication. Best-of-knowledge originality with disclosed residual risks; no search failure alone is treated as novelty proof.
+
+## value
+
+PASS
+
+The first exact complete maximal mutual-visibility cardinality polynomial for a natural matching-deficient near-crown family resolves both extreme sizes and the unbounded holes in its support. The explicit finite-state reduction is mathematically motivated by geodesic obstructions, not an arbitrary tiny graph census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
