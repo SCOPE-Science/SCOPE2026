@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Two independent enumerators reconstruct all admissible simplices and agree in all four tested cases. A complete, explicitly indexed matching leaves the stated critical cells; every cover relation of the face poset is checked, and a complete topological sort establishes global acyclicity. The exact signed Morse boundary is zero for six columns; for seven columns it has a certified integral unit minor and exact rank two, making its Smith invariants \((1,1)\). Since the resulting CW complexes have no positive-dimensional cells below degree three, their attaching maps are classified by the computed integer degree vectors; this yields the claimed integral wedge types, rather than merely mod-two Betti numbers. The verifier independently recomputes the original mod-two simplicial homology. For larger column counts the published shellability theorem and the explicit Euler count supply the remaining formula.
+## correctness
 
-## Originality — PASS
-The novel statements are the four-, five- and six-column homotopy types. The seven-column homotopy type is not claimed as novel: the 2026 Column Law top-homology formula gives top rank 90, the 2014 connectivity bound gives two-connectivity, degree-three integral homology is free by the Column Law, and Euler characteristic gives rank 21; the standard wedge lemma then gives the type. The closest recent paper already gives the three-column case and a different four-row torsion family; the earlier shellability theorem covers all column counts at least eight. The other relevant 2026 top-homology theorem does combine with connectivity and Euler counting to cover the seven-column case, but does not eliminate the lower-degree homology ambiguities for the four-, five- and six-column cases. Prior semantically similar work and equivalent descriptions as bounded-degree subgraph complexes were compared. A later revision of one primary manuscript was not fully accessible and equivalent unindexed work cannot be excluded; no stronger covering claim was found in the inspected material.
+PASS
 
-## Mathematical value — PASS
-The problem is a natural first nonuniform four-row model in a recently active topological classification question, with direct connections to colored partition constraints and multigraded Segre syzygies. The three new finite cases bridge the known small examples and previously implied higher-column regime. Six columns supply a mixed-dimensional integral homotopy type not forced by the already-known top-homology freeness theorem or Euler characteristic alone. The certificates demonstrate how these exceptional topological types arise rather than reporting isolated field-valued Betti numbers.
+PASS. For capacity (1,1,1,2) and at most one cell in each of m columns, both direct column-choice and disjoint row-subset enumerations yield the same complete faces. Independently replayed pivot matchings and full Hasse acyclicity for m=4 (286 faces; 138 pairs; one 0, nine 2 critical cells), m=5 (840; 409; one 0, 21 three-cells), m=6 (2139;1042; one 0, 53 three-cells, one 4-cell), m=7 (4816;2350; one 0, 23 three-cells, 92 four-cells). Independently reconstructed exact signed algebraic Morse projection: m=6 has zero integral 53x1 boundary, giving wedge53 S3 vee S4; m=7 23x92 boundary rank2, with unit determinant -1 minor rows (1,3), columns (11,33), every column integer-span of these; Smith factors (1,1) and 2-connectivity give wedge21 S3 vee wedge90 S4. m4,5 single positive critical dimension give asserted wedges. m1,m2,m3 have elementary/sourced classifications. For all m>=8 the published shellability criterion (sum capacities=5, rows=4 => m>=8) plus symbolic f-vector/Euler formula yields wedge b(m) S4; finite sampled polynomial values alone would not prove the universal case. Independent source check /mnt/data/scope03_independent_check_20261108.py and signed Morse check /mnt/data/scope03_chess_morse_check.py.
 
-## Scope and limitations
-The proof is finite-and-executable for the three new cases and supplies an extra check at seven columns, relying on standard algebraic discrete-Morse theory; it is not a general classification of other capacity vectors, does not claim an equivariant refinement, and has not undergone independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for m=4,5,6 ONLY. Limonchenko–Yu 2026 explicitly gives m2, m3 and other four-row torsion configurations; 2014 Jojić–Vrećica–Živaljević shellability covers m>=8; 2026 Column Law top homology + connectivity/Euler/wedge lemma implies m7 and is expressly not claimed new. Material full text of Oct27 2026 Limonchenko–Yu was not accessible (arXiv/OA failed and Oxford authorized downloader reported VPN disconnected), so that potentially relevant four-row-family theorem remains a specific priority risk. No accessible theorem was found implying the new m4..6 mixed homotopy types; inaccessible plausible source alone is not a scientific FAIL. Residual issue must be reviewed by authorized reader when access restored.
+
+## value
+
+PASS
+
+PASS. The (1,1,1,2) pattern is the first simple nonuniform four-row multiple chessboard family in a natural allocation/collision constraint setting. The exact m4,m5,m6 homotopy cases close the gap between known low-column examples and the theorem-implied m>=7 regime; in particular m6 has a mixed-dimensional integral wedge not forced by the previously known top homology. The result is a coherent natural finite classification within an all-m statement, not an arbitrary slice; prior m7 and m>=8 cases are clearly credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
