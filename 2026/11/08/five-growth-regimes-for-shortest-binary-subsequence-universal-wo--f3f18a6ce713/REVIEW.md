@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The greedy-arch equivalence gives precisely the length-\(2k\) universal words \(\{01,10\}^k\). The four-state pair transfer checks every newly created length-four window; the six orbit representatives and their rational generating functions follow by finite, explicit matrix algebra. The simple/double pole analysis yields the five growth rates. An exact integer-polynomial checker validates all sixteen rational identities; exhaustive enumeration and separately implemented subsequence tests provide finite cross-checks, not substitutes for the infinite derivation.
+PASS
 
-## Originality
+PASS — The universal shortest length is 2k: greedy arches must each contain both bits, and equality forces precisely {01,10}^k. Reversal/complement give six length-four forbidden-factor orbits of sizes 2,4,4,2,2,2. The stated four-state transfer with ordered previous two arches rejects every new contiguous four-window, so v(I-zM)^(-1)1 yields an infinite-family rational identity. An independent SymPy matrix reconstruction obtained exactly the six displayed generating functions for all forbidden orbits; this is distinct from simply trusting verify.py logs. Five positive dominant growth constants (including unit polynomial rate) follow from the rational poles. Quantifiers: every k>=1 and each of the 16 length-four factors; no claim at longer lengths or multiple patterns.
 
-PASS with residual bibliographic risk. The nearest foundation is Barker et al. (arXiv:2003.04629), which already supplies the shortest-arch characterization. Adamson (arXiv:2304.04583) treats unrestricted counts, while Adamson et al. (arXiv:2311.10658) provide a general regular-language counting algorithm. None of the relevant material inspected states the complete six-rational-function classification or identifies the five growth regimes for a single forbidden four-symbol contiguous factor. The general algorithm is not confused with an explicit evaluated classification. The `0000` case, classic Fibonacci/Padovan numerical sequences, and the transfer technique are not claimed as individually new. Equivalent treatments outside the inspected sources remain possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The shortest words provide the minimal-length edge of subsequence-universal coding; a single local forbidden window models a strictly local constraint. The exhaustive natural length-four pattern classification is the first short case displaying more than the trivial unrestricted, linear, and Fibonacci-type behaviors, including distinct non-Fibonacci algebraic growth constants. Every positive universality level is covered. This is an exact structural characterization of a meaningful constrained-code family, not an arbitrary finite table.
+PASS, qualified — General shortest-subsequence arch factorizations and rational-language counting algorithms are prior, but the explicitly evaluated complete forbidden-length-four orbit classification with five distinct asymptotic regimes is not stated in the inspected primary texts or the comparable published findings. This is a specific complete exact classification, not new automata methodology. Unindexed equivalent automaton enumeration remains a priority risk.
 
-## Limits and sources
+## value
 
-The theorem is confined to one four-symbol contiguous forbidden factor and words of minimum possible length. The printed proofs and the standalone checker make these boundaries explicit. Primary sources: Barker et al. (2020), Adamson (2023), and Adamson et al. (2023). The relation to classical OEIS values is a numerical coincidence, not a prior identification of these constrained combinatorial objects. No independent external scientific audit has been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS — Shortest subsequence universality under a single contiguous forbidden pattern is a naturally motivated interaction between scattered and contiguous combinatorics. A complete orbit classification pinpoints a sharp polynomial-versus-four-exponential growth split, an exact invariant of the sixteen natural patterns. Elementary 0000/0001 cases do not on their own carry value; the coupled transfer and all-class synthesis do.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

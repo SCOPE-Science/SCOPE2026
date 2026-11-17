@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3.8 or newer, without third-party packages. The script checks all sixteen patterns, the six symmetry representatives, exact rational-function identities by integer-polynomial arithmetic and rational coefficients through \(k=32\), direct block enumeration through \(k=10\), and exhaustive subsequence tests for all binary words at the five smallest even lengths.
+## correctness
 
-Observed output:
+PASS
 
-```
-VERIFY_OK patterns=16 orbits=6 rational_terms=32 symbolic_identities=16 direct_minimal_lengths=1..5 tested_words=1364 pattern_cases=32736
-0000 [2, 4, 8, 16, 32, 64, 128, 256, 512]
-0001 [2, 4, 8, 16, 32, 64, 128, 256, 512]
-0010 [2, 4, 7, 12, 20, 33, 54, 88, 143]
-0011 [2, 4, 7, 12, 21, 37, 65, 114, 200]
-0101 [2, 3, 4, 5, 7, 9, 12, 16, 21]
-0110 [2, 3, 4, 5, 6, 7, 8, 9, 10]
-```
+PASS — The universal shortest length is 2k: greedy arches must each contain both bits, and equality forces precisely {01,10}^k. Reversal/complement give six length-four forbidden-factor orbits of sizes 2,4,4,2,2,2. The stated four-state transfer with ordered previous two arches rejects every new contiguous four-window, so v(I-zM)^(-1)1 yields an infinite-family rational identity. An independent SymPy matrix reconstruction obtained exactly the six displayed generating functions for all forbidden orbits; this is distinct from simply trusting verify.py logs. Five positive dominant growth constants (including unit polynomial rate) follow from the rational poles. Quantifiers: every k>=1 and each of the 16 length-four factors; no claim at longer lengths or multiple patterns.
 
-The checker covers finite ranges only; the proof in `RESULT.md` establishes all \(k\ge1\) from the exact transfer identity and rational-function algebra. No independent scientific validation is asserted.
+## originality
+
+PASS
+
+PASS, qualified — General shortest-subsequence arch factorizations and rational-language counting algorithms are prior, but the explicitly evaluated complete forbidden-length-four orbit classification with five distinct asymptotic regimes is not stated in the inspected primary texts or the comparable published findings. This is a specific complete exact classification, not new automata methodology. Unindexed equivalent automaton enumeration remains a priority risk.
+
+## value
+
+PASS
+
+PASS — Shortest subsequence universality under a single contiguous forbidden pattern is a naturally motivated interaction between scattered and contiguous combinatorics. A complete orbit classification pinpoints a sharp polynomial-versus-four-exponential growth split, an exact invariant of the sixteen natural patterns. Elementary 0000/0001 cases do not on their own carry value; the coupled transfer and all-class synthesis do.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
