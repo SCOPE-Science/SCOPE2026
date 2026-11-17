@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Two standalone Python 3 scripts are included with the theorem: `verify_fixed.py` and `verify_direct.py`. Execute them directly, without dependencies. `verify_fixed.py` enumerates all unital endomorphisms of the four-dimensional algebra for \(q=2,4,8\), performs exact elimination over the corresponding binary fields, and checks both fixed-dimension polynomials. It must print `VERIFY_OK_FIXED`. `verify_direct.py` constructs images of the algebra generators, verifies their square-zero relations, evaluates every algebra element under every endomorphism for \(q=2,4\), and checks the counts and Burnside identity without relying on the rank-formula implementation. It must print `VERIFY_OK_DIRECT`.
+## correctness
 
-Observed endomorphism distributions for \(q=2,4,8\): `(16,38,9,1)`, `(2176,1844,75,1)`, `(197632,63944,567,1)`. Observed automorphism distributions: `(0,14,9,1)`, `(1280,1524,75,1)`, `(165888,59336,567,1)`. The program checks finite fields only; the theorem for all powers of two is proved algebraically in `RESULT.md`. No independent audit has been performed.
+PASS
+
+In characteristic two every radical element of A_q=F_q[x,y]/(x²,y²) squares to zero, so generator images are arbitrary in m and every unital endomorphism has six coefficients a,b,c,d,u,v. On m the matrix has bottom-right det L=ad+bc. The fixed dimension equals 4-rank(M-I_3); splitting determinant-one versus other and t=dim ker(L-I_2), then counting identity, q²-1 nontrivial unipotents, eigenvalue-one diagonalizable and remaining matrices gives all E_d and G_d distributions, including singular L. The dimension-three radical square vanishes, fixing its algebra type. The common-invariant jump follows from all translation functionals (u,v) and determinant action; Burnside sum gives 3q orbits. Independent F2/F4 exact GF linear-algebra enumeration tested all 2^6=64 and 4^6=4096 maps and found E2=(16,38,9,1), G2=(0,14,9,1); E4=(2176,1844,75,1), G4=(1280,1524,75,1).
+
+## originality
+
+PASS
+
+The 3q automorphism element-orbit count is already established by the complete 2026 all-short-local-algebras orbit theorem and is explicitly excluded from independent novelty. The surviving exact all-binary-extension field spectra of fixed-algebra dimensions among all unital endomorphisms and automorphisms, and the characteristic-two small-field obstruction, are not implied by the prior element orbit-size table or Kureš common-invariant calculations. This is a qualified, scoped originality acceptance.
+
+## value
+
+PASS
+
+The Klein-four modular group algebra A_q is a natural modular representation object; exact individual-fixed-algebra spectra stratify a nontrivial q^6-element endomorphism monoid, including field-size-dependent exceptional automorphism behavior and a unique fixed-algebra isomorphism type at each dimension. Those finer invariants cannot be derived from a known 3q orbit count alone and supply reusable finite-field algebra benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

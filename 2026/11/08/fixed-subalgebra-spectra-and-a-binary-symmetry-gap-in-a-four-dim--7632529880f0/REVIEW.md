@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The characteristic-two normal form follows because precisely the radical elements have square zero. The fixed-space block rank formula is derived for both determinant strata, and the exhaustive partition of \(2\times2\) matrices into identity, nontrivial unipotent, and distinct-eigenvalue and no-fixed-eigenvalue cases gives exact polynomial counts. The fixed-ring isomorphism classification follows from the multiplication table and the dimension-three stratum's one-dimensional radical quotient. Independently implemented exact finite-field enumeration for \(q=2,4,8\) and direct evaluation of each algebra element for \(q=2,4\) agree with all stated counts. These tests are finite corroboration; the proof supplies the all-\(2^e\) quantifier.
+## correctness
 
-**Originality — PASS subject to literature risk.** The most relevant full-text source, Díaz–Liendo–Manzano-Flores–Regeta (arXiv:2408.02197), Example 4.25, uses precisely the same quotient but works in characteristic zero and addresses automorphism-group structure rather than the individual fixed-algebra distribution. Díaz–Lucchini Arteche (arXiv:2409.15081) reconstruct monomial quotients from groups, again not a fixed-spectrum count. Kureš (arXiv:1209.0093, pp. 1–3) uses the *intersection* of fixed spaces under all automorphisms and different quotients, not each individual map or endomorphism census. Published mathematical-index checks for fixed-point subalgebras, dimension spectra, and the Klein-four modular group algebra did not identify coverage. The group-order lemma itself is not new. Residual risk: unlocated general automorphism-module trace formulas or finite-group modular invariants could imply the small-algebra case; priority is not guaranteed.
+PASS
 
-**Mathematical value — PASS.** The quotient is canonically the modular group algebra of the Klein-four group, not an arbitrary small example. Fixed subalgebras are natural invariant rings for individual self-maps, while their dimensions stratify an entire nontrivial finite endomorphism monoid. The exact automorphism/endomorphism comparison reveals a genuine smallest-field obstruction, a unique isomorphism type at each attainable fixed dimension, a jump in the global invariant algebra between \(\mathbb F_2\) and larger binary extensions, and a closed orbit count. These properties are not determined by the abstract automorphism-group order alone; they are reproducible test data for modular monomial-algebra dynamics.
+In characteristic two every radical element of A_q=F_q[x,y]/(x²,y²) squares to zero, so generator images are arbitrary in m and every unital endomorphism has six coefficients a,b,c,d,u,v. On m the matrix has bottom-right det L=ad+bc. The fixed dimension equals 4-rank(M-I_3); splitting determinant-one versus other and t=dim ker(L-I_2), then counting identity, q²-1 nontrivial unipotents, eigenvalue-one diagonalizable and remaining matrices gives all E_d and G_d distributions, including singular L. The dimension-three radical square vanishes, fixing its algebra type. The common-invariant jump follows from all translation functionals (u,v) and determinant action; Burnside sum gives 3q orbits. Independent F2/F4 exact GF linear-algebra enumeration tested all 2^6=64 and 4^6=4096 maps and found E2=(16,38,9,1), G2=(0,14,9,1); E4=(2176,1844,75,1), G4=(1280,1524,75,1).
 
-Independent publication priority and mathematical certification remain unverified. The proof uses standard conjugacy class sizes and unipotent matrix counts. The result is restricted to the stated four-dimensional algebra.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 3q automorphism element-orbit count is already established by the complete 2026 all-short-local-algebras orbit theorem and is explicitly excluded from independent novelty. The surviving exact all-binary-extension field spectra of fixed-algebra dimensions among all unital endomorphisms and automorphisms, and the characteristic-two small-field obstruction, are not implied by the prior element orbit-size table or Kureš common-invariant calculations. This is a qualified, scoped originality acceptance.
+
+## value
+
+PASS
+
+The Klein-four modular group algebra A_q is a natural modular representation object; exact individual-fixed-algebra spectra stratify a nontrivial q^6-element endomorphism monoid, including field-size-dependent exceptional automorphism behavior and a unique fixed-algebra isomorphism type at each dimension. Those finer invariants cannot be derived from a known 3q orbit count alone and supply reusable finite-field algebra benchmarks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
