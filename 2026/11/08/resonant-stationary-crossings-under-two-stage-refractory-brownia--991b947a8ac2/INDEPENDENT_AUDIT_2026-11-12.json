@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T09:48:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The three-state Markov ODE and Ito equation Mprime=2D p_A-rM give the verified rational Laplace resolvent 2D(s+q)^2/[s(s+r)((s+q)^2+r(s+2q))], and M∞=2Dq/[r(q+2r)]. The nonstationary pair discriminant is r(r-4q), the residue of -r is -2D(q-r)^2/(rq^2), cancelling only r=q. For r/q in (0,4), the two real/oscillatory envelopes imply infinite strict crossings if r=q or 2<=r/q<4, including x=2 where the cosine amplitude 2/sqrt5 exceeds offset 1/2. At x=4 and x>4 the solution is a real exponential polynomial, with finitely many zeros. Near x=1, e^{delta u} barrier against positive cosine lobes gives two simple roots per full lobe until U_x=(1/delta)log(A/eta); omega->sqrt3/2, delta->1/2, eta=(x-1)^2/x, so N=(2sqrt3/pi)log(1/|x-1|)+O(1). This counts mean-square displacement sign reversals, not sample-path crossings or tangent zero contacts.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Evans and Majumdar provide renewal treatment and stationary distribution for general waiting time but inspected sections 1-2.2 and conclusion do not state the Erlang-2 transient strict crossing classification.",
+          "García-Valladares treatment includes exponential refractory pathway; Olsen Löwen includes general moment formulas for other partial-reset mechanisms."
+        ],
+        "reasoning": "Generality of waiting-time input can imply the MSD formula after specialization. It does not establish the sharp sign-crossing iff or logarithmic lobe-count theorem in a mathematically trivial one-line substitution; sources inspected do not conclusively exclude an implicit derivation.",
+        "searches": [
+          "Evans Majumdar 2018 arxiv:1809.01551 effects refractory period stochastic resetting",
+          "García-Valladares Gupta Prados Plata 2023 arxiv:2310.19913 stochastic resetting refractory pathway",
+          "Olsen Löwen 2024 arxiv:2406.10039 partial stochastic resetting with refractory periods"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1809.01551",
+        "https://arxiv.org/abs/2310.19913",
+        "https://arxiv.org/abs/2406.10039",
+        "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-tuned-cancellation-window-for-oscillatory-position-memory-in-r--2b4c50ec4d53/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Evans Majumdar general renewal resolvent is background; its long-time stationary behavior does not provide the precise transient zero-count classification in the sections read.",
+          "Run-pause-reverse result gives an exact cancellation and infinite stationary covariance sign reversals, but in a harmonic trap with mandatory direction reversal; coefficients and logarithmic scaling are not transferred by a parameter relabeling."
+        ],
+        "reasoning": "The finding requires separate residue cancellation, the exact x=2 amplitude comparison, and analytic positive cosine lobe counting. General transform methods do not supply the result without this nontrivial analysis.",
+        "searches": [
+          "Full Evans Majumdar 2018 published PDF via Edinburgh repository",
+          "Full Resultary 2026/10/18 pole cancellation for run pause reverse",
+          "arxiv:2406.10039 abstract partial reset refractory"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General renewal resetting formulas can be converted into the same rational Laplace MSD for Erlang-2 delay, but they do not by themselves state or classify strict crossing counts.",
+          "Related run-pause-reverse stationary positional covariance uses a four-state deterministic velocity model and different pole conditions."
+        ],
+        "reasoning": "An inverse Laplace transform is an available route, not identical to a proved necessary-and-sufficient strict sign-crossing phase diagram and asymptotic count; the observables differ in the closest SCOPE result.",
+        "searches": [
+          "Resultary search: Brownian refractory Erlang two phase variance infinite crossings stationary cancellation",
+          "Search: refractory reset stationary MSD oscillatory relaxation two exponential phases"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No relevant exact crossing-count table or parameter-phase census retrieved beyond the submitted research record."
+        ],
+        "reasoning": "This is a continuum-parameter relaxation classification, not a tabulated finite data calculation. Nonretrieval does not certify novelty.",
+        "searches": [
+          "Resultary search: two stage exponential refractory Brownian resetting stationary crossings table",
+          "Web search: Erlang resetting exact root-count strict crossings 2q 4q"
+        ]
+      },
+      "rationale": "Earlier general refractory renewal/Laplace formulations recover the moment resolvent but do not in inspected source sections state the complete two-stage Erlang strict-crossing iff boundaries or the isolated cancellation logarithmic divergence. A similar pole-cancellation trichotomy for a different run-pause-reverse oscillator is not the same observable/model. Historical specialization of general formula is a real priority risk.",
+      "residual_risks": [
+        "General all-refractory moment formulas might contain explicit Erlang-2 specialization or strict-crossing result outside inspected passages; this was not certified absent.",
+        "O(1) remainder not made into exact finite crossing formula; only near-x=1 asymptotic.",
+        "Numerical zero samples check finite cases only; infinitely many sign reversals follow from spectral and lobe proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives general renewal formulas and reset fractions; observed text does not state Erlang-2 strict stationary MSD crossing phase diagram",
+          "evidence": [
+            "The paper treats arbitrary refractory law and derives stationary position distribution plus renewal time-lag formula. No strict-crossing lobe-count law in inspected sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1809.01551",
+          "material_read": "Full accessible PDF inspected including introduction, stationary and time-dependent renewal sections 1-2.2 and conclusion; page 3 visual inspected",
+          "method": "web rendered PDF text and screenshot",
+          "title": "Effects of refractory period on stochastic resetting",
+          "trigger": "Most directly applicable general complete-reset renewal theory"
+        },
+        {
+          "assessment": "Contains analogous cancellation in a different four-state OU/velocity stationary covariance model, not present transient Brownian resetting MSD",
+          "evidence": [
+            "In prior C(t)=A Re(c exp(zt)/(kappa²-z²))+H exp(-kappa t) with mandatory reverse; submitted model has M(t)-M∞ with Erlang-2 rests and pole -r."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-a-tuned-cancellation-window-for-oscillatory-position-memory-in-r--2b4c50ec4d53/RESULT.md",
+          "material_read": "Full published RESULT.md proof, hypotheses, exact coefficient and boundary cases",
+          "method": "GitHub full scientific source read",
+          "title": "A tuned-cancellation window for oscillatory position memory in run-pause-reverse transport",
+          "trigger": "Potential prior theorem on isolated cancellation and sign changes"
+        },
+        {
+          "assessment": "General time-dependent moment formulas could imply the resolvent, but explicit root-count theorem not established from available material",
+          "evidence": [
+            "Abstract discusses partial resets, arbitrary refractory waiting and nonmonotone moments, not an Erlang-2 crossing count formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2406.10039",
+          "material_read": "Accessible abstract and bibliographic summary only; full text not read",
+          "method": "arxiv search/abstract",
+          "title": "Partial stochastic resetting with refractory periods",
+          "trigger": "More general refractory moment result might dominate the special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact phase diagram separates eigenvalue complexification from observable mode dominance and shows an isolated infinitely oscillatory parameter despite a slower real pole; the logarithmic count quantifies observable near-resonance transient behavior for a natural Erlang-2 refractory model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "D,r,q>0, initially active at reset origin; resting phases included in M; complete reset, equal q rates; count is strict sign crossings of ensemble mean-square displacement.",
+  "schema_version": 1
+}
