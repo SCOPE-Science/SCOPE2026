@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T19:03:15Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every a,b>=1 and each nonempty binary pattern, greedily minimizing over starting phases yields a run formula: a one-run pattern length qd+s spans q(a+b)+s; with >=2 runs it spans (a+b)sum q_i+s_1+s_r+sum internal block capacities. The unique maximal-run decomposition yields the displayed rational bivariate generating function H=F_a+F_b+(2F_aF_b+F_a^2G_b+F_b^2G_a)/(1-G_aG_b). A nonnegative slack and parity decomposition bounds the maximal span, including separate m=min(a,b)=1, m=2, and m>=3 regimes. Exact independent phase-by-phase greedy source scans match span and threshold for all 8,160 binary patterns for 1<=a,b<=4 and 1<=pattern length<=8; finite tests are only checks, while the run argument proves all parameters. The threshold concerns union over windows, not a single window containing all patterns.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kosche et al give generic algorithms for bounded-range subsequence analysis and complexity; submitted formulas give exact all-length enumerator and sharp threshold for one natural two-parameter family."
+        ],
+        "reasoning": "A general decision algorithm does not imply a known closed formula or the sharp integer phase diagram. No stronger published formula found in inspected sources.",
+        "searches": [
+          "arxiv:2207.09201",
+          "Bounded range subsequence spectra two block periodic binary words rational generating function universal threshold"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2207.09201",
+        "arxiv:2407.18599",
+        "Resultary: 2026/11/02/SCOPE-run-capped-binary-words-have-an-exact-subsequence-universality-s--19bfcecdc328"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bounded-range matching algorithms, unrestricted absent-pattern counts, indexed subsequence frequency do not supply the submitted run endpoint weights F_d and internal weights G_d."
+        ],
+        "reasoning": "The all-a,b rational spectrum and exact threshold require a separate run optimization and alternating-run enumeration, not immediate specialization of reviewed earlier statements.",
+        "searches": [
+          "arxiv:2207.09201",
+          "arxiv:2407.18599",
+          "arxiv:2306.07870"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kosche et al define bounded-range span; run-capped literature counts universality index of variable finite hosts, not minimum-span spectra of distinct patterns in X=(0^a1^b)^omega."
+        ],
+        "reasoning": "The independent variable in the count differs: target patterns vs source hosts. Neither a substitution nor complement duality yields the submitted H_{a,b} directly.",
+        "searches": [
+          "Bounded range subsequence spectra two block periodic binary words rational generating function universal threshold",
+          "arxiv:2207.09201",
+          "Resultary: 2026/11/02/SCOPE-run-capped-binary-words-have-an-exact-subsequence-universality-s--19bfcecdc328"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published run-limited host universality rational series is for admissible finite host words and counts their universality index; Adamson et al concern absent unrestricted subsequences."
+        ],
+        "reasoning": "Neither is a table of minimum spans of all patterns inside a fixed two-block infinite periodic word.",
+        "searches": [
+          "Bounded range subsequence spectra two block periodic binary words rational generating function universal threshold",
+          "Resultary: 2026/10/25/SCOPE-run-limited-binary-words-exact-subsequence-universality-spectrum--3a8f24d1254e",
+          "arxiv:2407.18599"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. Kosche–Koß–Manea–Pak arxiv:2207.09201 defines bounded-range subsequences and develops generic analysis algorithms/hardness; inspected full paper sections on matching, analysis and circular words do not give the all-a,b run-span exact spectrum and rational series for two-block periodic sources. Run-capped host-word universality results from Resultary classify a variable source under run limits rather than patterns embedded within a fixed periodic source; absent-subsequence and indexed frequency papers use different counts. Unindexed fixed-period formulas remain a residual priority risk.",
+      "residual_risks": [
+        "Unindexed all-parameter fixed-period subsequence formulas may precede this published result",
+        "Only primary generic matching paper inspected full; some related count papers compared at metadata level"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_IN_INSPECTED_THEOREMS",
+          "evidence": "Generic matching and analysis complexity/algorithms, no periodic 0^a1^b all-span rational generating function or sharp universal window in inspected statements.",
+          "identifier_or_url": "arxiv:2207.09201",
+          "material_read": "Accessible complete 27-page PDF inspected: introduction, bounded-range matching/analysis algorithms, and circular word sections, with screenshot of cover",
+          "method": "Read arXiv PDF textual sections and screenshot",
+          "title": "Subsequences in Bounded Ranges: Matching and Analysis Problems",
+          "trigger": "Defines exact bounded-range constraint and closest generic prior"
+        },
+        {
+          "assessment": "DIFFERENT_UNRESTRICTED_METRIC_WITH_ACCESS_LIMIT",
+          "evidence": "Unrestricted absent subsequence counts under universality index rather than minimum window span for fixed periodic host.",
+          "identifier_or_url": "arxiv:2407.18599",
+          "material_read": "Abstract and bibliographic metadata only, not full proof",
+          "method": "ArXiv search/metadata and Resultary comparison",
+          "title": "Tight Bounds for the Number of Absent Subsequences",
+          "trigger": "Potential broader absent-subsequence counts"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT_NOT_FULLY_INSPECTED",
+          "evidence": "Counts finite words constrained by run length; not distinct subsequence patterns inside one fixed periodic host.",
+          "identifier_or_url": "Resultary: 2026/11/02/SCOPE-run-capped-binary-words-have-an-exact-subsequence-universality-s--19bfcecdc328",
+          "material_read": "Resultary indexed title, mathematical summary and theorem parameters, not full RESULT.md",
+          "method": "Resultary semantic search",
+          "title": "Run-capped binary words have an exact subsequence-universality spectrum",
+          "trigger": "Close rational generating functions under run caps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Repeated two-dwell-time binary signals are a canonical periodic host family and minimum-span constraints are natural in bounded-range subsequence matching. The theorem supplies all-length exact pattern counts and sharp universality window thresholds with a meaningful transition at min block length 1,2,3; it replaces costly per-pattern embeddings by a closed rational series, not an arbitrary finite tabulation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2207.09201",
+    "arxiv:2407.18599",
+    "Resultary: 2026/11/02/SCOPE-run-capped-binary-words-have-an-exact-subsequence-universality-s--19bfcecdc328"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Binary one-sided 0^a1^b periodic host with positive a,b and one total span bound only",
+    "Counts distinct patterns rather than embeddings; universality is union over all length-p windows",
+    "Potential unindexed fixed-period subsequence exact formulas not ruled out"
+  ],
+  "residual_risks": [
+    "Unindexed all-parameter fixed-period subsequence formulas may precede this published result",
+    "Only primary generic matching paper inspected full; some related count papers compared at metadata level"
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING_IN_INSPECTED_THEOREMS",
+      "evidence": "Generic matching and analysis complexity/algorithms, no periodic 0^a1^b all-span rational generating function or sharp universal window in inspected statements.",
+      "identifier_or_url": "arxiv:2207.09201",
+      "material_read": "Accessible complete 27-page PDF inspected: introduction, bounded-range matching/analysis algorithms, and circular word sections, with screenshot of cover",
+      "method": "Read arXiv PDF textual sections and screenshot",
+      "title": "Subsequences in Bounded Ranges: Matching and Analysis Problems",
+      "trigger": "Defines exact bounded-range constraint and closest generic prior"
+    },
+    {
+      "assessment": "DIFFERENT_UNRESTRICTED_METRIC_WITH_ACCESS_LIMIT",
+      "evidence": "Unrestricted absent subsequence counts under universality index rather than minimum window span for fixed periodic host.",
+      "identifier_or_url": "arxiv:2407.18599",
+      "material_read": "Abstract and bibliographic metadata only, not full proof",
+      "method": "ArXiv search/metadata and Resultary comparison",
+      "title": "Tight Bounds for the Number of Absent Subsequences",
+      "trigger": "Potential broader absent-subsequence counts"
+    },
+    {
+      "assessment": "DIFFERENT_OBJECT_NOT_FULLY_INSPECTED",
+      "evidence": "Counts finite words constrained by run length; not distinct subsequence patterns inside one fixed periodic host.",
+      "identifier_or_url": "Resultary: 2026/11/02/SCOPE-run-capped-binary-words-have-an-exact-subsequence-universality-s--19bfcecdc328",
+      "material_read": "Resultary indexed title, mathematical summary and theorem parameters, not full RESULT.md",
+      "method": "Resultary semantic search",
+      "title": "Run-capped binary words have an exact subsequence-universality spectrum",
+      "trigger": "Close rational generating functions under run caps"
+    }
+  ]
+}

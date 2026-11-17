@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claimed identity is derived from the unique run decomposition of each pattern, rather than extrapolated from computation. The main critical step is the initial-phase optimization and greedy resetting at every letter switch, which is proved for all positive block lengths in RESULT.md. Once the span identity holds, the rational series follows by a disjoint even/odd run-count enumeration. The sharp threshold follows from a nonnegative slack variable; the odd/even parity case and the exceptional one-symbol source block are separately handled. The packaged reference verifier checks all asserted formulas on exhaustive finite families, without claiming these finite checks prove the universal statement.
+PASS
 
-## Originality
+For every a,b>=1 and each nonempty binary pattern, greedily minimizing over starting phases yields a run formula: a one-run pattern length qd+s spans q(a+b)+s; with >=2 runs it spans (a+b)sum q_i+s_1+s_r+sum internal block capacities. The unique maximal-run decomposition yields the displayed rational bivariate generating function H=F_a+F_b+(2F_aF_b+F_a^2G_b+F_b^2G_a)/(1-G_aG_b). A nonnegative slack and parity decomposition bounds the maximal span, including separate m=min(a,b)=1, m=2, and m>=3 regimes. Exact independent phase-by-phase greedy source scans match span and threshold for all 8,160 binary patterns for 1<=a,b<=4 and 1<=pattern length<=8; finite tests are only checks, while the run argument proves all parameters. The threshold concerns union over windows, not a single window containing all patterns.
 
-**PASS, conditional on the literature actually accessible.** The closest directly relevant primary article, Kosche–Koß–Manea–Pak (2022, arXiv:2207.09201), defines bounded-range subsequences and studies algorithmic matching, analysis, hardness and circular words. Its material inspected does not give a two-block periodic host's run-decomposed exact span spectrum, its bivariate rational counting series, or the sharp universality threshold. Adamson et al. (arXiv:2407.18599) count absent unrestricted subsequences under a fixed universality index; Menon–Singh (arXiv:2306.07870) count indexed occurrences, not minimum spans of distinct patterns. Research-record and accessible previous-claim comparisons found no implication-equivalent statement. Residual risk: an unindexed exact periodic-source formula or an uninspected stronger theorem might subsume the result.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A primary motivation of bounded-range subsequences is that generic analysis is algorithmically difficult. The canonical block-periodic binary family is the smallest natural parameter family beyond the alternating word: it models repeated dwell times for two events. The result classifies, for every pair of dwell times and every target length/window bound, exactly which patterns appear by their minimum span and counts all of them with a rational generating function. The exact sharp window threshold exhibits changes between minimum block lengths one, two and at least three, with explicit extremal witnesses; this is an infinite, structured classification rather than a finite table or a generic algorithm restatement.
+Best-of-knowledge PASS. Kosche–Koß–Manea–Pak arxiv:2207.09201 defines bounded-range subsequences and develops generic analysis algorithms/hardness; inspected full paper sections on matching, analysis and circular words do not give the all-a,b run-span exact spectrum and rational series for two-block periodic sources. Run-capped host-word universality results from Resultary classify a variable source under run limits rather than patterns embedded within a fixed periodic source; absent-subsequence and indexed frequency papers use different counts. Unindexed fixed-period formulas remain a residual priority risk.
 
-## Literature and limitations
+## value
 
-First-public source date for the guiding bounded-range model is 2022-07-19 (arXiv:2207.09201v1). Related primary materials include arXiv:2407.18599 and arXiv:2306.07870. All empirical tests are finite; the proof explicitly covers all positive parameters. The novelty assessment is bibliographic, not a guarantee of global priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Repeated two-dwell-time binary signals are a canonical periodic host family and minimum-span constraints are natural in bounded-range subsequence matching. The theorem supplies all-length exact pattern counts and sharp universality window thresholds with a meaningful transition at min block length 1,2,3; it replaces costly per-pattern embeddings by a closed rational series, not an arbitrary finite tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
