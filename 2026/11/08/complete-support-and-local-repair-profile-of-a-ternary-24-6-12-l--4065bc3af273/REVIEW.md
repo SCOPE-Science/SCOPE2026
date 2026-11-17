@@ -1,19 +1,21 @@
-# Review of the specific ternary \([24,6,12]\) code support profile
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The statement is finite and exact for the explicitly printed generator. A dependency-free checker performs rank tests modulo three, enumerates every one of the \(729\) coefficient words and every one of the \(56631\) nonzero-dimensional message subspaces exactly once through unique reduced-row-echelon forms, and checks their supports against complete per-dimension histograms. The unique minimum two-subspace has a displayed witness. Rank tests of all \(2024\) column triples and \(10626\) quadruples establish precisely three minimal triple supports and \(102\) minimal four-support circuits, hence the coordinatewise locality partition. Critical logical steps are: row rank six gives a bijection from message subspaces to code subspaces; echelon normal forms are unique; nonzero column-dependence coefficients furnish local recovery checks.
+PASS
 
-## Originality
+PASS. The pinned six-by-twenty-four ternary generator has full row rank and nonsingular Gram matrix over F3. Independently reconstructed all 3^6=729 codewords and all 56,631 nonzero-dimensional message subspaces using unique RREF pivot/free-entry normal forms; every subspace maps injectively to a code subspace. Support histograms give generalized weights (12,16,19,21,23,24), one 2D support-16 minimizer and 3D/4D minima with multiplicity three; the weight enumerator matches the submitted 729-word census. The three minimal dependent triples consist of disjoint coordinate triples {1,15,23},{2,5,11},{8,12,24}. No zero/proportional columns, 102 minimal 4-circuits and complete coordinate coverage by these circuits establish exact locality two on nine coordinates and three on the other fifteen. Full finite census is logically exhaustive and exact; this does not assert properties for other [24,6,12] codes.
 
-PASS on the searched evidence, not a claim of exhaustive priority. The full-text PDF of arXiv:2601.20600 was searched and its relevant sections inspected, including the exact matrix in Proposition 4.1 and the nearby tables and conclusion; it states the generator and LCD distance but no higher-support or locality census. Wei's generalized-weight theory and San-José's algorithm are general frameworks, not the numerical profile of this specific matrix. Indexed findings titled *Higher-support geometry of the displayed ternary code C3,2* and *Projective fingerprint of the optimal ternary [23,4,14] LCD code* concern different generator matrices and do not imply this one. Real risks: earlier unpublished or unindexed exact tables and possible code-equivalence coincidences with unexamined public collections. Novelty is an evidence-based best-knowledge assessment.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. This is a complete, natural higher-support invariant for a newly constructed, small distance-optimal LCD code, rather than an arbitrary slice of codewords: it determines higher-dimensional support thresholds important to erasure and wiretap-II interpretations. The unique two-dimensional extremizer and nonuniform local-repair partition are non-obvious structural distinctions inaccessible from parameters \([24,6,12]\) alone. The answer is exact, reproductible, and finite; it does not require a general theorem or optimality of locality among all codes.
+PASS. In An–Hong–Kim–Lim (2026) Proposition 4.1, the identical six-by-twenty-four generator appears with LCD code parameters [24,6,12], but the inspected paper does not furnish the generalized-weight hierarchy, complete subspace-support histogram or local dual-circuit partition. Generalized-weight and Sage algorithm papers provide definitions/algorithms but no numerical results for this matrix. Nearby published records computing C3,2 [23,5,12] or C3,4 [25,5,14] concern different code spaces; a code's length, dimension and minimum distance alone do not determine the asserted higher-dimensional support census. No exact prior table found; code equivalence to an unsearched table is a residual risk.
 
-## Limitations
+## value
 
-The claim applies only to the printed \(C_{3,3}\) generator. It does not give globally optimal recovery, performance bounds for a specific protocol, or a classification of all such parameter codes. Priority remains contingent on human assessment of unindexed literature; computational correctness is established by a transparent exhaustive finite certificate, not by an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. A published distance-optimal LCD code is a naturally motivated object and its whole generalized Hamming weight profile is a standard nontrivial invariant for multiword support and erasure/wiretap-II thresholds. The exact unique minimum-support 2-plane and uneven 9/15 all-symbol repair locality distinguish this particular generator beyond its [24,6,12] parameters; they could be needed for structure or localized recovery analyses. A finite exhaustive standalone classification is valuable without a general code-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
