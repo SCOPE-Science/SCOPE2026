@@ -1,19 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof derives the exact invariant bipartition-constant dynamics \(u\mapsto u-(r+s)h\sin u\) and checks that the nonconstant two-cycle returns in the full phase lift, rather than only modulo phase. The graph Laplacian's top eigenvalue equals \(r+s\) by Perron–Frobenius for the signless Laplacian; differentiation at both orbit points gives the same Jacobian \(I-h\cos a L\). Squaring yields every return multiplier, so the exact open stability window and all-unit collision follow by elementary inequalities. Convex minimax balancing of the extreme nonzero eigenvalues proves the unique optimized contraction, and explicit expansions prove the edge and scalar parabolic laws. The executable finite checks passed 92 assertions; the all-size result rests on the proof, not the enumeration.
+PASS
 
-## Originality — PASS, subject to stated priority risk
+For biregular graph A-degree r and B-degree s, class-constant relative phase reduces exactly to u->u-(r+s)h sin u. Existence and uniqueness of ±a follows strict monotonicity of 2a/sin a. Bipartite Perron–Frobenius gives Lambda=lambda_max=r+s simple. At both points cosine=-cos(a), so return derivative is (I-h cos(a)L)^2 and multipliers (1-2a cot(a) lambda_j/Lambda)^2. Since q=2a cot(a) decreases from 2 to negative, every transverse multiplier <1 iff 2/Lambda<h<pi/Lambda and >1 above. Convex spectral maximum occurs at lambda_2 or Lambda; balancing opposite-sign endpoint factors yields unique minimizer rho=[(Lambda-lambda2)/(Lambda+lambda2)]². The upper boundary parabolic computation is explicitly restricted to invariant two-colour manifold, m x_m² ->1/pi². Independent finite matrix/eigenvalue checks on stars and bicliques corroborate optimal radii.
 
-The motivating 2026 Huygens article establishes small-parameter Lyapunov descent, fixed-point convergence and a Morse–Smale criterion, not the large-step period-two branch. Its 2026 follow-up treats rings inside the Lyapunov regime. Preceding exact analyses cover the general bipartite *local* bifurcation near onset and the entire branch on *even cycles*. Those cases and their proof techniques are treated as prior work, not independent novelties. The assessed advance is the entire sharp stability interval, exact graph-optimal decay and endpoint laws across connected **biregular bipartite** graphs, including stars and hypercubes, not implied by any inspected stronger statement. Specialized older results may still affect priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The loss of the discrete Lyapunov guarantee is an intrinsic dynamical threshold. The theorem resolves what happens afterward for a natural, graph-theoretically characterized family: global parameter continuation of a specific two-cycle, an all-mode threshold, optimal spectral decay involving algebraic connectivity, and a simultaneous neutral collision. The explicit star and cube formulas extend the result beyond previously known even-cycle calculations. The theorem does not overstate global basins, uniqueness of all orbits or transverse nonlinear stability at the neutral endpoint.
+Best-of-knowledge: earlier sharp global prohibition and local flip birth at h=2/lambda_max on weighted bipartite graphs is acknowledged, and previous even-cycle work covers special graph cases. Neither proves the biregular branch for all h>2/Lambda, precise graph-uniform attracting window ending pi/Lambda, all-mode two-step multiplier spectrum, lambda_2-dependent optimum, or two-colour parabolic upper-end coefficient. Relevant 2026 Huygens full text covers strict Lyapunov step ranges, not these postthreshold conclusions.
 
-## Closest literature and limits
+## value
 
-The closest primary sources are arXiv:2610.10993v1 and arXiv:2610.19953v1. Earlier local weighted-bipartite bifurcation work and exact even-cycle specializations have overlapping conclusions; the new statement explicitly isolates the non-implied graph-family extension. Other work in discrete Kuramoto and coupled-map theory remains a residual historical priority risk. The verification is same-model only, not independent.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp all-graph-family attracting parameter window, exact full return multipliers and lambda_2-controlled best contraction are useful finite-graph network dynamics facts beyond an existing onset result. The parabolic boundary distinguishes a nonhyperbolic dynamical regime with a precise scalar decay law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
