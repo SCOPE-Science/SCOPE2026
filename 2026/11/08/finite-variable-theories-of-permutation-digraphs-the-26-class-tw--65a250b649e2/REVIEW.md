@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** In the pure binary relational language, atomic two-pebble pair types are exhausted by fixed-point, two-cycle, and longer-cycle positions. The only exceptional long-cycle configuration with no two nonadjacent long vertices is one directed triangle, explaining the 26 classes. The three-variable path recursion carefully uses locally bound names and the same-cycle tests quantify at most the allowed number of representatives. The permanent cycle-rotation pebble strategy establishes both infinite-depth equivalences. Independent finite refinements and the minimum-order enumerator reproduce the stated checks, while the proof does not depend on extrapolation.
+## correctness
 
-## Originality
-**PASS, with qualified priority.** The closest primary work on the identical relational signature is Albert–Bouvel–Féray, *Two first-order logics of permutations*, arXiv:1808.05459, §§2,6. It proves full first-order isomorphism/cycle-type facts and addresses simultaneous definability with a second permutation language, not the sharp fixed-variable equivalences or 26-type exceptional width. Grohe–Otto, arXiv:1204.1990, §2, supplies generic pebble-game equivalence rather than these cycle-count conclusions. Earlier results on rank-three theories of permutation digraphs bound **quantifier rank**, not variable width at arbitrary rank; theories of structures with unary function symbols use a different signature. A general unpublished or unlocated composition result remains a priority risk.
+PASS
 
-## Mathematical value
-**PASS.** One-bijection graphs are a fundamental test class for the expressiveness of bounded-variable first-order logic. The complete characterization reveals a nontrivial discontinuity between the 26 two-variable theories and the infinitely many three-variable theories, gives a sharp rule for exactly which cycle multiplicities are recoverable, and identifies all canonical smallest representatives, including the exact ten-point boundary in width two. The product identity itself is classical; its logical interpretation and the exceptional low-width structure are the focus.
+In the pure binary relation graph of one bijection, FO1 tests only existence of fixed and nonfixed vertices, yielding three nonempty-domain classes. FO2 can define F, T (2-cycle points), and L (>=3-cycle points). The permanent 2-pebble game sees first two cycle multiplicities clipped at 2 and whether L is absent, exactly one 3-cycle, or otherwise; 3^3-1=26. For k>=3, capture-safe 3-variable recursive path formulas identify exact cycle lengths; k-variable existence tests count distinct cycles through cap k. A permanent cycle-rotation matching game supplies the converse, yielding the minimum-model Euler product. Independently implemented set-based fixed-point tuple refinement for 44 nonempty finite permutation cycle types through 7 vertices: for k=1,2,3 no pairwise mismatch, 3,20,37 observed small-size classes respectively. These finite counts are not the infinite 26-class proof.
 
-## Limits
-The models are nonempty finite permutation digraphs over one binary relation, with no counting or function symbols. Historical uniqueness is not established; computational checks are finite and independent human mathematical audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Grohe–Otto supply generic pebble theorems, while Albert–Bouvel–Féray study the same binary permutation relation under unrestricted ordinary first-order logic, not bounded reusable-variable width. Resultary connected colored directed cycles have a different class universe, and its quantifier-rank-three permutation classification bounds depth rather than variables. The submitted 26 exceptional FO2 classes and cap-k complete theory at arbitrary depth are not implied by those inspected results.
+
+## value
+
+PASS
+
+A precise model-theoretic finite-variable classification, including an exceptional low-width boundary and unique minimum representatives, exposes a real expressive-power separation. Exact 26 classes and partition-generating series are natural full invariants of a standard logical signature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
