@@ -1,15 +1,21 @@
-# Scientific review: finite-jet Fourier phase retrieval for two intervals
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof expands the squared Fourier transform of two arbitrary separated intervals through order four. The exact coefficient identities give a positive invariant \(q=ab\,g(g+a+b)\) and reduce the unknown length product \(r=ab\) to a quadratic with exactly one positive root. The gap then follows from a positive square root, and the remaining exchange of the lengths is precisely reflection. The fourth-order attainable-jet inequality follows from strict monotonicity in \(r\). Varying \(r\) at fixed area and \(q\) supplies a continuum of order-two ambiguities, proving minimality. Exact rational double-moment integration and direct Fourier evaluations in `CHECK.py` independently corroborate the identities. A computer test alone cannot establish the all-real-parameter claim; the displayed algebra and monotonicity do.
+PASS
 
-## Originality — PASS relative to inspected sources
+For E=[0,a] union [a+g,a+g+b], a,b,g>0, set s=a+b, r=ab, d=g+s/2 and c_2=I''(0)/2, c_4=I^(4)(0)/24, I=|Fourier 1_E|² with exponent -itx. Direct double-integration/sinc expansion yields c2=-s^4/12-r(d²-s²/4), hence q=-c2-s^4/12=rg(g+s)>0. Eliminating d² from c4 gives c4=s^6/360+q s²/12+q²/(12r)-qr/12. For fixed s,q>0 this is strictly decreasing for 0<r<=s²/4; the quadratic qr²+yr-q²=0 (y=12c4-s^6/30-qs²) has one positive root, recovering r, the unordered lengths and g. Its endpoint at r=s²/4 gives sharp necessary and sufficient feasible-jet bound c4>=s^6/360+q s²/16+q²/(3s²), equality iff a=b. Varying r at fixed s,q gives infinitely many same zeroth/second-jet noncongruent intervals, proving minimality. Independently verified 27 exact-rational examples using difference moments. The proof handles all positive lengths/gaps, not noise stability.
 
-Xia and Xu, *Fourier Phase Retrieval for Finite Unions of Intervals* (arXiv:2606.19855, first submitted 2026-06-18), Theorems 1.2–1.3, prove full-magnitude uniqueness and stability for at most two intervals. Their Section 2 first infers the maximal endpoint from the entire trigonometric spectrum before equating further coefficients. Equality of three Taylor coefficients is much weaker than equality of the full magnitude. The inspected theorem and its proof do not present or imply the exact order-four finite-jet inversion, its minimality, or the sharp feasible-jet inequality. Grohs–Koppensteiner–Rathmair, *Phase Retrieval: Uniqueness and Stability* (SIAM Review, 2020), discusses general full-data ambiguities; it does not supply the finite-jet result in its inspected overview. Searches for alternate phrases involving spectral moments, covariograms and Taylor derivatives yielded no direct equivalent. This is a best-knowledge originality judgment, not a guarantee of publication priority. Residual risk: an equivalent low-order-moment formula could appear under another terminology in older inverse-moment literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Whole Fourier intensity is an infinite continuum of observations. Proving that precisely three natural local Taylor measurements suffice for every two-interval indicator gives an explicit minimal finite-data theorem, rather than simply rephrasing the known full-data uniqueness. The analytic inverse supplies both interval lengths and the gap; the exact feasible-jet boundary classifies all realizable measurements and detects the equal-length locus. The loss of identifiability at vanishing gap is also mathematically transparent. No assertion is made about numerical stability of estimating derivatives from noisy finite-band samples or about unions of three or more intervals.
+Best-of-knowledge PASS, with significant named priority risk. Xia–Xu 2026 arxiv:2606.19855 proves full Fourier-magnitude uniqueness and stability for finite unions of intervals, including two intervals. Whole-magnitude uniqueness does not logically imply that only derivatives through order four suffice, that this order is minimal, or the precise feasible-jet inequality. The same-object Xia–Xu paper's FULL text could not be retrieved despite arXiv/OA attempts; authorized Oxford access reported VPN disconnected. Only its abstract was inspected, so no whole-document NOT_COVERING conclusion is made. Independent finite-jet identities remain unimplicated by observed statements subject to latent coverage in unread full text.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Reducing infinite Fourier intensity measurement to exactly three real Taylor-jet numbers is a substantial identification fact for a natural two-component geometric signal class. The sharp minimality and feasible measurement region are useful for moment-based inverse geometry, even though derivative measurement is idealized and the inverse becomes ill-conditioned at degenerations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
