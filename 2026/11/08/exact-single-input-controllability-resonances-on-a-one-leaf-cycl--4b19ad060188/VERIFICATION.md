@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. No third-party dependencies are required. The program directly constructs the weighted Laplacian action and the Krylov controllability sequence rather than using the spectral closed form to compute ranks.
+## correctness
 
-Observed completed output:
+PASS
 
-```
-PASS 322 two-prime full Krylov-rank tests, 785 exceptional-mode residual tests, 196 unweighted modular-size tests
-```
+Reflect the unit-weight cycle about the pendant vertex. The odd sector has sine eigenpairs with nonzero e1 coordinate; the even sector is irreducible symmetric tridiagonal, hence simple. Even and odd eigenvalues cannot collide by projecting the forced cycle equation onto cosine and using the leaf equation. A controllability-invisible even eigenvector satisfies v1=v_(n-1)=0 and a Dirichlet recurrence with odd ell, lambda=2-2cos(pi ell/(n-2)); boundary equations force lambda^2-2(1+t)lambda+2t=0, giving positive t exactly at specified eligible ell. PBH converts this complete list to rank deficiency, at most 2. Special t=1 and 1/2 congruences follow from angles pi/4,3pi/4 and pi/5,3pi/5. Independent exact rational Krylov matrix rank for 50 cases n=3..12 and 5 positive weights agrees; it is not the infinite proof.
 
-For each \(n\) from \(3\) through \(48\), seven rational leaf conductances were checked with two finite-field primes. At \(t=1\) and \(t=\tfrac12\), the exact predicted rank deficit of two was compared against full finite-field ranks, including all exceptional sizes in this interval. For \(n\) from \(3\) through \(64\), each eligible mode's analytic coordinates were tested against the explicit weighted Laplacian eigenvalue equation, with residual tolerance \(2\times10^{-10}\); these checks use floating-point arithmetic. Both modular size laws were also independently compared against the exceptional-weight formula for \(3\le n\le100\).
+## originality
 
-Finite-field checks are finite cases and may differ from characteristic-zero ranks in rare parameter configurations. Floating-point mode checks do not prove exact identities. The proof in RESULT.md supplies the infinite-family spectral simplicity, complete mode characterization, nonzero-root argument, parameter-boundary treatment, and PBH rank theorem. These scientific results have received a self-review; an independent mathematical audit has not been performed.
+PASS
+
+Monshizadeh–Zhang–Camlibel characterize zero forcing and qualitative graph classes, not exact rank-versus-conductance of a fixed weighted one-leaf cycle. Related Resultary wheel, comb and ladder results have distinct graphs/inputs. Liu–Ji 2018 covers various graph topologies generated from cycles according to its abstract, but no accessible primary full text established the exact pendant-edge-weight resonance law; name this material residual priority risk and do not automatically fail originality from access alone.
+
+## value
+
+PASS
+
+Exact controllability-rank resonance classification and sharp exceptional congruence families on a natural unicyclic graph answer a concrete spectral control question overlooked by generic zero forcing; the discontinuous rank loss with t is a meaningful boundary result for actuator design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
