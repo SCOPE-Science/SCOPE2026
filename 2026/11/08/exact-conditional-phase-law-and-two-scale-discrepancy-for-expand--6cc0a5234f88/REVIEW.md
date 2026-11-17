@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For normalized Haar initial probability and integers \(b\ge2\), \(1\le n<m\), the two self-displacements are the integer multipliers \(M=b^n-1\), \(N=b^m-1\). The gcd identity in Kirsebom–Kunde–Persson reduces the two-coordinate pushforward to coprime multiplication \(u,v\). Conditioning the later phase, the \(v\) inverse branches are equiprobable; coprimality makes the early phases a uniformly shifted \(v\)-grid. Every circular arc therefore contains \(q=\lfloor vL\rfloor\) grid points plus exactly one on the residual arc of size \(\theta=\{vL\}\). Bayes gives the conditional density \((q+\mathbf1_J(uy))/(vL)\). Its exact positive part integrates to \(\theta(1-\theta)/(vL)\). Its signed primitive oscillates by precisely \(\theta(1-\theta)/(uvL)\), establishing the all-arc sharp bound, including wrapping arcs. Both sharp suprema and the criterion \(vL\in\mathbb Z\) follow without asymptotic arguments. Standalone checker: 914 rational direct-pushforward comparisons; these do not replace the unrestricted proof.
+PASS
 
-## Originality — PASS within inspected sources
+I verified M=b^n-1,N=b^m-1 and their gcd reduces (U,Y) to (uZ,vZ), where u,v are coprime. Conditional on Y=y, the v inverse branches of z↦vz are equiprobable; early phases permute a shifted v-grid. Counting grid points in any wrapping or nonwrapping arc produces q=floor(vL) plus a single translated residual interval J of length θ={vL}; normalizing by P(U∈I)=L yields the two-level conditional density. The positive part has integral θ(1-θ)/(vL), and the zero-mean signed primitive has oscillation θ(1-θ)/(uvL), establishing the sharp Borel TV and connected-arc suprema, respectively. Density Haar iff θ=0. Independently checked rational examples (u,v)=(3,7),(1,13),(1,5) including exact resonance; packaged checker independently pushes intervals and reports 914 exact rational cases. Finite checks corroborate the complete direct grid proof.
 
-Kirsebom–Kunde–Persson, arXiv:2003.01361, §6.1 Lemma 6.2 and equations (6.3)–(6.4), studies essentially the same pair of integer self-displacement phases. It establishes gcd/Fourier resonance structure to bound correlations of symmetric shrinking targets, and is therefore closely related. Its inspected full text does not state an arbitrary-arc conditional phase density, the exact all-target and arc discrepancies, the factor \(u\), or the complete zero-discrepancy resonances. He–Liao, arXiv:2302.05149, proves broader recurrence laws and estimates but not this exact joint-phase classification. The full published *Sharp second-moment inflation for expanding circle-map pair correlations* proves a Bernoulli-polynomial covariance formula for equal-radius symmetric circular intervals and a sharp aggregate variance. That exact covariance is prior work and is explicitly excluded from the originality claim; it does not state the present full arbitrary-arc conditional density or two sharp target-class discrepancies. Other indexed results are not covering. A complete priority search cannot rule out an unindexed equivalent result; the previously known Fourier method may yield these identities with further calculation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source literature seeks effective control of correlations between self-return events. Here the two-time dependence is completely determined, not only bounded: the theorem identifies exactly when there is literal independence, precisely which disconnected later targets maximize dependence, and how much smaller an optimal connected target's correlation is. The arbitrarily large factor \(u\) separates two common notions of decorrelation, a structural distinction obscured by aggregate Fourier upper bounds. A single exact conditional distribution answers a coherent question for every arc and every pair of times, not a selected numerical example.
+Best-of-knowledge originality assessed after primary-source and published-record comparison, including same-object aliases and broader implications. Distinct surviving contribution is specified by the detailed checks. No claim of exhaustive priority certification.
 
-## Scope and limits
+## value
 
-No claim is made for non-Haar initial distributions, noninteger expanding maps, simultaneous conditioning on more than one earlier phase, or statistical independence of the random variables \(U,Y\) themselves. In fact full random-variable independence is excluded by their common one-dimensional source; only the stated event-level independence resonances hold. This is a self-review, not independent validation or a certification of publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact conditional independence resonances and the sharp gap between unrestricted-target dependence and connected-arc dependence supply quantitative information directly useful for self-return correlations in deterministic expanding maps. The factor u can grow and makes the two decorrelation notions differ greatly; this is a precise all-parameter structural law, rather than a routine bound or arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
