@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T07:49:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Under independent Bernoulli rows, Lucas parity yields at most c^{2^{popcount(S_j)}} conditional coefficient means. Sparse binary-weight indices have exp(O((log log N)^2)) cardinality; binomial maximal atoms give the displayed annealed O(N^{-1/2+o(1)}) upper bound. Replacing one entire time row changes conditional F_N=E^beta Q_N^2 by at most 4/N, so McDiarmid and Borel-Cantelli give the almost-sure environment bound O_{beta,delta}(N^{-1/2+delta}); the normalized martingale predictable cross-bracket vanishes uniformly in probability and bounded jumps give planar quenched Brownian FCLT. All quantifiers require independent time-and-cardinality rows, epsilon ellipticity and fair independent driving signs. A separate finite exact enumeration recovered E_beta F_N=1/N for fair rows for N=1..4; it cannot certify the infinite limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior Nov 1 theorem gives a two-sided LIL limsup/liminf ±1 on the unnormalized cross-bracket almost surely under almost every environment, and explicitly proves the full quenched Brownian limit. Nov 2 near-square-root theorem is for time-static beta_k and is not counted as covering this model."
+        ],
+        "reasoning": "Pathwise LIL is much stronger than the newly claimed qualitative convergence. It does not by itself bound quenched L2 expectation, so the latter is separately analyzed rather than falsely treated as a literal LIL corollary.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-quenched-law-of-the-iterated-logarithm-for-cardinality-grouped--00b4222393d7/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-near-square-root-quenched-bracket-rate-for-elliptic-pascal-sig--3302a561a43a/RESULT.md",
+          "Resultary: near-square-root quenched bracket rate static elliptic Pascal signs"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-quenched-law-of-the-iterated-logarithm-for-cardinality-grouped--00b4222393d7/RESULT.md",
+        "https://arxiv.org/abs/2610.01658",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-near-square-root-quenched-bracket-rate-for-elliptic-pascal-sig--3302a561a43a/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/quenched-invariance-and-a-quantitative-quadratic-variation-bound--75e116521b42"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior proof: conditionally on driving signs, independent Bernoulli time rows, conditional means bounded by w_s=c^{2^{popcount(s)}}; ∑_{s≤N}w_s=exp(O((loglog N)^2)). Completed level holding times H_s have bounded second moments, giving E_signs(∑_{j<N}|m_j|)^2≤6(∑_{s≤N}w_s)^2=N^{o(1)}. By conditional row independence E_{beta,signs}(∑_{j<N}zeta_j)^2 ≤ N+N^{o(1)}; thus E_beta F_N ≤1/N+N^{-2+o(1)}, and McDiarmid whole-row Lipschitz 4/N plus Borel-Cantelli yields this submission’s O(N^{-1/2+delta}) bound."
+        ],
+        "reasoning": "The new estimate is a routine direct second-moment and concentration consequence of the specific earlier full proof plus classical tools; this establishes implication with explicit inequalities, without incorrectly claiming LIL convergence alone bounds L2 rates.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-quenched-law-of-the-iterated-logarithm-for-cardinality-grouped--00b4222393d7/RESULT.md",
+          "McDiarmid On the method of bounded differences 1989",
+          "https://arxiv.org/abs/2610.01658"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nov 1 RESULT.md explicitly defines zeta_n=(-1)^{sum_{k<=S_n} binom(S_n,k) beta_{n,k}} with mutually independent beta_{n,k}, same time-indexed model, and eta_j=zeta_{j-1}xi_j."
+        ],
+        "reasoning": "The same cross-variation sum and same conditional environment model are present; rescaling by N matches the submitted bracket, not a different static-scenery model.",
+        "searches": [
+          "Resultary: quenched law iterated logarithm cardinality-grouped bootstrap walk time resampled Bernoulli",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-quenched-law-of-the-iterated-logarithm-for-cardinality-grouped--00b4222393d7/RESULT.md",
+          "https://arxiv.org/abs/2610.01658"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior full Nov 1 proof supplies complete same-model quasistochastic theorem; no finite lookup table is needed for the matched Brownian statement."
+        ],
+        "reasoning": "The matching earlier full mathematical theorem, not a database or parameter string, disposes of the principal limit claim.",
+        "searches": [
+          "Resultary: exactly same cardinality grouped time resampled beta quenched limit",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-quenched-law-of-the-iterated-logarithm-for-cardinality-grouped--00b4222393d7/RESULT.md"
+        ]
+      },
+      "rationale": "FAIL: The full November 1 published theorem treats exactly the identical independent time-and-cardinality, uniformly elliptic Bernoulli environment and establishes the sharper pathwise quenched LIL for the same predictable cross-bracket and the identical independent-coordinate Brownian limit. Its conditional-row proof already supplies the drift bound and row independence underlying this submission. The submitted residual mean-square rate is not a literal logical consequence of almost-sure LIL alone, but it follows by routine second-moment integration of those previously established conditional-row and sparse-bit bounds and a textbook bounded-differences/Borel-Cantelli step. It is not a separate new mathematically substantial statement. The full source was compared, not merely its title.",
+      "residual_risks": [
+        "Prior Nov 1 source does not display the identical conditional L2 rate formula verbatim; assessment rests on an explicitly stated direct elementary implication of its proof, not on title overlap.",
+        "Hamza–Tournier complete original text unavailable; institutional request blocked by disconnected VPN.",
+        "No unproved stronger quenched path-space convergence metric is inferred from rate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG_PRIOR_COVERAGE",
+          "evidence": [
+            "Same model and limit; sharp LIL in full statement and proof; source Git blob 8fcd01611d6d39f0db0fd7ee5f34a65ca6e99c37"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-a-quenched-law-of-the-iterated-logarithm-for-cardinality-grouped--00b4222393d7/RESULT.md",
+          "material_read": "Entire original RESULT.md, hypotheses, conditional-row means, sparse binary-digit drift, Kolmogorov LIL proof and FCLT",
+          "method": "Read pinned full published theorem and compared beta indexing, ellipiticity, pathwise quantifiers, normalized bracket",
+          "title": "A quenched law of the iterated logarithm for cardinality-grouped bootstrap walks",
+          "trigger": "Exact same coefficient model and stronger invariant, semantic search hit"
+        },
+        {
+          "assessment": "ANNEALED_ONLY_WITH_ACCESS_RISK",
+          "evidence": [
+            "Corollary 9 annealed; primary full text inaccessible in this run; institutional request VPN disconnected"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.01658",
+          "material_read": "ArXiv primary abstract and bibliographic details; attempted full HTML/PDF both inaccessible via web",
+          "method": "Read available primary metadata and compared model using original theorem reproduced in the audited RESULT and Nov 1 full prior theorem",
+          "title": "Are random random walks normal? (Hamza and Tournier, 2026)",
+          "trigger": "Original motivating model, Corollary 9"
+        },
+        {
+          "assessment": "INAPPLICABLE_DIFFERENT_TIME_MODEL",
+          "evidence": [
+            "Beta coefficients frozen in time, so do not count the quantitative static bound as direct coverage"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-near-square-root-quenched-bracket-rate-for-elliptic-pascal-sig--3302a561a43a/RESULT.md",
+          "material_read": "Entire published RESULT.md, assumptions and proof section 1 to 5",
+          "method": "Read full source and compared static beta_k with dynamic beta_{n,k}",
+          "title": "A near-square-root quenched bracket rate for elliptic Pascal-sign walks",
+          "trigger": "Close near-square-root bound under potentially different coefficient resampling"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: The central quenched invariance problem had already been solved for the identical model with a sharp LIL envelope. The remaining unsharp O(N^{-1/2+delta}) mean-square estimate is obtained by a standard concentration upgrade of previously available row structure and adds no new limiting regime, sharp constant, obstruction, or distinct mathematical application. Correctness and code reproducibility do not independently confer scientific value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "This is a science rejection due to prior theorem plus routine implication, not an error in proof.",
+    "Hamza–Tournier full text unavailable; an authorized institutional attempt was VPN-disconnected and not bypassed."
+  ],
+  "schema_version": 1
+}
