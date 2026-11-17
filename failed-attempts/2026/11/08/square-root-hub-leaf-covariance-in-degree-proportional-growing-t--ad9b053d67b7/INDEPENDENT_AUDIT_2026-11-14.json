@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T06:11:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The assigned derivation correctly takes h_m=1/[2(m-1)], D_{m+1}=D_m+I_m, L_{m+1}=L_m+1-J_m, conditional E[I_m]=h_m D_m, E[J_m]=h_m L_m, E[I_m J_m]=h_m 1_{D_m=1}. Hence c_{m+1}-c_m=h_m² a_m b_m-h_m q_m. First moments solve q_m=binom(2m-4,m-2)/4^{m-2}, a_m=(2m-3)q_m, b_m=2(m-1)/3+4q_m/3; algebra and telescoping give the finite boxed sum. Sign is 0 at n=2,3 and >0 n>=4; central-binomial asymptotic gives 2 sqrt n/(3sqrt pi). Root D(D+1) and leaf variance recurrences give Var D/n ->2-4/pi and Var L/n->1/9, yielding corr ~ sqrt(2/(pi-2))/sqrt n. Independent exact parent-history enumeration through n=8 verified the assigned sum equals the earlier published increment formula and actual covariance.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Affine prior covers all δ>-1 and yields δ=0 sign and 2sqrt n/(3sqrt pi).",
+          "October 13 source independently supplies the exact finite-sample formula.",
+          "Hartle-Krapivsky Sec IV.1 already provides leaf-count variance n/9."
+        ],
+        "reasoning": "The affine theorem is broader in attachment parameters for the sign/asymptotic, and the earlier exact δ=0 theorem covers the full finite covariance. Marginal variances complete the submitted correlation coefficient.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-root-degree-leaf-count-covariance-in-affine-preferential-a--028f883a4793",
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-oldest-hub-degree-has-positive-square-root-covariance-with-leaf--a3885e62cb19",
+          "https://arxiv.org/html/2602.01021"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-oldest-hub-degree-has-positive-square-root-covariance-with-leaf--a3885e62cb19",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-root-degree-leaf-count-covariance-in-affine-preferential-a--028f883a4793",
+        "https://arxiv.org/html/2602.01021",
+        "https://arxiv.org/abs/0905.1920"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The October 13 increment recurrence equals the November 8 recurrence term by term; its sum yields the submitted closed formula.",
+          "Var(D_n)/n=2-4/pi from initial-root degree moments; Hartle-Krapivsky Var(L_n)/n=1/9. Their ratio implies correlation coefficient sqrt(2/(pi-2))."
+        ],
+        "reasoning": "Everything in the final claim is either explicitly covered or a one-line standard-deviation normalization from published covariance and known marginal variances.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-oldest-hub-degree-has-positive-square-root-covariance-with-leaf--a3885e62cb19",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-root-degree-leaf-count-covariance-in-affine-preferential-a--028f883a4793",
+          "https://arxiv.org/html/2602.01021"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier 2026-10-13 theorem states exactly c_{n+1}-c_n=(q_n/3)[(n-3)/(n-1)+(2n-3)q_n/(n-1)^2] and c_n=sum increments.",
+          "Assigned finite expression is same via sum q_m=(2n-4)q_n, sum q_m/(m-1)=2(1-q_n)."
+        ],
+        "reasoning": "The fixed seed, root, leaf definition and stochastic rule agree identically; the formulas are equal after algebraic telescoping.",
+        "searches": [
+          "Resultary semantic search: oldest vertex degree leaves preferential attachment covariance exact root hub leaf global",
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-oldest-hub-degree-has-positive-square-root-covariance-with-leaf--a3885e62cb19",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-root-degree-leaf-count-covariance-in-affine-preferential-a--028f883a4793"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same n2,3 zero and n>=4 positive finite covariance increment/census occurs explicitly in the earlier theorem."
+        ],
+        "reasoning": "The submitted n-dependent exact values are a known sequence from the prior recurrence, not a distinct database or previously missing small-size computation.",
+        "searches": [
+          "Resultary query: oldest hub leaves covariance exact table n",
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-oldest-hub-degree-has-positive-square-root-covariance-with-leaf--a3885e62cb19",
+          "https://arxiv.org/html/2602.01021"
+        ]
+      },
+      "rationale": "A full earlier October 13 theorem concerns exactly the same one-edge seed, degree-proportional rule, first vertex degree, all-leaf count, conditional increment, finite covariance sum, positivity and leading 2sqrt n/(3sqrt pi). The assigned finite sum is an elementary telescoped rewriting of the earlier formula. A November 8 affine-attachment theorem additionally implies the δ=0 positivity and leading asymptotic; current extra correlation constant is obtained by substituting the already known marginal variances.",
+      "residual_risks": [
+        "No meaningful priority ambiguity: October 13 same-model exact theorem precedes assigned November 8 finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive exact earlier same-model coverage",
+          "evidence": [
+            "Equations (3)-(6): exact covariance increment/sum, positivity and leading sqrt n"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-oldest-hub-degree-has-positive-square-root-covariance-with-leaf--a3885e62cb19",
+          "material_read": "Full published RESULT.md including definitions, recurrence, proof and asymptotic",
+          "method": "Read full GitHub published result",
+          "title": "Oldest-hub degree has positive square-root covariance with leaf abundance",
+          "trigger": "Exact same local-global preferential attachment covariance"
+        },
+        {
+          "assessment": "Includes δ=0 special case for sign/leading law; does not need to supply the already-covered finite exact covariance",
+          "evidence": [
+            "Affine δ>-1; δ=0 constant 2/(3sqrt(pi))"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-root-degree-leaf-count-covariance-in-affine-preferential-a--028f883a4793",
+          "material_read": "Full published RESULT.md, including δ-family proof",
+          "method": "Read full GitHub published result",
+          "title": "Sharp root-degree-leaf-count covariance in affine preferential-attachment trees",
+          "trigger": "Possible broader attachment parameter theorem"
+        },
+        {
+          "assessment": "Supplies Var(L_n)/n=1/9; not itself the root mixed covariance",
+          "evidence": [
+            "Sec IV.1 Eq (81): asymptotic leaf variance n/9"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.01021",
+          "material_read": "Full relevant Sec IV.1 and appendix text including leaf mean, variance formula and aggregate statistics",
+          "method": "Arxiv HTML primary text, direct reading of Sec IV.1 and appendices",
+          "title": "Leaves of preferential attachment trees",
+          "trigger": "Marginal variance needed for submitted correlation coefficient"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The local-global preferential-attachment covariance is interesting, but the entire exact mixed covariance and sign/asymptotic appeared in an earlier published theorem for the identical model. Remaining correlation rate is routine normalization of that existing covariance by known variance asymptotics, not a new structural gap or independently valuable classification.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Correlation asymptotic is a derived consequence, not a novel joint weak-limit theorem."
+  ],
+  "schema_version": 1
+}
