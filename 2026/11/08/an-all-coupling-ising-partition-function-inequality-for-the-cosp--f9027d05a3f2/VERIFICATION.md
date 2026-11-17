@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification of the exact finite Ising comparison
+# Independent mathematical audit
 
-Two complete standalone integer verifiers are included with this result; both were run from their actual included sources and succeeded.
+## correctness
 
-`python3 verify_rowstates.py` produces:
+PASS
 
-```
-VERIFY_ROWS_OK row_patterns=65536 each factorization_exact=1 first_difference_order=8 coefficient=96
-```
+The source defines all 48 edges of each graph and exhausts all 2^16 assignments per graph by four-row formulas. The exact cut histograms yield delta coefficients 16,-96,240,-384,672,-1344,2016,-1920,1104,-352,48 for q^12 through q^32; multiplying 16q^12(q²−1)^8(3q^4+2q²+1) gives precisely these. Independently reimplemented the complete 65,536-mask census with a separate adjacency edge construction, checking edge count 48, full coefficient factorization, and max-cut counts R=90 S=42 at c=32. Algebra Z=e^(48K)P(e^(-2K)) gives strict positive difference for nonzero real K; equality at K=0. Exact binomial transform gives common even-subgraph coefficients through degree7 and 19602−19506=96 at degree8. This exhaustive finite proof is valid for exactly these two finite graphs, not a claim about all graphs.
 
-`c++ -std=c++17 -O2 verify_gray.cpp -o verify_gray && ./verify_gray` lists the complete nonzero cut histogram and finishes:
+## originality
 
-```
-VERIFY_GRAY_OK configurations_per_graph=65536 maxcut=32
-```
+PASS
 
-The first checker uses a 4-row spin-pattern enumeration and exact integer multiplication of the factored polynomial. The second constructs edges independently and performs Gray-code spin-flip updates with regularity and common-neighbor assertions. The two methods agree on every coefficient. Each checks **all** configurations, not a random sample.
+Wu–Hu 2002 establishes an exact partition function for a periodic planar triangular lattice and thus an individual Shrikhande-side evaluation; Mosseri 2014/2015 gives arbitrary-graph energy-Hadamard computations. Neither inspected full arXiv mathematical text states a rook-minus-Shrikhande cut-polynomial factorization or all-real-coupling ordering. A subsequent same-day field-dependent Resultary theorem explicitly cites the zero-field factor as previously known and strictly extends it; this cannot be used as an earlier independent proof without chronology. No equivalent prior two-graph coefficient table was identified; specialist coding/Tutte tables remain a risk.
 
-The nonstandard numerical part of the proof is exactly this finite census; the conversion to the partition function and its strict sign follow algebraically. The computer checks do not provide independent expert review, an infinite-family theorem, an experimental application, or a guarantee that no earlier equivalent formula exists.
+## value
+
+PASS
+
+A canonical smallest nonisomorphic strongly regular cospectral pair provides a substantive test of whether adjacency spectrum controls Ising thermodynamics. The exact factorization establishes a strict ordering for both signs of coupling, a sharp first discrepancy in high-temperature degree, and different antiferromagnetic ground-state degeneracies. This natural finite comparison can be valuable even without a general graph theorem; complete 2^16 enumeration is a valid finite proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
