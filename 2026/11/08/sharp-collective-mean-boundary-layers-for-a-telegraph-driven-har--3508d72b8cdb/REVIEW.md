@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stationary equations in arXiv:2404.02480v1 give an exact conditional-Gaussian position decomposition. Independence of the thermal OU terms yields the exact mean representation, and the source's telegraph-filter beta law yields the displayed endpoint density. The proof then checks both nonuniform limits: \(w=\sqrt Ny\) for the boundary layer, and \(t=N\delta_N y/\sigma^2\) with normal Mills bounds for exterior or moderate offsets. The conditional hidden-center law follows from normalizing the same integrable measure. This covers every fixed positive \(\nu\), including integrably divergent beta endpoint densities, and both sign-reflected edges. The standalone numerical checker passed 46 diagnostic assertions, including direct finite-\(N\) quadrature; the limit is proved analytically rather than inferred from numerics.
+PASS
 
-## Originality — PASS, qualified
+The stationary OU convolution gives C_N=U+σZ/√N with U=B(2T−1), T~Beta(ν,ν), and exact edge-distance density g(y)=cν y^{ν−1}(1−y/(2B))^{ν−1}. Substitute y=w/√N into the Gaussian survival integral and dominate the Gaussian tail to obtain compact-ξ uniform cν N^{−ν/2} Jν(ξ;σ). At ξ=0 Tonelli evaluates Jν(0;σ)=E[(σZ)_+^ν]/ν and yields the stated gamma coefficient. The joint unnormalized edge measure gives the conditional selected-center density w^{ν−1} Φbar(w/σ)/Jν(0), and overshoot survival is the ratio Jν(ξ)/Jν(0). For bounded positive exterior δ_N with √Nδ_N→∞, uniform Mills ratio then endpoint Laplace rescaling y=σ²t/(Nδ_N) yields cν Γν σ^{2ν+1}/(√(2π)δ_N^{ν+1})N^{−ν−1/2}exp(−Nδ_N²/(2σ²)); opposite edge by reflection. Independent ν=1 exact edge-convolution check agrees with asymptotic prefactor. This is not a statement uniform in changing model parameters.
 
-The closest exact sources are arXiv:2404.02480v1 (the particular driven gas and the full stationary Gaussian-beta mixture), arXiv:2307.15351v1 (general conditional-i.i.d. sum formulas, especially Eqs. (127)–(133)), and arXiv:2312.02570v1 (a physically distinct switching-stiffness gas). The first two already yield the finite-\(N\) integral and weak macroscopic limit and thus substantially limit the new scope. Primary-text and research-record comparisons did not identify the asserted sharp edge, endpoint selection, and exterior prefactor in this model. The mathematical tools are standard endpoint asymptotics, and an unindexed general Gaussian-smoothing theorem may subsume the resulting estimates. Originality is claimed only for the present explicit sharp classification, not the known starting distribution.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The limiting ensemble mean cannot leave \([-B,B]\), but its finite-\(N\) Gaussian component can. The theorem locates the exact width separating polynomial and exponentially rare escape, calculates the prefactors, and identifies the hidden-state selection responsible for an escape. The power \(\gamma/(2\mu)\) is a direct dynamic signature in a measurable collective quantity despite the unbounded marginal position densities. This answers a physically natural rare-collective-fluctuation question not resolved by the leading conditional-i.i.d. limit, without asserting a general downstream theorem.
+PASS best-of-knowledge for precisely the sharp joint edge and exterior tail classification: the Gaussian-with-beta-center stationary representation and even finite-N distribution are clearly previously known; Biroli et al. also give the general conditional-iid sum framework. Their inspected theorems do not state the nonuniform support-edge N^{−ν/2} selection law or the moderate/exterior prefactor under this Gaussian-beta specialization. These are derived implications of the prior integral, so priority claims should stay narrow and note potentially routine Laplace asymptotic derivability.
 
-## Closest literature and residual risks
+## value
 
-The full finite-\(N\) Gaussian-beta mixture is available by specializing the older equations, so a characterization of this result as a straightforward but unstated asymptotic consequence is a plausible priority and value risk. Searches cannot exclude equivalent unindexed presentations. The theory does not address thermal-noise/particle-number joint limits or finite-sample statistical stability.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The exact scaling exponent, prefactor, conditional hidden-drive selection, and crossover to exponential exterior leakage distinguish rare collective motion from the compact-support thermodynamic mean. They characterize a natural probability/physics observable from the established stationary law, not merely reparameterize the known distribution. Analytic boundary-layer asymptotics are independently useful in the regime where weak thermal noise and rare telegraph drive combine.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
