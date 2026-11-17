@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility record
+# Independent mathematical audit
 
-Compile the accompanying `verify_exhaustive.cpp` and `verify_transfer.cpp` using a C++17 compiler with optimization, and run the resulting executables. The exact commands, also shown in `RESULT.md`, are `g++ -O3 -std=c++17 verify_exhaustive.cpp -o verify_exhaustive` and `g++ -O3 -std=c++17 verify_transfer.cpp -o verify_transfer`. Each executable prints the exact counts and ends with an explicit `PASS` marker if every internal equality holds. The files `exhaustive.txt` and `transfer.txt` are the captured complete outputs from these commands.
+## correctness
 
-The first program enumerates all labelled binary configurations of both graphs for every circumference from three through twelve, compares one-step and two-step recurrence and complete flipping, and prints the primitive two-cycle census. The second program independently counts admissible cyclic space-time words by constructing 4- and 16-column-alphabet transfer operators and applying either identity or layer-swap closure for circumferences three through twenty-two. These are separate computational methods. Neither finite calculation proves recurrence for every length; that conclusion rests on the algebraic and graph-theoretic proof in `RESULT.md`.
+PASS
 
-No external validation has been performed. The known 1980 general period theorem is not claimed as independently rediscovered; the proof includes a self-contained cubic-degree version.
+PASS: For a flipping state, an agreeing rung forces both neighboring rungs to agree and alternate, giving exactly two states when n is even; a disagreeing rung forces all rungs to disagree, first-layer bits to contain no cyclic triple, and a twisted seam to impose complement closure. The explicit 4x4 no-triple transfer H commutes with complement J; its two eigenspace characteristic polynomials yield tr(H^n)=L_n+delta_n and tr(H^n J)=L_n-delta_n. Complement commutation gives exactly Q/2 primitive all-vertex-flipping orbits. Independently enumerated complete microscopic states at n=3,4,5,6 confirm Q pairs (6,2),(8,10),(10,12),(22,18); n>=3 follows from transfer, not enumeration.
+
+## originality
+
+PASS
+
+PASS on the REPAIRED final claim only. A materially inspected November 1 result already proves the entire original fixed/periodic population and primitive-orbit twist sign law, so those were removed from the new claim and explicitly credited. That published proof does not resolve the all-vertex-flipping subpopulation: a total orbit count does not determine what fraction flips every coordinate. The separate complement-twisted no-triple trace proves the remaining Möbius/prism Q-sector. Ordinary cyclic no-triple words are credited to Agur–Fraenkel–Klein, so their known formula is not presented as new.
+
+## value
+
+PASS
+
+PASS: The new Q-sector is a natural distinct dynamical classification of globally synchronized blinking oscillations on canonical cubic graph families; the bounded arithmetic response to a seam twist contrasts sharply with the previously known exponentially large change in the total two-cycle population, and the exact share decays like phi^{-n}. The answer is an all-n exact motivated invariant not determined by the known total census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
