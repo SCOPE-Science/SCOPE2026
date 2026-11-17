@@ -1,19 +1,17 @@
-# Scientific review
+# Scientific scope and mathematical assessment
 
-## Correctness — PASS
+## Correctness
 
-The exact finite-sample cap formula on the event of at least two points per side is a planar polygon identity, not an approximation. The complement has exponentially small probability; disjoint shrinking boundary arcs give all independent exponential corner limits. Uniform exponential bounds on nearest-neighbor gaps prove convergence of all integer moments. Direct integration yields the universal \((N+1)(N+2)\) mean correction. For triangles, sine law, Heron's identity, and positivity of the side product establish a unique reconstruction cubic. The explicit two-isosceles-triangle family proves that a single mean is insufficient. The standalone checker reproduces independent geometric computations; no finite enumeration is used as proof.
+The two-moment reconstruction follows by substituting the established all-moment corner-product area-loss limit into the triangle sine law. Given perimeter and limiting mean, the circumradius is uniquely determined; the variance then recovers the sum of squared side lengths. Heron's formula and the circumradius-area identity yield a strictly increasing quadratic equation for the positive side product, which fixes the final cubic and the unordered sides. An explicit isosceles family with perimeter five and two different shapes proves first-moment insufficiency. The exact 3–4–5 substitution is a supplementary diagnostic.
 
-## Originality — PASS (best-knowledge, not certified)
+## Originality and precise prior coverage
 
-The 2004 Richardson–Vu–Wu boundary-sampling work addresses smooth bodies; the 2011 Böröczky–Fodor–Hug theorem imposes a rolling ball; the Reitzner–Schütt–Werner arXiv preprint from 2019 establishes expected volume-deficit asymptotics for boundary-sampled simple polytopes. Inspected statements and relevant derivations do not cover the polygonal product-exponential **distribution** or the minimal **two-moment triangle reconstruction**. A related publicly posted result on perimeter-loss distributions concerns a different geometric functional and a different scaling. This comparison is about mathematical implications rather than titles. Residual risk: unindexed historical work or a more general distributional theorem not identified by the searches.
+The distributional polygon area-loss law, its independent exponential corner products, its moment formulas, and the universal exponentially accurate expected-loss correction are established in published October 18 and October 25, 2026 results and are **not** original contributions of this record. A November 8 published joint corner-law result recovers triangle similarity from the full area-deficit distribution. The present narrowed theorem establishes the explicit reconstruction using only the first two moments (given perimeter), proves minimality, and identifies the exact side-product equation; the inspected earlier results do not state this finite-moment inverse. This is a best-of-knowledge distinction, not an unconditional claim of historical priority.
 
-## Value — PASS
+## Mathematical value
 
-The full limiting law describes the non-Gaussian fluctuations suppressed by expected-area asymptotics. The two-moment inverse is a natural identifiable statistical-geometric observable and a complete reconstruction theorem for all triangles with known perimeter. Minimality and the sharp coefficient-of-variation equality case distinguish essential shape information from redundant moments. The finite-sample mean correction supplies an exact, shape-independent denominator up to exponentially small terms. No claim of finite-sample measurement stability is made.
+It answers a natural low-order inverse geometric-probability question, replacing knowledge of an entire limiting law by a provably minimal pair of accessible moments. Uniqueness includes isosceles and equilateral boundaries. This precise invariant is nontrivial even though its forward moment inputs are known, and its constructive cubic is independently useful for exact shape recovery.
 
-## Limits and source scope
+## Boundaries
 
-The input polygon is fixed and nondegenerate. Earlier smooth-boundary and interior-sampling results use different assumptions or measures. Literature novelty is assessed against available primary text and relevant searchable published research records; it is not independently certified. The sole scientific output is the theorem stated consistently in `RESULT.md` and `SLOGAN.txt`.
-
-Self-review: passed. Independent audit: not yet performed.
+Known perimeter, exact population limiting moments, and fixed nondegenerate triangle are required. No stability estimate or finite-sample estimation theorem is claimed. The published forward law and its computation can serve as corroboration only. Priority outside the inspected literature remains a risk.

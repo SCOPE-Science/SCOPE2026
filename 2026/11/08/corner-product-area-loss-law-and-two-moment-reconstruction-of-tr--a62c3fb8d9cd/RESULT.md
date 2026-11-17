@@ -1,135 +1,83 @@
-# Corner-product area-loss law and two-moment reconstruction of triangles
+# Two limiting area-deficit moments reconstruct a triangle with known perimeter
 
 ## Finding
 
-Let \(Q\subset\mathbb R^2\) be a fixed nondegenerate convex polygon with \(m\ge3\) genuine vertices, perimeter \(P>0\), side lengths \(\ell_j>0\), and interior angles \(\alpha_i\in(0,\pi)\). Independently choose \(N\ge3\) points uniformly by arclength from its entire boundary. Let \(H_N\) be their convex hull and define the area deficit \(\Delta_N=\operatorname{area}(Q)-\operatorname{area}(H_N)\).
-
-With all \(2m\) variables \(E_i^-,E_i^+\) independent and standard exponential, the following limit holds in distribution **and in every fixed positive integer moment**:
-
+Fix a nondegenerate Euclidean triangle with side lengths \(a,b,c>0\), perimeter \(P=a+b+c\), and independently choose \(N\) points by uniform arclength from its entire boundary. Write \(\Delta_N\) for the area of the triangle minus the area of the convex hull of these points. Define the limiting moments
 \[
-N^2\Delta_N\ \xrightarrow{\mathrm d}\ Z_Q
-=\frac{P^2}{2}\sum_{i=1}^{m}\sin\alpha_i\,E_i^-E_i^+.
+\mu=\lim_{N\to\infty}N^2\mathbb E\Delta_N,
+\qquad v=\lim_{N\to\infty}N^4\operatorname{Var}(\Delta_N).
 \]
-
-The limiting law depends only on \(P\) and the multiset \(\{\sin\alpha_i\}\); individual side lengths do not appear. Its Laplace transform and first two cumulants are
-
+The existing boundary-polygon area-loss theorem ensures that these limits exist. **Given \(P\), the ordered pair \((\mu,v)\) determines the unordered triple \(\{a,b,c\}\) uniquely, hence the triangle up to Euclidean congruence.** An explicit inversion is
 \[
-\mathbb E e^{-tZ_Q}=\prod_{i=1}^{m}\int_0^\infty
-\frac{e^{-x}}{1+tP^2\sin\alpha_i\,x/2}\,dx\quad(t\ge0),
+R=\frac{P^3}{4\mu},\qquad S_2=\frac{P^2v}{3\mu^2},\qquad e_2=\frac{P^2-S_2}{2},
 \]
 \[
-\mu_Q:=\mathbb E Z_Q=\frac{P^2}{2}\sum_i\sin\alpha_i,
-\qquad
-v_Q:=\operatorname{Var}(Z_Q)=\frac{3P^4}{4}\sum_i\sin^2\alpha_i.
+e_3=\sqrt{16P^2R^4+R^2(4P^2e_2-P^4)}-4PR^2,
 \]
-
-There is also a universal finite-sample mean correction: for \(\delta=\min_j\ell_j/P>0\),
-
-\[
-\mathbb E\Delta_N=\frac{\mu_Q}{(N+1)(N+2)}+O_Q\!\left(N e^{-\delta N}\right)
-\quad(N\to\infty).
-\]
-
-**Inverse theorem (triangles).** If \(m=3\), the perimeter \(P\) and the two numbers \(\mu_Q,v_Q\) uniquely determine the three side lengths, hence the Euclidean triangle up to congruence. Specifically put
-
-\[
-R=\frac{P^3}{4\mu_Q},\qquad
-S_2=\frac{P^2v_Q}{3\mu_Q^2},\qquad
-e_2=\frac{P^2-S_2}{2},
-\]
-\[
-e_3=\sqrt{16P^2R^4+R^2(4P^2e_2-P^4)}-4PR^2.
-\]
-
-The side lengths are the three positive real roots, counted with multiplicity, of
+where \(R\) is the triangle's circumradius, \(e_2=ab+bc+ca\), and \(e_3=abc>0\). The side lengths are precisely the three positive real roots, with multiplicity, of
 \[
 z^3-Pz^2+e_2z-e_3=0.
 \]
-
-Two initial moments are **minimal**: a single limiting mean, even with known \(P\), cannot distinguish all noncongruent triangles. Moreover, for every triangle,
+The number of limiting moments is **minimal**: the perimeter and \(\mu\) alone do not determine a triangle up to congruence. In addition, the ratio satisfies the sharp shape inequality
 \[
-\frac{v_Q}{\mu_Q^2}=\frac{3(a^2+b^2+c^2)}{P^2}\ge1,
+\frac v{\mu^2}=\frac{3(a^2+b^2+c^2)}{P^2}\ge 1,
 \]
-with equality precisely for an equilateral triangle. More generally, \(v_Q/\mu_Q^2\ge3/m\) for every such polygon, with equality exactly when all interior-angle sines are equal.
+with equality only for the equilateral triangle.
 
-## Assumptions and scope
+## Scope and relationship to established area-loss results
 
-All polygons here are fixed as \(N\to\infty\), planar, strictly convex at each genuine vertex (consecutive edges are noncollinear), and sampled with the **entire physical perimeter** as a single uniform probability measure. The point samples are independent. The triangle inverse uses known perimeter and exact moments of the **limiting** scaled loss, not raw finite-sample moments. No claim is made for interior-uniform sampling or for varying/degenerating polygons.
+The inverse concerns the exact population moments of the \(N^2\)-rescaled missing area for one fixed, nondegenerate triangle, together with separately known perimeter. It is **not** a statement about moments of the area of one random inscribed triangle, about interior-uniform samples, or about statistical reconstruction from finitely many observed hulls. No stability guarantee as a triangle degenerates is asserted.
 
-## Proof
-
-**1. Deterministic corner decomposition.** Let \(G_N\) be the event that every side of \(Q\) contains at least two sampled points. For vertex \(i\), let \(U_i\) and \(V_i\) be distances from that vertex to the nearest sampled points on the incident sides; on an empty side temporarily set the corresponding distance to the whole side length. For the next step write \(U_i^-=U_i\) and \(U_i^+=V_i\). On \(G_N\), the boundary of \(H_N\) contains the segment between the two nearest sampled points flanking each original vertex, and all remaining exposed sampled segments lie on original sides. The removed regions are disjoint triangles, yielding the **exact finite-sample identity**
+The boundary-sampled polygon law is **prior mathematics**, not a new claim here. In particular, *Angular product-exponential law for missed area of boundary-sampled polygons* (October 18, 2026) already establishes the full all-moment corner-product limit, and *An exponentially accurate perimeter–angle mean law for random boundary hulls* (October 25, 2026) establishes the all-order universal mean correction and the same limit. We explicitly use their established consequence: for a fixed polygon of perimeter \(P\), interior angles \(\alpha_i\), and independent standard exponentials \(E_i,F_i\),
 \[
-\Delta_N=\frac12\sum_{i=1}^{m}\sin\alpha_i\,U_iV_i
-\qquad\text{on }G_N.
+N^2\Delta_N\ \Longrightarrow\ \frac{P^2}{2}\sum_i\sin\alpha_i E_iF_i
 \]
-Each side has sample probability \(p_j=\ell_j/P>0\). By the binomial formula,
+with all fixed positive integer moments converging. Consequently
 \[
-\mathbb P(G_N^c)\le\sum_j\bigl((1-p_j)^N+Np_j(1-p_j)^{N-1}\bigr)
-=O_Q(Ne^{-\delta N}).
+\mu=\frac{P^2}{2}\sum_i\sin\alpha_i,
+\qquad v=\frac{3P^4}{4}\sum_i\sin^2\alpha_i.
 \]
+These are inputs to the inverse theorem. The sharper earlier result also gives
+\(\mathbb E\Delta_N=\mu/((N+1)(N+2))+O(e^{-cN})\) for some \(c>0\). Neither this correction nor the product-exponential forward law is independently claimed as original here. Another published joint area/perimeter corner-law result establishes that the **full** area-loss distribution recovers the triangle similarity class; the distinct point addressed below is sufficiency and minimality of its **first two** limiting moments, with a constructive exact inverse.
 
-**2. Independent exponential corner gaps.** For any fixed nonnegative thresholds \(t_{i,\pm}\), the \(2m\) subarcs of lengths \(Pt_{i,\pm}/N\) adjacent to vertices are disjoint for all sufficiently large \(N\). Hence
-\[
-\mathbb P\!\left(\bigcap_{i,\pm}\left\{\frac{NU_i^\pm}{P}>t_{i,\pm}\right\}\right)
-=\left(1-\frac{\sum_{i,\pm}t_{i,\pm}}N\right)^N
-\longrightarrow\exp\left(-\sum_{i,\pm}t_{i,\pm}\right).
-\]
-This is the joint survival function of independent rate-one exponentials. Together with the exact identity and the vanishing probability of \(G_N^c\), it proves the distributional limit.
+## Proof of the inverse and optimality
 
-**3. Moment convergence.** For each incident side gap \(U\), and \(0\le x\le\ell_j\),
+Let \(R\) denote the circumradius. The sine law \(\sin\alpha_a=a/(2R)\), etc., applied to the previously established corner-law moments gives
 \[
-\mathbb P\left(\frac{NU}{P}>\frac{Nx}{P}\right)=(1-x/P)^N\le e^{-Nx/P}.
+\mu=\frac{P^2}{2}\frac{a+b+c}{2R}=\frac{P^3}{4R},
+\qquad
+v=\frac{3P^4}{4}\frac{a^2+b^2+c^2}{4R^2}
+=\frac{3P^4 S_2}{16R^2}.
 \]
-Thus all fixed moments of \(NU/P\) are bounded uniformly in \(N\). The elementary inequality \(2UV\le U^2+V^2\) bounds every fixed moment of the corner sum on \(G_N\). On \(G_N^c\), \(0\le N^2\Delta_N\le N^2\operatorname{area}(Q)\), and this event has exponentially small probability. Consequently the scaled deficits are uniformly integrable in every fixed integer power. Moment convergence follows. Since \(\mathbb E(E^-E^+)=1\) and \(\operatorname{Var}(E^-E^+)=4-1=3\), the mean and variance formulas follow. Conditioning on one exponential factor gives the displayed Laplace product.
-
-**4. Sharper expectation.** For incident side lengths \(L,R\), the truncated gaps satisfy for \(0\le u\le L\), \(0\le v\le R\)
-\[
-\mathbb P(U>u,V>v)=(1-(u+v)/P)^N.
-\]
-Integrating this joint survival function yields
-\[
-\mathbb E[UV]=\frac{P^2}{(N+1)(N+2)}\Bigl[1-(1-L/P)^{N+2}-(1-R/P)^{N+2}
-+(1-(L+R)/P)^{N+2}\Bigr].
-\]
-Every bracket differs from one by \(O_Q(e^{-\delta N})\). The deterministic corner formula fails only on \(G_N^c\), where both the true area loss and the sum of triangle areas are bounded by fixed constants depending on \(Q\). Summing and using the bound in Step 1 gives the asserted \(O_Q(Ne^{-\delta N})\) expectation error.
-
-**5. Triangle inversion.** Write the triangle side lengths as \(a,b,c\), with circumradius \(R\) and area \(A\). The sine law gives \(\sin\alpha_i=a_i/(2R)\), so
-\[
-\mu_Q=\frac{P^3}{4R},\qquad
-v_Q=\frac{3P^4}{16R^2}(a^2+b^2+c^2).
-\]
-Therefore \(R,S_2\), and \(e_2=ab+bc+ca\) are recovered as displayed. Let \(e_3=abc>0\). Heron's identity in elementary symmetric quantities is
+Therefore the formulas for \(R\), \(S_2\), and \(e_2\) in the Finding are exact. To recover the side product \(e_3=abc\), write \(A>0\) for the triangle's area. Heron's identity, rewritten via the elementary symmetric polynomials of \(a,b,c\), reads
 \[
 16A^2=-P^4+4P^2e_2-8Pe_3.
 \]
-The circumradius identity \(e_3=4RA\) implies
+The standard circumradius identity \(4RA=abc=e_3\) then yields
 \[
 e_3^2+8PR^2e_3-R^2(4P^2e_2-P^4)=0.
 \]
-For positive \(e_3\) its left-hand side is strictly increasing, so there is at most one positive root; the displayed root equals the actual \(abc\). Vieta's formulas uniquely recover the unordered side lengths.
+The left-hand side is strictly increasing for \(e_3\ge0\). Because the input data arise from a nondegenerate triangle, it has the strictly positive solution \(abc\), so there is exactly one admissible positive solution. Solving this quadratic gives precisely the expression displayed in the Finding. The cubic determined by \((e_1,e_2,e_3)=(P,e_2,e_3)\) has roots \(a,b,c\), including any repeated roots. Thus the inverse is unique for all triangle shapes in the claimed domain, including equilateral, isosceles, and right triangles.
 
-To prove minimality, set the circumradius to one and consider isosceles triangles with apex angle \(2\arcsin t\), \(0<t<1\). Their perimeter is \(P(t)=4(1+t)\sqrt{1-t^2}\). It increases strictly from \(4\) to \(3\sqrt3\) on \((0,1/2)\), then decreases strictly to zero on \((1/2,1)\). Hence \(P(t)=5\) has two distinct roots on opposite sides of \(1/2\). The resulting noncongruent triangles have the same circumradius \(1\), perimeter \(5\), and limiting mean \(P^3/4\).
+To show that just the first moment cannot suffice, fix the circumradius to \(R=1\) and consider isosceles triangles with apex angle \(2\arcsin t\), \(0<t<1\). Their two equal sides have length \(2\sqrt{1-t^2}\), their base length is \(4t\sqrt{1-t^2}\), and hence
+\[
+P(t)=4(1+t)\sqrt{1-t^2}.
+\]
+This function is strictly increasing on \((0,1/2)\) from \(4\) to \(3\sqrt3\), and strictly decreasing on \((1/2,1)\) from \(3\sqrt3\) to \(0\). Since \(4<5<3\sqrt3\), the equation \(P(t)=5\) has two distinct solutions on opposite sides of \(1/2\). The resulting noncongruent triangles have the same perimeter \(5\), circumradius \(1\), and therefore the same limiting mean \(\mu=5^3/4\). This proves minimality in the natural hierarchy of first two limiting moments.
 
-**6. Sharp moment ratios.** The Cauchy–Schwarz inequality gives \(m\sum_i\sin^2\alpha_i\ge(\sum_i\sin\alpha_i)^2\), with equality exactly when the angle sines coincide. In a triangle the sine law turns the equality into equality of all three sides. These observations prove the ratio bounds and their equality cases. In particular, the lower bound \(3/m\) is attained for each \(m\) by regular polygons; non-equiangular polygons can also attain it (for example, nonrectangular parallelograms).
+Finally, dividing the two formulas above gives \(v/\mu^2=3S_2/P^2\). Cauchy–Schwarz implies \(3(a^2+b^2+c^2)\ge(a+b+c)^2\), with equality precisely when \(a=b=c\), establishing the sharp ratio and its rigidity.
 
-## Verification
+## Exact diagnostic
 
-The accompanying standalone `VERIFY.py` requires Python 3, NumPy and SciPy; run it as `python3 VERIFY.py`. It checks exact corner-loss versus convex-hull area across random finite polygon samples, reconstructs five different triangles from limiting moments, checks the angle bounds, and compares sample scaled losses with predicted limiting means and variances. Its deterministic seed is set in the file. The script reports `VERIFY_OK triangle_inversions=5 exact_cap_hull_identities= 480 scaled_area_trials= 6400`. Numerical experiments are only supplementary: Steps 1–6 provide the infinite-sample proof.
+For a \((3,4,5)\) triangle, \(P=12\), \(R=5/2\), and \(S_2=50\). The established forward moments are \(\mu=864/5\) and \(v=31104\). Substituting them into the explicit inverse gives \(e_2=47\), \(e_3=60\), and \(z^3-12z^2+47z-60=(z-3)(z-4)(z-5)\). This exact arithmetic check supports, but is not a replacement for, the preceding unrestricted proof. The original forward corner-gap checkers may independently corroborate the pre-existing limit law; they do not establish its historical originality.
 
-## Relationship to prior work
+## Limitations and priority
 
-Richardson, Vu and Wu (2004) study random inscribed polytopes with smooth boundaries and volume moments. Böröczky, Fodor and Hug (arXiv v1, 2011) develop intrinsic-volume expectation asymptotics under a rolling-ball condition, which a polygon with genuine vertices fails. Reitzner, Schütt and Werner (arXiv v1, 2019; journal 2023) treat random boundary samples from simple polytopes and establish leading **expected** volume-deficit asymptotics. Their cited main results do not give the finite-dimensional product-exponential area-loss law or a two-moment triangle inverse. Prior work on interior-uniform random polygons concerns a different sampling measure.
-
-The closest related perimeter-loss fluctuation result for polygonal boundary sampling has an order-\(N^{-1}\) limit whose corner contributions are sums of homogeneous distance defects. It does **not** imply the order-\(N^{-2}\) area-product law or the explicit reconstruction from its first two moments. The expected area-deficit scale is previously motivated; the distributional and minimal inverse assertions are the distinguishing claims.
-
-## Limitations
-
-The result is asymptotic for each fixed polygon; the exponential error constant depends on its shortest side. It does not provide uniform bounds as side lengths shrink, nor does it establish statistical estimation guarantees from a finite number of independent hull realizations. The inverse theorem needs known perimeter. General polygons with identical interior-angle sine multisets have the same limiting area-loss law, so no full general-polygon congruence reconstruction is claimed. Searches cannot certify absolute historical priority; unindexed or inaccessible specialized literature remains a residual risk.
+The result uses exact asymptotic mean and variance and a known perimeter; no finite-data statistical guarantee, numerically stable reconstruction near degeneracy, or higher-dimensional analogue follows. The underlying polygonal product-exponential limit and exponentially accurate finite-sample expectation are published previously and expressly credited. The two-moment inverse is a constructive specialization of a previously known distributional angle signature; although no checked earlier source supplied this particular low-order inverse, a historical equivalent algebraic reconstruction cannot be excluded without an exhaustive literature review.
 
 ## References
 
-1. R. M. Richardson, V. H. Vu, L. Wu, *Random Inscribing Polytopes*, Discrete Mathematics & Theoretical Computer Science Proceedings, public date listed 2004-12-31. DOI: 10.46298/dmtcs.3459. https://dmtcs.episciences.org/en/articles/3459
-2. K. J. Böröczky, F. Fodor, D. Hug, *Intrinsic volumes of random polytopes with vertices on the boundary of a convex body*, arXiv:1103.4978v1, posted 2011-03-25. https://arxiv.org/abs/1103.4978
-3. M. Reitzner, C. Schütt, E. M. Werner, *The convex hull of random points on the boundary of a simple polytope*, arXiv:1911.05917v1, posted 2019-11-14; later published in Discrete & Computational Geometry 69 (2023), 453–504. https://arxiv.org/abs/1911.05917
-4. J. Pardon, *Central limit theorems for random polygons in an arbitrary convex set*, Annals of Probability 39 (2011), 881–903, arXiv:1003.4209. https://arxiv.org/abs/1003.4209 (interior-uniform sampling).
+1. *Angular product-exponential law for missed area of boundary-sampled polygons*, published October 18, 2026, https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-angular-product-exponential-law-for-missed-area-of-boundary-samp--bf3dbf28911a .
+2. *An exponentially accurate perimeter–angle mean law for random boundary hulls*, published October 25, 2026, https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-an-exponentially-accurate-perimeter-angle-mean-law-for-random-bo--377791ac0736 .
+3. *Boundary-sampled polygon deficits: a joint corner law and an inverse angle signature*, published November 8, 2026, https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-boundary-sampled-polygon-deficits-a-joint-corner-law-and-an-inve--fb04d21cf191 .
+4. M. Reitzner, C. Schütt and E. M. Werner, *The convex hull of random points on the boundary of a simple polytope*, arXiv:1911.05917 (2019), *Discrete & Computational Geometry* **69** (2023), 453–504, https://arxiv.org/abs/1911.05917 .
