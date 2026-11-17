@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T21:56:05.724739Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every ≥3-vertex general-position corona set uses at most one vertex from each core-pendant pair; the n exceptional same-root pairs are independently valid and counted as nz². Projecting a set with distinct selected roots U onto G, any selected internal geodesic root must be represented by its pendant, while each geodesically extreme root can independently choose core or pendant, giving 2^{e_G(U)}. For a tree the leaves of the minimal connected hull of U are exactly its extreme roots; for each connected subtree H≥2 all hull leaves must be selected (weight 2z) and internal vertices can be absent or represented by pendants (weight 1+z). The postorder F_v,R_v recurrence splits subtrees by unique topmost vertex without double counting. Leading coefficient 2^{s(G)} uses the characterization of simplicial vertices as never internally geodesic; cubic formula follows from the two possibilities for three roots. Independent checks compared the DP with a separately implemented root-subset projection on ten trees, supplementing a structural all-order proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2024 provides comb/path corona formula and foundational questions; Rather 2026 full Section 6 covers special coronas and unimodality, not tree-corona arbitrary-tree recurrence; October4 complete graph corona has non-tree core."
+        ],
+        "reasoning": "The all-tree corona polynomial strictly extends published path-corona computations, but stronger general-core precedent absent from the materially inspected full primary text.",
+        "searches": [
+          "https://arxiv.org/pdf/2603.06930",
+          "https://doi.org/10.1007/s00025-024-02133-3",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2603.06930",
+        "https://doi.org/10.1007/s00025-024-02133-3",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-antichain-expansion-for-general-position-polynomials-of-all-t--ee2d6713bee6/RESULT.md",
+        "https://arxiv.org/abs/2401.05696"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At T=P_n the known comb has ψ leading coefficient 4, recovered by the two leaves. For branching trees the new formula counts each connected hull H and its internal choices, not present in earlier path-only formulas."
+        ],
+        "reasoning": "The known coronas of paths/edgeless cores are special cases. Earlier all-tree ψ(T) is on a different graph and cannot directly substitute for ψ(T∘K1).",
+        "searches": [
+          "https://arxiv.org/pdf/2603.06930",
+          "https://doi.org/10.1007/s00025-024-02133-3",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-antichain-expansion-for-general-position-polynomials-of-all-t--ee2d6713bee6/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior antichain expansion computes ψ(T) for an arbitrary tree; submitted theorem concerns ψ(T∘K1) and its hull weights 2z,1+z on core subtrees."
+        ],
+        "reasoning": "An algorithm for the original tree T is not the corona transformation and does not imply the new exact rooted core DP.",
+        "searches": [
+          "Resultary: general position polynomial corona tree rooted subtree recursion geodesic extreme",
+          "https://arxiv.org/pdf/2603.06930",
+          "https://doi.org/10.1007/s00025-024-02133-3",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-antichain-expansion-for-general-position-polynomials-of-all-t--ee2d6713bee6/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No full all-tree connected-subtree enumerator located; 2024 comb top degree multiplicity 4 is a special case of 2^{ell(T)} for paths."
+        ],
+        "reasoning": "Known leading-degree count for comb and complete-core corona does not determine lower coefficients or universal subtree recursion. Search absence is provisional.",
+        "searches": [
+          "Resultary: tree corona general position polynomial n leaves pendant leaf core recursion",
+          "https://arxiv.org/pdf/2603.06930",
+          "https://doi.org/10.1007/s00025-024-02133-3"
+        ]
+      },
+      "rationale": "Foundational 2024 general-position polynomial work treats path corona (comb), and Rather 2026 primary full paper treats exact corona unimodality for edgeless, paths and selected multipartite cases; neither derives the arbitrary-tree all-coefficient connected-subtree recursion. Published all-tree general-position polynomial does not compute general-position polynomial of a tree with a private leaf on every core vertex, a different graph of doubled order. The general graph extreme-root projection adds a separate structural formula.",
+      "residual_risks": [
+        "A general corona transform in unindexed graph-polynomial literature could subsume the projection formula; not found in examined primary full text.",
+        "The recurrence determines coefficients, not unimodality/log-concavity for all tree coronas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides path corona and raises broader corona problem, not a rooted all-tree enumerator",
+          "evidence": [
+            "Path corona (comb) special coefficient formula and associated unimodality question."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00025-024-02133-3",
+          "material_read": "Open published article relevant comb theorem, general-position definition and corona open question",
+          "method": "Read accessible full-text article in relevant sections",
+          "title": "General Position Polynomials",
+          "trigger": "Foundational general-position polynomial with path-corona special case"
+        },
+        {
+          "assessment": "Special paths/edgeless and corona coefficient effects, including multipartite counterexample; no arbitrary-tree exact polynomial recursion",
+          "evidence": [
+            "Section 6 Proposition 6.3 refers path corona to comb; Section 7 derives geodesic constraints but no general core weighted U enumeration."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.06930",
+          "material_read": "Full 32-page arXiv v3 text retrieved, relevant Sections 6 and 7 (pages 25-29) inspected, screenshot verified",
+          "method": "Web open primary full PDF, focused text inspection and PDF page screenshot",
+          "title": "Explicit Formulas and Unimodality Phenomena for General Position Polynomials",
+          "trigger": "2026 corona-focused plausible stronger coverage"
+        },
+        {
+          "assessment": "Complete graph K_n core is not a tree n≥3; special unrelated core",
+          "evidence": [
+            "ψ(K_n∘K1)=(1+2z)^n+nz², special case of general-core formula."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-strict-log-concavity-for-complete-graph-coronas--cc76f1cb7642/RESULT.md",
+          "material_read": "Published Resultary finding and formula",
+          "method": "Resultary indexed published statement",
+          "title": "Strict log-concavity for complete-graph coronas",
+          "trigger": "Existing exact corona polynomial with complete core"
+        },
+        {
+          "assessment": "Different graph invariant input T, not ψ(T∘K1); priority risk retained",
+          "evidence": [
+            "Computes general-position polynomial of tree itself, not its leaf corona."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-an-antichain-expansion-for-general-position-polynomials-of-all-t--ee2d6713bee6/RESULT.md",
+          "material_read": "Published Resultary summary identifies all-tree ψ(T) via antichains",
+          "method": "Resultary search record; full text not materially checked",
+          "title": "An antichain expansion for general-position polynomials of all trees",
+          "trigger": "Potential broader all-tree enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The arbitrary-tree corona family is a natural exact extension of previously studied comb and complete-core special cases. The all-coefficient connected-subtree weight formula and polynomial-time rooted recursion give structural counting control for every tree, while a general connected-core root-extremality projection and simplicial leading coefficient are useful independent consequences. It explicitly leaves the separate unimodality problem unresolved.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any n≥3 tree T with one private leaf attached at each core vertex, the full general-position polynomial of T∘K1 has exact connected-subtree expansion with 2z per hull leaf and 1+z per internal vertex, computable by rooted DP. For connected simple G≥3 the general corona projection counts 2^{e_G(U)} per distinct-root subset, yielding 2^{s(G)} highest coefficient and exact cubic identity.",
+  "limitations": [
+    "Applicable to n≥3 connected simple core graphs for general projection and n≥3 trees for polynomial-time DP; no claims of arbitrary-core polynomial-time algorithm.",
+    "Potential unindexed general transformation remains a priority risk."
+  ],
+  "schema_version": 1
+}

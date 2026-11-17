@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The shortest-path projection proof handles all general-position sets by separating isolated same-root core–pendant pairs from the root-distinct cases. The tree hull lemma proves the leaf/internal weights, and the postorder recurrence enumerates all connected subtrees exactly once. The simplicial leading coefficient follows from a two-neighbor geodesic characterization. The independent verifier checked 153 graphs and 293568 vertex subsets; infinite validity relies on the complete structural argument, not the finite tests.
+## correctness
 
-**Originality — PASS, provisionally.** The 2024 foundational article treats combs (path coronas) and formulates the corona problem. Rather (2026) explores additional special classes and the unimodality question; Wang (2026) treats complete-multipartite coronas, not arbitrary trees. The existing published complete-core corona formula is a covered special case and is not claimed. The all-tree connected-subtree expansion and local recurrence are not supplied by the materially inspected sources, and their statements do not imply this recursion. Search-based priority remains provisional; an unindexed equivalent is possible.
+PASS
 
-**Value — PASS.** The broad class of all finite trees is mathematically natural, extending the comb computation to arbitrary branching patterns. The recurrence gives all cardinality coefficients in polynomial arithmetic time rather than just the maximum cardinality. The leading term recovers the number of leaves of the tree, and the graph-core formula connects highest-cardinality configurations to the number of simplicial vertices. The exact cubic identity links the corona and core GP enumerations. These solve substantial enumeration questions but make no unsupported all-tree unimodality claim.
+Every ≥3-vertex general-position corona set uses at most one vertex from each core-pendant pair; the n exceptional same-root pairs are independently valid and counted as nz². Projecting a set with distinct selected roots U onto G, any selected internal geodesic root must be represented by its pendant, while each geodesically extreme root can independently choose core or pendant, giving 2^{e_G(U)}. For a tree the leaves of the minimal connected hull of U are exactly its extreme roots; for each connected subtree H≥2 all hull leaves must be selected (weight 2z) and internal vertices can be absent or represented by pendants (weight 1+z). The postorder F_v,R_v recurrence splits subtrees by unique topmost vertex without double counting. Leading coefficient 2^{s(G)} uses the characterization of simplicial vertices as never internally geodesic; cubic formula follows from the two possibilities for three roots. Independent checks compared the DP with a separately implemented root-subset projection on ten trees, supplementing a structural all-order proof.
 
-**Closest literature and limits.** Iršič–Klavžar–Rus–Tuite, *General Position Polynomials* (arXiv:2401.05696), full accessible 2024 text; Rather, *Explicit Formulas and Unimodality Phenomena for General Position Polynomials* (arXiv:2603.06930), 2026 full text; Wang, *A Complete Multipartite Counterexample to Corona-Unimodality of General Position Polynomials* (2026), accessible manuscript; published complete-graph-corona log-concavity result (2026). The theorem is not an all-graph efficient recurrence, does not cover unequal pendant lengths, and does not establish full unimodality or independently certified publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Foundational 2024 general-position polynomial work treats path corona (comb), and Rather 2026 primary full paper treats exact corona unimodality for edgeless, paths and selected multipartite cases; neither derives the arbitrary-tree all-coefficient connected-subtree recursion. Published all-tree general-position polynomial does not compute general-position polynomial of a tree with a private leaf on every core vertex, a different graph of doubled order. The general graph extreme-root projection adds a separate structural formula.
+
+## value
+
+PASS
+
+The arbitrary-tree corona family is a natural exact extension of previously studied comb and complete-core special cases. The all-coefficient connected-subtree weight formula and polynomial-time rooted recursion give structural counting control for every tree, while a general connected-core root-extremality projection and simplicial leading coefficient are useful independent consequences. It explicitly leaves the separate unimodality problem unresolved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
