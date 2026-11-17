@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification protocol and observed evidence
-The proof in `RESULT.md` is symbolic and valid for arbitrary finite fields and matrix sizes in the stated domain. `check.py` performs a second, exhaustive calculation for seven small prime-field examples, taking the original Lie bracket and Nijenhuis torsion equation as input. It enumerates all matrices of the linear operator and tests the identity on every basis pair; bilinearity makes that an exhaustive condition on all vector pairs. It separately enumerates invariant subspaces and disjoint pairs and computes the theorem's right-hand side. Its comparisons do not assume the subalgebra classification.
+# Independent mathematical audit
 
-To reproduce: `python check.py`; standard Python 3 only, no additional packages. The recorded output is embedded as `check_output.txt`. The run finished with the exact marker `ALMOST_ABELIAN_NIJENHUIS_DIRECT_TORSION_OK`.
+## correctness
 
-Observed rank counts, in ranks \(0\) through \(m+1\):
+PASS
 
-- Scalar, \(m=2\), \(q=2\): \((1,28,28,1)\).
-- One Jordan block, \(m=2\), \(q=2\): \((1,12,12,1)\).
-- Irreducible action, \(m=2\), \(q=2\): \((1,4,4,1)\).
-- Split squarefree, \(m=2\), \(q=3\): \((1,63,63,1)\).
-- Scalar, \(m=3\), \(q=2\): \((1,120,560,120,1)\).
-- One Jordan block, \(m=3\), \(q=2\): \((1,24,32,24,1)\).
-- Irreducible action, \(m=3\), \(q=2\): \((1,8,0,8,1)\).
+Idempotent P is Lie-Nijenhuis exactly if image and kernel are complementary Lie subalgebras: torsion on U×U and K×K gives their closure, and mixed torsion cancels automatically. Every subalgebra in codimension-one extension L=Ft⊕V lies in V or is W+F(t+u) with A-invariant W. The exhaustive three cases (only U outside V, only K outside V, both outside V) yield respectively q^[r(m-r+1)] I_{m-r}, q^[r(m-r+1)] I_{r-1}, and (q-1)q^m D_{r-1,m-r}. In the both-outside case W+K is a hyperplane and exactly (q-1)/q of coset differences avoid it. This proves symmetry under I-P, boundary counts N0=N_{m+1}=1, the single Jordan block/irreducible extremes and squarefree factorization. Own GF(2),m=2 direct testing of the ORIGINAL torsion and idempotence identities over all 512 linear endomorphisms gave scalar A ranks (1,28,28,1) and irreducible A ranks (1,4,4,1), matching the formula.
 
-A second checker `check_f4.py`, run with `python check_f4.py`, represents the genuine extension field \(\mathbb F_4\) as \(\mathbb F_2[u]/(u^2+u+1)\), and directly exhausts the original idempotency and Nijenhuis equations. Its four rank spectra for \(m=2\) are scalar \((1,336,336,1)\), Jordan \((1,80,80,1)\), irreducible \((1,16,16,1)\), and distinct split \((1,144,144,1)\). Its output is in `check_f4_output.txt`, ending in `ALMOST_ABELIAN_NIJENHUIS_GF4_EXTENSION_OK`.
+## originality
 
-Limits: these finite computations cannot establish the arbitrary-dimension theorem, which instead depends on the separate direct-sum and incidence proof. The prime-field checker uses modular arithmetic, while the separate extension-field checker uses polynomial-reduction arithmetic; neither computes automorphism orbits or scheme structures, and neither performs an independent mathematical audit.
+PASS
+
+The known subalgebra normal form and the classical projection/Nijenhuis equivalence are credited. The submitted exact rank-by-rank count of COMPLEMENTARY pairs, with an additional disjoint stable-subspace incidence term and contrast of Jordan versus irreducible actions, is not supplied or directly implied by the inspected earlier subalgebra classification, and no stronger covering enumerator was identified in the searched published records. This is best-of-knowledge, not proof from absence.
+
+## value
+
+PASS
+
+The full rank distribution is an exact natural invariant of Nijenhuis projections on a canonical solvable Lie-algebra family. Its three structural pieces and parameter A-dependence differentiate single Jordan blocks, scalar actions, irreducible actions and squarefree modules, detecting rank gaps that subalgebra classification alone does not supply. A researcher studying Nijenhuis splittings could use those exact labeled distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
