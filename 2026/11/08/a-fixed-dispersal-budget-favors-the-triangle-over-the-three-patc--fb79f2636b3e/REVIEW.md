@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The full and symmetry-lumped Markov generators agree and give the stated Cramer resolvents. The determinant identity has positive coefficients where required and gives a strict inequality for every positive rate and exponential discount. Exact symbolic and rational checks are reproducible with the included verifier. The fifth-order onset and mean asymptotics are derived algebraically, not extrapolated from samples.
+## correctness
 
-**Originality: PASS within inspected evidence, provisional.** Gilarranz–Bascompte's finite-generation spatial-network study compares abundance and network classes using equal edge counts. Barbillon et al.'s finite stochastic model is also discrete-time and does not state an all-parameter triangle/corridor extinction-time Laplace order. Grilli et al.'s continuous-time framework concerns spectral persistence criteria; Mountford et al. give growing-graph lifetime bounds. Neither these statements nor ordinary fixed-edge-rate attractiveness imply the equal-total-rate comparator, for which some path edges have larger individual rates. Searches under ecological, SIS, discounted-hitting and Markov-reliability formulations found no identical result. Unindexed earlier finite-state calculations remain a risk.
+PASS
 
-**Value: PASS.** The three-site setting is the smallest nontrivial choice between a corridor and a cycle while holding summed edge intensity fixed. A universal strict ordering for every exponential deadline, a 32/27 high-budget mean ratio and a fifth-order initial separation make the exact comparison a useful calibration and boundary case for ecological connectivity design. It does not claim empirical design optimality.
+From two fully occupied CTMCs, independently constructed 7-state transient generators using unit extinction and path rate 3r/2 vs triangle rate r. Symbolic reduction to 3- and 5-state chains yields Ltri=6/Dtri and Lpath=6(2r+s+1)(3r+s+2)/Dpath, difference =3r^2s*positive_polynomial/(2Dtri Dpath)>0. Nonsingular M-matrix ensures denominators positive. Analytic s→0 gives positive mean gap and Q^5 expansion gives 3r² t^5/80, not pointwise survival dominance. Independently checked determinant, resolvent, mean and fifth-order coefficients with SymPy.
 
-Scientific limits: identical local extinction clocks, initial full occupancy, Poisson independent transitions, only three sites, and a fixed sum of undirected edge rates. Laplace-transform order does not establish pointwise survival ordering at every deterministic time. Historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-exponential-deadlines strict Laplace-order rational identity for fully occupied three sites with fixed sum of edge rates is not implied by the inspected discrete-generation metapopulation paper, broad random-network persistence paper, or same-day three-path within-topology budget optimization. Finite special-case exact result remains best-of-knowledge original.
+
+## value
+
+PASS
+
+Equal-budget network architecture cannot be compared by edgewise attractiveness; the exact strict Laplace-transform order at every exponential horizon is a motivated, useful finite ecological/contact-process topology benchmark, stronger than an isolated mean computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

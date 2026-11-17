@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T11:16:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From two fully occupied CTMCs, independently constructed 7-state transient generators using unit extinction and path rate 3r/2 vs triangle rate r. Symbolic reduction to 3- and 5-state chains yields Ltri=6/Dtri and Lpath=6(2r+s+1)(3r+s+2)/Dpath, difference =3r^2s*positive_polynomial/(2Dtri Dpath)>0. Nonsingular M-matrix ensures denominators positive. Analytic s→0 gives positive mean gap and Q^5 expansion gives 3r² t^5/80, not pointwise survival dominance. Independently checked determinant, resolvent, mean and fifth-order coefficients with SymPy.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barbillon model updates at discrete generations, extinction events before colonization; Grilli uses random fragmented landscapes and spectral approximations; same-day 3-path fixed-budget optimizer compares reallocations within a path."
+        ],
+        "reasoning": "None has an established theorem comparing the same-budget triangle with path in this continuous-time full-occupancy Markov model for every exponential deadline.",
+        "searches": [
+          "Resultary semantic search: colonization extinction process triangle versus path fixed total dispersal budget Laplace transform order three patches",
+          "https://arxiv.org/pdf/1404.4287",
+          "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004251",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-colonization-budget-switch-between-seed-and-community-pe--b1bf0ac4bb11"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1404.4287",
+        "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004251",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-colonization-budget-switch-between-seed-and-community-pe--b1bf0ac4bb11",
+        "https://arxiv.org/abs/1203.2972",
+        "https://doi.org/10.1016/j.jtbi.2011.11.027"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Edgewise contact-process attractiveness cannot order the systems: the path’s two common edge rates equal 3r/2 > r whereas the triangle has an extra edge."
+        ],
+        "reasoning": "Neither rate vector dominates coordinatewise; the strict inequality is a genuine global rational factorization, rather than a monotone coupling corollary.",
+        "searches": [
+          "https://arxiv.org/pdf/1404.4287",
+          "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004251",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-colonization-budget-switch-between-seed-and-community-pe--b1bf0ac4bb11"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exponential deadline P(tau>E_s)=1-E exp(-s tau) is exactly Laplace-order comparison; pointwise deterministic horizon survival is strictly stronger and is not claimed."
+        ],
+        "reasoning": "Finite-time generation probabilities or spectral persistence thresholds are not equal to continuous-time resolvent comparisons across all s>0.",
+        "searches": [
+          "Resultary semantic search: colonization extinction process triangle versus path fixed total dispersal budget Laplace transform order three patches",
+          "https://arxiv.org/pdf/1404.4287",
+          "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004251"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A nearby exact three-path budget threshold is for initial center seed and a different optimization. Contact process asymptotic lifetime studies do not list the displayed three-node rational functions."
+        ],
+        "reasoning": "No identified published 3-vertex continuous-time resolvent table provides the exact strict Laplace difference; this is a bounded search, not a novelty proof.",
+        "searches": [
+          "Resultary semantic search: colonization extinction process triangle versus path fixed total dispersal budget Laplace transform order three patches",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-colonization-budget-switch-between-seed-and-community-pe--b1bf0ac4bb11",
+          "https://arxiv.org/abs/1203.2972"
+        ]
+      },
+      "rationale": "The all-exponential-deadlines strict Laplace-order rational identity for fully occupied three sites with fixed sum of edge rates is not implied by the inspected discrete-generation metapopulation paper, broad random-network persistence paper, or same-day three-path within-topology budget optimization. Finite special-case exact result remains best-of-knowledge original.",
+      "residual_risks": [
+        "An older exact 3-site reliability/control calculation may imply this rational identity.",
+        "Strict Laplace order cannot be interpreted as deterministic-deadline dominance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_DISCRETE_TIME_MODEL",
+          "evidence": [
+            "§2 defines extinction then colonization in discrete generations, not independent continuous Poisson contact clocks"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1404.4287",
+          "material_read": "Primary 28-page arXiv PDF inspected at abstract, section 2 model definition, notation and network comparisons; visually checked printed page 4",
+          "method": "arXiv primary PDF text and page screenshot",
+          "title": "Network impact on persistence in a finite population dynamic diffusion model",
+          "trigger": "Closest finite-state metapopulation process with network comparisons"
+        },
+        {
+          "assessment": "NOT_EXACT_LAPLACE_ORDER",
+          "evidence": [
+            "Broad heterogeneous random-network spectral approximations; no exact three-patch equal edge-rate budget resolvent comparison"
+          ],
+          "identifier_or_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004251",
+          "material_read": "Full accessible PLOS article’s model, spectral methods and random-landscape scope examined",
+          "method": "Publisher full HTML",
+          "title": "Metapopulation Persistence in Random Fragmented Landscapes",
+          "trigger": "Potential general contact-process persistence comparison"
+        },
+        {
+          "assessment": "DIFFERENT_COMPARISON",
+          "evidence": [
+            "Optimizes rates along path, not triangle-versus-path Laplace transforms"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-colonization-budget-switch-between-seed-and-community-pe--b1bf0ac4bb11",
+          "material_read": "Published Resultary detailed summary and assumptions, not entire primary manuscript",
+          "method": "Resultary indexed record",
+          "title": "A sharp colonization-budget switch between seed and community persistence on three habitats",
+          "trigger": "Close same-day budget optimization prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Equal-budget network architecture cannot be compared by edgewise attractiveness; the exact strict Laplace-transform order at every exponential horizon is a motivated, useful finite ecological/contact-process topology benchmark, stronger than an isolated mean computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": "Three identical patches, unit deaths, all occupied initially, fixed undirected total dispersal budget; Laplace order not fixed-deadline order."
+}
