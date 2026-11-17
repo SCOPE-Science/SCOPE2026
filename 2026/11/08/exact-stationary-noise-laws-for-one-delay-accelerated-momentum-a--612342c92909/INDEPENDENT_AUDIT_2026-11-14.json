@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T19:07:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every kappa>1, L>0 and independent centered additive noise with variance sigma², the supplied cubic AR(3) follows from delayed extrapolation y_{k-1}; matching coefficients with DREAM equation (81) supplies Schur stability, not assumed stochastic stationarity. Independently eliminated the four Yule–Walker equations and checked R=(1-b-c²-ac)/[(1+a-b+c)(1-a-b-c)(1+b-c²+ac)] by symbolic algebra and eight separate discrete Lyapunov solutions. The q→0 slow/fast expansions yield Rslow~2/q³ and Rfast~16/(7q), hence sigma² kappa^(3/2)/(8L²) and sigma²sqrt(kappa)/(7L²). The delayed-GD characteristic quadratic minimizes worst-case radius at h*=kappa²/[L(kappa+1)²]; its separate AR(2) variance tends to 5sigma²kappa/(6L²), so (3/20)sqrt(kappa) is the ratio. The unbounded assertion is analytic; eight finite Lyapunov cases are corroborative only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DREAM Prop.3.19 proves deterministic Schur stability for all spectral modes but omits stationary stochastic variances.",
+          "The general 2022/2025 momentum tradeoff covers second-order undelayed HB/NAG, not this delayed GMM cubic.",
+          "Stich–Karimireddy study stochastic delayed-gradient convergence regimes, not this constant-gain stationary law."
+        ],
+        "reasoning": "Broader generic convergence/noise-amplification results do not algebraically yield the two explicit endpoint constants 1/8 and 1/7 or the 3/20 rate-tuned delayed comparison without the separate cubic covariance solution.",
+        "searches": [
+          "https://arxiv.org/abs/2610.37444",
+          "https://arxiv.org/abs/2209.11920",
+          "https://jmlr.csail.mit.edu/papers/volume21/19-748/19-748.pdf",
+          "Resultary: stationary covariance noise amplification one step delayed generalized momentum DREAM accelerated rate tuned delayed gradient descent quadratic kappa"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.37444",
+        "https://arxiv.org/abs/2209.11920",
+        "https://jmlr.csail.mit.edu/papers/volume21/19-748/19-748.pdf",
+        "Resultary searches: stationary covariance noise amplification ...; exact impulse response H2 norm ..."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rate-optimized DREAM deterministic spectral gap 1/(2sqrtκ) precedes this record.",
+          "Earlier relative sqrtκ noise penalties for undelayed momentum do not imply the delayed cubic constant ratio by parameter substitution."
+        ],
+        "reasoning": "Prior ⇒ deterministic stability and generic tradeoff, but not the stated exact one-delay cubic covariance and comparator constants; current claim ⇒ more precise method-specific noise law. No novel universal lower bound is claimed.",
+        "searches": [
+          "https://arxiv.org/abs/2610.37444",
+          "https://arxiv.org/abs/2209.11920",
+          "Resultary: exact impulse response H2 norm linear delay one gradient step accelerated momentum cubic stationary noise"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gürbüzbalaban et al. 2026 Prop.3.19 Eq.(81) specifies deterministic cubic poles, not Yule–Walker stationary noise constants.",
+          "Mohammadi et al. study two-state undelayed momentum and general rate/noise tradeoff; their setup has a different companion order."
+        ],
+        "reasoning": "Equivalent H2/Hankel, Lyapunov and AR(3) variance descriptions were searched; the exact tuned delayed cubic constants and delayed comparator were not derived by inspected source statements. Generic noise-amplification scaling is explicitly not new.",
+        "searches": [
+          "Resultary: stationary covariance noise amplification one step delayed generalized momentum DREAM accelerated rate tuned delayed gradient descent quadratic kappa",
+          "Resultary: exact impulse response H2 norm linear delay one gradient step accelerated momentum cubic stationary noise",
+          "https://arxiv.org/abs/2610.37444",
+          "https://arxiv.org/abs/2209.11920"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The motivating DREAM manuscript presents a parameter and spectral-radius table/equation, with no 2D stationary covariance or κ-asymptotic variance table.",
+          "Matched Resultary record is the same submission; other related results address other recurrences."
+        ],
+        "reasoning": "No exact stationary variance table for the actual cubic DREAM pair was found in examined records; this absence alone is not presented as proof of priority.",
+        "searches": [
+          "Resultary: stationary covariance noise amplification one step delayed generalized momentum DREAM accelerated rate tuned delayed gradient descent quadratic kappa",
+          "https://arxiv.org/abs/2610.37444"
+        ]
+      },
+      "rationale": "The generic acceleration/noise tradeoff is prior art, but the particular exact three-state one-delay DREAM stationary variance, both endpoint constants, and comparison to its independently rate-optimal one-delay GD are not implied by the inspected older statements.",
+      "residual_risks": [
+        "An unindexed exact H2/noise-stationary calculation for tuned one-delay DREAM may predate this result.",
+        "This does not claim optimal noise robustness across all stochastic tunings or nonlinear objectives."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the parameters and Schur-stability hypotheses; no derived stationary stochastic variance law in inspected sections",
+          "evidence": "Prop.3.19: polynomial (81), rho=1-q/2; stochastic-gradient analysis proposed as further study",
+          "identifier_or_url": "https://arxiv.org/abs/2610.37444",
+          "material_read": "Full accessible HTML, detailed Prop.3.19 and its proof, Eq.(81), deterministic experiments and concluding remarks on stochastic extensions",
+          "method": "arXiv full-text HTML with targeted reading",
+          "title": "DREAM: Delay-Resistant Acceleration with Momentum",
+          "trigger": "Same delayed generalized momentum update and parameter triple"
+        },
+        {
+          "assessment": "Explains generic sqrtκ tradeoff but not distinct one-delay cubic constants",
+          "evidence": "Undelayed two-state versus delayed three-state characteristic dynamics",
+          "identifier_or_url": "https://arxiv.org/abs/2209.11920",
+          "material_read": "Accessible manuscript metadata and results comparing classical HB/NAG no-delay noise amplification, with focus on scope and recurrence order",
+          "method": "arXiv accessible text and prior related-results comparison",
+          "title": "Tradeoffs between convergence rate and noise amplification for momentum-based accelerated optimization algorithms",
+          "trigger": "Potential dominating generic accelerated noise theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact noise floor for a current delay-resistant accelerator is a motivated quantitative gap: deterministic sqrtκ acceleration incurs a divergent (3/20)sqrtκ stationary mean-square penalty relative to separately deterministic-rate-optimal delayed GD. The explicit slow/fast modal constants are useful for model/tuning choices; the modest two-mode, one-delay scope is stated, not disguised as a universal lower bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed two-mode diagonal quadratic, one-step delay, additive independent white noise, stationary second moments and specified deterministic rate-tuned constants only.",
+    "Numerical Lyapunov diagnostics do not prove the continuum asymptotics or novelty; no distributional limit of all sample paths is asserted."
+  ],
+  "schema_version": 1
+}
