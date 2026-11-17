@@ -1,19 +1,21 @@
-# Scientific review: nonbinary Hamming collision-loss classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is every integer \(d\ge1\), every integer \(q\ge3\), common real nonzero hopping amplitude, and strictly positive collision-loss strength at every vertex. The proof explicitly reduces asymptotic capture to the orthogonal complement of collision-free Hamiltonian eigenstates, counts one bright vector per accessible total-momentum/energy sector, and derives a complete finite rational capture formula. Critical nonstandard steps were checked: nonbinary momentum coordinates admit both one- and two-unit weight contributions; therefore all integer energy indices in the claimed interval occur; the Fourier collision vector is nonzero in exactly those sectors; and the root-of-unity identity \(\sum_{a=1}^{q-1}|1+e^{2\pi ia/q}|^2=2(q-2)\) gives the squared-projection sum. Two independently coded finite checks agreed for the stated examples. Their scope is finite corroboration, not an infinite certificate. A residual implementation risk is addressed by the analytic derivations and independent direct matrix construction.
+PASS
 
-## Originality — PASS on examined evidence
+On H(d,q) for d≥1,q≥3 the one-particle Fourier energy d(q−1)−q wt(u) gives bosonic total-momentum p and pair-energy t sectors. All symmetric momentum pairs in a nonempty (p,t) sector have a common nonzero coincidence Fourier character; thus exactly one bright vector per sector. Momentum p of weight w=0 permits d+1 even energy indices, and w≥1 permits each integer t in [w,2d], crucially using q≥3. Summation gives bright rank q^(d−1)((d+1)q+d)−d and dark dimension N(N+1)/2 minus that rank, including d=1 boundary. Localized capture follows by Fourier-orthogonal sector projection and root-of-unity sums Σ_{a≠0}|1+ζ^a|²=2(q−2), yielding stated finite rational coefficient sum. Independent numerical full bosonic spectral decompositions at (d,q)=(2,3),(2,4) gave dark ranks 14,82 and exact capture 13/18,1/2 and 11/24,2/9. Empty sectors correctly omitted, rates arbitrary positive. Tests corroborate only finite d,q.
 
-The nearest published quantum-walk mechanism is Krovi–Brun's dark-state analysis of quantum hitting times [1]. The nearest explicit two-boson graph Hamiltonian is Gamble and collaborators [2]. An explicit treatment of **the same Hamming graphs** is Bernard–Crampé–Vinet [3], which examines free-fermion entanglement instead of continuous bosonic collision loss. The checked prior results do not state or directly imply the nonbinary two-boson dark rank together with all separation-resolved eventual capture probabilities. An available binary-hypercube collision classification does not cover any \(q\ge3\) network: its parity-restricted momentum sectors and rank formula are different. An unindexed equivalent derivation, or later work not fully searchable, remains a historical-priority risk; absence from searches is not a proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural observable is the probability that two quantum walkers collide and are irreversibly lost. This result gives a full infinite-family classification on \(K_q^{\square d}\), including the nonbinary spectral-support transition and a rational formula evaluable without constructing the exponentially large two-body matrix. On the smallest nontrivial two-dimensional networks, it yields simple nonfactorizing distance-dependent capture laws. The distinction between same-site, neighboring, and more distant initial pairs is physically meaningful for particle transport. It is not a finite-time decay estimate or a claim of robustness under disorder and interactions.
+PASS best-of-knowledge: all-q nonbinary two-boson coincidence-loss rank and local capture differ materially from the q=2 hypercube classification (its energy support has parity gaps) and from one-particle Hamming absorption. Bernard–Crampé–Vinet (2021/2023) work on the same graph H(d,q) but for free fermionic ground-state entanglement; it supplies adjacency diagonalization but has no bosonic all-site collision detector or loss law. Published related collision results on other networks do not dominate the q≥3 Hamming parameters. An unindexed general association-scheme two-body absorption result could entail this law, retained as risk.
 
-## Literature and scope limitations
+## value
 
-Sources inspected for the comparison: [1] https://arxiv.org/pdf/quant-ph/0606094 (continuous-time no-hitting subspaces); [2] https://arxiv.org/pdf/1002.3003 (two-boson graph Hamiltonian and interacting/noninteracting comparison); [3] https://doi.org/10.1016/j.nuclphysb.2022.116061 (fermionic Hamming Hamiltonian and entanglement). The limitations and precise detector/hopping assumptions are in `RESULT.md`. No historical-priority claim is made beyond the examined evidence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact all-dimensional dark-subspace classification and distance-resolved capture distribution for q-ary Hamming networks is a natural extension from Boolean hypercubes, but q≥3 produces a qualitatively different contiguous energy support, not parameter substitution. Explicit rational capture at all Hamming separations and arbitrary positive local loss rates provide precise physically relevant transport invariants. Complete H(2,q) specializations serve as meaningful boundary checks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
