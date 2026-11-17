@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T07:00:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For R even, the leading radical-inverse digit decides upper/lower half of [0,1), hence ξ_n depends only on n mod R and is balanced with partial sums O(R). Uniform bounded-generator Lie local Taylor error is τ² ξ_j[A,B]/2+O(τ³). Product telescoping and summation by parts with W_{n,j+1}−W_{n,j}=O(τ) give bounded signed commutator sum and O(Nτ³)=O(τ²) remainder. For R odd, the central base-R digit alone recurses; block sums yield S_{m(R^k−1)/(R−1)−1}=1−mk. For A=E12,B=E23, AB=E13 is central and BA=0, so exact product equals exp(T(A+B)+τ² S_N E13/2) on e3 and yields the claimed norm for every N. For R=2 successive factors group into symmetric Strang propagation. All limits hold at fixed T, bounded A,B, exact subflows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original theorem permits more operators and obtains O(τ²(1+log N)) error.",
+          "The bounded even-radix discrepancy improves a specific subset while the odd example proves the general upper bound is attained."
+        ],
+        "reasoning": "Generality in operator number does not dominate a sharper convergence order or a lower-bound example for the fixed two-operator decoder.",
+        "searches": [
+          "radix parity even odd van der Corput radical inverse Li Liu Wan quasi random splitting rate sharp logarithmic",
+          "Li Liu Wan arXiv:2603.27654 sections 3–4"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2603.27654",
+        "radix parity even odd van der Corput radical inverse Li Liu Wan quasi random splitting rate sharp logarithmic",
+        "Strang 1968 classical symmetric splitting cited by Li–Liu–Wan"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source provides a bounded local commutator expansion and O(log N) prefix control but not O(1) periodic control by radix parity or a 3×3 equality example.",
+          "The explicit nilpotent instance shows odd-base lower bound, which cannot be deduced from an upper bound alone."
+        ],
+        "reasoning": "New ingredient is exact digit recursion plus central-commutator witness; original theorem does not imply necessity of logarithm.",
+        "searches": [
+          "arXiv:2603.27654v2 Lemma3.1 Theorem4.1",
+          "radix parity even odd van der Corput radical inverse Li Liu Wan quasi random splitting rate sharp logarithmic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source uses radical-inverse intervals to choose AB versus BA Lie factors, exactly matching the audited ξ definition.",
+          "Strang pairs at R=2 are classical, but not the full odd/even radix statement."
+        ],
+        "reasoning": "Same algorithm and sign convention were matched by reading source, not merely same topic; no matching parity-sharp theorem found.",
+        "searches": [
+          "radix parity even odd van der Corput radical inverse Li Liu Wan quasi random splitting rate sharp logarithmic",
+          "Li Liu Wan arXiv:2603.27654v2 two-operator rule"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite radical-inverse digit arithmetic is determined by a recursive midpoint digit at odd bases, and uniform period at even bases.",
+          "No prior numerical cutoff/table claims all bounded generator convergence errors."
+        ],
+        "reasoning": "The exact symbolic all-radix recurrence is not a small searched table; no exact predecessor in retrieved corpus.",
+        "searches": [
+          "radix parity even odd van der Corput radical inverse Li Liu Wan quasi random splitting rate sharp logarithmic",
+          "van der Corput half-interval discrepancy even radix odd radix exact subsequence"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS relative to the actual Li–Liu–Wan two-operator rule: their general discrepancy bound O(log N) and convergence theorem provide only O(τ² log N), not bounded even-base sign sums or a sharp odd-base 3×3 lower bound. Strang composition and digital discrepancy identities are known separate ingredients; the sharp rule-dependent arithmetic dichotomy survives.",
+      "residual_risks": [
+        "Other quasi-Monte Carlo discrepancy references may contain the isolated half-interval digit identity, but that alone does not show the operator-error sharp dichotomy.",
+        "Only exact two-operator bounded linear schemes, fixed time and sparse odd-base subsequence; no multi-operator or nonlinear claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING sharp radix parity although provides main analytic background",
+          "evidence": [
+            "General O(τ²log N) upper bound does not contain even-base O(τ²) or odd-base witness"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.27654",
+          "material_read": "Full accessible primary PDF, §§2–4 on permutation decoder, half-interval discrepancy, Abel summation and convergence theorem",
+          "method": "Opened 32-page PDF, inspected relevant pages 4,7,12,15 via PDF screenshots and text",
+          "title": "Quasi-random splitting method for accurate and efficient multiphysics simulation",
+          "trigger": "Identical algorithm, two-operator permutation and global error bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This precise parity boundary is a useful classification of convergence order for a natural quasi-random numerical scheme, including a matching counterexample that shows the logarithm cannot generally be removed for odd radices. Even-base full second order has direct method-selection significance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2603.27654",
+    "radix parity even odd van der Corput radical inverse Li Liu Wan quasi random splitting rate sharp logarithmic",
+    "Strang 1968 classical symmetric splitting cited by Li–Liu–Wan"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the specified two-operator radical-inverse ordering of exact exponentials and bounded linear generators on any Banach space, even radices give uniform O(τ²) error, while each odd radix R=2m+1 admits exact discrepancy S_{N_k}=1−mk and a fixed 3×3 nilpotent witness with error τ²|S_N|/2, forcing sharp τ²log(1/τ) on an infinite subsequence.",
+  "limitations": [
+    "Odd-base lower bound is a fixed nonnormal nilpotent 3×3 problem along an infinite sparse N_k subsequence.",
+    "No unbounded-generator, nonlinear PDE or numerical roundoff claim."
+  ],
+  "residual_risks": [
+    "Other quasi-Monte Carlo discrepancy references may contain the isolated half-interval digit identity, but that alone does not show the operator-error sharp dichotomy.",
+    "Only exact two-operator bounded linear schemes, fixed time and sparse odd-base subsequence; no multi-operator or nonlinear claim."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The statement and derivation are in `RESULT.md`. The attached `verify.py` uses only the Python standard library and exact rational arithmetic. It evaluates independent radical-inverse digit tests for radices \(2\) through \(13\), the source's half-interval sign prefixes, even-base periodicity and cancellation, odd-base recursive blocks, exact discrepancy subsequences, and the coefficient of \(E_{13}\) in the complete numerical three-by-three product. Running `python verify.py` yielded `VERIFY_OK exact rational tests: 4128`.
+## correctness
 
-The nonstandard critical facts are proved without relying on the program: the recursive central digit in odd radix, the explicit logarithmic imbalance, the Abel bound with uniformly varying propagated defects, and the nilpotent matrix-product identity. Numerical enumeration cannot prove the infinite cases. The proof assumes bounded generators, exact exponentials, two split operators and a fixed finite terminal time. Novelty is assessed against accessible primary literature and published research records, not independently certified.
+PASS
+
+For R even, the leading radical-inverse digit decides upper/lower half of [0,1), hence ξ_n depends only on n mod R and is balanced with partial sums O(R). Uniform bounded-generator Lie local Taylor error is τ² ξ_j[A,B]/2+O(τ³). Product telescoping and summation by parts with W_{n,j+1}−W_{n,j}=O(τ) give bounded signed commutator sum and O(Nτ³)=O(τ²) remainder. For R odd, the central base-R digit alone recurses; block sums yield S_{m(R^k−1)/(R−1)−1}=1−mk. For A=E12,B=E23, AB=E13 is central and BA=0, so exact product equals exp(T(A+B)+τ² S_N E13/2) on e3 and yields the claimed norm for every N. For R=2 successive factors group into symmetric Strang propagation. All limits hold at fixed T, bounded A,B, exact subflows.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS relative to the actual Li–Liu–Wan two-operator rule: their general discrepancy bound O(log N) and convergence theorem provide only O(τ² log N), not bounded even-base sign sums or a sharp odd-base 3×3 lower bound. Strang composition and digital discrepancy identities are known separate ingredients; the sharp rule-dependent arithmetic dichotomy survives.
+
+## value
+
+PASS
+
+This precise parity boundary is a useful classification of convergence order for a natural quasi-random numerical scheme, including a matching counterexample that shows the logarithm cannot generally be removed for odd radices. Even-base full second order has direct method-selection significance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
