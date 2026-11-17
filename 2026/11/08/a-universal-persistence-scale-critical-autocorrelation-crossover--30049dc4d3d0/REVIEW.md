@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stochastic normalization follows from the two-dimensional Ornstein–Uhlenbeck Lyapunov equations for each Debye mode. The exact two-time covariance is used with its continuous resonant extension; the zero-mode point has zero continuum spectral mass. The critical temperature makes the averaged variance one. The rescaled spectral formula gives a strictly positive, integrable kernel precisely in the stipulated dimension band. Dominated convergence and two separate scaled integral arguments establish both sharp endpoint exponents and constants, while Gaussian integral identities establish the dimension-five special function. The independent-mode and transformed-integral implementations in `verify.py` passed 38 deterministic checks. The tests are diagnostic and not substitutes for the proof.
+## correctness
 
-## Originality — PASS, with residual publication-priority risk
-Ikeda's 2022 active spherical Debye article provides the Gaussian mode setup, stationary variance, and static critical behavior, but the inspected Sections III–VI do not state a persistence-clock autocorrelation correction with an exact universal positive scaling function and two temporal exponents. Its conclusion identifies dynamics as further work. The 2025 temporally hyperuniform paper has different driving spectral assumptions and a different stochastic model. Searches for equivalent names (critical Debye autocorrelation, active spherical persistence crossover, Gaussian colored-noise stationary two-time scaling, and special-function profile) did not locate an implication-equivalent or stronger claim. A 2026 search of published mathematical records returned nearest generic critical-autocorrelation statements for different processes, not a matched theorem. This is a best-knowledge originality assessment rather than a guarantee against unindexed literature; complete priority remains independently reviewable.
+PASS
 
-## Mathematical value — PASS
-The result answers a motivated dynamical gap in an established exactly solvable nonequilibrium critical model, not a single arbitrary parameter evaluation. It resolves the leading persistence-scale decorrelation and the first genuinely critical correction throughout the nontrivial band between the random-field lower and upper critical dimensions, gives positive exact coefficients, reveals distinct short-/long-scaled-time power laws, and produces a closed measurable five-dimensional profile. It does not purport to solve finite-size spherical dynamics or dynamic critical aging after a quench.
+For each mode a=omega^2, the triangular stationary OU Lyapunov equations give Var(u)=T/[a(1+a tau)] and c_a(t)/Var(u)=[e^-at-a tau e^-t/tau]/(1-a tau), extended at a tau=1. Subtracting e^-s after the critical normalization produces exactly d T_c integral omega^(d-3)(e^-s tau omega²-e^-s)/(1-tau² omega^4). With z=sqrt(tau)omega and T_c/tau->(d-4)/d, the scaled integrand is positive, removable at z=1, and integrable at infinity precisely for 4<d<6. Dominated convergence gives Phi_d(s) and local uniformity. Short-time z=y/sqrt(s) integration gives Gamma((d-4)/2)/(6-d)*s^((6-d)/2); large-time small-z Laplace gives Gamma((d-2)/2)/2*s^(-(d-2)/2). Independently evaluated the d=5 integral and the erfi/erfc closed form with mpmath at s=.04,.2,1,2,10; differences were below 1e-20, and Phi_5(1)=0.429969029096485. These finite checks verify constants, not an unbounded limit or finite-N sphere.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The same active spherical Debye model and static critical dimensions were established by Ikeda (2022), whose full accessible text explicitly confines itself to static properties and leaves dynamics for future work. A 2025 work studies temporally hyperuniform rather than OU-persistent forcing. Semantic published-record searches for the precise persistence-clock correction and its two endpoint exponents retrieved the current submission and unrelated processes, not an equivalent prior theorem. This is qualified best-of-knowledge originality, not a completeness proof over all linear Gaussian critical scaling literature.
+
+## value
+
+PASS
+
+The critical temporal autocorrelation is a natural observable left open by the source paper’s static analysis. The theorem provides the complete first positive persistence-clock correction over the nontrivial spectral band 4<d<6, its exact integral and universal coefficients, the crossing of two distinct temporal powers, and a closed d=5 function. This is an independently useful exact critical dynamic invariant with clear hypotheses and no unsupported finite-size claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

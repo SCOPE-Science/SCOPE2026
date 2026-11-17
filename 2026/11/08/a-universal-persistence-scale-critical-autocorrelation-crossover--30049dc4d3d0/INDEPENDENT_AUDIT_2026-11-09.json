@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T23:46:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py Git blobs",
+        "Independent OU covariance derivation and dominated convergence",
+        "Independent high-precision d=5 quadrature and special function comparisons",
+        "Ikeda 2022 full primary text https://www.researchgate.net/publication/362858960_Active_Spherical_Model"
+      ],
+      "rationale": "For each mode a=omega^2, the triangular stationary OU Lyapunov equations give Var(u)=T/[a(1+a tau)] and c_a(t)/Var(u)=[e^-at-a tau e^-t/tau]/(1-a tau), extended at a tau=1. Subtracting e^-s after the critical normalization produces exactly d T_c integral omega^(d-3)(e^-s tau omega²-e^-s)/(1-tau² omega^4). With z=sqrt(tau)omega and T_c/tau->(d-4)/d, the scaled integrand is positive, removable at z=1, and integrable at infinity precisely for 4<d<6. Dominated convergence gives Phi_d(s) and local uniformity. Short-time z=y/sqrt(s) integration gives Gamma((d-4)/2)/(6-d)*s^((6-d)/2); large-time small-z Laplace gives Gamma((d-2)/2)/2*s^(-(d-2)/2). Independently evaluated the d=5 integral and the erfi/erfc closed form with mpmath at s=.04,.2,1,2,10; differences were below 1e-20, and Phi_5(1)=0.429969029096485. These finite checks verify constants, not an unbounded limit or finite-N sphere.",
+      "residual_risks": [
+        "No theorem is asserted at d=4 or d=6, in finite-N zero modes or time-dependent spherical multipliers.",
+        "The asymptotic limits in tau and s are sequential; no global simultaneous limit was verified."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2022 paper covers active spherical Debye modes and static criticality; 2025 paper has temporally hyperuniform forcing and different phase dynamics."
+        ],
+        "reasoning": "Neither retrieved theorem includes the claimed exact positive function Phi_d for OU forcing in 4<d<6.",
+        "searches": [
+          "https://www.researchgate.net/publication/362858960_Active_Spherical_Model",
+          "Ikeda arXiv:2503.06590 abstract and alphaXiv text",
+          "Resultary critical temporal crossover query"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/362858960_Active_Spherical_Model",
+        "https://arxiv.org/abs/2208.10200",
+        "https://arxiv.org/abs/2503.06590",
+        "Resultary searches on critical active spherical two-time persistence crossover"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2022 paper gives the variance and upper/lower static dimensions; its summary explicitly states dynamical behaviors such as aging are not analyzed."
+        ],
+        "reasoning": "The static critical equations do not by themselves state a two-time kernel, its positive crossover or its two temporal exponents. Standard OU calculations are known tools, but nontrivial spectral scaling produces the submitted closed continuum invariant.",
+        "searches": [
+          "https://www.researchgate.net/publication/362858960_Active_Spherical_Model",
+          "Resultary query active spherical model persistence time scaling",
+          "Ikeda arXiv:2503.06590"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ikeda 2022 Sec III gives stationary mode variance T/[omega²(1+tau omega²)] and static Tc; accessible full text says it studies only static properties."
+        ],
+        "reasoning": "Equivalent OU-mode two-time formulas are textbook premises, but their integral critical persistence-scale correction is not supplied in the original text.",
+        "searches": [
+          "Resultary query active spherical temporal critical Debye autocorrelation",
+          "Resultary query Gaussian colored force spherical Debye persistence clock 4<d<6",
+          "Ikeda arXiv:2208.10200"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact function or tabulation was located outside the submitted document; five-dimensional integral independently checked from first principles."
+        ],
+        "reasoning": "The d=5 special function is a derived exact continuum integral, not a known finite data table in inspected sources; negative searches do not certify absence.",
+        "searches": [
+          "Resultary critical Debye persistence autocorrelation search",
+          "Search for erfi erfc 5D active spherical correlation"
+        ]
+      },
+      "rationale": "The same active spherical Debye model and static critical dimensions were established by Ikeda (2022), whose full accessible text explicitly confines itself to static properties and leaves dynamics for future work. A 2025 work studies temporally hyperuniform rather than OU-persistent forcing. Semantic published-record searches for the precise persistence-clock correction and its two endpoint exponents retrieved the current submission and unrelated processes, not an equivalent prior theorem. This is qualified best-of-knowledge originality, not a completeness proof over all linear Gaussian critical scaling literature.",
+      "residual_risks": [
+        "An unindexed temporal-correlation calculation, or general Gaussian critical-limit theorem already specialized to this Debye model, could establish equivalent coverage.",
+        "The 2025 related paper was not examined in full, but its model is materially different; this access limitation alone is not a scientific failure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING the temporal scaling theorem; expressly static focus",
+          "evidence": [
+            "Paper states its analysis investigates static properties only and discusses dynamics as further work; sets same Debye model in Sec III."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/362858960_Active_Spherical_Model",
+          "material_read": "Accessible public full text: introduction; Sections II–VI; static critical-temperature and mode variance equations; Appendix A; final discussion lines 814–855",
+          "method": "Open-access full paper text, not merely abstract",
+          "title": "Active Spherical Model",
+          "trigger": "same Debye density and Gaussian OU forcing with persistence tau"
+        },
+        {
+          "assessment": "Distinct anticorrelated high-pass driving, not established coverage of persistent OU positive kernel",
+          "evidence": [
+            "Different noise spectrum and dynamical universality; full text not claimed read."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2503.06590",
+          "material_read": "Public abstract and contextual description; NOT full primary text",
+          "method": "Public arXiv abstract and explanatory page",
+          "title": "Interaction-free ergodicity-breaking driven by temporally hyperuniform noise",
+          "trigger": "related spherical model with temporal forcing and correlations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.researchgate.net/publication/362858960_Active_Spherical_Model",
+        "Submitted RESULT.md §§Finding/Proof",
+        "Independent evaluation of Phi_5"
+      ],
+      "rationale": "The critical temporal autocorrelation is a natural observable left open by the source paper’s static analysis. The theorem provides the complete first positive persistence-clock correction over the nontrivial spectral band 4<d<6, its exact integral and universal coefficients, the crossing of two distinct temporal powers, and a closed d=5 function. This is an independently useful exact critical dynamic invariant with clear hypotheses and no unsupported finite-size claims.",
+      "residual_risks": [
+        "Physical applicability is limited to continuum Gaussian stationary modes at the tau-dependent critical temperature; nonlinear or finite-system aging is excluded."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Passing result is a best-of-knowledge mathematical assessment, not certified priority.",
+    "Publication withheld for unsanitized public operational provenance."
+  ],
+  "schema_version": 1
+}
