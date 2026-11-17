@@ -1,11 +1,21 @@
-# Scientific review: stable two-patch cooperation gain
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact source-model payoff specialization is polynomial. Its interior coexistence point is an equilibrium; the homogeneous and transverse Jacobian blocks have the displayed rational coefficients, and only one simple transverse eigenvalue crosses zero at the stated ratio. Stationary sum/difference equations give a unique analytic patch-exchanged pair whose squared amplitude increases with the ratio. The center-manifold cubic has negative sign, so both local branches are attracting, while the mean cooperator-density coefficient is strictly positive. The complete rational expansions, derivative contractions, eigenvalue signs, and critical coefficient were checked by running the standalone `CHECK.py`. Analytic implicit-function and center-manifold arguments, not finite numerical observations, supply the infinite local conclusion.
+## correctness
 
-**Originality — PASS, qualified.** Roy et al., arXiv:2607.15989v1, develop the model, general dispersion relation and numerically observed cooperation gains. The relevant full-text sections and supplement were examined, including the payoff derivation, critical mobility calculation, group-size sweep and summary; the paper does not derive a nonlinear two-node pitchfork or the analytic increase in global averages and explicitly identifies such a derivation as outside its analytical results. Earlier ecological public-goods analysis by Hauert, Holmes and Doebeli studies coexistence and Hopf dynamics without this two-patch assertion. The exact branch coefficient, sign, stable branches and mean response were not found among the searched research records, aliases and published literature. Generic equivariant bifurcation theorems and the source's linear instability criterion are acknowledged as known; neither by itself fixes the nonlinear sign or mean-cooperator response in this model. Unindexed equivalent calculations remain a residual risk.
+PASS
 
-**Value — PASS.** Analytically obtaining the *sign and size* of a global-abundance change at the onset of spatial patterning directly addresses an identified quantitative gap in the source. It establishes that the mechanism already occurs for the minimal group of three and a two-vertex regular network, so neither large group size nor degree heterogeneity is essential for this local effect. The value is a precise, motivated local result, not a general phase diagram or global stability classification.
+Reconstructed the source-model three-player payoff functions and 4D ODE, homogeneous Q=(1/10,2/5), local J with trace -13/160 and det 3/640. Antisymmetric determinant (583-46kappa)/80000 crosses zero simply with negative remaining eigenvalues. Solved mean/half-difference Taylor series by exact rational coefficient matching: mean U coefficient 27467/4050 and kappa-p² coefficient 26872626977/13711680; both positive. Center coefficient c=aD>0, branches exactly ±p and stable by center-manifold spectral continuity. Inspected CHECK.py actual exact symbolic identities and independently rederived key polynomial equalities. Local small δ only.
 
-**Scope and risks.** No global basin or physical-state forward-invariance claim is made. Both emergent states remain close to defector-dominated coexistence, and neither is asserted to have local cooperator dominance. The result uses a deliberately exactly rational but biologically admissible choice of positive parameters. The proof's nonstandard parts have been independently reconstructed algebraically within the package, but not independently assessed by external experts. Search indexing is incomplete and may miss a stronger published bifurcation coefficient theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new exact nonlinear two-patch branch and strictly positive rational mean-cooperation response, rather than the already-published linear Turing dispersion and numerical cooperation increases.
+
+## value
+
+PASS
+
+Provides an analytically resolved nonlinear mechanism—on a regular two-node graph—by which diffusion destabilization yields *more* cooperation, rather than merely showing pattern formation. Exact threshold, cubic sign, unique branch pair, and positive response supply a natural proof-of-mechanism absent from the originating work; significance is local and parameter-specific.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
