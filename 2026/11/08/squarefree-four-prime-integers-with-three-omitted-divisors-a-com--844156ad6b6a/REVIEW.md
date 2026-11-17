@@ -1,12 +1,21 @@
-# Review of the squarefree four-prime 3-near-perfect classification
+# Independent mathematical audit
 
-## Correctness — PASS
-Odd squarefree four-prime integers have divisor-sum ratio below two. For even integers the positivity and omitted-divisor inequalities reduce the prime supports to twelve pairs. Every one of the 15 proper divisors of a candidate is affine in the largest prime; all 455 triples per pair have strictly smaller constant term than the target, giving at most one exact rational prime candidate each. The supplied standard-library checker tests all 5,460 cases, confirms all actual identities and produces 51 integers and 60 unordered witness triples. A separate direct integer-and-divisor enumeration through 13,000 agrees exactly. The global exhaustiveness is proved by the rational-template reduction, not by the bounded scan.
+## correctness
 
-## Originality — PASS within inspected evidence
-The closest 2023 original paper on 2-near-perfect numbers (arXiv:2310.01305) concerns two deleted divisors, with principal two-prime-support classifications. The 2025 follow-up (arXiv:2508.06651) has its main results on two deleted divisors and two distinct primes, and Section 6.3 only lists eight initial three-omission examples. The accessible squarefree 2-near-perfect four-prime census likewise has two rather than three omissions, while a published three-deficient-perfect result concerns the opposite sign. A sequence search uncovered OEIS A341475, again with two omitted divisors. Neither the inspected full primary texts nor targeted equivalence searches presented a stronger theorem covering the 51-value and 60-triple result. Some indexed literature and older records were available only in partial form; an unindexed equivalent theorem remains possible.
+PASS
 
-## Mathematical value — PASS
-The classification resolves a natural first finite-prime-support layer of the three-deleted-divisor generalization and provides all exact witnesses. The necessary upper bounds on the smaller primes and the complete 5,460-template reduction establish why the computation covers the infinite class. The result goes beyond isolated examples or a known-table recomputation. It does not classify non-squarefree integers or other prime-factor counts.
+Odd squarefree four-prime n has σ(n)/n<2; hence n=2pqr. Monotone abundancy bounds reduce to p∈{3,5,7} and exactly 12 possible (p,q) pairs, including the nontrivial q≤23 bound when p=3: for q≥29 no omitted divisor contains qr and every three other divisors sum ≤11(1+q+r)<σ(n)−2n=12(1+q+r). For a fixed (p,q), all 15 proper divisors split as 8 d and 7 dr, so every three-term candidate is one of 455 templates with sum Cr+E. The identity σ(2pqr)−2(2pqr)=Ar+B yields (A−C)r=E−B; E<B eliminates an infinitely-degenerate denominator and yields at most one integer r per template. Exact integer arithmetic over 12×455=5,460 templates independently returned 51 integers and 60 distinct unordered witness triples, largest n=12714, and checked proper divisibility/primality and defining identities. The template reduction—not a bounded n scan—is a proof of infinite-family completeness.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The earlier two-near-perfect and two-prime-support classifications have different omission counts and arithmetic restrictions; Fearon et al.'s §6.3 gives small initial 3-near examples rather than this exhaustive four-distinct-prime 3-omission census. No stronger table or logical implication was found in actual full-text and Resultary checks. Historical priority remains bounded by searched sources.
+
+## value
+
+PASS
+
+The first natural fixed-squarefree-support class beyond the two-omitted-divisor literature is completely classified, including all witnesses rather than a finite cutoff or unexplained list. It supplies 51 exact integers, 60 triple representations, eight multiple-witness cases, and a finite template reduction which others can reuse for omitted-divisor Diophantine classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

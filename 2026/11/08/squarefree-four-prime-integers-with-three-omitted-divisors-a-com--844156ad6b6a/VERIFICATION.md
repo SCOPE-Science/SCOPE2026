@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact-arithmetic verification
+# Independent mathematical audit
 
-Run `python3 check.py` with the standard Python library; the resulting text is included in `check_output.txt`. The script deterministically evaluates the mathematically exhaustive 12 prime pairs times 455 omitted-divisor triples, certifies that every candidate largest prime is uniquely determined by the equation, and checks each retained case using integer divisibility and the exact sum-of-divisors formula.
+## correctness
 
-The output reports 51 distinct integers and 60 unordered omitted-divisor triples; exactly eight integers have more than one triple (seven have two, one has three). Independently, the same program tests every integer through \(13000\) using direct factorization and its proper divisors; the exact sets of integers **and witness triples** agree.
+PASS
 
-The standalone proof in `RESULT.md` supplies a global bound on the first two odd primes and a single rational largest-prime candidate for every template. Thus the direct scan through \(13000\) is corroborating evidence only, not an unsupported inference from finite data to infinity. All outputs use exact integer arithmetic. Unindexed equivalent results and work outside the given squarefree support remain limitations. No independent external mathematical audit is claimed.
+Odd squarefree four-prime n has σ(n)/n<2; hence n=2pqr. Monotone abundancy bounds reduce to p∈{3,5,7} and exactly 12 possible (p,q) pairs, including the nontrivial q≤23 bound when p=3: for q≥29 no omitted divisor contains qr and every three other divisors sum ≤11(1+q+r)<σ(n)−2n=12(1+q+r). For a fixed (p,q), all 15 proper divisors split as 8 d and 7 dr, so every three-term candidate is one of 455 templates with sum Cr+E. The identity σ(2pqr)−2(2pqr)=Ar+B yields (A−C)r=E−B; E<B eliminates an infinitely-degenerate denominator and yields at most one integer r per template. Exact integer arithmetic over 12×455=5,460 templates independently returned 51 integers and 60 distinct unordered witness triples, largest n=12714, and checked proper divisibility/primality and defining identities. The template reduction—not a bounded n scan—is a proof of infinite-family completeness.
+
+## originality
+
+PASS
+
+The earlier two-near-perfect and two-prime-support classifications have different omission counts and arithmetic restrictions; Fearon et al.'s §6.3 gives small initial 3-near examples rather than this exhaustive four-distinct-prime 3-omission census. No stronger table or logical implication was found in actual full-text and Resultary checks. Historical priority remains bounded by searched sources.
+
+## value
+
+PASS
+
+The first natural fixed-squarefree-support class beyond the two-omitted-divisor literature is completely classified, including all witnesses rather than a finite cutoff or unexplained list. It supplies 51 exact integers, 60 triple representations, eight multiple-witness cases, and a finite template reduction which others can reuse for omitted-divisor Diophantine classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
