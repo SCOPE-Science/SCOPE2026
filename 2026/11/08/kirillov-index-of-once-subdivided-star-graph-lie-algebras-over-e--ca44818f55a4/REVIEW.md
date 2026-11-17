@@ -1,19 +1,21 @@
-# Scientific review: Kirillov index of subdivided-star graph Lie algebras
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The construction of Gallo--Videla [GV, Sections 2--4] yields a \(V\oplus A\oplus W\) basis with \(\dim V=2m+1\), \(\dim A=2m\), \(\dim W=m(m+1)/2\), and \(W=Z(\mathfrak n_{T_m})\). The displayed brackets follow by applying the source's length-two-path rules to the tree \(c-u_i-v_i\). The Kirillov matrix has an \(A\times A\) zero block. The \(m\) columns indexed by the outer edges share only the hub row; hence the mixed block has rank at most \(m+1\). Together with parity of alternating ranks this proves the upper bound. The explicitly given functional makes the mixed block rank exactly \(m+1\), while its residual alternating form has \(\lfloor m/2\rfloor\) independent hyperbolic planes. This proves the rank and index formulas over arbitrary fields, including characteristic two. Exact finite-field replay and exhaustive functional checks at small sizes independently corroborate the calculation; they are not substituted for the general proof.
+PASS
 
-## Originality — PASS (same-model, qualified)
+For once-subdivided m-arm stars, dim L=4m+1+m(m+1)/2 and W=center has m(m+1)/2 generators. Every b_i column of D sits in the hub row; with m other a_i columns, rank D≤m+1. The alternating block rank is bounded by Vdim(=2m+1)+rankD≤3m+2, and evenness sharpens to 2(m+1)+2⌊m/2⌋. The explicit functional with all t_i=1, nonzero z_ij on disjoint pairs, and selected b_i coefficients makes rankD=m+1; on ker D^T the C-block is ⌊m/2⌋ nondegenerate alternating two-planes, attaining the bound over every field. Subtracting from dimL gives index m(m+1)/2+2⌈m/2⌉−1. Reviewed check_index.py which independently builds graph incidence and path brackets; its enumerations are finite evidence, not the proof.
 
-The closest primary paper is [GV], publicly submitted 2026-10-25. Its complete relevant text was inspected, not merely its abstract: the graph bracket rules, tree center and dimensions, explicit path/star examples, classification section, tensor construction and blow-up section. It supplies the ingredients but does not calculate the Kirillov index or coadjoint-form rank for once-subdivided stars. Searches for the exact result and equivalent descriptions (subdivided claw/spider, rank of Kirillov form, coadjoint stabilizer, generic alternating-block rank) did not locate stronger coverage. A relevant published published-finding corpus entry on tree graphical groups treats a different *two-step* graph Lie algebra, not the three-step algebra of [GV]. The accessible owned ledger records graph-Lie-algebra adjoint/Kirillov results for stars and Heisenberg structures, but no stated index formula for once-subdivided stars. This is a comparison by implications, not an inference of uniqueness from a failed search. Priority risk: an unindexed special-family calculation could still exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Index is a standard coadjoint invariant whose evaluation is not determined by the published center and lower-central dimensions. The result supplies an exact unbounded-family classification over every field and finds a linear, parity-sensitive excess above the center dimension. The gap is minimal for the two path-like boundaries \(m=1,2\), but grows on genuinely branching once-subdivided stars \(m\ge3\), exposing a structural obstruction to maximal Kirillov rank modulo center. Once-subdivided stars are the canonical first spider family beyond paths and stars; the invariant is independently motivated by representation theory and the geometry of alternating forms. No claim of a general arbitrary-tree classification or a complete functional rank distribution is made.
+Best-of-knowledge PASS for m≥3 growing index-center defect of the complete once-subdivided-star family over arbitrary fields. m=1,2 overlap path small cases and do not supply independent novelty. Published characteristic-two rank spectrum for unsubdivided stars differs in graph and brackets; no stronger all-tree theorem was identified. Access risk to defining primary text persists.
 
-## Limits and literature
+## value
 
-Only the designated family and its maximum Kirillov rank are proved, not distributions of lower ranks. External publication priority is not independently established. [GV] Gallo--Videla, *Nilpotent Lie algebras of nilpotence class at most three via graphs*, arXiv:2610.33963v1 (2026-10-25). The earlier Dani--Mainkar graph construction and character-degree results for two-step graphical groups do not logically imply this three-step index formula. The exact checker is included as `check_index.py`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The once-subdivided star is a naturally branching tree and shows an unbounded gap between the center and minimum coadjoint stabilizer dimension. The arbitrary-field exact index and growth are a meaningful structural boundary for attempts to extend path/star rank formulas to trees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

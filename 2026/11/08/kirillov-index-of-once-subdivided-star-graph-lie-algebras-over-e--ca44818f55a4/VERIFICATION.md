@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The proof in `RESULT.md` establishes a global upper bound on an arbitrary functional's Kirillov form using the mixed block's column structure and alternating rank parity. An explicit functional attains that bound; the proof of its rank uses the restriction of the vertex-edge form to the mixed-block kernel and works over every field.
+## correctness
 
-To check calculations independently, run `python3 check_index.py` with Python 3.8 or newer. It constructs the graph vertices and edges and finds every length-two path without using any precomputed Lie matrix. It then constructs the Kirillov matrix from the defining path brackets and computes exact ranks in four prime fields for each of the first ten arm counts. It also tests all coefficient functionals over the binary field for one, two and three arms. The expected output is recorded in `check_output.txt`. The checked package includes all dependencies (Python standard library only).
+PASS
 
-Replay output: `VERIFY_OK witness_cases=40 exhaustive_binary_functionals=4232 m_range=1..10 prime_fields=2,3,5,7`.
+For once-subdivided m-arm stars, dim L=4m+1+m(m+1)/2 and W=center has m(m+1)/2 generators. Every b_i column of D sits in the hub row; with m other a_i columns, rank D≤m+1. The alternating block rank is bounded by Vdim(=2m+1)+rankD≤3m+2, and evenness sharpens to 2(m+1)+2⌊m/2⌋. The explicit functional with all t_i=1, nonzero z_ij on disjoint pairs, and selected b_i coefficients makes rankD=m+1; on ker D^T the C-block is ⌊m/2⌋ nondegenerate alternating two-planes, attaining the bound over every field. Subtracting from dimL gives index m(m+1)/2+2⌈m/2⌉−1. Reviewed check_index.py which independently builds graph incidence and path brackets; its enumerations are finite evidence, not the proof.
 
-The exhaustive binary checks cover precisely 2^(2+1)+2^(4+3)+2^(6+6)=4,232 functionals, not arbitrary arm counts or larger fields. The remaining 40 matrices certify finite instances of the explicit witness, not all possible functionals. The unrestricted theorem is justified by the written argument, not by these finite tests.
+## originality
 
-No independent audit has been performed.
+PASS
+
+Best-of-knowledge PASS for m≥3 growing index-center defect of the complete once-subdivided-star family over arbitrary fields. m=1,2 overlap path small cases and do not supply independent novelty. Published characteristic-two rank spectrum for unsubdivided stars differs in graph and brackets; no stronger all-tree theorem was identified. Access risk to defining primary text persists.
+
+## value
+
+PASS
+
+The once-subdivided star is a naturally branching tree and shows an unbounded gap between the center and minimum coadjoint stabilizer dimension. The arbitrary-field exact index and growth are a meaningful structural boundary for attempts to extend path/star rank formulas to trees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
