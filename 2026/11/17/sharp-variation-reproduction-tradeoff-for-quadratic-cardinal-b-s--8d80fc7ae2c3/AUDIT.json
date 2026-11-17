@@ -1,0 +1,149 @@
+{
+  "correctness": {
+    "rationale": "The finite-support quadratic B-spline satisfies the exact derivative identity beta2 prime equals the difference of two unit triangles and the cardinal moments. For a step input the derivative has endpoints 0,-a,1+2a,-a,0. Each of two tails contributes negative area a/2 and each adjacent wedge a^2/[2(1+3a)], yielding the exact L1 derivative norm 1+2a+2a^2/(1+3a). Every bi-infinite finite-BV sequence is an absolutely summable superposition of shifted steps plus a constant; linearity, translation invariance and Tonelli prove the unrestricted upper bound, and one step attains it. The polynomial moments force a=1/8. Standalone rational checker confirms these critical algebraic components and 960 finite two-sided input inequalities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Sablonnière arxiv:math/0504022 section 3.1 states the precise three-tap quadratic quasi-interpolant and a finite-interval norm about 1.4734; it supplies the construction and no sharp bi-infinite BV-to-BV statement.",
+        "Marsden, A Voronovskaya theorem for variation-diminishing spline approximation (1986), DOI 10.4153/CJM-1986-053-0, available abstract: positive spline approximation (the a=0 baseline).",
+        "Sablonnière 2005, Theorem 2: finite-interval maximum norm 305/207 on a uniform partition, not a BV norm; same author cites 2003 for the construction.",
+        "Dũng 2010, Theorem 2.1, multiscale Besov representation and quasi-norm equivalence rather than an explicit sharp BV operator norm."
+      ],
+      "reasoning": "Positive variation-diminishing B-spline sampling corresponds to a=0 and cannot imply nonexpansivity or the exact signed, quadratic-reproducing a>0 variation gain. A maximum-norm estimate or a nonsharp general Besov estimate also does not imply the present exact total variation constant. The undownloaded 2003 predecessor is explicitly retained as historical risk, not treated as ruled out.",
+      "searches": [
+        "variation diminishing spline approximation versus quadratic polynomial reproducing quasi-interpolant total variation amplification",
+        "Marsden 1970 identity spline functions applications variation diminishing spline approximation",
+        "B spline quasi interpolation bounded variation norm stability exact total variation approximation reproduction polynomial 2010"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0504022",
+      "https://arxiv.org/abs/math/0512439",
+      "https://arxiv.org/abs/1009.4389",
+      "https://doi.org/10.4153/CJM-1986-053-0",
+      "https://www.researchgate.net/publication/282266562_Quadratic_spline_quasi-interpolants_on_bounded_domains_of_Rd_d_1_2_3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The April 2005 full-text Section 3.1 establishes the same interior a=1/8 rule, so only its exact sharp variation stability—not the operator or polynomial reproduction—is claimed as new.",
+        "The Sablonnière construction shares the local coefficient stencil but treats a boundary-modified operator and maximum-norm or quadrature estimates.",
+        "The Marsden variation-diminishing theory treats positive spline operators, whereas the present quadratic-corrected operator has negative prefilter weights.",
+        "Published spline orthoprojector records have inverse-Gram nonlocal kernels, and previously recorded cubic interpolant results use different spline generators."
+      ],
+      "reasoning": "Even if polynomial reproduction of Q_{1/8} and a bound on its supremum norm are assumed, neither implication determines the exact integral absolute derivative of the step response or the sharp BV Lipschitz norm. The universal jump-decomposition principle reduces this to an explicit calculation, but none of the inspected primary theorems supplies that exact calculation; a general identity alone is not a covering quantitative statement.",
+      "searches": [
+        "quadratic B spline quasi interpolant polynomial reproducing coefficient -1/8 delta squared jump total variation",
+        "positive quadratic B-spline sampling operator compared to compensated anti-diffusive quasi interpolant",
+        "sharp Lipschitz stability of spline quasi interpolation in bounded variation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sablonnière (2005-04-01), arxiv:math/0504022, section 3.1 explicitly uses the interior coefficient (-f_{j-1}+10f_j-f_{j+1})/8, the same a=1/8 operator, but establishes an L-infinity bound and approximation estimates rather than the present exact bounded-variation norm.",
+        "Sablonnière (2005), arxiv:math/0512439, sections 2–3 constructs the quadratic spline quasi-interpolant and reports an infinity norm for a bounded interval.",
+        "Dũng (2010), arxiv:1009.4389, section 2 defines general translated cardinal B-spline quasi-interpolants and polynomial reproduction; the checked norm framework is uniform/smoothness or Besov rather than the exact discrete-BV-to-continuous-BV coefficient."
+      ],
+      "reasoning": "Possible aliases include the discrete quadratic spline quasi-interpolant, three-tap prefiltered B-spline sampling, polynomial-reproducing local quasi-interpolation, and step response of its signed reconstruction kernel. The checked formulas specify or bound those operators in other seminorms; none in the inspected material gives the exact full parameter curve K(a) or the constant 14/11 in the stated variation norm.",
+      "searches": [
+        "sharp total variation norm Sablonniere centered quadratic B-spline quasi interpolation Q",
+        "quadratic B-spline quasi interpolant polynomial reproducing coefficient -1/8 delta squared jump total variation",
+        "cardinal spline quasi interpolation bounded variation operator norm sharp"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The complete accessible 2005-04-01 defining manuscript gives the quadratic stencil and an L-infinity norm but no 14/11 variation table.",
+        "The accessible Sablonnière 2005 manuscript tabulates uniform maximum-norm and quadrature conclusions, not the number 14/11 as an exact BV norm.",
+        "The checked Dũng 2010 article derives smoothness-space recovery rates without a table of the BV norm of the present three-point cardinal operator."
+      ],
+      "reasoning": "Targeted searches for the exact rational value and operator synonyms did not reveal a matching published constant or table. Such a negative search is only evidence about inspected sources, not a claim of global uniqueness.",
+      "searches": [
+        "14/11 total variation quadratic B-spline quasi-interpolation",
+        "1.272727 quasi interpolant",
+        "total variation quadratic spline quasi-interpolant Sablonniere"
+      ]
+    },
+    "rationale": "No exact full-parameter BV norm or quadratic-reproduction cost was found in the queried published mathematical corpus or the inspected April and December 2005 and 2010 primary manuscripts. Classical variation-diminishing splines establish only the positive a=0 baseline, and the 2005 bounded-interval infinity norm does not determine a bi-infinite TV-to-TV coefficient. This judgment is qualified by inaccessible earlier literature, with no proof of global bibliographic uniqueness.",
+    "residual_risks": [
+      "The complete 2003 precursor by Sablonnière was inaccessible; its exact quantitative statements were not checked.",
+      "The 1986 Marsden variation-diminishing paper was not inspected in full; any stronger signed-operator theorem in it remains unknown.",
+      "A published unindexed exact formula or straightforward corollary may have been missed; semantic search and bibliographic sampling do not certify priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior operator, degree-two reproduction and finite-interval supremum norm are acknowledged; no exact full-parameter or a=1/8 bi-infinite BV stability constant appears in the read results",
+        "evidence": [
+          "Section 3.1 interior coefficient mu_j=(-f_{j-1}+10f_j-f_{j+1})/8",
+          "Section 3.1 reports uniform finite-interval infinity norm 1.4734",
+          "Sections 4–7 concern quadrature, differentiation, zeros and numerical examples"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0504022v1",
+        "material_read": "Complete publicly accessible paper sections 1–7 via searchable full-text HTML, especially section 3.1 with exact interior coefficient and norm, and sections 4–7 applications",
+        "method": "Primary full text and direct matching coefficients",
+        "title": "Univariate spline quasi-interpolants and applications to numerical analysis",
+        "trigger": "Earliest day-verified exact same three-sample quadratic quasi-interpolation stencil found"
+      },
+      {
+        "assessment": "Defines classical discrete quadratic quasi-interpolants and gives bounded-interval maximum norms; checked material does not establish the exact bi-infinite TV-to-TV constant; the earlier 2003 precursor remains a priority risk",
+        "evidence": [
+          "Section 2 operator and reproduction",
+          "Theorem 2 gives uniform L-infinity norm 305/207",
+          "Sections 3–5 give quadrature and smooth-data error estimates"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0512439",
+        "material_read": "Accessible article text, sections 1–5, including Theorem 2 and the uniform-grid and Peano-kernel discussions",
+        "method": "Primary public preprint, searchable full-text HTML and section examination",
+        "title": "A quadrature formula associated with a univariate quadratic spline quasi-interpolant",
+        "trigger": "Same degree, local prefilter, uniform cardinal specialization and quadratic reproduction"
+      },
+      {
+        "assessment": "General Besov-space approximation and sampling-recovery bounds; no exact present BV coefficient was found in the inspected material",
+        "evidence": [
+          "Section 2 formulas (2.2),(2.3)",
+          "Theorem 2.1 addresses mixed Besov representation",
+          "No matching variation term in searchable text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1009.4389",
+        "material_read": "Abstract, introduction, section 2 operator definitions (2.2)–(2.3), local reproduction discussion, Theorem 2.1 and its setup, section 4 interpolant comparison",
+        "method": "Public full-text HTML; examined stated theorem and searched entire available HTML for total variation and variation",
+        "title": "B-spline quasi-interpolant representations and sampling recovery of functions with mixed smoothness",
+        "trigger": "A broad B-spline quasi-interpolant framework could imply stronger operator estimates"
+      },
+      {
+        "assessment": "Supports the positive variation-diminishing a=0 baseline, but cannot by itself establish the signed a>0 formula; full text remains uninspected",
+        "evidence": [
+          "Abstract describes positive variation-diminishing Schoenberg spline approximation"
+        ],
+        "identifier_or_url": "https://doi.org/10.4153/CJM-1986-053-0",
+        "material_read": "Publisher abstract, title and bibliographic references; full paper not examined",
+        "method": "Abstract and bibliographic context, limited access",
+        "title": "A Voronovskaya theorem for variation-diminishing spline approximation",
+        "trigger": "Classical positive B-spline sampling may dominate the nonexpansive a=0 portion"
+      },
+      {
+        "assessment": "Operator construction and uniform bounds are indicated, but no full-text comparison or NOT_COVERING determination is asserted; material historical-risk source",
+        "evidence": [
+          "2003 abstract describes bounded-domain C1 quadratic discrete quasi-interpolants and smooth-data approximation"
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/282266562_Quadratic_spline_quasi-interpolants_on_bounded_domains_of_Rd_d_1_2_3",
+        "material_read": "Bibliographic abstract only; complete paper not accessible",
+        "method": "Publisher/repository bibliographic listing and 2005 author citation",
+        "title": "Quadratic spline quasi-interpolants on bounded domains of R^d, d=1,2,3",
+        "trigger": "Earlier 2003 precursor by the defining quasi-interpolant author"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8d80fc7a-e2c3-4994-a46c-cfb850d7aaa2",
+  "value": {
+    "rationale": "The canonical three-point correction that converts positive quadratic B-spline sampling into a quadratic-reproducing quasi-interpolant has a precise unavoidable total-variation cost. The result classifies a natural correction family quantitatively rather than recomputing one table entry: K(a) is exact for every a≥0, increases strictly away from the unique nonexpansive sampler a=0, and has the reproducibility-constrained sharp value 14/11 at a=1/8. This is a directly interpretable worst-case stability invariant for preserving edges in local reconstruction, not merely a restatement of approximation order or positivity.",
+    "status": "PASS"
+  }
+}
