@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-The complete proof is in `RESULT.md`; execute `python3 checker.py` from the same directory. The checker explicitly enumerates the full normal-form parameter space and directly checks all five preconditional axioms, identity, semicomplementation and double-negation inflation on every element and relevant ordered tuple for \(m=1,2,3,4\). Its successful final line is `POINTED_COATOM_PRECONDITIONAL_CHECKS_OK`.
+## correctness
 
-An additional finite row-candidate program enumerated all row functions satisfying the primitive row implications before imposing cross-row axiom (P5), for \(m\le3\). The independently calculated \((T_m,F_m)\) pairs were \((2,2)\), \((9,5)\), and \((76,14)\). These computations are finite sanity checks, not a substitute for the full proof or an independent expert audit. For any \(m\ge1\), the exact formulas follow by the forced-row and bijective counting arguments. External historical priority has not been certified.
+PASS
+
+Read full normal-form proof and axioms. P1--P4 force top/bottom rows, atomic rows equal 1 for upper consequent and a single h(i) otherwise. Semicomplementation restricts h(i) to 0 or a_j with j≠i. P5 applied at antecedent c excludes middle c in coatom row and requires q_c(h(i))=h(i), so S avoids the nonzero image. Conversely row image-fixedness proves P5 and the other axioms. Double-negation inflation forces every nonzero h arrow to be a 2-cycle; pair choices and two independent statuses for each unmatched atom yield exp(2z+z²/2) and F_m. Independent code built every allowed full lattice operation and checked ALL P1..P5, identity, semicomplementation and double-negation through m=4, giving (2,2),(9,5),(76,14),(937,43), and checked T5=15006,F5=142 by formula. These finite checks corroborate but do not replace proof for all m.
+
+## originality
+
+PASS
+
+Best-of-knowledge exact height-three common-coatom classification has additional coatom row and colour states absent from the earlier height-two partial-matching theorem. The general Holliday and Chen axioms/semantics do not themselves state the E_m classification, its T_m formula, F_m weighted telephone numbers or orbit count. The proof uses nontrivial P5 image-exclusion and double-negation constraints rather than merely renaming height-two matchings.
+
+## value
+
+PASS
+
+A canonical exact classification of all operations on a natural family of finite height-three lattices is a reusable algebraic invariant; the two-colour matching EGF and orbit count distinguish it sharply from the established height-two diamond case. Motivated by the effect of inserting a coatom on conditional identities, not an arbitrary tiny slice; no separate downstream theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
