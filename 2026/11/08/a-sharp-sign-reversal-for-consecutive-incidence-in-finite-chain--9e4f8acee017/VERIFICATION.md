@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification performed
+# Independent mathematical audit
 
-The exact conditional law was reconstructed independently in `checks/verify.py` by enumerating every possible first-round incidence, recovery of the index case, and second-round incidence. Its rational covariance was compared with the algebraic formula for 54 combinations of population size, transmission probability, and recovery probability; all passed. Exact positive and negative covariance witnesses, the \(N=3,\mu=1,p=1/2\) zero and the \(N=3,\mu=0\) exceptional sign were checked.
+## correctness
 
-The all-population assertion relies on the displayed proof: conditioning on first-round outcomes, two binomial moment identities, strict concavity of a logarithmic sign factor, and uniform asymptotic expansion. Enumeration for small \(N\) does not prove uniqueness or asymptotic behavior. The primary 2026 model's finite update rules were checked against equations (5)–(6), including same-round recovery/infection independence and delayed infectiousness of newly infected persons. The published comparisons do not establish exhaustive novelty; classical equivalent results remain possible. Independent audit: not performed.
+PASS
+
+Directly reconstructed independent binomial C1~Bin(n,p), R1~Bern(mu), and E[C2|C1]=(n-C1)(1-a q^C1). Four binomial generating-moment identities give formula, including n=2 endpoint. Logarithm L(p) of bracket multiplier has L(0)=0,L'(0)=n-2+mu, strictly negative L'' and L(1-)=-infinity, proving unique positive crossing (or uniformly negative at n=2,mu=0). Root expansion uses n p^3=o(1), log(1+np)-np^2+o(1)=0 and uniform recovery bound; at fixed beta=Np, covariance tends to beta^2. Independently enumerated full two-round transition probabilities with exact fractions at many n,p,mu (not a proof of asymptotics).
+
+## originality
+
+PASS
+
+Best-knowledge PASS. The exact two-round observable, recovery-dependent sign threshold, and log-log finite-size location do not follow from the primary general chain-binomial PGF formalism inspected. This is not a new stochastic transition model, binomial identity or fixed-beta branching approximation. Unindexed classical two-generation covariance formulas are an explicit priority risk.
+
+## value
+
+PASS
+
+PASS. Exact positive-to-negative dependence transition of consecutive incidence in a natural finite epidemic, including the sharp log-log depletion crossover and its disappearance in fixed-contact branching asymptotics; meaningful diagnostic boundary rather than only parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

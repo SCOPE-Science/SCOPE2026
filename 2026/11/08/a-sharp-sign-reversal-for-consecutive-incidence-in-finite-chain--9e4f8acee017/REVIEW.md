@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated domain, update ordering, and independence assumptions are explicit. The exact formula follows by conditioning on the first new-case count and the initial infective's independent recovery, then applying two independently derivable binomial factorial moments. The logarithm of the sign factor has strictly negative second derivative and first derivative \(n-2+\mu\) at the origin; this determines all boundary cases. The large-population expansion has a uniform remainder because \(\mu\) appears only inside a factor between \(1-p\) and \(1\). The embedded executable enumerator checks \(54\) complete rational two-round laws and two exact sign witnesses. These finite computations are corroboration, not the all-size proof.
+PASS
 
-## Originality — PASS, with residual risk
+Directly reconstructed independent binomial C1~Bin(n,p), R1~Bern(mu), and E[C2|C1]=(n-C1)(1-a q^C1). Four binomial generating-moment identities give formula, including n=2 endpoint. Logarithm L(p) of bracket multiplier has L(0)=0,L'(0)=n-2+mu, strictly negative L'' and L(1-)=-infinity, proving unique positive crossing (or uniformly negative at n=2,mu=0). Root expansion uses n p^3=o(1), log(1+np)-np^2+o(1)=0 and uniform recovery bound; at fixed beta=Np, covariance tends to beta^2. Independently enumerated full two-round transition probabilities with exact fractions at many n,p,mu (not a proof of asymptotics).
 
-The primary motivating paper (Boudreau and St-Onge, arXiv:2610.17138v1, §§2.1–2.4 and Supplement S1) defines the finite chain-binomial process and models joint incidence with branching PGFs. It does not give the exact *finite-population* first-two-incidence covariance, a single sharp sign transition, or the second-order \(\sqrt{\log n/n}\) transition scale. The CDC Reed–Frost documentation treats the \(\mu=1\) process and its reproduction number, but no such covariance law. The broader 2018 PGF primer and 2025 multi-region chain-binomial preprint discuss related approximations or spatial count dependence rather than this precise sign boundary. Published mathematical research records found no covering statement; closest comparisons involve deterministic SIR dynamics, cross-pathogen co-infection covariance, or depletion in other discrete probabilistic settings. A classic unindexed two-generation moment calculation may be equivalent; further independent literature review remains warranted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem provides a natural, exactly defined dependence statistic for early outbreak counts, resolves its complete sign phase diagram, identifies a sharp finite-size threshold and a nontrivial refined large-population scale, and connects it to the usual positive-covariance branching limit. This quantifies the previously qualitative finite-susceptible-population breakdown of the branching approximation. It is not merely a numerical counterexample or a renamed general covariance identity.
+Best-knowledge PASS. The exact two-round observable, recovery-dependent sign threshold, and log-log finite-size location do not follow from the primary general chain-binomial PGF formalism inspected. This is not a new stochastic transition model, binomial identity or fixed-beta branching approximation. Unindexed classical two-generation covariance formulas are an explicit priority risk.
 
-## Scientific limitations and closest sources
+## value
 
-The result applies only to rounds one and two from a single index case with homogeneous, independent synchronous updates and perfect incidence observation. It does not concern longer-lag autocorrelation or empirical time-series estimates. Closest primary material: Boudreau–St-Onge (2026) §2.1 exact transition law, §§2.2–2.4 incidence PGF and finite-population divergence; CDC Reed–Frost model description; Miller (2018) large-population PGF framework; 2025 multi-region chain-binomial preprint. A possible equivalent result in older chain-binomial moment literature cannot be excluded from indexed searches.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Exact positive-to-negative dependence transition of consecutive incidence in a natural finite epidemic, including the sharp log-log depletion crossover and its disappearance in fixed-contact branching asymptotics; meaningful diagnostic boundary rather than only parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

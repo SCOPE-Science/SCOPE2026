@@ -1,0 +1,87 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T03:15:31.442970Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Directly reconstructed independent binomial C1~Bin(n,p), R1~Bern(mu), and E[C2|C1]=(n-C1)(1-a q^C1). Four binomial generating-moment identities give formula, including n=2 endpoint. Logarithm L(p) of bracket multiplier has L(0)=0,L'(0)=n-2+mu, strictly negative L'' and L(1-)=-infinity, proving unique positive crossing (or uniformly negative at n=2,mu=0). Root expansion uses n p^3=o(1), log(1+np)-np^2+o(1)=0 and uniform recovery bound; at fixed beta=Np, covariance tends to beta^2. Independently enumerated full two-round transition probabilities with exact fractions at many n,p,mu (not a proof of asymptotics).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Primary time-series PGF treats general observable laws, not explicit finite n covariance root, uniqueness, and uniform log-log asymptotic."
+        ],
+        "reasoning": "A general joint PGF can in principle be differentiated, but inspected theorems do not state or evaluate the specialized covariance/root. No stronger explicit coverage found.",
+        "searches": [
+          "chain-binomial SIR consecutive infection incidence covariance sign reversal recovery transmission finite population depletion",
+          "https://arxiv.t3mt.com/html/2610.17138v1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.17138",
+        "https://arxiv.t3mt.com/html/2610.17138v1",
+        "chain-binomial SIR consecutive infection incidence covariance sign reversal recovery transmission finite population depletion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reference gives the exact process specification and branching comparison; the submitted formula and uniqueness proof add a nontrivial observable result."
+        ],
+        "reasoning": "Neither definitions nor generic PGF existence logically supplies the evaluated sharp threshold without additional calculation; novelty applies only to this evaluation and sign law.",
+        "searches": [
+          "https://arxiv.org/abs/2610.17138",
+          "chain-binomial SIR consecutive infection incidence covariance sign reversal recovery transmission finite population depletion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boudreau–St-Onge §2.1 specifies SIR chain-binomial transitions identical to submitted conditional laws; §§2.2–2.4 discuss PGFs and horizons, not the evaluated Cov(C1,C2) sign threshold."
+        ],
+        "reasoning": "Reed–Frost/chain-binomial formulation is identical at mu=1 but identity of the model alone does not imply its computed two-round dependence transition; the submitted exact sign diagram requires conditioning and strict concavity.",
+        "searches": [
+          "chain-binomial SIR consecutive infection incidence covariance sign reversal recovery transmission finite population depletion",
+          "https://arxiv.org/abs/2610.17138"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Reed–Frost transition probabilities and general binomial moments are standard; no matching all-n covariance threshold/table identified."
+        ],
+        "reasoning": "The claim is a parameterized theorem rather than finite database lookup. Searches covered SIR/Reed–Frost, depletion, and consecutive incidence covariance aliases.",
+        "searches": [
+          "chain-binomial SIR consecutive infection incidence covariance sign reversal recovery transmission finite population depletion",
+          "CDC Reed–Frost chain-binomial online documentation"
+        ]
+      },
+      "rationale": "Best-knowledge PASS. The exact two-round observable, recovery-dependent sign threshold, and log-log finite-size location do not follow from the primary general chain-binomial PGF formalism inspected. This is not a new stochastic transition model, binomial identity or fixed-beta branching approximation. Unindexed classical two-generation covariance formulas are an explicit priority risk.",
+      "residual_risks": [
+        "Historical Reed–Frost and chain-binomial moment literature may implicitly contain the same two-generation covariance and root.",
+        "Only first two incidence rounds with a single initial infectious and homogenous independent contacts; general lag or network extension not shown."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model same, finite two-round covariance and sharp unique sign boundary not stated in inspected sections",
+          "evidence": [
+            "Section 2.1 chain-binomial transitions, §§2.2–2.4 PGF and susceptible-depletion analysis"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.17138",
+          "material_read": "HTML §§2.1–2.4 with SIR transitions, PGF evolution, branching comparison",
+          "method": "read full accessible relevant HTML sections via web",
+          "title": "Probability generating functions for epidemiological time series",
+          "trigger": "Exactly matching finite-population chain-binomial SIR mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Exact positive-to-negative dependence transition of consecutive incidence in a natural finite epidemic, including the sharp log-log depletion crossover and its disappearance in fixed-contact branching asymptotics; meaningful diagnostic boundary rather than only parameter substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Historical Reed–Frost and chain-binomial moment literature may implicitly contain the same two-generation covariance and root.",
+    "Only first two incidence rounds with a single initial infectious and homogenous independent contacts; general lag or network extension not shown.",
+    "No Github write or public publication; metadata privacy/chronology requires complete guarded source replacements."
+  ],
+  "schema_version": 1
+}
