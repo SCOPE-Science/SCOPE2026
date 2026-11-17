@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The projected Euclidean facet normals are calculated exactly, giving the necessary three independent barriers. All pairwise comparisons in the interval for the first-block sum are sufficient, so an explicit full-dimensional-ball center exists at the proposed radius. Tight inequalities force the stated point or cube-section center sets, and the cube-section vertex enumeration is elementary and exact. An independent unsymmetrized linear-program checker corroborates 2,380 admissible cases. No finite computation is substituted for the general argument.
+
+**Originality — PASS, provisional historical priority.** The 2022 panhandle and 2016 split-matroid literature, plus the later face enumeration text, establish the objects and their facets, not this exact metric solution. A highly relevant prior public panhandle inball theorem was read in full and compared: it covers only the one-sided handle-capacity-one situation; its upper-center stratum is a simplex, whereas both genuine block capacities here yield potentially complex cube sections. The arbitrary four-parameter two-sided formula and every-contact classification are not a stated implication of that theorem. A broader unlocated general Chebyshev-center theorem remains a risk.
+
+**Mathematical value — PASS.** This is a natural complete Euclidean invariant of the canonical genuinely two-sided elementary-split matroid family, with sharp changes between unique and highly nonunique centers, and exact new high-complexity optimizer strata on both sides. The result is not merely a numerical instance or a routine special case of a published result; it covers strictly different matroid parameters and exhibits a distinct upper-stratum geometry.
+
+**Closest literature and limitations.** Hanely et al., arXiv:2201.12442 (2022), Joswig–Schröter arXiv:1607.06291 (2016), Ferroni–Schröter *Face enumeration for split matroid polytopes* (full HTML), and the 2026-11-08 public panhandle inball result (full RESULT.md) were compared. Absolute historical novelty remains provisional, and no multiple-split or nonstandard-metric claims are made.
+
+Self-review: passed. Independent audit: not yet performed.
