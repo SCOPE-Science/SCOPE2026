@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T03:14:13.333200Z",
+  "axes": {
+    "correctness": {
+      "rationale": "There are 2^15−1=32767 nonzero binary ternary quartics, acted upon by GL3(F2) of order 168. The supplied source enumerates 279 exact coefficient-vector orbits, tests geometric smoothness via unit ideals of (F,Fx,Fy,Fz) on all three affine charts using exact Gröbner bases (not finite-extension sampling), and obtains 78 smooth orbits, 10920 smooth forms. Seven Fano-plane point/gradient incidences determine tangent covering and blocking; independent direct all-smooth-form tally agrees with orbit-weighting. The 2x2 table (2040,616,1848,6416) sums 10920 and has tangent marginal 2656 and blocking marginal 3888. I inspected the entire verifier source and its GL3/F2 orbit action, smoothness ideals and direct coefficient loop; no exhaustive rerun of its lengthy SymPy calculation is claimed here, but the finite procedure is bounded and complete by construction, and two explicit nonimplication quartics are checked in the package.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oct25 prior provides all 20 tangent-filling projective orbit representatives and (N,#tangent lines) distribution; Nov2 prior gives all 78 smooth projective orbits by rational point and skew-line profile."
+        ],
+        "reasoning": "Both prior results together dominate the new two-way incidence cross-tabulation, a direct corollary without new parameter or computation.",
+        "searches": [
+          "binary plane quartic tangent filling blocking smooth F2 census",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-twenty-projective-classes-of-tangent-filling-smooth-plane-quarti--206b3755df02/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-exact-blocking-and-skew-line-census-of-smooth-binary-plane-q--65d6929d8576/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Pinned SCOPE RESULT.md + full verify_binary_quartic_tangents.py source, SHA b0f6806e70eeced3adeedee450378f77229da75c",
+        "Resultary search: binary plane quartic tangent filling blocking smooth F2 census",
+        "Full Resultary Oct25 tangent-filling 20-orbit theorem",
+        "Full Resultary Nov2 blocking/skew-line 78-orbit theorem",
+        "arXiv:2302.13420 foundational abstract and publisher overview"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier tangent-filling yes and nonblocking 616; earlier blocking yes 3888."
+        ],
+        "reasoning": "By subtraction: both=2656−616=2040, block/not tangent=3888−2040=1848, neither=10920−(2040+616+1848)=6416. Even point-count total and tangent histogram are directly tabulated in prior work; complete coverage.",
+        "searches": [
+          "binary plane quartic tangent filling blocking smooth F2 census",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-twenty-projective-classes-of-tangent-filling-smooth-plane-quarti--206b3755df02/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-exact-blocking-and-skew-line-census-of-smooth-binary-plane-q--65d6929d8576/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier tangent-filling quartic classification gives 2656 tangent yes, 616 tangent yes and blocking no, and 20 orbits. Earlier blocking census gives 3888 blocking yes total."
+        ],
+        "reasoning": "These together reconstruct same joint distribution and projective orbit counts. No different definitions or normalization: both work with all 32767 nonzero F2 ternary quartic coefficient vectors, geometric smoothness and PGL3(F2).",
+        "searches": [
+          "binary plane quartic tangent filling blocking smooth F2 census",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-twenty-projective-classes-of-tangent-filling-smooth-plane-quarti--206b3755df02/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-exact-blocking-and-skew-line-census-of-smooth-binary-plane-q--65d6929d8576/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact prior numbers: tangent yes 2656, tangent/no blocking 616; blocking yes 3888, smooth total 10920, 78 classes; join produces 2040,616,1848,6416."
+        ],
+        "reasoning": "This is an already determined table, not a new unpublished exact invariant; the full old orbit data are more informative on relevant subloci.",
+        "searches": [
+          "binary plane quartic tangent filling blocking smooth F2 census",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-twenty-projective-classes-of-tangent-filling-smooth-plane-quarti--206b3755df02/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-exact-blocking-and-skew-line-census-of-smooth-binary-plane-q--65d6929d8576/RESULT.md"
+        ]
+      },
+      "rationale": "FAIL: A complete October 25 Resultary theorem, read in full, previously proves among the SAME smooth binary plane quartics exactly 2656 tangent-filling forms in 20 projective classes, of which 616 are nonblocking and 2040 blocking, including detailed point-count strata. A complete November 2 Resultary theorem, also read in full, proves exactly 10920 smooth forms, 3888 blocking, and the full rational-point/skew-line histogram. Subtracting and combining gives every entry in the submitted joint 2x2 table (not-filling/blocking=3888−2040=1848; neither=10920−2040−616−1848=6416) and the point-count marginals. The new work is mathematically correct but entirely covered by these older full primary records; no novelty from merely presenting their join.",
+      "residual_risks": [
+        "No independent runtime rerun of the entire all-32767-form Gröbner certificate during this short audit; correctness supported by exact complete code architecture and internal cross-checks",
+        "Scientific rejection is based on prior exact coverage, irrespective of uninspected external primary literature"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definitive tangent-filling sector coverage",
+          "evidence": [
+            "Counts 2656 total, 616 not blocking, 2040 blocking, N=3:364,4:1260,5:840,6:168,7:24"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-twenty-projective-classes-of-tangent-filling-smooth-plane-quarti--206b3755df02/RESULT.md",
+          "material_read": "Complete Resultary RESULT.md with all seven tangent count rows, geometric smoothness, 20 projective classes, 616 nonblocking tangent cases, algorithms",
+          "method": "GitHub full text",
+          "title": "Twenty projective classes of tangent-filling smooth plane quartics over F2",
+          "trigger": "Same exact tangent property, field, degree, and class counts"
+        },
+        {
+          "assessment": "Definitive complementary blocking sector coverage",
+          "evidence": [
+            "Smooth total 10920, blocking total 3888, 25 blocking orbits, point-count histogram"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-the-exact-blocking-and-skew-line-census-of-smooth-binary-plane-q--65d6929d8576/RESULT.md",
+          "material_read": "Complete Resultary RESULT.md, ten (n,s) bins, 78 smooth orbits, 3888 blocking forms, and exact Buchberger proof",
+          "method": "GitHub full text",
+          "title": "The exact blocking and skew-line census of smooth binary plane quartics",
+          "trigger": "Same exact blocking property and geometric smoothness"
+        },
+        {
+          "assessment": "Introduces general property; prior two complete Resultary comparisons already settle originality",
+          "evidence": [
+            "arXiv first posted 2023-02-26, published Cambridge 2023/2024"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.13420",
+          "material_read": "Abstract and Cambridge published overview; complete primary full text not successfully retrieved",
+          "method": "Web abstract and publisher contents",
+          "title": "Tangent-filling plane curves over finite fields",
+          "trigger": "Foundational tangent-filling definition and finite-field geometry"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "An exact derivative-sensitive tangent-line/blocking joint incidence census over all smooth F2 quartics is naturally motivated and mathematically worthwhile, despite being a finite computation. However its exact table is already mechanically implied by prior proven marginal/refined tables, so value does not rescue originality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned SCOPE RESULT.md + full verify_binary_quartic_tangents.py source, SHA b0f6806e70eeced3adeedee450378f77229da75c",
+    "Resultary search: binary plane quartic tangent filling blocking smooth F2 census",
+    "Full Resultary Oct25 tangent-filling 20-orbit theorem",
+    "Full Resultary Nov2 blocking/skew-line 78-orbit theorem",
+    "arXiv:2302.13420 foundational abstract and publisher overview"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "No independent runtime rerun of the entire all-32767-form Gröbner certificate during this short audit; correctness supported by exact complete code architecture and internal cross-checks",
+    "Scientific rejection is based on prior exact coverage, irrespective of uninspected external primary literature"
+  ],
+  "residual_risks": [
+    "No independent runtime rerun of the entire all-32767-form Gröbner certificate during this short audit; correctness supported by exact complete code architecture and internal cross-checks",
+    "Scientific rejection is based on prior exact coverage, irrespective of uninspected external primary literature"
+  ],
+  "schema_version": 1
+}
