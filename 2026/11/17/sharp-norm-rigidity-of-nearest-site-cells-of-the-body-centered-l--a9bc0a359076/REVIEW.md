@@ -1,0 +1,15 @@
+# Research assessment: sharp norm rigidity of the body-centered lattice
+
+## Correctness — PASS
+The theorem follows by reducing each point modulo independent unit translations and coordinate reflections. Within each of the two lattice cosets, every coordinate separately rounds to its nearest representative. The weighted \(\ell_1\) and weighted squared-\(\ell_2\) coset differences are exactly proportional, proving the claimed equality of labeled Voronoi cells. In two dimensions, odd monotonicity shows that every finite \(\ell_p\) comparison depends only on the coordinate sum; the maximum norm has the same threshold. In three or more dimensions, the nonzero cubic Taylor coefficient for every finite \(p\notin\{1,2\}\), and an explicit maximum-norm perturbation, provide strict open disagreement. The proof treats boundaries by closure, and a standalone verifier performs 9,011 numerical and rational checks. The checks are supplementary; the all-dimensional conclusion is analytical.
+
+## Originality — PASS (subject to historical-priority risk)
+The September 2026 octahedral-covering theorem establishes optimal covering density, not an exponent classification for the labeled nearest-site diagram. Classical Euclidean BCC cells and published exact subcritical octahedral covering profiles are antecedents, but knowing the marginal distribution of the \(\ell_1\) nearest-site error does not force equality of closest sites under two norms. Broad norm-Voronoi algorithms and theory by Deza–Dutour Sikirić and Blömer–Kohn concern related geometry and therefore present a genuine unchecked full-text priority risk. Multiple searches for half-diagonal two-coset lattices, weighted \(\ell_1\)/\(\ell_2\) coincidence and \(\ell_p\) rigidity found no direct equivalent among inspected accessible scientific descriptions and indexed record claims. These searches are not a proof of worldwide novelty.
+
+## Mathematical value — PASS
+The phenomenon is not a numerical invariant of a selected finite configuration: it exactly characterizes norm robustness of an infinite lattice tiling for a continuum of exponents and every dimension. It identifies a planar-only all-exponent property, the two exceptional exponents in higher dimension, and arbitrary positive weighted Manhattan/Euclidean coincidence. These statements describe when nearest-site assignments are unaffected by changing the loss geometry and when they necessarily change on a positive-volume region; this complements covering density and distortion-distribution information.
+
+## Limitations and comparison risk
+The equality is specific to the half-diagonal two-coset lattice; arbitrary lattice rotations or other sites are not covered. Source abstracts and accessible bibliographic text were inspected, but primary full text of the 2026 covering paper and two classical arbitrary-norm papers remained inaccessible. These works could contain an unindexed antecedent. The new derivation does not establish any unproved global covering or optimal-quantization claim. Only self-review has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
