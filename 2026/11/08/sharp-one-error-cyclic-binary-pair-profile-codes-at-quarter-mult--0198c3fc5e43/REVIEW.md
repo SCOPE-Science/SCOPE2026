@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete feasible profile set follows from cyclic transition balance and positive symbol runs. The unit read-label corruption balls are disjoint precisely when half-\(\ell_1\) profile distance is at least three. The exact coordinate distance reduces the problem to a two-dimensional lattice packing. At every quarter-multiple length the proof partitions the entire mixed region into \(m^2\) disjoint four-point conflict cliques and supplies a residue-class construction attaining one point per clique plus the two constants. The selected constant-to-mixed distances are explicitly checked. Monotonic embedding gives the stated bounds at other lengths. The executable replay confirms the required boundary cases and finite certificates, but is not used as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual historical risk
-Kiah–Puleo–Milenkovic (2014/2015), examined directly in its public PDF at the noisy-profile distance definitions and Sections 4 and 6, provides the general framework and asymptotic-order constructions, but the inspected statements do not imply the exact \(m^2+2\) optimum. Jacquet–Knessl–Szpankowski (2010) counts clean Markov types, not maximum one-read-corruption-resilient subcodes. Available published records on binary *linear* pair multispectra and cyclic positional symbol-pair codes do not have the same observation or error metric. Independent historical-priority verification remains open, particularly for potentially uninspected later specialized literature. A failed search alone is not taken as proof of novelty.
+PASS
 
-## Value — PASS
-This identifies an exact infinite sequence of zero-error capacities for a natural noisy unordered-read channel and gives the sharp asymptotic constant. Unlike a routine evaluation of the number of feasible histograms, it solves a nontrivial packing problem and pairs an explicit tight clique upper certificate with a constructive code. Both the read model and the exact quarter-multiple boundary are mathematically motivated by the binary de Bruijn graph and the four-point packing geometry.
+The cyclic ordered pair histogram necessarily has p01=p10=t and p=(n-k-t,t,t,k-t); all t>=1, t<=k<=n-t are realized by explicit run words, plus two constant profiles. Replacing at most one observed pair label gives integer-histogram distance half L1, equal to max(|Δk|,|Δt|)+|Δt|. Disjoint radius-one corruption balls therefore require distance>=3. At length 4m the source partitions D_4m into m² four-point diameter-two cliques using first two transition rows and shifted D_4(m-1); each selected residue k-2t=0 mod4 is pairwise distance>=3 and meets each clique once. Add two constants to get A(4m)=m²+2. Embedding feasible profiles into longer lengths proves the floor/ceil general n bounds. Independently verified selected-code sizes and pairwise distances for m=1..9; analytical clique induction establishes all m.
 
-## Scientific limitations
-Only binary cyclic length-two reads and at most one misreported read label are covered. The proof does not establish exact capacities for nonmultiples of four, source-symbol substitutions, longer reads or larger alphabets. The finite verification is not independent expert review. The historical-priority comparison is necessarily incomplete.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: published DNA substring-profile coding literature supplies count-vector metrics and general constructions, not the inspected exact 2-gram cyclic binary one-error optimum m²+2 with matching all-m cliques and residue code. Enumerating Markov types counts clean histograms, not disjoint radius-one corruption balls. Positional cyclic symbol-pair distance is a different channel from unordered adjacent-pair multiset label substitution. No stronger exact same-channel coverage found in Resultary search; residual possibility of equivalent lattice-code result remains.
+
+## value
+
+PASS
+
+PASS: maximum message count for one arbitrary corrupted cyclic adjacent-pair multiset is a natural zero-error read-channel capacity. A sharp formula at all 4m and a provably optimal explicit code, plus leading n²/16, give exact finite-rate limits useful in short-read and profile-code design, beyond known asymptotic order or clean profile counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

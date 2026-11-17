@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T22:11:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cyclic ordered pair histogram necessarily has p01=p10=t and p=(n-k-t,t,t,k-t); all t>=1, t<=k<=n-t are realized by explicit run words, plus two constant profiles. Replacing at most one observed pair label gives integer-histogram distance half L1, equal to max(|Δk|,|Δt|)+|Δt|. Disjoint radius-one corruption balls therefore require distance>=3. At length 4m the source partitions D_4m into m² four-point diameter-two cliques using first two transition rows and shifted D_4(m-1); each selected residue k-2t=0 mod4 is pairwise distance>=3 and meets each clique once. Add two constants to get A(4m)=m²+2. Embedding feasible profiles into longer lengths proves the floor/ceil general n bounds. Independently verified selected-code sizes and pairwise distances for m=1..9; analytical clique induction establishes all m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiah–Puleo–Milenkovic develop general noisy substrings and feasible-profile methods.",
+          "Resultary four-gram study concerns window length four and clean capacity under run constraints; not this one-error two-gram code."
+        ],
+        "reasoning": "Broad profile frameworks do not imply a particular sharp integer packing construction/upper bound; no dominating exact theorem was found.",
+        "searches": [
+          "cyclic binary adjacent pair multiset single error correcting profile codes maximum m squared 4m",
+          "https://arxiv.org/abs/1410.8837",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-four-gram-profile-capacity-of-binary-circular-words-with-r--ffb8b64cf1bb"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1410.8837",
+        "https://doi.org/10.46298/dmtcs.2768",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-four-gram-profile-capacity-of-binary-circular-words-with-r--ffb8b64cf1bb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kiah et al treat noisy L-gram multispectra generally, but the inspected portions do not state A(4m)=m²+2 or this tiling.",
+          "Jacquet et al count balanced Markov types without one misclassified read and error-ball separation."
+        ],
+        "reasoning": "The claim is an exact extremal error-correction problem, not a direct specialization of a supplied source theorem about counting all clean profiles.",
+        "searches": [
+          "cyclic binary adjacent pair multiset single error correcting profile codes maximum m squared 4m",
+          "https://arxiv.org/abs/1410.8837",
+          "https://doi.org/10.46298/dmtcs.2768"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Histogram p(k,t) with conservation p01=p10 is a closed binary Markov-type/profile model.",
+          "Distance max(|Δk|,|Δt|)+|Δt| is the integer directed read-label replacement metric, not ordered positional symbol-pair Hamming distance."
+        ],
+        "reasoning": "Translation to two-dimensional profile coordinates is legitimate; no cited source gives the exact resulting one-error packing number for every 4m.",
+        "searches": [
+          "cyclic binary adjacent pair multiset single error correcting profile codes maximum m squared 4m",
+          "https://arxiv.org/abs/1410.8837",
+          "https://doi.org/10.46298/dmtcs.2768"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Submitted recursive partition has m² mixed conflict cliques and exactly one selected residue per clique for all m.",
+          "Independent m=1..9 check verified m² selected mixed points and minimum distance three, but no prior exact one-error capacity table was found."
+        ],
+        "reasoning": "Exact clique-cover and construction certificates are the result; small numerical tables do not prove the all-m formula and are not claimed as prior novelty evidence.",
+        "searches": [
+          "cyclic binary adjacent pair multiset single error correcting profile codes maximum m squared 4m",
+          "https://doi.org/10.46298/dmtcs.2768"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: published DNA substring-profile coding literature supplies count-vector metrics and general constructions, not the inspected exact 2-gram cyclic binary one-error optimum m²+2 with matching all-m cliques and residue code. Enumerating Markov types counts clean histograms, not disjoint radius-one corruption balls. Positional cyclic symbol-pair distance is a different channel from unordered adjacent-pair multiset label substitution. No stronger exact same-channel coverage found in Resultary search; residual possibility of equivalent lattice-code result remains.",
+      "residual_risks": [
+        "An unindexed 2D Lee-metric/king-grid packing theorem could supply an equivalent clique-and-residue optimum.",
+        "Full 2010 Markov-type source was not material-read; its clean-enumeration description cannot by itself justify whole-document noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUND FRAMEWORK, NOT EXACT SHARP NUMBER",
+          "evidence": "General error-profile theory and code constructions, without the inspected all-m sharp binary cyclic pair-profile clique theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.8837",
+          "material_read": "Primary arXiv PDF, Section 3 profile substitutions/error model and relevant finite-code constructions in subsequent sections; not an assertion of whole-paper theorem absence.",
+          "method": "Opened full PDF and inspected pertinent sections",
+          "title": "Codes for DNA Storage Channels",
+          "trigger": "Directly relevant noisy substring-profile and gram error framework"
+        },
+        {
+          "assessment": "POTENTIAL BACKGROUND, NOT ESTABLISHED COVERAGE",
+          "evidence": "Counting feasible profiles is not the same as one-error packing; priority risk explicitly retained.",
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.2768",
+          "material_read": "Cited description of balanced Markov-type enumeration; full primary text not verified as read in this execution.",
+          "method": "Source-level bibliographic comparison",
+          "title": "Counting Markov Types",
+          "trigger": "Equivalent clean cyclic adjacent-pair histogram coordinates"
+        },
+        {
+          "assessment": "CORRECT AND BOUNDED",
+          "evidence": "Exact code/packing metric, recursive clique upper bound and residue construction all checked algebraically.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-one-error-cyclic-binary-pair-profile-codes-at-quarter-mult--0198c3fc5e43",
+          "material_read": "Full RESULT.md and verify.py source; read metadata and audit notes.",
+          "method": "Frozen GitHub file read and independent pairwise distance checks m<=9",
+          "title": "Sharp one-error cyclic binary pair-profile codes at quarter-multiple lengths",
+          "trigger": "Frozen mathematical proof and computer checks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: maximum message count for one arbitrary corrupted cyclic adjacent-pair multiset is a natural zero-error read-channel capacity. A sharp formula at all 4m and a provably optimal explicit code, plus leading n²/16, give exact finite-rate limits useful in short-read and profile-code design, beyond known asymptotic order or clean profile counts.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One arbitrary reported pair-label substitution of an unordered multiset, not a source-bit error. Exact capacity only at n divisible by four; off-multiple general interval is not an exact classification.",
+    "An unindexed 2D Lee-metric/king-grid packing theorem could supply an equivalent clique-and-residue optimum.",
+    "Full 2010 Markov-type source was not material-read; its clean-enumeration description cannot by itself justify whole-document noncoverage."
+  ],
+  "schema_version": 1
+}
