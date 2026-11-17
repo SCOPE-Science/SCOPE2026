@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The Laplacian spectral decomposition yields exact kernel (5) with full singleton boundaries. For any edge between parts a>=b, the signed kernel difference splits into four sign classes. The explicit identity ab(P-S)=b(a-1)(x-y)+(a-b)(y-z)>=0 verifies a feasible transport of cost P+R; a 1-Lipschitz potential reaches P+R, proving the exact W1 cost. Edge maximization gives the sharp global operator norm. The derivative has exactly the claimed sign change and peak, and elementary limits give the asymptotics. Independent exact-rational combinatorial enumeration checked 412 local maxima and 60 semigroup laws. No finite experiment substitutes for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ollivier (arXiv:math/0701886) defines the general transport-contraction framework, including remarks on heat equation Lipschitz contraction, without an explicit multipartite profile.",
+        "Muench-Wojciechowski (arXiv:1712.00875) Theorem 3.8 states gradient bounds in terms of curvature K, i.e. Lip(H_t f)<=e^{-Kt}Lip(f); this is not the sharp F(t), and the preprint has no occurrence of multipartite.",
+        "Lin-Lu-Yau (2011) discusses normalized lazy graph walks, Cartesian products, and particular graphs; no complete multipartite finite-time norm theorem was found."
+      ],
+      "reasoning": "General transport duality and curvature inequalities imply coarse estimates. To infer the claimed exact norm, one must separately compute the heat rows and solve the sharp edge-local transport; this new calculation includes full time and equality inputs. General results do not entail the precise formula.",
+      "searches": [
+        "Ollivier 2009 Ricci curvature of Markov chains on metric spaces full text arxiv math/0701886",
+        "\"complete multipartite\" \"Ollivier curvature\" \"Laplacian\" exact",
+        "arxiv:1712.00875 Theorem 3.8 semigroup characterization curvature",
+        "graph Laplacian Kmn sharp Lipschitz Wasserstein heat semigroup contraction complete bipartite nonexpansive threshold two"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0701886 (first posted 2007-01-30)",
+      "doi:10.2748/tmj/1325886283 (2011 full PDF)",
+      "arxiv:1712.00875 (2017 full PDF Theorem 3.8)",
+      "Actual web searches for exact multipartite heat/Wasserstein Lipschitz norms",
+      "Public published mathematical-record searches for exact formula, star, multipartite, and curvature thresholds"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2011 paper gives normalized lazy-walk curvature estimates; full exact unnormalized continuous-time profile is a different quantity.",
+        "Theorem 3.8 of the 2017 paper is an inequality of the form Lip(H_t)<=exp(-K t)Lip(f), and exact initial curvature does not determine the full two-exponential function.",
+        "The star profile is the restriction to a two-part graph of sizes M and 1, not the theorem for arbitrary other sizes, r>=2 and entire classification."
+      ],
+      "reasoning": "Neither abstract duality, coarse exponential bounds, nor the known star formula logically gives the multipartite constant or the maximal-part extremal comparison without a further spectral decomposition and transportation optimization. The new result properly contains the old star claim as an explicitly attributed special case.",
+      "searches": [
+        "Lin Lu Yau 2011 Ricci curvature of graphs complete bipartite heat semigroup",
+        "Muench Wojciechowski 2017 graph Ricci exact heat semigroup Lipschitz bound",
+        "sharp graph heat semigroup Lipschitz norm complete bipartite graphs transient amplification",
+        "finite graph star heat semigroup Lipschitz norm exact time profile"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Arxiv:1712.00875 Theorem 3.8 expresses exponential curvature-bound control and W1 duality, not exact F(t) for multipartite heat kernels.",
+        "Lin-Lu-Yau 2011 §2 defines lazy-walk Ricci coefficients, not exact continuous-time unnormalized H_t profiles.",
+        "No identified published mathematical-record summary states the claimed formula or largest-part universality."
+      ],
+      "reasoning": "The equivalent formulation is the exact all-time supremum W1 distance between heat-kernel rows of adjacent vertices; a curvature lower bound or a degree-normalized lazy-walk curvature is not equivalent to the exact two-exponential profile. Same-formula special case on a star is excluded from novelty.",
+      "searches": [
+        "\"complete multipartite\" \"heat\" \"Wasserstein\" curvature semigroup",
+        "\"complete multipartite\" \"Lipschitz\" \"heat\" \"sharp\" graph",
+        "unweighted complete multipartite graph heat semigroup exact operator Lip norm e^(-Nt) [1+2(1-1/M)(e^(Mt)-1)]",
+        "complete multipartite graphs heat Lipschitz amplification governed by largest part with two vertex threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest public mathematical-record summary concerns exact facet counts for interpolated complete multipartite Lipschitz-free balls; this is not a heat semigroup result.",
+        "Another published mathematical-record summary concerns discounted hitting domination on complete bipartite graphs, a distinct invariant.",
+        "Previously determined mathematical star profile is F(t)=2(M-1)/M exp(-t)-(M-2)/M exp(-(M+1)t), the exact specialization N=M+1. This special case is excluded from the originality claim."
+      ],
+      "reasoning": "No searched indexed table or research result provides exact all-complete-multipartite heat semigroup Lipschitz norms. The star case is *already covered* in previous mathematical work, but does not imply how adding arbitrary multiple parts changes heat flow or why only the largest part remains.",
+      "searches": [
+        "exact Lipschitz heat semigroup on complete bipartite K_mn threshold degree imbalance",
+        "complete bipartite heat semigroup curvature |m-n|2 amplification",
+        "graph Lipschitz semigroup star transient amplification exact m n complete multipartite",
+        "\"complete multipartite\" \"Wasserstein\" \"heat kernel\" exact"
+      ]
+    },
+    "rationale": "The all-time sharp norm across every complete multipartite graph, largest-part universality, exact phase boundary and macroscopic peak are not implied by the transport/curvature frameworks of Ollivier (2007), Lin-Lu-Yau (2011), or the exponential curvature-bound theorem of Muench-Wojciechowski (2017). The already determined star profile is explicitly recognized as covered prior work. A broad and targeted web plus published research-record comparison found no equivalent/dominating exact multipartite profile; an unindexed calculation remains possible.",
+    "residual_risks": [
+      "An older transport or graph heat-kernel computation could contain the same exact finite-time profile under different notation.",
+      "The star specialization was already known and is not novel here.",
+      "The primary MSC code is chosen by the main semigroup-operator theorem, not by the graph-theoretic subject of some sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces W1 curvature/contraction but no explicit exact complete-multipartite unnormalized semigroup norm located.",
+        "evidence": [
+          "arxiv:math/0701886 v4 cover first-posted history is July 2007 revision; arXiv record gives initial 2007-01-30 public date.",
+          "PDF introduction identifies semigroup contraction as general motivation, not an exact graph-family calculation."
+        ],
+        "identifier_or_url": "arxiv:math/0701886 / https://arxiv.org/pdf/math/0701886",
+        "material_read": "Public first-posting metadata; complete PDF introduction, related-work discussion, definition outline and searches for multipartite/heat terminology.",
+        "method": "Open-access arXiv PDF, page images and rendered text search",
+        "title": "Ricci curvature of Markov chains on metric spaces",
+        "trigger": "Foundational transportation-based Lipschitz contraction and earliest dated archive source"
+      },
+      {
+        "assessment": "Degree-normalized lazy-walk curvature and general graph results, no exact continuous-time unnormalized multipartite norm stated.",
+        "evidence": [
+          "Paper eqs. (1)–(2) give Kantorovich duality; eqs. (3)–(4) use lazy random walks with degree normalization.",
+          "Section 3 Theorem 3.1 concerns Cartesian products, not complete multipartite heat semigroup norms."
+        ],
+        "identifier_or_url": "doi:10.2748/tmj/1325886283 / https://www.jstage.jst.go.jp/article/tmj/63/4/63_605/_pdf/-char/en",
+        "material_read": "Full PDF abstract, introduction, Section 2 on duality and curvature, Section 3 on Cartesian products, and full-PDF searches for bipartite and semigroup.",
+        "method": "Lawful open PDF with page-image inspection plus extracted sections",
+        "title": "Ricci curvature of graphs",
+        "trigger": "Primary older comparison for graph curvature and use of Wasserstein duality"
+      },
+      {
+        "assessment": "Theorem 3.8 provides exponential curvature-bound equivalence, not a sharp all-time formula for a complete multipartite family.",
+        "evidence": [
+          "Theorem 3.8 states Lip(P_t f)<=e^{-Kt}Lip(f) under Ricci lower bound K.",
+          "No occurrence of complete bipartite or multipartite in the searched full PDF."
+        ],
+        "identifier_or_url": "arxiv:1712.00875 / https://arxiv.org/pdf/1712.00875",
+        "material_read": "Full PDF abstract, intro, theorem 3.8 and its proof context, full-PDF searches for multipartite and complete bipartite.",
+        "method": "Lawful arXiv PDF with page-image inspection and theorem text",
+        "title": "Ollivier Ricci curvature for general graph Laplacians: Heat equation, Laplacian comparison, non-explosion and diameter bounds",
+        "trigger": "Highly relevant subsequent general heat semigroup/Lipschitz result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "79242f3f-a28b-47cd-8434-5056371d5da3",
+  "value": {
+    "rationale": "The natural induced Lipschitz norm is solved exactly for the full family of connected complete multipartite graphs. The theorem proves a surprising largest-part universality and totally orders all graphs of fixed order by their sharp heat amplification. It gives a two-vertex sharp nonexpansivity boundary, unique transient peak and norming inputs, plus a nontrivial continuum limit depending on the asymptotic largest-part proportion, with global sharp supremum 2. Such exact finite-time behavior and phase geometry cannot be recovered from ordinary Markov positivity or curvature inequalities alone.",
+    "status": "PASS"
+  }
+}
