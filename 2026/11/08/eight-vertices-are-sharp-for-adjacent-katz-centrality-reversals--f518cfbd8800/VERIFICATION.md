@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducing the finite theorem
+# Independent mathematical audit
 
-Dependencies: Python 3.10+ and the `networkx` version range declared in `requirements.txt`. From the directory containing all extracted package files:
+## correctness
 
-```
-python -m pip install -r requirements.txt
-python verify_katz.py
-python verify_trees.py
-```
+PASS
 
-The first script builds exact matching polynomials, exact walk-count centrality numerators and integer coefficient-sign certificates for every edge of all unlabelled trees with \(2\le n\le8\). It checks each chosen rational bound by evaluating the integer determinant polynomial. All nonzero comparison polynomials except two have a fixed sign throughout a rational interval containing the entire admissible Katz range. Both exceptions are verified by exact rational score evaluations with opposite signs, using independently computed integer fourth-walk bounds to certify their attenuation values are admissible. The expected output ends with `EXACT_CERTIFICATE_OK`.
+For trees the determinant D(t)=det(I-tA) is the matching polynomial with positive value for 0<t<1/rho(A). Multiplying the resolvent by D gives numerator coefficients N_v(t)=sum_{k<n}(sum_{j<=k} d_j (A^(k-j)1)_v)t^k. The exact rational barrier R>=1/rho maps t=R x/(1+x) to x>0; uniform transformed coefficient signs certify no zero or reversal on the entire admissible interval. Independent exact test on nonisomorphic trees n=2..8 reproduced edge totals 1,2,6,12,30,66,161 and precisely two uncertified/reversing edges, both on n=8. Independent rational-adjugate evaluation and max row sums of A^4 verify signs at (1/3,3/7) and (1/4,1/3) strictly inside admissible intervals. Complete Prüfer and canonical-tree method supports exhaustiveness; this does not imply for general graphs.
 
-The second script independently enumerates every labelled Prüfer sequence for the same sizes and compares unrooted canonical tree codes. In particular, it checks all \(8^6=262144\) labelled Prüfer sequences against the 23 unlabelled representatives used in the first script. Exhaustiveness depends on the standard Prüfer bijection and the recursive center-based characterization of tree isomorphism, not numerical sampling.
+## originality
 
-Limitations: These files verify exact finite minimality only up to order eight and the two displayed rational witnesses. They do not establish claims about all higher orders, non-trees, unweighted/directed variants or historical priority. External independent scientific audit has not occurred.
+PASS
+
+Katz 1953 and Benzi–Klymko identify attenuated walk centrality and parameter-dependent ranking limits; Aprahamian–Higham–Higham study matching resolvent to exponential centralities. None of their inspected statements characterizes the smallest tree on which *adjacent* endpoints reverse ordering for one fixed graph and uniform baseline, or classifies the two order-8 cases. Related centralization and PageRank finite thresholds change statistics/models and cannot imply this exact certificate.
+
+## value
+
+PASS
+
+The first size of adjacent local ranking instability under a natural centrality parameter, with full minimal-case classification and rigorous exact integer sign certificates, is a motivated, reusable combinatorial spectral invariant. Not dependent on a downstream general graph theorem or arbitrary unmotivated numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
