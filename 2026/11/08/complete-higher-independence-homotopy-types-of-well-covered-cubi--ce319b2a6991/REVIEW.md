@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A complete determination of each face set is checked by two equivalent but independently implemented predicates (local degree and forbidden induced paths). The vertex-toggle matching is exhaustive; its fully oriented Hasse graph was topologically sorted, rather than relying solely on a heuristic. The critical-cell counts give the first three sphere wedges. For the Dürer case the signed integral 4-to-3 Morse boundary is computed, not guessed from mod-two ranks; its rank-one unit invariant proves the required cell cancellation. Independent mod-two boundary ranks and a separate full integral-chain elimination for the unreduced complexes agree with the resulting integral Betti numbers. This proves exactly the stated finite graph result; no asymptotic or untested extension is asserted.
+PASS
 
-## Originality — PASS on inspected evidence, subject to priority uncertainty
+Reconstructed the definition via induced maximal degree one, all four graphs and finite face masks. Independent exhaustive nonempty face totals 10,27,230,809 (source table includes empty: 11,28,231,810); vertex-toggle acyclic Hasse matchings yield 1+3,1+4,1+11 critical model and, on the Dürer graph, 1 vertex + four 3-cells + two 4-cells. Explicit independently computed signed Morse boundary [[-1,-1],[0,0],[0,0],[0,0]] has primitive rank one; Whitehead/Hurewicz yields 3S3∨S4. The graph class boundary is exactly the four well-covered cubic polyhedral graphs, not all well-covered cubic graphs.
 
-Campbell–Plummer (1988) and Campbell–Ellingham–Royle (1993) classify the underlying well-covered graphs, not their higher-independence homotopy. Deshpande–Singh (arXiv:2001.05448, 2020/2021) determine related higher-independence complexes for explicitly named graph families; their complete-graph formula covers the tetrahedral entry but not the Dürer instance or the new complete table. Known circular-ladder Euler-characteristic recurrences for the prisms do not imply homotopy. The separately published Dürer graph-metric Rips calculation uses a different complex. Targeted source, formulation, semantic-record, and archived-claim searches identified no covering theorem, but searches do not prove publication priority. The 1988 article was identified bibliographically, not read in full; an unindexed equivalent computation remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The graphs form a complete natural class, not an arbitrary selection of parameter values. The Dürer entry is distinctively mixed-dimensional and requires a nontrivial integral attaching-map computation; ordinary Euler characteristics or rational Betti numbers cannot certify this homotopy type. Together the results distinguish the higher-independence topology within the classic classification of well-covered cubic polyhedra.
+The four-polyhedron complete classification retains two independently non-implied integral prism homotopy types; the known Dürer and elementary K4 entries are openly credited. The natural graph-class boundary is previously classified, but the entire four-entry Ind_2 homotopy table was not established by the inspected prior sources. Best-of-knowledge with finite search limitation.
 
-## Limitations and residual risks
+## value
 
-The theorem is finite and nonequivariant. Exact publication priority is not certified; the 1988 original classification was not accessible in full. Independent mathematical review remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete integral homotopy classification of a naturally delimited graph-theoretic family is useful, even when some entries are known: the exact prism homotopy types are nontrivial and not implied by their Euler characteristics. The Dürer mixed wedge demonstrates that well-coveredness does not force single-degree higher-independence homotopy. This is a motivated complete finite classification, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

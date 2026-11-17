@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verification/verify.py` using Python 3.9 or later. The verifier constructs each graph and checks all vertex masks in two independent ways. It proves acyclicity by checking the complete reversed-matching Hasse graph for a directed cycle, computes original mod-two boundary ranks, and uses both signed gradient path recursion and direct full-chain integral cancellation for the Dürer Morse differential. It verifies a unit entry in that rank-one differential and the predicted critical cells. The packaged output must end with `ALL_CHECKS_PASS`.
+## correctness
 
-The two independent chain reduction algorithms agree exactly. The signed boundary distinguishes an integral \(\mathbb Z\) summand from a rational-only answer. The cell cancellation relies on \(\pi_3(\bigvee^4S^3)\cong\mathbb Z^4\); it is not an assumption about arbitrary higher homotopy groups. These computations do not address other graphs or any independent validation.
+PASS
+
+Reconstructed the definition via induced maximal degree one, all four graphs and finite face masks. Independent exhaustive nonempty face totals 10,27,230,809 (source table includes empty: 11,28,231,810); vertex-toggle acyclic Hasse matchings yield 1+3,1+4,1+11 critical model and, on the Dürer graph, 1 vertex + four 3-cells + two 4-cells. Explicit independently computed signed Morse boundary [[-1,-1],[0,0],[0,0],[0,0]] has primitive rank one; Whitehead/Hurewicz yields 3S3∨S4. The graph class boundary is exactly the four well-covered cubic polyhedral graphs, not all well-covered cubic graphs.
+
+## originality
+
+PASS
+
+The four-polyhedron complete classification retains two independently non-implied integral prism homotopy types; the known Dürer and elementary K4 entries are openly credited. The natural graph-class boundary is previously classified, but the entire four-entry Ind_2 homotopy table was not established by the inspected prior sources. Best-of-knowledge with finite search limitation.
+
+## value
+
+PASS
+
+A complete integral homotopy classification of a naturally delimited graph-theoretic family is useful, even when some entries are known: the exact prism homotopy types are nontrivial and not implied by their Euler characteristics. The Dürer mixed wedge demonstrates that well-coveredness does not force single-degree higher-independence homotopy. This is a motivated complete finite classification, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
