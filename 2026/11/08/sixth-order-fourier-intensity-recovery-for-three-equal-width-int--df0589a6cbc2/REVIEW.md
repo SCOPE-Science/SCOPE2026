@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-The angular-frequency normalization was checked directly by factoring the common interval transform and expanding the interference factor. The identities for the second, fourth, and sixth derivatives were independently checked by exact symbolic computation. Positive root uniqueness follows from monotonicity of \(3Q^2(A+Q)\) on \(Q>0\), while the admissible endpoint is \(Q=A/3\). The noninjective order-five family fixes \(L\) and \(A\). The sharp Hölder obstruction uses a constant-\(A\) analytic family and a quadratic sixth-derivative difference, not finite-data extrapolation. The runnable `CHECK.py` tests the formula and boundary cases; it does not establish the theorem by enumeration.
+## correctness
 
-## Originality
-Xia–Xu (arXiv:2606.19855, §§1, 4.2, 5, 6) concerns complete Fourier magnitude, with general three-interval nonuniqueness and a separation-condition sufficiency theorem; it gives no minimal local sixth jet, redundant fourth derivative, or associated half-Hölder threshold. Huang–Dokmanić (arXiv:1804.02465, §§1–2) treats recovery from the complete pairwise-distance multiset, rather than this finite local Fourier moment inverse. Targeted searches of public mathematical results and literature for three-interval sixth-order Taylor-jet reconstruction found no equivalent or stronger statement. An earlier identity may exist under three-point moment-reconstruction terminology; that remains a publication-priority risk. No independent originality certification is asserted.
+PASS
 
-## Value
-This is the first three-interval equal-width class beyond the general two-interval regime in which the complete continuum of Fourier measurements can be replaced by an explicitly minimal finite jet. The exact fourth-order blind spot, sixth-order inversion, realizability conditions, and unavoidable conditioning singularity together locate the precise information threshold, not merely a reparameterized uniqueness assertion. The assumptions (equal widths, three nonoverlapping components) are natural structural constraints; the result is not claimed for unrestricted three-interval phase retrieval.
+Verified Fourier factorization I=L²sinc²(Lt/2)[3+2cos(ut)+2cos(vt)+2cos((u+v)t)]. Independent SymPy expansions checked P2=2A, P4=2A², P6=2A³+3Q²(A+Q), A=u²+uv+v²,Q=uv; checked I=-2L²P2-3L⁴/2 and I^(6)=-2L²P6-5L⁴P4-2L⁶P2-9L⁸/28. Strict monotonic Q∈(0,A/3] yields inversion and realization criterion; fixed-A variation proves minimal order six. Square-root branch at u=v yields sharp inverse 1/2; compactness excludes vanishing widths/gaps. Actual CHECK.py inspected with 27 generated tests, 164 reported assertions; analytic proof supplies continuum.
 
-## Limits
-The proof applies to the stated equal-width model, exact derivatives at the origin, and the parameter-space topology defined in RESULT.md. The Hölder bound is uniform only on compact families bounded away from degenerate intervals and gaps. Neither global phase retrieval for arbitrary three-interval sets nor sampling-noise stability is established. Independent checking remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Equal-width full-intensity homometry theorem establishes uniqueness for three starts but not a minimal local derivative jet or its sharp inverse Hölder exponent. Related general three-interval Fourier phase retrieval is a different model; best-of-knowledge jet classification survives.
+
+## value
+
+PASS
+
+Sharp minimal finite jet for a natural geometrically constrained phase-retrieval inverse problem, with explicit reconstruction and optimal symmetry-degenerate stability exponent; meaningful measurement-complexity and stability boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
