@@ -1,13 +1,21 @@
-# Scientific assessment: weighted folded-hypercube Ising ground states
+# Independent mathematical audit
 
-**Correctness — PASS.** Boolean Walsh characters diagonalize the complete signed weighted network operator. The parity of the set of omitted coordinate factors yields two—and only two—competing spectral branches, with a crossing at \((-1)^dK=J_*\). Every listed character attains the spectral energy lower bound. The nonstandard equality step is an exhaustive all-d proof: if a minimum-eigenspace vector is a binary spin configuration, its quotient by the full-parity character is affine Boolean, and comparison of nonconstant Fourier coefficients in its square forces that affine function to be a single signed character. This rules out extra states in degenerate eigenspaces. The independent packaged integer verifier agreed on 26 fully exhaustive parameter instances for dimensions two through four and 561 exact spectral tests for dimensions two through twelve.
+## correctness
 
-**Originality — PASS on examined evidence; historical risk remains.** Xu and Meng (2009) give the unweighted folded-hypercube spectrum; Liu and collaborators (2014) give Laplacian/resistance properties; Mosseri (2014) gives general Ising/Hadamard energy enumeration. These cover the raw graph spectrum and generic spectral methodology, not the checked arbitrarily anisotropic spin-phase theorem together with the complete binary-minimizer equality classification. A related 2019 weighted folded-hypercube network-spectra publication was located but its full text could not be obtained; it remains explicitly unresolved. An unindexed equivalent signed-MaxCut theorem is another residual risk. No failure to find a paper is used as proof of global novelty.
+PASS
 
-**Mathematical value — PASS.** Direction anisotropy makes the multiplicity jump depend on the exact number of weakest directions rather than only dimension. The complete solution gives a sharp frustration-relocation boundary and a rigorous classification of all ground states for an unbounded sequence of network sizes, resolving a natural physical optimization question rather than a one-off numerical count.
+PASS: Weighted Cayley adjacency is diagonal in Walsh characters with eigenvalue -sum_i J_i+2sum_{i in T}J_i+(-1)^|T|t, t=(-1)^d K. Strict positivity J_i>0 confines the minimum to T=empty or singleton weakest direction, with transition t=J*. Every such character is binary and attains the Rayleigh bound. Any other binary minimum becomes affine Boolean g=a0+sum_{i in I*}a_ix_i upon multiplying full-parity character; g^2=1 forces pairwise products of its coefficients zero and one coefficient ±1. This rigorously exhausts states including degeneracy. Independent full spin brute-force d=2..4 for six anisotropic/signed cases reproduced energies and exact minimizer sets.
 
-**Scope and limits.** All positive coordinate couplings and all real antipodal couplings are covered, with \(d\ge2\). Magnetic fields, vanishing directional bonds, additional interactions, finite-temperature observables, and quantum dynamics are outside scope. Independent experimental or mathematical review has not been performed.
+## originality
 
-**Closest literature.** Xu and Meng, *Ars Combinatoria* 92 (2009), 3–9; Liu et al., *Mathematical Problems in Engineering* (2014), 380874; Mosseri, arXiv:1409.0147 (2014); Dai et al., *International Journal of Modern Physics B* 33 (2019), 1950094 (abstract only).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS with qualification: An earlier Nov 2 theorem completely covers the special isotropic case Ji=J, and general Hadamard/Ising spectral methods are prior. However it does not state or logically cover the full arbitrary positive independent Ji vector, weakest-direction tie stratification, and multiplicity 2m at arbitrary anisotropic degeneracy. These are a natural, exact, useful parameter extension, judged best-of-knowledge; full-text weighted network-spectrum literature remains inaccessible.
+
+## value
+
+PASS
+
+PASS: Exact zero-field frustration relocation with arbitrary anisotropic positive bond strengths identifies how weakest directions determine critical ground states and multiplicity, a natural spectral Ising invariant beyond routine graph eigenvalue enumeration. The exact complete Boolean equality characterization controls otherwise possible degenerate superpositions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
