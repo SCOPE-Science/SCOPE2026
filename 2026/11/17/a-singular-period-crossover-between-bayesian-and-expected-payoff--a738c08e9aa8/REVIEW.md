@@ -1,0 +1,15 @@
+# Scientific review: a singular period crossover between Bayesian and expected-payoff cycles
+
+## Correctness (C): PASS
+The exact payoff-to-log-odds derivation fixes the factor of one half on logarithmic fitness. The Hamiltonian \(H_\theta\) is proper and strictly convex, so every positive energy level is precisely one periodic orbit. The angular-speed identity and strict decrease of \(2\tanh(z/2)/z\) prove global period monotonicity, including the harmonic endpoint. The high-energy limits follow by the angular formula; the singular limit follows from the rescaled potential and vector field, uniform convergence of energy contours and dominated convergence of the reciprocal angular speed. The limiting first-quadrant arc has unit angular frequency about \((-2,-2)\), giving four times the explicitly computed angle. Numerical checks from the bundled program corroborate all regimes, but the proof is analytical. Risk: the convergence claim is deliberately restricted to positive scaled energy, and no all-energy error bound is claimed.
+
+## Originality (O): PASS, subject to historical priority
+The motivating article's two separate endpoint systems, including its isochronous log-linear center, are prior work. The sharp interpolation crossover is a different statement and is not a restatement of those endpoint claims. Nascimento's full accessible article proves general sufficient monotonicity criteria and illustrative applications, not this specific mixing limit. Villadelprat and Zhang's abstract and opening preview establish broad separable-Hamiltonian period theory, so the monotonicity component alone is not treated as new; their full text was not accessible, leaving a residual priority risk. Searching for the mixed-logit Hamiltonian, payoff interpolation and closed \(\arctan\) crossover produced no stronger identified implication. The calculation is new relative to the inspected statements, not certified globally unique.
+
+## Mathematical value (V): PASS
+The recent contrast between the endpoint learning laws creates a concrete question: how much logarithmic evidence suffices to cap arbitrarily large-amplitude cycling, and on what energy scale does the transition occur? The exact function \(8\arctan\sqrt{1+e/2}-2\pi\) quantitatively resolves that singular competition between quadratic and asymptotically linear Hamiltonian terms, connecting an unbounded-period endpoint to a finite plateau. It is not merely reapplying a general monotonicity theorem; it resolves a two-parameter, nonuniform limiting regime with an explicit nontrivial profile. Risks: this is a constructed mathematical interpolation, not a fit to behavior, and broader game classes are untreated.
+
+## Closest literature and limits
+Ruiz-Serra, Ay and Harré, arXiv:2610.36345v1 (relevant model and endpoint dynamics); Nascimento, DOI 10.1007/s12346-026-01595-w (general monotonicity of separable Hamiltonians); Villadelprat and Zhang, DOI 10.1007/s10884-019-09759-w (earlier general criteria; only preview read). No claim of a novel general monotonicity criterion or independent verification.
+
+Self-review: passed. Independent audit: not yet performed.
