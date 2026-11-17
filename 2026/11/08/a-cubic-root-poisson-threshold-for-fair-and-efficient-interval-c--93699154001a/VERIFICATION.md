@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python VERIFY.py` using Python 3 without third-party packages.
+## correctness
 
-The checker compares literal Pareto comparisons against the two endpoint conditions for all \(2{,}032\) nonempty committee strings of lengths \(3\) through \(10\). It compares the literal JR definition with the quota/forbidden-run formula over the same strings. It independently enumerates all cohesive voter subsets to check EJR versus JR for \(498\) strings of lengths \(3\) through \(8\). Finally, it checks the four-state polynomial recurrence versus independent direct enumeration for all \(75\) pairs of committee size and candidate count with \(3\le m\le12\).
+PASS
 
-All tests passed in the supplied version. Selected exact ratios computed by the recurrence are \(2668/8008\) at \((m,k)=(16,10)\), \(18927496/64512240\) at \((32,22)\), and \(143415189318227/488526937079580\) at \((64,48)\).
+On adjacent-pair approval path the voter-sum welfare is 2k−x1−xm, and endpoint dominance swaps show PO iff x1≤x2 and xm≤xm−1. For quota q=(m−1)/k, every nonrepresented voter approving unelected candidate can form JR obstruction only when three consecutive candidates are all unelected and 1<q≤2; when q>2 groups too small, when q≤1 at most one vacancy so all voters represented. Distinct edge-ballot intersections contain at most one candidate, so higher ell≥2 cohesive groups cannot exist and JR=PJR=EJR. Four-state transfer forbids 00→00 exactly in active range, counts every PO valid word; Poisson factorial moments for zeros triple count yield mean t³/m² and limit e^(−λ³) when t/m^(2/3)→λ, while negative association for disjoint hypergeometric triples and overlap variance give high-deficit zero probability. Independently brute-enumerated 491 profiles with m=4..8 including all alternative k-committees to confirm PO and JR, and inspected verifier source. Infinite Poisson law rests on analytic moment bounds, not finite enumerations.
 
-These are exhaustive finite checks within specified bounds, **not** a proof for arbitrary \(m\). The infinite finite-\(m\) classifications are proved by direct incidence, Pareto-welfare and transfer-state arguments. The Poisson limit and sharp threshold are established by factorial moments and a variance bound; the checker does not certify these asymptotics.
+## originality
 
-No independent audit was carried out.
+PASS
+
+Schünke 2026 Candidate Interval Single Dominance Only condition already supplies the specialized PO criterion, so that two-end condition is not independently new. Dong general PO+JR complexity and Bredereck et al. general/random representation do not supply the exact size-k adjacent-pair committee census and cubic-root fixed-cardinality threshold. Godbole rare runs is a generic probabilistic ingredient, not the joint social-choice statement. Best of knowledge exact combined classification/count/window is not covered.
+
+## value
+
+PASS
+
+Natural canonical Candidate Interval election with voter per adjacent pair gives an exact tractable joint representation/Pareto criterion and sharp random-committee feasibility threshold, contrasting general hardness. This precise cutoff is useful as a baseline and not an unmotivated finite lookup; general profiles remain outside scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

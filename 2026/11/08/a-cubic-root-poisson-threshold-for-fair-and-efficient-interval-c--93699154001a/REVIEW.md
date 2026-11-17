@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each \(m\ge4\), the proof computes total welfare \(2k-x_1-x_m\) and uses it to show that only a removable elected endpoint can produce strict Pareto improvement. It characterizes JR by the number of unrepresented incident voters at an unelected candidate and verifies that all higher-cohesion PJR/EJR clauses are empty because distinct two-consecutive-candidate ballots share at most one candidate. The four-state transfer matrix counts exactly the words passing the resulting local conditions. The critical law follows by factorial moments for triple-zero occurrences in a uniform fixed-size subset and a separate second-moment bound beyond the window; endpoint Pareto obstructions have vanishing probability. The standalone verifier confirms the finite classification, EJR collapse and exact recurrence over the recorded exhaustive ranges.
+PASS
 
-## Originality — PASS, qualified
+On adjacent-pair approval path the voter-sum welfare is 2k−x1−xm, and endpoint dominance swaps show PO iff x1≤x2 and xm≤xm−1. For quota q=(m−1)/k, every nonrepresented voter approving unelected candidate can form JR obstruction only when three consecutive candidates are all unelected and 1<q≤2; when q>2 groups too small, when q≤1 at most one vacancy so all voters represented. Distinct edge-ballot intersections contain at most one candidate, so higher ell≥2 cohesive groups cannot exist and JR=PJR=EJR. Four-state transfer forbids 00→00 exactly in active range, counts every PO valid word; Poisson factorial moments for zeros triple count yield mean t³/m² and limit e^(−λ³) when t/m^(2/3)→λ, while negative association for disjoint hypergeometric triples and overlap variance give high-deficit zero probability. Independently brute-enumerated 491 profiles with m=4..8 including all alternative k-committees to confirm PO and JR, and inspected verifier source. Infinite Poisson law rests on analytic moment bounds, not finite enumerations.
 
-Dong (2026) establishes NP-hardness on unrestricted approval profiles; Schünke (2026) proves a broader Single Dominance Only property on Candidate Interval elections and polynomial-time existence of stronger fair-efficient committees. The latter already covers the PO component after specialization, but neither inspected source gives the combined exact committee count or uniform sampling probability threshold. Bredereck et al. (2019) analyze random justified-representation committees experimentally and give general counting hardness; the exact adjacent-pair law is not stated there. Godbole (1991) is a classical precursor for rare-run Poisson limits in independent trials; the probability ingredient is not claimed as an independently new probability theorem. Accessible original and research-record comparison produced no encompassing claim. Unindexed equivalent applications, particularly via classical run-counting methods, are the principal residual originality risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Recent hardness and interval-domain structure results motivate a transparent quantitative baseline for how often a uniformly chosen committee simultaneously satisfies representation and efficiency. The theorem gives an exact finite counting algorithm rather than only an existence result, identifies the exact equivalence of three representation axioms on the profile, and proves a nontrivial critical deficit scale \(m^{2/3}\) with limit \(e^{-\lambda^3}\). The finite profile is a natural minimal overlapping-approval chain, not a parameter slice selected to fit a computation; the precise threshold measures the reliability of uniform committees in that canonical model.
+Schünke 2026 Candidate Interval Single Dominance Only condition already supplies the specialized PO criterion, so that two-end condition is not independently new. Dong general PO+JR complexity and Bredereck et al. general/random representation do not supply the exact size-k adjacent-pair committee census and cubic-root fixed-cardinality threshold. Godbole rare runs is a generic probabilistic ingredient, not the joint social-choice statement. Best of knowledge exact combined classification/count/window is not covered.
 
-## Scope and remaining risks
+## value
 
-There may be prior unindexed equivalent formulations in random-committee and forbidden-word literatures. Broader interval models and EJR+ are not settled by this result. The finite verifier supports but does not replace the analytic proof. The review covers this claim and supporting artifacts only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural canonical Candidate Interval election with voter per adjacent pair gives an exact tractable joint representation/Pareto criterion and sharp random-committee feasibility threshold, contrasting general hardness. This precise cutoff is useful as a baseline and not an unmotivated finite lookup; general profiles remain outside scope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
