@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T06:48:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inverse images of proper cyclic intervals under a inverse-rotate by one site; b and c inverse images can enlarge only at left endpoints 0 and n−1, respectively. Minimum reverse scan requires n−1 expansions, and the consecutive-pair event pattern yields (n−2)floor(n/2)+1. Counting shortest spans produces one word for odd n, two for even n, including n=2. Independent shortest-reset BFS and shortest-path counting n=2..12 verified all boundaries and formulas. This is mathematically correct but already subsumed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 13 formula for any two marks: even n threshold n(n−2)/2+1; odd n threshold n(n−3)/2+1+d, with d shorter gap. For adjacent J, d=1. This algebraically equals (n−2)floor(n/2)+1 for both parities."
+        ],
+        "reasoning": "The broader theorem covers every two-position placement and arbitrary nonempty marked sets, strictly stronger than the submitted specific adjacent pair.",
+        "searches": [
+          "two collapse Cerny automaton cycle a with b(n-1)=0 c(n-2)=n-1 exact reset threshold shortest words",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-marked-cycle-scan-theorem-for-exact-reset-thresholds-of-adjacent--6f621c17620a/RESULT.md",
+          "two-site marked cycle d=1 adjacent merges exact reset formula"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-marked-cycle-scan-theorem-for-exact-reset-thresholds-of-adjacent--6f621c17620a/RESULT.md",
+        "arxiv:2407.08135",
+        "Resultary semantic search two collapse Cerny automaton cycle a with b(n-1)=0 c(n-2)=n-1 exact reset threshold shortest words"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Plugging d=1 into earlier two-mark parity law yields exact reset threshold; the same earlier construction and lower bound force one (odd n) or two (even n) minimum scans. Zhu offers unrelated weaker general bound only."
+        ],
+        "reasoning": "All claimed formulas and shortest-word witnesses are direct corollaries of earlier general scan theorem and its forced-letter proof. The new proof specializes the same inverse interval mechanism.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-marked-cycle-scan-theorem-for-exact-reset-thresholds-of-adjacent--6f621c17620a/RESULT.md",
+          "two collapse Cerny automaton cycle a with b(n-1)=0 c(n-2)=n-1 exact reset threshold shortest words",
+          "Zhu 2024 quadratic upper bounds transitive permutation automata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source automaton has a(i)=i+1, b(n−1)=0 and c(n−2)=n−1. The prior marked-cycle model has b_j(j−1)=j. Take J={0,n−1}; letters are identical after relabeling."
+        ],
+        "reasoning": "The exact transition tables match, not just a similar general topic. The earlier theorem applies without modifying its hypotheses.",
+        "searches": [
+          "two collapse Cerny automaton cycle a with b(n-1)=0 c(n-2)=n-1 exact reset threshold shortest words",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-marked-cycle-scan-theorem-for-exact-reset-thresholds-of-adjacent--6f621c17620a/RESULT.md",
+          "Cerny automata two simple idempotent adjacent merge letters marked cycle scan"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact scan formula is not just a table: the proof derives the lower bound and constructs words by choosing all marked expansion sites in a shortest cyclic scan. The consecutive pattern of two marked residues determines the number of minimum windows."
+        ],
+        "reasoning": "The number of minimum scans, and hence optimal words, follows directly: for even n the odd n−1 marked visits allow exactly two minimum windows; for odd n the even count forces a unique pair-aligned window. No independent exact database is needed.",
+        "searches": [
+          "shortest reset word multiplicity two adjacent collapse even odd cyclic automaton",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-marked-cycle-scan-theorem-for-exact-reset-thresholds-of-adjacent--6f621c17620a/RESULT.md",
+          "two collapse Cerny automaton cycle a with b(n-1)=0 c(n-2)=n-1 exact reset threshold shortest words"
+        ]
+      },
+      "rationale": "The fully read 2026-10-13 marked-cycle scan theorem gives the sharp reset threshold for every n and every chosen set of adjacent simple merge letters. Its J={0,n−1} specialization exactly matches the new automaton. Its proof also forces every shortest inverse route to use a minimum marked scan, from which the submitted one-vs-two shortest-word counts follow by inspecting consecutive marked-pair gaps. No separate structural challenge remains.",
+      "residual_risks": [
+        "No uncertainty over mathematical implication for reset threshold. Shortest-word count is not explicitly the earlier headline, but follows routinely from its sharp scan proof, so no substantial independently useful new remainder survives."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_STRONGER_COVERAGE",
+          "evidence": "All n, any mark set threshold; two marks at adjacent sites give submitted exact threshold, and min-scan argument gives optimum word count.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-marked-cycle-scan-theorem-for-exact-reset-thresholds-of-adjacent--6f621c17620a/RESULT.md",
+          "material_read": "Entire RESULT.md including automaton definitions, interval proof, general scan invariant and two-mark parity formula",
+          "method": "Read-only GitHub full primary RESULT.md",
+          "title": "Marked-cycle scan theorem for exact reset thresholds of adjacent-merge automata",
+          "trigger": "Same transition maps under J={0,n−1} and stronger generic marking theorem"
+        },
+        {
+          "assessment": "RELATED_NOT_DECISIVE",
+          "evidence": "General quadratic bound is weaker than this exact family formula.",
+          "identifier_or_url": "https://arxiv.org/html/2407.08135v1",
+          "material_read": "Introduction and Theorems 1.4 and 2.7 with class-wide upper bounds",
+          "method": "Open-access arXiv primary HTML",
+          "title": "A quadratic upper bound on the reset thresholds of synchronizing automata containing a transitive permutation group",
+          "trigger": "Broad literature on permutation plus rank-defect letters"
+        },
+        {
+          "assessment": "SUBMITTED_PROOF_CHECKED",
+          "evidence": "Period-two mark gaps identical to earlier construction.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/parity-rigid-shortest-resets-in-a-two-collapse-ern-extension--60bc9eadca43/RESULT.md",
+          "material_read": "Entire RESULT.md inverse image and gap parity construction",
+          "method": "GitHub frozen source read",
+          "title": "Parity-rigid shortest resets in a two-collapse Černý extension",
+          "trigger": "Assigned mathematical proof"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The minimum reset threshold and shortest-word multiplicity are natural invariants, but the previously published exact general marked-cycle scan proof already yields the threshold and determines the one/two-minimum-window multiplicities with a routine adjacent-pair count. This specialization does not contribute a new motivated fact that survives broader coverage; coding and correctness alone do not restore value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Only exact two specified rank-(n−1) letters and unit letter costs; this is covered by older arbitrary marked adjacent merges."
+  ],
+  "schema_version": 1
+}
