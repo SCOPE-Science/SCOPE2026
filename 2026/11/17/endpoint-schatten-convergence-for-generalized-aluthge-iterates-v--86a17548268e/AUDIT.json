@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Stanković 2026 Theorem 1.1 proves fixed-index singular-value convergence, and Theorem 4.1 supplies each iterate's weak log-majorization by its input. For a_j=s_j(T)^p, decreasing b_j=s_j(Delta_t^n T)^p have b_k^k <= product_{j<=k}b_j <= product_{j<=k}a_j. Scalar AM-GM with k! >= ((k+1)/e)^k produces G_k <= e/[k(k+1)] sum_{j<=k} j a_j; telescoping gives sum G_k <= e sum a_j. Both b_j and limiting eigenvalue powers are dominated by G_j. Dominated convergence proves the p-power Schatten limit and the stronger ell_p distance statement. Zeros, finite dimension, 0<p<1, 0<t<1 and quasi-norm convention are covered. CHECK.py passed supplementary finite diagnostics and is not used to prove infinite results.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Stanković (2026) Thm 1.1 and Thm 4.1: coordinatewise convergence and weak-log product inequality; Thm 5.5 needs q<p.",
+        "Antezana–Massey–Stojanoff (2005), Remark 3.12, page 185: product inequality and norm monotonicity, not identification of the infinite limit.",
+        "Dodds–Dodds–Sukochev–Zanin (2019) introductions to Sections 5 and 6: Hölder and Weyl inequalities for measurable operators; not iterated Aluthge eigenvalue limits."
+      ],
+      "reasoning": "The closest broader hypotheses supply only *pieces*: the spectral-coordinate theorem alone does not ensure trace convergence, while the fixed-time log-majorization theorem alone does not identify the spectral endpoint. The explicit geometric-mean summability lemma bridges these facts. Earlier matrix-convergence theorems lack infinite tails.",
+      "searches": [
+        "generalized Aluthge iterates compact operators same Schatten p class norm convergence eigenvalue moduli Carleman inequality geometric mean majorization",
+        "weak log majorization Carleman inequality summable envelope norm convergence all p compact operators",
+        "compact Aluthge trace norm tends sum absolute eigenvalues no smaller Schatten q assumption",
+        "Carleman inequality summable geometric means uniform tail Schatten operator log submajorization",
+        "web: Antezana Massey Stojanoff 2005 Aluthge Schatten logarithmic majorization",
+        "web: logarithmic submajorization uniform majorization Dodds Sukochev Zanin"
+      ]
+    },
+    "checked_sources": [
+      "Stanković arXiv:2611.07728v1, first submitted 2026-11-05, Sections 1,4,5",
+      "Antezana–Massey–Stojanoff 2005 institutional OA PDF, Remark 3.12",
+      "Dodds–Dodds–Sukochev–Zanin arXiv:1910.10874 introduction and preliminaries",
+      "Antezana–Pujals–Stojanoff arXiv:0706.1234 abstract",
+      "Classical scalar Carleman inequality, independently reproduced in proof",
+      "Semantic searches of published mathematical research records listed under originality",
+      "Published special-case compact weighted-shift and partial-permutation convergence claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Stanković Thm 5.5 derives a uniform tail via smaller Schatten q, and Remark 5.7 identifies the failure of that *particular* tail method at q=p.",
+        "The present proof uses b_k<= (product_{j<=k}a_j)^(1/k), and a scalar summability inequality, which is not part of the compared published theorem statements."
+      ],
+      "reasoning": "The proposed statement logically follows by a new application of classical Carleman summability to the 2005 log-majorization and 2026 spectral convergence results; it is therefore a short derived theorem, not a newly independent spectral theorem. Neither source states or proves that implication and the 2026 article explicitly calls it unknown. Publication priority would be affected by any earlier general log-majorization compactness lemma with the same tail consequence.",
+      "searches": [
+        "generalized Aluthge iterates compact operators same Schatten p class norm convergence eigenvalue moduli Carleman inequality geometric mean majorization",
+        "diagonal Schatten class p equals q open trace norm Aluthge iterations Stankovic 2026",
+        "\"Singular values of iterated Aluthge transforms of compact operators\" Schatten endpoint logarithmic majorization geometric mean Carleman",
+        "Stanković arXiv:2611.07728v1 §§4–5",
+        "Antezana–Massey–Stojanoff DOI:10.1016/j.laa.2005.03.016 Remark 3.12"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Stanković (2026) Remark 5.7: diagonal case p=q explicitly left unresolved, especially trace-class q<1 obstruction.",
+        "Classic Carleman inequality controls geometric means of a summable sequence but contains no Aluthge iteration or spectral limit."
+      ],
+      "reasoning": "Equivalent formulations include trace-norm limit, ell_p convergence of ordered singular-value lists, and uniform integrability/tightness under a fixed weak-log-majorization envelope. Direct searches for these aliases and Carleman identified no prior operator statement; mere absence of a hit is not proof of worldwide novelty.",
+      "searches": [
+        "diagonal Schatten class p equals q open trace norm Aluthge iterations Stankovic 2026",
+        "weak log majorization Carleman inequality summable envelope norm convergence all p compact operators",
+        "\"Singular values of iterated Aluthge transforms of compact operators\" Schatten endpoint logarithmic majorization geometric mean Carleman",
+        "Aluthge transform compact Schatten p diagonal endpoint q equals p norm convergence eigenvalue modulus",
+        "web: \"Aluthge\" \"Carleman\" \"Schatten\" iterates",
+        "web: \"weak log majorization\" \"dominated convergence\" \"geometric means\" Schatten"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published 2026 two-scale Aluthge asymptotics for compact bilateral stretched-exponential shifts treats a special weighted-shift model.",
+        "Published 2026 singular-value boundary-layer result treats a special unilateral stretched-exponential weighted shift.",
+        "Previously reported special compact weighted partial-permutation results are restricted to decomposition into paths and cycles."
+      ],
+      "reasoning": "The target is a universal infinite-dimensional convergence theorem, not a finite datum or table. Closest indexed records impose explicit shift structures and do not imply the result for arbitrary compact Schatten-class operators.",
+      "searches": [
+        "\"Singular values of iterated Aluthge transforms of compact operators\" Schatten endpoint logarithmic majorization geometric mean Carleman",
+        "Aluthge transform compact Schatten p diagonal endpoint q equals p norm convergence eigenvalue modulus",
+        "Aluthge iteration arbitrary compact Schatten trace class trace norm spectral eigenvalue sum 2026",
+        "research-record search: endpoint spectral singular Aluthge same Schatten class"
+      ]
+    },
+    "rationale": "This answers the equal-exponent case explicitly stated unknown in Stanković arXiv:2611.07728v1 Remark 5.7. That work proves only q<p via an integrability gap, and its separate product-majorization theorem does not state the Carleman uniform envelope. The 2005 Antezana–Massey–Stojanoff source proves weak log-majorization and norm inequalities but no infinite-iterate spectral limit; earlier finite-matrix work covers finite dimension only. Older general log-majorization results do not contain the iterated Aluthge endpoint theorem. The contribution is the new combination and tail-tightness argument, not the underlying Carleman inequality or source operator lemmas.",
+    "residual_risks": [
+      "An older equivalent infinite-sequence tightness theorem under weak log-majorization could imply the result without naming Aluthge transforms.",
+      "General measurable-operator literature was not all inspected line-by-line, and the 2007 matrix work was accessed only through its abstract.",
+      "Independent mathematical and priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the equal-exponent assertion: Remark 5.7 explicitly states it unknown, only q<p is proved. Two separate input inequalities are accepted as established prior results.",
+        "evidence": [
+          "arXiv:2611.07728v1 (November 5, 2026), Theorem 1.1, Theorem 4.1, Theorem 5.5, Remark 5.7, §§5–6"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2611.07728v1",
+        "material_read": "Full relevant original HTML: introductory hypotheses and Theorem 1.1; §§3–5 including Theorem 4.1, Corollary 5.4, Theorem 5.5, Remark 5.7, Proposition 5.8 and Corollary 5.9; Section 6 endpoint context",
+        "method": "Read full-text HTML and inspect displayed theorems, proofs, and page-local equations",
+        "title": "Singular values of iterated Aluthge transforms of compact operators",
+        "trigger": "Exactly matching object and an explicit trace-class endpoint question"
+      },
+      {
+        "assessment": "NOT_COVERING the claimed infinite-iterate Schatten spectral limit: proves fixed-step log-majorization, monotonicity and some finite-dimensional dynamics.",
+        "evidence": [
+          "Antezana–Massey–Stojanoff, Linear Algebra Appl. 405 (2005), pp. 178 and 185, Remark 3.12"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2005.03.016",
+        "material_read": "Institutional full-text PDF, abstract/introduction and Sections 2–3, especially page 185 Remark 3.12; screenshot inspection of pages 178 and 185",
+        "method": "Open-access institutional PDF examined with page screenshot and parsed page text",
+        "title": "λ-Aluthge transforms and Schatten ideals",
+        "trigger": "Older primary source of exactly the weak product inequality"
+      },
+      {
+        "assessment": "Related general-purpose inequalities, with no identified iterated Aluthge spectral endpoint. Limited inspection does not exclude a hidden equivalent compactness result.",
+        "evidence": [
+          "Dodds–Dodds–Sukochev–Zanin (2019), introduction (Sections 4–6 outlined), preliminaries"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1910.10874",
+        "material_read": "Full-text HTML introduction, detailed section statements/outline, and preliminaries on symmetric ideals; not a complete line-by-line reading",
+        "method": "HTML inspection and term search for Carleman and Aluthge analogues",
+        "title": "Logarithmic submajorization, uniform majorization and Hölder type inequalities for τ-measurable operators",
+        "trigger": "Plausible broader log-majorization theory could subsume scalar envelope argument"
+      },
+      {
+        "assessment": "Its explicitly finite-dimensional scope does not provide the required infinite-dimensional norm-tail uniformity. No whole-text exclusion is asserted.",
+        "evidence": [
+          "Antezana–Pujals–Stojanoff (2007), arXiv:0706.1234 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0706.1234",
+        "material_read": "Original arXiv landing-page abstract specifying finite r-by-r diagonalizable matrices; full paper not materially read",
+        "method": "Primary arXiv abstract and bibliographic scope",
+        "title": "Convergence of iterated Aluthge transform sequence for diagonalizable matrices II",
+        "trigger": "Earlier iterative convergence paper and possible stronger finite matrix theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "86a17548-268e-41d1-a313-9d25a637aa69",
+  "value": {
+    "rationale": "The motivating 2026 paper formulates equal-exponent Schatten convergence as an open question. The new general theorem closes that exact gap for every p>0, including trace-class operators not belonging to any smaller Schatten class. It provides a uniform explicit input-dependent summable tail certificate and stronger ell_p convergence, a structural mechanism not afforded by ordinary fixed-coordinate convergence.",
+    "status": "PASS"
+  }
+}
