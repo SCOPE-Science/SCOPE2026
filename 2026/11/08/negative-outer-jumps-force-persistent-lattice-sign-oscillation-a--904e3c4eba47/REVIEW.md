@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Laurent exponential and absolute weighted coefficient majorant are well-defined for every positive real radius. The essential singularity plus \(q(r)\to-\infty\) gives infinitely many coefficients of each sign at every strictly positive time. Finite cyclic Fourier eigenvalues give eventual positivity; coefficient periodization and weighted Laurent moments give the linear lower bound, with short-time and compact-time cases handled separately. Exact rational evaluation of the five-point stencil, the negative moment at radius 16, and the \(\alpha<105\) inequality make the \(1/500\) constant valid. A direct heat-symbol bound gives the stated quadratic upper bound. A standalone standard-library verifier ran 3977 assertions. Numerical tests are supporting checks, not infinite proofs.
+PASS
 
-## Originality — PASS, qualified
+For q(z)=Σ_{j=-m}^m a_j z^j with negative highest a_m and strict negative symbol off zero, F_t(z)=exp(tq(z)) has Laurent coefficients p_j(t), is entire on C\{0}, tends to zero along real z→+∞ yet has an essential singularity at infinity. Infinitely many nonzero positive-index coefficients and an eventually one-sign tail would force F_t(r)→±∞ by comparing polynomial positive/negative contributions, so both signs appear infinitely often for each fixed t>0. The n-cycle kernel is the periodization of p_j and eventually tends to rank-one uniform via its spectral gap. Exponential weighted Laurent bounds control aliasing for t<=c n, while the diagonal spectral mass is at least C/sqrt(t); the small-/intermediate-time sign persists by uniform Taylor bounds and compactness, proving linear delay. For Q=D-D²/12, q(16)=-2475/1024 and elementary majorants permit c=1/500; spectral decay implies strict positivity by n²/16 for n>=5. Independent exact stencil checks and numerical cycles n=5..30 corroborate sign behavior. The infinite/time-uniform result rests on analytic inequalities, not finite simulation.
 
-The closest prior mathematical result is the general spectral eventual-positivity theory of signed Laplacians in Chen et al. (2020), which already implies finite-dimensional eventual positivity. That known component is explicitly excluded from the new contribution. Cross and Zhang (2020) treat elliptic inverse positivity and a related five-point stencil, while Hu and Zhang (2021) design different positivity-preserving finite-difference schemes. Published results on filtered Crank–Nicolson lattice positivity concern nearest-neighbor spatial generators and rational time maps, and a published example of a nowhere-positive semigroup concerns a nontranslation-invariant infinite operator. Their precise claims do not entail the combined all-time infinite sign oscillation and quantitative periodic-grid delay. Earlier high-order-difference and convolution-semigroup literature may contain equivalent results; no independent priority determination has been performed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem supplies a structural warning about high-order heat semi-discretizations: spectral stability and even qualitative eventual positivity of each finite grid cannot guarantee positivity at any fixed dimensionless time across larger grids. The infinite signed kernel creates a provable, dimension-dependent recovery-time obstruction. The result separates elliptic inverse positivity from semigroup positivity and provides a reproducible analytical test case for positivity-preserving spatial discretizations.
+The signed Laplacian theorem of Chen et al implies finite-dimensional eventual exponential positivity for simple zero, which is prior, and fourth-order five-point elliptic inverse-positivity analysis of Cross and Zhang uses exactly the motivating stencil. But inspected papers concern finite eventual positivity or stationary inverse M-matrix, not infinitely many both-sign lattice coefficients at every positive time plus an explicit uniform Ω(n) periodic positivity delay. The related periodized numerical time-stepping results use different operators or discrete-time schemes. Qualified against potentially unindexed older stencil-specific semigroup work.
 
-## Scientific limitations
+## value
 
-The theorem is restricted to symmetric finite-range translation-invariant stencils, strict nonzero-frequency damping and negative outermost coefficient. It gives a conservative linear obstruction and a nonsharp quadratic upper bound. Only exact arithmetic is analyzed. Specialized older overlap remains a priority risk; no independent scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+High-order accurate finite-difference heat operators may be spectrally stable while violating the continuous-time order-preservation principle. Persistent arbitrarily remote negative lattice propagation for any t and a quantitative finite-grid recovery obstruction at least linear in circumference are substantive structural and numerical-analysis boundaries, not merely a negative one-step coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
