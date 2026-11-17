@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T08:57:24.471218Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/second-order-boundary-bulk-covariance-cancellation-in-uniform-mo--904107dfeccb/RESULT.md",
+        "2026/11/08/second-order-boundary-bulk-covariance-cancellation-in-uniform-mo--904107dfeccb/verify_motzkin.py"
+      ],
+      "rationale": "For uniform length-n Motzkin excursions, the first-return equation M=1+wzM+z²(M+v-1)M correctly marks each H and each adjacent UD peak; ground horizontals are separated by F=M/[1-(u-1)wzM]. Differentiating yields exact six moment series M, R=zM², P=z²M/sqrt((1-3z)(1+z)), RP=2z³M²/sqrt(Delta), H=zM/sqrt(Delta), RH=zM²+2z²M²/sqrt(Delta). Singularity transfer at unique dominant 1/3 through second relative correction cancels order n and order 1 in Cov(R,P), leaving -1/n+O(n^-2), while Cov(R,H)=2+O(n^-1). Independently enumerated all paths of lengths 0..11 and checked definitions; n>=5 exact computed RP covariance is negative. The supplied symbolic finite checker has the full transfer coefficient table; infinite asymptotics rely on formal singularity analysis, not the finite test.",
+      "residual_risks": [
+        "The O(n^-2) remainder relies on the stated standard transfer expansion; no finite-n universal negativity is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oste and Van der Jeugt give height-sensitive horizontal enumerations including ground H and global H; Brennan–Mavhungu determine mean sharp peaks, not a publicly inspected joint second-order covariance."
+        ],
+        "reasoning": "The height-marked horizontal series covers the second comparison marginally, but not UD adjacency, so the -1/n joint coefficient requires an additional bivariate mark and second-order transfer.",
+        "searches": [
+          "Motzkin path covariance returns ground level horizontal steps strict peaks UD cancellation asymptotic",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i2p8/pdf/",
+          "https://doi.org/10.2989/16073606.2010.491177"
+        ]
+      },
+      "checked_sources": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i2p8/pdf/",
+        "https://doi.org/10.2989/16073606.2010.491177",
+        "https://arxiv.org/abs/1109.2661",
+        "Motzkin path covariance returns ground level horizontal steps strict peaks UD cancellation asymptotic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A horizontal-height generating function gives individual H expectations and Cov(R,H), but its marks do not differentiate strict UD; single-variable sharp-peak generating functions do not produce the mixed product RP."
+        ],
+        "reasoning": "Two separate marginals cannot determine covariance. The precise -1/n term follows from a new mixed marking and second-order cancellation, not directly from the inspected prior theorems.",
+        "searches": [
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i2p8/pdf/",
+          "https://doi.org/10.2989/16073606.2010.491177",
+          "Motzkin path covariance returns ground level horizontal steps strict peaks UD cancellation asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sharp peaks mean consecutive UD; low peaks and humps UH*D are different when interior H length is nonzero. The source explicitly differentiates a joint marker for strict UD and ground H."
+        ],
+        "reasoning": "Older counts of all peaks or low peaks do not give mixed covariance with a boundary-only marker; endpoint/level conventions were checked.",
+        "searches": [
+          "Motzkin path covariance returns ground level horizontal steps strict peaks UD cancellation asymptotic",
+          "Motzkin path sharp peaks UH*D ground horizontal joint moments"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby exact covariance for Dyck peak-area is a different conditioned path/observable; no returned Motzkin ground-H versus sharp-UD second-order table was found."
+        ],
+        "reasoning": "The coefficient -1 is an asymptotic joint invariant, not identified as a pre-existing table item; failure to locate a table is not a novelty certificate.",
+        "searches": [
+          "Motzkin path covariance returns ground level horizontal steps strict peaks UD cancellation asymptotic",
+          "Resultary:2026/10/13/SCOPE-negative-peak-area-covariance-and-a-square-root-regression-slope--9f7efb2b387e",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i2p8/pdf/"
+        ]
+      },
+      "rationale": "Exact second-order negative cross-covariance between height-zero horizontals and global adjacent UD peaks is not supplied by inspected marginal/height-weight results; the horizontal–horizontal comparison is substantially prior and treated as context.",
+      "residual_risks": [
+        "The complete 2010 Brennan–Mavhungu article was not available for full-text inspection; an unindexed mixed-moment result remains possible.",
+        "General simply-generated-tree multivariate limit theorems might imply the coefficient after specialization, though no direct implication was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MARGINAL_HORIZONTAL_PRIOR_NOT_MIXED_PEAK",
+          "evidence": "Horizontal weights by height can yield R,H moments, but no adjacent UD mark or -1/n mixed covariance was found.",
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i2p8/pdf/",
+          "material_read": "Accessible full 19-page PDF text, especially height-weight recurrences and theorem; page images including first and middle sections inspected",
+          "method": "Primary open PDF text and page screenshot inspection",
+          "title": "Motzkin paths, Motzkin polynomials and recurrence relations",
+          "trigger": "Strong same-family height-resolved horizontal-step enumeration"
+        },
+        {
+          "assessment": "PARTIAL_PEAK_OVERLAP",
+          "evidence": "The source determines mean sharp peaks and low peaks; absence of a mixed ground-horizontal covariance from inaccessible sections remains a material risk.",
+          "identifier_or_url": "https://doi.org/10.2989/16073606.2010.491177",
+          "material_read": "Abstract and substantial author-upload excerpts; full primary body not independently compared",
+          "method": "Open bibliographic and author-upload text excerpts",
+          "title": "Peaks and Valleys in Motzkin Paths",
+          "trigger": "Same Motzkin sharp-peak observable and asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v22i2p8/pdf/",
+        "Motzkin path covariance returns ground level horizontal steps strict peaks UD cancellation asymptotic"
+      ],
+      "rationale": "Boundary–bulk covariance between ground-level horizontal steps and strict local UD peaks is a natural dependence statistic on uniform Motzkin excursions. The cancellation of leading n and constant terms leaves a sharp negative -1/n interaction, contrasted with a positive limit 2 for global horizontal counts. The exact coefficient is a meaningful second-order benchmark, not a routine one-statistic mean or arbitrary finite slice.",
+      "residual_risks": [
+        "The theorem is restricted to uncolored uniform Motzkin excursions and not a general covariance limit theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality only, with precise residual risks in axes.originality.",
+    "Frozen public metadata contains operational source-run identifier; delivery/publishing not ready even though science review is complete."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem uses the uniform probability law on nonnegative length-\(n\) Motzkin excursions and explicitly distinguishes ground-level \(H\) steps, total \(H\) steps and adjacent \(UD\) peaks. Differentiation of the marked first-return decomposition produces all six numerator series. The unique dominant singularity is \(1/3\); expanding through the third relevant half-integer power establishes the \(1/n\) coefficient and its remainder, rather than inferring the infinite limit from finite calculations. A standalone verifier checked all moment numerators by exhaustive enumeration through size 12, longer exact recurrences, and rational symbolic expansion identities. No sign assertion at small lengths or unproved extension is included.
+## correctness
 
-**Originality — PASS, with residual historical risk.** The 2005 full paper of Sapounakis–Tsikouras supplies peak enumerations but does not joint-mark strict sharp peaks and horizontal steps restricted to height zero. The 2011 Ding–Du full text tracks humps but not this joint variable. The 2015 Oste–Van der Jeugt full paper tracks horizontal steps by their heights and therefore substantially covers the horizontal-only comparison, which is treated as contextual, not the novel component. The 2010 Brennan–Mavhungu material inspects the sharp-peak mean; incomplete full-text access remains an explicit risk. The new \(-1/n\) sharp-peak covariance is not a consequence of these stated one-statistic or height-only formulas without a new joint derivation and second-order cancellation. Broad historical results could implicitly cover the computation; this is not a proof of universal priority.
+PASS
 
-**Value — PASS.** The first nonzero mixed covariance between a local boundary count and a bulk peak count is a natural exact dependence invariant for a canonical conditioned lattice path. The simultaneous comparison with all horizontal steps isolates a meaningful structural distinction: the same boundary statistic has persistent positive covariance with global steps of its own type but asymptotically vanishing, eventually negative covariance with a different local motif. Two orders of cancellation make the sharp constant \(-1\) nontrivial, providing a benchmark for boundary–bulk dependence calculations in related excursions. The result does not require a broader central limit theorem to be mathematically informative.
+For uniform length-n Motzkin excursions, the first-return equation M=1+wzM+z²(M+v-1)M correctly marks each H and each adjacent UD peak; ground horizontals are separated by F=M/[1-(u-1)wzM]. Differentiating yields exact six moment series M, R=zM², P=z²M/sqrt((1-3z)(1+z)), RP=2z³M²/sqrt(Delta), H=zM/sqrt(Delta), RH=zM²+2z²M²/sqrt(Delta). Singularity transfer at unique dominant 1/3 through second relative correction cancels order n and order 1 in Cov(R,P), leaving -1/n+O(n^-2), while Cov(R,H)=2+O(n^-1). Independently enumerated all paths of lengths 0..11 and checked definitions; n>=5 exact computed RP covariance is negative. The supplied symbolic finite checker has the full transfer coefficient table; infinite asymptotics rely on formal singularity analysis, not the finite test.
 
-The study is limited to uniform, uncolored Motzkin paths. The exact numerical coefficient is analytically proved, with computational cross-checks, but there is no independent audit or exhaustive historical priority guarantee.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact second-order negative cross-covariance between height-zero horizontals and global adjacent UD peaks is not supplied by inspected marginal/height-weight results; the horizontal–horizontal comparison is substantially prior and treated as context.
+
+## value
+
+PASS
+
+Boundary–bulk covariance between ground-level horizontal steps and strict local UD peaks is a natural dependence statistic on uniform Motzkin excursions. The cancellation of leading n and constant terms leaves a sharp negative -1/n interaction, contrasted with a positive limit 2 for global horizontal counts. The exact coefficient is a meaningful second-order benchmark, not a routine one-statistic mean or arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
