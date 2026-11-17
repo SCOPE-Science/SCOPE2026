@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Exact bilateral resolvent kernel follows by rational partial fractions and a Green jump equation, with absolute summability and unit mass. Difference commutation plus a Heaviside jump proves the sharp BV norm. Complex phase ensures negative coefficients at every positive strength. The Banach-algebra Neumann expansion yields 1+4λ+O(λ²); an exponentially dominated lattice-to-continuum Riemann sum yields the stated closed limit and first-negative-index scaling. A standalone exact-rational radius-7 finite-section certificate bounds two infinite norms and proves a nonmonotone parameter pair without floating-point assumptions. All formulas and normalization were independently reconstructed and the checker executed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kim et al. (2009), https://web.stanford.edu/~boyd/papers/pdf/l1_trend_filter.pdf, pp. 339–342, replace squared difference regularization with an ℓ1 penalty, not an ℓ1 operator norm of the quadratic smoother.",
+        "Published finding 2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6 concerns finite-grid positivity of Whittaker–Henderson smoothing.",
+        "Published finding 2026/10/18/SCOPE-parity-split-positivity-thresholds-for-periodic-biharmonic-smoot--c19471e10093 concerns finite-periodic biharmonic positivity recovery."
+      ],
+      "reasoning": "The finite-path and periodic results do not imply a bilateral parameter-dependent ℓ1 kernel norm with a certified decrease between λ=1/16 and λ=1/9 and a continuum limit. An exact kernel representation alone does not explicitly settle these nontrivial absolute-value conclusions.",
+      "searches": [
+        "\"Whittaker\" \"variation\" \"amplification\" second order penalized smoother",
+        "\"Hodrick Prescott\" \"absolute sum\" weights",
+        "Hodrick Prescott two-sided filter oscillating negative kernel total variation variation-nonincreasing ringing nonmonotonicity"
+      ]
+    },
+    "checked_sources": [
+      "https://www.census.gov/content/dam/Census/library/working-papers/2006/adrm/rrs2006-09.pdf",
+      "https://web.stanford.edu/~boyd/papers/pdf/l1_trend_filter.pdf",
+      "https://eprints.whiterose.ac.uk/id/eprint/97954/",
+      "2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6",
+      "2026/10/18/SCOPE-parity-split-positivity-thresholds-for-periodic-biharmonic-smoot--c19471e10093",
+      "2026/11/1/SCOPE-strict-polyharmonic-green-positivity-and-an-exact-phase-shape-so--3240556c60ce",
+      "https://www.census.gov/library/working-papers/2006/adrm/rrs2006-09.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "McElroy (2006), https://www.census.gov/content/dam/Census/library/working-papers/2006/adrm/rrs2006-09.pdf, §3 states the exact kernel and side-lobe oscillations; these imply the finite-λ sharp norm series after a standard BV/ℓ1 convolution reduction.",
+        "Cornea-Madeira (2017), https://eprints.whiterose.ac.uk/id/eprint/97954/, abstract explicitly has a finite-sample endpoint-boundary scope.",
+        "Published finding 2026/10/18/SCOPE-parity-split-positivity-thresholds-for-periodic-biharmonic-smoot--c19471e10093 requires periodic cycles and addresses positivity, not the bilateral BV norm."
+      ],
+      "reasoning": "Concede and exclude prior coverage of the exact impulse coefficients and the elementary reduction to an absolute coefficient sum. The sharp strong-smoothing saturation expression and rigorous parameter nonmonotonicity require new integration, scaling and finite residual certificates. They are not given by the named sources, although an unindexed or inaccessible earlier derivation remains a residual risk.",
+      "searches": [
+        "\"Hodrick Prescott filter ℓ∞ operator norm weights sum absolute values 1.14009\"",
+        "\"Hodrick Prescott\" \"variation diminishing\" filter",
+        "infinite line discrete second difference Whittaker Henderson smoother l1 norm signed impulse kernel variation amplification operator"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "McElroy (2006), https://www.census.gov/content/dam/Census/library/working-papers/2006/adrm/rrs2006-09.pdf, §3 Eq. (19) gives the bilateral impulse weights; standard convolution duality makes their absolute sum a sharp ℓ1 and ℓ∞ norm.",
+        "Related published search hit 2026/11/1/SCOPE-strict-polyharmonic-green-positivity-and-an-exact-phase-shape-so--3240556c60ce concerns finite-support difference energies, not this smoothing resolvent."
+      ],
+      "reasoning": "The BV seminorm of translation-invariant convolution is exactly the ℓ1-mass of its impulse kernel; this part is an elementary consequence of the established weight formula, and is not presented as independent novelty. The substantive added assertions are the explicit strong-smoothing BV limit, the first-negative-lobe scale and a strictly certified nonmonotone parameter pair. These are not stated by the inspected source.",
+      "searches": [
+        "\"Hodrick-Prescott\" \"l1 norm\" \"filter\"",
+        "\"Hodrick Prescott\" \"total variation\" \"filter weights\" kernel",
+        "Exact signed Green kernel l1 norm for inverse I plus lambda lattice discrete bi-Laplacian, step function extremizer and continuum limit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed mathematical finding 2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6 covers finite-grid positivity, not this exact numerical BV limit.",
+        "McElroy https://www.census.gov/content/dam/Census/library/working-papers/2006/adrm/rrs2006-09.pdf explicitly tabulates/plots filter weights, but not their ℓ1 absolute sum or this constant."
+      ],
+      "reasoning": "No matching exact-value table was identified in the actual searches. This is negative search evidence, not a proof of uniqueness. The claim is also checked for implication by exact weight formulas and the separate added limit and nonmonotonicity.",
+      "searches": [
+        "\"1.140093467\" filter",
+        "\"Hodrick Prescott\" \"total variation\" \"bounded\" infinite filter",
+        "Sharp total variation operator norm of bi-infinite Hodrick Prescott Whittaker Henderson second difference smoother, nonmonotone smoothing parameter and limiting 1.140093467"
+      ]
+    },
+    "rationale": "The 2006 primary source establishes the exact HP filter weights; these coefficients and their immediate BV convolution-norm reformulation are acknowledged as prior implications. The new mathematically nontrivial content is the explicit all-scale saturated strong-smoothing BV constant, the signed-first-lobe scale and the rationally certified decrease in the exact norm when smoothing increases from 1/16 to 1/9. Inspected and indexed sources do not cover those assertions; unindexed historical priority remains a risk.",
+    "residual_risks": [
+      "Published exact HP impulse coefficients could have been analyzed for their ℓ1 mass in unindexed notes.",
+      "The 2017 exact finite-sample paper was read at abstract level only, not throughout; it concerns a different boundary convention.",
+      "Some publicly indexed mathematical findings were available as summaries rather than full text.",
+      "A failed title/formula search cannot establish novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The explicit bilateral impulse coefficients and side-lobes are prior work. No total-variation operator norm, nonmonotonicity or explicit λ→∞ absolute-sum limit is stated in inspected material.",
+        "evidence": "Report pages 1–9, especially §3 formula (19) and discussion of signed side lobes; first issued 2006-09-07.",
+        "identifier_or_url": "https://www.census.gov/content/dam/Census/library/working-papers/2006/adrm/rrs2006-09.pdf",
+        "material_read": "Full-text extraction of introductory Section 1, spectral factorization Section 2, applications Section 3 including equation (19), and adjacent illustration; screenshots unavailable after attempted retrieval.",
+        "method": "Read primary publicly accessible US Census full text (2006 report).",
+        "title": "Exact Formulas for the Hodrick-Prescott Filter",
+        "trigger": "Same bilateral low-pass operator and exact coefficients; strongest plausible exact prior coverage."
+      },
+      {
+        "assessment": "Finite-dimensional nonlinear ℓ1-penalized alternative is compared to HP, not the bilateral total-variation norm of the original squared-penalty smoother.",
+        "evidence": "2009 paper pp. 339–342, equations (1)–(3) and stated comparison.",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/l1_trend_filter.pdf",
+        "material_read": "Original full-text PDF pages 339–342 (Introduction, §2 formulation, beginning of properties); screenshot of page 340 inspected.",
+        "method": "Public full text and PDF page screenshot.",
+        "title": "ℓ1 Trend Filtering",
+        "trigger": "Potentially stronger stability comparison for squared versus absolute difference penalties."
+      },
+      {
+        "assessment": "Finite-sample weights differ in boundary scope; whole-document absence of a norm theorem cannot be inferred from its abstract.",
+        "evidence": "Repository identifies finite-sample weights and an archived deposit timestamp.",
+        "identifier_or_url": "https://eprints.whiterose.ac.uk/id/eprint/97954/",
+        "material_read": "Institutional repository abstract and bibliographic description; not full article text.",
+        "method": "Public repository description.",
+        "title": "The Explicit Formula for the Hodrick-Prescott Filter in Finite Sample",
+        "trigger": "Exact finite boundary weights could conceivably imply related worst-case norm bounds."
+      },
+      {
+        "assessment": "Finite-path positivity and order dichotomy, distinct from the nonmonotone bilateral BV norm and limit. Full-text coverage not independently excluded.",
+        "evidence": "Indexed abstract specifies penalty orders and minimal finite sample length.",
+        "identifier_or_url": "2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6",
+        "material_read": "published-finding corpus published mathematical finding summary; source full text could not be fetched via web.",
+        "method": "Published mathematical record search.",
+        "title": "Only first-difference Whittaker–Henderson smoothing is universally range-preserving",
+        "trigger": "Same smoothing penalty class and negativity of fitted trends."
+      },
+      {
+        "assessment": "Cycle positivity thresholds differ from bilateral sharp total variation and strong-smoothing regime.",
+        "evidence": "Indexed summary specifies cycle length scaling and periodic positivity.",
+        "identifier_or_url": "2026/10/18/SCOPE-parity-split-positivity-thresholds-for-periodic-biharmonic-smoot--c19471e10093",
+        "material_read": "published-finding corpus published mathematical finding summary.",
+        "method": "Published mathematical record search.",
+        "title": "Parity-split positivity thresholds for periodic biharmonic smoothing",
+        "trigger": "Same discrete fourth-order operator but on finite cycles."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6e210e2d-0823-4cc4-8c6f-390192f70fae",
+  "value": {
+    "rationale": "The exact sharp gain quantifies edge-ringing amplification of the classical low-pass smoothing resolvent on bounded variation signals. A step waveform is a universal worst-case witness, every positive strength violates variation contraction, the gain is rigorously nonmonotone and the large-smoothing limit has a nontrivial exact constant 1.140093467..., despite increasing smoothing scale. This directly distinguishes spectral damping from BV stability and supplies a reusable sharp all-parameter bound, not a routine special parameter computation.",
+    "status": "PASS"
+  }
+}
