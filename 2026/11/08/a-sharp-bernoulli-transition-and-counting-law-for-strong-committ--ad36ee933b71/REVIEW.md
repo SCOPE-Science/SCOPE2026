@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact deterministic equivalence on the private-supporter event is derived in both directions. For each candidate, the absent-private-supporter probability is computed from independent approval entries and union-bounded without assuming independence from popularity; the binomial cohesive-candidate count follows from column independence. The committee-count coupling, its total-variation implication, the sharp law-of-large-numbers phases, triangular-array Gaussian window, and non-vacuous conditional formula follow with the stated quantifiers. An exhaustive checker independently implements the original group-quantified definitions for 78,664 finite profiles. The finite computation is corroborative, not an infinite proof.
+PASS
 
-## Originality — PASS, with residual risk
+The deterministic necessity is checked using a private singleton approver for each cohesive candidate c: any W omitting c fails both SJR (no elected common candidate of N_c) and SSJR (that singleton voter is unrepresented). Sufficiency holds for every cohesive G via any common c in G, necessarily in H. A union bound makes the private-supporter failure <=m(1-q(1-q)^(m-1))^n. Candidate approval columns are independent, hence |H| is exactly Bin(m,b_n); coupling controls complete families and TV for their counts without falsely conditioning on the singleton event. The LLN and triangular-array CLT at q_n=1/k+lambda/sqrt(n) imply the stated thresholds, including the positive-cohesion conditional denominator. Boundary n=1 and the m>k requirement are explicit. Read actual RESULT.md blob 923f3d... and standalone verify.py blob 26d2d4..., which independently loops literal cohesive groups and profiles; full 78,664-profile run not independently executed here. Finite checks are not substituted for the analytic proof.
 
-The closest paper (Chingoma et al., arXiv:2609.29332) gives definitions, computational complexity, domain restrictions, and empirical feasibility data, not the Bernoulli full-solution-family coupling, exponential error, binomial count law, or critical window. Elkind et al. (arXiv:2108.12949) derive an impartial-culture theorem for ordinary JR, not SJR/SSJR. Brill et al. (2024) study individual representation, including empirical impartial-culture data, rather than this exact asymptotic SJR/SSJR result. Grossi et al. (arXiv:2608.13085) show SJR/SSJR coincidence only on liquid delegation profiles, not independent approvals. Han et al. (arXiv:2510.18718) prove a different phase diagram for average justified representation (AJR) under exactly the same Bernoulli approval model: AJR can recover at high density, while SJR and SSJR require a common elected winner or individually covered cohesive voters. Their Theorem 2.2 does not imply the present private-supporter characterization, joint count law, or Gaussian transition. Previously unpublished or unindexed equivalent calculations remain possible; this is a self-review, not an independent publication-priority guarantee.
+## originality
 
-## Value — PASS
+PASS
 
-The 2026 motivating study treats satisfiability and the number of cohesive candidates as central empirical questions. The theorem supplies a sharp, analytically specified density transition, a finite-sample total-variation guarantee for the *entire set of feasible committees*, and a nontrivial critical probability even when conditioning on at least one cohesive candidate. It also explains why a deterministic separation between SJR and SSJR can disappear with high probability in an iid model. The restriction to fixed candidate count and its potentially loose rare-private-ballot bound are material limitations rather than claims of broad generality.
+No located prior theorem implies this *entire family* coupling and all fixed-m SJR/SSJR asymptotics. Similar DR Poisson-window and AJR work has different axioms/parameters. Best-of-knowledge: Chingoma et al full text unavailable, so any uninspected appendix remains risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural stringent committee representation question gains an exact asymptotic feasibility threshold, the whole solution-family law, and quantitative finite-n coupling. This is not merely renaming a standard Bernoulli tail because the private-supporter equivalence must link two different representation requirements. Mathematically useful for random approval benchmarks and for distinguishing strong axioms from ordinary JR.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standalone Python 3 checker `verify.py` enumerates every approval matrix for \((m,k,n)=(3,2,1),(3,2,2),(3,2,3),(3,2,4),(4,2,2),(4,2,3),(4,2,4),(4,3,3)\), totaling 78,664 profiles. For each profile it compares literal all-cohesive-group SJR and SSJR definitions to candidate-supporter reductions, verifies the exact set-cardinality prediction when all candidates have private supporters, and computes exact rational binomial proxy probabilities at \(q=1/2\). All assertions passed and the terminal marker was `ALL_EXHAUSTIVE_CHECKS_PASS`.
+## correctness
 
-The infinite assertions instead follow from the proof: deterministic private-supporter reduction, an elementary union bound, independence of popularity counts, and a central limit theorem with fixed \(m,k\). Neither finite enumeration nor numerical tests are asserted to certify the infinite claims. No independent audit has been performed.
+PASS
+
+The deterministic necessity is checked using a private singleton approver for each cohesive candidate c: any W omitting c fails both SJR (no elected common candidate of N_c) and SSJR (that singleton voter is unrepresented). Sufficiency holds for every cohesive G via any common c in G, necessarily in H. A union bound makes the private-supporter failure <=m(1-q(1-q)^(m-1))^n. Candidate approval columns are independent, hence |H| is exactly Bin(m,b_n); coupling controls complete families and TV for their counts without falsely conditioning on the singleton event. The LLN and triangular-array CLT at q_n=1/k+lambda/sqrt(n) imply the stated thresholds, including the positive-cohesion conditional denominator. Boundary n=1 and the m>k requirement are explicit. Read actual RESULT.md blob 923f3d... and standalone verify.py blob 26d2d4..., which independently loops literal cohesive groups and profiles; full 78,664-profile run not independently executed here. Finite checks are not substituted for the analytic proof.
+
+## originality
+
+PASS
+
+No located prior theorem implies this *entire family* coupling and all fixed-m SJR/SSJR asymptotics. Similar DR Poisson-window and AJR work has different axioms/parameters. Best-of-knowledge: Chingoma et al full text unavailable, so any uninspected appendix remains risk.
+
+## value
+
+PASS
+
+A natural stringent committee representation question gains an exact asymptotic feasibility threshold, the whole solution-family law, and quantitative finite-n coupling. This is not merely renaming a standard Bernoulli tail because the private-supporter equivalence must link two different representation requirements. Mathematically useful for random approval benchmarks and for distinguishing strong axioms from ordinary JR.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
