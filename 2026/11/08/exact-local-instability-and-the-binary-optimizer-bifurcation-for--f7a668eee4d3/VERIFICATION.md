@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with a Python 3 standard-library interpreter. No downloads, third-party packages, random seeds, or network access are needed. Successful execution reports `PASS 425 exact arithmetic assertions`.
+## correctness
 
-The checker independently enumerates weighted words that create a new covered window for small alphabet sizes and compares their exact rational probabilities against inclusion–exclusion. It checks the published uniform Stirling-number specialization, the product formula at the shortest possible window, exact two-symbol formulas, the \(M=4\) algebraic extremum, analytic derivative sign brackets, and strict unequal-sampling advantages for several nontrivial windows. A separate method computes the coefficient of a quadratic perturbation directly in the polynomial and compares it with the closed-form word-count Hessian over a family of finite parameters.
+PASS
 
-These finite checks do not establish the infinite integer quantifiers, global root uniqueness, or asymptotic statements. Those claims rest on the supplied mathematical proofs. The historical-priority search was selective, and no independent audit is asserted.
+New-entry event requires one uniquely missing coupon in the common (M−1)-block and matching entering coupon; independence and inclusion-exclusion derive weighted flux. Finite occupancy-number derivatives yield exact κ_{n,M}; leading positive (n−1)/n² (M−1)(M−2)((n−1)/n)^(M−3) for fixed n ensures local minimum, not global all-n optimizer. For n=2, derivative of μ=(t+t^M)/(1+t)^(M+1) has sign 1−Mt+Mt^(M−1)−t^M; monotonic derivative structure yields unique inner root for all M≥4 and only two globally maximizing asymmetric probabilities; M=2,3 have only balanced maximum. Independently checked polynomial Hessian coefficient for several n,M. Claimed asymptotic rare-one-type example is correct but known contextual bound.
+
+## originality
+
+PASS
+
+The underlying weighted entry identity and a stronger global fixed-alphabet large-window asymptotic optimum were published already; these receive no novelty credit. The asserted all-n exact finite-M tangent-Hessian coefficient and the all-M binary global optimizer phase transition at M=4 are not implied by either the prior global asymptotics or published three-colour M=6 results. Originality is best of knowledge.
+
+## value
+
+PASS
+
+A natural optimization problem exhibits an exact, nontrivial binary bifurcation at M=4, and an explicit all-alphabet finite-window local stability test for the same stochastic entrance functional. Unlike the known global asymptotic optimizer, these give finite-window structure and a sharp symmetry-breaking boundary, an independently useful mathematical classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
