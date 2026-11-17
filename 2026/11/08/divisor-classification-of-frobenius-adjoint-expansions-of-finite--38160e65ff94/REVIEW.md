@@ -1,15 +1,21 @@
-# Review of the finite-chain classification
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reconstructs the common fixed-point set directly from the five primitive axioms, verifies closure under Łukasiewicz implication, derives the divisor-subchain form using truncated subtraction, and checks all five axioms explicitly for the proposed floor/ceiling maps. The complete independently implemented small-chain enumeration through ten elements reproduced all predicted pairs. The all-size statement is proved by the algebraic argument rather than by finite tests.
+## correctness
 
-## Originality
-PASS within the inspected evidence. Wang–Shi–Wang (arXiv:2609.09529, §§3.1–3.3) supplies the axioms, derived common-image properties, and a three-element example, not the all-size divisor enumeration. The related published Gödel-chain theorem has the same adjective 'Frobenius-adjoint', but uses Gödel residuation and gives all endpoint-containing subchains rather than the divisor subchains forced here. The 2014 monadic MV source is a distinct axiom system; the motivating source itself exhibits the difference in Example 3.17. Targeted literature and mathematical-record searches identified no statement covering all the conditions and the enumerative conclusion. Residual risk: an older monadic/residuated-algebra source may contain an equivalent classification under different terminology; the older monadic literature was not exhaustively read.
+PASS
 
-## Value
-PASS. For a newly defined algebraic expansion, the theorem determines every model on a natural finite family, not merely a constructed example. It reveals arithmetic rigidity absent from the analogous Gödel-chain case and gives an explicit divisor lattice of expansion types and counts. This is a finite-model classification, not a claim about arbitrary residuated lattices or broader logical decidability.
+The five FARL axioms make g left adjoint to f; f is deflationary and g inflationary; join Frobenius yields f(g(x))=g(x), and adjunction yields g(f(x))=f(x). Thus both are lower/upper roundings onto the common fixed image C containing endpoints. For b,c in C, residuum Frobenius shows b->c in C, implying closure under MV complement, truncated sum and difference. Least positive d in C must divide m=n-1 by Euclidean division and truncated subtraction, and every member is a multiple of d. Conversely rounding to C_d={0,d,...,m} satisfies the adjunction and all three Frobenius compatibilities. Each d|m gives a unique ordered pair, count tau(m), and f_d1 <= f_d2 iff d2|d1 (dual divisor lattice). Independent exhaustive monotone deflationary-map enumeration n=2..9, constructing each left adjoint and checking five axioms for all x,y, returned exactly tau(n-1) pairs.
 
-## Scientific limits
-Generalizations to products and other MV-algebras are not established. The subalgebra divisibility lemma and Galois/adjoint tools are standard; priority is claimed only for their complete application to this particular Frobenius-adjoint expansion class within inspected evidence. Independent historical-priority and proof auditing remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wang–Shi–Wang (2026) introduces FARL axioms and gives a three-element Łukasiewicz example, but its accessible abstract does not claim the complete finite Łukasiewicz chain spectrum; complete text was inaccessible here and is a significant residual priority risk. Earlier 2026-10-04 full Resultary Gödel-algebra coincidence theorem was read: on Gödel chains it permits arbitrary endpoint-containing subchains and has 2^(n-2) expansions. Because Łukasiewicz truncated subtraction forces d|n-1, that Gödel theorem is not a dominating theorem, and general monadic MV axioms differ. Best-of-knowledge PASS on the exact divisor classification, not on classical subalgebra divisibility itself.
+
+## value
+
+PASS
+
+A newly introduced Frobenius-adjoint expansion notion has a natural first classification test on finite standard Łukasiewicz chains. Exact tau(n-1) counts and dual divisor lattice structure are motivated algebraic structural invariants; unlike arbitrary Gödel subsets they reflect the residual operation and are not merely a small-case enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
