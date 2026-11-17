@@ -1,15 +1,21 @@
-# Scientific review: A sharp biomass-gain threshold for lossy source-to-sink migration
+# Independent mathematical audit
 
-## Correctness — PASS
-The population equations and domains match exactly across the theorem and proof. The ratio substitution solves all positive equilibria and produces a strictly increasing rate map. Two rational identities reduce the aggregate objective to an explicit gain polynomial and a one-root derivative sign classification. The extinction boundary and global asymptotic regimes follow from a Metzler principal-eigenvalue test, positive Perron weights and a strict Bendixson–Dulac inequality. At equal traits the mutant invasion eigenvalue is zero, and its determinant changes with sign strictly at the resident trait; all boundary and zero-trait cases are treated. `CHECK.py` passed 33092 finite assertions; computations are a consistency check, not an infinite proof.
+## correctness
 
-## Originality — PASS within inspected evidence; historically provisional
-Wu (2016), DOI 10.5556/j.tkjm.47.2016.1883, was read in full and defines a related resident–mutant two-patch flow with **positive** intrinsic patch resources. The current claim assumes a negative-growth sink and optimizes the physical total for two independent lossy directions. The intermediate-transport optimum is already qualitatively known from Zhang et al. (2015), and the population-versus-evolutionary distinction is known from Shaw et al. (2014). Wu et al. (2019/2020) and Elbetch (2024) report closely related full monotone/unimodal classifications for conservative source–sink transfers. They provide an especially serious comparison, but conservative fluxes do not directly preserve the two survival fractions and physical total under a simple relabeling. The claimed new content is restricted to the exact lossy threshold, optimizer, gain interval and joint invasion comparison. Full original texts of these last two papers, Galanthay (2015), Zhang et al. (2015), and Shaw et al. (2014) were inaccessible or unavailable during checking, leaving priority provisional. An absence of search hits was not interpreted as a proof of novelty.
+PASS
 
-## Value — PASS
-The exact phase transition \(ah=b+v(1-hq)\) specifies when dispersal into an intrinsically nonviable sink can nevertheless increase combined population density despite two-sided travel mortality. It yields a reproducible optimal intervention for the idealized model and identifies precisely when it conflicts with selection for reduced emigration. This closes a mathematically natural source–sink decision problem within the model, without asserting that the ecological mechanism is unknown or prescribing field interventions.
+Direct elimination of the two equilibrium ODEs at r=Y/X proves X=(ah-cr)/(h+r²), c=b+v(1-hq), u=r(b+v+rX)/h, and u_c=a(b+v)/c. Differentiation yields the published strictly positive lower bound for u'(r); total T-a=r[(ah-c)-(a+c)r]/(h+r²) has derivative numerator h(ah-c)-2h(a+c)r-(ah-c)r² and exactly one positive critical root if ah>c, none otherwise. Perron eigenvalue sign at origin and Dulac divergence -1/Y-1/X-vq/X²-hu/Y² establish extinction/global positive attractor with boundary behavior. Mutant invasion determinant simplifies exactly to (c+Y)(u_hat-u); resident trace is negative. Verified ODE residuals, derivative identities and determinant independently symbolically with SymPy (all zero), after reading actual RESULT.md and 3,664-byte CHECK.py. The finite rational script is supplemental, not proof.
 
-## Limitations
-Only deterministic logistic two-patch equations, constant migration and survival, an intrinsic sink and linear rare-mutant invasibility are covered. Publication priority is unverified independently and close full texts remain inaccessible. The supporting literature reports several qualitative conclusions already; these are not part of the asserted novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wu (2016) has essentially identical two-patch loss equations and fixed reverse-migration trait but assumes both intrinsic patch resources positive and addresses evolutionarily stable *migration*, not negative-growth sink total biomass optimization. The mutant selection part is largely a specialization/algebraic consequence of Wu; not claimed independently novel. Conservative source-sink biomass work addresses h=q=1; full joint interior optimum/physical T in the two-loss sink regime not found in accessible primary texts. Strong related-model risk retained.
+
+## value
+
+PASS
+
+A physically meaningful source/sink biomass-management boundary specifies whether migration loss can be outweighed by net biomass gain and proves uniqueness of optimal export. It distinguishes maximizing total population from the direction of rare-mutant selection with two independent survival losses. Unlike the known qualitative disagreement, its sharp loss-dependent source-sink criterion and quantitative optimum can be directly used in this precise model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

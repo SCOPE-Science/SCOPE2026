@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T01:45:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct elimination of the two equilibrium ODEs at r=Y/X proves X=(ah-cr)/(h+r²), c=b+v(1-hq), u=r(b+v+rX)/h, and u_c=a(b+v)/c. Differentiation yields the published strictly positive lower bound for u'(r); total T-a=r[(ah-c)-(a+c)r]/(h+r²) has derivative numerator h(ah-c)-2h(a+c)r-(ah-c)r² and exactly one positive critical root if ah>c, none otherwise. Perron eigenvalue sign at origin and Dulac divergence -1/Y-1/X-vq/X²-hu/Y² establish extinction/global positive attractor with boundary behavior. Mutant invasion determinant simplifies exactly to (c+Y)(u_hat-u); resident trace is negative. Verified ODE residuals, derivative identities and determinant independently symbolically with SymPy (all zero), after reading actual RESULT.md and 3,664-byte CHECK.py. The finite rational script is supplemental, not proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wu et al (2020) studies source-sink aggregate biomass with conservative migration; its model lacks independent h,q survival factors",
+          "Wu (2016) provides loss and evolutionary invasion results, not the sharp source-sink biomass gain boundary"
+        ],
+        "reasoning": "The combination of two individually overlapping literatures does not by itself state or entail the exact loss-dependent criterion and peak for physical T. Galanthay and Elbetch complete texts not inspected, so stronger general coverage remains a named risk.",
+        "searches": [
+          "lossy migration source sink logistic total biomass optimum survival travel mortality dispersal asymmetry invasion strategy",
+          "Wu Wang Li DeAngelis 2020 dispersal asymmetry two-patch source sink total biomass",
+          "Galanthay 2015 travel costs optimal dispersal",
+          "Elbetch 2024 influence dispersal asymmetry total biomass"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md and CHECK.py",
+        "2016 Chang-Hong Wu pp27-38 PDF Sections 2-3 including equations and Theorems 1-2",
+        "Wu et al 2020 source-sink biomass abstract",
+        "Galanthay 2015 DOI abstract",
+        "Elbetch 2024 cited metadata",
+        "Resultary q2 and targeted lossy source-sink searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wu (2016) Theorem 1 positive ESS m*=m12 q[a2+m12(hq-1)]/a1; with a2=-b this is negative, hence no positive ESS in current sink domain",
+          "Its Theorem 2 assumes positive m*, cannot imply current d-dependent physical biomass peak",
+          "Conservative source-sink biomass changes physical objective on adding survival factors"
+        ],
+        "reasoning": "Theorem 1 from Wu predicts no admissible positive ESS on substitution (the invasion part is related), but does not imply T maximization versus emigration for -b<0. The joint claim survives as a new source-sink biomass phase classification, despite obvious inherited tools.",
+        "searches": [
+          "lossy migration source sink logistic total biomass optimum survival travel mortality dispersal asymmetry invasion strategy",
+          "Wu 2016 Theorem 1 Theorem 2 two-patch travel loss",
+          "Wu Wang Li DeAngelis 2020 source sink biomass"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wu full PDF Section 2 eqs (2.1)-(2.4) matches the logistic two-direction travel-loss model under a_i>0, via a1=a, a2=-b, m21=u, m12=v, (1-e21)=h, (1-e12)=q",
+          "Current claim assumes a2=-b<0"
+        ],
+        "reasoning": "Underlying ODE and mutant matrix structurally identical after sign extension, so the general model is not new; Wu imposes positive resource in both patches and does not state physical source-sink biomass optimum. This sign-domain difference matters for its positive-ESS theorem, but leaves evolution direction substantially anticipated.",
+        "searches": [
+          "lossy migration source sink logistic total biomass optimum survival travel mortality dispersal asymmetry invasion strategy",
+          "Wu 2016 optimal dispersal two patch model travel loss DOI:10.5556/j.tkjm.47.2016.1883"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Current formula c=b+v(1-hq), d=ah-c and r*=hd/[h(a+c)+sqrt(h²(a+c)²+hd²)]",
+          "Nearest Resultary entry was the same current result; other source/sink entries treat different timing/growth models"
+        ],
+        "reasoning": "No independent table for this exact lossy source-sink objective was found; parameter-identity coincidence could be hidden in unread specialized work.",
+        "searches": [
+          "lossy migration source sink logistic total biomass optimum survival travel mortality dispersal asymmetry invasion strategy",
+          "source sink two patch logistic travel mortality equilibrium maximum biomass exact parameter inequality",
+          "Resultary source sink lossy migration biomass optimum"
+        ]
+      },
+      "rationale": "Wu (2016) has essentially identical two-patch loss equations and fixed reverse-migration trait but assumes both intrinsic patch resources positive and addresses evolutionarily stable *migration*, not negative-growth sink total biomass optimization. The mutant selection part is largely a specialization/algebraic consequence of Wu; not claimed independently novel. Conservative source-sink biomass work addresses h=q=1; full joint interior optimum/physical T in the two-loss sink regime not found in accessible primary texts. Strong related-model risk retained.",
+      "residual_risks": [
+        "2015 Galanthay and 2020 source-sink conservative primary full text not read; hidden general total-biomass theorem may imply the formula.",
+        "Wu (2016) already gives much of the invasion algebra; novelty/value only in joint loss-dependent physical biomass threshold and source-sink peak.",
+        "SymPy local algebra checks are not a theorem about global planar dynamics; global attraction separately argued."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MODEL_OVERLAP but not full scientific coverage; positive intrinsic resources and ESS formula m* incompatible with negative a2 sink; does not optimize total physical biomass",
+          "evidence": "Wu Eq(2.1)-(2.4) assumes a_i>0, Theorem1 m*=(m12/a1)(1-e12)[a2+(1-e12)(1-e21)m12-m12]. At a2=-b, bracket=-b-v(1-hq)<0. Its text does not assert the d=ah-c physical biomass sign threshold.",
+          "identifier_or_url": "https://journals.math.tku.edu.tw/index.php/TKJM/article/download/27-38/979",
+          "material_read": "Full 2016 12-page PDF, especially pp29-32 Equations (2.1)-(2.11), Theorems 1 and 2; Section 3 discussion",
+          "method": "Web PDF text and page-2 rendered screenshot",
+          "title": "The optimal dispersal strategy: a two-patch model with travel loss",
+          "trigger": "Nearly identical two-patch logistic travel-loss resident-mutant equations"
+        },
+        {
+          "assessment": "Model distinguishes conservative migration from two survival fractions; FULL_TEXT_NOT_READ",
+          "evidence": "Source-sink biomass effects are previously known; current new threshold may still be implied by a more general theorem in unread text.",
+          "identifier_or_url": "doi:10.1016/j.tpb.2019.11.004",
+          "material_read": "Abstract/bibliographic record and repository-specific comparison; no independently accessed full text",
+          "method": "Primary title/abstract and cross-check search",
+          "title": "Dispersal asymmetry in a two-patch system with source-sink populations",
+          "trigger": "Highly relevant source-sink total-biomass prior"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE",
+          "evidence": "Could generalize the evolutionary half but no verified source-sink biomass peak in material read.",
+          "identifier_or_url": "doi:10.3934/dcdsb.2015.20.1625",
+          "material_read": "Search metadata and published abstract only",
+          "method": "Public research search; full article not accessible",
+          "title": "Mathematical study of the effects of travel costs on optimal dispersal in a two-patch model",
+          "trigger": "Lossy dispersal with two patches"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A physically meaningful source/sink biomass-management boundary specifies whether migration loss can be outweighed by net biomass gain and proves uniqueness of optimal export. It distinguishes maximizing total population from the direction of rare-mutant selection with two independent survival losses. Unlike the known qualitative disagreement, its sharp loss-dependent source-sink criterion and quantitative optimum can be directly used in this precise model.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "pinned RESULT.md and CHECK.py",
+    "2016 Chang-Hong Wu pp27-38 PDF Sections 2-3 including equations and Theorems 1-2",
+    "Wu et al 2020 source-sink biomass abstract",
+    "Galanthay 2015 DOI abstract",
+    "Elbetch 2024 cited metadata",
+    "Resultary q2 and targeted lossy source-sink searches"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a logistic source with intrinsic a>0 and declining sink -b, bidirectional survival h,q in (0,1), fixed reverse-flow v>0, variable u>=0: total equilibrium biomass has a positive interior optimum iff ah>b+v(1-hq), with unique closed-form r*; all lower-emigration mutants invade a positive-u resident, while u=0 resists higher-emigration mutants.",
+  "limitations": [
+    "Two patches; equal quadratic competition; constant survivals, constant reverse rate, local rare-mutant criterion rather than long-term evolution; hidden generalized prior coverage a residual risk."
+  ],
+  "residual_risks": [
+    "2015 Galanthay and 2020 source-sink conservative primary full text not read; hidden general total-biomass theorem may imply the formula.",
+    "Wu (2016) already gives much of the invasion algebra; novelty/value only in joint loss-dependent physical biomass threshold and source-sink peak.",
+    "SymPy local algebra checks are not a theorem about global planar dynamics; global attraction separately argued."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "MODEL_OVERLAP but not full scientific coverage; positive intrinsic resources and ESS formula m* incompatible with negative a2 sink; does not optimize total physical biomass",
+      "evidence": "Wu Eq(2.1)-(2.4) assumes a_i>0, Theorem1 m*=(m12/a1)(1-e12)[a2+(1-e12)(1-e21)m12-m12]. At a2=-b, bracket=-b-v(1-hq)<0. Its text does not assert the d=ah-c physical biomass sign threshold.",
+      "identifier_or_url": "https://journals.math.tku.edu.tw/index.php/TKJM/article/download/27-38/979",
+      "material_read": "Full 2016 12-page PDF, especially pp29-32 Equations (2.1)-(2.11), Theorems 1 and 2; Section 3 discussion",
+      "method": "Web PDF text and page-2 rendered screenshot",
+      "title": "The optimal dispersal strategy: a two-patch model with travel loss",
+      "trigger": "Nearly identical two-patch logistic travel-loss resident-mutant equations"
+    },
+    {
+      "assessment": "Model distinguishes conservative migration from two survival fractions; FULL_TEXT_NOT_READ",
+      "evidence": "Source-sink biomass effects are previously known; current new threshold may still be implied by a more general theorem in unread text.",
+      "identifier_or_url": "doi:10.1016/j.tpb.2019.11.004",
+      "material_read": "Abstract/bibliographic record and repository-specific comparison; no independently accessed full text",
+      "method": "Primary title/abstract and cross-check search",
+      "title": "Dispersal asymmetry in a two-patch system with source-sink populations",
+      "trigger": "Highly relevant source-sink total-biomass prior"
+    },
+    {
+      "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE",
+      "evidence": "Could generalize the evolutionary half but no verified source-sink biomass peak in material read.",
+      "identifier_or_url": "doi:10.3934/dcdsb.2015.20.1625",
+      "material_read": "Search metadata and published abstract only",
+      "method": "Public research search; full article not accessible",
+      "title": "Mathematical study of the effects of travel costs on optimal dispersal in a two-patch model",
+      "trigger": "Lossy dispersal with two patches"
+    }
+  ]
+}
