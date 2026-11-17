@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of exact intensity geometry
+# Independent mathematical audit
 
-Run `python CHECK.py` with Python 3 and NumPy 2+. On the generated package, it reports `PASS 616 assertions`. The independent checks evaluate Fourier intensity from its explicit exponential formula, numerically invert it at selected lags, integrate original covariogram differences without presupposing the cubic identity, integrate first derivatives to form the Gram matrix, check the closed eigenvalues, and compare finite differences in the full data norm. They do not test every real parameter and are not a substitute for the general proof.
+## correctness
 
-The proof is analytic: an exact convolution identity, a full three-case integration of triangular autocorrelation, the Hilbert-space midpoint lemma, and a piecewise-function Fréchet derivative with explicit cross term. The time-domain Fourier convention is unitary on L2, so no factor of \(2\pi\) is omitted. Exact symbolic conditions and interval boundaries are stated in `RESULT.md`. The reviewer status is same-model only; no independent verification has occurred.
+PASS
+
+With f=1_[0,ℓ]+1_[ℓ+g,2ℓ+g], Plancherel turns squared Fourier intensity distance into autocorrelation tent translation distance. Positive and negative lag supports are disjoint for g,h>0; direct triangle self-overlap gives Dℓ(δ)=4ℓδ²−2δ³ (δ≤ℓ), 8ℓ³/3−2(2ℓ−δ)³/3 (ℓ≤δ≤2ℓ), then plateau 8ℓ³/3. Hilbert ball intersection gives the exact critical ε=√(2ℓ³/3). The L² Fréchet width/gap derivative exists because corner errors are O(|Δ|^{3/2}); its Gram entries are 16ℓ, 4ℓ and 4min(ℓ,g), with positive determinant. Independently integrated five covariogram difference instances across all regimes and recomputed the Gram algebra. This supports the exact claimed normalization, not general noisy reconstruction.
+
+## originality
+
+PASS
+
+At best of knowledge, the explicit equal-width Fourier-intensity L² gap modulus, sharp noise ambiguity boundary and joint derivative spectrum are not a direct implication of the accessible published two-interval uniqueness/stability statements. The inaccessible complete primary Xia–Xu treatment remains a specific priority risk.
+
+## value
+
+PASS
+
+Equal separated intervals are a natural solvable inverse phase-retrieval model. The exact global L² modulus and optimal noise indistinguishability threshold distinguish local injectivity from global instability; the simultaneous width/gap Gram spectrum is a useful sharp condition number, beyond generic triangle convolution identity. No larger model or estimator performance is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
