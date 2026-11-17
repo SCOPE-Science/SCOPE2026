@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the finite-size formula
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3.8+ (standard library only). The program generates the finite-state continuous-time Markov matrix directly from the exact birth, death and switching rates, solves its stationary linear system over `fractions.Fraction`, and computes the second central moment. It separately evaluates the closed theorem formula and uses exact rational equality. Across \(N=2,\dots,7\), five input regimes per size include unequal switching intensities, unequal environmental switching rates, same-noise degeneracy, and the zero-herding boundary. Additional exact comparisons of four switching speeds for each \(N=2,\dots,19\) test the direction of the claimed strict trend. Expected output:
+## correctness
 
-```
-PASS: 84 exact rational identities / monotonicity inequalities
-```
+PASS
 
-The infinite-population-size quantifier and sign assertions are proved in `RESULT.md` by exact identities. Finite computations are neither exhaustive over parameter choices nor substitutes for that proof. The model and source-reference limitations are recorded in `RESULT.md`. No independently audited proof status is asserted.
+C PASS. The finite 2(N+1)-state CTMC is irreducible. Spin-reversal symmetry fixes mean N/2. For m=i−N/2 and conditional state s, the count generator gives L_s(m²)=b_s−c_s m² with b_s=N(a_s+h/2), c_s=4a_s+2h/N. Stationarity of m² 1_{environment=s} closes a 2×2 system with determinant c0c1+λ(r0+r1)bar c>0. Solving and subtracting fast-switch mean gives the positive numerator 8h(N−1)π0π1(a1−a0)². Differentiating its one-pole denominator yields strict negative first and positive second derivatives when a0≠a1. Equal-noise case constant; λ=0 used only as limit, never as unique-stationarity claim. Independent exact-rational finite CTMC stationary solutions for N=2,3,4 match the formula; proof is algebraic for every N.
+
+## originality
+
+PASS
+
+O PASS with qualified priority. The full accessible text of Caligiuri–Galla (2023), Section IV, gives precisely the count jump rates (Eq.22), environmental stationary weights, slow/fast-switching limits, and explicitly says intermediate λ analytical characterization is not easily available (Sec. IV.4), using simulations. Its Section IV assumes equal environmental transition speeds. The new statement is an exact all-N, all-λ, asymmetric-rates moment identity and strict monotonicity of a natural pairwise agreement observable, not a claim to the full distribution or its mode transitions. Other PDMP/LNA and ordinary noisy-voter publications concern approximations or different settings. Method (second-moment closure) is classical, and equivalent telegraph-modulated exact moment results remain a realistic priority risk.
+
+## value
+
+PASS
+
+V PASS. Quantifying how exogenous switching changes a precisely defined finite-population polarization indicator is motivated by the observed bimodal/trimodal stationary shapes. The exact one-pole interpolation, crossover scale λ*, strict monotonicity, convexity and pair-agreement consequence supply a global finite-N law absent from the initiating simulation-based phase diagram. This is a useful exact benchmark even though only one moment, not the full distribution, is determined.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

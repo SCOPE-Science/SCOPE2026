@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The Markov-chain state space and rates are given explicitly. The strictly positive rates ensure irreducibility, and the spin-reversal involution enforces mean \(N/2\). Applying the generator to \((i-N/2)^2\) yields an exact affine, environment-conditioned second-moment closure. The two-state linear system is invertible for every parameter in scope. Its solution, subtraction of the fast-switching value, factorization and first two derivatives all have explicit signs. The formula is also checked against exact stationary solutions for independently constructed finite generators by `verify.py` (84 rational equalities or inequalities). Those checks are a supplement, not a proof for all \(N\).
+PASS
 
-## Originality: PASS, with qualified priority
+C PASS. The finite 2(N+1)-state CTMC is irreducible. Spin-reversal symmetry fixes mean N/2. For m=i−N/2 and conditional state s, the count generator gives L_s(m²)=b_s−c_s m² with b_s=N(a_s+h/2), c_s=4a_s+2h/N. Stationarity of m² 1_{environment=s} closes a 2×2 system with determinant c0c1+λ(r0+r1)bar c>0. Solving and subtracting fast-switch mean gives the positive numerator 8h(N−1)π0π1(a1−a0)². Differentiating its one-pole denominator yields strict negative first and positive second derivatives when a0≠a1. Equal-noise case constant; λ=0 used only as limit, never as unique-stationarity claim. Independent exact-rational finite CTMC stationary solutions for N=2,3,4 match the formula; proof is algebraic for every N.
 
-A full-text examination of Caligiuri–Galla, arXiv:2305.19096v2, including Sections II, III, IV, V and appendices, finds the precise model rates in Eq. (22), limits at slow and fast switching, and intermediate-switching simulations, but no exact finite-size one-pole variance or universal strict-speed monotonicity theorem. The source assumes symmetric environmental switching in its analysis; the present result includes arbitrary positive relative rates. Hufton et al. (arXiv:1512.00785v2) concerns PDMP/LNA for other population models, and the work of Herrerías-Azcué–Galla (arXiv:1903.09198) and Carro–Toral–San Miguel (doi:10.1038/srep24775) concerns non-modulated voter models. This precise joint implication was not identified in searches of the inspected literature or available scientific records. Exact moment closure is classical, so a previously published equivalent or straightforward unpublished calculation is a remaining priority risk.
+## originality
 
-## Value: PASS
+PASS
 
-The motivating paper finds coexisting bimodal, trimodal and unimodal regimes and uses simulation to bridge slow and fast environment limits. It is therefore meaningful to ask whether speeding up the environment *necessarily* reduces a well-defined polarization observable at finite population size. The exact, all-parameter answer provides a strict monotonicity theorem, the unique crossover scale, a quantified excess disagreement at each intermediate switching rate, and a sampling interpretation. This is not claimed to solve the full stationary distribution. The result is a reusable finite-size benchmark for Markov-modulated social contagion and stochastic population models.
+O PASS with qualified priority. The full accessible text of Caligiuri–Galla (2023), Section IV, gives precisely the count jump rates (Eq.22), environmental stationary weights, slow/fast-switching limits, and explicitly says intermediate λ analytical characterization is not easily available (Sec. IV.4), using simulations. Its Section IV assumes equal environmental transition speeds. The new statement is an exact all-N, all-λ, asymmetric-rates moment identity and strict monotonicity of a natural pairwise agreement observable, not a claim to the full distribution or its mode transitions. Other PDMP/LNA and ordinary noisy-voter publications concern approximations or different settings. Method (second-moment closure) is classical, and equivalent telegraph-modulated exact moment results remain a realistic priority risk.
 
-## Closest work, scope and residual uncertainties
+## value
 
-The initiating source covers the model and endpoint distributions but not the finite-speed variance result as stated. The 2015–2016 PDMP/LNA and 2016/2019 noisy-voter studies provide methodological context or results for different models. Remaining risks are unindexed literature, alternate terminology such as telegraph-modulated or random-environment Kirman models, and potential republication of an equivalent special-case identity. No independent audit was commissioned or performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+V PASS. Quantifying how exogenous switching changes a precisely defined finite-population polarization indicator is motivated by the observed bimodal/trimodal stationary shapes. The exact one-pole interpolation, crossover scale λ*, strict monotonicity, convexity and pair-agreement consequence supply a global finite-N law absent from the initiating simulation-based phase diagram. This is a useful exact benchmark even though only one moment, not the full distribution, is determined.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
