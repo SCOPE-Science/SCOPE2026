@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic proof establishes the complete finite angular orbit, its reachability using positive-probability Feres branches, irreducibility, exact nearest-angle geometry, Liouville class weighting, and the resulting change-of-variables formulas. The proof relies on the branch definitions and invariant Liouville law stated in the cited originating papers, not on empirical sampling.
+# Independent mathematical audit
 
-Run `python3 check_caustic.py` from this directory. It uses the Python standard library and checks all integer \(n\) from \(7\) to \(50\), including explicit angle-orbit cardinalities and positivity of angle domains, direct unsigned minimum radius, trigonometric orbit-weight sums, probability normalization, 19 cumulative-probability evaluation points per \(n\), and first and second moments by Simpson quadrature. At authoring time it passed 14,036 direct cases, 44 normalization checks, and 88 moment checks.
+## correctness
 
-These finite calculations do not certify the infinite theorem, all floating-point error claims beyond the stated numerical tolerances, or novelty. No external independent verification or expert audit has been performed. The physical radius is defined by the unsigned Euclidean distance \(\lvert\cos\theta\rvert\), not by a signed oriented cosine.
+PASS
+
+For t in (0,a), the T1 and T4 positive-probability paths traverse the explicitly enumerated n-angle orbit, with reversible support guaranteeing irreducibility and recurrent visits to each angle. Its minimum |cos(angle)| is respectively sin|t-a/2|, sin(a-t), sin(t); the normalized Liouville weight on the fiber is half its sine sum, giving cos(t-a/2)/(2sin(a/2)) or cos(t-a)/sin(a). Change of variables proves each full CDF, support and moment. Independently compared direct min-cos over the enumerated orbits with predicted formula for all n=7..18 at three interior offsets per n.
+
+## originality
+
+PASS
+
+The original random billiard article defines the random caustic, invariant measure and finite angular classes, while the October 26 unicyclic theorem proves general finite-fiber graph, stationary sine weights and mixing parity. Neither inspected complete source states the pushforward distribution of the minimum unsigned tangent radius, its mod-four trichotomy or exact excluded-disk expectation. The present contribution is the explicit statistical caustic law, not the Markov model itself.
+
+## value
+
+PASS
+
+The nonnegative inaccessible central disk is a natural invariant of a stochastic billiard path. Complete Liouville distribution and arithmetic mod-four uniform/nonuniform transition give exact physical predictions and a motivated classification beyond orbit geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
