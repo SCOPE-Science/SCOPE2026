@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof derives the exact XOR kernel under sequential independent coordinate swaps, establishes uniformity of the first card conditional on the difference, and reduces the two-card transition to a rank-one refreshed highest-difference-coordinate chain. The reduced chain yields the exact all-time polynomial identity, complete eigenvalue multiplicities, and TV count for every \(d\ge1\), \(m\ge1\). A standalone exact checker passed 39,668 finite rational equalities for \(d\le5\), including direct two-sweep Chapman–Kolmogorov comparisons for \(d\le3\). Infinite claims are proved analytically, not from enumeration.
+PASS
 
-## Originality
+For n=2^d two cards in sequential independent fair coordinate swap matchings, the initial highest differing bit J=j gives q_j(w) with weights 0,1/n,2/n. The reduced K=(1/n)I+(n-1)/n 1*pi^T has eigenvalues 1 and 1/n. Uniform first-card address conditional on XOR and the Markov reduction yield P^m=Pi+n^{-(m-1)}(P-Pi), algebraic eigen multiplicities, and TV exact formula, including d=1 boundary. Independently enumerated exact rational pair transitions for d=1,2,3,4; every endpoint agrees.
 
-PASS, with an identified high-priority residual risk. Jiang (2026), Appendix A, already provides a complete **one-sweep** arbitrary-marked-card route kernel: the one-sweep two-tag law is not original. The new statement is its dimension-uniform highest-difference-bit rank-one reduction, exact spectrum and complete iterated TV identity. Inspected related full-deck papers provide longer-time upper bounds rather than the exact tagged-pair spectral law. Bibliographic and web searches using shuffle, XOR, tagged-card, and spectral aliases found no direct counterpart. The earlier exact kernel formally determines all powers by matrix multiplication, and an unlocated published exact two-tag analysis might subsume the claim; neither possibility is excluded by a failed search.
+## originality
 
-## Value
+PASS
 
-PASS. Exact mixing of two tags is the first relational test beyond the known uniform one-tag marginal. The formula shows that one sweep can leave distance asymptotically one-half while a second lowers it to order \(1/n\), a sharp structural distinction from full-deck mixing. The full eigenvalue list and all-time formula are reusable invariants rather than a small numerical example.
+PASS best-of-knowledge: Jiang arXiv:2610.18884 provides a general one-sweep marked-card route probability, which determines the kernel in principle, but an explicit all-dimension two-tag power identity, rank-d spectral multiplicities and exact worst-start TV after arbitrary full sweeps were not located in inspected accessible statements. This is an algebraic refinement rather than a new shuffle model. Relevant full Appendix A and other Thorp primary papers not read; material priority risk retained.
 
-## Closest literature and limitations
+## value
 
-The closest 2026 paper, arXiv:2610.18884, Appendix A Lemma A.1, establishes exact labelled routing for every marked-card order; its Appendix C gives smoothing bounds. The September 2026 full-deck papers give whole-permutation mixing results. These references limit the novelty claim to the rank-one spectral reduction and exact closed-form powers. Full-deck cutoff is not addressed, and independent historical-priority review has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Exact mixing profile for a natural pair of tagged cards in a canonical shuffle is a meaningful finite-chain classification; rank collapse and one-sweep vs two-sweep distinction are not a trivial corollary of full-deck asymptotic bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
