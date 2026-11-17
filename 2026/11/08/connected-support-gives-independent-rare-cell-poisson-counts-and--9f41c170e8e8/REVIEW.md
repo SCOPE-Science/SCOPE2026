@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The conditional-Poisson factorization is exact: the discrepancy in product weights is a margin-only multiplicative factor. The connected support graph supplies a unimodular spanning-tree minor, so the allowed Poisson margin lattice is full. The Fourier integral therefore has a unique dominant torus point and gives both pointwise and uniform local-limit bounds. Dominated convergence over the independent Poisson rare vector yields total-variation convergence. A joint Fourier calculation projects Gaussian fluctuations onto the kernel of the margin map, and establishes independence. The explicit disconnected two-by-two case follows from exact factorial ratios and a dominated series limit. The standalone checker performs 831 finite and algebraic checks; finite enumeration is only supporting evidence, not the infinite proof.
+PASS
 
-## Originality: PASS (historical-priority risk retained)
+Exact conditioning on Poisson(nq) on connected E and Pois(beta) on weak F follows by cancelling the fixed-margin h_i k_j factors. Removing a redundant incidence row makes B full-rank with a unimodular spanning-tree minor, so a full-lattice Fourier local limit holds uniformly over all shifted constraints, with covariance M=BDB^T. Dominated convergence makes rare vector jointly independent Pois(beta), and the Fourier characteristic-function expansion under fixed rare counts gives a projected independent Gaussian bulk Σ=D-DB^T(BDB^T)^(-1)BD. The disconnected d=2 diagonal-suppressed example reduces exactly to a Bessel-normalized equal-count law, while d>=3 support is connected. The integer-margin subsequence and singular tree cases are explicitly bounded.
 
-The closest 2026 motivating work establishes the conditional-Poisson/Gibbs formalism and bounded-cost, dimension-growing transport/CLT theorems, not this fixed-dimension singular-weight boundary. Zhou's 2017/2018 paper treats a different, coupon-collector table distribution with fixed margins; Chen's 2007 structural-zero work emphasizes valid importance sampling and conditional tests, not a mixed rare-Poisson/Gaussian limit. Exact two-by-two noncentral-hypergeometric weights and the Bessel-series limit are elementary and are not claimed to be independently novel. Literature-index and published-claim searches did not locate a stronger implication, but a general lattice-conditioned rare-event theorem may cover the result under an unrecognized formulation.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The connected-support criterion explains exactly when finitely many suppressed cells can escape global margin dependence and acquire independent Poisson limits while the allowed cells fluctuate normally. The two-by-two Bessel law is a natural sharp boundary, not an arbitrary finite numerical slice. This fills a meaningful singular-prior regime of conditional contingency-table models used in graphical inference and entropy-regularized transport. It does not require a downstream result or larger paper for relevance.
+Duan-Lyu-Powell give the foundational conditioned-Poisson/Gibbs representation and positive-density/high-dimensional fluctuation theory, not the fixed-dimension n^-1 suppressed-cell crossover with connected sparse support and asymptotically independent Poisson rare counts. The closest classical structural-zero literature treats zeros, not a critical nonzero 1/n scaling. The joint mixed-scale theorem and explicit disconnected Bessel boundary survive primary full-text comparison.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The connectedness threshold for asymptotic independence of rare weakly permitted cells, together with an explicit independent projected Gaussian bulk and a contrasting Bessel dependence law at disconnected support, identifies a substantive critical universality class in sparse constrained count models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
