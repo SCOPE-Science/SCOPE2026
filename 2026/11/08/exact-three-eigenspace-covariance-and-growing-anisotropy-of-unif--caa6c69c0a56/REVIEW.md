@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The vertex count and fixed-edge occupancy probabilities follow by deleting one or two disjoint matched pairs; same-row/column joint occupancy is zero. These three cases generate the full covariance matrix and, by an exact row/column-sum identity, all its Frobenius eigenvalues with multiplicities summing to the full ambient dimension. The strict middle-to-low gap is certified by the real, simple, positive zeros of ordinary Laguerre polynomials: the matching-size distribution is an unequal-parameter Bernoulli sum with variance strictly smaller than the binomial variance at the same mean. The high-dimensional limits follow from Perron's *complex-domain* Laguerre formula, whose local uniformity permits analytic differentiation for deficiency moments. Rational exact enumeration at orders 2–4 and large-size numerical checks corroborate but are not substitutes for those arguments.
+## correctness
 
-## Originality — PASS (priority provisional)
-Heuer–Striker (2020) identifies and counts these vertices, rather than their uniform-vertex covariance operator. Eisley–Matsushita–Vindas-Meléndez (2024) studies graph matching polytopes via Gorensteinness and integer decomposition. A published John-ellipsoid result is for precisely this polytope and uses its same three symmetry modules, but the extremal inscribed-ellipsoid operator is not the covariance of uniformly sampled vertices and its eigenvalues have different asymptotic orders. Searches for random rook placements, uniform partial permutations, vertex covariance, eigenvalues, and equivalent row/column contrasts yielded no recorded dominating theorem. Existing Laguerre zero/asymptotic inputs are explicitly credited and not claimed new. Residual risk: a legacy random-matching covariance calculation under different nomenclature, especially within older statistical literature.
+PASS
 
-## Mathematical value — PASS
-The uniform vertex cloud is a canonical discrete geometric measure on a full-dimensional polytope; its covariance determines quadratic directional dispersion, principal axes, and whitening. The theorem completely determines this operator, proves a nontrivial strict spectral hierarchy *for every dimension*, and gives the sharp \(2\sqrt n\) growth of its anisotropy. The separation between nearly constrained row/column modes and unconstrained doubly centered modes persists despite the full-dimensional support. This is not implied by the combinatorial vertex count or by the optimization geometry of John's ellipsoid, and provides a reusable exact benchmark for discrete isotropic-position questions.
+Uniformly sampled vertices of the square doubly substochastic polytope are partial permutation matrices of sizes k=0..n, count M_n=sum C(n,k)^2 k!. A specified entry is occupied with probability mu=M_(n-1)/M_n; two disjoint entries with probability eta=M_(n-2)/M_n, and two sharing row or column with probability zero. This gives exact operator ΣY=(mu+eta)Y-eta(row+column sums)+(eta-mu^2)(all entries sum) and eigenvalues lambda0=mu-n^2mu^2+(n-1)^2eta, lambda_r=mu-(n-1)eta twice(n-1), lambda_i=mu+eta (n-1)^2. The positive distinct Laguerre zeros factor the matching-size PGF into a sum of unequal-parameter Bernoullis, proving lambda_r>lambda0 via strict variance concavity; eta>0 gives lambda_i>lambda_r. For D=n-K, the Laguerre PGF L_n(-z)/L_n(-1) and classical analytic-uniform Perron formula yield ED=sqrt(n)-3/4+O(n^-1/2), VarD=sqrt(n)/2-1/2+O(n^-1/2), and hence scaled eigenvalue limits 1/2,1,1 and condition number 2sqrt(n). Independently enumerated all n=2,3,4 matching vertices, computed rational covariance matrices and directly checked complete n^2-dimensional eigenspaces. The asymptotics rely on the cited classical theorem and complex-uniform differentiation, not the finite checks.
 
-## Limitations and independent assessment
-The claim excludes volume-uniform sampling, fixed matching rank and unequal bipartition sizes; the spectral asymptotics use classical complex Laguerre theory. Historical priority beyond accessible sources is provisional. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The matrix-symmetry decomposition and square covariance formulas can be obtained by algebraic diagonal specialization of the same-date rectangular p<q covariance operator formula, which is credited; the genuinely new surviving part is the **balanced joint-growth asymptotic**: three distinct powers with constant 1/2 and sharp 2sqrt(n) condition number. The rectangular published result proves fixed p, q->infinity, with condition number q+O_p(1), not p=q->infinity. Prior Heuer-Striker proves vertex structure and counts, not vertex-uniform covariance. Best-of-knowledge: no earlier exact sharp balanced limit located; same-date relationship and historical rook-statistics equivalences are risks.
+
+## value
+
+PASS
+
+The canonical uniform discrete vertex measure of the matching polytope has a natural full-space inertia matrix. Its balanced high-dimensional degeneration is sharply quantified: constant and row/column directions fluctuate as n^-3/2, interactions as n^-1, with exact anisotropy 2sqrt(n). The genuine balanced-asymptotic result requires the nontrivial deficiency variance and differs from the fixed-height q growth theorem; it provides a meaningful exact benchmark for random partial permutations and discrete isotropic-position questions. Generic tensor diagonalization and vertex counts alone would not justify value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

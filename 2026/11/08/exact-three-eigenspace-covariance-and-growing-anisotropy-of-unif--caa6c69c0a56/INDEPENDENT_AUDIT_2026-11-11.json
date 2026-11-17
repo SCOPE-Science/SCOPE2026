@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T07:52:53.832163Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Uniformly sampled vertices of the square doubly substochastic polytope are partial permutation matrices of sizes k=0..n, count M_n=sum C(n,k)^2 k!. A specified entry is occupied with probability mu=M_(n-1)/M_n; two disjoint entries with probability eta=M_(n-2)/M_n, and two sharing row or column with probability zero. This gives exact operator ΣY=(mu+eta)Y-eta(row+column sums)+(eta-mu^2)(all entries sum) and eigenvalues lambda0=mu-n^2mu^2+(n-1)^2eta, lambda_r=mu-(n-1)eta twice(n-1), lambda_i=mu+eta (n-1)^2. The positive distinct Laguerre zeros factor the matching-size PGF into a sum of unequal-parameter Bernoullis, proving lambda_r>lambda0 via strict variance concavity; eta>0 gives lambda_i>lambda_r. For D=n-K, the Laguerre PGF L_n(-z)/L_n(-1) and classical analytic-uniform Perron formula yield ED=sqrt(n)-3/4+O(n^-1/2), VarD=sqrt(n)/2-1/2+O(n^-1/2), and hence scaled eigenvalue limits 1/2,1,1 and condition number 2sqrt(n). Independently enumerated all n=2,3,4 matching vertices, computed rational covariance matrices and directly checked complete n^2-dimensional eigenspaces. The asymptotics rely on the cited classical theorem and complex-uniform differentiation, not the finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The rectangular theorem establishes p<q only and proves asymptotics q->infinity with p fixed.",
+          "It expressly excludes joint growth p,q->infinity and does not prove n^(3/2) lambda0->1/2 or lambda_i/lambda0/sqrt(n)->2 on p=q=n."
+        ],
+        "reasoning": "The most relevant broader geometric family contains the same vertex model, and its finite formula analytically continues to square, but the quantified balanced asymptotics and exact constant remain a different growth limit requiring a nontrivial Laguerre deficiency argument.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-four-strictly-ordered-inertia-modes-of-rectangular-partial-permu--a7379f7044d7/RESULT.md",
+          "Resultary semantic: square doubly substochastic uniform vertex covariance Laguerre partial permutation three eigenvalues condition number 2 sqrt n"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2012.09901",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-four-strictly-ordered-inertia-modes-of-rectangular-partial-permu--a7379f7044d7/RESULT.md",
+        "https://arxiv.org/abs/2407.08820",
+        "https://dlmf.nist.gov/18.2.vi"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substituting p=q in rectangular lambda0=a+(p-1)(q-1)b-pqa^2, lambda_R=lambda_C=a-(n-1)b, lambda_I=a+b matches finite submitted formulas exactly.",
+          "The rectangular theorem explicitly limits its q+O_p(1) asymptotic to fixed p; the Laguerre D=n-K variance ~sqrt(n)/2 is absent there."
+        ],
+        "reasoning": "The finite spectrum is algebraically implied by a same-date general formula despite excluded equality; the remaining balanced joint-asymptotic assertion (with constant 2) is not contained in or a direct parameter substitution of the prior asymptotic theorem.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-four-strictly-ordered-inertia-modes-of-rectangular-partial-permu--a7379f7044d7/RESULT.md",
+          "https://arxiv.org/pdf/2012.09901",
+          "Resultary semantic: square doubly substochastic uniform vertex covariance 2 sqrt n"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rectangular theorem on p<q has eigenvalues in a,b for four row/column contrast spaces; at p=q one may merge middle two and obtain the submitted finite spectral identity by algebraic substitution.",
+          "Heuer-Striker Proposition 3.6 gives exact vertex count, and their Section 3 does not give vertex-covariance moments."
+        ],
+        "reasoning": "Square-vs-rectangular symmetry is a boundary specialization for finite covariance. This is explicitly credited, not passed off as a wholly new spectral basis. The balanced large-n Laguerre fluctuation constants do not follow from the rectangle theorem’s fixed-height asymptotic statement.",
+        "searches": [
+          "Resultary semantic: uniform vertex covariance partial permutation doubly substochastic matching polytope eigenspace anisotropy",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-four-strictly-ordered-inertia-modes-of-rectangular-partial-permu--a7379f7044d7/RESULT.md",
+          "https://arxiv.org/pdf/2012.09901"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Heuer-Striker Section 3 Proposition 3.6 gives M_(p,q), an input not a covariance table.",
+          "Rectangular formula is explicit and overlaps the n finite-eigenvalue component; no known exact table of balanced large-n anisotropy constants was found."
+        ],
+        "reasoning": "Vertex counts and preexisting spectral formulas for neighboring domains are acknowledged. The new infinite balanced asymptotic is neither a table recomputation nor an automatic fixed-p limit.",
+        "searches": [
+          "https://arxiv.org/pdf/2012.09901",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-four-strictly-ordered-inertia-modes-of-rectangular-partial-permu--a7379f7044d7/RESULT.md",
+          "Resultary semantic: vertex-uniform partial permutation covariance random rook Laguerre table"
+        ]
+      },
+      "rationale": "The matrix-symmetry decomposition and square covariance formulas can be obtained by algebraic diagonal specialization of the same-date rectangular p<q covariance operator formula, which is credited; the genuinely new surviving part is the **balanced joint-growth asymptotic**: three distinct powers with constant 1/2 and sharp 2sqrt(n) condition number. The rectangular published result proves fixed p, q->infinity, with condition number q+O_p(1), not p=q->infinity. Prior Heuer-Striker proves vertex structure and counts, not vertex-uniform covariance. Best-of-knowledge: no earlier exact sharp balanced limit located; same-date relationship and historical rook-statistics equivalences are risks.",
+      "residual_risks": [
+        "The finite square spectrum substantially overlaps a direct algebraic extension of the same-day rectangular formula; remaining originality is specifically the balanced three-scale limit and factor 2.",
+        "A historical exact covariance analysis of uniformly random rook placements, possibly indexed under occupancy statistics, could contain the balanced asymptotic; not definitively excluded.",
+        "Szegő Perron asymptotic is classical and cited, not independently reproved; correctness depends on its analytic-uniform version."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL",
+          "evidence": "Finite spectrum specializes algebraically to p=q; however the published only-unequal-domain and fixed-p asymptotic do not establish joint square n->infinity rates.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-four-strictly-ordered-inertia-modes-of-rectangular-partial-permu--a7379f7044d7/RESULT.md",
+          "material_read": "Entire RESULT.md, all four eigenvalue formulas, Laguerre strict ordering proof, and fixed-p asymptotic subsection",
+          "method": "Read full published RESULT.md proof",
+          "title": "Four strictly ordered inertia modes of rectangular partial-permutation polytopes",
+          "trigger": "Direct wider family and potential diagonal-specialization coverage"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Proposition3.6 gives sum C(p,k) C(q,k) k! and characterization of partial permutation vertices, not covariance eigenvalues or asymptotic deficiency variance.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.09901",
+          "material_read": "Primary arXiv PDF abstract, Section2 definitions, Section3 Proposition3.4–3.6 and vertex enumeration on page6",
+          "method": "Read PDF text and inspected screenshot of page 6",
+          "title": "Partial permutation and alternating sign matrix polytopes",
+          "trigger": "Same polytope and exact vertex-count input"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical uniform discrete vertex measure of the matching polytope has a natural full-space inertia matrix. Its balanced high-dimensional degeneration is sharply quantified: constant and row/column directions fluctuate as n^-3/2, interactions as n^-1, with exact anisotropy 2sqrt(n). The genuine balanced-asymptotic result requires the nontrivial deficiency variance and differs from the fixed-height q growth theorem; it provides a meaningful exact benchmark for random partial permutations and discrete isotropic-position questions. Generic tensor diagonalization and vertex counts alone would not justify value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Complete uniform-vertex covariance spectrum of square partial-permutation polytopes and sharp 2sqrt(n) anisotropy",
+  "limitations": [
+    "Uniform on vertices, including empty matching, not interior volume or fixed matching size.",
+    "Cited Laguerre Perron theorem is an external classical analytic input, not independently rederived.",
+    "Algebraic finite spectrum overlaps same-date rectangle result; balanced large-n constant is the surviving novel contribution, with historical priority provisional."
+  ],
+  "schema_version": 1
+}
