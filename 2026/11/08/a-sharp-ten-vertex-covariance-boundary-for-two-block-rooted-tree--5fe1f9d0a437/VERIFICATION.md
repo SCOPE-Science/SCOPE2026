@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The formula is obtained by conditioning on the one uniformly selected parent. The sharp depth inequalities and equality conditions establish the theorem for arbitrary finite rooted trees, and the cubic maximum establishes the asymptotic assertion. An independently expressed exact rational enumeration of all parent positions, rather than a mere repetition of the symbolic formula, was executed for all 3,046 unordered rooted-tree shapes through eleven vertices (2 to 11). Known enumerated shape counts were 1, 2, 4, 9, 20, 48, 115, 286, 719, and 1842 for orders two through eleven. The test also inspected explicit broom shapes for orders 10 through 100. The last test report stated approximately 9,320 exact assertions and `PASS`. These tests are finite evidence only.
+## correctness
 
-To reproduce, use Python 3 with no third-party packages and run `python checker.py`. The test constructs each unordered rooted tree recursively, evaluates statistics from the concrete shape, independently enumerates each possible attachment parent, and compares the resulting exact covariance with the theoretical bound. It also checks equality cases and the threshold values. No external or independent audit was performed.
+PASS
+
+Directly derived D=d(P)+1 and L=2ell-1_{P leaf}, hence Cov=(ell U-iQ)/t^2. The internal vertices are ancestor-closed, so U<=i(i-1)/2, equality only on an internal path. Each of the i-1 internal edges has a descendant leaf, hence Q>=ell+i-1; simultaneous equality forces one terminal leaf and all remaining leaves at root (including star i=1). The polynomial identity (t-i)(i-3)-2(i-1)=(t-9)(i-3)-(i-5)^2 gives sign cutoff and unique n=9,10 maximizers. Uniform cubic limit yields 2/27 at i/t=2/3. Inspected all proof and checker.py at pinned Git tree; an independently written rational rooted-tree enumeration reproduced sharp values through n=11 (n=9 0; n=10 numerator 6; n=11 numerator 15). Finite tests corroborate but are not needed for the all-order proof.
+
+## originality
+
+PASS
+
+No identified prior implies the combined two-copy, uniform-parent covariance maximum, sharp nine/ten-vertex sign cutoff and equality shapes; original block work provides model and marginal updates but not this joint sharp result.
+
+## value
+
+PASS
+
+A natural stochastic mixed observable of block-tree growth admits a genuinely sharp sign transition, exact shape classification, and asymptotic envelope. The joint covariance is not a mere recitation of leaf/depth marginals, and the t=9 and t=10 boundaries answer an interpretable structural extremal question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

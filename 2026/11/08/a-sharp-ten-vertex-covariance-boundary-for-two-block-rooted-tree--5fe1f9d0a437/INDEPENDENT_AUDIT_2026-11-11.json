@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T22:45:10.917683Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Directly derived D=d(P)+1 and L=2ell-1_{P leaf}, hence Cov=(ell U-iQ)/t^2. The internal vertices are ancestor-closed, so U<=i(i-1)/2, equality only on an internal path. Each of the i-1 internal edges has a descendant leaf, hence Q>=ell+i-1; simultaneous equality forces one terminal leaf and all remaining leaves at root (including star i=1). The polynomial identity (t-i)(i-3)-2(i-1)=(t-9)(i-3)-(i-5)^2 gives sign cutoff and unique n=9,10 maximizers. Uniform cubic limit yields 2/27 at i/t=2/3. Inspected all proof and checker.py at pinned Git tree; an independently written rational rooted-tree enumeration reproduced sharp values through n=11 (n=9 0; n=10 numerator 6; n=11 numerator 15). Finite tests corroborate but are not needed for the all-order proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://doi.org/10.1017/S0269964813000338",
+          "The sharp bound requires both U <= i(i-1)/2 and Q >= ell+i-1 with simultaneous equality"
+        ],
+        "reasoning": "Existing marginal identities or tree-status extremal inequalities do not by themselves give this coupled sharp bound and zero/positive thresholds; general coverage not demonstrated.",
+        "searches": [
+          "random rooted blocks two copies uniform attachment covariance depth new block leaf count extremal rooted broom",
+          "https://doi.org/10.1017/S0269964813000338",
+          "https://arxiv.org/abs/2008.00438"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1017/S0269964813000338",
+        "https://arxiv.org/abs/2008.00438",
+        "https://doi.org/10.1017/S0269964813000338",
+        "https://github.com/Resultary/2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Block paper establishes attachment dynamics; the claimed bound maximizes (ell*U-i*Q)/t^2 over all rooted blocks"
+        ],
+        "reasoning": "Prior marginal formulas are compatible but do not imply the exact unique broom equality or the t=9/10 cutoff without new coupled extremal comparison.",
+        "searches": [
+          "random rooted blocks two copies uniform attachment covariance depth new block leaf count extremal rooted broom",
+          "https://doi.org/10.1017/S0269964813000338",
+          "https://arxiv.org/abs/2008.00438"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://doi.org/10.1017/S0269964813000338",
+          "Cov(D,L)=(ell U-iQ)/t^2, rather than one-dimensional mean leaf/depth recurrences"
+        ],
+        "reasoning": "Also considered leaf-status and internal-status formulations and the sign-reversed covariance of a sampled depth and leaf indicator; neither examined source supplies the joint fixed-order maximization.",
+        "searches": [
+          "random rooted blocks two copies uniform attachment covariance depth new block leaf count extremal rooted broom",
+          "https://doi.org/10.1017/S0269964813000338",
+          "https://arxiv.org/abs/2008.00438"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Rooted unordered tree counts 1,2,4,9,20,48,115,286,719,1842 are coverage counts, not a table of this covariance optimum"
+        ],
+        "reasoning": "The finite checker enumerates low orders but the cited literature table does not tabulate mixed covariance maxima; no pre-existing exact covariance table found in checked sources.",
+        "searches": [
+          "random rooted blocks two copies uniform attachment covariance depth new block leaf count extremal rooted broom",
+          "https://arxiv.org/abs/2008.00438"
+        ]
+      },
+      "rationale": "No identified prior implies the combined two-copy, uniform-parent covariance maximum, sharp nine/ten-vertex sign cutoff and equality shapes; original block work provides model and marginal updates but not this joint sharp result.",
+      "residual_risks": [
+        "Elementary ingredient inequalities may be independently known in extremal leaf-status literature; older unindexed equivalent covariance calculations cannot be ruled out."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MARGINAL_RECURRENCES_ONLY",
+          "evidence": [
+            "https://the-examples-book.com/personal/mdw/_attachments/paper024.pdf",
+            "Uniform parent attachment and one-copy leaf update agree with source; no mixed two-copy Cov(D,L) extremal broom theorem in inspected text"
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0269964813000338",
+          "material_read": "Primary article introduction/model and sections on leaf update, inserted-root depths, total path length and height; full readable cached text",
+          "method": "primary full text",
+          "title": "Building Random Trees from Blocks",
+          "trigger": "Same block-attachment model and leaf/depth marginals"
+        },
+        {
+          "assessment": "DIFFERENT_EXTREMAL_FUNCTIONAL",
+          "evidence": [
+            "Studies graph-status sums and leaf/internal status extrema, not the exact bilinear ell*U-i*Q stochastic mixed covariance"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2008.00438",
+          "material_read": "Full accessible manuscript and extremal tree-status statements",
+          "method": "primary full text",
+          "title": "On extremal leaf status and internal status of trees",
+          "trigger": "Deterministic depth sums over leaves and internal vertices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural stochastic mixed observable of block-tree growth admits a genuinely sharp sign transition, exact shape classification, and asymptotic envelope. The joint covariance is not a mere recitation of leaf/depth marginals, and the t=9 and t=10 boundaries answer an interpretable structural extremal question.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1017/S0269964813000338",
+    "https://arxiv.org/abs/2008.00438",
+    "https://doi.org/10.1017/S0269964813000338",
+    "https://github.com/Resultary/2026"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only one uniform attachment of an identical deterministic rooted block; no multi-step or nonuniform statement.",
+    "Finite rooted-tree enumeration through n=11 does not certify infinite-order uniqueness; the analytic inequality does."
+  ],
+  "residual_risks": [
+    "Elementary ingredient inequalities may be independently known in extremal leaf-status literature; older unindexed equivalent covariance calculations cannot be ruled out."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "MARGINAL_RECURRENCES_ONLY",
+      "evidence": [
+        "https://the-examples-book.com/personal/mdw/_attachments/paper024.pdf",
+        "Uniform parent attachment and one-copy leaf update agree with source; no mixed two-copy Cov(D,L) extremal broom theorem in inspected text"
+      ],
+      "identifier_or_url": "https://doi.org/10.1017/S0269964813000338",
+      "material_read": "Primary article introduction/model and sections on leaf update, inserted-root depths, total path length and height; full readable cached text",
+      "method": "primary full text",
+      "title": "Building Random Trees from Blocks",
+      "trigger": "Same block-attachment model and leaf/depth marginals"
+    },
+    {
+      "assessment": "DIFFERENT_EXTREMAL_FUNCTIONAL",
+      "evidence": [
+        "Studies graph-status sums and leaf/internal status extrema, not the exact bilinear ell*U-i*Q stochastic mixed covariance"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2008.00438",
+      "material_read": "Full accessible manuscript and extremal tree-status statements",
+      "method": "primary full text",
+      "title": "On extremal leaf status and internal status of trees",
+      "trigger": "Deterministic depth sums over leaves and internal vertices"
+    }
+  ]
+}
