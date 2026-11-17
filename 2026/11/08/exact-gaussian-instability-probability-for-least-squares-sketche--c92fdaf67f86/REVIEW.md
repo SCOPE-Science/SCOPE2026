@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an exact probability theorem with explicit quantifiers (integer sketch width \(k\ge2\), ambient half-dimension \(N\ge k+1\), coupling \(\gamma>0\)); there is no inference from a finite simulation to an infinite statement. The full Hessian is SPD by a determinant-one principal block and identity complement; the fixed basis is explicitly ortho-symplectic; and the exact Galerkin Hessian is identity. Direct least squares followed by symmetrization gives the two closed eigenvalues. The smaller eigenvalue crosses zero exactly on the stated Gaussian-regression event, which is equivalent to real exponential Hamiltonian growth because the determinant is negative and the two-dimensional Hamiltonian trace is zero. The standard Wishart conditional-normal calculation is reconstructed using a congruence Jacobian, producing an explicit normalized radial law. Uniform angular integration and two endpoint limit arguments give the probability and both asymptotics. The standalone checker ran successfully from the actual package contents. Roundoff, finite tests and unmodeled sketch families are not proof inputs.
+PASS
 
-## Originality — PASS, with bounded priority risk
+For every k>=2,N>=k+1,gamma>0 the q1,q2 Hessian block has determinant one, hence H_gamma is SPD, and the exact V-reduced Hessian is I_2. Gaussian LS regression z=(X^T X)^-1 X^T y has isotropic two-dimensional density (k-1)/(2pi)(1+||z||^2)^(-(k+1)/2), giving radial survival (1+t^2)^(-(k-1)/2). Symmetrization yields Hhat=I_2+gamma[[z1,z2/2],[z2/2,0]] with lower eigenvalue 1+gamma(z1-||z||)/2; J_2 Hhat has a positive real eigenvalue iff Hhat is indefinite. Uniform Gaussian direction gives arcsine c=(1-cos(theta))/2 and the stated exact one-dimensional probability. Dominated convergence at gamma down to 0 and boundary Laplace asymptotics at c=1 yield sharp constants for k large. Independent numerical integration matched 60,000-sample Gaussian regression experiments for k=2,3,5 within sampling error; Monte Carlo alone cannot prove the all-k integral.
 
-The direct source [1, Section 4.1, equations (18)–(19)] defines the sketched symmetrized Hessian, and [1, Lemma 2] proves sufficient subspace-embedding control. It does not report the exact unconditional Gaussian chance of a sign-indefinite reduced Hessian, the equivalence to exponentially unstable trajectories on this positive-definite oscillator, or the sharp coupling/sketch-width asymptotics. Earlier symplectic papers [2,3] address randomized *basis construction*; [4,5] develop sketched Galerkin or minimal-residual *approximation and quasi-optimality bounds*. These do not imply the exact tail mixture at issue. Both Gaussian-regression and arcsine formulas are classical ingredients and are not individually presented as novel. The novelty assessment remains conditional on historical coverage: a general theorem on eigenvalue-cone crossing of symmetrized Gaussian regressions, if it exists and subsumes this construction, would supersede the claim. No inspected source establishes that implication.
+## originality
 
-## Value — PASS
+PASS
 
-Preservation of canonical Hamiltonian structure is distinct from preservation of a positive-definite energy norm, and the latter matters for qualitative stability of long-time reduced dynamics. This new exact probability serves as a quantitative finite-sketch stress test for the just-introduced assembly procedure, not merely as an arbitrary numerical counterexample. The family retains positive definiteness for every \(\gamma\), allows arbitrarily weak coupling, keeps the exact reduced oscillator fixed and stable, and gives a sharp dimension-calibration law that distinguishes rare finite-sketch failures from deterministic sufficient embedding guarantees. It makes no unsupported claim for CountSketch or other sketch families.
+No inspected primary or prior mathematical-result theorem gave the probability of indefinite *symmetrized least-squares sketched* reduced Hessian for this exactly SPD oscillator, or the sharp k-asymptotic. Classical Wishart/Student regression and positive-Ritz failure in another sketching algorithm do not imply the coupled-oscillator instability cone probability without deriving its geometry. Herkert et al supply the algorithm and sufficient error conditions; their accessible abstract describes perturbation bounds, not this unconditional probability. Full latest paper inaccessible, so a real priority risk remains.
 
-## Sources and residual risks
+## value
 
-The compared full text of [1] includes the assembly formulas, Lemma 2, energy-error theorem, experiments and conclusion. The full text of [2] and [3] covers basis construction. The author-hosted full-text manuscripts [4,5] cover randomized Galerkin/minimal-residual estimates; none reports the exact numerical Hamiltonian instability law. General Gaussian regression cone-crossing priority and the lack of a fully exhaustive historical census remain explicit risks, not a proof of novelty by absence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This gives a physically meaningful sharp failure probability for Hamiltonian structure-preserving randomized reduction: symplectic form survives but positive energy can fail with positive probability at every finite sketch width. The explicit SPD witness and sharp exponential sketch-budget law quantify an important gap between geometric conservation and dynamical boundedness; not a cheap unmotivated normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
