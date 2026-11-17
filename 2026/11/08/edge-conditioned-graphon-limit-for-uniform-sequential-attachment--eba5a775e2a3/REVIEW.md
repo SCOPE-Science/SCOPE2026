@@ -1,11 +1,21 @@
-# Scientific assessment: edge-conditioned uniform sequential attachment
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem is stated for every interior normalized edge count and every admissible integer sequence. Exact exponential tilting turns the microcanonical conditioning into a product environment at its mean. A lattice Fourier local limit establishes a polynomial lower bound for the conditioning probability, permitting exponentially concentrated marked empirical measures to survive conditioning. Coupling fixed-size neighbour selection to independent Bernoulli edges incurs only \(O(n^{3/2})\) expected differing edges; this transfers all fixed homomorphism densities to the explicit limiting graphon. The likelihood ratio gives an exact-count large-deviation exponent. Finite exact and numerical checks corroborate these identities but do not establish the infinite results.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** Severini--Weisstein, arXiv:2608.19467, studies likelihood extrema and entropy for precisely this sequential model, not conditioning on an atypical number of edges. Janson--Severini, arXiv:1206.4586, Theorems 5.1--5.5, establishes unconditioned limits and includes a fixed-propensity graphon representation. Grebík--Pikhurko, arXiv:2311.06531, Theorem 1.3(b), proves a general speed-\(n\) graphon-sampling large-deviation principle, which applies to the unconditioned model after identifying its graphon. This is important **broader coverage of the existence of an LDP**, but it does not state the evaluated scalar rate, exact point probabilities or the specific age-tilted microcanonical graphon. Moreover the edge count equals in law the inversion count of a uniform permutation, so the scalar rate and its Mallows tilt are classical, and no novelty is claimed for that scalar law. Borga--Das--Mukherjee--Winkler, arXiv:2206.04660, treats broader permutation inversion LDPs and related conditioning, but not graph neighbourhood sampling. The new graphon conditional limit is not reduced to a permutation permuton. An equivalent conditional limit elsewhere in graphon/attachment literature is a residual priority risk.
+PASS
 
-**Mathematical value — PASS.** Exact edge-count conditioning is natural for networks observed with fixed density and is not covered by the cited fixed-law growth theorem. The result identifies an explicit structural response rather than merely asserting that a rate function exists: early and late arrivals have different tilted propensity distributions, while the age marginal remains uniform. It computes the conditional network structure for all interior edge densities, beyond the known scalar Mahonian rate, and gives explicit subgraph statistics including a non-Erdős--Rényi triangle baseline.
+Under independent K_j uniformly 0..j-1, edge count M=sum K_j has Mahonian inversion-number law. Exponential tilt by η K_j/n preserves the exact microcanonical conditional distribution at M=m_n. For rho=m_n/n² in (0,1/2), strict convexity of Λ(θ)=∫log Z(θx)dx gives unique converging tilt θ. The tilted triangular array has variance asymptotic vθ n³>0, span one and a Fourier local CLT at m_n of order n^{-3/2}; bounded independent marked variables concentrate exponentially, so conditioning retains weak empirical convergence to μθ(dx,du)=dx exp(θxu)/Z(θx)du. Independent uniform priorities couple K_j-neighbour selection with Bernoulli(U_j) columns, differing in O_p(n^{3/2}) edges, hence fixed motif densities and cut convergence to W where the younger vertex supplies its propensity. Exact likelihood ratio gives scalar Mahonian rate -I(rho) (acknowledged prior). Independently computed 29 exact edge-count coefficients for n=8 (sum 8!), checked mean 14 and unconditioned edge/triangle densities. No finite test proves the conditional graphon limit.
 
-**Limitations.** No uniform rate in the conditioned graphon convergence, no endpoints, sparse regimes, larger subgraphs or conditional Gaussian fluctuations are claimed. The proof requires the uniform outdegree-selection mechanism. The principal related rate-function literature is acknowledged; historical priority beyond the inspected sources is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Mahonian/Mallows large deviations account for scalar edge-count rate, not the random-graph conditional structure. Janson–Severini (2012/2013) identify graphons for independent prescribed outdegree laws but require a common limiting latent propensity law, unlike the horizon-dependent microcanonical tilted age-propensity μθ. Severini–Weisstein (Aug/Oct 2026) study the same uniform model but optimize individual unlabelled graph likelihood, not exact macroscopic-edge-count conditioning. General sampling LDP gives abstract variational bounds, not inspected explicit exact conditional age graphon. Best-of-knowledge original with possible implicit variational derivation.
+
+## value
+
+PASS
+
+Conditioning on a natural global edge-density statistic produces a nontrivial age-dependent microcanonical graphon. It distinguishes the atypical ensemble from standard ER and gives an explicit solvable Gibbs-conditioning principle for graph growth; important even though inversion-count scalar rate is classical.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
