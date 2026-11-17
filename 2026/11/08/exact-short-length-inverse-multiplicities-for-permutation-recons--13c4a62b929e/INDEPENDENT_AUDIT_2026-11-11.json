@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T09:54:34.866595Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Adjacent absolute differences in {1,…,n−1} are encoded injectively in n−1 four-bit digits for n≤10. Lexicographic permutation enumeration visits each permutation once, counts every realized fiber, and gives exact maxima (2,2,6,4,8,8,30,12,24), maximizing counts (1,3,1,6,3,5,1,20,5). Independent newly authored C++ exhaustive census for all 2≤n≤10 checked Σfiber=n!, 1,528,045 distinct n=10 records, unique n=8 (4,2,4,1,4,2,4) with 30 solutions; independent signed-increment DFS and reversal/complementation orbit partition gave seven size-4 and one size-2 orbits. Finite completeness follows from exhaustive finite enumeration, not extrapolation to n>10.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Source complexity results give general hardness but no stronger maximum-fiber bound yielding the finite tuple.",
+          "OEIS graceful restriction excludes extremal repeated-difference records."
+        ],
+        "reasoning": "Neither NP-completeness nor graceful special-case enumeration dominates exact unrestricted finite maxima.",
+        "searches": [
+          "permutation reconstruction ordered absolute adjacent differences maximum fiber multiplicity length 8 9 10",
+          "https://arxiv.org/pdf/1410.6396",
+          "https://oeis.org/A398095"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1410.6396",
+        "https://oeis.org/A398093",
+        "https://oeis.org/A398094",
+        "https://oeis.org/A398095",
+        "https://mathoverflow.net/questions/135968/how-hard-is-reconstructing-a-permutation-from-its-differences-sequence",
+        "Resultary semantic search: permutation reconstruction ordered absolute adjacent differences maximum fiber multiplicity length 8 9 10"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General reconstruction NP-hardness does not logically entail any exact R_8, R_9 or R_10 values.",
+          "Graceful restrictions cannot imply an unrestricted optimum since submitted n8 maximizer is nongraceful."
+        ],
+        "reasoning": "The 2014 theorem and graceful tables do not imply the full short-length extrema or complement/reversal orbit census.",
+        "searches": [
+          "https://arxiv.org/pdf/1410.6396",
+          "https://oeis.org/A398093"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "De Biasi uses the same ordered absolute-difference map, but his main result concerns NP-complete reconstruction existence.",
+          "Graceful sequence database uses each difference once, unlike d*=(4,2,4,1,4,2,4)."
+        ],
+        "reasoning": "Map is equivalent to original permutation-reconstruction problem, yet the exact inverse multiplicity maximizers are distinct quantitative questions not established by the source complexity theorem.",
+        "searches": [
+          "permutation reconstruction ordered absolute adjacent differences maximum fiber multiplicity length 8 9 10",
+          "https://arxiv.org/pdf/1410.6396",
+          "https://oeis.org/A398093",
+          "https://oeis.org/A398094"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned the assigned n8–n10 census itself, not a competing same-map table.",
+          "Independent exhaustive census: n8=15,788 records, max30 unique; n9=160,222, max12 on20 records; n10=1,528,045, max24 on5 records."
+        ],
+        "reasoning": "The graceful OEIS database has different admissible record domain. The unrestricted exact table was recomputed from complete n! enumeration and has no identified prior duplication.",
+        "searches": [
+          "permutation reconstruction ordered absolute adjacent differences maximum fiber multiplicity length 8 9 10",
+          "https://oeis.org/A398093",
+          "https://oeis.org/A398094",
+          "https://oeis.org/A398095"
+        ]
+      },
+      "rationale": "PASS qualified: De Biasi 2014 studies decision/reconstruction complexity and NP-completeness, not this exact unrestricted short-length maximal inverse-fiber table. OEIS A398093/094/095 constrain graceful differences to a permutation of 1..n−1, whereas extremal length-eight record repeats 4 and 2, so those tables cannot imply it. No matching unrestricted census found in Resultary search, but unindexed computational records remain possible.",
+      "residual_risks": [
+        "Unindexed historical finite exhaustive tables could duplicate n≤10 numbers; full literature exhaustiveness cannot be guaranteed.",
+        "Value is strictly finite classification, not any all-length algorithm or asymptotic law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Complexity and reconstruction decision results do not give unrestricted maximum-fiber multiplicity table for n≤10.",
+          "evidence": "NP-completeness for reconstruction and contextual formulation of ordered difference record.",
+          "identifier_or_url": "https://arxiv.org/pdf/1410.6396",
+          "material_read": "Accessible PDF theorem/abstract and relevant Section 5 plus conclusion, including page 20 PDF screenshot.",
+          "method": "Web PDF full text read and screenshot review.",
+          "title": "Permutation Reconstruction from Differences",
+          "trigger": "Original paper on identical ordered-difference reconstruction object."
+        },
+        {
+          "assessment": "Graceful restriction is nonidentical; repeated difference d* excluded.",
+          "evidence": "Graceful sequences require distinct differences 1,..,n−1, whereas d* repeats values.",
+          "identifier_or_url": "https://oeis.org/A398094",
+          "material_read": "Displayed entries and definitions of graceful ordered-difference fibers; related A398093/A398095 pages.",
+          "method": "Web OEIS entries and comparisons of allowed records.",
+          "title": "OEIS A398093, A398094 and A398095",
+          "trigger": "Potential exact reconstruction data table."
+        },
+        {
+          "assessment": "Establishes problem precedent without exact all-unrestricted n≤10 census.",
+          "evidence": "Questions complexity/decision reconstruction, not complete maximal multiplicity enumerator.",
+          "identifier_or_url": "https://mathoverflow.net/questions/135968/how-hard-is-reconstructing-a-permutation-from-its-differences-sequence",
+          "material_read": "Question and answer discussion visible in the page.",
+          "method": "Web read of MathOverflow thread.",
+          "title": "How hard is reconstructing a permutation from its differences sequence?",
+          "trigger": "Original public reconstruction question."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact worst-case ambiguity of a natural information-losing permutation measurement is a meaningful finite classification and reconstructability benchmark. The surprising fall from 30 at n=8 to 12 at n=9, recovery to 24 at n=10, and explicit unique n=8 extremal orbit structure are nontrivial sharp finite cutoffs, not arbitrary sample averages. Full finite enumeration is a rigorous finite proof.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only n=2..10; no all-n extrapolation or complexity claim.",
+    "Counts permutations distinctly even when reversal/complementation symmetry relates them."
+  ],
+  "schema_version": 1
+}

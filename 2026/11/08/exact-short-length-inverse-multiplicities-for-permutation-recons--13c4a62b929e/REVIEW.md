@@ -1,11 +1,21 @@
-# Review of exact short-length permutation-difference multiplicities
+# Independent mathematical audit
 
-**Correctness: PASS.** The claim is an exact classification for \(2\le n\le10\), not an extrapolation. Base-16 key injection is guaranteed for all checked differences, and C++ lexicographic enumeration visits all \(n!\) permutations. For \(n=8,9,10\), an independently written Python inverse-sign search verifies each maximizing record's full preimage count; it also reconstructs the orbit partition at \(n=8\). Every histogram satisfies the identity \(\sum_d r_n(d)=n!\). These are proof-generating finite exhaustive algorithms, not extrapolated experiments.
+## correctness
 
-**Originality: PASS (best-knowledge, with residual risk).** De Biasi (2014), Section 5, proves decision NP-completeness and explicitly notes complementation, but gives no worst-fiber census. OEIS A398093/A398094/A398095 enumerate only graceful difference records; the unique length-eight maximum contains repeats and is outside their domain. Search comparisons against recorded research on inverse reconstruction, permutation metrics, prescribed differences and short profiles found no statement implying these unrestricted exact maxima. No global uniqueness or priority guarantee follows from search absence.
+PASS
 
-**Value: PASS.** The named NP-complete inverse reconstruction problem has a natural and previously undetermined worst-case list size. The exact values reveal a large drop between adjacent lengths \(8\) and \(9\), with a new rise at \(10\), and classify the unique thirty-way ambiguity profile. This supplies sharp finite reconstruction ambiguity benchmarks, rather than an arbitrary fixed-instance count or an unmotivated variant.
+PASS: Adjacent absolute differences in {1,…,n−1} are encoded injectively in n−1 four-bit digits for n≤10. Lexicographic permutation enumeration visits each permutation once, counts every realized fiber, and gives exact maxima (2,2,6,4,8,8,30,12,24), maximizing counts (1,3,1,6,3,5,1,20,5). Independent newly authored C++ exhaustive census for all 2≤n≤10 checked Σfiber=n!, 1,528,045 distinct n=10 records, unique n=8 (4,2,4,1,4,2,4) with 30 solutions; independent signed-increment DFS and reversal/complementation orbit partition gave seven size-4 and one size-2 orbits. Finite completeness follows from exhaustive finite enumeration, not extrapolation to n>10.
 
-**Closest literature and limits.** Al-Turkistany's July 7, 2013 MathOverflow question states the original problem but supplies no extremal fiber table. De Biasi, *Permutation Reconstruction from Differences* (2014), DOI:10.37236/4086, is the direct antecedent. The graceful-only OEIS entries are a related but non-dominating restricted table. The result concerns ordered absolute differences, finite lengths at most ten, and no complexity or asymptotic improvement. Priority beyond the inspected materials is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: De Biasi 2014 studies decision/reconstruction complexity and NP-completeness, not this exact unrestricted short-length maximal inverse-fiber table. OEIS A398093/094/095 constrain graceful differences to a permutation of 1..n−1, whereas extremal length-eight record repeats 4 and 2, so those tables cannot imply it. No matching unrestricted census found in Resultary search, but unindexed computational records remain possible.
+
+## value
+
+PASS
+
+PASS: Exact worst-case ambiguity of a natural information-losing permutation measurement is a meaningful finite classification and reconstructability benchmark. The surprising fall from 30 at n=8 to 12 at n=9, recovery to 24 at n=10, and explicit unique n=8 extremal orbit structure are nontrivial sharp finite cutoffs, not arbitrary sample averages. Full finite enumeration is a rigorous finite proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
