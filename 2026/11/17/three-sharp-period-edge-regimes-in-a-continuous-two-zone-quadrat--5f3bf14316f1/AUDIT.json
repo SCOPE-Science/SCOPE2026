@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The explicit invertible map q=-log(1-y), qdot=x, gives U_c=(1-c)q+(1-2c)(exp(-q)-1)+c(exp(-2q)-1)/2. Its derivative is (1-exp(-q))(1-c(1-exp(-q))), fixing every turning point and exact barrier. On k<1 the right potential is (1-k)q+O(1) and left excursion logarithmic, proving T~2sqrt(2E)/(1-k). At k=1 the exact upper potential is (1-exp(-q))^2/2, whose Abel integral gives T~pi sqrt(2)/sqrt(1/2-E), and the outgoing qdot law proves t^2(1-y)->2 and tx->2. At k>1 the saddle q_s=log(k/(k-1)) has curvature -(k-1)/k, so T=(k/(k-1))^(1/2)log(1/(E*-E))+O(1). Energy conservation, positive lower potential and growth bounds prove no other annulus components and no finite-time escape in the stated domain. Verified symbolically by checker.py and analytic proof in RESULT.md; three numerical cases are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Marín–Villadelprat treat smooth quadratic Loud systems and critical-period bifurcations near outer polycycles.",
+        "Rezende–Santos–Torregrosa 2026 Theorems 1–3 study local weak center and critical-period bifurcations in a piecewise quadratic family."
+      ],
+      "reasoning": "Neither inspected family of theorem statements gives the exact full-domain three-regime transition at upper coefficient 1 with different fixed lower coefficient and all three original-time leading constants. Potential-oscillator theory could in principle subsume singular-integral mechanisms; no general theorem with these full parameter assertions was identified.",
+      "searches": [
+        "piecewise reversible quadratic center ydot=x(1-y) xdot=-y+n_plus y^2 n_minus y^2 exact global period annulus barrier at n=1 logarithmic and inverse-square-root divergence",
+        "two-zone Loud center n_+=1 saddle at 1/n and period edge power-law logarithmic three-regime",
+        "https://arxiv.org/pdf/2203.12966",
+        "https://doi.org/10.1007/s40687-026-00606-1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/2204.00085",
+      "https://arxiv.org/pdf/2203.12966",
+      "https://doi.org/10.1007/s40687-026-00606-1",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-five-spectral-edge-laws-for-a-two-zone-crossing-period-annulus--95dca04b66d6",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-a-sharp-completeness-boundary-and-two-separatrix-clocks-in-a-qui--5b9507670816"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1.4 of arxiv:2204.00085 contains center H1 and thus implies local periodicity only; no global potential topology or period-edge rate follows without additional analysis.",
+        "arxiv:2203.12966 discusses criticality of smooth Loud centers at a polycycle; it does not claim asymmetric two-zone h != k period-edge coefficients.",
+        "2026 piecewise reversible study explicitly focuses on local period constants and weak isochronous centers."
+      ],
+      "reasoning": "Local center membership does not imply the global center-versus-boundary-versus-saddle trichotomy; even full local Taylor coefficients cannot determine the outer barrier. Smooth h=k statements do not quantify independent h. Previously published separatrix logarithms supply a method, not this all-parameter theorem. Known generic results may shorten the proof, hence the stated residual risk.",
+      "searches": [
+        "piecewise quadratic invariant straight line xdot=-y+n_j*y^2 ydot=x*(1-y) global phase portrait saddle threshold energy first integral",
+        "quadratic reversible center dot x=-y+n y^2 dot y=x(1-y) global center energy separatrix high amplitude",
+        "piecewise reversible quadratic center ydot=x(1-y) xdot=-y+n_plus y^2 n_minus y^2 exact global period annulus barrier at n=1 logarithmic and inverse-square-root divergence",
+        "two-zone Loud center n_+=1 saddle at 1/n and period edge power-law logarithmic three-regime",
+        "https://arxiv.org/pdf/2204.00085",
+        "https://arxiv.org/pdf/2203.12966",
+        "https://doi.org/10.1007/s40687-026-00606-1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The vector field belongs to source equation (4) with d=l=m=0, so the local center is already part of Theorem 1.4.",
+        "Changing q=-log(1-y) produces a piecewise mechanical oscillator, not an arbitrary new differential equation.",
+        "Smooth Loud centers are a specialization h=k and their outer period asymptotic machinery was compared."
+      ],
+      "reasoning": "The new object is the original-time global period annulus for arbitrary independently fixed upper and lower coefficients, not the already-known center property. Smooth results at h=k do not logically assert a uniform all-h piecewise classification; classical local saddle asymptotics are credited as methods.",
+      "searches": [
+        "piecewise quadratic invariant straight line xdot=-y+n_j*y^2 ydot=x*(1-y) global phase portrait saddle threshold energy first integral",
+        "quadratic reversible center dot x=-y+n y^2 dot y=x(1-y) global center energy separatrix high amplitude",
+        "quadratic center x'= -y+n y^2 y'=x(1-y) potential barrier n=1 phase transition",
+        "https://arxiv.org/pdf/2204.00085",
+        "https://arxiv.org/pdf/2203.12966"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public indexed closest finding on piecewise-affine spectral-edge laws concerns a distinct piecewise-affine vector field and five spectral cases.",
+        "Public indexed finding on two quintic separatrix clocks concerns a quintic, not the displayed quadratic flow.",
+        "Neither the original local center paper nor the later local period-constant paper records these three exact coefficients."
+      ],
+      "reasoning": "The checked public records and papers do not tabulate this quadratic family's exact barrier, full annulus and physical-time coefficients. A negative indexed search alone cannot establish unique priority; that risk is retained.",
+      "searches": [
+        "piecewise quadratic invariant straight line xdot=-y+n_j*y^2 ydot=x*(1-y) global phase portrait saddle threshold energy first integral",
+        "piecewise reversible quadratic center ydot=x(1-y) xdot=-y+n_plus y^2 n_minus y^2 exact global period annulus barrier at n=1 logarithmic and inverse-square-root divergence",
+        "two-zone Loud center n_+=1 saddle at 1/n and period edge power-law logarithmic three-regime",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-five-spectral-edge-laws-for-a-two-zone-crossing-period-annulus--95dca04b66d6",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/1/SCOPE-a-sharp-completeness-boundary-and-two-separatrix-clocks-in-a-qui--5b9507670816"
+      ]
+    },
+    "rationale": "Actual indexed scientific-record searches and direct mathematical comparisons of the 2022 originating center paper, 2022 smooth Loud critical-period paper and 2026 piecewise reversible critical-period paper reveal no identified implication covering this independently asymmetric two-zone global annulus and its three exact leading period laws. The local center and generic separatrix mechanisms are credited; absence from searches alone is not novelty proof. Residual risk from unindexed equivalent or stronger generic oscillator literature is acknowledged.",
+    "residual_risks": [
+      "A pre-existing generic mechanical-oscillator theorem may supply these period-edge limits as a special case, even without this wording.",
+      "An equivalent two-zone Loud parameter survey might be unindexed or inaccessible; indexed negative searches cannot prove exclusivity.",
+      "Independent external priority review has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 1.4 gives H1 local center for m1=m2=0; not the global energy annulus or sharp period edges. No claim made about sections beyond inspected mathematical coverage.",
+        "evidence": [
+          "https://arxiv.org/pdf/2204.00085",
+          "Eq. (4), Theorem 1.4 H1, Proposition 3.3"
+        ],
+        "identifier_or_url": "arxiv:2204.00085",
+        "material_read": "First version pages 1–4, 8 including equation (4), Theorems 1.2/1.4 and Proposition 3.3; abstract, introduction, local focus arguments",
+        "method": "Accessible arXiv PDF page images plus corresponding full-text theorem sections",
+        "title": "Bifurcation of limit cycles in piecewise quadratic differential systems with an invariant straight line",
+        "trigger": "Exact originating piecewise quadratic family and local center criterion"
+      },
+      {
+        "assessment": "Closely related smooth h=k locus and classical polycycle asymptotics; not the piecewise independently variable h and k transition. Generic asymptotic methods credited; remaining smooth-priority risk noted.",
+        "evidence": [
+          "https://arxiv.org/pdf/2203.12966",
+          "Smooth (D,F) Loud family and outer period criticality"
+        ],
+        "identifier_or_url": "arxiv:2203.12966",
+        "material_read": "Abstract and introduction and definition of outer criticality, PDF pages 1 and 5; related asymptotic theorem description",
+        "method": "ArXiv full text with PDF page images",
+        "title": "The criticality of reversible quadratic centers at the outer boundary of its period annulus",
+        "trigger": "Potential stronger smooth Loud-center coverage of outer-period asymptotics"
+      },
+      {
+        "assessment": "Derives local critical-period and isochronicity bifurcation statements; no full global annulus transition or stated three outer-edge coefficients.",
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s40687-026-00606-1",
+          "Theorems 1–3 and period-constant approach"
+        ],
+        "identifier_or_url": "doi:10.1007/s40687-026-00606-1",
+        "material_read": "Full accessible HTML introduction, system (4), theorem statements 1–3, local period-constant derivations, related proofs and conclusion",
+        "method": "Publisher open-access full text, checked central sections and exact hypotheses",
+        "title": "Period function of planar piecewise reversible quadratic systems",
+        "trigger": "2026 paper on same structural class of piecewise reversible quadratic centers"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5f3bf143-16f1-42cf-a2f6-9e37fe1effc7",
+  "value": {
+    "rationale": "The originating center-focus classification leaves a natural global question: how far the certified center annulus extends and how its original-time clock diverges at the boundary. In this two-parameter continuous family, the upper restoring coefficient crosses exactly 1 and changes the global potential from confining to an unattained finite limit to a finite hyperbolic barrier. A complete classification plus three sharply different, explicitly normalized physical-time laws and the unexpected independence from the lower coefficient is a motivated structural boundary result, not a sample computation, arbitrary parameter slice, or known local-center restatement.",
+    "status": "PASS"
+  }
+}
