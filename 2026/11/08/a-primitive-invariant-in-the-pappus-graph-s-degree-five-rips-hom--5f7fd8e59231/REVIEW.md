@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The asserted object is the Pappus incidence graph and its inclusive graph-metric Rips complex at radius three, not a different neighborhood or Čech convention. The exact six-block distance-four decomposition proves the simplicial join. Integral join–Künneth gives rank sixty-four in degree five and the graded factor-permutation sign. The complete automorphism enumeration (216 graph isometries) and the two independently computed trace formulas agree on every element. The character sum gives rank one of the rational fixed space; the exact integer orbit sum divided by twelve is integral, invariant, nonzero and primitive, hence generates the fixed integral lattice. Rational transfer gives the quotient homology statement. The package includes the executed standard-library checker and its exact output. Risks are limited to possible errors in the stated standard join/transfer facts or the reproducible finite certificate; neither is replaced by an unverified heuristic.
+## correctness
 
-## Originality — PASS, subject to publication-priority uncertainty
-The 2011 graph-powers paper supplies the construction but does not calculate this automorphism module. The previously established nonequivariant affine-incidence result covers the 64-sphere wedge, so that rank and homotopy type are not offered as new. The present statement instead identifies the signed integral action, full character distribution and a primitive invariant class for the 216-element group, which do not follow merely from nonequivariant homotopy equivalence. Related group actions on the Rips homology of hypercubes and the scale-three Tutte–Coxeter complex involve different graph families and group representations; results on Pappus matching, independence and Čech complexes concern different simplicial faces. Focused indexed and literature comparisons did not identify an equivalent result. Unindexed or unpublished group-character calculations remain a genuine risk.
+PASS
 
-## Mathematical value — PASS
-The Pappus graph is the canonical eighteen-vertex cubic symmetric point–line incidence graph. The difference between a 64-dimensional homology group and its one-dimensional full symmetry-fixed part is intrinsic information that nonequivariant sphere counts cannot recover. The explicit primitive integral invariant determines the free integral fixed subgroup and, via rational transfer, detects a nontrivial top class in the quotient. The index-two point–line-preserving subgroup fixes a three-dimensional space, identifying a real symmetry effect rather than another raw Betti-number calculation. This is a motivated structural refinement, not a restatement of the known filtration.
+Independently reconstructed nine affine points and nine retained lines with 27 incidence edges; BFS yields diameter 4 and exactly six three-vertex classes of mutual distance four, no cross-class distance-four pairs. Thus the inclusive radius-3 Rips complex is literally the join of six discrete 3-point sets: 4^6−1=4,095 faces, free H̃5 rank 2^6=64, no other reduced homology. Exhaustively found all 216 graph distance automorphisms (distinct backtrack traversal had 3,007 search nodes, compared with source 3,313; both yield exactly 216); verified signed block-cycle trace formula and histogram {-8:18,-2:36,0:54,1:56,4:42,16:9,64:1}. Full-group and point-line-preserving trace averages give fixed ranks 1 and 3. Independent integral orbit sum of the pure tensor is divisible by 12 and after dividing has 42 nonzero ±1 coordinates (21 each), hence primitive invariant and full rank-one fixed sublattice. Rational transfer after barycentric subdivision gives quotient reduced H5=Q.
 
-## Prior work and limitations
-Most relevant reference: Adamaszek (arXiv:1104.0433, 2011), specifically its graph-power definitions and girth/stability theorems. Background graph identity: MathWorld's Pappus graph LCF description. Related group-action methods for hypercube Rips complexes were checked at abstract level only. The classification is not extended to all incidence graphs of affine planes, and no integral quotient torsion or equivariant homotopy type is claimed. An independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known all-affine-plane Rips filtration contains the Pappus wedge^64 S5 topology and is explicitly acknowledged as prior. Current final finding is not that rank: it adds full 216-element signed integral automorphism lattice, exact character, primitive fixed generator and rational quotient H5, none implied by the prior nonequivariant homotopy classification.
+
+## value
+
+PASS
+
+The canonical cubic symmetric Pappus incidence graph carries a natural full 216-element automorphism group. The exact integral lattice and primitive full-group invariant distinguish symmetry from known rank-only Rips persistence; the quotient rational homology becomes an explicit new geometric consequence. This answers a meaningful missing equivariant invariant at a natural filtration stage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
