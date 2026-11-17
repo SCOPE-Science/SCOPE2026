@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The row/column-resource inequalities give the exact optimum size and force every optimal matching to saturate both coordinate sets. Exhaustively classifying the three types of two-edge replacement yields the degree \(13t^2-5t\). One-horizontal/one-vertical moves generate transpositions between singleton and double resource positions, so the connected-transposition argument proves reachability for all \(t\ge1\). Independent original-graph and coordinate-slot scripts replay the \(t=1,2\) cases and establish the diameter-four example at \(t=2\). The code does not replace the infinite proof.
+PASS
 
-## Originality
+For h horizontal and v vertical edges of an induced matching, distinct row/column resources imply h+2v≤3t and 2h+v≤3t, hence h+v≤2t. Equality forces h=v=t and all resources saturated; each one-edge replacement is uniquely determined, proving freezing. For two removed horizontals/verticals there are five nontrivial resaturations apiece; for one of each eight, totaling 10*C(t,2)+8t²=13t²−5t. Row-only and column-only mixed swaps implement transpositions across a connected bipartite slot graph, proving connectivity for all t; independent row/column permutations prove transitivity. Independent fresh exhaustive state-graph BFS confirms 9 degree-8 states for t=1 and 8100 degree-42 states for t=2 with distance layers 1,42,705,4904,2448 (diameter 4). Only this finite diameter depends on enumeration.
 
-PASS with a bounded historical-priority risk. An earlier exact induced-matching enumerator for rook graphs already proves the scalar maximum and counting formula; the new claim does not assert originality for them. The 2013 maximal-induced-matching paper treats triangle-free graphs and not the rook product; the 2024 product paper derives scalar bounds without classifying these exchange graphs; the 2021 induced-regular-subgraph reconfiguration paper moves individual vertices, not pairs of whole edges. Indexed mathematical records and accessible historical claims showed no theorem implying two-edge connectivity plus regularity for this family. Unindexed older exchange literature might exist.
+## originality
 
-## Value
+PASS
 
-PASS. Perfectly saturated optimum packings are unable to make any one-edge move, yet precisely one additional replacement restores global connectivity uniformly across an infinite family. The theorem supplies the complete minimum exchange threshold, a constructive connectivity mechanism and exact valency, not merely a recomputation of the known packing enumerator. This is a natural mobility/stability boundary in induced matching optimization.
+Best of knowledge: the maximum induced matching count is old, but the sharp exchange radius, all-t connectivity and exact 13t²−5t valency are not mathematically implied by inspected packing counts or distinct reconfiguration results.
 
-## Remaining limitations
+## value
 
-Only square side lengths divisible by three are treated. General two-exchange diameter is not known from these arguments, and the verified finite diameter-four case should not be extrapolated. No independent audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Saturated maximum rook matchings form a natural finite reconfiguration space; proving the exact threshold between one-edge immobility and two-edge connectedness, together with all-order degree and transitivity, is a substantive structural theorem, even though the underlying packing count is old.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

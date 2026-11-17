@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T13:11:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For h horizontal and v vertical edges of an induced matching, distinct row/column resources imply h+2v≤3t and 2h+v≤3t, hence h+v≤2t. Equality forces h=v=t and all resources saturated; each one-edge replacement is uniquely determined, proving freezing. For two removed horizontals/verticals there are five nontrivial resaturations apiece; for one of each eight, totaling 10*C(t,2)+8t²=13t²−5t. Row-only and column-only mixed swaps implement transpositions across a connected bipartite slot graph, proving connectivity for all t; independent row/column permutations prove transitivity. Independent fresh exhaustive state-graph BFS confirms 9 degree-8 states for t=1 and 8100 degree-42 states for t=2 with distance layers 1,42,705,4904,2448 (diameter 4). Only this finite diameter depends on enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published optimal-exchange geometry for Shrikhande and 4x4 rook treats one-edge exchange of n=4, not n=3t saturated matchings; subdivided bipartite graphs have different optimum size and batch thresholds."
+        ],
+        "reasoning": "Neither published exchange theorem has the same saturation/resource condition across all t, so neither implies this t-dependent 13t²−5t degree or the connectivity threshold.",
+        "searches": [
+          "induced matching reconfiguration two-edge exchanges rook graph K_3t cartesian square saturated",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-sharp-batch-exchange-thresholds-for-induced-matchings-in-bip--3900aad4c953/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-induced-matching-polynomials-and-optimal-exchange-geometry-of-th--1558a7631255/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-induced-and-maximal-induced-matchings-of-rectangular-rook-graphs--58c2e820445f/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-induced-matching-polynomials-and-optimal-exchange-geometry-of-th--1558a7631255/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-sharp-batch-exchange-thresholds-for-induced-matchings-in-bip--3900aad4c953/RESULT.md",
+        "https://arxiv.org/html/2111.13476v2",
+        "https://arxiv.org/html/2406.04020v2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "No prior inspected theorem states connectivity for two-edge exchanges on saturated n=3t rook optima; existing regular-induced-subgraph reconfiguration changes one original vertex, and published rook EGF only counts configurations."
+        ],
+        "reasoning": "One-edge freezing follows uniquely from saturated rows/columns. Two-edge moves generate row and column transpositions and have 5,5,8 local replacements, giving degree 13t²−5t. These are not logical consequences of the previous packing enumeration.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-induced-and-maximal-induced-matchings-of-rectangular-rook-graphs--58c2e820445f/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-induced-matching-polynomials-and-optimal-exchange-geometry-of-th--1558a7631255/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-two-sharp-batch-exchange-thresholds-for-induced-matchings-in-bip--3900aad4c953/RESULT.md",
+          "https://arxiv.org/html/2111.13476v2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximum induced matchings in K_{3t} □ K_{3t} correspond to vertex-disjoint 2-edge paths in K_{3t,3t}; each uses one row/two columns or two rows/one column. The exchange replaces whole matching edges, not rook vertices."
+        ],
+        "reasoning": "This star-packing equivalence shows earlier general packing enumerator covers maximum size and state count. It does not equate a two-edge simultaneous exchange with a one-vertex token jump.",
+        "searches": [
+          "induced matching reconfiguration two-edge exchanges rook graph K_3t cartesian square saturated",
+          "two edge exchange graph induced matchings rook graph square 3t frozen connected regular",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-induced-and-maximal-induced-matchings-of-rectangular-rook-graphs--58c2e820445f/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "October 13 published exact rook induced-matching EGF yields maximum size 2t and count ((3t)!/(2^t t!))²; these scalar data are prior coverage."
+        ],
+        "reasoning": "Explicitly exclude these prior scalar facts from novelty. The new object is the topology and exact degree of the maximum-state two-edge reconfiguration graph, including n=6 diameter 4.",
+        "searches": [
+          "induced matching reconfiguration two-edge exchanges rook graph K_3t cartesian square saturated",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-induced-and-maximal-induced-matchings-of-rectangular-rook-graphs--58c2e820445f/RESULT.md"
+        ]
+      },
+      "rationale": "Best of knowledge: the maximum induced matching count is old, but the sharp exchange radius, all-t connectivity and exact 13t²−5t valency are not mathematically implied by inspected packing counts or distinct reconfiguration results.",
+      "residual_risks": [
+        "Equivalent two-edge matching-exchange statement may exist in unindexed combinatorial reconfiguration work.",
+        "General t exchange-graph diameters are not determined."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Confirms 2t maximum and ((3t)!/(2^t t!))² count, but no exchange graph or two-edge degree.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-induced-and-maximal-induced-matchings-of-rectangular-rook-graphs--58c2e820445f/RESULT.md",
+          "material_read": "Complete RESULT.md including disjoint P3 bijection, EGF, cardinality bounds and well-indumatched theorem",
+          "method": "GitHub full file read",
+          "title": "Induced and maximal induced matchings of rectangular rook graphs",
+          "trigger": "Same exact rook family and maximum packing counts"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Only n=4 and 1-edge exchanges of 2-edge optima, whereas the new saturated n divisible by 3 has frozen single exchanges.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-induced-matching-polynomials-and-optimal-exchange-geometry-of-th--1558a7631255/RESULT.md",
+          "material_read": "Complete RESULT.md including 4x4 rook graph optimal one-edge exchange and Shrikhande comparison",
+          "method": "GitHub full file read",
+          "title": "Induced-matching polynomials and optimal-exchange geometry of the Shrikhande–rook pair",
+          "trigger": "Potential more general exchange theorem on rook graphs"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Moves a single vertex in vertex-induced regular sets; no simultaneous replacement of two matching edges in saturated rook graphs.",
+          "identifier_or_url": "https://arxiv.org/html/2111.13476v2",
+          "material_read": "Accessible arXiv full HTML including definitions of vertex moves and main results",
+          "method": "Web arXiv HTML full text inspection",
+          "title": "Reconfiguration of Regular Induced Subgraphs",
+          "trigger": "Primary reconfiguration theorem of induced matchings"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Addresses induced matching numbers and packing bounds, not the 2-edge optimal-state exchange graph.",
+          "identifier_or_url": "https://arxiv.org/html/2406.04020v2",
+          "material_read": "Accessible arXiv HTML including product-graph bounds and terminology",
+          "method": "Web arXiv HTML full text inspection",
+          "title": "Induced matching vs edge open packing: trees and product graphs",
+          "trigger": "Primary Cartesian product graph theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Saturated maximum rook matchings form a natural finite reconfiguration space; proving the exact threshold between one-edge immobility and two-edge connectedness, together with all-order degree and transitivity, is a substantive structural theorem, even though the underlying packing count is old.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all t≥1, K_{3t} □ K_{3t} maximum induced matchings are frozen under one-edge swaps; the graph of exact simultaneous two-edge swaps is connected, transitive and degree 13t²−5t, with ((3t)!/(2^t t!))² states; t=2 diameter 4.",
+  "limitations": [
+    "Only square rook graphs side divisible by three; no exact diameter for arbitrary t.",
+    "The t=2 diameter is fully finite exhaustive rather than a claimed closed all-t formula."
+  ],
+  "schema_version": 1
+}
