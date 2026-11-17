@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T00:19:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/minimal-absent-scattered-subsequences-of-repeated-binary-run-blo--1ab0c6dbe80f/RESULT.md"
+      ],
+      "rationale": "PASS: The greedy number of 0^a1^b host blocks to embed a candidate is B(u)=Σceil(ℓ_i/c_{x_i})−number of 0→1 adjacent run transitions. Absent iff B>r; deletion changes B by at most one. For nonsingleton runs the reduction is exactly one iff ℓ_i≡1 mod capacity, and endpoint/internal singleton analysis supplies the claimed forbidden cases; therefore B=r+1 plus conditions 2–4 characterize MAS. Symbolic run weights z/(1−z), z²/(1−z) produce F_{2r+2} for both capacities>=2, 3·2^{r−1} for exactly one capacity=1, and [z^r]z(3−z+2z²)/(1−2z+z²−z³) for both=1. Independent literal subsequence/deletion enumeration for a,b in 1..4, r in 1..5 with host length <=17 reproduced all three formulas; infinite proof rests on greedy cost/series not finite tests.",
+      "residual_risks": [
+        "The submission is correct for the fixed (0^a1^b)^r binary family but its all-case counting assertion is already known across covered sources."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "November 2 full RESULT.md gives H_m(m+1+j)=binom(m+2−j,2j+1) and total series z(3−z+2z²)/(1−2z+z²−z³).",
+          "The current a=b=1 case is a strict corollary of the earlier stronger length-distribution result."
+        ],
+        "reasoning": "The prior result strictly dominates an entire branch of the new three-regime theorem.",
+        "searches": [
+          "minimal absent scattered subsequences periodic binary two-run words counts Fibonacci (0^a1^b)^r",
+          "Resultary complete length spectrum alternating binary minimal absent scattered subsequences 2026/11/2"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/minimal-absent-scattered-subsequences-of-repeated-binary-run-blo--1ab0c6dbe80f/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-fibonacci-minimal-absent-subsequence-count-for-binary-powers-wit--86cef0b3c173",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-run-length-invariant-and-complete-minimal-absent-subsequence-s--ca3c19d1f568",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-binomial-length-spectrum-of-minimal-absent-subsequences-in--47ef0e5dde29",
+        "https://arxiv.org/html/2108.13968v6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Together the three full scientific result files partition a,b>=1 into both >=2, exactly one =1, both =1 with the identical formulas.",
+          "The bit-reversal/complement map is a bijection on minimal absent scattered subsequences and swaps the one-singleton orientation."
+        ],
+        "reasoning": "Every numerical count claim is entailed by the union of published results and elementary binary symmetry, regardless of matching title or combined presentation.",
+        "searches": [
+          "minimal absent scattered subsequences periodic binary two-run words counts Fibonacci (0^a1^b)^r",
+          "Resultary 2026/11/8 fibonacci two non singleton run counts",
+          "Resultary 2026/11/8 run length invariant complete spectrum periodic binary",
+          "Resultary 2026/11/2 exact binomial length spectrum alternating"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kosche et al arXiv:2108.13968v6 Theorem 3.1 characterizes MAS by greedy embedding bridges.",
+          "All candidate local deletion rules are derived by computing the greedy cost of those bridges for a fixed periodic two-run host."
+        ],
+        "reasoning": "The language criterion is an equivalent specialized encoding of the existing general characterization, not a newly motivated invariant independent of prior totals.",
+        "searches": [
+          "minimal absent scattered subsequences periodic binary two-run words counts Fibonacci (0^a1^b)^r",
+          "Kosche Koss Manea Siemer Absent Subsequences in Words greedy bridge theorem 3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published November 8 Fibonacci result gives exactly F_{2r+2} for a,b>=2.",
+          "Published November 8 one-singleton-run result gives exactly 3·2^{r−1} for (0^a1)^r; reverse/complement supplies (01^b)^r.",
+          "Published November 2 alternating result gives the same rational total gf for a=b=1."
+        ],
+        "reasoning": "The entire three-case count table is explicitly covered by three inspected primary-result packages, even though no single title has all cases.",
+        "searches": [
+          "minimal absent scattered subsequences periodic binary two-run words counts Fibonacci (0^a1^b)^r",
+          "Resultary Fibonacci minimal absent subsequence count binary powers two nonsingleton runs",
+          "Resultary run length invariant minimal absent subsequence spectrum periodic binary"
+        ]
+      },
+      "rationale": "FAIL due decisive prior coverage: a separate published November 8 full-result paper proves the identical Fibonacci total F_{2r+2} for every a,b>=2. Another published November 8 full-result theorem proves the identical 3·2^{r−1} case for (0^a1)^r with a>=2; bit-complement plus reversal yields the a=1,b>=2 case. A November 2 published theorem already gives the exact identical rational total series for (01)^r AND a stronger complete length spectrum. All three count regimes are therefore known; the submitted uniform greedy-run criterion is a direct specialization of the pre-existing general Kosche–Koß–Manea–Siemer greedy-bridge characterization and does not save originality of the full claimed classification. The two November 8 titles share a published commit timestamp with the submitted record; no earlier-in-minute priority is inferred, but their independent coverage remains decisive.",
+      "residual_risks": [
+        "The three count regimes are already exactly covered; changing wording or adding finite certificates cannot confer originality.",
+        "The published same-day candidate and two November 8 results were seen at the same Git commit timestamp; their intra-day chronological priority is not established and is not asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact covering prior statement",
+          "evidence": [
+            "November 8 RESULT.md full Fibonacci count theorem"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-fibonacci-minimal-absent-subsequence-count-for-binary-powers-wit--86cef0b3c173",
+          "material_read": "Full published RESULT.md, statement, greedy-bridge proof, count F_{2r+2} for all a,b>=2",
+          "method": "Read GitHub raw full scientific document",
+          "title": "Fibonacci minimal-absent-subsequence count for binary powers with two non-singleton runs",
+          "trigger": "Identical both-run-capacities>=2 theorem"
+        },
+        {
+          "assessment": "Covers b=1,a>=2; reversal/complement covers a=1,b>=2",
+          "evidence": [
+            "November 8 RESULT.md exact total and length spectrum"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-run-length-invariant-and-complete-minimal-absent-subsequence-s--ca3c19d1f568",
+          "material_read": "Full published RESULT.md including generating-function and total 3·2^{r-1} for all a>=2 and block count r",
+          "method": "Read GitHub raw full scientific document",
+          "title": "A run-length invariant and complete minimal-absent-subsequence spectrum for periodic binary words",
+          "trigger": "Identical exactly-one-singleton case"
+        },
+        {
+          "assessment": "Exact prior coverage, indeed strictly stronger for a=b=1",
+          "evidence": [
+            "November 2 RESULT.md rational series z(3-z+2z²)/(1-2z+z²-z³)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-binomial-length-spectrum-of-minimal-absent-subsequences-in--47ef0e5dde29",
+          "material_read": "Full published November 2 RESULT.md including binomial length spectrum and total generating function",
+          "method": "Read GitHub raw full scientific document",
+          "title": "Exact binomial length spectrum of minimal absent subsequences in alternating binary words",
+          "trigger": "Same alternating-host exact rational series"
+        },
+        {
+          "assessment": "General criterion establishes approach; run-cost local specialization is elementary in this specific host",
+          "evidence": [
+            "arXiv:2108.13968v6 Theorem 3.1"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2108.13968v6",
+          "material_read": "Accessible primary arXiv HTML including Theorem 3.1 and related greedy bridge formulation",
+          "method": "Read primary HTML theorem and proof material",
+          "title": "Absent Subsequences in Words",
+          "trigger": "General greedy minimal absent criterion potentially dominating uniform run test"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/minimal-absent-scattered-subsequences-of-repeated-binary-run-blo--1ab0c6dbe80f/RESULT.md"
+      ],
+      "rationale": "FAIL as a distinct mathematical contribution: the full three-case all-parameter count is already determined in separate published results, and the remaining run-language criterion follows by routine specialization of a known general greedy embedding/minimal-absence test. Its combined uniform packaging is convenient but does not add a demonstrably new substantive invariant, boundary, or classification beyond covered components. Correctness and a reproducing checker alone cannot rescue V.",
+      "residual_risks": [
+        "The three count regimes are already exactly covered; changing wording or adding finite certificates cannot confer originality.",
+        "The published same-day candidate and two November 8 results were seen at the same Git commit timestamp; their intra-day chronological priority is not established and is not asserted."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The submission is correct for the fixed (0^a1^b)^r binary family but its all-case counting assertion is already known across covered sources.",
+    "The three count regimes are already exactly covered; changing wording or adding finite certificates cannot confer originality.",
+    "The published same-day candidate and two November 8 results were seen at the same Git commit timestamp; their intra-day chronological priority is not established and is not asserted."
+  ],
+  "schema_version": 1
+}
