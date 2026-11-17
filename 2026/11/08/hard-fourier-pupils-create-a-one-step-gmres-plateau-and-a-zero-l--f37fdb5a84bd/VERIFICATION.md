@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-`verify.py` was run with Python, NumPy, and SymPy; the program printed `VERIFY_OK`. It exactly checks the Schur block expression, the hard-pupil idempotence, and the soft-pupil polynomial identity using symbolic parameters. With seed 8119 it checks 160 independent random complex-circulant cases with nontrivial Fourier masks and 480 positive-leakage instances; numerical comparisons include the one-step optimal GMRES squared residual, the geometric minimum over mask-restricted physical states, exact positive-leakage termination, and singular-value condition numbers.
+## correctness
 
-The analytic proof in RESULT.md—not floating-point tests—establishes all dimensions, arbitrary data, all iteration orders, and the flexible mask-range quantification. Exact physical transfer masks, exact arithmetic, and a fixed omitted-frequency subspace are essential. Neither an independent mathematical audit nor physical optical experiments have been performed.
+PASS
+
+For exactly circulant A and an orthogonal Fourier projector Pi, block multiplication gives T_B=KR_B=[[I,0],[(I-PB)A*,PB]]. With B=P^{-1}Pi, T_0 is idempotent, and all transformed Krylov images are span{(b,(I-Pi)A*b)}, giving the exact persistent squared residual NE/(N+E) for all positive Krylov orders (mathematical spaces, even after Arnoldi breakdown). Every zero-start mask-restricted flexible iterate has physical second block in ran Pi; Fourier-mode least squares yields the stated sharp full-trial-space floor. For positive leakage epsilon, (T-I)(T-epsilon I)=0, T invertible; omitted 2x2 singular-value determinant and trace yield kappa_j and 1/epsilon asymptotics. Independent tests on 24 complex Fourier systems corroborated the identities.
+
+## originality
+
+PASS
+
+PASS best of knowledge: the exact idempotent Type-2 hard-pupil transformed operator, data-dependent one-step GMRES plateau, geometric floor for all permanently range-restricted flexible maps, and sharp positive-leakage two-step/conditioning dichotomy are not given in the materially inspected motivating OFT paper or generic singular preconditioning references. The Type-2 Schur map, binary optical pupil and general possibility of GMRES breakdown are previously known and not claimed anew.
+
+## value
+
+PASS
+
+A real optical pupil truncates modes regardless of Tikhonov positivity; this exact model separates algebraic solvability, Krylov residual obstruction, and extreme finite-precision sensitivity when leakage is tiny. Such a sharp model-based negative/transition result is useful to interpret or design optical Fourier preconditioners; no claim about universal noisy hardware failure is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

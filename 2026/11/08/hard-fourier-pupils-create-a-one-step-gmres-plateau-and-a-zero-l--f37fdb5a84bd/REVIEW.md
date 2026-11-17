@@ -1,22 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise deterministic Fourier-diagonalizable assumptions, invertible saddle system, and singular-vs-invertible preconditioning maps are defined in RESULT.md. Block multiplication yields the idempotent transformed matrix at zero leakage and a degree-two annihilating polynomial at positive leakage; a one-dimensional least-squares problem gives the all-order GMRES residual and frequencywise constrained least squares gives the flexible-update lower bound. The modewise conditioning formula follows from the trace and determinant of a two-by-two Gram matrix. The standalone `verify.py` reproduced the identities symbolically and across 160 complex Fourier instances, including 480 positive-leakage tests. No numerical test is used as a proof of any infinitely quantified statement.
+PASS
 
-## Originality — PASS (qualified)
+For exactly circulant A and an orthogonal Fourier projector Pi, block multiplication gives T_B=KR_B=[[I,0],[(I-PB)A*,PB]]. With B=P^{-1}Pi, T_0 is idempotent, and all transformed Krylov images are span{(b,(I-Pi)A*b)}, giving the exact persistent squared residual NE/(N+E) for all positive Krylov orders (mathematical spaces, even after Arnoldi breakdown). Every zero-start mask-restricted flexible iterate has physical second block in ran Pi; Fourier-mode least squares yields the stated sharp full-trial-space floor. For positive leakage epsilon, (T-I)(T-epsilon I)=0, T invertible; omitted 2x2 singular-value determinant and trace yield kappa_j and 1/epsilon asymptotics. Independent tests on 24 complex Fourier systems corroborated the identities.
 
-The 2026 optical-preconditioning source provides the Type-2 Schur implementation and binary pupil but neither the exact hard-pupil idempotence/GMRES plateau nor the arbitrary fixed-mask flexible-search residual obstruction and zero-versus-positive-leakage characterization. Existing GMRES literature already establishes the general possibility of singular-preconditioner breakdown, and earlier saddle preconditioning theory exists. The contribution is the explicit and fully quantified application to this physically motivated Schur/Fourier structure, not the elementary principles in isolation. Direct source and related-paper statements were compared; the 2006 implicit-factorization article was available only at abstract level, so historical-priority risk remains.
+## originality
 
-## Value — PASS
+PASS
 
-A genuinely hard aperture can erase inverse-problem modes regardless of how small or large the positive Tikhonov regularization parameter is. The exact residual plateau and flexible geometric floor quantify what a rank-restricted preconditioning channel cannot repair, while the two-step leakage discontinuity explains the difference between exact solvability and numerical robustness. This is a source-motivated structural boundary relevant when interpreting idealized optical transfer simulations and safeguards for partial Fourier transmission; it does not claim failures of noisy physical implementations or universal practical algorithm performance.
+PASS best of knowledge: the exact idempotent Type-2 hard-pupil transformed operator, data-dependent one-step GMRES plateau, geometric floor for all permanently range-restricted flexible maps, and sharp positive-leakage two-step/conditioning dichotomy are not given in the materially inspected motivating OFT paper or generic singular preconditioning references. The Type-2 Schur map, binary optical pupil and general possibility of GMRES breakdown are previously known and not claimed anew.
 
-## Closest literature and scope
+## value
 
-- Drum et al., arXiv:2610.17275v1: motivating Type-2 optical Schur preconditioner and binary pupil.
-- Gazzola et al., arXiv:1806.06599: low-rank GMRES preconditioning and known breakdown behavior; no identified Type-2 optical pupil formulas.
-- di Serafino and Orban, arXiv:1910.02552: a different class of constraint-preconditioned saddle Krylov methods.
-- Dollar et al., DOI 10.1137/05063427X: implicit-factorization saddle preconditioners, with full-text comparison unresolved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A real optical pupil truncates modes regardless of Tikhonov positivity; this exact model separates algebraic solvability, Krylov residual obstruction, and extreme finite-precision sensitivity when leakage is tiny. Such a sharp model-based negative/transition result is useful to interpret or design optical Fourier preconditioners; no claim about universal noisy hardware failure is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
