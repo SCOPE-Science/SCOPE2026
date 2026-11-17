@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim specifies exactly which graph, leader count, follower principal submatrix and inverse-trace convention are used. The proof derives the two-terminal grounded Green formula from the resistance-energy quadratic form, obtains all five resistance types by exact network reductions, evaluates all six leader classes, and gives rational inequalities proving strict optimality for each integer page count. The standalone exact-rational verifier independently computes 708 grounded inverse traces and 30 two-terminal resistances. The finite replay is a consistency check rather than a proof of the all-size result.
+## correctness
 
-**Originality — PASS on the checked evidence, with residual risk.** Full-text primary papers by Lin–Fardad–Jovanović (arXiv:1302.0450), Fitch–Leonard (arXiv:1407.1569), and Patterson–McGlohon–Dyagilev (arXiv:1412.6595) were inspected in relevant substantive sections. The first establishes the general objective; the second characterizes two leaders through joint centrality and explicitly solves paths/cycles, without the six book-graph cases; the third concerns paths/rings. Relevant indexed book-graph results concern matching complexes or dual general position, not grounded inverse traces. Existing closely related leader-placement classifications concern other network families and do not imply the strict two-threshold book pattern by simple identification. Search coverage cannot exclude unindexed prior coverage, and the general joint-centrality identity is acknowledged as a conceptual antecedent.
+PASS
 
-**Value — PASS.** The quadrilateral book is the natural Cartesian product of a star with a single edge and represents multiple short parallel routes sharing a core edge. The exact two-leader budget is a basic sensor/leader placement problem; the complete classification reveals a genuine three-stage *change of geometric type* as pages are added, not just a numerical performance bound. All six symmetrically distinct placements are evaluated, all optimal sets counted, and explicit rational comparisons establish the sharp breakpoints.
+For each integer m>=2, B_m has an edge joining two hubs and m length-three paths between them. The grounded Green identity J({s,t})=(sum_z R_zs+sum_z R_zt)/2 - (2m+2)R_st/4 - sum_z (R_zs-R_zt)²/(4R_st) follows by minimizing current-splitting energy. Five resistance values and six symmetry orbits yield exactly the rational formulas H=4m/3, A=(8m²+33m-5)/(3(2m+7)), B=(8m²+45m-17)/(6(m+5)), C=2(7m²+21m-10)/(3(2m+7)), D=(12m²+25m-29)/(6(m+3)), E=2(4m²+9m-11)/(4m+13). Explicit positive gaps J_A-J_H=5(m-1)/(3(2m+7)), J_C-J_H=2(m-1)(3m+10)/(3(2m+7)), J_D-J_E=(4m²+17m+19)/(6(m+3)(4m+13)), plus J_B-J_H=(5m-17)/(6(m+5)) and J_E-J_H=2(m+3)(4m-11)/(3(4m+13)) and signed E-B difference, prove all three regimes. Independently inverted every two-leader grounded matrix at m=2..6, giving m=2: 2 optima J=46/21; m=3: 6 optima J=95/24; m>=4 both hubs J=4m/3. IMPORTANT minor proof typo in RESULT.md: its argmin current fraction alpha is printed as (R_zs-R_zt+R_st)/(2R_st) but direct differentiation gives (R_zt-R_zs+R_st)/(2R_st). Its boxed minimum-energy Green formula and all six costs are correct, as confirmed by independent inversion; correction of the intermediate alpha sign does not alter the final claim. This is explicitly recorded, not silently concealed or treated as formal proof certification.
 
-Scientific limitations include unit conductances, exact two-leader grounding and the inverse-trace measure; other objectives and budgets remain unaddressed. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fitch–Leonard's all-graph joint-centrality expression is the known general transformation of this objective, not an explicit optimization result on K_(1,m)×K2. Patterson–McGlohon–Dyagilev treat paths and rings. The quadrilateral book differs from triangular friendship/windmill and the single-hub diamond bouquet by its two hubs and four-cycle pages. The exact m=2,3,>=4 optimal-type transitions require nontrivial six-orbit resistance evaluation and were not present in inspected prior statements.
+
+## value
+
+PASS
+
+The Cartesian product of a star with an edge is a canonical series-parallel graph family with two common hubs, modeling multiple parallel pathways. Two perfect leader placement is an intrinsic exact inverse-trace design problem. The nonmonotone geometric change in optimal pair type at two successive page counts and complete rational ties/inequalities is a meaningful natural structural classification, not an arbitrary finite-size calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
