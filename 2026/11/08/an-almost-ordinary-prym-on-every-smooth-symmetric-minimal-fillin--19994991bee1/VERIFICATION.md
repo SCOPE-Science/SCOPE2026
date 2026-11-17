@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-The accompanying exact Python/SymPy programs reconstruct the displayed defining forms directly and run over characteristic three. `verify_geometry.py` checks all four product affine charts for smoothness, all three quotient-plane charts, the quotient pullback identity, distinct branch points, the complete normalized quartic candidate set, and the common diagonal-projective orbit. `verify_hasse.py` extracts both complete Hasse–Witt matrices from the square of the respective equations, checks their exact coefficient entries, the rank-eight minor, zero determinant, characteristic polynomial of the genus-nine matrix, and invertible quotient matrix.
+# Independent mathematical audit
 
-Successful replay output:
+## correctness
 
-```
-CURVE_SMOOTH_ALL_FOUR_CHARTS_PASS
-QUARTIC_QUOTIENT_SMOOTH_ALL_THREE_CHARTS_PASS
-EIGHT_DISTINCT_RAMIFICATION_POINTS_PASS
-SYMMETRIC_SMOOTH_QUARTIC_CENSUS_PASS 24 6 1_ORBIT
-SIXTEEN_RATIONAL_POINTS_FILLING_PASS
-GENUS_NINE_HASSE_MATRIX_PASS rank=8 stable_rank=8 a=1
-PLANE_QUARTIC_HASSE_MATRIX_PASS rank=3 ordinary
-PRYM_ISOGENY_INVARIANTS_PASS dimension=6 p_rank=5 a=1
-```
+PASS
 
-All calculations are finite exact computations on the specified polynomials. The conclusions about geometric smoothness use ideal-theoretic unit certificates, and the curve and Prym invariants use the stated cohomological and isogeny theorems. The programs do not establish historical priority, a complete zeta function, or an independent mathematical audit.
+Exact symmetric F3 bidegree-(4,4) curve with 16 rational points: the four-chart unit-ideal Gröbner tests yield smooth genus nine, and 24 projectively normalized root-free quartics reduce to six smooth forms in one PGL2(F3) orbit. Quotient G(S,T,U) is a smooth plane quartic with eight tame branch points. Independently reconstructed genus-nine Hasse–Witt coefficient matrix has rank eight, simple zero characteristic factor and stable rank eight; its 8x8 minor is 1 and det=0 mod3. The quotient matrix has det=2 mod3, so JQ is ordinary. A prime-to-three isogeny JQ×P→JC gives Prym (p-rank,a)=(5,1), dim6. Independent symbolic checks reproduce Hasse matrices; script-based finite orbit certification is exact but separate from the isogeny argument.
+
+## originality
+
+PASS
+
+The genus-nine Jacobian rank (8,1) on smooth symmetric filling curves is a special case of an earlier complete rank dichotomy of all 264 smooth filling biquartics, and the six smooth symmetric quartic forms were classified in primary literature. Those components are NOT new. The final finding survives on its distinct genus-three factor-swap quotient being ordinary and its six-dimensional Prym having (3-rank,a)=(5,1), established by explicit quotient Hasse–Witt calculation and prime-to-three Prym isogeny, neither asserted in the inspected earlier broader curve classification or primary filling-curve sources. Best-of-knowledge residual specialist Prym priority risk remains.
+
+## value
+
+PASS
+
+The factor-swap Prym of this canonical minimal filling family is a natural six-dimensional arithmetic abelian variety. Its exact p-rank and a-number, and the quotient ordinarity, are not determined by known whole-Jacobian rank tables; this gives a concrete, potentially reusable decomposition invariant rather than recomputing the 264-curve census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

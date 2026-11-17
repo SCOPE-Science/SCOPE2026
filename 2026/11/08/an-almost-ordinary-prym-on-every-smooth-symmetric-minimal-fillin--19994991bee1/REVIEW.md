@@ -1,15 +1,21 @@
-# Review of the almost-ordinary Prym on symmetric minimal filling curves
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain and statement concern all smooth curves of the precise symmetric form \(C_B: B(Y)E(X)+B(X)E(Y)=0\) over \(\mathbb F_3\), with \(E(U,V)=U^3V-UV^3\). The exhaustive normalized space contains \(24\) root-free binary quartics, and exact four-chart smoothness certificates leave six, all conjugate by diagonal \(\operatorname{PGL}_2(\mathbb F_3)\). The representative is explicitly smooth, has bidegree \((4,4)\), genus nine, and sixteen rational points. The invariant substitution proves its symmetric-square quotient is the stated smooth quartic. Eight distinct diagonal zeros yield exactly eight tame branch points. The genus-nine Hasse–Witt matrix is reconstructed coefficient by coefficient from \(F^2\); an \(8\times8\) minor is \(1\) modulo three, the determinant is zero, and its characteristic polynomial has a *simple* zero factor, giving stable rank eight, not merely rank eight at the first iterate. The genus-three quotient matrix has determinant two, giving ordinarity. A prime-to-three Prym isogeny transfers the resulting invariants. The supplied verification programs were executed successfully using exact field arithmetic; all polynomial certificates are re-computable from the supplied forms.
+## correctness
 
-## Originality — PASS, with bounded priority uncertainty
-Homma–Kim (arXiv:2203.11595, March 22, 2022) proves the minimum bidegree and existence of smooth filling curves, not the Jacobian's \(3\)-rank or the Prym invariant. Ahammed–Campbell–Moon (arXiv:2512.02796, December 2, 2025), Section 4.1, gives the exhaustive small-field smoothness and orbit table and later provides symmetric constructions. Accordingly, existence, six normalized examples, and orbit equivalence are acknowledged prior context, not asserted as new. Inspection of the relevant full text found no statement or reduction that determines the genus-nine Hasse–Witt matrix, the quotient quartic's ordinarity, or the six-dimensional Prym's almost-ordinary type. Searches for alternate descriptions of the same symmetric family, Jacobian ranks, and Prym p-ranks in available mathematical records did not yield coverage. The strongest unresolved risk is an independent, older, unindexed arithmetic computation on the same curve; searches alone do not certify absolute priority.
+PASS
 
-## Mathematical value — PASS
-The precise arithmetic type of a canonical extremal family is a natural problem once smooth minimal-degree filling curves and their symmetry class are classified. The statement resolves that question for the *entire symmetric characteristic-three family*, not a cherry-picked low-cost coefficient slice. It distinguishes the ordinary genus-three quotient from the exceptional six-dimensional Prym and identifies exactly where the one-dimensional p-rank defect of the genus-nine Jacobian resides. The finding provides a reproducible arithmetic input for subsequent study of this natural double cover and its Prym without claiming a general theorem for arbitrary filling curves. Counts of smooth models, already available in the literature, are background only.
+Exact symmetric F3 bidegree-(4,4) curve with 16 rational points: the four-chart unit-ideal Gröbner tests yield smooth genus nine, and 24 projectively normalized root-free quartics reduce to six smooth forms in one PGL2(F3) orbit. Quotient G(S,T,U) is a smooth plane quartic with eight tame branch points. Independently reconstructed genus-nine Hasse–Witt coefficient matrix has rank eight, simple zero characteristic factor and stable rank eight; its 8x8 minor is 1 and det=0 mod3. The quotient matrix has det=2 mod3, so JQ is ordinary. A prime-to-three isogeny JQ×P→JC gives Prym (p-rank,a)=(5,1), dim6. Independent symbolic checks reproduce Hasse matrices; script-based finite orbit certification is exact but separate from the isogeny argument.
 
-## Literature, proof limits, and verification
-The result is limited to smooth symmetric bidegree-\((4,4)\) filling members over \(\mathbb F_3\). The cohomological coefficient formula, exact matrices, geometry and isogeny deduction are given in `RESULT.md`, with exact symbolic certificates in `verify_geometry.py` and `verify_hasse.py`. The output is a self-review, not a second-party audit, general Newton-polygon classification, or proof of global historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The genus-nine Jacobian rank (8,1) on smooth symmetric filling curves is a special case of an earlier complete rank dichotomy of all 264 smooth filling biquartics, and the six smooth symmetric quartic forms were classified in primary literature. Those components are NOT new. The final finding survives on its distinct genus-three factor-swap quotient being ordinary and its six-dimensional Prym having (3-rank,a)=(5,1), established by explicit quotient Hasse–Witt calculation and prime-to-three Prym isogeny, neither asserted in the inspected earlier broader curve classification or primary filling-curve sources. Best-of-knowledge residual specialist Prym priority risk remains.
+
+## value
+
+PASS
+
+The factor-swap Prym of this canonical minimal filling family is a natural six-dimensional arithmetic abelian variety. Its exact p-rank and a-number, and the quotient ordinarity, are not determined by known whole-Jacobian rank tables; this gives a concrete, potentially reusable decomposition invariant rather than recomputing the 264-curve census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
