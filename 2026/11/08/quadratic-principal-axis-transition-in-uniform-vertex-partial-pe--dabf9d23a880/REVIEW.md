@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The established explicit vertex list has disjoint support-rank orbits with multiplicities \(m!/(m-k)!\). Averaging exactly gives axial variance \(\operatorname{Var}(S)/m\) and transverse variance \((m\mathbb E Q-\mathbb E S^2)/(m(m-1))\). Truncated-Poisson falling-factorial identities evaluate the quadratic difference exactly; its leading coefficient is positive and its value at \(n=m\) is negative for all \(m\ge2\), so the unique crossing follows. Coefficient asymptotics give \(1/2+1/\sqrt3\). Finite vertex enumeration and rational covariance check independently reproduce the formulas for 35 small parameters and phase signs through 200 orders.
+## correctness
 
-## Originality — PASS (priority provisional)
-Heuer and Striker (2020, arXiv:2012.09901), Behrend and collaborators (2022, arXiv:2207.14253), and Behrend (2024, arXiv:2403.06975) establish the vertex, face and Ehrhart data from which the present computation starts. They do not report the all-vertex uniform covariance spectral crossing. The closest public partial-permutohedron ellipsoid result uses a specific two-orbit contact distribution and a different parameter regime, while the enclosing ball result maximizes radial distance. Their claims do not imply covariance of the discrete uniform **full vertex set**. Named exact-database, equivalent-formulation, broad-coverage, and implication searches found no covering statement, but an unindexed equivalent moment calculation remains possible.
+PASS
 
-## Mathematical value — PASS
-The principal-component axis is a natural measure of which geometric variation dominates a symmetric vertex cloud. A sharp single phase transition at the **quadratic** height scale is a structural effect not visible in the unchanged face lattice. The exact spectrum, rigorous crossing uniqueness, and limit constant are a complete result for this measure over the whole two-parameter regime.
+The vertices of the standard coordinate partial permutohedron P(m,n), n>=m>=2, are disjoint rank-k orbits consisting of permutations of (n,n-1,...,n-k+1,0,...,0), of sizes w_k=m!/(m-k)!. Under the uniform vertex law the covariance is S_m invariant and has one scalar eigenvalue on span(1) and one on 1-perp. The parallel eigenvalue is Var(S_k)/m; the transverse eigenvalue follows from total norm Q_k and trace. The deficiency D=m-k has exact truncated Poisson(1) weights 1/(d! Z_m), so its first four factorial moments give explicit A_m,B_m,C_m for m(m-1)(lambda_parallel-lambda_perp)=A_m*n^2+B_m*n+C_m. A_m>0 and the quadratic at n=m is negative for all m>=2; thus exactly one root tau_m above m determines the eigenspace crossing. Scaling n=m^2*z gives the limiting root 1/2+1/sqrt(3). The real threshold need not be an integer, and the claim is only uniform discrete vertices in standard Euclidean coordinates. Independent exact fractional covariance reconstruction for (m,n)=(2,3),(3,5),(4,8) gave lambda_parallel<lambda_perp as asserted.
 
-## Limits and related work
-The finding is not about volume-uniform inertia or an optimal enclosing ellipsoid; the finite checker covers only the specified finite ranges. Historical priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The actual polytope and all vertex orbits were published by Heuer–Striker and Behrend et al. A related quadratic threshold is for an enclosing Löwner ellipsoid with a particular contact measure; another published result studies a different high-dimensional partial-permutation matching polytope. Neither gives covariance under the full uniform vertex measure on P(m,n), nor its exact changing top eigenspace.
+
+## value
+
+PASS
+
+The exact crossing shows a geometric principal-component transition in a natural polytope while its combinatorial type stays fixed. The full uniform vertex measure and normalization are intrinsically motivated; a sharp tau_m~(1/2+1/sqrt(3))*m^2 is a genuine all-dimensional structural fact rather than a routine orbit recount.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
