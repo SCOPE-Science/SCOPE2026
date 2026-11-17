@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Each codeword difference from a cube vertex has block parity T or T-complement. Blockwise Cauchy--Schwarz bounds the square of the Euclidean norm from below by lambda^2 W_T+(1-lambda)^2(S-W_T); independent uniform one-bit flips in prescribed odd blocks attain equality with lambda=(S-W_T)/S. Strict convexity gives the unique projection. The residual-variance identity and sign nonvanishing at every coordinate of every noncode cube vertex prove no nonvertex farthest points. Maximizing the resulting reciprocal subset product gives all equality cases and counts. Exact rational KKT certificates exhaustively checked all binary vertices/codewords in ten listed small profiles; independent SLSQP convex-combination QP corroborated four profiles. These finite tests are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gensheimer et al. Section III addresses arbitrary binary-code LP decoding through separate parity-check polytope constraints; Section IV specializes its exact projection algorithms to a single parity polytope, which is generally a relaxation of a complete multi-check codeword hull.",
+        "The later published demihypercube nearest-vertex covering result (2026; abstract only) concerns one parity constraint, while the separate published cross-polytope deep-hole result (2026; indexed summary only) concerns a different convex body; neither displayed statement specifies or dominates a synchronized block-parity codeword hull."
+      ],
+      "reasoning": "A general optimization algorithm that could project to a prescribed codeword hull after enumerating its vertices does not logically imply a closed all-parameter Hausdorff invariant or classification of every farthest point. The cited single-check projection theorems do not compute the jointly constrained multi-check projection. No theorem with broader stated coverage that subsumes the result was identified.",
+      "searches": [
+        "Euclidean Hausdorff distance from hypercube to binary linear codeword polytope with block parity equal all blocks, exact reciprocal block size subset partition formula",
+        "convex hull binary vectors with equal parity in disjoint blocks, Euclidean deep holes and all maximizers",
+        "multi-check codeword polytope same parity in disjoint coordinate blocks Euclidean distance convex hull cube vertices inverse block size",
+        "projection onto parity polytope algorithm Zhang Siegel 2013 Euclidean parity 2016",
+        "arxiv 2017 2018 2019 2020 \"codeword polytope\" \"parity polytope\" projection"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1803.10561v2 (full HTML mathematical sections)",
+      "arxiv:1901.03240v1 (full arXiv rendered text)",
+      "the public demihypercube abstract (2026) (indexed abstract only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ermel--Walter single global even-parity polytope imposes parity of the sum over all coordinates, while the new code imposes equality of parity for every block; these differ when r>=3. E.g. with three blocks of size two, the new polytope has 16 codeword vertices but the one-global-even-parity polytope in dimension six has 32.",
+        "Gensheimer et al. treats a single parity-check hull and neither states nor proves a multi-check Hausdorff formula.",
+        "The public demihypercube nearest-vertex covering result (2026; indexed abstract only) concerns a one-check demihypercube rather than the simultaneous-block code."
+      ],
+      "reasoning": "The new assertion simultaneously fixes the precise Euclidean distance at every cube vertex, exhibits its unique nearest point, maximizes over all cube points, and classifies all farthest points and counts. None of the inspected narrower statements entails that combined general statement. A different stronger specialist publication remains possible, particularly under codeword-hull terminology.",
+      "searches": [
+        "Euclidean Hausdorff distance from hypercube to binary linear codeword polytope with block parity equal all blocks, exact reciprocal block size subset partition formula",
+        "multi-check codeword polytope same parity in disjoint coordinate blocks Euclidean distance convex hull cube vertices inverse block size",
+        "binary linear code polytope Hausdorff cube to two-check code parity blocks reciprocal sizes",
+        "\"block parity\" \"convex hull\" \"Euclidean\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ermel--Walter (2018), arXiv:1803.10561v2, Section 1 defines ordered even parity from one global parity constraint, and Theorem 1 in Section 3 describes that one constraint; no simultaneous equality of independent block parities is asserted.",
+        "Gensheimer et al. (2019), arXiv:1901.03240, Sections IV--VIII analyze single even/odd parity polytope projection; the pair of multi-check flip-pattern classes and inverse-block-size distance are not present.",
+        "A public 2026 demihypercube nearest-vertex covering result was compared at abstract level; its full text was inaccessible, so no claim of whole-document noncoverage is made."
+      ],
+      "reasoning": "The synchronized code is the parity-preimage of a repetition code: r-1 simultaneous block-equality checks. For r=2 this coincides with the usual single-check even-parity polytope and is not claimed as new. For r>=3 the two global all-even/all-odd codeword classes create a genuine coupled hull, unlike one overall parity constraint or the ordered-binomial formulation. No direct equivalent formula was found.",
+      "searches": [
+        "Euclidean Hausdorff distance from hypercube to binary linear codeword polytope with block parity equal all blocks, exact reciprocal block size subset partition formula",
+        "binary parity code polytope nearest projection cube vertex multiple parity groups complement syndrome Hamming 1 residual distance",
+        "multi-check codeword polytope same parity in disjoint coordinate blocks Euclidean distance convex hull cube vertices inverse block size",
+        "binary linear code polytope Hausdorff cube to two-check code parity blocks reciprocal sizes",
+        "\"equal parities\" blocks \"codeword polytope\"",
+        "\"same parity\" \"blocks\" polytope"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The relevant published articles inspected have formulations/algorithms, not tables of these heterogeneous-block radii.",
+        "The indexed geometry records include individual demihypercube metrics, but no displayed complete parameter table of synchronized-code Euclidean radii."
+      ],
+      "reasoning": "No indexed database/table with the same code family and exact reciprocal-size profile was located. Search absence is only limited supporting evidence, not proof of nonexistence.",
+      "searches": [
+        "Euclidean distance from cube vertex to parity code polytope binary linear codes block parity",
+        "\"parity\" \"Hausdorff distance\" \"hypercube\" \"codeword\"",
+        "simultaneous parity checks on unions of coordinate blocks polygon convex hull equal block parities deep hole",
+        "binary linear code polytope Hausdorff cube to two-check code parity blocks reciprocal sizes"
+      ]
+    },
+    "rationale": "This is a multi-check synchronized-parity codeword hull, not the single global parity or ordered-parity polytope of Ermel--Walter, nor the single-check projection algorithm of Gensheimer et al. The completed scientific-source comparisons did not identify a theorem implying the full general distance/projection/extremizer statement. Single-parity r=2 is acknowledged as prior/basic boundary. Historical priority remains provisional.",
+    "residual_risks": [
+      "Possible specialized codeword-polytope or convex decoding theorem under alternative terminology not recovered by indexed search.",
+      "Closely related public demihypercube paper full text inaccessible, though its indexed statement is a distinct single-parity problem.",
+      "Published-source searches cannot establish historical priority; independent mathematical audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the synchronized r-1 block-parity-equality Euclidean projection theorem. Its groups impose coordinate ordering, whereas the parity restriction is one total even parity.",
+        "evidence": "arXiv:1803.10561v2 HTML lines 35--47 and 68--113 state its single parity condition and its extended/outer descriptions; lines 173--189 discuss different GTSP constraints.",
+        "identifier_or_url": "https://arxiv.org/html/1803.10561v2",
+        "material_read": "Full HTML Sections 1--4, including definition of ordered even parity polytope, Theorem 1, Lemma 2 and proof; Sections 6--7 on cutting planes and relaxation weakness.",
+        "method": "Primary open-access full-text HTML, mathematical object and theorem implication comparison.",
+        "title": "Parity Polytopes and Binarization",
+        "trigger": "Closest 2018 generalization involving grouped parity polytopes and a verified middle-period first public date."
+      },
+      {
+        "assessment": "NOT_COVERING the claimed exact simultaneous-block codeword-hull Hausdorff formula; addresses projections onto individual parity-check polytopes, not the full joint codeword hull or all cube deep holes.",
+        "evidence": "arXiv:1901.03240 source lines 7--24, 34--65, 190--205, 437--485, 749--780.",
+        "identifier_or_url": "https://arxiv.org/abs/1901.03240",
+        "material_read": "Full available web text of Introduction, Related Work, Section III code LP relaxation, Section IV even/odd single-check parity polytopes, Sections V--VIII recursive projection theorems and Section IX reported comparisons.",
+        "method": "Primary publicly accessible arXiv full text displayed through the source page, with theorem/object-level comparison.",
+        "title": "A Reduced-Complexity Projection Algorithm for ADMM-based LP Decoding",
+        "trigger": "Potentially broader Euclidean parity-polytope projection methods and prior art from 2019."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "b30f6c42-489a-4bc4-9e16-b4ce986404c1",
+  "value": {
+    "rationale": "The parity-lift of the binary repetition code is a canonical simultaneous-check 0/1-polytope. The theorem gives exact Euclidean cube-approximation error for every block-length profile, unique projections of all cube vertices, a complete arithmetic farthest-point classification, a dominant-block localization law, and an exact factor-four asymptotic squared-error gain over independently even-constrained block polytopes. This is a motivated metric comparison of simultaneous versus independent parity constraints, not a tiny isolated parameter computation; it makes no unsupported decoding-performance claim.",
+    "status": "PASS"
+  }
+}
