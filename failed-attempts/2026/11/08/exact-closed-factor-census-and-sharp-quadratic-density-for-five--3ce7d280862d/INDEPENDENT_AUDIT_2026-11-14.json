@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T21:43:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every closed factor of a five-run word can be sorted by number of its constant runs. One-run factors and empty factor contribute 1+max(a,c,e)+max(b,d); two-run factors cannot have borders. Balanced end fragments give three-run terms x+y+z-I*h; four-run mixed borders give z(x+y). Five-run factors close either by a mixed border exactly when b=d and both zero end fragments fit the central zero run, contributing I*x*y, or by a pure-zero border when equal outer fragments exceed the middle zero run. The elementary identities reduce the sum to n+1+z(x+y)+I(xy-min(x,y)), with x=min(a,c), y=min(c,e), z=min(b,d). Since n>=1.5(x+y)+2z and xy<=(x+y)^2/4, the quadratic terms are <=n^2/8. Witness lengths (2k,k,2k,k,2k) attain 8k^2+6k+1, padding the last zero-run extends to every large n. The exact formula was algebraically reduced to the October 25 formula and tested on 243 tuples; finite checks are not universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oct25 theorem contains exact all-five-exponent formula and max asymptotic n^2/8+O(n), and uniquely characterizes near-extremal limiting run proportions.",
+          "Nov8 formulation states only exact count and limit 1/8, and does not claim near-extremizer rigidity."
+        ],
+        "reasoning": "Oct25 strictly dominates the current theorem under the empty-factor conversion; general Parshina/Puzynina n²/6 is not the decisive coverage.",
+        "searches": [
+          "Resultary semantic query: distinct closed factors five run binary word exact count maximal quadratic density",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-closed-factor-spectrum-and-sharp-density-for-five-run-binary-wor--26670ba71617",
+          "arxiv:2111.00863"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-closed-factor-spectrum-and-sharp-density-for-five-run-binary-wor--26670ba71617",
+        "https://arxiv.org/pdf/1305.6395",
+        "https://arxiv.org/pdf/2111.00863",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-closed-factor-census-and-sharp-quadratic-density-for-five--3ce7d280862d/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Oct25 exact formula implies Nov8 exact formula by +1 empty factor and two identities.",
+          "Oct25 sharp asymptotic and rigidity imply Nov8 sharp 1/8 limit."
+        ],
+        "reasoning": "The entire later claim is a corollary under a counting convention; new verification scripts or an alternate proof do not confer originality.",
+        "searches": [
+          "Resultary semantic query: distinct closed factors five run binary word exact count maximal quadratic density",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-closed-factor-spectrum-and-sharp-density-for-five-run-binary-wor--26670ba71617"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oct25: C_+=h+j+x+y-I*z+t+t(x+y)+I*x*y+r; h=max(a,c,e),j=max(b,d),x=min(a,c),y=min(c,e),z=min(a,c,e),t=min(b,d),r=max(0,min(a,e)-c),I=[b=d].",
+          "Identities h+x+y+r=a+c+e, j+t=b+d, z=min(x,y) yield C_++1=n+1+t(x+y)+I(xy-min(x,y))."
+        ],
+        "reasoning": "These are identical statements after choosing whether the empty word counts, not two separate theorems; algebra holds for every positive exponent tuple and was independently checked on 243 tuples.",
+        "searches": [
+          "Resultary semantic query: distinct closed factors five run binary word exact count maximal quadratic density",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-closed-factor-spectrum-and-sharp-density-for-five-run-binary-wor--26670ba71617"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The older result is a symbolic theorem for every positive (a,b,c,d,e), not a finite table.",
+          "It also verifies the exact witness count 8k²+6k without empty and sharp coefficient 1/8."
+        ],
+        "reasoning": "This is direct theorem coverage, stronger than a known table; no exact new invariant remains.",
+        "searches": [
+          "Resultary semantic query: distinct closed factors five run binary word exact count maximal quadratic density",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-closed-factor-spectrum-and-sharp-density-for-five-run-binary-wor--26670ba71617"
+        ]
+      },
+      "rationale": "DEFINITIVE prior coverage: the October 25 published closed-factor spectrum theorem gives the entire same arbitrary-five-positive-run exact count of nonempty closed factors. Add one for the current empty-factor convention and simplify the October 25 elementary run identities to obtain precisely the November 8 boxed formula; prior work also proves the same 1/8 asymptotic plus a stronger extremizer rigidity theorem.",
+      "residual_risks": [
+        "None material for equivalence; Oct25 original publication predates Nov8 and the formulas are identically equal."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FULL COVERAGE, unequivocal",
+          "evidence": "Oct25 C_+ equals Nov8 C-1 identically; Oct25 includes stronger eventual equality b=d and limiting proportions (1/4,1/8,1/4,1/8,1/4).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-closed-factor-spectrum-and-sharp-density-for-five-run-binary-wor--26670ba71617",
+          "material_read": "Entire older RESULT.md at pinned Git commit, including boxed formula, complete run-classification proof, density optimization and rigidity conclusion",
+          "method": "GitHub connector read of full primary mathematical source, blob cb477067578362f033b40e5e843ba099296a43a2",
+          "title": "Closed-factor spectrum and sharp density for five-run binary words",
+          "trigger": "Nearly identical earlier title and exact five-run domain"
+        },
+        {
+          "assessment": "GLOBAL upper bound is different; not decisive compared with earlier exact five-run theorem",
+          "evidence": "Unrestricted n²/6 > restricted n²/8, does not by itself determine restriction.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.00863",
+          "material_read": "Primary PDF p3 Example 1 and general main theorem",
+          "method": "arXiv PDF, textual reading and screenshot",
+          "title": "Finite and infinite closed-rich words",
+          "trigger": "Unrestricted leading constant comparator"
+        },
+        {
+          "assessment": "Background; not needed to establish decisive October 25 duplicate",
+          "evidence": "Known quadratic lower construction, not symbolic five-run formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/1305.6395",
+          "material_read": "Primary PDF relevant full sections and Theorem 25 p8",
+          "method": "arXiv PDF textual reading and screenshot",
+          "title": "On the Number of Closed Factors in a Word",
+          "trigger": "Historic constructions and low-run cases"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: The older October 25 result already provides the same entire exact five-parameter count (up to including the empty factor), the same optimal coefficient 1/8, and a strictly stronger rigidity description of extremizers. The November formulation supplies no independently motivated new invariant, boundary, or genuinely new mathematical assertion.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-closed-factor-spectrum-and-sharp-density-for-five-run-binary-wor--26670ba71617",
+    "https://arxiv.org/pdf/1305.6395",
+    "https://arxiv.org/pdf/2111.00863",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-closed-factor-census-and-sharp-quadratic-density-for-five--3ce7d280862d/RESULT.md"
+  ],
+  "disposition": "failed",
+  "final_claim": "For every five-run binary word 0^a1^b0^c1^d0^e, gives closed factor count including empty n+1+min(b,d)*(min(a,c)+min(c,e))+[b=d]*(min(a,c)*min(c,e)-min(a,c,e)), and sharp restricted leading coefficient 1/8.",
+  "limitations": [
+    "All 1..5 record Git trees were independently reconstructed from every pinned source blob SHA and matched the assignment source-tree SHA.",
+    "No GitHub writes or public deployment occurred; independent scientific status is a private review, not a formally verified proof or publication.",
+    "The complete scientific interpretation is restricted to the exact hypotheses stated in this record.",
+    "Definitive earlier mathematically identical Oct25 publication fully read; Nov8 count includes empty while older one excludes it; older rigidity statement strictly stronger."
+  ],
+  "residual_risks": [
+    "None material for equivalence; Oct25 original publication predates Nov8 and the formulas are identically equal."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "FULL COVERAGE, unequivocal",
+      "evidence": "Oct25 C_+ equals Nov8 C-1 identically; Oct25 includes stronger eventual equality b=d and limiting proportions (1/4,1/8,1/4,1/8,1/4).",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-closed-factor-spectrum-and-sharp-density-for-five-run-binary-wor--26670ba71617",
+      "material_read": "Entire older RESULT.md at pinned Git commit, including boxed formula, complete run-classification proof, density optimization and rigidity conclusion",
+      "method": "GitHub connector read of full primary mathematical source, blob cb477067578362f033b40e5e843ba099296a43a2",
+      "title": "Closed-factor spectrum and sharp density for five-run binary words",
+      "trigger": "Nearly identical earlier title and exact five-run domain"
+    },
+    {
+      "assessment": "GLOBAL upper bound is different; not decisive compared with earlier exact five-run theorem",
+      "evidence": "Unrestricted n²/6 > restricted n²/8, does not by itself determine restriction.",
+      "identifier_or_url": "https://arxiv.org/pdf/2111.00863",
+      "material_read": "Primary PDF p3 Example 1 and general main theorem",
+      "method": "arXiv PDF, textual reading and screenshot",
+      "title": "Finite and infinite closed-rich words",
+      "trigger": "Unrestricted leading constant comparator"
+    },
+    {
+      "assessment": "Background; not needed to establish decisive October 25 duplicate",
+      "evidence": "Known quadratic lower construction, not symbolic five-run formula.",
+      "identifier_or_url": "https://arxiv.org/pdf/1305.6395",
+      "material_read": "Primary PDF relevant full sections and Theorem 25 p8",
+      "method": "arXiv PDF textual reading and screenshot",
+      "title": "On the Number of Closed Factors in a Word",
+      "trigger": "Historic constructions and low-run cases"
+    }
+  ]
+}
