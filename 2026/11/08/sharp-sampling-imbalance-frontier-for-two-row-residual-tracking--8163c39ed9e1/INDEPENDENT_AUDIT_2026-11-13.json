@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T02:07:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Centering primal and two memory-table errors gives the two explicit 3×3 random update matrices T1,T2. The exact 6×6 symmetric covariance lift L=p T1⊗sym T1+(1−p)T2⊗sym T2 has det(I−L)=−4α F_{p(1−p)}(α), verified by independent symbolic algebra. At α=0, characteristic polynomial λ(λ−1)(λ−p)²(λ−q)² with simple unit root departing at slope −4; cone positivity prevents an earlier unit-radius crossing without an eigenvalue +1. Unique positive root F=0 is exact robust mean-square iff boundary, including deterministic-start witness by rank-one decomposition. dF/du<0 makes p=1/2 unique maximizer α*=1/√3; α*~min(p,1−p). Signed mean obeys factor 1−2α and can contract beyond mean-square stability. Independent roots at p=.1,.25,.4,.5 and eigenvalue crossings corroborate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The published rank-one m-identical-row result assumes uniform sampling and recovers only the p=1/2 point, not the nonuniform p-dependent frontier.",
+          "General SAGA sampling papers provide sufficient regions rather than exact sharp iff in this specialized model."
+        ],
+        "reasoning": "Broader m for uniform sampling does not dominate the claimed nonuniform two-row parameter curve.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-mean-square-stability-frontier-for-rank-one-residual-track--aa3a11255837",
+          "https://arxiv.org/abs/1902.00071"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.39537v1",
+        "https://arxiv.org/abs/1902.00071",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-mean-square-stability-frontier-for-rank-one-residual-track--aa3a11255837",
+        "Git blob RESULT 0d1a5898d0dbe6c6e2b55f0f3daeeaa2553f69b9; verifier f26c5441735cf62dc7c6ac4ab1eb776cbaf2a3ec"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Xie–Qi–Han, Algorithm 1, Theorem 3.2 and Remark 3.3 yield sufficient conditions and a uniform two-row illustrative step 1/12.",
+          "Prior uniform identical-row exact boundary gives 1/√3 only at p=q."
+        ],
+        "reasoning": "Neither supplies F_u for unequal sampling or proves that balance uniquely maximizes it under the robust covariance criterion.",
+        "searches": [
+          "https://arxiv.org/html/2610.39537v1",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-mean-square-stability-frontier-for-rank-one-residual-track--aa3a11255837"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same algorithm is equivalent to a JacSketch/SAGA variant; usual convergence rate and recommended stable steps are sufficient conditions."
+        ],
+        "reasoning": "An arbitrary-sampling algorithmic equivalence does not imply an exact necessary-and-sufficient covariance-spectral cubic on two identical rows.",
+        "searches": [
+          "Resultary: sharp mean-square stability frontier rank-one residual-tracking Kaczmarz uniform singleton",
+          "https://arxiv.org/html/2610.39537v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No prior exact cubic table or classification located for unequal p; finite numerical roots in the submission are not a proof."
+        ],
+        "reasoning": "The symbolic determinant and all-p cone argument establish the full continuum, beyond tabulation.",
+        "searches": [
+          "Resultary: two row residual tracking unequal probability cubic F_u stability",
+          "JacSketch SAGA exact sampling imbalance p q stability table"
+        ]
+      },
+      "rationale": "A precise sharp sampling imbalance stability classification of a named variance-reduced algorithm uncovers a meaningful stability versus signed-mean gap.",
+      "residual_risks": [
+        "Specialist SAGA spectral calculations might contain an equivalent p-dependent formula.",
+        "Necessity is robust across all consistent stored-residual initial states, not each prescribed zero-init trajectory."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE algorithm definition and sufficient step",
+          "evidence": "Theorem 3.2 is sufficient, not necessary; Remark 3.3 is a uniform example.",
+          "identifier_or_url": "https://arxiv.org/html/2610.39537v1",
+          "material_read": "Original full HTML Algorithm 1, Theorem 3.2, Proposition 3.4 and Remark 3.3",
+          "method": "Original arXiv full-text HTML read",
+          "title": "Efficient variance reduction for randomized Kaczmarz methods via residual-tracking control variates",
+          "trigger": "Exactly the VRRK-AS stochastic state update"
+        },
+        {
+          "assessment": "COVERS_UNIFORM_SPECIAL_CASE only",
+          "evidence": "Exact m=2 uniform α*=1/√3; nonuniform p not claimed.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-mean-square-stability-frontier-for-rank-one-residual-track--aa3a11255837",
+          "material_read": "Published statement and uniform m-row formula",
+          "method": "Resultary corpus read",
+          "title": "Sharp mean-square stability frontier for rank-one residual-tracking Kaczmarz",
+          "trigger": "Same model uniform sampling special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact necessary-and-sufficient step-size threshold in terms of nonuniform row sampling is useful algorithm-design information beyond textbook sufficient bounds, with sharp balance optimum and rare-row degeneracy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specialist SAGA spectral calculations might contain an equivalent p-dependent formula.",
+    "Necessity is robust across all consistent stored-residual initial states, not each prescribed zero-init trajectory."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The standalone `verify.py` reconstructs the exact state and covariance dynamics for the claimed two-row method. A successful run reports `VERIFY_OK symbolic covariance determinant, six eigenvalues at zero, derivative, 45 rational one-step tests, and sample crossing checks`.
+# Independent mathematical audit
 
-The determinant identity and zero-step characteristic polynomial are symbolic rational-function checks. The one-step tests compare the covariance-map lift with direct averaging over both possible updates at rational parameter values. Four numerical spectral-crossing checks probe representative cases; they are not a proof for all probabilities or time steps.
+## correctness
 
-The proof of necessity uses the positivity of the covariance map on the positive-semidefinite cone and finite-rank covariance decompositions; the exact cubic monotonicity and the mean-error identity are analytic. No external or independent mathematical audit has been conducted. The historical originality comparison remains qualified by possible inaccessible or unindexed exact analyses of nonuniform two-component SAGA.
+PASS
+
+Centering primal and two memory-table errors gives the two explicit 3×3 random update matrices T1,T2. The exact 6×6 symmetric covariance lift L=p T1⊗sym T1+(1−p)T2⊗sym T2 has det(I−L)=−4α F_{p(1−p)}(α), verified by independent symbolic algebra. At α=0, characteristic polynomial λ(λ−1)(λ−p)²(λ−q)² with simple unit root departing at slope −4; cone positivity prevents an earlier unit-radius crossing without an eigenvalue +1. Unique positive root F=0 is exact robust mean-square iff boundary, including deterministic-start witness by rank-one decomposition. dF/du<0 makes p=1/2 unique maximizer α*=1/√3; α*~min(p,1−p). Signed mean obeys factor 1−2α and can contract beyond mean-square stability. Independent roots at p=.1,.25,.4,.5 and eigenvalue crossings corroborate.
+
+## originality
+
+PASS
+
+A precise sharp sampling imbalance stability classification of a named variance-reduced algorithm uncovers a meaningful stability versus signed-mean gap.
+
+## value
+
+PASS
+
+An exact necessary-and-sufficient step-size threshold in terms of nonuniform row sampling is useful algorithm-design information beyond textbook sufficient bounds, with sharp balance optimum and rare-row degeneracy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

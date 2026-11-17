@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof starts from the actual residual-tracking algorithm, not a substituted SAGA convention, and keeps the source's unnormalized gradient step. The centered error and memory variables obey the two explicitly displayed state matrices. Their exact covariance lift preserves the positive-semidefinite cone; an independently reconstructed symbolic determinant and zero-step spectrum give a single positive stability crossing. Cone Perron theory, the determinant sign, and the simple small-step eigenvalue justify both sides of the iff. The derivative of the cubic with respect to \(u=p(1-p)\) rigorously establishes the unique optimal sampling. The shipped verifier checks exact algebra and rational cases, but finite numeric tests are not treated as a global proof.
+## correctness
 
-**Originality — PASS, with historical-priority risk.** The 2026 source supplies an arbitrary-sampling sufficient bound and the precise VRRK-AS/SAGA equivalence, not the necessary-and-sufficient sampling-imbalance frontier. General SAGA literature supplies upper-step recommendations and analysis for other update-frequency models. A previously established uniform two-row theorem covers exactly the balanced specialization \(p=1/2\), which is expressly excluded as a new independent contribution; it does not imply the nonuniform cubic, its strict root monotonicity, or the rare-row asymptotic. Targeted semantic searches found neighboring but noncovering algorithms. An unidentified exact two-component SAGA covariance analysis remains possible.
+PASS
 
-**Value — PASS.** Arbitrary importance-sampling probabilities are a deliberate design feature of VRRK-AS. This exact two-row test isolates a cost of biased sampling that cannot be attributed to matrix conditioning: the rank-one row geometry is identical, yet the robust admissible step shrinks from \(1/\sqrt3\) to asymptotically the rare-row probability. It also separates stable signed means from failing second moments and supplies a sharp design limit. The theorem is naturally bounded to identical two-row systems and is not presented as an optimality result for general least squares.
+Centering primal and two memory-table errors gives the two explicit 3×3 random update matrices T1,T2. The exact 6×6 symmetric covariance lift L=p T1⊗sym T1+(1−p)T2⊗sym T2 has det(I−L)=−4α F_{p(1−p)}(α), verified by independent symbolic algebra. At α=0, characteristic polynomial λ(λ−1)(λ−p)²(λ−q)² with simple unit root departing at slope −4; cone positivity prevents an earlier unit-radius crossing without an eigenvalue +1. Unique positive root F=0 is exact robust mean-square iff boundary, including deterministic-start witness by rank-one decomposition. dF/du<0 makes p=1/2 unique maximizer α*=1/√3; α*~min(p,1−p). Signed mean obeys factor 1−2α and can contract beyond mean-square stability. Independent roots at p=.1,.25,.4,.5 and eigenvalue crossings corroborate.
 
-The literature comparison is qualified by possible unindexed exact-specialization work, and the result is not independently validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A precise sharp sampling imbalance stability classification of a named variance-reduced algorithm uncovers a meaningful stability versus signed-mean gap.
+
+## value
+
+PASS
+
+An exact necessary-and-sufficient step-size threshold in terms of nonuniform row sampling is useful algorithm-design information beyond textbook sufficient bounds, with sharp balance optimum and rare-row degeneracy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
