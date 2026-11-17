@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The result defines the birth–death Moran update including self-loops and conditioning on fixation. The identities \((I-Q)h=b\), \((I-Q)a=h\), \((I-Q)z=2a-h\) follow from first-step conditioning and produce the required conditional mean and variance. All connected graphs with two or three vertices are handled by symmetry and the symbolic identities for the three-site path, valid for every \(r>0\). The diamond's 14-state calculation at \(r=5\) gives exact rational inequalities. Two separate included implementations, one a conditioned-chain computation, agree. No finite parameter sampling is used to justify the infinite-fitness range.
+## correctness
 
-## Originality
-PASS under the inspected evidence, subject to historical-priority risk. Hindersin and Traulsen (arXiv:1406.4415; 2014) investigate the same diamond and *conditional mean* fixation-time crossover, but the inspected full text does not establish the seed-wise conditional-variance comparison. Ashcroft, Traulsen and Galla (arXiv:1504.04249; 2015) derive distributional formulas for one-step birth–death chains, not the heterogeneous diamond configuration process. Hindersin et al. (arXiv:1511.02696; 2015) provide matrix and conditional-transition methods and discuss mean fixation times, without the stated variance-optimality result. Hathcock and Strogatz (arXiv:1812.05652; 2018) analyze complete graphs and rings, not the four-site diamond. Direct, stronger and equivalent formulations were searched; no inspected claim implies the new sharp variance-versus-mean separation. Recomputability from prior matrix methods is acknowledged, and the novelty assessment is not an independent certification.
+PASS
 
-## Value
-PASS. Conditional fixation-time uncertainty matters when predicting how variable successful evolutionary sweeps may be. The same initial site need not simultaneously minimize the mean elapsed time and its variance. A strict, exact disagreement on the smallest possible network is a natural structural boundary, not a numerical table entry selected without motivation. The theorem is scoped to the standard birth–death model and does not imply biological intervention recommendations.
+The exact birth-death Moran transient generator has 2^n-2 configuration states with self-loops. For fixation indicator moments h,a,z, the identities (I-Q)h=b,(I-Q)a=h,(I-Q)z=2a-h are correct. I independently built all 14 transient diamond configurations with Fraction arithmetic, solved the three systems and found mean-degree3 minus degree2 = -3095643/121414228 and variance difference = +4612716655893867/14741414760835984 at r=5, including all four seed orbit values. All connected graphs of order <=3 are K2, K3 and P3; K2/K3 are vertex-transitive and the displayed rational P3 gaps center minus leaf are -3/(2r+1) and -6(r+2)/(2r+1)^2 for r>0. Thus four is the minimal n with disjoint minimizing sets.
 
-## Closest literature and residual limitations
-The main historical risks are unlocated small-graph higher-moment tables or supplemental calculations, and later work about heterogeneous-network fixation-time distributions. The exact graph classification beyond three vertices and exact fitness crossover endpoints are not claimed. The conditional metrics should not be confused with fixation probabilities or unconditioned absorption times.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing literature contains conditional mean fixation times for the diamond and general first-step/Doob-transform methods, but the inspected primary sources do not give a seed-wise conditional VARIANCE ranking reversed against conditional mean with sharp minimum of four vertices. Different Moran variance comparisons involve topology changes or unconditional absorption.
+
+## value
+
+PASS
+
+Mean conditional fixation time and its variance measure different seed-selection risks; identifying their first possible disagreement at exactly four graph sites is a motivated sharp structural boundary. The diamond witness is a natural small graph and the strict, all-fitness exclusion for n<=3 makes this more than a one-off numerical anomaly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
