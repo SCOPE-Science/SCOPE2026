@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T02:17:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact star generator from inspected RESULT.md has leaf rates (n-k)(a+hz), k(a+h(1-z)), hub rates a+hk/n and a+h(1-k/n). Scaling by lambda=2a+h produces the two deterministic velocities -y,1-y and state-dependent switching rates alpha+beta*y, alpha+beta*(1-y), where 2alpha+beta=1; zero-flux transport equations give density proportional y^(alpha-1)(1-y)^(alpha-1) and P(H=1|y)=y. Pair-spin generator closes A_n,C_n and yields the stated rational variance with h²/[4(8a(a+h)+h²)] positive limit. Direct independent algebra matches all finite formulas and the earlier theorem; no extrapolation of finite cases is used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nov 8 full prior result adds a disconnected support gap for degree-weighted opinion density and derives the same finite leaf-variance formula.",
+          "Oct 26 full prior result includes exact stationary hub-leaf and distinct-leaf correlations for every n>=2."
+        ],
+        "reasoning": "Published earlier results have the same model and at least as much information: exact conditional hub law and covariance imply all current finite variance conclusions.",
+        "searches": [
+          "Resultary: noisy voter stationary distribution growing star network hub leaf fraction affine Beta law exact variance two-state piecewise deterministic",
+          "Resultary 2026/11/8 SCOPE-a-non-self-averaging-beta-limit-and-a-persistent-density-gap-for--2e437c797ab7"
+        ]
+      },
+      "checked_sources": [
+        "Resultary 2026-10-26 Beta star RESULT full text",
+        "Resultary 2026-11-08 non-self-averaging Beta full text",
+        "assigned RESULT.md and verify_noisy_star.py full text",
+        "arxiv:1408.5122 Cox–Peres–Steif (background star mixing)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior theorem is explicitly for a star with total copy rate one and independent flip at a_old>0; current generator is its time-rescaling by copy rate h>0.",
+          "Earlier exact joint law and all n>=2 covariance identities imply both submitted boxes by elementary transforms."
+        ],
+        "reasoning": "The earlier paper proves every main assertion of the submitted final claim, even though terminology and normalization differ.",
+        "searches": [
+          "Resultary: noisy voter stationary distribution growing star network hub leaf fraction affine Beta law exact variance two-state piecewise deterministic",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-beta-law-and-persistent-collective-fluctuations-for-noisy-voti--4aaf70898e7d/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oct 26 theorem: b=1+2a_old, nu=(b²-1)/(2b²), (1+bX_spin)/2 is Beta(nu,nu), hub conditional law (1+bX_spin)/2.",
+          "Nov 8 submitted alpha=2a(a+h)/(2a+h)²; setting a_old=a/h gives alpha=nu."
+        ],
+        "reasoning": "Rescaling physical time by h, using X_spin=2F-1 and Y=(lambda F-a)/h converts the entire earlier statement to the submitted claim, not merely a matching parameter.",
+        "searches": [
+          "Resultary: noisy voter stationary distribution growing star network hub leaf fraction affine Beta law exact variance two-state piecewise deterministic",
+          "Resultary 2026/10/26 SCOPE-a-beta-law-and-persistent-collective-fluctuations-for-noisy-voti--4aaf70898e7d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier RESULT.md explicitly gives v=(n+1)/(n(2b²-1)+1) for distinct-leaf spin correlation and Var(X_spin)=[1+(n-1)v]/n."
+        ],
+        "reasoning": "This exact finite-size formula converts algebraically into the submitted Var(F_n); not just a numerical match or a negative search.",
+        "searches": [
+          "Resultary: noisy voter stationary distribution growing star network hub leaf fraction affine Beta law exact variance two-state piecewise deterministic",
+          "Resultary 2026/10/26 SCOPE-a-beta-law-and-persistent-collective-fluctuations-for-noisy-voti--4aaf70898e7d"
+        ]
+      },
+      "rationale": "Definitively covered by previously public Oct 26, 2026 full mathematical theorem about the same noisy voter model on stars at flip rate a_old=a/h and copy rate 1; a constant time rescaling does not alter the stationary law. Its b=1+2a_old=lambda/h and nu=(b²-1)/(2b²) equal current alpha; the prior Beta variable (1+b X_spin)/2 equals current Y=(lambda F-a)/h; conditional hub law and exact finite hub/leaf covariances and leaf variance coincide. The November 8 stronger density-gap theorem independently covers the joint limit and finite variance under binary reset q=2a/h. No independent theorem remains.",
+      "residual_risks": [
+        "No scientific correctness defect detected; rejection solely for decisive earlier coverage.",
+        "Neither reparameterization nor extra numerical tests constitutes a new theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING",
+          "evidence": "Theorem states Beta(nu,nu) transformed spin mean, conditional hub and exact finite correlations; all transform to submitted formulas.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-beta-law-and-persistent-collective-fluctuations-for-noisy-voti--4aaf70898e7d/RESULT.md",
+          "material_read": "Full Finding, Assumptions, complete four-step proof, finite variance and references",
+          "method": "Complete GitHub source file at Resultary/2026",
+          "title": "A beta law and persistent collective fluctuations for noisy voting on growing stars",
+          "trigger": "Same star, Beta stationary law, exact correlations; public October 26 predates submission"
+        },
+        {
+          "assessment": "COVERING",
+          "evidence": "At reset q=2a/h it identifies same joint Beta, conditional hub and finite leaf variance, additionally weighted-density gap.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-a-non-self-averaging-beta-limit-and-a-persistent-density-gap-for--2e437c797ab7/RESULT.md",
+          "material_read": "Full Finding, assumptions, five proof steps, finite covariance and source discussion",
+          "method": "Complete GitHub source file at Resultary/2026",
+          "title": "A non-self-averaging Beta limit and a persistent density gap for the noisy voter model on stars",
+          "trigger": "Another nearly identical same-day claimed model, includes stronger weighted gap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A growing-star fixed-noise Beta stationary law is a worthwhile phenomenon, but the exact same joint law and all finite second moments were already proved; recomputing them under an equivalent rate convention is renaming, not an independently useful new fact. Correctness and reproducibility do not rescue the duplicate.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Resultary 2026-10-26 Beta star RESULT full text",
+    "Resultary 2026-11-08 non-self-averaging Beta full text",
+    "assigned RESULT.md and verify_noisy_star.py full text",
+    "arxiv:1408.5122 Cox–Peres–Steif (background star mixing)"
+  ],
+  "disposition": "failed",
+  "final_claim": "At fixed positive flip/copy rates a,h on K_{1,n}, the stationary hub and unweighted leaf fraction converge to an affine Beta(alpha,alpha) joint law with conditional hub Bernoulli(Y), and the finite-n leaf variance has an explicit rational formula.",
+  "limitations": "Fixed positive a,h, n→infinity, star topology only; no vanishing-noise scaling, convergence rate, or general-graph claim.",
+  "residual_risks": [
+    "No scientific correctness defect detected; rejection solely for decisive earlier coverage.",
+    "Neither reparameterization nor extra numerical tests constitutes a new theorem."
+  ],
+  "schema_version": 1
+}
