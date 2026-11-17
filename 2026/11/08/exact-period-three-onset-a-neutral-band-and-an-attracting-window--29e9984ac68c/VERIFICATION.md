@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The exact piecewise formulas and four-branch period-three enumeration are proved in RESULT.md. For executable spot checks, run `python3 check_period_three.py` with standard Python 3. The checker independently searches every 3-step branch itinerary on a finite family of rational parameters and confirms the neutral-family algebra on finite sample values. It is neither exhaustive over real parameters nor an independent audit. At the critical algebraic parameter, the exact identity follows from the equation \(t_0^2(4-t_0)=3\), not the numerical tolerance checks. Stability at the nonsmooth branch collision and global entropy values remain unasserted.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+The four affine map branches have slopes t,(4-t)/3,-(4-t)/3,-t at x=1/4,1/2,3/4. For t<=3 an invariant decreasing interval excludes odd prime cycles; for t>3, strict unimodality orders any prime-three orbit as a<b<c with a=b/t<1/4 and c=1-b/t²>3/4, reducing b to exhaustive four branch intervals. Solving the four affine equations gives zero cycles below t0=(3+sqrt21)/2, a full neutral interval at equality, exactly two above t0 and distinct stability change at t1 solving t²(4-t)=1. Products of branch slopes give t³, -t²(4-t)/3, -t³ as appropriate. Independent rational affine-itinerary enumeration over 64 branch triples at t=3.7, 3.79, 3.8, 3.9, 3.936, 3.99 confirms counts 0,0,2,2,2,2. Boundary slope interpretation is carefully excluded at the t1 nonsmooth point.
+
+## originality
+
+PASS
+
+Complete algebraic least-period-three classification for the exact natural s=1,p=1/4 slice, including neutral continuum and two distinct border transitions, exceeds qualitative/numerical entropy analysis for the same parent map. Other published period-three systems are not the same dynamics.
+
+## value
+
+PASS
+
+A complete primitive-period-three orbit and stability phase diagram for a specified nonlinear piecewise-linear composite resolves a natural bifurcation boundary, including an unusual continuum of neutral cycles and a separate attracting-window cutoff. This is substantive, not just a numerical crossing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
