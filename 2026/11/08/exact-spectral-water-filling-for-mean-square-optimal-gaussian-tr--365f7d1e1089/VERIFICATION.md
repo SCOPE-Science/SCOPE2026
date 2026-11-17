@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-For a real symmetric positive semidefinite matrix, eigenvalues sorted in descending order, integers \(1\le r<n\) and \(m\ge1\), the complete proof and exact target risk are in `RESULT.md`. The test script `check.py` uses Python 3, NumPy and SciPy. Execute `python3 check.py` from the extracted package directory.
+## correctness
 
-The script evaluates the clipped scalar equation over 5,040 synthetic spectra/ranks/probe counts, checks feasibility, spectral ordering and stationarity, and compares with a separate constrained numerical minimizer. It then checks the exact three-dimensional rotated compression, exact rational mean-square errors and 20 rank-one cases, for 5,060 reported checks. It does not rely on Monte Carlo samples.
+PASS
 
-The nonstandard bridge between eigenvalue intervals and an *attainable real orthogonal compression* is the classical Fan–Pall converse (references in `RESULT.md`). Finite calculations are consistency checks, not certification of its general theorem, and cannot establish historical priority. The result covers no stochastic adaptivity, no optimization over subspace-learning cost, and no noise distributions other than standard real Gaussian probes.
+For PSD A with real Gaussian probes, exact MSE is (T-sum_i mu_i)^2+(2/m)sum_i mu_i^2, with real compressions characterized precisely by Cauchy/Fan–Pall intervals lambda_(i+n-r)<=mu_i<=lambda_i plus descending order. Strictly convex optimization on the larger product box gives mu_i=clip(tau,I_i) with unique positive root sum clip(tau,I_i)+2tau/m=T. Monotone interval endpoints preserve descending order, so Fan–Pall ensures real attainability. Corner KKT gives the top-space criterion. Explicit A=diag(10,2,0),r=2,m=3 has optimum mu=(6,2), MSE=128/3 vs principal 208/3; independently recomputed.
+
+## originality
+
+PASS
+
+Classical Gaussian variance, Fan–Pall interlacing, Hutch++, and fixed-basis truncated infHutch supply ingredients; no inspected accessible theorem solves the exact deterministic rank-r oracle subspace MSE minimization with unique clipped Ritz spectrum and sharp top-subspace boundary. The most plausible 2026 primary source was inaccessible; originality explicitly qualified rather than incorrectly failed.
+
+## value
+
+PASS
+
+The optimum gives a sharp benchmark for bias–variance subspace selection and a concrete failure of the naive rule to retain top eigenvectors, even for rank<=r. Precisely quantifies when deliberate projection bias is beneficial; relevant independent finite-dimensional design fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

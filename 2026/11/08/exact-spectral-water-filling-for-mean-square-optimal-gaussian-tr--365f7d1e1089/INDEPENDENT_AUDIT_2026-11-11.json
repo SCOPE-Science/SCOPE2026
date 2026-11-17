@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T09:18:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For PSD A with real Gaussian probes, exact MSE is (T-sum_i mu_i)^2+(2/m)sum_i mu_i^2, with real compressions characterized precisely by Cauchy/Fan–Pall intervals lambda_(i+n-r)<=mu_i<=lambda_i plus descending order. Strictly convex optimization on the larger product box gives mu_i=clip(tau,I_i) with unique positive root sum clip(tau,I_i)+2tau/m=T. Monotone interval endpoints preserve descending order, so Fan–Pall ensures real attainability. Corner KKT gives the top-space criterion. Explicit A=diag(10,2,0),r=2,m=3 has optimum mu=(6,2), MSE=128/3 vs principal 208/3; independently recomputed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "truncated infHutch introduced for finite subspaces and trace-class analysis; Hutch++ estimates complementary residual and corrects retained trace"
+        ],
+        "reasoning": "The target is biased uncorrected Gaussian sampling inside the selected space, unlike complementary deflation; no broader theorem proven to imply this global optimum. Full 2026 source inaccessible.",
+        "searches": [
+          "arXiv:2608.28135",
+          "arXiv:2010.09649",
+          "Resultary:Gaussian trace estimator optimal rank r sampling subspace deterministic subspace bias variance minimax Fan Pall compressed trace water filling"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.28135",
+        "https://arxiv.org/abs/1203.3908",
+        "https://arxiv.org/abs/2010.09649",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-spectral-water-filling-for-mean-square-optimal-gaussian-tr--365f7d1e1089",
+        "Frozen Git RESULT.md at assigned tree: 2026/11/08/exact-spectral-water-filling-for-mean-square-optimal-gaussian-tr--365f7d1e1089"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical theorem determines interlacing-allowed compressed spectra; Gaussian probe moment yields the objective but not its KKT solution or top-space threshold"
+        ],
+        "reasoning": "One can prove the optimizer by combining standard ingredients with a nontrivial all-rank optimization, but the accessed earlier claims do not state it. Retain risk of a hidden exact optimization in inaccessible text.",
+        "searches": [
+          "arXiv:2608.28135 abstract",
+          "Fan–Pall 1957; arXiv:1203.3908",
+          "arXiv:2010.09649"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaussian stochastic trace estimation after projection; optimization on real compressions via Fan–Pall matrix-compression geometry"
+        ],
+        "reasoning": "Fan–Pall supplies feasible eigenvalue region but no risk minimizer; finite-variance stochastic projections differ from deterministic compressed trace.",
+        "searches": [
+          "Resultary:Gaussian trace estimator optimal rank r sampling subspace deterministic subspace bias variance minimax Fan Pall compressed trace water filling",
+          "arXiv:2608.28135",
+          "arXiv:1203.3908"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "no earlier exact clipping threshold or all-rank Ritz optimum table surfaced among ranked trace-estimator results"
+        ],
+        "reasoning": "Exact solution varies continuously with arbitrary PSD eigenvalues; finite examples are not full exact classification.",
+        "searches": [
+          "Resultary:Gaussian trace estimator optimal rank r sampling subspace deterministic subspace bias variance minimax Fan Pall compressed trace water filling"
+        ]
+      },
+      "rationale": "Classical Gaussian variance, Fan–Pall interlacing, Hutch++, and fixed-basis truncated infHutch supply ingredients; no inspected accessible theorem solves the exact deterministic rank-r oracle subspace MSE minimization with unique clipped Ritz spectrum and sharp top-subspace boundary. The most plausible 2026 primary source was inaccessible; originality explicitly qualified rather than incorrectly failed.",
+      "residual_risks": [
+        "Bujanović et al. 2026 full PDF/HTML unavailable; authorized Oxford access returned vpn_disconnected, so no whole-document NOT_COVERING claim is made.",
+        "Unindexed oracle subspace selection/bias–variance design result may coincide mathematically; the optimum is not an efficiently learnable matrix-free subspace."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT; accessible abstract emphasizes convergence of truncated infHutch++ and fixed sampling, not global r-subspace MSE optimization; cannot assert entire text is noncovering",
+          "evidence": "2026-08-28 Bujanović–Grubišić–Kressner–Olić abstract: trace-class estimators, finite-dimensional truncated implementations and convergence",
+          "identifier_or_url": "https://arxiv.org/abs/2608.28135",
+          "material_read": "full arXiv abstract and bibliographic data only; PDF/HTML inaccessible; authorized institutional request blocked by disconnected VPN",
+          "method": "arXiv search, attempted HTML/PDF and authorized paper retrieval",
+          "title": "Stochastic trace estimation for positive trace-class operators",
+          "trigger": "same Gaussian truncated trace estimator family"
+        },
+        {
+          "assessment": "COVERS_CLASSICAL_ATTAINABILITY_ONLY; not a Gaussian trace-risk optimization",
+          "evidence": "Fan–Pall admissible interlacing intervals for Hermitian compressions",
+          "identifier_or_url": "https://arxiv.org/abs/1203.3908",
+          "material_read": "classical theorem identification and preprint record, not complete article",
+          "method": "bibliographic/theorem cross-check",
+          "title": "Normal matrix compressions",
+          "trigger": "Fan–Pall converse required to show Ritz spectra attainable"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The optimum gives a sharp benchmark for bias–variance subspace selection and a concrete failure of the naive rule to retain top eigenvectors, even for rank<=r. Precisely quantifies when deliberate projection bias is beneficial; relevant independent finite-dimensional design fact.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Bujanović et al. 2026 full PDF/HTML unavailable; authorized Oxford access returned vpn_disconnected, so no whole-document NOT_COVERING claim is made.",
+    "Unindexed oracle subspace selection/bias–variance design result may coincide mathematically; the optimum is not an efficiently learnable matrix-free subspace."
+  ],
+  "schema_version": 1
+}
