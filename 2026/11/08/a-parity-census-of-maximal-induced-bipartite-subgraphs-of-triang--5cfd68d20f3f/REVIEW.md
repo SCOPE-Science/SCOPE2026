@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The line-graph equivalence is verified in both directions: the forbidden three-edge star gives a triangle in the line graph and odd base cycles give odd line-graph cycles; maximum base degree two leaves only paths and cycles. Maximality is derived from all possible one-edge additions, and the four permissible types of lone path are handled, including singletons and two-vertex paths. Labeled paths and cycles give exact factorial weights without orientation overcounting. The rational-coefficient recurrence, exceptional small orders, complement duality, and the even-order probability are derived algebraically. Both complete graph-level enumeration through \(n=7\) and independent exact arithmetic through \(n=30\) agree. Finite checks do not replace the proof.
+## correctness
 
-**Originality — PASS, provisionally.** The closest primary work is Goddard–Kuenzel–Melville (2019), which introduced the well-bicovered notion and investigated structural graph classes; its accessible full treatment contains no triangular-graph enumerator or parity theorem. Madsen–Nielsen–Skjernaa (2002) prove general maximal-bipartite counting bounds and algorithms; Cao (2020) provides general induced-subgraph enumeration algorithms. These do not imply the displayed exact cardinality polynomials for \(L(K_n)\). The equivalent interpretations as Johnson graphs, edge sets of \(K_n\) with bipartite line graph, and inclusion-minimal odd-cycle transversals were compared. Database/sequence-style searches found no definite equivalent match, but that is not a novelty certificate. Unindexed prior specializations remain possible.
+PASS
 
-**Mathematical value — PASS.** The natural well-bicovered problem asks not only for the maximum bipartite induced-subgraph order but whether *all* maximal solutions have that order. The classification answers this exactly in the canonical vertex-transitive triangular graph family, with a sharp odd-even exception and complete labeled cardinality distributions. The exponential generating functions also enumerate all admissible solutions and, by complement, all minimal odd-cycle transversals. The asymptotic \(2/3\) class split is a nontrivial consequence of the rational-coefficient asymptotics rather than a restatement of an extremal size. This result is specialized but structurally and enumeratively meaningful.
+The line-graph equivalence converts a selected triangular-graph vertex set to edges H subset K_n. L(H) is bipartite precisely when H has maximum degree <=2 and only even cycles, i.e. its components are paths, isolated vertices and even cycles of length at least four. One can join endpoints of two paths, so maximality leaves at most one path; an even path of size >=4 can close to an allowed even cycle, whereas one path of odd size or size two cannot. Conversely all other omitted edges create forbidden degree three or odd cycle. The labeled exponential formula counts even cycles with EGF e^{-z²x²/4}(1-z²x²)^(-1/4); multiplying by an arbitrary path SET or the one permissible path gives the two displayed EGFs. Logarithmic differentiation produces c0=1,c1=0,4jc_j=sum_{i<=j-2}c_i and exact even/odd polynomials; singular coefficient ratio c_{m-1}/c_m ->1 gives 2/3. Independent direct adjacency enumeration for n=3,4,5 verified maximality and coefficients and an inspected exact finite component recurrence through 30 (not treated as unrestricted proof).
 
-**Closest literature and limitations.** Goddard–Kuenzel–Melville, arXiv:1909.07503 (well-bicovered definitions); Madsen–Nielsen–Skjernaa, BRICS RS-02-17 (general counting bounds); Cao, arXiv:2004.09885 (generic enumeration). The line-graph path/cycle condition is standard, not claimed new. Priority is provisional, and no general-line-graph theorem is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known optimization and algorithms for maximal bipartite induced subgraphs do not supply the labeled triangular-graph size polynomial. Similar Resultary triangular-graph results address dissociation sets, cluster graphs, and induced matchings: different hereditary predicates, so they do not imply the bipartite-path/even-cycle enumerator. The exact even-cycle exponential form and parity of maximal cardinalities were not found in matching prior published comparisons; residual risk remains for an unindexed bicovered/odd-cycle-transversal table.
+
+## value
+
+PASS
+
+Enumerates a natural NP-hard-type hereditary induced-subgraph property on a symmetric graph family, including all maximal sizes and the exact minimum odd-cycle transversal polynomial. Distinguishing inclusion-maximal from maximum is mathematically consequential; the two-thirds asymptotic identifies the relative frequency of global maxima among all local maximal configurations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

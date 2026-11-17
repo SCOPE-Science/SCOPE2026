@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T10:12:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The line-graph equivalence converts a selected triangular-graph vertex set to edges H subset K_n. L(H) is bipartite precisely when H has maximum degree <=2 and only even cycles, i.e. its components are paths, isolated vertices and even cycles of length at least four. One can join endpoints of two paths, so maximality leaves at most one path; an even path of size >=4 can close to an allowed even cycle, whereas one path of odd size or size two cannot. Conversely all other omitted edges create forbidden degree three or odd cycle. The labeled exponential formula counts even cycles with EGF e^{-z²x²/4}(1-z²x²)^(-1/4); multiplying by an arbitrary path SET or the one permissible path gives the two displayed EGFs. Logarithmic differentiation produces c0=1,c1=0,4jc_j=sum_{i<=j-2}c_i and exact even/odd polynomials; singular coefficient ratio c_{m-1}/c_m ->1 gives 2/3. Independent direct adjacency enumeration for n=3,4,5 verified maximality and coefficients and an inspected exact finite component recurrence through 30 (not treated as unrestricted proof).",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 2026/11/08 maximal cluster triangular graphs and Resultary 2026/11/02 dissociation/maximal dissociation triangular graph both enumerate a different admissible class.",
+          "General maximal bipartite-subgraph enumeration algorithms do not yield these closed labeled coefficients without the path+even-cycle reduction."
+        ],
+        "reasoning": "Checked stronger-class and adjacent-parameter results for logical implication, not matching titles.",
+        "searches": [
+          "maximal induced bipartite subgraphs of triangular graphs line graph of complete graph enumeration well bicovered",
+          "Resultary semantic search; primary literature Byskov, Madsen, Skjernaa 2005 J Graph Theory 48:127–132"
+        ]
+      },
+      "checked_sources": [
+        "Byskov, Madsen, Skjernaa 2005 J Graph Theory 48:127–132",
+        "Cao 2020 arXiv:2004.09885",
+        "Resultary 2026/11/08/SCOPE-maximal-cluster-subgraphs-of-triangular-graphs-a-partition-polyn--68bb3fc9b806",
+        "Resultary 2026/11/02/SCOPE-dissociation-and-maximal-dissociation-polynomials-of-triangular--86b89d24b06d",
+        "2026/11/08/a-parity-census-of-maximal-induced-bipartite-subgraphs-of-triang--5cfd68d20f3f/RESULT.md and verify_bipartite_triangular_series.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The generic 2005 upper-bound algorithm and dissimilar triangular-family polynomial results do not logically entail c_j or the 2/3 ratio; the path/even-cycle decomposition and constrained exponential formula are the required extra steps."
+        ],
+        "reasoning": "Prior results do not establish the final whole claim through a demonstrated mathematical implication within material inspected; residual risks retain inaccessible or plausible stronger literature.",
+        "searches": [
+          "maximal induced bipartite subgraphs of triangular graphs line graph of complete graph enumeration well bicovered",
+          "Resultary semantic search; primary literature Byskov, Madsen, Skjernaa 2005 J Graph Theory 48:127–132"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Minimal odd-cycle transversals are complements of maximal induced bipartite subsets, so exact census corresponds under z^{n choose 2}M_n(1/z); searches included that dual formulation.",
+          "Byskov–Madsen–Skjernaa 2005 addresses maximum possible number and algorithmic upper bounds for general host graphs, not these n-label coefficients."
+        ],
+        "reasoning": "Compared equivalent encodings and aliases: minimal odd cycle transversal sets of L(K_n), well-bicovered triangular graphs, maximal even-cycle/path packings in K_n",
+        "searches": [
+          "maximal induced bipartite subgraphs of triangular graphs line graph of complete graph enumeration well bicovered",
+          "Resultary semantic search; primary literature Byskov, Madsen, Skjernaa 2005 J Graph Theory 48:127–132"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact J(n,2) maximal bipartite subset coefficient table or minimal odd-cycle transversal enumerator with formula located; n=3..5 independent enumeration agrees with submitted coefficients."
+        ],
+        "reasoning": "Compared exact coefficient/data tables with complete claimed invariant, noting specific partially known cases.",
+        "searches": [
+          "maximal induced bipartite subgraphs of triangular graphs line graph of complete graph enumeration well bicovered",
+          "Resultary semantic search; primary literature Byskov, Madsen, Skjernaa 2005 J Graph Theory 48:127–132"
+        ]
+      },
+      "rationale": "The known optimization and algorithms for maximal bipartite induced subgraphs do not supply the labeled triangular-graph size polynomial. Similar Resultary triangular-graph results address dissociation sets, cluster graphs, and induced matchings: different hereditary predicates, so they do not imply the bipartite-path/even-cycle enumerator. The exact even-cycle exponential form and parity of maximal cardinalities were not found in matching prior published comparisons; residual risk remains for an unindexed bicovered/odd-cycle-transversal table.",
+      "residual_risks": [
+        "A specialized earlier well-bicovered line-graph or odd-cycle-transversal count outside indexed searches could cover part of the result.",
+        "The 2005 and 2023 full primary articles were not read; only their accessible abstracts and explicit scope were used, not whole-document NOT_COVERING."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "counts extremal total upper/lower bounds, not triangular-graph size distribution",
+          "evidence": "Journal of Graph Theory 48 (2005), 127–132, abstract",
+          "identifier_or_url": "https://doi.org/10.1002/jgt.20041",
+          "material_read": "published 2005 article abstract and statements of bounds/algorithm, not complete proof text",
+          "method": "publisher abstract and bibliographic reading",
+          "title": "On the number of maximal bipartite subgraphs of a graph",
+          "trigger": "exact same induced bipartite predicate but general graphs"
+        },
+        {
+          "assessment": "self hit is not prior independent coverage",
+          "evidence": "Exact result title and summary",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-parity-census-of-maximal-induced-bipartite-subgraphs-of-triang--5cfd68d20f3f",
+          "material_read": "Resultary semantic hit with full summary, identified as same submission not external prior work",
+          "method": "Resultary search",
+          "title": "A parity census of maximal induced bipartite subgraphs of triangular graphs",
+          "trigger": "identical self indexed Resultary record"
+        },
+        {
+          "assessment": "no triangular closed EGF established from inspected material",
+          "evidence": "Cao, ESA 2023",
+          "identifier_or_url": "https://arxiv.org/abs/2004.09885",
+          "material_read": "title abstract/general algorithm scope, not full text",
+          "method": "metadata/abstract and source reference inspection",
+          "title": "Enumerating Maximal Induced Subgraphs",
+          "trigger": "general enumeration algorithm possible dominating source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Enumerates a natural NP-hard-type hereditary induced-subgraph property on a symmetric graph family, including all maximal sizes and the exact minimum odd-cycle transversal polynomial. Distinguishing inclusion-maximal from maximum is mathematically consequential; the two-thirds asymptotic identifies the relative frequency of global maxima among all local maximal configurations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Byskov, Madsen, Skjernaa 2005 J Graph Theory 48:127–132",
+    "Cao 2020 arXiv:2004.09885",
+    "Resultary 2026/11/08/SCOPE-maximal-cluster-subgraphs-of-triangular-graphs-a-partition-polyn--68bb3fc9b806",
+    "Resultary 2026/11/02/SCOPE-dissociation-and-maximal-dissociation-polynomials-of-triangular--86b89d24b06d",
+    "2026/11/08/a-parity-census-of-maximal-induced-bipartite-subgraphs-of-triang--5cfd68d20f3f/RESULT.md and verify_bipartite_triangular_series.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For T_n=L(K_n), complete all-set and inclusion-maximal induced bipartite generating functions, exact maximal size polynomial by even-cycle coefficients c_j, parity classification of well-bicovered n, and limiting probability 2/3 of size n for even n.",
+  "limitations": [
+    "Finite labeled T_n with n>=3 (T2 a boundary); both EGFs formal.",
+    "n<=5 independent brute check, general enumeration proof structural and exact analytic coefficient asymptotics."
+  ],
+  "residual_risks": [
+    "A specialized earlier well-bicovered line-graph or odd-cycle-transversal count outside indexed searches could cover part of the result.",
+    "The 2005 and 2023 full primary articles were not read; only their accessible abstracts and explicit scope were used, not whole-document NOT_COVERING."
+  ],
+  "schema_version": 1
+}
