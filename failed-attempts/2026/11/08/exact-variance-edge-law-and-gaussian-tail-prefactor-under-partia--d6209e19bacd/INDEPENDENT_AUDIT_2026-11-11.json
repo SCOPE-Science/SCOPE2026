@@ -1,0 +1,94 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T07:53:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For OU drift gamma and noise D with Poisson jumps X->qX at rate r, fixed q∈[0,1), the stationary conditional variance sigma²V has deficit U=1-V distributed as A(1-q²V'), A~Beta(alpha,1), alpha=r/(2gamma). Thus P(U<=u)=u^alpha B for 0<u<1-q², B=E[(1-q²V)^-alpha]. The variance-process generator gives m_k=prod_{j<=k} j/[j+alpha(1-q^(2j))], and binomial expansion yields its convergent coefficient series. Gaussian scale mixture with an endpoint Laplace argument establishes p_q(x)~Gamma(alpha+1)(2sigma²)^alpha B |x|^-2alpha exp(-x²/(2sigma²))/sqrt(2pi sigma²). Coupling Poisson histories yields strict B increase in q and divergence q→1; q=0 gives B=1. Independently recomputed first 12 exact rational moments and positive series partial sums at q=0,1/2,3/4; the analytic proof, not those finite sums, establishes exact edge and all-parameter asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier theorem covers q∈(0,1) and BOTH sharp stationary density/survival tails, plus critical quadratic-exponential phase transition. Submission covers same core with endpoints q=0 and q↑1."
+        ],
+        "reasoning": "Earlier theorem strictly dominates substantive shared core; q=0 is the standard complete reset boundary, and monotone limit follows from coupled Poisson variance representation.",
+        "searches": [
+          "partial occupancy Gaussian tail prefactor edge law variance",
+          "Resultary older Nov 2 exact endpoint law and sharp Gaussian tails OU plus critical exponential moments"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-endpoint-law-and-sharp-gaussian-tails-for-partially-reset--3b8b757f8421",
+        "arXiv:2401.11919"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From older P(W<=w)=Cw^alpha with W=sigma²U, deduce P(U<=u)=C(sigma²)^alpha u^alpha = Bu^alpha. Rescale earlier sharp p(x) coefficient C(2 sigma^4)^alpha=B(2sigma²)^alpha; formulas identical."
+        ],
+        "reasoning": "The earlier theorem mathematically implies submitted main exact tail and deficit law. C PASS but O/V FAIL; cannot be rescued by optional numerical certificate or disclaimer.",
+        "searches": [
+          "partial occupancy Gaussian tail prefactor edge law variance",
+          "Read FULL older 2026 11 02 RESULT.md including endpoint, Laplace, moments, comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Identify older kappa=gamma, rho=r, c=q, vstar=sigma², theta=alpha and older normalized coefficient C=E[(vstar-q²Vphysical)^-alpha]=sigma^(-2alpha)B. Therefore density constants coincide exactly."
+        ],
+        "reasoning": "Same stochastic process, exact endpoint density and sharp far-tail coefficient; not a merely similar Gaussian rate.",
+        "searches": [
+          "partial occupancy Gaussian tail prefactor edge law variance",
+          "Resultary Exact endpoint law sharp Gaussian tails partially reset OU diffusion published Nov 2 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Older primary displays same product m_k=prod 2κj/[2κj+ρ(1-c^(2j))] and exact gamma-factor leading tail coefficient."
+        ],
+        "reasoning": "An exact fully algebraic published formula covers the demanded coefficient; not an incomplete table or inaccessible source.",
+        "searches": [
+          "partial occupancy Gaussian tail prefactor edge law variance",
+          "2026-11-02 Exact endpoint law sharp Gaussian tails for partially reset OU; moment coefficient series"
+        ]
+      },
+      "rationale": "DECISIVE STRONGER SAME-MODEL COVERAGE. The 2026-11-02 published full RESULT.md Exact endpoint law and sharp Gaussian tails for partially reset Ornstein–Uhlenbeck diffusion already establishes the identical invariant position OU+Poisson contraction model for every c∈(0,1): exact endpoint law P(vstar-V<=w)=C w^alpha, identical convergent coefficient, identical sharp Gaussian density tail and additional right survival/critical Gaussian-square exponential moment threshold. With sigma²=vstar and C=(sigma²)^(-alpha) B, the earlier p(x) prefactor is algebraically identical. Extra submitted q=0 limit, monotonic prefactor and q→1 divergence are elementary consequences of that earlier endpoint coefficient and coupling, not a distinct new model or theorem.",
+      "residual_risks": [
+        "No substantial novelty uncertainty for the exact OU stationary-tail core because older full proof inspected.",
+        "Endpoint q=0 and strict prefactor monotonicity are short extensions but do not rescue the covered original main claim or establish a separate valuable final theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE SAME/STRONGER PRIOR COVERAGE",
+          "evidence": "Earlier theta=rho/(2kappa), C=E[(vstar-c²V)^-theta]; identical via normalized V, and stronger critical exponential moment theorem.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-endpoint-law-and-sharp-gaussian-tails-for-partially-reset--3b8b757f8421",
+          "material_read": "COMPLETE RESULT.md read: definitions, unique stationary stochastic convolution, beta perpetuity, exact endpoint, coefficient, density/survival tails, critical moment proof, diffusion approximation and bibliography",
+          "method": "GitHub raw full text read",
+          "title": "Exact endpoint law and sharp Gaussian tails for partially reset Ornstein–Uhlenbeck diffusion",
+          "trigger": "identical stochastic model with Gaussian mixture and endpoint law"
+        },
+        {
+          "assessment": "Older physical setup, though full priority is already conclusively resolved by the Nov2 stronger result",
+          "evidence": "Second moment alone does not imply exact endpoint; Nov2 paper does.",
+          "identifier_or_url": "arXiv:2401.11919",
+          "material_read": "model and stationary second-moment description from submitted source and searchable bibliographic record; did not read complete original paper in this run",
+          "method": "public research-record comparison",
+          "title": "Thermodynamic work of partial resetting",
+          "trigger": "same harmonic confinement plus partial resetting physical model"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The sharp OU Gaussian-tail and variance-deficit identity are intrinsically meaningful rare-event results, but their exact formula and main physical interpretation are already established in published prior work, which further proves stronger tail and moment boundaries. Repeating them plus easy amplitude-boundary consequences does not constitute a new motivated invariant; value as an original finding fails despite mathematical correctness.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "No substantial novelty uncertainty for the exact OU stationary-tail core because older full proof inspected.",
+    "Endpoint q=0 and strict prefactor monotonicity are short extensions but do not rescue the covered original main claim or establish a separate valuable final theorem.",
+    "The assessment is based on the actual pinned Git source package and bounded external reading; no GitHub or dispatcher closeout write occurred.",
+    "Research package contains pre-existing public-file confidentiality metadata. Source and mathematical evidence are preserved; publication is not_ready."
+  ],
+  "schema_version": 1
+}
