@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the adjacency matrix with loops on the mutual-inverse relation, not a simple graph with its diagonal deleted. The intrinsic inverse equations and the crossed-square incidence give the precise operator \(X\mapsto RX^{\mathsf T}R\). A unit lower-triangular minor establishes \(\operatorname{rank}R=p\) for every permitted rank, including \(r=1,n\). An orthogonal singular-value basis then proves the complete list and multiplicities without genericity assumptions. Direct Gram multiplication and tridiagonal diagonalization establish the two boundary-rank closed formulas and determinants. The standalone checker agrees with the formula on 21 Green classes across chain lengths 1–6, with direct inverse-equation tests and exact Gram tests. These finite tests are not substituted for the proof. The critical boundary conventions, real-field normalization, and loop inclusion are stated.
+PASS
 
-## Originality — PASS (qualified)
+The rank-r map coordinates by interval partitions A and images B have p=binom(n-1,r-1) rows and q=binom(n,r) columns. Mutual inverse iff cross-transversality, so K(X)=R X^T R. The incidence matrix R has a unit triangular p-column minor indexed by the right endpoints; its SVD splits each i=j diagonal into a positive lambda_i, each i<j pair into +/-sqrt(lambda_i lambda_j), and leaves p(q-p) zeros. In rank 2 the Gram entries min(i,j)(n-max(i,j)) invert to n times the Dirichlet path Laplacian; in rank n-1 Gram is the path tridiagonal (2,1). These exact proofs cover n=1 and r=n and do not claim a closed intermediate-rank trigonometric spectrum. Independent computations checked all 20 strata n=2..6, row rank/inertia and both boundary Gram spectra; numerical checks only corroborate the proof.
 
-The central comparison is to Higgins, *Balanced weightings and permutation matchings applied to the monoid of order-preserving mappings* (arXiv:2610.01912v1, October 1, 2026). Its crossed-square formula and transversal interlacing data are prior results. Its main theorems concern existence of permutation matchings, whereas the present claim determines adjacency inertia and the full spectral factorization, with explicit rank-two and rank-codimension-one spectra. Higgins (2024), *Finite regular semigroups with permutations that map elements to inverses*, treats matching existence and obstructions, not spectral inertia. Searches for inverse-relation graph adjacency spectra, tensor-transpose spectra, exact incidence ranks, and chain-isotone inverse graphs found no covering result. Relevant prior finite-rank involution-matching constructions determine *one choice* of mutual inverse for each element, not every entry of the inverse relation, so do not imply this spectrum. Historic-priority uncertainty remains because the factorization uses familiar singular-value and commutation-operator techniques. No claim is made that the 2026 crossed-square construction itself is new.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Permutation-matching existence is the motivating 2026 question. The full symmetric inverse relation behind a matching is a natural canonical semigroup invariant; its spectrum is not determined by the existence of an admissible permutation. The theorem classifies positive, negative, and zero directions exactly in **every** Green rank and proves an unexpectedly uniform rank law \(p^2\) despite highly nonuniform degrees. It also gives explicit eigenvalue formulae, spectral-radius growth \(\sim n^3/\pi^2\), and exact Gram determinants \(n^{n-2}\) and \(n\) in two natural boundary ranks. This is a complete structural family, not a handful of unrelated finite computations. It does not assert the unresolved involutive-matching question for arbitrary ranks.
+Earlier Resultary 2026-10-26 SCOPE central-binomial rank-and-inertia theorem explicitly gives the identical block inertia p(p+1)/2,p(p-1)/2,p(q-p) and the same R X^T R factorization; this portion is fully prior and receives NO novelty credit. Its full RESULT.md also gives the generic SVD eigenvalue construction (including signed singular products). The surviving original component, not proved there, is the closed trigonometric individual eigenvalue lists at r=2 and r=n-1, their exact Gram determinants and rank-two spectral-radius asymptotic. These are formulas for a natural semigroup graph invariant not produced by the prior generic matrix factorization. Best-of-knowledge historical scope is limited; standard path Laplacian spectra are known methods, and a previously published application to these inverse graphs would cover the remainder.
 
-## Closest literature and residual limits
+## value
 
-Higgins 2026, arXiv:2610.01912v1: full primary mathematical text inspected, including the crossed-square definition and the complete interlacing/deletion incidence proof. Higgins 2024 (DOI 10.1007/s00233-024-10430-0): relevant full-text sections covering finite regular semigroup matching theory and open questions inspected. Higgins 2018 (arXiv:1812.03743): title and abstract checked, broader matching context only. Residual risk: an older spectral treatment of tensor-transpose or interlacing incidence matrices may imply part of the factorization under different language. Searches do not constitute a universal priority proof. Computational inspection stops at \(n=6\), while the proof handles all \(n\).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite isotone mutual-inverse graph is natural in semigroup theory; explicit spectra at two distinguished nontrivial Green ranks answer a precise missing quantitative invariant and show an n^3/pi^2 spectral-radius scale at rank two. The already-known inertia and generic SVD identities have no independent novelty or value here. Boundary eigenvalue evaluations are modest and use elementary tridiagonal tools but are not merely a renamed known table of this graph, and can be used in adjacency spectral study.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

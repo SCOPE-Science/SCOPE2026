@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The argument is a mathematical proof for all integer parameters \(n\geq1\), \(1\leq r\leq n\). A separate finite checker reconstructs the order-preserving monoid, evaluates the mutual inverse equations directly on every ordered pair within each Green rank, and compares with the independently constructed crossed-square adjacency. It verifies the exact full-row-rank triangular certificate and the two exact Gram identities. Numerical diagonalization tests the full predicted spectrum, with tolerance justified by the small finite matrices; it cannot replace the symbolic proof.
+## correctness
 
-Reproduce by running `OPENBLAS_NUM_THREADS=1 python verify_inverse_inertia.py` with Python 3, NumPy, and SymPy. The recorded output includes 21 rank classes, 637 transformations in aggregate, and 75,225 ordered-pair checks. It ends with `VERIFY_OK rank_classes=21 elements=637 checked_ordered_pairs=75225 inertia_and_full_spectrum=match`.
+PASS
 
-Scope: looped adjacency only, not the loop-erased simple graph; no proof concerning involution-matching existence or any uncomputed general-rank Gram eigenvalue formula. The finite script is independent of its recorded output and was executed from the actual packaged source text.
+The rank-r map coordinates by interval partitions A and images B have p=binom(n-1,r-1) rows and q=binom(n,r) columns. Mutual inverse iff cross-transversality, so K(X)=R X^T R. The incidence matrix R has a unit triangular p-column minor indexed by the right endpoints; its SVD splits each i=j diagonal into a positive lambda_i, each i<j pair into +/-sqrt(lambda_i lambda_j), and leaves p(q-p) zeros. In rank 2 the Gram entries min(i,j)(n-max(i,j)) invert to n times the Dirichlet path Laplacian; in rank n-1 Gram is the path tridiagonal (2,1). These exact proofs cover n=1 and r=n and do not claim a closed intermediate-rank trigonometric spectrum. Independent computations checked all 20 strata n=2..6, row rank/inertia and both boundary Gram spectra; numerical checks only corroborate the proof.
+
+## originality
+
+PASS
+
+Earlier Resultary 2026-10-26 SCOPE central-binomial rank-and-inertia theorem explicitly gives the identical block inertia p(p+1)/2,p(p-1)/2,p(q-p) and the same R X^T R factorization; this portion is fully prior and receives NO novelty credit. Its full RESULT.md also gives the generic SVD eigenvalue construction (including signed singular products). The surviving original component, not proved there, is the closed trigonometric individual eigenvalue lists at r=2 and r=n-1, their exact Gram determinants and rank-two spectral-radius asymptotic. These are formulas for a natural semigroup graph invariant not produced by the prior generic matrix factorization. Best-of-knowledge historical scope is limited; standard path Laplacian spectra are known methods, and a previously published application to these inverse graphs would cover the remainder.
+
+## value
+
+PASS
+
+The finite isotone mutual-inverse graph is natural in semigroup theory; explicit spectra at two distinguished nontrivial Green ranks answer a precise missing quantitative invariant and show an n^3/pi^2 spectral-radius scale at rank two. The already-known inertia and generic SVD identities have no independent novelty or value here. Boundary eigenvalue evaluations are modest and use elementary tridiagonal tools but are not merely a renamed known table of this graph, and can be used in adjacency spectral study.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
