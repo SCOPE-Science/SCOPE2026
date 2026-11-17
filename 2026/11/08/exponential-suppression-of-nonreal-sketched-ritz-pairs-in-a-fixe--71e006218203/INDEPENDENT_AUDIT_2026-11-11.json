@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T08:52:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The sketched regression residual v=(G^TG)^-1G^Tw has a bivariate rotational t-law density (s-1)/(2pi)(1+|v|^2)^(-(s+1)/2), obtained from the Gaussian/Wishart mixture. Direct discriminant reduction gives Delta=delta^2-2sqrt(2)delta*t*b+2t^2u^2, so nonreal iff b>h+u^2/(4h) with h=delta/(2sqrt(2)t)>0. Polar integration of this parabola yields exactly the displayed 1D angular integral. A two-scale Laplace expansion u~s^-1/2 and b-h~s^-1 provides q/(h sqrt(3pi s)) q^(-s/2), with an integrable majorant. Independently evaluated the angular integral for s=3,8,40,160,640; p_3=0.19245008973 and asymptotic leading ratios approach one (0.8399 at 40, 0.9855 at 640). The deterministic SPD 3x3 witness gives discriminant -3 and open positive-probability nonreal region. The source code independently checks thousands of exact rational discriminants; finite Monte Carlo supports, not proves, the analytic probability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2610.22261v1",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-critical-gap-law-and-four-dimensional-onset-of-nonreal--416e750ea372"
+        ],
+        "reasoning": "Algorithmic real-Schur theorems apply to general SPD matrices but only state possibility, not the exact probability. Universal near-degenerate gap scaling has a distinct double scaling and does not determine the fixed-gap large-s prefactor.",
+        "searches": [
+          "Resultary: Gaussian sketched Rayleigh Ritz nonreal eigenvalue probability Wishart discriminant exact asymptotic sketch size symmetric",
+          "arxiv 2610.22261 real arithmetic sketched eigensolvers symmetric nonreal"
+        ]
+      },
+      "checked_sources": [
+        "Liu–Liu 2026 arXiv:2610.22261v1 complete primary HTML",
+        "Nakatsukasa–Tropp SIAM J Matrix Anal Appl 2024 Section6.8 as cited in inspected primary, not separately full read",
+        "Resultary 2026-11-02 sharp one-quarter record indexed summary",
+        "Resultary 2026-11-08 minimal-sketch and critical-gap record summaries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Liu & Liu state projected sRR may have nonreal eigenpairs and prescribe real Schur",
+          "Resultary 2026-11-02 sharp 1/4 is for fixed-length uniformly oriented residual; 2026-11-08 sharp 1-sqrt(2/3) is s=2 only"
+        ],
+        "reasoning": "Existence and universal upper bounds under other distributions cannot yield an exact fixed-matrix all-sketch-size probability with this Wishart mixture and sharp prefactor. A separately published equivalent Gaussian regression integral remains possible.",
+        "searches": [
+          "Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices, Liu and Liu arXiv 2610.22261",
+          "Resultary: sketched Ritz nonreal complex pair Gaussian exact bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2610.22261v1 Section 3 sRR and real Schur",
+          "Resultary 2026-11-02 A sharp one-quarter law for nonreal sketched Ritz pairs"
+        ],
+        "reasoning": "Nonreal sketched 2x2 Ritz eigenvalues are a negative-discriminant event for a fixed SPD model. Previous random-orientation bounds and qualitative observations use distinct laws and do not imply the exact bivariate t parabola integral across every s>=3.",
+        "searches": [
+          "Resultary: Gaussian sketched Rayleigh Ritz nonreal eigenvalue probability Wishart discriminant exact asymptotic sketch size symmetric",
+          "Resultary: exact distribution of nonreal eigenvalues Gaussian sketched symmetric positive-definite Rayleigh Ritz"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published related records give a sharp s=2 maximum, a uniform-orientation 1/4 bound, and a 4d near-zero-gap universal limit, but no identical all-s fixed-h integral or q^(-s/2)/sqrt(s) prefactor."
+        ],
+        "reasoning": "These are genuinely related probability results, yet the parameters and distributions differ; no direct exact numeric table supplies the submitted formula. The search result is not a proof of absence.",
+        "searches": [
+          "Resultary: exact distribution of nonreal eigenvalues Gaussian sketched symmetric positive-definite Rayleigh Ritz",
+          "Resultary: Gaussian sketched Rayleigh Ritz nonreal eigenvalue probability Wishart discriminant exact asymptotic sketch size symmetric"
+        ]
+      },
+      "rationale": "Prior sketched Rayleigh–Ritz papers explicitly document qualitative nonreal Ritz pairs and introduce real-Schur processing, but do not produce the present exact fixed-matrix Gaussian nonreal-pair probability or sharp prefactor as sketch dimension grows. The closest published sharp one-quarter result assumes uniformly oriented *fixed-length* couplings, not Gaussian regression; the 2-row sharp bound concerns minimal s=2; the four-dimensional critical-gap law concerns shrinking or repeated Ritz gaps, rather than fixed delta>0. General Gaussian regression law is classical but does not itself evaluate this nonreal parabola and asymptotic. This is a narrowly motivated nonstandard exact risk law, with unindexed probability identity a residual originality risk.",
+      "residual_risks": [
+        "Classical bivariate Student-t parabola tail literature may contain an algebraically equivalent evaluated asymptotic, not found by these targeted searches.",
+        "Several related published primary proof packages were compared via indexed summaries only; this limits absolute historical-priority confidence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative nonreal phenomenon and workaround; no evaluated Gaussian nonreal-pair event probability or exact oversampling prefactor.",
+          "evidence": [
+            "Section 3 states nonsymmetric sRR may have nonreal eigenpairs despite SPD A",
+            "real Schur treatment of such 2x2 blocks"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.22261v1",
+          "material_read": "Full HTML primary introduction, sRR projection matrix, nonreal/real-Schur discussion, algorithmic scope and numerical experiments",
+          "method": "Open-access arXiv full HTML, searched nonreal and probability",
+          "title": "Real-Arithmetic Sketched Eigensolvers for Symmetric Matrices",
+          "trigger": "Same sketched Ritz operation, SPD originals, nonreal Schur blocks"
+        },
+        {
+          "assessment": "Sampling model is uniform orientation at fixed length, not Gaussian Wishart regression over growing s.",
+          "evidence": [
+            "Bound 1/4 attained by balanced fixed-length uniform orientation at gap ratio sqrt(2)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-one-quarter-law-for-nonreal-sketched-ritz-pairs--86f8010d501f",
+          "material_read": "Published record title and full indexed mathematical summary; full proof not separately fetched",
+          "method": "Resultary published mathematical record comparison",
+          "title": "A sharp one-quarter law for nonreal sketched Ritz pairs",
+          "trigger": "Potentially dominating exact probability in very similar two-dimensional problem"
+        },
+        {
+          "assessment": "Near-repeated/critical gap four-dimensional onset differs from fixed positive gap and one residual direction.",
+          "evidence": [
+            "Universal double-scaled gap p(t), four-dimensional onset at exact repeated eigenvalue"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-universal-critical-gap-law-and-four-dimensional-onset-of-nonreal--416e750ea372",
+          "material_read": "Published full indexed mathematical summary, not full RESULT.md",
+          "method": "Resultary search",
+          "title": "Universal critical gap law and four-dimensional onset of nonreal sketched Ritz pairs",
+          "trigger": "General SPD sketch model with complex pair and nearly repeated Ritz values"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The inability of a symmetric original matrix to guarantee real sketched Ritz eigenvalues is a concrete numerical-stability issue. The exact Gaussian failure probability and sharp fixed-gap oversampling prefactor quantify the risk even for genuine dimension-reducing sketches; the reduction to a minimal SPD 3x3 coupled example is structurally motivated rather than arbitrary sampling. This is an exact, self-contained quantitative finding, not a global eigensolver guarantee.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Classical bivariate Student-t parabola tail literature may contain an algebraically equivalent evaluated asymptotic, not found by these targeted searches.",
+    "Several related published primary proof packages were compared via indexed summaries only; this limits absolute historical-priority confidence.",
+    "No public publication due to pre-existing confidentiality-sensitive metadata.",
+    "No further claims beyond the exact model hypotheses stated in the checked RESULT.md."
+  ],
+  "schema_version": 1
+}
