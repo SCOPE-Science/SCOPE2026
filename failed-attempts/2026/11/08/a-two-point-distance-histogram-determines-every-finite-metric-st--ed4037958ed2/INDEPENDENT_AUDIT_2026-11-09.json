@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T23:19:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/a-two-point-distance-histogram-determines-every-finite-metric-st--ed4037958ed2/RESULT.md",
+        "2026/11/08/a-two-point-distance-histogram-determines-every-finite-metric-st--ed4037958ed2/check_star.py"
+      ],
+      "rationale": "Direct same-arm and distinct-arm convolution gives f(t)=2/L² sum (a_i-t)_++2/L² sum_{i<j}[t_+-(t-a_i)_+-(t-a_j)_++(t-a_i-a_j)_+]. At t=0, f(0)=2/L and f′_+(0)=k(k-3)/L². The second distributional derivative on (0,infinity) is -(k-2)sum delta_{a_i}+sum_{i<j}delta_{a_i+a_j} after scaling L²/2. The least residual atom after subtracting known arms is a negative singleton of smallest remaining length, since pair sums involving an unknown arm are strictly larger. Repetition correctly handles collision/cancellation. k=1,2 is an interval. Independently verified exact signed-atom peeling on four collision cases; source check_star.py inspected.",
+      "residual_risks": [
+        "No scientific priority uncertainty about the two cited earlier full same-domain results; finite checks do not certify analytic theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "November 1 result covers unknown arm count, arbitrary positive real lengths, duplicates and canceled kink atoms; October 25 same."
+        ],
+        "reasoning": "These are complete same-domain inverse theorems, so every example and special case is already implied.",
+        "searches": [
+          "Resultary: Metric star arclength distribution distances of two random points uniquely determines all edge lengths inverse pairwise distance distribution",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-the-full-two-point-distance-law-reconstructs-every-positively-we--534e6c2e5388/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-global-inverse-reconstruction-of-metric-stars-from-one-geodesic--a68272f4bbac/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "2026/11/08/a-two-point-distance-histogram-determines-every-finite-metric-st--ed4037958ed2/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-the-full-two-point-distance-law-reconstructs-every-positively-we--534e6c2e5388/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-global-inverse-reconstruction-of-metric-stars-from-one-geodesic--a68272f4bbac/RESULT.md",
+        "https://arxiv.org/abs/1810.09646"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Normalize prior signed second derivative mu by 1/2 to obtain this nu; prior minimum-residual-atom multiplicity formula equals -(k-2)q."
+        ],
+        "reasoning": "Prior inverse uniqueness proves submitted uniqueness directly. The interval identification and the collision-safe reconstruction are verbatim implications.",
+        "searches": [
+          "Resultary: Metric star arclength distribution distances of two random points uniquely determines all edge lengths inverse pairwise distance distribution",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-the-full-two-point-distance-law-reconstructs-every-positively-we--534e6c2e5388/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-global-inverse-reconstruction-of-metric-stars-from-one-geodesic--a68272f4bbac/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 25 result: L=2/f(0+), k(k-3)=L² f′(0+), L² f″=(4-2k)sum singles+2sum pair sums; submission is half this measure."
+        ],
+        "reasoning": "The density, inverse algorithm, collision caveat, full positive-arm domain and interval exception are all mathematically identical, not just similar vocabulary.",
+        "searches": [
+          "Resultary: Metric star arclength distribution distances of two random points uniquely determines all edge lengths inverse pairwise distance distribution",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-the-full-two-point-distance-law-reconstructs-every-positively-we--534e6c2e5388/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-global-inverse-reconstruction-of-metric-stars-from-one-geodesic--a68272f4bbac/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two preceding published exact reconstructions rather than a lookup table; their complete proofs supply exact algebraic data."
+        ],
+        "reasoning": "Each possible exact input has a previously published inverse algorithm; no isolated new invariant remains.",
+        "searches": [
+          "Resultary: Metric star arclength distribution distances of two random points uniquely determines all edge lengths inverse pairwise distance distribution",
+          "Resultary metric stars inverse geodesic-distance histogram signed curvature"
+        ]
+      },
+      "rationale": "FAIL: the published October 25 full primary theorem and November 1 replication cover precisely the same full pair-distance law, all k>=3 and all positive arm-length multisets including ties and cancellations, with identical f(0), f′(0), signed curvature atoms and greedy peeling. Both also describe k<=2 interval degeneracy. There is no narrower surviving novel claim or changed hypothesis.",
+      "residual_risks": [
+        "No scientific priority uncertainty about the two cited earlier full same-domain results; finite checks do not certify analytic theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_COVERAGE",
+          "evidence": "Full theorem includes unknown positive arm vector and cancellation-safe inversion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-global-inverse-reconstruction-of-metric-stars-from-one-geodesic--a68272f4bbac/RESULT.md",
+          "material_read": "Complete RESULT.md including forward density Eq. (1), signed measure Eq. (2), peeling algorithm and limitations",
+          "method": "GitHub Resultary full primary text (blob dcc4282252f54c3cb704ee0759089adb823c81a8)",
+          "title": "Global inverse reconstruction of metric stars from one geodesic-distance law",
+          "trigger": "Exact object, invariant and inverse claim"
+        },
+        {
+          "assessment": "DECISIVE_COVERAGE",
+          "evidence": "Full theorem repeats formula and negative singleton peeling including repetitions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-the-full-two-point-distance-law-reconstructs-every-positively-we--534e6c2e5388/RESULT.md",
+          "material_read": "Complete RESULT.md density, inversion, cancellation and interval exception",
+          "method": "GitHub Resultary full primary text (blob 0d4a73f874a476f17f70a89e96fc79aed29a3f4d)",
+          "title": "The full two-point distance law reconstructs every positively weighted metric star",
+          "trigger": "Same inverse law and boundary cases"
+        },
+        {
+          "assessment": "Not used to infer this exact result",
+          "evidence": "Decisive earlier exact star sources suffice independently.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.09646",
+          "material_read": "Title and prior source contextual citations; not relied upon for complete coverage",
+          "method": "Published abstract and source bibliography",
+          "title": "Distance distributions and inverse problems for metric measure spaces",
+          "trigger": "Background general inverse problem"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/08/a-two-point-distance-histogram-determines-every-finite-metric-st--ed4037958ed2/RESULT.md",
+        "2026/11/08/a-two-point-distance-histogram-determines-every-finite-metric-st--ed4037958ed2/check_star.py"
+      ],
+      "rationale": "FAIL for independent mathematical contribution: the inverse invariant and cancellation-safe reconstruction were already completely established in October 25 and November 1. The problem is naturally motivated, but this package is a rederivation rather than a new structural or exact fact.",
+      "residual_risks": [
+        "No scientific priority uncertainty about the two cited earlier full same-domain results; finite checks do not certify analytic theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-the-full-two-point-distance-law-reconstructs-every-positively-we--534e6c2e5388/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-global-inverse-reconstruction-of-metric-stars-from-one-geodesic--a68272f4bbac/RESULT.md",
+    "https://arxiv.org/abs/1810.09646"
+  ],
+  "disposition": "failed",
+  "final_claim": "For all finite metric stars with positive arms, the exact law of intrinsic distance between two independent normalized arclength points determines the isometry class; for k>=3, L and k from f(0),f′_+(0), and all arm lengths by signed-atom peeling including repeated lengths and additive coincidences; for k<=2 recovers interval total length.",
+  "limitations": [
+    "No GitHub writes or publication; assigned frozen snapshot and selected blobs fetched using exact commit. Finite tests do not prove infinite parameter statements; no external independence certificate or historical priority guarantee.",
+    "The repository Git file blobs were independently fetched at the frozen commit, while record tree SHA guard was carried from the signed read-only assignment (no tree enumeration endpoint)."
+  ],
+  "residual_risks": [
+    "No scientific priority uncertainty about the two cited earlier full same-domain results; finite checks do not certify analytic theorem."
+  ],
+  "schema_version": 1
+}
