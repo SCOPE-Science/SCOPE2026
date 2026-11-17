@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite domain is the \(24\) edges of \(GP(8,3)\). A maximal matching is characterized exactly by an independent unmatched vertex set. The first standalone program traverses every matching by disjoint-edge recursion, obtains \((176,336,33)\) maximal matchings of sizes \((6,7,8)\), and exhausts all one-edge exchanges of the \(176\) minima. Connected-component sizes and degree counts prove the isomorphism \(6C_{16}\sqcup80K_1\). The second program independently enumerates independent unmatched sets and perfect matchings of their complements using an isomorphic LCF graph, and reconstructs adjacency by shared five-edge cores. Their executed outputs agree. The shared-endpoint property has a separate short proof for all graphs.
+## correctness
 
-**Originality — PASS, qualified.** The directly inspected 2008 full article concerns hardness for regular bipartite graphs and contains no fixed-graph exchange classification. The inspected publicly available same-host matching-complex result establishes homotopy and face counts but not maximal-matching incidence nor the exchange graph. The standard graph reference supplies only structure and graph aliases. Direct searches under minimum maximal matching, edge domination, minimal facets of the matching complex, \(GP(8,3)\), Möbius–Kantor, Knödel \(W_{3,16}\), and the numerical component signature revealed no equivalent result. An accessible previous census of thirty-three perfect matchings and anti-forcing values on the same graph does not subsume the size-six minimum maximal matching exchange result. The accessible abstract of the 2014 extended paper does not settle its uninspected appendices. An unknown historical table remains possible.
+PASS
 
-**Value — PASS.** Minimum maximal matchings are an established, computationally difficult edge-domination invariant, and the Möbius–Kantor graph is the canonical sixteen-vertex cubic symmetric example. The exact configuration geometry is a natural further invariant: most minima are locally rigid while the remaining minima form precisely six long cycles. This precisely distinguishes availability of optimal static solutions from ability to relocate among them without temporarily enlarging the matching. The result is a motivated complete finite classification, not just a restatement of the optimum cardinality or an arbitrary bounded sample.
+For GP(8,3) with 16 labeled vertices and 24 distinct edges, an edge matching is inclusion-maximal exactly when its unmatched vertex set is independent. Source recursive inclusion/exclusion visits each matching once and reports sizes 6:176, 7:336, 8:33 with none <=5. An independently implemented exhaustive combinations enumeration of all k-edge matchings confirmed 0 for k<=5 and the three counts. At each of 176 six-edge matchings, replace exactly one of six chosen graph edges by an unused edge, retaining only enumerated six-edge maximal matchings. Independent exchange adjacency yields 96 undirected pairs, degree distribution eighty vertices of degree0 and 96 degree2, and six connected 16-vertex cycles; six C16 plus 80 isolates, eccentricity8 within each nontrivial cycle. The pivot lemma: disjoint removed and inserted edges would allow the removed edge to append to new matching, contradiction. Original GP labeling and independent LCF complement verifier were read and checked; finite exhaustive proof is appropriate because the claim concerns a single finite graph.
 
-**Limitations and priority risks.** The statement is only for the specified graph and single-edge exchange. Finite programs prove the finite claim through exhaustive enumeration, not an infinite-family theorem. The full 2014 complexity/approximation paper was not inspected. Unindexed older computations may contain the same state census. There is no independent scholarly audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing exact matching-complex homotopy and perfect-matching trade results cover a different invariant or different state space; inspected source texts do not state or imply the minimum maximal matching exchange topology. Unindexed computational databases remain risk.
+
+## value
+
+PASS
+
+A complete optimum-state mobility decomposition for the canonical cubic symmetric 16-vertex Möbius–Kantor graph is a motivated exact finite reconfiguration invariant. It sharply distinguishes six 16-cycles from 80 frozen local states, is not merely a cardinality, and may be a useful benchmark for maximal matching reconfiguration algorithms. No general theorem is required for its precise mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

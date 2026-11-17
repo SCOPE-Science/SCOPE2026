@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Finite verification
+# Independent mathematical audit
 
-The graph has 16 named vertices and 24 edges. The first standalone script enumerates all graph matchings by including or excluding each edge subject to disjointness. It tests maximality exactly through unmatched vertices and enumerates every candidate one-edge substitution among optimum states. The second script independently enumerates all independent possible unmatched sets and all perfect matchings on their complements, then builds exchanges by shared five-edge submatchings. Both use Python 3 standard library only and independently verify all reported sizes and components.
+## correctness
 
-Executed commands:
+PASS
 
-```sh
-python3 verify_gp_matching.py
-python3 verify_lcf_complement.py
-```
+For GP(8,3) with 16 labeled vertices and 24 distinct edges, an edge matching is inclusion-maximal exactly when its unmatched vertex set is independent. Source recursive inclusion/exclusion visits each matching once and reports sizes 6:176, 7:336, 8:33 with none <=5. An independently implemented exhaustive combinations enumeration of all k-edge matchings confirmed 0 for k<=5 and the three counts. At each of 176 six-edge matchings, replace exactly one of six chosen graph edges by an unused edge, retaining only enumerated six-edge maximal matchings. Independent exchange adjacency yields 96 undirected pairs, degree distribution eighty vertices of degree0 and 96 degree2, and six connected 16-vertex cycles; six C16 plus 80 isolates, eccentricity8 within each nontrivial cycle. The pivot lemma: disjoint removed and inserted edges would allow the removed edge to append to new matching, contradiction. Original GP labeling and independent LCF complement verifier were read and checked; finite exhaustive proof is appropriate because the claim concerns a single finite graph.
 
-Both runs ended `VERIFY_OK`; the exact captured outputs are embedded alongside these scripts. Each assertion was checked in the run where its corresponding program executed. The first also checks all finite graph distances from all nonisolated states. The second verifies the fixed relabeling to the LCF model by equality of all edges.
+## originality
 
-The finite universe is exhausted; no random trial or selected sample is substituted for a proof. These checks do not extend to other graphs, nor do they constitute an external or independent scholarly audit.
+PASS
+
+Existing exact matching-complex homotopy and perfect-matching trade results cover a different invariant or different state space; inspected source texts do not state or imply the minimum maximal matching exchange topology. Unindexed computational databases remain risk.
+
+## value
+
+PASS
+
+A complete optimum-state mobility decomposition for the canonical cubic symmetric 16-vertex Möbius–Kantor graph is a motivated exact finite reconfiguration invariant. It sharply distinguishes six 16-cycles from 80 frozen local states, is not merely a cardinality, and may be a useful benchmark for maximal matching reconfiguration algorithms. No general theorem is required for its precise mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
