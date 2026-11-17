@@ -1,11 +1,21 @@
-# Scientific review: sharp five-round logical threshold for directed successor cycles
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact recursive rank-type characterization was proved by induction. The provided program exhaustively computes each required tuple-extension type through cycle length \(32\) and rank five, with structural equality rather than probabilistic hashing. It independently cross-checks the smallest cycle comparisons through direct EF minimax. The cyclic-gap invariant proves the all-length tail for rank five and below. The finite computation and infinite proof have distinct, specified responsibilities.
+## correctness
 
-**Originality — PASS (best-evidence assessment).** The motivating Gaifman normal-form papers concern more general locality and do not give the numerical \(19\) cutoff in material inspected. The closest published exact quantifier-rank statement concerns directed *paths*, whose endpoints make the claim logically different. A related one-red-order profile also uses a different signature. Specific successor-cycle, five-round, rank-type, and cutoff searches did not locate the same classification. Inaccessible full texts and potentially older specialized EF literature are priority risks, not assertions of proven uniqueness.
+PASS
 
-**Value — PASS.** A sharp finite-rank indistinguishability threshold is a natural invariant of finite directed successor models. Rank five yields exactly \(19\) theories, with the stable range starting at \(19\), substantially below the standard \(32\)-length generic EF guarantee. The complete ranks-one-through-five table is a motivated small-rank classification, rather than an arbitrary census.
+PASS: In the pure binary-successor language, atomic diagrams plus sets of extension r-types are equivalent to rank-r formulas by characteristic-formula induction, including arbitrarily long Boolean combinations. Source checker.py computes complete structural types on all single cycles n=1..32 for q=1..5, giving thresholds (2,4,7,11,19); the cyclic-gap EF invariant proves that all n,m>=2^q are indistinguishable, extending the finite q=5 table beyond 32. Rotation normalization is an automorphism. Independent direct EF game checks reproduced the rank<=3 small-order pattern; the full rank-five enumeration was inspected as code, not personally rerun as an independent complete computation. Thus the proof combines an exhaustive finite algorithm on a bounded domain and a genuine infinite-tail argument, without inferring the infinite statement from sampling.
 
-**Scope and limitations.** Only single cycles, one binary successor relation, ordinary first-order quantifier rank through five. No higher-rank pattern or stronger signature is claimed. The mathematical argument remains open to independent validation and historical priority examination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: exact 19-cycle rank-five threshold and all five successor-only classes are not implied by the inspected general EF/Gaifman results, rank-three permutation-classification, rank-q directed path cutoff or marked/two-variable cycle results. Earlier specialist cycle-type tables could still exist; failed search is not proof of novelty.
+
+## value
+
+PASS
+
+PASS: The number 19 is an exact smallest stabilization cutoff for a canonical, natural finite-structure theory and a sharp improvement over the generic 32-vertex EF tail guarantee at rank five. Such exact logical spectra are usable as benchmarks for locality, model checking and Ehrenfeucht–Fraïssé bounds; it is more than a routine reformulation of EF equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
