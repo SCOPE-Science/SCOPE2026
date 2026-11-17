@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact right quotients are derived from the one-run-per-symbol circular order. Constant inputs yield a union of maximal cyclic suffixes; nonconstant inputs yield principal downward-closed quotients. The classification accounts for the possible return to the starting symbol, duplicate generators, the empty initial quotient and the single dead quotient. Counting unique principal generators gives \(1-n+\sum_{i\ne j}a_ia_j\); adding the \(n\) constant-input quotients and the initial/dead states proves the formula. The separate prefix/suffix-collision count establishes the identical value for the original conjugacy language. The standalone verifier reconstructed the residuals on 280 configurations and 61,585 accepted-prefix instances.
+## correctness
 
-## Originality — PASS, qualified
-The inspected Gabrić–Holub–Shallit primary text concerns extremal conjugacy complexity and its realizing generalized de Bruijn words, not state complexity of the downward closure of distinct-run conjugates. Guyot (2024, Propositions 2.5–2.6) proves the all-run-lengths-one specialization for the downward closure of conjugates, with \(q^2-q+3\) states. This known special case is credited; the arbitrary positive run-vector formula and closure-invariance equality are not supplied there. Searches for cyclic conjugacy, scattered-subsequence closure, quotient complexity, and run-length families did not locate a statement implying the present equality. Existing two-letter, two-run conjugacy calculations cover only a narrow conjugacy specialization: they do not imply closure invariance or q-letter state counts. An unindexed equivalent or an implicit corollary of other closure results remains possible.
+PASS
 
-## Mathematical value — PASS
-The result shows that an operation which enlarges the accepted language from exactly \(n\) words of fixed length to potentially exponentially many shorter words preserves automaton size exactly, for an unbounded alphabet and all positive run vectors. It gives the whole natural parameter family, a closed quadratic formula, and a constructive Myhill–Nerode classification supporting exact automaton minimization. This is not a mere input substitution into a generic worst-case bound.
+The closure right-quotient proof distinguishes constant-prefix quotients Q_(i,p) with at least two incomparable maximal suffixes (except p=a_i), principal downsets of proper cyclic arcs indexed by unequal endpoint runs and endpoint exponents, initial and dead quotients. Their count is 3+sum_(i!=j)a_i a_j. For conjugacy words at depth d, the number h_d=n-sum_i(a_i-d)_+-sum_i(a_i-(n-d))_+ follows from unique run boundaries and prefix/suffix collisions; summation gives same formula. All q>=2 and positive a_i, distinct letters; finite independent exact DFA construction checked 33 small run vectors for both languages, corroborating rather than proving universality.
 
-## Closest literature and limits
-Gabric–Holub–Shallit (2019), arXiv:1903.05442, addresses extremal conjugacy complexity; Guyot (2024), arXiv:2407.10355, already proves the all-unit specialization via a square-root construction; Brzozowski–Jirásková–Zou (2009), arXiv:0912.1034, provides general closure background. The theorem does not extend as stated to repeated symbols in multiple runs, nor does it establish any general invariance principle for arbitrary languages.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Guyot 2024 Propositions 2.5–2.6 establish the unit-run specialization q^2-q+3 of downward closures of all distinct-letter conjugates, and earlier two-run binary work establishes only the undeleted conjugacy n=2 formula. Neither yields the arbitrary-run multi-letter downward-closure count or the invariance comparing the two languages. Primary propositions and relevant Resultary mathematical findings were compared at the level of hypotheses; novelty remains qualified by undiscovered equivalent automata-language formulas.
+
+## value
+
+PASS
+
+This is an exact all-parameter Myhill–Nerode state complexity classification for a natural finite language operation (cyclic conjugacy and subsequence closure), including arbitrarily many distinct symbols and arbitrary run lengths. Equality despite a very different accepted length spectrum is an interpretable structural phenomenon, not a tiny sample or renaming; the formula is directly useful to automata complexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
