@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T16:49:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/two-mode-covariance-spectrum-for-circular-bernoulli-run-frequenc--5e29bbdfb592/RESULT.md (blob 5d9ce5f612663546cbc59d6be9866d3055937a06)",
+        "2026/11/08/two-mode-covariance-spectrum-for-circular-bernoulli-run-frequenc--5e29bbdfb592/check.py (blob 7c07980076136aa9abfb6d9d692f743ba2f34fae)"
+      ],
+      "rationale": "For n>=2R+3, R>=2, 0<p<1, conditioning on a maximal r-run partitions second s-run starts into coincident, two touching and n-r-s-3 independent classes. This yields Cov(C_r,C_s)=n(delta_rs a_r+a_r a_s(2/q-r-s-3)). Normalization gives I+(2/q-3)vv^T-vw^T-wv^T; independent v,w and the nonzero determinant of its 2x2 coefficient matrix prove rank exactly two, with exceptional eigenvalues from trace tau and negative product -Delta. Zero plus the e_r attainable count vectors prove positive definiteness; geometric sums yield the stated limiting eigenvalues. Independent exact word enumeration checked 68 covariance entries. The argument is an all-admissible-parameter proof, not extrapolated from finite tests.",
+      "residual_risks": [
+        "Outside n>=2R+3, wraparound can alter the formula; no central limit law or unscaled eigenvalue result claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Inoue & Aki (2005), Ann Inst Stat Math 57:353–368, DOI 10.1007/BF02507029, Section 4, Theorems 4.1 and 4.4",
+          "Resultary fixed-composition cyclic run-count and transition claims have sampling without replacement, not iid Bernoulli circle; Huffer et al arXiv:0801.2115 concerns infinite Bernoulli strings."
+        ],
+        "reasoning": "An earlier complete joint law dominates access to low-order moments, but the nontrivial spectral compression is not a named result of inspected sources. Coverage risk from algebraic consequences is explicitly retained; generic distributional completeness does not automatically supply the spectral analysis as a previously formulated theorem.",
+        "searches": [
+          "circular Bernoulli success run counts covariance matrix rank two spectral exceptional eigenvalues exact length lengths sign transition Inoue Aki",
+          "https://www.ism.ac.jp/editsec/aism/pdf/057_2_0353.pdf",
+          "Resultary fixed-composition run covariance searches"
+        ]
+      },
+      "checked_sources": [
+        "Inoue & Aki (2005), Ann Inst Stat Math 57:353–368, DOI 10.1007/BF02507029, Section 4, Theorems 4.1 and 4.4",
+        "Huffer–Sethuraman–Sethuraman arXiv:0801.2115",
+        "Prior indexed findings from Resultary query: circular Bernoulli success run counts covariance matrix rank two spectral exceptional eigenvalues exact length lengths sign transition Inoue Aki"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Joint pgf implies covariance extraction via differentiation; own conditional counting derives the explicit kernel and a new structural low-rank consequence.",
+          "Fixed-composition findings neither use the same probability law nor yield an arbitrary-run-length iid covariance matrix."
+        ],
+        "reasoning": "The raw moment formula is a special computation of earlier general generating functions and is not independently claimed original. Novelty, if any, is restricted to the two exceptional eigenmodes, sharp sign rule and limiting outlier behavior.",
+        "searches": [
+          "circular Bernoulli success run counts covariance matrix rank two spectral exceptional eigenvalues exact length lengths sign transition Inoue Aki",
+          "Inoue–Aki circular joint pgf Theorems 4.1/4.4",
+          "Resultary fixed-composition covariance theorem records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditional run windows yield offdiagonal sign at p=1-2/(r+s+3).",
+          "Inoue–Aki supplies general circular joint pgf/mixed moments, but inspected material does not identify the rank-two normalized matrix or two eigenvalue outliers."
+        ],
+        "reasoning": "Equivalent representations include covariance of circular exact-runs, standardized run frequency correlations, and a two-dimensional perturbation of identity. The 2005 moment recurrence computes moments but does not provide this structured spectral classification without additional derivation.",
+        "searches": [
+          "circular Bernoulli success run counts covariance matrix rank two spectral exceptional eigenvalues exact length lengths sign transition Inoue Aki",
+          "Inoue–Aki 2005 Theorem 4.1 and Theorem 4.4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2005 numerical figures distinguish counting conventions, not the full arbitrary-(r,s) sign switching diagram or normalized eigenspectrum."
+        ],
+        "reasoning": "No exact-table claim for the two outliers was found; absence of a table is not novelty evidence by itself.",
+        "searches": [
+          "circular Bernoulli success run counts covariance matrix rank two spectral exceptional eigenvalues exact length lengths sign transition Inoue Aki",
+          "2005 circular-run paper numerical correlation figures"
+        ]
+      },
+      "rationale": "The primary 2005 joint-pgf/mixed-moment theory already entails recovery of raw covariance entries; that component is not separately novel. The identified contribution is the compact all-frequency sign diagram, rank-two normalized spectrum, two explicit outliers and limiting closed form. No inspected primary source states an equivalent two-mode theorem; conclusion best-of-knowledge, especially given implicit older joint-law coverage.",
+      "residual_risks": [
+        "The 2005 general joint-pgf result implies the raw covariance, so only the explicit spectral extraction can be treated as distinct.",
+        "An older spectral interpretation implicit in the moment recurrences may have gone unindexed; 2010 one-length circular-run follow-up not fully read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general joint generating functions and mixed moments; no explicitly stated two-outlier normalized covariance spectrum in inspected text",
+          "evidence": [
+            "Theorem 4.1; Theorem 4.4; Section 4 numerical correlation examples"
+          ],
+          "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/057_2_0353.pdf",
+          "material_read": "Full open-access primary PDF, Section 4 pages 361–365, Theorems 4.1, 4.4 and correlation examples",
+          "method": "Read extracted PDF text and inspected page screenshots",
+          "title": "Joint distributions of numbers of success runs of specified lengths in linear and circular sequences",
+          "trigger": "Same iid circular run model and multivariate moment law"
+        },
+        {
+          "assessment": "Infinite-string conditional Poisson setting, not this finite circular covariance spectral assertion",
+          "evidence": [
+            "arXiv:0801.2115 abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0801.2115",
+          "material_read": "Accessible abstract/model scope, not a complete re-reading of all derivations",
+          "method": "Web search and source synopsis",
+          "title": "A study of counts of Bernoulli strings via conditional Poisson processes",
+          "trigger": "Nearby Bernoulli word count statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Inoue & Aki (2005), Ann Inst Stat Math 57:353–368, DOI 10.1007/BF02507029, Section 4, Theorems 4.1 and 4.4"
+      ],
+      "rationale": "Across arbitrarily many exact run-length features, the standardized covariance collapses to identity plus only two collective modes, with explicit sign switches depending on r+s. This is an exact structural constraint useful for run-frequency inference and covariance computations, not an arbitrary single-parameter table or rebranded moment enumeration.",
+      "residual_risks": [
+        "Requires normalization by n a_r and the nonoverlap size bound; practical conditioning can be poor for rare long runs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Nonoverlapping short-run window condition n>=2R+3 is essential to the stated derivation.",
+    "Prior full joint moment theory is stronger than the raw covariance; novelty does not include the joint law."
+  ],
+  "schema_version": 1
+}

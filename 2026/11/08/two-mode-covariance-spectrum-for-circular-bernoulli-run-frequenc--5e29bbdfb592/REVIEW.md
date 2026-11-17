@@ -1,19 +1,21 @@
-# Review of the circular run-frequency covariance theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Condition on an exact length-\(r\) run and partition all possible starts of a length-\(s\) run into one coincident, two touching, \(n-r-s-3\) independent, and incompatible starts. This proves every covariance entry for \(n\ge 2R+3\). Its two-mode decomposition, eigenvalue product \(-\Delta_R\), and geometric-series limits follow by direct algebra. Positive definiteness follows from the attainable all-zero and one-run count vectors. Rational exhaustive checks verify representative boundary cases without substituting for proof.
+PASS
 
-## Originality — PASS, qualified
+For n>=2R+3, R>=2, 0<p<1, conditioning on a maximal r-run partitions second s-run starts into coincident, two touching and n-r-s-3 independent classes. This yields Cov(C_r,C_s)=n(delta_rs a_r+a_r a_s(2/q-r-s-3)). Normalization gives I+(2/q-3)vv^T-vw^T-wv^T; independent v,w and the nonzero determinant of its 2x2 coefficient matrix prove rank exactly two, with exceptional eigenvalues from trace tau and negative product -Delta. Zero plus the e_r attainable count vectors prove positive definiteness; geometric sums yield the stated limiting eigenvalues. Independent exact word enumeration checked 68 covariance entries. The argument is an all-admissible-parameter proof, not extrapolated from finite tests.
 
-The strongest direct primary predecessor is Inoue–Aki (2005), Section 4: Theorem 4.1 gives a joint generating function and Theorem 4.4 a general mixed-moment recurrence for circular success-run counts. Such recurrences imply that the covariance entries can be *computed*, so raw moments are not asserted to be absent from prior work. The inspected sections do not state a rank-two normalization, exactly two exceptional eigenvalues, or an off-diagonal length-sum phase diagram. Huffer–Sethuraman–Sethuraman (2008) treats different infinite Bernoulli-string models. The publicly indexed fixed-composition run-transition and run-count results have different sampling laws or one total-run statistic, not the full iid count-spectrum theorem. Unexamined implicit algebraic equivalences within historical generating functions remain a residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The result identifies only two collective second-moment interaction modes across arbitrarily many short run lengths, despite strong local pattern overlap. Its all-pairs covariance sign cutoff and explicit limiting exceptional eigenvalues provide useful finite-sample constraints and a compact covariance representation for run-frequency statistical analyses. These are structural features beyond any one computed moment or arbitrary parameter slice.
+The primary 2005 joint-pgf/mixed-moment theory already entails recovery of raw covariance entries; that component is not separately novel. The identified contribution is the compact all-frequency sign diagram, rank-two normalized spectrum, two explicit outliers and limiting closed form. No inspected primary source states an equivalent two-mode theorem; conclusion best-of-knowledge, especially given implicit older joint-law coverage.
 
-## Scope and independence
+## value
 
-The theorem concerns iid *circular* Bernoulli samples and the subvector of lengths \(1,\ldots,R\) with \(n\ge2R+3\). It does not assert the same low-rank spectrum for more heavily wrapping run windows, non-iid trials, or fixed-composition sampling. No independent review has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Across arbitrarily many exact run-length features, the standardized covariance collapses to identity plus only two collective modes, with explicit sign switches depending on r+s. This is an exact structural constraint useful for run-frequency inference and covariance computations, not an arbitrary single-parameter table or rebranded moment enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
