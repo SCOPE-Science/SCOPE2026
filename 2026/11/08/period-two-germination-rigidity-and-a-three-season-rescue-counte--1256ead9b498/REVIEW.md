@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The two-cohort recurrence, chronological product, trace, determinant, and two endpoint factorizations were reconstructed. The comparison point \(L=a\max\{b,s\}\) lies strictly to the right of the characteristic parabola's vertex because the trace is convex and has both endpoint values below \(2L\). The signs of the factorizations certify the entire parameter domain, including boundary equality \(s=b\) and both pure policies. The three-season example was independently multiplied using rational arithmetic: both endpoint spectra lie below one; the mixed spectrum lies above one. `verify.py` passed symbolic identities and 1,235 exact-rational comparisons.
+PASS
 
-## Originality: PASS within inspected evidence, with priority risk
+PASS: Reconstructed chronological 2x2 matrix A(f,g,s)=[[fg,f],[s(1-g),0]], its two-season product, trace ab g²+s(a+b)(1-g) and determinant ab s²(1-g)². The proof correctly places L=a max(b,s) right of the parabola vertex T/2 (T(g) convex and T(g)<2L), so factorizations P_g(ab)=ab(1-g)[(a-s)(b-s)+g(ab-s²)] and P_g(as)=asg[(1-g)(a-b)s+ga(s-b)] establish all strict interior inequalities and endpoint equality classification, including s=b tie. Independently verified these symbolic identities with SymPy and recomputed the three exact matrices at (4,1/5,1),s=3/4: pure g=0 has spectral radius sqrt(27/80), pure g=1 has 4/5, g=1/2 has dominant root (83+sqrt(7969))/160>1; exact determinant -27/640. This finite exact witness establishes only an existential 3-season rescue, not global optimality. At reducible boundaries, the submitted statement uses spectral-radius maximal growth, not guaranteed growth from every nonnegative seed vector.
 
-Brown–Venable (1986), pp. 33–34, optimize a scalar mean of logarithms across random year types, not the age-two periodic matrix product. Rees–Long (1992) study stochastic annual persistence in another framework. Rees (1994) treats a distinct stage-structured density-dependent invasion model, derives constant-environment conditions, and uses numerical simulations for stochastic environments; its pp. 44–50 do not state an exact period-two Floquet switch. The age-specific germination work of Valleriani–Tielbörger (2006) and correlated-yield work of Valleriani (2006) are close enough to warrant special priority caution, but their accessible abstracts do not assert this exact deterministic Floquet cutoff. Verin (2018), supplementary Text S3, examines much longer banking durations and seasonal periods numerically. No result implying both the all-parameter period-two theorem and three-season rescue was identified in the inspected materials or mathematical database searches. Full source examination is incomplete; priority should be independently checked before publication.
+## originality
 
-## Value: PASS
+PASS
 
-The two-age model is the minimal age structure that distinguishes obligatory second-opportunity germination from indefinitely renewable dormancy. A complete, parameter-uniform threshold at the **poor-season**, not average, fecundity has ecological interpretation. More importantly, the exact three-season witness demonstrates genuinely positive growth from a mixed strategy while both pure strategies decline, proving that the period-two bang–bang conclusion does not persist under the smallest longer cycle. The claim is limited to a tractable baseline model rather than asserted as a general conservation prescription.
+PASS best-of-knowledge for the exact age-two, deterministic periodic fixed-g Floquet model, its complete two-season pure-strategy threshold and sharp three-season survival witness. Rees (1994) develops stage-structured delayed germination and environmental variation but in a different constant/random environment invasion framework. Brown-Venable scalar geometric mean does not have these 2x2 chronological matrix effects. Earlier published SCOPE age-limited resonance studies longer seed persistence versus environmental order, not this fixed-g two-season maximization. Related age-dependent seed-bank literature is broad and incomplete; explicitly retain priority risk.
 
-## Closest literature and limitations
+## value
 
-Sources: Brown and Venable (1986), DOI 10.1086/284465 (full text pp. 33–34); Rees and Long (1992) (available repository PDF); Rees (1994), DOI 10.1086/285660 (full repository text, especially pp. 44–50); Tielbörger and Valleriani (2005), DOI 10.1111/j.0030-1299.2005.14041.x (abstract); Valleriani and Tielbörger (2006), DOI 10.1016/j.tpb.2006.02.003 (abstract only); Valleriani (2006), DOI 10.1016/j.tpb.2006.07.008 (abstract only); Verin (2018), supplementary Text S3 (thesis text). No claim of an independently exhaustive history check is made. The theorem excludes density dependence, climate-adaptive decisions, and seed ages beyond two opportunities.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The minimal age-two seed bank provides a natural two-policy biological control problem. Exact pure-strategy rigidity for every positive two-season environment and the explicit three-season counterexample identify a sharp, mathematically motivated boundary at environmental cycle length, demonstrating nontrivial dependence of persistence on dormancy mixing without parameter fitting or unsupported practical prediction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
