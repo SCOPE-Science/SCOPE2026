@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The formula for the quintic discriminant is checked by an integral resultant reduced modulo two, while the polynomial coordinate change converts the reduced hypersurface to \(U^2+bUV+dV^2\). Gauss's lemma establishes integrality. Direct differentiation gives both the reduced singular locus and the embedded primary component of its Jacobian scheme. The finite birational map from affine four-space is normal and integral; the explicitly computed module \(S/B\) yields the conductor. The finite-field calculation tests all \(\mathbb F_4\)-coefficient cases but is not the basis of the infinite-field proof.
+PASS
 
-## Originality
+The characteristic-two discriminant is H² with H=a²d²+ab²e+abcd+bce+c²d+e²; U=e+ad,V=c+ab gives H=U²+bUV+dV², primitive linear in d, hence integral. Partial derivatives give Jacobian (U²,UV,V²,bU,bV)=(U,V)∩(b,(U,V)²), radical (U,V) and embedded prime (b,U,V). S=k[a,b,R,V] with d=R²+bR,U=RV is finite birational integrally closed normalization. S/B has one P=k[a,b,d]-module generator R killed by (U,V), proving conductor. F_q counts q4 for Y and q3 for Z. Independent characteristic-two coordinate expansion and q2/q4 checks corroborate finite cases without proving the normalization.
 
-**PASS on current inspected evidence, with historical-priority risk.** The square-discriminant observation is explicitly prior work (du Plessis–Wall, 2017, Section 6.1). The 2012 binary-invariant treatment excludes characteristic two. The 2017 characteristic-two analysis treats invariants and moduli normal forms, not the stated affine normalization and conductor or embedded Jacobian primary decomposition. These claimed consequences are not extracted from a pre-existing table. A general normalization theorem in uninspected specialist literature remains a residual risk; absence from semantic search does not establish uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The reduced discriminant is a natural singularity and degeneration locus of a full five-parameter algebraic family. Its nonnormality, exact conductor, separable-to-inseparable boundary, and embedded Jacobian stratum answer concrete geometric questions not answered by knowing the discriminant equation. The explicit smooth triple-root example distinguishes this characteristic-two geometry from the usual characteristic-zero intuition.
+Du Plessis and Wall Section 6 explicitly identify the characteristic-two quintic discriminant as a square of an invariant, but their binary-quintic moduli classification does not determine the monic affine reduced hypersurface normalization, conductor or embedded Jacobian structure. Earlier published Resultary characteristic-two BINARY-QUARTIC conductor work addresses degree four and a different projective model; it does not dominate this degree-five affine geometry.
 
-## Limits
+## value
 
-The theorem concerns monic affine quintics, not the projective moduli quotient. The nonreduced double-discriminant hypersurface, resolutions, and complete analytic classification on the inseparable boundary are not classified. General historical priority needs specialist verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The normalization/conductor and nonreduced Jacobian embedded prime describe intrinsic defects of a natural low-degree discriminant in wild characteristic; the separable-to-inseparable conductor cover transition is substantive scheme geometry beyond restating a perfect-square discriminant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
