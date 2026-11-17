@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T21:11:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m>=2 unit-row scalar least squares with uniform singleton residual updates, errors e=x-x*, s_i=storedResidual_i-(x*-b_i) evolve as e'=(1-mα)e+mα(s_i-mean(s)), s_i'=e. Their exact exchangeable second-moment closure on (Ee²,Ee t,Et²,EV) has displayed 4x4 matrix and characteristic-one factor det(I-M)=-2α/m² P_m(α), P=m(m-1)(2m-1)α²-(m-2)(2m-1)α-2. The positive covariance map is permutation-equivariant; averaging a nonzero PSD Perron eigenmatrix preserves its nonzero trace, so the four-dimensional moment restriction has the full radius. Spectral perturbation at α=0 gives derivative -2m, no crossing before unique positive P root, and determinant sign gives real eigenvalue >1 beyond. Reachable original states Y0=(1,1_m), Y1=(c,1_m), Y2,i=(c²,1_m+(c-1)e_i) span R^(m+1), proving the original nonzero least-squares solution also has sharp necessity. x*=0 initially exact zero is acknowledged. Checked bounded symbolic matrix and finite-word verification script; analytic PSD and span arguments establish infinite-horizon statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior two-row theorem sets p=q=1/2 and recovers α=1/sqrt3, identical to the present m=2 specialization. It has no variable row count m and no original-init condition for all m."
+        ],
+        "reasoning": "Broader probability parameterization for exactly two rows is NOT broader in row-count m. General JacSketch sufficient convergence results leave the exact full-state necessary boundary open.",
+        "searches": [
+          "2026/11/8/SCOPE-sharp-sampling-imbalance-frontier-for-two-row-residual-tracking--8163c39ed9e1/RESULT.md full",
+          "Resultary: variance reduced residual tracking randomized Kaczmarz rank one identical rows exact mean-square stability step size JacSketch SAGA"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query: variance reduced residual tracking randomized Kaczmarz rank one identical rows exact mean-square stability step size JacSketch SAGA",
+        "Resultary query: rank one residual tracking JacSketch SAGA identical rows exact spectral radius mean square 2m-1",
+        "Resultary/2026 2026/11/8/SCOPE-sharp-sampling-imbalance-frontier-for-two-row-residual-tracking--8163c39ed9e1/RESULT.md full",
+        "https://arxiv.org/abs/2610.39537 (abstract and assigned algorithm context only)",
+        "https://arxiv.org/abs/1407.0202 (bibliographic only)",
+        "https://arxiv.org/abs/1902.00071 (bibliographic only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior 2-row statement has covariance operator on 3 variables and a probability-dependent cubic; it specializes to m=2 only. Source stepsize α_suff=1/[m(m+4)] is well below exact α*(m)>1/m."
+        ],
+        "reasoning": "A sufficient small step does not imply the iff frontier, and a fixed 2-row result cannot algebraically dominate all m. The main all-m closed moment reduction, asymptotic improvement and initialized sharpness survive.",
+        "searches": [
+          "2026/11/8/SCOPE-sharp-sampling-imbalance-frontier-for-two-row-residual-tracking--8163c39ed9e1/RESULT.md full",
+          "arxiv:2610.39537 Algorithm 1 Theorem 3.2 Remark 3.3 and Proposition 3.4 (bibliographic access)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xie–Qi–Han identify VRRK-AS with JacSketch/SAGA estimator; the same-error recurrence is a stored-residual SAGA covariance map, not ordinary Kaczmarz."
+        ],
+        "reasoning": "Compared under three algorithm names and reduced the sample-wise operator, avoiding false novelty from relabeling. The exact all-m necessary threshold is not present in retrieved SAGA convergence sufficiency statements.",
+        "searches": [
+          "Resultary: variance reduced residual tracking randomized Kaczmarz rank one identical rows exact mean-square stability step size JacSketch SAGA",
+          "Resultary: rank one residual tracking JacSketch SAGA identical rows exact spectral radius mean square 2m-1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A published m=2 exact root exists, but there is no inspected complete table or prior all-integer m symbolic polynomial P_m."
+        ],
+        "reasoning": "Even all small m entries would not prove universal spectral crossing or prescribed-initialization necessity; the theorem gives exact all-m formula and proof.",
+        "searches": [
+          "Resultary: variance reduced residual tracking randomized Kaczmarz rank one identical rows exact mean-square stability step size JacSketch SAGA",
+          "2026/11/8/SCOPE-sharp-sampling-imbalance-frontier-for-two-row-residual-tracking--8163c39ed9e1/RESULT.md full"
+        ]
+      },
+      "rationale": "The full 2026-11-08 two-row imbalanced-sampling theorem already covers m=2 uniform α=1/sqrt3 as a special case, and that portion is credited. Its cubic probability-dependent two-row covariance system does not cover all m>=3 identical-row trackers or the initialized-state nondecay proof. Xie–Qi–Han source sufficient step 1/[m(m+4)] and JacSketch/SAGA equivalence do not imply necessity and sharp m-dependent root. The all-m uniform classification is best-knowledge new with explicit unresolved older specialized SAGA risk; authorized access to source full text was blocked.",
+      "residual_risks": [
+        "Full source Xie–Qi–Han arXiv 2610.39537 and other exact SAGA literature inaccessible; authorized institutional VPN disconnected.",
+        "The m=2 balanced root is prior covered, and no novelty is claimed for that single case.",
+        "Original initialization with x*=0 is already stationary, a documented exception; wider matrix/other sampling rules unproved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers m=2 only, not all m>=3 theorem or exact prescribed-initialization boundary",
+          "evidence": [
+            "Balanced case F_{1/4}(α)=(3α²-1)/16, α*=1/sqrt3"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-sampling-imbalance-frontier-for-two-row-residual-tracking--8163c39ed9e1/RESULT.md",
+          "material_read": "Complete RESULT.md including 6x6 covariance lift, F_{p(1-p)} cubic, and balanced maximum",
+          "method": "Fetched full published Git blob SHA 0d1a5898d0dbe6c6e2b55f0f3daeeaa2553f69b9",
+          "title": "Sharp sampling-imbalance frontier for two-row residual-tracking Kaczmarz",
+          "trigger": "Same model at m=2, unequal sampling generalization"
+        },
+        {
+          "assessment": "Cannot claim full-paper NOT_COVERING; its cited sufficient stepsize and JacSketch identity are prior background; retain exact-source priority risk",
+          "evidence": [
+            "arXiv:2610.39537; cited Algorithm 1, Theorem 3.2, Remark 3.3, Proposition 3.4"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.39537",
+          "material_read": "Accessible abstract/bibliography and algorithm conventions in inspected assigned source; NOT source-paper full text",
+          "method": "arXiv/preprint and open-access attempts followed by authorized institutional access; VPN disconnected",
+          "title": "Efficient variance reduction for randomized Kaczmarz methods via residual-tracking control variates",
+          "trigger": "Actual motivating algorithm, strongest plausible source"
+        },
+        {
+          "assessment": "Relevant method family but no verified full-source exclusion",
+          "evidence": [
+            "arXiv:1407.0202"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1407.0202",
+          "material_read": "Abstract/standard update framework via bibliographic description; full primary manuscript NOT newly read",
+          "method": "Search/bibliography",
+          "title": "SAGA: A Fast Incremental Gradient Method With Support for Non-Strongly Convex Composite Objectives",
+          "trigger": "Possible equivalent variance-reduced tracker name"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact m-dependent stability frontier of a natural residual-tracking/SAGA method on maximally coherent rank-one linear least squares supplies a rigorous necessary-versus-sufficient calibration missing from existing bounds. The full four-moment reduction, failure at the sharp endpoint, and actual initialized-state necessity are nonroutine structural facts applicable to every m, and quantify the growing factor-m conservatism of standard sufficient step rules. Not a trivial m=2 substitution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only m equal scalar rows and uniform iid singleton tracker updates; x*=0 initialization is a fixed point.",
+    "No claimed general-matrix or unequal-sampling optimality; motivating primary full text remained inaccessible."
+  ],
+  "schema_version": 1
+}

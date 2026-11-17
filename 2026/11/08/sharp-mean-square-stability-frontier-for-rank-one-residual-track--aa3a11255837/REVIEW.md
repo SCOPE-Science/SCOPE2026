@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stochastic recurrence is obtained directly from the uniform singleton update of Xie–Qi–Han [1, Algorithm 1]. Computing the four scalar second moments produces the displayed exact matrix, not a sufficient Lyapunov inequality. Symbolic determinant algebra identifies the unique positive boundary; a positive-semidefinite-preserving covariance map and table-permutation symmetry show that its spectral radius is the radius of this four-dimensional matrix. Perturbation at zero, the absence of an interior unit Perron eigenvalue, and a real root above one beyond the boundary prove the exact stability interval without numerical extrapolation. The two-step reachable vectors span the whole error state for nonzero initialized solution, ensuring a nonzero dual Perron projection at and beyond the boundary. Conditional-update identities, polynomial factorizations and small finite sample trees were additionally checked by the accompanying script (354 checks). The proof is finite-dimensional, with no reliance on unverified exhaustion of infinite iteration counts.
+PASS
 
-## Originality — PASS (best-knowledge assessment)
+For m>=2 unit-row scalar least squares with uniform singleton residual updates, errors e=x-x*, s_i=storedResidual_i-(x*-b_i) evolve as e'=(1-mα)e+mα(s_i-mean(s)), s_i'=e. Their exact exchangeable second-moment closure on (Ee²,Ee t,Et²,EV) has displayed 4x4 matrix and characteristic-one factor det(I-M)=-2α/m² P_m(α), P=m(m-1)(2m-1)α²-(m-2)(2m-1)α-2. The positive covariance map is permutation-equivariant; averaging a nonzero PSD Perron eigenmatrix preserves its nonzero trace, so the four-dimensional moment restriction has the full radius. Spectral perturbation at α=0 gives derivative -2m, no crossing before unique positive P root, and determinant sign gives real eigenvalue >1 beyond. Reachable original states Y0=(1,1_m), Y1=(c,1_m), Y2,i=(c²,1_m+(c-1)e_i) span R^(m+1), proving the original nonzero least-squares solution also has sharp necessity. x*=0 initially exact zero is acknowledged. Checked bounded symbolic matrix and finite-word verification script; analytic PSD and span arguments establish infinite-horizon statements.
 
-The main source [1, Sections 3.2–3.4 and Appendix 7.2] proves convergence under sufficient stepsize conditions and establishes equivalence to JacSketch, not an exact rank-one if-and-only-if boundary. The original SAGA treatment [2, Sections 2 and 5] and JacSketch theory [3, main convergence sections] give sufficient rates for broader settings. Minibatch stepsize theory [4] and general SGD second-moment stability [5] provide techniques but not the same residual-table recurrence or root. The closest searchable published related findings concern two-client Loopless SVRG, an orthogonal-system Kaczmarz momentum variant, and stationary STORM noise, none of which entails the coherent-row residual-tracker cutoff. Mathematical implication and initialization scope were compared rather than only terminology. An older equivalent SAGA matrix-moment calculation may exist; absence from retrieved material is not proof of absolute novelty. Independent priority verification remains open.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A concrete, natural, maximally coherent rank-one input family is especially useful for assessing whether general variance-reduction stepsize theory is sharp. The exact stability frontier is a positive-root classification for every number of rows and proves nondecay precisely for the initialized method rather than an arbitrary artificial state. The published sufficient step \(1/[m(m+4)]\) is asymptotically a factor \(m+4\) below the true stability limit. This demonstrates a dimension-growing calibration gap and provides a reproducible stability benchmark for similar residual-table stochastic methods. This is not a theorem about general matrices, fastest convergence, or practical parallel execution.
+The full 2026-11-08 two-row imbalanced-sampling theorem already covers m=2 uniform α=1/sqrt3 as a special case, and that portion is credited. Its cubic probability-dependent two-row covariance system does not cover all m>=3 identical-row trackers or the initialized-state nondecay proof. Xie–Qi–Han source sufficient step 1/[m(m+4)] and JacSketch/SAGA equivalence do not imply necessity and sharp m-dependent root. The all-m uniform classification is best-knowledge new with explicit unresolved older specialized SAGA risk; authorized access to source full text was blocked.
 
-## Literature and residual limitations
+## value
 
-Primary material inspected: [1] algorithm, sufficiency theorem, JacSketch correspondence and appendix; [2] SAGA update and rate proof; [3] JacSketch main development and rates; [4] minibatch step theory; [5] SGD spectral stability method. Residual historical-priority risk remains, including an unindexed early quadratic SAGA specialization. Finite scripted checks supplement the analytic proof only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact m-dependent stability frontier of a natural residual-tracking/SAGA method on maximally coherent rank-one linear least squares supplies a rigorous necessary-versus-sufficient calibration missing from existing bounds. The full four-moment reduction, failure at the sharp endpoint, and actual initialized-state necessity are nonroutine structural facts applicable to every m, and quantify the growing factor-m conservatism of standard sufficient step rules. Not a trivial m=2 substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
