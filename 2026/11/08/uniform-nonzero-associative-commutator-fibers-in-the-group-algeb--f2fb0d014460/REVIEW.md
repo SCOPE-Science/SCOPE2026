@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (PASS).** The conjugacy-class center has dimension three in every characteristic; the three displayed brackets of the quotient basis are independent in every field. This proves the exterior-square isomorphism and makes every commutator value decomposable because the quotient is three-dimensional. Exact zero and nonzero exterior-square fiber counts, multiplied by the six-dimensional space of central lifts, yield the stated formulas. An independent direct finite group-algebra multiplication verifier enumerated all ordered pairs for \(q=2,3,4\), including a nonprime field, with every output matching the predicted fiber. A finite experiment alone would not establish the uniform theorem; the proof supplies the universal argument.
+## correctness
 
-**Originality (PASS relative to inspected evidence).** Gao–Tang–Chen (2012) already determined commuting graphs of the same group ring for prime coefficient fields. Their results imply the prime-field zero-commutator count and the corresponding commuting probability and centralizer data. These are excluded from the asserted new contribution. Their commuting graphs do not determine the assigned *nonzero commutator value* of each noncommuting pair. The fully inspected Shumyatsky–Vannacci preprint (2023) treats global probability bounds, not nonzero fibers. The inspected Gardella–Thiel preprint treats commutator-generated ideals rather than exact single-commutator representation counts. A publicly indexed finite Kronecker path-algebra computation gives similar-style distributions in another algebra family, not an implication here. Search failure is not novelty proof; residual risk includes equivalent calculations in broader group-ring or matrix-ring literature. The 2012 HTML reproduction contains some image-rendered formulas, so assessment is bounded to readable material, article abstract, theorem text, and inspected surrounding proofs.
+PASS
 
-**Value (PASS).** The exact distribution of *all nonzero* outputs of the natural associative commutator word map is a motivated invariant beyond the previously known commuting probability (which sees only the zero fiber). It identifies a field-characteristic-independent exterior-square mechanism and shows that the modular cases \(2\) and \(3\) retain perfect nonzero equidistribution despite failure of semisimplicity. The theorem applies to every finite field, determines a complete natural distribution, and gives an independent reproduction route. It does not claim a new probability at zero in prime fields.
+From the pinned RESULT.md, center class sums {e,s+t+u,r+r′} give dim Z=3 and quotient basis s,t,r. Explicit independent brackets [s,t]=r−r′,[s,r]=t−u,[t,r]=u−s span the three-dimensional derived space in all characteristics, so Λ²(K³)≅W. All 3D bivectors are decomposable. A fixed nonzero 2-vector has exactly |SL₂(q)|=q(q²−1) ordered factorizations, while zero has q⁴+q³−q; each quotient pair has q⁶ central lifts. Thus zero=q¹⁰+q⁹−q⁷; each nonzero=q⁹−q⁷; outside W zero. Independent direct algebra enumeration of all 2¹²=4096 pairs at q=2 gives zero fiber 1408, seven nonzero fibers 384 each, and 8 attainable outputs. q=2/3 modular cases are included by the basis argument; finite check is not the infinite proof.
 
-**Scope and risks.** No result for general finite groups or coefficient rings; prior art beyond inspected sources may dominate. The public indexed research record concerning Kronecker algebras was checked at summary level, not at full-text level. The 2012 article's image-rendered mathematical formulas are not all machine-readable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gao–Tang–Chen (2012) derives prime-field commuting-graph and zero-commutator data but not the distribution across individual nonzero additive outputs. Other inspected or searched finite-ring commutator results use different algebras, group-commutators, or give only aggregate probabilities. The uniform nonzero fiber formula over all prime powers and exterior-square realization survive as a specific original exact invariant, subject to unindexed algebraic literature.
+
+## value
+
+PASS
+
+The nonzero additive-commutator distribution is a natural refinement of commuting graphs and a concrete example of uniform fibers of an alternating bilinear map, valid even for nonsplit modular group algebras. The structural Λ² quotient explanation, all-q exact counts, and commutator-width-one property can be used by finite ring/group-algebra researchers; the known zero fiber alone is not the claimed value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

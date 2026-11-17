@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Reproducible checks
+# Independent mathematical audit
 
-Save the included `verify.cpp` in the same directory and run `c++ -O2 -std=c++17 verify.cpp -o verify && ./verify`. The verifier uses direct permutation composition to construct the multiplication table of the symmetric group, independently computes the quotient exterior-square formula, and exhaustively enumerates all ordered pairs in the 6-dimensional algebra for field orders 2, 3, and 4, checking every output fiber. In characteristic two it treats subtraction as addition; the order-four field uses a degree-two irreducible polynomial. A `VERIFY_OK` exit indicates all finite checks passed.
+## correctness
 
-Expected finite counts: field 2: 4,096 ordered pairs; zero fiber 1,408, each of 7 nonzero attainable values 384. Field 3: 531,441 pairs; zero fiber 76,545, each of 26 other attainable values 17,496. Field 4: 16,777,216 pairs; zero fiber 1,294,336, each of 63 other attainable values 245,760.
+PASS
 
-## Limits
+From the pinned RESULT.md, center class sums {e,s+t+u,r+r′} give dim Z=3 and quotient basis s,t,r. Explicit independent brackets [s,t]=r−r′,[s,r]=t−u,[t,r]=u−s span the three-dimensional derived space in all characteristics, so Λ²(K³)≅W. All 3D bivectors are decomposable. A fixed nonzero 2-vector has exactly |SL₂(q)|=q(q²−1) ordered factorizations, while zero has q⁴+q³−q; each quotient pair has q⁶ central lifts. Thus zero=q¹⁰+q⁹−q⁷; each nonzero=q⁹−q⁷; outside W zero. Independent direct algebra enumeration of all 2¹²=4096 pairs at q=2 gives zero fiber 1408, seven nonzero fibers 384 each, and 8 attainable outputs. q=2/3 modular cases are included by the basis argument; finite check is not the infinite proof.
 
-Finite enumeration does not prove a statement for arbitrary prime powers. The proof in `RESULT.md` derives the result from group multiplication, an exterior-square isomorphism and a uniform count of fixed-wedge representations. Independent mathematical validation has not been performed.
+## originality
+
+PASS
+
+Gao–Tang–Chen (2012) derives prime-field commuting-graph and zero-commutator data but not the distribution across individual nonzero additive outputs. Other inspected or searched finite-ring commutator results use different algebras, group-commutators, or give only aggregate probabilities. The uniform nonzero fiber formula over all prime powers and exterior-square realization survive as a specific original exact invariant, subject to unindexed algebraic literature.
+
+## value
+
+PASS
+
+The nonzero additive-commutator distribution is a natural refinement of commuting graphs and a concrete example of uniform fibers of an alternating bilinear map, valid even for nonsplit modular group algebras. The structural Λ² quotient explanation, all-q exact counts, and commutator-width-one property can be used by finite ring/group-algebra researchers; the known zero fiber alone is not the claimed value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
