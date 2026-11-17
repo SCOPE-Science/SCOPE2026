@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducible finite checks and proof boundary
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 (only the standard library is needed). The script builds the restricted first-harmonic Gram form on the entire Johnson slice independently of the closed spectrum formulas, by computing exact coordinate inclusion probabilities for every pair. Every comparison uses `fractions.Fraction` and `math.comb`, not floating-point tolerances.
+## correctness
 
-At the time of review, the actual run produced:
+PASS
 
-```
-EXACT_ALL_FIRST_BAND_SECTORS_OK 165 ties 4 O_smaller 10 M_smaller 151
-SINGLETON_SLICE_RANK_BOUNDARY_OK
-```
+The ambient norm on H1 is beta*a·a, beta=k(n-k)/(n(n-1)). The coefficient zero-sum hyperplane splits orthogonally into t-1 on-T contrasts, q-1 outside contrasts and one mixed contrast. Conditioning on omission of T gives eigenvalues 1, 1-p0*n(n-1)(q-k)/(q(q-1)(n-k)), and 1-p0*k(n-1)t/(q(n-k)); their difference factors as -p0*(n-1)*(n-(t+1)k)/((q-1)(n-k)), so the sharp ordering holds for all t>=3,k>=2,q=n-t>=k. Positive sampled norms establish injectivity, even at q=k where outside eigenvalue=1; the finite-dimensional singular value theorem gives the recovery norm. Independently direct probability-matrix checks covered 120 parameter triples with four ties.
 
-For all integer triples \(5\le n\le13\), \(3\le t\le n-2\), and \(2\le k\le n-t\), the script checks exact action on both within-block zero-sum sectors and the mixed sector, all cross-sector products, strictly positive small eigenvalues, and the exact eigenvalue-ordering criterion. It also checks the adjacent \(k=1\) boundary separately, where outside-coordinate modes vanish under the spatial mask.
+## originality
 
-This finite verification **does not** establish the theorem in untested dimensions. The all-parameter proof is the inclusion-probability calculation, orthogonal sector decomposition, lost-mass formulas, and exact factorization given in `RESULT.md`. The fixed-density and fixed-\(k,t\) limits follow from explicit finite products and rational expansions, not from computer sampling. No independent audit, external mathematical certification or computer-assisted infinite proof is claimed.
+PASS
+
+Existing Johnson harmonics and concentration results supply the representation and general compression method, not the union-of-at-least-three-star H1 spectral triplet or phase boundary. Filmus slice-harmonic basis and Bernard–Crampé–Vinet Johnson-graph neighborhoods were inspected at relevant definitions and theorem sections; published two-coordinate-face result masks an intersection, not this union. Best-of-knowledge noncovered; residual risk of an unindexed association-scheme formula.
+
+## value
+
+PASS
+
+The union of coordinate stars is a canonical nontrivial observation window on Johnson slices. Exact singular values and the integer phase boundary supply the optimal stable recovery constant and a meaningful dimension-dependent bottleneck switch, which are not immediate from generic harmonic decompositions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

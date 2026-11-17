@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a complete operator spectrum on the zero-sum first-harmonic space, with uniform ambient slice probability and the explicitly defined union-of-stars window. The proof derives the coefficient-space \(L^2\) metric from one- and two-point inclusion counts, decomposes the coefficient hyperplane into the three mutually orthogonal invariant sectors under the block stabilizer, and independently computes the lost norm on the avoided \(k\)-subsets. The resulting eigenvalues have exact multiplicities adding to \(n-1\), and each is positive in the declared range. A direct factorization gives the precise tie and ordering law \(n=(t+1)k\), while the smallest singular value proves the optimal recovery constant. The fixed-density and fixed-cardinality asymptotics follow from the exact formulas, with explicit nonvanishing hypotheses. The standalone exact-rational checker directly enumerates all 165 parameter triples through \(n=13\) and verifies Gram forms and the sector decompositions; it is not an infinite proof. Scientific residual: none identified in the derivation, but independent verification remains outstanding.
+PASS
 
-## Originality — PASS, qualified
+The ambient norm on H1 is beta*a·a, beta=k(n-k)/(n(n-1)). The coefficient zero-sum hyperplane splits orthogonally into t-1 on-T contrasts, q-1 outside contrasts and one mixed contrast. Conditioning on omission of T gives eigenvalues 1, 1-p0*n(n-1)(q-k)/(q(q-1)(n-k)), and 1-p0*k(n-1)t/(q(n-k)); their difference factors as -p0*(n-1)*(n-(t+1)k)/((q-1)(n-k)), so the sharp ordering holds for all t>=3,k>=2,q=n-t>=k. Positive sampled norms establish injectivity, even at q=k where outside eigenvalue=1; the finite-dimensional singular value theorem gives the recovery norm. Independently direct probability-matrix checks covered 120 parameter triples with four ties.
 
-The closest published antecedents supply underlying Johnson harmonics and other spatial windows, but not this three-or-more-coordinate-star-union first-harmonic spectrum or its exact singular-value transition. Filmus's primary slice-harmonic work supplies the degree-one function space and orthogonality, not a spatially masked compression. Bernard–Crampé–Vinet analyze neighborhoods defined by distances from a fixed Johnson vertex, not the predicate that a \(k\)-set intersects a prescribed \(t\)-set. The complete two-coordinate-face calculation concerns intersection rather than the present multi-star union and is restricted to exactly two distinguished coordinates. The finite-Grassmann Schubert-star result concerns one distinguished point and a different base space. Statement-level comparison does not imply the present all-parameter \(t\ge3\) spectrum, phase boundary or optimal conditioning from any inspected result. Search across harmonic, Slepian, coordinate-star, union, spectral compression, eigenvalue and conditioning aliases found no indexed exact covering result. Remaining risk: older combinatorial operator or association-scheme literature could encode an equivalent expression under other notation, and the indexed database is not exhaustive.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first-degree Johnson band is a canonical nonconstant spectral component, and a union of coordinate stars is a natural non-radial sampling window: a sample is retained exactly when it meets a designated coordinate block. Determining injectivity and sharp stability of recovery is a natural operator-norm question, not an arbitrary slice statistic. The full three-sector spectrum makes the entire inverse and all worst-conditioned directions explicit. It exhibits an exact finite integer transition with an enlarged worst-mode eigenspace at equality, and quantifies how recovery deteriorates for sparse fixed-cardinality samples. Neither a new downstream theorem nor a stronger claim about all harmonic degrees is needed to justify this complete natural spectral classification.
+Existing Johnson harmonics and concentration results supply the representation and general compression method, not the union-of-at-least-three-star H1 spectral triplet or phase boundary. Filmus slice-harmonic basis and Bernard–Crampé–Vinet Johnson-graph neighborhoods were inspected at relevant definitions and theorem sections; published two-coordinate-face result masks an intersection, not this union. Best-of-knowledge noncovered; residual risk of an unindexed association-scheme formula.
 
-## Closest sources and limitations
+## value
 
-Closest full textual sources: Y. Filmus, arXiv:1406.0142 (harmonic representation); P.-A. Bernard, N. Crampé, L. Vinet, arXiv:2104.11581 (different spatial neighborhoods); *Exact two-coordinate-face concentration spectrum on Johnson slices* (two-coordinate intersection mask); and *Two-level Slepian spectrum for point stars in finite Grassmann schemes* (single point over finite fields). The result is restricted to mean-zero first harmonics, a union of at least three coordinate stars, uniform ambient probability and \(k\ge2\). It does not assert coverage for weighted or arbitrary masks or higher bands; independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The union of coordinate stars is a canonical nontrivial observation window on Johnson slices. Exact singular values and the integer phase boundary supply the optimal stable recovery constant and a meaningful dimension-dependent bottleneck switch, which are not immediate from generic harmonic decompositions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
