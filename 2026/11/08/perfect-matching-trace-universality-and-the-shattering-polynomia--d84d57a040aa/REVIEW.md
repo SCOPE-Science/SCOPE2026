@@ -1,19 +1,21 @@
-# Review of perfect-matching trace universality
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The restriction from any derangement graph to a support is a matching. For a proposed matching trace on at most \(n-2\) cells, the residual \(k\)-by-\(k\) board has at most \(k-2\) extra forbidden cells beyond a partial diagonal matching. Complete that partial diagonal to one full matching; the other \(k-1\) disjoint factors ensure a factor avoiding all extra forbidden cells. The \(n-1\) obstruction has two exhaustive cases according to whether the unused row and column coincide. Inclusion-exclusion counts the remaining matchings. The sampling limit follows from a full-board birthday calculation and the \(O(m/n)\) diagonal conditioning error. An independently written script performs direct trace tests; the calculations are not used to infer the infinite theorem.
+PASS
 
-## Originality — PASS within researched comparisons
+The factorization proof completes any residual partial diagonal forbidden matching to D′, then uses k-1 edge-disjoint residual perfect matchings: at most |S|-|T|<=k-2 additional forbidden positions cannot intersect all. Thus all traces of supports |S|<=n-2 are exactly internal matchings, even nonmatching supports. For |S|=n-1 the unused row/column obstruction, either forbidden diagonal full completion or a negative edge forcing a diagonal assignment, excludes shattering. Inclusion-exclusion gives the crown rook polynomial. For m=O(sqrt n), full-board matching probability (n)_m^2/(n^2)_m has logarithm -m(m-1)/n+o(1), and off-diagonal conditioning changes it by at most m/n; monotonicity yields the supercritical limit. Independently enumerated ALL supports of sizes <=3 for n=2..6, every trace, and matched rook coefficients; this checks finite cases only. In n=2 VC dimension zero.
 
-Bucić et al. (arXiv:1906.05908) study intersection proportions of perfect matchings and counting derangements, not the VC shattering complex of graph-incidence positions. Johnson–Wickes (arXiv:2112.01946) study order-pattern shattering of symbol subsets, not Boolean traces on pairs \((i,j)\). Searches for edge-incidence VC dimension, crown graph perfect-matching traces, derangement shattering, rook-polynomial matching complexes and equivalent parameter \(n-2\) returned no matching published statement. The preclusion/factorization and rook enumeration ingredients are classical; the proposed novelty is their sharp *trace-family identity*, including its exact failure layer. This is qualified historical priority, not independence or an exhaustive uniqueness assertion.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result connects a natural definable concept class (incidence of a position in a fixed-point-free permutation) to a matching complex **on every sufficiently small support**, a stronger fact than computing its VC dimension. It determines the entire shattered-support distribution, identifies the sharp difference between unrestricted and fixed-point-free assignments at the largest support sizes, and exhibits a birthday-scale random-shattering threshold \(\sqrt n\) despite worst-case VC dimension \(n-2\). These are unrestricted-in-\(n\), exact structural statements, not a recomputation of a numerical table.
+Best-of-knowledge PASS for full trace universality, the precise shattered-support polynomial and sqrt(n) random-support transition, not for the already-published VC dimension n-2. The Nov 2 Resultary primary source was read fully and proves that exact scalar dimension plus adaptive n=5 gap, but only constructs one shattered n-2 support, not that EVERY off-diagonal matching of at most n-2 cells is shattered or the all-traces identity on nonmatching supports. The Oct 12 full crown forcing-subset paper is about forcing a fixed matching and not this Boolean trace family. Other classical rook enumeration ingredients are known.
 
-## Risks and limits
+## value
 
-The extension property uses the special complete off-diagonal board; general bipartite graphs may fail. Related results could be catalogued under matching preclusion or partial Latin transversals. A complete historical-priority audit and independent proof review have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete trace family for every small queried support determines the entire shattering complex, not merely its maximum dimension; the exact rook polynomial and birthday-scale threshold quantify typical versus worst-case learnability. This is a nontrivial natural classification of incidence concepts, and the edge-disjoint 1-factor extension theorem is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

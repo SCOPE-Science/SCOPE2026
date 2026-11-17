@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 check_derangement_shattering.py` with Python 3.9 or newer, using only the standard library. The script enumerates derangements as perfect matchings of the off-diagonal board and independently computes all traces on each test support. It also implements a row-by-row rook polynomial dynamic program and checks an independent inclusion-exclusion formula for all integers \(2\le n\le9\).
+## correctness
 
-The checker exhaustively evaluates all support subsets of sizes \(0\) through \(n\) for \(2\le n\le5\), and support sizes \(0\) through five for \(n=6\); it tests deterministic-seed samples for \(n=6,7,8\). It checks both the all-traces matching-complex identity for support size at most \(n-2\) and the complete shattered-support classification on the tested supports.
+PASS
 
-Its final stdout line is `ALL_DERANGEMENT_SHATTERING_CHECKS_PASS 197657 support_tests 9_rook_polynomials exhaustive_n_le_5_and_n6_le_5 sampled_n6_to_n8`.
+The factorization proof completes any residual partial diagonal forbidden matching to D′, then uses k-1 edge-disjoint residual perfect matchings: at most |S|-|T|<=k-2 additional forbidden positions cannot intersect all. Thus all traces of supports |S|<=n-2 are exactly internal matchings, even nonmatching supports. For |S|=n-1 the unused row/column obstruction, either forbidden diagonal full completion or a negative edge forcing a diagonal assignment, excludes shattering. Inclusion-exclusion gives the crown rook polynomial. For m=O(sqrt n), full-board matching probability (n)_m^2/(n^2)_m has logarithm -m(m-1)/n+o(1), and off-diagonal conditioning changes it by at most m/n; monotonicity yields the supercritical limit. Independently enumerated ALL supports of sizes <=3 for n=2..6, every trace, and matched rook coefficients; this checks finite cases only. In n=2 VC dimension zero.
 
-# Mathematical limits
+## originality
 
-The finite computations do not establish the theorem for arbitrary \(n\); the proof in `RESULT.md` supplies the universal edge-disjoint perfect-matching factor argument and the exact boundary obstruction. The sampling limit follows analytically from the support counting identity and is not empirically validated by this finite checker. No independent audit has been performed.
+PASS
+
+Best-of-knowledge PASS for full trace universality, the precise shattered-support polynomial and sqrt(n) random-support transition, not for the already-published VC dimension n-2. The Nov 2 Resultary primary source was read fully and proves that exact scalar dimension plus adaptive n=5 gap, but only constructs one shattered n-2 support, not that EVERY off-diagonal matching of at most n-2 cells is shattered or the all-traces identity on nonmatching supports. The Oct 12 full crown forcing-subset paper is about forcing a fixed matching and not this Boolean trace family. Other classical rook enumeration ingredients are known.
+
+## value
+
+PASS
+
+The complete trace family for every small queried support determines the entire shattering complex, not merely its maximum dimension; the exact rook polynomial and birthday-scale threshold quantify typical versus worst-case learnability. This is a nontrivial natural classification of incidence concepts, and the edge-disjoint 1-factor extension theorem is independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

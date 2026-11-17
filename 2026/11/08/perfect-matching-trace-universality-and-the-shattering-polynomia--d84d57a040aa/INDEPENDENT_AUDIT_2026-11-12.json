@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T06:15:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/perfect-matching-trace-universality-and-the-shattering-polynomia--d84d57a040aa/RESULT.md",
+        "2026/11/08/perfect-matching-trace-universality-and-the-shattering-polynomia--d84d57a040aa/VERIFICATION.md",
+        "independently authored finite checks"
+      ],
+      "rationale": "The factorization proof completes any residual partial diagonal forbidden matching to D′, then uses k-1 edge-disjoint residual perfect matchings: at most |S|-|T|<=k-2 additional forbidden positions cannot intersect all. Thus all traces of supports |S|<=n-2 are exactly internal matchings, even nonmatching supports. For |S|=n-1 the unused row/column obstruction, either forbidden diagonal full completion or a negative edge forcing a diagonal assignment, excludes shattering. Inclusion-exclusion gives the crown rook polynomial. For m=O(sqrt n), full-board matching probability (n)_m^2/(n^2)_m has logarithm -m(m-1)/n+o(1), and off-diagonal conditioning changes it by at most m/n; monotonicity yields the supercritical limit. Independently enumerated ALL supports of sizes <=3 for n=2..6, every trace, and matched rook coefficients; this checks finite cases only. In n=2 VC dimension zero.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior static VC proof establishes one shattered support and n-1 obstruction; no statement of all length<=n-2 arbitrary trace-extension property."
+        ],
+        "reasoning": "Earlier VC bounds do not logically imply the all-traces classification; the candidate supplies a stronger 1-factorization extension lemma. No known published broader exact theorem found.",
+        "searches": [
+          "Resultary:2026/11/2/SCOPE-derangement-incidence-shattering-exact-static-dimension-and-the--951015b97f7a",
+          "derangement matching preclusion complete bipartite extension arbitrary forbidden positions",
+          "arxiv:1906.05908"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md and checker at frozen tree a1f73261a6f1c3fa950f4a5cfaed309182c82b64",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-derangement-incidence-shattering-exact-static-dimension-and-the--951015b97f7a",
+        "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-all-forcing-subsets-of-perfect-matchings-in-crown-graphs--2c97788f0907",
+        "arxiv:1906.05908",
+        "arxiv:2112.01946",
+        "independent n=2..6 trace enumeration size <=3 and rook coefficient comparison"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nov 2 proof establishes only one n-2 matching shattered; October 12 determines which edge subsets force a fixed matching."
+        ],
+        "reasoning": "Neither implication reaches arbitrary matching supports of all sizes or the exact trace family. Novel component survives even when prior VCdim scalar and rook enumeration are subtracted.",
+        "searches": [
+          "published Nov 2 derangement VC and Littlestone result",
+          "published Oct 12 crown forcing subsets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published November 2 theorem gives VCdim n-2 of exactly same concept family; it does not state all-support trace universality.",
+          "October 12 forcing-subset theorem counts unique completions of fixed partial matchings."
+        ],
+        "reasoning": "Same-domain older VC theorem covers the scalar n-2; it neither classifies all shattered supports nor all traces on nonmatching supports. Forcing subsets of a fixed matching ask uniqueness, not existence for every Boolean label.",
+        "searches": [
+          "Resultary: derangement incidence shattering exact static dimension first adaptive gap",
+          "arxiv:1906.05908",
+          "partial permutation rook matching traces crown graph",
+          "Resultary: crown matching forcing subsets"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical rook numbers r_m(n) count partial derangements, but do not by themselves say all those supports are shattered."
+        ],
+        "reasoning": "The coefficient formula is known combinatorics when interpreted as rook counts; novelty lies in proving it counts the entire shattered family. Not a fresh claim to the classical rook number.",
+        "searches": [
+          "Resultary: crown graph derangement shattering polynomial",
+          "crown graph rook polynomial coefficients inclusion exclusion",
+          "resultary perfect matching forcing crown graph"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for full trace universality, the precise shattered-support polynomial and sqrt(n) random-support transition, not for the already-published VC dimension n-2. The Nov 2 Resultary primary source was read fully and proves that exact scalar dimension plus adaptive n=5 gap, but only constructs one shattered n-2 support, not that EVERY off-diagonal matching of at most n-2 cells is shattered or the all-traces identity on nonmatching supports. The Oct 12 full crown forcing-subset paper is about forcing a fixed matching and not this Boolean trace family. Other classical rook enumeration ingredients are known.",
+      "residual_risks": [
+        "Already-known exact VC dimension n-2 is explicitly excluded from novelty and is not claimed as a fresh result.",
+        "The complete original 2019 perfect matching paper could not be obtained via OA or Oxford; historical matching-preclusion aliases may contain broader theorem.",
+        "Critical probabilistic threshold applies to uniform without-replacement off-diagonal supports, not arbitrary distributions."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers VCdim n-2 exactly, not all trace universality or rook shattering polynomial",
+          "evidence": "The lower bound constructs S_n={(i,i+1):0<=i<=n-3}, rather than showing every matching S of size <=n-2 is shattered.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-derangement-incidence-shattering-exact-static-dimension-and-the--951015b97f7a",
+          "material_read": "Full RESULT.md: Finding, proof of VC lower/upper, adaptive witness and limitations",
+          "method": "GitHub read-only published Resultary full text",
+          "title": "Derangement incidence shattering: exact static dimension and the first adaptive gap",
+          "trigger": "Same concept class and numerical dimension"
+        },
+        {
+          "assessment": "Different uniqueness-of-extension invariant, does not imply Boolean all-traces classification",
+          "evidence": "Forcing iff omitted indices <=1, or exactly two with an adjacency condition; not realization of every positive/negative trace on arbitrary S.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-all-forcing-subsets-of-perfect-matchings-in-crown-graphs--2c97788f0907",
+          "material_read": "Full RESULT.md, proof and limitations",
+          "method": "GitHub read-only published Resultary full text",
+          "title": "All forcing subsets of perfect matchings in crown graphs",
+          "trigger": "Same crown graph with partial matching incidence"
+        },
+        {
+          "assessment": "Possible unread risk; abstract addresses intersection fractions, not shattering",
+          "evidence": "Abstract theorem: each perfect matching in bipartite G intersects at least half of matchings.",
+          "identifier_or_url": "https://arxiv.org/abs/1906.05908",
+          "material_read": "Abstract only; full primary not obtained",
+          "method": "Web arXiv/OA attempted; authorized Oxford blocked by disconnected VPN",
+          "title": "Perfect matchings and derangements on graphs",
+          "trigger": "Literature same derangement object and intersection of matchings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/08/perfect-matching-trace-universality-and-the-shattering-polynomia--d84d57a040aa/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-derangement-incidence-shattering-exact-static-dimension-and-the--951015b97f7a",
+        "https://github.com/Resultary/2026/tree/main/2026/10/12/SCOPE-all-forcing-subsets-of-perfect-matchings-in-crown-graphs--2c97788f0907"
+      ],
+      "rationale": "The complete trace family for every small queried support determines the entire shattering complex, not merely its maximum dimension; the exact rook polynomial and birthday-scale threshold quantify typical versus worst-case learnability. This is a nontrivial natural classification of incidence concepts, and the edge-disjoint 1-factor extension theorem is independently useful.",
+      "residual_risks": [
+        "Already-known exact VC dimension n-2 is explicitly excluded from novelty and is not claimed as a fresh result.",
+        "The complete original 2019 perfect matching paper could not be obtained via OA or Oxford; historical matching-preclusion aliases may contain broader theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Already-known exact VC dimension n-2 is explicitly excluded from novelty and is not claimed as a fresh result.",
+    "The complete original 2019 perfect matching paper could not be obtained via OA or Oxford; historical matching-preclusion aliases may contain broader theorem.",
+    "Critical probabilistic threshold applies to uniform without-replacement off-diagonal supports, not arbitrary distributions."
+  ],
+  "schema_version": 1
+}
