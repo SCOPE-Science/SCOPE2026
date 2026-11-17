@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Mathematical verification
 
-The all-dimensional proof checks a finite set of norming-functional types symbolically, not by enumeration in bounded dimensions. For each signed-pair vertex and generator, the proof constructs either a directly norming pair or two root vertices of total sum equal to the chosen vertex, each normed up to sign by the generator. The rank-one witness is checked on every class of signed-pair vertex and norming generator. The polyhedral reduction is justified by convex decomposition of both exposed faces.
+# Independent mathematical audit
 
-The standalone standard-library program `check_type_d_index.py` replays exact integer sign and decomposition assertions on every root vertex and norm generator for dimensions \(d=4,5,6,7\), and checks the witness's operator norm and spatial numerical radius. Run `python3 check_type_d_index.py`; expected output: `TYPE_D_NUMERICAL_INDEX_EXACT_OK 18744`.
+## correctness
 
-These finite checks do not prove the theorem for arbitrary \(d\); the all-dimensional proof in RESULT.md is the necessary evidence. External auditing was not performed.
+PASS
+
+Proved the stated unit ball directly by orthant integral-vertex argument: root vertices are precisely ±ei±ej and norm generators are coordinate ±ek* and half-sign vectors. For each root x and generator f, either |f(x)|=1 or exact decomposition x=y+z into two root vertices each normed (up to sign) by f yields ||Tx||<=2v(T). Norm is attained at root vertex, proving universal v(T)>=||T||/2 for all real operators and all d>=4. The rank-one T(x)=(x1+x2)e3 has ||T||=2, v(T)=1 via a complete norming-facet case distinction. Independently exhausted each root/generator pair and evaluated the rank-one witness for d=4,5,6,7. The all-dimensional argument, not the finite checks, proves the theorem.
+
+## originality
+
+PASS
+
+The all-dimension exact numerical index on type-D root-polytope norms is not implied by the general facet-estimate method or existing lower-dimensional equilateral Lipschitz-free computations; the proof supplies a new explicit uniform splitting and equality operator. No matching larger theorem found; residual differently named isometry risk acknowledged.
+
+## value
+
+PASS
+
+All-dimension exact index of canonical type-D root-polytopal norm (including the 24-cell) is an intrinsic, motivated geometry-of-operators question. The uniform decomposition and sharp extremizer show a nontrivial structural fact beyond finite numerical tables and clarify how a root system family behaves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

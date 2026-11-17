@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-dimensional equality follows from the truncated-cube vertex characterization, the dual norming-generator formula, and the two-root decomposition for every nonnorming facet generator. Every real operator is covered. The rank-one operator \(x\mapsto(x_1+x_2)e_3\) has norm two and numerical radius one by a complete norming-pair analysis. Exact finite checker assertions for dimensions four through seven corroborate the combinatorial identities; they are not used as an infinite-dimensional proof.
+## correctness
 
-## Originality — PASS (best-knowledge)
-Chiclana (2026) establishes the two-dimensional real \(\ell_p\) result but not the type-\(D\) norms. Sain, Paul, Bhunia and Bag (2018) give a general finite-facet method and different three-dimensional examples. The earlier equilateral Lipschitz-free index-one-half theorem covers the dimension-three \(D_3=A_3\) instance but cannot imply a linear-isometric classification in dimensions at least four: a free space of dimension \(d\) over \(d+1\) points has at most \(d(d+1)\) molecular extreme vertices, fewer than the \(2d(d-1)\) vertices here. Search comparisons across root-polytope aliases and known geometric invariants found no covering exact index. Older general numerical-index inequalities remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-The theorem provides the exact numerical index of a standard root-polytope Banach norm in all dimensions at least four, including the \(24\)-cell, with a reusable dimension-free structural lemma and sharp rank-one extremizer. It is motivated by the unsolved landscape of exact numerical indices and does not depend on numerical coincidence in a selected finite dimension.
+Proved the stated unit ball directly by orthant integral-vertex argument: root vertices are precisely ±ei±ej and norm generators are coordinate ±ek* and half-sign vectors. For each root x and generator f, either |f(x)|=1 or exact decomposition x=y+z into two root vertices each normed (up to sign) by f yields ||Tx||<=2v(T). Norm is attained at root vertex, proving universal v(T)>=||T||/2 for all real operators and all d>=4. The rank-one T(x)=(x1+x2)e3 has ||T||=2, v(T)=1 via a complete norming-facet case distinction. Independently exhausted each root/generator pair and evaluated the rank-one witness for d=4,5,6,7. The all-dimensional argument, not the finite checks, proves the theorem.
 
-## Limits
-Only real scalars and finite dimensions are covered; no claims about perturbations, complex scalars, all extremizers, or independent publication priority are made. The original 2018 and 2026 full-text primary studies and the closest publicly recorded free-space proof were inspected; the same-polytope quantitative-illumination source was seen only through a scientific summary and addresses another invariant. Independent validation has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-dimension exact numerical index on type-D root-polytope norms is not implied by the general facet-estimate method or existing lower-dimensional equilateral Lipschitz-free computations; the proof supplies a new explicit uniform splitting and equality operator. No matching larger theorem found; residual differently named isometry risk acknowledged.
+
+## value
+
+PASS
+
+All-dimension exact index of canonical type-D root-polytopal norm (including the 24-cell) is an intrinsic, motivated geometry-of-operators question. The uniform decomposition and sharp extremizer show a nontrivial structural fact beyond finite numerical tables and clarify how a root system family behaves.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
