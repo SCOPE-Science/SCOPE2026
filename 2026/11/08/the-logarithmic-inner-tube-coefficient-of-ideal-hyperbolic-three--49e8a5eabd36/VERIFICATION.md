@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The proof in `RESULT.md` is analytic. It reduces the hyperbolic cusp to a fixed Euclidean convex polygon in horospherical coordinates and integrates the exact initial inner-offset area polynomial. The claimed asymptotic remainder follows from the bounded tail integral and a finite compact polyhedral decomposition.
+## correctness
 
-For a computational cross-check, run `python check_cusp_tube.py` with Python 3 and SciPy available. The program independently clips inward-shifted polygon half-spaces to compute eroded cross sections of equilateral triangular and square vertex figures. It compares those results with Euclidean tube coefficients and then numerically integrates the actual hyperbolic cusp formula at multiple positive distances. It additionally tests the tetrahedral angle and volume inequalities on a finite grid of admissible angle triples. Expected final marker: `IDEAL_HYPERBOLIC_POLYHEDRON_LOG_TUBE_OK`.
+PASS
 
-The finite tests neither exhaust all cusp polygons nor certify an asymptotic uniformly in degenerating polyhedron shape. The geometric proof handles the quantified fixed-polyhedron statement. Historical priority has not been independently validated. Koçak–Ratiu’s full arXiv text was examined in an accessible extraction, including its Euclidean planar inner-tube formula and statements explicitly limited to Euclidean polytopes.
+At every ideal cusp the cross-section is bounded Euclidean polygon Q and distance to incident vertical planes is asinh(horizontal distance/z). The inner planar erosion has area loss L t - C(Q)t² with C(Q)=∑cot(theta/2) until first combinatorial event. Integrating z^-3 over z0≤z≤η/sinh s gives (L/z0)s - C(Q)s² log(1/s)+O(s²). Higher cusp tail and compact face/edge seam terms contribute only O(s²). Each ideal 3D edge appears in two vertex figures, giving B(P)=2∑_e cot(beta_e/2). Ideal face area and Euler supply total boundary area 2π(v-2). For tetrahedra strict Jensen gives B≥12√3 and standard Lobachevsky formula gives maximal volume v3 only at regular, yielding the normalized bound. Source checker uses independent half-plane erosion and cusp integration on triangular and square sections, corroborative not a proof of the general limit.
+
+## originality
+
+PASS
+
+Best-of-knowledge: Euclidean compact inner tube polynomial coefficient is a needed ingredient, but the ideal-hyperbolic cusp integral, logarithmic divergence, coefficient 2∑cot(beta/2) and tetrahedral minimization are not implied by the inspected prior statements.
+
+## value
+
+PASS
+
+The first nontrivial correction to finite surface-area boundary occupation detects dihedral angles and explains an unexpected logarithmic cusp divergence; the sharp regular tetrahedral minimizer makes it a substantive natural geometric invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

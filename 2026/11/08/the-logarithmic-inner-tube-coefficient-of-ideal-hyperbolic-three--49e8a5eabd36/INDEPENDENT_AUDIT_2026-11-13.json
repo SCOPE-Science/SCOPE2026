@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T10:19:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "check_cusp_tube.py",
+        "https://arxiv.org/pdf/1008.2040",
+        "https://msp.org/gt/2002/6-1/gt-v6-n1-p12-p.pdf"
+      ],
+      "rationale": "At every ideal cusp the cross-section is bounded Euclidean polygon Q and distance to incident vertical planes is asinh(horizontal distance/z). The inner planar erosion has area loss L t - C(Q)t² with C(Q)=∑cot(theta/2) until first combinatorial event. Integrating z^-3 over z0≤z≤η/sinh s gives (L/z0)s - C(Q)s² log(1/s)+O(s²). Higher cusp tail and compact face/edge seam terms contribute only O(s²). Each ideal 3D edge appears in two vertex figures, giving B(P)=2∑_e cot(beta_e/2). Ideal face area and Euler supply total boundary area 2π(v-2). For tetrahedra strict Jensen gives B≥12√3 and standard Lobachevsky formula gives maximal volume v3 only at regular, yielding the normalized bound. Source checker uses independent half-plane erosion and cusp integration on triangular and square sections, corroborative not a proof of the general limit.",
+      "residual_risks": [
+        "Face/horosphere seam estimates require fixed nondegenerate geometry; O_P(s²) is not uniform in degeneration."
+      ],
+      "status": "PASS",
+      "verified_checks": [
+        "Inspected frozen RESULT.md and check_cusp_tube.py, including exact half-plane clipping, correct dz/z³ volume form and corner coefficient.",
+        "Reconstructed the linear and log terms from planar t-offset area polynomial and the edge counted twice; checked tetrahedral convexity and volume maximization logic.",
+        "Confirmed finite-check scope cannot establish all ideal polyhedra or uniform remainder."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Leibon discusses horospherical vertex figures, ideal polyhedral angle geometry and volume variation; no area-uniform nearest-face inner tube asymptotic is established in inspected material."
+        ],
+        "reasoning": "Geometry of angle realizations and Schläfli differential formulas does not itself determine a boundary-layer probability distribution.",
+        "searches": [
+          "ideal hyperbolic polyhedron inner parallel boundary volume s squared log s cotangent dihedral angle",
+          "https://msp.org/gt/2002/6-1/gt-v6-n1-p12-p.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1008.2040",
+        "https://msp.org/gt/2002/6-1/gt-v6-n1-p12-p.pdf",
+        "hyperbolic ideal polygon area uniform point boundary distance logarithmic perimeter cusp shape quadrilateral"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical ideal tetrahedron Lobachevsky volume and Euclidean polygon erosion are used explicitly as ingredients, not claimed original."
+        ],
+        "reasoning": "These ingredients do not individually or jointly state the exact volume collar coefficient without the nontrivial hyperbolic cusp calculation; no stronger explicit prior theorem was identified.",
+        "searches": [
+          "ideal hyperbolic polyhedron inner parallel boundary volume s squared log s cotangent dihedral angle",
+          "https://arxiv.org/pdf/1008.2040",
+          "https://msp.org/gt/2002/6-1/gt-v6-n1-p12-p.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Koçak–Ratiu treat compact Euclidean polytopes; their planar inner erosion yields L t - C t², but their compact setting has no z^-3 hyperbolic cusp integral."
+        ],
+        "reasoning": "Using the Euclidean corner formula is a legitimate antecedent; the hyperbolic s² log(1/s) term and dihedral coefficient arise only after additional cusp integration.",
+        "searches": [
+          "ideal hyperbolic polyhedron inner parallel boundary volume s squared log s cotangent dihedral angle",
+          "https://arxiv.org/pdf/1008.2040"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two-dimensional ideal polygon boundary occupation has s log(1/s) as leading term, while the 3D ideal polyhedron has finite surface area and a negative s² log(1/s) correction."
+        ],
+        "reasoning": "Dimensions and transverse cusp integrals differ; 2D law does not mechanically specialize to the three-dimensional formula.",
+        "searches": [
+          "ideal hyperbolic polyhedron inner parallel boundary volume s squared log s cotangent dihedral angle",
+          "hyperbolic ideal polygon area uniform point boundary distance logarithmic perimeter cusp shape quadrilateral"
+        ]
+      },
+      "rationale": "Best-of-knowledge: Euclidean compact inner tube polynomial coefficient is a needed ingredient, but the ideal-hyperbolic cusp integral, logarithmic divergence, coefficient 2∑cot(beta/2) and tetrahedral minimization are not implied by the inspected prior statements.",
+      "residual_risks": [
+        "Older hyperbolic inner parallel body literature under alternate terminology may have the identical log coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Source establishes Euclidean compact geometry; does not by itself calculate ideal hyperbolic cusp log term",
+          "evidence": "Finite-piece polynomial inner-tube behavior, including polygon corner cotangents.",
+          "identifier_or_url": "https://arxiv.org/pdf/1008.2040",
+          "material_read": "Original full PDF; read introduction, planar polygon inner-tube formulas and compact-polytope scope",
+          "method": "Primary PDF reading and screenshot inspection",
+          "title": "Inner tube formulas for polytopes",
+          "trigger": "Same planar erosion coefficient, possible general tube theorem"
+        },
+        {
+          "assessment": "Relevant angle construction, no inspected inner boundary volume asymptotic",
+          "evidence": "Ideal polyhedral geometric/angle realization framework.",
+          "identifier_or_url": "https://msp.org/gt/2002/6-1/gt-v6-n1-p12-p.pdf",
+          "material_read": "Original paper primary PDF; read relevant ideal polyhedra, vertex-figure and dihedral-angle discussion",
+          "method": "Read/screenshot primary PDF",
+          "title": "Characterizing the Delaunay decompositions of compact hyperbolic surfaces",
+          "trigger": "Horospherical polygon and ideal polyhedron angle framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first nontrivial correction to finite surface-area boundary occupation detects dihedral angles and explains an unexpected logarithmic cusp divergence; the sharp regular tetrahedral minimizer makes it a substantive natural geometric invariant.",
+      "residual_risks": [
+        "No extension to hyperideal/compact vertices or nonconvex faces; fixed polyhedron only."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Face/horosphere seam estimates require fixed nondegenerate geometry; O_P(s²) is not uniform in degeneration.",
+    "Older hyperbolic inner parallel body literature under alternate terminology may have the identical log coefficient.",
+    "No extension to hyperideal/compact vertices or nonconvex faces; fixed polyhedron only."
+  ],
+  "schema_version": 1
+}
