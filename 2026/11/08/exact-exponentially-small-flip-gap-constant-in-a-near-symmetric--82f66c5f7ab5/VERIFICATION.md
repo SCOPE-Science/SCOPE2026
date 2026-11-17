@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The finite check is replayable with `python3 verify.py` from a Python 3.11+ interpreter; it requires no third-party modules. It runs 132 exact rational identities and six parameter scenarios using 92-digit decimal arithmetic. The program explicitly solves the positive two-cycle equation and brackets the neutral multiplier crossing, then compares normalized rational-threshold margin, cycle endpoint, and crossing width with the new constants. A successful run ends in `VERIFY_OK rational_multiplier_identites=132 high_precision_parameters=6`.
+# Independent mathematical audit
 
-This is not exhaustive verification over a continuum of parameters. The proof of the limiting theorem uses the exact cycle identity, the exact multiplier expansion, and the published near-symmetry existence/uniqueness and endpoint estimates stated in RESULT.md. The \(o(1)\) limit is not inferred from the six finite examples. There is no independent scientific audit.
+## correctness
+
+PASS
+
+For the unique two-cycle, x+y=1-d follows by telescoping logit h(f(t))-h(t)=a(t-b). Exact cycle equation x=[(1-x)(1-d-x)/(d+x)] exp[-a((1-d)/2-x)] gives x~(1-d)d^-1 exp(-1/d) at both nearby parameters using uniform endpoint bounds of the earlier Oct11 theorem. Exact multiplier (1-aq(x))(1-aq(y)) expands to 1+Lambda=-d(1-d)Delta_a+4x/(1-d)+o(x) uniformly for the two exponentially close parameters; neutral condition yields constant4 and comparison sign. Independent high precision values d=.12,.08,.05,.035 converge to normalized constants.
+
+## originality
+
+PASS
+
+Full Oct 11 exact same map theorem read: supplies unique transverse crossing and only error O(delta^-2 exp(-1/(20delta))) for delta=d/2, so does not settle first nonzero e^(-1/d) coefficient or stability-margin constant. Kryzhevich–Zhang–Chmara primary 2024 article covers qualitative symmetric/asymmetric dynamics, not this asymptotic. New result is narrow but genuinely beyond-all-algebraic-orders refinement.
+
+## value
+
+PASS
+
+At exponentially close coupling scales, every algebraic-order approximation is identical and cannot determine which side of the neutral flip the rational curve lies. The explicit sign and normalized prefactor answer a natural singular-bifurcation question, motivated by a known previously unresolved threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

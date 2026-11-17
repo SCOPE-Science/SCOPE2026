@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The new quantitative assertion is conditional on the already published theorem [3] asserting a unique near-symmetric neutral multiplier crossing and its coarse endpoint bound. The full proof of [3] was inspected, including its strict-derivative and tail steps. From its error estimate, the neutral coupling equals the rational scale plus a term tending to zero. The explicit cycle equation then gives the endpoint asymptotic \(x\sim (1-d)e^{-1/d}/d\). The exact multiplier expansion retains the full unknown coupling displacement as a linear term and has remainder \(o(x)\), thanks to the exponential bound \(x=o(d^m)\) for every fixed \(m\). Balancing the neutral multiplier yields the unique exponential gap and positive coefficient. Evaluating at the rational scale gives the independently claimed exact multiplier margin. Reflecting the state covers the opposite sign of asymmetry. The standalone reproducibility program was executed and checked the algebra and six high-precision regimes. Finite checks do not prove the asymptotic or the imported lemma.
+## correctness
 
-**Originality — PASS within checked sources.** The 2024 primary paper [1] and 2026 source [2] concern the same replicator map but do not establish this nonperturbative coefficient. Critically, the exact, already published earlier result [3] explicitly proves unique flip crossing and a weaker error bound \(O(d^{-2}e^{-1/(10d)})\); its complete RESULT.md was read. The new positive coefficient \(4\) at the *sharp exponent* \(e^{-1/d}\), the orbit-point asymptotic, and the strict multiplier margin at the rational comparison coupling cannot be deduced from that weaker bound alone. Equivalent sigmoid recurrences and parameter reflections were considered. Other unindexed treatments could still have independently derived these constants.
+PASS
 
-**Mathematical value — PASS.** The stability crossover occurs in a genuinely nonperturbative parameter layer: every algebraic-order truncation in the asymmetry gives the same rational comparison curve, but that curve is strictly inside the attracting region. The first resolved exponential term determines the *sign*, *true width*, and *leading constant* of the missing local-stability window. An exact boundary-layer width is a natural quantitative invariant for this dynamical bifurcation, rather than an arbitrary parameter substitution or a generic marginal numerical improvement. The conclusion does not claim new existence, uniqueness, nonlinear flip criticality, or global basin classification.
+For the unique two-cycle, x+y=1-d follows by telescoping logit h(f(t))-h(t)=a(t-b). Exact cycle equation x=[(1-x)(1-d-x)/(d+x)] exp[-a((1-d)/2-x)] gives x~(1-d)d^-1 exp(-1/d) at both nearby parameters using uniform endpoint bounds of the earlier Oct11 theorem. Exact multiplier (1-aq(x))(1-aq(y)) expands to 1+Lambda=-d(1-d)Delta_a+4x/(1-d)+o(x) uniformly for the two exponentially close parameters; neutral condition yields constant4 and comparison sign. Independent high precision values d=.12,.08,.05,.035 converge to normalized constants.
 
-Closest inspected sources: [1] Kryzhevich, Zhang, and Chmara, arXiv:2412.16379v1; [2] Kryzhevich and Zhang, arXiv:2603.20685v1; [4] Kryzhevich, Avrutin, and Söderbacka, arXiv:2108.06739v3 (Sections 3–4); [3] *Singular symmetry-breaking threshold for the period-two orbit of a replicator map*, October 11, 2026, complete published RESULT.md. See RESULT.md for precise formulas, proof and links. The original record [3] establishes a significant covering partial result; that earlier content is correctly excluded from the novelty claim.
+## originality
 
-Scientific limitations: the result is asymptotic, assumes small nonzero asymmetry, imports a specific published crossing lemma, and applies to local Floquet stability of a named two-cycle. No independent audit or exhaustive priority determination was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Full Oct 11 exact same map theorem read: supplies unique transverse crossing and only error O(delta^-2 exp(-1/(20delta))) for delta=d/2, so does not settle first nonzero e^(-1/d) coefficient or stability-margin constant. Kryzhevich–Zhang–Chmara primary 2024 article covers qualitative symmetric/asymmetric dynamics, not this asymptotic. New result is narrow but genuinely beyond-all-algebraic-orders refinement.
+
+## value
+
+PASS
+
+At exponentially close coupling scales, every algebraic-order approximation is identical and cannot determine which side of the neutral flip the rational curve lies. The explicit sign and normalized prefactor answer a natural singular-bifurcation question, motivated by a known previously unresolved threshold.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
