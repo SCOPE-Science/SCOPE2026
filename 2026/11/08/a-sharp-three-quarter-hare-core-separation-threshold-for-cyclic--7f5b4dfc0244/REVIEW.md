@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-**Domain and normalization:** \(n\ge4\) cyclic voters and candidates, voter \(i\) approves \(\{i-1,i\}\), committee size \(k\in[1,n]\); improvement means *strictly more approved candidates* from an affordable deviating set. The Hare quota inequality is \(k|S|\ge n|T|\), including equality. The proof reconstructs EJR and JR definitions, establishes their equivalence because every pair of distinct voters shares at most one approval, proves all size-\(k\) committees Pareto efficient by constant total utility \(2k\), derives the sharp \(4/3\) runwise improver bound and the at-most-three-missing-candidates exclusion. The constructed unselected set has no cyclic triple zero and a four-voter/three-candidate profitable deviation for every parameter in the stated interval. Necessity and sufficiency include boundary equality, \(k=n\), and low-seat elections. Integer exhaustive checks and constructive tests corroborate the theorem; they are not substituted for the infinite proof.
+PASS
 
-**Risk:** The theorem presupposes the ordinary *integral* Hare core, not fractional core+, and fixed-size Pareto comparisons; adopting other conventions changes the question.
+Every candidate occurs on exactly two approvals, so fixed-size-k welfare is identically 2k and no strict Pareto improvement exists. Distinct voter ballots intersect in at most one candidate, making EJR=JR; for k≥n/2 JR is exactly absence of cyclic triple missing candidates (k<n/2 JR vacuous). Any deviating candidate set T consists of runs: a JR committee permits at most r improving touched voters for run lengths 1,2, and at most r+1≤4r/3 for r≥3; hence |I_W(T)|≤4|T|/3. For k<3n/4, Hare affordability is impossible; with ≤3 missing candidates at most one voter is unrepresented and the endpoint double-improvement needed to exceed |T| is impossible, hence near-full JR committees are also core. For n≥16, ceil(3n/4)≤k≤n-4, construct missing positions {0,1,3,4} plus {7+3j:0≤j≤n-k-5}, with no cyclic three consecutive missing. The T={1,2,3} deviation improves exactly voters1–4 and 4k≥3n. Independently checked the first witness n=16,k=12 in integer arithmetic; the proof, not finite scans, establishes all n,k.
 
-## Originality — PASS (best knowledge)
+## originality
 
-Primary comparison: Becker, Greger and Peters, arXiv:2609.11912, prove existence of at least one core+ committee in all approval elections, not whether a given EJR committee may be blocked on a cyclic two-approval instance. Pierczyński and Skowron, arXiv:2108.01987, prove core existence on restricted domains rather than a sharp structural separation. Aziz et al., arXiv:1407.8269, define JR/EJR and establish the hierarchy, without this precise threshold. Direct claim and alias searches in mathematical research records yielded no implication-equivalent result. The precise quantity being classified is existence of an EJR *noncore* committee, not core nonemptiness, generic EJR-versus-core incomparability or any probability. The closest indexed search results concerned unrelated voting rankings and did not cover the threshold.
+PASS
 
-**Risk:** This is a best-knowledge priority assessment. Unindexed manuscripts, a stronger as-yet-unfound cyclic-classification theorem, or alternative definitions of cyclic approval fairness could require a future reassessment. No independent novelty certification is claimed.
+Becker–Greger–Peters 2026 prove existence of core/core+ committees for every approval election, not universal core membership of EJR committees; Pierczyński–Skowron restricted-domain results likewise address existence. The assigned result is a sharp *existence of noncore fair committee* threshold on cyclic two-approval ballots. Related Resultary interval and two-ballot findings concern different graph topologies/fairness. PASS best of knowledge; unindexed cycle-specific core analyses remain a risk.
 
-## Mathematical value — PASS
+## value
 
-Core is a stronger cooperative stability requirement than JR/EJR; recent resolution of general core existence heightens interest in exact relations between ordinary proportionality axioms and core behavior. The theorem supplies a sharp parameter phase transition, the smallest electorate in the specific canonical two-regular cyclic profile, and a simple explicit infinite family of EJR-and-Pareto efficient but core-blocked outcomes. The structural \(4/3\) gain bound and four-voter/three-candidate obstruction explain the transition; the phenomenon is not a table recomputation or merely a tiny numerical improvement. It isolates a useful boundary for testing committee rules against coalition deviations without contradicting the existence of a stable alternative.
+PASS
 
-**Risk:** Scope is deliberately one regular cyclic approval profile, not arbitrary approval elections or a minimum over all possible profiles.
+Provides a sharp, natural separation boundary between representation and coalition stability on minimal-degree cyclic approval profiles, including the smallest positive witness and the full phase diagram. Core-existence results do not answer when a given EJR committee may be blocked.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

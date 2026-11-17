@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T01:18:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every candidate occurs on exactly two approvals, so fixed-size-k welfare is identically 2k and no strict Pareto improvement exists. Distinct voter ballots intersect in at most one candidate, making EJR=JR; for k≥n/2 JR is exactly absence of cyclic triple missing candidates (k<n/2 JR vacuous). Any deviating candidate set T consists of runs: a JR committee permits at most r improving touched voters for run lengths 1,2, and at most r+1≤4r/3 for r≥3; hence |I_W(T)|≤4|T|/3. For k<3n/4, Hare affordability is impossible; with ≤3 missing candidates at most one voter is unrepresented and the endpoint double-improvement needed to exceed |T| is impossible, hence near-full JR committees are also core. For n≥16, ceil(3n/4)≤k≤n-4, construct missing positions {0,1,3,4} plus {7+3j:0≤j≤n-k-5}, with no cyclic three consecutive missing. The T={1,2,3} deviation improves exactly voters1–4 and 4k≥3n. Independently checked the first witness n=16,k=12 in integer arithmetic; the proof, not finite scans, establishes all n,k.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Becker et al. core+ existence is existential positive; Pierczyński–Skowron prove existence on restricted domains."
+        ],
+        "reasoning": "Existence of at least one core committee cannot imply *every* EJR committee is core or classify existence of an EJR-but-blocked committee.",
+        "searches": [
+          "cyclic two approval EJR Pareto efficient Hare core committee separation 3n/4",
+          "arxiv:2609.11912",
+          "arxiv:2108.01987"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2609.11912",
+        "arxiv:2108.01987",
+        "arxiv:1407.8269",
+        "Resultary semantic query: cyclic two approval EJR Pareto efficient Hare core committee separation 3n/4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known core-existence/EJR basic theorems have opposite existential quantifiers from this separation statement."
+        ],
+        "reasoning": "Those stronger-looking universal existence theorems are logically compatible with this negative existence theorem and do not imply its sharp 3n/4 threshold.",
+        "searches": [
+          "cyclic two approval EJR Pareto efficient Hare core committee separation 3n/4",
+          "arxiv:2609.11912",
+          "arxiv:2108.01987",
+          "arxiv:1407.8269"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Aziz et al. define JR/EJR for approval elections; EJR is generally weaker than core, but no cyclic degree-two 3n/4 phase diagram follows by definition."
+        ],
+        "reasoning": "Using EJR=JR under pairwise ballot intersection is a special object reduction, not a reformulation known to supply the full threshold.",
+        "searches": [
+          "cyclic two approval EJR Pareto efficient Hare core committee separation 3n/4",
+          "arxiv:1407.8269"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A path/interval two-approval random committee theorem with rare triple gaps differs from cyclic Hare-core blocking, and does not enumerate this threshold."
+        ],
+        "reasoning": "No located exact cyclic n,k negative-core table; the witness is constructed and independently verified, not extracted from an existing table.",
+        "searches": [
+          "cyclic two approval EJR Pareto efficient Hare core committee separation 3n/4",
+          "Resultary: A cubic-root Poisson threshold for fair and efficient interval committees"
+        ]
+      },
+      "rationale": "Becker–Greger–Peters 2026 prove existence of core/core+ committees for every approval election, not universal core membership of EJR committees; Pierczyński–Skowron restricted-domain results likewise address existence. The assigned result is a sharp *existence of noncore fair committee* threshold on cyclic two-approval ballots. Related Resultary interval and two-ballot findings concern different graph topologies/fairness. PASS best of knowledge; unindexed cycle-specific core analyses remain a risk.",
+      "residual_risks": [
+        "Unindexed election-core literature for degree-two approval graphs, cycles, or quota blocking may have an equivalent sharp 3n/4 obstruction.",
+        "The result is specific to the integral Hare core and additive two-approval ballots; stronger deviating-core notions may change the boundary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXISTENCE_NOT_NEGATIVE_CLASSIFICATION",
+          "evidence": "All approval elections admit a core+ committee; does not say every EJR committee is in Hare core, nor determine cyclic first noncore witness.",
+          "identifier_or_url": "arxiv:2609.11912",
+          "material_read": "Accessible full HTML revised Nov 3 2026, main theorem and appendix on EJR variants",
+          "method": "primary full-text reading",
+          "title": "Existence of the Core in Approval-Based Committee Elections",
+          "trigger": "potential universal core theorem"
+        },
+        {
+          "assessment": "EXISTENCE_NOT_COVERAGE",
+          "evidence": "No inspected statement gives cyclic two-approval EJR-but-noncore n,k cutoff.",
+          "identifier_or_url": "arxiv:2108.01987",
+          "material_read": "Accessible full HTML theorem/overview on domain-specific existence",
+          "method": "primary full-text reading",
+          "title": "Core-Stable Committees under Restricted Domains",
+          "trigger": "restricted approval graph profiles"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": "Defines fairness notions, does not directly determine Hare-core blocking thresholds in this cycle.",
+          "identifier_or_url": "arxiv:1407.8269",
+          "material_read": "Accessible abstract and summarized defining conditions, not full archival text",
+          "method": "definitions/abstract inspection",
+          "title": "Justified Representation in Approval-Based Committee Voting",
+          "trigger": "EJR and JR definitions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides a sharp, natural separation boundary between representation and coalition stability on minimal-degree cyclic approval profiles, including the smallest positive witness and the full phase diagram. Core-existence results do not answer when a given EJR committee may be blocked.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": "n≥4, k between1 and n, cycle ballots A_i={i−1,i}, integral Hare quota, strict additive-approval improvement, Pareto comparisons only fixed size k."
+}
