@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Laurent character independence gives dimension seven. The lower bound is attained by the two independent sections with common factor \((x-1)(y-1)\). The upper bound separates coprime sections (toric intersection bound six) from common factors. A complete 127-subset Newton classification reduces nonunit factors to six primitive segments, eight unimodular triangles, and three unit parallelograms. Direct torus point counts and residual mixed-area bounds finish the proof. The actual packaged checker verifies every finite classification input, the shape counts, and the exact \(q=5\) exhaustive eight-point rank threshold.
+## correctness
 
-**Originality — PASS, qualified.** The motivating original Little–Schenck source treats **one-section minimum distance**. Soprunov–Soprunova also treat first distance. Boguslavskii determines second and higher generalized weights on the **complete del Pezzo surface point set**; its degree-six code has length \(q^2+4q+1\), so its formula for whole-surface evaluation does not imply an exact value for the dense torus puncturing of length \((q-1)^2\). The closest dimension-classification paper treats codes with at most six generating lattice points, whereas this code has seven. Dedicated record and literature searches did not locate a covering exact dense-hexagon formula. Residual risk: a specialist toric-code paper could contain an equivalent higher-weight statement not indexed by these descriptions.
+PASS
 
-**Mathematical value — PASS.** Determining the second generalized weight measures the largest rational base locus of a pencil in the anticanonical system of a natural smooth toric del Pezzo surface. It is a genuinely higher-order evaluation-code invariant, not a reformulation of minimum distance. The result is exact for an unbounded family of all prime powers and exposes how common factors, Newton shapes, and residual intersections determine extremality.
+Explicit sections (x−1)(y−1)/x and (x−1)(y−1)/y give exactly 2q−3 common torus zeros. For coprime sections BKK mixed volume 2Area(P)=6≤2q−3 for q≥5. If gcd nontrivial, Newton Minkowski sums restrict gcd hull to a finite complete classification: independent integer hull enumeration over all 127 nonempty subsets of seven lattice points confirms 6 primitive segments, 8 unit triangles, 3 unit parallelograms with ≥2 residual exponent translates; residual mixed volumes ≤2/≤1 or collinear, and torus zeros ≤q−1, q−2, 2q−3 respectively. Direct independent rank test of all 12870 eight-point subsets in (F5*)² excludes any 2-space with ≥8 common zeros, corroborating d2(5)=9; the factor classification plus algebraic geometry, not finite q checks, proves all prime powers.
 
-The theorem applies to the dense torus only, not the full compact surface; historical priority is not independently certified. Finite computations are independently reproducible but are not presented as a proof of the infinite-field quantifier.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact dense-torus generalized weight d2 of the dimension-seven anticanonical hexagon is not established by inspected first-distance results or the different full-surface generalized weights, nor surfaced as a prior exact table; a motivated self-contained new exact invariant survives.
+
+## value
+
+PASS
+
+The second generalized support weight of the natural smooth degree-six toric del Pezzo anticanonical code is an independently motivated error-control invariant; the exact all-field formula and complete Newton factor classification add nontrivial information beyond known minimum distance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
