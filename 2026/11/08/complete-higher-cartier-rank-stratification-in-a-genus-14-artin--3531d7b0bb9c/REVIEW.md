@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The regular-differential basis is justified by the unique ramified point at infinity and its canonical valuation. Coefficient extraction from the Artin–Schreier identity generates the Cartier matrix. Four fixed pivots and a two-by-two residual block give the first rank. Exact Frobenius-twisted products establish the second, third and fourth ranks, including the condition \(ae^5=-1\). Symbolic identities are independently reproduced from the defining polynomial by the accompanying verifier, which also enumerates every five-parameter specialization over \(\mathbb F_5\). The finite census is not used as an infinite-field proof.
+## correctness
 
-## Originality — PASS, provisional priority
-Farnell's thesis and Farnell–Pries establish a constant-rank theorem when pole order divides \(p-1\), inapplicable at pole order \(8\) and characteristic \(5\). Booher–Cais and Groen establish bounds on Cartier ranks and higher powers rather than this complete parameter-level stratification. The inspected examples in Groen concern different pole orders. Targeted semantic result searches did not return a dominating statement; the nearest accessible internal mathematical findings concern characteristic-three genus six and characteristic-five genus ten families with first-Cartier-rank jump strata, not the five-parameter genus-fourteen ranks of all positive powers. Database non-detection does not prove novelty; a specialist computation not indexed or inspected remains possible.
+PASS
 
-## Mathematical value — PASS
-The result determines all Cartier-power ranks on a natural complete normalized one-pole family. It distinguishes curves having the same genus, \(5\)-rank and \(a\)-number using a genuinely additional invariant, identifies a smooth purely inseparable-shaped second-rank locus disjoint from the first-rank jumping cone, and describes all parameter degenerations. It does not assert the complete Ekedahl–Oort type or unmarked moduli classification.
+The Artin–Schreier cover has a single pole of order 8 prime to p=5; genus g=(p-1)(8-1)/2=14, and a 14-differential basis x^i y^j dx with 5i+8j<=26. The unrooted Cartier matrix entry M_{(u,l),(i,j)}=(-1)^{j-l} binom(j,l)[x^{5u+4}](x^i F^{j-l}) is a polynomial over characteristic five. Four constant pivots reduce first rank to 4+rank[[2a,a²+2b],[-2b,-2e]] with determinant proportional to Δ=ae+2a²b-b²; its rank 2,1,0 produces first ranks 6,5,4. Frobenius-twisted products M^[5]M, M^[25]M^[5]M, M^[125]M^[25]M^[5]M have ranks as stated: b!=0 gives 3,1,0; b=0 gives second rank 1 exactly at ae^5+1=0 and 2 otherwise, higher zero. The characteristic-five polynomial identities in the inspected verify_cartier.py support the all-algebraic-closure assertions. Independent construction and direct rank multiplication for seven F5 tuples checked all listed special profiles, including the codim-two anomaly; these finite checks do not themselves prove the infinite-field result.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact six-stratum higher Cartier iteration profile on the full five-parameter monic degree-eight one-pole family is more specific than the already-known two-parameter genus-fourteen first-Cartier-rank tangent-divisor result. Prior general bounds and degree-specific examples do not imply the explicit b=0,ae^5+1=0 second-rank jump. An inaccessible relevant primary paper is recorded as a risk, not treated as failure.
+
+## value
+
+PASS
+
+This is a natural complete coefficient-family classification of higher Cartier nilpotence, not an arbitrary sample. The Frobenius-twisted codimension-two second-rank exception has generic first Cartier rank, proving a-number alone cannot identify the nilpotent structure. The exact six strata, irreducible quadric rank divisor and hidden higher-rank sublocus are relevant to moduli of Artin–Schreier Jacobians.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
