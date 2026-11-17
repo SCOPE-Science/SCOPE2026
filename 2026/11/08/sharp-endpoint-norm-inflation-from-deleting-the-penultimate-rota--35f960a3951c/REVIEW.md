@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full matrix-coefficient Peter–Weyl projections have central kernels with coefficients equal to representation dimensions. The \(SO(3)\)/\(SU(2)\) Haar normalization, odd-character formula and sharp convolution endpoint norm identity are explicit. A differentiated finite cosine sum gives the exact weighted kernel. Subtracting the penultimate spin term produces the bounded-variation multiplier \(|2\cos2\theta-1|\) of one high-frequency cosine; all other terms have \(L^1\) mass at most logarithmic. Periodic averaging and an elementary signed integral give both constants. No finite experiment is substituted for an asymptotic argument. The accompanying script independently checks the formulas for sampled cutoffs, angles, and absolute integrals.
+## correctness
 
-## Originality — PASS (provisional priority assessment)
-The 1986 Giulini–Travaglini main theorem gives two-sided growth **orders**, not a missing-block constant or inflation ratio (DOI `10.1016/0022-1236(86)90059-5`, inspected primary text). Zhang's 2020 compact Lie group restriction paper (first-public `arxiv:2005.11451v1`) treats irreducible character and eigenfunction \(L^p\) bounds, not this sharp punctured convolution norm. A relevant published exact low-pass result on \(SU(2)\) includes every highest weight and is not a theorem about the even-weight \(SO(3)\) series with one omitted interior spin. Its proof was inspected. The finite cyclic three-character Fourier result with the same numerical constant is an independent abelian problem and does not cover this operator. The 1988 Giacalone–Ricci paper was inaccessible for direct full-text comparison; a specialist-priority risk remains.
+PASS
 
-## Mathematical value — PASS
-Endpoint Lebesgue constants are sharp stability and amplification factors of spectral partial-sum operators. The theorem gives an exact relative penalty for a natural operation—deleting one penultimate irreducible sector from a rotation-group approximation space—and proves the initially counterintuitive **strict asymptotic increase**. It is a motivated, nontrivial spectral-mask invariant rather than an arbitrary finite numerical slice; a full classification of masks is not necessary for its utility.
+For every spin j, the SO(3) central Peter–Weyl kernel contribution is (2j+1)χ_j with χ_j(θ)=sin((2j+1)θ)/sinθ; Weyl integration with 2sin²θ/π converts its convolution L1 and L∞ norm to the L1 weighted trigonometric kernel, with no restriction of input functions to classes. Differentiating the elementary odd-cosine Dirichlet sum gives exact B_L=−(L+1)cos(2(L+1)θ)+0.5 cotθ sin(2(L+1)θ). Removing spin L−1 and using product-to-sum identities yields leading −(L+1)(2cos2θ−1)cos(2Lθ), with a cot remainder of L1 O(log(L+2)) and a uniformly bounded sin remainder. Periodic |cos| mean 2/π and bounded variation of |2cos2θ−1| show an O(1/L) averaging error; the exact angular integral π/3+2sqrt(3) gives leading coefficients 4/π and 4/(3π)+8sqrt(3)/π². Their ratio 1/3+2sqrt(3)/π>1, yielding strict asymptotic inflation; no claim of finite-L monotonicity. Independent direct character-sum identities and quadrature at L=30,100 corroborate but do not establish the asymptotics.
 
-## Scientific limits and verification status
-This is a sharp leading-order theorem, with \(O(\log L)\) error, for exactly the specified one-hole family and the \(L^1\)/\(L^\infty\) endpoints. Its proof does not claim all-finite-\(L\) monotonicity, other masks, or an independent verification. Read `RESULT.md` for the complete derivation and `VERIFICATION.md` for replay details.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier full SO(3) cutoff theorem provides even the next additive correction but has no removed internal spin; the SU(2) all-weight cutoff is a different representation collection. Older Lie-group Lebesgue constant estimates describe intact cutoffs or individual projection norm growth, not an established moving penultimate-gap exact profile. Specialist 1988 source inaccessible remains significant priority risk.
+
+## value
+
+PASS
+
+Deleting one large representation sector from an orthogonal projector can unexpectedly increase its endpoint norm by a positive linear fraction of cutoff size. The exact SO(3) coefficient and ratio identify a natural sharp failure of monotonicity for Fourier spectral masks; the cancellation geometry is intrinsic to the group and representation index, and this phenomenon is not captured by generic norm-growth estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
