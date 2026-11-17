@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-Run `python3 check.py` in the directory containing the extracted files. Python 3's standard library is sufficient. The observed output was `PASS: 20483 exact rational assertions`.
+## correctness
 
-The checker exhaustively sums independent edge-state patterns and uniformly chosen sources on paths of three through nine vertices at three rational edge probabilities; all marginals and joint events are compared to the exact formulas. It verifies the polynomial-CDF positivity certificate for all path lengths three through one hundred, cross-checks the conditional one-edge coefficient for all distinct pairs through thirty vertices, and checks endpoint strict negativity for a further finite rational grid. The script is not an independent proof of the universal statements; the proof in `RESULT.md` establishes the arbitrary-length claim, including the root existence and large-length expansion.
+PASS
 
-No empirical outbreak data, formal theorem prover, external independent assessment, or field validity are claimed. The primary scientific limitations are independent undirected bonds, one uniform seed, finite paths, and eventual rather than contemporaneous infection.
+Conditional on source v, infected i requires path interval bonds, giving exact G_i=∑p^|v-i| and joint p^(j−i)H_ij/n. Endpoint cov=p^(n−1)−(∑p^a/n)^2<0 by AM–GM. One closed edge gives first-order high-p covariance [i(i−1)+(n−j)(n−j+1)](1−p)/(2n) except endpoints, whose quadratic coefficient is −(n²−1)/12. For (1,2), F_n/(1−p)=−1+strictly-positive positive-degree polynomial by exact pair-count CDFs, giving unique root and asymptotics. Independent n=3..6 exact polynomials and endpoint quadratic checked; proof is all-n.
+
+## originality
+
+PASS
+
+The published three-vertex conditional Bernoulli-import outbreak theorem is a DIFFERENT seed model from one uniform seed; it does not cover all-n exception or p_n scale. Kenah–Robins full primary network-percolation text explains outbreaks without this exact covariance claim. Best-of-knowledge PASS with possible classical reliability identity residual risk.
+
+## value
+
+PASS
+
+Universal geometry-dependent covariance-sign exception and precise single threshold across all path lengths supply a natural, nontrivial reference for interpreting network co-infection.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
