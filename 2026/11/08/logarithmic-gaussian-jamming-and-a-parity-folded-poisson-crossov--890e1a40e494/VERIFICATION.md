@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The theorem reduces the full labeled process on the complete-graph corona to a Markov process whose only state is the number of remaining core vertices. The proof verifies the exact conditional edge rates, parity, a predictable compensator with uniformly controlled remainder, a bounded-increment martingale central limit theorem, and a Poisson generating-function argument in the weak-rate window.
+# Independent mathematical audit
 
-Run `python3 verify_corona.py` from this package. The checker uses only the Python standard library and independently constructs all eligible labeled edges; it compares their exact-rational weighted terminal distributions with the reduced recurrence for six weights and sizes \(1\) through \(7\), checks parity and normalizations, verifies exact harmonic means, and tests illustrative moment scaling. A run on the packaged source completed 259 checks. No finite computation is used as a substitute for the limiting proofs.
+## correctness
 
-Limitations: no elapsed-time law, no zero-rate process, and no claim of priority over inaccessible historical material. Independent audit has not been performed.
+PASS
+
+After k live core vertices remain in K_n∘K_1, exactly k pendant edges of weight w and k(k-1)/2 core edges of weight one are available, hence p_k=2w/(k-1+2w). This gives the exact two-step generating-polynomial recurrence and n-K even. For fixed w>0, grouping adjacent visited levels and bounding double visits in L2 proves the compensator A_n=w log n+O_{L2,w}(1), quadratic variation Q_n=w log n+O_{L1,w}(1), and bounded martingale jumps give CLT and variance equivalent. In the positive weak-channel scaling w_n log n→c, the random hazard converges to c, maximal hazards and sum of squares vanish, the bounded exponential-martingale identity yields Poisson(c) nonforced pendant transitions, and deterministic final parity forces the stated fold. Boundary c=0 is correctly taken through positive weights; w=0 exactly is excluded. Finite full-state exact checks confirm recurrence, not asymptotic limit.
+
+## originality
+
+PASS
+
+Best-of-knowledge: the exact weighted corona recurrence together with its logarithmic Gaussian and inverse-logarithmic parity-folded Poisson crossover was not implied by located published adsorption/greedy matching results. Closest two-clique and split-graph results concern different structures/scalings. The inaccessible Pippenger 1989 full text remains a specific priority risk, not automatic FAIL.
+
+## value
+
+PASS
+
+A dense complete core and private leaves create a natural quadratic-versus-linear edge-rate competition. The exact finite-n terminal law identifies a genuinely logarithmic number of pendant adsorptions and asymptotically Gaussian fluctuations, while a rate w_n~1/log n produces a parity-folded Poisson process law. This is a sharp structurally motivated jamming crossover, not an arbitrary finite instance or restatement of saturation bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

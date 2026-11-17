@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T20:45:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After k live core vertices remain in K_n∘K_1, exactly k pendant edges of weight w and k(k-1)/2 core edges of weight one are available, hence p_k=2w/(k-1+2w). This gives the exact two-step generating-polynomial recurrence and n-K even. For fixed w>0, grouping adjacent visited levels and bounding double visits in L2 proves the compensator A_n=w log n+O_{L2,w}(1), quadratic variation Q_n=w log n+O_{L1,w}(1), and bounded martingale jumps give CLT and variance equivalent. In the positive weak-channel scaling w_n log n→c, the random hazard converges to c, maximal hazards and sum of squares vanish, the bounded exponential-martingale identity yields Poisson(c) nonforced pendant transitions, and deterministic final parity forces the stated fold. Boundary c=0 is correctly taken through positive weights; w=0 exactly is excluded. Finite full-state exact checks confirm recurrence, not asymptotic limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior high-girth bounded-degree matching regime is structurally disjoint from K_n-corona with a degree-(n) clique and degree-one private leaves; split-graph CLT concerns a different complete join."
+        ],
+        "reasoning": "These theorems cover broad random greedy matching contexts but do not dominate the exact corona recurrence with singular weight w_n~1/log n.",
+        "searches": [
+          "Gamarnik Goldberg 2008 randomized greedy matching regular high girth",
+          "https://arxiv.org/abs/0807.1277",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-gaussian-jamming-fluctuations-on-complete-split-graphs--3b9a8257a10c/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Source full RESULT.md and verify_corona.py in frozen Git tree",
+        "Resultary two linked-clique Poisson parity result",
+        "Resultary complete split graph Gaussian jamming",
+        "Pippenger 1989 bibliographic abstract (full text inaccessible)",
+        "Gamarnik–Goldberg arXiv:0807.1277 overview"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Clique corona transition probability p_k(w)=2w/(k-1+2w); the two-clique bridge Poisson regime has an entirely different live-edge process, and split-graph Gaussian fluctuations scale as sqrt(n)."
+        ],
+        "reasoning": "None of the checked statements implies both the log n Gaussian law and parity-constrained Poisson crossover for this specific weighted corona model; a broad earlier adsorption theorem could still potentially specialize, hence residual risk.",
+        "searches": [
+          "Pippenger graph adsorption 1989",
+          "Gamarnik Goldberg 2008 matching",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-poisson-cross-dimer-counts-and-parity-jamming-on-two-matching-li--3dcb1ba4cceb/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-gaussian-jamming-fluctuations-on-complete-split-graphs--3b9a8257a10c/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two matching-linked cliques exhibit Poisson accepted bridge dimers and parity jamming; the corona has a single clique with one private leaf per core vertex, with w log n Gaussian regime.",
+          "Complete split graph jamming has linearly many vacancies and sqrt(n) fluctuations, unlike the logarithmic corona pendant count."
+        ],
+        "reasoning": "Neither the two-clique bridge process nor complete split graph can be converted by label relabeling to K_n∘K_1; degrees, edge availability and scaling are different.",
+        "searches": [
+          "Resultary: random sequential edge dimer parking clique corona graph complete graph pendant leaves Poisson Gaussian rate weighted parity",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-poisson-cross-dimer-counts-and-parity-jamming-on-two-matching-li--3dcb1ba4cceb/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/18/SCOPE-gaussian-jamming-fluctuations-on-complete-split-graphs--3b9a8257a10c/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact prior K_n∘K_1 terminal pendant PGF, harmonic means or parity-folded crossover was located in accessible material. Pippenger full text was unavailable; only abstract level was accessible."
+        ],
+        "reasoning": "The claim is an infinite family with exact recurrence, so exact-database/table comparison asks for a covering process law, not a small-instance integer list; absence of located coverage is only qualified evidence.",
+        "searches": [
+          "Pippenger Random Sequential Adsorption on Graphs 1989",
+          "https://doi.org/10.1137/0402034",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-poisson-cross-dimer-counts-and-parity-jamming-on-two-matching-li--3dcb1ba4cceb/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the exact weighted corona recurrence together with its logarithmic Gaussian and inverse-logarithmic parity-folded Poisson crossover was not implied by located published adsorption/greedy matching results. Closest two-clique and split-graph results concern different structures/scalings. The inaccessible Pippenger 1989 full text remains a specific priority risk, not automatic FAIL.",
+      "residual_risks": [
+        "Pippenger (1989) complete paper inaccessible after permitted open-access efforts; institutional access required connected Oxford VPN; historical overlap unexcluded.",
+        "Generic stochastic-process limit theory could imply parts after nontrivial model-specific reduction; no direct covering statement identified.",
+        "Quantitative finite-weight Berry–Esseen or rate of weak-channel convergence not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT demonstrated covering: bridge count on two cliques, not pendant count on one corona",
+          "evidence": "Poisson interclique dimers and parity of two cliques rather than K_n∘K_1 rate w_n log n",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-poisson-cross-dimer-counts-and-parity-jamming-on-two-matching-li--3dcb1ba4cceb/RESULT.md",
+          "material_read": "Resultary semantic index title, mathematical summary and parameters (not entire source proof)",
+          "method": "Published semantic search and comparison to source model",
+          "title": "Poisson cross-dimer counts and parity jamming on two matching-linked cliques",
+          "trigger": "Closest published graph adsorption parity-Poisson result"
+        },
+        {
+          "assessment": "ACCESS LIMITATION; no claim of whole-paper absence",
+          "evidence": "Oxford retrieval status vpn_disconnected; job 70f769f9fb1289f62d91464fdc8830e8; no verification bypass",
+          "identifier_or_url": "https://doi.org/10.1137/0402034",
+          "material_read": "Accessible bibliographic information and abstract only; full text NOT read",
+          "method": "Lawful open access discovery and authorized institutional request",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Classical potentially broad primary adsorption result"
+        },
+        {
+          "assessment": "Different high-girth/regular graph regime; no direct implication proved",
+          "evidence": "Bounded-degree and girth hypotheses exclude dense corona core",
+          "identifier_or_url": "https://arxiv.org/abs/0807.1277",
+          "material_read": "ArXiv accessible abstract/problem scope; complete manuscript not established as read",
+          "method": "Read source summary and compared graph parameters",
+          "title": "Randomized greedy algorithms for independent sets and matchings in regular graphs",
+          "trigger": "General random greedy matching theorems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A dense complete core and private leaves create a natural quadratic-versus-linear edge-rate competition. The exact finite-n terminal law identifies a genuinely logarithmic number of pendant adsorptions and asymptotically Gaussian fluctuations, while a rate w_n~1/log n produces a parity-folded Poisson process law. This is a sharp structurally motivated jamming crossover, not an arbitrary finite instance or restatement of saturation bounds.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Positive finite-n w required even when limiting c=0.",
+    "Only terminal count; no adsorption-time asymptotic claimed.",
+    "Full 1989 Pippenger article unavailable via authorized university access, residual priority risk; no claim of certified exhaustive novelty."
+  ],
+  "schema_version": 1
+}

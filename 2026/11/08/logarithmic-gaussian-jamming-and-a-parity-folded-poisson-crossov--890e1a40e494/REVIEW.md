@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The weighted exact transition probability is obtained by counting the \(k\) live pendant edges and \(\binom{k}{2}\) live core edges. Exact parity and the probability-generating recurrence follow. The paired-level compensator proof bounds double visits in \(L^2\), the martingale central limit theorem uses bounded increments and a deterministic limiting bracket, and the weak-rate Poisson law follows from a uniformly bounded exponential martingale. The independent full-state rational checker passed 259 assertions across the indicated cases. Finite tests do not constitute the asymptotic proof.
+## correctness
 
-**Originality — PASS, subject to priority risk.** Exact claim and implication comparisons were made against Gamarnik–Goldberg's high-girth/degree-bounded matching results, Pippenger's graph adsorption, and Tavakoli's corona saturation-number theorem, plus claim/alias searches in published scientific and mathematical literature. The former do not supply the present exact corona recurrence plus Gaussian-to-parity-folded-Poisson crossover; the saturation-number result concerns extremal sizes rather than a process distribution. The 1989 Pippenger full text could not be obtained; the accessible abstract is insufficient to certify its complete coverage. Consequently historical priority is provisional, not independently established.
+PASS
 
-**Mathematical value — PASS.** A natural high-degree core with degree-one decorations presents a genuine two-scale competition between quadratically many core edges and linearly many leaf edges. The exact finite distribution, logarithmic number of adsorbed leaf edges, variance and Gaussian fluctuation scale, and inverse-logarithmic rate crossover quantify a jamming phenomenon invisible in a limiting occupancy density. The parity-folded Poisson law is a structurally motivated boundary rather than an arbitrary parameter slice.
+After k live core vertices remain in K_n∘K_1, exactly k pendant edges of weight w and k(k-1)/2 core edges of weight one are available, hence p_k=2w/(k-1+2w). This gives the exact two-step generating-polynomial recurrence and n-K even. For fixed w>0, grouping adjacent visited levels and bounding double visits in L2 proves the compensator A_n=w log n+O_{L2,w}(1), quadratic variation Q_n=w log n+O_{L1,w}(1), and bounded martingale jumps give CLT and variance equivalent. In the positive weak-channel scaling w_n log n→c, the random hazard converges to c, maximal hazards and sum of squares vanish, the bounded exponential-martingale identity yields Poisson(c) nonforced pendant transitions, and deterministic final parity forces the stated fold. Boundary c=0 is correctly taken through positive weights; w=0 exactly is excluded. Finite full-state exact checks confirm recurrence, not asymptotic limit.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge: the exact weighted corona recurrence together with its logarithmic Gaussian and inverse-logarithmic parity-folded Poisson crossover was not implied by located published adsorption/greedy matching results. Closest two-clique and split-graph results concern different structures/scalings. The inaccessible Pippenger 1989 full text remains a specific priority risk, not automatic FAIL.
+
+## value
+
+PASS
+
+A dense complete core and private leaves create a natural quadratic-versus-linear edge-rate competition. The exact finite-n terminal law identifies a genuinely logarithmic number of pendant adsorptions and asymptotically Gaussian fluctuations, while a rate w_n~1/log n produces a parity-folded Poisson process law. This is a sharp structurally motivated jamming crossover, not an arbitrary finite instance or restatement of saturation bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
