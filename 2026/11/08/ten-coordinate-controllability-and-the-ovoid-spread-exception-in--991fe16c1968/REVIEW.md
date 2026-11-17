@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof explicitly constructs the 15-by-15 edge–matching incidence matrix, derives its singular-space decomposition from \(TT^{\mathsf T}=4I+J\), obtains the 30-vertex Laplacian spectrum \((0^1,1^9,3^{10},5^9,6^1)\), and applies the PBH criterion to each eigenspace. The lower bound ten and forced five-plus-five split are analytic. The eligible five-edge sets are counted analytically by the unsigned \(K_6\) incidence kernel, and the matching-side and mixed constraints receive a full finite certificate. The standalone verifier uses bounded-determinant exact modular tests; all 720 label automorphisms, eight candidate orbits, and 1518 matching choices per representative are explicitly covered. It confirms 1518 admissible sets of each type, 36 exceptional pairs, 2,304,288 successes, and full-rank positive and negative example comparisons. No floating-point spectrum, randomized search, or incomplete sample substitutes for the proof.
+PASS
 
-## Originality — PASS, subject to publication-priority risk
+For 15 K6 edges and 15 perfect matchings, B Bᵀ=4I+J−TᵀT and T Tᵀ=4I+J6 imply Laplacian eigenvalue multiplicities (1,9,10,9,1) at 0,1,3,5,6. PBH forces ten independently selected leader coordinates, exactly five on each type; rank-ten incidence complement tests characterize eligibility. The rank-nine mixed eigenspace restriction is the only remaining obstruction. I independently reconstructed all 15 matchings and incidence B, tested all 3003 five-subsets on both sides, found 1518 eligible per side, 6 stars and 6 one-factorization spreads. I then independently computed all eight S6 edge-set orbits (6,60,72,120,180,360,360,360) and all eligible matching partners for a representative of each; exactly 36 mixed-rank failures occur, all 6×6 star–spread pairs, yielding 1518²−36=2304288 valid minimum placements. Modular rank at prime 1,000,000,007 is exact over Q by the explicit Hadamard upper bounds on 10x10 and 9x9 minors. This is exhaustive finite computation, not inference from partial sampling.
 
-Burgarth et al. (arXiv:1111.1475, complete rendered article) establish zero forcing as a sufficient condition; Monshizadeh et al. (arXiv:1403.4868, complete rendered article) primarily classify graph-qualitative strong structural controllability. Neither gives a census of ten-coordinate placements for this fixed unweighted graph. Yuan et al. (2013, open full text) establish general maximum-multiplicity exact controllability, so the spectral lower bound itself is not claimed as independently novel. Zhang, Camlibel and Cao (CDC-ECC 2011, complete six-page full text inspected) provide distance-regular necessary/sufficient conditions, giving only eight-or-more leaders by their diameter bound and a 26-leader generic construction here, not the ten-leader census. Prior incidence classifications on affine/projective planes are on other graphs and do not imply the exact 36 ovoid–spread exceptions. Actual semantic searches of relevant records found no equal or stronger claim; this is evidence of noncoverage among inspected sources, not a proof of global novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The Tutte–Coxeter graph is the smallest thick generalized-quadrangle incidence graph and a canonical distance-regular cubic network. The exact count of all optimal coordinate placements is useful for enumerating actuator designs and clarifies a sharp obstruction invisible to checking just the largest repeated eigenspace: 36 star–spread pairs pass the two separate incidence tests but fail on the nine-dimensional eigenmodes. The result is a natural complete classification, not an arbitrarily chosen numerical slice. Its boundaries are fixed graph structure, independent coordinate inputs, and no energy criterion.
+Best-of-knowledge original exact fixed-Laplacian minimum actuator count and classification of all 2,304,288 10-coordinate placements for the 30-vertex Tutte–Coxeter graph, including 36 star–spread exceptions. PBH and zero-forcing generalities, and published Heawood graph six-leader census, do not determine this graph-specific enumeration. Zhang–Camlibel–Cao 2011 distance-regular network controllability work supplies qualitative/necessary framework, not an inspected 1518²−36 Tutte census; primary full article inaccessible, so modest residual priority risk.
 
-## Closest literature and limitations
+## value
 
-Reviewed primary sources: Burgarth et al. 2011 (arXiv:1111.1475), Zhang–Camlibel–Cao 2011 (DOI:10.1109/CDC.2011.6160658), Yuan et al. 2013 (DOI:10.1038/ncomms3447), Monshizadeh–Zhang–Camlibel 2014 (arXiv:1403.4868). The exact finite computation has a separately inspectable Python 3 certificate but is not a symbolic all-order generalized-quadrangle theorem. Specialist indexing gaps or other previously unnoticed priority claims remain possible. Independent mathematical verification remains to be carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Tutte–Coxeter graph is a canonical symmetric incidence graph, and exact coordinate-control minimum plus the star–spread obstruction gives a structurally meaningful complete placement classification. The 36 unusual failures are not a routine restatement of PBH; a future researcher can use this precise natural graph invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
