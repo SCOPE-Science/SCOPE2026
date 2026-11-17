@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete 990-cell regular CW incidence list is reconstructed directly from the stated finite tournament. An acyclic 477-pair matching is checked against all 2,145 incidences; the Morse boundary has one explicit unit 16-minor and eighteen exactly computed maximal minors of gcd 33. A closed-chain/cocycle calculation computes the mod-eleven pullback matrix of multiplication by three as \(\bigl(\begin{smallmatrix}2&10\\10&2\end{smallmatrix}\bigr)\). Direct mod-prime ranks corroborate the 3- and 11-primary contributions. Semisimplicity and the Chinese remainder theorem convert its determinant 3 into the precise scalar 25 on the integral cyclic torsion. The modulo-eleven determinant is the *new* scientific check; a rational homology character cannot replace it.
+## correctness
 
-**Originality — PASS on the inspected evidence.** The established exact \(\mathbb Z/33\mathbb Z\) torsion calculation is acknowledged as prior work and is not the new claim. The new action statement is not implied by the abstract abelian group or by previous knowledge that the free rational line is fixed: an order-five action on \(\mathbb Z/11\mathbb Z\) could use any fifth root of unity. In particular, the calculation distinguishes the specific multiplier \(3\). The primary directed Hom treatment [1] defines the polyhedral object and source rotation without the asserted action; the directed flag topology source [2] studies a different functor. Targeted equivalent-formulation, parameter, and record searches found no dominating statement; residual risk remains from unindexed literature.
+PASS
 
-**Value — PASS.** The torsion in this natural eleven-vertex symmetric tournament splits into primes 3 and 11. The new action shows an intrinsic symmetry asymmetry: the C5 multiplier subgroup fixes all 3-torsion but acts faithfully on 11-torsion, leaving precisely three torsion-fixed classes. This is substantive equivariant information invisible to rational homology and directly relevant to the cyclic-source equivariant context developed in [1]. It is not a mere extra parameter or a generic corollary of the previous Smith computation.
+Independently generated all 990 directed Hom(C3,P11) product cells by directed triple masks (165 zero-, 495 one-,330 two-cells; 2145 incidences). Recomputed signed boundary-square-zero and ranks d1=164 and d2=(330 mod2,330 mod13,329 mod3,329 mod11). On H^1 mod11, independently constructed spanning-tree gauge and the multiplier-3 action matrix [[1,0],[8,3]], eigenvalues 1,3. The known integral order-33 torsion, established in source by unimodular Morse reduction and maximal minor gcd33 with 16x16 unit minor, then forces 11-primary action x3; order-five group action on Z/3 is trivial, giving 25 mod33. Source rotation order3 acts trivially since Aut(Z/33) has order20. The large integral Smith/minor computations were inspected in original proof and prior matching exact full result, but were not exhaustively rerun here; independent mod ranks alone would not prove full Smith form.
 
-**Limits.** This is a finite exact cellular calculation for a named complex and group action. No assertion is made about all automorphisms, an equivariant homotopy splitting or a larger family. An external independent audit has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The previously published same-object H1=Z+Z/33 calculation determines the abelian group, not its action under target multiplier, so the computed nontrivial 11-primary character is a new invariant by the evidence inspected. No covering result was found, residual indexing risk retained.
+
+## value
+
+PASS
+
+The new 11-primary torsion character distinguishes equivariant actions with identical nonequivariant integral homology and rational free-line actions. An exact small-tournament integral representation is a motivated invariant; finite CW computation is a legitimate exhaustive classification, not an arbitrary numerical spot check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
