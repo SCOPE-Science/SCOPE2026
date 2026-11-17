@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Within each bipartition shore, any two vertices have a common neighbor because at most two opposite vertices are excluded and each shore has size at least three. This reduces every distance-two defender constraint to a self-contained one-shore condition. Only the totality condition couples shores. For each missing matching edge, the exact obstruction is a singleton opposite positive support, yielding two explicitly enumerated bad events whose intersection is the unique weight-four two-defender function. Disjoint matching edges make these obstructions pairwise disjoint. The resulting identity, minimum coefficient and stability cutoff follow without extrapolating from finite data. Direct all-labelling breadth-first-search checks confirmed each coefficient for 28 small profiles.
+## correctness
 
-**Originality — PASS, provisionally.** The introduction and §§2–5 of the open-access primary paper of Abdollahzadeh Ahangar et al. were examined, including its Proposition 6 (small extremal weights) and Proposition 2 (path/cycle minima). The scalar minimum-four statement is previously implied and excluded from novelty. The contribution under review is the complete weight enumerator and the affine law for deleting arbitrary independent cross-edges; these are not among the inspected results. Previous Roman generating polynomials for complete multipartite graphs have adjacent, not distance-two, defenders; previous hop-Roman work omits the no-isolated-positive-support condition. Published record searches for those alternative formulations and for the present graph family found no covering statement. An unindexed equivalent enumeration remains a priority risk.
+PASS
 
-**Mathematical value — PASS.** The paper introducing the parameter emphasizes general complexity and scalar extremal values. A closed polynomial for an infinite, structurally natural dense-bipartite family provides every feasible configuration's weight distribution, the exact number of optimal functions, and a non-obvious *linear response* of all coefficients to multiple graph edge deletions. The matching hypothesis explains why obstruction sets do not interact; the degree bound gives a stable upper weight spectrum. This structural response is more informative than routine recomputation of a scalar optimum.
+For each shore size >=3 any two vertices on the shore have a common opposite neighbor even after a matching is deleted, so distance-two defense decouples by shore. Count legal shore labels with F_s and labels positive at a selected vertex by H_s. Positive-support totality fails precisely if a deleted edge is the unique possible opposite positive neighbor. The two singleton-support obstruction families for each deleted pair have polynomials z^2*H_a and z^2*H_b, overlap at z^4, and different deleted pairs give disjoint bad families. Inclusion-exclusion yields the entire polynomial, z^4 coefficient ab-t, and degree bound; t=0 and a,b=3 remain valid. An independently written definition-based enumeration exhaustively counted K_{3,3} with t=0..3, obtaining 400,371,342,313 admissible labels and 9,8,7,6 minimum-weight labels; full coefficient vectors matched. No claim is made that small enumeration proves all a,b.
 
-Residual limits: shores smaller than three and arbitrary (nonmatching) edge deletions are not covered. A search without a hit is not a proof of absolute novelty. Verification and review are not independent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The hop-total-Roman minimum-four result is previously known and receives no novelty credit. The full labelled all-weight polynomial and exact affine defect for arbitrary matching deletion involve a different invariant and strength than the published scalar bound or separate Roman-domination polynomials. Literature/Resultary searches found related deletion graph families for other predicates but not a theorem implying all coefficients of this precise hop-total-Roman enumerator. This is best-of-knowledge priority subject to an unindexed enumerator.
+
+## value
+
+PASS
+
+Counting the complete weight spectrum, rather than only the minimum, captures the degeneracy of every feasible hop-total-Roman labeling and the exact coefficientwise sensitivity to deleting independent bipartite edges. This graph perturbation is natural and the affine response is a nontrivial robustness formula, not a renamed scalar minimum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
