@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-The package contains `verification/verify.py` and `verification/output.txt`. Execute `python3 verification/verify.py`. Only Python's standard library is required.
+# Independent mathematical audit
 
-The program constructs all \(13\) curves with self-intersections \(-2\) (fiber components) and \(-1\) (sections), and all \(15\) nonzero pairwise intersections. Every one of the \(2^{13}=8192\) principal submatrices is tested for negative definiteness by two independent exact-arithmetic methods (rational Schur/\(LDL^T\) and integer Bareiss determinants). For all cases the result coincides with avoidance of the \(14\) stated forbidden supports. The program also computes the inclusion-minimal failing sets directly, checks their singular determinants and every one-point deletion, and recomputes coefficients using inclusion--exclusion over \(2^{14}\) selections. Its final line is `ALL_CHECKS_PASSED`.
+## correctness
 
-**Scope of evidence:** The program proves the finite intersection-matrix assertion by exhaustive enumeration, assuming the geometric identification of that matrix. The geometric input is established independently by adjunction, Kodaira fiber incidence, torsion specialization and the published Miranda--Persson classification. This is not an experimental extrapolation to unspecified surfaces. An independent scientific audit has not been performed.
+PASS
+
+The classification of negative curves starts from nef elliptic fiber F, adjunction 2pa(D)−2=D²−F·D and negativity: necessarily either D²=−2,F·D=0 (fiber components) or D²=−1,F·D=1 (sections). Miranda-Persson identifies IV*+IV and IV*+I3+I1 with torsion Mordell-Weil order 3, giving exactly 10 reducible fiber components plus 3 sections. Kodaira graph and torsion-height local contributions determine their 13×13 intersection matrix. I independently tested negative definiteness of every 8192 principal submatrices with exact fractions, obtained precisely 14 inclusion-minimal forbidden (singular) supports, and the support polynomial coefficients 1,13,78,282,672,1092,1215,896,393,70, summing to 4712. Source verification/verify.py separately uses Bareiss and inclusion-exclusion. Infinite geometric completeness rests on published extremal surface classification, not just finite enumeration.
+
+## originality
+
+PASS
+
+Classical Kodaira and Miranda-Persson data and Bauer-Funke-Neumann chamber support correspondence are prerequisites. The exact 13-curve incidence obstruction hypergraph and its 14 minimal dependent supports and 4712 size-refined chamber polynomial for both torsion-three surfaces were not printed in inspected primary texts nor ranked published record results. Best-of-knowledge original finite geometric classification, specialist unindexed table risk acknowledged.
+
+## value
+
+PASS
+
+The number and support-size polynomial of Zariski chambers are natural birational/geometric invariants of these two canonical extremal elliptic surfaces; the 14 minimal forbidden isotropic supports provide a reusable obstruction characterization and explain equality of different fiber configurations, beyond an arbitrary enumerated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
