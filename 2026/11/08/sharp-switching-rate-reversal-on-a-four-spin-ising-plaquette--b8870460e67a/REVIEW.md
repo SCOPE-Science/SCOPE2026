@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A 32-state irreducible continuous-time Markov model is reduced by the action of rotations, reflections, and global spin inversion to an explicit 8-state orbit generator; both full and reduced constructions agree under exact-rational computation. Solving its stationary equations yields a rational energy with strictly positive denominator. A factored derivative has one quartic sign polynomial; its coefficient sign thresholds are strictly ordered, so Descartes' rule proves exactly one positive root for the stated temperature range and none outside. Implicit-function and dominant-balance calculations prove the boundary asymptotics. A standalone verifier passed 34 exact-rational checks; these supplement, rather than replace, the proof.
+PASS
 
-## Originality — PASS (qualified)
+PASS. Checked the four symmetry orbit classes and column-conserving generator from the actual package, and independently differentiated the rational energy numerator (gamma+2)B over D symbolically: exact numerator identity is (w-2)P, with derivative -4s(w-2)P/D^2. The ordered coefficient roots yield one positive P root for 2<w<6 (Descartes plus endpoint signs), none for w>=6. Verified P_gamma(0,6)=5120 and P_w(0,6)=2560, giving gamma*~(6-w)/2, and the highest-degree balance gives gamma*~32/[3(w-2)]. Finite tests do not establish the universal sign statement; its coefficient proof does.
 
-The most closely related primary source is Dutta–Sarkar–Basu (arXiv:2509.00494, New Journal of Physics 28 034602), whose full HTML manuscript was inspected through model equations, energy-response calculations, finite-size discussion, conclusion, and appendix. It establishes the stochastic temperature mechanism and qualitative nonmonotone energy on larger square lattices, but not an exact four-cycle stationary formula, a sharp cold-bath criterion, or a universal root-count theorem for the optimum. Older spatial-two-temperature kinetic chains (Schmittmann–Schmüser 2002) and competitive two-bath Ising update rules (Tamayo–Alexander–Gupta 1994) describe different generators; their accessible abstracts do not imply this globally switching result. Further source and claim searches revealed no direct covering statement; hidden finite-graph formulas remain a publication-priority risk. The reduction alone does not establish originality; the explicit physical-domain classification is the claim compared.
+## originality
 
-## Value — PASS
+PASS
 
-The cited recent work presents switching-induced nonmonotonic energy largely through finite-size numerical observations. An elementary four-spin plaquette is the smallest natural simple square cycle preserving nontrivial interaction and multiple energy sectors. The full analytical temperature-phase classification, unique optimization law, and two quantitative asymptotic limits expose a sharp microscopic mechanism rather than an arbitrary numerical slice. This exact solvable benchmark can test approximations and inform the choice of bath parameters. The contribution is finite-system and does not establish behavior of large lattices.
+PASS (bounded). Dutta-Sarkar-Basu 2025/2026 full HTML introduces the switching-bath model and demonstrates numerical nonmonotonicity on larger periodic 2D lattices, with limiting-rate analyses, but does not give this four-edge C4 reduced generator or the exact beta_c=arcosh(3)/2 quartic threshold. Spatial alternating-temperature chains are different generators. The small finite-state boundary is a new exact classification rather than an asserted thermodynamic transition.
 
-## Scope and residual risks
+## value
 
-The theorem uses independent exponential single-site flip rates, symmetric bath switches and one reservoir at inverse temperature zero. Its units, cycle-versus-periodic-multigraph distinction, and finite-size character are essential. External independent validation has not occurred. A prior exact finite telegraph-driven ring classification outside the inspected literature could affect publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. This explicitly specified four-spin simple cycle is the smallest natural loop with nontrivial energy for two-temperature switching. Its exact sharp bath-temperature threshold and unique optimizer provide a rigorous finite benchmark for the qualitative nonmonotone phenomenon; no thermodynamic-limit or universal-lattice claim is needed to make this exact test case useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
