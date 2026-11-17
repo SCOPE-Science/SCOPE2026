@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T16:17:33Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With m unmatched vertices all proposals choose distinct neighbors independently. Ordered disjoint mutual-pair patterns give E(C_m)_r=(m)_{2r}/[2^r(m−1)^{2r}], hence mean removed m/(m−1) and variance 2m(m−2)^2/(m−1)^3. The uniform probability of at least one pair controls geometric state residence. The exact stopped-martingale identity N_n=T_n+A_n+M_T, where A_n=O_L2(log n), gives E T_n=n+O(log n), Var T_n=2n+O(sqrt n log n), and a martingale CLT yields (T_n−n)/sqrt(2n)⇒N(0,1). The bounded-away-from-terminal quadratic variation gives the functional Brownian law. Independent exhaustive enumeration of each loop-free proposal mapping m=2..6 recovered the exact mean/variance. Martingale infinite limits rely on the analytic bounds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sparse Erdős–Rényi graph degree-stability/parallel-greedy matching result has density near log^(1+epsilon)n/n, not complete graph K_n."
+        ],
+        "reasoning": "Neither a sparse-graph statement nor known Poisson one-round bound dominates the full finite-population complete-graph martingale/CLT.",
+        "searches": [
+          "synchronous mutual proposal random handshake complete graph Gaussian completion time matching",
+          "https://arxiv.org/abs/2610.25507"
+        ]
+      },
+      "checked_sources": [
+        "https://www.labri.fr/perso/zemmari/pdf/ic_2003.pdf",
+        "https://arxiv.org/abs/2610.25507",
+        "https://theses.fr/2017BORD0597",
+        "synchronous mutual proposal random handshake complete graph Gaussian completion time matching"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2003 Theorem 27 supplies asymptotic Poisson count of pair rendezvous; current proof requires uniform finite-m bounds, geometric visits, bracket convergence and terminal-time inversion."
+        ],
+        "reasoning": "A one-round law cannot simply be iterated as independent Poisson increments because m decreases and small-m correction accumulates. Earlier results do not imply the exact stopping-time statements without substantive new reasoning.",
+        "searches": [
+          "https://www.labri.fr/perso/zemmari/pdf/ic_2003.pdf",
+          "https://arxiv.org/abs/2610.25507"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Métivier–Saheb–Zemmari (2003) Theorem 27 studies the limit of mutual rendezvous in one round, not cumulative remaining-unmatched absorption time."
+        ],
+        "reasoning": "Taking multiple rounds changes the state and introduces a stopped martingale, whose mean and variance are not consequences of a single-round marginal Poisson limit.",
+        "searches": [
+          "synchronous mutual proposal random handshake complete graph Gaussian completion time matching",
+          "https://www.labri.fr/perso/zemmari/pdf/ic_2003.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned this same record and distinct random-edge greedy matching or pair-averaging models; no identical complete-graph stopping-time data table found."
+        ],
+        "reasoning": "Search-only failure is nonproof; no exact cumulative table other than assigned finite checker was identified.",
+        "searches": [
+          "Resultary semantic search: synchronous mutual proposal random handshake complete graph Gaussian completion time matching"
+        ]
+      },
+      "rationale": "The 2003 rendezvous/handshake result proves Poisson(1/2) one-round mutual pairs on the complete graph, and recent sparse-random-graph mutual-proposal matching results study a different regime. Neither directly determines a cumulative absorption time centered at n with variance 2n or the path functional CLT. Some related handshake thesis chapters remain inaccessible.",
+      "residual_risks": [
+        "2017 handshake/network doctoral thesis relevant chapter not read; earlier complete-graph stopping-time analysis could exist.",
+        "Unindexed random sequential handshake papers might already prove a martingale central limit theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL: one-round complete-graph Poisson(1/2), no established full absorption CLT in read material",
+          "evidence": "Section 6.2/Theorem 27 on pairwise mutual selections in one round.",
+          "identifier_or_url": "https://www.labri.fr/perso/zemmari/pdf/ic_2003.pdf",
+          "material_read": "Primary PDF text read around Section 6.2 and Theorem 27; PDF screenshot request did not complete, so complete visual reading not claimed",
+          "method": "Public PDF text and theorem comparison",
+          "title": "Analysis of a randomized rendezvous algorithm",
+          "trigger": "Same synchronous mutual-neighbor rendezvous"
+        },
+        {
+          "assessment": "DIFFERENT density/model assumptions",
+          "evidence": "Graph density order log^(1+epsilon)n/n; no full-complete-graph completion time law.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.25507",
+          "material_read": "Abstract, theorem-scope summary and assigned citation; not full paper",
+          "method": "Primary public arXiv abstract and source comparison",
+          "title": "Degree Stability of Parallel Greedy Matching in Random Graphs",
+          "trigger": "Same matching mechanism but sparse graph regime"
+        },
+        {
+          "assessment": "ACCESS RISK, no whole-document exclusion",
+          "evidence": "2017 thesis related to randomized rendezvous variants.",
+          "identifier_or_url": "https://theses.fr/2017BORD0597",
+          "material_read": "Bibliographic thesis record only; relevant chapter inaccessible",
+          "method": "Catalog/title inspection",
+          "title": "Computing models for networks of tiny objects",
+          "trigger": "Potential earlier generalized randomized-handshake protocol"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact Gaussian completion-time law with leading variance 2, linear-time scaling and path fluctuations resolves a natural performance question for synchronous matching on complete graphs and distinguishes it from sparse-graph logarithmic-round results.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fresh independent simultaneous proposals only; complete residual graph K_m, not sparse/asynchronous variants.",
+    "2017 handshake/network doctoral thesis relevant chapter not read; earlier complete-graph stopping-time analysis could exist.",
+    "Unindexed random sequential handshake papers might already prove a martingale central limit theorem."
+  ],
+  "schema_version": 1
+}
