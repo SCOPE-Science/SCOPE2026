@@ -1,0 +1,70 @@
+# Integral signed-subset homology of quadrilateral-bouquet robust clique complexes
+
+## Finding
+Let \(m\ge3\) and \(k\ge4\) be integers, and let \(B_m\) be the simple graph consisting of \(m\) four-cycles meeting only at one common vertex. Put \(r=k-1\), and let \(K=\operatorname{Cliq}_k(B_m)\) be the simplicial complex of vertex subsets whose induced subgraphs have no independent set of \(k\) vertices. Its full graph automorphism group is the signed permutation group \(W_m=(C_2)^m\rtimes\mathfrak S_m\), acting through permutations of the squares and independent interchanges of the two neighbors of their common vertex.
+
+For \(3\le r\le m\), the only nonzero reduced integral homology of \(K\) is in degree \(2r-1\), and it has a **primitive, canonically indexed integral basis** \(\{z_I: I\in\binom{[m]}r\}\) with action
+\[
+\boxed{(\epsilon,\pi)z_I=\left(\prod_{i\in I}\epsilon_i\right)z_{\pi(I)},\qquad \epsilon_i\in\{+1,-1\}.}
+\]
+The signs \(\epsilon_i\) encode the two-neighbor interchange in square \(i\), with the coordinate labels taken **before** the arm permutation. Thus the integral homology is the signed \(r\)-subset permutation lattice, not merely an abstract free abelian group of known rank. For \(r>m\), the complex is contractible and the displayed module is zero.
+
+For an automorphism \(g\), decompose its permutation of the \(m\) squares into cycles \(C\), and let \(\eta_C\in\{+1,-1\}\) be the product of the neighbor-swap signs along that cycle. The complete top-homology character is
+\[
+\boxed{\operatorname{tr}\left(g\mid\widetilde H_{2r-1}(K;\mathbb Q)\right)
+=[u^r]\prod_C(1+\eta_Cu^{|C|}).}
+\]
+When \(3\le r\le m\), the full group fixes no nonzero element of top integral or rational homology, although the square-permutation subgroup alone fixes a rank-one lattice. The full-group coinvariants of the top integral homology are \(\mathbb Z/2\mathbb Z\). These symmetry statements concern the homology module; no claim about the homology of the geometric orbit space is made.
+
+## Assumptions and scope
+Write the central vertex as \(v\), and the other vertices of square \(i\) as \(a_i,b_i,d_i\), with edges \(va_i,a_ib_i,b_id_i,d_iv\). Thus \(b_i\) is the vertex opposite \(v\), and the two neighbors \(a_i,d_i\) may be exchanged independently. Different squares have no other shared vertices or edges. A face is any subset \(S\) with \(\alpha(B_m[S])\le k-1\); the empty face is included in the abstract complex. All topology is that of geometric realizations and uses ordinary integral coefficients. The group \(W_m\) is the full graph automorphism group for \(m\ge2\), since \(v\) is then the unique vertex of degree greater than two, its neighbor pairs share distinct opposite vertices, and every such pair can independently be exchanged.
+
+The nonequivariant sphere-wedge formula \(K\simeq\bigvee^{\binom mr}S^{2r-1}\) is an existing published result, not asserted to be new here. The claim here is the **full explicit integral group action, primitive basis and its character and coinvariant consequences**.
+
+## Proof
+**1. Relative model.** Let \(X=K\setminus\{v\}\) and \(L=\operatorname{lk}_K(v)\). The invariant decomposition \(K=X\cup(v*L)\), together with the contractibility of the cone \(v*L\), gives a natural \(W_m\)-equivariant isomorphism \(\widetilde H_j(K;\mathbb Z)\cong H_j(X,L;\mathbb Z)\) for \(j\ge2\). Here the isomorphism is induced by excision for the simplicial pair, so it respects every actual vertex permutation, not merely an abstract choice of wedge decomposition.
+
+For a subset \(S\subseteq V(B_m)\setminus\{v\}\), write \(e_i=|S\cap\{a_i,d_i\}|\) and \(t_i=\mathbf1_{b_i\in S}\). Removing \(v\) leaves disjoint three-vertex paths, so
+\[
+\alpha(B_m[S])=\sum_i\max(e_i,t_i),\qquad
+\alpha(B_m[S\cup\{v\}])=\max\left\{\sum_i\max(e_i,t_i),\,1+\sum_i t_i\right\}.
+\]
+In particular \(L=\{S\in X:\sum_i t_i\le r-1\}\). Every face of \(X\setminus L\) therefore contains the opposite vertices \(b_i\) for precisely \(r\) indices \(I\), contains no vertex in any other square, and contains at most one of \(a_i,d_i\) in each selected square. Conversely all such faces are allowed.
+
+**2. An invariant system of relative balls.** For each \(I\subseteq[m]\) with \(|I|=r\), set \(D_I=\{b_i:i\in I\}\) and let \(Z_I\) be its closed star in \(X\). The preceding exact face characterization gives
+\[
+Z_I=\Delta(D_I)*\bigast_{i\in I}\{\varnothing,\{a_i\},\{d_i\}\},
+\qquad Z_I\cap L=\partial\Delta(D_I)*\bigast_{i\in I}\{\varnothing,\{a_i\},\{d_i\}\}.
+\]
+The latter is the entire boundary of the \((2r-1)\)-ball \(Z_I\). Distinct ball interiors are disjoint outside \(L\), and all of \(X\setminus L\) is covered by these interiors. Hence the **relative simplicial chain complex** splits canonically as the direct sum of \(C_*(Z_I,\partial Z_I;\mathbb Z)\). This is a direct chain-level splitting, not an inference from ranks. It shows that \(H_j(X,L;\mathbb Z)=0\) for \(j\ne2r-1\) and that \(H_{2r-1}(X,L;\mathbb Z)\) is freely generated by relative fundamental classes of the balls. When \(r>m\), \(X=L\) and the entire original complex is a cone.
+
+**3. Explicit cycles and signs.** Order \(I=\{i_1<\cdots<i_r\}\), and orient each top simplex by writing its \(r\) opposite vertices first and its chosen neighbor vertices second. In relative chains set
+\[
+ z_I=\sum_{(s_1,\dots,s_r)\in\{0,1\}^r}
+ (-1)^{s_1+\cdots+s_r}
+ [b_{i_1},\ldots,b_{i_r},\ell_{i_1,s_1},\ldots,\ell_{i_r,s_r}],
+ \qquad\ell_{i,0}=a_i,\quad\ell_{i,1}=d_i.
+\]
+Deleting a neighbor from the boundary cancels between opposite binary choices, while deleting an opposite vertex produces a face in \(L\). Thus each \(z_I\) is a relative cycle. It is primitive: its top oriented simplex coefficients are all \(\pm1\), and the relative ball has one rank-one top homology group. Relative top chains of distinct balls have disjoint supports, giving the integral direct-sum basis.
+
+Interchanging \(a_i\) with \(d_i\) in a chosen square reverses the sign of \(z_I\); outside \(I\) it fixes \(z_I\). A permutation of squares carries \(I\) to \(\pi(I)\). Reordering the opposite-vertex block and the neighbor-vertex block each introduces the same sign of the induced permutation of \(r\) labels, so the two signs cancel. This proves \(\pi z_I=z_{\pi(I)}\) **over \(\mathbb Z\)** and gives the stated signed-subset action for every group element.
+
+**4. Character and invariants.** A subset \(I\) is fixed by the permutation of squares exactly when it is a union of its cycles. Such a fixed basis vector contributes the product of the arm-flip signs along each selected cycle, which gives the coefficient-product trace formula. Because \(r\ge3\), every basis vector uses at least one arm: flipping a selected arm reverses it, so no nonzero rational or integral vector is invariant under all independent flips. All basis vectors form one orbit under \(\mathfrak S_m\), and hence its invariant lattice is generated by their sum. In the coinvariant quotient all basis vectors become equal, while flipping one of their selected arms imposes twice the common generator equals zero; the resulting \(\mathbb Z/2\mathbb Z\) is nonzero because all group-action relations preserve coefficient parity.
+
+## Verification
+The standalone Python 3 standard-library checker `verify.py` reconstructs the complexes via the exact induced-subgraph independence test, establishes the full relative face partition for six parameter pairs with \(3\le m\le5\), checks relative cycle boundaries, and verifies each arm-flip and generating square permutation on every explicitly oriented basis cycle. Separately it calculates the signed simplicial Lefschetz number by enumerating **all invariant faces** and compares the result with the predicted signed-subset trace. The included `verification_output.txt` records six complete passing cases. These checks are finite corroboration; Steps 1–4 are the proof for arbitrary \(m\) and \(k\).
+
+## Relationship to prior work
+The graph-complex definition and study of bounded-independence complexes go back to Kim and Lew [1]. Filakovský [2] develops related robust clique topology for grid and edge/corner-glued square-sequence graphs; a bouquet meeting at only one vertex is not a square-sequence graph under that paper's Definition 8. Two subsequently published mathematical findings [3,4] **already completely determine the nonequivariant homotopy type for the exact same bouquet family**, one by an explicit cofiber-and-relative-ball decomposition and the other by a discrete-Morse matching. Those formulas, their wedge counts, and the ball decomposition are prior work, explicitly reused here. Neither inspected full finding states the full integral \(W_m\)-homology module, the individual neighbor-flip signs, the character on all conjugacy classes, or the coinvariant calculation. The additional issue is genuinely integral and equivariant: a nonequivariant wedge count by itself does not determine an automorphism's action on fundamental classes. The previously published relative-ball construction substantially simplifies the new orientation analysis, so the contribution is narrower than a new homotopy classification.
+
+## Limitations
+The result applies to one-vertex bouquets of four-cycles and the specified robust clique complexes. It does not assert a new nonequivariant wedge decomposition, an equivariant homotopy equivalence of \(W_m\)-spaces, or anything about homology of geometric orbit spaces or Borel constructions. Character equality over the rationals alone would not identify an integral lattice; the explicit primitive cycles supply the stronger integral statement. The new orientation refinement is close to an existing explicit relative-ball proof, and an independently published equivariant extraction or an unindexed equivalent statement remains an originality risk. Independent mathematical validation has not been performed.
+
+## References
+[1] M. Kim and A. Lew, *Complexes of graphs with bounded independence number*, arXiv:1912.12605, first public 2019-12-29, https://arxiv.org/abs/1912.12605.
+
+[2] M. Filakovský, *The Topology of \(k\)-Robust Clique Complexes in Grid-like Graphs*, arXiv:2602.11365, first public 2026-02-11, https://arxiv.org/html/2602.11365.
+
+[3] *Binomial sphere wedges for robust clique complexes of bouquets of four-cycles*, published mathematical result, 2026-10-25, https://github.com/published-finding corpus/2026/blob/main/2026/10/25/SCOPE-binomial-sphere-wedges-for-robust-clique-complexes-of-bouquets-o--746320ce0145/RESULT.md.
+
+[4] *All-threshold sphere wedges for bouquets of quadrilaterals*, published mathematical result, 2026-11-08, https://github.com/published-finding corpus/2026/blob/main/2026/11/8/SCOPE-all-threshold-sphere-wedges-for-bouquets-of-quadrilaterals--eb26c76015bf/RESULT.md.
