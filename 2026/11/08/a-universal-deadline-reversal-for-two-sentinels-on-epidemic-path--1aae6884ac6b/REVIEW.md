@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model fixes all quantifiers, initial conditions, time units, and observation conventions. Unique-path exponential sums give the exact survival equation. The short-deadline derivative is the observed--unobserved cut size; the long-deadline endpoint failure has an extra exponential factor that dominates all finite polynomials and excludes every competing pair. The complete four-node classification follows from explicitly enumerated symmetry classes and the strictly convex scalar crossing function. The two candidate mean times agree exactly. The independent full-state SI generator checked 336 finite cases; high-precision tests covered 950 additional sample comparisons. The general conclusion rests on the analytical proof, not finite tests.
+PASS
 
-## Originality — PASS on inspected evidence, historical priority provisional
+Exact gamma-tail formula follows by conditioning on uniform seed: outside sentinels one Erlang survival, between sentinels product of independent left/right Erlang survivals. First-order small-t coefficient −β c(S)/n shows endpoints (c=2) lose to cut-edge-richer pairs n≥4. At long t, endpoints Q=e^{-2x} polynomial R_n/n while any rival leaves an endpoint unmonitored and has Q≥e^{-x}/n, proving unique endpoint optimality uniformly across finite competing pairs. Exact P4 four-class comparison crosses once at e^x=1+2x, with two tied means 3/(8β), n2,n3 boundaries correct. Independently recomputed P4 at x=1 and inspected finite-state CTMC checker code.
 
-Christakis--Fowler (2010) motivated sentinel early detection with empirical centrality, not two-site deadline placement. Holme (2017) includes sets of multiple sentinels on small graphs, but studies **mean discovery-or-extinction time with SIR recovery**, not the finite-time SI detection law; its mean objective cannot imply the crossing of two equal-mean four-path policies. Bai and colleagues (2017) use SI on empirical temporal networks and relative lead times, without the analytic all-path classification. Holme (2018) explicitly restricts its surveillance study to one sentinel and describes the placement of multiple sentinels as an open direction. Heavey et al. (2022) give hardness and approximation algorithms for **mean** sentinel detection delay, not the finite-deadline SI survival comparisons that switch while two means tie. The source comparison includes theorem implications, not title matches. The general possibility of an unlocated equivalent exponential-passage/reliability result is a residual historical-priority risk; this report does not claim independent novelty certification.
+## originality
 
-## Value — PASS
+PASS
 
-A deadline is the decision-relevant observable for a limited-duration outbreak-detection program. The universal theorem identifies a real structural impossibility for a fixed two-site surveillance plan across every linear network of at least four nodes. The exact minimal switching case provides a benchmark in which **mean first-detection times are identical** despite opposite finite-deadline rankings. This resolves a natural surveillance design comparison, rather than an arbitrary isolated numerical calculation. It is not an evidence-based clinical recommendation.
+Qualified best-of-knowledge originality limited to the all-n≥4 universal early/late reversal theorem. The sharp P4 example, the general gamma-tail representation, and equal-mean tie appear in an earlier Resultary five-site paper and are expressly NOT independently original. Holme and Heavey address SIR, mean objectives, empirical/general sensor selection.
 
-## Scope and limitations
+## value
 
-Continuous-time homogeneous SI, a single uniform seed, perfect immediate monitoring, two distinct fixed sentinels, and path graphs only. Recovery and observational imperfections are excluded. General intermediate-horizon placements for larger paths are not classified. Independent historical-priority validation is still needed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An all-size no-universal-optimal-sentinel result with a sharp minimum n=4 separates early-time exposure and long-time double-front attenuation; equal-mean placement choices show why deadline reliability is not determined by expectation. The value rests on the universal n≥4 theorem, not the already-known P4 table alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
