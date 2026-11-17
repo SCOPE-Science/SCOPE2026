@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The analytic reduction starts from the actual L-stable TR-BDF2 stability function, checked against the published formula, and uses the full orthogonal Laplacian decomposition of an arbitrary unweighted complete multipartite graph. The strict off-diagonal inequality follows from a decreasing rational chord slope. The small-order guarantee follows from an exact global minimum of the scalar filter. For all larger orders, an explicit part-dependent timestep gives an exact negative diagonal, with the exceptional six-vertex equality cases handled by a derivative sign. The quartic coefficients have a fixed sign pattern proving exactly two positive zeros by Descartes' rule. An independent code path using exact \(\mathbb Q(\sqrt2)\) arithmetic and full rational-matrix inversion agrees with the spectral formulas in the tested cases. The general conclusions are proved symbolically, not inferred from finite tests.
+## correctness
 
-## Originality: PASS on inspected evidence, qualified
-Bonaventura and Della Rocca's 2015 full text, particularly the method and stability analysis in Sections 2–4 and the conclusions, gives the stability function and its absolute-monotonicity radius, but not a classification of positivity of its endpoint map on complete multipartite Laplacians. Its general sufficient SSP bound does not imply positivity for *all* steps on five-vertex graphs, or positivity recovery and exactly two diagonal sign changes at larger orders. Indexed mathematical findings about the fourth-order Gauss–Legendre filter, Radau IIA, Richardson extrapolation and SSP-SDIRK positivity use different rational endpoint filters or different generator classes; they do not logically supply the present threshold and per-vertex root count. Broader generic scalar-filter work does imply certain *all-graph-profile* necessary conditions, but it does not evaluate this sharp fixed-order and every-part profile statement. Remaining risks include unindexed analyses of the equivalent L-stable two-stage SDIRK stability function and older specialist graph positivity results.
+PASS
 
-## Mathematical value: PASS
-The result answers a motivated method-selection question left open by the usual nonlinear SSP analysis: which sizes of a natural highly connected class of graph diffusion systems preserve positivity at every step even though the scalar TR-BDF2 stability function becomes negative? The answer is a complete, sharp and profile-independent five-vertex cutoff, together with a stronger temporal classification for every vertex above it. The result simultaneously proves that the time integrator never creates negative transitions between *distinct* vertices on these graphs and that its negative self-transitions are temporary. This distinction between off-diagonal preservation and a finite self-transition failure band is relevant to interpreting numerical graph-heat transitions; it is not merely another numerical instance of the SSP radius or an arbitrary isolated sample.
+Complete-multipartite spectral projector formula gives diagonal d=1/N+(1/p−1/N)F(Nh)+(1−1/p)F((N−p)h), distinct-vertex offdiagonal from strict chord-slope inequality. F has exact minimum (1−sqrt2)/2 at 4+3sqrt2, which bounds every N<=5 diagonal positive. For N>=7 the H(p,N−p) inequality yields a negative witness, N=6 p=3,4 have zero at witness with positive derivative and hence nearby negative. Quartic positive constant/linear/leading, negative cubic gives at most two positive roots by Descartes; positive endpoints plus negative witness force exactly two simple roots. Independently checked algebra/numeric sample boundary cases; not extrapolating experiments.
 
-## Closest literature and limits
-Primary source: Bonaventura and Della Rocca, *Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions*, arXiv:1510.04303, first posted 2015-10-14 (https://arxiv.org/abs/1510.04303). The proof specializes the *unmodified endpoint* method, not its positivity-preserving hybrid variants. A general Runge–Kutta absolute monotonicity bound is weaker for this fixed graph class. The conclusion does not cover weighted or directed graphs, nonlinear problems, internal stages, or arbitrary graph Laplacians. Publication-priority equivalence with unidentified literature remains possible. Code checks validate finite instances; only the proof resolves arbitrary orders.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Standard SSP and absolute-monotonicity results concern arbitrary positive systems, while adjacent graph positivity classifications concern Radau IIA or Padé/RK4 stability functions. The exact unmodified TR-BDF2 threshold N=5 and single negative self-transition interval for each part are not implied by these sources.
+
+## value
+
+PASS
+
+Graph heat positivity of a common L-stable integrator has a universal sharp order threshold and per-vertex reentrant sign band, pertinent to deciding timestep admissibility and distinguishing endpoint positivity from internal stages; not just a stability-function restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

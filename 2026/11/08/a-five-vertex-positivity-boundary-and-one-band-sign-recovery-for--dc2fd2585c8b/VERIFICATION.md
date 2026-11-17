@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-From the directory containing `VERIFY.py`, run:
+## correctness
 
-```text
-python3 VERIFY.py
-```
+PASS
 
-Actual successful replay:
+Complete-multipartite spectral projector formula gives diagonal d=1/N+(1/p−1/N)F(Nh)+(1−1/p)F((N−p)h), distinct-vertex offdiagonal from strict chord-slope inequality. F has exact minimum (1−sqrt2)/2 at 4+3sqrt2, which bounds every N<=5 diagonal positive. For N>=7 the H(p,N−p) inequality yields a negative witness, N=6 p=3,4 have zero at witness with positive derivative and hence nearby negative. Quartic positive constant/linear/leading, negative cubic gives at most two positive roots by Descartes; positive endpoints plus negative witness force exactly two simple roots. Independently checked algebra/numeric sample boundary cases; not extrapolating experiments.
 
-```text
-VERIFY_OK: 4765 exact algebraic checks and 36 full-matrix cases; all offdiagonals strictly positive in checked cases
-```
+## originality
 
-The standalone script requires only the Python standard library. It represents \(\mathbb Q(\sqrt2)\) exactly by pairs of rational numbers. Its sign test compares integer/rational squares rather than using floating-point tolerances. For \(2\le N<36\) and every \(1\le p<N\), it checks the key quartic coefficients, exact negative-witness identity and equality cases, and verifies strict negative witnesses for the stated ranges. The 36 independent full-matrix cases use exact inversion of \(I+ahL\), followed by \(T=(1+\sqrt2)B^2-\sqrt2B\), comparing every entry to the projector-derived formula and checking row sums.
+PASS
 
-The finite loops do not establish uniqueness of roots, an inequality for every integer order, or a proof of nonnegativity over every real timestep. Those assertions follow from the symbolic rational identities, the continuous minimum calculation, and Descartes' rule in `RESULT.md`. There is no external audit or independent validation in this package.
+Standard SSP and absolute-monotonicity results concern arbitrary positive systems, while adjacent graph positivity classifications concern Radau IIA or Padé/RK4 stability functions. The exact unmodified TR-BDF2 threshold N=5 and single negative self-transition interval for each part are not implied by these sources.
+
+## value
+
+PASS
+
+Graph heat positivity of a common L-stable integrator has a universal sharp order threshold and per-vertex reentrant sign band, pertinent to deciding timestep admissibility and distinguishing endpoint positivity from internal stages; not just a stability-function restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

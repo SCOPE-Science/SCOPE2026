@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T11:16:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Complete-multipartite spectral projector formula gives diagonal d=1/N+(1/p−1/N)F(Nh)+(1−1/p)F((N−p)h), distinct-vertex offdiagonal from strict chord-slope inequality. F has exact minimum (1−sqrt2)/2 at 4+3sqrt2, which bounds every N<=5 diagonal positive. For N>=7 the H(p,N−p) inequality yields a negative witness, N=6 p=3,4 have zero at witness with positive derivative and hence nearby negative. Quartic positive constant/linear/leading, negative cubic gives at most two positive roots by Descartes; positive endpoints plus negative witness force exactly two simple roots. Independently checked algebra/numeric sample boundary cases; not extrapolating experiments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bonaventura–Della Rocca derive finite radius of absolute monotonicity and hybrid positivity-preserving modifications for general systems. The Radau IIA complete-multipartite threshold is twelve vertices for a distinct method."
+        ],
+        "reasoning": "General SSP radius establishes sufficient small steps and possible global failures but not the profile-independent sharp N=5 threshold or every part’s exactly two positive roots.",
+        "searches": [
+          "Resultary semantic search: TR-BDF2 unmodified rational time-step stability function complete multipartite graph Laplacian positivity threshold five six diagonal negative interval",
+          "https://arxiv.org/pdf/1510.04303",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-twelve-vertex-reentrant-positivity-barrier-for-two-stage-rad--280b8b0c7f0a"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1510.04303",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-twelve-vertex-reentrant-positivity-barrier-for-two-stage-rad--280b8b0c7f0a",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-five-vertex-and-distance-four-positivity-barriers-for-pad-0-2-gr--cbdb39e5b48d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "TR-BDF2 original paper supplies the stability function and finite SSP monotonicity radius, not the graph spectral projector identity, exact minimum, witness H(p,q), and Descartes root-count calculation."
+        ],
+        "reasoning": "New theorem applies this rational function to a specific Laplacian spectrum to get a sharp all-positive-step classification, not derivable by substituting the SSP radius.",
+        "searches": [
+          "https://arxiv.org/pdf/1510.04303",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-twelve-vertex-reentrant-positivity-barrier-for-two-stage-rad--280b8b0c7f0a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "TR-BDF2 completed scalar endpoint map is F(z)=(1-(sqrt2-1)z)/(1+(1-1/sqrt2)z)^2; L-stable step has a non-monotone negative tail, unlike Radau IIA or Padé [0/2] maps."
+        ],
+        "reasoning": "A rational graph-matrix function of a different Runge–Kutta method is not algebraically interchangeable with TR-BDF2 even when both are L stable.",
+        "searches": [
+          "Resultary semantic search: TR-BDF2 unmodified rational time-step stability function complete multipartite graph Laplacian positivity threshold five six diagonal negative interval",
+          "https://arxiv.org/pdf/1510.04303"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A nearby Radau IIA source has N=12 barrier and a quartic negative band; no independently earlier exact TR-BDF2 complete-multipartite table was found."
+        ],
+        "reasoning": "Matching quartic band geometry is not sufficient to imply the TR-BDF2 coefficients or the N=5 barrier.",
+        "searches": [
+          "Resultary semantic search: TR-BDF2 unmodified rational time-step stability function complete multipartite graph Laplacian positivity threshold five six diagonal negative interval",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-twelve-vertex-reentrant-positivity-barrier-for-two-stage-rad--280b8b0c7f0a"
+        ]
+      },
+      "rationale": "Standard SSP and absolute-monotonicity results concern arbitrary positive systems, while adjacent graph positivity classifications concern Radau IIA or Padé/RK4 stability functions. The exact unmodified TR-BDF2 threshold N=5 and single negative self-transition interval for each part are not implied by these sources.",
+      "residual_risks": [
+        "General matrix-function positivity classifications could imply this as a corollary without naming TR-BDF2.",
+        "Published source snippets for neighboring methods were not all inspected in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "METHOD_KNOWN_BUT_GRAPH_CUTOFF_NOT_STATED",
+          "evidence": [
+            "L-stable parameter and stability radius, positivity hybrid variants; no located exact complete-multipartite all-step threshold"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.04303",
+          "material_read": "Primary arXiv PDF 38pp retrieved; relevant introduction, stability formulation, §3 and §4 positivity/absolute monotonicity passages inspected, with page screenshots",
+          "method": "Primary PDF text plus visual page inspection",
+          "title": "Monotonicity, positivity and strong stability of the TR-BDF2 method and of its SSP extensions",
+          "trigger": "Original method and most plausible positivity predecessor"
+        },
+        {
+          "assessment": "DIFFERENT_RATIONAL_METHOD",
+          "evidence": [
+            "Radau IIA third order and 12-vertex threshold, rather than TR-BDF2 N=5"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-the-twelve-vertex-reentrant-positivity-barrier-for-two-stage-rad--280b8b0c7f0a",
+          "material_read": "Published indexed summary: method, 12-vertex bound and quartic obstruction; full proof not read",
+          "method": "Resultary indexed record",
+          "title": "The twelve-vertex reentrant positivity barrier for two-stage Radau IIA on balanced multipartite networks",
+          "trigger": "Closest indexed two-stage reentrant positivity analogue"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Graph heat positivity of a common L-stable integrator has a universal sharp order threshold and per-vertex reentrant sign band, pertinent to deciding timestep admissibility and distinguishing endpoint positivity from internal stages; not just a stability-function restatement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": "Unweighted complete multipartite connected graphs, completed TR-BDF2 endpoint only; interval endpoints implicit as quartic roots and may differ between parts."
+}
