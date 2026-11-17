@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T22:07:10.723417Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A valid height word of length n uses precisely {0,...,h}; each such word becomes a distinguished edge in the (n-1)-overlap digraph. Complete vertices are all W_{n-1}; incomplete vertices have indegree and outdegree one, and forced paths end at complete vertices in at most n rotations. Contracting forced corridors preserves cyclic edge-distinguished Euler tours. The reduced core has |W_{n-1}| vertices; directed matrix-tree/BEST give U_n=det(L_root) product_v(d_v-1)!, where the factorial product is the stated Stirling-number expression. Independently implemented height-word enumeration, full overlap digraph, forced contraction, exact SymPy integer cofactor and factorial product for n=2,3,4,5. Reproduced U=(1,8,113192681472,6214252301172599252248681937277855126085721393995382376959963220030028306692926790213752299261892430397440); at n=5, 541 original word-edges contract to 308 distinguished arcs on 75 core vertices, tau=27571102170646823740986252600397906575360 and the exact degree histogram {2:1,3:14,4:36,5:24}. Full finite census established with exact determinant, no extrapolation to n>=6.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horan–Hurlbert Theorem 3.2 supplies Eulerian connectedness/existence",
+          "Sawada–Gabrić Section 2 gives general uniform Eulerian-tour sampling using arborescences; Section 4.2 uses weak orders for random-walk cover time"
+        ],
+        "reasoning": "A method that theoretically could count cycles by a determinant does not itself evaluate the exact 75-by-75 minor or 541-edge decomposition; previous general frameworks are acknowledged, not novelty claims.",
+        "searches": [
+          "https://arxiv.org/abs/1203.5169",
+          "https://arxiv.org/html/2510.16545v3",
+          "https://arxiv.org/abs/2308.12405"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1203.5169",
+        "https://arxiv.org/html/2510.16545v3",
+        "https://www.cis.uoguelph.ca/~sawada/papers/weak.pdf",
+        "https://arxiv.org/abs/2308.12405",
+        "Resultary search: weak orders height words universal cycles exact counting Eulerian tours numbers arborescences n=4 n=5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing existence proofs imply at least one universal cycle, not the number",
+          "General BEST implies determinant formula, but the exact U4/U5 evaluated cofactor values require the explicit reduction and arithmetic"
+        ],
+        "reasoning": "No inspected earlier theorem yields exact U5 without substantial new computation. The submitted all-n reduction is useful, but the claimed finite numeric census is the independent surviving contribution.",
+        "searches": [
+          "https://arxiv.org/abs/1203.5169",
+          "https://arxiv.org/html/2510.16545v3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Horan–Hurlbert define precisely height words for weak orders, not rank representation",
+          "Cyclic edge-distinguished Euler tours modulo rotation correspond to the same universality convention"
+        ],
+        "reasoning": "Search included ordered partitions and height/restricted-growth representations; published works give existence and sampling algorithms rather than completed count for n=5.",
+        "searches": [
+          "Resultary: weak orders height words universal cycles exact counting Eulerian tours numbers arborescences n=4 n=5",
+          "height representations ordered partitions preferential arrangements Cayley permutations number of universal cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A000670 counts input weak orders 3,13,75,541, not output universal cyclic words 1,8,113192681472,U5",
+          "The submitted 75x75 cofactor is exactly recomputed, not copied from an identified table"
+        ],
+        "reasoning": "An accidental integer match with unrelated OEIS terms does not establish mathematical identity; no prior table for exact U_n identified in searches.",
+        "searches": [
+          "exact height word universal cycle counts 113192681472 weak orders",
+          "ordered Bell A000670 versus cyclic universal outputs U_n",
+          "Resultary: weak order universal cycle count n=5 62142523"
+        ]
+      },
+      "rationale": "Best of knowledge: Horan–Hurlbert 2012/2013 prove existence of weak-order universal cycles via the same height-word overlap graph; Sawada–Wong and Sawada–Gabrić develop successor rules, random uniform sampling, and general arborescence methods. Primary text does not supply these evaluated exact U_4/U_5 multiplicities or the concrete 75-vertex core certificate. Standard BEST/matrix-tree derivation is prior mathematics; novel surviving finite invariant is the fully evaluated enumeration and forced-corridor graph reduction at order five. A previously unindexed Euler-tour or integer table remains a real priority risk.",
+      "residual_risks": [
+        "An earlier not-indexed exact weak-order universal-cycle table or enumeration in supplementary combinatorial software could cover U4/U5.",
+        "This census stops at n=5 and does not count cycles modulo alphabet relabeling or reversal; the general contraction does not evaluate arbitrary-n cofactor."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_AFTER_READING",
+          "evidence": "Theorem 3.2 gives existence of cycles for weak orders, but not the complete multiplicities U4 and U5.",
+          "identifier_or_url": "https://arxiv.org/abs/1203.5169",
+          "material_read": "Primary complete preprint PDF: definitions and height encoding, graph connectivity Theorem 3.2 and proof, surrounding construction; page images examined",
+          "method": "Full open-access preprint PDF text and rendered pages",
+          "title": "Universal Cycles for Weak Orders",
+          "trigger": "Identical height-representation weak orders and overlap graph"
+        },
+        {
+          "assessment": "NOT_COVERING_AFTER_READING",
+          "evidence": "General method samples tours; weak-order section examines cover-time numerical experiments, not fully evaluated U5 cofactor.",
+          "identifier_or_url": "https://arxiv.org/html/2510.16545v3",
+          "material_read": "Full available author/arXiv HTML with Section 2 arborescence sampling and Section 4.2 weak-order experiments and Table 2",
+          "method": "Complete available HTML primary text and section-specific reading",
+          "title": "Las Vegas algorithms to generate universal cycles and de Bruijn sequences uniformly at random",
+          "trigger": "Highly relevant general arborescence-to-tour uniform sampling for exactly weak-order ucycles"
+        },
+        {
+          "assessment": "PARTIAL_MATERIAL_PRIORITY_RISK",
+          "evidence": "Efficient construction is established; table of all cycles could be overlooked without re-reading full text.",
+          "identifier_or_url": "https://www.cis.uoguelph.ca/~sawada/papers/weak.pdf",
+          "material_read": "Article description and result comparison in source bibliography; full PDF not freshly inspected",
+          "method": "Bibliographic/contextual comparison",
+          "title": "Efficient Universal Cycle Constructions for Weak Orders",
+          "trigger": "Same height/rank representations and examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Weak orders/permutations with ties form a natural classical combinatorial family. The number of distinct cyclic universal representations at n=4,5 (without extra symmetries) is a useful exact invariant distinct from the ordered Bell counts of inputs. Contracting 308 forced paths to 75 core vertices enables nontrivial exact determinant evaluation, with both finite completeness and replicable certificates; no arbitrary family-wide formula is falsely claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1203.5169",
+    "https://arxiv.org/html/2510.16545v3",
+    "https://www.cis.uoguelph.ca/~sawada/papers/weak.pdf",
+    "https://arxiv.org/abs/2308.12405",
+    "Resultary search: weak orders height words universal cycles exact counting Eulerian tours numbers arborescences n=4 n=5"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An earlier not-indexed exact weak-order universal-cycle table or enumeration in supplementary combinatorial software could cover U4/U5.",
+    "This census stops at n=5 and does not count cycles modulo alphabet relabeling or reversal; the general contraction does not evaluate arbitrary-n cofactor."
+  ],
+  "residual_risks": [
+    "An earlier not-indexed exact weak-order universal-cycle table or enumeration in supplementary combinatorial software could cover U4/U5.",
+    "This census stops at n=5 and does not count cycles modulo alphabet relabeling or reversal; the general contraction does not evaluate arbitrary-n cofactor."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING_AFTER_READING",
+      "evidence": "Theorem 3.2 gives existence of cycles for weak orders, but not the complete multiplicities U4 and U5.",
+      "identifier_or_url": "https://arxiv.org/abs/1203.5169",
+      "material_read": "Primary complete preprint PDF: definitions and height encoding, graph connectivity Theorem 3.2 and proof, surrounding construction; page images examined",
+      "method": "Full open-access preprint PDF text and rendered pages",
+      "title": "Universal Cycles for Weak Orders",
+      "trigger": "Identical height-representation weak orders and overlap graph"
+    },
+    {
+      "assessment": "NOT_COVERING_AFTER_READING",
+      "evidence": "General method samples tours; weak-order section examines cover-time numerical experiments, not fully evaluated U5 cofactor.",
+      "identifier_or_url": "https://arxiv.org/html/2510.16545v3",
+      "material_read": "Full available author/arXiv HTML with Section 2 arborescence sampling and Section 4.2 weak-order experiments and Table 2",
+      "method": "Complete available HTML primary text and section-specific reading",
+      "title": "Las Vegas algorithms to generate universal cycles and de Bruijn sequences uniformly at random",
+      "trigger": "Highly relevant general arborescence-to-tour uniform sampling for exactly weak-order ucycles"
+    },
+    {
+      "assessment": "PARTIAL_MATERIAL_PRIORITY_RISK",
+      "evidence": "Efficient construction is established; table of all cycles could be overlooked without re-reading full text.",
+      "identifier_or_url": "https://www.cis.uoguelph.ca/~sawada/papers/weak.pdf",
+      "material_read": "Article description and result comparison in source bibliography; full PDF not freshly inspected",
+      "method": "Bibliographic/contextual comparison",
+      "title": "Efficient Universal Cycle Constructions for Weak Orders",
+      "trigger": "Same height/rank representations and examples"
+    }
+  ]
+}

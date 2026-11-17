@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The two programs `verify_exact.py` and `crosscheck.py` require Python 3 and its standard library only. They do not use stored log outcomes as proof. Run both in the directory containing `core_edges_n5.tsv`.
+## correctness
 
-`verify_exact.py` reconstructs all valid height words, verifies that every original edge occurs in exactly one recorded corridor, computes the matrix-tree cofactors by exact Bareiss elimination, and recomputes all count products. It also byte-compares every logical certificate row with the reconstructed paths and returns `VERIFY_OK`.
+PASS
 
-`crosscheck.py` enumerates valid words via a different surjective-alphabet construction, checks every determinant by modular elimination and exact CRT under a Hadamard bound, uses the full uncontracted graph at orders two through four, and separately enumerates all order-three Euler circuits from one fixed starting edge. It returns `CROSSCHECK_OK`.
+A valid height word of length n uses precisely {0,...,h}; each such word becomes a distinguished edge in the (n-1)-overlap digraph. Complete vertices are all W_{n-1}; incomplete vertices have indegree and outdegree one, and forced paths end at complete vertices in at most n rotations. Contracting forced corridors preserves cyclic edge-distinguished Euler tours. The reduced core has |W_{n-1}| vertices; directed matrix-tree/BEST give U_n=det(L_root) product_v(d_v-1)!, where the factorial product is the stated Stirling-number expression. Independently implemented height-word enumeration, full overlap digraph, forced contraction, exact SymPy integer cofactor and factorial product for n=2,3,4,5. Reproduced U=(1,8,113192681472,6214252301172599252248681937277855126085721393995382376959963220030028306692926790213752299261892430397440); at n=5, 541 original word-edges contract to 308 distinguished arcs on 75 core vertices, tau=27571102170646823740986252600397906575360 and the exact degree histogram {2:1,3:14,4:36,5:24}. Full finite census established with exact determinant, no extrapolation to n>=6.
 
-At order five, the source graph has 308 vertices and 541 distinct arcs; the reduced graph has 75 vertices and 308 distinct contracted arcs. The cofactor is \(27571102170646823740986252600397906575360\); the degree-factorial factor is \(225390057412667141559249255183922002204556655201227127499578671104\). The result counts cyclic rotations once and does not identify rank labels. There is no independent scientific review or verification beyond the reported checks.
+## originality
+
+PASS
+
+Best of knowledge: Horan–Hurlbert 2012/2013 prove existence of weak-order universal cycles via the same height-word overlap graph; Sawada–Wong and Sawada–Gabrić develop successor rules, random uniform sampling, and general arborescence methods. Primary text does not supply these evaluated exact U_4/U_5 multiplicities or the concrete 75-vertex core certificate. Standard BEST/matrix-tree derivation is prior mathematics; novel surviving finite invariant is the fully evaluated enumeration and forced-corridor graph reduction at order five. A previously unindexed Euler-tour or integer table remains a real priority risk.
+
+## value
+
+PASS
+
+Weak orders/permutations with ties form a natural classical combinatorial family. The number of distinct cyclic universal representations at n=4,5 (without extra symmetries) is a useful exact invariant distinct from the ordered Bell counts of inputs. Contracting 308 forced paths to 75 core vertices enables nontrivial exact determinant evaluation, with both finite completeness and replicable certificates; no arbitrary family-wide formula is falsely claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
