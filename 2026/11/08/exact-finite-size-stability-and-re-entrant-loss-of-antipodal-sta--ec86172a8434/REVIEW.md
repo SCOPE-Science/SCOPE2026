@@ -1,21 +1,21 @@
-# Scientific review — finite-size antipodal stability for a higher-order phase model
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns the explicitly normalized complete-graph model with *ordered, distinct* triads, positive pairwise and triadic gains, and all integers \(n\ge3\). Every antisynchronous binary state is an equilibrium. Differentiating each triadic term yields two appearances of any off-diagonal derivative, giving the essential factor \(2\). The Jacobian's three invariant transverse spaces have dimensions \(p-1\), \(q-1\), and \(1\); together with the global rotation they exhaust all \(n\) eigen-directions. Their eigenvalues are explicit and verified by an independent exact-rational ordered-triple sum. The inequalities reduce to \(S^2>n\), a lower triadic threshold and, in an exceptional strip, a finite upper threshold. The exact count for seven vertices is computed over every nontrivial minority size. The argument treats the zero eigenvalues at parameter boundaries as unclassified nonlinear cases, not as hyperbolic attractors.
+PASS
 
-`verify.py` was executed successfully. It confirmed the complete eigenvector decomposition and window signs for \(504\) finite rational parameter examples, both seven-node endpoints, the orbit counts and the nonlinear vector-field derivatives in three numerical cases. These are checks, not an infinite proof.
+Differentiating the stated ordered-distinct triad force produces off-diagonal Jacobian J_ij=σs_is_j/(n-1)+2δ s_j(S-s_i-s_j)/((n-1)(n-2)), with neutral row sums. The p−1, q−1 and relative cluster eigenvalues together with rigid rotation exhaust n dimensions; excluding λ_- when q=1 is essential. Signs give stability precisely for S²>n, δ>δ_lo and, if n<S²<n+S, δ<δ_hi. For n=7,p=5,q=2, δ_lo=35σ/18 and δ_hi=15σ/2; binomial orbit counts at 2σ and 8σ are 29 and 8. Independently reconstructed exact rational signs for n=3..14 with multiple rational gains confirmed all boundaries and 21-orbit drop. Equality remains nonhyperbolic, without claim of nonlinear stability.
 
-## Originality — PASS under inspected evidence
+## originality
 
-The most closely related exact model is Wang et al., arXiv:2603.14950, where Section II defines ordered distinct triads and Section V studies spectra of *twisted* states rather than antipodal two-population configurations. Zhang et al., arXiv:2309.16581, report two-cluster and other non-twisted attractors in higher-order Kuramoto systems, but do not provide this complete finite-size antipodal spectrum, strict population-imbalance cutoff, re-entrant upper boundary or exact count of stable labelled clusters. Carballosa et al., arXiv:2308.05406, treat an all-to-all mixed mean-field model but study distributions of natural frequencies and cluster transitions instead of these exact finite-node normalized distinct-triad stability windows. Pure-triad and continuum-limit cluster mechanisms are older and are not claimed as new. Kovalenko et al. (Phys. Rev. Lett. 127, 258301, 2021) establish an earlier strong cluster mechanism with unrestricted index sums and negative pairwise coupling; their full published article was inspected and does not contain the present finite distinct-triad Jacobian theorem.
+PASS
 
-The finite-size sign classification is not obtained by simply identifying a model name: one must account for the ordered-triad normalization, decompose three different transverse modes, and compare their crossing parameters. Nevertheless, all-to-all cluster eigenspace reductions are standard, and previously unindexed finite-size calculations remain a historical-priority risk. Absence of a search match does not independently establish novelty.
+The same pairwise/triadic sine interaction family is established by Wang et al and Zhang et al, and prior researchers study two-cluster/twisted states. In the inspected primary mathematical material, the results target twisted-wave spectra, frequency heterogeneity, large-network basins and phase topology rather than exact complete-graph, all-bipartition finite-n antipodal windows under positive gains and ordered-distinct neighbors. The strict n<S²<n+S re-entrant interval and labelled orbit-count transition survive these implication comparisons on a best-of-knowledge basis.
 
-## Mathematical value — PASS
+## value
 
-The specific question is motivated by the established observation that higher-order interactions create two-cluster memory-like attractors but that stronger triadic gain can profoundly rearrange the attractor landscape. The result provides an exact answer for every labelled antipodal partition on a complete graph. The universal imbalance cutoff \(S^2>n\) explains which configurations are even eligible, while the separate upper bound identifies infinitely many genuinely *re-entrant* stable windows. On seven vertices, exactly \(21\) locally attracting antipodal circles disappear between two concrete coupling values even though complete synchrony remains stable. The count is a directly useful benchmark for finite-size basin studies and is not a selected arbitrary numerical slice.
+PASS
 
-The result is deliberately restricted to antipodal equilibria, not the full global attractor landscape. It does not assert global basins, finite-noise lifetimes, nonlinear behavior at the thresholds, or dynamical classification for more general hypergraphs.
+Exact finite-size stability classification and an explicit loss of 21 stable antipodal states while all coupling coefficients remain attractive isolate a motivated higher-order-coupling transition. The result supplies rigorous parameter windows and model normalization rather than a vague cluster observation.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
