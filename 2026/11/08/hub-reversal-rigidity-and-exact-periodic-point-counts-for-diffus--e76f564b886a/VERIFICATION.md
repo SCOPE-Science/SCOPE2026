@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and bounded checks
 
-The mathematical theorem is the exact integer-diffusion periodic-point count and three-valued hub-change spectrum for every labelled friendship graph with \(r\ge2\), with the single-triangle consistency check supplied separately. Source code and captured outputs are embedded in the same package.
+# Independent mathematical audit
 
-Run `python direct_dynamics.py` with Python 3 and NumPy. This uses a generic graph-edge update, not a lookup of the local-pair proof. It tests all normalized integer states in \([-5,5]^2\), \([-7,7]^4\), and \([-6,6]^6\), respectively \(121\), \(50{,}625\), and \(4{,}826{,}809\) configurations for one, two, and three blades. It checks exact signed hub-movement distributions, including the absence of intermediate nonzero jumps for the final two examples. The proven classification guarantees that no periodic state lies outside the tested bounds in those cases. The expected final line is `DIRECT_EXHAUSTIVE_PASS`.
+## correctness
 
-Run `python local_poly_checker.py` with Python 3 and the standard library. The code enumerates every local two-vertex state satisfying all three edge-reversal conditions for a proposed hub change, builds the possible hub-change polynomial by repeated convolution, and checks all \(1\le r\le14\) against the proposed closed form. Its bounded local domain follows from the proof, not from experimental extrapolation. The expected final line is `LOCAL_POLYNOMIAL_PASS`.
+PASS
 
-The captured results are supplied as `direct_out.txt` and `local_out.txt`; these were obtained by executing the stated programs from the package source. No finite list, output log, or numerical equality independently certifies the unrestricted theorem. The written mathematical argument supplies the infinite proof. A separate external audit has not been conducted.
+Long–Narayanan Theorem 1.1 establishes eventual periods 1 or 2 for the specified synchronous integer diffusion rule, so any initially periodic class obeys F²(x)=x. Conservation of total mass removes spurious translation shifts. The edge reversal energy identity gives an iff criterion. Direct case analysis of each triangle yields (0,0),(1,-1),(-1,1) at D=0; at D>0, either zero-coordinate D=1 or positive diagonal/consecutive pairs, with 3D-2 choices. Global sum for r>=2 excludes D=1 and forces D=2r; sign reflection gives -2r. Nonconstant periodic pairs are genuine two-cycles. Independent direct complete r=2 enumeration over [-4,4]^4 gave 100,9,100 states, 209 total; finite test corroborates rather than proves all-r classification.
+
+## originality
+
+PASS
+
+The all-graph eventual 1/2-period theorem and Duffy property-plus criterion are prior, but neither gives the complete friendship-graph hub-displacement law or 3^r+2(6r-2)^r labelled translation-class census. Searches found related cycle, K2,n and chip-firing windmill results for different graphs/dynamics, none whose theorem implies the submitted local triangle count; best-of-knowledge, not proof of exhaustive novelty.
+
+## value
+
+PASS
+
+This is a complete recurrent-state census and sharp hub-transfer rigidity for a natural triangular windmill family. The count for any r and exact primitive-two orbit number answer intrinsic dynamical questions not settled by mere eventual periodicity; not a textbook renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

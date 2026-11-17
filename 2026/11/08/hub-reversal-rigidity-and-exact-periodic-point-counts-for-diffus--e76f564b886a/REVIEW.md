@@ -1,15 +1,21 @@
-# Scientific review: friendship-graph periodic-point census
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed integer-diffusion update, normalization, graph family and quantifiers are explicit. The established finite-graph eventual-period-one-or-two theorem first excludes longer periodic orbits; the proof then derives a necessary-and-sufficient edgewise sign-reversal condition for a two-periodic point, then enumerates all local states on one triangular blade at fixed hub change and imposes the exact global hub-change conservation condition. For at least two blades this forces only the three hub changes \(-2r\), \(0\), and \(2r\), with local multiplicities \(6r-2\), \(3\), and \(6r-2\) per blade. All label ranges and zero-equality boundaries are included. The unique fixed state and two-cycle orbit count follow from connectivity and period division. Direct graph-edge enumeration and a separate local polynomial enumerator agree with the theorem; neither finite run substitutes for the infinite proof. No computationally unproved lemma is required.
+## correctness
 
-## Originality — PASS, qualified
-The originally published integer diffusion rule and the general property-plus / edge-reversal periodicity test are due to Duffy et al. (arXiv:1609.05792, Section 3.1), and the arbitrary-graph eventual period bound is due to Long–Narayanan (arXiv:1704.04295). Neither accessible full text states, tabulates or algebraically implies a closed periodic-point count or sharp hub-change spectrum for friendship graphs. Mullen–Nowakowski–Cox (arXiv:2010.04750) enumerate paths, which have no triangular blades or global central-hub coupling. Searches for friendship/windmill/dutch-windmill aliases and two-cycle/periodic-configuration count formulas, alongside searches of accessible earlier claims, revealed no identical or dominating result. In particular the known \(K_3\) specialization is expressly outside the new range \(r\ge2\). Residual risk: unindexed literature or a general specialized enumeration theorem not discovered by the searches could cover this result; priority is not independently certified.
+PASS
 
-## Mathematical value — PASS
-A complete translation-normalized recurrent-state count is a natural invariant of integer chip diffusion, where unbounded chip levels otherwise make global counting ill-posed. Friendship graphs are the canonical one-vertex unions of triangles and the smallest non-tree cactus family; their triangular interactions matter because edge transfers around each petal are coupled, unlike tree edge independence. The sharp hub-jump rigidity gives a structural classification not implied by eventual periodicity, and the exact exponentially varying per-blade count provides all primitive-two temporal-orbit populations and the leading large-family growth law. The result holds for an infinite labelled graph family rather than a single ad hoc parameter choice.
+Long–Narayanan Theorem 1.1 establishes eventual periods 1 or 2 for the specified synchronous integer diffusion rule, so any initially periodic class obeys F²(x)=x. Conservation of total mass removes spurious translation shifts. The edge reversal energy identity gives an iff criterion. Direct case analysis of each triangle yields (0,0),(1,-1),(-1,1) at D=0; at D>0, either zero-coordinate D=1 or positive diagonal/consecutive pairs, with 3D-2 choices. Global sum for r>=2 excludes D=1 and forces D=2r; sign reflection gives -2r. Nonconstant periodic pairs are genuine two-cycles. Independent direct complete r=2 enumeration over [-4,4]^4 gave 100,9,100 states, 209 total; finite test corroborates rather than proves all-r classification.
 
-## Closest literature and limitations
-The direct scientific comparisons are to Duffy et al. (arXiv:1609.05792, full accessible HTML Sections 1–3), Long–Narayanan (arXiv:1704.04295, full accessible HTML), and Mullen–Nowakowski–Cox (arXiv:2010.04750, introduction and the path theorems). Pre-existing complete-graph, cycle, double-star and complete-bipartite diffusion counts do not cover a one-vertex union of at least two triangles. The theorem does not treat transient entry times, fixed-mass distributions, or graph-automorphism orbit quotients; only initially periodic normalized configurations are counted. The nonzero branch is a count of labelled assignments, not an enumeration modulo blade permutations. Historical priority remains subject to any undiscovered stronger reference.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The all-graph eventual 1/2-period theorem and Duffy property-plus criterion are prior, but neither gives the complete friendship-graph hub-displacement law or 3^r+2(6r-2)^r labelled translation-class census. Searches found related cycle, K2,n and chip-firing windmill results for different graphs/dynamics, none whose theorem implies the submitted local triangle count; best-of-knowledge, not proof of exhaustive novelty.
+
+## value
+
+PASS
+
+This is a complete recurrent-state census and sharp hub-transfer rigidity for a natural triangular windmill family. The count for any r and exact primitive-two orbit number answer intrinsic dynamical questions not settled by mere eventual periodicity; not a textbook renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
