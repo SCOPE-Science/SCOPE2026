@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-The companion `verify_pms_inball.py` was run with Python 3, NumPy and SciPy. Its reported successful completion marker was:
+## correctness
 
-`PMS_BICLIQUE_INBALL_HALL_AND_FACET_CHECKS_PASSED 15`
+PASS
 
-For all integer pairs \(2\le n\le6\), \(1\le s<n\) (15 total), it computed the orthogonal projection onto the affine hull and solved the corresponding linear program for the largest inscribed Euclidean ball. It compared the optimized radius with the closed formula, tested the constructed center and tangent-hyperplane counts, and verified that the two bounds are unequal. For \(n\le5\), it additionally enumerated each of the \(2^{2n}\) candidate binary vertex vectors, independently searched for perfect matchings by permutations, confirmed the equivalence to the Hall test, checked the affine span, and verified the ranks of every predicted tangent facet.
+Connected bipartite Hall description yields affine space ∑A x=∑B y and all box inequalities plus the one nonredundant Hall x(A0)≤y(B1). Orthogonal projection of ambient normals to this (2n−1)-space gives ell_n=√((2n−1)/(2n)) for a coordinate and sqrt(n/2) for Hall. Hence upper bounds r≤1/(2ell), r≤(n−s)/(n ell+sqrt(n/2)). Centers 1/2 in the box regime, or r ell on A0∪B0 and 1−r ell on A1∪B1 in Hall regime, achieve equality; saturated bounds plus affine equality force uniqueness. Equality of radii would require n−2s=n/√(2n−1), impossible for integers by irrationality/divisibility. Facet classification uses Mori Prop.3.4; independently LP-checked all n=2..4,s=1..n−1 using true projected normal lengths. Finite tests are not the all-n proof.
 
-These tests do not exhaust the infinite family or independently certify the literature. The proof's Euclidean-normal computations, global upper bounds and equality cases are the mathematical justification for all dimensions. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+PASS best knowledge for an intrinsic Chebyshev-radius and active-facet transition of a vertex-incidence matching-induced polytope. Balas–Pulleyblank/Mori supply Hall/facet premises, while split-matroid and edge-matching polytope results have different metric objects or combinatorial invariants.
+
+## value
+
+PASS
+
+Sharp, explicit Hall-deficit geometric phase change for a natural one-forbidden-biclique matching family, with unique optimal centers and a discrete facet-orbit switch; metric parameter sensitivity not supplied by general Hall feasibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
