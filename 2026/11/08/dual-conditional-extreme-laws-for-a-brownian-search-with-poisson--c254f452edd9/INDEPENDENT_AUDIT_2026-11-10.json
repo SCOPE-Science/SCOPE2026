@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T15:19:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The REPAIRED final theorem is the singular low-rate Bernoulli crossover, NOT the earlier full set of conditional Gumbel/geometric claims. With z=kappa a and L=kappa m->u>0, killed-interval first-exit probabilities are A=sinh(L-z)/sinh L, B=sinh z/sinh L; half-line absorption-without-reset p=e^-z. Exact renewal gives P(M>m)=B/(A+B), P(N=0,M>m)=p-A. Expanding yields A=1-z coth u+o(z), B=z csch u+o(z), p=1-z+o(z), and hence conditional zero-reset e^-u; P(N>=2|M>m)<=q²/P(M>m)=O(z), so the remaining mass tends to one reset. At fixed r>0 p-A=O(e^-2L), tail is Theta(e^-L), proving noncommuting limits. Independent numerical substitution with u=2, r from 1 to 1e-4 confirms convergence but analytic bound proves the result. All changed scientific file bytes supplied and hashes verified.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Erlang result covers arbitrary integer clock stages at fixed positive rate and includes Poisson-stage comparison, but does not vary rate and barrier jointly."
+        ],
+        "reasoning": "Its broader clock model is not broader in the crucial low-rate limit, so it does not dominate the new limiting conditional law.",
+        "searches": [
+          "Brownian stochastic resetting absorption maximum conditional reset number Gumbel size biased geometric high excursion",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-erlang-resetting-creates-a-clock-order-logarithmic-correction-in--28e1e568a79f/RESULT.md",
+          "Erlang resetting Brownian first-passage high maximum low rate singular limit"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-erlang-resetting-creates-a-clock-order-logarithmic-correction-in--28e1e568a79f/RESULT.md",
+        "https://arxiv.org/abs/2306.15929"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The precursor full renewal identity plus Brownian first-exit formulas permit the low-rate proof, but prior theorems only state fixed-rate asymptotics. Limiting zero-reset weight e^-u is not a corollary of m->infty with r fixed."
+        ],
+        "reasoning": "Earlier exact identities are acknowledged as tools; the additional singular asymptotic follows by a nonuniform two-parameter analysis and does not follow from fixed-rate limits alone.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-erlang-resetting-creates-a-clock-order-logarithmic-correction-in--28e1e568a79f/RESULT.md",
+          "arxiv:2306.15929",
+          "arxiv:2304.09348"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact one-cycle renewal identity P(N=n,M<m)=A C^n is the exponential-clock instance of published p_m q_m^n for Erlang resetting; fixed-rate Gumbel and size bias also have counterpart."
+        ],
+        "reasoning": "Those original statements were already known; the repaired final claim separates the simultaneous small-rate/high-barrier Bernoulli scale which is not equivalent to fixed-rate asymptotics.",
+        "searches": [
+          "Brownian stochastic resetting absorption maximum conditional reset number Gumbel size biased geometric high excursion",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-erlang-resetting-creates-a-clock-order-logarithmic-correction-in--28e1e568a79f/RESULT.md",
+          "arxiv:2306.15929",
+          "arxiv:2304.09348"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier paper tabulates sharp fixed-clock count-tail rates, high-count Gumbel centers and fixed-clock size-biased geometric reset-count law."
+        ],
+        "reasoning": "Its exact fixed-rate formulas can be specialized and asymptotically analyzed, but the u-dependent Bernoulli boundary is a separate precise derivation absent from the published result, not copied from an exact table.",
+        "searches": [
+          "Brownian stochastic resetting absorption maximum conditional reset number Gumbel size biased geometric high excursion",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-erlang-resetting-creates-a-clock-order-logarithmic-correction-in--28e1e568a79f/RESULT.md"
+        ]
+      },
+      "rationale": "The original joint p_m q_m^n renewal law, count-conditioned Gumbel, and high-maximum size-biased geometric mechanism are covered by the published Oct 25 Erlang-clocks theorem and its stated one-exponential-stage specialization: the original broad novelty claim cannot survive unchanged. The final revised theorem retains only a distinct two-parameter singular regime r downarrow0 and kappa*m->u, with a Bernoulli zero/one reset law and exact e^-u zero-reset mass. The predecessor fixes reset parameters before taking high m and does not analyze this noncommuting joint scaling. This is a genuinely narrower corrected claim, not a disclaimer attached to the covered original.",
+      "residual_risks": [
+        "An unindexed two-parameter renewal theorem may already cover the singular conditional Bernoulli limit.",
+        "Corrected science changes RESULT.md, SLOGAN.txt, REVIEW.md and METADATA.json; earlier original scientific text remains in Git history."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_ORIGINAL_FIXED_RATE_BUT_NOT_LOW_RATE_CROSSOVER",
+          "evidence": [
+            "The paper explicitly notes ell=1 Poisson specialization but holds its diffusion/reset parameters fixed when m and count tend to infinity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-erlang-resetting-creates-a-clock-order-logarithmic-correction-in--28e1e568a79f/RESULT.md",
+          "material_read": "Complete RESULT.md, finding, assumptions and five proof stages read including p_m q_m^n, fixed-count rare tails, high-count Gumbel and comment on clock order one",
+          "method": "Full scientific result and proof read from primary document",
+          "title": "Erlang resetting creates a clock-order logarithmic correction in first-passage spatial extremes",
+          "trigger": "Strongest direct prior for joint stopped maximum/reset count"
+        },
+        {
+          "assessment": "MARGINAL_KNOWN",
+          "evidence": [
+            "Stopped maximum without joint low-rate count-conditioning is prior mathematics."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.15929",
+          "material_read": "Relevant abstract and formula descriptions from source bibliography and original package; complete original article not certified read",
+          "method": "Abstract and original-source scientific comparison, not full-text exclusion",
+          "title": "Extremal statistics for a resetting Brownian motion before its first-passage time",
+          "trigger": "Stopped maximum marginal and barrier normalizations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Spatial maximum and number of completed resets measure excursion exposure and resource cost in a natural first-passage search. The limiting positive probability of zero resets at an extremely high threshold contrasts sharply with the known fixed-rate conditional law assigning zero no-reset mass. Explicit u-dependent Bernoulli weights mark a meaningful singular boundary not mechanically described by the earlier fixed-rate conditional theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "limitations": [
+    "An unindexed two-parameter renewal theorem may already cover the singular conditional Bernoulli limit.",
+    "Corrected science changes RESULT.md, SLOGAN.txt, REVIEW.md and METADATA.json; earlier original scientific text remains in Git history.",
+    "Scientific conclusions follow proof reconstruction; finite computational checks corroborate only bounded instances.",
+    "No repository writes, published status changes, external certification or formal expert verification asserted."
+  ],
+  "schema_version": 1
+}
