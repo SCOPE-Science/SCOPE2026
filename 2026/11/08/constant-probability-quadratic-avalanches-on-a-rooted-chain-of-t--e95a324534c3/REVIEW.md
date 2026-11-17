@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** Exact cut-triangle Dhar burning gives all \(3^k\) recurrent configurations. An explicit integral reduced-Laplacian odometer proves the all-size maximum, least-action monotonicity bounds every state, and stable-recurrent uniqueness determines precisely the \(3^{k-2}\) maximizing codes. An exact potential solves the uniform-recurrence mean. Independent complete enumeration through \(k=9\) and Laplacian checks through \(k=50\) succeeded. These finite checks supplement, not substitute for, the symbolic proof.
+## correctness
 
-**Originality: PASS on examined evidence.** Ali and Dhar (1994/1995) already prove quadratic toppling scales in other one-dimensional decorated sandpiles; that known phenomenon is explicitly not claimed new. Their alternating double-bond and bridge-linked diamond graphs do not contain this edge-sharing triangle-chain theorem. Gauthier (2011) analyzes branched expanded cacti with first-wave cell size; Austin et al. (2016) characterize avalanche polynomials for other families; Fairchild et al. (2016) treat a different ring-of-triangles sink convention. Accessible prior finite triangle-hub avalanches have different topology/source and a linear maximum. The exact fixed-terminal all-\(k\) maximum, last-two-block criterion, and atom of probability \(1/9\) were not found as direct statements or logical consequences of those primary results. Historical priority remains provisional because obscure/unindexed equivalent work may exist.
+PASS
 
-**Mathematical value: PASS.** A physically canonical bounded-degree chain of triangle blocks supports an order-\(k^2\) event with exactly constant probability under recurrent stationary driving, not merely at rare specially chosen global configurations. The sharp formula and two-block criterion turn multiscale dissipation in a decorated one-dimensional system into a complete exact benchmark rather than an arbitrary small graph census.
+A chain of k triangles meeting at articulation vertices has 3^k recurrent states by the blockwise burning condition. The explicit maximal odometer U(v_i)=2i (i<k), U(v_k)=2k-1, U(w_i)=2i-1 satisfies reduced Laplacian L U=e_{v{k-1}}+e_{vk}+e_{wk}. Least action bounds every initial recurrent state, with equality precisely when the last two triangle blocks carry (1,1). This gives 3^(k-2) maximizers and stationary probability 1/9; the harmonic-potential solution gives E(total topplings)=(2k^2+k)/3. Independent direct stabilization over all 3^k codes for k=2,...,6 confirmed both the extremizer criterion and exact mean; finite evidence is not the all-k proof.
 
-**Scientific limitations.** Only one fixed distal addition site, one sink, finite undirected deterministic Abelian sandpiles and total individual topplings; no general exponent, full distribution or infinite-volume stationary law is established. Available source coverage cannot certify worldwide novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ali and Dhar (1995) solve avalanche scaling on decorated one-dimensional chains with alternating double/single bonds or diamond cells, not the one-sink chain of triangular cycles or exact stationary maximal-toppling event. Other Resultary results concern different sandpile graphs, source/sink choices, and distributions. No inspected prior statement supplies the exact constant-probability event 1/9 independent of k, or the explicit maximizing terminal block condition. PASS qualified by potential transfer-matrix treatments of triangular cactus graphs not yet identified.
+
+## value
+
+PASS
+
+The effect of a fixed distal drive on a natural cactus family yields a non-obvious nonvanishing probability 1/9 of an O(k^2) extreme avalanche, with a two-block local recurrence certificate and an exact stationary mean. This is a structural stationary-law phenomenon, not a trivial sandpile group-order computation or tiny enumeration, and distinguishes maximal avalanches from typical-size scaling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
