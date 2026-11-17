@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Execute `python verify_franklin_four_cut.py` and `python verify_franklin_homology.py` with Python 3.9 or later; only the standard library is needed. The scripts are supplied as complete standalone files. The two exact terminal markers are `ALL_VERIFY_OK` and `ALL_HOMOLOGY_OK`.
+## correctness
 
-The primary verification enumerates all 495 four-subsets, detects the 45 independent four-sets, generates all 2533 augmented simplices out of 4096 subsets, constructs 1245 matched pairs, and topologically sorts the full 12780-incidence directed Hasse graph. After removing the empty-face pair it independently topologically sorts 2532 nonempty faces. The only critical nonzero-dimensional faces are 43 four-simplices; there is one critical vertex. The proof's integral homotopy conclusion uses this acyclic matching, not numerical extrapolation.
+PASS
 
-An independent checker computes boundary ranks over three finite fields, recovering unreduced Betti vector `(1,0,0,0,43,0,0,0)`. The first checker also enumerates 48 graph automorphisms, their ten conjugacy classes, and the signed fixed-face Lefschetz trace on each. Their class-weighted trace sum is zero. Finite-field calculations alone would not establish torsion-freeness, and rational character values alone do not determine an integral representation lattice. The complete executable output is in `verification_output.txt`.
+Franklin graph is the twelve-vertex [5,-5]^6 cubic graph with 18 edges. The total 4-cut face predicate is: complement contains an independent 4-set. Fresh independent enumeration finds exactly 45 independent 4-sets and 2,533 augmented faces with f-vector (1,12,66,220,495,792,638,264,45). The record greedy vertex order yields 1,245 matched face pairs and 43 unmatched 4-dimensional faces, and a complete directed Hasse topological sort verifies acyclicity; after empty-face removal Forman gives a wedge of 43 S4. Independently enumerated all 48 graph automorphisms and signed invariant-face Lefschetz sums, reproducing the rational character trace multiset (43:1,5:3,-1:9,-7:6,-5:6,1:23) and zero invariant rank. Purity dimension 7 with H4 !=0 precludes pure shellability.
 
-No independent audit or external validation is represented by these checks.
+## originality
+
+PASS
+
+Best-knowledge: the inspected total-cut primary literature gives general definitions and chordal/cycle/grid, multipartite, path and Cartesian graph families, not the Franklin graph with the exact four-cut parameter. Resultary semantic searches returned Franklin ordinary matching, two-independence, domination and Rips results, but not an earlier four-cut homotopy/48-element character. Different Franklin graph complexes cannot imply this exact invariant merely through shared graph symmetry.
+
+## value
+
+PASS
+
+The Franklin graph is a standard symmetric cubic graph and total four-cut complexes are a natural member of the graph-cut filtration. The exact integral homotopy 43 S4, strict non-shellability in a pure 7-dimensional complex, and full 48-element rational symmetry character provide precise, nontrivial invariants of a canonical finite object that are not mechanically implied by prior k=2 or nearby-graph calculations. Such exact equivariant data are independently useful without an infinite graph-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The face criterion exactly enumerates every one of the 4096 possible vertex subsets of the Franklin graph. The fixed element matching produces 1245 valid pairs and leaves 43 dimension-four critical cells; all 12780 Hasse incidences are checked, and complete acyclicity tests establish an ordinary acyclic matching with one vertex and 43 four-cells. The resulting CW model is a wedge of 43 four-spheres by the discrete Morse theorem. A separate chain-boundary computation confirms the homology ranks over three fields; the integral homotopy conclusion relies on the acyclic matching, not on those fields. The automorphism character follows from signed fixed-simplex Lefschetz sums, with conjugation-invariance and class-size checks. The executable code and matching order are embedded alongside the proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The arXiv full text of *Total cut complexes and their duals* was inspected through its introduction, definitions, general results, and applications in Section 5: the stated classifications concern cycle powers, complete multipartite graphs, and specific Cartesian products, rather than the Franklin graph at the total four-cut parameter. The full text of *Total Cut Complexes of Graphs* was inspected in its complete-bipartite propositions, graph-grid tables, and Morse-computation sections. Its tabulated grid cases do not contain this cubic graph. Search comparisons with published records for Franklin matching complexes and adjacent three-robust results establish an important distinction between graph-edge matching, vertex-set four-cut, and three-cut Alexander dual. The known general three-robust theorem does not imply the four-cut result, as it changes the forbidden independence-set size. No exact matching result was identified after searches for LCF aliases, Alexander duality, and the complete character; inaccessible or unindexed results remain a genuine priority risk.
+PASS
 
-## Mathematical value — PASS
-The result determines a natural exact integral homotopy type for the highly symmetric twelve-vertex Franklin graph, a standard cubic bipartite graph with four-cycles, at the first four-cut stage beyond the general three-robust bipartite theorem. The 43 nonzero degree-four classes in a pure seven-dimensional complex give a concrete non-shellable benchmark outside the previously classified complete multipartite, grid, and cycle-power families. The ten-class automorphism character and its zero invariant subspace supply information not recoverable from ordinary Betti numbers and provide a useful exact test for future equivariant and cut-complex computations. The finding is intentionally finite; no general classification is asserted.
+Franklin graph is the twelve-vertex [5,-5]^6 cubic graph with 18 edges. The total 4-cut face predicate is: complement contains an independent 4-set. Fresh independent enumeration finds exactly 45 independent 4-sets and 2,533 augmented faces with f-vector (1,12,66,220,495,792,638,264,45). The record greedy vertex order yields 1,245 matched face pairs and 43 unmatched 4-dimensional faces, and a complete directed Hasse topological sort verifies acyclicity; after empty-face removal Forman gives a wedge of 43 S4. Independently enumerated all 48 graph automorphisms and signed invariant-face Lefschetz sums, reproducing the rational character trace multiset (43:1,5:3,-1:9,-7:6,-5:6,1:23) and zero invariant rank. Purity dimension 7 with H4 !=0 precludes pure shellability.
 
-## Closest literature and scientific limitations
-The closest primary papers are Bayer et al., arXiv:2209.13503 (2022), and Carnero Bravo, arXiv:2602.21427 (2026). Published records on the triangular-graph four-cut complex, the all-bipartite three-robust theorem, and the Franklin matching complex were compared at the level of their defining objects and theorem implications. A plausible unindexed calculation of the same finite cut complex has not been ruled out. The claim does not specify the integral representation lattice or an equivariant homotopy decomposition; character data are rational. The proof is computational but exhaustive and independently reproducible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge: the inspected total-cut primary literature gives general definitions and chordal/cycle/grid, multipartite, path and Cartesian graph families, not the Franklin graph with the exact four-cut parameter. Resultary semantic searches returned Franklin ordinary matching, two-independence, domination and Rips results, but not an earlier four-cut homotopy/48-element character. Different Franklin graph complexes cannot imply this exact invariant merely through shared graph symmetry.
+
+## value
+
+PASS
+
+The Franklin graph is a standard symmetric cubic graph and total four-cut complexes are a natural member of the graph-cut filtration. The exact integral homotopy 43 S4, strict non-shellability in a pure 7-dimensional complex, and full 48-element rational symmetry character provide precise, nontrivial invariants of a canonical finite object that are not mechanically implied by prior k=2 or nearby-graph calculations. Such exact equivariant data are independently useful without an infinite graph-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
