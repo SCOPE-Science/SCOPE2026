@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T12:52:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unconditional triangle indicator has probability 1/4. For a pair at shorter separation δ∈[0,π] the conditional chance that an independently sampled third vertex makes a central triangle is δ/(2π); δ has uniform density 1/π. Integrating for δ≤α=πq gives joint probability q²/4 and Cov(H_ijk,J_ij)=−q(1−q)/4. An overlap of only one point gives zero by rotation invariance; disjoint supports are independent. Exactly 3*C(n,3) pair-in-triple incidences yield Cov(T_n,E_n,α)=−(n−2) C(n,2)q(1−q)/4. Edge indicators sharing a point remain uncorrelated; Var(E)=C(n,2)q(1−q). Distinct central-triangle indicators sharing two vertices have covariance Var(δ/(2π))=1/48, with C(n,2)(n−2)(n−3) ordered pairs; their Bernoulli variances give Var(T)=n²(n−1)(n−2)/96. Division gives Corr=−sqrt(3(n−2)q(1−q)/n). For n≥3 and 0<q<1 both variances are nonzero. q(1−q) has unique maximum at q=1/2. Endpoints q=0,1 correctly exclude Pearson correlation. Independent exact rational overlap/variance checks at n=3..18 and several q values corroborate the algebra, not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "A general U-statistic covariance formula classifies common-index contributions, while circular geometric graph tests treat edge/distance statistics.",
+          "The circle-specific conditional containment probability δ/(2π) is necessary to get the evaluated joint coefficient."
+        ],
+        "reasoning": "Neither the marginal depth law nor marginal edge process alone mathematically determines the mixed covariance. A general kernel-formula can generate it by new specialization/integration, creating residual implicit-coverage risk, but no broader prior explicit dependence classification was found.",
+        "searches": [
+          "mixed U statistics covariance shared indices geometry circular uniform points",
+          "uniform points on circle central simplicial depth number of triangles enclosing origin covariance with random geometric graph edge count angular cutoff joint",
+          "https://arxiv.org/abs/1812.08638"
+        ]
+      },
+      "checked_sources": [
+        "Wendel 1962 A Problem in Geometric Probability (hemisphere probability)",
+        "Liu 1988 simplicial depth, https://pmc.ncbi.nlm.nih.gov/articles/PMC279852/",
+        "Ebner et al arxiv:1812.08638 random geometric graph uniformity",
+        "Resultary related random-circle edge–isolate finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wendel hemisphere probability supplies E[H]=1/4; Liu supplies the depth marginal; random geometric graph literature supplies the edge marginal.",
+          "The depth-to-edge joint law requires the conditional pair geometry and overlap counts, neither follows from these marginal statements."
+        ],
+        "reasoning": "Prior known ingredients are explicitly acknowledged; the derived mixed covariance and unique optimizing angular threshold are not logical corollaries of marginal probabilities without the new covariance calculation.",
+        "searches": [
+          "Wendel 1962 hemisphere probability planar simplicial depth",
+          "uniform points on circle central simplicial depth number of triangles enclosing origin covariance with random geometric graph edge count angular cutoff joint"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu establishes the marginal random-simplex depth object; the submitted mixed statistic correlates a three-point containment event with a two-point short-chord event."
+        ],
+        "reasoning": "The two-input kernel U-statistic covariance is an equivalent formulation of the overlap sum, but no inspected earlier theorem evaluates the δ-dependent mixed integral or its sharp radius; the standard kernel identity remains antecedent, not claimed new.",
+        "searches": [
+          "uniform points on circle central simplicial depth number of triangles enclosing origin covariance with random geometric graph edge count angular cutoff joint",
+          "central simplicial depth triangles containing origin U-statistic random geometric graph pair-distance covariance",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC279852/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary edge–isolate covariance concerns vertex-isolation counts, not central simplicial-depth triples: https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-double-sign-reversal-of-edge-isolate-covariance-on-the-random-ge--8d8230a37768."
+        ],
+        "reasoning": "Known geometric-graph covariance tables refer to edge/isolate or other graph counts. They do not tabulate the mixed depth statistic or dominate the exact general-n formula.",
+        "searches": [
+          "uniform points on circle central simplicial depth number of triangles enclosing origin covariance with random geometric graph edge count angular cutoff joint",
+          "circular geometric graph covariance edge isolate Resultary 2026"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: the complete exact joint covariance and sharp right-angle anticorrelation of the unnormalized central simplicial-depth count and circular short-edge count is not obtained by the located marginal-depth and geometric-graph results. Generic mixed U-statistic covariance machinery gives the overlap method, not by itself this evaluated law; the two-point circular geometry and exact shared-index enumeration supply the specific formula. One relevant marginal-depth full text was not accessible and general U-statistic specialist literature remains a historical priority risk.",
+      "residual_risks": [
+        "The abstract/marginal discussion of Liu and other depth papers is not an exhaustive full-text priority comparison.",
+        "General mixed U-statistic theory may already present this particular circular overlap evaluation in uncatalogued literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Marginal depth background, not sufficient evidence for full-document noncoverage",
+          "evidence": "Simplicial depth is the number of random simplices enclosing the center; does not specify mixed correlation with circular edge count in material available.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC279852/",
+          "material_read": "Public introductory description and marginal depth definition; complete underlying document not established accessible in this audit",
+          "method": "Public indexed article/abstract and source comparison",
+          "title": "On a Notion of Data Depth Based on Random Simplices (Liu)",
+          "trigger": "Same triangle-containment statistic"
+        },
+        {
+          "assessment": "Graph-based marginal statistic is related but no mixed triangle containment claim was identified in accessible material",
+          "evidence": "Defines uniformity testing based on random geometric graph quantities.",
+          "identifier_or_url": "https://arxiv.org/abs/1812.08638",
+          "material_read": "Accessible abstract and problem description; complete text not independently verified",
+          "method": "Public search and arXiv description",
+          "title": "Testing multivariate uniformity based on random geometric graphs (Ebner, Nestmann, Schulte)",
+          "trigger": "Same graph-distance edge statistic"
+        },
+        {
+          "assessment": "Different second observable (isolates rather than central depth)",
+          "evidence": "Study concerns covariance of edge count and isolated vertex count, different from origin-containing triples.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-double-sign-reversal-of-edge-isolate-covariance-on-the-random-ge--8d8230a37768",
+          "material_read": "Published statement and indexed summary",
+          "method": "Resultary semantic search",
+          "title": "Double sign reversal of edge–isolate covariance on the random geometric circle",
+          "trigger": "Resultary same random-circle process"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Both observables are canonical statistics of the same uniform circular sample. The exact finite-n dependence, strong nonzero large-sample correlation −sqrt(3)/2, and intrinsic optimum at the chord length sqrt(2) distinguish their joint behavior from independent marginal calibration. The result addresses the natural entire continuous cutoff family, not an arbitrary finite table or parameter relabeling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Only uniform IID points on S1 and 0<α<π; no disk/nonuniform/high-dimensional law or full joint distribution. Citation-level historical priority is qualified.",
+  "schema_version": 1
+}
