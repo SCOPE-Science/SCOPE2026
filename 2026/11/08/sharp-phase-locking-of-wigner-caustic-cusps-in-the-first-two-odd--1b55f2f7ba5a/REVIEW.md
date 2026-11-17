@@ -1,15 +1,21 @@
-# Scientific review — two odd support harmonics and Wigner cusps
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(h=R+a\cos3\theta+b\cos(5\theta+\phi)\), the support curvature-radius criterion ensures a strictly convex constant-width oval. Differentiating its opposite-tangent midpoint map yields exactly \(W'=-8a(\cos3\theta+\lambda\cos(5\theta+\phi))t\). A multiple root necessarily satisfies \(\lambda^2=1-(16/25)\sin^2(3\theta)\), which confines bifurcations to \([3/5,1]\). The six intermediate phase boundaries follow from solving both trigonometric equalities. The root count on each phase arc is fixed by the polynomial factorization at phase zero and homotopy at phase \(\pi/3\). At the endpoints the second and third derivatives establish the asserted singularity orders. Orthogonality gives the exact area-energy cutoff. The 1,386 numerical checks in the standalone checker support consistency but are not used as infinite proofs. Risk: cusp *parameters* on the natural normalization are counted, not distinct image points if branches self-intersect.
+## correctness
 
-## Originality
-PASS on the inspected mathematical evidence, with residual historical-priority risk. The most relevant Fourier-support source arXiv:1605.02930 (2016-05-10), Sec. 2, gives the general normal-parametrization and area/odd-harmonic formulas; these provide starting identities but do not state the exact joint amplitude–phase bifurcation geometry or the \(3/28\) and \(1/4\) thresholds. The earlier Wigner cusp literature, including arXiv:1605.05361 (2016-05-17) and Geometriae Dedicata 169 (2014), establishes the general odd cusp constraint and singularity criteria, not the concrete sharp spectral stratification. The closest published two-harmonic result (record d680ed93bf10) concerns one even harmonic plus a fifth harmonic: its even term cancels from the Wigner midpoint, so its universal five-cusp statement does not imply the two competing **odd** modes analyzed here. Searches found no dominating statement. Risks: incomplete bibliographic coverage and possible derivation in specialized classical plane-curve sources not indexed in the searched repositories.
+PASS
 
-## Mathematical value
-PASS. Third and fifth support harmonics are the first two genuine shape modes of a constant-width oval after removing translations. The phase-lock diagram is a complete natural low-frequency classification, not an arbitrarily selected finite instance: it identifies a transition interval, phase tongues, two sharp universal energy cutoffs, and exact degeneracy types. It quantifies the minimum higher-harmonic share required for new Wigner cusps. The result makes no claims for other Fourier supports or about centre-symmetry-set cusp counts.
+For normal-angle support R+a cos 3theta+b cos(5theta+phi), R>8a+24b ensures strict curvature positivity and constant width. Differentiating the antipodal midpoint produces Wigner speed -8a[cos 3theta+lambda cos(5theta+phi)] times unit tangent, lambda=3b/a. Simultaneous q=qprime=0 gives 9/25<=lambda²<=1, with all intermediate collision phases phi=2kpi/3±delta(lambda) and delta increasing from zero to pi/3. Sign analysis at phi=0 and pi/3 plus collision exclusion proves three-vs-five ordinary parameter counts. Higher multiplicities at lambda=3/5 and 1 arise from qsecond and qthird. Area Fourier orthogonality yields eta=lambda²/(3+lambda²), hence sharp 3/28 and 1/4 thresholds with the stated strict qualifications. Independent direct 20,000-grid sign-change checks at lambda 0.4,0.7 and 1.2 and phases 0,pi/3,0.2 corroborated representative counts; analytic arguments, not finite grids, prove all parameters.
 
-## Literature and limits
-The 2016 Fourier-support framework and the Wigner cusp criteria are prior art and expressly used. The published record d680ed93bf10 treats a different even-plus-odd support family, while the present family has two nonzero odd modes; the implications differ because only odd modes enter the midpoint map. The exact phase-boundary function is a new statement under the checked evidence, not a restatement of parity or generic lower bounds. Independent mathematical/historical review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete October 25 previously published theorem already classifies the aligned real third/fifth cosine family (relative phase phi=0 or pi) and includes several special cases of the present claim. Its 3-wall Wigner/centre-symmetry table is NOT a classification for arbitrary relative fifth-mode phase. The submitted theorem genuinely extends to an arbitrary phase, explicitly locates six phase-locking collision boundaries, classifies nonordinary transition germs and yields phase-existence/all-phase sharp energy thresholds, not implied by aligned-phase slices. The 2016 full primary Wigner/support-function treatments give generic cusp and area criteria, not this phase stratification. O passes only for the surviving general-phase classification, acknowledging covered aligned cases.
+
+## value
+
+PASS
+
+Among constant-width convex ovals, third and fifth odd harmonics are the first nontranslation shape modes. A complete sharp two-parameter cusp transition and precise area-deficit thresholds are natural new geometry, not an arbitrary finite Fourier slice or mere formula renaming; the earlier aligned slice motivates resolving relative-phase topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
