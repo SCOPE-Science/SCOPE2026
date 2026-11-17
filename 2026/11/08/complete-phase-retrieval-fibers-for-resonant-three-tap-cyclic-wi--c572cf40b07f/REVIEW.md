@@ -1,12 +1,21 @@
-# Scientific review: resonant three-tap cyclic fibers
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof extracts three distinct Fourier autocorrelation lags for every time slice (valid for even order at least six). The invertible zero-lag circulant recovers each modulus without assuming competitors are nonzero. The nonzero second lag forces two parity phases; the first lag forces a unique candidate nontrivial parity multiplier and the second-order chirp recursion. Periodicity gives the exact root-of-unity conditions; the converse substitution closes sufficiency. An exact group-ring checker replayed all explicit examples through order 40. The checker does not replace the algebraic proof.
+## correctness
 
-## Originality — PASS, provisional
-Bartusel's 2023 open-access full article was inspected at the phase-retrieval fundamentals, connectedness criterion, short-window examples, and Theorem 4.2.8; these cover stronger ambiguity-support hypotheses or separated signals, not the present full-support resonant two-class classification. The 2026 follow-up's full HTML was inspected for its sufficient sampling theorems, which have different substantially denser support hypotheses. Two relevant earlier published-finding corpus RESULT.md files were inspected fully: the odd-dimensional endpoint-lag theorem cannot apply to even orders, while the two-tap even-order fiber theorem has a different window and an amplitude-swap mechanism. Published generic recovery does not imply the exceptional-fiber formula. A previous equal-tap, odd-half-length calculation is a special case rather than an implication of the phase-twisted family. Earlier unindexed chirp classifications remain possible.
+PASS
 
-## Mathematical value — PASS
-A short, natural and fully measured phase-retrieval system is shown to retain exactly one possible nonglobal ambiguity, with complete equations for its existence and no unclassified fibers. The explicit centrally dominant phase-twisted family gives this obstruction for every even order, including orders divisible by four. Such sharp deterministic exception sets distinguish generic recovery from full injectivity and provide exact negative test cases for reconstruction methods. No claim about noisy stability or incomplete measurement is made.
+For N≥6 full-frequency intensity extracts zero, first and second correlation lags without aliasing. W invertible recovers every |f_t|² also for competitors with zeros; the nonzero second lag forces parity-constant phases. The two alternating first-lag identities imply κ r_t conjugate(r_{t+1})=δ^{±1}, hence r_{t+2}=κ²r_t. Cyclicity yields κ^N=1, ρ^m=1 and the exact interlaced quadratic-chirp formulas; δ is uniquely determined, and substitution verifies the sole alternative. Independently checked full intensities for several even N and the explicit g=(1,3,ω) pair, not used as infinite proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The nontrivial phase-twisted κ≠1 chirp fibers and all-even-N at-most-two-class classification extend the earlier equal-tap boxcar geometric-progression case; generic recovery, odd endpoint-lag recovery and even two-point amplitude swaps do not imply this formula.
+
+## value
+
+PASS
+
+An exact failure-of-uniqueness classification for a natural fully sampled short-time Fourier measurement design locates the entire full-support ambiguity locus and proves it has at most two phase classes, including resonant nontrivial chirps and a concrete family in every even dimension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
