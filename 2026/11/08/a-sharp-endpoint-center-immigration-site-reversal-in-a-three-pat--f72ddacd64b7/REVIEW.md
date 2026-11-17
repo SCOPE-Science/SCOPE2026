@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The generator is explicitly specified for all eight occupancy states; strict irreducibility holds for every positive colonization rate. Exact symbolic stationary-vector calculations yield four explicit probability rational functions. The full-occupancy difference has a strictly positive denominator and numerator proportional to a polynomial with exactly one positive root by Descartes' rule and endpoint signs. The regional-empty-state difference has a strictly positive numerator for every positive rate. The embedded checker reconstructs the matrices, verifies stationarity and the polynomial identities, and independently checks 112 cofactor stationary weights. These are exact rather than Monte Carlo checks. There is no claim at \(c=0\), nor for arbitrary rates or networks.
+PASS
 
-## Originality — PASS, provisional within inspected evidence
+Reconstructed 8x8 row generators directly from the three-patch path contact and spontaneous gateway rates, and independently solved πQ=0, sum π=1 over Q(c). Exact rational simplification reproduced πE(full)-πC(full)=c² S(c)/(DE DC) with S(c)=6c⁶+28c⁵+9c⁴−334c³−990c²−1038c−360 and πE(empty)-πC(empty)=c T(c)/(DE DC) with T having all positive coefficients. DE,DC positive for c>0. S has one sign change from descending powers, S(0)<0 and positive leading coefficient, hence exactly one positive crossover by Descartes plus continuity (3.637677<c*<3.637678). This is a proof for the entire positive ray; checked numerical examples do not replace polynomial signs.
 
-Foxall (2014) contains the general site-dependent spontaneous contact-process model, irreducibility criteria, and monotonicity when one model's rate parameters dominate another's coordinatewise. Endpoint-only versus center-only immigration vectors are incomparable, so those monotonicity results cannot give this comparison. His §8 star example uses positive spontaneous rates at every site and reduced approximations, not an exact three-site one-gateway optimum. Economou, Gómez-Corral, and López-García (2015) give finite SIS generator algorithms, not the precise sign reversal in examined material. Hanski–Gyllenberg (1993) and Freckleton–Watkinson (2002) give ecological context, not this stationary polynomial. Dedicated exact three-site, equivalent-parameter, and alias searches yielded no dominating statement. The generic ability to solve a finite chain is not the same mathematical assertion as a unique sign-changing optimal source-location theorem. A later full-text comparison with the remaining Economou material and any overlooked specialized older finite-contact-process tables would be prudent.
+## originality
 
-## Value — PASS
+PASS
 
-Three sites is the smallest connected path having distinct endpoint and interior single-gateway placements. The completed classification reveals a meaningful tradeoff between avoiding regional emptiness and ensuring simultaneous occupation under precisely the same rate constraints. The sign change is a nontrivial boundary between two natural infrastructure choices rather than a numerical sensitivity of an arbitrarily chosen probability. Its real-world interpretation is deliberately limited to the idealized model.
+Exact stationary-location comparison is not determined by existing heterogeneous-SIS finite CTMC methods or general coordinatewise attractiveness: the two gateway-rate vectors are incomparable componentwise. A full open-access original paper was inspected in relevant sections and appendices; it supplies the generator/steady-state algorithm but not the sharp c* or the opposite preference of full versus nonempty occupation. Other nearby Resultary results vary different controls.
 
-## Remaining limitations
+## value
 
-Only stationary probabilities with equal external immigration and extinction rates are classified, with neighbor-to-neighbor rescue rate \(c>0\). No causal field recommendation, larger-network theorem, independent proof audit, or historical uniqueness certificate is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Placing one permanent immigrant source on a minimal path can optimize regional occupancy and complete occupancy in opposite ways. The exact unique colonization-rate transition, contrasted with a strict all-c regional ordering, is a useful sharp counterexample/benchmark for source-site objectives; its value is its structural distinction and exact sign law, not a broad field-policy claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
