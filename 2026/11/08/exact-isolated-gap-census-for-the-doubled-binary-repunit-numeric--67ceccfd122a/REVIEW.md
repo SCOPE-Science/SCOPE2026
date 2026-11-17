@@ -1,9 +1,21 @@
-# Scientific review: Exact isolated-gap census for doubled binary repunits
+# Independent mathematical audit
 
-**Correctness — PASS.** The Apéry parametrization is justified by Branco–Colaço–Ojeda Theorem 15. The parity coin-step lemma and the nontrivial shift identity \(c(h+t)=1+c(t+1)\) are proved with all bounds. Neighbor-residue inequalities give exactly one gap for a decreasing step and two gaps for an increasing step. Telescoping shows \(h/2\) increasing steps, yielding \(3\cdot2^{n-2}-1\) for all \(n\ge3\). Full finite gap-census tests through \(n=10\) corroborate but do not establish the infinite result.
+## correctness
 
-**Originality — PASS, with bibliographic risk.** The 2021 generalized-repunit paper supplies Apéry sets but not isolated-gap counts. The 2023 perfect-semigroup paper supplies general definitions and algorithms, not this parameter-family census. The 2024 embedding-dimension-two classification cannot cover the infinite \(n\ge3\) assertion. A known isolated-gap formula for the undoubled case \(a=1\) has different generators and does not imply the doubled result. Targeted title, parameter, lemma, and implication searches found no stronger covering statement. The 2022 Smith paper was available at abstract level only; its complete implications remain a stated risk. An unindexed equivalent theorem cannot be excluded.
+PASS
 
-**Mathematical value — PASS.** Exact isolated-gap counts and explicit locations in an infinite semigroup family of unbounded embedding dimension constitute a natural invariant classification. The new Mersenne coin-shift lemma explains the structural distinction from the undoubled case and avoids a mere parameter substitution. No generalization to arbitrary bases or coefficients is asserted.
+Given Branco–Colaço–Ojeda Theorem 15 canonical Apéry vectors for generalized repunits, the residue-height formula W(T)=m c(T)+2T follows, as checked against independently computed Dijkstra Apéry minima. The ±1 Mersenne coin lemma follows from odd parity and splitting a large coin into two half-size coins. The nonstandard shift identity c(h+t)=1+c(t+1) is proved by binary power splitting, with n>=3 and t=0..h-2 boundaries explicit. Neighbor threshold inequalities show one isolated gap at each t and a second iff c(t+1)-c(t)=1; telescoping gives h/2 increasing steps and |I|=3*2^(n-2)-1. Independently computed complete gap sets and Apéry minima for n=2..7. Finite confirmation is not an all-n proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The known generalized-repunit Apéry construction is used as a premise, but does not give the double-shift isolated-gap set or the nontrivial local Mersenne coin identity. A distinct published unit-shift a=1 isolated-gap result has different generators and count. The n=2 boundary is known; unbounded n>=3 a=2 is the surviving claim.
+
+## value
+
+PASS
+
+Isolated gaps form a canonical nearest-neighbor invariant of numerical semigroups. This is an exact infinite family with unbounded minimal embedding dimension, a complete explicit set and simple count explained by a nonstandard coin-shift lemma. It is neither a tiny unexplained finite slice nor substitution of the distinct undoubled case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
