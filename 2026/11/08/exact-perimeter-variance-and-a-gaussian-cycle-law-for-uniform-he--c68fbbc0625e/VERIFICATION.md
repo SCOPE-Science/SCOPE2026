@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-The proof is in `RESULT.md`; `checker.py` is an independent finite numerical corroboration using an explicit fixed pseudorandom seed. Run with `python checker.py` in Python 3.10+ with NumPy installed. The checker computes central-binomial coefficients exactly as integer ratios, applies the explicit tail inequality, then runs 420000 independent hemisphere-triple observations and 420000 independently sampled five-cycles. The final marker is `HEMISPHERE_GEODESIC_CYCLE_VARIANCE_OK`.
+## correctness
 
-The series truncation error for the variance rate after 32 terms is at most `pi*pi/(224*32**7)`; no experiments certify the CLT or substitute for its analytic derivation. The theoretical conclusion is restricted to independent area-uniform points on the unit hemisphere; labelled cycles with more than three vertices may self-cross. External mathematical validation and exhaustive historical priority checking have not been performed.
+PASS
+
+For iid area-uniform points on a fixed hemisphere, the derived single-edge distance density (1-a/pi)sin(a) gives mean 4/pi and second moment 2. Conditional on common vertex, covariance is Var(m(X)); the odd Legendre series and hemisphere addition theorem give exact nonnegative central-binomial series and gamma=0.027187049620..., with independent quadrature reconstruction agreeing within 5e-10. Thus n-cycle has exactly n adjacent pairs and variance n*(2-16/pi²+2gamma) for all n>=3, n=3 included. Bounded stationary one-dependent edge variables satisfy the classical CLT; closing changes one edge by at most pi. Series tail bound follows c_k<=1/sqrt(k+1). Neither simulation nor 1-d quadrature alone proves general result.
+
+## originality
+
+PASS
+
+Specific exact shared-vertex geodesic covariance and resulting hemisphere cycle variance rate are absent from the inspected 2015 halfsphere first-perimeter-moment theorem; older cap-triangle density sources remain a priority risk.
+
+## value
+
+PASS
+
+Exact hemisphere geodesic triangle variance and per-edge covariance quantify a naturally motivated stochastic-geometric fluctuation not implied by known first moments; the same constant governs a large-cycle Gaussian law and supplies an explicit fast-certified special-function series.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

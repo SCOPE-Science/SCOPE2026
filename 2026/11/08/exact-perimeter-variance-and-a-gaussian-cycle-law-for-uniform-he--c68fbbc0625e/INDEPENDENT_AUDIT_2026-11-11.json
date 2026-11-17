@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T06:53:29.126427Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/exact-perimeter-variance-and-a-gaussian-cycle-law-for-uniform-he--c68fbbc0625e/RESULT.md",
+        "2026/11/08/exact-perimeter-variance-and-a-gaussian-cycle-law-for-uniform-he--c68fbbc0625e/checker.py",
+        "/mnt/data/scope03_independent_0638.py"
+      ],
+      "rationale": "For iid area-uniform points on a fixed hemisphere, the derived single-edge distance density (1-a/pi)sin(a) gives mean 4/pi and second moment 2. Conditional on common vertex, covariance is Var(m(X)); the odd Legendre series and hemisphere addition theorem give exact nonnegative central-binomial series and gamma=0.027187049620..., with independent quadrature reconstruction agreeing within 5e-10. Thus n-cycle has exactly n adjacent pairs and variance n*(2-16/pi²+2gamma) for all n>=3, n=3 included. Bounded stationary one-dependent edge variables satisfy the classical CLT; closing changes one edge by at most pi. Series tail bound follows c_k<=1/sqrt(k+1). Neither simulation nor 1-d quadrature alone proves general result.",
+      "residual_risks": [
+        "Independent bounded numerical tests corroborate but do not replace the analytic/finite-exhaustive proof as detailed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://doi.org/10.2307/1427637",
+          "Le 1989 shape-density paper is relevant to same three-point random triangle; full text inaccessible, so no whole-paper NOT_COVERING claimed; no available theorem decisively covers this exact binomial covariance."
+        ],
+        "reasoning": "Le 1989 shape-density paper is relevant to same three-point random triangle; full text inaccessible, so no whole-paper NOT_COVERING claimed; no available theorem decisively covers this exact binomial covariance.",
+        "searches": [
+          "spherical triangle shape densities cap hemisphere perimeter second moment",
+          "https://doi.org/10.2307/1427637"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1505.04672",
+        "https://doi.org/10.2307/1427637"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/1505.04672",
+          "For n=3 same triangle but earlier theorem gives E L3=12/pi, not Var L3; for n>3 the random cyclic tour is not the hull. Standard 1-dependent CLT obtains limit AFTER new covariance calculation, so the CLT mechanism alone is not novel."
+        ],
+        "reasoning": "For n=3 same triangle but earlier theorem gives E L3=12/pi, not Var L3; for n>3 the random cyclic tour is not the hull. Standard 1-dependent CLT obtains limit AFTER new covariance calculation, so the CLT mechanism alone is not novel.",
+        "searches": [
+          "hemisphere convex hull perimeter expectation versus label ordered cycle variance",
+          "https://arxiv.org/abs/1505.04672"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/1505.04672",
+          "First perimeter mean 12/pi for a triangle is already in the 2015 halfsphere hull theorem, but mean does not determine second moment/covariance or CLT variance rate."
+        ],
+        "reasoning": "First perimeter mean 12/pi for a triangle is already in the 2015 halfsphere hull theorem, but mean does not determine second moment/covariance or CLT variance rate.",
+        "searches": [
+          "uniform hemisphere geodesic triangle perimeter variance spherical random polygon",
+          "https://arxiv.org/abs/1505.04672"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/1505.04672",
+          "The 2015 source states exact first mean but not an exact second moment in inspected theorem/results. No previously exact variance table found; search absence is not originality proof."
+        ],
+        "reasoning": "The 2015 source states exact first mean but not an exact second moment in inspected theorem/results. No previously exact variance table found; search absence is not originality proof.",
+        "searches": [
+          "hemisphere geodesic triangle variance numerical constant 1.2997054829",
+          "https://arxiv.org/abs/1505.04672"
+        ]
+      },
+      "rationale": "Specific exact shared-vertex geodesic covariance and resulting hemisphere cycle variance rate are absent from the inspected 2015 halfsphere first-perimeter-moment theorem; older cap-triangle density sources remain a priority risk.",
+      "residual_risks": [
+        "Le (1989) full primary text could contain equivalent shape-density moments; authorized institution reported disconnected VPN (job id recorded only privately).",
+        "The general bounded one-dependent CLT is classical; value attaches to explicit covariance, not the routine limit-theorem invocation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior first moment, not covering identified second moment",
+          "evidence": [
+            "Theorem 5.1 yields triangle perimeter expectation 12/pi; does not establish variance or positive pair covariance."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1505.04672",
+          "material_read": "Open-access full PDF: introduction, relevant theorem and proof around perimeter first moment, including Theorem 5.1 page screenshot; no full-document claim of comprehensive word-by-word search",
+          "method": "web PDF/text and page screenshot",
+          "title": "Random points in halfspheres",
+          "trigger": "exact same hemisphere samples and n=3 triangle"
+        },
+        {
+          "assessment": "UNASSESSED POSSIBLE COVERAGE",
+          "evidence": [
+            "Shape densities could imply a variance under integration; no full text read, retained as priority risk."
+          ],
+          "identifier_or_url": "https://doi.org/10.2307/1427637",
+          "material_read": "Available abstract and metadata only; complete article inaccessible despite lawful OA and authorized institutional attempt",
+          "method": "abstract and authorized retrieval",
+          "title": "Random spherical triangles II: Shape densities",
+          "trigger": "historical directly related cap triangle distributions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/1505.04672",
+        "https://doi.org/10.2307/1427637"
+      ],
+      "rationale": "Exact hemisphere geodesic triangle variance and per-edge covariance quantify a naturally motivated stochastic-geometric fluctuation not implied by known first moments; the same constant governs a large-cycle Gaussian law and supplies an explicit fast-certified special-function series.",
+      "residual_risks": [
+        "Mean was known; priority of exact second moment remains exposed to older inaccessible cap shape-density literature."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Le (1989) full primary text could contain equivalent shape-density moments; authorized institution reported disconnected VPN (job id recorded only privately).",
+    "The general bounded one-dependent CLT is classical; value attaches to explicit covariance, not the routine limit-theorem invocation.",
+    "No public publication authorized; privacy-safe file transformations have not been prepared."
+  ],
+  "schema_version": 1
+}

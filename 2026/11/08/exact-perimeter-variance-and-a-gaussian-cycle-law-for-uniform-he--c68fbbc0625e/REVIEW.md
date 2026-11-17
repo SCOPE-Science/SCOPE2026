@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The actual result derives the hemisphere pair-distance density and its first two moments, the Legendre expansion of the intrinsic distance kernel, the strict positive common-vertex covariance, and a convergent central-binomial sixth-power series. Every geodesic-cycle variance follows by exactly counting the adjacent shared-vertex edge pairs; a standard one-dependent central limit theorem then gives the Gaussian limit. The checker evaluates the constant and simulates triangles and five-cycles. Its finite experiments do not replace the proof.
+## correctness
 
-**Originality — PASS (provisional historical priority).** The open-access preprint of Bárány–Hug–Reitzner–Schneider (2015), particularly its mean-perimeter theorem, was examined directly in full-text form. That first-moment formula does not determine the second moment: adjacent lengths have positive shared-vertex dependence. The explicit covariance and binomial-series variance constant are not stated there. Le's 1989 random spherical triangle shape-density work may contain an indirect implication; only its abstract was available, so this remains a priority risk. Other nearby spherical random-polygon and discrete random-graph results concern different objects or quantities. Literature search absence is not treated as proof of priority.
+PASS
 
-**Value — PASS.** The variance is a natural missing metric invariant of the smallest nontrivial random spherical polytope in a hemisphere. The exact positive covariance quantifies its nonlinear boundary-induced dependence, determines all cyclic perimeter variances without a new integral for each size, and supplies the nondegenerate asymptotic fluctuation constant; the numerical series has an explicit deterministic bound. This is more than a mean-moment recomputation or an unsupported numerical guess.
+For iid area-uniform points on a fixed hemisphere, the derived single-edge distance density (1-a/pi)sin(a) gives mean 4/pi and second moment 2. Conditional on common vertex, covariance is Var(m(X)); the odd Legendre series and hemisphere addition theorem give exact nonnegative central-binomial series and gamma=0.027187049620..., with independent quadrature reconstruction agreeing within 5e-10. Thus n-cycle has exactly n adjacent pairs and variance n*(2-16/pi²+2gamma) for all n>=3, n=3 included. Bounded stationary one-dependent edge variables satisfy the classical CLT; closing changes one edge by at most pi. Series tail bound follows c_k<=1/sqrt(k+1). Neither simulation nor 1-d quadrature alone proves general result.
 
-**Limits.** The cycle for four or more vertices need not be convex; claims about random spherical convex-hull perimeters for such counts are excluded. The classical CLT itself is not asserted novel. Secondary older shape-density literature leaves residual historical uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Specific exact shared-vertex geodesic covariance and resulting hemisphere cycle variance rate are absent from the inspected 2015 halfsphere first-perimeter-moment theorem; older cap-triangle density sources remain a priority risk.
+
+## value
+
+PASS
+
+Exact hemisphere geodesic triangle variance and per-edge covariance quantify a naturally motivated stochastic-geometric fluctuation not implied by known first moments; the same constant governs a large-cycle Gaussian law and supplies an explicit fast-certified special-function series.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
