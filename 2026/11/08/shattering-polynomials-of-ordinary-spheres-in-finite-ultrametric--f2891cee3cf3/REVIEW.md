@@ -1,19 +1,21 @@
-# Scientific review: finite ultrametric sphere shattering
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Exact positive-radius spheres are sibling shells at a unique hierarchy node. The proof classifies shattered supports of sizes one, two, and three by least common ancestor, uses the strong triangle inequality to rule out nonequilateral triples, and excludes all four-point shattering by a missing two-point trace. The coefficients count uniquely assigned least common ancestors and handle the one- and two-point boundaries. Independent direct trace enumeration checks every reduced rooted hierarchy with up to eight leaves (405 shapes, 53,403 nonempty supports), plus selected complete homogeneous hierarchies.
+PASS
 
-## Originality
+Ordinary nonempty spheres are exactly radius-zero singleton sets and sibling shells (union of all children except the center child) at positive internal-node radius. For support {x,y}, singletons give traces and a containing shell exists except when LCA is binary root and pair crosses root children; s2=C(N,2)-1_{binary root} n1 n2. A shattered triple must be equilateral and choose three child branches at node v; containing/empty shells exist iff v is nonroot or root has >=4 children, giving s3=sum nonroot E3(v)+1_{root >=4}E3(root). Any four-support would need all triples equilateral, but a sibling shell cannot select exactly two of four distinct equal-distance branches, so s>=4=0. Covers N=1 and N=2 edge cases; full-b-ary formulas follow counting nodes. Fresh independent distance-sphere computations on nine hierarchies up to eight leaves matched pair, triple and four-support counts. Source verifier was inspected; its claimed all-405-shape computation was not rerun.
 
-**PASS within the material inspected.** The 2022 ball-compression manuscript addresses metric balls rather than ordinary exact-distance spheres. The 2023 ultrametric representation manuscript defines centered spheres with the center adjoined, unlike the present ordinary spheres, and does not provide the complete shattered-support polynomial. The nearest identified ultrametric orbit-profile and laminar ball results have different invariants or set families; neither statement implies the root-sensitive sibling-shell coefficients. Searches for equivalent terminology and exact tables did not identify a dominating result. This is evidence of an unfilled gap, not a proof of historical uniqueness. Prior special-case or alternative terminology remains a risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** The full coefficientwise shattering invariant is determined for every finite ultrametric, not merely bounded in terms of dimension. The theorem identifies an unexpectedly sharp root/nonroot asymmetry, yields a linear-time calculation from cluster child sizes, and isolates the first ternary versus four-way branching transition for VC dimension. This distinguishes exact-distance sphere learning from the laminar ball setting and can inform hierarchy-based range sampling.
+PASS qualified: Ordinary exact-distance spheres exclude the center when r>0, unlike centered spheres in existing ultrametric tree representation work; ball range systems are laminar and not equivalent to the sibling-shell family. No independently inspected prior claim provides the full degree-three shattering polynomial across arbitrary finite reduced ball hierarchies.
 
-## Limits
+## value
 
-Finite ultrametrics, all ordinary nonempty distance spheres, and radius-zero singleton spheres are essential. Centered spheres, fixed-radius subfamilies, arbitrary metrics, and independent priority certification are outside the claim. The checker corroborates bounded instances; the general conclusion follows from the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural canonical metric range family receives a complete exact support enumeration depending only on the reduced rooted hierarchy, including root-versus-nonroot branching phase differences and all edge cases. The formula is directly usable for statistical learning/sample-compression comparisons without knowing numerical distance labels.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
