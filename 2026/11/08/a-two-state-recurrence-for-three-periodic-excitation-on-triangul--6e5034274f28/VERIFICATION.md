@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Using Python 3 and no external packages, in the same directory run:
+# Independent mathematical audit
 
-```
-python3 check_transfer.py
-python3 check_dynamics.py
-```
+## correctness
 
-`check_transfer.py` explicitly enumerates successor-neighbor support on the nine local extensions, establishes the exact two-state transition, independently recomputes the full six-state transfer, and compares counts for the first one hundred chain lengths. It also tests the second-order recurrence and three-cycle divisibility. Its captured standard output is `check_transfer.out`.
+PASS
 
-`check_dynamics.py` independently builds the labelled triangular-cactus graph and updates all vertex states simultaneously according to the specified Greenberg–Hastings local rule. It exhaustively tests \(3^3+3^5+3^7+3^9+3^{11}=199287\) states at chain lengths one through five, recording initially fixed and initially primitive three-periodic states. Its captured standard output is `check_dynamics.out`.
+The connected GHM 3-cycle local dichotomy makes every nonfixed F^3-fixed vertex advance, hence successor-neighbor 3-color support is necessary and sufficient. Direct independent 9-pair enumeration gives R=[[1,2],[2,3]], initial (3,6), final support flag 1. R²=4R+I yields N1=6,N2=24,Nm=4Nm-1+Nm-2. Direct independent exhaustive dynamics gave 6,24,102,432 for m=1..4; only the transfer proof is all-m.
 
-The unrestricted theorem for all \(m\geq1\) follows from the combinatorial transfer proof and exact matrix identity in `RESULT.md`. No finite list of experiments establishes the unrestricted claim by itself. No independent external audit has been conducted.
+## originality
+
+PASS
+
+The 2016 finite-graph theorem classifies eventual synchronization/activity but does not count initially periodic phase assignments. The 2015 cactus paper counts ordinary dominating sets without three rotating phase classes. A published singly resonant-cactus product law assumes exactly one 3-divisible cycle: the m>=2 all-triangle chain violates it, so it cannot imply the transfer recurrence. Best-of-knowledge novelty of this exact all-m count survives.
+
+## value
+
+PASS
+
+An exact time-zero primitive-cycle count and graph-family transfer recurrence for excitable dynamics is a natural, structured periodic-state census, not ordinary dominating-set enumeration; the explicit orbit count and growth rate can be used for exact probabilistic and dynamical baselines.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

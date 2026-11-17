@@ -1,15 +1,21 @@
-# Self-review of the triangular-cactus excitation count
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns precisely labelled chains of \(m\geq1\) triangles and configurations whose least period is three **from time zero**. On a connected graph, a configuration fixed by three updates consists either of all-resting vertices or entirely advancing vertices: a resting vertex adjacent to an advancing vertex cannot remain resting over three successive times. The successor-neighbor criterion for the latter is necessary and sufficient. Processing the chain with connector color and a one-bit local-support state gives initial row \((3,6)\) and transition matrix \(\begin{psmallmatrix}1&2\\2&3\end{psmallmatrix}\). Explicit enumeration of all nine local pairs verifies each entry. The identity \(R^2=4R+I\) proves the recurrence for all lengths; no finite test substitutes for this argument. Standalone direct three-step dynamics exhaustively checks all states of chains with one through five triangles (199287 configurations); an independent full-color transfer agrees with the reduced transfer through one hundred triangles.
+## correctness
 
-## Originality — PASS, qualified
-The primary mathematical comparison is with the full text of Gravner–Lyu–Sivakoff, which provides circulation and limiting-activity criteria on arbitrary finite graphs but not exact counts of **initially primitive three-periodic** configurations for triangular-cactus chains. A second full-text comparison, Borissevich–Došlić, works on precisely the same triangular-cactus graph yet counts ordinary dominating *subsets*, not successor-supported ternary *phase assignments*. Its recurrence is different and does not imply the present result. The earlier Durrett–Griffeath excitable-automata article was inspected at the abstract/metadata level only; its source addresses lattice-scale spiral dynamics rather than cactus-chain orbit enumerations. Searches for the recurrence, cyclic successor-support phase colorings, and triangle-chain excitation produced no covering indexed result. Historical priority remains subject to additional expert and unindexed-literature review, including potential equivalent cyclic total-domination formulations.
+PASS
 
-## Mathematical value — PASS
-A chain triangular cactus is a standard natural family for studying how the organization of cyclic blocks changes enumerative invariants. This exact dynamical recurrent-state count has an unexpectedly small two-state transfer and a golden-ratio-cubed growth factor \(2+\sqrt5\), rather than merely a fitted sequence. It answers a concrete finite-graph excitation question at every chain length and discriminates arrangement of the same number of triangle blocks (a chain versus a common-hub bouquet). No eventual-basin classification or extension to general cacti is asserted.
+The connected GHM 3-cycle local dichotomy makes every nonfixed F^3-fixed vertex advance, hence successor-neighbor 3-color support is necessary and sufficient. Direct independent 9-pair enumeration gives R=[[1,2],[2,3]], initial (3,6), final support flag 1. R²=4R+I yields N1=6,N2=24,Nm=4Nm-1+Nm-2. Direct independent exhaustive dynamics gave 6,24,102,432 for m=1..4; only the transfer proof is all-m.
 
-## Limitations and sources
-Core checked sources are the full published texts of Gravner–Lyu–Sivakoff (2018, DOI:10.1214/17-AAP1350, public preprint 2016-10-24) and Borissevich–Došlić (2015, DOI:10.2298/FIL1508847B); the Durrett–Griffeath preprint (arXiv:patt-sol/9303002, dated 1993-03-22) was inspected only through its available abstract and bibliographic record. The computations exhaustively cover only the stated small graphs. Unindexed overlap and possible stronger implicit combinatorial results remain residual risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2016 finite-graph theorem classifies eventual synchronization/activity but does not count initially periodic phase assignments. The 2015 cactus paper counts ordinary dominating sets without three rotating phase classes. A published singly resonant-cactus product law assumes exactly one 3-divisible cycle: the m>=2 all-triangle chain violates it, so it cannot imply the transfer recurrence. Best-of-knowledge novelty of this exact all-m count survives.
+
+## value
+
+PASS
+
+An exact time-zero primitive-cycle count and graph-family transfer recurrence for excitable dynamics is a natural, structured periodic-state census, not ordinary dominating-set enumeration; the explicit orbit count and growth rate can be used for exact probabilistic and dynamical baselines.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
