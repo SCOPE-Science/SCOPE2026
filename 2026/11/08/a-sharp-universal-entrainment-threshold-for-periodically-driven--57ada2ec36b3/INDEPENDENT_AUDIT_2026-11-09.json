@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T17:08:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Logit conjugacy g_{a,b}(y)=y+a/(1+e^y)-ab checked against recurrence. For 0<a≤8, s_a derivative 1-(a/4)sech²(y/2) lies in [-1,1) and equal -1 at only one point, so any two distinct finite logit states strictly approach. Compactness plus return-map tails produces unique m-cycle and global convergence; derivative product gives exponential phases except centered a=8. Uniformly interior forcing produces absorbing compact interval and synchronization. At a=8,b=1/2, odd normal form -y+y³/6 yields inverse-square growth n/3 and sqrt(n)|y|→sqrt3. Sum of logit increments proves calibration. Independent diagnostic fixed-point iterations at a=7.9,8 with periodic forcing and 150000 critical steps gave sqrt(n)|y|≈1.73199658 versus sqrt3; finite tests not an all-input proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chotibut–Falniowski–Misiurewicz–Piliouras 2018 Theorem 3.9 treats a fixed b=1/2 at a=8 and the a>8 attracting symmetric two-cycle; Kryzhevich–Zhang 2026 Section 5 studies two constant parameters and fixed points/chaotic sets."
+        ],
+        "reasoning": "No inspected stronger theorem on all periodic exogenous b_n or all bounded input streams was found; chaotic autonomous results supply sharpness but not driven global convergence.",
+        "searches": [
+          "periodically driven two strategy discrete replicator map uniform forcing threshold 8 synchronization logit critical n^-1/2 phase mean",
+          "arXiv:1807.06831",
+          "arXiv:2603.20685"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1807.06831",
+        "arXiv:2603.20685",
+        "arXiv:2402.09824 (cited autonomous comparator)",
+        "periodically driven two strategy discrete replicator map uniform forcing threshold 8 synchronization logit critical n^-1/2 phase mean"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Autonomous statements follow as b_n=b, but the new periodic return map is a composition of different maps g_{a,b_j}; common strict distance decrease implies unique forced response. The critical asymptotic follows y_{n+1}=-y_n+y_n^3/6+O(y_n^5), r_n^{-2}~n/3."
+        ],
+        "reasoning": "Older autonomous fixed-point convergence is implied by the new theorem in a special case, not conversely; the 2026 general shift-coboundary identity gives the known mean mechanism but no endpoint forced stability classification.",
+        "searches": [
+          "arXiv:2603.20685",
+          "arXiv:1807.06831",
+          "periodically driven two strategy discrete replicator map uniform forcing threshold 8 synchronization logit critical n^-1/2 phase mean"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Current update has a distinct b_n in each g_{a,b_n}; older results fix b for all iterates; summing y increments extends the known invariant-mean identity to a forced phase-average identity."
+        ],
+        "reasoning": "The autonomous map is an exact specialization, but not an equivalent full quantifier: b_{n+m}=b_n may vary across phase. The operator g_{a,b}=s_a(y)-ab reveals shared nonlinear part and strict pairwise contraction at a≤8.",
+        "searches": [
+          "periodically driven two strategy discrete replicator map uniform forcing threshold 8 synchronization logit critical n^-1/2 phase mean",
+          "arXiv:2603.20685",
+          "arXiv:1807.06831"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claimed laws involve all real input streams/periodic sequences and an exact critical n^-1/2 coefficient rather than a finite database; inspected papers contain autonomous phase diagrams, not a table of all periodic input words."
+        ],
+        "reasoning": "A finite database/table cannot exhaust this continuously parametrized forcing claim. The searches tested exact critical and forced-entrainment aliases rather than assuming a missing table proves originality.",
+        "searches": [
+          "periodically driven two strategy discrete replicator map uniform forcing threshold 8 synchronization logit critical n^-1/2 phase mean",
+          "arXiv:2603.20685",
+          "arXiv:1807.06831"
+        ]
+      },
+      "rationale": "Best-of-knowledge new sharp theorem for externally forced two-strategy maps; the 2018 autonomous threshold and 2026 shift-map mean invariants are genuine precedents, but their quantified constant-target iterates do not imply arbitrary periodic input composition, aperiodic common-input synchronization, or classification of endpoint multipliers.",
+      "residual_risks": [
+        "Broad nonautonomous fixed-point/contraction literature may contain equivalent formulations under driven cocoercive or nonexpansive recurrences; searches and the primary same-model texts cannot certify worldwide priority.",
+        "The special n^-1/2 limit excludes finite preimages of centered equilibrium."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "AUTONOMOUS_ONLY",
+          "evidence": "Centered constant input b=1/2 has critical a=8 and a>8 period-two regime; no prescribed varying target sequence.",
+          "identifier_or_url": "https://arxiv.org/pdf/1807.06831",
+          "material_read": "PDF original introduction, autonomous fixed-point and symmetric period-two results including Theorem 3.9",
+          "method": "Open-access arXiv PDF, inspected pages and the exact theorem",
+          "title": "Family of chaotic maps from game theory",
+          "trigger": "Same replicator map and threshold"
+        },
+        {
+          "assessment": "NOT_COVERING_TIME_VARYING_TARGET",
+          "evidence": "Equations (1.1),(1.3),(5.4) and Section 5 use fixed parameters a,b; hyperbolic chaos/mean invariants do not establish forced synchronization.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.20685",
+          "material_read": "Full 21-page PDF available; read abstract, Sections 4,5 and transformation (5.4), relevant theorem summaries",
+          "method": "Open-access PDF text and rendered page 12",
+          "title": "Shift maps and statistical invariants for some dynamical systems",
+          "trigger": "Identical f_{a,b}, logit conjugacy and periodic orbit averages"
+        },
+        {
+          "assessment": "ASSESSED_TARGET",
+          "evidence": "Steps 1–5 prove strict pairwise decrease, periodic compact return attraction, critical rate and bounded-input calibration.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-universal-entrainment-threshold-for-periodically-driven--57ada2ec36b3/RESULT.md",
+          "material_read": "Full RESULT.md proof, assumptions, verification, references; inspected verify.py source at assigned commit",
+          "method": "GitHub read by exact commit",
+          "title": "A sharp universal entrainment threshold for periodically driven replicator maps",
+          "trigger": "Frozen claim/proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The forcing-independent sharp endpoint and classification of the unique nonhyperbolic phase input are meaningful beyond the known autonomous stability map; the common-input synchronization and exact critical n^-1/2 coefficient give useful quantitative information for periodically controlled learning/evolution. Not just renaming b or a textbook fixed-point calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1807.06831",
+    "arXiv:2603.20685",
+    "arXiv:2402.09824 (cited autonomous comparator)",
+    "periodically driven two strategy discrete replicator map uniform forcing threshold 8 synchronization logit critical n^-1/2 phase mean"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "a>0 fixed and exogenous b_n in (0,1); arbitrary-input synchronization requires a common ε bound, and not uniform rate over inputs.",
+    "At a=8 centered constant b, finite preimages of equilibrium give zero asymptotic rather than sqrt3; numerical checks are not completeness evidence.",
+    "Historical priority remains best-of-knowledge.",
+    "Publication withheld because source metadata carries private operational provenance; this is a transport/privacy issue, not an additional scientific failure."
+  ],
+  "residual_risks": [
+    "Broad nonautonomous fixed-point/contraction literature may contain equivalent formulations under driven cocoercive or nonexpansive recurrences; searches and the primary same-model texts cannot certify worldwide priority.",
+    "The special n^-1/2 limit excludes finite preimages of centered equilibrium."
+  ],
+  "schema_version": 1
+}

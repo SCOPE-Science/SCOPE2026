@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility details
+# Independent mathematical audit
 
-The attached `verify.py` is the complete standalone verification diagnostic. Run it with `python verify.py` using Python 3, `sympy` and `mpmath`; the program prints a `VERIFY_OK` message if all assertions hold. It checks the logit conjugacy and derivative symbolically, the odd critical-map Taylor coefficients exactly, four forced periodic return orbits and their phase-average identities with high precision, 24 initialized trajectories, three slow critical tails, four known supercritical two-cycles, and three bounded aperiodic input trajectories.
+## correctness
 
-Those finite checks are not exhaustive in the forcing sequence, period, parameter, initial value or time horizon. Global convergence, phase uniqueness, all-input synchronization and the critical law are analytic results proved in `RESULT.md`. No independent scientific audit or external certification is claimed.
+PASS
+
+Logit conjugacy g_{a,b}(y)=y+a/(1+e^y)-ab checked against recurrence. For 0<a≤8, s_a derivative 1-(a/4)sech²(y/2) lies in [-1,1) and equal -1 at only one point, so any two distinct finite logit states strictly approach. Compactness plus return-map tails produces unique m-cycle and global convergence; derivative product gives exponential phases except centered a=8. Uniformly interior forcing produces absorbing compact interval and synchronization. At a=8,b=1/2, odd normal form -y+y³/6 yields inverse-square growth n/3 and sqrt(n)|y|→sqrt3. Sum of logit increments proves calibration. Independent diagnostic fixed-point iterations at a=7.9,8 with periodic forcing and 150000 critical steps gave sqrt(n)|y|≈1.73199658 versus sqrt3; finite tests not an all-input proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge new sharp theorem for externally forced two-strategy maps; the 2018 autonomous threshold and 2026 shift-map mean invariants are genuine precedents, but their quantified constant-target iterates do not imply arbitrary periodic input composition, aperiodic common-input synchronization, or classification of endpoint multipliers.
+
+## value
+
+PASS
+
+The forcing-independent sharp endpoint and classification of the unique nonhyperbolic phase input are meaningful beyond the known autonomous stability map; the common-input synchronization and exact critical n^-1/2 coefficient give useful quantitative information for periodically controlled learning/evolution. Not just renaming b or a textbook fixed-point calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

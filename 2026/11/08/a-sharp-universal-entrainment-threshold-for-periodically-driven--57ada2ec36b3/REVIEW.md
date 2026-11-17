@@ -1,23 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The source formula is conjugated exactly to \(y_{n+1}=y_n+a[(1+e^{y_n})^{-1}-b_n]\); its derivative has absolute value strictly below one after integration over any nondegenerate interval for \(0<a\le8\). The bounded inwards drift and strict inter-trajectory distance decrease supply the compactness and convergence arguments needed for all quantifiers. At \(a=8\), the periodic return multiplier can have modulus one only on the centered constant input; the cubic normal form proves the explicit inverse-square-root coefficient away from finite preimages. For \(a>8\), the centered fixed point is repelling. The checker confirms formal identities and finite samples, but the infinite claims rest on the proof.
+PASS
 
-**Limits.** No global-rate bound uniform in all periodic inputs is claimed, and no convergence theorem for arbitrary time-varying normalized learning intensities is asserted. Boundary initial states are excluded; preimages of the centered critical equilibrium are separated.
+Logit conjugacy g_{a,b}(y)=y+a/(1+e^y)-ab checked against recurrence. For 0<a≤8, s_a derivative 1-(a/4)sech²(y/2) lies in [-1,1) and equal -1 at only one point, so any two distinct finite logit states strictly approach. Compactness plus return-map tails produces unique m-cycle and global convergence; derivative product gives exponential phases except centered a=8. Uniformly interior forcing produces absorbing compact interval and synchronization. At a=8,b=1/2, odd normal form -y+y³/6 yields inverse-square growth n/3 and sqrt(n)|y|→sqrt3. Sum of logit increments proves calibration. Independent diagnostic fixed-point iterations at a=7.9,8 with periodic forcing and 150000 critical steps gave sqrt(n)|y|≈1.73199658 versus sqrt3; finite tests not an all-input proof.
 
-## Originality
+## originality
 
-**PASS within inspected evidence.** Chotibut et al. already prove the centered autonomous threshold and the autonomous mean law; Kryzhevich et al. and Falniowski–Mertikopoulos analyze stationary parameters. The complete closest report on asymmetric replicator two-cycles concerns a fixed equilibrium target and cannot imply the switched-target result. Vlatakis-Gkaragkounis et al. analyze a *variable learning rate* with fixed target and a different nonautonomous evolution. The new assessed claim is the globally attractive response under arbitrary periodic target switching at a sharp input-independent threshold, the single exceptional nonhyperbolic schedule and exact critical slowdown, and bounded-input same-input synchronization. Generic contraction arguments explain subcritical behavior but do not directly address the nonuniform endpoint multiplier or its normal-form constant.
+PASS
 
-**Residual risk.** Complete historical priority remains unverified; some related older literature was abstract-only, and a general nonautonomous contraction result might dominate the simpler qualitative subclaims. This does not amount to a verified exact implication of the complete theorem.
+Best-of-knowledge new sharp theorem for externally forced two-strategy maps; the 2018 autonomous threshold and 2026 shift-map mean invariants are genuine precedents, but their quantified constant-target iterates do not imply arbitrary periodic input composition, aperiodic common-input synchronization, or classification of endpoint multipliers.
 
-## Mathematical value
+## value
 
-**PASS.** The phenomenon is a natural complete regime classification for learning under shifting target equilibria: periodic forcing cannot destroy unique attraction below the sharp uniform intensity, while the critical relaxation is rigid to just one constant schedule. An exact calibration identity persists above the synchronization threshold, separating two different statistical and dynamical notions of adaptation. This boundary classification is meaningful independently of large-scale algorithmic claims.
+PASS
 
-## Reproducibility and prior work
+The forcing-independent sharp endpoint and classification of the unique nonhyperbolic phase input are meaningful beyond the known autonomous stability map; the common-input synchronization and exact critical n^-1/2 coefficient give useful quantitative information for periodically controlled learning/evolution. Not just renaming b or a textbook fixed-point calculation.
 
-The accompanying `RESULT.md` gives all definitions, hypotheses, strict inequalities and limit arguments; `verify.py` checks symbolic identities and targeted diagnostics. The exact model and the autonomous cases are attributed to arXiv:2603.20685, arXiv:1807.06831, arXiv:2412.16379 and arXiv:2402.09824; nonautonomous adaptive-step context is arXiv:2306.01032. These sources do not constitute exhaustive bibliographic certification.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
