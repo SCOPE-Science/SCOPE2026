@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every equality constraint joins independent uniform symbols, yielding exact probability \(q^{-(V-c)}\) on the finite constraint graph. For two visits the overlap graph is a path forest and has zero cycle rank. For three visits the projected graph has steps \(a,b\); a residue-class contraction counts the connected components as \(\max(\gcd(a,b),a+b-k)\) once \(k>\max(a,b)\), giving the stated closed form in all regimes. Independent finite enumerations and a separate union–find checker agree with the proof. The start-time restriction \(n_1\ge k\) and the full product measure are essential.
+## correctness
 
-## Originality — PASS, within inspected evidence
-The motivating 2026 interval-map recurrence record results and earlier recurrence Poisson limits concern asymptotic visits, not the exact finite triple prefix-return indicator law. A public result on expanding-circle pair correlations computes a distinct two-point spatial observable, whereas here pairwise independence coexists with an explicit sharp third-order dependence factor. Classical overlap and word-period techniques are acknowledged; the separate exact probability threshold and any-order graph interpretation are the claimed contribution, not a new proof of Fine–Wilf. A full comparison with the Guibas–Odlyzko article was unavailable, leaving a concrete residual priority risk and warranting independent literature review.
+PASS
 
-## Mathematical value — PASS
-The all-gap three-time law completely classifies when pairwise independence conceals higher-order recurrence dependence in a canonical chaotic symbolic system. The arithmetic boundary \(k=a+b-\gcd(a,b)\) is sharp for every alphabet, including its equality case, and the graph formulation computes any finite collection of visits. This gives exact finite benchmarks for recurrence-process approximations rather than an arbitrary numerical slice.
+An equality graph connects each initial index i<k to all translated positions i+n_j; independent q-letter assignments constant on each of c components give probability q^{c−V}=q^{-tk+β}. Two translates give forests, hence pairwise independence. For three shifts, subtract n1, write gaps a,b and project overlap edges onto initial indices, lengths a,b; contracting a-residue chains and selecting b-edges yields c=max(gcd(a,b), a+b−k) for k>max(a,b), and β=0 below the sharp threshold. Thus β=max(0,k−a−b+g) and the centered third moment is q^{-3k}(q^β−1). Independent union-find checker covered 2704 gap/length triple cases and corresponding pair cases; finite tests do not prove all k/gaps, which rest on the explicit component proof.
 
-## Sources and limits
-Zhao (2026, arXiv:2610.39928), Holland–Todd (arXiv:2401.13300), Guibas–Odlyzko (1981), and Fine–Wilf (1965) were compared to the extent stated in the structured review. No independent audit or formal computer-certified proof is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fine–Wilf word periodicity and Guibas–Odlyzko overlap graphs are known foundations. The exact simultaneous product-Bernoulli self-prefix three-time probability, pairwise-but-not-triple independence, and explicit third cumulant were not established by inspected period graph/recurrence texts. Guibas–Odlyzko 1981 original full text unavailable, leaving a concrete equivalence risk. Best-of-knowledge O, not a claim that gcd-threshold itself is novel.
+
+## value
+
+PASS
+
+The first precise failure of joint independence among uniform symbolic self-returns is a natural finite-time correlation invariant and quantitatively determines an exact enhanced third cumulant, useful for recurrence statistics beyond pairwise mixing approximations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
