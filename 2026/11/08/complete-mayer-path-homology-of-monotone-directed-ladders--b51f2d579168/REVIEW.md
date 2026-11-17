@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses a uniquely specified sparse directed ladder and the nonregular root-of-unity boundary. It determines every invariant chain group: dimensions \(2m,3m-2,m-1\), zero thereafter. Unique forbidden-deletion faces force the higher cutoff; direct boundary formulas show ranks \(2m-1,m-1\) and a two-step rank of \(m-1\) for \(N\ge3\) (zero for \(N=2\)). Kernel-minus-image then proves every piece of the claimed Mayer Betti-number table. The standalone verifier independently enumerates paths and forbidden faces for 35 cases across primitive orders 2 through 6, reproducing the formulas at all permitted indices. Finite checks only corroborate the unrestricted proof.
+## correctness
 
-**Originality — PASS.** The closest primary literature, *Mayer Path Homology* (arXiv:2605.16525), already computes the \(m=2,N=3\) biparallel one-square motif. That case is acknowledged, not presented as new. The inspected paper gives degree-two/three generator and general first-cycle classifications, not all ladder-length / all root-order Mayer homology. An indexed result for complete transitively layered digraphs has different edge-completeness hypotheses and does not imply this sparse ladder calculation. Related ordinary path-generator and cubical or ladder matching results do not imply the claimed group dimensions. Residual risk: unindexed equivalent general statements may exist.
+PASS
 
-**Mathematical value — PASS.** An explicit classification of all homology groups and indices for this natural two-row directed strip exhibits degree-two classes of rank \(m-1\) for \(N\ge4\) and \(q\ge3\), despite vanishing ordinary positive-degree path homology. The exact cutoff and linear Betti growth provide more than a routine restatement of the single-square computation.
+Direct forbidden-face uniqueness kills allowed paths of length >=3 and forces the m-1 differences of the two routes across each square as the entire invariant 2-chain space. Thus dim Omega=(2m,3m-2,m-1). On square differences the first boundary has a unique top horizontal edge coefficient -1, hence rank m-1; its second boundary is (xi+xi^2)(b_{i+1}-t_i), rank m-1 for primitive order N>=3 and zero for N=2. Weighted edge incidence has one-dimensional left nullspace lambda(w)=-xi lambda(v), hence rank 2m-1. Substituting ranks into the N-differential quotient reproduces each q and the N=2,3 boundary cases. Independent modular path/forbidden-face and incidence calculations checked 20 pairs of ladder length and root order over F_13, not the infinite proof.
 
-**Scope and remaining risks.** No arbitrary orientations, three-row ladders, persistent parameters, or homotopy-type claims are proved. Computation was exact over several compatible finite fields, while the theorem is algebraic over \(\mathbb C\). Index searches cannot certify worldwide priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The source paper establishes the Mayer definitions and small motifs including a single square; a separate earlier multiarm theta result involves a different digraph topology. Neither read prior result provides or implies the all-N,q homology of a multi-square monotone ladder with shared vertices. The general invariant-chain generator theory helps formulate but does not evaluate the claimed full rank table.
+
+## value
+
+PASS
+
+Computing a complete all-order nonregular Mayer homology table of a canonical sparse ladder is a substantive structural classification: the root-dependent H2 activation at q=3 and rank per square distinguish it from ordinary path homology and isolated motif calculations. The exact degree cutoff and weighted boundary ranks are motivated by the underlying N-complex, not arbitrary finite sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
