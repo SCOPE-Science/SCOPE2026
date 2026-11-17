@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact zero-primary decomposition is supported by a complete algebraic argument: the Mersenne-length path has a single nilpotent Jordan block; the cycle's only zero multiplier is at the unit root, with multiplicity \(2^{\nu_2(n)}\); the mixed local algebra splits by parity; and a direct highest-power rank calculation gives the entire modular Jordan partition. The Fitting decomposition then counts entry-time populations. Three separately structured standard-library checks ran successfully from the included source files and report 1,606 direct grid-power comparisons, 462 local-algebra rank comparisons, and 299,520 exhaustively classified small configurations. Computation is corroboration, not an infinite certificate.
+PASS
 
-## Originality — PASS, qualified
+The path characteristic polynomial recurrence in characteristic two gives D_{2^r-1}(X)=X^{2^r-1}; one-dimensional kernel makes its entire path adjacency a single nilpotent Jordan block. In the cycle algebra z^n-1=(z^u-1)^h (u odd), only z=1 has zero cycle multiplier. At this root multiplication reduces, by a unit conjugacy, to a+s^2 on F[a,s]/(a^{q-1},s^h). For even h=2k its even/odd split consists of two copies of multiplication by a+w on F[a,w]/(a^{q-1},w^k). Frobenius bounds lengths, rank of (a+w)^{q-1} gives k-1 size-q blocks when k<q, or all k blocks of length k when k>=q; for h=1 the path block remains. Fitting decomposition supplies cumulative Q-powers and sharp entry times. Independently regenerated 284 direct grid adjacency power-rank comparisons. The algebraic block argument, not finite ranks, proves all r>=2,n>=3,char2 fields.
 
-The 1984 Martin–Odlyzko–Wolfram article gives general algebraic finite-CA methods and explicitly discusses multidimensional periodic lattices, but its inspected Sections 3 and 4 do not state this mixed-boundary cylinder partition or the entry-time census. Norman's 1995 and 2008 abstracts describe general modular Jordan tensor/sum decompositions; these precede and may imply the truncated-algebra sublemma. Thus the generic block decomposition method is prior, not an originality claim. Targeted cylinder searches and comparisons against accessible earlier graph-parity claims uncovered no direct cylinder-family coverage. Norman (2008) could not be read in full (no located open copy; authorized institutional access unavailable), so possible full-text specialization is a residual risk rather than a claim of exclusion.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result determines the full first-entry distribution of every labelled configuration for an infinite two-parameter family of naturally mixed-boundary lattices selected by the exact nilpotency criterion for open-path adjacency. Its two-adic phase diagram includes a settling-time plateau at \(2^r\) and renewed growth beyond a sharp circumference threshold, while nilpotency is characterized exactly. The complete and sharp dynamical classification is materially stronger than a single adjacency nullity or a general statement that transients are finite.
+Best-of-knowledge novel exact mixed-boundary cylinder zero-primary Jordan partition and transient distribution, with Norman modular Jordan-sum method acknowledged as background. Comparable dyadic binary torus result has uniform blocks and cannot be relabelled to the open-path cylinder. Full Norman (2008) text inaccessible; residual possibility of an implicit specialization.
 
-## Limits and review status
+## value
 
-This is not a classification of individual primitive cycle lengths. The historical-priority conclusion remains qualified by full-text inaccessibility and indexing limitations; no negative search proves global uniqueness. Finite checks do not replace the proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact transient clock and population for a natural finite additive cellular automaton on mixed open/periodic boundaries distinguish meaningful two-adic circumference regimes and generalize to all characteristic-two fields. The result is a structural all-parameter family classification rather than a tiny empirical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
