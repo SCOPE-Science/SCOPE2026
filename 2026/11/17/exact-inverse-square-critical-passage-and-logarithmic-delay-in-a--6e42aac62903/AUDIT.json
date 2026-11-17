@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Starting with the original equations (15), the change v=1+cos(phi) is exact. Variation of constants and logit monotonicity after a finite transient establish finite threshold crossing. An exact integrating factor has derivative -(2-kappa)exp(-2kappa/epsilon). Exact logit and kappa-square time integrals produce respectively (1/2)log(1/v0)+O(1) and a uniformly bounded integral of kappa squared, controlling the full Taylor remainder over a diverging time. The resulting coefficients follow algebraically; the standalone checker passes symbolic identities and three numerical families.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jüttner–Martens (Chaos 33, 053106) treats a broader parameter family, but the actual inspected bifurcation and discussion sections state qualitative locking and bistability rather than this precise critical passage asymptotic.",
+        "Ha–Noh–Park (2016) advertises adaptive feedback laws preserving an incoming-coupling sum; Ha–Lee–Li–Park (2018) advertises Tikhonov fast learning and sufficient synchronization frameworks; their accessible abstracts do not present the same critical parameter or quantitative hitting-time law."
+      ],
+      "reasoning": "Broader in the set of parameter values does not mean stronger in the time-asymptotic conclusion. The reviewed works do not provide a theorem with a quantitative uniform two-term first-passage estimate that could imply this claim. The SIAM primary full texts were not verified, hence this remains a residual risk, not a definitive absence claim.",
+      "searches": [
+        "Jüttner Martens adaptive Kuramoto two oscillators omega=0 symmetric adaptation exact basin separatrix global locking Lyapunov energy",
+        "damped pendulum adaptive coupling equation phi'= -kappa sin phi kappa'= eps(1+a cos phi-kappa) global convergence",
+        "Emergent Dynamics of Kuramoto Oscillators with Adaptive Couplings: Conservation Law and Fast Learning 10.1137/17M1124048",
+        "Synchronization of Kuramoto Oscillators with Adaptive Couplings 10.1137/15M101484X"
+      ]
+    },
+    "checked_sources": [
+      "Jüttner–Martens, arxiv:2209.10514 / DOI 10.1063/5.0133190, open-access full article inspected in relevant sections",
+      "Ha–Noh–Park, DOI 10.1137/15M101484X, abstract only",
+      "Ha–Lee–Li–Park, DOI 10.1137/17M1124048, abstract only",
+      "Published indexed title: Sharp global antiphase locking and critical crossover in the two-clock sine map, discrete nonadaptive map",
+      "Published indexed title: A sharp almost-sure phase-opposition threshold for analytic sinusoidal torus updates, discrete nonadaptive torus map"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The Jüttner–Martens paper identifies the phase-coupling system and qualitative stability boundaries; the new claim requires an exact H=e^(-2kappa/epsilon)/v derivative and a bounded integral of kappa squared, which are not among the located results.",
+        "The two related Ha and collaborators papers describe synchronization sufficient conditions and fast-learning limits, not the fixed positive finite-adaptation critical passage law.",
+        "The nearby indexed discrete phase-map results measure iteration-dependent relaxation rather than continuous-time first entry for a nonautonomous effective coupling."
+      ],
+      "reasoning": "A result proving only a stable synchronized equilibrium, a neutral threshold, or a generic algebraic decay exponent does not imply the two-term hitting-time formula with a specific initial-condition factor. The exact integrals and proof of bounded cumulative quadratic error carry the additional conclusion.",
+      "searches": [
+        "arxiv:2209.10514 Jüttner Martens symmetric reduction section III B equations 15; discussion section V",
+        "Emergent Dynamics of Kuramoto Oscillators with Adaptive Couplings 2018 Ha Lee Li Park",
+        "critical adaptive Kuramoto two oscillator first passage inverse square logarithmic relaxation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The originating full open-access article explicitly reduces the symmetric two-oscillator dynamics to d phi/dt = omega - kappa sin phi and d kappa/dt = epsilon(1+a cos phi-kappa) in equation (15).",
+        "At zero mismatch and a=1, writing v=1+cos phi gives exact logistic-coupling dynamics; no alternative coordinate removes the initial-coupling memory without tracking the initial data.",
+        "The inspected text discusses bifurcations and lock-state coexistence without deriving this first passage asymptotic."
+      ],
+      "reasoning": "The only direct change of variables for this same system is algebraically equivalent and is explicitly accounted for. The novelty comparison is the inverse-square hitting-time amplitude plus a finite-adaptation logarithmic coefficient, not the reduction itself; no inspected source gives or implies that two-term claim.",
+      "searches": [
+        "adaptive phase oscillator two-node learning strength a=1 antipodal critical cubic slowing bistability threshold",
+        "adaptive Kuramoto two oscillators equal frequency anti phase singular transient inverse-square logarithmic passage time",
+        "critical adaptive Kuramoto two oscillator phase opposition phase delay 1/(1+cos phi0) plus log with coefficient 1/4+1/epsilon",
+        "arxiv:2209.10514; DOI 10.1063/5.0133190; equations (13)-(15)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed title: Sharp global antiphase locking and critical crossover in the two-clock sine map; the indexed summary concerns a discrete map with an antiphase attracting flip endpoint and inverse-square error, not a continuous adaptive coupling equation.",
+        "Closest indexed title: A sharp almost-sure phase-opposition threshold for analytic sinusoidal torus updates; concerns discrete torus updates and a step-size edge, not a continuous critical passage time.",
+        "The originating paper has bifurcation diagrams and parameter-dependent phase portraits, not a tabulated critical synchronization passage time with these coefficients."
+      ],
+      "reasoning": "Relevant indexed records and the originating text do not contain the exact initial-coupling weighted coefficient or the epsilon-dependent logarithmic correction in this two-dimensional continuous-time model. Failed search alone would not demonstrate uniqueness; the systems and implications of closest matches were compared.",
+      "searches": [
+        "continuous-time adaptive two Kuramoto oscillators with dynamical coupling kappa prime epsilon(1+cos phi-kappa), antipodal a=1 omega=0 first hitting time asymptotic inverse square v0 and (1/4+1/epsilon) log 1/v0",
+        "critical adaptive Kuramoto two oscillator phase opposition phase delay 1/(1+cos phi0) plus log with coefficient 1/4+1/epsilon",
+        "asymptotic first-passage time inverse-square angular bottleneck with initial adaptive coupling exponential prefactor"
+      ]
+    },
+    "rationale": "Verified full-text model source and direct comparative searches distinguish the explicit finite-adaptation first passage asymptotic from previously established locking, bifurcation and discrete-sine results. Exact model/parameter and implication comparisons were carried out. Remaining risk of unindexed or unread full text is explicit.",
+    "residual_risks": [
+      "Full text of Ha–Noh–Park 2016 and Ha–Lee–Li–Park 2018 was not verified; a hidden special-case calculation could change publication priority.",
+      "Other unindexed analyses or differently formulated singular bottleneck laws could coincide with this statement; comparison cannot establish exhaustive originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SOURCE_OF_MODEL_NOT_SAME_TWO_TERM_PASSAGE_RESULT",
+        "evidence": [
+          "Equation (15) gives the exact reduced phase and adaptation equations.",
+          "Sections III B and V describe stability, locked-state coexistence, Hopf/SN curves, and bifurcations but do not state the initial-memory hitting-time expansion."
+        ],
+        "identifier_or_url": "https://doi.org/10.1063/5.0133190",
+        "material_read": "Open-access full HTML; symmetric reduction equations (13)–(15), equilibrium and bifurcation analysis in Sec. III B, and Sec. V discussion of locking and bistability.",
+        "method": "Read full article text sections and inspect analytic statements and discussion, comparing target model, parameter degeneracy and claimed time-asymptotic observables.",
+        "title": "Complex dynamics in adaptive phase oscillator networks",
+        "trigger": "The original 2022 public preprint defines exactly the symmetric two-oscillator adaptive system at issue."
+      },
+      {
+        "assessment": "ABSTRACT_ONLY_NO_DECISIVE_COVERAGE",
+        "evidence": [
+          "The reported adaptive network dynamics preserves sums of incoming coupling strengths and establishes synchronization frameworks; no two-term passage formula is stated in the abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/15M101484X",
+        "material_read": "Accessible publisher abstract, keyword and bibliographic information only; full text not verified.",
+        "method": "Compare disclosed feedback-law properties and abstract-level conclusion to exact critical passage observables; no whole-document negative assertion.",
+        "title": "Synchronization of Kuramoto Oscillators with Adaptive Couplings",
+        "trigger": "Earlier adaptive-coupling synchronization theory with potentially broad conclusions."
+      },
+      {
+        "assessment": "ABSTRACT_ONLY_NO_DECISIVE_COVERAGE",
+        "evidence": [
+          "The abstract provides synchronization sufficient conditions and a singular fast-learning reduction, not a fixed finite-epsilon two-term critical passage formula."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/17M1124048",
+        "material_read": "Accessible publisher abstract and keywords only; full text not verified.",
+        "method": "Compare abstract-level Tikhonov fast-learning limit and qualitative synchronization claims with a fixed-epsilon critical hitting-time asymptotic; no whole-document negative assertion.",
+        "title": "Emergent Dynamics of Kuramoto Oscillators with Adaptive Couplings: Conservation Law and Fast Learning",
+        "trigger": "General adaptive Kuramoto results including alternative phase feedback and fast adaptation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "6e42aac6-2903-4520-b72e-84d7488ddde5",
+  "value": {
+    "rationale": "The critical antipodal state is a natural nonhyperbolic boundary of the adaptive two-clock locking diagram, where ordinary stability results cannot quantify the observation time. The explicit inverse-square first passage with exponentially initial-coupling-dependent amplitude and an epsilon-dependent logarithmic correction yields a quantitatively interpretable memory effect of finite adaptation. This is a sharp nonlinear delay observable, not a routine Jacobian calculation. No assertion is made for detuning, arbitrary networks or changing epsilon.",
+    "status": "PASS"
+  }
+}
