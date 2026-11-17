@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Fixing the first population eliminates the second independently; its exact absolute-value energy is increasing with nonnegative population magnetization up to the coupling crossover and decreasing afterward. The two endpoints alone can minimize. Their energies, unique spin arrangements and binomial counts establish the theorem for every integer \(n\ge3\), including the parity correction and equality case. Exhaustive rational spin enumeration agrees in 36 parameter tests through eight pairs; separate four-composition optimization agrees in 208 parameter tests up to sixty pairs. These experiments support, but do not replace, the symbolic proof.
+PASS
 
-## Originality — PASS on examined evidence
+At fixed first-population spins a_i, the b_i terms separate, so minimization yields -J/n sum_i|M_A-(1+nK/J)a_i|. Rewriting by p=|M_A| gives exactly two piecewise branches: increasing for 0≤p≤t and decreasing for t≤p≤n, forcing global minimizers at p=r_n or p=n. Their energy comparison yields the displayed even/odd Kc and unique a=b balanced versus anti-aligned uniform configurations; no missing intermediate minima. Counting labels and Stirling yield the g_n+2 coexistence and entropy per spin 0 or (log2)/2 in the correct order of limits. An independently written exact rational direct all-spin ground-state enumeration matched both energy and full minimizer count for n=3..7 at 25 rational K choices straddling each threshold, including equality. This is finite corroboration of the all-n algebraic proof.
 
-The 1998 paper of Vieira and Gonçalves treats a one-dimensional chain with random short-range and all-spin long-range interactions; its explicit Hamiltonian and ground-state mechanisms are not the deterministic off-diagonal bipartite antiferromagnet with a ferromagnetic perfect matching. The 2000 analysis of Grousson, Tarjus and Viot concerns spatial Coulomb frustration with local ferro interactions, not the matched complete bipartite finite threshold. Related general optimization methods are prior art. Search comparisons found no covering exact phase-count formula, but priority risk from unpublished or unindexed equivalent Curie–Weiss dimer models remains.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This natural test system separates extensive antiferromagnetic cross coupling from a sparse ferromagnetic matching. It has an exact finite-size parity split in the first-order transition and a discontinuous positive residual entropy in the thermodynamic ground-state ensemble. That supplies a complete solvable benchmark for frustration, rather than an arbitrary tiny graph statistic.
+Vieira–Gonçalves (1998) treat a disordered one-dimensional nearest-neighbor chain with all-spin long-range coupling, not this deterministic bipartite off-diagonal frustration and matched bonds. Grousson–Tarjus–Viot (2000) treat a spatial long-range/Coulomb-frustrated lattice. The closest same-date Resultary paired-complete-graph theorem has all inter-pair edges including within each population with unscaled antiferromagnetic J and an antiferromagnetic matched K; its all-field staircase and entropy-doubling line at K=J do not specialize by renaming couplings to this bipartite crown/matching model with ferromagnetic -K. No comparison supplies the exact parity thresholds and two-phase degeneracies of this Hamiltonian.
 
-## Scientific limitations
+## value
 
-The result does not cover finite temperature, external fields, disorder, unequal populations or perturbations of the matching; it establishes no dynamical hysteresis. An independent historical-priority assessment would be useful.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Even though elimination of one sublattice is elementary, the all-size exact finite parity-dependent phase boundary, complete degeneracy at coexistence, a discontinuous matched-pair order parameter and a macroscopic residual-entropy jump make a natural self-contained frustrated Ising classification. No generic finite-temperature theory or paper-scale downstream result is needed for that motivated exact zero-temperature fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
