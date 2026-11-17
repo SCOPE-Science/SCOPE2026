@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T22:15:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the exact iid inverse-normal multiplier, Gaussian convolution of log|x| has H'(t)=w(t), w'=1-tw. The crossing g=tw=1 is unique: g(0)=0, w~1/t, and at every crossing g'=1/t>0; if no crossing w would stay nondecreasing against w→0. Therefore F_a(s)=log s+H(a/s) has unique strict minimum at s=a/t*, with minimum log(a/a*). Independent high-precision Dawson evaluation gave t*=1.3069297277192810 and a*=1.2780775875261037, and correctly signed minima at a=1.1,1.2,1.4. Endpoints F_a(0+)=log a>0 and F_a(infinity)=infinity yield the two-boundary classification. Strong law controls nonzero Lyapunov exponents; law of iterated logarithm controls mean-zero boundaries. A positive normal density at the denominator pole forces E|U_j|^p=infinity for p>=1; log-MGF derivative and Jensen prove the p in (0,1) equivalence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bosch and randomized Euler address broader ODE error/stability frameworks but not the exact reciprocal shifted-normal phase.",
+          "arxiv:2606.08203",
+          "arxiv:2104.15071"
+        ],
+        "reasoning": "These schemes do not imply the particular two critical noise levels unless a new Gaussian-denominator specialization and extremum analysis is done.",
+        "searches": [
+          "implicit Euler Gaussian random drift coefficient reciprocal multiplier logarithmic potential Dawson critical threshold reentrant stability",
+          "Gaussian random implicit denominator stability inverse normal expectation logarithm Dawson potential threshold all noise",
+          "arxiv:2606.08203",
+          "arxiv:2104.15071"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.08203",
+        "https://arxiv.org/abs/2104.15071",
+        "https://doi.org/10.1137/060658138",
+        "https://arxiv.org/html/2209.11920v3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The classical criterion E log|multiplier| does not imply the shape of F_a(s); the unique t w(t)=1 crossing and poles require the Gaussian integral calculation.",
+          "doi:10.1137/060658138"
+        ],
+        "reasoning": "Classical multiplicative ergodic machinery is credited; the explicit two-boundary Gaussian operator-error classification is the claim.",
+        "searches": [
+          "implicit Euler Gaussian random drift coefficient reciprocal multiplier logarithmic potential Dawson critical threshold reentrant stability",
+          "Gaussian random implicit denominator stability inverse normal expectation logarithm Dawson potential threshold all noise",
+          "doi:10.1137/060658138"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A random implicit denominator is not equivalent to Brownian right-hand-side forcing in stochastic theta methods.",
+          "arxiv:2104.15071",
+          "doi:10.1137/060658138"
+        ],
+        "reasoning": "Different multiplier law and denominator tail; common log-product criterion by itself does not fix the Gaussian potential minimum.",
+        "searches": [
+          "implicit Euler Gaussian random drift coefficient reciprocal multiplier logarithmic potential Dawson critical threshold reentrant stability",
+          "Gaussian random implicit denominator stability inverse normal expectation logarithm Dawson potential threshold all noise",
+          "arxiv:2104.15071",
+          "doi:10.1137/060658138"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary searches found same assigned finding plus other Gaussian inverse-moment and randomized-scheme results, but no independently indexed normal-log-potential cutoff.",
+          "arxiv:2606.08203",
+          "arxiv:2104.15071"
+        ],
+        "reasoning": "No exact external table of a*=1.2780775875 was located; absence is not a priority guarantee.",
+        "searches": [
+          "implicit Euler Gaussian random drift coefficient reciprocal multiplier logarithmic potential Dawson critical threshold reentrant stability",
+          "Gaussian random implicit denominator stability inverse normal expectation logarithm Dawson potential threshold all noise",
+          "arxiv:2606.08203",
+          "arxiv:2104.15071"
+        ]
+      },
+      "rationale": "General iid-product Lyapunov stability is classical, as are Gaussian logarithmic potentials and inverse-normal moments. Bosch studies probabilistic ODE filters with stochastic covariance, not iid Gaussian drift coefficients inside implicit inverses. Bochacik–Przybyłowicz treats random-time Euler with exact information in its stability section; Higham–Mao–Yuan treats Itô SDE forcing with deterministic implicit drift denominator. The universal random-denominator two-root phase and quantified a* remain unmatched by inspected literature and Resultary. No claim of new SLLN or Dawson functions.",
+      "residual_risks": [
+        "Classical literature on shifted Gaussian logarithmic potential or random scalar recurrences may contain an equivalent unindexed special case.",
+        "The full text of arXiv:2104.15071 was not independently reread in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_FILTER_MODEL",
+          "evidence": "Jacobian-vector products and covariance estimation are not iid coefficient errors in backward Euler.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.08203",
+          "material_read": "Accessible abstract and stated method summary; no complete source inspected in this run",
+          "method": "bibliographic/abstract and model comparison",
+          "title": "Stable and Scalable Probabilistic Numerical Solvers for Stiff and High-Dimensional ODEs",
+          "trigger": "Motivating numerical-ODE uncertainty"
+        },
+        {
+          "assessment": "FULL_TEXT_NOT_READ_PRIORITY_RISK",
+          "evidence": "Stability under exact information and randomized time steps is described; full Sections 5 not independently inspected in this run.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.15071",
+          "material_read": "Accessible abstract and primary result scope; HTML full text request blocked in this run",
+          "method": "primary abstract with bounded access attempt",
+          "title": "On the randomized Euler schemes for ODEs under inexact information",
+          "trigger": "Same error-in-ODE schemes"
+        },
+        {
+          "assessment": "NOT_A_GAUSSIAN_IMPLICIT_DENOMINATOR",
+          "evidence": "A finite-state momentum recursion with additive white noise is not a reciprocal Gaussian scalar multiplier.",
+          "identifier_or_url": "https://arxiv.org/html/2209.11920v3",
+          "material_read": "HTML introduction and mathematical model read",
+          "method": "primary full-text HTML read",
+          "title": "Tradeoffs between convergence rate and noise amplification for momentum-based accelerated optimization algorithms",
+          "trigger": "Broad momentum noise, comparator to unrelated claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The analytically sharp reentrant intermediate-noise instability while all absolute moments >=1 are divergent is a meaningful operator-error stability benchmark distinct from Itô forcing; its closed universal threshold helps distinguish almost-sure stability from moment stability rather than trivial numerical sampling.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Unbounded iid Gaussian error in scalar implicit drift, a>1 only; no general SDE, nonlinear ODE, bounded-noise or finite-precision claim.",
+    "Classical literature on shifted Gaussian logarithmic potential or random scalar recurrences may contain an equivalent unindexed special case.",
+    "The full text of arXiv:2104.15071 was not independently reread in this run."
+  ]
+}

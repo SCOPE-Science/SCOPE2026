@@ -1,19 +1,21 @@
-# Scientific review: A sharp reentrant stability window for implicit Euler with Gaussian coefficient error
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The scalar update is exactly the inverse of a shifted normal. The proof reconstructs the centered Gaussian log-potential, derives its differential equation by a justified Gaussian integration by parts, proves the unique positive crossing of \(tw(t)=1\), and obtains the unique global minimum in noise amplitude. The strong law and the law of the iterated logarithm settle exponential and boundary regimes; local density positivity settles all divergent moments. Fractional-moment stability is equivalent to positive mean log denominator by differentiability at the origin and Jensen's inequality. The checker reproduced 824 deterministic consistency tests, including singular-integral numerical comparisons; no infinite claim rests solely on finite experimentation.
+PASS
 
-## Originality — PASS, subject to priority risk
+For the exact iid inverse-normal multiplier, Gaussian convolution of log|x| has H'(t)=w(t), w'=1-tw. The crossing g=tw=1 is unique: g(0)=0, w~1/t, and at every crossing g'=1/t>0; if no crossing w would stay nondecreasing against w→0. Therefore F_a(s)=log s+H(a/s) has unique strict minimum at s=a/t*, with minimum log(a/a*). Independent high-precision Dawson evaluation gave t*=1.3069297277192810 and a*=1.2780775875261037, and correctly signed minima at a=1.1,1.2,1.4. Endpoints F_a(0+)=log a>0 and F_a(infinity)=infinity yield the two-boundary classification. Strong law controls nonzero Lyapunov exponents; law of iterated logarithm controls mean-zero boundaries. A positive normal density at the denominator pole forces E|U_j|^p=infinity for p>=1; log-MGF derivative and Jensen prove the p in (0,1) equivalence.
 
-Bosch (arXiv:2606.08203, 2026) constructs stable scalable ODE filters using exact Jacobian-vector products and stochastic covariance estimators; it does not implement independent Gaussian perturbations of the implicit drift coefficient. Bochacik–Przybyłowicz (arXiv:2104.15071, 2021), Section 5, treats stability under **exact information** for random-time Euler rules on a different test problem. Higham–Mao–Yuan (DOI:10.1137/060658138, 2007), Sections 2, 4 and 6, treats numerical Itô SDE forcing, with deterministic implicit drift denominators. The known iid-log-product stability criterion is not asserted to be new; the claimed increment is the closed Gaussian-denominator phase classification and unique drift cutoff. Targeted published-result searches and comparison with accessible historical findings showed no covering statement. Unindexed random-affine-recurrence results, and reformulations in classical normal logarithmic-potential theory, remain potential priority risks.
+## originality
 
-## Value — PASS
+PASS
 
-The result supplies a sharp, analytically characterized failure region for a directly interpretable type of operator-estimation error in a classical stiff ODE integrator. The distinctive open interval of noise-driven almost-sure instability, with restored stability at sufficiently large noise and simultaneous absence of all first and higher moments, goes beyond a generic textbook multiplicative-noise observation. The numerical cutoff is universal across timestep and decay-rate scalings in this model; it can serve as a reproducible diagnostic benchmark. Its value does not require assuming the motivating ODE-filter algorithms introduce such noise.
+General iid-product Lyapunov stability is classical, as are Gaussian logarithmic potentials and inverse-normal moments. Bosch studies probabilistic ODE filters with stochastic covariance, not iid Gaussian drift coefficients inside implicit inverses. Bochacik–Przybyłowicz treats random-time Euler with exact information in its stability section; Higham–Mao–Yuan treats Itô SDE forcing with deterministic implicit drift denominator. The universal random-denominator two-root phase and quantified a* remain unmatched by inspected literature and Resultary. No claim of new SLLN or Dawson functions.
 
-## Boundaries and outstanding risks
+## value
 
-The perturbations must be independent standard Gaussians and can reverse the effective drift sign; changing those assumptions changes the result. Singular denominators occur only on null events but produce heavy tails and huge transients. Numerical constants are not formally interval-certified. Independent mathematical validation and exhaustive historical priority searches have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The analytically sharp reentrant intermediate-noise instability while all absolute moments >=1 are divergent is a meaningful operator-error stability benchmark distinct from Itô forcing; its closed universal threshold helps distinguish almost-sure stability from moment stability rather than trivial numerical sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
