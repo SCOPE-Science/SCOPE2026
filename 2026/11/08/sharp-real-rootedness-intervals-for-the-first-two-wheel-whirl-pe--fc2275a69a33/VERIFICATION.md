@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Use `python wheel_whirl_sturm_check.py` with Python 3 and SymPy installed. The checker performs independent direct lattice-count/transfer-matrix comparisons, the generating-function binomial transform, exact polynomial discriminants, exact rational Sturm real-root counts for the parameter discriminant and for the three sample polynomials, and endpoint-isolation tests.
+## correctness
 
-The analytical step not reducible to finite sample checking is the constancy of the number of simple negative roots on parameter intervals free of discriminant zeros, combined with constant leading and constant terms and the positive-coefficient necessity for negative roots. This step is proved in RESULT.md.
+PASS
 
-All inputs are exact rationals or integers; displayed endpoint decimals are not used for root certification. The conclusion concerns the polynomial pencil, not realization as polytopes away from its endpoints. Independent mathematical audit has not been performed.
+Crown enumerator and relaxation correction produce the displayed quartic/sextic pencils; reciprocal quartic reduction proves lambda<2 in rank three. Exact symbolic discriminant disc_z(H4)=16D and Sturm roots plus witness counts isolate the full rank-four (alpha,beta) interval.
+
+## originality
+
+PASS
+
+No inspected broader prior statement implies the final exact claim; bounded best-of-knowledge originality with risks documented.
+
+## value
+
+PASS
+
+Off-segment global root-locus resolves a natural sharp stability classification beyond Cao–Fu convex combinations for the smallest genuinely different ranks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
