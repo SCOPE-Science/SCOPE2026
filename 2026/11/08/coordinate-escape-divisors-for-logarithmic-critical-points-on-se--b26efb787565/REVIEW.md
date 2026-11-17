@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The explicit two-variable critical equations yield the normalized Sylvester resultant and the linear-variable eliminant. The key identities, boundary coefficients, degree count, generic incidence irreducibility and coordinate separation are given in `RESULT.md`. Exact Sylvester calculations at 20 parameter specializations, including at least one squarefree specialization for each degree through five, were replayed with `verify.py`; they do not establish the theorem by finite extrapolation.
+## correctness
 
-## Originality
-PASS (provisional priority). Goertz–Sturmfels–Telen's arXiv:2610.29204v1 supplies the generic logarithmic critical-point framework and discusses coordinate eliminants; its Section 6 Example 6.9 gives a different support and the subsequent paragraph explicitly leaves factor determination in general as future work. The present all-degree rectangle factors and primitive equations were not found in the inspected relevant text or targeted published-finding corpus searches. The broad existence and volume results are not claimed as new. Earlier generic elimination theory and incompletely inspected literature remain historical-priority risks.
+PASS
 
-## Mathematical value
-PASS. The boundary factor problem was explicitly motivated in current literature. The result gives a complete infinite family of answers, with a difference in factor types between the two coordinates and a variable resonance multiplicity. This yields information not supplied by a generic volume count or a generic elimination prescription.
+With F=uP+(u+s)xQ and G=v(P+xQ)+s y(P'+xQ'), eliminating x produces s H_y where H_y=vPQ+(u+s)yP'Q-u yPQ'; its degree and leading/constant coefficients follow directly. Identity uG=vF+sC and degree-m resultant homogeneity give s^m dividing Res_y(F,G) over the polynomial coefficient ring and H_x quotient. Extreme x-coefficients are (u+s)^m Res(Q,yQ') and u^m Res(P,yP'), hence edge discriminant factors, whereas the y extremes are (v+ms)a_m b_m and va_0b_0. Genericity and the nonzero boundary factors rule out torus escape; bidegree intersection (1,m)^2=2m, irreducible critical incidence graph solved by u,v and a rank-four pair incidence for distinct y values give degree 2m generic simple separated x,y coordinate projections. Independently formed symbolic Sylvester resultants and verified coefficient/divisibility identities at m=2 and 3 using SymPy; those finite checks only corroborate the general algebra and incidence proof. Exact claims are generic char0, not exceptional parameter intersections.
 
-## Scope and closest work
-The result assumes generic complex coefficients for supports of shape `[(0,0),(1,0),...,(0,m),(1,m)]`, not arbitrary supports. Related sources: Goertz–Sturmfels–Telen, *The Logarithmic A-Discriminant* (2026), Sections 1, 6; Chestnov–Crisanti–Giroux, *Landau's Leviathans* (2026), relevant Sections I–II. The output is a self-review, not an independent audit or an exhaustive bibliographic priority determination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Goertz–Sturmfels–Telen's primary full text defines general log A discriminants, generic critical count, coordinate eliminant factors, and Example 6.9 for a three-variable triangular-prism support; its Section 6 expressly leaves arbitrary A factors for future work. The present two-variable Segre–Veronese rectangle (1,m) has explicit primitive eliminants and multiplicity-m resonance/edge discriminant factors that are not supplied in the inspected example. The 2026/11/02 Resultary theorem on Segre P^1xP^m logarithmic 2×(m+1) determinants concerns a different  higher-dimensional projective support, not this toric surface O(1,m). Novelty of generic resultant method is not claimed; O passes for the complete infinite-family factor classification with risk of an older specialized formula.
+
+## value
+
+PASS
+
+An open factor-determination problem explicitly motivated in recent log A-discriminant research receives a complete uniform solution for a natural infinite toric surface family, with a sharp contrast between x-coordinate edge-discriminant escape and y-coordinate endpoint-only escape, including exact multiplicities. The exact degree, primitive irreducibility and coordinate separation are needed for interpreting boundary degeneration and cannot be replaced by a volume count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
