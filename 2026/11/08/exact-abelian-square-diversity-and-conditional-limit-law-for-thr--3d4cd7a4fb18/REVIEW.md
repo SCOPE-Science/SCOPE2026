@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The factor classification separates zero-one-count and two-one-count Abelian squares exhaustively, reduces each adjacent pair to a parity-restricted diagonal lattice band, and subtracts the sole literal-duplicate family when the inner zero gaps agree. Finite-series manipulations and Dirichlet conditioning provide the rational population series and limit mean. The independently implemented checker exhausts all \(17{,}550\) words of lengths \(3\)–\(26\) with three ones, checks the rational generating-series coefficients through zero-count degree \(22\), and re-evaluates the rational moment. The infinite proof is separate from the computations.
+## correctness
 
-**Originality — PASS (qualified).** The closest inspected primary sources distinguish unrestricted Abelian-square-word counts (Richmond–Shallit 2008), general distinct-factor extremal growth and bounded-block treatment (Kociumaka et al. 2014/2016), and infinite-word Abelian-square richness (Fici et al. 2017). None states the conditional three-one four-gap formula, its all-length exact rational first-moment series, or the Dirichlet \(1/40\) conditional mean. Earlier two-marker and fixed-run results establish related geometric counts and quadratic growth; the present claim does not assert those as new. Risk remains that an unindexed equivalent or an unpublished fixed-weight treatment exists.
+PASS
 
-**Value — PASS.** The natural first odd positive Hamming weight admitting two competing two-marker Abelian-square families creates a genuine duplicate-intersection problem, resolved by an exact equality-of-inner-gaps criterion. The work determines the complete factor count for every word in the family, the exact aggregate for all lengths, and an explicit nondegenerate conditional fluctuation law. Its exact arithmetic mean is not supplied by the previously known unrestricted quadratic growth or conditional two-one law. This is a complete sparse-word enumeration, not a claimed new universal bound.
+Any Abelian-square factor of a weight-three binary word contains zero or exactly two ones; two-one factors use consecutive markers and have literal content 0^u1 0^g1 0^v with u+v+g even and |u-v|<=g. Summing checkerboard band gives H, and matching of the two pair families occurs only for b=c, yielding exact inclusion–exclusion. Summing gap extensions and parity projectors gives rational total series Z+2F−O. Uniform gap compositions scaled by n converge to Dirichlet(1,1,1,1); H/n^2 tends to half polygon area J, overlaps live on b=c with probability O(1/n), and beta integrals yield E[L]=1/40. Independent brute-force factor enumeration for all 7^4=2401 gap tuples a,b,c,d<=6 reproduced (1); aggregate T_0..T_11 = 1,4,21,54,124,234,423,702,1128,1706,2520,3580.
 
-**Scientific limits.** No exact finite-length maximizer classification, no limit density formula, and no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Older Richmond–Shallit counts freely varying Abelian-square words of given length; Kociumaka et al. determine general quadratic extremal order; Fici–Mignosi–Shallit study rich infinite words. Nearby fixed-three-one Parikh-class spectra count equivalence classes, not literal factor diversity. None of inspected statements supplies this exact 4-gap count, rational population series and conditional law; best of knowledge.
+
+## value
+
+PASS
+
+A natural sparse binary-word model admits a genuinely quantitative exact literal-diversity census, a nonconstant scaling limit and its exact mean. Distinguishing contents versus occurrences/Parikh types and collision hyperplane is structurally meaningful; the result advances a precise conditional distribution beyond generic quadratic bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

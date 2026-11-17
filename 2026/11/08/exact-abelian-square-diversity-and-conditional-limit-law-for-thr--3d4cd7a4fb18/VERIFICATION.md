@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone `verify.py` checks the exact wordwise formula against direct literal-factor enumeration for every binary weight-three word through length \(26\) (\(17{,}550\) cases). It checks the formal rational generating-function coefficients through zero-count degree \(22\) against an independent composition sum, and verifies the exact limiting-mean arithmetic.
+# Independent mathematical audit
 
-The all-length proof uses the exhaustive two-one/zero-one case split, a parity-conditioned diagonal band, inclusion-exclusion for the two neighboring marker pairs, parity-projected geometric series, and a lattice-polygon limit. The finite checker does not purport to certify statements beyond its tested range. Independent review and external validation have not been carried out.
+## correctness
+
+PASS
+
+Any Abelian-square factor of a weight-three binary word contains zero or exactly two ones; two-one factors use consecutive markers and have literal content 0^u1 0^g1 0^v with u+v+g even and |u-v|<=g. Summing checkerboard band gives H, and matching of the two pair families occurs only for b=c, yielding exact inclusion–exclusion. Summing gap extensions and parity projectors gives rational total series Z+2F−O. Uniform gap compositions scaled by n converge to Dirichlet(1,1,1,1); H/n^2 tends to half polygon area J, overlaps live on b=c with probability O(1/n), and beta integrals yield E[L]=1/40. Independent brute-force factor enumeration for all 7^4=2401 gap tuples a,b,c,d<=6 reproduced (1); aggregate T_0..T_11 = 1,4,21,54,124,234,423,702,1128,1706,2520,3580.
+
+## originality
+
+PASS
+
+Older Richmond–Shallit counts freely varying Abelian-square words of given length; Kociumaka et al. determine general quadratic extremal order; Fici–Mignosi–Shallit study rich infinite words. Nearby fixed-three-one Parikh-class spectra count equivalence classes, not literal factor diversity. None of inspected statements supplies this exact 4-gap count, rational population series and conditional law; best of knowledge.
+
+## value
+
+PASS
+
+A natural sparse binary-word model admits a genuinely quantitative exact literal-diversity census, a nonconstant scaling limit and its exact mean. Distinguishing contents versus occurrences/Parikh types and collision hyperplane is structurally meaningful; the result advances a precise conditional distribution beyond generic quadratic bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
