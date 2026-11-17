@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and analytical boundaries
+# Independent mathematical audit
 
-Run `python bipyramid_santalo_check.py` with Python 3 and the packages SymPy, NumPy, and SciPy. It was run successfully using the packaged code and printed:
+## correctness
 
-`ASYMMETRIC_BIPYRAMID_CHECKS_PASSED 18 18 128 8 25 9`
+PASS
 
-The six numbers count exact-fraction polar-volume expansions, symbolic derivative/limit identities, exact-rational centroid and midpoint sign comparisons, symbolic quadratic expansion checks, numerical optimizer comparisons, and convex-hull/polar-volume comparisons, respectively.
+For centered base B, the polar of the bipyramid translated by axial z has t∈[−1/(b+z),1/(a−z)] and horizontal sections (1+zt) B°. Fubini gives J_d(z;a,b)=[(a/(a−z))^d−(b/(b+z))^d]/(dz), with continuous value 1/a+1/b at z=0. Its derivative is [G_d(T)−G_d(R)]/(dz²), G_d(u)=u^d(d+1−du). At centroid z=(a−b)/(d+1), derivative<0 by H′(r)>0; at apex midpoint z=(a−b)/2 derivative>0 by the explicit G comparison. Strict polar-volume convexity yields unique s between them. Envelope differentiation gives monotonicity; Taylor in δ and z has coefficient (d−1)/(2(d+2)). Independently verified exact Sympy differentiation and signs for d=2,3,4,6,9 with positive rational heights and Taylor coefficient. Finite tests do not replace all-d proof. d=2 valid, sign reverses for a<b; a=b centered.
 
-The proof of the all-dimensional statements is in RESULT.md. No finite range of dimensions or optimizer sampling can establish universal uniqueness, strict inequalities, or exact asymptotic coefficients. The relevant independent analytical steps are the polar section calculation, the positive derivative of the centroid comparison function, the opposite sign at the apex midpoint, envelope differentiation, and the second-order Taylor calculation. The code supplies reproducible regression checks of these steps; independent mathematical validation has not been performed.
+## originality
+
+PASS
+
+Best of knowledge: qualitative shadow-system product trend, pyramid endpoint and raw polar/frustum computations are prior; surviving explicit all-dimension strict Santaló-centroid-midpoint bracket and normalized Mahler second-variation coefficient are distinct quantitative results.
+
+## value
+
+PASS
+
+Quantifies a natural affine-geometric center displacement for every base shape and its sharp second-order Mahler loss, strengthening known qualitative shadow-system monotonicity. The centroid-to-midpoint interval is a structural dimension-uniform rigidity statement, and precise second variation is a motivated stability benchmark, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
