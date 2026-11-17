@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed positivity condition is exact: the identity \(T_{\theta,h}=(R_{\theta h}-(1-\theta)I)/\theta\) makes all off-diagonal checks automatic, the four orthogonal graph-Laplacian eigenspaces give the two return probabilities, their exact difference identifies the controlling smaller part, and a concave quadratic yields the unique positive crossing. The Euler case is handled directly; the full backward-Euler limit and threshold parameter are explicit. Comparing consecutive smaller-part sizes gives a strictly positive polynomial difference throughout the finite-threshold regime. Exact-replay `verify.py` passed 1,176 rational full matrices and ancillary sign checks; the infinite-family claim follows from analytic identities, not enumeration.
+## correctness
 
-## Originality — PASS, with residual risk
-A prior published reversible-chain theorem already reduces Crank--Nicolson positivity to resolvent-return diagonals and establishes general monotonicity; this method is not presented as new. Fallat--Tsatsomeros supply the relevant matrix Cayley identity; Horváth's 1998 work establishes general Runge--Kutta positivity theory. A previous complete-multipartite Crank--Nicolson classification already evaluates the present \(\theta=1/2\) case, including the strict minimum-part effect: neither that slice nor the general resolvent criterion is claimed original. The differentiated contribution is the full continuous \(\theta\)-parameter family of exact radical horizons and the associated finite-to-unconditional cutoff; the balance comparison is extended outside the known Crank--Nicolson slice. Actual text searches under implicit theta, bipartite, graph Laplacian, Markov resolvent, and Crank--Nicolson aliases did not identify a directly covering evaluated Kpq formula. Bonnans--Tan's 2011 diffusion-grid report is a plausible prior; only its abstract could be read and full text could not be retrieved. It remains a material priority risk rather than an asserted non-covering source. Unindexed equivalent formulations are another residual risk.
+PASS
 
-## Value — PASS
-The result is a complete step-selection rule for a canonical network heat equation, not merely a substitution into a generic stability radius: it determines an exact step, the first failing vertex class, the optimal partition balance for fixed network order, and when implicitness eliminates all step restrictions. In Crank--Nicolson the balanced design admits asymptotically twice the star's time step, a quantitatively useful extremal distinction.
+PASS: for all p,q>=1 with N>=3 and theta in [0,1], M-matrix positive resolvent makes every off-diagonal T entry positive for h>0. Spectral projectors give min part diagonal r_m(t)=(1+Nt+Mt²)/((1+Mt)(1+Nt)), t=theta h. Diagonal sign is exactly theta+[m theta+M(2theta-1)]t - M(N-1-Ntheta)t². For 0<theta<(N-1)/N it has one positive root and yields exact radical step frontier; theta=0 Euler gives h<=1/M; theta>=cutoff all steps safe. At fixed N, F_{m+1}(t)-F_m(t)=(1-theta)t+(N-1-Ntheta)t²>0, giving strict balance ordering. Checked symbolic identities and 60 direct inverse matrix instances; infinite statement from algebra and M-matrix proof.
 
-## Scientific scope and sources
-The theorem concerns end-step preservation of the nonnegative cone, not matrix-norm stability or stage positivity. Relevant primary work includes Horváth (1998), Fallat--Tsatsomeros (2002; full-text lemma and matrix-class section inspected), Bonnans--Tan (2011; abstract only), and a published full-text resolvent-return theorem (2026). The last already covers the general Crank--Nicolson reduction; it does not state this evaluated full-\(\theta\) biclique formula in its inspected theorem. The 2011 primary report could still affect originality if its unavailable main text subsumes the result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge with a clearly known Crank-Nicolson slice: full inspected complete-multipartite Crank-Nicolson theorem already implies theta=1/2 horizon and balancing. The submitted theorem extends to every theta including unconditional theta=(N-1)/N and all finite regimes, not deducible solely from theta=1/2. Consistent-mass metric-wire-network K_pq theorem differs fundamentally from combinatorial Laplacian; its positive-step lower bound, absent here, confirms models cannot be equated. General theta positivity/diagonal resolvent literature checked; Bonnans-Tan full report unavailable, risk documented.
+
+## value
+
+PASS
+
+PASS: exact all-theta positivity region of a natural complete-bipartite graph heat network is a meaningful sharp positivity-preserving integrator classification, providing step horizon, unconditional parameter cutoff and geometry-order theorem; does not merely recite prior theta=1/2 case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

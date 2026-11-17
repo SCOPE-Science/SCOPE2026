@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` using only Python's standard library. The script builds the exact rational graph Laplacian and independently computes the end-step operator by full rational matrix inversion, then compares it with the derived spectral resolvent formulas. It checks 1,176 complete matrices for all parts up to size five, seven positive rational \(\theta\) values, and seven nonnegative rational steps. It checks the Euler threshold, the strictly positive balance-comparison identity through total order 39, and the two exact Crank--Nicolson boundary examples at total order four.
+## correctness
 
-Recorded result from this package's standalone code: `VERIFY_OK 1176 full exact-rational matrix cases; endpoint, ordering and boundary checks`.
+PASS
 
-These tests are deliberately finite. The mathematical proof of the formula for all positive part sizes, all real \(\theta\in[0,1]\), and all real steps is the algebraic spectral decomposition and quadratic sign argument in RESULT.md. Numerical instability, non-graph Laplacians, stage preservation, and claims about arbitrary weighted graphs are not certified.
+PASS: for all p,q>=1 with N>=3 and theta in [0,1], M-matrix positive resolvent makes every off-diagonal T entry positive for h>0. Spectral projectors give min part diagonal r_m(t)=(1+Nt+Mt²)/((1+Mt)(1+Nt)), t=theta h. Diagonal sign is exactly theta+[m theta+M(2theta-1)]t - M(N-1-Ntheta)t². For 0<theta<(N-1)/N it has one positive root and yields exact radical step frontier; theta=0 Euler gives h<=1/M; theta>=cutoff all steps safe. At fixed N, F_{m+1}(t)-F_m(t)=(1-theta)t+(N-1-Ntheta)t²>0, giving strict balance ordering. Checked symbolic identities and 60 direct inverse matrix instances; infinite statement from algebra and M-matrix proof.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge with a clearly known Crank-Nicolson slice: full inspected complete-multipartite Crank-Nicolson theorem already implies theta=1/2 horizon and balancing. The submitted theorem extends to every theta including unconditional theta=(N-1)/N and all finite regimes, not deducible solely from theta=1/2. Consistent-mass metric-wire-network K_pq theorem differs fundamentally from combinatorial Laplacian; its positive-step lower bound, absent here, confirms models cannot be equated. General theta positivity/diagonal resolvent literature checked; Bonnans-Tan full report unavailable, risk documented.
+
+## value
+
+PASS
+
+PASS: exact all-theta positivity region of a natural complete-bipartite graph heat network is a meaningful sharp positivity-preserving integrator classification, providing step horizon, unconditional parameter cutoff and geometry-order theorem; does not merely recite prior theta=1/2 case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
