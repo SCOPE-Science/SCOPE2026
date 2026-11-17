@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS (same-model).** The claim has a complete proof: central symmetry uniquely fixes the minimum-ball center; endpoint choices reduce the maximum squared norm to an orientation indegree-square objective; a strict cloned-neighbor identity forces each class to be uniform; reversing arcs forbids directed cycles; an exact adjacent-class swap proves the size ordering and all its equality cases. Positive coordinates can be signed independently, and strict convexity and the antipodal equality condition rule out omitted sphere contacts or diametral pairs. The extracted standalone verifier exhaustively covers all 23 complete multipartite part-size partitions up to six vertices, and explicitly enumerates signed endpoint sums in seven smaller instances. No finite experiment is substituted for the general argument.
+## correctness
 
-**Originality — PASS (same-model, provisional historical priority).** Wang et al. (arXiv:2608.16037) supply the Minkowski-sum construction but treat Ehrhart and lattice invariants. A prior cycle-graph edge-diamond theorem already covers the overlapping \(C_3=K_{1,1,1}\) and \(C_4=K_{2,2}\) instances; the result here is not new in those cases, but it classifies all remaining multipartite class-size vectors and a new optimal ordering principle. The closest published complete-multipartite graphical-zonotope result concerns segment summands, not four-vertex diamonds, and yields a different radius and equality pattern even on \(K_{3,2}\). Borsik and Madarasi (arXiv:2509.06182) optimize convex indegree objectives in the minimizing direction; the complete paper establishes no maximal value and equality family for this special graph class. Eur et al. (2024) discuss type-B lattice and volume aspects. Targeted bibliographic and mathematical-record searches found no covering implication; possible obscure equivalents in discrete convex orientation theory remain a residual risk.
+PASS
 
-**Mathematical value — PASS (same-model).** Edge-indexed cross-polytope sums belong to a recently studied type-B generalized-permutohedron family, making their metric invariants natural rather than arbitrary. The result classifies the full minimum enclosing ball, all extremal configurations, and the complete diameter graph uniformly for every multipartite class-size partition. The sharp sorting constraint and factorial-exponential contact multiplicities expose nontrivial dependence on part-size ties, absent from the conventional graphical zonotope. The theorem is specific to unit-weight complete multipartite graphs and makes no general weighted-family claim.
+The standard Euclidean Minkowski-sum endpoint reduction gives ||x||²≤Σ d_v² for chosen indegree counts; equality requires consistent signs. The exact clone-symmetrization difference 2Σ_w(x_w−y_w)² forces within-class incidence equality in maximizers. Reversing u→v improves score by 2(d_u−d_v+1), so class tournament is transitive; swapping neighboring classes changes score by ab(a−b), imposing descending sizes. Thus R²=Σ_j b_jS_{j−1}², with distinct signed contacts 2^(N−max b_j)Π_s m_s! and diameter 2R; centered minimum ball unique by antipodal extremizers. Direct independent exhaustive orientation tests for part profiles (1,1,1), (2,2), (3,2), (2,1,1), (3,1,1) matched squared radii and maximizers. Tests only finite, universal result is algebraic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original exact multipartite class-order optimizer and full signed contact multiplicities; previously known general load optimization and cycle specialization are explicitly credited, and the standard zonotope is not the same polytope.
+
+## value
+
+PASS
+
+The edge-diamond family is natural among cross-polytope sums; exact ambient outer sphere, rigidity of class ordering, and contact/diameter multiplicities for every complete multipartite graph are useful structural invariants not mere renaming of the segment-zonotope theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
