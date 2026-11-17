@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The theorem's decisive steps are: (1) on a tree all vertices are infected iff every parent sends at least one contact to each child before removal; (2) each parent's simultaneous child-transmission probability is \(m_j=\mathbb E[(1-e^{-\lambda T})^j]\), independently across parents; (3) rooting changes the outgoing-child count from \(d_v-1\) to \(d_v\) at exactly the source; (4) Cauchy–Schwarz gives strict monotonicity of moment ratios for positive nonconstant infectiousness; (5) beta-integral evaluation yields the exponential-recovery specialization.
+## correctness
 
-`CHECKER.py` is self-contained and can be run with `python CHECKER.py`. It reconstructs finite-state continuous-time SIR absorption probabilities exactly with rational transition rates, then performs independent latent-infectiousness and directed-transmission enumeration. It makes 120 exact comparisons, including all sources on six tree structures. Two nonisomorphic six-vertex examples share degree multiset \((3,2,2,1,1,1)\) and have the same exact full-outbreak probabilities per source degree when \(\lambda=\mu=1\): degree one \(1/24\), degree two \(1/18\), and degree three \(1/16\).
+PASS
 
-Finite testing cannot certify every finite tree or every infectious-period distribution; the complete quantification follows from the analytic proof. Independent scientific audit has not been performed. The model excludes cyclic contact routes, heterogeneous contact rates, and reinfection.
+On a finite undirected tree (n>=2) infected from source s, the unique rooted paths imply that every vertex becomes infected iff each parent sends to every child. Conditional on T_v, independent outgoing contacts make this event probability X_v^c_v, so independence across v gives product_v m_c_v. Because c_s=d_s and c_v=d_v-1 otherwise, P_s=(product_v m_(d_v-1))*m_(d_s)/m_(d_s-1). Moment log-convexity proves ratios increasing, strictly for nonconstant positive T; the degree-2/degree-1 ratio is m2/m1^2. The beta integral for exponential T gives m_j=j!lambda^j/product_(i=1)^j(mu+i lambda). Independent rational two-point infectiousness check with X=1/4 or 3/4, equally likely, confirmed two nonisomorphic six-vertex trees with degree multiset (3,2,2,1,1,1) produce P_degree1=5/128, P_degree2=25/512, P_degree3=7/128; the ratio equals 5/4. Finite checks support rather than establish the exact all-tree theorem.
+
+## originality
+
+PASS
+
+A best-of-knowledge exact joint complete-outbreak identity for iid arbitrary infectious lifetimes, ranking by source degree only. Karrer-Newman tree epidemic message passing and Sharkey/Hall-Siebert exact node marginal equations supply the model and machinery, but their inspected core statements give probabilities of specified nodes and not the explicit joint event/all-transmissions product, degree-quotient, or heterogeneity ratio. Derivation uses familywise correlations from one parent lifetime; the claimed distinction is not generic independent-bond percolation. A hidden earlier cluster/all-edges-success coefficient in broader epidemic literature remains a priority risk.
+
+## value
+
+PASS
+
+The precise all-vertex outbreak event is a meaningful rare-event epidemic risk quantity distinct from expected or peak burden. An exact topology-blind source-degree ordering, robust to arbitrary iid infectious-time heterogeneity, and heterogeneity-measuring risk ratio give a structural fact a network researcher could use for verification and risk comparisons. The conditional factorization is short, but concerns correlated outgoing edge outcomes, not a mere relabeling of independent-bond formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

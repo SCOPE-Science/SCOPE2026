@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T15:11:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On a finite undirected tree (n>=2) infected from source s, the unique rooted paths imply that every vertex becomes infected iff each parent sends to every child. Conditional on T_v, independent outgoing contacts make this event probability X_v^c_v, so independence across v gives product_v m_c_v. Because c_s=d_s and c_v=d_v-1 otherwise, P_s=(product_v m_(d_v-1))*m_(d_s)/m_(d_s-1). Moment log-convexity proves ratios increasing, strictly for nonconstant positive T; the degree-2/degree-1 ratio is m2/m1^2. The beta integral for exponential T gives m_j=j!lambda^j/product_(i=1)^j(mu+i lambda). Independent rational two-point infectiousness check with X=1/4 or 3/4, equally likely, confirmed two nonisomorphic six-vertex trees with degree multiset (3,2,2,1,1,1) produce P_degree1=5/128, P_degree2=25/512, P_degree3=7/128; the ratio equals 5/4. Finite checks support rather than establish the exact all-tree theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Karrer-Newman 2010 §II defines transmissibility kernel f(t), edge messages H^{i<-j}(t), and tree factorization for marginal susceptible probabilities. The two later works treat Markovian node-state or rooted-tree marginal equations."
+        ],
+        "reasoning": "Those general epidemic frameworks permit deriving this joint event but their inspected statements do not directly deliver source-degree invariance for full infection under arbitrary random individual infectivity; broader unnamed percolation theorems could, so priority is provisional.",
+        "searches": [
+          "arxiv:1003.5673 Karrer-Newman full primary",
+          "doi:10.1007/s11538-013-9923-5 Sharkey et al. exact SIR trees",
+          "doi:10.1007/s00285-022-01854-9 Hall-Siebert rooted-tree marginal results"
+        ]
+      },
+      "checked_sources": [
+        "Frozen assigned RESULT.md and CHECKER.py",
+        "Karrer-Newman arxiv:1003.5673 full rendered primary §II",
+        "Sharkey et al. DOI 10.1007/s11538-013-9923-5 abstract",
+        "Hall-Siebert DOI 10.1007/s00285-022-01854-9 abstract",
+        "Resultary tree SIR outbreak-variance and vaccination literature search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source identity P_s=C_G*m_d/m_(d-1) follows from ALL child transmissions of one parent, not product of marginal vertex infection probabilities; m2/m1^2 detects positive sibling correlation. Earlier variance-excess papers study aggregate final-size moments, not all-infected tail exactly."
+        ],
+        "reasoning": "Prior joint epidemic-percolation frameworks may contain machinery from which the factorization is derivable, but inspected statement-level claims do not mathematically imply the displayed all-source comparison without additional event-specific reasoning; no opposite implication was found.",
+        "searches": [
+          "Karrer Newman 2010 §II tree messages and transmissibility",
+          "Resultary 2026/10/25 convex-order inflation of final size in tree SIR epidemics",
+          "Source RESULT.md formula and proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditionally independent outgoing bond transmissions given each latent X_v produce m_c_v, while unconditional sibling-edge transmissions are dependent; this is an exact epidemic-percolation representation."
+        ],
+        "reasoning": "All-vertex infection on a tree equals success of every directed parent-to-child bond, unlike a marginal probability that one vertex is reached. Independent-bond percolation with fixed X yields equal source risk and is a strict specialization.",
+        "searches": [
+          "Resultary query SIR epidemic all vertices infected tree arbitrary infectious lifetime source vertex degree transmissibility moments full outbreak",
+          "Resultary query complete epidemic tree all nodes infected probability source degree correlated per-edge transmissibility moment product",
+          "Karrer-Newman arxiv:1003.5673"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search results cover outbreak variance, marginal infection, peak prevalence, and vaccination thresholds; no same exact all-vertex probability/degree-multiset table was found."
+        ],
+        "reasoning": "An enumeration of node infection marginals does not tabulate a probability that every node is ever infected; unseen full-size cluster coefficients remain possible.",
+        "searches": [
+          "Resultary full-outbreak source and tree-epidemic semantic queries",
+          "arxiv:1003.5673 equation 1 and message-passing tree formulas",
+          "Sharkey et al. 2013 exact node-state tables"
+        ]
+      },
+      "rationale": "A best-of-knowledge exact joint complete-outbreak identity for iid arbitrary infectious lifetimes, ranking by source degree only. Karrer-Newman tree epidemic message passing and Sharkey/Hall-Siebert exact node marginal equations supply the model and machinery, but their inspected core statements give probabilities of specified nodes and not the explicit joint event/all-transmissions product, degree-quotient, or heterogeneity ratio. Derivation uses familywise correlations from one parent lifetime; the claimed distinction is not generic independent-bond percolation. A hidden earlier cluster/all-edges-success coefficient in broader epidemic literature remains a priority risk.",
+      "residual_risks": [
+        "General epidemic-percolation representations may implicitly or explicitly give the all-edges-success product in sections not fully inspected.",
+        "Excludes cycles, unequal contact rates, non-iid lifetimes, multiple seeds, and all other epidemic observables."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides broad framework, not an explicit full-outbreak/source-degree statement in inspected material",
+          "evidence": "§II defines transmission delay density f(t) and tree messages H^{i<-j}(t) for noninfection of one vertex.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.5673",
+          "material_read": "Accessible rendered paper through §§I-II and source-neighbor message equations (1) and tree formulas",
+          "method": "Full primary text rendering, focused on tree definitions, assumptions and message identities",
+          "title": "A message passing approach for general epidemic models",
+          "trigger": "Same independent contact/recovery SIR processes and exact tree equations"
+        },
+        {
+          "assessment": "No whole-document noncoverage conclusion; residual priority risk",
+          "evidence": "2013 paper addresses exact state equations on tree graphs.",
+          "identifier_or_url": "https://doi.org/10.1007/s11538-013-9923-5",
+          "material_read": "Published abstract, exact-equation scope, and identified results; full primary text not re-read here",
+          "method": "Abstract/metadata and mathematical scope comparison only",
+          "title": "Exact Equations for SIR Epidemics on Tree Graphs",
+          "trigger": "Exact Markovian SIR tree equations"
+        },
+        {
+          "assessment": "Priority not ruled out by abstract",
+          "evidence": "2023 paper develops exact node-state marginals on rooted trees.",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-022-01854-9",
+          "material_read": "Title, abstract and primary paper description as available; complete text not reread",
+          "method": "Abstract/metadata only",
+          "title": "Exact solutions and bounds for network SIR and SEIR models using a rooted-tree approximation",
+          "trigger": "Exact rooted-tree joint-versus-marginal comparisons"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise all-vertex outbreak event is a meaningful rare-event epidemic risk quantity distinct from expected or peak burden. An exact topology-blind source-degree ordering, robust to arbitrary iid infectious-time heterogeneity, and heterogeneity-measuring risk ratio give a structural fact a network researcher could use for verification and risk comparisons. The conditional factorization is short, but concerns correlated outgoing edge outcomes, not a mere relabeling of independent-bond formulas.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen assigned RESULT.md and CHECKER.py",
+    "Karrer-Newman arxiv:1003.5673 full rendered primary §II",
+    "Sharkey et al. DOI 10.1007/s11538-013-9923-5 abstract",
+    "Hall-Siebert DOI 10.1007/s00285-022-01854-9 abstract",
+    "Resultary tree SIR outbreak-variance and vaccination literature search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "General epidemic-percolation representations may implicitly or explicitly give the all-edges-success product in sections not fully inspected.",
+    "Excludes cycles, unequal contact rates, non-iid lifetimes, multiple seeds, and all other epidemic observables.",
+    "Scientific comparison is best-of-knowledge; no formal machine-verified proof or worldwide priority certification.",
+    "Actual no-GitHub-write disposition; publication remains unapproved until safe public file content is verified."
+  ],
+  "residual_risks": [
+    "General epidemic-percolation representations may implicitly or explicitly give the all-edges-success product in sections not fully inspected.",
+    "Excludes cycles, unequal contact rates, non-iid lifetimes, multiple seeds, and all other epidemic observables."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Rooted-tree uniqueness makes infection of all vertices equivalent to success on every child-directed edge. Conditional independence of the outgoing Poisson contacts at a given vertex yields the infectiousness moment \(m_j\); independence across vertices yields a product. Rerooting changes only the exponent at the root, and moment log-convexity gives strict degree ordering when infectious lifetimes vary. Exact finite SIR absorption recurrences and an independent enumeration of latent infectivities and outgoing transmissions both passed the standalone checker. The checker is a finite check, not the infinite proof.
+## correctness
 
-**Originality — PASS within inspected material, with priority risk.** Karrer and Newman (2010) give general message passing, including arbitrary infectious-period distributions and correlated transmission, but their inspected full-text development emphasizes per-node risk and percolation messages rather than the full-infection *joint event* and the source-degree/higher-moment quotient. Sharkey et al. (2013) and Hall and Siebert (2023) give exact rooted-tree node-state dynamics, not the stated all-vertex risk invariant. A stronger general construction may permit derivation of this result, but no inspected primary statement directly supplies its exact quotient and strictness classification. The relationship is therefore a specialization using a distinct joint observable, not an assertion of a new general SIR solution. Unindexed network epidemic-percolation lemmas remain a genuine priority risk.
+PASS
 
-**Value — PASS.** The exact statement is a structural limitation on what network shape can tell us about the risk of infecting everyone: for fixed degree multiset, rewiring a tree does not change this particular catastrophic-event probability by seed degree. The sharp source-degree ratio isolates the coefficient of variation of a biologically meaningful individual infectiousness quantity; deterministic and random infectious durations can have the same marginal per-edge transmissibility yet very different risk ratios. This is not an arbitrary small-graph tabulation, a substitution exercise, or a claim about usual average epidemic burden. Its scope is carefully limited to a model of small acyclic contact groups and eventual complete infection.
+On a finite undirected tree (n>=2) infected from source s, the unique rooted paths imply that every vertex becomes infected iff each parent sends to every child. Conditional on T_v, independent outgoing contacts make this event probability X_v^c_v, so independence across v gives product_v m_c_v. Because c_s=d_s and c_v=d_v-1 otherwise, P_s=(product_v m_(d_v-1))*m_(d_s)/m_(d_s-1). Moment log-convexity proves ratios increasing, strictly for nonconstant positive T; the degree-2/degree-1 ratio is m2/m1^2. The beta integral for exponential T gives m_j=j!lambda^j/product_(i=1)^j(mu+i lambda). Independent rational two-point infectiousness check with X=1/4 or 3/4, equally likely, confirmed two nonisomorphic six-vertex trees with degree multiset (3,2,2,1,1,1) produce P_degree1=5/128, P_degree2=25/512, P_degree3=7/128; the ratio equals 5/4. Finite checks support rather than establish the exact all-tree theorem.
 
-**Closest literature and limitations.** Karrer and Newman (2010), Sharkey et al. (2013) and Hall and Siebert (2023) supply major general frameworks, so the claim's historical priority requires further expert confirmation. Arbitrary network cycles, heterogeneous vertices or edges, additional seeds and time-bounded full infection are not covered.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A best-of-knowledge exact joint complete-outbreak identity for iid arbitrary infectious lifetimes, ranking by source degree only. Karrer-Newman tree epidemic message passing and Sharkey/Hall-Siebert exact node marginal equations supply the model and machinery, but their inspected core statements give probabilities of specified nodes and not the explicit joint event/all-transmissions product, degree-quotient, or heterogeneity ratio. Derivation uses familywise correlations from one parent lifetime; the claimed distinction is not generic independent-bond percolation. A hidden earlier cluster/all-edges-success coefficient in broader epidemic literature remains a priority risk.
+
+## value
+
+PASS
+
+The precise all-vertex outbreak event is a meaningful rare-event epidemic risk quantity distinct from expected or peak burden. An exact topology-blind source-degree ordering, robust to arbitrary iid infectious-time heterogeneity, and heterogeneity-measuring risk ratio give a structural fact a network researcher could use for verification and risk comparisons. The conditional factorization is short, but concerns correlated outgoing edge outcomes, not a mere relabeling of independent-bond formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
