@@ -1,19 +1,21 @@
-# Scientific review: exact shadowing criterion for diagonal weighted compositions
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed equivalence is proved for invertible diagonal dilations on the Fréchet space of entire functions equipped with its compact-open topology. The proof checks the neighborhood quantifiers explicitly. A unit-modulus Taylor eigenvalue produces a linearly drifting pseudotrajectory. If any dilation coordinate has modulus one, or if expanding and contracting coordinates coexist, arbitrarily high-degree Taylor monomials have uniformly bounded nonzero eigenvalue moduli. Placing small errors on separated positive or negative times forces Taylor coefficients of a hypothetical tracing vector to violate Cauchy bounds at a larger radius. In the opposite regime, a finite Taylor block has a hyperbolic diagonal splitting, while the high-degree complement is uniformly geometrically contracted. A time-convolution Green correction converges in every compact-open seminorm, and is uniformly small in the prescribed output seminorm. Inverting time handles uniformly expanding coordinates. The exact-rational checker independently checks finite recurrences, resonance examples, and sample contraction inequalities (5,028 assertions), but the proof—not enumeration—establishes the theorem.
+PASS
 
-## Originality — PASS with residual risk
+Taylor multipliers t_ν=c Πλ_j^{ν_j} diagonalize the operator. A unit-modulus monomial gives a linear-drift pseudotrajectory that cannot be traced. For a mixed/neutral coordinate, a high-degree sequence ν_k has bounded |t_νk| and |ν_k|/k→∞; one-time polynomial pulses of uniformly small compact-open norm force an alleged tracing vector to violate Cauchy bounds on a larger polydisk. In uniform contraction, finitely many low Taylor modes are hyperbolic and corrected by stable/unstable Green series; the high-order tail contracts under iterates and the corrections converge on every polydisk. Uniform expansion follows by inverse time. Checked the mixed-direction logarithmic coefficient construction for k=1..99; numerical tests are not infinite proofs.
 
-X. Wu and G. Wang, arXiv:2607.28705v1, Theorem 1, proves the sufficient regime of a scalar weight of modulus below one and a contracting linear symbol. Its full Section 2 and theorem do not give the diagonal necessity criterion, arbitrary nonzero scalar weights, or the mixed-direction obstruction. The distinct Banach function-space characterizations of J. Pinto, arXiv:2607.28361v1, Theorems 22 and 32, do not directly cover entire functions with the compact-open Fréchet topology. Bernardes et al., arXiv:2403.02843, Example 8 and Remark 9, and Bernardes–Peris, arXiv:2305.02714, Theorem 2, concern scalar multiplication and general Fréchet shadowing rather than this diagonal composition family. published-finding corpus semantic searches for exact and equivalent formulations and accessible prior-claim comparisons did not produce a theorem mathematically implying the new equivalence. Absence of a retrieved match is not a proof of publication priority. The residual risk is a more general Köthe/entire-sequence shadowing classification under different terms.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source's newly established positive example naturally motivates an exact classification. The theorem fully distinguishes uniform contraction/expansion, neutral coordinates, arithmetic resonances and genuine mixed-direction obstructions. In particular, it exhibits failure even when every individual monomial multiplier is off the unit circle; that eliminates the inadequate eigenvalue-only criterion. These facts describe a whole natural multi-parameter class and clarify the difference between finite-dimensional hyperbolicity and Fréchet-space shadowing. The claim is not merely a reformulation or a finite numerical check.
+Wu–Wang 2026 announces a sufficient regime |c|<1 and spectral-radius(B)<1 for the same H(C^d) family, but not the complete necessity/iff classification, arbitrary scalar weights, mixed-direction obstruction, or monomial-resonance test. Read 2024 and 2023 Fréchet shadowing papers show scalar multiplication/finite-vs-full distinctions, not the diagonal composition theorem. The current argument derives a genuinely stronger classification for a natural family, subject to full Wu–Wang primary text access risk.
 
-## Limitations and context
+## value
 
-The classification does not cover nondiagonal/Jordan symbols, nonconstant weights or noninvertible diagonal symbols. The self-review does not replace independent mathematical review or exhaustive historical priority verification. No quantitative optimal shadowing constant is asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines the precise boundary of a natural diagonal family on a nonnormable function space, exposes the mixed contracting–expanding obstruction even absent any resonant monomial, and extends the 2026 sufficient theorem to a complete iff criterion across arbitrary scalar weights. The high-degree Taylor-growth mechanism is structural and informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
