@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T02:47:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On F_p^* the phase matrix acts on multiplicative character chi by K_chi times chi^{-1}; the exceptional constant/zero block is [[1,sqrt(p-1)],[sqrt(p-1),K_1]]. Cyclotomic independence proves nonvanishing under a singleton fiber; a nonzero linear term has a unique nonzero or zero quadratic fiber. With a=0,b!=0 the t->-t symmetry and prime Fourier minor theorem give rank (p+1)/2. The 2x2 Gram trace/determinant and character sectors give the squared singular spectrum. Independent SVD checks covered 204 parameter cases p=3,5,7,11; the general proof relies on cyclotomic/character arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier determinant factorization covers general multiplicative-Hankel h, not merely quadratic",
+          "Earlier singleton-fiber condition for nonzero image is slightly narrower but same cyclotomic method applies at zero"
+        ],
+        "reasoning": "Prior theorem gives all quadratic rank cases plus the key more general decomposition. Target does not extend the parabola family.",
+        "searches": [
+          "finite field parabola Fourier restriction matrix self pairing rank multiplicative Hankel phase quadratic singleton fiber",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-rank-trichotomy-for-quadratic-phase-fourier-sampling-on-a--5bfb4c77019d/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-rank-trichotomy-for-quadratic-phase-fourier-sampling-on-a--5bfb4c77019d/RESULT.md",
+        "https://arxiv.org/abs/math/0308286",
+        "finite field parabola Fourier restriction matrix self pairing rank multiplicative Hankel phase quadratic singleton fiber",
+        "Resultary:finite field parabola Fourier restriction matrix self pairing rank multiplicative Hankel phase quadratic singleton fiber"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier RESULT §1-4 proves full rank, Chebotarev minor case, and every twisted multiplicative-character factor L_chi(h)",
+          "Target K_chi and exceptional 2x2 block follow by splitting zero-index and character sector"
+        ],
+        "reasoning": "Exact rank is a prior theorem. The attempted remaining new spectrum is elementary linear algebra from its explicit block diagonalization, not new independent structural information.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-rank-trichotomy-for-quadratic-phase-fourier-sampling-on-a--5bfb4c77019d/RESULT.md",
+          "arxiv:math/0308286"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both theorems use identical M_{p;a,b}(s,t)=exp(2πi(ast+bs²t²)/p)",
+          "Both cover odd primes p>=3 and all coefficient pairs (a,b)"
+        ],
+        "reasoning": "Matrix rank trichotomy p,(p+1)/2,1 is literally identical.",
+        "searches": [
+          "finite field parabola Fourier restriction matrix self pairing rank multiplicative Hankel phase quadratic singleton fiber",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-rank-trichotomy-for-quadratic-phase-fourier-sampling-on-a--5bfb4c77019d/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previous complete all-coefficient rank formula and cyclotomic factorization are exact, not a numerical table",
+          "New singular formula is tr(B*B),det(B*B) for explicit 2x2 block"
+        ],
+        "reasoning": "The further singular-value values are mechanically derived by taking absolute values of prior one-dimensional character blocks and quadratic roots of B*B.",
+        "searches": [
+          "finite field parabola Fourier restriction matrix self pairing rank multiplicative Hankel phase quadratic singleton fiber",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-rank-trichotomy-for-quadratic-phase-fourier-sampling-on-a--5bfb4c77019d/RESULT.md"
+        ]
+      },
+      "rationale": "FAIL: published November 1 Resultary full proof already classifies exactly the same p x p quadratic-phase matrix ranks for every p,a,b; it contains multiplicative-character diagonalization and a singleton-fiber cyclotomic nonvanishing lemma. The target spectral list is the elementary singular-value extraction from the prior decomposition, and the added zero-image singleton sufficiency is the same cyclotomic argument. The headline rank transition is entirely covered; the remaining observations do not meet O as an independent result.",
+      "residual_risks": [
+        "Only odd prime fields; no quantitative uniform min singular bound. Exact rank was published before this claim; remaining spectral expression follows from already explicit character blocks, and alternate exact Gauss-sum literature is also possible.",
+        "Correctness and exact prior-coverage comparison are distinct from claims of human expert certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE exact rank coverage; remaining spectral identity follows routine decomposition",
+          "evidence": "For every odd p and all a,b earlier theorem proves ranks p,(p+1)/2,1, plus already factors determinant into multiplicative-character blocks. New squared singular values follow by taking each block modulus and diagonalizing a 2x2 Gram matrix.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-rank-trichotomy-for-quadratic-phase-fourier-sampling-on-a--5bfb4c77019d/RESULT.md",
+          "material_read": "Entire finding, multiplicative-Hankel determinant factorization, nonzero singleton-fiber nonvanishing lemma, Chebotarev rank and limitations",
+          "method": "Read the accessible primary material specified in material_read and compared mathematical hypotheses/conclusions, without inferring unread sections",
+          "title": "Sharp rank trichotomy for quadratic-phase Fourier sampling on a prime-field parabola",
+          "trigger": "Exact same matrix M_{p;a,b} and full rank trichotomy"
+        },
+        {
+          "assessment": "Common standard lemma, not a new contribution",
+          "evidence": "Nonsingularity of the collapsed (p+1)/2 minor follows from prime Fourier minors",
+          "identifier_or_url": "https://arxiv.org/abs/math/0308286",
+          "material_read": "Known Chebotarev minor statement cited and used by both proof packages; no new full-text reading this run",
+          "method": "Read accessible abstract/metadata and identified limitations of access; no claim of full-document exclusion",
+          "title": "An uncertainty principle for cyclic groups of prime order",
+          "trigger": "Supplies prime Fourier minors used in pure-quadratic case"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: The motivating sharp parabola rank transition is already proved, and the added spectral readout is a routine 2x2 singular-value calculation plus absolute values of previously diagonalized character eigenvalues. An exact spectrum can be valuable, but here the proposed formulas are mechanically implied by existing blocks without a new sharp conditioning, phenomenon or unknown invariant.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Only odd prime fields; no quantitative uniform min singular bound. Exact rank was published before this claim; remaining spectral expression follows from already explicit character blocks, and alternate exact Gauss-sum literature is also possible.",
+    "Finite checks do not establish infinite conclusions; assessed analytic arguments for all quantifiers and boundary cases."
+  ],
+  "schema_version": 1
+}
