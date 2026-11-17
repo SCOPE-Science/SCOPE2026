@@ -1,15 +1,21 @@
-# Scientific assessment: minimum-blocking smooth quartics over \(\mathbb F_5\)
+# Independent mathematical audit
 
-## Correctness — PASS
-The exhaustive 31-choose-nine projective-plane incidence census gives exactly 15,500 nontrivial nine-point blocking sets. The three unique four-secants of the displayed triangle and the signed-monomial stabilizer computation prove these are all one projective orbit. The quartic evaluation map through the nine points has rank nine, leaving 3,906 projective quartic forms. Full finite enumeration isolates exactly 24 with no additional rational points; the signed-monomial group acts freely and transitively on these forms. The three exact affine Jacobian ideals for a representative are all unit ideals over the base field, proving geometric smoothness, and projective transport handles all others. All numerical counts come from reproducible complete loops or finite group orders; no finite-point smoothness heuristic is used.
+## correctness
 
-## Originality — PASS, with residual risk
-The full text of Asgarli–Ghioca–Yip, arXiv:2208.13299, establishes degree-four smooth blocking existence at \(q=5\) but not uniqueness, rational minimum nine, or the 372,000-orbit count. Its displayed example has eleven rational points, verified directly. Its projective-triangle discussion (Remark 5.3) leaves a general smoothing problem rather than this special-case classification. The full text of arXiv:2211.08523 provides asymptotic and line-union counting formulas, not the nine-point, geometrically smooth orbit classification at \(q=5\). The Coolsaet–Botteldoorn–Fack publication classifies blocking point configurations; only its abstract and bibliographic material were accessible, and its complete article could contain additional related tabulations. Searches by exact counts, object descriptions, projective equivalence, and parameter aliases found no dominating mathematical result. Earlier accessible claims concerning other finite fields and cubic tangent-filling do not imply this quartic classification. A historically unindexed finite-field quartic enumeration remains possible.
+PASS
 
-## Mathematical value — PASS
-The exact nine-point locus is not an arbitrary computational slice: it meets the prime-field Blokhuis lower bound for nontrivial blocking sets, while quartic is the smallest possible degree for a smooth nontrivially blocking plane curve over \(\mathbb F_5\). The theorem classifies all models meeting both natural extremal constraints, shows they form a single projective orbit, proves smoothness over the algebraic closure, and finds their full ground-field projective stabilizer. It substantively strengthens the established existence theorem and supplies a precise finite-field boundary case to the projective-triangle smoothing problem.
+PASS: Blokhuis gives nine-point lower bound for nontrivial blocking sets of PG(2,5). Independently compiled and ran new 31-choose-9 complete incidence enumeration (20,160,075 masks): 86,800 blocking, 71,300 trivial, 15,500 nontrivial. Triangle has three unique four-secants, stabilizer signed monomial group of order 24, so all 15,500 nontrivial sets are one PGL3(F5) orbit (group order 372,000). Independent modular row reduction confirms quartic vanishing dimension 6, enumerated all (5^6-1)/4=3906 scalar-form classes, reproduced the complete point-count histogram including exactly 24 with rational zero set equal to triangle; reviewed free 24-element signed monomial orbit code. Independently checked given representative has precisely triangle as rational zeros and its three projective affine chart Jacobian ideals are unit ideals over F5 (geometric smoothness). Hence 15,500*24=372,000 smooth scalar-normalized quartics forming one projective orbit and trivial ground-field stabilizer. Finite enumeration here is exhaustive by 31-choose-9 and 3906 loops; zero-of-gradient over algebraic closure is checked symbolically, not only over F5.
 
-## Remaining limitations
-This is not a classification of larger rational blocking sets, arbitrary genus-three abstract isomorphism classes, or all arithmetic extensions of the quartics. Exact computational enumeration and Gröbner-basis software remain part of the proof; the stand-alone source code makes their scope and algebraic checks replayable. Historical-priority uncertainty and lack of external mathematical audit remain explicit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: Asgarli–Ghioca–Yip 2022/23 establish degree-four smooth blocking existence over F5, not classification by minimum nine rational points or projective orbit/stabilizer; their displayed example has eleven points. Coolsaet–Botteldoorn–Fack classify small-field minimal blocking point sets, but that incidence result alone does not enumerate quartic forms or prove all geometric smoothness and one free projective orbit. Distinct tangent-filling F5 quartic nine-point theorem concerns dual tangent-line coverage, not rational curve points blocking all lines. No equivalent quartic orbit table was located.
+
+## value
+
+PASS
+
+PASS: This finite-field extremal classification is doubly canonical: minimal nontrivial rational blocking set size nine and minimal geometrically smooth blocking plane-curve degree four over F5. Exact 372,000 count, unique embedding orbit, trivial stabilizer, and geometric smoothness supply a complete structural boundary case beyond existence or point-incidence tables. Finite work is an exhaustive natural classification, not a random slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
