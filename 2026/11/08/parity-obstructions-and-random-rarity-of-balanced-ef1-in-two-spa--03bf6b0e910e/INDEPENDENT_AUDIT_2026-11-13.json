@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T05:13:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Inspected frozen RESULT.md and verify_euler_fairness.py. In Eulerian support every degree is even, so first-group EF1 for a vertex with x_v incident selected goods is exactly 2x_v>=d_v. Component double-counting gives minimum ceil(|E(H)|/2), and alternating edge colors along an Euler circuit achieve this bound even with odd circuit length; moving extra edges to first group preserves EF1. This proves min |X|=(m+r)/2, minimum imbalance r, and after h neutral goods the optimal parity-constrained gap max((m+h) mod 2, r-h). With 2-regular support the discarded edge set is a matching; count optimal assignments by two perfect matchings of even cycles and length-many maximum matchings of odd cycles. Exponential formula for labeled undirected cycles yields EGFs E(z), O(z), D(z); parity-extracted singularity transfer gives C*n^(-1/4) even and C/4*n^(-1/4)*log n odd. Independently enumerated two disjoint triangles: 9 minimum EF1 allocations with first-group size 4, not balanced without h>=1; source verifier code inspected but its logged 741 and 4058 counts not represented as independent execution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deligkas et al. 2026 prove hardness/parameterized properties in general fixed/variable group allocation.",
+          "Suksompong 2019 studies group EF1 with possible movable group assignments.",
+          "Balanced Fair Division and Generalized Kneser Graphs (2026-11) offers small-agent general results, not arbitrary Eulerian-degree graph with quantitative parity obstruction."
+        ],
+        "reasoning": "Neither broader existence nor complexity statements logically determine the exact minimum first-group item count or the large-n probability for uniformly random 2-regular supports. Unread Deligkas appendices remain a risk.",
+        "searches": [
+          "EF1 two groups Eulerian edges cardinality balanced maximum matching Euler tours odd cycle component random 2 regular graph",
+          "https://arxiv.org/abs/2610.28213",
+          "https://arxiv.org/abs/1901.08463",
+          "https://arxiv.org/abs/2611.04486"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.28213",
+        "https://arxiv.org/abs/1901.08463",
+        "https://arxiv.org/abs/2611.04486",
+        "https://www.cambridge.org/core/books/analytic-combinatorics/82160F2C216A6C4ACF22E7B4D3E3A8F0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "EF1 iff 2x_v>=d_v, component min ceil(t/2), and odd-edge components r are not consequences of a general EF1 existence theorem.",
+          "General balanced allocation for <=5 agents cannot dominate arbitrary many graph vertices and the precise signed cardinality difference."
+        ],
+        "reasoning": "The proof exhibits a sharper statistic with an explicit non-existence witness (two odd cycles); existing existence/hardness literature does not mathematically imply it.",
+        "searches": [
+          "EF1 two groups Eulerian edges cardinality balanced maximum matching Euler tours odd cycle component random 2 regular graph",
+          "https://arxiv.org/abs/2610.28213",
+          "https://arxiv.org/abs/1901.08463",
+          "https://arxiv.org/abs/2611.04486"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-group group-sharing EF1 vs the submitted edge-incidence approval and item-count optimization differ in valuation restrictions and target statistic.",
+          "For degree-two graphs EF1 allocations correspond to ordinary matchings, but parity component counts, null-good threshold and random cycle coefficients require additional deductions."
+        ],
+        "reasoning": "Mapping to matching/cycle decompositions is exact and acknowledged; neither classical matching existence nor group EF1 feasibility alone yields the all-Eulerian imbalance law and random-graph asymptotics.",
+        "searches": [
+          "EF1 two groups Eulerian edges cardinality balanced maximum matching Euler tours odd cycle component random 2 regular graph",
+          "https://arxiv.org/abs/2610.28213",
+          "https://arxiv.org/abs/1901.08463",
+          "https://arxiv.org/abs/2611.04486"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related enumerations of EFX edge orientation on multicycles use different fairness condition and count orientation, not fixed two-group EF1 allocations with indifferent group.",
+          "The new finite EGF comes from a uniform labeled degree-two graph, not an existing database of allocatable configurations."
+        ],
+        "reasoning": "No exact table covering the same model/statistics was located; finite 2-regular enumerations cannot prove the asymptotic coefficients, which follow from analytic transfer.",
+        "searches": [
+          "EF1 two groups Eulerian edges cardinality balanced maximum matching Euler tours odd cycle component random 2 regular graph",
+          "https://arxiv.org/abs/2610.28213",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-all-good-efx-orientation-census-on-uniform-multicycles--86ded86a095b"
+        ]
+      },
+      "rationale": "PASS, best-of-knowledge: general group EF1 hardness and balanced existence are prior; the deterministic Eulerian odd-component obstruction, exact neutral-goods budget, and parity-separated random labeled-cycle probability address narrower yet structurally distinct observables. No inspected related literature or Resultary entry implies these exact expressions. Full Deligkas paper inaccessible (including any appendices), and possible exact graph-incidence allocation model elsewhere remains a historical risk.",
+      "residual_risks": [
+        "Deligkas full manuscript inaccessible because authorized institutional VPN disconnected; equivalent graph-incidence submodel might appear inside.",
+        "Random-graph asymptotic uses standard singularity transfer; a prior exact EGF could imply it but none found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR broad EF1 problem and hardness; whole-document noncoverage unverified",
+          "evidence": "Available text presents generic hardness, not submitted graph-incidence odd-component formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.28213",
+          "material_read": "Public abstract and accessible section-level exposition about fixed-group complexity, not full paper/appendices in this execution",
+          "method": "ArXiv and public indexing; authorized full-text route disconnected",
+          "title": "Subjective Valuations Make It Hard to be Fair: The Complexity of Resource Allocation to Groups of Agents",
+          "trigger": "Same fixed-group EF1 allocation model with subjective item values"
+        },
+        {
+          "assessment": "PRIOR fairness definitions, different group structure and no identified Eulerian count",
+          "evidence": "Movable group-membership results are not equivalent to fixed interested vs indifferent group.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.08463",
+          "material_read": "Accessible abstract and available model statements; full manuscript not independently reread in this execution",
+          "method": "Primary arXiv abstract/indexed model review",
+          "title": "Almost Envy-Freeness in Group Resource Allocation",
+          "trigger": "Classical EF1 group sharing and balanced allocations"
+        },
+        {
+          "assessment": "PRIOR balanced group fairness for at most five agents; does not logically settle arbitrary n plus exact imbalance probability",
+          "evidence": "Statement has quantitative agent bound, unlike any number of Eulerian support vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/2611.04486",
+          "material_read": "Public abstract/main stated bounded-agent conclusions; not full paper",
+          "method": "ArXiv abstract and dated result comparison",
+          "title": "Balanced Fair Division and Generalized Kneser Graphs",
+          "trigger": "More recent potentially dominating balanced-EF1 theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: For a natural 2-sparse binary approval incidence model with fixed groups, a sharp constructive fairness/cardinality obstruction improves on bare feasibility/complexity, and exact distribution in random 2-regular cases quantifies rarity. The odd/even n logarithmic asymptotic is an independently meaningful structural probabilistic boundary, not a known lookup-table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two fixed nonempty groups; all second-group agents indifferent; first-group degrees even, binary valued edges, no loops; random asymptotic uniformly labeled simple 2-regular only.",
+    "The independent small-graph check does not establish the infinite-n logarithmic asymptotic."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For an agent of even valued degree, group EF1 is equivalent to receiving at least half its incident goods; each connected component forces at least half (rounded up) its edges into that group's bundle. An alternating Euler tour attains this componentwise, even for odd-edge Eulerian components. Neutral goods yield the sharp balancing budget, and the exact labeled-cycle EGF separates even-cycle parts and a possible single odd-cycle part. Binomial/Gamma coefficient transfer gives the stated constants. Finite checks passed on 741 small Eulerian inputs and all 4,058 labeled simple 2-regular graphs of sizes 3–8; those checks corroborate but do not substitute for the proof.
+PASS
 
-## Originality
+PASS: Inspected frozen RESULT.md and verify_euler_fairness.py. In Eulerian support every degree is even, so first-group EF1 for a vertex with x_v incident selected goods is exactly 2x_v>=d_v. Component double-counting gives minimum ceil(|E(H)|/2), and alternating edge colors along an Euler circuit achieve this bound even with odd circuit length; moving extra edges to first group preserves EF1. This proves min |X|=(m+r)/2, minimum imbalance r, and after h neutral goods the optimal parity-constrained gap max((m+h) mod 2, r-h). With 2-regular support the discarded edge set is a matching; count optimal assignments by two perfect matchings of even cycles and length-many maximum matchings of odd cycles. Exponential formula for labeled undirected cycles yields EGFs E(z), O(z), D(z); parity-extracted singularity transfer gives C*n^(-1/4) even and C/4*n^(-1/4)*log n odd. Independently enumerated two disjoint triangles: 9 minimum EF1 allocations with first-group size 4, not balanced without h>=1; source verifier code inspected but its logged 741 and 4058 counts not represented as independent execution.
 
-**PASS, with residual risk.** The motivating fixed-group EF1 complexity paper considers a much broader valuation model, and the group allocation existence literature addresses EF1/balancing under different assumptions. Neither inspected source presents the exact Eulerian componentwise goods-count deficit, its neutral-good correction, or the parity-dependent random 2-regular EF1 law. The nearest research-record hits concerned ordinary graph color-class prescriptions and 2-regular coverage, neither implies the two-group binary EF1 theorem or its probability distribution. An equivalent earlier graph-orientation or random permutation-cycle result not indexed by these searches is a residual risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** Fixed group membership makes almost-envy-free sharing algorithmically difficult in broad valuation models. Here a natural and sharply specified sparse-incidence submodel admits an explicit formula, linear-time allocation algorithm and exact parity obstruction. The random law quantifies the typical severity of that obstruction, including a non-obvious logarithmic parity asymmetry; it is not merely a small isolated example.
+PASS, best-of-knowledge: general group EF1 hardness and balanced existence are prior; the deterministic Eulerian odd-component obstruction, exact neutral-goods budget, and parity-separated random labeled-cycle probability address narrower yet structurally distinct observables. No inspected related literature or Resultary entry implies these exact expressions. Full Deligkas paper inaccessible (including any appendices), and possible exact graph-incidence allocation model elsewhere remains a historical risk.
 
-## Boundaries and evidence
+## value
 
-The classification presupposes Eulerian incidence, two fixed nonempty groups and indifferent second-group agents. The random law applies to a uniform labeled simple 2-regular graph, not arbitrary random goods. No independent scientific validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: For a natural 2-sparse binary approval incidence model with fixed groups, a sharp constructive fairness/cardinality obstruction improves on bare feasibility/complexity, and exact distribution in random 2-regular cases quantifies rarity. The odd/even n logarithmic asymptotic is an independently meaningful structural probabilistic boundary, not a known lookup-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
