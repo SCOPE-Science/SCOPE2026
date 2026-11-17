@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 checker.py` in the extracted directory; it imports only the Python standard library. Actual checks are exhaustive symplectic quotient-vector triple enumeration for odd primes \(p=3,5,7\) at \(m=1\), and \(p=3\) at \(m=2\). Each tested Gram value is tallied separately, including zero, to verify the claimed equal nonzero-fiber sizes. The checker separately multiplies group triples for both exponent-three and exponent-nine groups of order 27 and counts their six permuted products directly.
+## correctness
 
-The attached `verification_output.txt` is the recorded output of the actual standalone run. `VERIFY_OK` means each asserted finite identity passed. The exhaustive calculations do not prove the infinite family by themselves; the separate symbolic fiber and sign-orbit counting proof establishes that assertion. Sampling is with replacement. No external or independent audit is claimed.
+PASS
+
+Every three-factor permutation product differs by a central commutator offset; an invertible F_p-linear transformation expresses the six offsets as three signed pairs ±x,±y,±z for odd p. GL3 congruence is transitive on nonzero alternating 3×3 Gram data, and counting orthogonal triples gives Z=p^(2d)+(p^d−1)p^(2d−3). All nonzero Gram triples have common mass α=(1−p^(−d))/p³; signed pair occupancy yields the six probabilities. Independent exact enumeration for p=3,5,7 reproduced N_k=(1, 4(p−1),9(p−1),6(p−1)(p−3),3(p−1)(p−3),(p−1)(p−3)(p−5)) with the zero tuple handled separately. Proof valid for both odd extraspecial types, m≥1; no claim for p=2.
+
+## originality
+
+PASS
+
+Kourovka Notebook permuted-product work determines realizability of cardinalities by chosen groups and distinct tuples, not the complete distribution in every odd extraspecial group with independent uniform replacement. A paper on conjugacy classes of triple products counts equivalence classes, not equality of group products; subgroup-commutativity degrees count other events. Earlier MathOverflow material is a genuine potential priority source but inspected question does not state this law. Full 2026 proof and the 2016 PDF were not independently inspected.
+
+## value
+
+PASS
+
+An exact all-size law for a natural collision statistic of three random group elements quantifies three-factor rewritability in the infinite family of odd extraspecial groups. It yields prime thresholds and exponent-type invariance not mechanistically supplied by an existence theorem, with a reusable symplectic Gram-fiber calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement applies to *independent sampling with replacement* from **both** odd-prime extraspecial isomorphism types. The central commutator pairing converts the six products into a six-offset set. The invertible map from the three commutators to the three sign-paired coordinates is proved explicitly. The Gram-map fiber count is a genuine finite-space counting argument with a transitivity justification, including the zero fiber. Occupancy of the zero and two-element sign orbits yields every entry of the distribution; probabilities sum to one. Exact enumeration verifies four vector-space regimes and both nonisomorphic odd-extraspecial groups of order 27. Computations supplement but do not replace the universal proof. Residual correctness risk is primarily transcription or implementation error; the independent group-word calculations and direct algebraic formulas materially reduce it.
+## correctness
 
-## Originality — PASS (historical priority qualified)
-The closest motivating source is van Doorn–Judin–Monticone–Morrison (2026), Section 3, which proves **existence** of every permitted permuted-product cardinality in *some* group. This cannot imply a full fixed-group sampling law for *all* extraspecial groups. The 2026 work of Savelyev studies Rota–Baxter operators on the same groups; the available abstract does not address permuted-product distributions. Related published results on extraspecial subgroup commutativity degrees concern different sampled objects and events, not the ordered-six collision partition. Actual searches for “rewritability,” “three permuted products,” “symplectic Gram distribution,” and “extraspecial group” found no directly matching statement. An earlier MathOverflow discussion from 2013 and an original May 2026 solution note were inaccessible; their unread contents remain genuine historical-priority risks, not proof of noncoverage. No claim of absolute novelty is made.
+PASS
 
-## Mathematical value — PASS
-This is a complete exact law for an intrinsic statistic of three random group elements in a natural infinite group family, independent of exponent type. The dimension influences only the all-commuting atom and a common scalar, while the prime controls a sharp feasibility hierarchy: only three, then five, then six cardinalities of products. This quantifies a family-specific permutation-rewritability question recently highlighted in algebraic literature, rather than merely extending an arbitrary finite table or renaming a known expectation. It also gives a reusable bridge between central commutators, symplectic Gram fibers, and signed orbit occupancy. Scope limitations are explicit.
+Every three-factor permutation product differs by a central commutator offset; an invertible F_p-linear transformation expresses the six offsets as three signed pairs ±x,±y,±z for odd p. GL3 congruence is transitive on nonzero alternating 3×3 Gram data, and counting orthogonal triples gives Z=p^(2d)+(p^d−1)p^(2d−3). All nonzero Gram triples have common mass α=(1−p^(−d))/p³; signed pair occupancy yields the six probabilities. Independent exact enumeration for p=3,5,7 reproduced N_k=(1, 4(p−1),9(p−1),6(p−1)(p−3),3(p−1)(p−3),(p−1)(p−3)(p−5)) with the zero tuple handled separately. Proof valid for both odd extraspecial types, m≥1; no claim for p=2.
 
-## Closest literature and limits
-The recent Section 3 construction of van Doorn et al. supplies a motivating existence theorem, not a distribution. The Rota–Baxter paper of Savelyev supplies family context only. Historical MathOverflow and a solution note were referenced but their full texts could not be inspected; this uncertainty is preserved. The result excludes the prime two, sampling without replacement, and four-factor permutation laws.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kourovka Notebook permuted-product work determines realizability of cardinalities by chosen groups and distinct tuples, not the complete distribution in every odd extraspecial group with independent uniform replacement. A paper on conjugacy classes of triple products counts equivalence classes, not equality of group products; subgroup-commutativity degrees count other events. Earlier MathOverflow material is a genuine potential priority source but inspected question does not state this law. Full 2026 proof and the 2016 PDF were not independently inspected.
+
+## value
+
+PASS
+
+An exact all-size law for a natural collision statistic of three random group elements quantifies three-factor rewritability in the infinite family of odd extraspecial groups. It yields prime thresholds and exponent-type invariance not mechanistically supplied by an existence theorem, with a reusable symplectic Gram-fiber calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
