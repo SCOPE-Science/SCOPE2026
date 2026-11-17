@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized Gaussian ambiguity is evaluated by a direct integral. The angular minimizing directions follow from a strict negative divided-difference derivative, not a sampled angular grid; averaging the three antipodal-axis observations proves equal-weight optimality. A strictly increasing scalar threshold map proves global uniqueness and the sharp cutoff. Taylor expansion and a quantified stationary equation give the critical and large-radius limits. The standalone checker corroborates 99 finite or symbolic checks; the proof of the continuous theorem is analytical.
+## correctness
 
-**Originality — PASS (historical-priority risk remains).** The source of the rotated Gaussian family is Alaifari--Yang (arXiv:2410.05486), whose available full text was inspected in Sections 2.1 and 3.1, including its ellipse coverage and stability estimates. It does not state a three-window unit-budget squared-ambiguity minimax, a critical disk radius, or optimal squeeze asymptotics. Hardin--Kendall--Saff's circle polarization theorem concerns a different general potential-design question; its possible coverage of the angular sublemma would not imply the squeeze threshold. Grohs--Liehr--Rathmair address lattice uniqueness, not this continuous multiplier optimum. A stronger unlocated minimax theorem could cover the result; search absence is not proof of novelty.
+PASS
 
-**Value — PASS.** The exact best attainable worst-case multiplier is a natural conditioning objective for independent weighted ambiguity observations. The threshold \(\pi R^2=2\), unique above-threshold design, cubic gain onset and finite limiting dilation distinguish when squeezing actually improves a three-window coverage design. This is not a new general nonlinear phase-retrieval stability theorem and does not optimize arbitrary window orientations.
+The normalized Gaussian ambiguity has squared magnitude exp{−πr²(cosh s+sinh s cos(2φ−2αj))}. Every term decreases radially, reducing closed-disk minimum to boundary. For equal weights, angular sum over three cube-root phases has strictly decreasing dependence on cos(3·2φ) by negative third derivative/divided differences; minima occur at six axes. Averaging responses at those axes bounds any unequal allocation, strictly unless wj=1/3 for s>0. Scalar Lc(u)=−√(c²+u²)+log[(e^−u+2e^{u/2})/3] has derivative v(u)−u/√(c²+u²); threshold map C(u)=u√(v^-2−1) strictly rises from 2 to infinity using (y−1)(y+2)>(1+2y)log y. Hence c≤2 unique zero squeeze (weights arbitrary), c>2 unique positive squeeze/equal weights. Series yields cubic onset and s→(log3)/2 with stated decay. Independently checked c=0.7,2,2.01,2.5,4,10 and exact derivative identity; numerical points do not prove uniqueness.
 
-Closest literature and limitations are explained in RESULT.md. The self-review does not confer independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: earlier rotated Gaussian ambiguity ellipse geometry and stability estimates are fully credited; the sharp *squared*, three-window unit-total-weight disk minimax, exact squeeze phase transition c=2, uniqueness, cubic gain onset and large-radius dilation do not follow from the cited amplitude-sum/lattice theorems.
+
+## value
+
+PASS
+
+PASS: Exactly optimizes a natural worst-case squared-ambiguity gain for independent precision-weighted observations on a bounded time-frequency disk. The sharp c=2 threshold determines when squeezing beats isotropic Gaussian windows, with unique post-threshold weights and a quantitative cubic onset; objective is scientifically motivated but explicitly not full nonlinear phase-retrieval stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
