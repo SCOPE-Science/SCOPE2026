@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and proof limits
+# Independent mathematical audit
 
-Run `python check_sunlet.py` and `python verify_generating.py` using Python 3. The latter uses `mpmath` only for its optional high-precision numerical value; all exact-rational assertions use the standard library. The first program computes the Markov recurrence directly on subsets of currently vacant endpoints and compares it with an independently written first-edge expectation formula on 19 finite graphs. The second constructs the numerator of the expected-coverage generating function through rational coefficient arithmetic, verifies 110 exact identities, and checks the sign and alternating bound at 92 sizes. Both completed without errors after extraction from the final package.
+## correctness
 
-The finite checks are not an infinite proof. The proof in `RESULT.md` relies on a full graph decomposition, an analytic generating function, an exact absolutely convergent alternating tail, and a strict ratio bound valid for every finite size \(n\ge3\). These steps independently justify the infinite conclusion.
+PASS
 
-The result is not a claim of exhaustive bibliographic priority. Restricted access to historical full texts leaves a genuine prior-art risk; scientific review is not an independent external audit.
+First-admissible-edge conditioning on comb P_m corona K1 gives (2m-1)F_m=2m-1+4 sum_(j=0)^(m-2) F_j+2F_(m-1); on sunlet edges of the two classes split into comb lengths n-1 and n-2, giving E[X_n]=1+(F_(n-1)+F_(n-2))/2. The generated differential equation and entire alternating numerator coefficients a1=1, ak=(-1)^(k-1)2^(k-2)/(2k-1)!! imply the exact alternating tail, strict signed bound and superfactorial asymptotic for all n>=3. Independently computed exact vertex-mask greedy matching expectations for n=3,...,8, reproducing 7/3,46/15,404/105,872/189,11192/2079,831392/135135 and matching the recurrence. No infinite conclusion rests on finite enumeration.
+
+## originality
+
+PASS
+
+Known random-sequential adsorption theory and exact results for infinite regular ladders, finite near-girth graphs, and an infinite decorated chain provide methods and related observables but no identified exact finite sunlet parity-superfactorial correction. Pippenger 1989 and Evans–Nord 1992 full text inaccessible, despite OA and authorized institutional attempts; possible stronger coverage is retained as a priority risk, not presumed absent.
+
+## value
+
+PASS
+
+Exact expected jamming density is natural for irreversible adsorption/random greedy maximal matching on a simple cycle-corona family. The special-function thermodynamic limit and strict alternating superfactorial finite-size correction expose a nonstandard parity boundary phenomenon, a reproducible benchmark for decorated rings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
