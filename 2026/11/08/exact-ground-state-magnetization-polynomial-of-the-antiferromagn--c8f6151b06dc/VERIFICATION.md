@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification record
-The included `verify_24cell_ising.cpp` constructs the signed-root graph, checks that all eight signed-coordinate octahedra give an exact disjoint partition of the 96 edges, independently enumerates the complete 24-spin configuration space twice, and computes the magnetization polynomial through two exact integer algorithms. It checks the result against expected coefficients and independently reconstructs a published independence-set enumeration as a control.
+# Independent mathematical audit
 
-Actual checks: 276 unordered graph vertex-pair partition tests; 16,777,216 Gray-code direct Hamiltonian configurations; 16,777,216 separate local-octahedron mask configurations; and the complete independent-set face-vector comparison. The compiled replay prints `VERIFY_OK full_spin_masks=16777216 local_masks=16777216 edge_pairs=276` when successful.
+## correctness
 
-The statement concerns a complete finite configuration space and uses only exact integers. The enumeration is not a proof of a family of unbounded graphs. The review was performed without external independent scientific validation; historical priority relative to unindexed exact Ising-polynomial datasets remains open.
+PASS
+
+The eight signed-coordinate six-vertex octahedra partition all 96 graph edges. Pair sums a,b,c in {-2,0,2} yield local energy ab+ac+bc >= -4 with exact equality iff two different homogeneous opposite pairs have opposite signs. A matching construction attains -32J. Independent compiled C++ code enumerated all 16,777,216 spin subsets and verified full magnetization coefficients g_0=948, g_±2=672, g_±4=264, g_±6=48, g_±8=3, total 2922, from this local equality rule. This is finite exhaustive proof, not extrapolation.
+
+## originality
+
+PASS
+
+The earlier exact 24-cell graph independence-complex result supplies the face-vector of independent vertex subsets and therefore the 3+3 extreme magnetization states, but not positive-edge minority sets or the complete antiferromagnetic ground-state polynomial. The octahedral frustration equality condition and all 2^24 spin assignments determine distinct, motivated ground-state multiplicities.
+
+## value
+
+PASS
+
+The complete ground-state magnetization polynomial and simple sharp octahedral frustration certificate are natural finite-graph statistical-mechanics invariants; their positive-edge sectors are not obtainable from the already tabulated maximum independent sets. The finite exhaustive count is exact and motivates entropy and frustrated-bond statistics for a distinguished root polytope.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
