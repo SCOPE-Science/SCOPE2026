@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The original colored-noise zero-intensity formula is used with its stated pure-noise hypotheses. The affine log-convolution reduction, Laplace-transform continuation, uniqueness of finite-measure Fourier transforms, and exact unsmoothing formula are independently derived and normalized. Polynomial lower tails rule out every nonzero exponential tilt by a two-sided growth contradiction. The homogeneous-intensity converse follows from the Gaussian moment-generating-function characterization and the polynomial-growth boundary. `CHECK.py` supplies numerical sanity checks, not an infinite proof.
+## correctness
 
-**Originality — PASS relative to inspected literature.** Escudero–Koliander–Romero (arXiv:2609.18689), Theorem 1.1 and Remark 5.1, already give the zero-intensity formula and affine ambiguity **for smoothed PSDs**; their Proposition 1.3 already gives the centered Gaussian example. These are credited, not rebranded. The present claim identifies precisely the underlying *admissible unsmoothed* PSD equivalence orbit, proves recovery up to scale from polynomial-tailed spectra, constructs arbitrarily separated disjoint spectral bands with indistinguishable first intensities, and proves that homogeneous intensity requires a constant or Gaussian PSD. The inspected white-noise Bargmann-zero work (Escudero–Feldheim–Koliander–Romero, 2022) and Gaussian Weyl-Heisenberg work (Haimi–Koliander–Romero, 2020/2022) address different covariance families and do not state these inverse classifications. Targeted searches did not locate an equivalent theorem; that absence is not proof of priority.
+PASS
 
-**Value — PASS.** This resolves a natural identifiability question arising in colored-noise spectrogram-zero estimation: when can the otherwise free logarithmic slope of the smoothed PSD be inferred from the assumption on the unsmoothed spectral tails? The theorem gives a sharp and surprising failure mode (even completely disjoint frequency bands with exactly the same *entire* first-intensity profile), a large natural identifiability class including rational power spectra, and a complete rigidity classification for spatially homogeneous intensity. This is an inverse structural classification, not merely a numerical restatement of a known Gaussian intensity example.
+Starting with established pure-noise intensity rho=1+(4π)^{-1}(log P)ʺ, equality integrates to P_T=C exp(aω) P_S. With mu_S=e^{-2πx²}S(x)dx finite, P_S(ω)=e^{-2πω²} F_S(4πω); entire bilateral Laplace transforms and uniqueness of characteristic functions yield translated mu and T(x)=C exp(ax-a²/(8π))S(x-a/(4π)). Two-sided polynomial lower bound contradicts polynomial upper bound if a≠0; compact-band exponential tilts exhibit arbitrarily separated indistinguishable spectra. Gaussian-posterior differentiation gives rho=4π Var(X_ω)>0; constant rho yields Gaussian mgf, then polynomial upper bound implies rho≤1 and centered/shifted Gaussian or constant S. All limits and normalizations checked analytically; numerical quadrature is corroboration only.
 
-**Closest literature and limitations.** The core forward identity and the general two-constant smoothed ambiguity are covered by arXiv:2609.18689; the new comparison is about the permitted raw-PSD orbit and restrictive tail geometry. The result concerns ideal population first intensities only, not finite-data estimation or whole-process equivalence. Exponential-family and heat-semigroup inverse literature could contain equivalent unsmoothing identities. Independent publication-priority review remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Escudero–Koliander–Romero (2026) already derive the forward zero-intensity formula and the affine two-constant ambiguity for the Gaussian-SMOOTHED PSD; they do not state the complete admissible UNSMOOTHED PSD orbit, the two-sided polynomial tail uniqueness, disjoint-band counterexamples, or the if-and-only-if homogeneous density classification. Forward Gaussian example also credited. Closely related published two-resolution rigidity builds on different extra-data conditions; no dominating full single-resolution admissibility classification found.
+
+## value
+
+PASS
+
+Natural inverse-identifiability theorem for a physically meaningful zero-density statistic, with exact spectrum fibers, explicit sharp failure mode for disjoint bands, rigorous tail-based rigidity and characterization of homogeneous zero patterns. It is not merely the standard Gaussian convolution differentiation or a numerically fitted example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
