@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T22:55:45.613396Z",
+  "axes": {
+    "correctness": {
+      "rationale": "With e_j=x*-x_j, the retained ell-1 recent search directions form an orthogonal subspace W_j with dim min(j,ell-1), and exact line search implies e_j is in W_j^perp even as older directions expire. A^T s_j/sqrt(lambda) is fresh iid N(0,I_d); the source gradient d_j=lambda<z_j,e_j>z_j, and after Gram-Schmidt the nonzero update is exact orthogonal projection along v_j=(I-P_Wj)z_j. Conditional on all past, v_j is isotropic Gaussian in m_j=d-min(j,ell-1) dimensions, and R_j=1-(<e_j,v_j>/(||e_j|| ||v_j||))^2 has Beta((m_j-1)/2,1/2) distribution. Since this conditional law is deterministic, factors are mutually independent; m_j=1 gives final exact zero, while ell<d keeps m>=2 and no finite termination. Mellin moments are products and finite iff q>-(d-ell)/2 once steady state entered; E R=(m-1)/m telescopes and strong law for persistent iid logs yields digamma exponent. Independent Gaussian simulation d=6, ell=3, 7000 trajectories gave step means 0.8358,0.79784,0.74969,0.75263,0.74904 versus theory 5/6,4/5,3/4,3/4,3/4. No inference of all-d correctness from sample.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original IS-Krylov framework covers larger matrix classes/memory but only expected bounds. Prior beta-factor law is for RCGLS one previous direction, hence ell=2, not arbitrary ell."
+        ],
+        "reasoning": "A broadly defined algorithm with weaker bounds and a narrower exact theorem do not jointly imply the stronger all-memory exact joint law without the new sliding-window projection and conditional independence proof.",
+        "searches": [
+          "https://arxiv.org/html/2505.20602v1",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-independent-beta-contraction-and-finite-termination-dichotomy-fo--6c56d0c6dc40/RESULT.md",
+          "Resultary: independent random beta error ratios sliding window sketch Gaussian orthogonal directions memory k Krylov"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2505.20602v1",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-independent-beta-contraction-and-finite-termination-dichotomy-fo--6c56d0c6dc40/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For ell=2, the submitted beta sequence matches the Nov 2 published factorization and digamma rate. For ell=3, third and later beta left-shape changes from (d-2)/2 to (d-3)/2, changing both inverse-moment threshold and rate."
+        ],
+        "reasoning": "The submitted result genuinely generalizes the prior ell=2 beta statement while crediting known full-memory finite termination; neither prior result directly implies the new exact ell>=3 law.",
+        "searches": [
+          "https://arxiv.org/html/2505.20602v1",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-independent-beta-contraction-and-finite-termination-dichotomy-fo--6c56d0c6dc40/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier RCGLS uses a single most recent H-orthogonal direction; in a scaled-isometric design that is the ell=2 IS-Krylov reduction."
+        ],
+        "reasoning": "The exact old beta factors are Beta((d-1)/2,1/2) at j=0 then Beta((d-2)/2,1/2) throughout, whereas ell=3 progresses to Beta((d-3)/2,1/2), different law.",
+        "searches": [
+          "Gaussian sketches limited memory IS-Krylov independent beta contraction error exact distribution RCGLS",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-independent-beta-contraction-and-finite-termination-dichotomy-fo--6c56d0c6dc40/RESULT.md",
+          "https://arxiv.org/html/2505.20602v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The older RCGLS article gives exact ell=2 factorization; checked source lacks beta Mellin products at ell>=3 or critical inverse-error cutoff (d-ell)/2."
+        ],
+        "reasoning": "No existing full arbitrary-memory exact distributions/table located; finite simulations alone would not certify absence, so residual historical risk remains.",
+        "searches": [
+          "Gaussian sketches limited memory IS-Krylov independent beta contraction error exact distribution RCGLS",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-independent-beta-contraction-and-finite-termination-dichotomy-fo--6c56d0c6dc40/RESULT.md",
+          "https://arxiv.org/html/2505.20602v1"
+        ]
+      },
+      "rationale": "PASS, best of knowledge: The 2025 Sun–Han–Xie original Algorithm 3 defines arbitrary fixed memory ell but provides expected convergence bounds and known full-memory finite termination, not exact conditional independence and beta product. A distinct November 2 2026 Resultary theorem proves the same beta law and exponent for RCGLS, which agrees with ell=2 (one past search direction) ONLY. The submitted theorem includes every sliding-window ell>=3, varying transient dimensions, exact full-memory termination threshold and inverse-error integrability, none of which the ell=2 theorem implies by parameter renaming. Direct primary Algorithm 3 text was matched to the projection update.",
+      "residual_risks": [
+        "The result excludes anisotropic normal matrices, noisy systems, block sketches and finite precision.",
+        "Other classical orthogonal Gaussian projection process literature could have a more abstract equivalent characterization for arbitrary sliding memory; searches and primary comparisons were bounded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATIONAL_ALGORITHM_NOT_FULL_BETA",
+          "evidence": [
+            "Algorithm 3 uses the same residual sketch, Gram-Schmidt of ell-1 recent directions and squared residual/norm-squared stepsize; paper proves expected convergence rather than all-memory conditional Beta independence."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2505.20602v1",
+          "material_read": "Open-access arXiv HTML, Algorithm 3 lines 480–514, §§4.1–4.3 and conclusions on expected convergence and finite memory",
+          "method": "Read directly arXiv full HTML mathematical sections, source update equations and relevant theorem statements",
+          "title": "Connecting randomized iterative methods with Krylov subspaces",
+          "trigger": "Defines exact limited-memory IS-Krylov Algorithm 3 and its update equations"
+        },
+        {
+          "assessment": "PARTIAL_ELL2_COVERAGE",
+          "evidence": [
+            "One retained previous direction corresponds to ell=2 only; arbitrary ell>=3 sliding-window law and thresholds not covered."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-independent-beta-contraction-and-finite-termination-dichotomy-fo--6c56d0c6dc40/RESULT.md",
+          "material_read": "Entire original Resultary RESULT.md: RCGLS update, projection reduction, dimension-(d-1) beta conditional law, exact moments, almost-sure exponent, scope",
+          "method": "Read full primary theorem and proof via GitHub raw or arXiv HTML; compared mathematical statements and definitions",
+          "title": "Independent-beta contraction and finite-termination dichotomy for Gaussian-sketch RCGLS",
+          "trigger": "Earlier exact independent Beta law on closely related one-memory algorithm"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The exact distributional dynamics of a specified adaptive randomized solver is a substantive quantitative result beyond mean-square rates: it gives all moments, sharp rare-small-error inverse-moment cutoffs, and almost-sure rates for arbitrary memory lengths. The sliding orthogonal-window invariant is needed to justify the independence despite adaptive retained directions; the full-memory finite termination is credited as known.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For exact Gaussian one-column IS-Krylov on a consistent scaled-isometric design A^T A=lambda I_d with memory ell, the squared-error contractions R_j are mutually independent Beta((d-min(j,ell-1)-1)/2,1/2) until the known deterministic full-memory zero factor; full joint finite-time moments, sharp inverse-moment thresholds and almost-sure digamma contraction rates follow for ell<d.",
+  "limitations": [
+    "Theorem requires A^T A=lambda I with lambda>0, consistent data and exact real arithmetic; sketching columns independent standard normal.",
+    "ell=d zero factor is known finite termination, not itself claimed as original.",
+    "Finite Monte Carlo cannot prove mutual independence or general dimensions; analytic conditional distribution does."
+  ],
+  "schema_version": 1
+}

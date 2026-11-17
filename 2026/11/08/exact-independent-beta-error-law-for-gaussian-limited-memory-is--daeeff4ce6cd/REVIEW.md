@@ -1,19 +1,21 @@
-# Scientific review: Independent beta contraction law for limited-memory Gaussian IS-Krylov
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** On a consistent scaled-isometry the source's sketched gradient is a scalar multiple of a standard Gaussian direction. The retained memory directions form a mutually orthogonal window, and the current error is orthogonal to this window. After orthogonalizing a fresh Gaussian, exact line search removes precisely the projection of the error onto that random direction. The conditional squared-error factor is therefore a beta-distributed complement of a squared spherical coordinate. Its conditional law depends only on the deterministic window size, establishing independence across iterations. Beta integration and the strong law give all stated moment formulas, sharp negative-moment threshold, and pathwise rate. The full-memory zero-ratio boundary follows from a one-dimensional complement. `verify.py` independently checks raw source-style updates and moment consequences. The proof does not rely on the Monte Carlo tests.
+PASS
 
-## Originality
+With e_j=x*-x_j, the retained ell-1 recent search directions form an orthogonal subspace W_j with dim min(j,ell-1), and exact line search implies e_j is in W_j^perp even as older directions expire. A^T s_j/sqrt(lambda) is fresh iid N(0,I_d); the source gradient d_j=lambda<z_j,e_j>z_j, and after Gram-Schmidt the nonzero update is exact orthogonal projection along v_j=(I-P_Wj)z_j. Conditional on all past, v_j is isotropic Gaussian in m_j=d-min(j,ell-1) dimensions, and R_j=1-(<e_j,v_j>/(||e_j|| ||v_j||))^2 has Beta((m_j-1)/2,1/2) distribution. Since this conditional law is deterministic, factors are mutually independent; m_j=1 gives final exact zero, while ell<d keeps m>=2 and no finite termination. Mellin moments are products and finite iff q>-(d-ell)/2 once steady state entered; E R=(m-1)/m telescopes and strong law for persistent iid logs yields digamma exponent. Independent Gaussian simulation d=6, ell=3, 7000 trajectories gave step means 0.8358,0.79784,0.74969,0.75263,0.74904 versus theory 5/6,4/5,3/4,3/4,3/4. No inference of all-d correctness from sample.
 
-**PASS, with priority risk.** The closest sources are Sun, Han and Xie (arXiv:2505.20602v1, Sections 3, 4.2 and Remark 3.6), Zeng, Cai, Han and Xie (arXiv:2605.25034v1, Section 2), and Zeng, Han, Su and Xie (arXiv:2305.05482, Sections 4–5). The first explicitly contains the finite-termination result when memory reaches rank, which is **not** asserted as new. Those sources furnish general expected-rate bounds and an adaptive orthogonalization algorithm; the inspected text did not state the exact independent adaptive beta factors, finite-time Mellin product, inverse-error integrability threshold, or almost-sure digamma exponent. Classical one-direction spherical beta laws are known and are used as a lemma, not claimed as original. Generic sketch-and-project theory and published random-projection claims in neighboring settings do not cover the specified sliding-window process or its whole error law. Literature indexing can miss mathematically equivalent older formulations; no claim of exhaustive novelty certification is made.
+## originality
 
-## Value
+PASS
 
-**PASS.** The exact product distribution resolves a natural theoretical gap between general expected-rate bounds and full pathwise uncertainty in a memory-controlled, randomized linear solver. It quantifies precisely the improvement from retaining additional orthogonal directions and distinguishes the typical rate from the expected squared-error rate. The sharp negative-moment threshold identifies what relative-error reliability statistics exist, a feature absent from convergence-factor upper bounds. The scaled-isometry case is a meaningful baseline for checking numerical methods even though it is not a general ill-conditioned solver theorem.
+PASS, best of knowledge: The 2025 Sun–Han–Xie original Algorithm 3 defines arbitrary fixed memory ell but provides expected convergence bounds and known full-memory finite termination, not exact conditional independence and beta product. A distinct November 2 2026 Resultary theorem proves the same beta law and exponent for RCGLS, which agrees with ell=2 (one past search direction) ONLY. The submitted theorem includes every sliding-window ell>=3, varying transient dimensions, exact full-memory termination threshold and inverse-error integrability, none of which the ell=2 theorem implies by parameter renaming. Direct primary Algorithm 3 text was matched to the projection update.
 
-## Scientific limitations
+## value
 
-Only consistent systems with scaled-orthonormal columns, independent rank-one Gaussian sketches, exact orthogonalization, and exact arithmetic are covered. The classical rank-memory finite-termination fact is acknowledged as prior. The verifier checks finite instances, not proof or priority. The result does not determine behavior under noisy data, anisotropic conditioning, block/structured sketching, or roundoff.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The exact distributional dynamics of a specified adaptive randomized solver is a substantive quantitative result beyond mean-square rates: it gives all moments, sharp rare-small-error inverse-moment cutoffs, and almost-sure rates for arbitrary memory lengths. The sliding orthogonal-window invariant is needed to justify the independence despite adaptive retained directions; the full-memory finite termination is credited as known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
