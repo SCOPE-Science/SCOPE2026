@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-`verify_claim.py` is a standalone Python 3 script requiring SymPy and SciPy. Run it from the directory containing `RESULT.md` and `verify_claim.py` with `python verify_claim.py`.
+## correctness
 
-The program explicitly solves the two-stage moment fixed point, checks its contraction-derived difference factor symbolically, checks the parameter identity for \(K\), computes three independent rational-parameter Taylor-coefficient cases for the hyperbolic factor, and verifies the derivative identity for the scaling-limit minimization. It independently integrates the two thermal-stage moment ODEs using an adaptive ODE solver and compares the resulting instantaneous quench work to the exact formula for four parameter pairs. Finally it optimizes the exact rate-dependent work for decreasing half-cycle durations, illustrating convergence to the predicted \(\tau^{-2/3}\) law.
+PASS
 
-The analytic theorem is not inferred from numerical fits. The proof of existence and the all-global-maximizer asymptotic rests on the strict hyperbolic envelope, uniform expansion and nonnegative-deficit bounds in `RESULT.md`. The verifier does not claim an exhaustive scan or finite-stage uniqueness. It does not compute or include the physical energetic cost of implementing resets; a separate model is required for any net-efficiency claim.
+The variance ODE vdot=-(2k+r)v+2T implies a contracting two-stage affine map. Solving yields the displayed exact mechanical quench-work formula. Its normalized expression g(r)H_tau(r), with g=alpha/2-K/[2(2r+a+b)] and H<1 via z coth z>1, has uniform small-r tau expansion H=1-(r+a)(r+b)tau²/12+O((r tau)^4). Benchmark r=c tau^-2/3 yields loss K/(4c)+alpha c²/24; a global optimizer must have r→∞ and r tau→0 and is trapped at c tau^-2/3 with c bounded away from zero/infinity. The strictly convex loss has c³=3K/alpha. Independent moment-equation evaluation agrees with exact formula to 10^-17, and optimized-rate ratios for tau=.04,.01,.002 approach 1.
+
+## originality
+
+PASS
+
+Lahiri–Gupta study Poisson resetting in a driven four-step Stirling engine with linearly varied k(t), not the two fixed-stiffness isochoric contacts with instantaneous Otto quenches. Published resetting papers on finite-time returns, quantum engines and reset entropy do not imply the exact classical all-global-maximizer tau^-2/3 law in located text. Mathematical optimization method is classical, concrete asymptotic claim appears distinct.
+
+## value
+
+PASS
+
+A sharp optimizer-scaling boundary for a specified quench-work observable supplies useful optimal-control mathematics and explains competing relaxation/reset losses. Reset-actuator costs are explicitly excluded, so this is not inflated into a general net-engine efficiency claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
