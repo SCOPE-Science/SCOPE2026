@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T16:57:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-minimal-falsifier-spectra-for-inverse-functional-dependenc--2a96c3a15333/RESULT.md",
+        "verify.py blob ddbf4ace146fb4f94838f4b4ffdf1cd4c218e12b",
+        "Independent pseudoforest edge-mask enumeration on 2x3,3x3,3x4"
+      ],
+      "rationale": "Under lax splitting, color each team edge by a determinant side: each left/right vertex has at most one outward edge, hence the bipartite team graph is a pseudoforest iff the formula holds. Edge-minimal violations are connected bicircular circuits (theta or two cycles joined by path), with e=v+1 and every incident degree≥2. If a,b count the used vertices on each color, the bipartite degree sums give |a-b|≤1 and maximal size 2m+1 when p=q=m, 2m+2 when p≠q. Base theta K_2,3 (6 edges) and K_3,3 minus two disjoint edges (7 edges), and repeated double subdivisions, construct every admissible even and odd size. Counts at 6 and 7 are C(p,2)C(q,3)+C(p,3)C(q,2) and 18C(p,3)C(q,3). Empty cases m=1 and p=q=2 checked. Independent pseudoforest enumeration returned {6:1} for 2×3, {6:6,7:18} for 3×3, {6:18,7:72,8:54} for 3×4, matching theorem; source verify.py also implements literal team splitting.",
+      "residual_risks": [
+        "Only finite rectangles were independently enumerated; unbounded spectrum follows theta double subdivisions and degree constraints. Literal k-coherence differs from at-most-k cutoff."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://combinatorialpress.com/ars-articles/volume-066-ars-articles/enumeration-of-the-bases-of-the-bicircular-matroid-on-a-complete-bipartite-graph/",
+          "https://arxiv.org/pdf/2508.16146"
+        ],
+        "reasoning": "Classical bicircular circuits cover more graph classes at the structural level but do not provide fixed color-part cardinality realization interval by themselves. Neudauer–Stevens count bases (spanning pseudoforests), not circuits; global incoherence is weaker than fixed-domain exact spectra.",
+        "searches": [
+          "bicircular matroid circuits complete bipartite Kpq theta handcuff sizes",
+          "Neudauer Stevens 2003 complete bipartite bicircular matroid bases"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2508.16146",
+        "https://arxiv.org/abs/2605.31269",
+        "https://combinatorialpress.com/ars-articles/volume-066-ars-articles/enumeration-of-the-bases-of-the-bicircular-matroid-on-a-complete-bipartite-graph/",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-minimal-falsifier-spectra-for-inverse-functional-dependenc--2a96c3a15333/RESULT.md",
+        "Resultary semantic query: inverse functional dependencies minimal falsifier bicircular matroid complete bipartite"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/2508.16146",
+          "https://combinatorialpress.com/ars-articles/volume-066-ars-articles/enumeration-of-the-bases-of-the-bicircular-matroid-on-a-complete-bipartite-graph/",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-minimal-falsifier-spectra-for-inverse-functional-dependenc--2a96c3a15333/RESULT.md"
+        ],
+        "reasoning": "Earlier Theorem 24 supplies unbounded even-sized minimal failures as domain grows; fixed p×q upper bounds, all intervening odds, rectangular asymmetry and labeled 6-/7-edge counts need the present bipartite degree argument and explicit theta subdivisions. Bases enumeration does not assert circuits or their gap-free cardinality spectrum.",
+        "searches": [
+          "Disjunctions of Two Dependence Atoms 2025 Theorem 24 incoherence witness construction",
+          "Neudauer Stevens 2003 bicircular matroid complete bipartite bases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/2508.16146",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-minimal-falsifier-spectra-for-inverse-functional-dependenc--2a96c3a15333/RESULT.md"
+        ],
+        "reasoning": "The formula and semantics coincide with Theorem 24 of the earlier paper. Its global incoherence follows from arbitrarily large finite witnesses as alphabets grow; it does not specify every fixed-rectangle circuit size nor two coefficient counts.",
+        "searches": [
+          "Resultary inverse functional dependency disjunction minimal falsifiers bicircular matroid",
+          "Fröhlich Kolaitis Meier dep(x,y) OR dep(y,x) Theorem 24"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-minimal-falsifier-spectra-for-inverse-functional-dependenc--2a96c3a15333/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-minimal-obstruction-spectrum-for-two-disjoint-boolean-depe--df44209fab27"
+        ],
+        "reasoning": "Related four-Boolean-variable obstruction polynomial concerns disjoint dependence atoms, a different formula. No preexisting exact p×q circuit-size table was identified; first two counts are derived from unique small bicircular graph types, not an imported numerical table.",
+        "searches": [
+          "Resultary sharp minimal falsifier spectra inverse dependence size 6 7 8",
+          "Resultary exact minimal obstruction spectrum disjoint boolean dependence atoms"
+        ]
+      },
+      "rationale": "The exact fixed-p×q entire minimal falsifier size spectrum, sharp local test cutoff and two smallest counts are not stated in inspected primary inverse-dependence incoherence theorem or the bicircular matroid *bases* enumeration. The classical pseudoforest/circuit taxonomy is credited and not claimed new. The fixed-domain gap-free cardinality interval and multiplicities are natural additional assertions beyond the global incoherence constructions.",
+      "residual_risks": [
+        "The 2026 coherence paper full text could not be accessed during this run; a precisely parameterized circuit-spectrum result could be hidden there or in older bicircular matroid literature.",
+        "Classical bicircular circuit types are prior, so novelty is confined to exact fixed-rectangle spectrum, sharp cutoff and initial counts; no new graph circuit taxonomy claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves global incoherence, not the inspected fixed finite-p,q spectrum",
+          "evidence": [
+            "https://arxiv.org/pdf/2508.16146"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2508.16146",
+          "material_read": "Complete 20-page PDF obtained; inspected introductory definitions and Theorem 24, proof/figure on page 16 giving arbitrarily large minimal false teams; page-15 screenshot inspected",
+          "method": "Web PDF text and relevant screenshot",
+          "title": "Disjunctions of Two Dependence Atoms",
+          "trigger": "Identical inverse-dependence disjunction and global incoherence result"
+        },
+        {
+          "assessment": "Counts bases, not entire simple bicircular circuit-size support",
+          "evidence": [
+            "https://combinatorialpress.com/ars-articles/volume-066-ars-articles/enumeration-of-the-bases-of-the-bicircular-matroid-on-a-complete-bipartite-graph/"
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-066-ars-articles/enumeration-of-the-bases-of-the-bicircular-matroid-on-a-complete-bipartite-graph/",
+          "material_read": "Abstract and purpose, published 2003, bases of K_m,n; selected PDF pages including bases enumeration inspected in this audit research context",
+          "method": "Web full-text/selected page and journal metadata",
+          "title": "Enumeration of the Bases of the Bicircular Matroid on a Complete Bipartite Graph",
+          "trigger": "Identical bipartite matroid object"
+        },
+        {
+          "assessment": "NOT a full-text noncoverage claim; unresolved risk documented",
+          "evidence": [
+            "https://arxiv.org/abs/2605.31269"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.31269",
+          "material_read": "Abstract and bibliographic record only; lawful arXiv PDF blocked by access error",
+          "method": "Web bibliographic/abstract only",
+          "title": "Aspects of Coherence in Dependence Logic",
+          "trigger": "Exact-size k-coherence definition and potential overlapping theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-minimal-falsifier-spectra-for-inverse-functional-dependenc--2a96c3a15333/RESULT.md",
+        "https://arxiv.org/pdf/2508.16146"
+      ],
+      "rationale": "Finite-domain database/team consistency requires a sharp size cap for local falsification. The entire uninterrupted spectrum determines which arities suffice or fail; the exact smallest counts quantify leading failure types; fixed-domain cutoffs sharply contrast global incoherence. These are natural exact invariants of a specific logical formula and a complete rectangular-parameter family, rather than an unmotivated numeric toy problem.",
+      "residual_risks": [
+        "No full high-order circuit counting polynomial or arbitrary formulas; at-most-k local cutoff is not conflated with literal exactly-k coherence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Lax two-way dependence disjunction on finite two-variable set teams; no bags, other atom patterns or higher falsifier multiplicity enumerators; cannot equate at-most-k cutoff with exact-size k-coherence.",
+  "schema_version": 1
+}
