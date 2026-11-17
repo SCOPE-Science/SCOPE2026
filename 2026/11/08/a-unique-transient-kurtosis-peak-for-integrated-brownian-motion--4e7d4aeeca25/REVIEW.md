@@ -1,19 +1,21 @@
-# Scientific review: unique transient kurtosis peak under velocity-only resetting
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem concerns a precisely specified integrated Brownian motion with independent Poisson resets of velocity alone and zero initial velocity. Conditioning on the Poisson interval lengths gives a nondegenerate Gaussian variance mixture, so the excess kurtosis is exactly three times the relative variance of the sum of cubed interval lengths. The two finite-time moment formulas match independently published renewal moments (den Hollander et al., arXiv:1801.09909, Theorem V.1). Reconstructing their derivative produces an explicit entire exponential polynomial. Its first nonzero Taylor coefficients are strictly positive at orders 9--15 and strictly negative at every order at least 16. Normalizing by the fifteenth power gives a strictly decreasing function with opposite endpoint signs, proving a unique critical point over the entire positive axis. The symbolic checker reproduces the renewal transforms and every finite sign in this proof, and confirms the endpoint coefficients and numerical peak. Numeric samples are not used to prove uniqueness.
+## correctness
 
-## Originality — PASS, with priority risk
-The original complete finite-time second and fourth moments are already in den Hollander et al. (2018), and reproduced by Smith and Majumdar (2022). The latter also establishes the fourth-cumulant rate and hence the leading large-time \(42/(rt)\) excess-kurtosis coefficient. Olsen and Löwen (2024) explicitly connect velocity-only resetting to the Brownian-area observable. None of these premises is claimed as new. Their complete moment formula does not itself state a global one-critical-point classification. The new mathematical step is the all-orders sign-change proof that its transcendental derivative has exactly one positive zero. Searches of these primary full texts, related publications, and mathematical finding records did not locate that specific theorem. There is residual risk that an unindexed presentation, or an earlier global analysis of the same exact formula, has already established the result.
+PASS
 
-## Mathematical value — PASS
-The normalized fourth cumulant is a natural and dimensionless measure of non-Gaussianity in transport. A global one-peak theorem determines the number, location and size of non-Gaussian transient maxima, not merely the early or late expansion. The parameter-free peak height and the exact time rescaling \(t_*=z_*/r\) distinguish a single characteristic pulse from potentially multiple transient bursts; this is a motivated structural classification of a prominent non-equilibrium model. It does not claim experimental calibration performance or an extension to arbitrary reset protocols.
+Conditioning on Poisson inter-reset lengths L_j makes X_t a centered Gaussian with conditional variance (2D/3)S_t for S_t=sum L_j^3; therefore excess kurtosis equals 3 Var(S_t)/(ES_t)^2>0. First-renewal convolution yields the stated Laplace transforms and exact f(z),g(z) moments, which imply universal dependence on z=rt. Independently differentiated g/(4f²)-3, reconstructed H(z), verified all zero coefficients n<=8 and positive n=9..15/negative n=16,17; for n>=18 its exact coefficient formula has negative 2^n(1440-84n) minus strictly positive falling-factorial terms. Hence H(z)/z^15 strictly decreases from +infinity to -infinity and has exactly one positive zero: global unimodality is an analytic theorem, not grid inference. Numeric solve corroborated z*=6.65959932539352, K*=3.45618143555349. Small and large z endpoint laws are consistent with exact moment asymptotics.
 
-## Closest literature and limits
-- Den Hollander et al., *Properties of additive functionals of Brownian motion with resetting*, arXiv:1801.09909, Section V, Theorem V.1: identical finite-time moments (prior), no reported single-peak theorem.
-- Smith and Majumdar, *Condensation transition in large deviations of self-similar Gaussian processes with stochastic resetting*, arXiv:2202.03546, Section III: known cumulant coefficients and same moment formulas, no reported transient peak classification.
-- Olsen and Löwen, *Dynamics of inertial particles under velocity resetting*, arXiv:2401.12685, Sections 2--3: same physical resetting interpretation and generic moment recursion, no reported exact kurtosis unimodality.
+## originality
 
-All results require the specifically stated zero-start Gaussian velocity segments and Poisson resets. The peak value is approximate; the uniqueness and global bound are exact.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The model, finite-time moments and large-time fourth cumulant are published and are explicitly not claimed new. The assessed novelty is global uniqueness of the critical point and the exact one-sign-change entire-function proof for the pre-existing kurtosis formula. Closest published Resultary stationary confined-particle and long-time rate optimization findings have different observable limits; the examined Brownian-reset sources contain exact moments but do not present this global transient critical-point theorem.
+
+## value
+
+PASS
+
+The unique time of maximum non-Gaussian displacement is an intrinsic transient characteristic of velocity-only resetting, giving a universal dimensionless calibration and ruling out secondary peaks. Rigorous global critical-point classification of an exponential-rational moment observable is structurally stronger and more useful than numerical optimization, while modest in scope and appropriately distinguishing prior moments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

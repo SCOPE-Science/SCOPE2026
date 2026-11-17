@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T15:41:09.863063Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on Poisson inter-reset lengths L_j makes X_t a centered Gaussian with conditional variance (2D/3)S_t for S_t=sum L_j^3; therefore excess kurtosis equals 3 Var(S_t)/(ES_t)^2>0. First-renewal convolution yields the stated Laplace transforms and exact f(z),g(z) moments, which imply universal dependence on z=rt. Independently differentiated g/(4f²)-3, reconstructed H(z), verified all zero coefficients n<=8 and positive n=9..15/negative n=16,17; for n>=18 its exact coefficient formula has negative 2^n(1440-84n) minus strictly positive falling-factorial terms. Hence H(z)/z^15 strictly decreases from +infinity to -infinity and has exactly one positive zero: global unimodality is an analytic theorem, not grid inference. Numeric solve corroborated z*=6.65959932539352, K*=3.45618143555349. Small and large z endpoint laws are consistent with exact moment asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Smith-Majumdar treat moments and long-time cumulants of more general reset self-similar Gaussian processes.",
+          "Olsen-Löwen treat general velocity-only resets and displacement moment evolution."
+        ],
+        "reasoning": "Broader moment frameworks imply the exact function but do not mathematically establish the number of its finite-time critical points without the additional entire-function coefficient-sign proof.",
+        "searches": [
+          "Resultary_Search semantic query: integrated Brownian velocity resetting excess kurtosis unique maximum time peak",
+          "https://ar5iv.labs.arxiv.org/html/2202.03546",
+          "https://arxiv.org/abs/2401.12685"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-unique-transient-kurtosis-peak-for-integrated-brownian-motion--4e7d4aeeca25/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-unique-transient-kurtosis-peak-for-integrated-brownian-motion--4e7d4aeeca25/check.py",
+        "Resultary_Search semantic query: integrated Brownian velocity resetting excess kurtosis unique maximum time peak",
+        "https://arxiv.org/abs/1801.09909",
+        "https://ar5iv.labs.arxiv.org/html/2202.03546",
+        "https://arxiv.org/abs/2401.12685"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Closest earlier published Resultary items study stationary trapped non-Gaussianity versus reset rate and long-time inertial Brownian rate optimization.",
+          "Current theorem concerns free integrated Brownian motion, *time-dependent* kurtosis and one positive peak in rt."
+        ],
+        "reasoning": "Those earlier conclusions cannot imply this all-time transient uniqueness without new analysis; the general published moments supply premises but not global sign theorem.",
+        "searches": [
+          "Resultary_Search semantic query: integrated Brownian velocity resetting excess kurtosis unique maximum time peak",
+          "https://ar5iv.labs.arxiv.org/html/2202.03546",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-a-unique-spatial-non-gaussianity-resonance-under-velocity-only-r--96151d39743f",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-unique-optimum-of-non-gaussian-displacement-under-poisson-velo--dc4dddaa64f9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The integrated Brownian displacement equals the area under a Brownian process that resets its velocity, and the cited authors derive the same finite-time second and fourth moments.",
+          "The assigned critical point is equivalent to the unique positive root of H(z)=exp(2z)(g’f-2gf’)."
+        ],
+        "reasoning": "Prior exact f,g describe the same kurtosis function, but the novelty lies in its proven unique finite-time maximum, not an algebraically rebranded expression for the moments.",
+        "searches": [
+          "Resultary_Search semantic query: integrated Brownian velocity resetting excess kurtosis unique maximum time peak",
+          "https://arxiv.org/abs/1801.09909",
+          "https://arxiv.org/abs/2202.03546"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing exact moment and 42/z long-time results are acknowledged by the package.",
+          "No source among the retrieved primary full-text sections was found tabulating the unique peak z*=6.65959932539 or the sign pattern of H."
+        ],
+        "reasoning": "The existing moment table is not a prior classification of the full maximum; lack of a search match is explicitly not proof of priority.",
+        "searches": [
+          "Resultary_Search semantic query: integrated Brownian velocity resetting excess kurtosis unique maximum time peak",
+          "https://arxiv.org/abs/1801.09909",
+          "https://arxiv.org/abs/2202.03546"
+        ]
+      },
+      "rationale": "The model, finite-time moments and large-time fourth cumulant are published and are explicitly not claimed new. The assessed novelty is global uniqueness of the critical point and the exact one-sign-change entire-function proof for the pre-existing kurtosis formula. Closest published Resultary stationary confined-particle and long-time rate optimization findings have different observable limits; the examined Brownian-reset sources contain exact moments but do not present this global transient critical-point theorem.",
+      "residual_risks": [
+        "Same f,g were previously published; an unindexed follow-up may have already analyzed their stationary point.",
+        "Full den Hollander source was not definitively read end-to-end in this run; any noncoverage inference is restricted to inspected material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact finite-time second/fourth moments are prior; no assertion that uninspected sections lack a critical-point theorem",
+          "evidence": "Self-consistent exact m(t),q(t) identify known moment calculation; priority of global maxima remains open.",
+          "identifier_or_url": "https://arxiv.org/abs/1801.09909",
+          "material_read": "Bibliographic abstract and available reported Sec V theorem references/formulas; full text not conclusively inspected for every appendix",
+          "method": "ArXiv source comparison, with limited access precision",
+          "title": "den Hollander, Majumdar, Meylahn and Touchette, Properties of additive functionals of Brownian motion with resetting",
+          "trigger": "Same Brownian area/velocity reset model and finite-time moments"
+        },
+        {
+          "assessment": "Covers exact moments and asymptotic 42/(rt) normalized correction; not the displayed finite-time one-peak proof",
+          "evidence": "Section III derives finite-time reset moments and long-time cumulants, not global critical-point sign.",
+          "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2202.03546",
+          "material_read": "Accessible full-text HTML sections I-III, moment/cumulant equations (85)-(89), asymptotic treatment",
+          "method": "Read primary full-text HTML, compare moment implications",
+          "title": "Smith and Majumdar, Condensation transition in large deviations of self-similar Gaussian processes with stochastic resetting",
+          "trigger": "Same reset integrated Brownian functional, stronger general self-similar process"
+        },
+        {
+          "assessment": "General velocity-reset dynamical/moment framework; no full-document negative coverage claim",
+          "evidence": "Reset protocol matches, but model includes generic friction regimes.",
+          "identifier_or_url": "https://arxiv.org/abs/2401.12685",
+          "material_read": "Abstract and accessible literature references; full text not established here",
+          "method": "Primary abstract and protocol comparison",
+          "title": "Olsen and Löwen, Dynamics of inertial particles under velocity resetting",
+          "trigger": "Resetting the velocity alone is exact same protocol"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The unique time of maximum non-Gaussian displacement is an intrinsic transient characteristic of velocity-only resetting, giving a universal dimensionless calibration and ruling out secondary peaks. Rigorous global critical-point classification of an exponential-rational moment observable is structurally stronger and more useful than numerical optimization, while modest in scope and appropriately distinguishing prior moments.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-unique-transient-kurtosis-peak-for-integrated-brownian-motion--4e7d4aeeca25/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-unique-transient-kurtosis-peak-for-integrated-brownian-motion--4e7d4aeeca25/check.py",
+    "Resultary_Search semantic query: integrated Brownian velocity resetting excess kurtosis unique maximum time peak",
+    "https://arxiv.org/abs/1801.09909",
+    "https://ar5iv.labs.arxiv.org/html/2202.03546",
+    "https://arxiv.org/abs/2401.12685"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Fixed v0=0, constant Poisson reset r>0 and unconfined Brownian acceleration; no friction or non-Poisson extension.",
+    "Numerical peak value is approximation, exact theorem is the unique zero of specified H."
+  ],
+  "residual_risks": [
+    "Same f,g were previously published; an unindexed follow-up may have already analyzed their stationary point.",
+    "Full den Hollander source was not definitively read end-to-end in this run; any noncoverage inference is restricted to inspected material."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Exact finite-time second/fourth moments are prior; no assertion that uninspected sections lack a critical-point theorem",
+      "evidence": "Self-consistent exact m(t),q(t) identify known moment calculation; priority of global maxima remains open.",
+      "identifier_or_url": "https://arxiv.org/abs/1801.09909",
+      "material_read": "Bibliographic abstract and available reported Sec V theorem references/formulas; full text not conclusively inspected for every appendix",
+      "method": "ArXiv source comparison, with limited access precision",
+      "title": "den Hollander, Majumdar, Meylahn and Touchette, Properties of additive functionals of Brownian motion with resetting",
+      "trigger": "Same Brownian area/velocity reset model and finite-time moments"
+    },
+    {
+      "assessment": "Covers exact moments and asymptotic 42/(rt) normalized correction; not the displayed finite-time one-peak proof",
+      "evidence": "Section III derives finite-time reset moments and long-time cumulants, not global critical-point sign.",
+      "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/2202.03546",
+      "material_read": "Accessible full-text HTML sections I-III, moment/cumulant equations (85)-(89), asymptotic treatment",
+      "method": "Read primary full-text HTML, compare moment implications",
+      "title": "Smith and Majumdar, Condensation transition in large deviations of self-similar Gaussian processes with stochastic resetting",
+      "trigger": "Same reset integrated Brownian functional, stronger general self-similar process"
+    },
+    {
+      "assessment": "General velocity-reset dynamical/moment framework; no full-document negative coverage claim",
+      "evidence": "Reset protocol matches, but model includes generic friction regimes.",
+      "identifier_or_url": "https://arxiv.org/abs/2401.12685",
+      "material_read": "Abstract and accessible literature references; full text not established here",
+      "method": "Primary abstract and protocol comparison",
+      "title": "Olsen and Löwen, Dynamics of inertial particles under velocity resetting",
+      "trigger": "Resetting the velocity alone is exact same protocol"
+    }
+  ]
+}
