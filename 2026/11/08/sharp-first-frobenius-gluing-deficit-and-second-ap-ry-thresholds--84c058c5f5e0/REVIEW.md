@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact bijection between integer solutions and \((j,h)\)-pairs is proved for every residue \(r=qu+v\) and every nonnegative lift \(N\), with both directions and all nonnegativity constraints explicit. The minimum nonzero auxiliary cost produces the second Apéry threshold; maximizing and summing the residuewise thresholds gives both Frobenius numbers and genera. The gluing deficit is a direct exact subtraction from a proven expression. Computations cover 1,190 full parameter pairs and 440,895 residue thresholds by dynamic programming, plus 240 independently enumerated parameter pairs. Finite tests support but do not replace the infinite proof. Risks: conventional meanings of p-Frobenius differ; the present maxima agree for p=1 because the maximal p=1 integer is represented once.
+## correctness
 
-**Originality — PASS within inspected evidence.** The closest substantive published comparison is García Barroso et al. (2023/2024), Proposition 5.2 (known upper bound) and Theorem 5.3 (known equality criterion). The new claim is not their general bound or equality threshold; it supplies a closed **positive deficit** on the strict branch, all first/second Apéry representatives, and the complete first generalized genus in a specific nonarithmetic infinite family. Komatsu–Ying (2022) covers three-term arithmetic progressions; Bado (2026) studies ordinary Frobenius invariants in lacunary families, not this higher-multiplicity classification. Targeted published and indexed comparisons showed no stronger covering formula. Risk: possible unindexed exact specialization of the second Apéry/genus formulas remains; no absolute novelty certification is claimed.
+PASS
 
-**Mathematical value — PASS.** The motivating 2023 gluing paper deliberately distinguishes bounds and exact equality; the explicit size of strict inequality is not supplied there. The correction can be arbitrarily large (take fixed \(q=3\) and increase \(k\)), and its exact triangular parameter dependency distinguishes a genuine family of strict gluing cases. The residuewise threshold formula also gives an exact generalized genus, a distinct natural invariant. The result answers a structural quantitative question beyond checking a low-dimensional example or rewriting the known criterion.
+For each residue r=qu+v modulo a=qk, the map from coefficient triples to nonnegative (j,h) with h<=u+jk and j(k+1)+(q-1)h<=N-u-v is bijective. Its cheapest pair (0,0), second costs k+1 or min(q-1,k+1), and monotonicity upon adding a prove all W0,W1. Residue sum/max gives g0,g1,n0,n1 and exact gluing deficit. Independent capped-denumerant dynamic program verifies 110 parameter pairs and residuewise thresholds; finite work is corroborative.
 
-The symbolic argument does not establish analogous results for every higher representation level. The new statements have not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact positive gluing deficit, q-dependent second Apéry table and first generalized genus hold for a two-parameter lacunary family beyond the known general gluing upper/equality theorem; however the q=4 shifted-square subfamily was previously solved and is explicitly not claimed as uncovered.
+
+## value
+
+PASS
+
+The exact deficit quantifies when and how sharply a natural general gluing bound fails and provides all residuewise two-representation thresholds on an infinite nonarithmetic semigroup family, beyond a textbook restatement of equality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

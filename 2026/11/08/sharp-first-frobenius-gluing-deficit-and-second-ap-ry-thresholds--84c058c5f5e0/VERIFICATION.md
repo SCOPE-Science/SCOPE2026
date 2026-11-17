@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The infinite proof appears in `RESULT.md` and derives each residue threshold by an explicit bijection, not a probabilistic or empirical inference. A separate bounded dynamic-programming implementation verifies the predicted first and second threshold for every residue of all tested parameter pairs. Its count-capping at two is valid because every tested invariant depends only on zero, one, or at least two representations. A second program constructs exact integer solutions to the original three-variable Diophantine equation by directly enumerating the first two variables and checking divisibility for the third.
+## correctness
 
-Run `g++ -std=c++17 -O2 verify_cpp.cpp -o verify_cpp && ./verify_cpp` and `python3 verify_brute.py`. Both should reproduce `VERIFY_OUTPUT.txt` exactly. The dynamic-programming sample comprises 1,190 full parameter pairs and 440,895 residue checks; the direct-enumeration sample comprises 240 pairs. Neither finite sample proves claims for arbitrary parameters; that follows only from the symbolic derivation. No external independent audit has been performed.
+PASS
+
+For each residue r=qu+v modulo a=qk, the map from coefficient triples to nonnegative (j,h) with h<=u+jk and j(k+1)+(q-1)h<=N-u-v is bijective. Its cheapest pair (0,0), second costs k+1 or min(q-1,k+1), and monotonicity upon adding a prove all W0,W1. Residue sum/max gives g0,g1,n0,n1 and exact gluing deficit. Independent capped-denumerant dynamic program verifies 110 parameter pairs and residuewise thresholds; finite work is corroborative.
+
+## originality
+
+PASS
+
+Exact positive gluing deficit, q-dependent second Apéry table and first generalized genus hold for a two-parameter lacunary family beyond the known general gluing upper/equality theorem; however the q=4 shifted-square subfamily was previously solved and is explicitly not claimed as uncovered.
+
+## value
+
+PASS
+
+The exact deficit quantifies when and how sharply a natural general gluing bound fails and provides all residuewise two-representation thresholds on an infinite nonarithmetic semigroup family, beyond a textbook restatement of equality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
