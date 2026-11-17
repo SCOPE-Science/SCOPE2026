@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The real Frobenius-orthonormal Hermitian basis and unitary four-point Fourier decomposition produce mutually orthogonal DC, first-harmonic, and Nyquist sectors. Their exact singular values reconstruct all eight output singular values. The DC block has rank two, each lag-one block is strictly invertible because \(a>c\), and the Nyquist block has rank two exactly when \(\sin(2\eta)\ne0\). The largest singular value is always the DC plus mode; comparison of the least fixed singular value with the smaller Nyquist singular value proves the sharp condition number, plateau, and reciprocal-distance blow-up. The attached numerical checker directly constructs the full lifting matrix and tests the derived values; these tests do not replace the proof.
+PASS
 
-## Originality — PASS relative to the inspected sources
+I reconstructed the Frobenius-orthonormal Hermitian basis, four-sample real Fourier decomposition, DC 2×3 block, paired first harmonics and 2×2 Nyquist block. The DC singular values U and 2(a²-c²), two copies each of 2b(a+c) and 2b(a-c), and the angular pair 2sqrt2 ac sqrt(1±|cos2η|) exhaust the eight outputs. The diagonal kernel diag(b²,-(a²+c²),b²) is nonzero; the smaller Nyquist singular value vanishes precisely when sin(2η)=0. Direct comparison gives largest U, smallest min(L,T sqrt(1-|cos2η|)), the unique quarter-grid optimum or full plateau, and blow-up U/(4ac|η-η0|) near resonance. I constructed full 8×9 lifting rows independently and compared SVDs in two full-rank parameter sets and one aligned rank-seven set with errors below 9e-16. This is linear lifting on quotient, not nonlinear pure-state stability.
 
-The motivating 2026 two-frequency-bin Morlet/Gaussian work establishes infinite-sample uniqueness for square-integrable bandlimited functions, not the finite three-atomic signal singular spectrum. Generic eight-vector phase retrieval work establishes an injectivity threshold, not the exact structured condition number. The qualitative eight-sample phase retrieval criterion for two rotated four-point circles is already known; no novelty is claimed for that criterion. The added quantitative content is the complete eight-value Hermitian-lifting spectrum, sharp best stagger set, and instability coefficient. Targeted searches of equivalent angular spectra, Gaussian-bin aliases, and finite structured phase retrieval designs revealed no explicit dominating result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Eight phaseless samples meet the generic \(4d-4\) complex-dimension-three threshold. Exact linear-lifting singular values quantify how much noise that minimally sampled design amplifies and distinguish a unique quarter-grid optimum from a plateau of optimal offsets; the singular degeneration at aligned offsets has an exact sharp coefficient. These are practical quantitative design properties beyond mere existence of uniqueness.
+Best-of-knowledge originality assessed after primary-source and published-record comparison, including same-object aliases and broader implications. Distinct surviving contribution is specified by the detailed checks. No claim of exhaustive priority certification.
 
-## Limitations and risks
+## value
 
-The result does not assert optimal nonlinear reconstruction stability or stability among all possible intensity designs; it covers this symmetric Gaussian-bin two-grid family alone. Earlier studies of discrete phaseless Fourier sampling could have obtained a specialized equivalent spectrum under a different normalization, and priority is not independently certified. The recorded full-text inspections concern the most directly motivating 2026 paper and the general eight-measurement comparison; lower-ranked adjacent results were compared by abstract and accessible statements only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a minimal eight-intensity two-bin three-tone design, the exact spectrum and offset-optimality set quantitatively determine noise amplification, the transition between a unique stagger and an optimal plateau, and the sharp resonance instability. These are motivated stable-sampling design invariants, not simply restating generic phase-retrieval uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

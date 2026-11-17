@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T21:02:57Z",
+  "axes": {
+    "correctness": {
+      "rationale": "I reconstructed the Frobenius-orthonormal Hermitian basis, four-sample real Fourier decomposition, DC 2×3 block, paired first harmonics and 2×2 Nyquist block. The DC singular values U and 2(a²-c²), two copies each of 2b(a+c) and 2b(a-c), and the angular pair 2sqrt2 ac sqrt(1±|cos2η|) exhaust the eight outputs. The diagonal kernel diag(b²,-(a²+c²),b²) is nonzero; the smaller Nyquist singular value vanishes precisely when sin(2η)=0. Direct comparison gives largest U, smallest min(L,T sqrt(1-|cos2η|)), the unique quarter-grid optimum or full plateau, and blow-up U/(4ac|η-η0|) near resonance. I constructed full 8×9 lifting rows independently and compared SVDs in two full-rank parameter sets and one aligned rank-seven set with errors below 9e-16. This is linear lifting on quotient, not nonlinear pure-state stability.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic complex phase-retrieval injectivity threshold is 4d-4, eight when d=3; the current operator has a one-dimensional Hermitian kernel and rank eight in the generic stagger regime."
+        ],
+        "reasoning": "Generic injectivity of pure states does not calculate quotient Hermitian-lifting singular values or select a best angle. Infinite-bin Gaussian uniqueness also does not dominate finite quantitative conditioning.",
+        "searches": [
+          "Conca-Edidin-Hering-Vinzant 2015, DOI 10.1016/j.acha.2014.06.005",
+          "arXiv:2610.39145",
+          "Resultary Gaussian two-bin phase retrieval semantic search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.39145 (abstract, PDF unavailable)",
+        "arXiv:2206.03946 (abstract)",
+        "Conca et al., ACHA 2015 DOI 10.1016/j.acha.2014.06.005 (theorem/abstract)",
+        "Resultary semantic spectral-design search",
+        "assigned RESULT.md, CHECK.py and AUDIT.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier theorems guarantee generic or bandlimited sampling uniqueness, not the sharp condition number or complete optimal stagger set for these two Gaussian bins."
+        ],
+        "reasoning": "Quantitative conditioning requires the DC/first-harmonic/Nyquist block spectral calculation and the piecewise minimax; it is not a corollary of known generic counts of magnitude samples.",
+        "searches": [
+          "arXiv:2610.39145 (abstract/scope)",
+          "Conca et al. 2015 injectivity theorem",
+          "arXiv:2206.03946 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu-Ning-Wu-Zhang 2026 use Gaussian two-bin sampled magnitudes for Paley-Wiener L² uniqueness; Wellershoff 2022 gives two-bin Gabor magnitude uniqueness."
+        ],
+        "reasoning": "Those stated prior theorems address infinite L² signals and uniqueness of phaseless sampling; the object here is the finite three-atomic Hermitian 8×9 lifting and its exact singular values. The stronger statement of exact conditioning is not implied by uniqueness alone.",
+        "searches": [
+          "Resultary semantic query: Gaussian three-tone spectral bins Hermitian lifting singular values",
+          "arXiv:2610.39145",
+          "arXiv:2206.03946"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic search returned the assigned finding and related phase-retrieval results with differing measurement geometries; no independently checked exact eight-value spectrum table."
+        ],
+        "reasoning": "An exact spectral table for this particular Frobenius/Euclidean normalization was not found in checked statements; this is a best-of-knowledge finding, not proof of absence in unindexed finite-dimensional tomography.",
+        "searches": [
+          "Resultary semantic query: Gaussian three-tone phase retrieval two spectral bins Hermitian lifting singular values optimal stagger",
+          "arXiv:2206.03946"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality assessed after primary-source and published-record comparison, including same-object aliases and broader implications. Distinct surviving contribution is specified by the detailed checks. No claim of exhaustive priority certification.",
+      "residual_risks": [
+        "Highly relevant Liu et al. 2026 full text was not read; the abstract alone cannot exclude a disguised finite spectral calculation.",
+        "Specific older finite Gaussian-bin tomography/phase retrieval treatments may use equivalent block spectra under different normalization.",
+        "The theorem is linear-Hermitian-quotient conditioning only; nonlinear phase retrieval stability and global design optimality are not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract scope is different; whole paper not assessed as noncovering. Residual historical risk explicitly retained.",
+          "evidence": "arXiv:2610.39145 first posted 2026-10-29",
+          "identifier_or_url": "https://arxiv.org/abs/2610.39145",
+          "material_read": "Full publicly indexed abstract, statement of PW_B^2 uniqueness on infinite sampling lattice; full PDF could not be inspected",
+          "method": "arXiv abstract and lawful OA search",
+          "title": "Phase Retrieval of Bandlimited Signals Using a Morlet Wavelet and an Admissible Companion",
+          "trigger": "Same two Gaussian-frequency-bin measurement mechanism"
+        },
+        {
+          "assessment": "No full-document noncoverage assertion; finite exact conditioning not stated in accessed text",
+          "evidence": "arXiv:2206.03946",
+          "identifier_or_url": "https://arxiv.org/abs/2206.03946",
+          "material_read": "Primary abstract and statement of bandlimited uniqueness, not full derivations",
+          "method": "arXiv/alphaXiv abstract",
+          "title": "Sampling at twice the Nyquist rate in two frequency bins guarantees uniqueness in Gabor phase retrieval",
+          "trigger": "Same two-bin magnitude observation motif"
+        },
+        {
+          "assessment": "Generic injectivity is prior; exact specialized lifting spectrum and optimal angular placement remain additional claims",
+          "evidence": "Conca-Edidin-Hering-Vinzant, ACHA 2015",
+          "identifier_or_url": "https://doi.org/10.1016/j.acha.2014.06.005",
+          "material_read": "Theorem scope of generic complex phase retrieval at 4d-4, not full proof",
+          "method": "Published theorem/metadata",
+          "title": "An algebraic characterization of injectivity in phase retrieval",
+          "trigger": "Generic eight intensity measurement threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a minimal eight-intensity two-bin three-tone design, the exact spectrum and offset-optimality set quantitatively determine noise amplification, the transition between a unique stagger and an optimal plateau, and the sharp resonance instability. These are motivated stable-sampling design invariants, not simply restating generic phase-retrieval uniqueness.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.39145 (abstract, PDF unavailable)",
+    "arXiv:2206.03946 (abstract)",
+    "Conca et al., ACHA 2015 DOI 10.1016/j.acha.2014.06.005 (theorem/abstract)",
+    "Resultary semantic spectral-design search",
+    "assigned RESULT.md, CHECK.py and AUDIT.json"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Highly relevant Liu et al. 2026 full text was not read; the abstract alone cannot exclude a disguised finite spectral calculation.",
+    "Specific older finite Gaussian-bin tomography/phase retrieval treatments may use equivalent block spectra under different normalization.",
+    "The theorem is linear-Hermitian-quotient conditioning only; nonlinear phase retrieval stability and global design optimality are not claimed."
+  ],
+  "residual_risks": [
+    "Highly relevant Liu et al. 2026 full text was not read; the abstract alone cannot exclude a disguised finite spectral calculation.",
+    "Specific older finite Gaussian-bin tomography/phase retrieval treatments may use equivalent block spectra under different normalization.",
+    "The theorem is linear-Hermitian-quotient conditioning only; nonlinear phase retrieval stability and global design optimality are not claimed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Abstract scope is different; whole paper not assessed as noncovering. Residual historical risk explicitly retained.",
+      "evidence": "arXiv:2610.39145 first posted 2026-10-29",
+      "identifier_or_url": "https://arxiv.org/abs/2610.39145",
+      "material_read": "Full publicly indexed abstract, statement of PW_B^2 uniqueness on infinite sampling lattice; full PDF could not be inspected",
+      "method": "arXiv abstract and lawful OA search",
+      "title": "Phase Retrieval of Bandlimited Signals Using a Morlet Wavelet and an Admissible Companion",
+      "trigger": "Same two Gaussian-frequency-bin measurement mechanism"
+    },
+    {
+      "assessment": "No full-document noncoverage assertion; finite exact conditioning not stated in accessed text",
+      "evidence": "arXiv:2206.03946",
+      "identifier_or_url": "https://arxiv.org/abs/2206.03946",
+      "material_read": "Primary abstract and statement of bandlimited uniqueness, not full derivations",
+      "method": "arXiv/alphaXiv abstract",
+      "title": "Sampling at twice the Nyquist rate in two frequency bins guarantees uniqueness in Gabor phase retrieval",
+      "trigger": "Same two-bin magnitude observation motif"
+    },
+    {
+      "assessment": "Generic injectivity is prior; exact specialized lifting spectrum and optimal angular placement remain additional claims",
+      "evidence": "Conca-Edidin-Hering-Vinzant, ACHA 2015",
+      "identifier_or_url": "https://doi.org/10.1016/j.acha.2014.06.005",
+      "material_read": "Theorem scope of generic complex phase retrieval at 4d-4, not full proof",
+      "method": "Published theorem/metadata",
+      "title": "An algebraic characterization of injectivity in phase retrieval",
+      "trigger": "Generic eight intensity measurement threshold"
+    }
+  ]
+}
