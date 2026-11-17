@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standalone script `verify.py` builds each graph from nonempty bit subsets of \([r]\) up to cardinality \(r-t\), with adjacency calculated directly from bitwise disjointness. It separately checks the equivalent subgroup-order construction with integer least common multiples for selected prime products, and does not use the proof's singleton-clique connectivity argument.
+## correctness
 
-Exhaustive deletion sets of cardinality \(0,1,2,3\) were checked for \((r,t)=(4,2),(5,2),(6,2)\), including identifying every minimum cut: \(176+2626+29317=32119\) exhaustive cases. For \((7,2)\) and \((8,3)\), all minimum-degree vertices and all predicted cuts are checked and a seeded sample of smaller deletions is tested (respectively 120 and 280 cases), giving \(32519\) deletion tests in total.
+PASS
 
-The script validates that all predicted minimum cuts isolate their corresponding vertex and leave one other component, that distinct minimum-degree vertices yield distinct cuts, and that the full support/complement adjacency equals the subgroup-product least-common-multiple condition. The output file `verify_output.txt` records the observed counts, concluding `VERIFY_OK deletion_cases= 32519`.
+Reconstructed bijection H<-> deficiency S⊂[r], 1<=|S|<=r-t, and edge HK=G iff deficiencies disjoint. A vertex of maximal deficiency size r-t has exactly 2^t-1 nonempty complementary subsets as neighbors; smaller deficiencies have strictly more. After deleting at most 2^t-1 vertices, at least one of r>=2^t singleton deficiencies survives; surviving singletons form a connected clique. Any vertex outside their component contains every surviving singleton; all such outside vertices pairwise intersect and hence are isolated. Its entire neighborhood lies in the deletion set, forcing a cut of minimum degree and fixing it uniquely as N(S) for |S|=r-t. Remaining vertices other than S touch surviving singletons, proving exactly two components. Distinct neighborhoods have distinct singleton members; κ=δ=2^t-1 and elementary κ<=λ<=δ proves λ. Independently enumerated every deletion set up to three for r=4,5,6,t=2 (32119 cases) and each anticipated cut at r=7,t=2;8,3;10,3 (197 cases); these bounded checks do not prove general t.
 
-These tests are finite corroboration. The symbolic proof in `RESULT.md` establishes the claim for all permitted \(r,t\); it does not assert failure for smaller ranks. Neither code execution nor this record is an independent mathematical audit.
+## originality
+
+PASS
+
+PASS best-of-knowledge: exact all-minimum-separator classification of a natural support-truncated squarefree cyclic factorization graph extends the prior pendant-free 2-connectivity result. The previously studied weighted ring-element comaximal blow-up and fixed-layer Kneser graphs differ essentially in multiplicities or vertex sets. No inspected stronger result was found covering this entire separator family; abstract-only access to primary factorization source and unindexed general disjointness-graph results remain priority risks.
+
+## value
+
+PASS
+
+A complete structural description of every minimum cut and exact vertex/edge connectivity for a natural subgroup-support filtration, including binomial count and isolating-vertex structure; this sharpens a previously published two-connectivity bound and answers a precise natural graph invariant, rather than simply recomputing a degree.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
