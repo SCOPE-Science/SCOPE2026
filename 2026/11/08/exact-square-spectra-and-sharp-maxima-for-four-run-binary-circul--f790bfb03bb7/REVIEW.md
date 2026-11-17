@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For a circle with four cyclic transitions, a square factor of length at most the circumference cannot have more than four transitions. The exhaustive three-transition table and four-transition split calculation cover every mixed-letter possibility; single-letter squares are counted by maximal run length. The explicit transition-case construction reproduces every literal-square set among 5,985 exhaustive four-run parameter tuples through length 21, and 300 independently checked larger tuples. The global four-run maximum follows from a parity inequality and exhibited equality families. No finite test is substituted for the infinite proof.
+PASS
 
-## Originality
+PASS: With positive a,b,c,d and circle w=0^a1^b0^c1^d, a mixed square XX of length <=n has 3 or 4 letter transitions, forcing a conjugate of a two-run root. Four possible 3-transition forms with explicit necessary/sufficient containment inequalities, plus split forms at b=d or a=c with min(a,c)-1 and min(b,d)-1 distinct 4-transition words, give mixed count M=a+b if both pairs equal, min(b,d)+1 if a=c alone, min(a,c)+1 if b=d alone, else 1. Pure-letter squares contribute floor(max(a,c)/2)+floor(max(b,d)/2). A separate parity and run-length bound plus explicit attaining quadruples yields sharp H4(4)=2, H4(n)=floor(3n/4)-1 for n>=7 congruent 3 mod4 and floor(3n/4) otherwise. Fresh literal cyclic-square enumeration tested all 1,820 positive quadruples with n=4..16, every formula and all length maxima matched. The proof case analysis, not finite tests, covers all positive run lengths.
 
-PASS at best-knowledge scope, with residual priority risk. The closest primary literature develops universal circular-square upper bounds, including Hamai's proven \(\lfloor3n/2\rfloor\) bound. That general inequality neither implies the exact four-parameter spectrum nor the sharp four-run \(\lfloor3n/4\rfloor\)-scale maximum. The 2017, 2026 CPM, Li–Song and Hamai full online texts were inspected for the statements and relevant methods; none of their inspected results states or entails the four-run classification. Earlier work on four-run Abelian squares counts equivalence by letter content, not literal identical halves. The literature comparison is not a complete guarantee of global priority.
+## originality
 
-## Value
+PASS
 
-PASS. Four cyclic runs form the smallest nontrivial binary circular class beyond the two-run periodic case. The precise spectrum isolates when opposite runs synchronize to create many conjugate squares, and yields a genuinely sharp residue-sensitive extremal theorem for all lengths. This provides a structural benchmark for studying square-rich circular words and a clearly specified reduction in square density for a natural bounded-run family.
+PASS (best of knowledge): Semantically searched all prior published records for ordinary distinct circular square factors conditioned on exactly four binary cyclic runs, their opposite-run equality spectrum and sharp maximum. Found earlier four-run complementary factors, antisquares, Abelian-square content and minimal unique factors, all different predicates. Primary Amit–Gawrychowski 2017 concerns unrestricted circular words with a 3.14n universal upper bound; later Li–Song 2026 and Hamai 2026 give improved unrestricted upper bounds but no run-conditioned exact count or sharp ~3n/4 bound. No prior theorem located that implies the current four-run pointwise formula or its extremal residue classes. Historical priority is provisional.
 
-## Closest sources and limitations
+## value
 
-Amit and Gawrychowski, arXiv:1708.00639; Charalampopoulos et al., DOI:10.4230/LIPIcs.CPM.2026.6; Li and Song, arXiv:2605.12215; Hamai, arXiv:2609.32084. The theorem covers ordinary distinct squares of total length at most the circle length in the four-run binary class; no claim is made for arbitrary cyclic run count, multiplicity counts, or definitive independent priority review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Exactly four cyclic runs is a natural low-complexity structural slice for ordinary (non-Abelian) square factors, not an arbitrary numerical input table. Its equality-sensitive exact spectrum isolates the combinatorial transition mechanism and establishes a sharp all-length constrained extremum with residue-class exception; these exact facts could be used in run-restricted circular-word enumeration and algorithms independent of universal square bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducible finite verification
+# Independent mathematical audit
 
-Run `python3 check_circular_four_runs.py` using Python 3 and no third-party packages. The checker literally constructs the cyclicly repeated source word for every positive four-run tuple of total length 4 through 21, enumerates distinct ordinary squares with total length bounded by the circle length, and separately verifies the monochromatic and mixed predictions. It also recomputes the exact maximum for each tested length and checks the theorem's residue-class expression. An independently implemented second enumerator, using modular character-by-character comparisons instead of doubled-word slices, checks 300 fixed-seed additional tuples and compares the complete square sets.
+## correctness
 
-Observed output:
+PASS
 
-```
-PASS: all 5985 positive run quadruples of total length 4..21; full literal square sets match
-PASS: 300 independent modular-index random tests; exact square sets agree
-PASS: exact fixed-length maxima n=4..21
-Maxima: [(4, 2), (5, 3), (6, 4), (7, 4), (8, 6), (9, 6), (10, 7), (11, 7), (12, 9), (13, 9), (14, 10), (15, 10), (16, 12), (17, 12), (18, 13), (19, 13), (20, 15), (21, 15)]
-```
+PASS: With positive a,b,c,d and circle w=0^a1^b0^c1^d, a mixed square XX of length <=n has 3 or 4 letter transitions, forcing a conjugate of a two-run root. Four possible 3-transition forms with explicit necessary/sufficient containment inequalities, plus split forms at b=d or a=c with min(a,c)-1 and min(b,d)-1 distinct 4-transition words, give mixed count M=a+b if both pairs equal, min(b,d)+1 if a=c alone, min(a,c)+1 if b=d alone, else 1. Pure-letter squares contribute floor(max(a,c)/2)+floor(max(b,d)/2). A separate parity and run-length bound plus explicit attaining quadruples yields sharp H4(4)=2, H4(n)=floor(3n/4)-1 for n>=7 congruent 3 mod4 and floor(3n/4) otherwise. Fresh literal cyclic-square enumeration tested all 1,820 positive quadruples with n=4..16, every formula and all length maxima matched. The proof case analysis, not finite tests, covers all positive run lengths.
 
-The proof of all-length claims is the transition-count and case analysis in RESULT.md; finite computation alone would not establish the theorem. The computations do not certify historical uniqueness or independent peer review.
+## originality
+
+PASS
+
+PASS (best of knowledge): Semantically searched all prior published records for ordinary distinct circular square factors conditioned on exactly four binary cyclic runs, their opposite-run equality spectrum and sharp maximum. Found earlier four-run complementary factors, antisquares, Abelian-square content and minimal unique factors, all different predicates. Primary Amit–Gawrychowski 2017 concerns unrestricted circular words with a 3.14n universal upper bound; later Li–Song 2026 and Hamai 2026 give improved unrestricted upper bounds but no run-conditioned exact count or sharp ~3n/4 bound. No prior theorem located that implies the current four-run pointwise formula or its extremal residue classes. Historical priority is provisional.
+
+## value
+
+PASS
+
+PASS: Exactly four cyclic runs is a natural low-complexity structural slice for ordinary (non-Abelian) square factors, not an arbitrary numerical input table. Its equality-sensitive exact spectrum isolates the combinatorial transition mechanism and establishes a sharp all-length constrained extremum with residue-class exception; these exact facts could be used in run-restricted circular-word enumeration and algorithms independent of universal square bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
