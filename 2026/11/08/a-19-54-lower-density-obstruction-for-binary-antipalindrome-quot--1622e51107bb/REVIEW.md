@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. For an even-length binary antipalindrome, reversing and complementing the first half forces the number of trailing zero digits to equal the number of initial one digits, including the all-ones first-half boundary. The normalized mantissa then yields the stated open quotient windows for even and odd integer quotients. Their complementary four-adic intervals form an explicit set of nonrepresentables. Direct exact counts per shell and a uniform piecewise asymptotic prove its lower density is \(19/54\), while finite exhaustive checks exercise the normalization and shell counts. No unproved transfer from finite data to an infinite conclusion is used.
+PASS
 
-## Originality
+For any member T of length 2h, reverse-complement forces ν₂(T)=initial 1-run r(T). Normalized mantissa m(T) lies in [1,3/2) when r=1 and [3/2,2) otherwise. For integral A/B, odd ratio forces equal r and 2/3 < m(A)/m(B) <3/2; even ratio forces r(A)>r(B), lexicographically m(A)>m(B), hence 1<ratio<2. This excludes precisely the proposed parity-separated shell intervals. For j>=1, E_j has 4^j+1 even members, O_j has (7·4^j−4)/12 odd members; X_k=(3/2)·4^k count is (19/36)·4^k+2k/3−7/9. The uniform piecewise linear partial-shell count has its smallest ratio at t=3/2, establishing the liminf for the infinite set, not by finite experiment. Independent enumeration of all 255 antipalindromes through length 16, 400 distinct integer quotients and eight exact shell boundaries agrees. The proof establishes only a one-sided bound for the full complement.
 
-PASS within the materials inspected. Bai–Meleshko–Riasat–Shallit, arXiv:2202.13694v1, Section 3.4, Theorem 18 and Corollary 19, prove only the weaker \(1/60\) lower-density bound for binary antipalindromic nonquotients. Its stated Conjecture 5 predicts the representable set has density zero. The new inequality \(19/54>1/60\) is not an implication of the published bound or its narrower cylinder restriction. The palindrome quotient set differs from the antipalindrome quotient set. OEIS A351172/A351173 list initial terms, not a covering density theorem. Equivalent-formulation and mathematical-index searches identified no stronger coverage; unindexed results remain a risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The result is an unconditional, quantitatively stronger positive-density obstruction within a published conjectural zero-density problem. The improvement from \(1/60\) to \(19/54\) is substantial and emerges from a structural relation between binary valuations and leading prefixes; it is not a restatement of decidability, a finite table, or a single residue-class example. It leaves the zero-density conjecture open.
+Best-of-knowledge originality: Bai–Meleshko–Riasat–Shallit (2022) only derive nonrepresentability lower density 1/60; published 2026-10-18 valuation-of-N−1 obstruction derives 0.08816659..., not the parity-separated full 19/54 shell. No stronger bound was found in the queried published corpus or inspected primary theorem. A stronger unpublished or unindexed bound remains possible; search failure is not novelty proof.
 
-## Limitations
+## value
 
-The bound is not claimed to be sharp for the full complement, and the theorem is restricted to binary antipalindromes and positive integer quotients. Literature searches do not establish uniqueness; independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The longstanding antipalindrome quotient density-zero conjecture gives direct motivation. The 19/54 explicit obstruction is a quantitatively substantial, mathematically distinct lower-density bound versus 1/60 and 0.088..., with an exact infinite shell census; useful even if full conjecture remains unresolved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
