@@ -1,19 +1,21 @@
-# Scientific review: sparse-word Abelian-square fluctuations
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every Abelian square factor in a two-one word has either zero or two ones; the latter is a unique gap pair subject to the midpoint, parity and diagonal-band conditions. The strip-lattice approximation has an absolute, uniform linear error, permitting the simplex weak limit. The six exact polynomial domains for the area and squared area partition the half-simplex and produce rational moments \(1/24\) and \(5/1728\). Both deterministic replay scripts pass. No infinite statement is inferred solely from finite enumeration.
+PASS
 
-## Originality
+Each weight-two word is uniquely 0^a 1 0^b 1 0^c with a+b+c=n-2. Two-one Abelian squares are exactly 0^u 1 0^b 1 0^v satisfying 0≤u≤a,0≤v≤c, |u-v|≤b and parity u+b+v≡0 mod2; zero-only classes add floor(max(a,b,c)/2). Each pair defines a literal distinct factor. Strip lattice counts are uniformly half the area up to O(n), and gap triples rescale to Dirichlet(1,1,1). Independently enumerated all 560 two-one words of lengths 2–15 and their literal factor sets, exactly reproducing count formula. Independently integrated all six polynomial simplex sectors in exact SymPy rational arithmetic to get E[A]=1/24, E[A²]=5/1728; the proposed L=A/2 has mean 1/48, second moment 5/6912, variance 1/3456. Bounded convergence of moments follows from the uniform error; finite checks are corroboration only.
 
-PASS with historical-priority qualification. The closest DLT 2014 theorem proves quadratic growth for unrestricted binary words using a two-one construction; it does not give the conditional distribution. The existing deterministic five-run sharp leading coefficient and exact strip formula cover the extremal coefficient and structural counting aspects, **not** the limit law or fluctuation variance. Work on unrestricted words, Abelian-period detection and infinite Abelian-square-rich words concerns different domains or observables. Explicitly excluded novelty: the existence of quadratic counts, the sharp worst-case coefficient and the bare midpoint/strip test. Unindexed equivalent probabilistic treatments remain a risk.
+## originality
 
-## Value
+PASS
 
-PASS. Sparse marker placements form an intrinsic fixed-composition random-string model, and literal distinct-factor counts are a central Abelian-string invariant. A nondegenerate limit law with an exact variance shows that a quadratic count typically remains random rather than concentrating at one constant. The result yields a quantitative baseline for typical sparse words and separates a typical quadratic coefficient from a previously studied worst-case coefficient. The six-piece geometry explains the fluctuation rather than merely reporting a numerical experiment.
+PASS best-of-knowledge: previous upper bounds and two-one constructions establish deterministic Θ(n²) distinct Abelian squares and a known parity-strip counting technique; neither fixes the full uniform fixed-weight-two conditional limit law or second moment. Related 2026 records for three-marker Abelian-square laws, minimal absent factors, and Lyndon factors involve different words/invariants. No exact prior variance 1/3456 surfaced from targeted original-article/Resultary searches.
 
-## Limits
+## value
 
-The theorem does not address other fixed Hamming weights, unrestricted random strings or the closed-form CDF of the limit. Priority remains historically qualified by indexed and accessible literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: a natural sparse-string ensemble (all weight-two binary words equally likely) has a surprising nonconcentrated quadratic-normalized limit, unlike simply reporting a maximum or an arbitrary small count. Its exact variance is a usable quantitative answer about typical Abelian-square richness, requiring a nontrivial uniform lattice-to-area argument and six-region squared-area integration. The known deterministic strip formula is explicitly not credited as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

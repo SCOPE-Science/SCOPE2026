@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T11:51:11.101178Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each weight-two word is uniquely 0^a 1 0^b 1 0^c with a+b+c=n-2. Two-one Abelian squares are exactly 0^u 1 0^b 1 0^v satisfying 0≤u≤a,0≤v≤c, |u-v|≤b and parity u+b+v≡0 mod2; zero-only classes add floor(max(a,b,c)/2). Each pair defines a literal distinct factor. Strip lattice counts are uniformly half the area up to O(n), and gap triples rescale to Dirichlet(1,1,1). Independently enumerated all 560 two-one words of lengths 2–15 and their literal factor sets, exactly reproducing count formula. Independently integrated all six polynomial simplex sectors in exact SymPy rational arithmetic to get E[A]=1/24, E[A²]=5/1728; the proposed L=A/2 has mean 1/48, second moment 5/6912, variance 1/3456. Bounded convergence of moments follows from the uniform error; finite checks are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DLT 2014 theorem establishes Θ(n²) worst-case richness but an extremal bound does not determine typical variation.",
+          "2017 Abelian-Square-Rich Words discusses rich infinite words and frequencies in other models, not conditional sparse finite-word distribution."
+        ],
+        "reasoning": "Even the precise deterministic five-run strip counting and leading maximum known earlier do not imply E[A²] and a Dirichlet pushforward without an additional probability/geometric calculation.",
+        "searches": [
+          "2014 Kociumaka Radoszewski Rytter Walen max distinct nonstandard Abelian squares two-one witness",
+          "Fici Mignosi Shallit Abelian-Square-Rich Words 2017 random infinite words",
+          "fixed weight two combinatorics on words limit distribution variance"
+        ]
+      },
+      "checked_sources": [
+        "https://mimuw.edu.pl/~kociumaka/assets/pdf/files/dlt2014.pdf",
+        "https://arxiv.org/abs/1701.00948",
+        "https://oeis.org/A262249",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-abelian-square-diversity-and-conditional-limit-law-for-thr--3d4cd7a4fb18"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior statements bound maximum counts or treat richer/unrestricted word families.",
+          "The six-region exact second-moment integral from the submitted proof yields 5/1728 for A² and positive variance 1/3456."
+        ],
+        "reasoning": "A deterministic count formula can be a valid starting point but does not itself state the distributional theorem; the uniform counting error and exact squared-area integration are substantive additions.",
+        "searches": [
+          "DLT 2014 Theorem 1 two-marker construction conditional random variability",
+          "2017 Abelian-Square-Rich Words typical factor frequency",
+          "Resultary exact Abelian-square diversity 3-marker"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kociumaka et al., Maximum Number of Distinct and Nonequivalent Nonstandard Squares in a Word (DLT 2014): gives quadratic extremal constructions but not conditional weak convergence.",
+          "Resultary related 2026/11/08 3-marker Abelian square results concern fixed weight three and changed scaling."
+        ],
+        "reasoning": "The law is equivalently the half-area of a |u-v|≤q strip under a Dirichlet simplex or a random three-gap composition statistic; queried statements did not specify the same probability law and variance.",
+        "searches": [
+          "uniform fixed-Hamming-weight two binary words distinct Abelian square distribution n² Dirichlet spacings exact variance",
+          "Resultary: Binary words with exactly two ones distinct abelian square factors limiting distribution Dirichlet variance two markers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A262249 tabulates maxima, not fixed-weight random conditional values.",
+          "Resultary returned nearest three-marker distinct Abelian-square record 2026/11/08/3d4cd7a4fb18 (mean 1/40), not this two-marker variance."
+        ],
+        "reasoning": "No located exact table of the two-one normalized random variable, its first two moments or limiting variance; failed search is not a general priority certificate.",
+        "searches": [
+          "OEIS A262249 maximum number distinct Abelian square factors",
+          "published Resultary two-marker random Abelian square limit variance 1/3456",
+          "published Resultary three-marker Abelian-square distinct factors"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: previous upper bounds and two-one constructions establish deterministic Θ(n²) distinct Abelian squares and a known parity-strip counting technique; neither fixes the full uniform fixed-weight-two conditional limit law or second moment. Related 2026 records for three-marker Abelian-square laws, minimal absent factors, and Lyndon factors involve different words/invariants. No exact prior variance 1/3456 surfaced from targeted original-article/Resultary searches.",
+      "residual_risks": [
+        "Possible unindexed equivalent fixed-weight-two probability calculation.",
+        "Published deterministic sparse-word parity-strip formulas and worst-case constants remain earlier; only the random limit and its fluctuations pass originality.",
+        "The relevant 2014 article was materially examined at theorem level, not certified entire-paper absence of all related results."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING conditional law in inspected theorem; complete-document noncoverage not asserted.",
+          "evidence": "Quadratic many distinct Abelian squares can arise from sparse words; no first/second random moment in inspected theorem.",
+          "identifier_or_url": "https://mimuw.edu.pl/~kociumaka/assets/pdf/files/dlt2014.pdf",
+          "material_read": "Accessible published paper textual extraction and Theorem 1/extremal construction, not every appendix; the PDF screenshot service returned 403 for this URL.",
+          "method": "Compared explicit two-one construction, asymptotic order and stated extremal result.",
+          "title": "Maximum Number of Distinct and Nonequivalent Nonstandard Squares in a Word",
+          "trigger": "Direct sparse-two-marker extremal bound"
+        },
+        {
+          "assessment": "MODEL_DIFFERS; no direct implication found in material read.",
+          "evidence": "Infinite words/unrestricted factor averaging do not condition on sparse two-marker placements.",
+          "identifier_or_url": "https://arxiv.org/abs/1701.00948",
+          "material_read": "Abstract, searchable full-text overview of infinite-word richness and average factor notions.",
+          "method": "Compared infinite-word richness setting with fixed length and exactly two ones.",
+          "title": "Abelian-Square-Rich Words",
+          "trigger": "Natural count invariant in prior combinatorics literature"
+        },
+        {
+          "assessment": "PROOF_CHECKS_PASS within stated model.",
+          "evidence": "E[L]=1/48, E[L²]=5/6912, Var(L)=1/3456.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-nondegenerate-abelian-square-factor-count-law-for-binary-words--9387a2a4a9ec/RESULT.md",
+          "material_read": "Complete theorem/proof and both exact verification programs, plus frozen tree and metadata.",
+          "method": "Reconstructed classification and independently recomputed integer enumeration and rational integrals.",
+          "title": "A nondegenerate Abelian-square factor-count law for binary words with two ones",
+          "trigger": "Assigned final claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: a natural sparse-string ensemble (all weight-two binary words equally likely) has a surprising nonconcentrated quadratic-normalized limit, unlike simply reporting a maximum or an arbitrary small count. Its exact variance is a usable quantitative answer about typical Abelian-square richness, requiring a nontrivial uniform lattice-to-area argument and six-region squared-area integration. The known deterministic strip formula is explicitly not credited as new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Applies only to uniform words with exactly two ones, not iid Bernoulli or fixed density.",
+    "CDF specified as a Dirichlet-area pushforward, not elementary piecewise closed form.",
+    "No repository write, dispatcher closeout or publication; all source tree/blob identities correspond to actual frozen Git objects.",
+    "Public operations withheld pending complete provenance/privacy sanitization."
+  ],
+  "schema_version": 1
+}
