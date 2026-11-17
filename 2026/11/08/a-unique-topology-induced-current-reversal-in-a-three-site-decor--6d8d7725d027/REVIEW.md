@@ -1,19 +1,21 @@
-# Scientific review of the three-site ASEP topology-comparison theorem
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The model and rates are fixed explicitly. The stationary product-weight law follows from local detailed balance on tree edges and global inflow-outflow matching on the ring; irreducibility makes this law unique. Conditional backbone uniformity gives exact current expressions. For three side sites, the cross-multiplied current difference factors into a strictly positive denominator times \(-q(q-1)F_m(q)\). The coefficient sign pattern and \(F_m(1)<0\) give one and only one crossing greater than one. The decomposition \(F_m/m^2=A+B/m+C/m^2\), with positive \(B,C\) for \(q>1\), gives strict threshold monotonicity, while Taylor expansion at the unique positive cubic root gives the asymptotic coefficient. A separate two-site cross-product identity proves minimality for all particle sectors. The bundled exact arithmetic program replayed 2,298 finite diagnostics; the infinite-parameter conclusions are analytical.
+PASS
 
-## Originality (O): PASS, qualified
+The pinned finite-state ASEP has Gibbs stationary weights proportional to q^(sum of occupied branch depths): branch transitions satisfy detailed balance and backbone inflow/outflow cancels by equality of 01 and 10 bonds on a binary cycle. Conditioning on branch occupancy gives the exact binomial Z and backbone bond-current K/Z. For leaf depths (1,1,1) versus chain depths (1,2,3), independently expanded k_chain*z_leaf-k_leaf*z_chain at m=2,3,8 and confirmed the stated negative q(q-1)F_m factor; the displayed symbolic coefficients imply the identity for general m. F_m has one Descartes sign change, F_m(1)<0 and positive leading coefficient, hence exactly one q_m>1 and a simple sign crossing. Decomposition F_m/m²=A(q)+B(q)/m+C(q)/m² with B,C>0 for q>1 proves strict increase of q_m and the limiting cubic root and first-order correction. The independent two-site factorization and occupancy cases establish fixed ranking for every L>=3 and 1<=N<=L+1; finite state enumeration is corroboration, not a replacement for that proof.
 
-The source paper Ishiguro–Ando, arXiv:2603.09694, was read through its stationary derivation, both current formulas, figures and conclusion. It already supplies the stationary measures and individual currents for both branch geometries, which are therefore **not** claimed new. Its plotted fixed-bias density shifts do not state the all-size, fixed-occupancy, unique topology-order reversal or its increasing algebraic crossing threshold. The earlier general decomposition work, arXiv:2403.01934, provides a broader steady-state construction rather than a located current-comparison theorem. Actual semantic queries against published research records and web literature did not locate a stronger or identical ordering. The comparison is at claim-and-implication level, not just title overlap. Residual risk: current formulas in [1] make the reversal derivable by finite algebra, and a broader unlocated comparison theorem might subsume it; the 2024 full paper was not inspected, only its available abstract and relationship as cited in [1].
+## originality
 
-## Value (V): PASS
+PASS
 
-The contrast isolates topology under identical site count, particle count and hopping rates in the upper half-filling sector of the whole decorated network, rather than comparing systems with different capacities. It detects a genuine reversal of current-preferred geometry despite the exact stationary weights being known, proves the existence and uniqueness of the design crossover in every even backbone size, identifies its monotone size dependence and universal limiting threshold, and shows three side sites are the minimal decoration complexity needed for this phenomenon. These are interpretable nonequilibrium network-design facts rather than a routine table entry or arbitrary evaluated current. The exact theorem does not assert a bulk phase transition or independent experimental significance.
+The invariant stationary law and individual current expressions are fully prior results; the claim being assessed is a global cross-topology order-reversal theorem in the bias q at fixed particle number, its strict m-monotonicity, asymptotic threshold, and minimal three-site obstruction. Comparing the equations and plotted variables in the closest primary paper found neither this all-m classification nor the two-site no-reversal theorem. Best-of-knowledge novelty with an acknowledged risk of derivability from previously published hypergeometric formulas.
 
-## Closest literature and limitations
+## value
 
-Ishiguro–Ando (2026), arXiv:2603.09694, stationary equations (15), (20)–(21), (27)–(28), (31)–(32), (40)–(41); Ishiguro–Sato (2024), arXiv:2403.01934, general transition decomposition; Mottishaw–Waclaw–Evans (2013), arXiv:1306.0360, a distinct boundary-driven tree-exclusion setup. Publication priority is qualified; independent expert and literature validation have not occurred. The mathematical claim is restricted to its stated finite, conserved-particle systems and positive outward branch bias.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Current ranking is the natural transport design comparison for two equal-size but differently arranged branch structures; finding the minimal number of side sites that permits bias-driven rank reversal is a structural boundary, not a numerical slice. An exact unique threshold for all even backbone sizes, its monotone scaling, and its limit are useful finite-network comparative statics beyond the prior individual current values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

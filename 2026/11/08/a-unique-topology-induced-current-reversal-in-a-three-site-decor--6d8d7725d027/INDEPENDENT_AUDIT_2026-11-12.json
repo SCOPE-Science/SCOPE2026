@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T15:41:09.863000Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The pinned finite-state ASEP has Gibbs stationary weights proportional to q^(sum of occupied branch depths): branch transitions satisfy detailed balance and backbone inflow/outflow cancels by equality of 01 and 10 bonds on a binary cycle. Conditioning on branch occupancy gives the exact binomial Z and backbone bond-current K/Z. For leaf depths (1,1,1) versus chain depths (1,2,3), independently expanded k_chain*z_leaf-k_leaf*z_chain at m=2,3,8 and confirmed the stated negative q(q-1)F_m factor; the displayed symbolic coefficients imply the identity for general m. F_m has one Descartes sign change, F_m(1)<0 and positive leading coefficient, hence exactly one q_m>1 and a simple sign crossing. Decomposition F_m/m²=A(q)+B(q)/m+C(q)/m² with B,C>0 for q>1 proves strict increase of q_m and the limiting cubic root and first-order correction. The independent two-site factorization and occupancy cases establish fixed ranking for every L>=3 and 1<=N<=L+1; finite state enumeration is corroboration, not a replacement for that proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ishiguro-Ando derive a general Gibbs invariant measure for arbitrary attached tree networks, hence stationary measures and individual current formulas for all our branches are previously known.",
+          "Ishiguro-Sato provide broader steady-state transition decomposition."
+        ],
+        "reasoning": "The prior general frameworks dominate the stationarity step but neither presents an all-q topology-current ordering or an exactly-one-crossing comparison, which requires a nontrivial polynomial root and two-site obstruction analysis.",
+        "searches": [
+          "Resultary_Search semantic query: topology induced current reversal exclusion ring three site tree decorated ASEP q comparison leaf chain",
+          "https://arxiv.org/html/2603.09694",
+          "https://arxiv.org/abs/2403.01934"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-unique-topology-induced-current-reversal-in-a-three-site-decor--6d8d7725d027/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-unique-topology-induced-current-reversal-in-a-three-site-decor--6d8d7725d027/verify.py",
+        "Resultary_Search semantic query: topology induced current reversal exclusion ring three site tree decorated ASEP q comparison leaf chain",
+        "https://arxiv.org/html/2603.09694",
+        "https://arxiv.org/abs/2403.01934"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Both current functions can be specialized to M=3, L=2m, N=m+2; their difference algebraically yields our polynomial F_m(q).",
+          "The positive-root uniqueness requires the degree-six coefficient sign pattern; monotonicity requires the positive B,C decomposition; the minimality statement compares an additional topology class M=2."
+        ],
+        "reasoning": "Prior formulas permit subsequent computation of individual thresholds but do not alone state or transparently imply the global one-crossing, monotone and minimality assertions without new algebraic argument.",
+        "searches": [
+          "Resultary_Search semantic query: topology induced current reversal exclusion ring three site tree decorated ASEP q comparison leaf chain",
+          "https://arxiv.org/html/2603.09694 (eqs. 28,41)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ishiguro-Ando explicitly use the same periodic exclusion backbone, the depth-one multi-leaf and one-long-chain decorations, and q-biased branch rates.",
+          "Their j_b,ms and j_b,sl are the same separate current rational functions as the assigned Z,K formulas."
+        ],
+        "reasoning": "The models and separate current values match exactly, but the assigned sign comparison j_chain-j_leaf as q varies, exactly-one-root proof, size monotonicity and minimum-side-site theorem do not occur as statements in Sec. IV or Conclusion.",
+        "searches": [
+          "Resultary_Search semantic query: topology induced current reversal exclusion ring three site tree decorated ASEP q comparison leaf chain",
+          "https://arxiv.org/html/2603.09694 (Sec. IV.1-IV.2, eqs. 20-21,27-28,31-32,40-41)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary Figures 3(a,b) plot each current versus N for L=100,M=80 with q held at chosen values, rather than rank versus q at fixed N.",
+          "No tabulated q_m or formula for its m→infinity algebraic limit was found in the inspected full paper."
+        ],
+        "reasoning": "Published plots are different parameter slices and cannot be read as the complete sign classification for every m; self-indexed Resultary entry is the assigned record, not independent antecedent.",
+        "searches": [
+          "Resultary_Search semantic query: topology induced current reversal exclusion ring three site tree decorated ASEP q comparison leaf chain",
+          "https://arxiv.org/html/2603.09694#S4"
+        ]
+      },
+      "rationale": "The invariant stationary law and individual current expressions are fully prior results; the claim being assessed is a global cross-topology order-reversal theorem in the bias q at fixed particle number, its strict m-monotonicity, asymptotic threshold, and minimal three-site obstruction. Comparing the equations and plotted variables in the closest primary paper found neither this all-m classification nor the two-site no-reversal theorem. Best-of-knowledge novelty with an acknowledged risk of derivability from previously published hypergeometric formulas.",
+      "residual_risks": [
+        "General published current formulas may make the fixed-m factorization straightforward to a specialist; priority for specific algebraic classification is not certified.",
+        "No claim about other branch rates, thermodynamic nonanalyticity, open reservoirs or q<=1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the stationary measure and separate current values, not the all-q fixed-N crossover and minimality statements",
+          "evidence": "Sec IV Fig 3: current against particle number N, L=100, M=80; eqs. 28 and 41 give separate j_b formulas.",
+          "identifier_or_url": "https://arxiv.org/html/2603.09694",
+          "material_read": "Full accessible HTML: abstract, Sections II-V, equations (15),(20)-(21),(27)-(28),(31)-(32),(40)-(41), Figures 2-3 interpretation, conclusion",
+          "method": "Primary arXiv full-text mathematical comparison",
+          "title": "Ishiguro and Ando, Asymmetric simple exclusion process with tree-like network branches",
+          "trigger": "Same model and identical two branch topology classes, strongest plausible coverage"
+        },
+        {
+          "assessment": "Broad transition-decomposition steady-state framework; current sign-root classification not established by inspected material",
+          "evidence": "General exact steady states, rather than pairwise branch-topology ordering.",
+          "identifier_or_url": "https://arxiv.org/abs/2403.01934",
+          "material_read": "Abstract and accessible study overview; not a full-text negative-coverage claim",
+          "method": "ArXiv abstract and primary bibliographic comparison",
+          "title": "Ishiguro and Sato, Exact steady states in ASEP beyond one dimension",
+          "trigger": "General steady-state method might dominate stationary-law premise"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Current ranking is the natural transport design comparison for two equal-size but differently arranged branch structures; finding the minimal number of side sites that permits bias-driven rank reversal is a structural boundary, not a numerical slice. An exact unique threshold for all even backbone sizes, its monotone scaling, and its limit are useful finite-network comparative statics beyond the prior individual current values.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-unique-topology-induced-current-reversal-in-a-three-site-decor--6d8d7725d027/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-unique-topology-induced-current-reversal-in-a-three-site-decor--6d8d7725d027/verify.py",
+    "Resultary_Search semantic query: topology induced current reversal exclusion ring three site tree decorated ASEP q comparison leaf chain",
+    "https://arxiv.org/html/2603.09694",
+    "https://arxiv.org/abs/2403.01934"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite diagnostics cover selected m and cannot prove uniqueness over all m; Descartes and the positivity decomposition supply infinite quantifiers.",
+    "Model fixes q>1 and positive backbone net bias, and compares specific equal-size leaf and chain attachments."
+  ],
+  "residual_risks": [
+    "General published current formulas may make the fixed-m factorization straightforward to a specialist; priority for specific algebraic classification is not certified.",
+    "No claim about other branch rates, thermodynamic nonanalyticity, open reservoirs or q<=1."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers the stationary measure and separate current values, not the all-q fixed-N crossover and minimality statements",
+      "evidence": "Sec IV Fig 3: current against particle number N, L=100, M=80; eqs. 28 and 41 give separate j_b formulas.",
+      "identifier_or_url": "https://arxiv.org/html/2603.09694",
+      "material_read": "Full accessible HTML: abstract, Sections II-V, equations (15),(20)-(21),(27)-(28),(31)-(32),(40)-(41), Figures 2-3 interpretation, conclusion",
+      "method": "Primary arXiv full-text mathematical comparison",
+      "title": "Ishiguro and Ando, Asymmetric simple exclusion process with tree-like network branches",
+      "trigger": "Same model and identical two branch topology classes, strongest plausible coverage"
+    },
+    {
+      "assessment": "Broad transition-decomposition steady-state framework; current sign-root classification not established by inspected material",
+      "evidence": "General exact steady states, rather than pairwise branch-topology ordering.",
+      "identifier_or_url": "https://arxiv.org/abs/2403.01934",
+      "material_read": "Abstract and accessible study overview; not a full-text negative-coverage claim",
+      "method": "ArXiv abstract and primary bibliographic comparison",
+      "title": "Ishiguro and Sato, Exact steady states in ASEP beyond one dimension",
+      "trigger": "General steady-state method might dominate stationary-law premise"
+    }
+  ]
+}
