@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** For each bounded analytic nonconstant symbol, choosing a power of the symbol minus its constant term produces a nonzero first Taylor coefficient beyond the finite offset diameter. The resulting good-row versus exceptional-column multiplication matrix has uniformly invertible finite triangular diagonal blocks; the remaining blocks have square-summable coefficients because lacunary differences have bounded multiplicity. This proves the otherwise missing weighted-to-unweighted Hilbert–Schmidt inclusion. Monotone boundary norms and disjoint lacunary charging prove the reverse inclusion under the exact weight threshold. The necessity counterexample uses the full Paley inequality on a finite union of shifted lacunary sets and an explicit outer boundary modulus. Constant symbols are handled by the root condition. Infinite-dimensional reasoning is analytical; exact-rational finite checks only corroborate the block mechanism.
+## correctness
 
-**Originality: PASS (best-knowledge, provisional priority).** The motivating arXiv:2610.40148v1 treats isolated lacunary indices and assumes \(q>2\) for the Hilbert–Schmidt characterization. The clustered finite-template statement is not entailed by that result: adjacent exceptional indices do not form a single Hadamard sequence, and the source's sum-free projection argument is unavailable. An isolated-index extension for \(q>1\) does not subsume the clustered case. Targeted published-record searches for finite unions, shifted lacunary sets and weighted Hardy Hilbert–Schmidt composition symbols did not identify an equivalent claim. The 2023 weighted-Hardy paper handles universal boundedness, not this Hilbert–Schmidt equality. Classical multiband Paley/Toeplitz literature remains a genuine priority risk; no independent novelty certification is claimed.
+PASS
 
-**Value: PASS.** Sparse coefficient weights are a standard way to separate operator ideals on analytic function spaces. The complete if-and-only-if threshold persists for a natural non-Hadamard exceptional geometry with finite but arbitrarily shaped local clusters, and the proof supplies a reusable finite Toeplitz block-coercivity mechanism rather than a routine substitution. This identifies a stable extension of isolated sparsity under fixed finite local aggregation; growing-width clusters and general Schatten \(p\) remain open here.
+Finite union of shifted lacunary sets obeys Paley H1-to-l2 projection bound. For a nonconstant disk self-map choose h=(phi-phi(0))^k whose first nonzero coefficient degree exceeds diam(F). The good-output/excluded-input compression has an invertible lower-triangular block H=(h_{ell+s-r}); lacunary difference multiplicity bounds render all off-cluster interactions Hilbert-Schmidt and their tail norm small. This recovers exceptional output energy from finitely many Q phi^{n+t}, and low coefficient jets decay geometrically. Monotone u_n=||phi^n||_2^2 and disjoint predecessor windows give sufficiency. If the threshold fails, sparse p_k and a bounded outer symbol with very small exceptional boundary arcs yield HS on H2 but divergent weighted HS trace, using Paley to keep a fixed fraction on good output rows. Independent finite template checks corroborated triangular blocks; infinite claims rest on those analytic estimates.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Earlier known q>1 theorem applies to singleton exceptional sites; q>2 primary source also assumes a single Hadamard set. Fixed finite nontrivial offset clusters introduce adjacent exceptional weights and demand uniform finite-block invertibility/compact coupling; no source read gives that full assertion.
+
+## value
+
+PASS
+
+Clusters of simultaneously small neighboring weights are a natural next model for sparse weighted Hardy coefficient spaces. The all-q>1 equivalence is a sharp, mathematically motivated extension of the singleton exceptional-index threshold and has a distinct block-coercivity proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

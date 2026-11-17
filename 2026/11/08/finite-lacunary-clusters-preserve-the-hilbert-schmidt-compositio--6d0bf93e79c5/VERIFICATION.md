@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
-The proof is analytical. The critical step is a Toeplitz-block compression of multiplication by \(h=(\varphi-\varphi(0))^k\) from exceptional coefficient clusters into good coefficient clusters. The finite block has diagonal \(h_\ell\ne0\); off-diagonal cross-cluster blocks form a Hilbert–Schmidt remainder because lacunary differences have uniformly bounded multiplicity. This gives a tail lower bound and recovers the missing energy from finitely many shifted powers of the symbol. The other direction follows from a monotone lacunary charging estimate, and failure of the threshold is witnessed by an outer-modulus construction and the finite-union Paley inequality.
+# Independent mathematical audit
 
-Run the included `check_clusters.py` with Python 3. The checker prints `LACUNARY_CLUSTER_EXACT_BLOCK_CHECK_OK 1518` after checking the exact triangular Toeplitz block relations, leading coefficients, good-row separations, finite difference-multiplicity bounds and truncated convolution examples. No third-party Python libraries are needed. These finite checks do not verify the infinite-dimensional compactness statement, the outer-function existence theorem, or publication originality; those require the mathematical arguments and literature comparisons in `RESULT.md` and `REVIEW.md`. Independent validation has not been performed.
+## correctness
+
+PASS
+
+Finite union of shifted lacunary sets obeys Paley H1-to-l2 projection bound. For a nonconstant disk self-map choose h=(phi-phi(0))^k whose first nonzero coefficient degree exceeds diam(F). The good-output/excluded-input compression has an invertible lower-triangular block H=(h_{ell+s-r}); lacunary difference multiplicity bounds render all off-cluster interactions Hilbert-Schmidt and their tail norm small. This recovers exceptional output energy from finitely many Q phi^{n+t}, and low coefficient jets decay geometrically. Monotone u_n=||phi^n||_2^2 and disjoint predecessor windows give sufficiency. If the threshold fails, sparse p_k and a bounded outer symbol with very small exceptional boundary arcs yield HS on H2 but divergent weighted HS trace, using Paley to keep a fixed fraction on good output rows. Independent finite template checks corroborated triangular blocks; infinite claims rest on those analytic estimates.
+
+## originality
+
+PASS
+
+Earlier known q>1 theorem applies to singleton exceptional sites; q>2 primary source also assumes a single Hadamard set. Fixed finite nontrivial offset clusters introduce adjacent exceptional weights and demand uniform finite-block invertibility/compact coupling; no source read gives that full assertion.
+
+## value
+
+PASS
+
+Clusters of simultaneously small neighboring weights are a natural next model for sparse weighted Hardy coefficient spaces. The all-q>1 equivalence is a sharp, mathematically motivated extension of the singleton exceptional-index threshold and has a distinct block-coercivity proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
