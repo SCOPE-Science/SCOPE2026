@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T10:50:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The assumptions lambda_n->lambda in (0,infinity), maximal individual edge probability eps_n->0 and weak convergence nu_n on compact [0,1] are adequate. For fixed m tags, hyperedges intersecting tags in exact subsets S give independent Poisson-binomial counts with mean sum_r binom(n-m,r-|S|)p_nr. The uniform O_m(1/n) hypergeometric ratio yields mu_S=int x^(|S|-1)(1-x)^(m-|S|) nu(dx). Le Cam error <=eps_n*m*lambda_n goes to zero and yields the correlated subset-shock limit. Construct PPP of intensity nu(dx)/x on (0,1] with independent Bernoulli marks and independent singleton dust of intensity nu({0}); finite intensity of sum_x x ensures almost-sure product. Tagged mixed moments identify the random conditional-iid empirical degree masses; a uniform expected-degree tail bound ensures l1 tightness. The Poisson exponential formula gives E P(0)=exp(-lambda), Var P(0)=exp(-2lambda)(exp(int x nu(dx))-1), and log E P(0)^k= sum_{j=1}^k (-1)^j binom(k,j) M_{j-1}; Hausdorff determinacy recovers nu. Rounded/clipped rank construction makes all finite measures attainable even with atoms at 0 or 1. Inspected actual check.py: finite tagged-pattern and rational-moment verifications do not replace these limit arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pal and Makowski show empirical degree laws need not concentrate in a different random graph model; Bergman and Leskela analyze connectivity and isolate counts for size distributions."
+        ],
+        "reasoning": "These broader models/methods give motivation and partial statistics, but no matched theorem for independent all-rank hyperedge Bernoulli model and exact PPP spectra was verified.",
+        "searches": [
+          "Pal Makowski asymptotic degree distributions in large homogeneous random networks 1710.11064",
+          "Bergman Leskela connectivity hypergraphs given edge size distribution 2207.04799"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2611.04705v1",
+        "https://doi.org/10.1088/1751-8113/46/30/305003",
+        "https://arxiv.org/abs/1710.11064"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sparse fixed-size Poisson hypergraph work can give single-node Poisson degrees, while macroscopic sizes yield shared Poisson shocks and random empirical distributions."
+        ],
+        "reasoning": "The prior stated implications do not extend to persistent shared shocks and unique reconstruction of nu; the latter is a specific non-implied new theorem.",
+        "searches": [
+          "Zhu Xu Reinert 2026 Theorem 1 finite-dimensional independent Poisson approximation",
+          "Goldschmidt Norris arXiv:math/0401143 Theorem 2.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact Resultary match is the current November 8 claim; Zhu/Xu/Reinert study joint finite-dimensional degree approximation with independent Poisson/normal, rather than random empirical mass function."
+        ],
+        "reasoning": "One-vertex Poisson or fixed-vector approximation does not imply a random infinite-coordinate histogram or inverse isolate-moment law.",
+        "searches": [
+          "Resultary sparse random hypergraph degree empirical distributions Poisson paintbox giant hyperedge threshold isolate counts identifiable measure",
+          "Zhu Xu Reinert arXiv:2611.04705 Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier Resultary exact alternative beyond this record; López counts distinct neighbors in projected uniform-rank hypergraphs rather than incident hyperedges."
+        ],
+        "reasoning": "There is no sourced exact database giving the nonconcentrating empirical histogram and isolate law. Search absence is a residual risk, not proof.",
+        "searches": [
+          "Resultary Poisson paintbox random hypergraph degree spectrum identifiable measure",
+          "López arXiv:1302.2830"
+        ]
+      },
+      "rationale": "Primary November 3 2026 Zhu–Xu–Reinert paper treats a fixed vector of vertex degrees via approximation by INDEPENDENT multivariate Poisson or normal distributions, explicitly with error terms controlled by shared hyperedges, and does not analyze non-concentrating empirical histograms under macroscopic ranks. Pal–Makowski distinguish nodal and empirical graph degree laws, but their general counterexample does not give this hypergraph PPP paintbox or isolate-moment spectral inversion. Bergman–Leskela target connectivity/isolation estimates, and Goldschmidt–Norris study collapse of Poisson hyperedges; no checked full text implies the complete random histogram law plus injective inversion. Originality remains best of knowledge subject to general exchangeable hypergraph paintbox theory.",
+      "residual_risks": [
+        "General exchangeable hypergraph and Poissonian paintbox theory might contain a mathematically equivalent empirical-measure theorem under another name.",
+        "No rates or almost-sure convergence; only full-sequence weak l1 convergence, as stated.",
+        "Some primary paper material beyond relevant sections may contain stronger implications; original source inspections are not global novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-dimensional independent-Poisson and normal approximation; not the random l1 histogram paintbox with isolate inversion",
+          "evidence": "Section 3 fixed M tagged vectors; shared-event terms are the relevant limiting obstruction",
+          "identifier_or_url": "https://arxiv.org/html/2611.04705v1",
+          "material_read": "Read full arXiv HTML research sections and theorem overview, published arXiv 2026-11-03",
+          "method": "primary full text/GitHub actual pinned source where accessible; source-level comparison not search snippet alone",
+          "title": "Approximating Distributions on Vertex Degrees in Random Hypergraphs via Stein’s Method",
+          "trigger": "Same independent hyperedge sampling model, fresh 2026 results, degree comparison"
+        },
+        {
+          "assessment": "Counts distinct neighbors in projected rank-r hypergraph, not incident edges under all-rank size spectrum",
+          "evidence": "Published 2013; abstract explicitly differentiates hyperedge degree from neighbor count",
+          "identifier_or_url": "https://doi.org/10.1088/1751-8113/46/30/305003",
+          "material_read": "Read original publisher abstract and research scope",
+          "method": "primary source inspection with stated access scope",
+          "title": "The distribution of the number of node neighbors in random hypergraphs",
+          "trigger": "Same term hypergraph degree but possible neighbor/edge distinction"
+        },
+        {
+          "assessment": "A general nonconcentrating graph example, rather than the exact Poisson hypergraph spectral inversion",
+          "evidence": "Empirical vs nodal distributions under exchangeability do not determine complete limit here",
+          "identifier_or_url": "https://arxiv.org/abs/1710.11064",
+          "material_read": "Read accessible abstract and comparison summary, not represented as complete full-text exclusion",
+          "method": "primary full text/GitHub actual pinned source where accessible; source-level comparison not search snippet alone",
+          "title": "Asymptotic degree distributions in large (homogeneous) random networks: A little theory and a counterexample",
+          "trigger": "Possible general nonconcentration theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The deterministic-versus-random empirical-degree threshold at positive macroscopic hyperedge fractions is a natural and precise structural phase boundary. The explicit correlated common-shock law and nontrivial recovery of the whole hyperedge-size intensity from one isolate-fraction distribution answer measurable questions not settled by a marginal Pois(lambda) law; they are motivated by the distinction between one-vertex degree and empirical histogram and do not simply rename de Finetti.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "General exchangeable hypergraph and Poissonian paintbox theory might contain a mathematically equivalent empirical-measure theorem under another name.",
+    "No rates or almost-sure convergence; only full-sequence weak l1 convergence, as stated.",
+    "Some primary paper material beyond relevant sections may contain stronger implications; original source inspections are not global novelty proof.",
+    "Original publication-facing METADATA.json contains scope_run_id, same_model_review_status and verification_state fields, and AUDIT.json contains review_type=same_model_review and same_model_review_status; REVIEW.md also describes review provenance. Publishing without complete, semantically screened, blob-guarded neutral replacements risks disclosing prohibited process provenance. No public edits were prepared; keep original evidence at pinned Git blobs and mark no publication/import authorized."
+  ],
+  "schema_version": 1
+}
