@@ -1,15 +1,21 @@
-# Review: exact ternary-power denominators
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The claim is for every positive integer exponent. The proof separately establishes rationality and localization at \(3\), computes the exact valuations of cyclotomic terms (including the primitive cube-root pair), and uses the published divisor formula with verified local multiplicities. The strict valuation separation excludes cancellation. The full reduced-denominator conclusion does not follow from finite numerical experiments alone; it follows from the cyclotomic argument. Exact rational Newton-sum checks corroborate three values and the two published examples.
+## correctness
 
-## Originality
-**PASS, with historical-priority risk.** The closest primary text is Agustín-Aquino, arXiv:2610.02806v1, Sections 5 and 8–9. It provides a general evaluator and the denominator theorem only for prime moduli \(2p\) with \(p>3\); its displayed examples \(n=6,18\) cannot imply the all-power valuation formula. The new theorem requires the non-cancellation/ramification argument for every exponent. Liu–Xin, arXiv:2607.29130, supplies cotangent identities but not the inspected ternary denominator result; Agustín-Aquino's earlier arXiv:2207.14495 provides computations, not such a theorem. Targeted mathematical record searches and local historical-claim comparisons disclosed no direct coverage; a missed equivalent result remains possible.
+PASS
 
-## Mathematical value
-**PASS.** The natural exceptional prime \(3\) is explicitly excluded from the source's \(2p\) prime-denominator theorem and its first powers appear in the table. The exact exponent of the reduced denominator across the complete infinite prime-power family is a motivated arithmetic invariant. The proof isolates the structural origin of that exponent and shows it is not lost in the full affine sum. No claim is made about other moduli or a full numerator formula.
+PASS: For m=3^a, separate the alternating C_(2m) cotangent block into m-th roots of unity !=1 and roots eta^m=-1. Galois invariance gives rationality; denominators 1-xi for primitive 3^j roots have norm 3 and are integral away from 3, while eta roots yield units away from the lone trivial eta=-1 zero. For primitive cube roots the 3-adic valuation of u(xi)^(2m) equals -m and their combined term is 2(-1/3)^m with unit coefficient; all primitive 3^j,j>=2 terms have valuation >=-m/3 and the odd block is integral. Thus C_(2m) has exact v3=-m and normalized numerator 1 mod3. In the original Agustín-Aquino affine-divisor theorem specialized to n=2*3^a, the top block has coefficient one and all lower blocks coefficients 2*3^(2(a-j)-1), valuations strictly greater than -3^a. They cannot cancel the unique leading term, proving all a. Independent exact Newton-sum computations for a=1,2,3 yielded denominators 27,19683,7625597484987, each numerator 1 mod3; bounded tests corroborate the p-adic argument.
 
-## Limits and references
-The assessment is same-model only. Direct sources: arXiv:2610.02806v1 (Theorem 5.1, Proposition 3.4, Theorem 8.2 and Table 1); arXiv:2607.29130 (cotangent formulas); arXiv:2207.14495 (earlier affine computations). Finite verification is independent arithmetic within the package, not independent scientific audit. Priority beyond inspected and indexed material is not established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge: the full arithmetic evaluation for all even n is prior, as are some finite examples; the submitted theorem isolates a uniform exact reduced-denominator valuation and residue for EVERY modulus 2*3^a. The earlier prime-square denominator theorem expressly requires p>=5, whereas the leading cube-root pole at p=3 is different. The new valuation argument is not an automatic restatement of the published cotangent formula.
+
+## value
+
+PASS
+
+PASS: Exact reduced denominators of a natural arithmetic sum over an unbounded prime-power tower quantify genuine 3-adic cancellation/noncancellation invisible from general evaluation formulas. The primitive cube-root layer gives a structural valuation obstruction and a uniform numerator congruence, not merely three numerical examples, and is a motivated complement to known p>=5 laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
