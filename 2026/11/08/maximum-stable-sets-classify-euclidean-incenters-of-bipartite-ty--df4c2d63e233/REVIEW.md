@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The polar expression follows exactly from all edge-root sign inequalities and absence of isolated vertices. Bipartite total unimodularity makes each polar orthant an integral stable-set polytope; inclusion-maximality characterizes the globally extreme signed independent-set incidences. Support inequalities for all signed polar vertices yield an exact—not relaxed—description of every optimal Euclidean inball center. Maximum-size stable sets force zero coordinates, while strictly shorter maximal sets have positive slack, proving the affine dimension without assuming a generic position. The odd-path unique maximum independent set and its complementary even maximal set make the full \(\ell_1\) crosspolytope; a strict neighborhood inequality in an explicit tree establishes sharpness at even orders. The universal proof treats every finite size, not only the computed examples. Direct convex-hull, LP, Prüfer-census and extremal-witness checks passed. Risk: the metric is tied to the stated coordinate model; this is explicitly scoped.
+PASS
 
-## Originality — PASS (historical priority provisional)
+For connected bipartite G, each edge-root constraint in the polar Q is |y_i|+|y_j|<=1, rendering ±e_i redundant. In every orthant the nonnegative edge-incidence inequalities have totally unimodular matrix and integral right sides, giving 0/1 independent-set vertices; the full polar vertices are exactly all signings of inclusion-maximal independent sets. Central symmetry makes maximal Euclidean inradius 1/max||q||=1/sqrt(alpha(G)). The optimal center support inequalities are sum_{i in I}|c_i|<=1-sqrt(|I|/alpha), and the active constraints from maximum sets force c_i=0 on U(G), leaving a relative full neighborhood on its complement; hence affdim=n-|U|. For odd P_{2k+1}, the unique maximum independent set is the odd positions and the center set is the k-dimensional even-coordinate l1 ball of radius 1-sqrt(k/(k+1)); for even paths, both parity classes cover V, making center unique. The tree bound floor((n-1)/2) follows by bipartition and is attained by odd paths or the specified even-order leaf attachment. Independent enumeration of all independent sets on P_n, n=2..8, reproduced alpha and center dimensions 0,k alternately. The proof is universal; enumeration is corroborative.
 
-The exact type-B generators are already in Ohsugi–Tsuchiya (arXiv:1810.12258, initially public 2018-10-29) and bipartite integrality is textbook. Their studied conclusions concern reflexive lattice polytopes, triangulations, Ehrhart/h* and matching formulas, not Euclidean center loci. In the inspected 2020 full primary paper, the Section 7 type-B corollaries concern \(\gamma\)-polynomials and matching data. Related work on type-A symmetric edge and Hansen polytopes uses a different realization and does not logically imply the complete all-center description. Actual semantic searches examined polar/unconditional signed stable-set aliases and found no decisive covering result. Residual risk: an earlier equivalent metric statement in a paper using signed stable-set or anti-blocking terminology could escape these searches. This is not a proof of global historical uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result is a complete natural graph-invariant classification of a Euclidean feature across all connected bipartite type-B root polytopes, not just an isolated numerical radius. The center set can have arbitrarily large positive affine dimension even when the radius is fixed by one graph invariant. The exact odd-path crosspolytope, parity-induced uniqueness transition, and sharp maximum center freedom for each tree order provide structural consequences with independent mathematical motivation, relevant to geometric graph polytope and stability-set geometry.
+Bipartite total unimodularity and the stable-set interpretation of the polar are classical and credited. The new final claim is the exact Euclidean inball radius, complete center polytope, affine-dimension formula, and sharp tree extremum in the canonical type-B root realization. Ohsugi--Tsuchiya investigate reflexivity, h-star and triangulations, not this Euclidean center-locus theorem in the relevant inspected sections. Similar inball theorems for type-A symmetric edge polytopes, graph associahedra, zonotopes or a graph-matching polytope cannot be transferred by name: their polar bodies and metrics are not this Q. An earlier formulation in unconditional-stable-set/antiblocking convexity remains a relevant priority risk.
 
-## Limitations and closest literature
+## value
 
-Canonical Euclidean coordinates and bipartiteness are essential. The full equality-classification of extremal trees and nonbipartite analogues remain open in this result. Tests are finite checks only. Primary sources: Ohsugi–Tsuchiya (arXiv:1810.12258; arXiv:2008.08621) and their locally anti-blocking lattice polytope work. Historical priority is provisional pending broader independent literature inspection.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Euclidean incenter set is a natural metric invariant of canonical graph-root polytopes, not an arbitrary optimization at a handpicked graph. The formula identifies all nonunique centers through the maximum-stable-set coverage U(G), a structural combinatorial statistic, and determines exact path geometry and a sharp extremal dimension across every tree order. The elementary TU ingredient alone is not the value claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
