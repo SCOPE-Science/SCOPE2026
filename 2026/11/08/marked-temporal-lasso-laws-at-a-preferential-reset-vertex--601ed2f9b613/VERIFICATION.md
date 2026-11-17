@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,5 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
-The embedded `checker.py` uses only the Python standard library. Run `python checker.py`. Its separate exhaustive exploration compares the finite joint \(Q_n(t,j)\) cells against direct enumeration of all functions on at most five vertices, and separately checks the exact joint two-color mark generating function by enumerating functions and valuations. It prints `BIASED_FUNCTIONAL_FRAME_ORBIT_CHECKS_OK` on success. The critical limit follows from a factorial-product local asymptotic and the uniformity of all positive \(j\) cells; the supercritical limit follows by a hub-collision coupling with non-hub collision probability \(O((np_n^2)^{-1})\). The computational tests alone do not establish either infinite limit. Scientific literature comparison and priority risk are detailed in the review; independent validation has not occurred.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Explicitly partition the first-repeat orbit by whether the hub 0 occurs and its location: the two falling-factorial common terms reproduce every Q_n(t,j), including t=1 and j=0, with masses summing to one. Labels are sampled independently on distinct transient and cycle vertices so the finite joint pgf follows from conditioning. For p_n sqrt(n)->a, factorial tails give (1+ar)exp(-r^2/2-ar), per-cell density n Q_n(t,j)->(1+a^2+ar)exp(-r^2/2-ar) uniformly in interior, yielding independent uniform split fraction U; bounded rare-label binomials converge jointly to the stated conditional independent Poissons. At a=0 covariance c_i c_j(1/3-pi/8) is negative. When np_n^2->infinity and p_n->0, two hub hits precede nonhub collision with probability 1-O((np_n^2)^-1), hence independent geometric waits become Exp(1) lengths and conditional marked counts integrate to independent multivariate geometric vectors. Independently enumerated all n=2..4 successor functions under three rational hub probabilities, reproducing each exact Q cell and normalization. Limit law is analytically proved, not inferred from finite maps.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the independent-label temporal-lasso pgf and critical/supercritical joint mark laws, while explicitly crediting the unmarked first-repeat/birthday machinery. Camarri–Pitman covers general unequal-probability repeat-time and random-tree limits but not proposition-label counts along the distinct transient and eventual cycle, nor the full finite-graph logical F/GF probability laws. General random labeled transition-system work studies independent arcs, not a single successor chosen with a hub. Independent thinning is standard, but the exact joint root/hub split and contrast between negative coupling and independent multivariate geometric limits are not found in the checked sources.
+
+## value
+
+PASS
+
+A one-successor labeled transition system has exactly one eventual cycle, making the transient-vs-recurring marked vocabulary a natural model-checking statistic. The finite exact pgf and two genuine scaling regimes classify simultaneous recurrence/eventuality frequencies, showing a transition from coupled Rayleigh-hub counts to independent geometric vectors; these are meaningful complete laws, not merely an isolated approximate count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

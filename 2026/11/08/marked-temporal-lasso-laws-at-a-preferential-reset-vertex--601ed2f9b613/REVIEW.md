@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact finite joint cell distribution is obtained from a complete disjoint split according to whether the distinguished hub appears among the visited states. The generating function follows by conditioning on two disjoint segments of the deterministic orbit. At critical scale, pointwise cell asymptotics uniformly in the repeated index and a tightness bound yield a uniform independent index fraction; conditional binomial rare-mark limits give the multivariate mixed Poisson statement. At hub-dominant scale, the probability of a competing non-hub collision is \(O((np_n^2)^{-1})\), and the two hub waiting times converge jointly to independent exponentials, yielding the stated independent multivariate geometric counts. Full finite exhaustive checker output: `BIASED_FUNCTIONAL_FRAME_ORBIT_CHECKS_OK exact_cells= 102 maps_and_valuations_checked=4096 critical_and_supercritical_survivals=verified`. These finite tests do not prove the asymptotic claims; the proof does.
+## correctness
 
-**Originality: PASS within inspected evidence, with significant limitation.** The closest and **stronger** prior result for the unmarked lasso is Camarri and Pitman (2000), Theorem 14. No novelty is assigned to that part. The new statement concerns simultaneous **independent vertex valuations** with a finite exact multivariate temporal-segment generating function, and two contrasting scaling laws including the independent geometric-vector phase. The 2026 model-checking paper works in an independent-arc, not functional, model and does not imply these quantitative formulas. Search limitations for historical weighted mapping literature are explicitly recorded. Priority is not certified.
+PASS
 
-**Mathematical value: PASS.** The exact joint law closes a natural finite-model counting problem for deterministic temporal systems with a reset bias. The classification of rare-marked temporal behavior has a sharp \(n^{-1/2}\) hub threshold, a nontrivial critical dependence coefficient \(1/3-\pi/8\), and factorization into independent geometric transient/cycle vectors beyond that threshold. These facts directly determine truth probabilities of combinations of temporal eventuality and recurrence formulas. The contribution is narrower than a general logical limit-law theorem, but it is a motivated complete invariant for the specified probability model.
+Explicitly partition the first-repeat orbit by whether the hub 0 occurs and its location: the two falling-factorial common terms reproduce every Q_n(t,j), including t=1 and j=0, with masses summing to one. Labels are sampled independently on distinct transient and cycle vertices so the finite joint pgf follows from conditioning. For p_n sqrt(n)->a, factorial tails give (1+ar)exp(-r^2/2-ar), per-cell density n Q_n(t,j)->(1+a^2+ar)exp(-r^2/2-ar) uniformly in interior, yielding independent uniform split fraction U; bounded rare-label binomials converge jointly to the stated conditional independent Poissons. At a=0 covariance c_i c_j(1/3-pi/8) is negative. When np_n^2->infinity and p_n->0, two hub hits precede nonhub collision with probability 1-O((np_n^2)^-1), hence independent geometric waits become Exp(1) lengths and conditional marked counts integrate to independent multivariate geometric vectors. Independently enumerated all n=2..4 successor functions under three rational hub probabilities, reproducing each exact Q cell and normalization. Limit law is analytically proved, not inferred from finite maps.
 
-**Scientific limitations.** Fixed numbers of independent rare labels; a fixed non-hub root, a total single-valued successor map, and two stated scales. An older general result already covers the core unmarked return-time process. The full older specialist weighted-map thesis could not be inspected. No uniform rate or unrelated modal theories are claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the independent-label temporal-lasso pgf and critical/supercritical joint mark laws, while explicitly crediting the unmarked first-repeat/birthday machinery. Camarri–Pitman covers general unequal-probability repeat-time and random-tree limits but not proposition-label counts along the distinct transient and eventual cycle, nor the full finite-graph logical F/GF probability laws. General random labeled transition-system work studies independent arcs, not a single successor chosen with a hub. Independent thinning is standard, but the exact joint root/hub split and contrast between negative coupling and independent multivariate geometric limits are not found in the checked sources.
+
+## value
+
+PASS
+
+A one-successor labeled transition system has exactly one eventual cycle, making the transient-vs-recurring marked vocabulary a natural model-checking statistic. The finite exact pgf and two genuine scaling regimes classify simultaneous recurrence/eventuality frequencies, showing a transition from coupled Rayleigh-hub counts to independent geometric vectors; these are meaningful complete laws, not merely an isolated approximate count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
