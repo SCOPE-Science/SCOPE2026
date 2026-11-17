@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-A complete C++17 enumeration identifies 7,594,360 distinct nonempty simplices of the 42-edge grid matching complex. The stagewise edge-toggle matching pairs 7,594,098 faces and leaves one vertex, 212 eight-cells and 49 nine-cells. A direct full Hasse graph check processes all 61,837,314 incidences and removes all vertices in an acyclic topological sort. The signed Morse differential uses the incidence signs from ordered simplices and exactly 49 elementary integer unit pivots, not ranks modulo a prime. Its residual zero block has 163 rows. Since the Morse CW model has only one zero-cell and 8-/9-cells, Hurewicz classifies attaching maps by degree vectors and integer elementary operations give the claimed sphere wedge. The alternating face sum is 164, as required. The numerical computation is finite and exhaustive for this width, not an infinite proof.
+## correctness
 
-## Originality — PASS, with a documented residual risk
-The earlier 2021 general recurrence is withdrawn in the authors' corrigendum; in particular its proposed homology in dimension nine for the nine-column case is not correct. The corrected earlier article does not provide this exact integral homotopy model. The 2026 Chauhan–Sharma–Shukla work provides vanishing/connectivity and a nonvanishing statement, but those statements cannot imply the rank 163 or the integrally split attaching matrices. Public search comparisons found no exact nine-column homotopy theorem. The full 2026 manuscript remained inaccessible, so unindexed or non-abstract claims in that source are explicitly not ruled out.
+PASS
 
-## Mathematical value — PASS
-This is a motivated boundary computation: nine columns are the first width at which the published recurrence's two-dimensional homology prediction fails. The exact integral homotopy type settles one nontrivial case at that boundary, gives a complete reproducible benchmark for a prospective corrected recurrence, and strengthens vanishing and Euler-number information to a geometric classification. It is not an arbitrary small-parameter table entry or merely a routine count.
+The exact finite graph has 27 vertices and 42 edges. I reviewed complete verify.cpp: exhaustive include/exclude generation enumerates all 7,594,360 nonempty graph matchings; the greedy face toggle matches pairs, the complete oriented 61,837,314 Hasse incidences are checked via Kahn topological sorting, and the resulting 262 critical cells consist of one 0-cell, 212 in dimension 8 and 49 in dimension 9. For each critical 9-cell the signed Morse boundary recursion on 8-faces uses the exact incidence signs and acyclic matching; 49 sequential integer unit pivots reduce the 212-by-49 differential to [I_49;0_163], with max growth 4. In that 7-connected Morse CW range, Hurewicz identifies 9-cell attaching maps with their degree vectors, so unimodular cancellation gives wedge of 163 S^8. Independent matching-polynomial DP over the original 27-vertex graph (not the supplied enumeration) recomputed all 13 face-vector entries, total 7,594,360, and Euler 164. Full 800MB C++ enumeration was NOT rerun in this execution; saved output matches inspected algorithm but this limit is explicit.
 
-## Limits
-The method is an exhaustive finite certificate and does not settle the 2026 all-width wedge conjecture. The primary 2026 manuscript could not be inspected in full, leaving a genuine originality risk. Independent checking by another mathematician has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for a motivated exact integral width-9 homotopy classification, with a serious risk from unread 2026 Chauhan–Sharma–Shukla full text. A 2025 authors corrigendum retracts the old all-width splitting argument and does not provide the 163-fold width-9 wedge. The 2026 accessible theorem gives connectivity and nonvanishing, not an integral exact wedge.
+
+## value
+
+PASS
+
+Grid width9 is the first specific boundary where a formerly published recurrence fails; a completely determined integral homotopy type is a meaningful natural invariant and a benchmark for any corrected all-width theory. Exact 163-sphere wedge strengthens Euler characteristic and connectivity and is not an arbitrary small numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-08",
+  "audited_at_utc": "2026-11-08T17:54:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact finite graph has 27 vertices and 42 edges. I reviewed complete verify.cpp: exhaustive include/exclude generation enumerates all 7,594,360 nonempty graph matchings; the greedy face toggle matches pairs, the complete oriented 61,837,314 Hasse incidences are checked via Kahn topological sorting, and the resulting 262 critical cells consist of one 0-cell, 212 in dimension 8 and 49 in dimension 9. For each critical 9-cell the signed Morse boundary recursion on 8-faces uses the exact incidence signs and acyclic matching; 49 sequential integer unit pivots reduce the 212-by-49 differential to [I_49;0_163], with max growth 4. In that 7-connected Morse CW range, Hurewicz identifies 9-cell attaching maps with their degree vectors, so unimodular cancellation gives wedge of 163 S^8. Independent matching-polynomial DP over the original 27-vertex graph (not the supplied enumeration) recomputed all 13 face-vector entries, total 7,594,360, and Euler 164. Full 800MB C++ enumeration was NOT rerun in this execution; saved output matches inspected algorithm but this limit is explicit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior 2021 proposed recurrence implied a broad homotopy formula but the authors withdrew the noninduced-subgraph splitting justification in a 2025 corrigendum.",
+          "The 2026 abstract states vanishing low and top homology and nonzero H_{n-1}, but does not give exact rank or attaching maps."
+        ],
+        "reasoning": "A withdrawn argument is not a valid proof covering width9. Connectivity plus a nonzero group alone cannot supply the 163-unit integral homotopy type, though unread full text might.",
+        "searches": [
+          "arXiv:2609.27366 abstract",
+          "Goyal–Shukla–Singh 2021 and 2025 corrigendum PDF"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.37236/10496 corrected paper relevant full PDF passages",
+        "arXiv:2609.27366 abstract and metadata",
+        "Resultary exact-grid matching queries",
+        "Frozen RESULT.md, entire verify.cpp and verify_output.txt",
+        "Independent matching-polynomial face vector 27-vertex graph"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "n=9 has dimension-8 classes; old predicted degree-9 family is invalidated by correction.",
+          "New result gives single degree-8 free rank 163 and an integral geometric wedge; neither 7-connectivity nor nonzero H8 implies rank 163 or no higher attaching torsion."
+        ],
+        "reasoning": "The present finite exhaustive integer certificate is more precise than published accessible conclusions; cannot claim it settles an all-n conjecture.",
+        "searches": [
+          "Goyal Shukla Singh corrigendum 2025",
+          "arXiv:2609.27366 September 2026 abstract",
+          "Resultary: 3x9 matching complex 163 8 sphere wedge"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matching complex of 3x9 grid is equivalently Ind(L(P3 square P9)).",
+          "2026 paper abstract describes M(G_{3 x n}) and n-2 connectivity; same object, unlike other grid clique/cut complexes in indexed records."
+        ],
+        "reasoning": "The equivalence of line-graph independence and ordinary matching complex is recognized, not presented as new; no identical integral homotopy assertion located in material read.",
+        "searches": [
+          "arXiv:2609.27366",
+          "DOI:10.37236/10496 corrigendum",
+          "Resultary: matching complex 3 by 9 grid integral sphere wedge 163 dimension 8 correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2021/2025 table ends at n=8; corrigendum notes n=9 dimension-eight support but no integral rank 163 or wedge classification.",
+          "No indexed exact table or formula matched 163 for this 3x9 graph."
+        ],
+        "reasoning": "The width9 Euler count=164 is a consistency check, not full homotopy, and full integral Morse differential adds exactly the previously missing information.",
+        "searches": [
+          "Goyal Shukla Singh 2021 Table 1 widths <=8 corrigendum 2025",
+          "Resultary: 3x9 matching complex 163 8 sphere wedge",
+          "arXiv:2609.27366"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for a motivated exact integral width-9 homotopy classification, with a serious risk from unread 2026 Chauhan–Sharma–Shukla full text. A 2025 authors corrigendum retracts the old all-width splitting argument and does not provide the 163-fold width-9 wedge. The 2026 accessible theorem gives connectivity and nonvanishing, not an integral exact wedge.",
+      "residual_risks": [
+        "Full 2026 matching-grid paper could contain a n=9 rank/table despite narrower abstract; VPN disconnected, material read was abstract only.",
+        "Exhaustive 7.59-million-face Hasse/Morse computation was inspected from code and recorded output, not independently rerun with 800MB memory; mathematical correctness rests on reproducible full enumerator and independently checked face counts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Withdrawn proof does not establish a homotopy type at n=9; correction identifies the degree-eight issue",
+          "evidence": "2025 corrigendum explains noninduced subgraph invalidity, notes width9 dimension-eight homology.",
+          "identifier_or_url": "DOI:10.37236/10496 (2021, corrigendum 2025)",
+          "material_read": "Original 2021 PDF table, corrigendum page 26 and surrounding mathematical correction (screenshot)",
+          "method": "Public full PDF and relevant pages",
+          "title": "Matching complexes of 3 x n grid graphs and corrigendum",
+          "trigger": "Same exact grid matching family, prior withdrawn formula"
+        },
+        {
+          "assessment": "Abstract proves connectivity and nonzero H_{n-1}, but full paper may contain a 163 computation or table; NOT classified as NOT_COVERING as a whole",
+          "evidence": "Abstract 2026-09-23, Oxford access check vpn_disconnected (private job ce1bb5dc17354db66f181a8d5749508f).",
+          "identifier_or_url": "arXiv:2609.27366v1",
+          "material_read": "Public abstract, theorem summary, publication metadata; 23-page full text not obtained",
+          "method": "ArXiv/alternate OA attempts and institutional access check",
+          "title": "Homology of matching complexes of 3 x n grid graphs",
+          "trigger": "Plausibly dominating newer paper on exactly same graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Grid width9 is the first specific boundary where a formerly published recurrence fails; a completely determined integral homotopy type is a meaningful natural invariant and a benchmark for any corrected all-width theory. Exact 163-sphere wedge strengthens Euler characteristic and connectivity and is not an arbitrary small numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only width9; no all-width classification.",
+    "Full newly relevant 2026 primary manuscript inaccessible.",
+    "Full 800MB C++ run not repeated; independent exact face polynomial and code reading completed."
+  ],
+  "schema_version": 1
+}
