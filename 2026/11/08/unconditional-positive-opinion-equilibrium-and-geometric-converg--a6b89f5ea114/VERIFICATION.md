@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The mathematical proof in `RESULT.md` is the source of the infinite-dimensional-parameter claim for each finite population size. Independently executable `CHECK.py` requires Python 3.10+ and no dependencies. It verifies, by exact rational arithmetic, the two-agent witness \(u=(55/72,1/8)\), \(\rho=16\), \(z^*=(3/4,1/4)\), \(y^*=(36/37,4/5)\). It then tests 500 monotone enclosure iterations and the explicit logarithmic gap bound, numerically integrates 500 Runge–Kutta steps of the fast-leadership reduced ODE and checks the proved exponential envelope, and performs 105 additional reproducible random-network enclosure checks.
+## correctness
 
-Observed output: source sufficient-bound expression approximately 8.707818930041153; logarithmic-iteration factor approximately 0.9961263840273119; explicit reduced-flow rate approximately 0.0041981298454495065; all test assertions passed. Exact fraction identities and the derivation of the scalar elasticity, not the numerical samples, establish the general theorem. Numerical integration does not certify exact trajectories. No result on convergence of the full finite-speed coupled ODE is asserted. Independent audit remains not performed.
+PASS
+
+Each equilibrium is equivalent to the scalar cubic F_i=0 on invariant B, scalar root monotonic and strict in its positive variable; implicit log elasticity and stochastic W rows give a q<1 stationary contraction and two-sided brackets. For the reduced ODE, the F_i comparison at upper and lower ratios to z* and positive speed factor imply global Dini-log exponential rate c=rho a^3/[b(rho b²+(b-a)²)]; checked the exact two-agent equilibrium and derivative identities. This proof is analytical for all n; numerical RK checks are supportive only.
+
+## originality
+
+PASS
+
+The positive-sector uniqueness and logarithmic stationary contraction have decisive earlier coverage (October 12). The separate all-parameter exponential convergence of the continuous-time fast-leadership reduced dynamics is not a conclusion of that earlier equilibrium-only theorem or the model source; it survives as the substantive novelty.
+
+## value
+
+PASS
+
+Beyond the already known equilibrium solver, the global explicit exponential attractivity of the fast-leadership reduced flow without connectivity or parameter-spread bounds addresses a genuine dynamical gap; useful when approximate reduction is adopted. It is not stability of the original finite-speed equations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
