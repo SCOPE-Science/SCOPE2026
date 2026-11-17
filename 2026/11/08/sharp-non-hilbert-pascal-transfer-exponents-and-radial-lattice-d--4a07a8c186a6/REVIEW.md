@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact degree transfer is a rectangular Pascal convolution. A uniform finite-difference local central-limit argument, including Gaussian-derivative independence and uniform tail estimates, proves the sharp \(\ell^{p'}\) dual minimum modulus with the claimed \(m/2+1/(2p)\) exponent. Quotient duality and fixed-dimensional linear lifting convert this to comparable right-inverse norms. A simultaneous diagonal choice of return times (with constants depending on the level) and the Hypercyclicity Criterion prove sufficiency; a fixed difference-polynomial dual witness proves necessity for hypercyclicity and mixing. The adjacent-weight bound permits transfer between levels and Banach exponents. The exact-arithmetic checker passed 5667 assertions; it is supplementary rather than a proof of the limiting estimates.
+PASS
 
-## Originality — PASS, subject to publication-priority risks
+PASS: Fixed-level transfer equals (omega_m/omega_(m+n)) times the rectangular Pascal matrix. Fourier inversion and uniform Gaussian-derivative local limits for finite-difference binomial sequences control all ℓ^r norms on a coefficient unit sphere; the largest difference order m yields the sharp minimum adjoint norm 2^n n^{-m/2-1/(2p)}, including p=1 and weighted c0 p=infty. Finite-dimensional quotient duality controls right-inverse norms up to factor m+1. The adjacent weight ratio gives comparison of fixed output levels with larger levels, allowing simultaneous small inverse sequences and the Hypercyclicity Criterion; necessity uses dual test vectors and vanishing tails on high input levels. Raising the target level absorbs polynomial differences between p values. Independent exact Pascal row/difference checks at n=5,10,25,50 passed; these do not prove the uniform asymptotic.
 
-Chen, Wang and Zhou, *F-Transitivity of Backward Shifts on Lattice Graphs*, arXiv:2609.34308, §4, already establish the \(\ell^2\) radial-quadrant case, and §5 expressly poses its extension to non-Hilbert \(\ell^p\) and \(c_0\). Their finite-width results on all \(p\) are not the infinite-quadrant radial result. The present statement adds the uniform Banach dual transfer theorem and the radial dynamical characterizations for every non-Hilbert exponent, including the endpoint spaces. Baranov--Lishanskii--Papathanasiou formulate the general lattice problem without giving this non-Hilbert sharp radial answer. The separately published symmetric-Fock lattice decomposition uses nonradial binomial weights and is not an implication of this result. Focused bibliographic and semantic result searches found no direct covering statement; this does not certify global novelty. Uninspected broader Banach convolution estimates and alternate dynamical criteria remain priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The principal reference's open extension has a natural mathematical object and a sharp quantitative obstruction: fixed-level transfer costs gain the exact exponent \(1/(2p)\), including \(c_0\), not merely the Hilbert \(1/4\). A Banach-space proof avoids Hilbert singular-value methods, and a simultaneous-level argument yields necessary-and-sufficient dynamical criteria for all exponents. The conclusion reveals the non-obvious fact that the dynamical dichotomies agree across all these Banach spaces despite different finite-transfer asymptotics.
+PASS best-of-knowledge: Chen–Wang–Zhou explicitly treat the radial infinite quadrant in ℓ², and separately all p only on finite-width lattices. The submitted uniform non-Hilbert difference estimate and ensuing all-p/c0 classification for the infinite radial quadrant are not implications of the ℓ² case. The nonradial Fock-weight model and nonradial counterexample are different norms/geometries. Relevant 2026 primary article was inaccessible beyond abstract, retained as priority risk.
 
-## Closest sources and limitations
+## value
 
-The first-public motivating preprint is arXiv:2609.34308 (2026-09-28). The older general lattice paper is arXiv:2312.13934 (2023-12-21). Full mathematical claims in the present package are restricted to radial weights, the positive quadrant and the conventional \(c_0\) endpoint. No independent expert or formal audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Answers a specifically posed Banach-space extension for the natural infinite quadrant radial lattice shift. Endpoint ℓ¹ and weighted c0 and p-independence are nontrivial sharp finite-difference transfer facts with dynamical consequences; not a routine p=2 substitution. The restricted radial scope and no frequent hypercyclicity claim are explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

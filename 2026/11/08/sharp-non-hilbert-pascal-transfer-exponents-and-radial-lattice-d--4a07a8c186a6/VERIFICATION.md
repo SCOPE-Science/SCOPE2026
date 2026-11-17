@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run the standalone exact-integer diagnostic with `python checker.py`; it reports `PASS: 5667 exact finite assertions`. The test covers the Pascal convolution identity, Vandermonde Gram identities, binomial row masses, first-difference total variation and one-step operator bounds. It does not establish asymptotics or infinite-dimensional dynamics. Those depend on the Fourier rescaling, uniform tail and Gaussian derivative independence in the proof, finite-dimensional dual quotient lifting, and the Hypercyclicity Criterion. A separate non-Hilbert infinite-dimensional verification has not been carried out.
+## correctness
 
-The precise domain is complex weighted \(\ell^p\) for \(1\le p<\infty\), and weighted \(c_0\) for \(p=\infty\). Source arXiv:2609.34308 covers the Hilbert specialization already; it is not claimed as a new discovery. The result gives order-sharp transfer moduli, not optimal constants, and requires radial bounded-ratio weights. Independent audit is not performed.
+PASS
+
+PASS: Fixed-level transfer equals (omega_m/omega_(m+n)) times the rectangular Pascal matrix. Fourier inversion and uniform Gaussian-derivative local limits for finite-difference binomial sequences control all ℓ^r norms on a coefficient unit sphere; the largest difference order m yields the sharp minimum adjoint norm 2^n n^{-m/2-1/(2p)}, including p=1 and weighted c0 p=infty. Finite-dimensional quotient duality controls right-inverse norms up to factor m+1. The adjacent weight ratio gives comparison of fixed output levels with larger levels, allowing simultaneous small inverse sequences and the Hypercyclicity Criterion; necessity uses dual test vectors and vanishing tails on high input levels. Raising the target level absorbs polynomial differences between p values. Independent exact Pascal row/difference checks at n=5,10,25,50 passed; these do not prove the uniform asymptotic.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Chen–Wang–Zhou explicitly treat the radial infinite quadrant in ℓ², and separately all p only on finite-width lattices. The submitted uniform non-Hilbert difference estimate and ensuing all-p/c0 classification for the infinite radial quadrant are not implications of the ℓ² case. The nonradial Fock-weight model and nonradial counterexample are different norms/geometries. Relevant 2026 primary article was inaccessible beyond abstract, retained as priority risk.
+
+## value
+
+PASS
+
+PASS: Answers a specifically posed Banach-space extension for the natural infinite quadrant radial lattice shift. Endpoint ℓ¹ and weighted c0 and p-independence are nontrivial sharp finite-difference transfer facts with dynamical consequences; not a routine p=2 substitution. The restricted radial scope and no frequent hypercyclicity claim are explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
