@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T13:10:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Competing exponential reset and Brownian hitting time gives F(s)=(r+s)I(r+s)/(s+rI(r+s)), I(v)=E exp(-distance sqrt(v/D)). Fixing mean (1-p)/(rp) fixes only p=I(r), not I(r+s). With U=e^{-sqrt(r/D)distance} and alpha=sqrt(1+s/r)>1, strict Jensen and the endpoint chord prove sharp simultaneous lower/upper transform envelopes. Differentiating at zero gives Var(T)=[1-p^2+E U log U]/(r^2p^2), same unique minimizing and maximizing distance distributions by convexity. Inverting F and uniqueness of Laplace transforms proves iff law identifiability up to reflection. Independently checked exact two-distribution witness and finite frequency inequalities; analytic proof handles all laws.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full 2024 paper derives survival/renewal formula (14)–(16), variance (60); it does not supply sharp upper/lower envelopes with unique all-frequency equality cases in inspected text.",
+          "Two-reset-site source optimizes rate, and 2022 distributed-reset source optimizes mean/information."
+        ],
+        "reasoning": "Known broader renewal formulas are prerequisites but do not establish the fixed-mean distributional optimizer or justify the erroneous same-law assertion.",
+        "searches": [
+          "fixed mean first passage Laplace variance envelope random resetting renewal",
+          "https://arxiv.org/html/2401.01125v1",
+          "https://arxiv.org/abs/2311.11897",
+          "https://arxiv.org/abs/2206.14387"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2401.01125v1",
+        "https://arxiv.org/abs/2311.11897",
+        "https://arxiv.org/abs/2206.14387"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The earlier prose after Sec II.A Eq16 claims identical mean implies identical distribution; Eq16 actually depends on I(r+s) for all s.",
+          "The present two-site witness has I_A(r)=I_B(r)=e^{-2} but I_A(r+s) != I_B(r+s), with explicit variance gap."
+        ],
+        "reasoning": "Prior equations do imply the possibility of distinct full laws and permit derivation of new convex extremizers, but the paper does not make these sharp conclusions and asserts the incorrect opposite identifiability implication; this result corrects, rather than merely rephrases, them.",
+        "searches": [
+          "https://arxiv.org/html/2401.01125v1",
+          "fixed mean first passage Laplace variance envelope random resetting renewal"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The physical mean constraint is mathematically E exp(-lambda Z)=p.",
+          "F(s) bijectively determines I(r+s) via I=sF/(s+r−rF), for positive s."
+        ],
+        "reasoning": "Published mean-equivalent deterministic point is equivalent only at one Laplace argument r; complete equality of the FPT law requires the whole transform I(v), hence the full distance distribution.",
+        "searches": [
+          "fixed mean first passage Laplace variance envelope random resetting renewal",
+          "https://arxiv.org/html/2401.01125v1",
+          "https://arxiv.org/abs/2311.11897"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2024 paper Eq.(60) contains variance as a functional of the reset distribution, without the optimum at fixed mean.",
+          "Strict Jensen and endpoint chord yield the exact optimizer and inequalities for every positive s."
+        ],
+        "reasoning": "There is no finite table: the missing result is a complete interval over all Borel reset laws with equality characterization.",
+        "searches": [
+          "fixed mean first passage Laplace variance envelope random resetting renewal",
+          "https://arxiv.org/html/2401.01125v1"
+        ]
+      },
+      "rationale": "The 2024 Méndez–Flaquer-Galmés–Campos complete primary paper establishes the renewal transform and pointwise variance and asserts that same mean implies same full first-passage statistics; that prose conclusion is false. The submitted strict two-site counterexample, sharp fixed-mean all-frequency extremizers, and exact iff law-identification are absent as stated there and are not implied by its correct equations alone without new convex extremal and uniqueness reasoning.",
+      "residual_risks": [
+        "Other distributional-resetting convex-order/optimal-experiment theorems may imply some sharp transform bounds not located by targeted search.",
+        "Original paper gives renewal transform and variance as prior art; its written mean-equivalence assertion conflicts with its own transform and must not be quoted as a theorem supporting incorrect implication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior renewal/variance identities acknowledged; full-law claim from common mean is incorrect and strictly refuted",
+          "evidence": "F(s) requires I(r+s); same E U fixes I(r) only. Exact independent A/B variance witnesses differ.",
+          "identifier_or_url": "https://arxiv.org/html/2401.01125v1",
+          "material_read": "Complete arXiv HTML primary article, including Sec II/II.A Eq.(14)-(16), Sec VI equivalent reset site, Sec VII variance Eq.(60)",
+          "method": "Opened/read lawful arXiv full HTML, cross-checked renewal formulas and prose",
+          "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+          "trigger": "Closest same-model same-parameters primary paper and conflicting claimed equivalence"
+        },
+        {
+          "assessment": "Optimizes reset rates for prescribed locations; potential uninspected details remain",
+          "evidence": "Two-site control differs from all measures in fixed-mean compact distance interval.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.11897",
+          "material_read": "Abstract and selected problem description, not a full-paper exclusion",
+          "method": "Lawful arXiv abstract",
+          "title": "Diffusion with two resetting points",
+          "trigger": "Two-site reset distribution with same physical mechanism"
+        },
+        {
+          "assessment": "Studies mean and information costs, without verified all-frequency envelopes",
+          "evidence": "Mean optimization is not same-mean FPT law or transform extrema.",
+          "identifier_or_url": "https://arxiv.org/abs/2206.14387",
+          "material_read": "Abstract/topic only, not full paper",
+          "method": "ArXiv metadata/abstract",
+          "title": "First passage time and information of a one-dimensional Brownian particle with stochastic resetting to random positions",
+          "trigger": "Distributed reset law and mean optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Corrects an explicit prior published claim falsely identifying full first-passage laws from mean equality, supplies exact counterexample, all-frequency sharp fixed-mean bounds, equality cases and identifiability: a motivated physical-statistical distinction and complete optimization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2401.01125v1",
+    "https://arxiv.org/abs/2311.11897",
+    "https://arxiv.org/abs/2206.14387"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Quantitative envelopes require known D,r, same law at time zero and each reset, and distance in [a,b] with a>0.",
+    "Laplace-transform ordering does not claim stochastic dominance or extend to general renewal-clock resets."
+  ],
+  "residual_risks": [
+    "Other distributional-resetting convex-order/optimal-experiment theorems may imply some sharp transform bounds not located by targeted search.",
+    "Original paper gives renewal transform and variance as prior art; its written mean-equivalence assertion conflicts with its own transform and must not be quoted as a theorem supporting incorrect implication."
+  ],
+  "schema_version": 1
+}

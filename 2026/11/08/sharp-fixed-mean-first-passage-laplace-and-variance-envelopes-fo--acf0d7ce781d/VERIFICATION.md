@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The stated theorem is supported by four analytic arguments: Brownian free first-passage Laplace transform and the full renewal identity; strict Jensen and secant-chord inequalities at each positive Laplace frequency; direct differentiation of the full transform at zero for mean and variance; uniqueness of Laplace transforms of tilted reset-distance measures. Its quantitative assumptions are in `RESULT.md`.
+## correctness
 
-To reproduce the computational diagnostics, run `python3 verify.py` in the directory containing the extracted package. The script uses only Python's standard library, checks an explicit strict same-mean different-variance pair and transform inversion, and tests a broad fixed-mean family with separately calculated numerical differentiation. Finite diagnostics cannot establish the all-frequency inequalities or uniqueness; those are analytic statements proved separately.
+PASS
 
-The original renewal transform, variance formula and long-time approximation were already obtained in Méndez–Flaquer-Galmés–Campos (2024). The present theorem does not claim a new renewal formula, and makes no claims about independent expert or formal verification.
+Competing exponential reset and Brownian hitting time gives F(s)=(r+s)I(r+s)/(s+rI(r+s)), I(v)=E exp(-distance sqrt(v/D)). Fixing mean (1-p)/(rp) fixes only p=I(r), not I(r+s). With U=e^{-sqrt(r/D)distance} and alpha=sqrt(1+s/r)>1, strict Jensen and the endpoint chord prove sharp simultaneous lower/upper transform envelopes. Differentiating at zero gives Var(T)=[1-p^2+E U log U]/(r^2p^2), same unique minimizing and maximizing distance distributions by convexity. Inverting F and uniqueness of Laplace transforms proves iff law identifiability up to reflection. Independently checked exact two-distribution witness and finite frequency inequalities; analytic proof handles all laws.
+
+## originality
+
+PASS
+
+The 2024 Méndez–Flaquer-Galmés–Campos complete primary paper establishes the renewal transform and pointwise variance and asserts that same mean implies same full first-passage statistics; that prose conclusion is false. The submitted strict two-site counterexample, sharp fixed-mean all-frequency extremizers, and exact iff law-identification are absent as stated there and are not implied by its correct equations alone without new convex extremal and uniqueness reasoning.
+
+## value
+
+PASS
+
+Corrects an explicit prior published claim falsely identifying full first-passage laws from mean equality, supplies exact counterexample, all-frequency sharp fixed-mean bounds, equality cases and identifiability: a motivated physical-statistical distinction and complete optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
