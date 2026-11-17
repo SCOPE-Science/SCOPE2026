@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-Execute `python artifacts/verify.py` with Python 3 and SymPy installed. The program uses integer and rational arithmetic for graph Laplacian cofactors, fundamental cycle matrices, transfer-current diagonal identities, exact binomial box-spline central densities, and exact integrated cubic spline products.
+# Independent mathematical audit
 
-The checked set comprises triangle, four-cycle, diamond, complete bipartite \(K_{2,3}\), complete graph \(K_4\), a triangle with a bridge, and a figure-eight cactus. Four uniform subdivision factors were checked per graph for spanning-tree scaling (28 graph tests). Central-box-spline calculations included 12 cycle-length profiles, 4 two-pole three-path products and 5 additional triangle subdivision profiles, totaling 21 exact-volume profiles. Its completion marker is `GRAPH_POLAR_SUBDIVISION_CHECKS_PASSED graph_checks=28 exact_volume_checks=21 graphs=7`.
+## correctness
 
-The code verifies finite samples and separate exact finite-dimensional formulas. It cannot by itself certify the asymptotic remainder for arbitrary fixed graphs or uniqueness relative to all historical literature. The analytical Fourier-dominance argument and graph-identification proof are in `RESULT.md`. No independent mathematical audit has been performed.
+PASS
+
+PASS: For fixed connected simple H with e edges, v vertices and g=e-v+1, replacing every edge by m segments yields edge-difference cube section ker B_m. Chord segment coordinates provide the unit anchored Jacobian and W_m=2^(me)f_{B_m U}(0) with W_m=sqrt(N_m) intrinsic-volume normalization. Fundamental cycles repeat columns m times, and log sinc(u)=-u²/6-u^4/180+O(u^6), after t=sqrt(3/m)Q^(-1/2)z, yields relative first correction -3/(20m) sum_f(b_f^TQ^-1 b_f)^2. Cauchy-Binet gives det Q=tau(H), uniform subdivision gives tau(H^(m))=m^g tau(H), and the cycle-space projector diagonal is r_f=Pr(f excluded from uniform spanning tree). The claimed exact tree case follows with g=0. Independently evaluated exact rational Irwin–Hall central densities for subdivided triangle m=1,2,3,4,5,6,8,10; their ratios converge to the stated 2-term 1-1/(20m) expansion. For K_{2,3} each edge has exclusion probability 1/3, giving coefficient -1/(10m). Bounded exact profiles do not replace the all-fixed-H Fourier argument.
+
+## originality
+
+PASS
+
+PASS, best of knowledge: the inspected 2022 D’Alì–Delucchi–Michałek primary paper develops primal/polar symmetric edge-polytope face, Ehrhart and flow invariants, not the fixed-H uniform-subdivision continuous polar-volume asymptotic or its squared spanning-tree exclusion-probability coefficient. Xu’s 2008 multivariate splines work provides general cube-section/box-spline volume machinery (abstract inspected), and Fourier–Edgeworth and transfer current are standard tools. No inspected result combined the universal 1/m coefficient with the original graph’s spanning-tree exclusion vector, though broader uninspected spline asymptotics are an originality risk.
+
+## value
+
+PASS
+
+PASS: the formula identifies the first nontrivial, strictly negative geometric correction to a polar-volume asymptotic on every fixed connected graph and expresses it by a concrete probabilistic/electrical graph invariant. It distinguishes trees (exact cube) from cyclic graphs and yields exact cycle and K_{2,3} constants. Researchers studying graph polytopes or spanning trees could use the precise correction independently of any larger conjecture. Known central-limit methods alone do not settle its graph-specific coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

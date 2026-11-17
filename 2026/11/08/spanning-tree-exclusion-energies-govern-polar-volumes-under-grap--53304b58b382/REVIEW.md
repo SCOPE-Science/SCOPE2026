@@ -1,12 +1,21 @@
-# Review of the polar-volume subdivision theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact anchored-volume/cube-density correspondence is established using the integral cycle lattice and a fundamental chord identity minor. Fourier inversion and a second-order local expansion supply the Gaussian leading coefficient and quartic correction; the proof includes a tail-dominance argument with independent sinc factors. Cauchy–Binet, the matrix-tree theorem, and the cut/cycle orthogonal projectors identify the determinant and edge correction. A standalone exact-arithmetic checker independently confirms these identities on seven graph types and evaluates 21 box-spline profiles. The proof, rather than finite enumeration, covers every fixed connected simple graph and all sufficiently large integer subdivision factors. No claim of higher-order uniformity in graph size is made.
+## correctness
 
-## Originality — PASS, provisional historical priority
-Searches of published mathematical findings and primary literature for graph subdivision, Lipschitz polar volume, cube-section splines, spanning-tree probabilities, and asymptotic correction terms did not identify a dominating claim. D’Alì–Delucchi–Michałek's full text provides symmetric edge polar Ehrhart and face theory, but not the continuous-volume subdivision expansion. Xu's multivariate spline methods and classical Edgeworth expansions give general methodology but no located identification of this exact coefficient with the exclusion-energy invariant. Published records on zonotope graph Laplacians, cactus projection norms, theta-graph invariants and graph-polytope inradii concern different invariants; none implies the stated two-term expansion merely by restriction. A stronger general cube-spline theorem might subsume the claim, and this remains a named historical-priority risk. No exhaustive uniqueness claim is made.
+PASS
 
-## Mathematical value — PASS
-The theorem links an intrinsic geometric volume law under graph refinement to spanning-tree enumeration and the squared norm of individual edge-**exclusion** probabilities. The first correction detects the original cycle structure and vanishes exactly for trees, distinguishing graphs that have comparable leading-volume behavior. It applies uniformly across every fixed finite connected simple graph and supplies explicit constants for cycles and multi-cycle graphs; unlike a numerical fit or a restated standard central limit theorem, it evaluates the graph-dependent correction by a natural electrical-network invariant.
+PASS: For fixed connected simple H with e edges, v vertices and g=e-v+1, replacing every edge by m segments yields edge-difference cube section ker B_m. Chord segment coordinates provide the unit anchored Jacobian and W_m=2^(me)f_{B_m U}(0) with W_m=sqrt(N_m) intrinsic-volume normalization. Fundamental cycles repeat columns m times, and log sinc(u)=-u²/6-u^4/180+O(u^6), after t=sqrt(3/m)Q^(-1/2)z, yields relative first correction -3/(20m) sum_f(b_f^TQ^-1 b_f)^2. Cauchy-Binet gives det Q=tau(H), uniform subdivision gives tau(H^(m))=m^g tau(H), and the cycle-space projector diagonal is r_f=Pr(f excluded from uniform spanning tree). The claimed exact tree case follows with g=0. Independently evaluated exact rational Irwin–Hall central densities for subdivided triangle m=1,2,3,4,5,6,8,10; their ratios converge to the stated 2-term 1-1/(20m) expansion. For K_{2,3} each edge has exclusion probability 1/3, giving coefficient -1/(10m). Bounded exact profiles do not replace the all-fixed-H Fourier argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, best of knowledge: the inspected 2022 D’Alì–Delucchi–Michałek primary paper develops primal/polar symmetric edge-polytope face, Ehrhart and flow invariants, not the fixed-H uniform-subdivision continuous polar-volume asymptotic or its squared spanning-tree exclusion-probability coefficient. Xu’s 2008 multivariate splines work provides general cube-section/box-spline volume machinery (abstract inspected), and Fourier–Edgeworth and transfer current are standard tools. No inspected result combined the universal 1/m coefficient with the original graph’s spanning-tree exclusion vector, though broader uninspected spline asymptotics are an originality risk.
+
+## value
+
+PASS
+
+PASS: the formula identifies the first nontrivial, strictly negative geometric correction to a polar-volume asymptotic on every fixed connected graph and expresses it by a concrete probabilistic/electrical graph invariant. It distinguishes trees (exact cube) from cyclic graphs and yields exact cycle and K_{2,3} constants. Researchers studying graph polytopes or spanning trees could use the precise correction independently of any larger conjecture. Known central-limit methods alone do not settle its graph-specific coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
