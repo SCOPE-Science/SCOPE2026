@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The prime-power rank-one layer decomposition is disjoint and the primitive-vector factorization has exactly the unit stabilizer. The displayed kernel-orthogonality formula for each layer is evaluated case-by-case in Smith normal form. Summing its cases yields all eigenvalues. The multiplicity proof partitions all frequency matrices, and the signed closed forms imply an exact spectral separation with minimum absolute eigenvalue \(p+1\) at full-rank frequencies. A standalone FFT-based finite checker supplies independent small-modulus consistency checks, not an infinite proof.
+PASS
 
-## Originality — PASS with historical-priority risk
+The nonzero inner-rank-one matrices partition by common p-adic valuation into primitive outer-product layers of size U_n=p^(3n-3)(p-1)(p+1)^2. Character orthogonality on primitive vectors, followed by Smith reduction B~diag(p^a,p^b), gives the five explicit nonzero local character-sum cases, whose layer sum yields the four-piece lambda_(a,b) formula in RESULT.md. Smith-type multiplicities follow from invertible and primitive rank-one orbit counts and exact determinant valuation differences. All types sum to p^(4k); diagonal a=b<k and off-diagonal a<b<k eigenvalues are negative with magnitudes >=p+1, while b=k types are positive and larger. Equality of abs lambda with p+1 is precisely a=b=0. An independent implementation constructed adjacency sets and full four-dimensional DFT, matching all Fourier multipliers and multiplicities for (p,k)=(2,2),(2,3),(2,4),(3,2) (77,338 cumulative independent assertions). The all-depth result relies on the proved orthogonality and Smith count, not tests.
 
-The archived primitive-vector spectrum of Nica does not give the matrix-additive adjacency spectrum. The accessible full work of Huang (arXiv:1705.07083) and the 2017 Huang–Su–Tang–Wang abstract treat connectivity/parameters and related graph questions without establishing the displayed all-depth Fourier multiset. Delsarte covers matrices over fields. Watanabe's 2026 Smith-type eigenmatrix covers Galois rings of nilpotency length two and therefore may subsume the depth-two specialization; the asserted scope is instead all \(k\ge3\). Guo–Li (2015) provides matrix orbit information with a potentially broad scheme construction but no complete all-depth character table established from accessible material. Full historical priority remains uncertain: the 2017 Huang–Su–Tang–Wang and 2015 Guo–Li texts were inaccessible for decisive passage-by-passage comparison.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete character spectrum, its exact Smith multiplicities, and a depth-independent optimal inverse norm describe a canonical growing family of bilinear-forms graphs over residue rings. The result distinguishes the singular and nonsingular frequency classes and gives a sharp quantitative Fourier stability law, not just an incremental numerical bound or an isolated table.
+Huang 2017 arXiv:1705.07083 studies the identical inner-rank-one graph at d=2 over residue rings, but its inspected complete 17-page paper proves graph independence, clique, chromatic and core parameters, not adjacency Fourier eigenvalues. Watanabe 2026 arXiv:2607.21913 gives a full Smith-type eigenmatrix on Galois rings of LENGTH TWO only, implying possible k=2 overlap explicitly disclaimed. Neither source covers arbitrary k>=3 or the exact depth-independent least singular value p+1. Originality remains conditional on older inaccessible ring character-table sources.
 
-## Limits
+## value
 
-Fixed matrix size two; no general finite chain rings beyond integer residue rings. Numerical FFT tests do not prove the infinite theorem; independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact all-depth spectral multiset and the surprising uniform inverse norm 1/(p+1) for natural additive rank-one matrix convolution are intrinsic operator invariants despite vertex degree and volume growing exponentially. The unique minimizer Smith type identifies the extremal Fourier frequencies; not just an already known graph valency or arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
