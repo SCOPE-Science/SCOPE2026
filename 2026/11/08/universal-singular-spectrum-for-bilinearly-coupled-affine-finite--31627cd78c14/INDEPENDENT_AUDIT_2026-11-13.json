@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T16:57:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/universal-singular-spectrum-for-bilinearly-coupled-affine-finite--31627cd78c14/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/universal-singular-spectrum-for-bilinearly-coupled-affine-finite--31627cd78c14/CHECK.py"
+      ],
+      "rationale": "Explicit invertible row/column affine maps carry t=J(x)+a(alpha x+beta)+b(gamma x+delta)+lambda ab to t=x(u+v)+uv, including arbitrary J and odd q. Ordered pairs share lines precisely under swapping u,v, giving antisymmetric kernel of dimension q(q-1)/2. Each slope has (q+1)/2 selected intercepts with weights (1,2,...,2); same-slope line intersections are q on the diagonal and zero otherwise; distinct slopes intersect once. This produces weighted Gram G=I_q⊗(qD-ww^T)+11^T⊗ww^T. The slope-constant block qD+(q-1)ww^T and the q-1 orthogonal blocks qD-ww^T have (r-2)-dimensional 2q sectors and respective 2x2 characteristic polynomials z²-q(q+2)z+q(q²+2q-1) and z²-2qz+q(q-1). All positive roots and multiplicities sum to q²; min is q-sqrt(q) and maximum Lambda+. Independently formed Gram matrices for q=3,5,7 and matched all predicted eigenvalues/rank. Inspected extension-field q=9 exact checker as supplementary, not a proof for all fields.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhi (2026) contains the exact original incidence model in greater polynomial generality but explicitly advertises norm-discrepancy bounds and expansion; its accessible abstract does not give complete exact spectral multiplicities, the antisymmetric kernel or Λ±.",
+          "Kong–Tamo analyze full independent affine coefficient / point-variety systems, not this nonuniform discriminant-square weighted restriction."
+        ],
+        "reasoning": "Broader parameter sets and norm upper bounds do not logically imply an exact restricted Gram spectrum; the restriction alters eigenvalues and multiplicities. Full text of Zhi was not accessed, so possible special-case calculations remain a risk.",
+        "searches": [
+          "Resultary: finite field bilinear incidence matrix t=x(u+v)+uv complete singular spectrum weighted affine lines discriminant square",
+          "Yao Zhi arxiv:2610.03819",
+          "Kong–Tamo arxiv:2408.10977v2",
+          "Murphy–Petridis arxiv:1601.03981v3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.03819",
+        "https://arxiv.org/html/2408.10977v2",
+        "https://arxiv.org/html/1601.03981v3",
+        "https://arxiv.org/abs/0711.4427"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original problem results concern discrepancy and uniform q^1/2 operator bounds; neither exact inverse norm nor full nullity follows from a bound.",
+          "Classical full line-design Gram identities determine q intersection counts, but identifying weighted slope-block eigenpairs and exact kernel requires extra calculations."
+        ],
+        "reasoning": "The proof gives nonstandard weighted two-by-two blocks whose exact roots are absent from the checked prior statements. It does not claim novelty for affine-plane line intersection identities.",
+        "searches": [
+          "Resultary: finite field bilinear incidence matrix t=x(u+v)+uv complete singular spectrum weighted affine lines discriminant square",
+          "arxiv:2610.03819 initial submission 2026-10-02",
+          "arxiv:2408.10977v2 full HTML",
+          "arxiv:1601.03981v3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The affine coefficient family is exactly row/column-permutation equivalent to t=x(u+v)+uv, equivalently incidence with nonvertical lines whose discriminant s²-4c is a square; multiplicity is one on the discriminant-zero tangent lines and two on secants.",
+          "The full unrestricted affine point-line design contains additional line columns; its Gram SVD does not immediately restrict to this weighted subfamily."
+        ],
+        "reasoning": "Searches explicitly included original polynomial incidence and the selected-line/weighted secant formulation; no matching exact six-sector SVD was identified among inspected sources.",
+        "searches": [
+          "Resultary: finite field bilinear incidence matrix t=x(u+v)+uv complete singular spectrum weighted affine lines discriminant square",
+          "arxiv:2610.03819 original parametrized incidence model",
+          "affine-plane line Gram weighted discriminant-square family"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary results give singular sectors for reciprocal traces and quadratic cones, not this line family.",
+          "The q=3,5,7,9 checks are newly inspected package tests, not a preexisting published exact-table classification."
+        ],
+        "reasoning": "No same-design spectral table identified; finite q spectra alone would not imply all odd prime-power q or the coefficient invariance.",
+        "searches": [
+          "Resultary: finite field bilinear incidence matrix t=x(u+v)+uv complete singular spectrum weighted affine lines discriminant square",
+          "Resultary: finite-field Fourier singular spectrum and incidence searches",
+          "Kong–Tamo arxiv:2408.10977v2"
+        ]
+      },
+      "rationale": "Best-of-knowledge original final claim after direct statement/implication comparison; earlier general frameworks, alternative rules or smaller families are credited, with access and historical priority risks explicitly retained.",
+      "residual_risks": [
+        "Zhi 2026 full mathematical text not accessible in this execution; the abstract alone cannot exclude an appendix computing the same affine selected spectrum.",
+        "An older weighted secant/tangent affine line design spectrum may exist under another name."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "different unweighted full point-variety design; no exact selected discriminant-square spectrum",
+          "evidence": "Full-design parameterization differs from weighted (s,c) with s²-4c a square",
+          "identifier_or_url": "https://arxiv.org/html/2408.10977v2",
+          "material_read": "Accessible HTML introductory setup and central theorem statements/definitions; full proof not read line-by-line",
+          "method": "primary full-text HTML sections",
+          "title": "A point-variety incidence theorem over finite fields, and its applications (Kong–Tamo)",
+          "trigger": "primary full-design spectral comparator"
+        },
+        {
+          "assessment": "plausible hidden exact-special-case coverage risk; abstract states operator-norm estimates rather than six-sector SVD",
+          "evidence": "Model t=J(x)+aF(x)+bG(x)+lambda ab; stated O(q^1/2) mixing in low degree",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03819",
+          "material_read": "Complete abstract and posted main theorem summary; full scientific PDF/HTML inaccessible in this run",
+          "method": "primary arxiv abstract and alternative indexed abstract",
+          "title": "Spectral Incidence Bounds over Finite Fields (Yao Zhi, 2026)",
+          "trigger": "identical polynomial incidence model with nonzero bilinear coupling"
+        },
+        {
+          "assessment": "full-design identity is a premise, not exact weighted selection spectrum",
+          "evidence": "Generic affine point-line intersection identities",
+          "identifier_or_url": "https://arxiv.org/html/1601.03981v3",
+          "material_read": "Previously indexed theorem and full-design incidence second-moment description; complete proof not reread in this execution",
+          "method": "arxiv full-text search metadata and referenced source content",
+          "title": "A point-line incidence identity in finite fields, and applications (Murphy–Petridis)",
+          "trigger": "classical full affine-plane Gram baseline"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.03819",
+        "https://arxiv.org/html/2408.10977v2",
+        "https://arxiv.org/html/1601.03981v3",
+        "https://arxiv.org/abs/0711.4427"
+      ],
+      "rationale": "The full exact operator spectrum settles identifiability, nullspace and sharp reconstruction stability of a natural bilinearly parametrized incidence measurement for all odd finite fields and all affine coefficients, far beyond classical upper-bounding of discrepancy. Nontrivial square-discriminant selected-line multiplicities require new weighted block diagonalization.",
+      "residual_risks": [
+        "Zhi 2026 full mathematical text not accessible in this execution; the abstract alone cannot exclude an appendix computing the same affine selected spectrum.",
+        "An older weighted secant/tangent affine line design spectrum may exist under another name."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.03819",
+    "https://arxiv.org/html/2408.10977v2",
+    "https://arxiv.org/html/1601.03981v3",
+    "https://arxiv.org/abs/0711.4427"
+  ],
+  "disposition": "passed",
+  "final_claim": "For odd prime powers q>=3 and all nonzero affine slopes alpha,gamma and bilinear coupling lambda, arbitrary offsets and output shear J, the full q^2 x q^2 parameterized incidence has exactly six Gram spectral sectors with zero multiplicity q(q-1)/2, q±sqrt(q) multiplicity q-1 each, 2q multiplicity q(q-3)/2 and two exceptional roots Lambda± each once; the identifiable inverse norm is (q-sqrt(q))^-1/2.",
+  "limitations": [
+    "Full unweighted matrix, odd characteristic, nonzero affine slopes and bilinear coupling; no arbitrary partial sampling, characteristic two or nonlinear claim.",
+    "Original exact incidence pre-exists; only complete affine exact spectrum accepted."
+  ],
+  "schema_version": 1
+}
