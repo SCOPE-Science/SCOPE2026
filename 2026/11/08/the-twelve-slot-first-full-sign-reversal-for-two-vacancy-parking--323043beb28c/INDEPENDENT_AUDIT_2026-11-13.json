@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T09:05:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Pinned RESULT.md blob db1579cf99557325b48f25a1df6e10c28bf0aa82 uses the classical blockwise parking-function count, reflection for left parking, and sub-Markov kernel convexity to prove the occupied-set subprobability is bias-independent for prespecified car-index p_k. With m=n-2, W_ab=(n-2)!∏f(occupied block lengths) are exact positive integers, and Cov(X_i,X_j)=(ZW_ij-H_iH_j)/Z². Inspected source CHECKER.py blob e9b06ead7fad7ee9cff71deb676f2520cfee6936; independent separate rational recomputation for every 4≤n≤12 confirmed Z=3(n+1)^(n-3), all adjacent sign strings, and every n=12 pair. Min adjacent Q=581409157300000000, max nonadjacent Q=-3692131919133336000. The claim asserts no extrapolation past 12; exact finite calculation is exhaustive on the stated domain.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nadeau Proposition 3.5: occupied-set fiber weight is multinomial times products of parking-function counts, Theorem 4.2: aggregate probabilistic rule normalization. The paper has no covariance term (full article search)."
+        ],
+        "reasoning": "The weight formula and count/bias invariance are previous general ingredients and explicitly not new. The two-hole conditional covariance sign classification is an additional calculation and not stated or implied without exact finite inequality checks.",
+        "searches": [
+          "arxiv:2602.17210 Proposition 3.5 Theorem 4.2",
+          "parking functions two vacancies linear street covariance adjacent positive n=12"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2602.17210",
+        "https://arxiv.org/abs/2211.00536",
+        "https://arxiv.org/abs/2111.12850",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-alternating-end-to-end-vacancy-correlation-in-finite-random-dime--65ed889b4903"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior works imply N(S)=(m!/∏b_h!)∏(b_h+1)^(b_h-1) and universal total success counts; covariance Q_ij=ZW_ij-H_iH_j and 12-site sign cutoff require strict calculations."
+        ],
+        "reasoning": "The theorem is new only as the complete strict sign boundary and minimal 12 within n=4..12, not in the universal occupied-set law. Nadeau formula permits deriving the finite result but does not give its evaluated exact inequalities or cutoff.",
+        "searches": [
+          "Nadeau Prop 3.5 plus parking function weights",
+          "Durmic 2022 probabilistic parking biases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The occupancy indicators X_i and vacancy indicators Y_i=1-X_i have Cov(X_i,X_j)=Cov(Y_i,Y_j); with two vacancies Y_a Y_b probability is the two-hole mass."
+        ],
+        "reasoning": "This equivalence reduces to a covariance matrix of the known block weight distribution, but does not itself determine 66 strict signs or the first all-positive-neighbor cutoff.",
+        "searches": [
+          "parking functions two vacancies linear street covariance adjacent positive n=12",
+          "Nadeau 2026 Bilateral parking procedures outcome-set block counts"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned the submitted theorem as self-match; a separate 2026-11-08 dimer random adsorption result concerns terminal endpoint vacancies in an entirely different edge-greedy process."
+        ],
+        "reasoning": "No checked exact earlier n=12, 11 adjacent positive / 55 nonadjacent negative table; this is a best-of-knowledge judgment, not exhaustive database proof.",
+        "searches": [
+          "parking functions two vacancies linear street covariance adjacent positive n=12",
+          "Resultary two vacancy parking joint spatial covariance sign matrix twelve"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the strong prior bilateral procedure paper supplies all block weights, but not the exact joint two-vacancy covariance sign matrix and first complete adjacent positivity at n=12. The contribution is the motivated finite boundary, not old parking-count identities.",
+      "residual_risks": [
+        "Known block weights make this an exact computed corollary; its value rests on a nontrivial strict first sign boundary, not inventing a new probabilistic distribution.",
+        "Full text of Durmić et al not read in this run; a possible earlier finite covariance table remains an explicit risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS occupied-set fibers and probabilistic total counts; does not explicitly classify these finite two-hole covariances",
+          "evidence": "Proposition 3.5 block-shuffle product; Theorem 4.2 sum of parking probabilities; no covariance section.",
+          "identifier_or_url": "https://arxiv.org/html/2602.17210",
+          "material_read": "Complete arXiv HTML paper with special attention to §3.2 Proposition 3.5 and §4.2 Theorem 4.2; targeted covariance-text search",
+          "method": "arXiv original full-text HTML",
+          "title": "Bilateral Parking Procedures",
+          "trigger": "directly dominates block weight and directional choices"
+        },
+        {
+          "assessment": "Not sufficient to rule out hidden covariances; not used alone to support NOT_COVERING",
+          "evidence": "Known theorem concerns aggregate parking success under direction bias; uninspected details are residual risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.00536",
+          "material_read": "arXiv abstract and source reference summary; full text not read this run",
+          "method": "abstract/search snippet only",
+          "title": "Probabilistic Parking Functions",
+          "trigger": "aggregated success probability, arbitrary direction biases"
+        },
+        {
+          "assessment": "Different process: random edge-priority dimers, not sequential cars with one-site preferences",
+          "evidence": "Theorem sign (-1)^n for endpoints in jammed dimer adsorption. No implication for two-vacancy linear car parking.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-alternating-end-to-end-vacancy-correlation-in-finite-random-dime--65ed889b4903",
+          "material_read": "Full published RESULT.md and assumptions/proof inspected",
+          "method": "GitHub full text",
+          "title": "Alternating end-to-end vacancy correlation in finite random dimer parking",
+          "trigger": "similar covariance sign language at finite n"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural two-vacancy occupancy covariance matrix changes from edge anticorrelation to every nearest-neighbor covariance positive at an exact first street length, while all nonneighbor pairs are negative. The 12-site sharp cutoff with complete 66-pair classification is a meaningful finite transition of a classical random combinatorial model, not an arbitrary row of a known table.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2602.17210",
+    "https://arxiv.org/abs/2211.00536",
+    "https://arxiv.org/abs/2111.12850",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-alternating-end-to-end-vacancy-correlation-in-finite-random-dime--65ed889b4903"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All science is judged only for the final RESULT.md and declared scope, not an external independent mathematical certification.",
+    "GitHub connector fetched source RESULT.md, SLOGAN.txt, AUDIT.json, METADATA.json at frozen commit and inspected relevant verifier source blobs. Complete Git directory tree and all public-bound supporting files were not enumerated, so cannot assert safe source-tree guard or clean public release.",
+    "All new public-bound files withheld: METADATA.json contains scope_run_id and AUDIT.json contains same-model review/provenance, and broader package sanitization/verified guards were not completed."
+  ],
+  "residual_risks": [
+    "Full Durmić article not materially inspected; priority is best-of-knowledge only.",
+    "No statement about n>12; such extrapolation would be unproved."
+  ],
+  "schema_version": 1
+}
