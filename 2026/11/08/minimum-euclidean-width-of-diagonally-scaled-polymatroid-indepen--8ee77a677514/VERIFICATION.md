@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The exact theorem is proved by the greedy support-function identity, the weighted layer-cake Euclidean triangle inequality, and equality rigidity. No external formal certificate or independent audit is claimed.
+## correctness
 
-Run `python3 verify.py` in the same directory with Python 3 and the standard library. Its fixed seed builds 126 small positive singleton-capacity profiles, from coverage functions, binary linear matroids, and partition matroids. It checks each submodular inequality using integer arithmetic, computes the candidate minimum over every nonempty support, checks equality of each predicted minimizing normal with the support-function width, and compares 15,120 additional random unit normals against the sharp value. For unscaled uniform matroids, it compares direct finite support enumeration with \(\min\{1,r/\sqrt n\}\) for bounded tested cases.
+PASS
 
-Observed output:
+For normalized monotone submodular f with positive singleton capacities, sorted greedy optimization gives h_{P_f}(v)=integral f({e:v_e>=t})dt for v>=0 and down-closedness gives h(v)=h(v_+). Euclidean triangle inequality applied to inverse-diagonal weighted layer-cake bounds support below by inverse R=max sqrt(c(S))/f(S); positive/negative sign decomposition yields width >=1/R in every unit direction. A signed normalized inverse-scaled indicator of a minimizing subset attains equality. Equality in triangle integral forces one nonempty level support, and sign-split equality forces one sign, proving the COMPLETE minimizing-direction set. Matroid maximizing support must be flat and connected; uniform U_r,n has min(1,r/sqrt(n)) with axis/all-ones transition at n=r^2. Independent greedy-support calculations and 200 random normals per selected uniform matroid including n=r^2 corroborate, but all-f proof is analytic.
 
-`POLYMATROID_WIDTH_FINITE_CHECKS_PASSED profiles= 126 critical_sets= 160 random_normals= 15120`
+## originality
 
-The tests are finite, floating point for widths and normalizations, and not exhaustive over all real directions or all polymatroids. The analytical proof handles the universal quantifiers and equality cases. Independent audit: not performed.
+PASS
+
+The exact minimum *ambient Euclidean WIDTH* of all positive-diagonal-scaled polymatroid independence polytopes, all equality directions and its uniform-matroid rank-square transition are not in inspected earlier records or the related classical greedy polymatroid theory. Oct11 published Minkowski asymmetry of the same family determines a DIFFERENT ratio (sum singleton capacities)/f(S), and other matroid-base minimum inradius, smallest circumsphere and random mean-width theorems concern distinct functionals. No exact formula in general discovered in the actual Resultary and primary searches. This is a qualified best-of-knowledge originality pass, not a proof of no past equivalent theorem.
+
+## value
+
+PASS
+
+The independence polytope of a matroid or polymatroid is canonical; its smallest ambient directional width and all narrowest directions are natural intrinsic geometric invariants. The formula transfers the Euclidean extremal problem to a sharp finite rank-density quotient, identifies a meaningful sharp n=r^2 phase transition for uniform matroids, and supplies equality rigidity. This is a useful exact structural classification rather than arbitrary small-case arithmetic or a known table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

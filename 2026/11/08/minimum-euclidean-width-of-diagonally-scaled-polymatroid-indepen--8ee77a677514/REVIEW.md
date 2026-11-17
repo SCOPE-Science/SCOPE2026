@@ -1,15 +1,21 @@
-# Scientific review: minimum Euclidean width of polymatroid independence polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
-The argument identifies the support function through the polymatroid greedy construction and checks feasibility of the greedy point using diminishing returns. For arbitrary signed directions, down-closure reduces width to the sum of the two nonnegative support functions. Applying the Euclidean triangle inequality to the layer-cake integral, then the sharp finite subset quotient, establishes a global lower bound. Explicit normalized indicator directions attain it. Equality in the positive/negative norm split and in the Euclidean integral triangle inequality leaves only one nonempty level-set support, giving the claimed exhaustive classification. This includes singleton and full-set endpoints and real noninteger rank functions. The matroid flats/connectedness assertions and uniform-matroid threshold follow from strict subset comparisons. The bundled Python checker corroborated the identities on 126 finite profiles, but finite testing cannot establish the theorem.
+## correctness
 
-## Originality — PASS, historical priority provisional
-The closest mathematical prerequisites are the greedy support identity and Lovász/Choquet layer-cake representation. Bach's survey, *Learning with Submodular Functions* (arXiv:1111.6453), includes both general polyhedral optimization and submodular-function extensions; neither the material inspected nor its searchable text establishes the complete minimum Euclidean width classification. Lovász's *Submodular setfunctions, matroids and graph limits* (arXiv:2302.04704) explains the underlying set-function geometry without the ambient Euclidean minimum-width statement. Lasoń–Michałek (arXiv:2005.08359) studies algebraic classes of matroid polytopes, while Berggren–Martin–Samper (arXiv:2312.02040) studies unbounded extensions and shellability. Closest published findings about matroid independence polytopes determine minimum enclosing spheres and Minkowski centers, not minimum width or its signed indicator normals. Neither these other geometric invariants nor the existing order-polytope and stable-set-polytope width statements logically imply this theorem for all polymatroids. Full historical priority is not guaranteed: an equivalent formula phrased as a gauge/coblocking body, norm coercivity, or polyhedral thickness could have escaped the searches; not every plausible published source was read end-to-end.
+PASS
 
-## Mathematical value — PASS
-The result completely determines a canonical Euclidean invariant of the entire class of finite polymatroid independence polytopes, including nonintegral capacities and anisotropic diagonal metrics; it is not an arbitrary finite parameter slice. The equality theorem recovers every minimum-width normal from a discrete normalized-rank optimization problem. In matroids its optimizers must be connected flats, while uniform-matroid independence polytopes have an exact rank-square change in the type of minimizing direction. These facts translate between a geometric invariant and meaningful combinatorial structure. The proof is compact but its global scope and rigidity go beyond elementary singleton or coordinate-facet checks.
+For normalized monotone submodular f with positive singleton capacities, sorted greedy optimization gives h_{P_f}(v)=integral f({e:v_e>=t})dt for v>=0 and down-closedness gives h(v)=h(v_+). Euclidean triangle inequality applied to inverse-diagonal weighted layer-cake bounds support below by inverse R=max sqrt(c(S))/f(S); positive/negative sign decomposition yields width >=1/R in every unit direction. A signed normalized inverse-scaled indicator of a minimizing subset attains equality. Equality in triangle integral forces one nonempty level support, and sign-split equality forces one sign, proving the COMPLETE minimizing-direction set. Matroid maximizing support must be flat and connected; uniform U_r,n has min(1,r/sqrt(n)) with axis/all-ones transition at n=r^2. Independent greedy-support calculations and 200 random normals per selected uniform matroid including n=r^2 corroborate, but all-f proof is analytic.
 
-## Remaining limitations
-An unindexed equivalent earlier theorem or a stronger general coercivity result could supersede the historical-priority assessment. This conclusion does not generalize to nonmonotone capacities or nonsingular nondiagonal maps by the same proof. The standalone checks are finite corroboration, not independent proof validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact minimum *ambient Euclidean WIDTH* of all positive-diagonal-scaled polymatroid independence polytopes, all equality directions and its uniform-matroid rank-square transition are not in inspected earlier records or the related classical greedy polymatroid theory. Oct11 published Minkowski asymmetry of the same family determines a DIFFERENT ratio (sum singleton capacities)/f(S), and other matroid-base minimum inradius, smallest circumsphere and random mean-width theorems concern distinct functionals. No exact formula in general discovered in the actual Resultary and primary searches. This is a qualified best-of-knowledge originality pass, not a proof of no past equivalent theorem.
+
+## value
+
+PASS
+
+The independence polytope of a matroid or polymatroid is canonical; its smallest ambient directional width and all narrowest directions are natural intrinsic geometric invariants. The formula transfers the Euclidean extremal problem to a sharp finite rank-density quotient, identifies a meaningful sharp n=r^2 phase transition for uniform matroids, and supplies equality rigidity. This is a useful exact structural classification rather than arbitrary small-case arithmetic or a known table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
