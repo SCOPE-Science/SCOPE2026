@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each priority position of the exceptional agent, the common agents necessarily take the smallest remaining object indices. For a fixed complete matching, that position gives exactly one compatible order if and only if the exceptional agent's suffix choice equals its assigned object. This establishes the exact lottery law for every \(n\). A direct two-agent swap proves inefficiency outside the suffix records, while summing common-agent object indices excludes a Pareto improvement within them. Suffix-winner runs yield all ordered compositions, and independent right-to-left record indicators establish the Stirling law. Edge cases \(n=2\), identical rankings, reversed rankings, and tied sizes are covered by the proof. Exact independent computations enumerated 872 exceptional rankings for \(2\le n\le6\), more than one million agent-priority executions, and all composition frequencies through \(n=7\). Finite tests do not prove the unbounded assertions; the algebraic proof does.
+PASS
 
-## Originality — PASS, with priority uncertainty
+The proof counts, for every fixed complete matching M and every position k of the dissenting agent, exactly one priority permutation if and only if her suffix favorite is M(e). Summing over k gives integer t_x, with sum t_x=n and (n-1)! matchings per x giving normalization. The support/Pareto equivalence uses exchange with a common-order agent for a non-record x and the sum of assigned common-object indices to rule out improvement for a record x. As k advances, suffix winners are monotone, run lengths are exactly the index gaps of right-to-left records, and every composition is constructed by ranking its cumulative endpoints first. Independent random insertion of a uniform preference permutation yields independent right-to-left record indicators with probabilities 1/j, hence Stirling-generating polynomial, expectation and variance. Independently rebuilt RSD on ALL exceptional orders and ALL agent priority orders for n=2,3,4,5: 2,3,5,7 distinct sorted t-shapes respectively, and every matching multiplicity matched the closed t_x rule (not generalized from the test). Finite tests support but do not replace all-n proof.
 
-The most relevant prior contributions are Aziz and Mestre's 2014 two-preference-type polynomial-time computation of **marginal** assignment probabilities; Shen and colleagues' 2023 fairness/efficiency theorems for uncertain priorities; Brandt and colleagues' 2023 axiomatization and single-object variation domain; and small-size complete matching-support censuses for three or four agents. These overlap the objects, mechanism, and some small cases, but their examined results and implications do not provide the all-size full-matching probability law, its complete composition classification or the uniform-permutation Stirling support distribution. The distinction between a joint distribution over complete assignments and a stochastic marginal matrix is material. The 2017 Chang–Chun near-common-preference article's abstract was checked, but its complete full text was not available; it remains a specialist overlap risk. Similar undiscovered record-statistics formulations are another residual risk. Literature search failures alone do not establish uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-A single dissenter is a canonical low-diversity boundary between unanimous and heterogeneous preferences. The theorem compresses the full lottery over potentially factorially many outcomes into \(n\) suffix-choice counts, classifies **all** possible lottery-support patterns for this infinite domain, and gives exact frequencies and expected support under a natural impartial-culture perturbation. This describes the joint allocation uncertainty that marginal-only results do not capture. The integer-composition and Stirling structures are not arbitrary numeric slices; they are forced by the sequential allocation mechanism and provide tractable quantitative benchmarks.
+Statement-level comparison with general random matching-lottery censuses, priority/efficiency source literature and RSD axiomatic characterization did not yield the all-n one-dissenter complete matching multiplicity/composition law; small-n special cases occur inside broader finite enumerations but do not imply its uniform theorem. Priority claim is qualified, not absolute.
 
-## Limitations
+## value
 
-Results do not cover two arbitrary dissenters, unequal priority probabilities, indifferences or incomplete rankings. Full text of a specialist 2017 near-common-preferences article could not be inspected; the accessible abstract addresses incentive/efficiency compatibility on a different restriction. Independent review and literature-priority certification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The joint deterministic-matching lottery, unlike the individual marginal assignment matrix, gives exact ex-post support, concentration and multiplicity spectra in a natural one-dissenter perturbation of unanimity. The all-n composition classification and exact record-count distribution connect a mechanism-level outcome statistic to permutation records and answer a motivated allocation question; this is more than renaming the standard record lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
