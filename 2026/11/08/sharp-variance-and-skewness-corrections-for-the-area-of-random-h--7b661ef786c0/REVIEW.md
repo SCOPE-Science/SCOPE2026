@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The domain is the great two-sphere determined by the three sampled directions. Spherical excess equals the sum of their three tangent angles minus \(\pi\). The cubic Gram expansion, exact fourth-order contractions and exponential tail control justify the \(O(d^{-5/2})\) moment remainders. The mean follows independently from tangent-direction symmetry; the Gaussian limit follows from a three-dimensional coordinate-product CLT. The checker independently tests Gram identities and original geodesic-angle formulas, but random sampling is not an infinite proof.
+## correctness
 
-## Originality
-**PASS, provisional historical priority.** Finch–Jones (arXiv:1009.5329) and Philip (2015) address the ordinary sphere, namely the fixed ambient \(d=3\) model. Grote–Kabluchko–Thäle (arXiv:1708.00471) prove high-dimensional **Euclidean** simplex-volume results. Kabluchko (arXiv:2602.08581, Section 4) studies full-dimensional \(d\)-ray cone angles; its duality involving the \(d\)-th moment of an ordinary spherical-triangle area is not the variable-dimensional third-moment claim here. Searches for spherical excess, Gram matrices, skewness, equivalent solid-angle formulations and broader high-dimensional simplex results located no statement implying both correction coefficients. A published 2026 LKJ-cumulants note gives the triangular Gram identity \(\mathbb E[xyz]=d^{-2}\), which is explicitly treated as a known building block, not a new independent result. The note does not provide the geometric area expansion. An older equivalent Taylor or Gram-density computation remains a material residual risk.
+PASS
 
-## Value
-**PASS.** The first correction to Gaussianity and the second variance coefficient characterize a natural intrinsic geometric observable. Their nonzero values quantify dependence between the three angles even though their individual fluctuations become small and their joint first-order law is Gaussian. They are not consequences of knowing a mean or a leading-order CLT alone.
+For d>=3 the intrinsic spherical excess in the three-point great 2-sphere has mean π/2 exactly. Writing the three independent-point Gram overlaps as x,y,z gives L=-(x+y+z), Q=xy+xz+yz, C=-(Σ_sym x²y)/2-(x³+y³+z³)/6. Expansion of the three tangent-angle arccosines has degree-4 remainder controlled on max|overlap|<=1/8; exponential concentration controls its complement. Isotropy gives E x²=1/d, E x⁴=3/[d(d+2)], E xyz=E x²y²=d^-2; cross terms reconstruct Var=3/d+3/d²+3/[d(d+2)]+O(d^-5/2), hence 3/d+6/d², and centered third moment 12/d²+O(d^-5/2). Gaussian-normalized coordinates yield the stated CLT. The finite checker source was inspected, not used to replace asymptotic proof.
 
-## Limits
-The expansions are asymptotic only. No independent audit, exhaustive priority certification, quantitative Berry–Esseen inequality or full finite-dimensional density is claimed. Readable scientific sources are identified in the references of `RESULT.md` and in `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact x-y-z cubic moment is already available in LKJ correlation-matrix theory and the d=3 spherical area law is classical. However these do not imply the new nonlinear spherical-excess variance coefficient 6/d² and third central moment coefficient 12/d² for fixed three vertices with ambient dimension growing. Targeted prior-result and primary-literature searches revealed no earlier statement covering that full asymptotic pair; assessment is best-of-knowledge, not historical proof.
+
+## value
+
+PASS
+
+The order-d^-2 variance correction and non-Gaussian skewness of intrinsic geodesic triangle area are natural, dimension-dependent geometric fluctuation invariants. The exact area convention and nontrivial Gram triple dependence make these more than a reparametrized ordinary Euclidean simplex CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

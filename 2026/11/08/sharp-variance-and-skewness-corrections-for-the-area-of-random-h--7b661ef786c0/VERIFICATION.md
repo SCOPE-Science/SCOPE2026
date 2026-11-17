@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks and limitations
+# Independent mathematical audit
 
-Run `python checker.py` with Python 3.9 or newer; no external modules are required. The script reconstructs the moment contractions \(\mathbb E[x^2]=1/d\), \(\mathbb E[x^4]=3/(d(d+2))\), \(\mathbb E[xyz]=\mathbb E[x^2y^2]=1/d^2\) as explicit finite-dimensional rational calculations and checks the derived fourth-degree variance and third-moment expressions. Using fixed-seed standard Gaussians normalized to the sphere, it independently evaluates the exact tangent-angle area, comparing means and second and third centered moments across four dimensions. The output marker `RANDOM_SPHERICAL_TRIANGLE_AREA_MOMENTS_OK` denotes checks passed, not external certification.
+## correctness
 
-The analytical verification rests on exact spherical tangent-angle formulas, a uniformly bounded Taylor remainder near orthogonal Gram triples, beta moment bounds for independent sphere vectors, and exponential concentration on the complement. The Gaussian limit uses the coordinatewise multivariate CLT. Numerical finite samples are not used to infer or certify the infinite-dimensional assertion. Independent validation and a comprehensive historical-priority audit have not been performed.
+PASS
+
+For d>=3 the intrinsic spherical excess in the three-point great 2-sphere has mean π/2 exactly. Writing the three independent-point Gram overlaps as x,y,z gives L=-(x+y+z), Q=xy+xz+yz, C=-(Σ_sym x²y)/2-(x³+y³+z³)/6. Expansion of the three tangent-angle arccosines has degree-4 remainder controlled on max|overlap|<=1/8; exponential concentration controls its complement. Isotropy gives E x²=1/d, E x⁴=3/[d(d+2)], E xyz=E x²y²=d^-2; cross terms reconstruct Var=3/d+3/d²+3/[d(d+2)]+O(d^-5/2), hence 3/d+6/d², and centered third moment 12/d²+O(d^-5/2). Gaussian-normalized coordinates yield the stated CLT. The finite checker source was inspected, not used to replace asymptotic proof.
+
+## originality
+
+PASS
+
+The exact x-y-z cubic moment is already available in LKJ correlation-matrix theory and the d=3 spherical area law is classical. However these do not imply the new nonlinear spherical-excess variance coefficient 6/d² and third central moment coefficient 12/d² for fixed three vertices with ambient dimension growing. Targeted prior-result and primary-literature searches revealed no earlier statement covering that full asymptotic pair; assessment is best-of-knowledge, not historical proof.
+
+## value
+
+PASS
+
+The order-d^-2 variance correction and non-Gaussian skewness of intrinsic geodesic triangle area are natural, dimension-dependent geometric fluctuation invariants. The exact area convention and nontrivial Gram triple dependence make these more than a reparametrized ordinary Euclidean simplex CLT.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
