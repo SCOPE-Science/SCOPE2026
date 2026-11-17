@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The exact proof in `RESULT.md` reduces every uniform-marginal joint distribution to one scalar mismatch probability. The amplification formula, strict quadratic gap, independent-epoch factorization, discriminant and rational countercomparison are analytic and cover all stated parameters.
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.9 or newer. The standard-library-only verifier provides independent exact-fraction regressions on 432 parameter pairs, enumerates histories through three updates, and checks the example without floating-point tolerances. The recorded `CHECKS.txt` reports 4,337 exact assertions.
+## correctness
 
-Finite regression is not an exhaustive proof for the continuous parameter space. No independent scientific audit has been performed. The numerical model excludes noninterpolating, nonlinear and noncommuting multidimensional cases.
+PASS
+
+For component curvatures A=m(1±delta), B=m(1±delta), uniform marginals force P(--)=P(++)=(1−q)/2 and P(+-)=P(-+)=q/2. Scalar Heun multiplier 1−h(A+B)/2+h²AB/2 yields exactly M_q=R_cross²+(1−q)t²delta²[2(t−1)²+1]. Excess strictly positive for all t>0,delta>0; independence in time gives E X_k²=M_q^k X0². R_cross zero iff 1−delta² times t²−2t+2=0, discriminant 4(2delta²−1); positive roots exactly delta>=1/sqrt2. Fraction/symbolic independent algebra and rational witness checked. Does not claim any finite-step result for nonlinear or high-dimensional models.
+
+## originality
+
+PASS
+
+PASS best of knowledge: This is a complete uniform-marginal coupling classification for a two-component positive-curvature scalar Heun predictor/corrector. Earlier antithetic averaged gradients at the same point lack the h²AB stage term; SRKCD uses a same-batch stage convention; bilinear extragradient and randomized time-stage Runge–Kutta concern different update maps. None of the actually inspected source statements implies its strict all-step antithetic optimum and exact one-update termination contrast frontier.
+
+## value
+
+PASS
+
+PASS: The sharp contrast threshold delta=1/sqrt2 and exact rational example in which antithetic Heun terminates in one update while independent-stage sampling and even full-gradient Heun amplify constitute a motivated sharp boundary and mechanism for sample-coupling design. Limited to natural positive scalar finite-sum interpolating quadratics, but complete within that domain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

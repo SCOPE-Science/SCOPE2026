@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T12:11:08.388515Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/antithetic-stage-pairing-can-terminate-two-stage-stochastic-heun--86322a4599c2/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/antithetic-stage-pairing-can-terminate-two-stage-stochastic-heun--86322a4599c2/verify.py",
+        "Independent bounded checks; no claim of infinite-domain proof from finite checks"
+      ],
+      "rationale": "For component curvatures A=m(1±delta), B=m(1±delta), uniform marginals force P(--)=P(++)=(1−q)/2 and P(+-)=P(-+)=q/2. Scalar Heun multiplier 1−h(A+B)/2+h²AB/2 yields exactly M_q=R_cross²+(1−q)t²delta²[2(t−1)²+1]. Excess strictly positive for all t>0,delta>0; independence in time gives E X_k²=M_q^k X0². R_cross zero iff 1−delta² times t²−2t+2=0, discriminant 4(2delta²−1); positive roots exactly delta>=1/sqrt2. Fraction/symbolic independent algebra and rational witness checked. Does not claim any finite-step result for nonlinear or high-dimensional models.",
+      "residual_risks": [
+        "Exactly two equally weighted scalar positive Hessians with a common minimizer, fixed step and independent update pairs.",
+        "No claim that one iteration is cheaper than full gradients or stable under perturbations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General stabilized stochastic RK work studies different multistage stage reuse, without optimization across q and deterministic exact termination.",
+          "Published bilinear extragradient has a stepsize-dependent optimal coupling, unlike strictly antithetic for all t here."
+        ],
+        "reasoning": "The methods overlap conceptually but different update algebra and objective prevent the supposed broader coverage.",
+        "searches": [
+          "arXiv:2201.12782 stochastic RK-Chebyshev",
+          "arXiv:2006.12131 randomized RK inexact information",
+          "arXiv:2504.04274 randomised splitting",
+          "Resultary antithetic stochastic extragradient and randomized RK sampling"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py code",
+        "arXiv:2201.12782 primary PDF",
+        "arXiv:1810.03124 primary PDF",
+        "Resultary antithetic RK and extragradient search results",
+        "Independent exact symbolic Heun polynomial verification"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Heun scalar multiplier depends on product AB evaluated across two states; same-point averaging has only first-order sample curvature.",
+          "Bilinear extragradient and randomized-time RK results do not subsume the positive definite quadratic term or its iff discriminant roots."
+        ],
+        "reasoning": "The candidate strictly optimizes an unaddressed within-update joint law for its exact finite-sum Heun system.",
+        "searches": [
+          "arXiv:1810.03124 Sec 2",
+          "arXiv:2201.12782 Sec 2-3",
+          "Resultary 2026/10/25 antithetic extragradient",
+          "Resultary 2026/11/8 antithetic randomized RK"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Liu and Xu average same-point antithetic gradients, with no Heun predictor cross term.",
+          "SRKCD stages reuse one stochastic sample instead of optimizing q among all joint uniform-marginal pairs."
+        ],
+        "reasoning": "Equivalent terms searched: common random numbers, complementary minibatches, stratified second-stage predictor; none equates to this exact scalar Heun law.",
+        "searches": [
+          "Resultary search: stochastic Heun two-stage quadratic antithetic sample pairing one step termination contrasting Hessian",
+          "arXiv:1810.03124 antithetic SGD",
+          "arXiv:2201.12782 same-batch RK-Chebyshev"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The rational witness m=1,delta=5/7,t=7/3 yields Rmixed=0, independent M=1025/162, shared M=1025/81, full-gradient R=25/18; absent from inspected comparative result statements."
+        ],
+        "reasoning": "This exact one-parameter family is not a tabulated prior multiplier case, based on bounded relevant search.",
+        "searches": [
+          "Resultary query Heun exact finite termination 1/sqrt2 curvature contrast",
+          "2026 stochastic gradient antithetic sample moment amplification"
+        ]
+      },
+      "rationale": "PASS best of knowledge: This is a complete uniform-marginal coupling classification for a two-component positive-curvature scalar Heun predictor/corrector. Earlier antithetic averaged gradients at the same point lack the h²AB stage term; SRKCD uses a same-batch stage convention; bilinear extragradient and randomized time-stage Runge–Kutta concern different update maps. None of the actually inspected source statements implies its strict all-step antithetic optimum and exact one-update termination contrast frontier.",
+      "residual_risks": [
+        "Unindexed Heun-specific optimal-coupling work may state an equivalent scalar formula.",
+        "Numerical finite termination has no robustness or general nonlinear guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT: same-batch stage scheme; no all-q coupling classification",
+          "evidence": "The relevant macrosteps reuse a common stochastic batch through stages.",
+          "identifier_or_url": "https://arxiv.org/pdf/2201.12782",
+          "material_read": "Primary PDF method and stage convention sections, relevant analysis",
+          "method": "PDF text and page image read",
+          "title": "SRKCD: a stabilized Runge–Kutta method for stochastic optimization",
+          "trigger": "Runge Kutta stochastic stage sample reuse"
+        },
+        {
+          "assessment": "DIFFERENT: antithetic minibatch estimate at one state",
+          "evidence": "Its antithetic average does not include the Heun predictor/corrector h²AB term.",
+          "identifier_or_url": "https://arxiv.org/pdf/1810.03124",
+          "material_read": "Primary PDF abstract/introduction and antithetic estimator/method sections",
+          "method": "PDF text and page image read",
+          "title": "Accelerating Stochastic Gradient Descent Using Antithetic Sampling",
+          "trigger": "Antithetic gradients for optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py code",
+        "arXiv:2201.12782 primary PDF",
+        "arXiv:1810.03124 primary PDF",
+        "Resultary antithetic RK and extragradient search results",
+        "Independent exact symbolic Heun polynomial verification"
+      ],
+      "rationale": "PASS: The sharp contrast threshold delta=1/sqrt2 and exact rational example in which antithetic Heun terminates in one update while independent-stage sampling and even full-gradient Heun amplify constitute a motivated sharp boundary and mechanism for sample-coupling design. Limited to natural positive scalar finite-sum interpolating quadratics, but complete within that domain.",
+      "residual_risks": [
+        "Unindexed Heun-specific optimal-coupling work may state an equivalent scalar formula.",
+        "Numerical finite termination has no robustness or general nonlinear guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two equally weighted scalar positive Hessians with a common minimizer, fixed step and independent update pairs.",
+    "No claim that one iteration is cheaper than full gradients or stable under perturbations.",
+    "Unindexed Heun-specific optimal-coupling work may state an equivalent scalar formula.",
+    "Numerical finite termination has no robustness or general nonlinear guarantee."
+  ],
+  "schema_version": 1
+}

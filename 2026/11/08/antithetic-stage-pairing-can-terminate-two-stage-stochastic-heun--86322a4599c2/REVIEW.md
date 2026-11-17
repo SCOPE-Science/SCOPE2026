@@ -1,19 +1,21 @@
-# Scientific review: antithetic two-stage Heun coupling
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For linear component gradients, the stage composition has scalar multiplier \(1-h(A+B)/2+h^2AB/2\). Uniform marginal binary sampling forces the entire joint law to have the one-parameter mismatch probability \(q\); its second moment equals the mixed-pair square plus \((1-q)t^2\delta^2(2(t-1)^2+1)\). The latter excess is positive for positive steps and nonzero contrast. Independence across iterations gives the exact power law. The mixed multiplier's quadratic discriminant \(4(2\delta^2-1)\) proves both directions of the one-step termination threshold, including equality and strictly positive roots. Every assertion was independently tested in exact arithmetic and the complete proof covers the continuous parameter domain.
+PASS
 
-## Originality — PASS, with residual risk
+For component curvatures A=m(1±delta), B=m(1±delta), uniform marginals force P(--)=P(++)=(1−q)/2 and P(+-)=P(-+)=q/2. Scalar Heun multiplier 1−h(A+B)/2+h²AB/2 yields exactly M_q=R_cross²+(1−q)t²delta²[2(t−1)²+1]. Excess strictly positive for all t>0,delta>0; independence in time gives E X_k²=M_q^k X0². R_cross zero iff 1−delta² times t²−2t+2=0, discriminant 4(2delta²−1); positive roots exactly delta>=1/sqrt2. Fraction/symbolic independent algebra and rational witness checked. Does not claim any finite-step result for nonlinear or high-dimensional models.
 
-Stillfjord–Williamson, *SRKCD* (arXiv:2201.12782, 2022), develop stochastic Runge–Kutta optimization with a common batch across stages; they do not compare **all** binary stage couplings or derive the exact antithetic extinction threshold for a two-component quadratic. Liu–Xu (arXiv:1810.03124, 2018) develop antithetic sampling of a minibatch gradient evaluated at one state; no predictor–corrector composition appears in the relevant method. Bochacik et al. (arXiv:2006.12131, 2020) randomize Runge–Kutta evaluation time under noisy information, which has different source randomness. Shaw–Whalley (arXiv:2504.04274, 2025) use forward/reverse minibatch splitting across updates and analyze bias, not the exact stage-coupling extremum here. Two additionally considered analysis statements concern (i) a same-sample stochastic-Heun weak modified-equation error and (ii) sample-index coupling for a bilinear stochastic extragradient update. The first fixes a repeated sample and compares weak bias, without classifying Heun stage dependence. The second has a skew bilinear operator and a stepsize-dependent optimal coupling, whereas this positive scalar-gradient Heun model has a strictly antithetic optimum for every positive step and admits an iff one-update annihilation criterion. Neither assertion implies the present theorem. These distinctions are based on inspected primary text, not title matches. The exact finite-sum quadratic example and implication comparisons are additionally distinguished from nearby stochastic-gradient and randomized-integrator findings. Unindexed specialist precedence or a general result whose specialization subsumes the theorem remains a risk; no claim of a literature-wide novelty proof is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Within a fully specified, natural two-oracle stochastic Runge–Kutta design, merely changing dependence of unbiased stage indices changes the second-moment convergence factor strictly and can change exponential divergence into exact one-update termination. The result identifies every admissible stage coupling, the unique minimizer, an iff contrast boundary, and an exact rational instance where both independent and repeated sampling diverge while antithetic pairing terminates. These are structural and sharp model-specific facts, not claims of optimality in all stochastic optimization methods.
+PASS best of knowledge: This is a complete uniform-marginal coupling classification for a two-component positive-curvature scalar Heun predictor/corrector. Earlier antithetic averaged gradients at the same point lack the h²AB stage term; SRKCD uses a same-batch stage convention; bilinear extragradient and randomized time-stage Runge–Kutta concern different update maps. None of the actually inspected source statements implies its strict all-step antithetic optimum and exact one-update termination contrast frontier.
 
-## Scope, limitations, and reproduction
+## value
 
-The claim is about an exactly solved, scalar interpolating quadratic and a specific two-stage map. Curvature information is needed to select the annihilating step; a two-oracle update need not beat full-gradient methods by computational cost. Neither Gaussian/additive gradient noise nor noncommuting Hessians are included. Run `python3 verify.py` to reproduce the exact rational regression, recorded in `CHECKS.txt`; 4,337 regression checks do not replace the analytic proof. Originality is judged against relevant inspected sources, with explicit residual risk and no independent review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The sharp contrast threshold delta=1/sqrt2 and exact rational example in which antithetic Heun terminates in one update while independent-stage sampling and even full-gradient Heun amplify constitute a motivated sharp boundary and mechanism for sample-coupling design. Limited to natural positive scalar finite-sum interpolating quadratics, but complete within that domain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
