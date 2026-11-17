@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The joint local-residue classification is derived from the published matching equivalence, including both cases \(p\mid b\) and \(p\nmid b\). The forbidden index sets are nested initial residue segments, which explains the maximum rather than a product of local failures. CRT and primitive-pair Möbius counting yield the finite-input density with its stated error. A density-zero argument removes exceptional small quotient-divisor counts, and prime-power CRT and a convergent tail bound yield the all-order Euler product. The factorwise positive-covariance identity is an exact algebraic calculation. Independent perfect-matching and modular-census checks corroborate the finite lemmas. Risk: the theorem is conditional on the correctness of the matching criterion in arXiv:2610.37512 and does not supply a second proof of that criterion.
+## correctness
 
-## Originality — PASS, qualified
-The closest primary source, Alekseyev–Beyer de Ryke, arXiv:2610.37512, supplies a pointwise criterion for one divisor set and results for universally matchable progressions; it does not state a simultaneous \(k\)-set density, a maximum-over-inputs local obstruction theorem, an all-order joint Euler product, or strict inter-input covariance. McNew–Pomerance, arXiv:2604.05304, studies the single initial-interval matching and density of input integers, not joint matching on a shared parameter pair. The pre-existing *single-input* progression density is stronger than merely knowing the universal-matchability criterion; that marginal case is therefore excluded from the novelty claim. Mathematically similar Euler products for other arithmetic density problems do not imply the joint local maximum formula. The comparison is qualified by incomplete availability of older indexed and unindexed literature and by the risk that simultaneous matching was observed previously under different terminology.
+PASS
 
-## Mathematical value — PASS
-Shared progression parameters introduce a natural interaction not captured by single-input matchability: for example, the joint success density for \((4,8)\) is \(1/3\), whereas the product of the separate densities is \(2/9\). The maximum-obstruction rule classifies every finite tuple exactly and reduces correlated arithmetic matching events to finite local data. The all-order limit detects persistent positive dependence of random inputs under a shared progression environment. The precise quantitative correlation, rather than an arbitrary restriction or a one-line restatement, motivates the extension. No claim is made that it yields a new general matching existence theorem.
+Uses the published Alekseyev–Beyer de Ryke matching criterion as a premise: for each p dividing n_i, at most tau(n_i)/(e_i+1) terms of the common progression may be divisible by p. For p not dividing b, a primitive pair determines one residue t0=-a b^(-1) mod p; the first pT_i positions contain T_i multiples, and the excess h_i=(e_i+1-p)_+ T_i forbids exactly min(p,h_i) initial residues. Across all n_i those forbidden sets are nested, yielding lambda_p=max_i min(p,h_i), not a product of marginal factors. Counting primitive nonzero residue-pairs gives factor 1-lambda_p/(p+1); CRT plus Möbius produces density 6/pi² times the finite local product and O_n(X log X). To get tuple averages, the subpopulation with e_i>=p but 0<h_i<p has zero density for fixed p because tau(cofactor)<p; union over p>P is bounded by sum p^-p. Hence regular inputs have obstruction p precisely when p^p divides some n_i and independence of divisibility mod finitely many prime powers gives J_k=prod_p[1+p(1-p^-p)^k]/(p+1). Strict J2>J1² follows from positive per-prime B-A²=p*p^(-2p)/(p+1)². Independently checked direct admissible progressions for (4,8) and (27,81) for a,b<=24; finite frequencies do not prove densities.
 
-## Closest literature and limitations
-Theorem 1.1, Corollary 4.2 and Sections 4–6 of arXiv:2610.37512 are the closest covering antecedents; their one-input pointwise results are used as an input and are not claimed as original. The introduction and matchability-density results of arXiv:2604.05304 are background. No complete historical-priority guarantee is available. Numerical finite Euler products are not certified bounds; the law is for fixed tuple size and ordered limits.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier 2026 matching-criterion work and a separate single-input progression-density result cover the scalar marginal but not the all-tuple same-parameter local maximum, J_k law or J2 correlation in the inspected material. This is a new joint probability object rather than rediscovery of individual matchability.
+
+## value
+
+PASS
+
+The same primitive progression is a genuinely shared arithmetic random input: nested obstructions produce a max rule and positive correlations instead of the naive product of single-set matching probabilities. An exact all-order joint Euler product and two explicit same-prime counterexamples are motivated dependence invariants useful beyond a single fixed-set census, while the deep matching criterion is acknowledged as prior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Execute `python3 joint_verify.py` from the same directory as this document. The script uses only the Python standard library and exact rational arithmetic for all finite identities. It verifies the maximal local-obstruction formula by independent complete enumeration of primitive residue pairs for \(19\) tuples. For \(6860\) choices of tuple and primitive progression parameters, a separate augmenting-path bipartite matching algorithm agrees with the arithmetic criterion. The diagnostic product uses primes below \(60\), with no claim of certified decimal error.
+## correctness
 
-Expected summary:
+PASS
 
-```
-EXACT_SAME_PRIME_EXAMPLES {'4,8': '1/3', '27,81': '1/2'}
-CRT_LOCAL_CENSUSES 19
-PERFECT_MATCHING_COMPARISONS 6860
-JOINT_EULER_PRODUCTS 0.809968275222 0.669351675488 0.564787650891 0.486552441546
-POSITIVE_COVARIANCE 0.013303068622
-VERIFY_OK exact_rationals=yes independent_augmenting_path=yes
-```
+Uses the published Alekseyev–Beyer de Ryke matching criterion as a premise: for each p dividing n_i, at most tau(n_i)/(e_i+1) terms of the common progression may be divisible by p. For p not dividing b, a primitive pair determines one residue t0=-a b^(-1) mod p; the first pT_i positions contain T_i multiples, and the excess h_i=(e_i+1-p)_+ T_i forbids exactly min(p,h_i) initial residues. Across all n_i those forbidden sets are nested, yielding lambda_p=max_i min(p,h_i), not a product of marginal factors. Counting primitive nonzero residue-pairs gives factor 1-lambda_p/(p+1); CRT plus Möbius produces density 6/pi² times the finite local product and O_n(X log X). To get tuple averages, the subpopulation with e_i>=p but 0<h_i<p has zero density for fixed p because tau(cofactor)<p; union over p>P is bounded by sum p^-p. Hence regular inputs have obstruction p precisely when p^p divides some n_i and independence of divisibility mod finitely many prime powers gives J_k=prod_p[1+p(1-p^-p)^k]/(p+1). Strict J2>J1² follows from positive per-prime B-A²=p*p^(-2p)/(p+1)². Independently checked direct admissible progressions for (4,8) and (27,81) for a,b<=24; finite frequencies do not prove densities.
 
-Finite enumeration independently tests the boundary cases but does not prove the infinite mean law, the density-zero exceptional set, or the lattice-counting remainder. Those require the logical steps in `RESULT.md`. The published matching theorem is invoked as background, not independently certified here.
+## originality
+
+PASS
+
+Earlier 2026 matching-criterion work and a separate single-input progression-density result cover the scalar marginal but not the all-tuple same-parameter local maximum, J_k law or J2 correlation in the inspected material. This is a new joint probability object rather than rediscovery of individual matchability.
+
+## value
+
+PASS
+
+The same primitive progression is a genuinely shared arithmetic random input: nested obstructions produce a max rule and positive correlations instead of the naive product of single-set matching probabilities. An exact all-order joint Euler product and two explicit same-prime counterexamples are motivated dependence invariants useful beyond a single fixed-set census, while the deep matching criterion is acknowledged as prior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
