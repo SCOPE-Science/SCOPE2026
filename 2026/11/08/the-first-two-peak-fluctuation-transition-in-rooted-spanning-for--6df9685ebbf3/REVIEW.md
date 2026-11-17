@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The three-component-count probabilities follow from a complete edge-subset/root-position enumeration. Independent Bernoulli factorization and the exact differentiation of \((1+vu)/(v+u)^2\) establish the stated global cases, both critical boundaries, minimal graph size and quartic boundary profile. `verify.py` completed 31,816 rational/numerical cross-checks; it is not an infinite proof.
+## correctness
 
-## Originality
-PASS, qualified. The 2018 network-forest survey already establishes the general Laplacian Bernoulli representation and variance formula. The 2021 cycle-free-graph paper already establishes fugacity monotonicities for other observables. The additional complete edge-ratio fluctuation transition was absent from the inspected relevant full-text sections and record queries. The simple two-logistic-kernel reduction leaves a residual historical-priority risk; search cannot establish absolute novelty.
+PASS
 
-## Value
-PASS. A natural multiscale forest-sampling intensity first exhibits two separated fluctuation peaks on a weighted three-vertex graph, despite strictly increasing mean component count. The classification supplies a sharp contrast threshold, explicit positions and global values, and degenerate transition law, not just an isolated plot or computational example.
+Direct enumeration of the three rooted forest edge subsets gives Z=q^3+2(a+b)q^2+3abq. Laplacian eigenvalues have sum 2(a+b), product 3ab; hence R_q=1+two independent Bernoullis and V=(1+v cosh t)/(v+cosh t)^2, with v=(a+b)/sqrt(3ab), t=log(q/sqrt(3ab)). Differentiating in u=cosh t>=1 yields (v^2-2-vu)/(v+u)^3. This proves the unique-mode vs double-mode threshold v=2, its ratio 5±2sqrt6, exact peaks, quartic flatness and one-/two-vertex minimality. Independently rederived 12 direct rational variance cases; finite tests do not substitute for derivative.
 
-## Closest literature and limitations
-Avena et al. (2018), Section 2.1 Eq. (19), is the dominant general variance precursor. Avena et al. (2021), Sections 1–2, treats related partition-scale monotonicity. The statement is for three vertices and positive weights only. Independent historical-priority and mathematical checks remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2018 root-count Bernoulli law and variance formula are expressly prior. The inspected primary article supplies no three-node fugacity-mode classification; bounded Resultary search found the identical candidate archive and unrelated fluctuation transitions, not an earlier theorem. Best-of-knowledge conclusion limited to the additional sharp mode bifurcation.
+
+## value
+
+PASS
+
+Root-count variance and fugacity sensitivity are natural forest observables; locating the smallest topology where its parameter profile bifurcates, with exact critical conductance threshold and quartic coalescence, is a motivated structural boundary, not an isolated normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
