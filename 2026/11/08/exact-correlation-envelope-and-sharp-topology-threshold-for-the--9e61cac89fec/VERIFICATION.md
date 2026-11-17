@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The result is proved for all finite connected simple nonregular graphs of at least three vertices by exact algebra, with hypotheses and strict boundaries given in `RESULT.md`. The rational-arithmetic reproduction script `verify.py` checks graph sums, sharpness identities, the fixed-degree-correlation Gram bound, zero-gap supremum witnesses, and the paw-network threshold.
+## correctness
 
-To run: `python3 verify.py`. The check requires only the Python standard library (3.9 or later). The successful package run covered all 752 connected nonregular labeled simple graphs on three through five vertices and checked the paw graph's squared threshold \(2/27\) exactly. Finite graph checks do not certify the universal theorem, whose proof is in `RESULT.md`.
+PASS
 
-Independent audit: not performed. In particular, the literature-priority comparison is a bounded review, not an exhaustive uniqueness guarantee. The setting is limited to fixed undirected networks and arbitrary numerical vertex attributes with nonzero variance.
+PASS: The transposed neighbor sum yields ng(a)=(delta-1)·a. With centered degree u and w=delta-1, u·w=Σ_{edges}(di-dj)²/(di dj)>0, so both norms and s are defined. Orthogonal decomposition of the unit attribute vector relative to u and w yields the full Gram envelope, with equality attained by explicit unit vectors; shift/rescale realizes bounded [0,1] values. The strict inequality threshold x<sqrt(1-s²), the s=1 zero threshold and the n>=4 intermediate-value case follow exactly. Independently computed the paw degree and reciprocal-degree vectors and rho²=2/27 in rational arithmetic.
+
+## originality
+
+PASS
+
+The 2023 primary study defines the natural graph-specific SGFP threshold varrho_G as an infimum, gives proofs that it lies below 1, and reports numerical finite-margin lower bounds rather than this sharp closed form. The later general correlation sign criterion treats a given assignment, not optimization at fixed degree-attribute correlation. The exact envelope and threshold survive best-of-knowledge comparison, although a supplementary PDF and generic vector-geometry formulations may cover it.
+
+## value
+
+PASS
+
+PASS: The published SGFP literature introduces varrho_G as a natural topology-dependent robustness threshold and approximates it numerically with a finite negative-gap condition. This result determines that exact invariant without numerical optimization, including strict endpoint and every feasible standardized gap for prescribed degree correlation; it is a motivated structural closure rather than a textbook exercise without context.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
