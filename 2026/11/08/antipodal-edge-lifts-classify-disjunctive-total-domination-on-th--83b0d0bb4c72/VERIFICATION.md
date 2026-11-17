@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact finite proof is independently reproducible with Python's standard library. `verify_gp.py` builds the twenty-vertex generalized Petersen graph directly, calculates open and exact-distance-two neighborhoods, enumerates all subsets of sizes one through four and matches the resulting fifteen optimum configurations to the fifteen antipodal lifts of quotient edges. It checks the fifteen optimum states, zero one-token transitions, thirty two-token transitions, four regular neighbors per state, and exact eccentricity three for all states. `verify_icosahedral_dual.py` instead enumerates the twenty triangular faces of the icosahedral graph, constructs their dual face-adjacency graph, discovers the distance-five antipodal involution, and independently enumerates and checks all DTD optimum sets and move graphs.
+## correctness
 
-The embedded outputs `verify_gp.output.txt` and `verify_icosahedral_dual.output.txt` record the observed values from direct execution. The different constructions independently cover the most critical possible graph-labeling and predicate errors. Both check all \(\binom{20}{4}=4845\) candidate sets and all \(\binom{15}{2}=105\) pairs of optimum states. No sampling, timeout-as-impossibility, or extrapolation beyond this finite graph is used. The lower bound and isomorphism explanation are mathematical arguments in `RESULT.md`; the scripts are a fully exhaustive finite certificate for the otherwise nonstructural fifteen-set completeness step.
+PASS
 
-Independent mathematical audit has not been performed.
+D=GP(10,2), 20 cubic vertices with exactly 6 distance-two vertices per root. A 3-set covers at most 9 vertices by adjacency, leaving at least 11 needing >=22 distance-two incidences, but only <=18 available. Four-sets q^{-1}(ab) for each of 15 Petersen quotient edges are valid by two-lift path arguments and meet the minimum. Independently enumerated all 4845 4-sets via exact distance-2 DTD predicate: precisely 15 and equal to antipodal edge lifts. Distinct lifts have 0 or 2 vertices in common; 1-exchange graph is edgeless and 2-exchange graph is Petersen line graph, 30 edges and all-vertex eccentricity three. Finite state exhaustion is a full fixed-graph proof.
+
+## originality
+
+PASS
+
+Henning–Naicker complete original paper establishes general DTD definitions and bounds; it neither asserts nor implies the dodecahedral min-set multiplicity nor 2-token line-graph reconfiguration. Prior dodecahedral ordinary total-domination results use adjacency to a selected vertex, not DTD alternative of two distinct distance-two selected vertices. Yi 2015 discusses edge deletion sensitivity, not selection exchanges. A precise same-object Resultary search did not show equivalent lift census.
+
+## value
+
+PASS
+
+The dodecahedral graph is an intrinsic antipodal double cover of Petersen, and the entire minimum DTD configuration space has a geometric 15-edge lift interpretation. The sharp one-versus-two relocation mobility threshold has a natural robustness meaning and identifies the connected line-graph geometry, an exact motivated finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
