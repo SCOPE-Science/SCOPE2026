@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-The mathematical proof is in `RESULT.md`. The following standalone source files use only standard C++17 and Python standard-library functionality. The source and captured outputs are both part of this package.
+## correctness
 
-To evaluate the exact multinomial sums use `python count_formula.py`. Its output is captured in `formula_check.out`, including all values for \(n=1,\ldots,10\), positive-hub-gap counts, support, and sharp endpoint assertions for \(n\ge3\).
+PASS
 
-To check the update dynamics independently, compile with `g++ -O3 -std=c++17 direct_check.cpp -o direct_check` and run `./direct_check`. The captured result is `direct_check.out`. The program first normalizes the first hub to zero and then enumerates the *entire* theorem-proved finite domain for \(n=1,\ldots,5\): every other hub label in \([-2n-2,2n+2]\), every leaf in \([-n-1,n+1]\). It applies two full synchronous diffusion steps to each configuration and records exact gap-resolved counts. A total of 9,602,861 states is tested. Counts for signed gaps are asserted symmetric.
+For F(c)=c-D sign(D^Tc), a two-cycle makes D(sign(D^Tc)+sign(D^Tc_next))=0; its inner product with c+c_next enforces edge-sign reversal or tie preservation. A hub has degree n, a leaf degree two, so edge differences in a two-cycle have magnitude <=n+1 and the normalization range is finite/exhaustive. The five bands y<0,y=0,0<y<d,y=d,y>d yield independent integer intervals conditional on band populations; the multinomial formula counts all labeled leaves with no missing global constraints. The sharp d<=2n-2 and all values 1..2n-2 are witnessed, with unique extreme leaves n-1. Independently enumerated complete bounded domains n=1,2,3 yielding N=9,47,299, sharp d=4 at n=3; the infinite-n claim uses the band proof and cited general period<=2 theorem, not the finite checks.
 
-The first five total counts agree between the two implementations: \(9,47,299,2915,36455\). The sharp-gap support and extremal multiplicity are checked by integer formulas through \(n=10\). These are finite checks only; the proof establishes the all-size conclusion. No independent external audit, formal proof assistant check, or exhaustive test at unbounded size has been performed.
+## originality
+
+PASS
+
+Earlier Duffy–Lidbetter–Messinger–Nowakowski and Long–Narayanan results establish eventual periodicity/period bound, not the labeled K2n initial recurrent census and hub-gap multiplicities. The related SCOPE cycle transfer law is for C_n, not K2n. Resultary search did not surface an exact all-n five-band enumeration; this is best-of-knowledge and an unindexed exact recurrence remains possible.
+
+## value
+
+PASS
+
+A complete labelled periodic-state census and sharp attainable hub imbalance for a basic complete-bipartite graph family is a natural dynamical invariant. The five-band coupling of two hubs creates a substantive classification beyond previously known eventual periodicity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
