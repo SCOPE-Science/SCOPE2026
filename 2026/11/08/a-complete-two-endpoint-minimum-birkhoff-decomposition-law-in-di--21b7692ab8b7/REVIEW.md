@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Exhausting the six permutation matrices reduces their coefficients to one parameter; nonnegativity gives exactly the stated closed interval. The nonconstant affine coordinates can vanish only at endpoints, so all real minimum supports are endpoints. Endpoint expressions are integer linear combinations of input entries, proving the finite-precision equality. The \(13\)-denominator example attains five terms. The bundled standard-library verifier checked 13,558 denominator/matrix pairs over denominators \(1\) through \(12\), with 67,790 exact assertions. This is supplementary to the full analytic proof.
+## correctness
 
-## Originality
-PASS, with historical-priority qualification. The motivating 2026 minimum-decomposition paper treats finite precision and general optimizers, while the 2018 Birkhoff-heuristic paper states a general extreme-point fact. Neither checked accessible text gives the explicit \(3\times3\) two-endpoint formula, all-optima characterization, or equality of real and finite-precision minima. The parity relation itself is classical and explicitly credited. Older polytope literature could contain an equivalent small-dimensional formula, and this remains a residual bibliographic risk.
+PASS
 
-## Value
-PASS. Dimension three is the first Birkhoff polytope with nonunique coefficient representations, making it the smallest natural case where minimum-term and exact-grid questions differ from a fixed unique decomposition. The result completely classifies the optimum, gives a constant-size exact algorithm, proves precision has no cost, and pinpoints the sharp five-term worst case. This supplies a small exact benchmark for permutation-based scheduling without claiming results for larger dimensions.
+The six distinct 3x3 permutation matrices span the stochastic affine space with one linear dependence: choosing c0=t solves c=(t,d01−d22+t,d02−d11+t,d00−t,d22−t,d11−t). Nonnegativity iff max(0,d22−d01,d11−d02)<=t<=min(d00,d11,d22); Birkhoff existence supplies nonempty interval. All six coordinates are strictly positive for L<t<U and at least one vanishes at each endpoint, so minimum support is min(endpoint supports) and at most two optima. If all D entries lie in (1/Q)Z, both t endpoints and six weights do too. Sharp five-term 1/13 matrix has five positive terms at both ends. Independent enumerator checked all 839 matrices for Q<=6 and exactly reconstructed every endpoint; finite checks are not an all-real proof.
 
-## Scope and limits
-Exact real or rational \(3\times3\) doubly stochastic matrices only; no floating-point robustness or higher-dimensional conclusions. Comparisons are best knowledge, not a formal priority guarantee.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Standard Birkhoff six vertices, affine parity relation and general extreme-point optimality are old. Czégel 2026 treats finite precision general-dimensional scheduling and Dufossé et al 2018 treat heuristic minimum decompositions and extreme points, but inspected relevant primary full text does not give this complete all-input 3x3 two-endpoint length and no-grid-penalty classification. It is a natural special case requiring a full exact derivation, with residual risk that older 3x3 Birkhoff polytope sources imply the result as a routine corollary.
+
+## value
+
+PASS
+
+Dimension 3 is smallest with nonunique Birkhoff coefficients. A complete exact minimum-support classification for every 3x3 doubly stochastic matrix, sharp worst-case bound and guarantee that input precision causes no extra terms provide a natural reproducible benchmark. No claim for higher dimension, NP-hard general problem or floating point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
