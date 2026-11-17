@@ -1,11 +1,21 @@
-# Review of the sixteen-component squarefree reciprocal-cubic classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is quantified over every positive squarefree integer, not a numerical cutoff. The local squarefree Euler factor \(1+p^{-3}\), splitting off \(2,3,5,7\), and the Euler-product normalisation are exact. A greedy subsum lemma proves the full closure of the infinite tail once the prime-by-prime weight inequality holds. Five explicit prime comparisons are exact rational identities; Nagura's published prime interval theorem supplies the uniform remaining-prime inequality, reduced to the verified rational coefficient \(2079146625/1513630118>1\). The independent exact-rational separation certificate verifies the sixteen coefficient order and minimum consecutive ratio \(344/343\); an analytic upper bound \(U<500/499\) completes all fifteen strict separations. The standalone program replayed successfully. These finite calculations serve the proved infinite theorem; they do not claim an exhaustive scan of primes or squarefree integers.
+## correctness
 
-**Originality — PASS, with residual historical-priority risk.** Defant, *On the Density of Ranges of Generalized Divisor Functions with Restricted Domains*, arXiv:1507.02663, introduction, Theorem 2.3 and Section 3, establishes a connectedness/density threshold and explicitly formulates the finite-component-count problem, but supplies no formula for the sixteen components at \(k=1,r=3\). Defant's unitary-function article, arXiv:1507.02654, permits all prime exponents rather than just squarefree inputs and proves a connectedness criterion rather than this exact count. Zubrilina, arXiv:1711.02871, and Achenjang–Berger, arXiv:1808.07550, treat the **unrestricted** generalized divisor-function range, which contains extra factors from prime powers; neither yields an exact sixteen-component restricted range formula. The closest relevant archival mathematical findings treat the alternating function at exponent three, the unitary divisor function at exponent two, or cube-free reciprocal-square ranges, none of which implies the stated squarefree reciprocal-cubic classification. Targeted searches for exact formulas, equivalences and dominating range theorems found no match; no categorical historical-uniqueness assertion follows. Unindexed earlier work is a residual risk.
+PASS
 
-**Mathematical value — PASS.** The invariant, the number of connected components and their endpoints in the closure of a natural divisor-function range, is explicitly motivated by Defant's published problem. The result identifies the exact four controlling small primes and proves a connected infinite Euler-product tail by a nontrivial use of prime distribution. It supplies sixteen natural exact components and their fifteen gaps, rather than an arbitrary finite sample, a mere reparameterization, or a table recomputation. It is a meaningful fixed-parameter answer, not an assertion that all parameters have been classified.
+Euler-product/log-subsum reduction: prime tail p>=11 is connected since log(1+p^-3) <= remaining-prime log-tail. Verified five finite exact-rational prime-next-five inequalities and Nagura prime gap estimate for all p>=29 with h=125/216 and strict coefficient 2079146625/1513630118>1. Independently recomputed all 16 rational head coefficients; consecutive minimum ratio 344/343 exceeds rigorous U<500/499, giving exactly 15 strict gaps. The infinite step uses published Nagura theorem and analytic comparison; finite checker alone is not infinite proof.
 
-**Scope and limitations.** Only squarefree inputs at exponent three are classified. The argument invokes Nagura's established prime interval theorem; it does not give a new proof of that theorem. Historical priority is conditional on accessible literature, and no independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact k=1,r=3 squarefree connected-component classification not supplied by Defant density criteria or known unrestricted/unitary counts.
+
+## value
+
+PASS
+
+Exact natural component count for Defant restricted-domain divisor-sum range question, with all endpoints; analytic prime-tail bridging combined with head gap separation is useful mathematical structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
