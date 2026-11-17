@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The row-uniform invariant sector reduces exactly to the one-dimensional nearest-neighbor successor rule because each adjacent successor row contributes three Moore neighbors. The signed-gradient identity is an integer identity, so winding is conserved. The explicit wall update gives a monotone count of each direction; opposite signs cannot recur because their relative speed is two and the cyclic distance must reach a collision separation. Pure-sign words are exactly unit shifts, giving both the exhaustive recurrent-state classification and winding-sector basin characterization. The binary wall encoding, roots-of-unity filter, and Möbius inversion prove the all-length closed formulas. Exact exhaustive checks have been executed for lengths \(4\)–\(10\). No finite experiment substitutes for the proof.
+## correctness
 
-**Originality (O): PASS, with historical-priority limitations.** The source arXiv:2610.37990v1 reports symmetry periods and sampled three-band waves, not the exhaustive invariant-stripe cycle census, exact temporal Möbius law, or complete initial-winding basin partition. The particle-annihilation mechanism is already explicit in arXiv:1903.12622 and is acknowledged rather than presented as new. General finite-cylinder matrix techniques of Jen (1988) and the original band test are mathematical precedents, not inspected statements of the same closed formulas. Relevant research-record searches found no equivalent statement; some older complete texts remain a priority risk. The claim is a precise finite-ring theorem, not a claim of novelty of cellular-automaton particles, winding, or Möbius inversion as techniques.
+PASS
 
-**Mathematical value (V): PASS.** The threshold-three stripe sector is an invariant, experimentally relevant subsystem at the critical Moore-front propagation threshold. The result upgrades qualitative and sampled three-band observations to a complete global basin partition by an integer invariant, exact arbitrary-size recurrent and primitive-period counts, and explicit higher-winding traveling-wave families. It distinguishes the vanishing proportion of recurrent configurations from the much larger winding-resolved eventual traveling-wave basins. The formula is a natural exact dynamical invariant and permits all-length checks of sampling-based period catalogues; it is not a hand-picked small-board statistic.
+For L>=4 each adjacent successor row contributes exactly three of eight Moore neighbors, producing 1D rule u_i=1 iff d_i=+1 or d_{i-1}=-1. The integer difference identity d_i′=d_i+u_{i+1}−u_i conserves w=sum d_i/3. Positive and negative walls move in opposite directions or vanish; the finite circle relative shift by 2 forces opposite-wall collision on any recurrent mixed-sign orbit, so all recurrent words are shifts of pure-sign words. Tri-nomial word counting yields exact basin B_{L,w}; binary walls modulo 3 and Möbius inversion give recurrent count R_L=6A_L−3 and exact primitive C_{L,p}=6/p∑_{d|p}μ(p/d)A_d. Independent brute transition graph enumeration of all 3^L words through L=9 confirmed every period/winding sector and wall purity; not an all-L proof.
 
-**Scope and risks.** The theorem does not address general two-dimensional states or individual-cycle basin volumes. Finite checker results do not prove infinite assertions. Full texts of some older period-enumeration and band-test works were not fully accessible, so the originality review is nonexhaustive. All mathematical hypotheses and the labeled-state counting convention are given in `RESULT.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: same two-dimensional threshold-three model prior simulations and finite-ring abstract methods do not assert this all-L labelled stripe-cycle and winding-resolved basin census. The 1D ballistic wall mechanism is expressly credited; the closed exact coefficients and dynamical classification survive.
+
+## value
+
+PASS
+
+Natural invariant stripe subspace of a concrete 2D nonlinear automaton has an exact complete dynamical classification, not an arbitrary small slice. Winding fully controls long-run type, and the complete primitive temporal period census exhibits exponentially many multi-front waves missing sampled three-band catalogues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
