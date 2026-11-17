@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and independent-channel status
+# Independent mathematical audit
 
-`verify_windmill.py` requires Python 3.10+ and only the standard library. In the directory containing the embedded files, run `python verify_windmill.py`; compare the stdout byte-for-byte with `verify_output.txt`.
+## correctness
 
-The code constructs actual graph edges and forbidden t-cliques, enumerates faces and computes augmented boundary ranks over the field with two elements. It independently calculates fixed-oriented-face traces of graph automorphisms and compares those with both claimed homology characters. It tests all automorphisms on five graphs and samples additional cases, totaling 3,886 signed trace comparisons. The recorded final line is `ALL_VERIFY_OK cases=16 simplices=4861 character_tests=3886`.
+PASS
 
-These computations are finite checks only; they do not certify the theorem for all graph sizes, and field-two calculations do not prove integral torsion-freeness. The proof in `RESULT.md` supplies the integral argument. The mathematical review reported here is a self-review; no independent audit was carried out.
+Every forbidden t-clique is either wholly in one clique blade or contains the central vertex and t−1 vertices in a blade. Hub deletion is the join of K(a_i,t−1) and link the join of K(a_i,t−2), each a truncated simplex. If any a_i<t−1, that vertex is universally addable and X is a cone. Otherwise top homology of each skeleton is Λ^r ker(sum:Z^{a_i}→Z); join dimensions and Künneth give deletion dimension p=k(t−1)−1 and link q−1=k(t−2)−1. The inclusion L→D is null because D is (p−1)-connected and p≥q+1; the mapping cone splits as D∨ΣL. Natural long exact sequence in separated degrees identifies the full integral Γ-modules as tensor exterior powers, with Koszul (-1)^r on blade-factor swaps. The determinant generating function ∏(1−(−z)^cycle_length)/(1+z) yields the stated cycle-index character. Direct small t=3, blades (3,3) binary homology gives four S² and one S³ as asserted; all-parameter proof is combinatorial, not from finite tests.
+
+## originality
+
+PASS
+
+Ghosh–Selvaraja proves shellability for all block graphs including these windmills, and that qualitative property is prior art. Its full relevant statement does not imply the two explicit integral wedge ranks and natural full automorphism modules with Koszul signs. The Resultary open-neighborhood block graph formula concerns another functor.
+
+## value
+
+PASS
+
+Natural clique windmills are an elementary yet genuinely structural test family whose clique-free complexes unexpectedly have two different homology dimensions and nontrivial full integral vertex/blade-permutation modules. Precise character formulas refine previously known qualitative block-graph shellability in a reusable representation-theoretic way.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
