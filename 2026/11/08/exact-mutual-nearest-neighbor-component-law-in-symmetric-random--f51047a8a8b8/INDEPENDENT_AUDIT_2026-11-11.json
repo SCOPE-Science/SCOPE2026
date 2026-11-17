@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T01:48:49.455749Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A strict minimum-weight directed nearest-neighbor walk in a finite undirected complete graph cannot cycle around length >=3, since along such a cycle each edge must be strictly smaller than its predecessor. Every weak functional component therefore contains exactly one 2-cycle. For k prescribed disjoint mutual-pair edges, condition on their k weights and count 2(n-2k) incident edges to nonpaired vertices per pair plus 4 cross edges between any two candidate pairs. Ordering selected weights gives integrand ∏(1-x_i)^[2(n-2k)+4(i-1)], and exponential spacing integration yields product denominators j(2n-2j-1), canceling k!. Binomial matchings give complete factorial moments and exact PGF, mean and variance. Reconstructed n=4 all 6!=720 distinct edge rankings independently: X=1 in 576 and X=2 in 144, as PGF predicts. n=2 deterministic X=1. Finite tests supplement the exact all-n integral proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2009 random link calculation includes mutual nearest-neighbor marginal 1/(2n-3) (as cited), no inspected all-k joint distribution.",
+          "Frieze–Pegden 2021 studies spanner structures of weighted complete graphs rather than all weak components of 1-out minimum maps."
+        ],
+        "reasoning": "Neighbor-spanner and geometric nearest-neighbor results do not dominate this iid shared-weight complete 1-out mapping. Older symmetric random-link analyses could contain hidden equivalent factorial moments; no globally exhaustive search guarantee.",
+        "searches": [
+          "2009 deterministic tourist walk random link model mutual nearest neighbors",
+          "arxiv:2105.01718 Spanners in Randomly Weighted Graphs Independent Edge Lengths",
+          "Aldous 2023 nearest neighbors complete random graph"
+        ]
+      },
+      "checked_sources": [
+        "https://mathoverflow.net/questions/458980/nearest-neighbors-on-random-complete-graph",
+        "arxiv:2105.01718",
+        "https://cbpfindex.cbpf.br/publication_pdfs/2009_rodrigo_jcis.2009_08_19_14_18_17.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier marginal implies E[X_n]=n(n-1)/(2(2n-3)); earlier extreme implies Pr(X_n=n/2) for even n.",
+          "New theorem determines E[binom(X_n,k)] for every k, which is not a logical consequence of only first and last moments."
+        ],
+        "reasoning": "The complete joint matching law strictly refines the known marginal and extreme probability (unless unlocated all-joint theorem exists), and its explicit variance displays genuine new intermediate-dependence information.",
+        "searches": [
+          "MathOverflow 458980 nearest neighbors random complete graph Nov23 2023",
+          "2009 deterministic tourist walk random link mutual-neighbor statistics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For distinct continuous shared edge weights, every directed component has unique reciprocal pair; hence joint mutual-pair probabilities equal factorial moments of X_n.",
+          "Aldous 2023 question/answer calculates all-vertices-in-reciprocal-pairs probability for even n."
+        ],
+        "reasoning": "Complete PGF, factorial moments, and joint matching probabilities are equivalent by binomial inversion. The earlier all-pairs extreme event is one coefficient for maximal k, not the entire sequence.",
+        "searches": [
+          "Resultary: nearest neighbor undirected random link complete graph mutual pairs joint distribution matching probability 2n-2j-1",
+          "Aldous nearest neighbors on random complete graph random matching mutual pairs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Aldous provides even-n maximal reciprocity probability; n=4 exactly 1/5 matches independent six-edge ordering.",
+          "Source VERIFY.py exact binomial inversion and direct ranking enumeration n=2..5 are reproducible; no earlier intermediate-k PMF table was located."
+        ],
+        "reasoning": "Small-n probabilities and all-perfect-pair counts are special cases of, but do not characterize, the all-n generating function. Numerical agreement alone is not originality proof; product joint event formula is assessed.",
+        "searches": [
+          "Aldous 2023 (2m-1)!!(2m-3)!!/(4m-3)!!",
+          "Resultary random-link nearest-neighbor number components full pmf n=4 n=5",
+          "joint reciprocated nearest neighbor pair probability 1/(2n-3)(2n-5)"
+        ]
+      },
+      "rationale": "PASS for simultaneous specified disjoint-pair event probabilities and full component-count generating polynomial. Earlier public Aldous 2023 calculation concerns only extreme perfect mutual matching event, and earlier tourist walk results establish the single reciprocal-pair marginal; neither alone supplies the intermediate-k factorial moments or variance. Frieze–Pegden analyzes random weighted graph spanners, not complete component distribution. No prior published stronger joint-law formula was identified in accessible documents. Unlocated classic random-link probability formulas remain a real historical-priority risk.",
+      "residual_risks": [
+        "2009 random-link tourist-walk primary full text not inspected; possible earlier joint moments.",
+        "All n result is a shared undirected iid atomless edge model, not independent directed preferences or geometry.",
+        "Finite exact checks cannot substitute for ordered integration proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING",
+          "evidence": "All vertices forming disjoint mutual nearest pairs known; general component-count PGF not established there.",
+          "identifier_or_url": "https://mathoverflow.net/questions/458980/nearest-neighbors-on-random-complete-graph",
+          "material_read": "Full public question and answer including the even perfect-reciprocal-matching probability formula",
+          "method": "Read complete Q&A primary discussion",
+          "title": "Nearest neighbors on random complete graph",
+          "trigger": "Identical iid shared-edge nearest-neighbor model"
+        },
+        {
+          "assessment": "NOT_FULL_COVERAGE",
+          "evidence": "Graph spanner results do not compute the distribution of reciprocal nearest-neighbor weak components.",
+          "identifier_or_url": "https://arxiv.org/abs/2105.01718",
+          "material_read": "Accessible primary full-text HTML, introduction, main spanner theorem and context",
+          "method": "Read HTML article relevant mathematical sections",
+          "title": "Spanners in Randomly Weighted Graphs: Independent Edge Lengths",
+          "trigger": "Potential earlier random nearest-neighbor graph structure"
+        },
+        {
+          "assessment": "PARTIALLY_COVERING_WITH_ACCESS_RISK",
+          "evidence": "Do not assert entire paper lacks joint law; it is a plausible inaccessible stronger source.",
+          "identifier_or_url": "https://cbpfindex.cbpf.br/publication_pdfs/2009_rodrigo_jcis.2009_08_19_14_18_17.pdf",
+          "material_read": "Indexed published summary and specific one-pair calculation as cited in the source package; original full text not obtained in this execution",
+          "method": "Abstract/relevant cited formula, not entire primary paper",
+          "title": "Deterministic tourist walk (random-link model mutual-neighbor calculation)",
+          "trigger": "Identical random-link pair marginal cited as prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Symmetric random-link nearest-neighbor dynamics is a canonical complete-graph probabilistic model. The natural count of weak components equals number of mutual two-cycles, and a complete exact finite law reveals global underdispersion (variance/mean→1/4) despite positive correlation for disjoint candidate pairs. Both all-k dependence structure and counterintuitive variance can be reused in random mapping and nearest-neighbor analysis; not a routine restatement of the known mean or perfect matching extreme.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact shared-edge symmetry and i.i.d. atomless law essential.",
+    "No CLT, geometric nearest-neighbor model or nonidentical edge law established."
+  ],
+  "schema_version": 1
+}
