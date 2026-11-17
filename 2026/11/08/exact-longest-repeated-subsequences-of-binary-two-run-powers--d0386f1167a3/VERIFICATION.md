@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3 and no external dependencies. Its reported successful output is:
+## correctness
 
-`VERIFY_OK exhaustive_parameter_sets 213 root_candidate_upper_bound 101834 cyclic_cost_probes 28642 independent_partition_square_cases 78`
+PASS
 
-The program checks the maximum length of exact \(e\)-power subsequences of \((0^a1^b)^k\) by enumerating candidate binary roots and using greedy scattered-subsequence membership for all tested parameters. Its second method computes the square case from longest common subsequences of every prefix–suffix partition. It also probes the cyclic ceiling-run necessary inequality. Parameters beyond the finite search range are established by the symbolic proof in `RESULT.md`, not by enumeration. The program reports no independent proof certification or review.
+PASS: any mixed binary root U has cyclic zero and one run ceiling costs C0,C1; each of its e copies requires at least eC0 source zero runs and eC1 one runs, so C0,C1<=floor(k/e). Its length is at most floor(k/e)(a+b), attained by root (0^a1^b)^floor(k/e); unary roots yield e floor(ka/e), e floor(kb/e). These exhaust the binary alphabet, giving stated exact global optimum. Direct independent exhaustive root embedding on all small a,b,k/e instances corroborated boundary k<e and unary takeover.
 
-Scientific boundaries: equality of the optimum length does not enumerate distinct optimal words, and the root is not required to be primitive. The source is a fixed finite binary two-run power. Public priority beyond the inspected literature is not certified.
+## originality
+
+PASS
+
+PASS best-of-knowledge: algorithmic general periodic subsequence literature and longest-run subsequences do not yield an explicitly published same-invariant all-exponent two-run formula; related all-window patterns permit a freely chosen phase and are not logically identical.
+
+## value
+
+PASS
+
+PASS: exact complete natural subfamily of a hard scattered periodic subsequence problem; explains sharp mixed versus pure-root phase transition with a structural capacity lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
