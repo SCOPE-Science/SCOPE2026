@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite Rockett identity follows from the independent recurrence \(f(n)=1+(n+1)f(n-1)/(2n)\). The 2-adic logarithm at \(-1\) vanishes, yielding the exact tail (5). Cross multiplication yields the general difference series (6). The terminal-one-bits lemma and the elementary inequality \(2s_2(i)\le i+1\) establish a lower valuation bound **termwise**, uniform in the infinite series. Nonarchimedean convergence completes the proof without any extrapolation. Direct Fraction calculations checked all \(510\) dyadic shifts through exponent eight and \(10,000\) arbitrary-shift instances. Finite verification is supplementary.
+## correctness
 
-## Originality — PASS (with residual literature risk)
-Davis 2013 (arXiv:1301.2532v1, §1, Conjecture 1.2) gives precisely the dyadic inequality as an **explicit conjecture**, tested there only to exponent fifteen. Davis 2012 (arXiv:1208.0250v1, §4, (4.8)) gives only the weaker \(e-k-1\) bound and his 2012 Theorem 1.12 needs extraordinarily sparse one-bits. The present \(e-2s_2(k)-2\) bound is stronger whenever \(k>2s_2(k)+1\); it permits the vastly larger digit-density convergence criterion of the conditional Davis 2013 Proposition 1.3. The classical Rockett identity is openly attributed. Closest indexed findings concern binomial valuations of *different* objects and do not imply the reciprocal-sum statement. Historical literature may contain an overlooked independent solution; searches are not a proof of priority.
+PASS
 
-## Mathematical value — PASS
-The principal result resolves a precisely stated published number-theory conjecture and supplies a general step-size valuation principle. It upgrades an earlier sparsity criterion to a natural binary digit-density criterion for 2-adic definability. The mathematical content is a new arithmetic estimate with an infinite family of consequences, not a parameter substitution, numerical table, or isolated small improvement.
+Rockett finite identity f(n)=(n+1)2^{−n−1}Σ_{j=1}^{n+1}2^j/j follows from verified first-order recurrence. In Q2 the convergent Σ_{j≥1}2^j/j=−log(−1)=0 (torsion −1), giving exact tail f(n)=−(n+1)Σ_{i≥1}2^i/(n+1+i). Subtraction yields −hΣ_{i≥1} i2^i/((n+i+1)(n+h+i+1)). For nonnegative u and v≥1, trailing binary ones prove ν2(u+v)≤s2(u)+s2(v−1); also 2s2(i)≤i+1. Each summand has valuation at least ν2(h)−s2(n)−s2(n+h)−1, inherited by convergent sum. Set h=2^e, 0≤k<2^e to obtain Davis conjecture since s2(k+h)=s2(k)+1. Proof is infinite analytic, not extrapolated from examples; independent Fraction check passed all 6400 n,h pairs tested.
 
-## Limitations and audit status
-The finding does not settle Davis's more refined odd-argument Conjecture 1.4, does not classify all definable 2-adic arguments, and does not determine every valuation exactly. The proof has been reconstructed and computation replayed, but no independent audit or historical priority certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge proof of explicitly open Davis 2013 Conjecture 1.2 via a stronger arbitrary-shift 2-adic tail inequality, with exact primary comparison; chronological novelty remains subject to unindexed later proofs.
+
+## value
+
+PASS
+
+Solving a named 2013 conjecture on 2-adic inverse-binomial sums is a substantive number-theoretic advance. The general-shift inequality and removal of a conditional 2-adic definability hypothesis give meaningful new structure, not a routine finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

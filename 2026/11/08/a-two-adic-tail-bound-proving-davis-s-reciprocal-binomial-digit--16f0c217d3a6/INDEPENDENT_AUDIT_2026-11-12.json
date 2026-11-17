@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T14:45:54.818615Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Rockett finite identity f(n)=(n+1)2^{−n−1}Σ_{j=1}^{n+1}2^j/j follows from verified first-order recurrence. In Q2 the convergent Σ_{j≥1}2^j/j=−log(−1)=0 (torsion −1), giving exact tail f(n)=−(n+1)Σ_{i≥1}2^i/(n+1+i). Subtraction yields −hΣ_{i≥1} i2^i/((n+i+1)(n+h+i+1)). For nonnegative u and v≥1, trailing binary ones prove ν2(u+v)≤s2(u)+s2(v−1); also 2s2(i)≤i+1. Each summand has valuation at least ν2(h)−s2(n)−s2(n+h)−1, inherited by convergent sum. Set h=2^e, 0≤k<2^e to obtain Davis conjecture since s2(k+h)=s2(k)+1. Proof is infinite analytic, not extrapolated from examples; independent Fraction check passed all 6400 n,h pairs tested.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Davis 2012 formula (4.8) obtains e−k−1, 2013 states stronger e−2s2(k)−2 as conjecture.",
+          "Resultary later Mersenne-index exact valuation is of f(n) rather than increments f(n+h)−f(n)."
+        ],
+        "reasoning": "Weaker e−k−1 bound cannot imply the sharper digit-sum conjecture for unbounded k; exact Mersenne values do not give general differences.",
+        "searches": [
+          "Resultary_Search: Davis 2-adic inverse binomial sum conjecture v2 f(2^e+k)-f(k) e-2s2(k)-2 proof 2adic logarithm",
+          "https://arxiv.org/pdf/1208.0250",
+          "https://arxiv.org/pdf/1301.2532"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1301.2532",
+        "https://arxiv.org/pdf/1208.0250",
+        "https://sites.math.rutgers.edu/~zeilberg/mamarim/mamarimhtml/upsidedown.html",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-2-adic-valuation-of-mersenne-index-reciprocal-binomial-sum--8765179d1017"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical finite reciprocal-binomial identity and 2-adic log sum produce exact f(n)=−(n+1)Σ_{i≥1}2^i/(n+1+i).",
+          "Digit inequality ν2(u+v)≤s2(u)+s2(v−1), 2s2(i)≤i+1 bounds each difference summand."
+        ],
+        "reasoning": "The new tail subtraction and digit-sum denominator control proves Davis conjecture, while prior identity itself neither asserts nor implies the valuation inequality absent this argument.",
+        "searches": [
+          "https://arxiv.org/pdf/1301.2532",
+          "https://arxiv.org/pdf/1208.0250",
+          "https://sites.math.rutgers.edu/~zeilberg/mamarim/mamarimhtml/upsidedown.html"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Davis Conjecture 1.2 is exactly ν2(f(2^e+k)−f(k))≥e−2s2(k)−2.",
+          "Assigned general bound for arbitrary shift h specializes by s2(k+2^e)=s2(k)+1."
+        ],
+        "reasoning": "The identical conjectured special case is known as a problem statement, not a prior solution. General h version is strictly broader than the old conjecture.",
+        "searches": [
+          "Resultary_Search: Davis 2-adic inverse binomial sum conjecture v2 f(2^e+k)-f(k) e-2s2(k)-2 proof 2adic logarithm",
+          "https://arxiv.org/pdf/1301.2532"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Davis reports finite checks e≤15, not proof of all e.",
+          "Pinned script 10,000 finite pairs and 510 dyadic instances corroborates, but the infinite proof uses a uniform tail-series term bound."
+        ],
+        "reasoning": "This is a quantified all-n,h inequality, not novelty of listed finite calculations; no prior general table alone covers it.",
+        "searches": [
+          "Resultary_Search: Davis 2-adic inverse binomial sum conjecture v2 f(2^e+k)-f(k) e-2s2(k)-2 proof 2adic logarithm",
+          "https://arxiv.org/pdf/1301.2532"
+        ]
+      },
+      "rationale": "Best-of-knowledge proof of explicitly open Davis 2013 Conjecture 1.2 via a stronger arbitrary-shift 2-adic tail inequality, with exact primary comparison; chronological novelty remains subject to unindexed later proofs.",
+      "residual_risks": [
+        "Unindexed later proof of Davis Conjecture 1.2 may exist; unsuccessful searches do not establish absolute priority.",
+        "Different Davis odd-argument Conjecture 1.4 is not settled; do not imply it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_CONJECTURE_PRIOR_NOT_PROOF",
+          "evidence": "Conjecture 1.2 is exactly e−2s2(k)−2 bound, conditional Proposition 1.3 is its consequence; earlier paper calls conjecture not theorem.",
+          "identifier_or_url": "https://arxiv.org/pdf/1301.2532",
+          "material_read": "Five-page primary arXiv PDF first pages: Conjecture 1.2, Proposition 1.3 and separate Conjecture 1.4; inspected page 2 image",
+          "method": "Primary PDF text and screenshot",
+          "title": "For which 2-adic integers x can the sum of inverse binomial coefficients be defined?, Davis (2013)",
+          "trigger": "Exact identical bound is published as Conjecture 1.2"
+        },
+        {
+          "assessment": "WEAKER_ESTIMATE",
+          "evidence": "Earlier bound e−k−1 is far weaker than e−2s2(k)−2 for sparse binary digits, does not imply conjecture.",
+          "identifier_or_url": "https://arxiv.org/pdf/1208.0250",
+          "material_read": "ArXiv PDF Theorem 1.12 and formula (4.8) as cited in original; inspected accessible initial pages and relevant source citations",
+          "method": "Primary source PDF partial targeted reading",
+          "title": "For which p-adic integers x can the sum of inverse binomial coefficients be defined?, Davis (2012)",
+          "trigger": "Earlier weaker p-adic inequality and convergence on sparse binary digit strings"
+        },
+        {
+          "assessment": "KNOWN_IDENTITY_ONLY",
+          "evidence": "Finite identity is classical; its use with a 2-adic vanishing full logarithmic sum and digit bounds is the actual new implication.",
+          "identifier_or_url": "https://sites.math.rutgers.edu/~zeilberg/mamarim/mamarimhtml/upsidedown.html",
+          "material_read": "Accessible web text and Rockett identity f(n)=(n+1)2^{−n−1} Σ_{j=1}^{n+1}2^j/j",
+          "method": "Primary expository webpage identity check",
+          "title": "Some Nice Sums Are Almost As Nice If You Turn Them Upside Down, Apagodu–Zeilberger (2009)",
+          "trigger": "Classical reciprocal-binomial identity base of proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Solving a named 2013 conjecture on 2-adic inverse-binomial sums is a substantive number-theoretic advance. The general-shift inequality and removal of a conditional 2-adic definability hypothesis give meaningful new structure, not a routine finite computation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1301.2532",
+    "https://arxiv.org/pdf/1208.0250",
+    "https://sites.math.rutgers.edu/~zeilberg/mamarim/mamarimhtml/upsidedown.html",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-2-adic-valuation-of-mersenne-index-reciprocal-binomial-sum--8765179d1017"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No exact valuation formula and no complete classification of 2-adic x; Davis separate Conjecture 1.4 remains open."
+  ],
+  "residual_risks": [
+    "Unindexed later proof of Davis Conjecture 1.2 may exist; unsuccessful searches do not establish absolute priority.",
+    "Different Davis odd-argument Conjecture 1.4 is not settled; do not imply it."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "OPEN_CONJECTURE_PRIOR_NOT_PROOF",
+      "evidence": "Conjecture 1.2 is exactly e−2s2(k)−2 bound, conditional Proposition 1.3 is its consequence; earlier paper calls conjecture not theorem.",
+      "identifier_or_url": "https://arxiv.org/pdf/1301.2532",
+      "material_read": "Five-page primary arXiv PDF first pages: Conjecture 1.2, Proposition 1.3 and separate Conjecture 1.4; inspected page 2 image",
+      "method": "Primary PDF text and screenshot",
+      "title": "For which 2-adic integers x can the sum of inverse binomial coefficients be defined?, Davis (2013)",
+      "trigger": "Exact identical bound is published as Conjecture 1.2"
+    },
+    {
+      "assessment": "WEAKER_ESTIMATE",
+      "evidence": "Earlier bound e−k−1 is far weaker than e−2s2(k)−2 for sparse binary digits, does not imply conjecture.",
+      "identifier_or_url": "https://arxiv.org/pdf/1208.0250",
+      "material_read": "ArXiv PDF Theorem 1.12 and formula (4.8) as cited in original; inspected accessible initial pages and relevant source citations",
+      "method": "Primary source PDF partial targeted reading",
+      "title": "For which p-adic integers x can the sum of inverse binomial coefficients be defined?, Davis (2012)",
+      "trigger": "Earlier weaker p-adic inequality and convergence on sparse binary digit strings"
+    },
+    {
+      "assessment": "KNOWN_IDENTITY_ONLY",
+      "evidence": "Finite identity is classical; its use with a 2-adic vanishing full logarithmic sum and digit bounds is the actual new implication.",
+      "identifier_or_url": "https://sites.math.rutgers.edu/~zeilberg/mamarim/mamarimhtml/upsidedown.html",
+      "material_read": "Accessible web text and Rockett identity f(n)=(n+1)2^{−n−1} Σ_{j=1}^{n+1}2^j/j",
+      "method": "Primary expository webpage identity check",
+      "title": "Some Nice Sums Are Almost As Nice If You Turn Them Upside Down, Apagodu–Zeilberger (2009)",
+      "trigger": "Classical reciprocal-binomial identity base of proof"
+    }
+  ]
+}
