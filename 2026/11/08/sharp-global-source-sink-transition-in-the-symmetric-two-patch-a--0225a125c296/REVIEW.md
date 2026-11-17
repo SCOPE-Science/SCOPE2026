@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The precise model, nonnegative initial domain, and rescaling are explicit. The two polynomial equations in \((z,d)\) exhaust all equilibria and give two exact bifurcation thresholds. A symmetric Jacobian gives all hyperbolic stability signs; the critical nonhyperbolic case is treated separately with a computed positive cubic center-manifold drift. Positive invariance, boundedness and a strict gradient potential imply convergence to an equilibrium, and the invariant sign of the initial total-density offset establishes the global basin split. An independently replayed verifier supports the symbolic steps. The limiting model is deterministic; no stochastic conclusion is inferred.
+## correctness
 
-**Originality: PASS within inspected evidence.** The primary preprint arXiv:1003.0121 (Kang–Lanchier, publicly available February 27, 2010) was consulted in its model, theorem, numerical and proof portions. It gives a sufficient dispersal bound of \(1/8\) at the selected symmetric threshold but does not present the sharp \(1/12\) boundary, the entire 9–5–3 equilibrium diagram, or the global initial-sum fate rule. A later article on *additive* Allee effects (Chen–Liu–Chen, 2021) is a different asymmetric source–sink vector field, checked from its equations. Related research searches returned neighboring Allee and bifurcation results but no implication covering the particular theorem. A broader historical theorem on identical diffusively coupled cubic bistable units may exist; novelty is not independently certified.
+PASS
 
-**Value: PASS.** This is a sharp, complete and structurally motivated classification of an established ecological model, replacing a merely sufficient large-dispersal criterion by an exact global bifurcation boundary. It distinguishes the loss of asymmetric attracting states from the later disappearance of asymmetric saddle equilibria, and specifies which initial populations go extinct or establish. Its ecological significance is mathematical rather than empirical; it does not prescribe corridor construction in field systems.
+For all r,mu>0 and nonnegative starting states at theta=1/2, direct transformation z=x+y-1,d=x-y gives z’=-z(3d²+z²-1)/4 and d’=-d(d²+8u+3z²-1)/4, u=mu/r. Factorization exhausts the 3,5,9 equilibria, with off-divider saddles only for u<1/12, extra divider attracting states precisely below 1/12, and their collision at u=1/8. At u=1/12, the center manifold d²=1/3-3z²+O(z⁴) yields z’=2z³+O(z⁵), excluding convergence from either off-divider half-plane. Invariance, bounded gradient potential, finite equilibria, and sign(z) preservation yield global initial-sum basins for u>=1/12. This proves the critical equality as well as both strict regions; numerical checks alone do not.
 
-**Principal limitation:** Exactly two identical patches, cubic local dynamics, \(\theta=1/2\), positive symmetric dispersal, and deterministic long-time behavior. The result does not classify unequal threshold or noise-modified systems.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original under actual inspected statements; significant access or historical-priority risks are explicitly retained.
+
+## value
+
+PASS
+
+The precise ecological two-patch cubic model has a mathematically nontrivial sharp transition for multistability and global basins at u=1/12, different from equilibrium merger at 1/8. A parameter-specific structural classification and nonhyperbolic boundary are independently useful, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

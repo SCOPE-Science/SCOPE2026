@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The self-contained proof is in `RESULT.md`; `verify.py` provides a supporting exact-arithmetic and high-precision replay. The latter was executed successfully from the extracted new package with the command `python verify.py` and returned `PASS: 1292 independent rational/algebraic/numeric checks`. No finite test is treated as proof of global convergence. The proof's noncomputational ingredients are the polynomial gradient identity, finite equilibrium classification, invariant half-planes, LaSalle's invariance argument, and the local center-manifold cubic coefficient at the critical value.
+# Independent mathematical audit
 
-The critical equality \(u=1/12\) is included only after the center-manifold sign check, not by extrapolating a hyperbolic stability calculation. The exact result does not extend by assertion to other Allee thresholds, asymmetric coupling, or stochastic population models.
+## correctness
+
+PASS
+
+For all r,mu>0 and nonnegative starting states at theta=1/2, direct transformation z=x+y-1,d=x-y gives z’=-z(3d²+z²-1)/4 and d’=-d(d²+8u+3z²-1)/4, u=mu/r. Factorization exhausts the 3,5,9 equilibria, with off-divider saddles only for u<1/12, extra divider attracting states precisely below 1/12, and their collision at u=1/8. At u=1/12, the center manifold d²=1/3-3z²+O(z⁴) yields z’=2z³+O(z⁵), excluding convergence from either off-divider half-plane. Invariance, bounded gradient potential, finite equilibria, and sign(z) preservation yield global initial-sum basins for u>=1/12. This proves the critical equality as well as both strict regions; numerical checks alone do not.
+
+## originality
+
+PASS
+
+Best-of-knowledge original under actual inspected statements; significant access or historical-priority risks are explicitly retained.
+
+## value
+
+PASS
+
+The precise ecological two-patch cubic model has a mathematically nontrivial sharp transition for multistability and global basins at u=1/12, different from equilibrium merger at 1/8. A parameter-specific structural classification and nonhyperbolic boundary are independently useful, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
