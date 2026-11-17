@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T14:05:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Occupancy-indicator covariance yields V_n=sum_i(q_i^n-q_i^(2n))+2sum_ij[(1-p_i-p_j)^n-(q_i q_j)^n]. For m=1 variance zero; m=2 K_n=1+Bernoulli(1-p^n-(1-p)^n) and success probability increases, so at most one strict local maximum. For m>=3 choose p0=1-sum_(j=1)^(m-1)epsilon^j, pj=epsilon^j. At n_j~(log2)/epsilon^j, K distribution converges to j+Bernoulli(1/2), variance to 1/4; between scales at epsilon^(-j-1/2) K concentrates at j+1 and V to zero. Finite separated intervals each have an interior maximum; transcendental sufficiently small epsilon excludes every adjacent equality because V_(n+1)-V_n is a nonzero polynomial with leading epsilon coefficient. Independent exact subset-DP checks for (7,7,1)/15 confirm strict peaks at n=3 and n=9 and all four quoted rational differences; numerical finite tests are not proof of all-m existence. No m-1 upper bound is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/math/0609498"
+        ],
+        "reasoning": "Bogachev–Gnedin–Yakubovich study infinitely many box variances, including oscillatory growth; this may cover general oscillation after truncation but not exact finite sharp threshold and near-quarter height, arbitrarily deep valleys for each fixed m.",
+        "searches": [
+          "finite occupancy richness variance successive local maxima three species iid draws abundance 1/4 peaks",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-thirteen-individuals-are-sharp-for-a-double-peak-in-rarefaction--7d5b7b6433e4"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-thirteen-individuals-are-sharp-for-a-double-peak-in-rarefaction--7d5b7b6433e4",
+        "https://arxiv.org/abs/math/0609498",
+        "https://doi.org/10.1046/j.1365-2656.2003.00748.x"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/math/0609498",
+          "https://doi.org/10.1046/j.1365-2656.2003.00748.x"
+        ],
+        "reasoning": "Convergence in infinite-box models alone does not yield strict cardinality-resolved m-1 peaks, and the sample-based richness variance formula alone does not imply multiscale construction; actual epsilon separation and transcendental perturbation supply novel strictness.",
+        "searches": [
+          "finite occupancy richness variance successive local maxima three species iid draws abundance 1/4 peaks",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-thirteen-individuals-are-sharp-for-a-double-peak-in-rarefaction--7d5b7b6433e4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-thirteen-individuals-are-sharp-for-a-double-peak-in-rarefaction--7d5b7b6433e4",
+          "https://arxiv.org/abs/math/0609498"
+        ],
+        "reasoning": "Occupancy box count K_n equals observed species richness under iid draws, but an earlier finite rarefaction theorem fixes census and samples *without replacement*; its (1,6,6) double peak does not imply iid p=(7,7,1)/15.",
+        "searches": [
+          "finite occupancy richness variance successive local maxima three species iid draws abundance 1/4 peaks",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-thirteen-individuals-are-sharp-for-a-double-peak-in-rarefaction--7d5b7b6433e4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-thirteen-individuals-are-sharp-for-a-double-peak-in-rarefaction--7d5b7b6433e4",
+          "https://doi.org/10.1046/j.1365-2656.2003.00748.x"
+        ],
+        "reasoning": "Exact indicator covariance formula is classical and not credited as new. Published SCOPE double-peak 13-individual table is a separate without-replacement finite-population model; no exact finite iid theorem with minimal three categories found.",
+        "searches": [
+          "finite occupancy richness variance successive local maxima three species iid draws abundance 1/4 peaks",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-thirteen-individuals-are-sharp-for-a-double-peak-in-rarefaction--7d5b7b6433e4"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the sharp finite iid-with-replacement three-species double-peak threshold and every m>=3 m-1 separated near-1/4 strict peaks. Existing exact occupancy covariance identities and infinite-box oscillatory variance theory cover ingredients and possibly some existence after truncation, not the finite cardinality, strict peak placement and deep-valley theorem. Earlier 13-individual rarefaction result uses sampling without replacement, so the thresholds are not equivalent.",
+      "residual_risks": [
+        "Infinite-box variance oscillations might permit a truncation argument yielding unbounded finite multimodality, but no specific source proved the sharper finite cardinality and strict-height statement.",
+        "The epsilon separation can require extremely small abundances and vast n; no uniform empirical significance is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Infinite occupancy variation and boundedness, not finite m=3 sharp two peaks or strict m-1-scale construction",
+          "evidence": [
+            "Infinite-frequency theorem is not the cardinality-resolved strict finite-support peak criterion; truncations may nevertheless imply less-specific unbounded multiplicity."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0609498",
+          "material_read": "Full primary arXiv PDF, especially theorem concerning variance behavior for infinitely many boxes",
+          "method": "Open primary PDF text and screenshot inspected",
+          "title": "On the variance of the number of occupied boxes",
+          "trigger": "Exact same iid occupancy variance and possible oscillations with geometric frequencies"
+        },
+        {
+          "assessment": "Variance identity and accumulation curves are prior; source does not state sharp 3-species threshold/m-1 strict-peak construction",
+          "evidence": [
+            "Appendix variance formulas concern sample-based accumulation, no cardinality-resolved integer local maxima classification."
+          ],
+          "identifier_or_url": "https://doi.org/10.1046/j.1365-2656.2003.00748.x",
+          "material_read": "Accessible full article and Appendix I variance formula",
+          "method": "Publisher OA full text referenced and compared against specific peak statement",
+          "title": "The species–accumulation curve and estimation of species richness",
+          "trigger": "Same ecological statistic and sampling variance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Variance of accumulated species richness is a directly relevant finite-community uncertainty statistic. The sharp m=3 first double peak, unbounded multiplicity as richness grows, and near-1/4 isolated heights separated by arbitrarily deep valleys correct a tempting single-hump intuition; strict peaks are genuine integer effects rather than plotting artifacts. No unsupported empirical universality is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-thirteen-individuals-are-sharp-for-a-double-peak-in-rarefaction--7d5b7b6433e4",
+    "https://arxiv.org/abs/math/0609498",
+    "https://doi.org/10.1046/j.1365-2656.2003.00748.x"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Infinite-box variance oscillations might permit a truncation argument yielding unbounded finite multimodality, but no specific source proved the sharper finite cardinality and strict-height statement.",
+    "The epsilon separation can require extremely small abundances and vast n; no uniform empirical significance is asserted."
+  ],
+  "schema_version": 1
+}
