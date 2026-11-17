@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3 (only standard-library modules used). The program independently builds the full labeled-state continuous-time SIR generator, computes eventual infection-count distributions by exact rational first-step recursion, and compares those distributions to the conditional-triangle integral formula. Graph sizes are \(m=1,2,3,4\) and rates are \(1/2,1,2\). There are 12 coefficientwise distribution comparisons; the full test performs 95 grouped exact assertions, including normalization, means, finite variances, analytic difference identities and signs on each side of a crossover.
+## correctness
 
-All 95 grouped assertions passed in the packaged-code replay. The 12 labeled-state calculations reached 18, 162, 1458 and 13122 states, respectively, at triangle counts 1, 2, 3 and 4. The maximum example has nine graph vertices. The checker requires no external data and does not assume the critical finite generating function in its labeled-state recursion.
+PASS
 
-# Analytical scope and caveats
+Conditional on Exp(1) hub infectious duration T, U=e^{-lambda T} has Beta(1/lambda,1) law. Each triangle then contributes i.i.d. count 0,1,2 with p0=U^2, p1=2(U-U^2)/(1+lambda), p2=1-p0-p1; the within-triangle secondary-transmission avoidance factor is E(exp(-lambda E))=1/(1+lambda). Conditional strong law and CLT give g_lambda(U)=1-(U+lambda U^2)/(1+lambda) and its mixed-Gaussian fluctuations, while the star limit is 1-U. Independently expanded all moments E[U^k]=1/(1+k lambda) with SymPy: the exact finite variance difference equals -lambda^2 Q_m/[2m(1+lambda)^4(1+2lambda)^2(1+3lambda)(1+4lambda)], identically; Q_1=(2lambda+3)(3lambda+1)(4lambda+1)(lambda^2-2lambda-1). For m>=1 Q_m has signs +,+,-,-,-,-, hence one positive root; positive 1/m correction to D_infinity and D_{m+1}<D_m prove strict decreasing thresholds to unique positive root of P. The asserted joint CLT is stable mixture conditional on U, not a deterministic normal law.
 
-The infinite-family proof is in `RESULT.md`: it uses a conditional product law, finite beta moments, Descartes' rule of signs and an explicit positive finite-size correction to the limiting variance difference. Exact finite checks do not by themselves establish the all-size assertions. The conditional Gaussian theorem is proved analytically, not numerically certified. Independent mathematical validation has not been performed.
+## originality
+
+PASS
+
+Fransson–Trapman 2019 full open text (PMC6534529) studies clustered configuration-model random graphs under finite second degree moments and uses branching-process major-outbreak/expected-final-size approximations. A deterministic friendship hub has triangle degree m diverging with size and a non-degenerate shared-hub random limiting fraction, so their model and theorems do not dominate the submitted exact variance crossover. McCulloch–Roberts–Laing 2019 is a line of triangles rather than a shared-hub bouquet; only abstract and indexing details accessible, leaving a genuine residual possibility of an implicit general finite motif method. Resultary semantic search returned no earlier full statement of this all-m variance threshold.
+
+## value
+
+PASS
+
+This is a structurally motivated example where adding links improves expected spread but reverses finite-size risk variance at a unique explicit infection rate. The monotone m-dependent threshold and random shared-hub limit are exactly computable network epidemic risk measures that could be reused when comparing clustering interventions; not merely a fixed-size arithmetic table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T17:52:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on Exp(1) hub infectious duration T, U=e^{-lambda T} has Beta(1/lambda,1) law. Each triangle then contributes i.i.d. count 0,1,2 with p0=U^2, p1=2(U-U^2)/(1+lambda), p2=1-p0-p1; the within-triangle secondary-transmission avoidance factor is E(exp(-lambda E))=1/(1+lambda). Conditional strong law and CLT give g_lambda(U)=1-(U+lambda U^2)/(1+lambda) and its mixed-Gaussian fluctuations, while the star limit is 1-U. Independently expanded all moments E[U^k]=1/(1+k lambda) with SymPy: the exact finite variance difference equals -lambda^2 Q_m/[2m(1+lambda)^4(1+2lambda)^2(1+3lambda)(1+4lambda)], identically; Q_1=(2lambda+3)(3lambda+1)(4lambda+1)(lambda^2-2lambda-1). For m>=1 Q_m has signs +,+,-,-,-,-, hence one positive root; positive 1/m correction to D_infinity and D_{m+1}<D_m prove strict decreasing thresholds to unique positive root of P. The asserted joint CLT is stable mixture conditional on U, not a deterministic normal law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fransson–Trapman PMC full text assumes finite E(Delta^2) and derives branching-process R0, major-outbreak probability and expected final size; a hub with Delta=m violates uniform bounded-degree hypotheses."
+        ],
+        "reasoning": "More general infectious-period distributions do not imply this singular friendship-graph limit or the exact m-dependent variance reversal. The possibly relevant McCulloch full text could not be read and remains a named priority risk.",
+        "searches": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC6534529/",
+          "https://doi.org/10.1016/j.mbs.2019.02.003",
+          "Resultary semantic search: friendship graph star SIR outbreak final size variance crossing triangle bouquet hub infectious lifetime"
+        ]
+      },
+      "checked_sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6534529/",
+        "https://doi.org/10.1016/j.mbs.2019.02.003",
+        "https://pubmed.ncbi.nlm.nih.gov/30844380/",
+        "SCOPE-Science/SCOPE2026 pinned RESULT.md and verify.py blob 07a72bf9118ee9a34e48f573f48381e860343461"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fransson–Trapman full article Sections 2–4 concern random CMC graph, branching-process outbreak probability/mean final size, no all-m friendship-star variance polynomial.",
+          "McCulloch line-of-triangles abstract/metadata is not enough for a full-document NOT_COVERING finding."
+        ],
+        "reasoning": "Source hypotheses and outputs do not imply the submitted deterministic hub mixture/strict variance reversal. The inaccessible plausible paper remains in checked sources and residual risks without automatic rejection.",
+        "searches": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC6534529/",
+          "https://doi.org/10.1016/j.mbs.2019.02.003",
+          "Resultary semantic search: friendship graph star SIR outbreak final size variance crossing triangle bouquet hub infectious lifetime"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hubs with m triangles are friendship/windmill graphs, not the serial line-of-triangles graph or bounded-degree random configuration-model limit.",
+          "The submission's Y_m is final infected LEAF fraction, not all-vertex final fraction or major outbreak probability."
+        ],
+        "reasoning": "Translating names and normalized fractions leaves a distinct high-degree shared-hub beta mixture and a finite-m variance threshold; similar clustered-SIR vocabulary alone is not equivalent.",
+        "searches": [
+          "Resultary semantic search: friendship graph star SIR outbreak final size variance crossing triangle bouquet hub infectious lifetime",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC6534529/",
+          "https://doi.org/10.1016/j.mbs.2019.02.003"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier full polynomial Q_m or monotone crossover-root table located; source paper reports line-of-triangles final-size pmf rather than a displayed friendship-versus-star threshold."
+        ],
+        "reasoning": "A general exact finite CTMC recipe could compute any fixed m but does not itself tabulate or imply a unique root for all m; absence from searched indices is not proof of novelty.",
+        "searches": [
+          "Resultary semantic search: friendship graph star SIR outbreak final size variance crossing triangle bouquet hub infectious lifetime",
+          "Resultary hit 2026/11/8/SCOPE-a-sharp-size-dependent-outbreak-variance-reversal-under-triangle--9d5f9e8cb871",
+          "https://doi.org/10.1016/j.mbs.2019.02.003"
+        ]
+      },
+      "rationale": "Fransson–Trapman 2019 full open text (PMC6534529) studies clustered configuration-model random graphs under finite second degree moments and uses branching-process major-outbreak/expected-final-size approximations. A deterministic friendship hub has triangle degree m diverging with size and a non-degenerate shared-hub random limiting fraction, so their model and theorems do not dominate the submitted exact variance crossover. McCulloch–Roberts–Laing 2019 is a line of triangles rather than a shared-hub bouquet; only abstract and indexing details accessible, leaving a genuine residual possibility of an implicit general finite motif method. Resultary semantic search returned no earlier full statement of this all-m variance threshold.",
+      "residual_risks": [
+        "McCulloch, Roberts and Laing (2019) closest primary full text inaccessible. Oxford institutional tool returned vpn_disconnected; human access needed to eliminate historical-priority risk, no bypass attempted.",
+        "Best-of-knowledge originality, not an external novelty certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING deterministic shared-hub finite-m variance threshold",
+          "evidence": "Degrees are drawn from a fixed distribution with finite second moment; principal theorems are R0/outbreak/mean, not friendship-graph variance law.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6534529/",
+          "material_read": "Read complete PMC full-text including construction and finite-second-moment conditions, Sections 2–4 branching reproduction/final-size analysis and discussion of dependence from shared infectious periods.",
+          "method": "PMC full HTML via web",
+          "title": "SIR epidemics and vaccination on random graphs with clustering",
+          "trigger": "Primary broad clustered SIR and major-outbreak limit"
+        },
+        {
+          "assessment": "UNRESOLVED ACCESS RISK; no whole-document negative claim",
+          "evidence": "2019 paper focuses on line of triangles; exact methods may contain relevant transferable formulas not inspected.",
+          "identifier_or_url": "https://doi.org/10.1016/j.mbs.2019.02.003",
+          "material_read": "Read abstract, journal/publisher and PubMed metadata. No full article obtained via lawful OA/preprint routes; authorized institutional retrieval returned vpn_disconnected.",
+          "method": "Public abstract/indexing and single authorized Oxford attempt",
+          "title": "Generalised probability mass function for the final epidemic size of an SIR model on a line of triangles network",
+          "trigger": "Closest motif-based finite outbreak PMF"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a structurally motivated example where adding links improves expected spread but reverses finite-size risk variance at a unique explicit infection rate. The monotone m-dependent threshold and random shared-hub limit are exactly computable network epidemic risk measures that could be reused when comparing clustering interventions; not merely a fixed-size arithmetic table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only Markovian homogeneous edge rate and Exp(1) recovery, initially infectious common hub.",
+    "Mean and variance over leaves only; m->infinity at fixed lambda, not a simultaneous scaling theorem."
+  ],
+  "schema_version": 1
+}
