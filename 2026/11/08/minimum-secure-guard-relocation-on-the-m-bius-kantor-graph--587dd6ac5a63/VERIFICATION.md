@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Finite verification
+# Independent mathematical audit
 
-The embedded `verify_gp.py` and `verify_incidence.py` run on independent combinatorial models, one given by generalized Petersen edges and one by the Levi-incidence relation. The incidence verifier checks a bijection carrying all twenty-four generalized Petersen edges to the incidence edges. The two implementations use different enumeration representations and independently establish that the exact secure-set counts are zero at sizes zero through six and 336 at size seven. Every single-vertex replacement is tested; both programs reproduce 1392 undirected jump edges, 528 slide edges, one connected jump component, and the exact 288-plus-twenty-four-pairs slide decomposition, degree distributions, and all component eccentricities.
+## correctness
 
-To reproduce, run `python3 verify_gp.py` and `python3 verify_incidence.py` in a directory containing the scripts; compare their standard output with `gp_output.txt` and `incidence_output.txt`. Computations are exhaustive for the stated sixteen-vertex universe, not proofs of analogous infinite-family statements. Bibliographic comparisons provide a qualified originality assessment, not an exhaustive historical-priority guarantee. External independent audit has not been performed.
+PASS
+
+Construct GP(8,3) by u_i-u_(i+1), u_i-v_i and v_i-v_(i+3), with 16 vertices and 24 edges. Test each subset S for domination and for each outside vertex v the existence of a selected adjacent defender u whose replacement gives ordinary domination. Exhaustive independent bitmask code over all subsets of sizes 0..7 returns none of size below seven and 336 size-seven secure dominating configurations. Exhaustively building secure-to-secure one-vertex jumps yields 1392 edges, one connected component, eccentricities 288 at seven and 48 at eight. Restricting to adjacent slides yields 528 edges, one 288-vertex component and 24 isolated K2 components, with degree and eccentricity histograms stated in the result. A second exact incidence-model verifier explicitly checks an isomorphism and agrees; no randomized inference is used.
+
+## originality
+
+PASS
+
+General secure domination papers develop algorithms or host-edge deletion stability, not the exact 336-configuration relocation graph of GP(8,3). The prior Möbius–Kantor zero-forcing reconfiguration theorem uses minimum ordinary zero-forcing sets (1704 size-six sets) rather than minimum secure dominating sets (336 size-seven sets), so no implication. Search did not reveal an equivalent secure-guard relocation classification; originality remains best-of-knowledge.
+
+## value
+
+PASS
+
+Exact minimum secure guard placements and their resource-preserving mobility are natural combinatorial protection invariants. The sharp separation between connected unrestricted relocation and 24 isolated slide pairs within a mostly mobile 288-state component is a motivated and complete finite phenomenon, useful in relocation model comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

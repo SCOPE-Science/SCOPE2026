@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T22:46:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Construct GP(8,3) by u_i-u_(i+1), u_i-v_i and v_i-v_(i+3), with 16 vertices and 24 edges. Test each subset S for domination and for each outside vertex v the existence of a selected adjacent defender u whose replacement gives ordinary domination. Exhaustive independent bitmask code over all subsets of sizes 0..7 returns none of size below seven and 336 size-seven secure dominating configurations. Exhaustively building secure-to-secure one-vertex jumps yields 1392 edges, one connected component, eccentricities 288 at seven and 48 at eight. Restricting to adjacent slides yields 528 edges, one 288-vertex component and 24 isolated K2 components, with degree and eccentricity histograms stated in the result. A second exact incidence-model verifier explicitly checks an isomorphism and agrees; no randomized inference is used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burger et al. algorithms establish general secure-domination detection, and edge-stability modifies the host graph, not guard positions. Prior zero forcing concerns another property."
+        ],
+        "reasoning": "The general theory does not imply these sharp GP(8,3) optimum counts or component structure without additional enumeration.",
+        "searches": [
+          "secure dominating sets Mobius Kantor GP(8,3) secure domination reconfiguration token jumping sliding",
+          "Two Algorithms for Secure Graph Domination 2013",
+          "Edge stability in secure graph domination 2015",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-token-jumping-versus-token-sliding-dichotomy-for-minimum--9228c57633d9/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-token-jumping-versus-token-sliding-dichotomy-for-minimum--9228c57633d9/RESULT.md",
+        "https://combinatorialpress.com/jcmcc-articles/volume-085/two-algorithms-for-secure-graph-domination/",
+        "https://dmtcs.episciences.org/en/articles/2120",
+        "https://arxiv.org/abs/1401.5714"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior minimum zero-forcing theorem checks each six-set using forcing closure, not each secure seven-set using replacement defense; present exhaustive secure predicate and component BFS independently reconstructed."
+        ],
+        "reasoning": "Neither a stronger identical-predicate theorem nor a valid reduction from the prior code counts to secure relocation graphs was established.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-token-jumping-versus-token-sliding-dichotomy-for-minimum--9228c57633d9/RESULT.md",
+          "secure dominating sets Mobius Kantor GP(8,3) secure domination reconfiguration token jumping sliding",
+          "Möbius Kantor GP(8,3) secure domination gamma_s count token sliding graph"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior Möbius–Kantor configuration space has 1704 minimum zero forcing six-subsets and no legal slides, whereas present minimum secure domination configurations number 336 and have 528 slides."
+        ],
+        "reasoning": "The same graph and token-operation language do not equate secure domination with zero forcing or their configuration graphs.",
+        "searches": [
+          "secure dominating sets Mobius Kantor GP(8,3) secure domination reconfiguration token jumping sliding",
+          "Möbius Kantor GP(8,3) secure domination gamma_s count token sliding graph",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-token-jumping-versus-token-sliding-dichotomy-for-minimum--9228c57633d9/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No secure-domination 336-set/1392-jump/528-slide table found in checked archive. Existing exact result for same graph instead counts 1704 zero forcing sets."
+        ],
+        "reasoning": "Existing tables of a different invariant cannot be substituted for the submitted 336-state secure-domination census.",
+        "searches": [
+          "Möbius Kantor GP(8,3) secure domination gamma_s count token sliding graph",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-token-jumping-versus-token-sliding-dichotomy-for-minimum--9228c57633d9/RESULT.md"
+        ]
+      },
+      "rationale": "General secure domination papers develop algorithms or host-edge deletion stability, not the exact 336-configuration relocation graph of GP(8,3). The prior Möbius–Kantor zero-forcing reconfiguration theorem uses minimum ordinary zero-forcing sets (1704 size-six sets) rather than minimum secure dominating sets (336 size-seven sets), so no implication. Search did not reveal an equivalent secure-guard relocation classification; originality remains best-of-knowledge.",
+      "residual_risks": [
+        "Specialized unindexed computations on the 8_3 Levi configuration could already enumerate secure guard relocations; only the indexed abstract of some general primary papers was accessible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different zero forcing property; 1704 six-sets, jumps connected diameter six, slides edgeless.",
+          "evidence": "Prior proof explicitly uses ordinary blue-to-white force and tests 1704 six-subsets.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-a-sharp-token-jumping-versus-token-sliding-dichotomy-for-minimum--9228c57633d9/RESULT.md",
+          "material_read": "Complete RESULT.md: definitions, enumeration, exhaustive connectivity and proof",
+          "method": "Read GitHub raw primary full text",
+          "title": "A sharp token-jumping versus token-sliding dichotomy for minimum zero forcing in the Möbius–Kantor graph",
+          "trigger": "Same 16-vertex GP(8,3) and same token-jumping/sliding comparison"
+        },
+        {
+          "assessment": "General secure domination methodology; no matching 336-state reconfiguration statement in material read.",
+          "evidence": "2013 algorithmic treatment, not a fixed GP(8,3) enumeration.",
+          "identifier_or_url": "https://combinatorialpress.com/jcmcc-articles/volume-085/two-algorithms-for-secure-graph-domination/",
+          "material_read": "Accessible indexed abstract and bibliographic metadata (not full article)",
+          "method": "Publisher primary abstract",
+          "title": "Two Algorithms for Secure Graph Domination",
+          "trigger": "Primary secure domination algorithms and defender quantifiers"
+        },
+        {
+          "assessment": "Study of host-edge deletion stability rather than guard jumps/slides.",
+          "evidence": "2015 edge-stability concerns graph modification rather than set-exchange state graph.",
+          "identifier_or_url": "https://dmtcs.episciences.org/en/articles/2120",
+          "material_read": "Accessible abstract and source metadata (not full paper)",
+          "method": "Open publisher abstract",
+          "title": "Edge stability in secure graph domination",
+          "trigger": "Same security concept but potential stronger graph-theoretic coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact minimum secure guard placements and their resource-preserving mobility are natural combinatorial protection invariants. The sharp separation between connected unrestricted relocation and 24 isolated slide pairs within a mostly mobile 288-state component is a motivated and complete finite phenomenon, useful in relocation model comparisons.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specialized unindexed computations on the 8_3 Levi configuration could already enumerate secure guard relocations; only the indexed abstract of some general primary papers was accessible.",
+    "The complete finite verifier proof establishes only its specified finite graph or tested parameter instances; unrestricted claims rest on mathematical arguments.",
+    "No external expert or Lean attestation was newly performed; original evidentiary channels remain unchanged."
+  ],
+  "schema_version": 1
+}
