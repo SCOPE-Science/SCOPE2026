@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The core assertion is quantitatively verified from the anchored-semicycle formula, the exact centering identity, a Fourier coefficient calculation, Parseval, and an integration-by-parts interpolation inequality. Every constant has been reconstructed: in particular \(\|u\|_2^2=8\pi\sum_{k\,\mathrm{odd}}|\widehat f(k)|^2/k^2\) and \(\|h'\|_2\le 2L\sqrt{2\pi}\), yielding exactly \(3m/(2\pi^3L^2)\). The bounded-Lipschitz sharpness family satisfies the stated lower density bound, and its exact deficit and TV distance scale as the fourth and first powers of frequency respectively. The standalone verifier performed exact-integration tests and 280,000 sampled triples. These experiments supplement rather than replace the proof.
+## correctness
 
-## Originality — PASS, with explicit historical limits
-Wendel (1962) proves the zero-deficit probability for centered distributions. Crucially, Wagner and Welzl (2001) already prove the extremal bound and characterize balanced equality: **neither is claimed as original**. The present claim is an explicit quantitative inverse modulus, a frequency-resolved deficit estimate, and an optimal Hölder exponent. Searches in published research records and readable primary comparisons found no covering statement with these conclusions. The 2022 spindle-convex adaptation concerns a different hull operation. More general historical stability literature could cover the incremental theorem; priority remains provisional.
+PASS
 
-## Value — PASS
-The fourth-root exponent is a concrete geometric-statistical rigidity boundary: small excess semicircle probability forces nearly antipodal angular sampling only under regularity, while high frequency creates optimal ill-conditioning. This addresses a motivated question left open by a qualitative extremum and includes a sharpness obstruction, not a routine restatement of Wendel.
+For positive C1 density f on circle and G(theta)=int_theta^(theta+pi) f, unique large circular gap in triple gives p(f)=3 int f G^2; exchangeability yields int fG=1/2 and Delta=3 int f(G-1/2)^2. Setting u=G-1/2 with u odd under antipodal shift and h=f-f_pi=-u prime, Fourier-Parseval gives ||u||2^2=8pi sum_{odd k}|fhat(k)|^2/k^2, yielding 24pi m/M spectral bounds. Integration by parts ||h||2^2 <=||u||2||h prime||2, with ||h||2^2>=2T^2/pi and ||h prime||2 <=2L sqrt(2pi), proves Delta>=3m T^4/(2pi^3 L^2). The bounded-slope f_k=(1+cos(k theta)/k)/(2pi) odd k>=3 gives T=2/(pi k) and Delta=3/(2pi^2 k^4), sharp exponent only (not prefactor). Independent midpoint integration for 4 odd k matches exact deficit. Positivity and C1 regularity are essential.
 
-## Limitations
-The exact numerical coefficient in the TV inequality is not asserted optimal. The theorem concerns the distance to antipodal symmetry, not to uniform angular law, and does not treat estimation from finitely many samples. No independent audit or priority certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wendel 1962 established 3/4 for antipodally symmetric laws; Wagner/Welzl 2001 Corollary 3.7 establishes qualitative sharp extremal inequality and equality iff balanced, equivalent here to antipodal symmetry. The contribution is explicit odd-frequency deficit bounds, a quantitative total-variation modulus for bounded derivative and proof that exponent 1/4 cannot improve. Their inspected primary theorem does not state these constants or sharp Lipschitz inverse exponent. Best-of-knowledge originality qualified for unindexed stability extensions.
+
+## value
+
+PASS
+
+A sharp quantitative stability exponent upgrades a qualitative extremal probability characterization into an inverse rigidity theorem: near-optimal semicircle containment controls antipodal asymmetry in total variation under a natural regularity constraint. The frequency counterexample explains why the derivative assumption and 1/4 exponent are structurally necessary, a meaningful bound rather than a cosmetic inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

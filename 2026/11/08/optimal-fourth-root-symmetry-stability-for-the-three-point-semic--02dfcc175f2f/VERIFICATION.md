@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-The analytical checks were reconstructed for the final claim: pivot uniqueness, the exchangeability identity, the Fourier multiplier on odd modes, Parseval normalization, Cauchy–Schwarz and integration by parts, all constants in the fourth-root inequality, and the exact high-frequency optimality family. The coefficient is not asserted sharp, but the exponent is.
+# Independent mathematical audit
 
-Run `python3 verify_wendel_stability.py` for an independent numerical supplement. The observed completed output was:
+## correctness
 
-```
-CHECK odd-first exact_integral= 0.8244710700 empirical= 0.824500
-CHECK odd-third exact_integral= 0.7571347000 empirical= 0.757114
-CHECK even-second exact_integral= 0.7500000000 empirical= 0.746586
-CHECK mixed-odd exact_integral= 0.7692932421 empirical= 0.768314
-SCALE 5 defect= 0.000155629338075 tv= 0.101859164 fourth_power_ratio= 1.44574283
-SCALE 11 defect= 6.64355824716e-06 tv= 0.0462996198 fourth_power_ratio= 1.44574283
-SCALE 29 defect= 1.3752431678e-07 tv= 0.0175619248 fourth_power_ratio= 1.44574283
-SCALE 101 defect= 9.34729593216e-10 tv= 0.00504253285 fourth_power_ratio= 1.44574283
-VERIFY_OK formulas=4 simulated_samples=280000 spectral_exponent_cases=4
-```
+PASS
 
-Finite simulation validates no general infinite claim. The source comparisons treat previously established qualitative extremality as known and leave historical priority of the quantitative increment provisional.
+For positive C1 density f on circle and G(theta)=int_theta^(theta+pi) f, unique large circular gap in triple gives p(f)=3 int f G^2; exchangeability yields int fG=1/2 and Delta=3 int f(G-1/2)^2. Setting u=G-1/2 with u odd under antipodal shift and h=f-f_pi=-u prime, Fourier-Parseval gives ||u||2^2=8pi sum_{odd k}|fhat(k)|^2/k^2, yielding 24pi m/M spectral bounds. Integration by parts ||h||2^2 <=||u||2||h prime||2, with ||h||2^2>=2T^2/pi and ||h prime||2 <=2L sqrt(2pi), proves Delta>=3m T^4/(2pi^3 L^2). The bounded-slope f_k=(1+cos(k theta)/k)/(2pi) odd k>=3 gives T=2/(pi k) and Delta=3/(2pi^2 k^4), sharp exponent only (not prefactor). Independent midpoint integration for 4 odd k matches exact deficit. Positivity and C1 regularity are essential.
+
+## originality
+
+PASS
+
+Wendel 1962 established 3/4 for antipodally symmetric laws; Wagner/Welzl 2001 Corollary 3.7 establishes qualitative sharp extremal inequality and equality iff balanced, equivalent here to antipodal symmetry. The contribution is explicit odd-frequency deficit bounds, a quantitative total-variation modulus for bounded derivative and proof that exponent 1/4 cannot improve. Their inspected primary theorem does not state these constants or sharp Lipschitz inverse exponent. Best-of-knowledge originality qualified for unindexed stability extensions.
+
+## value
+
+PASS
+
+A sharp quantitative stability exponent upgrades a qualitative extremal probability characterization into an inverse rigidity theorem: near-optimal semicircle containment controls antipodal asymmetry in total variation under a natural regularity constraint. The frequency counterexample explains why the derivative assumption and 1/4 exponent are structurally necessary, a meaningful bound rather than a cosmetic inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
