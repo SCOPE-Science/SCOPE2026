@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The exact colour-difference recursion has deterministic contraction \(r_n=2b\xi_n/T_n\) and a martingale difference with summable conditional variances. Harmonic divergence sends each fixed-start product to zero, and a monotone-weight summation-by-parts argument sends the convergent martingale series to zero. Harmonic convergence makes both the martingale and drift series converge. Strict conditional variance of a late Pólya draw, followed by the nonzero infinite product, proves nondegeneracy even after fixing every rule choice. Independent-rule equivalence follows from summability of the centered weighted Bernoulli series. The exact finite algebra was checked in 1,950 rational assertions. Remaining limits: enumeration cannot certify infinite-horizon martingale arguments; the proof itself supplies them.
+## correctness
 
-**Originality (O): PASS, with residual historical risk.** The most relevant 2025 and 2026 Pólya–Friedman works fix the mixing probability and do not imply the sharp classification under a varying probability sequence. The dynamic Friedman model of Gao–Aguech enforces a nonvanishing opposite drift, unlike the present vanishing-drift regime. The random-matrix model of Crimaldi–Louis–Minelli adds same-colour balls only. Semantic research-record searches using the exact object, vanishing opposite reinforcement, weighted summability, harmonic threshold, and conditional nondegeneracy did not identify an implication covering this statement. General stochastic-approximation formulations might subsume the technique, and priority requires external verification.
+PASS
 
-**Mathematical value (V): PASS.** The classification resolves a natural transition between the random Pólya limit and the deterministic Friedman limit when opposing reinforcement becomes arbitrarily rare. A density-zero sequence of opposing steps can still erase initial random composition; the criterion is sharp across all deterministic intervention schedules and all independent nonhomogeneous mixing probabilities, with a logarithmic transition at exponent one. The quenched nondegeneracy half is stronger than a mean-limit statement and distinguishes outcomes within identical asymptotic intervention frequency regimes. No general central limit theorem or distributional density is claimed.
+From T_n=T_0+n(a+b), the exact imbalance recursion is x_n=(1−2bξ_n/T_n)x_(n−1)+(a+b−2bξ_n)(η_n−x_(n−1))/T_n. Its last term is a bounded square-summable-variance martingale difference. Divergent sum ξ_n/n kills the product of contractions and weighted noise by summation by parts; finite weight leaves an absolutely summable drift and convergent martingale. At a late Pólya step, positive conditional draw variance propagates through a strictly positive remaining damping product, forcing Var(x∞|ξ)>0. For independent ξ_n, ∑(ξ_n−p_n)/n converges a.s. Exact finite rational examples from the inspected checker are consistent; infinite convergence rests on proof, not code.
 
-Closest literature: Alves–Rosales (2025), Shi–Yin–Miao (2026), Gao–Aguech (2023), and Crimaldi–Louis–Minelli (2021/2022), as cited in RESULT.md. Limitations include balanced additions, exogenous rules, no density characterization, and unresolved exhaustive historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete quenched necessary-and-sufficient criterion and finite-harmonic-weight nondegeneracy exceed the fixed-positive-p predecessor. A later weakly mixed urn result concerns distinct random-amplitude rescaling with nonbalanced totals and explicitly regards qualitative harmonic convergence as background, not a proof for every deterministic string. Best-of-knowledge priority remains subject to general stochastic-approximation literature.
+
+## value
+
+PASS
+
+A sharp condition separating extinction of urn memory from a genuinely random Pólya limit under arbitrarily rare opposite-colour updates, including a borderline logarithmic example, is a natural infinite-time phase diagram rather than a parameter restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

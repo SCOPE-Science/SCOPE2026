@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-Run `python3 check.py` (Python 3 standard library only). Expected output: `PASS: 1950 exact finite-horizon assertions; maximum 6 updates; rational masses and moments.`
+# Independent mathematical audit
 
-The checker independently enumerates all colour-draw histories for five parameter choices and 127 rule strings, checks exact total probability, the first and second moments, then sums over random-rule histories for 15 inhomogeneous schedules. Its rational arithmetic avoids rounding error. It does not numerically establish the infinite-horizon almost-sure claims. The proof's infinite-horizon ingredients are square-summable martingale differences, summation by parts, total variance, and the convergence of independent centered harmonic series.
+## correctness
 
-Limits: no external independent assessment of mathematical correctness or novelty; nondegenerate does not imply a density; no adaptive or unbalanced rules covered.
+PASS
+
+From T_n=T_0+n(a+b), the exact imbalance recursion is x_n=(1−2bξ_n/T_n)x_(n−1)+(a+b−2bξ_n)(η_n−x_(n−1))/T_n. Its last term is a bounded square-summable-variance martingale difference. Divergent sum ξ_n/n kills the product of contractions and weighted noise by summation by parts; finite weight leaves an absolutely summable drift and convergent martingale. At a late Pólya step, positive conditional draw variance propagates through a strictly positive remaining damping product, forcing Var(x∞|ξ)>0. For independent ξ_n, ∑(ξ_n−p_n)/n converges a.s. Exact finite rational examples from the inspected checker are consistent; infinite convergence rests on proof, not code.
+
+## originality
+
+PASS
+
+The complete quenched necessary-and-sufficient criterion and finite-harmonic-weight nondegeneracy exceed the fixed-positive-p predecessor. A later weakly mixed urn result concerns distinct random-amplitude rescaling with nonbalanced totals and explicitly regards qualitative harmonic convergence as background, not a proof for every deterministic string. Best-of-knowledge priority remains subject to general stochastic-approximation literature.
+
+## value
+
+PASS
+
+A sharp condition separating extinction of urn memory from a genuinely random Pólya limit under arbitrarily rare opposite-colour updates, including a borderline logarithmic example, is a natural infinite-time phase diagram rather than a parameter restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
