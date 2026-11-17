@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Exact probability count is independently reconstructed for a marked left and right vertex. Their joint event splits into shared-edge-present and shared-edge-absent cases, producing the displayed \(P_{n,k}\) and \(J_{n,k}\); all finite boundary values have the zero-binomial convention. An explicit falling-factorial product for \(J/P^2\) and uniform Taylor expansion through order \(n^{-3}\) give the sparse and critical-window limits. The separately runnable verifier performed 1,302 exact assertions, including independent enumeration of every binary matrix of order at most four. Enumeration is not treated as an all-size proof. At \(|x|=2/\sqrt3\) the theorem makes no finite-sign assertion.
+## correctness
 
-## Originality — PASS (historical-priority risk acknowledged)
-McKay and Skerman (arXiv:1302.2446, especially Theorem 1(c)) address the same fixed-edge bipartite model, but their general approximation requires density larger than the sparse scaling here and their reference model has independent two-sided degree sequences. It does not imply the signed covariance at order \(n^{-1}\). Palka (1984), *On the degrees of vertices in a bichromatic random graph*, is a close historical source; its full text was not accessible. Eicker, Siddiqui and Mielke (1972), *A matrix occupancy problem*, presents a further bibliographic risk. The originality assessment concerns the exact cross-count covariance **together with the sharp critical-window sign reversal** and is qualified by these access limits.
+PASS
 
-## Mathematical value — PASS
-Counts of degree-one vertices in each side of a bipartite graph are natural local structural diagnostics. The result identifies a sharp and counterintuitive dependence reversal caused by fixed-size sampling: coarse sparse asymptotics are negative away from mean degree two, but a square-root-width window has positive covariance. Both a fully exact finite expression and a quantitatively sharp limiting boundary are supplied.
+PASS: Exact hypergeometric indicator decomposition yields P=n*C(n²-n,k-1)/C(n²,k) and J=[C((n-1)²,k-1)+(n-1)² C((n-1)²,k-2)]/C(n²,k), then Cov=n²(J-P²). Factorial cancellation gives the stated product for J/P². Uniform expansion at k=cn with c bounded positive yields log(J/P²)=-(c-2)²/(2n²)+a(c)/n³+O(n^-4) where a(2)=2/3. Thus Cov→-c²(c-2)² exp(-2c)/2; in k=2n+x sqrt n+o(sqrt n), nCov→e^-4(8/3-2x²), with boundary signs deliberately unspecified. Independently computed exact binomial moments for n=10,30,100,200 at k=2n; nCov≈0.0561333,0.0513003,0.0495763,0.0492085 approaching 8 e^-4/3≈0.048841.
 
-## Verification limits and closest literature
-The main exact enumeration and uniform asymptotics are proved in RESULT.md. The separate checker uses finite model enumeration only. The available full text of McKay and Skerman was compared by mathematical implication, not title. The inaccessible historical sources leave a specific priority risk. No claim of independent external validation or whole-distribution ordering is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: McKay–Skerman arXiv:1302.2446 treats general bipartite degree sequences with an acceptability hypothesis whose density condition fails for k=Theta(n). Their theorem does not determine the signed degree-one cross-part covariance or its fine critical-window correction. Prior Resultary exact covariance results count isolated (degree-zero) vertices, a different indicator with negative covariance, not the present degree-one sign reversal. Palka 1984 paper is a plausible historical source but only bibliographic material was accessible; Oxford authenticated source attempt returned vpn_disconnected, explicitly retained as priority risk rather than automatic O failure.
+
+## value
+
+PASS
+
+PASS: This exact natural joint degree-count statistic of fixed-edge bipartite graphs has a surprising sign reversal in a sharply specified sqrt(n) window around mean degree 2, invisible in the ordinary fixed-c limit. It resolves a meaningful dependence threshold distinct from marginal degree distributions or isolated-vertex covariances and gives a directly reusable asymptotic quantitative fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

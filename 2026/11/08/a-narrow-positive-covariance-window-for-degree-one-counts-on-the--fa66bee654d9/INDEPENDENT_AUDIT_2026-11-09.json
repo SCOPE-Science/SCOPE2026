@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T11:18:55.127512Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Exact hypergeometric indicator decomposition yields P=n*C(n²-n,k-1)/C(n²,k) and J=[C((n-1)²,k-1)+(n-1)² C((n-1)²,k-2)]/C(n²,k), then Cov=n²(J-P²). Factorial cancellation gives the stated product for J/P². Uniform expansion at k=cn with c bounded positive yields log(J/P²)=-(c-2)²/(2n²)+a(c)/n³+O(n^-4) where a(2)=2/3. Thus Cov→-c²(c-2)² exp(-2c)/2; in k=2n+x sqrt n+o(sqrt n), nCov→e^-4(8/3-2x²), with boundary signs deliberately unspecified. Independently computed exact binomial moments for n=10,30,100,200 at k=2n; nCov≈0.0561333,0.0513003,0.0495763,0.0492085 approaching 8 e^-4/3≈0.048841.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary 2026/10/25 isolation covariance result: degree ZERO, always negative in fixed-edge ensemble",
+          "McKay–Skerman density condition"
+        ],
+        "reasoning": "Prior fixed-edge isolation covariance cannot be substituted for degree-one covariance; the sign differs. Broader degree-sequence approximation regime excludes sparse k=O(n), so cannot dominate the critical 1/n covariance.",
+        "searches": [
+          "Resultary: fixed edge bipartite G(n,n,m) degree-one counts covariance sign window m=2n asymptotic",
+          "Resultary: isolation covariance reverses sign across three bipartite edge sampling ensembles",
+          "Resultary: exact cross part degree-one covariance fixed edge"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1302.2446",
+        "https://doi.org/10.1007/BF01850725",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-isolation-covariance-reverses-sign-across-three-bipartite-edge-s--1b1b6bf7f0df",
+        "original Git RESULT.md blob 5d571a016069f127ccdb46b20d3d030bc04c3629"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:1302.2446 Theorem1(c) requires acceptable density, violated by edge probability asymptotic c/n",
+          "Exact P,J hypergeometric expressions for chosen endpoints"
+        ],
+        "reasoning": "The previous general theorem cannot specialize to this sparse scaling, while the covariance calculation needs a third-order cancellation not implied by isolated-vertex moments. Palka is unresolved access risk, not decisive known coverage.",
+        "searches": [
+          "Resultary: fixed edge bipartite G(n,n,m) degree-one counts covariance sign window m=2n asymptotic",
+          "McKay Skerman 2013 acceptability k about n",
+          "Resultary: left right leaf covariance two edges per vertex"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "McKay–Skerman arXiv:1302.2446",
+          "Palka 1984 bibliographic item DOI:10.1007/BF01850725"
+        ],
+        "reasoning": "The model matches McKay–Skerman, but their theorem concerns degree-sequence approximations under more dense acceptability, and their statements do not yield the exact negative/positive fine correlation. Palka text remains inaccessible, leaving a stated risk not a disproved equivalence.",
+        "searches": [
+          "Resultary: fixed edge bipartite G(n,n,m) degree-one counts covariance sign window m=2n asymptotic",
+          "Resultary: fixed edge bipartite number of leaf vertices left right covariance positive at k=2n width sqrt n e^-4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing Resultary 2026/10/25 isolated counts and degree-zero tables",
+          "Palka 1984 abstract degree-count item"
+        ],
+        "reasoning": "No checked exact database or result tabulates the same degree-one mixed moment and sqrt(n) sign crossover. Small n checks are only evidence, not novelty proof.",
+        "searches": [
+          "Resultary: fixed edge bipartite G(n,n,m) degree-one counts covariance sign window m=2n asymptotic",
+          "Resultary: n Cov e^-4 8/3 degree one left right bipartite"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: McKay–Skerman arXiv:1302.2446 treats general bipartite degree sequences with an acceptability hypothesis whose density condition fails for k=Theta(n). Their theorem does not determine the signed degree-one cross-part covariance or its fine critical-window correction. Prior Resultary exact covariance results count isolated (degree-zero) vertices, a different indicator with negative covariance, not the present degree-one sign reversal. Palka 1984 paper is a plausible historical source but only bibliographic material was accessible; Oxford authenticated source attempt returned vpn_disconnected, explicitly retained as priority risk rather than automatic O failure.",
+      "residual_risks": [
+        "Palka 1984 same-topic article full text inaccessible; institutional Oxford attempt returned vpn_disconnected; this is an acknowledged novelty risk not automatic failure.",
+        "Critical boundary |x|=2/sqrt3 has zero limit, so finite-size sign there is unproved.",
+        "Fixed-edge distribution only; Bernoulli independent edge results cannot be silently substituted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING: dense acceptability condition violated for k~cn; no degree-one cross-part covariance critical window",
+          "evidence": [
+            "Theorem1(c) requires density min(p,1-p) at least order 1/log n; here p~c/n"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1302.2446",
+          "material_read": "Primary arXiv full text opened; Theorem1(c) acceptability hypothesis and its density constraints, including PDF page 10 (zero-index 9)",
+          "method": "arXiv lawful OA full text and page screenshot",
+          "title": "Degree sequences of random digraphs and bipartite graphs",
+          "trigger": "Direct same fixed-edge random bipartite model, possible stronger result"
+        },
+        {
+          "assessment": "INACCESSIBLE plausible earlier source; no whole-document noncoverage inference",
+          "evidence": [
+            "Z. Palka, Periodica Mathematica Hungarica 15 (1984) 121–126; DOI:10.1007/BF01850725"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01850725",
+          "material_read": "Bibliographic/abstract-level information only; arXiv and lawful OA attempted without available full text; authorized Oxford returned vpn_disconnected",
+          "method": "Primary title/abstract search and authenticated Oxford status (not full text)",
+          "title": "On the degrees of vertices in a bichromatic random graph",
+          "trigger": "Highly relevant older paper on bipartite degree counts"
+        },
+        {
+          "assessment": "DISTINCT invariant; cannot claim whole text noncoverage but direct theorem summary counts degree-zero instead of degree-one",
+          "evidence": [
+            "Fixed-edge isolation covariance tends -c² exp(-2c)/2, while current leaf covariance has extra (c-2)² factor"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-isolation-covariance-reverses-sign-across-three-bipartite-edge-s--1b1b6bf7f0df",
+          "material_read": "Published Resultary theorem summary and degree-zero covariance sign, not full RESULT.md",
+          "method": "Resultary search semantic summary only",
+          "title": "Isolation covariance reverses sign across three bipartite edge-sampling ensembles",
+          "trigger": "Same fixed-edge model but degree-zero statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: This exact natural joint degree-count statistic of fixed-edge bipartite graphs has a surprising sign reversal in a sharply specified sqrt(n) window around mean degree 2, invisible in the ordinary fixed-c limit. It resolves a meaningful dependence threshold distinct from marginal degree distributions or isolated-vertex covariances and gives a directly reusable asymptotic quantitative fact.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exact cross-class covariance for degree-one counts in the uniform fixed-k balanced bipartite graph and the sharp positive sqrt(n)-width critical window at k=2n.",
+  "limitations": [
+    "Palka 1984 same-topic article full text inaccessible; institutional Oxford attempt returned vpn_disconnected; this is an acknowledged novelty risk not automatic failure.",
+    "Critical boundary |x|=2/sqrt3 has zero limit, so finite-size sign there is unproved.",
+    "Fixed-edge distribution only; Bernoulli independent edge results cannot be silently substituted."
+  ],
+  "schema_version": 1
+}
