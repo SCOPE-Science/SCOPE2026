@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limitations
+# Independent mathematical audit
 
-The derivation uses a renewal sum of complete center-leaf-center excursions and an independent Poisson reset integral. For any positive Laplace argument, both sojourn transforms lie strictly between zero and one, so the geometric resolvent converges and the final probabilities are normalized. All derivatives are ordinary derivatives for positive parameters. The branch occupation derivative has the exact factor \(F_\nu\); its derivative sign and its endpoint limits guarantee the uniqueness assertion without a root-finder. The finite-memoryless limit \(\nu=1\) is affine, whereas the two-stage case yields \(\lambda_*=\sqrt{r(r+a)}-k\) precisely when it is positive.
+## correctness
 
-The standalone `verify_gamma_star.py` checker was executed with NumPy available and reported 384 passing deterministic assertions, including direct stationary-generator solutions for integer shapes one through four and sign/peak tests for noninteger shapes. This independently checks algebraic evaluations but cannot establish a theorem for all continuous gamma shape parameters. The proof above supplies that general conclusion.
+PASS
 
-Scientific limitations: resets must restart age and occur as an independent Poisson process; branch decisions are independent of sojourn lengths; both leaves have the same exponential return rate; all parameters are strictly positive. The novelty comparison has a residual literature-completeness risk and does not constitute independent verification.
+Reset renewal gives leaf occupancy p/h,(1-p)/h with h=[(1+(r/k)(1-p))^nu-v]/(1-v). Differentiation gives d2y/dx2=-h'' h^3/(h-ph')^3, hence sign opposite nu-1. F_nu(z)=v+(1+z)^(nu-1)((nu-1)z-1) is strictly increasing for nu>1 and has one root; for shape two the maximum condition is r(r+a)>k^2 at lambda=sqrt(r(r+a))-k. Independent four-integer-shape phase-expansion CTMC solve for 12 parameter cases reproduces reset-Laplace occupancy to 1e-12. Reconstructed noninteger-gamma Laplace renewal algebra and derivative sign monotonicity; finite CTMC cases do not establish real nu.
+
+## originality
+
+PASS
+
+Earlier Markov mutual-linearity and semi-Markov resetting work supply the general renewal transform; inspected relevant semi-Markov treatment does not classify this coupled gamma branch-rate perturbation by exact curvature sign or the one-peak threshold in a minimal three-state witness. Best-of-knowledge original specialized classification; specialized unindexed full coverage remains possible.
+
+## value
+
+PASS
+
+Minimal three-visible-state memory effects produce a sharp curvature and paradoxical competing-branch occupation boundary, a motivated structural exception to Markov linearity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

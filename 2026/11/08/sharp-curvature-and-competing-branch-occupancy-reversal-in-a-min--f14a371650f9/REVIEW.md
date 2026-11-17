@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The model specifies the gamma holding law, independent branching, exponential leaf returns and age-restarting Poisson resets for every positive parameter. The reset-renewal identity gives the exact three-state stationary distribution. Differentiating its one-dimensional parameterization proves the sign of graph curvature and the derivative of the competing leaf probability. The scalar derivative has one root exactly for superunit gamma shape, providing a global maximizer with a sharp shape-two threshold. An independent finite-state phase expansion reproduces the formula for integer shapes, alongside 384 deterministic assertions. The analytical argument, not the sampled computations, covers all positive real gamma shapes.
+## correctness
 
-**Originality — PASS (qualified).** The February and April 2026 Markov-network papers establish affine Markov responses; their premises exclude the genuinely nonexponential center holding law. The November 2026 semi-Markov paper proves general affine criteria and presents nonaffine numerical examples with a larger network, while also providing the reset-Laplace relation used here. It does not present the minimal three-state gamma curve, sign-rigid global curvature for every shape, or the sharp necessary-and-sufficient reversed-response threshold. The exact claim cannot be obtained by copying a previously stated threshold or classification; it requires evaluation and differentiation of the specialized reset resolvent. Residual risks include unindexed prior specializations and simple consequences not explicitly identified in broader response theory.
+PASS
 
-**Value — PASS.** A kinetic network in which increasing a route's own competing rate increases the occupancy of the other route is a physically diagnostic and seemingly paradoxical response. The theorem separates this regime sharply by a natural hazard-shape parameter, identifies a minimal state space, and supplies a closed-form experimental tuning threshold for the two-stage holding mechanism. These features distinguish the claim from a routine normalization check or arbitrary single-parameter computation.
+Reset renewal gives leaf occupancy p/h,(1-p)/h with h=[(1+(r/k)(1-p))^nu-v]/(1-v). Differentiation gives d2y/dx2=-h'' h^3/(h-ph')^3, hence sign opposite nu-1. F_nu(z)=v+(1+z)^(nu-1)((nu-1)z-1) is strictly increasing for nu>1 and has one root; for shape two the maximum condition is r(r+a)>k^2 at lambda=sqrt(r(r+a))-k. Independent four-integer-shape phase-expansion CTMC solve for 12 parameter cases reproduces reset-Laplace occupancy to 1e-12. Reconstructed noninteger-gamma Laplace renewal algebra and derivative sign monotonicity; finite CTMC cases do not establish real nu.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Earlier Markov mutual-linearity and semi-Markov resetting work supply the general renewal transform; inspected relevant semi-Markov treatment does not classify this coupled gamma branch-rate perturbation by exact curvature sign or the one-peak threshold in a minimal three-state witness. Best-of-knowledge original specialized classification; specialized unindexed full coverage remains possible.
+
+## value
+
+PASS
+
+Minimal three-visible-state memory effects produce a sharp curvature and paradoxical competing-branch occupation boundary, a motivated structural exception to Markov linearity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
