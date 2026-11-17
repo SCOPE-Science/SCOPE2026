@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The factorization \((f-g)(z)=(1-z)^2((p_0-q_0)+(p_3-q_3)z)\) is forced by normalization and equal means. Positive and monotone generating functions permit a strict order reversal only after the larger extinction iterate has passed the unique interior PGF crossing. Once the reversal occurs it cannot undo. For a supercritical law, \(g(c)>c\) is equivalent to the eventual extinction fixed point exceeding \(c\), which gives the necessity-and-sufficiency criterion. The explicit rational distributions have mean \(7/5\), first two differences negative, and third positive. The standalone checker reproduced these exact statements; the universal proof is analytic.
+PASS
 
-## Originality — PASS within inspected evidence; historical priority provisional
+Normalization and common mean imply f-g=(1-z)^2[a+bz] exactly. With degree≤2, constant-sign difference imposes monotone ordering of all PGF iterates; with degree3 an interior unique sign change at c=-a/b forces at most one chronological reversal. For p0<q0, monotonicity proves no reversal while g iterates ≤c; g(c)>c iff its supercritical extinction fixed point rg>c. Then f(rg)>rg implies rf>rg and eventual reversed order. The exact witness f=(4+6z+5z³)/15, g=(5+9z²+z³)/15 shares mean7/5, and independent Fraction compositions gave differences -1/15,-77/3375,+5919069959/3113912109375 for generations1–3. This is a universal algebraic comparison, not inferred from finite enumerations.
 
-The closest full-text studies inspected were Sawaya–Klaere (2014), Garcia-Millan–Font-Clos–Corral (arXiv 2014), and Bürger (2026). The first treats mean-matched eventual extinction via moment bounds, the second finite-generation scaling of a single law, and the third cubic-law bounds against a specially matched fractional-linear law. None of the inspected claims states the unrestricted equal-mean cubic one-switch classification with its sharp capacity-two obstruction and explicit test. Known PGF stochastic ordering itself is broader but requires a global pointwise order, absent from the counterexample. Older monotone-dynamics theory is a residual historical-priority risk; the same-model conclusion does not constitute independent validation.
+## originality
 
-## Value — PASS
+PASS
 
-Identical expected population size or reproductive fitness cannot reliably rank extinction risk over different planning horizons. The theorem provides a natural complete classification for the smallest bounded reproduction capacity where the rank can reverse, an exact criterion for the reversal, and a compact rational benchmark useful for testing finite-horizon population viability models.
+Earlier eventual-extinction and probability-convex-order inequalities do not settle finite-generation one-switch ranking of two freely chosen equal-mean cubic PGFs. Bürger’s 2026 special cubic-versus-fractional-linear iterates share an eventual fixed point and derivative and are not the present arbitrary same-mean cubic pair theorem; Resultary found related branching results but no direct implication. PASS with an explicit historical PGF-comparison risk.
 
-## Limitations and closest literature
+## value
 
-The result concerns independent time-homogeneous single-type branching, and it does not establish a one-switch law for offspring capacity four or more, density-dependent populations, or random environments. Historical literature may contain a stronger implicit single-crossing theorem. See the three directly linked sources and comparison details in `RESULT.md` and `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Pinpoints the smallest maximum offspring count at which identical expected population growth coexists with a finite-horizon extinction ranking reversal, with a complete one-switch criterion. The comparison is useful for evaluating risk across horizons in branching models, not just an arbitrary coefficient exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
