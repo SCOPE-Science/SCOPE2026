@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py`. This standalone Python 3 script uses standard-library decimal arithmetic to construct several irrational moduli at high precision, enumerate the first few thousand twofold floor-map terms, and compare direct membership against both the published twofold test and the new exceptional region. The tested cases include exact-square quadratic structures, a cubic algebraic modulus, and a transcendental modulus; it checks false-positive/false-negative counts, the complete branch identity, and the exact \(\sqrt[3]{3}\) counterexample at \(x=2\).
+## correctness
 
-The reported finite outputs are:
+PASS
 
-```
-DIRECT_RANGE_EQUIVALENCE_OK sqrt2 N= 6000 false_negatives= 0 false_positives= 0 density= 0.00000000 torus_prediction_if_independent= 0.03033009
-DIRECT_RANGE_EQUIVALENCE_OK sqrt6 N= 6000 false_negatives= 0 false_positives= 0 density= 0.00000000 torus_prediction_if_independent= 0.00000000
-DIRECT_RANGE_EQUIVALENCE_OK cuberoot3 N= 16000 false_negatives= 348 false_positives= 0 density= 0.02175000 torus_prediction_if_independent= 0.02186067
-DIRECT_RANGE_EQUIVALENCE_OK pi_over_2 N= 20000 false_negatives= 30 false_positives= 0 density= 0.00150000 torus_prediction_if_independent= 0.00137915
-DIRECT_RANGE_EQUIVALENCE_OK phi N= 6000 false_negatives= 0 false_positives= 0 density= 0.00000000 torus_prediction_if_independent= 0.00000000
-VERIFY_OK finite_only=True analytic_equidistribution_not_computationally_certified=True
-```
+For irrational alpha>1, the one-step inverse y=floor(x/alpha)+1 exists exactly if u={x/alpha}>1-1/alpha. The second inversion reduces to {v+(1-u)/alpha}>1-1/alpha with v={x/alpha²}. Since the unreduced argument lies in (0,2), its split at 1 gives exactly the stated C_alpha and disjoint E_alpha: 1-1/alpha<u<2-alpha and v>2-2/alpha+u/alpha. The triangular branch exists only if alpha<phi; its Lebesgue area is (1-alpha+1/alpha)^2/(2alpha), equal to natural density under rational independence by Kronecker–Weyl. For alpha=sqrt(2) restricted fractional orbit makes E empty. Direct finite independent decimal membership tests support but do not establish the infinite density.
 
-Finite enumeration does not certify any unrestricted statement, the natural density limit, or historical priority. The exact proof uses only unique inverse-floor arithmetic, the inequality \(\alpha^2-\alpha-1\ge0\), and classical torus equidistribution. The checker does not perform an independent mathematical audit.
+## originality
+
+PASS
+
+Best-of-knowledge original under actual inspected statements; significant access or historical-priority risks are explicitly retained.
+
+## value
+
+PASS
+
+The first nontrivial iterated Beatty range predicate has a sharp golden-ratio parameter cutoff, explicit omitted region and an exact generic natural density, answering a natural lower-parameter question without claiming higher iterates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
