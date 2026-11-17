@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For all m>=3 and 1<=r<=m, the open-neighbor threshold maps are reduced exactly by parity to homogeneous-or-complement cases. The proof lists and excludes all two-phase alternatives, checks fixedness and boundary r=m, proves no higher periods using strict monotonicity of a symmetric sign-bilinear energy, and proves the unique predecessor for each primitive-two phase. Direct exhaustiveness: 117 graphs, 1,834,992 labelled configurations; independent weighted counts: 1,827 graph parameters. Those finite checks corroborate but do not replace the infinite proof. Residual risk: mathematical case-split mistakes require independent verification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Full text arXiv:1508.03519v1, sections 1 and 3.2: graph-module arguments yield voting-time upper bounds, not exact primitive two-cycle populations.",
+        "Goles–Olivos (1980) abstract states eventual periods at most two for symmetric threshold maps; no explicit one-exceptional-vertex census is present in accessible bibliographic text.",
+        "published-finding corpus source on complete split graphs (55b0aad1285f) treats K_c joined to an independent set, where an independent vertex is adjacent to every clique vertex; it does not parameterize partial attachment r."
+      ],
+      "reasoning": "The general theorem gives possible periods but has no stated counting relation. General module reduction and voting-time estimates do not imply a precise binomial count of labelled periodic configurations or unique preimages. The complete split graph r=m and leaf r=1 endpoints are included as known boundary cases, not novelty claims.",
+      "searches": [
+        "published-finding corpus: synchronous majority on graph Cartesian product cycles fixed points and two cycles",
+        "published-finding corpus: synchronous majority dynamics a complete graph with one low-degree vertex attached to a subset of clique, exact fixed points two cycles",
+        "published-finding corpus: near complete graph complement a star majority dynamics exact orbit count",
+        "Web: \"clique\" \"vertex\" \"degree\" \"majority dynamics\" \"two-cycles\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1405.2486v1, PDF introduction and main theorems",
+      "arxiv:1508.03519v1, PDF introduction and section 3.2",
+      "public research record 6ca03ef32ff2, complete RESULT.md",
+      "doi:10.1016/0012-365X(80)90121-1, abstract only",
+      "OEIS A000984, definition and terms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Source 6ca03ef32ff2: exact r=1 parity switch and transient census, not a varying-degree interpolation; the even-clique r=1 formula coincides.",
+        "Source arxiv:1405.2486v1 introduction attributes the general period-two result to Goles–Olivos and studies random/unimodular graphs.",
+        "Source arxiv:1508.03519v1 theorem 1.2 and section 3.2 establish general upper bounds on voting time by module contraction, not orbit enumeration."
+      ],
+      "reasoning": "The prior r=1 formula is a strict special case; r=m corresponds to elementary complete-graph balanced oscillations. Neither endpoint nor the general period restriction determines the counts at 2<=r<=m-1 or the sudden r=m-1 spike. A full census for all intermediate degrees would dominate the new statement, but none was identified in the checked material. Historical exclusion remains qualified.",
+      "searches": [
+        "published-finding corpus result 2026/11/1/SCOPE-a-central-binomial-parity-switch-in-majority-dynamics-on-a-cliqu--6ca03ef32ff2 (RESULT.md full text)",
+        "arxiv:1405.2486v1 full text",
+        "arxiv:1508.03519v1 full text",
+        "doi:10.1016/0012-365X(80)90121-1 bibliographic abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Published note 6ca03ef32ff2 gives the one-pendant-leaf (r=1) specialization; its full RESULT.md explicitly restricts to a single leaf.",
+        "Full text arXiv:1405.2486v1, sec. 1 and theorems 1-3: finite-graph period-two principle, and random/unimodular graph questions, not this one-vertex parameter census."
+      ],
+      "reasoning": "The complement-star and one-vertex clique-extension descriptions are graph-isomorphic to the stated family, so they were queried directly. The known leaf case covers a proper r=1 slice, whereas intermediate r and the odd near-completion transition require additional case splits; it cannot logically determine every r.",
+      "searches": [
+        "published-finding corpus: quasiclique one deficient vertex adjacent to r of m clique vertices exact synchronous majority two cycles parity threshold binomial",
+        "published-finding corpus: graph K_m plus single vertex degree r partial universal vertex one vertex extension majority synchronous fixed points periods",
+        "Web: \"complete graph\" \"one additional vertex\" \"majority dynamics\" oscillations",
+        "Web: \"near-clique\" \"majority\" \"2-cycle\" synchronous"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A000984 is the familiar central-binomial number sequence; the numeric coefficients at r=m-1 are therefore not new sequences.",
+        "published-finding corpus top hits concern one-leaf dynamics, complete split graphs, different near-complete graph complements or nonmajority update rules; no exact (m,r)-indexed orbit table for this graph was located."
+      ],
+      "reasoning": "Prior tabulation of central-binomial coefficients does not specify their role as the excess primitive orbit count at a single missing edge, nor establish the all-degree formula or isolation. Novelty rests on the graph-dynamical interpretation and full parameter dependence, not novelty of the binomial sequence itself.",
+      "searches": [
+        "published-finding corpus: exact two cycle spectrum for clique with one low-degree vertex K_m plus degree-r new node",
+        "published-finding corpus: co-near complete graph complement of a star synchronous binary threshold dynamics majority orbit counts",
+        "Web: OEIS central binomial coefficients A000984 1 2 6 20 70"
+      ]
+    },
+    "rationale": "The exact two-parameter oscillation count and orbit isolation for all intermediate added-vertex degrees were not implied by inspected prior literature. A public previous one-leaf theorem covers r=1 and classical complete-graph dynamics covers r=m; both are explicitly acknowledged. Full texts of closest broad works concern random-graph consensus or voting-time bounds. The general Goles–Olivos period-two theorem does not enumerate orbits. Residual historical priority uncertainty persists because the original 1980 full text was unavailable.",
+    "residual_risks": [
+      "Unindexed earlier results may have independently derived the same all-degree formula.",
+      "The original Goles–Olivos 1980 article could not be fully accessed; only its abstract and later citations were available.",
+      "The r=1 leaf case and r=m complete-graph endpoint are already covered; their known special cases are not asserted independently original."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the r=1 specialization only; neither varying added-vertex degree nor odd near-completion exception is claimed",
+        "evidence": "Graph is clique of size r+1 with one pendant leaf; the theorem fixes the leaf degree at one and explicitly excludes arbitrary attached structures.",
+        "identifier_or_url": "public research record 6ca03ef32ff2",
+        "material_read": "Complete RESULT.md, including theorem, scope, proof and prior-work discussion",
+        "method": "Read authorized public repository file",
+        "title": "A central-binomial parity switch in majority dynamics on a clique with one leaf",
+        "trigger": "Exact overlapping r=1 boundary case"
+      },
+      {
+        "assessment": "Does not cover exact partially attached clique orbit counts in inspected material",
+        "evidence": "Theorem 1.1 states eventual period at most two for finite graphs; later statements address random and unimodular graphs.",
+        "identifier_or_url": "arxiv:1405.2486v1; https://arxiv.org/pdf/1405.2486",
+        "material_read": "PDF introduction, Theorem 1.1, statements of main theorems, and searchable complete PDF for clique/complete-graph occurrence",
+        "method": "Primary open-access PDF text plus page-2 screenshot",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Identical open-neighbor synchronous majority convention and foundational period-two reference"
+      },
+      {
+        "assessment": "Deals with convergence time bounds, not the same primitive two-cycle enumeration",
+        "evidence": "Section 3.2 contracts clique modules to bound voting time without an exact labelled orbit-counting formula.",
+        "identifier_or_url": "arxiv:1508.03519v1; https://arxiv.org/pdf/1508.03519",
+        "material_read": "PDF abstract, introduction, Theorems 1.1-1.2, section 3.2 and its module argument",
+        "method": "Primary open-access PDF text plus page-2 screenshot",
+        "title": "On the Voting Time of the Deterministic Majority Process",
+        "trigger": "Clique-like graph modules could yield a dominating result"
+      },
+      {
+        "assessment": "General period-two conclusion known; original full text not inspected, therefore no whole-document exclusion claim",
+        "evidence": "Accessible abstract describes convergence to fixed points or periods two for symmetric threshold maps.",
+        "identifier_or_url": "doi:10.1016/0012-365X(80)90121-1",
+        "material_read": "Bibliographic abstract and journal record; complete original unavailable",
+        "method": "Searched lawful preprint/open access, checked publication abstract, institutional retrieval unavailable",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Foundational result cited as the strongest general threshold statement"
+      },
+      {
+        "assessment": "The numerical binomial sequence is classical, but does not contain the graph dynamics statement",
+        "evidence": "A000984 defines binomial(2*n,n) and lists 1,2,6,20,70,... without the changing-degree graph setting.",
+        "identifier_or_url": "https://oeis.org/A000984",
+        "material_read": "Definition and listed terms",
+        "method": "Public integer sequence entry",
+        "title": "OEIS A000984: central binomial coefficients",
+        "trigger": "Check whether the exceptional coefficient is an already-tabulated exact integer sequence"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d6ede3b6-699b-44a1-8b1c-bb014ddb97f8",
+  "value": {
+    "rationale": "A natural one-vertex extension of a clique has a complete all-degree invariant with a sharp even-order extinction threshold, odd-order onset and a central-binomial near-completion jump, plus full exclusion of transient attraction to every oscillation. It explains response to successive single-edge additions across an infinite graph family, unlike a table of small samples or a merely relabelled leaf special case. No generalized transient-time law is claimed.",
+    "status": "PASS"
+  }
+}
