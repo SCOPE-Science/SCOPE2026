@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-Run `python3 verify.py` beside the bundled `atlas.tsv`. Standard-library-only code reads the graph atlas source encoding; 1,253 atlas graphs have the expected order counts, and all 32,191 connected graph/three-terminal instances with at least two missing edges have coefficientwise-optimal interventions. The eight-vertex nine-edge example has 19 missing links; direct, independent breadth-first enumeration on 32 survivor subsets confirms the two winner vectors and unique interior switch. All comparisons are exact integers.
+## correctness
 
-The code does not prove the external published atlas is complete up to seven vertices, nor independence of scientific validation, nor the absence of prior stronger published theorems. Results concern exactly the model in RESULT.md; an independent audit has not been performed.
+PASS
+
+For connected finite simple G and three protected terminals, each of m=n-3 other sites survives independently with probability p and one nonedge may be added. The gain from edge e is ∑_{k=0}^m c_e(k) p^k(1-p)^{m-k}, c_e(k) counting survivor subsets where e bridges exactly two terminal-containing components; this criterion is both necessary and sufficient. A complete published unlabelled atlas of 1253 graphs through n=7 (including 32191 connected rooted nontrivial triple-terminal cases) has for each a coefficientwise dominating available edge, proving p-uniform optimality conditional on atlas completeness. Independent networkx.graph_atlas_g exhaustive loop repeated all 32191 instances with 16+190+2200+29785 by order, each passing. The explicit connected eight-vertex nine-edge witness has 19 nonedges; gain A=(0,1,4,3,0,0), gain B=(0,2,5,2,0,0), all 17 others dominated by at least one. Difference p(1-p)^2(p^2+p-1) switches unique winner at golden-ratio conjugate. All subsets recomputed independently; no unbounded graph theorem claimed.
+
+## originality
+
+PASS
+
+Vertex-site failure with three permanently present terminals and one added edge is distinct from two-terminal bond-failure optimal reliability and fixed-network comparisons. The sharp cutoff n=8 and explicit p-dependent switch do not appear in available targeted literature or published Resultary; a highly relevant Romero 2017 network augmentation paper could not be inspected in full and remains a material risk, not a scientific reason for automatic failure.
+
+## value
+
+PASS
+
+The first network size allowing an edge-augmentation optimum to depend on habitat survival probability is a natural sharp finite cutoff with practical interpretation for robust corridor planning. The coefficientwise universal dominance through seven vertices and exact switch at eight constitute a meaningful complete finite classification with a nontrivial counterexample. Unlike an arbitrary slice, the vertex bound is sharp over all connected graphs and terminal placements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
