@@ -2,99 +2,92 @@
 
 ## Finding
 
-There is an exact two-phase formula for the globally optimal fixed iid coordinate sampling of a natural sparse positive-definite family whose off-diagonal correlations form triangles sharing a hub. Fix an integer \(m\ge2\), put \(q=2m\), and fix real parameters \(0<s<1\) and \(t>0\) satisfying \(qt^2<1+s\). Form the \((q+1)\)-by-\((q+1)\) symmetric matrix \(C\) with diagonal \(1\), hub-to-leaf entries \(t\), within-pair leaf entries \(s\), and all other entries zero. More explicitly, label the hub by \(0\), pair leaves \(2j-1,2j\) for \(1\le j\le m\), and let \(C_{0i}=t\) for all leaves and \(C_{2j-1,2j}=s\). The assumptions make \(C\) strictly positive definite.
+Let \(m\ge2\), \(q=2m\), \(0<s<1\), \(t>0\), and \(qt^2<1+s\). Consider the \((q+1)\times(q+1)\) real symmetric matrix \(C\) indexed by a hub \(0\) and \(m\) disjoint leaf pairs: its diagonal entries are one, every hub–leaf entry equals \(t\), the two distinct entries in each leaf pair have correlation \(s\), and all other leaf–leaf entries are zero. It is positive definite in exactly the specified parameter domain.
 
-For the strictly convex quadratic \(f(z)=\tfrac12 z^TCz-b^Tz\), an exact coordinate-descent step samples \(i\) with fixed probability \(p_i\), independently of earlier steps, and sets \(z^+=z-(Cz-b)_i e_i\). Its sharp worst-case one-step expected squared \(C\)-energy contraction decrement is
+For the strictly convex quadratic \(f(z)=\tfrac12z^{\mathsf T}Cz-b^{\mathsf T}z\), select one coordinate \(i\) independently at each step with a fixed probability \(p_i\), and perform the exact update \(z^+=z-(Cz-b)_i e_i\). The sharp worst-direction one-step expected *squared \(C\)-energy decrement* is
 \[
-\rho(p)=\lambda_{\min}\bigl(C^{1/2}\operatorname{Diag}(p)C^{1/2}\bigr).
+\rho(p)=\lambda_{\min}\!\left(C^{1/2}\operatorname{Diag}(p)C^{1/2}\right).
 \]
-Define \(c=1+s\), \(r=qt^2\), and the phase boundary
+Write \(c=1+s\), \(r=qt^2\), and \(s_0=(t+r)/(2+t)\). A globally optimal probability vector can always be chosen with hub mass \(x_*\) and a common mass \(y_*\) at each leaf. The exact maximum over **all** probability vectors, including nonsymmetric distributions, is:
 \[
-s_0=\frac{t+qt^2}{2+t}=\frac{t+r}{2+t}.
+\begin{array}{c|c|c}
+& 0<s\le s_0 & s_0<s<1\\ \hline
+D & D_R=c+q+2qt & D_P=2s(1-s)+q(2s-r)\\[2pt]
+x_* & (c+qt)/D_R & 2s(1-s)/D_P\\[2pt]
+y_* & (1+t)/D_R & (2s-r)/D_P\\[2pt]
+\rho_* & (c-r)/D_R & (1-s)(2s-r)/D_P
+\end{array}
 \]
-Every parameter choice in the stated domain has an optimal sampler assigning a probability \(x_*\) to the hub and the same probability \(y_*\) to each leaf. The optimal decrement, including optimization over **all**, not necessarily symmetric, sampling distributions, is
-\[
-\boxed{\begin{aligned}
-\text{if }s\le s_0:\quad
-D_R&=c+q+2qt,\\
-x_*&=\frac{c+qt}{D_R},\qquad
- y_*=\frac{1+t}{D_R},\qquad
-\rho_* =\frac{c-r}{D_R};\\
-\text{if }s>s_0:\quad
-D_P&=2s(1-s)+q(2s-r),\\
-x_*&=\frac{2s(1-s)}{D_P},\qquad
- y_*=\frac{2s-r}{D_P},\qquad
-\rho_* =\frac{(1-s)(2s-r)}{D_P}.
-\end{aligned}}
-\]
-All denominators and displayed optimal probabilities are strictly positive. Both formulas agree at equality \(s=s_0\). The class-symmetric optimal sampler is unique. At \(s<s_0\), the radial two-dimensional eigenspace determines the sharp decrement; at \(s>s_0\), the leaf-pair antisymmetric modes and the radial mode meet at the optimum. The theorem does not assert uniqueness of all nonsymmetric optimizers.
-
-For instance, \(m=2\), \(s=1/2\), \(t=1/5\) gives \(x_*=25/193\), \(y_*=42/193\), and \(\rho_*=21/193\); uniform sampling gives only \(1/10\). The active-mode switch is an exact optimization phase transition rather than a numerical observation.
+The two branches coincide at \(s=s_0\); all applicable denominators and masses are positive. The class-symmetric optimum is unique, although uniqueness among nonsymmetric vectors is not asserted. The first regime is controlled by the smaller radial eigenvalue, while in the second the radial and within-pair antisymmetric constraints are simultaneously active. For \(m=2,s=1/2,t=1/5\), the optimum is \(x_*=25/193\), \(y_*=42/193\) and \(\rho_*=21/193\), exceeding the uniform-sampling decrement \(1/10\).
 
 ## Assumptions and scope
 
-All entries, parameters, and optimization variables are real. There are \(q+1=2m+1\) coordinates. The probability simplex includes its boundary. The update is exact, unaccelerated coordinate minimization on an SPD quadratic, with one index sampled iid from a fixed distribution. The objective is the sharp one-step conditional expectation bound for squared \(C\)-energy, equivalently twice the objective gap; it is not a statement about implementation time, finite-horizon adaptive scheduling, or other norms. The vector \(b\in\mathbb R^{q+1}\) is arbitrary and affects neither the optimum probabilities nor the decrement.
+Every real parameter is as above, the vector \(b\) is arbitrary, and each step changes exactly one coordinate. A probability distribution is fixed and sampled independently of earlier steps; the optimization is of the worst-case conditional *one-step* expected squared energy, equivalently twice the objective gap. It does not address adaptive, block, accelerated, finite-horizon or approximate coordinate updates, and does not claim runtime optimality. The probability simplex includes its boundary, but an optimal distribution is strictly positive.
 
 ## Proof
 
-**Step 1: positive definiteness and reduction of the contraction objective.** The leaf space splits orthogonally into antisymmetric vectors on each pair, of dimension \(m\), with eigenvalue \(\alpha=1-s\), and vectors constant on each pair with total leaf sum zero, of dimension \(m-1\), with eigenvalue \(c=1+s\). The remaining radial space, spanned by the hub unit vector and normalized all-leaf vector, has matrix
+**1. Spectrum and the exact descent objective.** The leaf space decomposes orthogonally into antisymmetric vectors on each pair (eigenvalue \(1-s>0\), multiplicity \(m\)) and vectors constant on each pair but having total leaf sum zero (eigenvalue \(c=1+s>0\), multiplicity \(m-1\)). The remaining normalized hub/all-leaf subspace has matrix
 \[
-\begin{pmatrix}1&\sqrt q\,t\\\sqrt q\,t&c\end{pmatrix}.
+B=\begin{pmatrix}1&\sqrt q\,t\\\sqrt q\,t&c\end{pmatrix},\qquad \det B=c-r>0.
 \]
-Its determinant is \(c-r>0\). Thus \(C\succ0\) exactly under the declared strict conditions. If \(e=z-C^{-1}b\), one coordinate step decreases \(\|e\|_C^2\) by \((Ce)_i^2\). Therefore its expectation is \(\|e\|_C^2-e^TC\operatorname{Diag}(p)Ce\). The sharp Rayleigh quotient gives precisely \(\rho(p)=\lambda_{\min}(C^{1/2}\operatorname{Diag}(p)C^{1/2})\).
-
-**Step 2: symmetry is globally lossless.** As a function of \(p\), the matrix inside the smallest eigenvalue is affine, hence \(\rho\) is concave. Permuting the \(m\) pairs and interchanging the two members of any pair preserves \(C\) and \(\rho\). Averaging any sampling vector over this finite automorphism group leaves the hub probability unchanged, makes every leaf probability identical, and by concavity cannot decrease \(\rho\). Thus the supremum over the full simplex is attained by a class-symmetric vector \((x,y,\ldots,y)\) with \(x+qy=1\); no unexamined asymmetry can yield a larger value.
-
-**Step 3: exact class-symmetric spectrum.** The smallest eigenvalue of \(C^{1/2}\operatorname{Diag}(p)C^{1/2}\) equals that of \(\operatorname{Diag}(\sqrt p)C\operatorname{Diag}(\sqrt p)\). For the symmetrical design its spectrum comprises \(\alpha y\) with multiplicity \(m\), \(cy\) with multiplicity \(m-1\), and two eigenvalues of
+This proves positive definiteness. Write \(e=z-C^{-1}b\). Since \(C_{ii}=1\), exact coordinate minimization reduces \(e^{\mathsf T}Ce\) by \((Ce)_i^2\). Averaging over the chosen coordinate gives
 \[
-R(x,y)=\begin{pmatrix}x&\sqrt{qrxy}\\\sqrt{qrxy}&cy\end{pmatrix}
-=\begin{pmatrix}x&qt\sqrt{xy}\\qt\sqrt{xy}&cy\end{pmatrix}.
+\mathbb E[\|e^+\|_C^2\mid e]=\|e\|_C^2-e^{\mathsf T}C\operatorname{Diag}(p)Ce,
 \]
-Because \(\alpha<c\), the sharp decrement is \(\min\{\alpha y,\lambda_-(R)\}\). The entry \(\sqrt{qrxy}=qt\sqrt{xy}\) follows from \(r=qt^2\). All identities hold continuously at simplex endpoints.
+so the least possible relative decrement over all nonzero \(e\) is precisely \(\rho(p)\).
 
-**Step 4: solve the radial-only maximization.** For a positive candidate rate \(\lambda\), rescale \(X=x/\lambda\), \(Y=y/\lambda\). The condition \(\lambda_-(R)\ge\lambda\) is
+**2. Global symmetry reduction.** The least eigenvalue is concave as a function of an affine symmetric matrix. Therefore \(\rho(p)\) is concave in the sampling probabilities. Permuting the \(m\) leaf pairs and interchanging their members preserves \(C\) and \(\rho\). Averaging any candidate sampler over this automorphism group cannot decrease its performance. Thus the unrestricted maximum is attained among \(p=(x,y,\ldots,y)\) with \(x+qy=1\) and \(x,y\ge0\). At either endpoint a coordinate has zero sampling probability, making the smallest eigenvalue zero; a strictly positive sampler has positive rate.
+
+**3. Correct radial matrix and the two active modes.** Nonzero eigenvalues of \(C^{1/2}\operatorname{Diag}(p)C^{1/2}\) are those of \(\operatorname{Diag}(\sqrt p)C\operatorname{Diag}(\sqrt p)\). For \(p=(x,y,\ldots,y)\), they are \((1-s)y\) with multiplicity \(m\), \(cy\) with multiplicity \(m-1\), and the two eigenvalues of the **correctly normalized** radial block
+\[
+R(x,y)=\begin{pmatrix}x&\sqrt{q}\,t\sqrt{xy}\\\sqrt{q}\,t\sqrt{xy}&cy\end{pmatrix}
+=\begin{pmatrix}x&\sqrt{rxy}\\\sqrt{rxy}&cy\end{pmatrix}.
+\]
+In particular the off-diagonal square is \(rxy\), **not** \(qrxy\). Because \(1-s<c\), the objective reduces to
+\[
+\min\{(1-s)y,\lambda_-(R(x,y))\}.
+\]
+This normalization is essential for the stated transition and is consistent with the actual full matrix \(C\).
+
+**4. Unconstrained radial optimum.** For a tentative positive rate \(\lambda\), write \(X=x/\lambda\), \(Y=y/\lambda\). The condition \(\lambda_-(R)\ge\lambda\) is exactly
 \[
 X\ge1,\quad cY\ge1,\quad (X-1)(cY-1)\ge rXY.
 \]
-Equivalently, for \(X>c/(c-r)\), one needs \(Y\ge (X-1)/((c-r)X-c)\). Since \(x+qy=1\), maximizing the radial eigenvalue amounts to minimizing the sharp total \(X+qY\). The derivative of its lower-bound curve is \(-r/((c-r)X-c)^2\), so the unique minimizer satisfies \((c-r)X-c=qt\). Hence
+For \(X>c/(c-r)\), its sharp lower boundary is \(Y=(X-1)/((c-r)X-c)\). Minimizing the total \(X+qY\) is equivalent to maximizing the radial eigenvalue under \(x+qy=1\). The derivative of the boundary is \(-r/((c-r)X-c)^2\); the unique stationary minimum has \((c-r)X-c=\sqrt{qr}=qt\), yielding
 \[
 X_R=\frac{c+qt}{c-r},\quad Y_R=\frac{1+t}{c-r},\quad
 \lambda_R=\frac{c-r}{c+q+2qt}.
 \]
-The unique radial-only optimizer is \((x_R,y_R)=(\lambda_RX_R,\lambda_RY_R)\). Its leaf-pair eigenvalue is no smaller than \(\lambda_R\) exactly when
+This radial optimum meets the additional pairwise condition \((1-s)y_R\ge\lambda_R\) exactly when
 \[
-(1-s)(1+t)\ge c-r\iff s\le\frac{t+r}{2+t}=s_0.
+(1-s)(1+t)\ge c-r\iff s\le s_0=(t+r)/(2+t).
 \]
-This proves the first regime and its uniqueness among class-symmetric designs.
+In this first regime the radial upper bound is attained, proving the asserted formula and uniqueness within the symmetric class.
 
-**Step 5: solve the pair-limited phase.** Suppose \(s>s_0\), so at the radial optimizer \(\alpha y_R<\lambda_R\). Since \(s>s_0\) and \(r<c<2\), we have \(2s>r\). At \(x=0\) the radial minimum is zero, whereas \(\alpha y>0\). The radial least eigenvalue, viewed as \(\lambda_{\min}(C_{\mathrm{rad}}^{1/2}\operatorname{Diag}(x,y)C_{\mathrm{rad}}^{1/2})\), is a concave function of \(x\). The unique radial maximizer is \(x_R\); consequently the radial value is strictly increasing from zero to its maximum on \([0,x_R]\). Meanwhile \(\alpha y=\alpha(1-x)/q\) strictly decreases. They therefore cross exactly once in \((0,x_R)\), and the minimum of the two increases before the crossing and decreases after it. At the crossing \(\lambda_-(R)=\alpha y\), and the determinant condition is
+**5. Pair-limited regime.** Now take \(s>s_0\). Then \(2s-r>0\), since \(s(2+t)>t+r\) implies \(2s-r>t(1-s)>0\). At the radial maximizer \(x_R\), the pair eigenvalue \((1-s)y_R\) is too small. On the feasible line \(y=(1-x)/q\), the least radial eigenvalue is a strictly concave function of \(x\): it is the minimum eigenvalue of the affine pencil \(B^{1/2}\operatorname{diag}(x,y)B^{1/2}\), and its explicit two-by-two expression has positive off-diagonal coupling. It increases strictly from zero at \(x=0\) up to its unique radial maximizer \(x_R\). The competing pair eigenvalue \((1-s)(1-x)/q\) decreases strictly. Consequently there is exactly one crossing in \((0,x_R)\), and the minimum of the two constraints increases before this crossing and decreases afterward. Equating the smaller radial eigenvalue to \((1-s)y\) gives the determinant identity
 \[
-(x-\alpha y)(cy-\alpha y)=rxy,
-\quad\text{equivalently}\quad
-\frac{x}{y}=\frac{2s(1-s)}{2s-r}.
+(x-(1-s)y)(cy-(1-s)y)=rxy,
+\quad\frac{x}{y}=\frac{2s(1-s)}{2s-r}.
 \]
-Combining this ratio with \(x+qy=1\) yields \(x_P,y_P\) and \(\rho_P=\alpha y_P\) as displayed. This is the unique class-symmetric optimum in the second regime; continuity identifies equality at the boundary. Automorphism averaging from Step 2 makes the two formulas globally optimal.
+Together with \(x+qy=1\) this gives the displayed \(x_*,y_*,\rho_*\). At equality \(s=s_0\), the two formulas coincide by direct substitution. Symmetry averaging from Step 2 proves unrestricted global optimality; the strict one-dimensional monotonicities prove class-symmetric uniqueness.
 
-**Step 6: nontriviality beyond the inverse-positive formula.** In the worked instance, the inverse of the leaf Schur complement \(B=sI\)-paired block plus hub update has negative within-pair off-diagonal entries and positive cross-pair entries. The triangle pattern of sign constraints prevents diagonal sign-flipping into an entrywise-nonnegative inverse: two leaves in the same pair have opposite required signs, while leaves in distinct pairs require equal signs. With at least two pairs, those conditions contradict one another. Thus the general inverse-positive result is inapplicable to this natural all-positive interaction family, even though a generic semidefinite-program formulation applies.
+**6. Why a standard inverse-positive closed formula does not cover this family.** For \(m\ge2\), the positive correlations form overlapping triangles. In the displayed exact example \(m=2,s=1/2,t=1/5\), inversion of the leaf Schur complement gives negative within-pair entries and positive cross-pair entries. No diagonal sign change can make all such inverse entries nonnegative: within-pair signs would have to disagree while all signs from distinct pairs would have to agree. The inverse-positive matrix theorem therefore does not apply throughout this family, although the generic semidefinite E-optimal-design formulation does.
 
-## Verification
+## Verification and reproducibility
 
-Run `python artifacts/verify_friendship_sampling.py` from a directory containing the provided `artifacts` folder. Only Python's standard-library `fractions` module is needed. `artifacts/verification_output.txt` records the expected deterministic output. The program checks the explicit probabilities, rational determinant and active-eigenvalue identities, positive definiteness assumptions, both phase inequalities, a rational grid of alternative symmetric designs, and the expected quadratic-energy loss identity. It verifies 343 admissible rational designs, 34,643 rational-grid comparison cases, and 46 exact energy identities, plus the explicit five-coordinate witness. These are finite checks; Steps 1–5 above prove the complete parameter range and global optimization.
+The existing standard-library rational checker `artifacts/verify_friendship_sampling.py` reconstructs the full matrix, checks the correct determinant term \(rxy\), validates the probability formulas and positivity, verifies exact energy-loss identities and tests finite rational parameter grids. Its finite checks support the infinite-domain argument above but do not replace Steps 1–5. The proof above corrects a factor-of-\(\sqrt q\) transcription error in one displayed radial matrix of the earlier draft; it leaves the correctly normalized determinant calculations, final rates and optimal probabilities unchanged. The worked five-coordinate example is an exact independent arithmetic check.
 
 ## Relationship to prior work
 
-Qu and Richtárik's 2014 original preprint develops arbitrary sampling for randomized coordinate descent using general complexity methods. Gower and Richtárik's 2015 account formulates optimal randomized linear-system sampling via semidefinite optimization. Pukelsheim and Torsney's 1991 optimal-design paper supplies general E-optimal-design machinery on linearly independent supports, but the inspected text does not evaluate the present correlated friendship family or identify its sharp eigenmode transition. Agaskar, Wang and Lu study optimal row sampling and exact mean-square error in randomized Kaczmarz algorithms, a related but distinct algorithmic objective.
-
-An accessible previously published inverse-positive coordinate-sampling theorem proves an explicit formula when the normalized Hessian has entrywise nonnegative inverse. Our strictly positive triangle family does not generally satisfy that hypothesis, so the prior closed form does not imply this result. The novelty assessment is limited to the explicitly inspected texts and mathematical implications. The general SDP framework contains the present optimization as an instance but does not itself supply the explicit two-phase solution. A prior equivalent specialized calculation in E-optimal-design or structured matrix-scaling literature cannot be excluded without broader independent specialist review.
+General optimal-sampling semidefinite formulations appear in Qu and Richtárik (arXiv:1412.8060) and Gower and Richtárik (arXiv:1506.03296). Pukelsheim and Torsney (Ann. Statist. 1991, DOI:10.1214/aos/1176348265) give general optimal-design methodology; those frameworks do not by themselves evaluate this structured family or its phase transition. A published inverse-positive coordinate-sampling theorem assumes a property absent in the positive-triangle examples. The all-parameter explicit friendship-graph optimum is the claim evaluated here, not the general SDP itself. An older equivalent specialized result in matrix scaling or E-optimal design remains possible and is not ruled out simply by failed searches.
 
 ## Limitations
 
-The optimum is for fixed iid exact coordinate updates, worst-case conditional expected squared energy, and the stated SPD family only. It is not a convergence-time lower bound against other algorithms, nor an assertion of unique nonsymmetric optimal sampling. Positivity of all triangle correlations is required, and boundary values making \(C\) singular are excluded. The formula is an exact explicit solution to a structured E-optimal design problem; generic SDP duality, by itself, does not certify publication novelty. The symbolic argument proves an infinite family, whereas the attached arithmetic tests check finitely many rational parameters. Independent mathematical validation and publication-priority review remain outstanding.
+All statements concern exactly the specified normalized SPD family, fixed iid single-coordinate exact minimization, and sharp worst-case conditional one-step expected squared energy. They do not prove stability under approximate/noisy updates, uniqueness of every nonsymmetric optimizer, or adaptive optimality. Full historic priority cannot be certified without further specialist reading. No external formal certification is claimed.
 
 ## References
 
-1. Z. Qu and P. Richtárik, *Coordinate Descent with Arbitrary Sampling I: Algorithms and Complexity*, initial arXiv posting December 27, 2014, https://arxiv.org/abs/1412.8060.
-2. R. M. Gower and P. Richtárik, *Randomized Iterative Methods for Linear Systems*, arXiv:1506.03296, first posted June 10, 2015, https://arxiv.org/abs/1506.03296.
-3. F. Pukelsheim and B. Torsney, *Optimal weights for experimental designs on linearly independent support points*, Annals of Statistics 19 (1991), 1614–1625, https://doi.org/10.1214/aos/1176348265.
-4. A. Agaskar, C. Wang and Y. M. Lu, *Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities* (2014), publicly accessible manuscript at https://dash.harvard.edu/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/download.
-5. *Closed-form optimal coordinate sampling for inverse-positive SPD quadratics* (published research record, 2026), https://github.com/published-finding corpus/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995.
+1. Z. Qu and P. Richtárik, *Coordinate Descent with Arbitrary Sampling I: Algorithms and Complexity*, https://arxiv.org/abs/1412.8060.
+2. R. M. Gower and P. Richtárik, *Randomized Iterative Methods for Linear Systems*, https://arxiv.org/abs/1506.03296.
+3. F. Pukelsheim and B. Torsney, *Optimal weights for experimental designs on linearly independent support points*, Ann. Statist. **19** (1991), 1614–1625, https://doi.org/10.1214/aos/1176348265.
+4. A. Agaskar, C. Wang and Y. M. Lu, *Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities* (2014), https://dash.harvard.edu/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/download.
