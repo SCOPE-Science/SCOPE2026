@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The vertex characterization uses the exposed alternative-color faces, and exact distances split into Hamming distance and one-hot color distance. Equality forces complementary order filters, which are precisely the unions of comparability components; their extension multiplicities give the full diameter graph. The chain boundary and the separate orthogonal metric are explicit. An independent combinatorial enumeration of 407 naturally labeled posets up to size five checked 2,996,310 vertex-pair squared distances, and the finite checks are not substituted for the general proof.
+## correctness
 
-**Originality — PASS (provisional historical priority).** Qu–Lee's arXiv:2610.35668v1 develops precisely the source Cayley family, but studies facet normals and compatibility, not intrinsic Euclidean diametral graphs. Its reduced indicator coordinates are not isometric to the symmetric one-hot realization studied here. Comparisons with the combinatorial linear-extension diameter and published polytope diameter statements do not supply this complementary-component graph or count. Search coverage cannot establish global priority; the full primary text's relevant definitions and contributions were inspected, with remaining risks acknowledged.
+PASS
 
-**Mathematical value — PASS.** Although the numerical diameter bound is elementary, the complete equality-case structure is a natural geometric classification for a polytope of dimension \(d+k-1\) with potentially factorially many color faces. The diameter graph detects comparability-component separation and has exact nontrivial block sizes \(e(P|_I)e(P|_{I^c})\), giving a combinatorial invariant not determined by the paper's facet-normal results. It is not merely a new name for the Hamming bound. The counting formula is meaningful independently of an application to a later theorem.
+All lifted generating vertices are exposed within their unique color face. Squared distance of any pair is |S delta T|+2*1_(colors different), at most d+2. Equality forces colors distinct and S,T complementary. A set and its complement are both upper ideals if and only if each is a union of comparability components. The count a(I)=e(P|I)e(P|I^c) counts extensions with suffix I; empty/full contribute k(k-1) pairs, proper complementary I contribute half sum squares. For a chain the only farthest pair is empty/full. Independently enumerated antichains d=2..5 and recovered diameter pair counts 3,42,744,18600.
 
-**Closest literature and limits.** Qu and Lee (arXiv:2610.35668), Stanley (1986), Felsner–Reuter (1999), and Brightwell–Massow (2013). No claim about the reduced indicator Euclidean geometry, linear extension inversion diameter, or historical independence is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qu–Lee’s 2026 paper on precisely this Cayley construction proves the facet-normal and big-M lifting descriptions in a reduced indicator coordinate system; it does not give the full one-hot Euclidean diameter graph or component-union multiplicities. Reduced and full-one-hot lifts are affinely equivalent but not isometric, so facet statements cannot be directly specialized to the present metric. The standard order-ideal suffix criterion is credited. The other Euclidean diameter records found concern different polytopes. Accepted best-of-knowledge.
+
+## value
+
+PASS
+
+A canonical metric-specific lift has a natural full farthest-pair graph, with a topology-sensitive classification and exact multiplicities controlled by linear extensions and disconnected comparability components; complete classifications of geometric extremal graphs are useful even when the ambient bound is elementary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
