@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The complete proof in `RESULT.md` derives the column mapping and exact modulus spectrum before taking asymptotics. The analytically justified gamma ratio \(\Gamma(k+1)/\Gamma(k+\delta+1)\), for \(\delta=\alpha+1>0\), supplies the \(1/q\) coefficient, and counting inversion supplies the \(1/N\) singular-value law. A separate divisibility argument handles the noncoprime case. There is no assumption that a finite truncation verifies the infinite-dimensional assertions.
+## correctness
 
-Execute the supplied standalone checker with `python check_monomial_commutators.py`. The actual expected output is `MONOMIAL_BERGMAN_CHECK_OK 6966 finite assertions`. It uses only the standard library and tests arithmetic identities and representative finite-scale gamma ratios. A finite check cannot establish the full spectral limit or originality.
+PASS
 
-The mathematical claim has been reviewed for algebraic normalization, quantifiers and boundary cases \(m,n\ge2\), \(\alpha>-1\). Publication-priority questions involving potentially broader inaccessible earlier theorems remain separate from correctness. No independent review or validation has occurred.
+Using h_k²=Γ(α+2)Γ(k+1)/Γ(k+α+2), the two crossed adjoint products have support on columns e_{bq} and common output e_{aq} for a=m/g,b=n/g. Exact coefficient κ_q=1_{g|q}w_n(q/g)w_m(q/g)−w_m(bq)w_n(aq) diagonalizes K*K. For g>1, nonmultiples g approach modulus (mn)^−(α+1)/2 and multiples approach zero, proving exact modulus essential spectrum and essential norm. For g=1, first-order log-gamma expansion gives κ_q=c/q+O(q^-2) with c=δ(δ+1)(mn)^−δ/2(1−1/m)(1−1/n)/2; counting inversion gives Ns_N→c, sharp p>1 Schatten threshold and logarithmic trace coefficient. At α=0 an exact numerator identity gives the displayed rational closed form. Independently recalculated the cancellation coefficient and the support divisibility, inspected 6966-assertion verifier; numerical checks alone do not establish limits.
+
+## originality
+
+PASS
+
+Best-knowledge qualified: a closely related published weighted Dirichlet-space mixed commutator has the same gcd and 1/N motif, but its Hilbert coefficient weights and leading constant differ, so it is not a direct Bergman special case. A second published Bergman theorem computes a single cross-product and its compact partial-permutation defect, not the cancellation difference. Earlier linear-fractional papers and the 2026 product paper remain plausible higher-coverage risks without full text.
+
+## value
+
+PASS
+
+The monomial pair is a natural complete arithmetic test family on the standard Bergman scales. The gcd transition for compact cancellation between individually noncompact products, exact essential norm on complementary branch and nonzero weak-trace endpoint are mathematically motivated operator-ideal invariants, not finite numerical trivia. Distinct normalized space from earlier Dirichlet analogue makes its precise constant independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

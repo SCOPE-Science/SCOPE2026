@@ -1,15 +1,21 @@
-# Scientific review: arithmetic monomial Bergman commutators
+# Independent mathematical audit
 
-## Correctness
-**PASS.** In the orthonormal monomial basis, the two composition-adjoint products act in the same target row exactly when the arithmetic divisibility conditions hold. The commutator has mutually orthogonal nonzero columns, so the proposed modulus spectrum is exact and not a finite-matrix approximation. The \(\gcd\) dichotomy follows from two explicit infinite subsequences. The gamma-ratio expansion yields the positive coefficient for each \(\alpha>-1\), and a counting inversion proves the weak trace endpoint. The standard Bergman coefficient follows from a rational numerator identity. The accompanying program makes 6,966 finite assertions, but no infinite theorem is inferred solely from them.
+## correctness
 
-## Originality
-**PASS (best-knowledge assessment, with specified residual risks).** Leng--Zhao (arXiv:2610.15472, Sections 3--4, inspected in HTML) studies the two products separately; the claimed cancellation, divisibility threshold, and logarithmic coefficient are not statements of its theorems. The Clifford--Levi--Narayan (2012) and MacCluer--Narayan--Weir (2013) commutator works are reported as linear-fractional, not degree-at-least-two power symbols. Clifford--Dabkowski--Wiggins--Zeytuncu (first public 2025) addresses Hardy-space products, not this Bergman difference. The 2014 Duna--Gagne--Gu--Shapiro paper studies Toeplitzness of products, not the quantitative commutator spectrum. Relevant semantic-database and accessible historical-claim searches did not identify an implication covering the theorem. Full texts of several older sources were inaccessible; a broader general weighted-composition commutator result could nonetheless subsume the power-symbol calculation. Search failure does not prove absolute priority.
+PASS
 
-## Mathematical value
-**PASS.** For the natural full two-parameter family of nonlinear monomial composition maps, the phenomenon is not simply compactness of a single product: each product remains noncompact. Relative primality decides whether their difference is compact, with an explicitly nonzero essential norm in the complementary case; the compact case has a sharp, universal weak-trace boundary and computable logarithmic coefficient for all classical Bergman weights. This is a complete, motivated arithmetic classification, rather than an arbitrary finite computation or a renamed general criterion. The endpoint is useful when assessing cancellation in operator ideals and generalized traces.
+Using h_k²=Γ(α+2)Γ(k+1)/Γ(k+α+2), the two crossed adjoint products have support on columns e_{bq} and common output e_{aq} for a=m/g,b=n/g. Exact coefficient κ_q=1_{g|q}w_n(q/g)w_m(q/g)−w_m(bq)w_n(aq) diagonalizes K*K. For g>1, nonmultiples g approach modulus (mn)^−(α+1)/2 and multiples approach zero, proving exact modulus essential spectrum and essential norm. For g=1, first-order log-gamma expansion gives κ_q=c/q+O(q^-2) with c=δ(δ+1)(mn)^−δ/2(1−1/m)(1−1/n)/2; counting inversion gives Ns_N→c, sharp p>1 Schatten threshold and logarithmic trace coefficient. At α=0 an exact numerator identity gives the displayed rational closed form. Independently recalculated the cancellation coefficient and the support divisibility, inspected 6966-assertion verifier; numerical checks alone do not establish limits.
 
-## Closest literature and limitations
-The closest recent primary source is Q. Leng and X. Zhao, *Schatten class membership of products of composition operators and their adjoints*, arXiv:2610.15472 (2026). The closest named classical sources are J. H. Clifford, D. Levi and S. K. Narayan (2012), and B. D. MacCluer, S. K. Narayan and R. J. Weir (2013), on linear-fractional composition commutators. The theorem is limited to monomial maps \(z\mapsto z^m\) with integer \(m\ge2\) and classical radial power-weighted analytic Bergman Hilbert spaces. Possible implicit coverage by an uninspected general theorem is a residual priority risk. No independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge qualified: a closely related published weighted Dirichlet-space mixed commutator has the same gcd and 1/N motif, but its Hilbert coefficient weights and leading constant differ, so it is not a direct Bergman special case. A second published Bergman theorem computes a single cross-product and its compact partial-permutation defect, not the cancellation difference. Earlier linear-fractional papers and the 2026 product paper remain plausible higher-coverage risks without full text.
+
+## value
+
+PASS
+
+The monomial pair is a natural complete arithmetic test family on the standard Bergman scales. The gcd transition for compact cancellation between individually noncompact products, exact essential norm on complementary branch and nonzero weak-trace endpoint are mathematically motivated operator-ideal invariants, not finite numerical trivia. Distinct normalized space from earlier Dirichlet analogue makes its precise constant independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
