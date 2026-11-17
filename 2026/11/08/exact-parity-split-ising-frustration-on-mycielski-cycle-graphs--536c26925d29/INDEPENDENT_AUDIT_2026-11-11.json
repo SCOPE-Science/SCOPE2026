@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T22:16:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-parity-split-ising-frustration-on-mycielski-cycle-graphs--536c26925d29/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-parity-split-ising-frustration-on-mycielski-cycle-graphs--536c26925d29/verify_transfer.py"
+      ],
+      "rationale": "On μ(C_n), n>=4, each shadow spin minimizes a sum of three signs uniquely. Fix apex η, encode original spins in binary x_i; minimized energy is -2(B+T)J where B=#binary adjacent changes and T=Σx_i x_{i+2}. With k=#ones, C1=Σx_ix_{i+1}, D2=k-T, F=B+T=3k-2C1-D2. For even n, maximum F=3n/2 attained only by 2 alternating words; for odd n>=5, D2>=1 for nonconstant words and C1>=2k-n give max 3(n-1)/2 with precisely n unique single-11-defect words. Each apex choice doubles counts, giving g=4 or 2n and energies -3nJ or -3(n-1)J. Independently enumerated all physical graphs for n=4..8 and checked full degeneracy/magnetization; finite corroboration only.",
+      "residual_risks": [
+        "Independent finite checks do not alone prove the claimed all-parameter result; proof-specific bounds established in analytic argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full three-state Potts Mycielskian-cycle family is a close related graph result, but only q=3 state spins; Grötzsch single n=5 theorem covers at most one q=2 special case.",
+          "Mostovoy treats triangular-lattice frustrated spins, not μ(C_n)."
+        ],
+        "reasoning": "Same graph family q=3 does not supply the q=2 exact maximum cut or all-length count; n=5 is not separately novel.",
+        "searches": [
+          "Resultary:2026/11/8/SCOPE-parity-dependent-residual-entropy-of-three-state-potts-antiferro--fb163b0b04d2",
+          "Resultary:2026/11/8/SCOPE-exact-three-state-potts-field-diagram-on-the-gr-tzsch-graph--b5650d6c3203",
+          "arxiv:cond-mat/0210711 Mostovoy et al."
+        ]
+      },
+      "checked_sources": [
+        "Resultary:2026/11/8/SCOPE-parity-dependent-residual-entropy-of-three-state-potts-antiferro--fb163b0b04d2",
+        "Resultary:2026/11/8/SCOPE-exact-three-state-potts-field-diagram-on-the-gr-tzsch-graph--b5650d6c3203",
+        "doi:10.4064/cm-3-2-161-162",
+        "arxiv:cond-mat/0210711"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At n=5, the earlier Grötzsch 3-state field diagram implies an isolated 2-state zero-field instance after restricting the color alphabet, but cannot give the all-n parity law.",
+          "The q=3 transfer-matrix trace has cubic recurrence and exponentially many ground states, versus the q=2 unique shadow elimination and ≤2n states."
+        ],
+        "reasoning": "No parameter or theorem-implication reduction yields all-n q=2 degeneracies without new extremal cyclic-word analysis.",
+        "searches": [
+          "Resultary:2026/11/8/SCOPE-parity-dependent-residual-entropy-of-three-state-potts-antiferro--fb163b0b04d2",
+          "Resultary:2026/11/8/SCOPE-exact-three-state-potts-field-diagram-on-the-gr-tzsch-graph--b5650d6c3203",
+          "doi:10.4064/cm-3-2-161-162"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Mycielski construction is classical, while the published three-state Potts theorem counts q=3 coloring ground states with zero frustration on even cycles and one bond on odd cycles.",
+          "The present Ising theorem is q=2 and has nonzero frustration on both parity classes, so its energy and multiplicity cannot be obtained by q=3 substitution."
+        ],
+        "reasoning": "These models use the same graphs but genuinely different alphabet sizes, energetic thresholds and exact combinatorics.",
+        "searches": [
+          "Resultary semantic: Mycielskian cycle Ising max cut degeneracy parity",
+          "doi:10.4064/cm-3-2-161-162 Mycielski",
+          "Resultary: 3-state Potts Mycielskian cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed q=2 all-n maximum-cut multiplicity table or matching exact formula returned; the 3-state counts grow exponentially whereas claimed 2-state counts are 4 or 2n."
+        ],
+        "reasoning": "A natural infinite graph-family classification, not a database recomputation, though missing specialized max-cut literature remains a priority risk.",
+        "searches": [
+          "Resultary: Mycielski cycle maxcut number maximum cuts",
+          "search: Mycielski graph cycle maximum cuts n exact Ising degeneracy"
+        ]
+      },
+      "rationale": "The same graph family q=3 Potts result and single n=5 case are credited, but q=2 all-length energy and extremizer multiplicities require a separate cyclic binary maximization; no dominating q=2 theorem was identified.",
+      "residual_risks": [
+        "A historical exact max-cut formula for the Mycielskian cycle family could exist in specialized graph-theory sources not reached by these searches.",
+        "The original 1955 Mycielski full text and the original Mostovoy full paper were not directly read; neither is used to certify absence of Ising formula.",
+        "Operational IDs inside metadata and audit require sanitization before publication."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_GRAPH_DIFFERENT_SPIN_PARAMETER",
+          "evidence": "q=3 zero-energy even / J odd and exponential state counts; q=2 has a different nonzero energy and linear/bounded counts.",
+          "identifier_or_url": "Resultary:2026/11/8/SCOPE-parity-dependent-residual-entropy-of-three-state-potts-antiferro--fb163b0b04d2",
+          "material_read": "Published primary RESULT.md finding, all-length recurrence theorem, Section 1 graph color threshold and transfer polynomial proof",
+          "method": "GitHub published result file read",
+          "title": "Parity-dependent residual entropy of three-state Potts antiferromagnets on Mycielskian cycles",
+          "trigger": "Same infinite Mycielski cycle graph family but three-color zero-field model"
+        },
+        {
+          "assessment": "GRAPH_DEFINITION_ONLY",
+          "evidence": "Establishes construction/chromatic facts, not an Ising multiplicity theorem.",
+          "identifier_or_url": "doi:10.4064/cm-3-2-161-162",
+          "material_read": "Bibliographic DOI and later formalization; 1955 primary full text not accessed",
+          "method": "Bibliographic and secondary formalization",
+          "title": "On the graph-coloring operation of Mycielski",
+          "trigger": "Original Mycielski graph construction"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH",
+          "evidence": "Triangular-lattice frustration is not the cycle Mycielskian Ising family.",
+          "identifier_or_url": "arxiv:cond-mat/0210711",
+          "material_read": "Arxiv abstract/metadata and available source description; full original manuscript not inspected in this run",
+          "method": "Public bibliographic retrieval",
+          "title": "Frustrated spin model as a hard-sphere liquid",
+          "trigger": "Classical antiferromagnetic frustration comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary:2026/11/8/SCOPE-parity-dependent-residual-entropy-of-three-state-potts-antiferro--fb163b0b04d2",
+        "Resultary:2026/11/8/SCOPE-exact-three-state-potts-field-diagram-on-the-gr-tzsch-graph--b5650d6c3203",
+        "doi:10.4064/cm-3-2-161-162",
+        "arxiv:cond-mat/0210711"
+      ],
+      "rationale": "An exact, all-size maximum-cut/Ising frustration classification on the natural Mycielskian graph family, showing sharp even/odd defect mobility, constant versus linear ground degeneracy and magnetization ±1. This is a structural infinite-family result, not merely chromatic-number restatement.",
+      "residual_risks": [
+        "Further unindexed specialized prior literature could alter priority; no new independent certification inferred from this review."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Research sources may contain stale self-review statuses; correctness and originality were re-assessed from assigned Git blobs and searched literature.",
+    "Publication withheld: private operational identifiers visible in currently published-source metadata, no complete sanitization in this plan."
+  ],
+  "schema_version": 1
+}

@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact graph, spin convention, and all boundary cases \(n\ge4\) are fixed. The shadow-spin coefficients are sums of three signs and hence cannot vanish, making the elimination and reconstructed degeneracy exact. The cyclic-word inequality treats even and odd lengths separately and checks all-zero/all-one words. Equality classifications are exhaustive, and a direct enumeration of every physical configuration through \(n=11\), plus an independent four-state recursion through \(n=201\), agree with the theorem. The proof, not those finite tests, handles arbitrary length.
+## correctness
 
-## Originality — PASS, with remaining priority risk
-The model is evaluated on the cycle Mycielskians, rather than on the triangular lattices studied in the inspected full text of Mostovoy et al. The graph-construction sources document chromatic and triangle-free properties, not a uniform all-length Ising energy-and-degeneracy theorem. A previously available exact three-state Potts field classification on the one Grötzsch graph already implies the special \(n=5\) two-state result; no novelty is claimed for that isolated instance. The all-length even/odd law and exhaustive classification of its equality cases are not consequences of that finite result. Searches did not find a stronger equivalent formula, but unindexed work and an inaccessible 1955 original remain residual risks.
+PASS
 
-## Mathematical value — PASS
-The family connects exact Ising frustration and maximum-cut structure with the chromatic-number jump of a natural triangle-free construction. Its uniformly minimal absolute ground-state magnetization, parity-dependent defect mobility, and sharp difference between constant and linearly growing degeneracies provide a complete structural benchmark across arbitrarily large networks, not just a small numerical census.
+On μ(C_n), n>=4, each shadow spin minimizes a sum of three signs uniquely. Fix apex η, encode original spins in binary x_i; minimized energy is -2(B+T)J where B=#binary adjacent changes and T=Σx_i x_{i+2}. With k=#ones, C1=Σx_ix_{i+1}, D2=k-T, F=B+T=3k-2C1-D2. For even n, maximum F=3n/2 attained only by 2 alternating words; for odd n>=5, D2>=1 for nonconstant words and C1>=2k-n give max 3(n-1)/2 with precisely n unique single-11-defect words. Each apex choice doubles counts, giving g=4 or 2n and energies -3nJ or -3(n-1)J. Independently enumerated all physical graphs for n=4..8 and checked full degeneracy/magnetization; finite corroboration only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The same graph family q=3 Potts result and single n=5 case are credited, but q=2 all-length energy and extremizer multiplicities require a separate cyclic binary maximization; no dominating q=2 theorem was identified.
+
+## value
+
+PASS
+
+An exact, all-size maximum-cut/Ising frustration classification on the natural Mycielskian graph family, showing sharp even/odd defect mobility, constant versus linear ground degeneracy and magnetization ±1. This is a structural infinite-family result, not merely chromatic-number restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
