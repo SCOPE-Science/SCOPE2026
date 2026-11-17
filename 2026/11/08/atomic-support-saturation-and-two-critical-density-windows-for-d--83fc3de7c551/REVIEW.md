@@ -1,23 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result uses the exact three-valued cup semantics: absent colors yield undefined atoms; weak Kleene connectives propagate definedness; and the belief operator evaluates all accessible faces on which its subformula is defined. The minimal face-signature count follows from complete multicolor face availability and local type separation. Uniform one-step support yields identical accessible signature sets; induction over formulas proves same-signature equivalence for arbitrary modal nesting. Conversely, an explicit one-step diamond of the target-type conjunction distinguishes any unequal supports. Independent incidence blocks give the stated labeled count and Bernoulli formula. The random thresholds follow by expansions of the empty-block and full-row factors. The standard-library checker exhaustively compares counts and three-valued modal observations for small cups, and exactly checks probabilities for three rational edge weights.
+PASS
 
-The proof explicitly requires at least one type-distinguishing local proposition set per color, full cup completeness, and independent cross-color arcs for the random theorem. The finite checker is not taken as an infinite proof. Mathematical risk: a different partial-modal semantics or noncomplete complex may break the equivalence; neither is covered here.
+Distinct atomic face signatures are separated by literals or defined/undefined local statuses, giving N0=prod_a(r_a+1)-1. In a complete cup every target-type support combination independently forms an accessible face signature; uniform type-support therefore makes every modal formula signature-determined by structural induction. A target-type diamond distinguishes any inconsistent source support, proving necessity. The exact Boolean block count is 1+(2^{m_v}-1)^{m_u}. Independence of ordered cross-color blocks yields exact Bernoulli Q and phase windows, with elementary binomial/exponential limits. Assumes the specific weak-Kleene partial-modal semantics and type-defining finite literals; finite enumeration alone is not all-depth proof.
 
-## Originality — PASS within inspected sources
+## originality
 
-The October 26, 2026 paper *Unbelievably Complex* supplies directed cups and their belief language, including the relational interpretation. The original construction is credited. Full-text sections defining cups, partial semantics and the relational model were examined for the precise hypotheses. No exact type-support saturation count or random edge critical windows were located there. *Bisimulation for Impure Simplicial Complexes* supplies related bisimulation theory for different (undirected/epistemic) structures, but its abstract does not assert the present enumeration. Finite modal contractions are likewise general context, not a matching explicit cup census. Searches of a published mathematical-results index included precise cup, modal-support and random-density queries; no matching claim was returned. Related entries concern proper relational covers, directed topology, or generic modal quotients in distinct settings. Historical records for the same slot were consulted only for overlap, with no matching cup-support claim.
+PASS
 
-Residual originality risks: general finite-state modal minimization together with independent incidence-block combinatorics could imply this result as a corollary, and older probabilistic graph saturation work could anticipate the two thresholds. Priority is not independently certified.
+PASS best of knowledge: motivating directed-cup paper provides definitions and belief semantics but no identified iff support-uniformity classification, full symbolic labeled census or double sharp density windows; nearby impure-complex bisimulation and bounded-contraction papers address different semantics or questions. The entire motivating full text could not be reexamined; material historical risk retained without turning access failure into a scientific rejection.
 
-## Mathematical value — PASS
+## value
 
-The result identifies **exactly** when a full, arbitrarily deep, partially defined modal language sees no more than local atomic face information, and counts all such relational structures for arbitrary atomic multiplicities. Its random model then has two distinct sharp critical windows: both extreme sparsity and sufficient density cause modal quotient collapse, while intermediate densities almost surely do not. This exposes a natural reentrant semantic phenomenon arising from complete simplicial faces and the partial belief operator. The exact product census and phase diagram are useful for model compression and random-model semantics, not arbitrary chosen finite slices.
+PASS
 
-## Scope and independent review
+The minimum number of all-formula three-valued modal face theories is a natural semantic invariant; the necessary-and-sufficient combinatorial condition and all-multiplicity exact census are directly useful for reduction/counting. Two separated sharp random thresholds at n^-2 and (log n)/n give a nontrivial sparse-versus-dense classification, not a routine single numerical check.
 
-No claim of external certification or independent validation is made. The main limitation is completeness of the cup and observation of all three truth statuses; the random-model probabilities require independent directed cross-color arcs. The checker verifies finite instances but does not establish priority or an arbitrary-modal-depth theorem without the proof.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

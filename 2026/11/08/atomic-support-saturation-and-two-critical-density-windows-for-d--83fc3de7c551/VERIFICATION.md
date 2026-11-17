@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The included `checker.py` was executed against the finite examples in its main function. For each checked model it enumerates every possible set of directed cross-color arrows, computes the exact one-step target-type support condition, and cross-checks the product census. It computes three-valued atoms, negation, weak conjunction, belief and nested belief formulas directly on all nonempty faces; same-signature faces agree in every sampled formula whenever support uniformity holds, and each specified target-type diamond formula detects the existence of a matching neighbor at a singleton face. The checker independently sums Bernoulli weights exactly as rational numbers at probabilities \(1/3\), \(1/2\) and \(2/3\), agreeing with the product formula. Its success marker is `ALL_CHECKS_OK`.
+## correctness
 
-The proof, not the finite checker, verifies all modal depths, arbitrary finite colored vertex sets, and the two limiting random thresholds. Generality requires cup completeness, the stated three-valued semantics, type-defining atomic literals, and independent directed arrows in the probabilistic model. Historical priority and any external or independent review have not been established.
+PASS
+
+Distinct atomic face signatures are separated by literals or defined/undefined local statuses, giving N0=prod_a(r_a+1)-1. In a complete cup every target-type support combination independently forms an accessible face signature; uniform type-support therefore makes every modal formula signature-determined by structural induction. A target-type diamond distinguishes any inconsistent source support, proving necessity. The exact Boolean block count is 1+(2^{m_v}-1)^{m_u}. Independence of ordered cross-color blocks yields exact Bernoulli Q and phase windows, with elementary binomial/exponential limits. Assumes the specific weak-Kleene partial-modal semantics and type-defining finite literals; finite enumeration alone is not all-depth proof.
+
+## originality
+
+PASS
+
+PASS best of knowledge: motivating directed-cup paper provides definitions and belief semantics but no identified iff support-uniformity classification, full symbolic labeled census or double sharp density windows; nearby impure-complex bisimulation and bounded-contraction papers address different semantics or questions. The entire motivating full text could not be reexamined; material historical risk retained without turning access failure into a scientific rejection.
+
+## value
+
+PASS
+
+The minimum number of all-formula three-valued modal face theories is a natural semantic invariant; the necessary-and-sufficient combinatorial condition and all-multiplicity exact census are directly useful for reduction/counting. Two separated sharp random thresholds at n^-2 and (log n)/n give a nontrivial sparse-versus-dense classification, not a routine single numerical check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
