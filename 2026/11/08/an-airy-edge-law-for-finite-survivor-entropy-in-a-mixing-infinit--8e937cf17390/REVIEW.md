@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The original affine branch sequences give exactly \(2(j+2)\) routes to each adjacent block and \(2(j+2)+1\) routes back to the same block; the exceptional initial block has the same in-cutoff formula. Uniform branch expansion makes the finite Markov entropy exactly the log Perron root. Diagonal similarity gives the stated symmetric Jacobi matrix and characteristic recurrence. For the spectral edge, an exact Dirichlet-form decomposition, trial functions and localized eigenvector compactness establish convergence to the half-line Dirichlet Schrödinger form \(2\int|u'|^2+6\int t|u|^2\). Its ground state is the first Airy zero. The included standard-library code passed 359 finite diagnostics; no asymptotic claim depends on finite sampling.
+## correctness
 
-## Originality — PASS within inspected evidence
-Proposition 5.2 in the fully inspected 2026 source constructs the infinite-entropy map but does not provide a bounded-block survivor matrix or an Airy correction. The inspected published finite-cutoff zeta/Perron theorem concerns another countable interval map with four-adic branch growth and a constant-order spectral correction, not the growing tridiagonal matrix here. The inspected published Airy-edge weighted-shift result concerns a different infinite operator with geometric weights and another limiting regime. Known extreme-zero literature provides related methods, but accessible abstracts do not establish the exact entropy law for this dynamical family. A general unindexed Jacobi theorem remains a historical-priority risk.
+PASS
 
-## Mathematical value — PASS
-The original construction shows qualitative infinite entropy, while the natural measurable question of how much entropy persists under a bounded-block restriction remained quantitative. The new exact finite matrix and the sharp noninteger-power deficit explain the boundary layer in the survival geometry; they are specific, nontrivial invariants of a published infinite-entropy model and not merely a change of parameter or a numerical fit.
+The actual D+ piecewise-affine vertex strings generate 2(j+2)+1 self-block branches and 2(j+2) adjacent-block branches, giving the finite multigraph M_K with endpoint escapes excluded. Expanding branches ensure that the survivor’s finite edge shift has entropy log rho; multiple endpoint codings contribute no entropy. Symmetrization produces Jacobi d_j=2j+5 and b_j=2sqrt((j+2)(j+3)), so the continuant P_{j+1}=(z-2j-5)P_j-4(j+1)(j+2)P_{j-1}. Identity 6K-<v,Jv>=sum b_j (v_{j+1}-v_j)^2+sum (6K-V_j)v_j² localizes eigenvectors on K^(1/3) terminal sites. The rigorous limsup via Dirichlet test functions and liminf via energy-tightness, compactness and lower semicontinuity identify -2u+6t u with u(0)=0. Airy zero a1 gives constant (2·6²)^(1/3). Directly verified finite Jacobi/Perron identity K=1..18 and rho(M1)=11; those finite checks do not prove the asymptotic.
 
-## Scope and outstanding verification
-The theorem addresses only initial consecutive-block survivors, not all bounded orbits or their periodic-point counts. The source's definition and partition conventions were checked from its full-text Proposition 5.2. The exact Airy coefficient was obtained analytically; finite checks are diagnostic. Independent specialist scrutiny of the historical-priority claim remains desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Original source Proposition 5.2 constructs the explicit mixing infinite-entropy map but does not compute topological entropy of its initial K+1 block survivors or Airy correction. Relevant previously published finite-core Perron result concerns a different four-adically branching map with O(1) edge displacement, not the 6K−const·K^(1/3) regime. A periodic weighted-shift Airy theorem concerns an infinite geometrically weighted shift, not this increasing-coefficient finite Jacobi/interval survivor. Generic extreme Jacobi-zero literature is a nontrivial potential implication risk and is not claimed absent.
+
+## value
+
+PASS
+
+The finite-core entropy of a specific published infinite-entropy dynamical system is a natural invariant measuring divergence under bounded-orbit restriction. Exact recurrence and sharp Airy boundary layer quantify the rate where qualitative infinite-entropy conclusions do not; the K^(1/3) correction requires nontrivial variational localization rather than a routine finite cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
