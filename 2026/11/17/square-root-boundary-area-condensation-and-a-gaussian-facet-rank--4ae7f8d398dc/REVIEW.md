@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact facet formula follows from support-face classification and the Gram determinant of a regular coordinate simplex. The area-rank weights have an explicit strictly decreasing successive ratio; a uniform local expansion, quantitative unimodal tails and a Riemann sum establish the Gaussian local limit. A companion size-biased factorial ratio gives the surface-to-volume power law. The standalone checker reconstructs the polytope from independently enumerated vertices and verifies facet areas and hull volumes in dimensions two through five. Finite tests are corroborative, not proofs of asymptotics.
+
+**Originality — PASS (provisional historical priority).** Black and De Loera supply the canonical polar and signed-support combinatorics; their accessible full text has no all-rank intrinsic Euclidean facet-area law or boundary-weighted central limit theorem. Four highly relevant mathematical records were read: their metric shell result has facet distances, not areas; the polar Gaussian exposed-vertex record has a logarithmic rank rather than the present square-root boundary-area rank; the cube-crosspolytope Mahler record gives the primal volume but not the area law; and the Cayley-body record gives a height-distribution Poisson law. Recorded overlap searches found no implication covering the final claim. A different-name coefficient asymptotic remains a priority risk; unsuccessful searches are not proof of uniqueness.
+
+**Value — PASS.** For a naturally studied family with exponentially many boundary facets, the result shows a sharp and unexpected separation between the typical combinatorial facet (linear support size) and the typical surface-area facet (square-root support size), identifies the complete local limiting profile and establishes quantitative metric scaling. These are genuine Euclidean geometric invariants rather than arbitrary numerical slices or a rephrasing of the known face count.
+
+**Limits.** The result is realization-sensitive. It does not assert independent publication priority verification, a general deformation theorem, or a general statement for all signohedra. No independent mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
