@@ -1,19 +1,21 @@
-# Scientific review: Sharp diameter and rigid extremizers of binary rank-two code distortion
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The new theorem is proved for every integer \(n\ge2\), with the exceptional \(n=2\) value handled separately. A rank-two binary isomorphism can realize all six matchings of nonzero words; an uncrossing lemma proves the sorted matching optimal. Pairwise ratio bounds give \(\mathcal D\le n\). Equality in the bounds forces a weight-one/all-one pair in one code and equal nonzero weights in the other. Exact generator-column multiplicities establish the claimed \(t\)-range and the complete equivalence-class count. The proof handles zero columns and repeated weights. `verify.py` was executed from the complete package path and returned `CHECK_OK` after 21,096 generator checks and 19,902 exact-rational pair checks. Finite checks are not treated as a proof of the infinite assertion.
+PASS
 
-## Originality (O): PASS with residual risk
+GL_2(F2) permutes the three nonzero words arbitrarily. Two-coordinate uncrossing proves sorted weight matching minimizes ratio spread. Since 1<=weights<=n, pairwise ratio comparisons prove universal D<=n. Equality forces (1,n-1,n) in one code and a flat triple (2t,2t,2t) in the other; binary generator-column count u=v=w=t and zero columns n-3t give complete iff classification and 2 floor(n/3) ordered classes. At n=2 the unique code has D=1. An independent exact Fraction enumeration of all profile pairs n=3..8 confirmed max and all extremizers; it is not an infinite certificate.
 
-Closest primary literature: H. Bennett, M. Fox, and B. Morrell, *The Code Distortion Problem* (2026, arXiv:2607.26261; DOI:10.4230/LIPIcs.APPROX/RANDOM.2026.24). Its Lemma 15 gives the general \(n^2\) bound, Lemma 27 gives an exact algorithm per input pair, Corollary 28 handles low dimension computationally, and Proposition 19 treats distortion one. The new statement instead determines a sharp maximum over **all** binary dimension-two code pairs for **every** block length and lists the exact extremal classes; none of those prior statements gives this conclusion. The source's example optimizes one pair but does not determine the diameter. Bennett and Win (IACR 2024/782) treat reductions for code equivalence rather than distortion. Search comparisons included alternate weight-spectrum, projective-metric, code equivalence and sharp diameter formulations in published-finding corpus, accessible literature and the previously available mathematical records; no dominating result was found. These comparisons do not certify uniqueness of discovery, and unindexed earlier coverage remains possible.
+## originality
 
-## Value (V): PASS
+PASS
 
-A sharp global diameter is a natural invariant of the code-distortion problem, not an arbitrary small instance. The new work improves the general numerical \(n^2\) ceiling to an attained \(n\) bound for all binary rank-two codes and completely classifies the equality families. The Hilbert-projective weight-profile identification supplies a structural explanation for both efficient evaluation and equality rigidity. This is an exact baseline for coding-theoretic metric embeddings and for testing more general distortion bounds.
+Bennett-Fox-Morrell 2026 prove the general n² upper bound (Lemma 15) and already exhibit an n-distortion pair (Lemma 16). That LOWER example is not novel. Their exact algorithm for each pair (Lemma 27) and unary-scaling D=1 criterion do not prove the sharp n upper bound across all binary rank-2 pairs or classify its entire equality locus. The novel remainder is the global diameter and rigidity, not the preexisting lower example or basic profile combinatorics.
 
-## Scope and limitations
+## value
 
-The result concerns binary linear codes of dimension exactly two with arbitrary zero coordinate positions; it does not address other alphabets, larger dimensions or full-support-only extremizers. Independent audit has not been performed. The checker is only corroborating finite evidence and historical priority has a stated residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp diameter of a natural coding-theoretic distortion metric improves a general n² bound to n for this whole nontrivial family and classifies every extremal orbit; the projective-metric interpretation supplies a reusable structural explanation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

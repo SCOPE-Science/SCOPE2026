@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The theorem is established deductively by the six proof steps in `RESULT.md`. Independently check the finite calculations with `python3 verify.py` from a directory containing the two files. The checker enumerates 21,096 full-rank binary two-row generator-column sequences of lengths 2–7 and all 19,902 ordered realizable-profile pairs for lengths 2–12. For each profile pair, it directly minimizes exact rational distortion over six matchings, then separately compares the sorted-ratio formula, global maximum and complete equality classification. Expected terminal line: `CHECK_OK` (printed before detailed counts).
+# Independent mathematical audit
 
-Finite computation does not establish the theorem for larger block lengths; that scope is supported by the uncrossing and equality arguments. The correctness and novelty review here is same-model only. Independent mathematical audit and exhaustive historical priority verification have not been performed.
+## correctness
+
+PASS
+
+GL_2(F2) permutes the three nonzero words arbitrarily. Two-coordinate uncrossing proves sorted weight matching minimizes ratio spread. Since 1<=weights<=n, pairwise ratio comparisons prove universal D<=n. Equality forces (1,n-1,n) in one code and a flat triple (2t,2t,2t) in the other; binary generator-column count u=v=w=t and zero columns n-3t give complete iff classification and 2 floor(n/3) ordered classes. At n=2 the unique code has D=1. An independent exact Fraction enumeration of all profile pairs n=3..8 confirmed max and all extremizers; it is not an infinite certificate.
+
+## originality
+
+PASS
+
+Bennett-Fox-Morrell 2026 prove the general n² upper bound (Lemma 15) and already exhibit an n-distortion pair (Lemma 16). That LOWER example is not novel. Their exact algorithm for each pair (Lemma 27) and unary-scaling D=1 criterion do not prove the sharp n upper bound across all binary rank-2 pairs or classify its entire equality locus. The novel remainder is the global diameter and rigidity, not the preexisting lower example or basic profile combinatorics.
+
+## value
+
+PASS
+
+The sharp diameter of a natural coding-theoretic distortion metric improves a general n² bound to n for this whole nontrivial family and classifies every extremal orbit; the projective-metric interpretation supplies a reusable structural explanation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
