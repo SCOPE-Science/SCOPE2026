@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T03:53:48Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed a≥3 and (a,b)=1, define P_a(K)=product of primes p≤K with p∤a. CRT gives N≡0 mod P_a(K), N≡−b mod a and Kb−aP_a(K)<N≤Kb whenever Kb>aP_a(K). If N=ax+by with x,y≥0, then y≡−1 mod a, hence y≥a−1≥2 and gcd(y,a)=1; y≤K. Any prime p|y is ≤K, p∤a and p|N, forcing p|x and forbidding gcd(x,y)=1. The PNT yields log P_a(K)=K+o(K); with K=floor((1−ε)log b), P_a(K)=o(b) so g(a,b)/(b log b)≥1−ε−o(1) along all large coprime b. Letting ε→0 yields liminf≥1. A separate exact CRT representation enumeration checked (a,b,K)=(3,101,5),(4,105,7),(5,101,7) and found no primitive representations. The infinite bound depends on PNT, not that finite test.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oct 18 theorem imposes min(a,b)>M_k with a primorial M_k for growing k; for fixed a this eventually fails and yields no asymptotic as b→∞.",
+          "Ding–Wang–Zhang provide general ab lower and O(ab(log ab)^2) upper bounds; neither forces liminf g/(b log b)≥1 for fixed a."
+        ],
+        "reasoning": "Known uniform both-large estimates and unconstrained two-sided coarse bounds leave fixed-small-a growth open; there is no implication of this precise all-coprime-b liminf.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-uniform-primorial-obstructions-for-primitive-two-generator-frobe--0eee43f23b58/RESULT.md",
+          "arxiv:2509.08599",
+          "arxiv:2610.17267"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-uniform-primorial-obstructions-for-primitive-two-generator-frobe--0eee43f23b58",
+        "arxiv:2509.08599",
+        "arxiv:2610.17267 limited",
+        "Shimizu Zenodo 10.5281/zenodo.23480212 accessible description",
+        "pinned full proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a=3 fixed, the October 18 min(a,b)>M_k hypothesis fails for any growing k, so it cannot be used to choose K≈log b.",
+          "A result only about limsup and a constant lower ratio cannot prove a liminf≥1 at the b log b scale."
+        ],
+        "reasoning": "The new prime sieve excludes every possible nonnegative representation by putting a small prime factor into both coefficients; the earlier both-large witness cannot be specialized to this fixed-a regime.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-uniform-primorial-obstructions-for-primitive-two-generator-frobe--0eee43f23b58/RESULT.md",
+          "arxiv:2509.08599 Sections on g(a,b)",
+          "Jaffe arxiv:2610.17267 abstract and bibliographic record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "g(a,b) is the primitive-multiplier Frobenius maximum for ax+by with gcd(x,y)=1; equivalent labels include coprime coin coefficients and relatively prime multipliers.",
+          "The submitted CRT forces y≡−1 mod a; it is a fixed-a obstruction, unlike both-generators-large primorial covers."
+        ],
+        "reasoning": "The mathematical object and its Farey/Stern aliases were matched, not presumed disjoint; reviewed accessible theorems do not state the fixed-a liminf lower constant.",
+        "searches": [
+          "Resultary: primitive Frobenius number primorial lower bound B log B primes obstruction",
+          "arxiv:2509.08599 The Diophantine Frobenius Problem revisited",
+          "arxiv:2610.17267 Farey Stern Frobenius relatively prime multipliers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The audited result is an infinite asymptotic rate and CRT obstruction, not merely an exact numerical table.",
+          "Existing numerical values and constant-factor lower bounds do not imply the logarithmically divergent ratio."
+        ],
+        "reasoning": "No available exact database/table states or entails a fixed-a asymptotic lower rate; finite direct checks alone cannot establish the liminf.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-uniform-primorial-obstructions-for-primitive-two-generator-frobe--0eee43f23b58/RESULT.md",
+          "arxiv:2610.17267 primitive Frobenius numerical values and Farey denominators",
+          "Shimizu factor-four lower bound 10.5281/zenodo.23480212"
+        ]
+      },
+      "rationale": "The specific fixed a≥3 lower-growth result is not implied by the October 18 published primorial theorem, which assumes BOTH generators exceed a growing primorial and therefore cannot apply when a stays fixed. The original Ding–Wang–Zhang general bounds allow the result but do not imply a uniform fixed-a liminf≥1; an earlier limsup statement, if applied, likewise does not imply a liminf. Jaffe and Shimizu study the same primitive two-generator invariant, but the accessible statements concern finiteness, Farey relations and a fixed-factor lower bound. This is best-of-knowledge originality; the highly relevant Jaffe full text was inaccessible and the priority risk is explicitly preserved.",
+      "residual_risks": [
+        "Highly relevant Jaffe 2026 full primary text inaccessible; may contain CRT fixed-generator discussion or implication.",
+        "Unindexed primitive Frobenius literature may have an equivalent all-coprime fixed-a lower asymptotic.",
+        "No matching upper bound or proof that constant one is optimal."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING fixed a: assumes min(a,b) exceeds primorial that must grow",
+          "evidence": "Uniform lower >k ab−(a+b)M_k; requires min(a,b)>M_k; not an all fixed a bound.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-uniform-primorial-obstructions-for-primitive-two-generator-frobe--0eee43f23b58/RESULT.md",
+          "material_read": "Complete Finding, all hypotheses, proof, and limitations",
+          "method": "Full published scientific source text via GitHub",
+          "title": "Uniform primorial obstructions for primitive two-generator Frobenius numbers",
+          "trigger": "Very close CRT primorial construction on exactly the same invariant"
+        },
+        {
+          "assessment": "Coarse/general and limsup statements do not imply current fixed-a liminf",
+          "evidence": "General lower bound ab, upper ab log²(ab), and a limsup bound; quantifier mismatch with liminf.",
+          "identifier_or_url": "https://arxiv.org/pdf/2509.08599",
+          "material_read": "Relevant full PDF theorems and proof outline on general lower/upper bounds and limsup; page images inspected",
+          "method": "Primary arXiv PDF full-text and screenshot",
+          "title": "The Diophantine Frobenius Problem revisited",
+          "trigger": "Primary source defining the identical primitive multiplier Frobenius object"
+        },
+        {
+          "assessment": "ACCESS-LIMITED; no whole-document NOT_COVERING judgment",
+          "evidence": "Authorized institutional access reported vpn_disconnected, job 5bf50a116be8f7cb92015815521f6e19; potential overlap left open.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.17267",
+          "material_read": "Abstract and bibliographic information only; complete primary text not accessible",
+          "method": "arXiv/OA text attempts then authorized Oxford access; full PDF not obtained",
+          "title": "Denominators in the Farey Sequence, the Stern Sequence, and the Frobenius Problem with Relatively Prime Multipliers",
+          "trigger": "Same object, very plausible primary overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The primitive Frobenius number is a natural modification of the classical two-generator problem; fixing one generator is a fundamental regime. Proving g(a,b)/b→∞ at rate at least log b for every fixed a≥3 is a substantive qualitative transition from the known linear a=1,2 cases and from prior constant-factor bounds. The CRT witness captures every possible primitive representation rather than just examples, providing a useful structural asymptotic obstruction without requiring a matching upper bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-uniform-primorial-obstructions-for-primitive-two-generator-frobe--0eee43f23b58",
+    "https://arxiv.org/pdf/2509.08599",
+    "arxiv:2610.17267 (partial/access-limited)",
+    "pinned RESULT.md, verify.py, VERIFICATION.md, AUDIT.json, REVIEW.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed a≥3 and lower liminf; not a uniform statement as a→∞ nor an asymptotic equality.",
+    "Oxford institutional access for Jaffe full paper returned vpn_disconnected; no authentication workaround or fabricated reading."
+  ],
+  "residual_risks": [
+    "Historical priority against complete Jaffe paper needs eventual authorized material review."
+  ],
+  "schema_version": 1
+}
