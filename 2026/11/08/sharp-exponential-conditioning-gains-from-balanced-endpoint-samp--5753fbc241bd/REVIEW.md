@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-All quantities are defined for even unweighted paths with at least four vertices, normalized adjacency and exactly \(N\) total integer-time observations. Chebyshev propagation reconstructs each graph coordinate using an explicit triangular coefficient row. The two endpoint blocks have disjoint path supports, so their inverse norms are each governed by degree \(m-1\) Chebyshev coefficients; the one-end inverse is governed by degree \(N-1\). The coefficient bounds hold in all degrees and the observation-row norms contribute only polynomial factors. Thus the exact exponential condition-number bases and their quotient are proved, including endpoint normalizations and determinants. The attached standard-library checker completed 2107 finite checks; no infinite conclusion is inferred from experiments.
+## correctness
 
-## Originality (O) — PASS relative to inspected evidence
-The closest primary literature is Bulai et al., arXiv:2609.25472v1, §§4.2–4.3, which studies finite-graph sampling frames and fixed-size low-pass heat-type path experiments, not full-band growing-path normalized-adjacency conditioning constants. A public October 2026 result, *Universal endpoint optimality for dynamical sampling on normalized paths*, proves the one-end information determinant, which is explicitly attributed and does not imply the smallest singular-value rate or the two-end comparison. Classical Chebyshev polynomial basis-conversion coefficient growth is also acknowledged as prior art. Searches of the mathematical-results index for path observability, two endpoints, silver ratio, exact condition numbers, and Chebyshev aliases found no equivalent claim. Older specialized numerical or systems literature could contain an unindexed equivalent derivation; novelty here is assessed for the two graph-design rate comparison rather than the known coefficient exponent alone.
+PASS
 
-## Value (V) — PASS
-This gives an exact, structurally motivated noise-conditioning comparison of two equal-budget dynamical sampling designs. It establishes that splitting observations across both path endpoints changes the asymptotic conditioning base from \(1+\sqrt2\) to \(\sqrt{1+\sqrt2}\), identifies exact decoding coefficients, and provides the complete finite determinant of the two-end design. This information is neither a determinant-only consequence nor a fixed-size numerical observation.
+For N=2m normalized unweighted path S, Chebyshev recurrence gives T_0(S)e0=e0, T_j(S)e0=e_j/sqrt(2) for 1<=j<=N-2, and T_(N-1)(S)e0=e_(N-1). Thus W_N has the explicit inverse by Chebyshev monomial coefficients. The left/right blocks of B_N observe disjoint halves before time m, so B_N is equivalent to C_m direct sum C_m with diagonal products yielding |det B_N|=2^(-(m-1)^2). For rho=1+sqrt2, Chebyshev coefficient row norms lie between (rho^j-rho^-j)/(2sqrt(j+1)) and rho^j, via unit-circle Parseval and evaluation at i; forward row norms are bounded polynomially. Inverse operator row-vs-Frobenius bounds imply kappa(W_N)^(1/N)->rho and kappa(B_N)^(1/N)->sqrt(rho). Independently constructed N=4,6,8,10 finite observation matrices and checked propagation, disjoint blocks and determinant identities; these checks support, not prove, the all-m limits.
 
-## Sources and residual limitations
-Bulai et al. (arXiv:2609.25472v1, 2026-09-21) and the October 2026 public normalized-path endpoint-determinant theorem are the principal comparisons; see RESULT.md references and AUDIT.json detailed implication checks. A related 2007 Chebyshev basis-conversion article could only be assessed at description level. The result does not establish optimal sensors among all layouts, nonadjacency evolution filters, arbitrary path sizes, or exact polynomial prefactors. Independent external audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier determinant-only endpoint placement theorem and classical polynomial coefficient growth do not determine the exponential smallest-singular-value improvement of this two-end graph observation design. Full text of a plausible recent dynamical sampling paper was unavailable; its priority risk is retained without automatically failing originality.
+
+## value
+
+PASS
+
+A natural equal-total-budget sensor placement comparison has sharp distinct exponential noise amplification rates, explicit inverses and an exact two-end determinant. This is not mere reparameterization of a known determinant theorem because small singular values are independent of determinant alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
