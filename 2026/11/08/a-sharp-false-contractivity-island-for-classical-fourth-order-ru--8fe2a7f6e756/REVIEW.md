@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem is quantified over every real \(\gamma\ge0\) and step \(h\ge0\), including zero, the marginal \(\gamma=2\) case, and the RK4 scalar stability boundary. The algebra \(N^2=0\) yields the exact two-by-two polynomial, and an exact singular-norm identity reduces contractivity to one scalar inequality. A sum-of-squares identity proves \(r>0\) globally; an increasing cubic identifies the scalar boundary; a positive-coefficient transform of an eighth-degree polynomial proves the global monotonicity needed to rule out extra intervals. The logarithmic derivative of the exact semigroup identifies physical expansivity independently. The small-shear-bifurcation and large-shear endpoint laws come from explicit Taylor and simple-pole inversion. A standalone exact-rational certificate and 13,000+ numerical cross-checks passed. Finite checks are not used as universal proofs.
+PASS
 
-## Originality
+For Aγ=-I+γN and N²=0, P4(hAγ)=r(h)I+γ h q(h)N where r=P4(-h), q=P4′(-h). Exact singular-value formula gives contractivity iff r(h)^2+γh|q(h)|≤1. On 0<h<β, signed Φ derivative has numerator h³ B(h)/3456; independent symbolic expansion of (1+t)^8 B(3t/(1+t)) yields coefficients 2304,4608,19584,37008,62352,47754,32274,4041,3141, all positive, proving two strict monotonic branches separated by ζ=q^{-1}(0). Limits Φ(0+)=2, Φ(ζ±)=+∞, Φ(β-)=0 establish exactly claimed two regimes. Continuous semigroup norm follows exp(-h)(I+γhN); its logarithmic derivative has initial sign γ/2-1. Endpoint expansions follow Taylor and simple pole. Checked actual verify.py algebra; finite singular-value grids corroborate only.
 
-**PASS under a documented, nonexclusive literature comparison.** The 2017 Sun--Shu three-state semidissipative counterexample is not the present two-state family and neither its proposition nor its two-step theorem implies the exact one-step false-contraction interval for \(\gamma>2\). The 2018/2019 Sun--Shu strong-stability results and the 2023 Achleitner--Arnold--Jüngel classification impose semidissipative hypotheses or characterize method-level stability, not the complete planar nondissipative RK4 norm phase diagram. Tadmor (2023) discusses Jordan blocks and spectral-stability insufficiency but not the stated quantitative interval topology and asymptotics. A previously published triangular-shear result concerns exact continuous semigroup \(L^p\) contractivity, not RK4's spurious numerical contraction. The statements, parameters and implications were compared rather than merely their titles; no examined source subsumes the new conjunction. Residual risk is that a specialized older numerical-contractivity example has the same exact one-step classification.
+## originality
 
-## Value
+PASS
 
-**PASS.** The exact disconnected time-step admissibility set is a sharp, motivated boundary phenomenon in nonnormal time discretization: at a particular RK4 step the nilpotent dynamics are erased entirely although the physical solution can exhibit arbitrarily large amplification. The theorem supplies a precise calibration case for timestep monitors based on eigenvalues or observed norm decay and distinguishes numerical contraction from physical energy decay. It is a complete classification for a natural minimal defective-matrix family, not a claim of generic RK4 stability or improved accuracy.
+Resultary semantic search surfaced RK4 positivity and strong-stability theorems for different matrices, including complete multipartite diffusion and nonautonomous scalars, but not the exact γ-dependent two-state Jordan-shear Euclidean contractivity set. Primary literature on general semidissipative RK4 strong stability and Jordan spectral instability provides conceptual precursors but neither this detached island at γ>2 nor its ζ±C/γ endpoints was found. Best-of-knowledge novelty, not a historical certification.
 
-## Closest literature and limitations
+## value
 
-See Tadmor (2023, arXiv:2312.15546), Sun--Shu (2017, 2018/2019) and Achleitner--Arnold--Jüngel (2023, arXiv:2308.05689). The result is confined to Euclidean one-step norms, real two-state Jordan matrices and classical RK4. Prior publication priority in highly specialized analyses cannot be ruled out conclusively. The cited 2017 article was compared using accessible extracted text; its graphical page view was inaccessible. No independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact detached contractivity island provides a motivated sharp counterexample to interpreting numerical one-step contraction as faithful physical transient behavior; the exact γ>2 threshold and inverse-shear island width distinguish it from routine scalar absolute stability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
