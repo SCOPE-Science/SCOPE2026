@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Claim assessed:** The complete class-selection and first-entrance-time law for synchronous random-majority dynamics on triangular books \(B_m=K_2\vee\overline K_m\), for all even \(m\ge2\), together with the uniform-start oscillation limit. The domain and notation are as in RESULT.md.
+## correctness
 
-## Correctness: PASS
+PASS
 
-The two hubs have odd degree \(m+1\) and hence no tie. When equal their next opinions coincide; every leaf becomes the common hub opinion, and the following configuration is either unanimous or in the designated two-cycle. When opposed the leaves use independent fair tie coins, generating a fresh binomial count. The hub outputs are both zero below the half threshold, both one above it, and opposed at equality. At a balanced opposed state the number of rounds before leaving the balanced state is geometric with success probability \(1-c_m\); binomial upper/lower-tail symmetry fixes both the exit color and the final class probabilities. Fresh leaves at the subsequent agreeing-hub state yield one- or two-step terminal entrance, with probability \(d_m\) for one step. These steps prove the complete generating functions, expectations, variances, and uniform-start selection probabilities, and exclude other recurrent classes. The geometric factor has success probability strictly positive for all even \(m\ge2\). The analytic proof handles all such \(m\), unlike finite checking.
+The one-step transition from agreeing hubs forces all leaves to the hub color and keeps hubs agreeing; it reaches a fixed state or the deterministic two-cycle in one update except at an initial terminal state. Opposed hubs create an independent Bin(m,1/2) new leaf count, with hub outputs equal below/above r=m/2 and opposed at the exact tie. The balanced stage survives each round with probability c_m and so its exit is geometric with 1-c_m>0, independent of the next fresh-binomial H stage; this gives the stated outcome probabilities, PGFs E[z^tau], E tau, Var tau, unbiased initial law and m->infinity limit. All boundary k=0,r,m and m=2 are covered; no odd m claimed.
 
-The independent exact-rational absorbing-chain checker reconstructs all \(4(m+1)\) aggregate states at \(m=2,4,6,8\) and tests all three terminal-class probabilities and the first two entrance-time moments, passing 480 state identities. Potential boundary errors were reviewed at \(k=0,r,m\), and initial terminal times were correctly assigned zero.
+## originality
 
-## Originality: PASS, subject to unindexed-priority uncertainty
+PASS
 
-The primary research article is A. N. Zehmakan, *Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes*, arXiv:2302.06760v1 (2023-02-14). Its model definition, cycle-graph section, general stabilization and absorbing-state sections, and relevant appendix material were examined from the available full HTML. Those results include cycle-graph outcomes and general constructions, but do not give the full triangular-book class-selection and hitting-time distribution. The complete graph \(B_m\) has triangles and two adjacent universal hubs, so the previously known complete-bipartite or cycle cases cannot imply this statement directly. Out–Zehmakan (arXiv:2109.14265) treats a different, tie-retaining majority rule; its relevant accessible sections were read. The abstract of Benjamini et al. (arXiv:1405.2486) was also checked, without inferring full-text noncoverage from the abstract. Published mathematical research record searches on book graphs, adjacent hubs, fair tie-breaking and stochastic absorption exposed no statement that covers all parts of this theorem; failure to find such a statement is not a proof of absolute priority. A closely related complete-bipartite calculation likewise does not cover the nonbipartite graph or its absorption times.
+PASS on the exact stated triangular-book absorption law as a best-knowledge priority assessment. The full conditional transition reconstruction isolates a nonbipartite adjacent-hub family; the closest established stochastic all-profile result is for complete bipartite graphs (the hub edge is absent), while general random-majority and cycle-graph theorems do not yield the exact three-class probabilities and first-entrance generating functions. No earlier exact triangular-book statement identified. Search failure is not a priority proof.
 
-## Value: PASS
+## value
 
-Two mutually influential vertices with common neighbors are a natural minimal clustered social network, and the triangular-book family gives a connected nonbipartite graph with unboundedly many triangles. It is mathematically substantive that for every even size all initial profiles have exactly three terminal classes, with an exactly solvable outcome law and full time generating function. The asymptotic oscillation probability \(1/2\) under fair random initialization shows that clustering and triangles do not force consensus under this update; the unbalanced-versus-balanced initial hub cases also reveal a geometrically distributed delay not detectable from consensus probabilities alone. These are useful graph-specific structural quantities rather than an arbitrary finite census or a restatement of a known general identity.
+PASS
 
-## Closest literature and limitations
+A connected natural book graph with unbounded triangle count supplies a genuinely exact all-initial-state law for independent fair-tie stochastic opinion dynamics; the persistent two-cycle probability tending to 1/2 and the geometric delay at hub disagreement ties are mathematically significant distinctions beyond broad convergence bounds and finite simulations.
 
-Source-specific comparisons and residual priority risks are recorded in AUDIT.json. Generalizations to odd \(m\), perturbations of the graph, and asynchronous or correlated updates are unproved. Finite tests are not substitutes for a universal mathematical proof. No independent validation has been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

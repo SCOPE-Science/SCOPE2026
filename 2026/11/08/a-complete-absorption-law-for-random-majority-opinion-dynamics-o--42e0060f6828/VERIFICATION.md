@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python verify.py` in the directory containing this document and `RESULT.md`, using Python 3.9 or newer. The checker uses only the standard library. It builds the exact transition kernel on all macro-states `(u,v,k)` for the four even leaf counts `2,4,6,8`, uses rational linear algebra to solve for terminal-class probabilities and first two moments of the first terminal-class entrance time, and checks the analytic formulas for every state. The observed result was `VERIFY_OK 480 exact-rational state identities`.
+## correctness
 
-The theorem's all-even-size validity rests on the case-by-case mathematical proof in `RESULT.md`. The finite checks do not establish a universal theorem, and no conclusion is claimed for odd leaf counts, asynchronous rules, or other tie conventions. Literature priority was checked on a best-knowledge basis and is not independently certified.
+PASS
 
-Independent external audit: not performed.
+The one-step transition from agreeing hubs forces all leaves to the hub color and keeps hubs agreeing; it reaches a fixed state or the deterministic two-cycle in one update except at an initial terminal state. Opposed hubs create an independent Bin(m,1/2) new leaf count, with hub outputs equal below/above r=m/2 and opposed at the exact tie. The balanced stage survives each round with probability c_m and so its exit is geometric with 1-c_m>0, independent of the next fresh-binomial H stage; this gives the stated outcome probabilities, PGFs E[z^tau], E tau, Var tau, unbiased initial law and m->infinity limit. All boundary k=0,r,m and m=2 are covered; no odd m claimed.
+
+## originality
+
+PASS
+
+PASS on the exact stated triangular-book absorption law as a best-knowledge priority assessment. The full conditional transition reconstruction isolates a nonbipartite adjacent-hub family; the closest established stochastic all-profile result is for complete bipartite graphs (the hub edge is absent), while general random-majority and cycle-graph theorems do not yield the exact three-class probabilities and first-entrance generating functions. No earlier exact triangular-book statement identified. Search failure is not a priority proof.
+
+## value
+
+PASS
+
+A connected natural book graph with unbounded triangle count supplies a genuinely exact all-initial-state law for independent fair-tie stochastic opinion dynamics; the persistent two-cycle probability tending to 1/2 and the geometric delay at hub disagreement ties are mathematically significant distinctions beyond broad convergence bounds and finite simulations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
