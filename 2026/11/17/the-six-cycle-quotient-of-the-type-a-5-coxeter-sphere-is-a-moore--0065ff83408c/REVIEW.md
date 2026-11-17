@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The Fourier decomposition of the six-letter real permutation sphere is exact. Quotienting by the order-three subgroup yields the suspension of a free three-dimensional lens quotient. The remaining involution gives a mapping cone of a two-fold branched map between lens spaces, inducing an isomorphism on fundamental groups and multiplication by two on top homology. Van Kampen, the long exact mapping-cone sequence, Hurewicz and homological Whitehead then prove the Moore-space homotopy type. Directly constructed quotient chains give \((12,91,260,300,120)\) cells, vanishing integral boundary squares, and the predicted modular homology in characteristics two, three, five and seven.
+
+**Originality — PASS against the available published comparisons.** Babson–Reiner (2004) gives the correct general quotient cellular apparatus but no instance identifying this six-cycle orbit space as a Moore space in the inspected sections and document searches. Reiner's 2016 discussion resolves incidence details only. Donau's 2012 work treats partition lattices, not the Coxeter sphere. Targeted searches for the orbit space under the relevant equivariant and representation-sphere descriptions found no stronger result or exact homology table. This is a best-knowledge finding, not a universal priority certificate.
+
+**Value — PASS.** The long six-cycle on the first mixed-prime six-vertex Coxeter sphere has both order-two and order-three isotropy, killing the covering-group fundamental group yet leaving two-primary homology in degree three. Identifying the *full homotopy type* as \(M(\mathbb Z/2,3)\) is an exact, motivated topological boundary case, beyond a rational Betti count or a routine application of orbit counting. The mapping-cone model additionally explains the torsion mechanism.
+
+**Closest context and risks.** The general subgroup quotient complex appears in Babson–Reiner, Section 2.3. General cyclic representations and lens-space constructions might imply the result without naming the Coxeter complex. Source discovery and text inspection cannot rule out all such equivalences. No all-order classification or independent mathematical validation is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
