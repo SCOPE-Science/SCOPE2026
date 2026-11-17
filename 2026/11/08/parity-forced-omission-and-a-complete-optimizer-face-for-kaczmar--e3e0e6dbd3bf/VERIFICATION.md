@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standalone `verify.py` uses exact rational-pair arithmetic for the quadratic field \(\mathbb Q(\sqrt2)\). Across orders 2 through 100 and five parameter values, it checks all formula normalization identities, row signs, the full eigenvector equation and the rowwise Rayleigh saturation statements; execution reported `VERIFY_OK 495`. An auxiliary independent SymPy/NumPy calculation checked eigenvalue minima against the analytic formula for orders and representative parameters, reporting 71 checks. These finite checks supplement an all-order proof in `RESULT.md`.
+## correctness
 
-For the all-order result, verify first that the positive tent profile makes each normalized row projection exactly one, except the even central comparison, then that the formula solves the Jacobi eigenvector equations and normalization. The ground-state sum-of-squares identity implies the proposed eigenvalue is the least eigenvalue; the Rayleigh equality equations then force the unique even or entire odd optimizer face. Direct summation of the tent profile verifies the rate limit. The statement is limited to fixed iid row probabilities and the one-step worst-direction mean-squared contraction. No independent mathematical audit has been performed.
+PASS
+
+The positive tent vector makes the Rayleigh quotient universally 1/S_n (or (1-p_middle)/S_n). The exhibited p solves Mv=v/S_n; a path ground-state sum-of-squares proves it is the bottom eigenvalue; the node equations characterize all optimal faces. Direct newly constructed numpy matrices checked n=2..13 and 24 theta cases. This is a one-step objective, not an exact multi-step exponent.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: retrieved prior work establishes the row-sampling SDP and exact annealed exponent, but not this extra-endpoint tent-vector optimal face; indexed mirrored adjacent-coordinate theorem has different frame and objective structure. The complete historical E-optimal design literature was not fully inspected.
+
+## value
+
+PASS
+
+PASS: the exact best expected one-step contraction and complete optimizer face are a motivated E-optimal row-selection problem for calibrated path measurements; the sharp parity-forced central omission is a structural phenomenon, not a routine SDP restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
