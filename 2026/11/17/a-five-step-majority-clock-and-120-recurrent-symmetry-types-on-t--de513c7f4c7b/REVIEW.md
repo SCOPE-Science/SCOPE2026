@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The two included integer-only C++17 implementations enumerate the complete \(2^{20}\)-configuration transition function and agree in all counts. One uses indegree peeling and a union-find spatial quotient; the other independently builds column-major transitions, uses explicit trajectory tracing, directly counts \(F(s)=s\) and \(F^2(s)=s\), and applies Burnside's lemma. The finite exhaustive proof establishes each integer and the sharp upper bound five without extrapolation.
+
+**Originality — PASS, qualified.** Searches of published mathematical records for `C4 Cartesian C5`, `4x5 torus majority`, period counts, symmetry quotients and exact entrance basins did not locate this numerical census. The closest previously published \(C_4\square C_4\cong Q_4\) result concerns 16 vertices, while the 2025 Nakar–Ron structural theorem identifies already-periodic toroidal threshold configurations but does not count attraction shells on this graph. The classical period-two theorem is stronger only on the *range of possible periods*, not on these exact counts. Precise historical priority remains uncertain, notably because some old full texts and published-record bodies were not accessible.
+
+**Value — PASS.** This is a complete exact dynamical classification at the first non-hypercubic, triangle-free rectangular torus with four distinct neighbors, where the presence of a pentagonal cycle distinguishes it from the previously classified four-cube. The exact basin split, sharp five-update entry clock and 120 symmetry types are natural, interpretable invariants which neither the general period-two theorem nor structural periodic-state descriptions determine. The result is a finite benchmark, not a formula for all toroidal grid sizes.
+
+**Closest literature and limitations.** Goles–Olivos (1980), Benjamini et al. (arXiv:1405.2486), and Nakar–Ron (arXiv:2507.14569) provide general or structural foundations. A published four-cube majority census is a near parameter comparator but not a covering graph result. The proof depends on two exact exhaustive implementations; no external validation or inaccessible-source priority guarantee is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
