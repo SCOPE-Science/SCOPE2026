@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T11:57:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. In numerical binary-integer order, each nonconstant affine RM(1,m) word has Hamming weight n/2 and cyclic pair weight n/2+T/2, where T is the number of bit transitions. Successor carries toggle prefix parities s_j=a_0+...+a_j mod 2, giving T/2=sum_{j=0}^{m-2}2^{m-j-2}s_j+s_{m-1}. All 2^m prefix vectors map bijectively and have generating function (1+z)^2 product_{j=1}^{m-2}(1+z^{2^j})=1+2sum_{r=1}^{n/2-1}z^r+z^{n/2}; accounting for affine constant choices gives 1+4sum_{r=1}^{n/2-1}z^{n/2+r}+3z^n. The allowed r>=1 prefix-coordinate weights 1,1,2,4,... show gamma_m(alpha)=min(m+1,3+floor(log2(alpha-n/2))) above n/2; Cayley-component count 2^(m+1-gamma), connected at 3n/4. Inspected pinned check_rm_pair.py and independently enumerated full cyclic pair weights of affine truth tables m=2..6, exactly matching the formula. All-m proof uses carry algebra, not finite tests. m=2 endpoint checked.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier general cyclic b-symbol enumerator valid 1<=b<=2^m specializes b=2 to exactly submitted flat pair-weight enumerator.",
+          "Independent earlier pair-generation result covers every submitted graph-connectivity conclusion."
+        ],
+        "reasoning": "The b-window result dominates pair enumerator, and the pair-generation work dominates the whole submitted theorem; no independent remainder.",
+        "searches": [
+          "Reed Muller first order cyclic symbol pair weight enumerator graph connectivity disconnection threshold",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/13/SCOPE-complete-cyclic-window-weight-enumerators-of-ordered-first-order--4ba592bdb146/RESULT.md",
+          "Resultary:complete cyclic window-weight enumerators ordered RM"
+        ]
+      },
+      "checked_sources": [
+        "Reed Muller first order cyclic symbol pair weight enumerator graph connectivity disconnection threshold",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/13/SCOPE-complete-pair-generation-profile-of-lexicographically-ordered-fi--42235d3b28b9/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/13/SCOPE-complete-cyclic-window-weight-enumerators-of-ordered-first-order--4ba592bdb146/RESULT.md",
+        "Pinned RESULT.md/check_rm_pair.py; direct independent enumeration m=2..6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier proof uses identical carry-prefix parity coefficient weights {1,1,2,4,...} and coset components.",
+          "All submitted equations are directly repeated or trivially simplified prior statements."
+        ],
+        "reasoning": "No new lemma, parameter domain, or application distinct from the earlier full theorem survives; known prior mathematically implies everything.",
+        "searches": [
+          "Reed Muller first order cyclic symbol pair weight enumerator graph connectivity disconnection threshold",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/13/SCOPE-complete-pair-generation-profile-of-lexicographically-ordered-fi--42235d3b28b9/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/13/SCOPE-complete-cyclic-window-weight-enumerators-of-ordered-first-order--4ba592bdb146/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both specify F_2 affine truth tables indexed 0,...,2^m-1, cyclic last-first pair, same m>=2.",
+          "Earlier full statement: W=1+4Σ_{j=1}^{n/2-1}z^{n/2+j}+3z^n; gamma=1+min(m,2+floor log2 r), which equals submitted min(m+1,3+floor log2 r)."
+        ],
+        "reasoning": "This is exact mathematical identity of objects, assumptions, quantifiers, normalization, and conclusions.",
+        "searches": [
+          "Reed Muller first order cyclic symbol pair weight enumerator graph connectivity disconnection threshold",
+          "Resultary:2026-10-13 complete pair-generation profile lexicographically ordered first-order Reed Muller",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/13/SCOPE-complete-pair-generation-profile-of-lexicographically-ordered-fi--42235d3b28b9/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact prior all-dimensional polynomial and generation-rank table, not merely numerical examples; same threshold 3n/4."
+        ],
+        "reasoning": "The four-per-interior-weight table and logarithmic rank ladder are present in full prior published mathematical text.",
+        "searches": [
+          "Reed Muller first order cyclic symbol pair weight enumerator graph connectivity disconnection threshold",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/13/SCOPE-complete-pair-generation-profile-of-lexicographically-ordered-fi--42235d3b28b9/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/13/SCOPE-complete-cyclic-window-weight-enumerators-of-ordered-first-order--4ba592bdb146/RESULT.md"
+        ]
+      },
+      "rationale": "FAIL. Full published 2026-10-13 result Complete pair-generation profile of lexicographically ordered first-order Reed–Muller codes establishes **identical** code, binary numerical ordering, cyclic wrap-around pair metric, entire enumerator 1+4Σz^(n/2+r)+3z^n, every intermediate rank formula, component counts, sharp connectedness 3n/4 and disconnect threshold 3n/4-1. Read the complete earlier RESULT.md and verified its equations match after simplifying its 1+min(m,2+floor log2 r). A second published 2026-10-13 complete cyclic b-symbol-window enumerator covers the identical b=2 enumerator as a special case. Neither changed title nor proof method rescues originality.",
+      "residual_risks": [
+        "No correctness problem identified; original scientific claim fails solely because of decisive prior coverage.",
+        "Nothing in general b-window theorem alone implies the entire rank profile, but the separate full pair-generation paper proves the ranks exactly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_EXACT_COVERAGE",
+          "evidence": "Identical pair enumerator, gamma profile, connectedness and disconnection thresholds.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/13/SCOPE-complete-pair-generation-profile-of-lexicographically-ordered-fi--42235d3b28b9/RESULT.md",
+          "material_read": "Entire published RESULT.md including assumptions, explicit formulas, prefix-carry proof, rank proof, connectivity and verification",
+          "method": "Read complete primary mathematical record",
+          "title": "Complete pair-generation profile of lexicographically ordered first-order Reed–Muller codes",
+          "trigger": "Exact object and title/parameters from semantic prior search"
+        },
+        {
+          "assessment": "STRICT_GENERALIZATION_COVERS_ENUMERATOR",
+          "evidence": "Earlier b-symbol weight enumerator specializes exactly to this submitted pair polynomial.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/13/SCOPE-complete-cyclic-window-weight-enumerators-of-ordered-first-order--4ba592bdb146/RESULT.md",
+          "material_read": "Entire published RESULT.md, arbitrary-b formula and its b=2 corollary and proof",
+          "method": "Read complete primary mathematical record",
+          "title": "Complete cyclic window-weight enumerators of ordered first-order binary Reed–Muller codes",
+          "trigger": "Stronger coverage of pair enumerator by arbitrary cyclic read window"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL. These exact natural Reed–Muller pair invariants are mathematically useful in isolation, but their evaluated formulas and sharp connectivity classification are already published verbatim for the identical parameters and ordering. The submitted finding is a known result/table recomputation, without a distinct correct original invariant or new structural extension, and therefore no surviving new scientific value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Failed scientific originality and value; preserve entire original package for failed-path relocation."
+  ],
+  "schema_version": 1
+}
