@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,9 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and bounds
-Run `python3 verify.py` in a standard Python 3 environment. This standalone script builds the quadratic-residue Paley tournament, enumerates its entire transitive-subtournament complex, computes each mod-two chain rank, checks consecutive boundary composition, enumerates every affine symmetry, and checks the complete rational character identity. All loops have finite explicit ranges; no random sampling is used.
 
-The actual recorded output is `verification_output.txt`. Confirm the final marker `PALEY31_AFFINE_HOMOLOGY_CHARACTER_PASS`, the face vector (31,465,3255,9765,10695,3255,465), the mod-two ranks (30,435,2820,6945,2790,465), the character-value multiplicities (960 at one identity, -1 at 30 translations, 0 at 434 remaining elements), and invariant dimensions 2 and 30.
+# Independent mathematical audit
 
-Mod-two ranks and Euler characteristic prove the rational homology concentration, but do **not** prove a lack of integral torsion. The representation character statement is about rational homology. The mathematical arguments converting finite calculations into the representation theorem are supplied in `RESULT.md`. No independent mathematical audit is asserted here.
+## correctness
+
+PASS
+
+Reconstructed the 31-point quadratic-residue tournament and enumerated every transitive subtournament, giving f=(31,465,3255,9765,10695,3255,465), 27931 nonempty simplices. Independently recomputed complete mod-two simplicial boundary ranks (30,435,2820,6945,2790,465), hence mod-two Betti (1,0,0,0,960,0,0); Euler characteristic forces rational H4 dimension960 and rational vanishing elsewhere. Each orientation-preserving affine symmetry fixes a transitive face setwise only when it fixes every vertex (unique compatible order), so Lefschetz gives 960 identity, -1 for 30 nontrivial translations, 0 for remaining 434 elements; exactly 2Q[G]⊕Q[F31]/Q·1. Restriction to translations gives cyclotomic rational irreducibility and fixed ranks 2 globally/30 under C31. Does not infer torsion-free integral homology or full tournament automorphism classification.
+
+## originality
+
+PASS
+
+Existing Paley31 same-object result gives the nonequivariant wedge of 960 4-spheres but no affine character. The accessible directed-flag census Govc (2020) stops at 27 points (Proposition 3.4); Paley19 and 23 affine results concern other tournaments and group sizes. The explicit 465-element affine character and 2 regular-plus-augmentation module are not implied by homotopy ranks alone. Foundational Deniz 2014 full text inaccessible after OA/arXiv attempts and authorized Oxford VPN disconnected; this is a bibliographic risk, not automatic failure.
+
+## value
+
+PASS
+
+The 31-point Paley tournament is a canonical highly symmetric doubly regular tournament beyond the earlier finite census. Identifying its 960-dimensional top homology with 2 regular plus vertex augmentation gives a complete natural affine representation, rational invariant dimensions 2/30 and distinction from the known bare wedge type. A natural exact finite equivariant classification can be intrinsically useful without an infinite-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
