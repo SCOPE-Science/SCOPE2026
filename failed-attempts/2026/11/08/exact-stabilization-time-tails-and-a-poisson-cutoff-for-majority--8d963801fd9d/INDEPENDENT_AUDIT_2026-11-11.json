@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T06:52:59.302316Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md sha 5b91c672a66489250a711fc41402e500adac2003",
+        "frozen verify_rule232.py sha 8c0b1c28301882e8606ec4b73f97047ff26a533f"
+      ],
+      "rationale": "For each labeled ring x, adjacent equal spins form invariant seeds and an alternating gap erodes from both ends, so T_n(x)≤t iff no alternating window of length 2t+3 remains, except the two even-ring checkerboards already periodic at t=0. Edge differences have even global XOR parity and are 2-to-1 from x. The signed automaton on 2t+2 run-length states counts precisely valid parity-zero circular difference words, giving the stated two traces plus two checkerboards. Pattern-start factorial moments have hard-core overlap and asymptotically disjoint support; n*2^-(2t+3)→lambda implies Poisson(lambda) and e^-lambda entry probability. This reasoning agrees exactly with a complete published earlier proof. Finite tests in the inspected checker are corroborative only.",
+      "residual_risks": [
+        "A valid C result can still be rejected for earlier coverage; failed disposition preserves original complete package unchanged.",
+        "Proof addresses first periodic entry rather than consensus, synchronous nearest-neighbor ternary majority, fair iid random inputs only for limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior Nov 2 provides T_n=floor(longest initial alternating one-edge run/2), the complete cumulative trace, identical Poisson critical window, and extra ET_n=(log2 n)/2+O(1). Prior Oct25 also covers exact all-time census/Poisson."
+        ],
+        "reasoning": "Both earlier results strictly dominate or equal the submitted final claim for every n≥3 and t≥0.",
+        "searches": [
+          "rule 232 cellular automata relaxation first-entry time distribution ring alternating runs Poisson",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-first-periodic-entry-law-and-poisson-extremes-for-majority--d0c0e063c265/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-stabilization-census-and-poisson-critical-window-for-cycli--387c46a61238/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md sha 5b91c672a66489250a711fc41402e500adac2003",
+        "frozen verify_rule232.py sha 8c0b1c28301882e8606ec4b73f97047ff26a533f",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-first-periodic-entry-law-and-poisson-extremes-for-majority--d0c0e063c265/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-stabilization-census-and-poisson-critical-window-for-cycli--387c46a61238/RESULT.md",
+        "https://arxiv.org/abs/comp-gas/9703001"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "With q=m-2=2t+1, tr[A_m^±]^n = tr[M_q(±1)^n], checkerboard correction is literally the same; both probability limits use n2^-(2t+3)."
+        ],
+        "reasoning": "Simple variable substitution yields entire result from the earlier Nov 2 theorem with identical hypotheses; no extra theorem is needed.",
+        "searches": [
+          "rule 232 cellular automata relaxation first-entry time distribution ring alternating runs Poisson",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-first-periodic-entry-law-and-poisson-extremes-for-majority--d0c0e063c265/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2026-11-02 prior result defines M_q(z) on states 0..q, reset weight 1, increment weight z; submitted A_m^{±} has the identical matrix for q=m-2=2t+1."
+        ],
+        "reasoning": "This is exact equality of the enumerators after q=2t+1, not merely same asymptotic exponent.",
+        "searches": [
+          "rule 232 cellular automata relaxation first-entry time distribution ring alternating runs Poisson",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-first-periodic-entry-law-and-poisson-extremes-for-majority--d0c0e063c265/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two earlier Resultary theorem proofs are exact all-n all-t tables through transfer traces, not just finite experiments."
+        ],
+        "reasoning": "The submitted coefficient sequence is exactly the same complete database determined by those theorems, so numeric refinements would be recomputation.",
+        "searches": [
+          "rule 232 cellular automata relaxation first-entry time distribution ring alternating runs Poisson",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-stabilization-census-and-poisson-critical-window-for-cycli--387c46a61238/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-first-periodic-entry-law-and-poisson-extremes-for-majority--d0c0e063c265/RESULT.md"
+        ]
+      },
+      "rationale": "A 2026-11-02 published Resultary theorem, fully read, proves the identical first-periodic-entry law on the identical synchronous majority-of-three cycle graph: tr[M_{2t+1}(1)^n]+tr[M_{2t+1}(-1)^n]+2*1_{even n}; the submitted matrices A_m with m=2t+3 have indices 0..m-2 and exactly coincide with these M_{2t+1}. The earlier theorem also proves the identical scaling n2^-(2t+3)→lambda and e^-lambda limit, plus extra mean and concentration estimates. An additional 2026-10-25 theorem covers the same complete finite census and Poisson scaling. Thus the full claim is already known, not just an analogous method.",
+      "residual_risks": [
+        "No residual originality uncertainty material to the rejection: two directly equivalent earlier complete published theorems were read.",
+        "Any independently new application or downstream use has not been proposed or proven in submitted final RESULT."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_PREVIOUS_COVERAGE",
+          "evidence": "Explicit 2026-11-02 formula with M_{2t+1} equals submitted A_{2t+3}, same theta n2^{-(2t+3)} and e^-theta limit",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-first-periodic-entry-law-and-poisson-extremes-for-majority--d0c0e063c265/RESULT.md",
+          "material_read": "Complete published RESULT.md including exact formula, separate erosion proof, signed trace automaton, Poisson factorial moments, bounded mean/concentration proofs and limitations",
+          "method": "GitHub connector fetch_file from Resultary/2026 main, read full",
+          "title": "Exact first-periodic-entry law and Poisson extremes for majority-three rings",
+          "trigger": "identical model and identical critical-window theorem"
+        },
+        {
+          "assessment": "DECISIVE_PREVIOUS_COVERAGE",
+          "evidence": "2026-10-25 earlier exact census and extremal stabilization statistics for the same cyclic majority rule",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-stabilization-census-and-poisson-critical-window-for-cycli--387c46a61238/RESULT.md",
+          "material_read": "Published RESULT.md mathematical finding, trace derivation and critical Poisson window; full result fetched and inspected",
+          "method": "GitHub connector fetch_file from Resultary/2026 main",
+          "title": "Exact stabilization census and Poisson critical window for cyclic majority automata",
+          "trigger": "same Rule232 all-n stabilization distribution, published before submission"
+        },
+        {
+          "assessment": "FOUNDATIONAL_PRIOR_RULE",
+          "evidence": "Fukś 1997 introduces rule 232 among two-rule density classifiers; does not independently establish novelty of later exact census",
+          "identifier_or_url": "https://arxiv.org/abs/comp-gas/9703001",
+          "material_read": "ArXiv primary abstract and scientific model summary; full article not needed to establish decisive later published coverage",
+          "method": "arXiv primary abstract and metadata",
+          "title": "Solution of the Density Classification Problem with Two Cellular Automata Rules",
+          "trigger": "foundational same local Rule232"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md sha 5b91c672a66489250a711fc41402e500adac2003",
+        "frozen verify_rule232.py sha 8c0b1c28301882e8606ec4b73f97047ff26a533f",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-first-periodic-entry-law-and-poisson-extremes-for-majority--d0c0e063c265/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-exact-stabilization-census-and-poisson-critical-window-for-cycli--387c46a61238/RESULT.md",
+        "https://arxiv.org/abs/comp-gas/9703001"
+      ],
+      "rationale": "The mathematical facts are intrinsically relevant to cellular automaton relaxation, but the submitted finding is an exact restatement of earlier complete theorems, with no new independent invariant, stronger boundary, or nontrivial classification surviving. Reproducibility and new notation alone do not create incremental value.",
+      "residual_risks": [
+        "No residual originality uncertainty material to the rejection: two directly equivalent earlier complete published theorems were read.",
+        "Any independently new application or downstream use has not been proposed or proven in submitted final RESULT."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "Exact first-periodic-entry transfer distribution and Poisson extremes for synchronous Rule-232 majority rings",
+  "limitations": [
+    "A valid C result can still be rejected for earlier coverage; failed disposition preserves original complete package unchanged.",
+    "Proof addresses first periodic entry rather than consensus, synchronous nearest-neighbor ternary majority, fair iid random inputs only for limits."
+  ],
+  "schema_version": 1
+}
