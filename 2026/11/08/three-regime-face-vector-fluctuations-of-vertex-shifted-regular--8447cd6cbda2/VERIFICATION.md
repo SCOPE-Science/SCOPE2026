@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The included `verify.py` can be run with Python 3 without third-party modules:
+## correctness
 
-```sh
-python verify.py
-```
+PASS
 
-The verifier enumerates crossed simplex face subsets in small dimensions, independently compares Gaussian pairwise correlations, performs Monte Carlo normalization checks for the exact finite-dimensional mean, and couples high-dimensional Gaussian sign vectors to the macroscopic limit. It also checks the simple moment identities at the displacement endpoint and the crossover variance expression. All comparisons use the exact source file packaged with the result.
+Generic simplex j-faces in a section correspond bijectively to crossed (j+1)-faces, giving binomial difference f_j=C(N,j+2)-C(K,j+2)-C(N-K,j+2); normal coordinates are centered independent Gaussians, and the vertex-directed displacement gives the shared threshold G_i-Gbar>h_n(G_0-Gbar). A uniform local empirical-cdf increment bound gives the critical influence variable (1/sqrt(n)) sum(1_{G_i>0}-1/2-φ(0)G_i)-cφ(0)G_0 with variance 1/4+(c²-1)/(2π), then symmetric binomial Taylor expansion yields rank-one scaled chi-square deficits. Uniform Glivenko–Cantelli and Taylor expansion give the mesoscopic n²h_n² normalization, and strong cdf convergence gives macroscopic p=Φ(hZ) and all bounded fixed-rank moments. The exact expected-vertex formula follows from bivariate Gaussian sign correlations; endpoint h=1 is only a limit of finite h<1. The proof uses stochastic equicontinuity for dependent moving threshold via deterministic-grid control, not simulated limiting distributions.
 
-**Scope of evidence.** The infinite-dimensional results are analytic statements proved in the accompanying `RESULT.md`: the local empirical-CDF fluctuation bound, the central limit theorem, the strong/uniform empirical-CDF convergence, and polynomial face-count expansion establish them. Neither the Monte Carlo log nor finitely many enumerations certify an infinite limit or exhaust all parameters. The historical-literature comparison has explicit remaining priority risk. Independent audit has not been performed.
+## originality
+
+PASS
+
+Substantial components are covered by a prior same-geometry vertex theorem and a separate fixed-normal-offset face-vector theorem; the surviving added content is simultaneous higher face-rank fluctuation crossover and the intermediate displacement asymptotic for this vertex-directed sampling, not novelty of the known vertex critical/macro laws.
+
+## value
+
+PASS
+
+Regular-simplex sections have a natural complete face-vector invariant. The intermediate displacement scale between established central and macroscopic laws produces a new, common all-rank chi-square limit, and the higher-rank joint transition is a meaningful classification of a geometric fluctuation phenomenon rather than an arbitrary finite slice. The known j=0 critical/positive-h cases do not by themselves exhaust the three-scale all-face statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

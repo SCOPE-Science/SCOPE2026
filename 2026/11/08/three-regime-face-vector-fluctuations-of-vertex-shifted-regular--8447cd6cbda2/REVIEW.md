@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The face identity follows from a bijection between crossed simplex faces and section faces under genericity. A projected standard Gaussian is Haar in the simplex tangent space, and shifting through an interior centroid-to-vertex point yields the stated common threshold. The critical formula follows from a uniform local empirical-CDF increment estimate and the CLT for \({\mathbf{1}}_{\{G>0\}}-1/2-\varphi(0)G\), whose variance is exactly \(1/4-1/(2\pi)\). A distinguished independent Gaussian adds the \(c^2/(2\pi)\) term. Uniform empirical convergence gives the other two regimes, while a binomial-coefficient Taylor expansion establishes joint fixed-rank limits. The macroscopic CDF, mean and endpoint moments are direct Gaussian-quadrant/probability-integral-transform consequences. A standard-library verifier checks crossed-face counts, covariance normalization, finite expected counts and large-dimensional coupled approximations. Simulations do not constitute a proof of convergence.
+PASS
 
-## Originality — PASS, with stated residual risk
+Generic simplex j-faces in a section correspond bijectively to crossed (j+1)-faces, giving binomial difference f_j=C(N,j+2)-C(K,j+2)-C(N-K,j+2); normal coordinates are centered independent Gaussians, and the vertex-directed displacement gives the shared threshold G_i-Gbar>h_n(G_0-Gbar). A uniform local empirical-cdf increment bound gives the critical influence variable (1/sqrt(n)) sum(1_{G_i>0}-1/2-φ(0)G_i)-cφ(0)G_0 with variance 1/4+(c²-1)/(2π), then symmetric binomial Taylor expansion yields rank-one scaled chi-square deficits. Uniform Glivenko–Cantelli and Taylor expansion give the mesoscopic n²h_n² normalization, and strong cdf convergence gives macroscopic p=Φ(hZ) and all bounded fixed-rank moments. The exact expected-vertex formula follows from bivariate Gaussian sign correlations; endpoint h=1 is only a limit of finite h<1. The proof uses stochastic equicontinuity for dependent moving threshold via deterministic-grid control, not simulated limiting distributions.
 
-The full inspected primary text of Schange (arXiv:2610.28084, first posted 2026-10-20) gives expected face numbers of random shifted sections, but no corresponding joint face-vector distribution or displacement-dependent dimension-asymptotic crossover. The full available published research notes on regular-simplex central sections give exact sign reductions and joint chi-square fluctuations, but their shift parameter is identically zero; the new results require resolving a moving random threshold and an additional independent Gaussian. The Kabluchko–Seidel full text covers angles and central face expectations; De Loera–Lopez-Campos–Torres treats deterministic section-vertex counts. The known central endpoint and finite expected count have been explicitly excluded from claims of independent novelty. Alternative historical formulations in empirical-threshold statistics or convex geometry cannot be ruled out completely.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question is motivated by recent explicit formulas for shifted random sections: what happens to the full *distribution*, rather than just its mean, as the interior shift competes with dimension-dependent Gaussian normal fluctuations? The answer provides a complete natural transition across three geometric scales, exhibits a critical \(n^{-1/2}\) crossover, and identifies a macroscopic nonconcentration law (with a particularly simple universal endpoint distribution). The joint face-vector law exposes a single random factor governing every fixed face rank, rather than a one-off expectation or unmotivated parameter specialization.
+Substantial components are covered by a prior same-geometry vertex theorem and a separate fixed-normal-offset face-vector theorem; the surviving added content is simultaneous higher face-rank fluctuation crossover and the intermediate displacement asymptotic for this vertex-directed sampling, not novelty of the known vertex critical/macro laws.
 
-## Scientific limitations and comparison
+## value
 
-All statements are for Haar normals, a regular simplex and shifts on one vertex ray. Only fixed face dimensions are included in joint asymptotics; no error rate is claimed. The existing primary paper's mean result and the older central chi-square limit are not presented as newly discovered results. Earlier noncentral formulations in unindexed literature remain a residual historical-priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Regular-simplex sections have a natural complete face-vector invariant. The intermediate displacement scale between established central and macroscopic laws produces a new, common all-rank chi-square limit, and the higher-rank joint transition is a meaningful classification of a geometric fluctuation phenomenon rather than an arbitrary finite slice. The known j=0 critical/positive-h cases do not by themselves exhaust the three-scale all-face statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
