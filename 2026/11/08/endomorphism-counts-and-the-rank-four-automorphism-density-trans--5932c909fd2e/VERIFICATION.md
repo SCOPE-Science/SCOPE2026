@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification record
-The standalone `verify.py` uses explicit square-free basis multiplication modulo small primes and independent Gaussian elimination on multiplication matrices. Its actual recorded output is `verification_output.txt`; it terminates with `VERIFY_OK`.
+# Independent mathematical audit
 
-It exhaustively enumerated the radical square-zero elements of \(A_3(\mathbb F_3)\) and \(A_3(\mathbb F_5)\) and computed annihilator-rank profiles \((1,2,78,162)\) and \((1,4,620,1500)\) in multiplication ranks \((0,1,2,4)\). Annihilator weighting reconstructs \(S_4(3)=80919\), \(S_4(5)=11328125\). It directly checked \(2^{15}\) radical elements in \(A_4(\mathbb F_2)\), plus rank-one/two counts for small primes and \(72\) invertible substitutions of the two-generator algebra over \(\mathbb F_3\).
+## correctness
 
-No finite enumeration proves the formulas for all finite fields; the algebraic direct-sum and monomial-linear arguments in the proof do. No independent audit has been conducted.
+PASS
+
+Unital images are independent square-zero elements. For odd fields A_(r+1)=A_r⊕xA_r gives the exact annihilator-weighted recursion. A3 square-zero multiplication-rank classes 0,1,2,4 have counts 1,q−1,q(q³−1),3(q−1)q³; substituting yields S4. Cotangent invertibility forces monomial linear matrices; char2 Frobenius gives unrestricted radical choices. Independent direct enumeration confirmed S3(3)=243 and S3(5)=2125. Finite tests corroborate, not prove, field-uniform identities.
+
+## originality
+
+PASS
+
+Automorphism group literature in characteristic zero and alternating two-step algebra End-rank tables do not logically imply the present odd-characteristic all-End rank-four tensor-power count from their inspected statements. Full primary monomial-algebra automorphism text was inaccessible; best-of-knowledge coverage risk remains.
+
+## value
+
+PASS
+
+An exact End-monoid invariant for a canonical Artinian complete intersection with a nontrivial first rank-four odd/even characteristic density transition is mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
