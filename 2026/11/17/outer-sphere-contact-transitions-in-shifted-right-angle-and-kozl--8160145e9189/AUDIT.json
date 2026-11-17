@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary strictly positive legs, each simplex is coordinatewise between its first and last vertices, giving a Minkowski-sum bounding box with both opposite corners attained. Coordinatewise Euclidean differences give the exact diameter, and the pointwise squared-distance identity gives the unique midpoint minimum ball; sphere equality forces every nonconstant coordinate to be a box endpoint. A factor attaining such an endpoint has normalized binary monotone coordinates and thus is a single step vertex. Overlap chains force one binary step per component union, giving the exact product of (length+1) contacts. A step whose complement is also a step must be constant on that component, giving 2^(c−1) unordered diameter pairs. The binomial specialization follows by Vandermonde and subtraction of k=0,1 terms. The included standard-library exact checker independently enumerates 1,245 finite parameter instances and passes 11,278 assertions; the proof does not extrapolate from these finite cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Snellman 2026 Part I describes vertices and facets, with explicit rank-two Kozlov vertex result and all-rank all-ones leg result.",
+        "Snellman 2026 Part II, arXiv:2610.14985, focuses on counts of sumsets of Hilbert functions."
+      ],
+      "reasoning": "Known source results could imply existence of the polytopes and potentially enable brute-force contact calculations, but they do not directly state a general all-rank extremal metric classification. No broad theorem found that immediately subsumes this claim. Older orthoscheme general results are a residual risk.",
+      "searches": [
+        "\"right angle simplices\" \"enclosing sphere\" Minkowski sum",
+        "\"Minkowski sum\" \"staircase\" \"diametral\" \"enclosing sphere\"",
+        "\"Kozlov simplex\" \"inradius\" \"Euclidean\" \"circumradius\""
+      ]
+    },
+    "checked_sources": [
+      "Jan Snellman, arXiv:2609.23605v1, September 20, 2026",
+      "Jan Snellman, arXiv:2610.14985, October 2026",
+      "D. N. Kozlov, Discrete & Computational Geometry 18 (1997), 421–431, DOI 10.1007/PL00009326"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kozlov (1997), Theorem 4.1 and Section 5: simplex of f-vectors.",
+        "Snellman (2026), Definitions 36–37 and Theorem 39: Minkowski construction, and later sections on selected vertices.",
+        "The theorem here additionally proves box-corner realizability under interval overlaps, counts all minimum enclosing sphere contacts, and characterizes every diametral pair."
+      ],
+      "reasoning": "The earlier formulas define the object and partially classify its vertices. Even knowing every vertex of each shifted simplex does not by itself establish which simultaneous sums attain the Euclidean circumradius, the overlap-component formula, or the complementary diametral-pair characterization. The present result supplies those missing metric implications explicitly.",
+      "searches": [
+        "Hilbert functions over the exterior algebra and f-vectors in higher rank I Jan Snellman arXiv 2609.23605",
+        "Dmitry Kozlov convex hulls f beta vectors 1997",
+        "Hilbert functions over the exterior algebra and f-vectors in higher rank II 2610.14985"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Snellman 2026, arXiv:2609.23605, Sections 5 and 8–10: right-angle simplices and shifted Minkowski sums; rank-two Kozlov vertex structure.",
+        "Kozlov 1997, Sections 4–5: hull of f-vectors and skeletal vertices."
+      ],
+      "reasoning": "An equivalent claim could be phrased as exact sphere contacts of sums of coordinate-ordered simplices or box-corner intersections. The cited source structures do not supply the overlap-component contact formula or 2^(c−1) diametral-pair formula; there is no implication from a bare Minkowski representation to these equalities.",
+      "searches": [
+        "\"Kozlov polytope\" \"diameter\" \"circumsphere\"",
+        "\"Kozlov simplex\" \"minimum enclosing\" \"diametral\"",
+        "\"right-angle polytope\" \"Minkowski sum\" \"diameter\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Part I arXiv:2609.23605: coordinate description; its listed vertex results do not provide a table of enclosing-sphere contact counts.",
+        "Part II arXiv:2610.14985: counts Hilbert functions/sumsets, not Euclidean metric extremizers."
+      ],
+      "reasoning": "The claimed infinite products and 2^(c−1) counts are exact all-rank formulas, not extraction of a previously found finite numerical table. The finite verification table was generated from an independent enumerator and is only corroboration.",
+      "searches": [
+        "Kozlov polytopes outer sphere contact vertices exact count",
+        "shifted right-angle Minkowski sums overlap contact vertex count",
+        "Kozlov Minkowski sums diameter binomial autocorrelation"
+      ]
+    },
+    "rationale": "Direct inspection of Snellman’s 2026 primary paper and the earlier Kozlov paper identified the shifted right-angle Minkowski-sum construction and partial vertex/facet theory, not a classification of all Euclidean minimum-sphere contacts or diametral pairs by overlap components. The result proves an all-rank structural theorem for the metric extremal subset without assuming a known general vertex census. The basic coordinate-box diameter bound itself is standard and is not claimed as novel. Priority relative to other orthoscheme terminology is provisional.",
+    "residual_risks": [
+      "An earlier unindexed theorem about orthoscheme Minkowski sums or monotone corners of boxes may encompass the overlap-component formula.",
+      "Search-result absence cannot establish novelty; historical priority has not undergone independent review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS construction and partial vertex classifications; DOES NOT STATE the all-rank minimum-sphere contact theorem or diametral-pair formula.",
+        "evidence": [
+          "Definition 36/37 identify the simplex and right-angle sums; Theorem 39 ties shifted sums to Kozlov polytopes; rank-two Kozlov vertex discussion does not calculate all enclosing-sphere contacts."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.23605",
+        "material_read": "Full open-access HTML text, especially definitions of right-angle simplices and shifted sums; Sections 5, 8, 9, 10 including results on vertices and facets.",
+        "method": "Read the main statements and proofs about the Minkowski construction and the rank-two vertex case; searched the text for diameter, Euclidean radius, and enclosing spheres.",
+        "title": "Hilbert functions over the exterior algebra and f-vectors in higher rank I: Amata-Crupi monomial modules, Kozlov polytopes, and r-vectors of simplicial complexes",
+        "trigger": "Defines the exact family and its known vertex results."
+      },
+      {
+        "assessment": "Studies finite sumset counts; not the coordinate Euclidean diameter, minimum-ball equality case, or sphere-contact multiplicities.",
+        "evidence": [
+          "Companion count concerns achievable Hilbert-function vectors rather than maximizers of Euclidean distance."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.14985",
+        "material_read": "Full accessible HTML text and principal result statements on enumeration of Hilbert functions.",
+        "method": "Compared its counted combinatorial objects and parameters against Euclidean distance extremizers.",
+        "title": "Hilbert functions over the exterior algebra and f-vectors in higher rank II: Generalizing Linusson’s count to sumsets of f-vectors",
+        "trigger": "Direct companion manuscript on the same sums."
+      },
+      {
+        "assessment": "Proves the original f-vector convex-hull results, not the overlap-component phenomenon for shifted higher-rank sums.",
+        "evidence": [
+          "Its principal theorem classifies complete-skeleton vertices; it predates the shifted higher-rank construction."
+        ],
+        "identifier_or_url": "doi:10.1007/PL00009326",
+        "material_read": "Openly available complete PDF, including pages containing Theorem 4.1 and Sections 4–5.",
+        "method": "Read structural simplex and skeleton-hull arguments and checked the PDF for Euclidean sphere/diameter formulations.",
+        "title": "Convex Hulls of f- and β-Vectors",
+        "trigger": "Original polytope and vertices underlying the Kozlov specialization."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "8160145e-9189-42d2-b19b-7acfb1e87627",
+  "value": {
+    "rationale": "The recently studied all-rank Kozlov Minkowski sums have incomplete general vertex structure; a complete extremal metric classification without enumerating all vertices is a natural and useful structural invariant. The theorem supplies all sphere contacts, every diametral pair, a binomial autocorrelation diameter for Kozlov legs, and an exact change at the shift-overlap threshold. It is not merely the standard box-radius inequality: the nontrivial componentwise corner-realizability and count, with sharp multiplicities and all ranks, are the substantive content.",
+    "status": "PASS"
+  }
+}
