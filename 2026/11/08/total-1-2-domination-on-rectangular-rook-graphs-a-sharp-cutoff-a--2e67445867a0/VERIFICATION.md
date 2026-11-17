@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The statement counts total \([1,2]\)-dominating subsets of labelled rook graphs. Its formula is independently verified on explicit finite boards by the two accompanying self-contained Python 3 programs.
+# Independent mathematical audit
 
-`verify_direct.py` computes open neighborhoods from the rook adjacency rule, then checks every subset; its `DIRECT_CHECK_PASS 13` footer attests to the 13 tested boards. `verify_profiles.py` uses a disjoint algorithm: it fixes eventual row occupancies, permits only column patterns satisfying all neighborhood constraints, and counts labelled column sequences with a dynamic program; `PROFILE_DP_PASS 19` attests to 19 tested boards. Captured results are in `direct_output.txt` and `profiles_output.txt`. These outputs were obtained by running the embedded source scripts directly.
+## correctness
 
-The infinite-family claim depends on the proof's three exhaustive cases, not the tested finite range. The software does not certify historical originality or provide independent mathematical review. No external audit has been performed.
+PASS
+
+Let x_ij indicate selection and r_i,c_j be row/column selected counts. The exact open-neighborhood count at (i,j) is r_i+c_j−2x_ij, so admissibility is precisely 1≤r_i+c_j−2x_ij≤2 for every square. If m,n≥3 and row/column counts all ≤2, a two-selection row would force all remaining columns empty, implying all rows active; the resulting crossing contradicts the upper bound; by symmetry only ≤1 counts remain, which make any selected square have no selected neighbor. Thus an admissible matrix must have a fully selected row or column of length 3, forcing the other dimension exactly 3. In two rows, classify columns empty/single/double: 1 or 2 double columns, or one double with a same-row singleton, or all singletons in one row only for b=2,3. These disjoint exhaustive families yield for a=2: (b+2[b=2])z²+(2b(b−1)+2[b=3])z³+C(b,2)z⁴; for a=3: (b+3[b=3])z³; a≥4:0. Independent direct full subset enumeration of 2×2..2×7 and 3×3,3×4,4×4 agrees. Analytic proof covers all m,n.
+
+## originality
+
+PASS
+
+The exact interval upper bound distinguishes total [1,2] domination from ordinary total k-domination (lower bound only) and non-total [1,2] sets. Full accessible Lv–Wu preprint covers general bounds, extremal classes and corona graphs, but no rectangular rook classification found in its displayed theorem/section material. Related Resultary rook-graph polynomials concern other domination predicates. No stronger implication to the full polynomial was established; historical priority still provisional.
+
+## value
+
+PASS
+
+A natural two-parameter family of Hamming/rook graphs exhibits a sharp dimension cutoff and an unusually sparse complete all-cardinality enumerator, including exact labelled extremizers. This supplies a structural feasibility classification for a standard capacity-constrained total-domination parameter, not a trivial numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

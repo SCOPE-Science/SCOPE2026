@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The basic identity \(|N(i,j)\cap S|=r_i+c_j-2x_{ij}\) follows directly from the adjacency definition and handles selected as well as unselected vertices. The obstruction lemma, proof of the full-row or full-column necessity for dimensions at least three, and the singleton/double-column classification for two rows exhaust all cases. The boundary terms at dimensions two and three correspond to actual full-row configurations. Independent exhaustive vertex-subset and row-degree-conditioned enumerations agree with the closed polynomial on 13 and 19 boards respectively; no finite extrapolation is used in the symbolic proof. Risk: standard implementation errors in checks remain possible, but they do not replace the analytic argument.
+## correctness
 
-## Originality — PASS, subject to historical-priority limits
-The primary 2015 preprint studies the same invariant, but its inspected contents treat general bounds, trees, nonexistence conditions and corona constructions rather than rook-graph all-set enumeration. The 2013 founding article considers \(K_p\square K_2\), but for non-total \([1,2]\)-sets, so its conclusions do not satisfy or imply the extra constraints on selected vertices here; it explicitly raises total \([1,2]\)-domination as a question. The 2017 toroidal-grid work covers the \(C_3\square C_3\) minimum numerically, not this polynomial. The 2020 complete-graph-product work covers ordinary total \(k\)-domination, without the two-neighbor cap. Targeted terminology, parameter and implication searches and comparisons against accessible earlier findings produced no equivalent stronger coverage. Inaccessible publisher full text and unindexed notes are residual risks; absence from an index is not a proof of novelty.
+PASS
 
-## Value — PASS
-The original question concerns precisely when total \([1,2]\)-sets exist; a high-degree two-parameter family exhibits an exact structural existence cutoff rather than merely a bound on the minimum. The classification additionally determines every allowable set and its size, explaining how the two-versus-three-row boundary changes the feasible cardinalities. This refines general existence and minimum estimates and provides a test case for neighborhood-cap domination on Cartesian products. The statement is a complete natural-family result, not an arbitrary single graph or a numerical sample.
+Let x_ij indicate selection and r_i,c_j be row/column selected counts. The exact open-neighborhood count at (i,j) is r_i+c_j−2x_ij, so admissibility is precisely 1≤r_i+c_j−2x_ij≤2 for every square. If m,n≥3 and row/column counts all ≤2, a two-selection row would force all remaining columns empty, implying all rows active; the resulting crossing contradicts the upper bound; by symmetry only ≤1 counts remain, which make any selected square have no selected neighbor. Thus an admissible matrix must have a fully selected row or column of length 3, forcing the other dimension exactly 3. In two rows, classify columns empty/single/double: 1 or 2 double columns, or one double with a same-row singleton, or all singletons in one row only for b=2,3. These disjoint exhaustive families yield for a=2: (b+2[b=2])z²+(2b(b−1)+2[b=3])z³+C(b,2)z⁴; for a=3: (b+3[b=3])z³; a≥4:0. Independent direct full subset enumeration of 2×2..2×7 and 3×3,3×4,4×4 agrees. Analytic proof covers all m,n.
 
-## Scientific limitations
-The result covers only two-factor Cartesian products of complete graphs with both factors of order at least two, and open-neighborhood interval \([1,2]\). The complete 2013 publisher article could not be downloaded during this review; the identifiable relevant discussion was compared using accessible article text. Results on other graph products may escape indexed searches. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact interval upper bound distinguishes total [1,2] domination from ordinary total k-domination (lower bound only) and non-total [1,2] sets. Full accessible Lv–Wu preprint covers general bounds, extremal classes and corona graphs, but no rectangular rook classification found in its displayed theorem/section material. Related Resultary rook-graph polynomials concern other domination predicates. No stronger implication to the full polynomial was established; historical priority still provisional.
+
+## value
+
+PASS
+
+A natural two-parameter family of Hamming/rook graphs exhibits a sharp dimension cutoff and an unusually sparse complete all-cardinality enumerator, including exact labelled extremizers. This supplies a structural feasibility classification for a standard capacity-constrained total-domination parameter, not a trivial numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
