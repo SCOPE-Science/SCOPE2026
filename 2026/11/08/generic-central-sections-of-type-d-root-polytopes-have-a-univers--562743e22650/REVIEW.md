@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof reconstructs the original edge criterion and independently verifies the parent-facet description against the cited primary source. Every generic section vertex corresponds uniquely to a crossing original edge; positive-vertex neighbor counts give the exact cubic formula. Original facets cross the section precisely when they have vertex signs on both sides; this yields the exponential formula and proves the face-lattice stability. A finite exact incidence checker confirms the four-dimensional chamfered-cube identification and all formula instances through dimension seven. Its computations are checks, not substitutes for proof.
+## correctness
 
-**Originality — PASS, historical priority provisional.** The 2008 root-polytope paper gives the original facet families, boundary triangulations and original \(f\)-vectors. The 2012 root-polytope-arrangement work concerns hyperplanes through codimension-two faces. Neither inspected source states the generic, central slicing rigidity and both exact section face counts. The chamfered-cube face vector is classical and special 24-cell slices with the same face profile were previously described. An equivalent formulation in broader polytope-section theory remains a genuine residual risk.
+PASS
 
-**Value — PASS.** All generic central hyperplane sections of the type-\(D_d\) root polytope share an unexpectedly fixed combinatorial type. The exact cubic number of section vertices, exponentially growing number of section facets, and three-dimensional identification solve a natural structural enumeration problem for an infinite family, rather than providing a coincidental finite table.
+All facet and root vertices are read from actual pinned RESULT.md. The edge criterion v.w=1 follows from an exposing functional and midpoint nonedge constructions for d>=4. The sign pattern of u.v is fixed on each signed coordinate chamber when |u_i| distinct, so cut-edge and crossed-facet incidences are fixed. Counting crossings from positive roots q_ij^± gives the cubic vertex formula; deleting two coordinate facets and four signed facets from the 2d+2^d full facet families gives the exponential formula. An independent exact combinatorial enumeration reconstructed root vertices, crossing edges and facet cut-incidences for d=4..7: (f0,facets)=(32,18),(80,36),(160,70),(280,136), and d=4 six 4-gons/twelve 6-gons. Enumeration is corroboration only; the chamber/crossing proof applies to every dimension and every stated normal.
 
-**Scope and literature limits.** This does not classify exceptional or translated sections, does not supply the entire high-dimensional \(f\)-vector, and does not establish affine congruence. General face-poset and sign-chamber theory as well as parent facet data are standard inputs. Independent historical and mathematical assessment remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete d=4 generic numerical and polygon profile is already published, including two published complete seven-type D4 section classifications. It is expressly excluded from the originality claim. The nontrivial surviving contribution is the all-rank d>=5 universal full face-lattice law with explicit extreme face counts. The all-rank parent-facet description in Ardila et al supplies one input but not the crossing enumeration. No inspected older full source states the all-rank D-family claim; history beyond inspected material remains at risk.
+
+## value
+
+PASS
+
+The D_d root polytopes are a classical infinite crystallographic family; generic central section incidence is a natural difficult-to-enumerate invariant. The result supplies a uniform all-d combinatorial rigidity theorem and two exact face-number laws beyond the already-known D4 case, useful for further study of root-polytope sections and oriented matroids. Not merely a renamed D4 enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
