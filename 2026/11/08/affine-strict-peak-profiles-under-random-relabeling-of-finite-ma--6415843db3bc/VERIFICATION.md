@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and checks
+# Independent mathematical audit
 
-`verify.py` uses only the Python standard library. Execute `python3 verify.py` from the directory containing the result; the observed successful output was `VERIFY_OK 10603 exact assertions`.
+## correctness
 
-The checker enumerates every function \([4]\to[4]\) and \([5]\to[5]\), and directly enumerates all \(n!\) simultaneous relabelings for each. It additionally uses a fixed pseudorandom seed to select maps on six, seven, and eight vertices and compares the position-resolved probabilities as exact rationals. It independently calculates observed probabilities and predicted motif formulas. Bounded enumeration is supporting evidence, not an infinite proof; the proof in `RESULT.md` covers all \(n\ge4\). The first public posting date recorded for the literature source Leckey–Wormald is 2018-03-07.
+PASS
 
-An independent mathematical audit has not been performed. Historical originality remains qualified by the possibility of an earlier universal labeling theorem; the known permutation-only peak results are explicitly credited.
+An unordered uniformly sampled source triple has one, two, or three distinct successors. If all equal, strict peak impossible; two-image case forces the unique-image source centrally and yields the only linear position term from one-target-inside/one-outside motifs. For three distinct images, non-invariant triples give 1/3 by uniform ordering, whereas invariant triple permutations produce precisely all-fixed and cyclic-three corrections. Sum over C(n,3) triples gives slope and centered intercept. Checked n=4 exhaustively for all 256 maps and all 24 relabelings against formula at both interior indices with exact rationals; proof handles arbitrary n and possible ties, not inferred from the check.
+
+## originality
+
+PASS
+
+Existing peak generating functions for uniform permutations and fixed permutation conjugacy classes cover the bijective specialization and should not be claimed new. Those formulations assume distinct outputs, while arbitrary many-to-one mappings have genuine ties; the two signed coalescence motifs M_+,M_- and their positional slope provide a new exact noninjective law. A known cycle/peak covariance for random permutations has a different random variable. No published exact mapping-conjugacy profile implying this signed coalescence formula was identified.
+
+## value
+
+PASS
+
+Local peaks of relabeled functional digraphs connect mapping structure (indegrees, fixed points, cycles and coalescence motifs) with order-statistic patterns. A universal affine profile and combinatorial slope-sign rule for every finite endofunction is a meaningful structural law beyond permutation-only cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
