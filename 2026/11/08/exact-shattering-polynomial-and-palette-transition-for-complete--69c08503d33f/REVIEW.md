@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof classifies every eligible three-colour query support, including same-vertex conflicts and both one-part/two-part cases, derives the complete all-degree polynomial by disjoint counting with one explicit overlap subtraction, and proves exact Littlestone bounds using an exact positive-root fibre count. Two- and four-or-more-colour boundary regimes are proved by finite concept count or universal all-positive-branch argument and a matching shattered support. Independent finite exhaustive checks match the formulas; they are not used as universal proofs.
+## correctness
 
-**Originality — PASS within accessible evidence.** The closest inspected primary works concern learning an unknown graph from proper-colouring samples, equality of shattering ranks for unrelated linear zero-set classes, and general mistake-tree or closure bounds. A published forced-colouring polynomial for the same bicliques counts partial assignments that uniquely determine a colouring, not supports whose every binary trace is extendable. Accessible prior path/cycle-colouring classifications do not imply the biclique support criterion or coefficient formula. Equivalence under unfamiliar terminology remains an explicit priority risk.
+PASS
 
-**Mathematical value — PASS.** The main contribution is a full support-by-support classification and exact generating polynomial for a canonical graph-colouring concept class. This gives a genuine all-parameter palette transition: with three colours the largest side governs complexity, whereas four colours recover one independent binary choice at every vertex. The absence of any static/adaptive gap on complete bipartite graphs contrasts with the path/cycle case. The contextual easy two-colour and four-colour statements are not separately presented as discoveries; the dimension theorem is supported by the stronger three-colour classification.
+Every shattered support has at most one equality literal per vertex. With 3 colours, proper K_m,n uses disjoint colour sets across the shores. For one-sided supports, queried names use <=2 colours, exactly the sufficient palette construction; with both sides tested, both used test names must be distinct constants and one side must have only one tested vertex. The explicit alternative completions realize all labellings, and counting named tests gives the stated polynomial. With 3 colours every colouring is monochromatic on one side, so the positive branch of any root literal contains exactly 2^m+2^n-2 concepts <2^(max(m,n)+1); this excludes online depth max+2, while a shattered fixed support of max+1 attains it. q=2 gives two proper colourings; q>=4 uses two disjoint two-colour palettes and full m+n support, while an all-positive adaptive path cannot repeat a vertex, yielding the upper bound. Independently enumerated full q=3 polynomial coefficients on small complete bipartite graphs including (1,1),(1,2),(2,2),(2,3),(3,3).
 
-Limitations: no claims for arbitrary bipartite graphs, other query semantics, or full higher-palette support polynomials. Literature coverage is bounded; independent proof checking has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Neither the original structure-learning paper for graph H-colourings nor published forced-3-colouring polynomial evaluates shattered sets of binary vertex-colour equality tests for a fixed unknown proper colouring. The earlier path/cycle equal-literal shattering results are different constraint graphs. No reviewed stronger theorem implies the q=3 two-shore support classification and all-degree polynomial or this q=2/3/4 dimension transition.
+
+## value
+
+PASS
+
+The complete three-colour shattered-support classification and exact polynomial for a fundamental graph family are natural learning-theoretic invariants. The sharp disappearance of the static/adaptive deficiency at four colours and its absence in every palette on K_m,n distinguish this family from published path/cycle examples. The elementary q=2 and >=4 endpoints are context, not the whole contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
