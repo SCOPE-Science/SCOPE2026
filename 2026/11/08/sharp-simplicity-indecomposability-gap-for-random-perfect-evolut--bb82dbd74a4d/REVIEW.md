@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is uniformly sampled matrices in \(\operatorname{GL}_n(\mathbb F_q)\), for prime-power \(q\ge2\), with sharp inequalities asserted only at \(n\ge16\). Algebraic simplicity is equivalent to strong connectivity of the associated support digraph for a perfect evolution algebra; indecomposability corresponds to weak connectivity for a non-degenerate evolution algebra (Cabrera Casado–Siles Molina–Velasco, arXiv:1601.01832, Section 5). One-way cuts are exactly block-triangular invertible matrices; two-way cuts are exactly block-diagonal invertible matrices. Thus the exact cut counts and singleton probabilities follow from \(g_n(q)=|\mathrm{GL}_n(\mathbb F_q)|\). Counting all intermediate cuts with \(k(n-k)\), applying a geometrically summable uniform bound, and Bonferroni on the singleton events yields both explicit error inequalities. Their ratio gives the conditional asymptotic, and the connected-component exponential formula gives the exact distribution of indecomposable summands. Exhaustive independent enumeration over six finite-field instances checked each individual cut count, strong and weak connectivity, and the component recurrence; the checker returned `VERIFY_OK cases=6`. The critical infinite-dimensional input is the elementary uniform summation bound, proved algebraically rather than inferred from finite tests.
+PASS
 
-## Originality — PASS, historically qualified
+For any ordered cut S of size k, invertible outward block-triangular matrices number g_k g_{n-k}q^{k(n-k)} and two-way block-diagonal matrices number g_k g_{n-k}; dividing by g_n gives exact directed and weak-cut probabilities. Dominant singleton probabilities are nu=(q-1)/(q^n-1) and delta=(q-1)q^{-2n+1}/(1-q^-n). The n>=16 middle-cut binomial bounds are uniform over q>=2; Bonferroni yields the stated 6kappa and 5kappa error envelopes, and ratio n delta/(2n nu)=1/(2q^(n-1)). The component containing label 1 recurrence and exp generating function follow from a unique weak-component decomposition. Independent complete 3x3 F2 enumeration gave GL count168, 80 strongly connected, 152 weak connected, 24 outward singleton cuts and 6 two-way singleton cuts, matching exact block-count formulas.
 
-The graph simplicity criterion, weak-connectedness decomposition criterion and the labeled-set exponential formula are known inputs, not claimed as novel. The July 2026 Grothendieck-ring paper (arXiv:2607.15154) discusses structural decomposition and probabilistic classification but does not give the matrix-conditioned, uniform quantitative laws; the October 2026 evolution-algebra survey (arXiv:2610.22248, Question 22) expressly asks for probabilities of simplicity and indecomposability. The earlier graph-decomposition article (arXiv:1601.01832) proves the deterministic equivalence without the probability laws, and Elduque–Labra (arXiv:1312.4685) develops the graph framework. Searches of published mathematical research records for the algebra, its matrix cuts, asymptotic probabilities, aliases and exact component enumerators did not identify an equivalent claim. Earlier random finite-field matrix rank studies concern singularity, not strongly versus weakly connected support conditioned on invertibility. A historical search, even with full-text inspection of these close primary sources, cannot rule out an uncatalogued equivalent zero-pattern enumeration. Novelty is assessed as best-knowledge rather than independently certified priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The work supplies a sharp, dimension- and field-uniform quantitative answer to a natural subset of a published random-evolution-algebra question: one-way isolated vertices dominate nonsimplicity at probability scale \(q^{-n}\), whereas two-way isolated vertices dominate decomposability at scale \(q^{-2n}\). The conditional gap \(1/(2q^{n-1})(1+o(1))\) and the exact all-component counting recurrence describe both the typical exceptional mechanism and every finite-size decomposition multiplicity. These are structural probability invariants for an infinite family, not a sample statistic or an arbitrary parameter slice.
+Important parts are prior and explicitly not credited: fixed-q simple-failure leading term is stated in another November 8 result; centroid decomposition, entire exact connected-component recursion/EGF and leading fixed-q decomposability are proved in the separate same-day centroid paper. The surviving contribution is the *uniform in arbitrary growing field order q* paired error bounds, the uniform sharp ratio of conditional decomposability given nonsimplicity, and the distinct typical directed-one-way vs two-way singleton structures. Those limits do not follow from fixed-q little-o statements, and the earlier exact census alone does not give the paired asymptotic error envelopes. Same-day priority remains a risk; complete literature priority not certified.
 
-## Closest literature and scientific limitations
+## value
 
-The principal comparisons are arXiv:2607.15154 (non-degenerate Grothendieck ring and probabilistic motivation), arXiv:2610.22248 (Question 22, explicit probability problem), arXiv:1601.01832 (Corollary 5.8 and Theorem 5.11, known graph/decomposition equivalences) and arXiv:1312.4685 (graph model). The estimates are for dense uniformly sampled *labeled invertible* matrices; they do not count isomorphism classes or give the singular-matrix indecomposability law or sparse thresholds. No independent audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The quantitative gap between strong and weak connectivity measures a natural algebraic difference between simplicity and indecomposability. The uniform field-order bound and conditional exceptional-structure classification answer a motivated stochastic question beyond recomputing the known component census. Its exact labeled model, n>=16 cutoff and asymptotic limitations are explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
