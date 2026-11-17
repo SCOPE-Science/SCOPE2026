@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T03:05:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The source derivation is mathematically sound. Gaussian KL yields Q=M sum_i(1/x_i)-d-d log M+sum_i log x_i, invariant under scaling. At a hypothetical maximizing interior coordinate the stationary second derivative is positive by Cauchy-Schwarz, so all eigenvalues lie at endpoints 1,K. Evaluating j high eigenvalues gives dF_K(j/d)/2, and the derivative has a unique interior continuous maximum; finite mesh extrema and limiting coefficients follow. Independent differential-evolution tests for (d,K)=(2,1.5),(3,3),(4,10),(7,100) match endpoint formulas. These tests corroborate only; proof handles all d>=2 and K>1.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oct18 establishes same exact envelope and adds nontrivially coupled Lanczos sharpness; Nov2 handles cap <=K explicitly."
+        ],
+        "reasoning": "Earlier theorem is at least as strong, in parts stronger, so no noncovered special case or exact coefficient survives.",
+        "searches": [
+          "sharp Gaussian KL divergence trace-matched isotropic covariance condition number endpoint eigenvalues two-level spectrum",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-condition-number-kl-envelope-for-trace-matched-gaussian-in--2dff41c8b944",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-dimension-dependent-kl-cost-of-trace-matched-isotropic-inv--f43e22e45d82"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-condition-number-kl-envelope-for-trace-matched-gaussian-in--2dff41c8b944",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-dimension-dependent-kl-cost-of-trace-matched-isotropic-inv--f43e22e45d82",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-condition-number-kl-risk-for-trace-preserving-isotropic-ga--36243b4462f7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Old Phi_K(p)=c p(1-p)-log(1-(1-1/K)p)-p log K, new F_K(t)=c t(1-t)-log(1+(K-1)t)+t log K."
+        ],
+        "reasoning": "The exact identity Phi_K(1-t)=F_K(t) follows from log(1-(1-1/K)(1-t))=log(1+(K-1)t)-log K; d/2 maximum and all equality spectra coincide.",
+        "searches": [
+          "sharp Gaussian KL divergence trace-matched isotropic covariance condition number endpoint eigenvalues two-level spectrum",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-condition-number-kl-envelope-for-trace-matched-gaussian-in--2dff41c8b944",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-dimension-dependent-kl-cost-of-trace-matched-isotropic-inv--f43e22e45d82"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior Oct18 defines C=B^(-1), omega=tr(C)/d and the identical KL(N(0,omega I)||N(0,C))."
+        ],
+        "reasoning": "Change of variables from precision B to covariance C is bijective and preserves condition number and direction of KL; spectral multiplicities swap.",
+        "searches": [
+          "sharp Gaussian KL divergence trace-matched isotropic covariance condition number endpoint eigenvalues two-level spectrum",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-condition-number-kl-envelope-for-trace-matched-gaussian-in--2dff41c8b944",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-dimension-dependent-kl-cost-of-trace-matched-isotropic-inv--f43e22e45d82"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Oct18 and Nov2 published RESULT.md give explicit finite grid max and equality classification; identical numeric optimum."
+        ],
+        "reasoning": "This is a known exact formula, not merely an indexed example or distinct parameter table.",
+        "searches": [
+          "sharp Gaussian KL divergence trace-matched isotropic covariance condition number endpoint eigenvalues two-level spectrum",
+          "trace matched Gaussian inverse covariance sharp multiplicity Phi_K"
+        ]
+      },
+      "rationale": "Originality fails conclusively. A 2026-10-18 published sharp KL-envelope theorem proves identical finite-dimensional supremum and all endpoint equality spectra for precision B=C^{-1}, including a genuine coupled Lanczos realization. A Nov2 theorem explicitly treats condition number <=K with the same direction of KL. Converting precision eigenvalue fraction p to covariance high-eigenvalue fraction 1-p makes old Phi_K exactly new F_K. Thus every asserted inequality, equality case and asymptotic is already implied.",
+      "residual_risks": [
+        "No original numerical theorem survives the exact precision/covariance transformation",
+        "Scientific rejection based on stronger existing theorem, not access failure"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive identical and broader prior coverage",
+          "evidence": [
+            "Oct18 finite-dimensional exact max and all endpoint spectra with actual coupled Lanczos setting."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-condition-number-kl-envelope-for-trace-matched-gaussian-in--2dff41c8b944",
+          "material_read": "Full theorem, endpoint principle, Phi_K definition, high/low K expansions, and Lanczos realization",
+          "method": "Read primary prior RESULT.md actual source and derived precision-to-covariance equivalence",
+          "title": "Sharp condition-number KL envelope for trace-matched Gaussian inverse covariance",
+          "trigger": "Same Gaussian approximation, same KL direction, same condition cap"
+        },
+        {
+          "assessment": "Directly covers identical <=K case",
+          "evidence": [
+            "Nov2 gives per-dimension exact extremum with identical direction and asymptotics."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-sharp-dimension-dependent-kl-cost-of-trace-matched-isotropic-inv--f43e22e45d82",
+          "material_read": "Full theorem, exact scalar objective and strict endpoint argument",
+          "method": "Read primary RESULT.md and compared formulas algebraically",
+          "title": "Sharp dimension-dependent KL cost of trace-matched isotropic inverse covariance",
+          "trigger": "Same optimization with <= condition cap"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "All apparent contributions—including sharp finite-dimensional constant, endpoint extremizers, asymptotics—are already derived in the stronger Oct18 and Nov2 papers; no separately motivated new invariant or result survives.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "No original numerical theorem survives the exact precision/covariance transformation",
+    "Scientific rejection based on stronger existing theorem, not access failure"
+  ],
+  "schema_version": 1
+}
