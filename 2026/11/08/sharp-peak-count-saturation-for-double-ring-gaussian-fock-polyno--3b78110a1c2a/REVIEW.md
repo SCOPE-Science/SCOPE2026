@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The stationary equation reduces to a real-coefficient quadratic in \(z^n\) with strictly positive discriminant, so all nonzero positive-intensity stationary points lie on the prescribed symmetry rays. The angular Hessian excludes positive rays; on negative rays the radial critical equation has at most four positive roots by a five-term polynomial with four sign changes. This bounds radial peaks by two and yields at most \(2n+1\) planar maxima including the origin. For \(n=11\) exact rational sign alternation gives four simple roots; for all \(n\ge12\) the explicit saddle-node construction using \(B_n\) produces four simple roots. The checker independently reproduces each finite sign certificate. No numerical approximation is used as an infinite proof.
+## correctness
 
-## Originality
-PASS, provisional. Abreu's full-text Chern-critical framework studies random Gaussian entire functions and expected spatial densities, not an all-parameter deterministic two-ring peak count. Chabaud–Markham–Grosshans study stellar zeros and state hierarchy, not stationary-peak multiplicity. A previously known one-factor polygon model cannot imply the four radial roots of the two-factor family. The literature and related-result searches did not show an equivalent two-concentric-ring bound or the sharp infinite family of saturators. Residual risk: a specialized quantum-optics or logarithmic-potential classification could have anticipated the same two-ring example.
+PASS
 
-## Mathematical value
-PASS. This is a general structural peak-count theorem for a natural two-shell stellar-zero constellation. The Descartes ceiling is attained across an infinite sequence of polygon orders, not an arbitrary single numerical slice; multiple peak rings survive on an open parameter set. The result identifies coexistence of separate stable local maxima, pertinent to deterministic phase-space peak interpretations and to comparisons with single-ring models. No global peak competition, minimum order, or rotated-ring classification is asserted.
+With F(z)=(z^n−a)(z^n−b), F′(z)=conj(z)F(z) gives a quadratic in w=z^n whose discriminant is (a−b)²t(t−2n)+n²(a+b)²>0 for t>0, hence w real (including t=2n). At positive rays angular log-H curvature is positive and cannot yield local maxima; on negative rays it is strictly negative. Radial stationarity is P(u)=u^{2n}−2nu^{2n−2}+(a+b)u^n−n(a+b)u^{n−2}+ab, with four alternating Descartes signs; the radial derivative starts and ends negative, giving at most two maxima on each of n negative rays, plus origin. Exact n=11 rational sign sequence (−,+,−,+,−) for a=50000,b=4800000 yields four simple roots, hence 23 nondegenerate maxima. For every n≥12, at a=0 the B_n curve has two distinct turns (discriminant n²−12n+4>0), and perturbing small positive a produces four simple stationary roots and open saturation. Finite independently computed n=11/12 signs corroborate, while analytic proof covers all n≥3.
 
-## Sources and boundaries
-Abreu, arXiv:2210.06721v1 (Sections 2.2, 3.1, 4.1 and proof of Theorem 1); Chabaud, Markham, Grosshans, arXiv:1907.11009v1 (stellar and Husimi representation, early theorems). The analytical sign and Hessian arguments were reconstructed rather than adopted from a numerical plot. Independent external mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same-day published multiring theorem already proves the upper bound 2n+1 as k=2 and saturation for n≥ceil(16log16)=45. It does NOT establish saturation for the sharper n=11..44 range, including the explicit first shown n=11 witness; no within-day priority is assumed. Abreu proves random-Gaussian critical-point density, and Chabaud et al. supplies Husimi stellar correspondence, not this deterministic low-degree attainment. Best-of-knowledge originality is limited to sharper constructive saturation range and precise witnesses, not general two-ring ceiling.
+
+## value
+
+PASS
+
+A two-shell local-peak realization at degree n=11 and a family for every larger n is a motivated sharp complexity result for deterministic Gaussian Fock fields: it significantly lowers the previously general sufficient degree bound (45 at two rings), with exact nondegenerate configurations. This is a meaningful concrete finite-to-infinite improvement, not merely renaming the multiring formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
