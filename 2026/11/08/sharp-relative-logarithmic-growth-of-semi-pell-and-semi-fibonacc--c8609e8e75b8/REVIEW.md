@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The infinite theorem is a uniform consequence of elementary lower and upper bounds for odd-multiplicity binary partitions and a large-deviation estimate for how many levels are occupied. The explicit support-count inequality ensures that the exceptional set of partitions with fewer than \((1-\varepsilon)m\) positive power levels is exponentially negligible relative to all partitions. Weighting each partition by its number of optional overlines produces the claimed logarithmic ratio; the \(N=1\) boundary and even-index reductions are described. The standalone checker validates the recurrence/partition interpretations for \(1\le N<130\) and the reported finite values. It does not certify the limit by experimentation.
+PASS
 
-## Originality — PASS with residual literature risk
+PASS: f and p solve the stated semi-Fibonacci/semi-Pell recurrences and respectively count odd-multiplicity binary partitions and their 2^r weighted occupied non-unit levels (odd N). For m=floor(log2 N), the upper bound by all multiplicity choices is 2^{m^2/2+O(m)}; a free choice of positive odd multiplicities at first h=m-O(log m) levels yields f(N)>=2^{m^2/2-O(m log m)}. The at-most-(1-epsilon)m occupied-level count is at most 2^{(1-epsilon^2)m^2/2+O(m)}, so its proportion tends to zero. Hence (1-o(1))2^{(1-epsilon)m} <= p(N)/f(N) <= 2^m, implying log(p/f)/log N -> 1 for odd N only. The source CHECKER.py enumerates small partitions but no finite enumeration proves the asymptotic.
 
-Ballantine and Beck's 2023 paper gives the two partition models and in Section 12 explicitly proposes comparing the asymptotic growth of their odd-indexed subsequences. Keith and Munagi's earlier work describes the semi-Pell composition model and generating function, not this relative exponent. OEIS A030067 and A129095 have both original sequences and enumerations, but not the near-full-support concentration theorem or the \(N^{1+o(1)}\) comparison. Searches under sequence names and their equivalent overpartition/weighted-binary-partition formulations found no matching stronger published claim. General asymptotic theorems indexed differently may still dominate this result; Andrews's original 2019 article PDF was unavailable at the journal download link.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The open growth-rate comparison is naturally sensitive to a second-order scale: each sequence has logarithm of order \((\log N)^2\), whereas the logarithm of their ratio has order \(\log N\). The present proof determines the coefficient of that relative scale sharply as one. This distinguishes the enumerations quantitatively without claiming an unproved multiplicative constant, and the support-concentration argument explains the phenomenon.
+PASS best-of-knowledge: Ballantine–Beck study both semi-series and explicitly ask for their growth comparison without giving this odd-index relative exponent. Keith–Munagi give generating functions and composition recurrences rather than a relative asymptotic. A general weighted binary-partition asymptotic might imply this without naming the series, retained as a priority risk.
 
-## Limits and literature
+## value
 
-The finding does not give an asymptotic constant, a sharp error term, or comparisons with semi-Tribonacci, semi-Padovan or semi-Lucas. The closest inspected primary sources are Ballantine–Beck (arXiv:2303.11493v1, Sections 1, 6, 12) and Keith–Munagi (Online Journal of Analytic Combinatorics 18, Paper 2, Sections 1, 2, 5). OEIS A030067 and A129095 supply exact sequence records; Andrews (2019) is cited for the original partition model.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The sharp factor N^{1+o(1)} distinguishes two natural self-similar partition sequences whose leading log-size is identical. Its nontrivial support concentration is a structural combinatorial theorem that resolves a motivated comparative-growth question; the statement is not a reparametrization of the known recurrences.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

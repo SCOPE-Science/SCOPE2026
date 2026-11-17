@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T00:15:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: f and p solve the stated semi-Fibonacci/semi-Pell recurrences and respectively count odd-multiplicity binary partitions and their 2^r weighted occupied non-unit levels (odd N). For m=floor(log2 N), the upper bound by all multiplicity choices is 2^{m^2/2+O(m)}; a free choice of positive odd multiplicities at first h=m-O(log m) levels yields f(N)>=2^{m^2/2-O(m log m)}. The at-most-(1-epsilon)m occupied-level count is at most 2^{(1-epsilon^2)m^2/2+O(m)}, so its proportion tends to zero. Hence (1-o(1))2^{(1-epsilon)m} <= p(N)/f(N) <= 2^m, implying log(p/f)/log N -> 1 for odd N only. The source CHECKER.py enumerates small partitions but no finite enumeration proves the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ballantine–Beck state an open comparative-growth program for self-similar sequences at odd indices.",
+          "General binary partition logarithmic growth yields common leading quadratic log scale, not the finer log(p/f)/log N coefficient by itself."
+        ],
+        "reasoning": "The verified stronger general exponent implication was not located; uncertainty about weighted-partition asymptotic literature is recorded.",
+        "searches": [
+          "Resultary semantic search: semi Pell semi Fibonacci partitions weighted binary odd multiplicity logarithmic ratio N exponent",
+          "arXiv:2303.11493 Section 12"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2303.11493",
+        "https://arxiv.org/abs/1912.11148",
+        "https://oeis.org/A030067",
+        "https://oeis.org/A129095"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ballantine–Beck provides the partition dictionary and asks for relative asymptotic comparison, but not the near-all-level occupancy theorem.",
+          "The actual proof bounds sparse-support families exponentially in m^2 relative to the unmarked count."
+        ],
+        "reasoning": "Prior identities are indispensable premises; the sharp relative exponent is an additional implication requiring its own concentration argument.",
+        "searches": [
+          "arXiv:2303.11493",
+          "Resultary semantic search: semi Pell semi Fibonacci partitions weighted binary odd multiplicity logarithmic ratio N exponent"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Semi-Fibonacci counts unmarked odd-multiplicity binary partitions, semi-Pell counts the same partitions with optional marks at non-unit occupied levels.",
+          "The claimed exponent is equivalent to a near-full-support logarithmic moment of these partition families, not a mere recurrence identity."
+        ],
+        "reasoning": "The weighted binary partition alias was explicitly searched. Neither known recurrence/generating-function description alone provides the asymptotic support-concentration bound.",
+        "searches": [
+          "Resultary semantic search: semi Pell semi Fibonacci partitions weighted binary odd multiplicity logarithmic ratio N exponent",
+          "Ballantine-Beck arXiv:2303.11493",
+          "Keith-Munagi arXiv:1912.11148"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both OEIS entries tabulate individual semi-Fibonacci/semi-Pell terms and recurrences, not this relative logarithmic limit.",
+          "Finite source CHECKER.py performs recurrences through 2^18-1 and weighted enumeration only below 130."
+        ],
+        "reasoning": "Finite terms cannot constitute an established all-odd-index exponent or replace the unrestricted support count.",
+        "searches": [
+          "Resultary semantic search: semi Pell semi Fibonacci partitions weighted binary odd multiplicity logarithmic ratio N exponent",
+          "OEIS:A030067",
+          "OEIS:A129095"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Ballantine–Beck study both semi-series and explicitly ask for their growth comparison without giving this odd-index relative exponent. Keith–Munagi give generating functions and composition recurrences rather than a relative asymptotic. A general weighted binary-partition asymptotic might imply this without naming the series, retained as a priority risk.",
+      "residual_risks": [
+        "An unindexed general saddle-point/asymptotic theory of marked binary partitions may subsume the logarithmic relative exponent.",
+        "Proof is along odd N, not N as full integer; neither multiplicative constant nor second-order ratio is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERING: partition interpretations and motivating open question, not the sharp relative exponent",
+          "evidence": [
+            "Section 12 compares prospective growth of these self-similar counts; Section 6 identifies weighted partition interpretations"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2303.11493",
+          "material_read": "read relevant full-text definitions and §§6,12 in arXiv PDF, including pp.20 and 35",
+          "method": "arXiv PDF text and screenshots",
+          "title": "Partitions enumerated by self-similar sequences",
+          "trigger": "same semi-Pell and semi-Fibonacci sequences and explicit growth question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The sharp factor N^{1+o(1)} distinguishes two natural self-similar partition sequences whose leading log-size is identical. Its nontrivial support concentration is a structural combinatorial theorem that resolves a motivated comparative-growth question; the statement is not a reparametrization of the known recurrences.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed general saddle-point/asymptotic theory of marked binary partitions may subsume the logarithmic relative exponent.",
+    "Proof is along odd N, not N as full integer; neither multiplicative constant nor second-order ratio is established."
+  ],
+  "schema_version": 1
+}
