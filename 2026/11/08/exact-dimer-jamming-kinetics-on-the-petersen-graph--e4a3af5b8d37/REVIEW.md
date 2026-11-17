@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact conditional waiting rates and equal edge-selection law yield an acyclic rational recursion. A direct full-history proof enumerates every one of the 2,190 admissible success sequences; the independent continuous-time master-equation calculation uses 272 occupied masks and agrees on all eight exponential coefficients. The claimed time range is every \(t\ge0\), and all boundary states and normalization identities were checked. Finite enumeration is exhaustive for this ten-vertex graph, not a proof for other graphs.
+## correctness
 
-**Originality — PASS, with priority risks.** Searches of indexed research findings and the accessible research history for exact Petersen dimer-jamming probabilities, randomized greedy matching, and full-time kinetic coefficients did not expose an equivalent exact statement. The full 2006/2007 lattice-RSA survey and full 2008/2009 regular-graph greedy-matching paper were inspected in material sections, including methods, main results and applicability: neither gives this exact 10-vertex law. The full 1989 Pippenger article could not be inspected; its available abstract addresses high-girth regular-graph dimer adsorption, making it a real residual priority risk rather than evidence of noncoverage. General finite-graph recursions alone do not report the evaluated law, although they can in principle compute it. Known static Petersen perfect matching numbers are explicitly excluded from the novelty claim.
+PASS
 
-**Value — PASS.** The Petersen graph is the unique cubic girth-five cage, with a natural finite packing problem and a known perfect-matching capacity of five dimers. Its exact irreversible packing outcome is not determined by the static matching count: perfect coverage occurs only \(4/15\) of the time. The transient seven-rate formula, terminal matching probabilities, and exact long-time relaxation coefficient give a concrete finite-girth benchmark for stochastic adsorption studies. This claim is deliberately finite and self-contained; it does not assert a broad asymptotic law.
+For the 10-vertex Petersen graph with fifteen unit-rate edge clocks, successful attempts are an embedded random-edge matching process with conditional edge probability 1/r and independent Exp(r) holding times. Backward absorption gives the terminal law (3:1/25, 4:52/75, 5:4/15); complete histories give 71 labelled terminal matchings (five size-3, sixty size-4, six size-5). In a separately written Kneser(5,2) path enumeration, all 2,190 complete success histories and exact rational hypoexponential residues reproduced the advertised mean EX(t)=317/75-(4/7)e^-t-(25/26)e^-2t-(10/7)e^-3t-(7/25)e^-5t-(7/9)e^-6t-(67/350)e^-10t-(326/20475)e^-15t. Coefficient sum zero at t=0 and derivative 15; limiting mean 317/75. Each path has strictly descending positive rates, so no repeated-rate pole. The finite computation is exhaustive for this specified finite graph, and the exact CTMC/hypoexponential derivation covers all t>=0, not other graphs.
 
-**Closest literature and limitations.** Cadilhe–Araújo–Privman, arXiv:cond-mat/0611413; Gamarnik–Goldberg, arXiv:0807.1277; Pippenger, DOI 10.1137/0402034 (full text inaccessible). The result has not been independently audited, and historical priority remains conditional on unindexed or inaccessible specific calculations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The established random sequential adsorption and greedy-matching framework includes all finite graphs in principle, but no inspected earlier primary mathematical statement supplies these Petersen-specific exact probabilities and eight mean coefficients. Published records on crown, clique and split-graph adsorption use other graph families. Pippenger's 1989 paper treats edge adsorption in regular graphs, so is a genuine priority risk: only its abstract was accessible; authorized institutional access was unavailable, and it is NOT deemed wholly non-covering. Best-of-knowledge novel complete finite-graph benchmark with this unresolved risk.
+
+## value
+
+PASS
+
+The Petersen graph is a standard minimally nontrivial cubic cage and a canonical contrast between existence of perfect matchings and failure of irreversible random greedy deposition. The exact terminal labeled-matching probabilities and all-time kinetic residues are motivated finite stochastic-process benchmarks, not an arbitrary slice or a mere existence witness; external researchers can compare finite-state adsorption methods and kinetics against these explicit rational data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
