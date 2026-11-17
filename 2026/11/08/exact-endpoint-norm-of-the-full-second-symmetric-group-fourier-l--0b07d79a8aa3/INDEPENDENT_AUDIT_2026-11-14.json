@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T05:05:44.340333Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The pair-subset permutation character subtracts the natural character to give chi_A=F(F-3)/2+C_2. Exterior square of the standard module gives chi_B=(F-1)(F-2)/2-C_2. Degrees d_A=n(n-3)/2, d_B=(n-1)(n-2)/2 differ by one, so their weighted sum is the exact central kernel K=d_A F(F-3)/2+d_B(F-1)(F-2)/2-C_2. For F=1,2 it equals -d_A-C_2<0; for F=0 or 3 it equals d_B-C_2>0 (all n>=4), and for F>=4 all positive. Both characters have zero group mean. Count marked transpositions among permutations with r=1 or 2 fixed points using choose(n,r)choose(n-r,2)D_{n-r-2} and derangement inclusion-exclusion to derive norm=(3(n^2-3n+1)/2)E_{n-2}+(-1)^(n-2)(5-n^2)/(2(n-1)!). Alternating-series bounds prove 3/(2e); at the identity the complementary kernel is positive because other irreducibles exist. Independent exhaustive enumeration for 4<=n<=8 covered 46,224 permutations, all signs/zero mass and exact norms (e.g. n=4 17/6, n=5 71/12, n=8 114053/5040). Finite checks corroborate the character proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published E_n two-subset band has irreducibles (n),(n-1,1),(n-2,2), not (n-2,1,1); separate second-Specht theorem has only (n-2,2). The general GxG averaging theorem supplies only equivariance/minimality, not the new absolute character sum."
+        ],
+        "reasoning": "None of the inspected stronger/general projections or exact special blocks yields the numeric two-block norm as a direct stated implication; converting requires a new sign analysis.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-projection-constants-of-the-two-subset-fourier-band-on-sym--5d303130bd8b",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-endpoint-norm-of-the-second-johnson-spherical-projector--f9735429621e",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-endpoint-norms-of-the-quadratic-specht-fourier-block-on-s--e6b8b0af6307",
+          "Defant Galicer Mansilla Mastylo Muro Zadunaisky Projection Constants of Polynomial Spaces via Representation Theory arxiv2609.22050"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-endpoint-norms-of-the-quadratic-specht-fourier-block-on-s--e6b8b0af6307",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-projection-constants-of-the-two-subset-fourier-band-on-sym--5d303130bd8b",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-endpoint-norm-of-the-second-johnson-spherical-projector--f9735429621e",
+        "https://arxiv.org/abs/1204.4533"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "One-block normalized asymptotic is 3e^(-3/2)/2, submitted full two-block normalized limit is 3/(2e), so single-block theorem is not the same claim. The band contains different constituents."
+        ],
+        "reasoning": "No prior compared norm statement determines the strict F∈{1,2} support independent of transpositions; that support comes from the new exact d_A-d_B=-1 cancellation.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-endpoint-norms-of-the-quadratic-specht-fourier-block-on-s--e6b8b0af6307",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-projection-constants-of-the-two-subset-fourier-band-on-sym--5d303130bd8b",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-endpoint-norm-of-the-second-johnson-spherical-projector--f9735429621e",
+          "Church Ellenberg Farb FI-modules arxiv1204.4533"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full complex regular S_n isotypic projection kernel is (d_A chi_A+d_B chi_B)/n!, whereas degree-two homogeneous-sphere Johnson projection has a different convolution space and kernel."
+        ],
+        "reasoning": "Equivalent norm formulations as an L1 central character-mass integral are classical; the new claim is the exact signed mass of the two-block sum, not central character orthogonality.",
+        "searches": [
+          "Resultary central Fourier projection S_n full second level n-2,1,1 n-2,2 norm derangement fixed points",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-endpoint-norms-of-the-quadratic-specht-fourier-block-on-s--e6b8b0af6307"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical character tables give each chi, and derangement counts are known, but do not tabulate the absolute value of their degree-weighted sum or its two-block operator norm."
+        ],
+        "reasoning": "Known coefficients of individual characters are not a full sharp endpoint projection norm; the crucial addition/absolute value order is nonlinear.",
+        "searches": [
+          "Resultary symmetric group endpoint full second Fourier level",
+          "symmetric group character polynomial tables Specht n-2,1,1 n-2,2",
+          "OEIS derangement no short cycles"
+        ]
+      },
+      "rationale": "Published one-block (n-2,2) endpoint norm is based on fixed points AND transpositions; the full two-block sum has a different sign support due to the weighted C_2 coefficient -1 and its limit 3/(2e), not the one-block 3e^-3/2/2. Published two-subset permutation-band result includes trivial and standard and (n-2,2), not (n-2,1,1), and thus is not this projection. Johnson spherical degree-two acts on a homogeneous subset action rather than regular S_n. The general equivariant projection principle and character polynomials predate the claim; the exact two-block absolute norm is the best-of-knowledge new content.",
+      "residual_risks": [
+        "Classical general formula for absolute moments of combined symmetric-group character polynomials may exist without an indexed title.",
+        "Single block, Johnson and two-subset band norms are prior and must not be credited as new.",
+        "No intermediate Lp norm or all levels theorem claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DISTINCT_ONE_BLOCK",
+          "evidence": "Negative characters require zero transpositions and limit is 3e^-3/2/2 per n(n-3), not the audited two-block sum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-endpoint-norms-of-the-quadratic-specht-fourier-block-on-s--e6b8b0af6307",
+          "material_read": "Entire primary RESULT.md including characters, short-cycle avoidance norm and its asymptotic",
+          "method": "GitHub published full RESULT.md",
+          "title": "Exact endpoint norms of the quadratic Specht Fourier block on S_n",
+          "trigger": "Same group with one of the two audited irreducible blocks"
+        },
+        {
+          "assessment": "NON_COVERING_DIFFERENT_BAND",
+          "evidence": "Its three blocks are trivial, standard and (n-2,2), with no (n-2,1,1).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-projection-constants-of-the-two-subset-fourier-band-on-sym--5d303130bd8b",
+          "material_read": "Entire primary RESULT.md including constituents, projection-minimality, signs and exact mass",
+          "method": "GitHub published full RESULT.md",
+          "title": "Sharp projection constants of the two-subset Fourier band on symmetric groups",
+          "trigger": "A potentially stronger character-band projection on the same regular function space"
+        },
+        {
+          "assessment": "NON_COVERING_DISTINCT_ACTION",
+          "evidence": "Johnson slice action L2(X_{n,k}) is not full matrix coefficient subspace of L2(S_n).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-endpoint-norm-of-the-second-johnson-spherical-projector--f9735429621e",
+          "material_read": "Entire primary RESULT.md including hypergeometric kernel and projection domain",
+          "method": "GitHub published full RESULT.md",
+          "title": "Exact endpoint norm of the second Johnson spherical projector",
+          "trigger": "Closely related second Specht type on homogeneous subset spaces"
+        },
+        {
+          "assessment": "UNDER_AUDIT",
+          "evidence": "The one-unit dimension difference cancels nearly all two-cycle dependence.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-endpoint-norm-of-the-full-second-symmetric-group-fourier-l--0b07d79a8aa3",
+          "material_read": "Entire RESULT.md with sign law, factorial identity, complementary norm, boundaries and limitations",
+          "method": "Frozen GitHub source and independent exhaustive permutations",
+          "title": "Assigned full second Fourier level",
+          "trigger": "Final mathematical claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete sharp endpoint norm for a natural full second representation level, with exact C_2-cancellation, a strict two-fixed-point sign law, and a different asymptotic constant than single-block or Johnson projections, is a motivated and nontrivial Fourier-algebra stability calculation. Its absolute value cannot be obtained by summing known individual norms.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-endpoint-norms-of-the-quadratic-specht-fourier-block-on-s--e6b8b0af6307",
+    "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-sharp-projection-constants-of-the-two-subset-fourier-band-on-sym--5d303130bd8b",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-endpoint-norm-of-the-second-johnson-spherical-projector--f9735429621e",
+    "https://arxiv.org/abs/1204.4533"
+  ],
+  "disposition": "passed",
+  "limitations": "Scientific assessment is complete. Publication transport is not_ready because public metadata safety guard replacements were not prepared. Bounded computations corroborate analytical arguments; neither logs nor prior PASS certificates suffice for all-parameter proof or historical priority.",
+  "residual_risks": [
+    "Classical general formula for absolute moments of combined symmetric-group character polynomials may exist without an indexed title.",
+    "Single block, Johnson and two-subset band norms are prior and must not be credited as new.",
+    "No intermediate Lp norm or all levels theorem claimed."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite-group central idempotent is normalized by \(1/n!\), with both isotypic degrees verified by the two-subset representation and the exterior square of the standard representation. The degree-weighted character's coefficient of two-cycles is \(-1\) exactly, and case analysis at \(F=0,1,2,3\) and \(F\ge4\) establishes the strict sign law for every \(n\ge4\). Nontrivial character orthogonality changes the absolute kernel norm into twice its negative mass; counting the fixed points and marked two-cycles yields the derangement formula. A recurrence telescopes to the claimed truncated exponential with exact factorial correction. The complement norm follows from central-idempotent convolution and the strict inequality \(d_A^2+d_B^2<n!\). The bundled exact permutation census independently confirms the finite boundary cases through nine; a uniform proof, not enumeration, establishes the theorem.
+## correctness
 
-## Originality — PASS under bounded comparison
-The full two-block **group-algebra** projection has a different operator domain and kernel from the published degree-two Johnson spherical projector. The known exact endpoint norm of the individual \((n-2,2)\) central block cannot be added to the unknown hook-block norm to obtain the present sum, since \(\|k_1+k_2\|_1\) is not determined by separate \(\|k_i\|_1\). Published standard-block results concern \((n-1,1)\). The inspected 2003, 2009, and 2012 primary literature supplies character frameworks and other norms, not the exact two-block endpoint formula. The distinctive cancellation leaves a fixed-point-only *sign criterion*, even though the kernel still involves transpositions. Searches in published research records and accessible historical claims did not identify an equivalent or stronger statement. A broad unrecognized central-character absolute-moment theorem remains a priority risk; nonappearance in search is not proof of global novelty.
+PASS
 
-## Mathematical value — PASS
-The full level of first-row-deficit-two representations is a natural whole harmonic band rather than an isolated parameter slice. Its complete endpoint amplification norm governs stability of this canonical Fourier truncation on \(S_n\), and the exact sign transition is a nontrivial cancellation between the symmetric and alternating degree-two constituents. The sharp finite formula involves only the derangement probability and a factorial correction, with a simple limiting normalized constant \(3/(2e)\). Unlike individual-block calculations, the two-block cancellation is not determined by constituent norm data. No claim is made that one exact low-degree layer supplies a general hierarchy of higher-level formulas.
+The pair-subset permutation character subtracts the natural character to give chi_A=F(F-3)/2+C_2. Exterior square of the standard module gives chi_B=(F-1)(F-2)/2-C_2. Degrees d_A=n(n-3)/2, d_B=(n-1)(n-2)/2 differ by one, so their weighted sum is the exact central kernel K=d_A F(F-3)/2+d_B(F-1)(F-2)/2-C_2. For F=1,2 it equals -d_A-C_2<0; for F=0 or 3 it equals d_B-C_2>0 (all n>=4), and for F>=4 all positive. Both characters have zero group mean. Count marked transpositions among permutations with r=1 or 2 fixed points using choose(n,r)choose(n-r,2)D_{n-r-2} and derangement inclusion-exclusion to derive norm=(3(n^2-3n+1)/2)E_{n-2}+(-1)^(n-2)(5-n^2)/(2(n-1)!). Alternating-series bounds prove 3/(2e); at the identity the complementary kernel is positive because other irreducibles exist. Independent exhaustive enumeration for 4<=n<=8 covered 46,224 permutations, all signs/zero mass and exact norms (e.g. n=4 17/6, n=5 71/12, n=8 114053/5040). Finite checks corroborate the character proof.
 
-## Closest sources and remaining risk
-Müller–Schlage-Puchta (arXiv:math/0305260) investigate character values and random walks; Church–Ellenberg–Farb (arXiv:1204.4533) develop cycle-count character polynomials; Sanders (arXiv:0912.0308) studies the nonabelian Fourier algebra of coset indicators. Separately published standard-block and second Johnson spherical projector results were compared by object, normalization and implication. The residual risk is hidden coverage in general character-polynomial or central-Lebesgue-constant formulas. No external or independent mathematical audit is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published one-block (n-2,2) endpoint norm is based on fixed points AND transpositions; the full two-block sum has a different sign support due to the weighted C_2 coefficient -1 and its limit 3/(2e), not the one-block 3e^-3/2/2. Published two-subset permutation-band result includes trivial and standard and (n-2,2), not (n-2,1,1), and thus is not this projection. Johnson spherical degree-two acts on a homogeneous subset action rather than regular S_n. The general equivariant projection principle and character polynomials predate the claim; the exact two-block absolute norm is the best-of-knowledge new content.
+
+## value
+
+PASS
+
+A complete sharp endpoint norm for a natural full second representation level, with exact C_2-cancellation, a strict two-fixed-point sign law, and a different asymptotic constant than single-block or Johnson projections, is a motivated and nontrivial Fourier-algebra stability calculation. Its absolute value cannot be obtained by summing known individual norms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
