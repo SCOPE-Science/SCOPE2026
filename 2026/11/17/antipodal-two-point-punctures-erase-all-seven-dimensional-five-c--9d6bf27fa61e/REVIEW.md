@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** A complete pivot-matching certificate enumerates every face and Hasse-cover edge of the antipodally punctured radius-three five-cube. There are 53,403 augmented faces, 26,701 matched pairs, and one critical dimension-four simplex, and an exhaustive topological sort proves acyclicity. Reduced discrete Morse theory yields an actual \(S^4\), not only homology ranks. The other three finite certificates establish the relevant link as \(\bigvee^5S^6\), with published full and once-deleted homotopy types credited. Since antipodes are farther apart than the Rips radius, removing the first vertex does not change the other vertex's link. Both vertex-deletion cofibers are \(\bigvee^5S^7\), so their integral long exact sequences give fourth-homology isomorphisms and split primitive rank-five losses of seventh homology.
+
+**Originality — PASS with residual risk.** Feng 2023's theorem determines full hypercube Rips wedges and the once-punctured stage of a natural vertex filtration; these are not presented as new. Its filtration does not directly contain the complex obtained by **simultaneously excluding both the empty and full five-subsets**. The recent arXiv:2606.20784 paper studies rational representations of full cube homology. Searched published mathematical records about radius-three cube fixed spaces and other puncture types do not state or imply the antipodal double-puncture collapse. A stronger as-yet-unindexed or implicit result remains a priority risk.
+
+**Value — PASS.** Antipodal sites are the unique distance-maximizing, symmetry-natural pair in a five-cube. Their removal yields an exact homotopy robustness boundary: all ten previously known seventh-homology generators disappear while the independent degree-four generator survives. This distinguishes two-site perturbation from one-site deletion and provides the primitive integral loss maps, not just an arbitrary finite Betti count.
+
+**Limits.** Only antipodal pairs, original-metric radius three and five bits. Finite Morse verification establishes exactly this finite case; it does not prove a dimension-uniform statement. Independent mathematical validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
