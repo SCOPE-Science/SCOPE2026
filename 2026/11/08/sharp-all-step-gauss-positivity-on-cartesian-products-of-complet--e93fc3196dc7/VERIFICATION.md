@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The file `artifacts/verify.py` is a standalone Python 3 standard-library exact-rational checker. From the root of this package, run `python3 artifacts/verify.py`.
+## correctness
 
-The recorded successful output is:
+PASS
 
-`VERIFY_OK polynomial_certificates 9 rational_kernels 320 row_sums 55 green_identities 246 positive_green 243 large_step_witnesses 12`
+Tensor projectors E_i=J/q_i and H_i=I-E_i diagonalize the product Laplacian at subset sums s_S; spectral scalar F(z)=(z^2-6z+12)/(z^2+6z+12) lies in (0,1] and has row sums one. For any distinct x,y, h T(h)_{xy} tends to -12 L^+_{xy}. Direct factorized heat-kernel integration yields the exact neighbor Green formula; choosing largest clique order Q, two other factors each contribute >=1/4 and their joint term is positive, showing excluded d>=3 have positive neighboring L^+; d=2 with max order>=4 similarly. For d=1 and d=2 with all orders 2 or 3, spectral projector expressions have strictly positive off-diagonal numerator coefficients. Independently symbolically formed product kernels and checked all neighbor-orbit rational signs for (2,2),(2,3),(3,3) and negative large-step coefficient for (2,4),(3,4),(4,4). Analytic Green inequalities and polynomial positivity, not finite cases, prove classification for every d and all q_i.
 
-The checker reconstructs the three positive-coefficient polynomial certificates for all three surviving two-factor parameter pairs. It evaluates exact tensor spectral kernels for 11 parameter samples at five positive rational timesteps, tests all row-sum identities, and compares two separate rational formulas for the nearest-neighbor Laplacian pseudoinverse for all sorted tuples of two to five factor orders between two and six. Strict pseudoinverse positivity is checked in 243 excluded samples, and 12 negative transition witnesses are evaluated at large positive timesteps.
+## originality
 
-These tests are exact arithmetic but finite. The infinite parameter and all-timestep claims are established only by the tensor decomposition, the positive-coefficient certificates, and the symbolic Green-function inequalities in `RESULT.md`. The negative conclusion for arbitrary excluded graphs is eventual and does not claim the same witness timestep for all graphs.
+PASS
 
-No third-party paper is embedded. No independent external validation is asserted.
+Known full complete-multipartite theorem proves positivity on that graph family, including only the degenerate overlap K2xK2 (the C4); a separate all-strongly-regular graph theorem implies several equal-order rook graph cases but does not classify arbitrary mixed-order Cartesian products, particularly d>=3. The exact all-d, all-factor-order if-and-only-if and neighboring Green formula survive these prior theorem implications. Classic Lóczi-Ketcheson method-wide absolute monotonicity is distinct from graph-specific entrywise positivity.
+
+## value
+
+PASS
+
+A sharp classification of exactly which natural Cartesian clique-product heat networks admit unconditional positivity for a fixed higher-order rational integrator is a motivated numerical-analysis/graph-spectral result. The Green-pseudoinverse obstruction supplies a structural explanation and useful explicit excluded-network witnesses beyond an isolated numerical counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

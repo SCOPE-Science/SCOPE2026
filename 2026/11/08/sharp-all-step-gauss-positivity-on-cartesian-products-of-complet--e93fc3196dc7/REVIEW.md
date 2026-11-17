@@ -1,19 +1,21 @@
-# Scientific assessment: Gauss positivity on Cartesian clique products
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is global in all integers \(d\ge1\) and \(q_i\ge2\), and all real \(h\ge0\). Explicit tensor eigenprojectors prove row conservation and a positive diagonal. On excluded graphs, the exact heat-kernel integral yields a positive nearest-neighbor entry of the Laplacian pseudoinverse: for at least three factors a two-singleton lower bound is strictly positive, and for two factors with larger order at least four a checked quadratic inequality is strictly positive. The asymptotic identity \(hT(h)_{xy}\to-12L^+_{xy}\) then proves eventual negativity. All allowed one-factor cases use the positive scalar filter; all three allowed two-factor cases have positive-coefficient polynomial certificates for every off-diagonal orbit. Exact arithmetic replay confirmed 9 polynomial numerators, 320 kernel entries, 55 row sums, 246 Green identities, 243 strict Green inequalities, and 12 large-step witnesses. The finite tests support but do not prove the universal quantifiers.
+PASS
 
-## Originality — PASS on inspected evidence, with residual risk
+Tensor projectors E_i=J/q_i and H_i=I-E_i diagonalize the product Laplacian at subset sums s_S; spectral scalar F(z)=(z^2-6z+12)/(z^2+6z+12) lies in (0,1] and has row sums one. For any distinct x,y, h T(h)_{xy} tends to -12 L^+_{xy}. Direct factorized heat-kernel integration yields the exact neighbor Green formula; choosing largest clique order Q, two other factors each contribute >=1/4 and their joint term is positive, showing excluded d>=3 have positive neighboring L^+; d=2 with max order>=4 similarly. For d=1 and d=2 with all orders 2 or 3, spectral projector expressions have strictly positive off-diagonal numerator coefficients. Independently symbolically formed product kernels and checked all neighbor-orbit rational signs for (2,2),(2,3),(3,3) and negative large-step coefficient for (2,4),(3,4),(4,4). Analytic Green inequalities and polynomial positivity, not finite cases, prove classification for every d and all q_i.
 
-The 2012 Zappavigna--Colaneri--Kirkland--Shorten preprint was inspected through its Padé counterexample and Section 4 sufficient finite-step theorem. Its example is an eight-state directed nilpotent or shifted matrix, not a symmetric Cartesian clique Laplacian; its sufficient conditions do not entail all-step positivity on the specified family. The 2013 Lóczi--Ketcheson preprint treats absolute-monotonicity radii, not exact Cartesian graph characterization. The 2021 Fontan--Altafini preprint describes pseudoinverse sign phenomena without the Padé step classifier. A related published eight-state Markov Padé result was inspected in full and treats a directed pure-birth chain with a different small-step assertion. Recoverable historical graph-filter findings cover cycles, complete multipartite networks and Radau IIA Hamming graphs; their conclusions do not imply the present full classification for the different Gauss filter and independently varying Cartesian clique factors. The four-cycle case is already known and is not separately claimed as new. A differently indexed specialist theorem could still dominate the classification, so publication priority is not independently established.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem identifies the exact topology and factor-order boundary across a natural infinite class of finite product networks. It distinguishes stability and mass conservation from positivity, makes the mixed six-state triangular-prism case explicit, and proves an algebraic Green-function obstruction for **every** excluded product. The exact classification is motivated by structure-preserving heat integration and heterogeneous factor dimensions; it is not an arbitrary enumeration or reparameterized special case.
+Known full complete-multipartite theorem proves positivity on that graph family, including only the degenerate overlap K2xK2 (the C4); a separate all-strongly-regular graph theorem implies several equal-order rook graph cases but does not classify arbitrary mixed-order Cartesian products, particularly d>=3. The exact all-d, all-factor-order if-and-only-if and neighboring Green formula survive these prior theorem implications. Classic Lóczi-Ketcheson method-wide absolute monotonicity is distinct from graph-specific entrywise positivity.
 
-## Scope and remaining limitations
+## value
 
-The result is confined to unit-edge Cartesian products of complete graphs and the exact two-stage Gauss end-step map. No universal finite timestep for excluded graphs, stage positivity, floating-point safety, or other integration method is claimed. The available historical source window is incomplete, and the novelty assessment is bounded rather than a guarantee of global uniqueness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp classification of exactly which natural Cartesian clique-product heat networks admit unconditional positivity for a fixed higher-order rational integrator is a motivated numerical-analysis/graph-spectral result. The Green-pseudoinverse obstruction supplies a structural explanation and useful explicit excluded-network witnesses beyond an isolated numerical counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
