@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 check_wheel.py` with Python 3 and assertions enabled; no third-party packages are needed.
+## correctness
 
-The checker enumerates all \(256\) edge masks and obtains \(134\) acyclic subsets, then verifies the entire sparse multivariate polynomial identities for the six distinct-edge orbits. Five have respectively \(172,90,240,149,93\) positive nonzero integer coefficients. The sixth, the nonincident spoke/rim orbit, satisfies the separately displayed exact polynomial equality and positive square decomposition. Finally, \(48\) sets of nonuniform positive rational weights are independently tested against all \(28\) edge-pair covariances, for \(1344\) exact rational sign checks.
+PASS
 
-The universal real-weight claim follows from the proved polynomial positivity and exact analytic series-contraction identities, **not** from finite rational trials. The subdivision theorem is an all-graph argument under nonbridge/bridgeless hypotheses; no finite enumeration of arbitrarily long subdivisions is claimed.
+The graph is the exact 5-vertex, eight-edge wheel and the probability law includes every acyclic subset with independent positive fugacities. Independently enumerated its 134 spanning forests and computed 28 exact integer-polynomial Rayleigh differences. Five representative orbits have strictly positive polynomial coefficients; the exceptional spoke–rim orbit has the exact decomposition R=uvh(x−tS/h)^2+uvh x+tP+t²UV/h, with P,U,V positive. Positive fields make R>0. For series subdivision, Z_new=(1+a+b)Z_old(ab/(1+a+b)); conditional edge covariance is strict because a nonbridge has Z1<Z0, so induction covers all finite subdivisions. This is not derived from numerical tests.
 
-All scientific limitations are stated in `RESULT.md`. No independent audit or external certification has been performed.
+## originality
+
+PASS
+
+Qualified narrow PASS only for the strictly negative (equality-excluding) Rayleigh inequalities with explicit exact exceptional positive square and their strict extension to arbitrary subdivisions. Crucially, Erickson 2008 already proves arbitrary-weight NONSTRICT W5 Rayleigh via a theorem for all ≤7-vertex graphs; heterogeneous weak covariance is NOT new. The 2008 thesis SOS result is stronger in graph scope but does not on its inspected face assert strict positive-orthant separation, which the present exact certificate supplies. A possible implicit strictness corollary remains a major disclosed risk; neither the generic 2008 weak theorem nor the unit-weight Bado result explicitly states the entire strict claim.
+
+## value
+
+PASS
+
+A nontrivial exact no-equality refinement on an interacting, non-series-parallel wheel is motivated because nonpositive versus strictly negative Gibbs correlations determine whether any interior equality phase exists. The exceptional spoke–rim pair has negative monomial coefficients and requires a genuine positive square certificate. Its strict subdivision propagation covers infinitely many graphs. The older 2008 ≤7-vertex SOS result substantially reduces novelty/value: neither a new general all-weight Rayleigh theorem nor novelty of series suppression is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
