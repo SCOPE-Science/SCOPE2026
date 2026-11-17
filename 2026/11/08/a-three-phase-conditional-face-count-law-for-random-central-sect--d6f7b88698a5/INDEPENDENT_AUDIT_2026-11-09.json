@@ -1,0 +1,176 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T23:00:54.915767Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For a Haar normal U and unit cube, W=sum_i|U_i| and the central section is a hexagon iff all three positive |U_i| satisfy the strict triangle inequalities (equivalently max|U_i|<W/2), else a quadrilateral outside null equality surfaces. Parameterizing the width-s small circle around (1,1,1)/sqrt3 gives spherical measure ds dphi/sqrt3. For 1<s<sqrt2 the allowed positive-octant arc length is 2pi-6 arccos q(s); for sqrt2<s<sqrt(8/3) quadrilateral arcs have length 6 arccos(q(s)/2); for larger s no such arc exists. Dividing by octant area pi/2 produces exact f4,f6 and conditional 1,3arccos(s/(2sqrt(6-2s²)))/pi,0. Limits match at both sharp boundaries; integrated f4=0.649040687816... and f6=0.350959312184..., sum1. Numerical integration and direct circle/edge-crossing checks corroborate but do not prove the spherical geometry.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known stronger box-wise marginal hexagon formula and all-dimensional cube width distribution cover both marginal pieces, not their joint probability on the same U."
+        ],
+        "reasoning": "Mathematically, two marginal probability distributions do not specify a coupling; the exact mixed-phase arc allocation needs an extra geometric calculation.",
+        "searches": [
+          "Resultary: central sections cube joint distribution directional width number sides vertices conditional quadrilateral hexagon",
+          "Resultary full cube width density source c1e6aa54ecb2",
+          "Resultary full rectangular-box hexagon law 45d2a55425d4",
+          "Lonke 1998"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 08acf2ff7a9ee409ac0c4dee77e884b10fe3c1ff",
+        "Git verify.py 447d7a7f9a92de0ff8c0c4dc077c4c3613ebd5c2",
+        "Resultary: central sections cube joint distribution directional width number sides vertices conditional quadrilateral hexagon",
+        "https://arxiv.org/abs/math/9812123",
+        "https://arxiv.org/abs/1110.0671",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-directional-width-law-of-the-cube-and-its-first-spherical--c1e6aa54ecb2",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Marginal P4≈0.649 and f_W(s) can be obtained from prior works, but conditional P4(s) transitions at sqrt2 and sqrt(8/3) require cutting width circles by triangle chambers."
+        ],
+        "reasoning": "The exact joint conditional law is not implied by known marginals alone; no inspected source asserts this missing coupling. Priority remains qualified.",
+        "searches": [
+          "Resultary: central sections cube joint distribution directional width number sides vertices conditional quadrilateral hexagon",
+          "Lonke 1998",
+          "Finch 2011",
+          "Resultary full width/box sources"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "N=6 iff max_i|Ui|< (sum_i|Ui|)/2, and conditional P4(s) measures three disjoint arcs of a spherical width-level circle."
+        ],
+        "reasoning": "Equivalent section-edge type conditional on one-dimensional projection length is not the same as a marginal volume/spherical-cone calculation.",
+        "searches": [
+          "Resultary: central sections cube joint distribution directional width number sides vertices conditional quadrilateral hexagon",
+          "arxiv:math/9812123",
+          "arxiv:1110.0671"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS/box record fixes only total P(N=6), no s-dependent four/six side joint subdensities."
+        ],
+        "reasoning": "The unconditional table is explicitly acknowledged. The novel output is f4(s),f6(s) and conditional P4 at all regular s.",
+        "searches": [
+          "Resultary: central sections cube joint distribution directional width number sides vertices conditional quadrilateral hexagon",
+          "Resultary 2026-10-11 width-law piecewise density",
+          "Resultary 2026-10-11 box hexagon-law table",
+          "OEIS A349605 known cube hexagon probability"
+        ]
+      },
+      "rationale": "PASS for the genuinely joint conditional law. Lonke's section-vertex expectation fixes only the cube's unconditional quadrilateral probability; Finch's width moments and a previously published exact cube-width density fix only the width marginal; published exact Haar hexagon probability for boxes fixes polygon-type marginal. The same Haar normal couples the two observables, and knowing both marginals cannot imply their joint allocation, especially the exact threshold pair sqrt2 and sqrt(8/3) and the strictly decreasing conditional law. No source actually read contains this joint cube formula. A differently named stereological conditional distribution remains a residual priority risk.",
+      "residual_risks": [
+        "A different unindexed exact stereological width-and-section-type law might predate this result.",
+        "Only central planes, exactly uniform spherical normal and unit-edge cube; off-center cuts and boxes are not treated.",
+        "Conditioning at a single exact boundary width is version-dependent and deliberately excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS width marginal exactly, NOT_COVERING joint conditional type",
+          "evidence": "Published cube W density = 4/sqrt3*(1-3acos q(s)/pi) below sqrt2 and 4/sqrt3 above; source has no conditioned N.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-directional-width-law-of-the-cube-and-its-first-spherical--c1e6aa54ecb2",
+          "material_read": "Complete published RESULT.md including density theorem, transition proof and limitations",
+          "method": "Compared full f_W with submitted f4+f6, and checked whether section count appears",
+          "title": "Exact directional width law of the cube and its first spherical-cap transition",
+          "trigger": "Same W law and spherical cap method"
+        },
+        {
+          "assessment": "COVERS marginal hexagon probability (and broader boxes), NOT_COVERING conditional width-type coupling",
+          "evidence": "Published p6 is exact spherical cone area with no W-indexed distribution; special cube unconditional result is not new here.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4",
+          "material_read": "Complete published RESULT.md including triangular cone proof, solid-angle formula and normalization",
+          "method": "Compared specialization a=b=c against proposed unconditional N=6, and checked whether width conditioning is tracked",
+          "title": "Exact Haar hexagon law and cubic rigidity for central sections of rectangular boxes",
+          "trigger": "Same section N for cube as a special case"
+        },
+        {
+          "assessment": "COVERS unconditional type probability only on inspected material",
+          "evidence": "Lonke 1998 expectation determines N marginal for a 4/6-valued variable; it does not mark W.",
+          "identifier_or_url": "https://arxiv.org/abs/math/9812123",
+          "material_read": "Primary PDF abstract, introductory/three-dimensional count and cited formula, PDF page visually inspected",
+          "method": "Compare E[N] with present P(N=4) but not joint density",
+          "title": "On Random Sections of the Cube",
+          "trigger": "Preexisting expected face counts might dominate the exact N law"
+        },
+        {
+          "assessment": "COVERS width background, NOT_COVERING conditional face count",
+          "evidence": "Finch's first two cube-width moments are E[W]=3/2 and E[W²]=1+4/pi; do not fix polygon conditioning.",
+          "identifier_or_url": "https://arxiv.org/abs/1110.0671",
+          "material_read": "Primary PDF abstract, cube width section and width moment formulas read in extracted material, initial page visually inspected",
+          "method": "Compared W distribution/moments but no N",
+          "title": "Width Distributions for Convex Regular Polyhedra",
+          "trigger": "Earlier cube projection width moments / laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. This is a natural complete joint law of two measurements made on the same random central planar section, determining which combinatorial types are possible at each observed width, with exact sharp all-width trichotomy and nontrivial mixed-phase probability. It is not a recomputed unconditional polygon frequency or width density.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md 08acf2ff7a9ee409ac0c4dee77e884b10fe3c1ff",
+    "Git verify.py 447d7a7f9a92de0ff8c0c4dc077c4c3613ebd5c2",
+    "Resultary: central sections cube joint distribution directional width number sides vertices conditional quadrilateral hexagon",
+    "https://arxiv.org/abs/math/9812123",
+    "https://arxiv.org/abs/1110.0671",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-directional-width-law-of-the-cube-and-its-first-spherical--c1e6aa54ecb2",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "A different unindexed exact stereological width-and-section-type law might predate this result.",
+    "Only central planes, exactly uniform spherical normal and unit-edge cube; off-center cuts and boxes are not treated.",
+    "Conditioning at a single exact boundary width is version-dependent and deliberately excluded."
+  ],
+  "residual_risks": [
+    "A different unindexed exact stereological width-and-section-type law might predate this result.",
+    "Only central planes, exactly uniform spherical normal and unit-edge cube; off-center cuts and boxes are not treated.",
+    "Conditioning at a single exact boundary width is version-dependent and deliberately excluded."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS width marginal exactly, NOT_COVERING joint conditional type",
+      "evidence": "Published cube W density = 4/sqrt3*(1-3acos q(s)/pi) below sqrt2 and 4/sqrt3 above; source has no conditioned N.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-directional-width-law-of-the-cube-and-its-first-spherical--c1e6aa54ecb2",
+      "material_read": "Complete published RESULT.md including density theorem, transition proof and limitations",
+      "method": "Compared full f_W with submitted f4+f6, and checked whether section count appears",
+      "title": "Exact directional width law of the cube and its first spherical-cap transition",
+      "trigger": "Same W law and spherical cap method"
+    },
+    {
+      "assessment": "COVERS marginal hexagon probability (and broader boxes), NOT_COVERING conditional width-type coupling",
+      "evidence": "Published p6 is exact spherical cone area with no W-indexed distribution; special cube unconditional result is not new here.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4",
+      "material_read": "Complete published RESULT.md including triangular cone proof, solid-angle formula and normalization",
+      "method": "Compared specialization a=b=c against proposed unconditional N=6, and checked whether width conditioning is tracked",
+      "title": "Exact Haar hexagon law and cubic rigidity for central sections of rectangular boxes",
+      "trigger": "Same section N for cube as a special case"
+    },
+    {
+      "assessment": "COVERS unconditional type probability only on inspected material",
+      "evidence": "Lonke 1998 expectation determines N marginal for a 4/6-valued variable; it does not mark W.",
+      "identifier_or_url": "https://arxiv.org/abs/math/9812123",
+      "material_read": "Primary PDF abstract, introductory/three-dimensional count and cited formula, PDF page visually inspected",
+      "method": "Compare E[N] with present P(N=4) but not joint density",
+      "title": "On Random Sections of the Cube",
+      "trigger": "Preexisting expected face counts might dominate the exact N law"
+    },
+    {
+      "assessment": "COVERS width background, NOT_COVERING conditional face count",
+      "evidence": "Finch's first two cube-width moments are E[W]=3/2 and E[W²]=1+4/pi; do not fix polygon conditioning.",
+      "identifier_or_url": "https://arxiv.org/abs/1110.0671",
+      "material_read": "Primary PDF abstract, cube width section and width moment formulas read in extracted material, initial page visually inspected",
+      "method": "Compared W distribution/moments but no N",
+      "title": "Width Distributions for Convex Regular Polyhedra",
+      "trigger": "Earlier cube projection width moments / laws"
+    }
+  ]
+}
