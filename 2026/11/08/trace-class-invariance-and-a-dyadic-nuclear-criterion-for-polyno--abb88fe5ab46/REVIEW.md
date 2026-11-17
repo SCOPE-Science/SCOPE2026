@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The matrix in the normalized coefficient basis has entries \(\eta_n((n+1)/(j+1))^{a/2}\) below its diagonal. Fourier projections by dyadic block degree isolate both the diagonal nuclear sum and the nearest-lower block nuclear sum as trace-norm contractions. All other lower blocks combine into rank-one rectangles; their summable nuclear norms are controlled by adjacent-block norms exactly when \(a<1\). A uniform within-block diagonal similarity proves invariance across all these polynomial exponents. A sparse coefficient sequence is nuclear at \(a=0\) and not Hilbert–Schmidt at \(a=1\), verifying the sharp boundary. The standalone finite checker passes 41,248 assertions; the infinite proof does not depend on finite extrapolation.
+## correctness
 
-## Originality — PASS (qualified best-knowledge assessment)
-The closest primary paper, Bellavita–Dellepiane–Stylogiannis (2026), establishes weight-independent Schatten criteria for \(1<p<\infty\), not the excluded \(p=1\) endpoint. A previously published unweighted trace-class characterization for *monotone-modulus* Rhaly coefficients covers monotone special cases but does not entail the new theorem for arbitrary complex coefficients and all polynomial weights \(a<1\). Further searches covered equivalent factorable-matrix formulations, stronger trace-ideal statements, tables and parameter/implication comparisons. The main residual risk is an older broad abstract nuclear-factorable-matrix theorem that may imply the result; full independent priority confirmation is absent. The motivating preprint's theorem statements were read, but later proof sections were not fully available.
+PASS
 
-## Mathematical value — PASS
-The missing trace-class endpoint is mathematically substantive: estimates for \(1<p<\infty\) do not automatically imply \(p=1\). The criterion handles complex oscillations without monotonicity, makes a single exact block invariant valid simultaneously for Hardy, Bergman and positive-index Dirichlet Hilbert spaces, and isolates the sharp boundary \(a=1\). It offers a reusable dyadic trace-norm decomposition for discrete factorable matrices rather than a routine application to one coefficient family.
+Direct reconstruction of the triangular orthonormal-basis matrix F_nj=η_n((n+1)/(j+1))^(a/2) for j≤n, Fourier block-phase extraction gives contractive S1 diagonal/subdiagonal projections and necessary sum of block trace norms and adjacent rank-one norms. All earlier-column blocks for each dyadic row have rank one; ratio to its adjacent block remains bounded precisely for a<1 by geometric summability of (j+1)^(-a). Hence finite sum defines an S1 extension and controls norm. Uniform dyadic within-block similarity compares a,b and adjacent norms are comparable to sqrt(|I_k|)||η_I_k||2. Sparse η_{2^{h²}}=(2^{h²}+1)^(-1/2) h^(-5/4) yields S1 at a=0 by sum_h h^-5/4 but not S2 at a=1 since ∑ h^-5/2 H_{2^{h²}+1}=∞. Local finite block checks corroborate but are not the infinite proof.
 
-## Closest literature and limitations
-Relevant sources include Bellavita–Dellepiane–Stylogiannis (arXiv:2606.15875; arXiv:2503.21930), Galanopoulos–Girela (2026), Lin–Doan–Khoi (2018) and the published monotone-modulus Rhaly endpoint result. The criterion is exact but not scalar-only for arbitrary coefficients; constants are not sharp and weights beyond the polynomial regime are not classified. Independent literature-priority and mathematical audits remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge all-η polynomial-weight S1 endpoint is not implied by reviewed open-range p>1 or earlier unweighted monotone p=1 theorem; serious inaccessible full text and general factorable S1 literature remain explicitly recorded.
+
+## value
+
+PASS
+
+Trace class is the excluded and subtle p=1 endpoint of a naturally studied family. Exact all-sequence nuclearity and cross-Hardy/Bergman/Dirichlet weight invariance with the sharp a=1 boundary provide a useful structural operator criterion; not a routine finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
