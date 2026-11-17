@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T18:20:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Writing F_n=R∘M shows the rotating frame visits each site once in n clocks, flipping only isolated bits and never generating a new isolated bit. Thus the unique periodic set is no-isolated-bit cyclic words and τ≤n. Last entry at n occurs exactly when original site 0 remains isolated after the first n−1 visiting steps; the rightmost equal adjacent pair of interior bits and parity of its alternating suffix yield E_n=(2^(n−2)+2+2*1_{n odd})/3. The four-state adjacency-pair transfer matrix has characteristic factors (λ²−λ−1)(λ²−λ+1), giving the Lucas population and Möbius orbit census. Independent direct orbit enumeration in this execution verified E_n for all n=3..11 (5124+ states overall), an illustration rather than the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-entrance-time-census-and-logarithmic-settling-for-cyclic-m--380fba13c913",
+          "Resultary 2026-11-08 synchronous majority stabilization theorem"
+        ],
+        "reasoning": "Synchronous parallel Rule 232 has simultaneous updates and different maximal entry-time scale; its transfer matrix is not the rotating sequential map. General stable-state results do not count time-n transient inputs.",
+        "searches": [
+          "Resultary exact entrance time census synchronous cyclic majority rule 232",
+          "Resultary majority ring stabilization Poisson cutoff"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md analytic rightmost-equal-pair proof",
+        "Tošić and Agha (2004) stable configuration classification",
+        "Published synchronous cyclic majority results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-entrance-time-census-and-logarithmic-settling-for-cyclic-m--380fba13c913",
+          "Tošić & Agha 2004, stable configuration criterion"
+        ],
+        "reasoning": "Earlier work implies that no-isolated-bit configurations are stable under majority. It does not yield the rightmost-equal-pair parity enumeration of n-clock late predecessors.",
+        "searches": [
+          "Tošić Agha 2004 threshold cellular automata configuration spaces sequential update",
+          "Resultary exact entrance time census majority on cyclic ring"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2004 sequential majority stable pattern criterion",
+          "https://arxiv.org/abs/1405.2486"
+        ],
+        "reasoning": "Rotating right shift changes the clock-seen state but yields a deterministic one-visit-per-site sweep. Exact preimage count of the last entrance event is stronger than characterizing fixed stable words.",
+        "searches": [
+          "rotating majority feedback register last sweep entrance time binary words",
+          "Tošić Agha 2004 sequential majority no singleton stable words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Lucas-number periodic-state count is a standard transfer-matrix computation, not claimed as new.",
+          "Exact E_n not observed in compared papers."
+        ],
+        "reasoning": "Novelty concerns the sharp last-entry count, not the known stable-pattern enumeration.",
+        "searches": [
+          "majority gate feedback ring last clock fraction one twelfth",
+          "Lucas no isolated cyclic binary words transfer matrix"
+        ]
+      },
+      "rationale": "The classical no-isolated-bit stable configuration classification is prior work and explicitly excluded from novelty. The candidate contributes an exact last-possible entrance-time population for the rotating sequential feedback register, not the synchronous majority-ring stabilization-time distribution. No inspected prior statement implies the exact E_n formula.",
+      "residual_risks": [
+        "Unindexed feedback shift-register literature may contain a functionally equivalent late-entry census.",
+        "Small n enumeration is not a general proof; correctness rests on analytic sweep and finite-state transfer arguments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers stable-pattern condition, not an explicit rotating feedback last-entry population",
+          "evidence": "Configuration characterization and stability discussion",
+          "identifier_or_url": "https://osl.cs.illinois.edu/media/papers/tosic-2004-acri-characterizing_configuration_spaces_of_simple_threshold_cellular_automata.pdf",
+          "material_read": "Accessible 2004 PDF introduction and technical portions explaining majority stable configurations and no isolated bits",
+          "method": "Read text plus visual inspection of PDF pages",
+          "title": "Characterizing Configuration Spaces of Simple Threshold Cellular Automata",
+          "trigger": "Classical exact stable states and sequential update"
+        },
+        {
+          "assessment": "Dynamics differ: simultaneous updates versus rotating sequential single-site feedback",
+          "evidence": "Model definition and transient order",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-entrance-time-census-and-logarithmic-settling-for-cyclic-m--380fba13c913",
+          "material_read": "Published theorem summary, especially synchronous Rule 232 update and sharp labelled last-entry statement",
+          "method": "Structured mathematical-record comparison",
+          "title": "Exact entrance-time census and logarithmic settling for cyclic majority dynamics",
+          "trigger": "Similar transient distribution for majority rings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact number and asymptotic 1/12 mass of initial register states attaining the maximum settling time are motivated distributional invariants of a natural deterministic majority feedback architecture, not merely an orbit existence example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Historical feedback-register literature may have unindexed equivalent count; n≤11 direct enumeration is finite corroboration only."
+  ],
+  "schema_version": 1
+}

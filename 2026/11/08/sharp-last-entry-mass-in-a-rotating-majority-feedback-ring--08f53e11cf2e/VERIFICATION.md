@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The following standard-library programs were executed from their accompanying paths and their output captured as ordinary text: `python3 check_dynamics.py` and `python3 check_transfer.py`.
+## correctness
 
-`check_dynamics.py` enumerates every one of the \(32{,}760\) initial binary words for \(3\le n\le14\) under the original feedback map, checks the first time the orbit enters the no-singleton set, compares the count at clock \(n\) against the theorem, checks no trajectory requires more than \(n\), and independently traverses the periodic rotational classes. `check_transfer.py` computes the actual four-state transfer traces and the Möbius periodic-orbit counts for \(1\le n\le100\), and counts rightmost-equal-pair patterns for \(3\le n\le16\). The captured outputs are included as `check_dynamics.out` and `check_transfer.out`.
+PASS
 
-The proof for unbounded \(n\) is the monotone cyclic-disagreement argument and the rightmost-pair enumeration in `RESULT.md`, not the enumeration logs. The programs have no external dependencies. No unproved converse, unresolved numerical certificate, independent audit, or extrapolation from finite samples is claimed.
+Writing F_n=R∘M shows the rotating frame visits each site once in n clocks, flipping only isolated bits and never generating a new isolated bit. Thus the unique periodic set is no-isolated-bit cyclic words and τ≤n. Last entry at n occurs exactly when original site 0 remains isolated after the first n−1 visiting steps; the rightmost equal adjacent pair of interior bits and parity of its alternating suffix yield E_n=(2^(n−2)+2+2*1_{n odd})/3. The four-state adjacency-pair transfer matrix has characteristic factors (λ²−λ−1)(λ²−λ+1), giving the Lucas population and Möbius orbit census. Independent direct orbit enumeration in this execution verified E_n for all n=3..11 (5124+ states overall), an illustration rather than the universal proof.
+
+## originality
+
+PASS
+
+The classical no-isolated-bit stable configuration classification is prior work and explicitly excluded from novelty. The candidate contributes an exact last-possible entrance-time population for the rotating sequential feedback register, not the synchronous majority-ring stabilization-time distribution. No inspected prior statement implies the exact E_n formula.
+
+## value
+
+PASS
+
+The exact number and asymptotic 1/12 mass of initial register states attaining the maximum settling time are motivated distributional invariants of a natural deterministic majority feedback architecture, not merely an orbit existence example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

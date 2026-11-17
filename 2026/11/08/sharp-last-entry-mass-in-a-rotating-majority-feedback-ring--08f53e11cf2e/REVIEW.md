@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The feedback coordinate rule is exactly a rotation after one local majority update. Under the cyclic disagreement count, a visit flips a bit only when isolated, removing two disagreeing edges and never creating new isolated sites. Every site is visited once in the first \(n\) clocks. This proves recurrence and the sharp time bound. The last-entry formula is reconstructed by counting interiors with prescribed endpoint bits and a rightmost equal pair of type \(11\). The transfer matrix and Möbius count supply an independent enumeration of rotating periodic words. All finite verification checks passed. Boundary \(n=3\) is handled explicitly; the number of circular positions is preserved by the rotating conjugacy. Finite checks do not prove the formulas for arbitrarily large \(n\); the proofs do.
+## correctness
 
-## Originality — PASS, qualified
-Tošić–Agha (2004) prove the stable no-singleton pattern and no nontrivial cycles in standard sequential configurations. Those results explain the eligible target words but not the *number of initial words first entering them on the final clock* in a rotating feedback register. Tošić (2009/2010) treats general complexity, and Benjamini and collaborators treat parallel graph majority. Neither implies the explicit \(E_n\) without analyzing the descending sweep and its initial-bit constraints. Earlier stable-word counts, including an accessible prior numerical coincidence with Lucas-type formulas, are not asserted as new. Relevant exact-population aliases and indexed results were searched. The 2004 sequential-interleavings companion text was not inspected in full, so historical priority remains a qualified assessment.
+PASS
 
-## Mathematical value — PASS
-The settling-time tail is a natural finite-time observable for a minimal nonlinear feedback register. The exact last-clock population shows the worst-case linear settling bound is attained by a positive limiting fraction \(1/12\) under uniform initial conditions, distinguishing a typical final-clock phenomenon from rare worst cases. This is a structural dynamical statement beyond the known enumeration of stable words. Earlier exact entrance-time strata and basin-by-orbit frequencies remain open.
+Writing F_n=R∘M shows the rotating frame visits each site once in n clocks, flipping only isolated bits and never generating a new isolated bit. Thus the unique periodic set is no-isolated-bit cyclic words and τ≤n. Last entry at n occurs exactly when original site 0 remains isolated after the first n−1 visiting steps; the rightmost equal adjacent pair of interior bits and parity of its alternating suffix yield E_n=(2^(n−2)+2+2*1_{n odd})/3. The four-state adjacency-pair transfer matrix has characteristic factors (λ²−λ−1)(λ²−λ+1), giving the Lucas population and Möbius orbit census. Independent direct orbit enumeration in this execution verified E_n for all n=3..11 (5124+ states overall), an illustration rather than the universal proof.
 
-## Supporting sources and residual risk
-Primary sources: Tošić and Agha, ACRI 2004, especially Lemmas 3–4; Tošić, DMTCS Proceedings AL (published 2009-12-31), introduction and counting-complexity statements; Benjamini et al., arXiv:1405.2486 (2014), model comparison. Searches included majority-feedback/shift-register aliases and indexed finding records. Inaccessible or unindexed sequential-update and specialized register literature could change the originality assessment. The independent audit status is unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The classical no-isolated-bit stable configuration classification is prior work and explicitly excluded from novelty. The candidate contributes an exact last-possible entrance-time population for the rotating sequential feedback register, not the synchronous majority-ring stabilization-time distribution. No inspected prior statement implies the exact E_n formula.
+
+## value
+
+PASS
+
+The exact number and asymptotic 1/12 mass of initial register states attaining the maximum settling time are motivated distributional invariants of a natural deterministic majority feedback architecture, not merely an orbit existence example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
