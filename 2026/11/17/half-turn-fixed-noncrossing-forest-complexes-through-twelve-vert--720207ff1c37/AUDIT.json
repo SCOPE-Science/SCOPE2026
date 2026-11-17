@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The actual embedded verify.py was run successfully. It exhaustively enumerates orbit faces for each m=2..6 using strict chord crossing and union-find acyclicity, verifies every maximal-face dimension, all matched incidence pairs and acyclicity of the reversed Hasse graph by exact topological sort; only a vertex and top-dimensional critical cells remain, proving the stated wedges by Forman. Separate all-subset enumeration confirms face counts for m<=5. Numeric logs alone are not the proof; the full source and finite loop bounds specify the exhaustive mathematical argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "McCammond, Noncrossing Hypertrees (2015 manuscript), Introduction, Proposition 5.6 and Remark 10.1: a different hypertree complex is homeomorphic to a noncrossing-partition link.",
+        "Athanasiadis–Tzanaki, arXiv:math/0606018v2, Theorem 1.1: generalized cluster complexes of a root system are shellable."
+      ],
+      "reasoning": "Neither broader theorem identifies its complex with the fixed-chord-orbit complex. In particular, the full ordinary type-B3 cluster complex has 20 facets whereas this rank-three half-turn complex has 21. No implication by identity, reduction, or stronger coverage was established.",
+      "searches": [
+        "noncrossing tree complex noncrossing forest complex homotopy type",
+        "noncrossing forest complex type B shellable homotopy",
+        "centrally symmetric noncrossing forests bounded edges complex quotient"
+      ]
+    },
+    "checked_sources": [
+      "https://igor-kortchemski.perso.math.cnrs.fr/lecon/Analytic%20combinatorics%20of%20non-crossing%20configurations.pdf",
+      "https://arxiv.org/abs/math/0509715",
+      "https://web.math.ucsb.edu/~mccammon/papers/nc-hypertrees.pdf",
+      "https://arxiv.org/html/math/0606018v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A known reflection-fixed noncrossing-forest folding theorem uses a reflection across opposite side midpoints; it does not assert a half-turn-fixed model.",
+        "The present half-turn complex has 9 vertices and 21 triangular facets in the hexagonal case; its orbit edges and face constraints differ from the reflected smaller-polygon model."
+      ],
+      "reasoning": "The reflection and rotation subgroups are distinct even when both have order two; neither fixed set is forced by the other. The earlier ordinary-forest enumeration and cluster-complex shellability results do not determine these specific integral homotopy types.",
+      "searches": [
+        "noncrossing forest complex noncrossing trees simplicial complex shellable homotopy type early paper",
+        "noncrossing trees and noncrossing graphs 2006 Chen Yan full text",
+        "half-turn noncrossing forests rotation fixed point complex"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Flajolet–Noy (1999), Section 1, enumerates labeled noncrossing forests without geometric-fixed-space topology.",
+        "Chen–Yan arXiv:math/0509715, Sections 1–2, concerns the parity of descents and symmetric ternary trees rather than geometric half-turn fixed points."
+      ],
+      "reasoning": "The searched equivalent phrasings did not identify a topological result for the identical chord-orbit face complex. Parity of descents is not polygonal half-turn invariance; a count of forests alone does not determine a fixed-point homotopy type.",
+      "searches": [
+        "centrally symmetric noncrossing forests complex homotopy type B topology",
+        "noncrossing forest simplicial complex of convex polygon centrally symmetric subcomplex fixed by half turn rotation wedge of spheres ranks 1 5 23 109 524",
+        "type B centrally symmetric noncrossing forest complex shellability fixed point complex rotation homotopy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The face enumeration in the 1999 Flajolet–Noy paper is for labeled configurations, not orbit-barycenter faces or a topological fixed-space classification.",
+        "A search of related publicly available mathematical result summaries returned neighboring, but not identical, geometric fixed-point problems."
+      ],
+      "reasoning": "No checked table supplied these five full fixed-space homotopy types. This is a best-knowledge comparison rather than proof of global database absence.",
+      "searches": [
+        "noncrossing spanning forests half-turn fixed simplicial complex hexagon octagon decagon dodecagon homology",
+        "noncrossing forest simplicial complex of convex polygon, centrally symmetric subcomplex fixed by half turn rotation, wedge of spheres ranks 1 5 23 109 524",
+        "rotation fixed points noncrossing forest complex cyclic symmetry polygon forests homotopy"
+      ]
+    },
+    "rationale": "Comparisons of the identical objects, geometric fixed subgroup, and full homotopy statement with the checked early forest enumeration, parity-involution, hypertree-link and generalized cluster papers show no implication. The closest accessible earlier noncrossing-forest theorem treats reflection fixed points, not half-turn fixed points. Searches do not prove novelty, but no decisive stronger coverage was found.",
+    "residual_risks": [
+      "Bibliographic coverage cannot exclude unindexed or inaccessible equivalent work.",
+      "The 2015 manuscript PDF was text-inspected, but its page-image retrieval was unavailable; the named relevant sections were read as text.",
+      "No general formula or unbounded family has been proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Counts ordinary noncrossing forests; does not state a half-turn geometric fixed-point homotopy theorem",
+        "evidence": "Theorem 1(iii) enumerates forests by components; Section 1.2 derives F=1+T(zF).",
+        "identifier_or_url": "https://igor-kortchemski.perso.math.cnrs.fr/lecon/Analytic%20combinatorics%20of%20non-crossing%20configurations.pdf",
+        "material_read": "Abstract, Section 1 and Theorem 1 including the exact ordinary-forest generating function, plus visual inspection of page 208",
+        "method": "Public full-text PDF and page image",
+        "title": "Analytic combinatorics of non-crossing configurations",
+        "trigger": "Primary forest enumeration; possible hidden fixed-symmetry formula"
+      },
+      {
+        "assessment": "Its involution changes parity of descents of rooted trees and is not a geometric polygon rotation",
+        "evidence": "Theorems 2.1 and 2.2 pair proper trees with symmetric ternary trees and odd/even descents.",
+        "identifier_or_url": "https://arxiv.org/abs/math/0509715",
+        "material_read": "Full public HTML text, Introduction and Section 2, including Theorems 2.1 and 2.2",
+        "method": "ArXiv HTML full text",
+        "title": "Noncrossing Trees and Noncrossing Graphs",
+        "trigger": "Potential combinatorial symmetry equivalence; first dated primary source"
+      },
+      {
+        "assessment": "The complex has hypertree simplex labels and studies automorphisms and apartments, not the chord-subset half-turn fixed locus considered here",
+        "evidence": "Proposition 5.6 identifies noncrossing trees with apartments; Remark 10.1 discusses natural dihedral automorphisms, without the claimed half-turn fixed-space homotopy list.",
+        "identifier_or_url": "https://web.math.ucsb.edu/~mccammon/papers/nc-hypertrees.pdf",
+        "material_read": "Introduction, definitions of hyperforests, Proposition 5.6, Remark 10.1 and Lemma 10.2",
+        "method": "Public PDF text; page-image retrieval unavailable",
+        "title": "Noncrossing Hypertrees",
+        "trigger": "Plausibly dominating noncrossing partition-link or tree model"
+      },
+      {
+        "assessment": "Shellability theorem concerns root-system cluster complexes and positive parts, not this graph-forest fixed complex",
+        "evidence": "Theorem 1.1 applies to Delta^m(Phi); type B3 full-cluster facet count differs from this three-dimensional-rank case.",
+        "identifier_or_url": "https://arxiv.org/html/math/0606018v2",
+        "material_read": "Introduction, Theorem 1.1 and Section 2.2 definitions",
+        "method": "ArXiv full HTML",
+        "title": "Shellability and higher Cohen-Macaulay connectivity of generalized cluster complexes",
+        "trigger": "Possible broader type-B shellability theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "720207ff-1c37-4a78-932a-a7f5a34cda1a",
+  "value": {
+    "rationale": "The chord-forest complex is natural from the classical enumeration of noncrossing forests. Its central rotation is a canonical symmetry, with geometric fixed simplices invisible to vertexwise fixed counts. The complete first five nontrivial even polygon sizes exhibit a systematically increasing sequence of integral sphere wedges, culminating in 524 five-spheres, and supply rigorous finite benchmarks for potential type-B symmetry formulas. This is a motivated complete finite classification, not a claimed general theorem.",
+    "status": "PASS"
+  }
+}
