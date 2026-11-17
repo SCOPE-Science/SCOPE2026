@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "rationale": "The exact cardinal replacement and nodal-product identities yield a uniform two-sided 1/|m| tail near the shifted node with coefficient |sin(pi*u)|*|1-tau/u|/pi. The intermediate-index errors sum to O(1), and distant terms are O(1); the intact-grid bound and rank-one correction localize every maximum. Strict concavity and endpoint derivative signs produce the unique optimizer. The standalone checker passed 195 supplementary finite assertions. Limits and uniqueness follow from proof, not tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Wu Theorem 3.2 imposes a small constant bound on n*sigma_n*(log n+1), which fails for fixed nonzero mesh fraction.",
+        "Wu Proposition 3.1 moves two neighboring nodes into near-collision and obtains superlogarithmic obstruction, without an exact one-node coefficient.",
+        "Published cyclic certificates optimize another periodic sign functional, not polynomial Lebesgue constants on a one-defect grid."
+      ],
+      "reasoning": "The potentially dominant general perturbation theorem has hypotheses absent in this one-node fixed-fraction regime; it does not imply the new precise law. The two-node obstruction and periodic certificate do not logically cover its noncolliding fixed single shift.",
+      "searches": [
+        "Chebyshev interpolation finite number arbitrarily shifted nodes logarithmic Lebesgue constant",
+        "41A05 sharp Lebesgue constant one moving Chebyshev-Lobatto node near collision asymptotic rank one Lagrange basis",
+        "H.-N. Wu arXiv:2606.23409 full text sections 3 and 6",
+        "2026/9/19/SCOPE-cyclic-chebyshev-obstruction-euler-prefactor--528d46ae115f"
+      ]
+    },
+    "checked_sources": [
+      "Wu arXiv:2606.23409 sections 1–6 (full HTML)",
+      "2026/10/18/SCOPE-single-erasure-boundary-layers-for-chebyshev-lobatto-interpolati--a3c5beff381f RESULT.md (full)",
+      "2026/9/19/SCOPE-cyclic-chebyshev-obstruction-euler-prefactor--528d46ae115f RESULT.md (full)",
+      "Wu comparison of Austin and Trefethen 2017 and Piazzon/Vianello 2018 (not full text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Direct inspection of Wu shows a sufficient n*sigma_n*log n bound and an adversarial two-node collision.",
+        "Direct inspection of the single-erasure full RESULT.md shows degree n-1 with growth proportional to n.",
+        "Direct inspection of the cyclic full RESULT.md shows exponential robust-certificate estimates for a periodic trigonometric scheme."
+      ],
+      "reasoning": "The claims are not equivalent under sample deletion or periodic-to-algebraic reduction, and no inspected stronger theorem implies the exact coefficient for fixed tau in (0,1). Classical cardinal formulas are used as premises, with the uniform asymptotic and scalar maximization newly proved in the supplied argument.",
+      "searches": [
+        "arXiv:2606.23409 Theorem 3.2 and Proposition 3.1",
+        "2026/10/18/SCOPE-single-erasure-boundary-layers-for-chebyshev-lobatto-interpolati--a3c5beff381f/RESULT.md",
+        "2026/9/19/SCOPE-cyclic-chebyshev-obstruction-euler-prefactor--528d46ae115f/RESULT.md",
+        "Austin Trefethen 2017 trigonometric interpolation perturbed points"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A one-node nodal-product replacement is a rank-one update of the Lagrange cardinal basis, not a node erasure.",
+        "The published single-erasure RESULT.md, read in full, removes one node and lowers the polynomial degree; it has linear Lebesgue growth."
+      ],
+      "reasoning": "The new theorem preserves all n+1 nodes and degree n with a fixed noncolliding shift; neither the degree-reduced erasure law nor an exact algebraic identity for cardinals already determines the asymptotic optimal coefficient and unique maximizing location. No equivalent-asymptotic record found.",
+      "searches": [
+        "perturbed Chebyshev Lobatto nodes one node displacement fraction mesh Lebesgue O(log n) Lagrange rank one update",
+        "single Chebyshev Lobatto interpolation node moved near neighbor sharp Lebesgue constant blow-up sparse perturbations",
+        "single-node interior Chebyshev Lobatto perturbation asymptotic Lebesgue constant exact coefficient sin(pi v) (1+tau/v) log n",
+        "shift one Chebyshev Lobatto point by tau pi/n while all others unchanged sharp leading log coefficient unique optimizing evaluation point",
+        "2026/10/18/SCOPE-single-erasure-boundary-layers-for-chebyshev-lobatto-interpolati--a3c5beff381f"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Checked indexed research results included the single-erasure linear-growth classification and cyclic certificates but no formula with the scalar h_tau(v).",
+        "A finite grid table or a few numerical Lebesgue values would not establish the claimed uniform asymptotic and localization."
+      ],
+      "reasoning": "No exact database/table result with the same n-limit, displacement parameter, and degree-preserving grid was located. This is negative-search evidence only, not a uniqueness guarantee.",
+      "searches": [
+        "single Chebyshev Lobatto interpolation node moved near neighbor sharp Lebesgue constant blow-up sparse perturbations",
+        "single-node interior Chebyshev Lobatto perturbation asymptotic Lebesgue constant exact coefficient sin(pi v) (1+tau/v) log n",
+        "41A05 sharp Lebesgue constant one moving Chebyshev-Lobatto node near collision asymptotic rank one Lagrange basis",
+        "single erasure Chebyshev Lobatto full result",
+        "Chebyshev Lobatto one node exact perturbed Lebesgue constant table"
+      ]
+    },
+    "rationale": "The verified 2026 motivating paper proves a smaller worst-case sufficient shift scale and a distinct two-node near-collision obstruction; it does not give this one-node fixed-fraction logarithmic coefficient. The two most relevant indexed published complete results were inspected: one deletes a node and drops degree, while the other optimizes periodic robust certificates. Search queries for equivalents, stronger coverage, parameter aliases and finite tables revealed no implication covering the exact one-defect asymptotic, subject to the recorded older full-text priority risks.",
+    "residual_risks": [
+      "A classical single-defect interpolation theorem may express an equivalent result via barycentric weights or rank-one sampling updates.",
+      "Austin–Trefethen 2017 and Piazzon–Vianello 2018 publisher full texts were not obtained; their subject matter is distinct as discussed, but direct section-by-section exclusion is unavailable.",
+      "Negative search results cannot certify exhaustive publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact one-node fixed-fraction asymptotic; worst-case sufficient scale too small, obstruction moves two nodes",
+        "evidence": [
+          "Section 3.1: uniform logarithmic result requires n*sigma_n*(log n+1) bounded by a small constant.",
+          "Section 3.2: two-node near collision causes superlogarithmic growth.",
+          "Section 6: random multiple-perturbation experiments, not single-node formula."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.23409",
+        "material_read": "Full HTML scientific text, Sections 1–6, especially Theorem 3.2, Proposition 3.1, experiments and references",
+        "method": "Read primary open-access HTML including statement, proof, discussion and experimental model",
+        "title": "When do perturbed Chebyshev–Lobatto points remain Chebyshev?",
+        "trigger": "Same Chebyshev–Lobatto nodes and mesh perturbations, direct motivating work"
+      },
+      {
+        "assessment": "NOT_COVERING: removal of a node and degree drop; linear Lebesgue scale, not one moved node at full degree",
+        "evidence": [
+          "Theorem fixes N retained nodes after deleting one from N+1; growth Lambda_{N,k}/N.",
+          "Proof uses a leading-coefficient cancellation identity and evaluates the missing node, different from rank-one relocation."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-single-erasure-boundary-layers-for-chebyshev-lobatto-interpolati--a3c5beff381f",
+        "material_read": "Full published RESULT.md, finding, complete analytic proof, context, limitations and references",
+        "method": "Read original public repository file rather than relying only on indexed summary",
+        "title": "Single-erasure boundary layers for Chebyshev–Lobatto interpolation",
+        "trigger": "Closest indexed Chebyshev sampling-change research finding"
+      },
+      {
+        "assessment": "NOT_COVERING: robust interpolation sign certificate, not the one-node Lebesgue operator norm",
+        "evidence": [
+          "Main claim determines an exponential robust-obstruction certificate in a periodic trigonometric family.",
+          "Its shifted functional does not move one Chebyshev sample and reoptimize the degree-n algebraic Lebesgue norm."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/9/19/SCOPE-cyclic-chebyshev-obstruction-euler-prefactor--528d46ae115f",
+        "material_read": "Full published RESULT.md including method-level optimization, proof and limitations",
+        "method": "Read public repository file",
+        "title": "Optimal shifted cyclic certificates for robust Chebyshev interpolation",
+        "trigger": "Perturbed Chebyshev-related shifted sampling functionals"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT but scientifically different periodic trigonometric grid; residual equivalent-reduction risk retained",
+        "evidence": [
+          "Wu Section 1 explicitly contrasts periodic trigonometric perturbations with algebraic Chebyshev–Lobatto cosine geometry."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/16M1107760",
+        "material_read": "Citation and comparison in Wu introduction only; publisher full text unavailable through attempted link",
+        "method": "Read Wu primary-paper comparison; attempted linked DOI resolution unsuccessful",
+        "title": "Trigonometric interpolation and quadrature in perturbed points",
+        "trigger": "Wu identifies it as relevant fixed-fraction perturbation work"
+      },
+      {
+        "assessment": "NOT_DECISIVELY_CHECKED in full; general sufficient stability bound does not supply exact single-defect asymptotic from the material read",
+        "evidence": [
+          "Wu Remark 3.2 states the Markov-type x-variable bound uses a different, more restrictive perturbation scale."
+        ],
+        "identifier_or_url": "https://doi.org/10.14658/PUPJ-DRNA-2018-1-1",
+        "material_read": "Comparison and bibliographic citation in Wu Section 3.1; full publisher text unavailable through attempted link",
+        "method": "Inspected Wu discussion and attempted DOI follow",
+        "title": "Stability inequalities for Lebesgue constants via Markov-like inequalities",
+        "trigger": "General norming-set stability could imply a weaker scale condition"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "c68d83ac-7ece-442e-8bce-1d1acf5f8ca7",
+  "value": {
+    "rationale": "Accurate error amplification for a single displaced sample is a natural calibration/stability problem at a scale where the existing worst-case theorem is silent. The new exact log coefficient is nontrivial (strictly larger than 2/pi for every positive fraction), independent of the defect bulk location, and accompanied by a uniquely determined limiting worst evaluation point. This sharp classification is of use even without a general multiple-node theorem.",
+    "status": "PASS"
+  }
+}
