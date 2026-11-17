@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,11 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The package contains two Python 3 standard-library programs, `exact_profile.py` and `independent_prefix.py`.
+## correctness
 
-1. `python3 exact_profile.py` evaluates the 9-residue factor-frequency recurrence with exact rational arithmetic, then asserts the complete 5-by-5 normalized consecutive-run table, all row and column sums, symmetry, total probability one, mean length, and selected shorter factor frequencies. The expected success marker is `EXACT_RUN_PROFILE_OK`.
-2. `python3 independent_prefix.py` derives 200,001 parity symbols by repeated extraction of the rational-base digits, independently constructs 200,000 Toeplitz difference symbols, compares them bit-for-bit, enumerates consecutive run lengths and compares the empirical 79,997 run pairs with the exact probabilities. The success marker is `INDEPENDENT_PREFIX_OK 200000 run_pairs 79997`.
+PASS
 
-The crucial infinite arguments are the vanishing-density periodic approximants, the gcd-based equidistribution on source arithmetic progressions, and the exact boundary-pattern/run-index correspondence. These are in `RESULT.md` and are not claimed to follow from finite enumerations. The code is a reproducibility check, not an independent mathematical audit or external certification.
+Taking the externally established half-scaled rational-base parity difference identity y_{9k..9k+8}=(0,1,y_{4k},0,y_{4k+1},1,0,y_{4k+2},y_{4k+3}), the regular Toeplitz 9-pattern has holes 2,4,7,8. At scale m at most (4/9)^m unspecified positions; since gcd(4,9^m)=1 the same density bound holds on the needed 4k+c progressions. Every factor frequency exists, and the nine-residue recurrence reduces length >=3 factors to shorter ones, with F(1)=2/5 and base pairs F(00)=F(01)=F(10)=3/10, F(11)=1/10. Run tuples correspond exactly to boundary words 1 0^(a1-1) 1 ... and conditional frequency (5/2)F(boundary word). This gives rational all-pattern recursion; exact rational recomputation verified every entry of the /108 matrix and 120000 direct reconstructed Toeplitz symbols. The existence of Toeplitz premise is sourced, not claimed proved ab initio by finite prefix.
+
+## originality
+
+PASS
+
+PASS with qualification: Cassaigne–Espinoza–Rigo–Stipulanti (2026) already prove the Toeplitz structure, unique ergodicity/all-factor-frequency existence and single-symbol frequencies of the difference word. The assessed new content is the explicit terminating rational recursion for EVERY successive run-length tuple and the exact five-by-five adjacent-run transition matrix, not discovery of the Toeplitz word, existence of its frequencies or rationality of a particular single-letter statistic. Other published run-length matrices concern different automatic words.
+
+## value
+
+PASS
+
+PASS: the joint five-state run-length transition law is a precise natural invariant measuring dependence beyond marginals, including eight forbidden transitions; all-pattern rational recurrence gives reusable finite output for arbitrarily long run tuples. This is motivated by the known rational-base automatic word, not an arbitrary slice or unproved general claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

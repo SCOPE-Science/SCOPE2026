@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The proof specifies the rational-base digit convention and relies on the published \((9,4)\) Toeplitz first-difference identity. Periodic approximants of period \(9^m\) leave an exceptional density at most \(|v|(4/9)^m\) for factor \(v\). Since \(4\) is invertible modulo \(9^m\), this bound remains valid on the source index progressions required by residue conditioning. Consequently the nine-residue recurrence is valid, strictly decreases word length above two, and yields exact rational answers. The conversion from marked boundaries to run indices includes the normalization \(F(1)=2/5\). The exact fraction checker verifies all 25 outputs, and independent direct base-digit construction agrees with the first 200,000 Toeplitz differences. Finite checks are not substituted for the infinite proof.
+## correctness
 
-## Originality
-**PASS under searched-source comparison, with residual priority uncertainty.** The closest source, Cassaigne–Espinoza–Rigo–Stipulanti, arXiv:2602.21895, provides the vital Toeplitz representation and one-letter frequencies, but its inspected theorem statements and surrounding discussion did not provide an all-order exact run-pattern formula or the evaluated adjacent-run matrix. Dekking, arXiv:2301.13563, studies the sibling base-digit convention and does not imply the stated matrix. Targeted mathematical-record searches for Toeplitz gap/run matrices, aliases, finite-frequency tables, and the exact template found no covering statement; unindexed equivalent calculations remain possible. The result is a new derived characterization, not a claim of discovery of the Toeplitz structure.
+PASS
 
-## Value
-**PASS.** This solves a natural, complete infinite family of local observables: distributions of arbitrarily long blocks of maximal-run lengths. The concrete transition matrix identifies eight impossible ordered transitions, nonuniform exact marginals, and the mean run length. These capture structure beyond symbol frequencies, in a numeration-defined word whose frequency behavior motivated the source paper. The all-order recursive construction is meaningful despite being enabled by the prior Toeplitz representation, and does not assert an unrelated downstream theorem.
+Taking the externally established half-scaled rational-base parity difference identity y_{9k..9k+8}=(0,1,y_{4k},0,y_{4k+1},1,0,y_{4k+2},y_{4k+3}), the regular Toeplitz 9-pattern has holes 2,4,7,8. At scale m at most (4/9)^m unspecified positions; since gcd(4,9^m)=1 the same density bound holds on the needed 4k+c progressions. Every factor frequency exists, and the nine-residue recurrence reduces length >=3 factors to shorter ones, with F(1)=2/5 and base pairs F(00)=F(01)=F(10)=3/10, F(11)=1/10. Run tuples correspond exactly to boundary words 1 0^(a1-1) 1 ... and conditional frequency (5/2)F(boundary word). This gives rational all-pattern recursion; exact rational recomputation verified every entry of the /108 matrix and 120000 direct reconstructed Toeplitz symbols. The existence of Toeplitz premise is sourced, not claimed proved ab initio by finite prefix.
 
-## Closest literature and risks
-The primary mathematical assumption is Proposition 11 in arXiv:2602.21895. The adjacent matrix is a further finite deduction, and the all-order formula uses regularity and arithmetic-progression equidistribution. A previous unindexed computation, or a broad Toeplitz-frequency theorem implicitly subsuming the rationality component, may restrict priority; this does not amount to locating the exact claimed run statistics. Independent scientific review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with qualification: Cassaigne–Espinoza–Rigo–Stipulanti (2026) already prove the Toeplitz structure, unique ergodicity/all-factor-frequency existence and single-symbol frequencies of the difference word. The assessed new content is the explicit terminating rational recursion for EVERY successive run-length tuple and the exact five-by-five adjacent-run transition matrix, not discovery of the Toeplitz word, existence of its frequencies or rationality of a particular single-letter statistic. Other published run-length matrices concern different automatic words.
+
+## value
+
+PASS
+
+PASS: the joint five-state run-length transition law is a precise natural invariant measuring dependence beyond marginals, including eight forbidden transitions; all-pattern rational recurrence gives reusable finite output for arbitrarily long run tuples. This is motivated by the known rational-base automatic word, not an arbitrary slice or unproved general claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
