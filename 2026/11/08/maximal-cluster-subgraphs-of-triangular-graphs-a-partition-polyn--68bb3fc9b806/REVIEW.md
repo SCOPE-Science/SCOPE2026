@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The classification follows from the exact equivalence between cluster line graphs and root components that are stars or triangles. All one-edge additions are accounted for, including the easily missed two-edge-star triangle completion and the possibility of one isolated root vertex. Both necessary and sufficient maximality arguments are present. The labeled block weights count each labeled selected set exactly once; the recurrence comparison against directly constructed graph subsets is exhaustive for orders three through seven. The support and purity statements follow by explicit block replacements and separate lower/upper bounds.
+PASS
 
-## Originality — PASS (provisional priority)
+On T_n=L(K_n), a selected vertex subset corresponds to an edge subgraph of K_n. A connected edge component yields a clique in the line graph iff its edges are pairwise incident; that forces a star or a triangle. Maximality excludes two isolated root vertices, and one isolated vertex can coexist only with full triangles, while a two-leaf star can be completed to a triangle and hence is not maximal. Conversely every listed covering partition, and the one-isolated-plus-triangles case, is inclusion-maximal: any added edge creates an induced P3 in its line graph. Exponential set-partition counting assigns edge weight z, triangle z^3, star on k>=4 vertices k choices of center and z^(k−1), with the extra exceptional term. An independent direct brute graph test enumerated every subset of edges of K_n for n=3..6, checking the actual induced-P3 forbidden configuration and insertion-maximality rather than invoking the partition formula; coefficients match M_3=z^3, M_4=3z^2+8z^3, M_5=15z^4, M_6=15z^3+60z^4+6z^5+10z^6. General support/purity follows from the block partition argument.
 
-The closest published general results concern maximal induced hereditary-subgraph enumeration and cluster vertex deletion, not complete facet-cardinality enumeration for the triangular graph. Cao (arXiv:2004.09885, introduction, Theorem 1.1, and the cluster-graph discussion near Corollary 5.4), Tsur (arXiv:1901.07609, Sections 1–2), and Brosse et al. (arXiv:2007.01031, abstract, introduction, Table 1) were inspected where relevant. None of their stated results yields the exact labeled partition polynomial or the exceptional pure order five. Related rook-graph formulas apply to line graphs of complete bipartite graphs, not to the triangular family, where triangle components are essential. Search coverage cannot exclude an unindexed equivalent formulation; publication priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives the facets of a natural deletion complex, an explicit all-order cardinality enumerator, the entire attainable-size spectrum, and the exceptional pure \(n=5\) case. This is more information than an optimum deletion cardinality or a generic enumerability algorithm and explains the extra triangle and isolated-vertex cases specific to triangular graphs. The precise finite-order exception is motivated by the natural purity question.
+General maximal-induced-subgraph enumeration algorithms already cover cluster graph classes abstractly, and the characterization of cluster graphs as P3-free is classical. The specific complete structure and EGF of *all* inclusion-maximal induced cluster subsets of triangular graphs, with gap-free cardinality intervals and pure exactly at n=3,5, are not established by the inspected general algorithms. Related Resultary triangular-graph general-position/dissociation results concern different forbidden patterns and do not dominate this invariant.
 
-## Scope and risks
+## value
 
-No statement is made for arbitrary line graphs. A prior equivalent result may use clique components of line graphs or minimal induced-three-vertex-path transversals rather than the terminology used here. Exhaustive checks stop at order seven; unbounded validity relies on the combinatorial argument. This is not an independently audited result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete distribution of inclusion-minimal vertex deletions to a cluster graph, not just the minimum size, is a natural structural reliability/optimization invariant. The exact partition EGF and exceptional pure complex at n=3,5 provide a complete, motivated classification of the symmetric triangular graph family that can support enumeration benchmarking and extremal studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

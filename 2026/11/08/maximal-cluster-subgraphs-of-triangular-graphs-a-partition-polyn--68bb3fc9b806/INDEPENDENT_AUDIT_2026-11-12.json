@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T01:01:00.672144Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/maximal-cluster-subgraphs-of-triangular-graphs-a-partition-polyn--68bb3fc9b806/RESULT.md",
+        "RESULT.md:cc7c9a3cbefc48bb9fa677c3700d28ac208bff1d",
+        "verify.py:45741659dfdc5b9edc116cfbb0b31027f4997351",
+        "METADATA.json:9feccf5543e87e44a08b490db1b196d94df2792b"
+      ],
+      "rationale": "On T_n=L(K_n), a selected vertex subset corresponds to an edge subgraph of K_n. A connected edge component yields a clique in the line graph iff its edges are pairwise incident; that forces a star or a triangle. Maximality excludes two isolated root vertices, and one isolated vertex can coexist only with full triangles, while a two-leaf star can be completed to a triangle and hence is not maximal. Conversely every listed covering partition, and the one-isolated-plus-triangles case, is inclusion-maximal: any added edge creates an induced P3 in its line graph. Exponential set-partition counting assigns edge weight z, triangle z^3, star on k>=4 vertices k choices of center and z^(k−1), with the extra exceptional term. An independent direct brute graph test enumerated every subset of edges of K_n for n=3..6, checking the actual induced-P3 forbidden configuration and insertion-maximality rather than invoking the partition formula; coefficients match M_3=z^3, M_4=3z^2+8z^3, M_5=15z^4, M_6=15z^3+60z^4+6z^5+10z^6. General support/purity follows from the block partition argument.",
+      "residual_risks": [
+        "Verification exhaustive only through n=6 in independent check; proof determines n arbitrary.",
+        "Distinct notions maximum cardinality versus inclusion-maximal are not conflated; all labeled root vertices and weighted edge counts retained."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cao 2023 Theorem 1.1 provides polynomial-delay enumeration for cluster-graph maximal induced subgraphs for arbitrary G, not a triangular-graph-specific cardinality EGF.",
+          "2026/11/2/SCOPE-maximal-induced-cluster-subgraphs-of-rook-graphs-an-exact-enumer--45629ca1d9f3 concerns line graphs of K_{a,b}; 2026/10/13/SCOPE-full-general-position-polynomial-of-triangular-graphs-by-star-tr--9b9fdc66bc5e concerns no-geodesic-triple subsets."
+        ],
+        "reasoning": "A generic algorithm or different graph family does not imply this exact labeled cardinality distribution without the presented root-component classification.",
+        "searches": [
+          "Yixin Cao Enumerating Maximal Induced Subgraphs Theorem 1.1",
+          "Resultary: maximal induced cluster sets rook graphs",
+          "Resultary: triangular graph general position polynomial"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2004.09885",
+        "https://arxiv.org/abs/1901.07609",
+        "2026/11/2/SCOPE-maximal-induced-cluster-subgraphs-of-rook-graphs-an-exact-enumer--45629ca1d9f3",
+        "2026/10/13/SCOPE-full-general-position-polynomial-of-triangular-graphs-by-star-tr--9b9fdc66bc5e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.1 in Cao concerns polynomial-delay listing, with no exact labeled count or purity classification.",
+          "Tsur solves parameterized cluster deletion optimization, not the all-sizes maximal-set census."
+        ],
+        "reasoning": "Neither efficiency of enumerating arbitrary maximal cluster subgraphs nor optimizing a minimum deletion set gives this closed polynomial, its full size spectrum, or the exceptional pure n.",
+        "searches": [
+          "Cao arXiv:2004.09885 sections 1 and 5",
+          "Tsur arXiv:1901.07609 abstract",
+          "Resultary: rook graph maximal cluster"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximal induced cluster sets are complements of inclusion-minimal cluster vertex-deletion sets, equivalently minimal P3 vertex transversals in T_n.",
+          "Line graph transfer turns selected vertices of T_n into edges of K_n."
+        ],
+        "reasoning": "The exact polynomial is not the general-position or dissociation polynomial of T_n, despite all using stars/triangles as motifs. The right equivalence is minimal cluster deletion, not maximum cluster deletion.",
+        "searches": [
+          "Yixin Cao arXiv:2004.09885 full HTML",
+          "Resultary: maximal cluster triangular graph partitions"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cao treats maximal cluster enumeration and P3-free property but no occurrence of triangular graph in searchable full text.",
+          "Finite coefficient tables reconstructed independently n<=6; source has exact universal EGF."
+        ],
+        "reasoning": "Known finite small-n tables, if any, would be special cases; the complete formal EGF and all-n purity condition are not a table recomputation. Search absence remains qualified.",
+        "searches": [
+          "Resultary: maximal cluster triangular graphs polynomial purity 3 5",
+          "Primary Cao 2023 full HTML term search triangular, cluster"
+        ]
+      },
+      "rationale": "General maximal-induced-subgraph enumeration algorithms already cover cluster graph classes abstractly, and the characterization of cluster graphs as P3-free is classical. The specific complete structure and EGF of *all* inclusion-maximal induced cluster subsets of triangular graphs, with gap-free cardinality intervals and pure exactly at n=3,5, are not established by the inspected general algorithms. Related Resultary triangular-graph general-position/dissociation results concern different forbidden patterns and do not dominate this invariant.",
+      "residual_risks": [
+        "Could be an unindexed minimal P3 transversal/line-graph partition enumeration in older combinatorics literature; targeted search cannot rule it out.",
+        "Companion general cluster graph enumeration papers not all read in full; no universal historical priority claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general algorithmic enumeration and cluster-P3 notion, not closed labeled triangular-graph size formula",
+          "evidence": "Theorem 1.1 explicitly lists cluster graphs as polynomial-delay enumeration class; no triangular graph specialization found in searchable content.",
+          "identifier_or_url": "https://arxiv.org/abs/2004.09885",
+          "material_read": "Accessible full arXiv HTML including introduction, Theorem 1.1, cluster graph sections and §5; in-document queries cluster and triangular",
+          "method": "Read actual theorem and checked searched specialization",
+          "title": "Enumerating Maximal Induced Subgraphs",
+          "trigger": "Most plausible general covering theorem for cluster maximality"
+        },
+        {
+          "assessment": "General parameterized optimization, not established exact triangular-graph census",
+          "evidence": "Focus is cluster deletion algorithm; source-result exclusion qualified to inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/1901.07609",
+          "material_read": "Accessible abstract, bibliographic context and comparison; full proof not examined",
+          "method": "Problem and theorem scope comparison",
+          "title": "Faster parameterized algorithm for Cluster Vertex Deletion",
+          "trigger": "Equivalent complement as minimal cluster vertex deletion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2004.09885",
+        "https://arxiv.org/abs/1901.07609",
+        "2026/11/2/SCOPE-maximal-induced-cluster-subgraphs-of-rook-graphs-an-exact-enumer--45629ca1d9f3",
+        "2026/10/13/SCOPE-full-general-position-polynomial-of-triangular-graphs-by-star-tr--9b9fdc66bc5e"
+      ],
+      "rationale": "The complete distribution of inclusion-minimal vertex deletions to a cluster graph, not just the minimum size, is a natural structural reliability/optimization invariant. The exact partition EGF and exceptional pure complex at n=3,5 provide a complete, motivated classification of the symmetric triangular graph family that can support enumeration benchmarking and extremal studies.",
+      "residual_risks": [
+        "No broad downstream theorem is claimed; value is from the motivated exact invariant and classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Verification exhaustive only through n=6 in independent check; proof determines n arbitrary.",
+    "Distinct notions maximum cardinality versus inclusion-maximal are not conflated; all labeled root vertices and weighted edge counts retained.",
+    "Could be an unindexed minimal P3 transversal/line-graph partition enumeration in older combinatorics literature; targeted search cannot rule it out.",
+    "Companion general cluster graph enumeration papers not all read in full; no universal historical priority claim.",
+    "Scientific conclusions are best-of-knowledge, not independent external certification or claimed exhaustive literature access.",
+    "Publication withheld for privacy/transport reasons separate from C/O/V."
+  ],
+  "schema_version": 1
+}
