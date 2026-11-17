@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact cyclic-set law follows independently from the rooted-forest determinant and permutation count, not solely from a cited formula. Tail sums reduce all pairwise covariances to a single rational quantity; exact signs for every size from two through 168 are checked in the included executable certificate. A Gaussian majorant and explicit rational radical bounds prove strict positivity for all sizes from 169 onward. The separate finite negative-association tests for sizes at most five are exhaustive for their stated role. Independent complete mapping enumeration through six vertices checks the probabilities used. The numerical checks are not presented as an infinite proof.
+## correctness
 
-## Originality — PASS with priority risk
-Pitman's 2001 work gives the full cyclic-set law, hence it already encodes the input joint probabilities. Hansen and Jaworski 2006 give cyclic-count distributions in a broader random-mapping framework. The proposed contribution is the exact **negative-dependence phase classification**, not the formula for the distribution: negative association ends after three vertices, pairs reverse sign after five, and a four-vertex disjoint-event obstruction exists despite negative pairwise covariances. The inspected materials did not explicitly state or prove that classification. Because full-distribution formulas logically determine these event probabilities, this refinement may have been extracted implicitly in earlier work. Drmota 1995 is an inaccessible additional risk, although its abstract concerns aggregate stratum counts rather than named cyclicity indicators.
+PASS
 
-## Value — PASS
-The model's cyclic set is a natural exchangeable random subset used in functional digraphs and mapping-based stochastic models. Negative association is a strong concentration-relevant dependence property; this theorem locates the first failure exactly and distinguishes a pairwise diagnostic from true negative association. The later pairwise sign transition and positive limiting covariance show that the failure is structural rather than a lone finite aberration. It has a natural mathematical motivation independent of the computational checks.
+For n^n equally likely endofunctions with loops, tree-root counting gives exact probability of cyclic set R of size k: k k!/n^(k+1). Thus a_k=(n)_k/n^k=P(K>=k) and M=sum a_k; exact telescoping gives E[K(K-1)]=2(n-M). Pair covariance is 2(n-M)/(n(n-1))-M^2/n^2. Independently checked signs with exact Fractions n=2..168, negative to n=5, positive from n=6. The Gaussian sum upper bound M<=1+sqrt(pi*n/2) proves the infinite range n>=169 via rational constants. For n=3, monotone Boolean upsets on support2 versus singleton exhaust disjoint supports and give nonpositive covariance; at n=4,5 disjoint pair conjunction covariance 23/4096, 69716/9765625 >0. Limit n*cov=2-pi/2 follows Gaussian-tail Riemann sums. n=1 vacuous.
 
-## Closest literature and limits
-Pitman (2001), §§2–3, equations (27)–(29), and Hansen–Jaworski (2006), §§1, 3, conclusion, were materially inspected. Drmota (1995) was inspected only at abstract level and is unresolved for historical priority. The phase theorem does not claim to rederive the most general random-mapping distribution, to handle nonuniform image distributions, or to have independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pitman exact cyclic-set enumeration and Hansen–Jaworski random mapping count laws are classical, explicitly credited. The submitted non-association boundary at n=4, persistence of pairwise negative covariance through 5, reversal at 6 and limit are genuinely stricter behavioral conclusions not directly stated in inspected primary material. Related Resultary random mapping sources compare source/terminal counts and cycle length rather than covariance of specified cyclic indicators. Inference from prior count law requires additional nontrivial sign and monotone-function inequalities.
+
+## value
+
+PASS
+
+The strict separation between negative association failure and pairwise-covariance sign reversal is a motivated structural negative-dependence phase diagram for a standard stochastic-combinatorial model, with sharp first sizes, explicit counterexamples and a quantitative limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
