@@ -1,19 +1,21 @@
-# Self-review of the exceptional-triangle secant theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof first shows that no line contained in the cubic can meet the dense torus, since a product of three affine-linear functions cannot equal the constant one unless each is constant. On the chord from the identity torus point to any other point the cubic restricts exactly to \(t(t-1)(s_3t-s_1)\). Its third torus point is distinct precisely when \(s_3s_1(s_1-s_3)\ne0\). The locus \(s_3=0\) consists of the three coordinate subtori with pairwise intersection the identity. Both excluded tangencies are counted by an explicit rational parameter \(k\) with precisely \(q-2-\rho_q\) allowed values; inversion matches the two equal-sized disjoint exceptional sets. Thus \(\tau_q=(q-2)(q-5)+2\rho_q\) follows for every finite field, including characteristic two and three. Projective torus transitivity, pair and point-line incidence double counting, and the known Gaussian binomial count give all four line-spectrum values. The evaluation code has rank four for every \(q\ge3\). Its two-dimensional subcodes are precisely the annihilators of ambient projective lines, so the generalized-weight statements and optimal-subcode counts follow without any unproved geometric inference. Independent exact finite-field checks include direct full-line enumeration over six fields and symbolic-chord counts over eleven fields. The proof for all prime powers does not rely on extrapolating those experiments.
+PASS
 
-## Originality — PASS, qualified
+PASS: The cubic X1 X2 X3=X0^3 contains no projective line meeting dense torus, since a line on the affine unit torus would have three affine-linear polynomials multiplying to 1 and hence all constant. For chord from identity to B, cubic restriction factors t(t-1)(s3 t-s1). Exactly 3(q-2) B have s3=0, and q-2-rho satisfy each tangency exclusion s1=0 or s1=s3; inversion exchanges the disjoint sets, so each identity torus point has tau=(q-2)(q-5)+2rho partners in triples. Transitive torus action gives n3=N tau/6; projective pair and line incidence gives n2,n1,n0, with degree bound j<=3. For q=3 and 5 tau=0, for q=4 or >=7 tau>0. A 2-dimensional annihilator subcode corresponds bijectively to one ambient projective line, so second Hamming weight is N-max j; d3=N-1,d4=N. Independent exact prime-field pair-line enumeration q=3,5,7 reproduced n2=6,120,378 and n3=0,0,84.
 
-Soprunov's 2014 paper introduces the exceptional triangle in toric-code minimum-distance work and supplies the same four monomials as a motivating geometric support; those background facts are not claimed new. González Sarabia, Camps, Sarmiento and Villarreal (arXiv:1611.06405) determine second generalized weights for codes on the **full** projective torus, a different three-dimensional point set, and do not identify the exceptional-triangle monomial surface's complete secant spectrum. Patanker–Singh (arXiv:2002.10920) address squarefree and hypersimplex supports, whose hypotheses do not cover this triangle with its interior lattice point. The specific formulae for all zero-to-three secants, the two cap fields and the number of optimizing two-dimensional subcodes were not found in the examined primary sources or targeted public literature searches. A specialized finite-geometry publication could contain an equivalent trisecant census under another name, so historical priority remains qualified. Lack of a search hit is not treated as uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exceptional triangle is a canonical minimal polygon among strongly indecomposable lattice polygons, so its four-dimensional toric code and projective monomial cubic are natural objects rather than arbitrary parameter slices. The second generalized Hamming weight governs simultaneous zero sets of two independent codewords and is not specified by the previously established minimum-distance estimates. The exact classification of when this code is 2-MDS (only fields of orders three and five), together with complete rational line incidence and optimizer counts, gives a motivated discrete-geometric boundary and full enumerative data valid uniformly for all finite fields.
+PASS, qualified: Soprunov identifies the exceptional-triangle polygon and minimum-distance theory, not the entire projective cubic rational secant spectrum. González Sarabia et al. treat second generalized Hamming weights of codes on a full projective torus (three-dimensional torus in P3, (q-1)^3 points), not this proper monomial surface of (q-1)^2 points. Patanker–Singh hypersimplex and squarefree polynomial supports are different, lacking the interior lattice point of this exceptional triangle. No inspected prior paper implies the all-q secant census, cap pair q=3,5, or optimizer count; specialized finite geometry could still hide the exact same cubic line spectrum.
 
-## Closest literature and residual risk
+## value
 
-I. Soprunov, *Lattice polytopes in coding theory* (arXiv:1411.0028, 2014), Section 2, gives the exceptional-triangle family and minimum-distance context. M. González Sarabia et al., *The second generalized Hamming weight of some evaluation codes arising from a projective torus* (arXiv:1611.06405, 2016), focus on full projective-torus codes, not the monomial image of a proper two-dimensional torus. N. Patanker and S. K. Singh, *Generalized Hamming weights of toric codes over hypersimplices and square-free affine evaluation codes* (arXiv:2002.10920, 2020), treat different exponent supports. The precise three-secant count could still occur in unlocated finite-geometry literature. An independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The exceptional triangle is a canonical strongly indecomposable lattice polygon, and its four-character evaluation code is natural rather than a slice chosen after computation. The exact 0–3 secant counts solve the geometrically motivated 2-dimensional subcode zero-locus problem uniformly, identifying exactly which fields meet the second generalized Singleton bound and counting every optimizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
