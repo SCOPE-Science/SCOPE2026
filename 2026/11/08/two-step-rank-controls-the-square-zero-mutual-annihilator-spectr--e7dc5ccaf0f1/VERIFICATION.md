@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone Python 3 file `verify.py` enumerates the complete square-zero candidate pool for three small ambient matrix rings: \(M_2(\mathbb F_4)\), \(M_3(\mathbb F_3)\), and \(M_4(\mathbb F_2)\). The field \(\mathbb F_4\) is implemented through the irreducible polynomial `0b111`. Matrix multiplication and Gaussian elimination are implemented directly, without external libraries.
+## correctness
 
-For every tested fixed matrix \(A\), the code computes \(\operatorname{rank}A\), \(\operatorname{rank}(A^2)\), enumerates every candidate \(B\) satisfying \(B^2=AB=BA=0\), and checks each pair \((\operatorname{rank}B,\dim(\operatorname{im}A\cap\operatorname{im}B))\) against the closed formula. It also checks the predicted maximum rank. In particular, \(J_3(0)\oplus0\) and \(J_2(0)\oplus[1]\oplus0\) have equal two-step rank data over \(\mathbb F_2\) and the same tested distribution.
+PASS
 
-Run `python verify.py`. The expected terminal line is `VERIFY_OK`. The enumerated square-zero candidate pool sizes are respectively \(16,105,316\). These finite checks are not a proof over all finite fields. The general correctness argument is the subspace-and-kernel bijection in `RESULT.md`.
+Set U=im A, K=ker A, D=U∩K, with dimensions r,n-r,δ=r-rank(A²). The product restrictions are exactly L=im B⊂K and H=ker B⊃U+L, with B induced by any isomorphism E/H→L. For rank b and intersection t, choose L by [δ choose t]_q[k-δ choose b-t]_q q^((δ-t)(b-t)), choose codimension-b H containing U+L by [k-b+t choose b]_q, then multiply by GL_b(q). This bijection proves the entire formula for any characteristic and similarity class. Existence condition 2b≤k+t≤k+δ gives b≤floor((n-rank(A²))/2), and feasible t=max(0,2b-k,b-(k-δ)) realizes every lower rank. Independent exhaustive F2 n=4 calculations verified contrasting A rank 2 examples: diagonal(1,1,0,0) gives B rank counts (1,3,0), two J2 blocks give (1,9,6); correctness is proved by subspace counting, not extrapolation.
+
+## originality
+
+PASS
+
+Prior published square-zero mutually annihilating pair counts impose A²=0; the Nov2 all-tuple double-flag theorem also assumes every operator square-zero. Huang’s count for arbitrary A concerns all AB=BA=0, without B²=0 and without rank/overlap strata. Neither directly supplies the arbitrary-A conditional (r,rank A²) rigidity and complete (b,t) Gaussian formula. Special A²=0 / unconditional totals remain known background.
+
+## value
+
+PASS
+
+The complete fibre count of square-zero mutual annihilators of an arbitrary fixed finite-field operator is a natural invariant of matrix-pair representation theory. Its dependence only on rank A and rank A² and the exact sharp rank threshold expose a structural two-step rigidity, including examples separating matrices of the same rank; these are useful precise finite-field counts, not a routine recomputation of an unrelated table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
