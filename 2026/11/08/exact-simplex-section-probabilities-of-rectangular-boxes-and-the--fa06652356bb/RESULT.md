@@ -1,104 +1,57 @@
-# Exact simplex-section probabilities of rectangular boxes and the complete affine-cube polygon law
+# Crofton simplex-section probabilities in higher-dimensional rectangular boxes
 
 ## Finding
+For every integer \(d\ge4\) and all positive edge lengths \(a_1,\ldots,a_d\), consider the orthogonal box \(B=\prod_{i=1}^d[0,a_i]\) and an unoriented affine hyperplane chosen according to Euclidean-motion-invariant measure, conditional on intersecting \(B\). Let \(N\) be the number of vertices of its generic \((d-1)\)-dimensional section. Then
+\[
+\Pr(N=d)=\frac{\sqrt{2\pi}}{\sum_{i=1}^d a_i}
+\int_0^\infty\prod_{i=1}^d\operatorname{erfc}\left(\frac{t}{\sqrt2a_i}\right)\,dt.
+\]
+At fixed sum of positive side lengths this simplex probability is strictly Schur-concave: the unique maximizer, up to common scaling, is the cube. For unit side lengths its exact optimum is
+\[
+p_d^*=\frac{\sqrt{2\pi}}{d}\int_0^\infty\operatorname{erfc}(t/\sqrt2)^d\,dt,
+\qquad \lim_{d\to\infty}d^2p_d^*=\pi.
+\]
+The three-dimensional rectangular-box Crofton polygon distribution, including the complete four-type cube vector, **is already available in prior work**, and is not asserted as a new result here. The new scope is the higher-dimensional simplex probability, shape inequality and sharp asymptotic.
 
-**Theorem (a sharp all-dimensional law and its three-dimensional specialization).** Fix an integer \(d\ge3\) and positive side lengths \(a_1,\ldots,a_d\). Put \(B=\prod_{i=1}^d[0,a_i]\). Draw an affine hyperplane in \(\mathbb R^d\) from Euclidean-motion-invariant hyperplane measure, conditioned to meet \(B\). Let \(N\) denote the number of vertices of the almost-surely nondegenerate section \(B\cap H\). Then the exact probability that the section is a \((d-1)\)-simplex is
-\[
-\boxed{\Pr(N=d)=\frac{\sqrt{2\pi}}{\sum_{i=1}^d a_i}\int_0^\infty\prod_{i=1}^d \operatorname{erfc}\!\left(\frac{t}{\sqrt2\,a_i}\right)\,dt.}
-\]
-The function is symmetric and strictly Schur-concave in the side lengths at fixed sum. Hence the unique maximizer, up to uniform scaling, is the cube. Its sharp probability \(p_d^*\) satisfies
-\[
-\boxed{p_d^*=\frac{\sqrt{2\pi}}d\int_0^\infty\operatorname{erfc}\!\left(\frac{t}{\sqrt2}\right)^d dt,\qquad\lim_{d\to\infty}d^2p_d^*=\pi.}
-\]
-For the unit cube in dimension three the **entire** polygon-type distribution is explicit. Define
-\[
-q_3=2-\frac{4\sqrt2}{\pi}\arctan\sqrt2,\qquad
-q_6=\frac{2\sqrt3}{3}-\frac{4\sqrt2}{\pi}\arctan\frac1{\sqrt2},
-\]
-\[
-q_5=q_3-2q_6,\qquad q_4=1-2q_3+q_6.
-\]
-Then \(\Pr(N=j)=q_j\) for \(j=3,4,5,6\), and all other values have probability zero. Numerically,
-\[
-(q_3,q_4,q_5,q_6)=(0.279825723213,\ 0.486796243994,\ 0.186930342373,\ 0.046447690420).
-\]
-In particular, \(\mathbb E[N]=4\); this expectation is previously known under uniform random affine-section sampling, whereas the displayed complete probability vector and the simplex-event shape optimization are the asserted refinements.
-
-## Assumptions and scope
-
-An unoriented hyperplane can be represented as \(H(u,s)=\{x:u\cdot x=s\}\) with \(u\in S^{d-1}\), \(s\in\mathbb R\), identifying \((u,s)\) and \((-u,-s)\). Its motion-invariant measure is a constant multiple of \(d\sigma(u)\,ds\), where \(d\sigma\) is spherical area. **Conditioning on intersection with the box weights the normal direction in proportion to the box's width** \(w(u)=\sum_i a_i|u_i|\). It is not the model that first chooses a Haar-uniform normal and *then* independently chooses a uniform intercept for that normal. The measure-zero planes through vertices or containing edges are excluded. A \((d-1)\)-dimensional section is a simplex if and only if it has exactly \(d\) vertices.
-
-There are no restrictions on side lengths beyond strict positivity. The three-dimensional formulas refer to ordinary planar polygon sections of a cube, not central sections or shadows.
+## Sampling model and exact scope
+The invariant measure on unoriented hyperplanes \(H(u,s)=\{x:u\cdot x=s\}\) is proportional to \(d\sigma(u)\,ds\) modulo \((u,s)\sim(-u,-s)\). A normal with absolute coordinates \(u_i\) is weighted after conditioning on intersection by \(w(u)=\sum_i a_i|u_i|\), the box's projected width. In particular, the theorem does **not** concern uniform normals with separately normalized uniform intercepts or central sections. Generic excludes the measure-zero configurations through box vertices or edges; the section then has a simplex exactly when it has \(d\) vertices. No claim is made for arbitrary sheared parallelotopes, higher-codimension sections or the full face-vector distribution for \(d\ge4\).
 
 ## Proof
-
-**1. The simplex event is exactly a singleton-vertex cut.** Reflect coordinates so that the coordinates of a generic normal have positive signs. A hyperplane section of the box has one vertex for each intersected box edge. Orient the edge graph of the box from the lower to the higher projected vertex level. For an intercept between projected vertex levels, the crossed box edges are the edge boundary of a proper nonempty vertex subset \(S\) of the \(d\)-cube graph.
-
-For \(d\ge3\), any nontrivial edge cut in the \(d\)-cube has at least \(d\) edges, and equality occurs only when \(S\) or its complement is a singleton. For completeness, prove this by induction on \(d\). The case \(d=3\) follows by partitioning vertices into the two square faces: each proper nonempty face-subset contributes at least two internal boundary edges, while edges between faces count its symmetric difference. A cut of three edges therefore isolates a single vertex. For the induction step, write \(S=S_0\sqcup S_1\) in the two opposite \((d-1)\)-faces, and note
+**Minimum edge cuts.** Reflect each coordinate axis so the coefficients of the normal are positive. For a generic intercept, crossed box edges are exactly the boundary edges of the vertex set below the intercept in the graph of the \(d\)-cube. A proper nonempty edge cut in that graph has size at least \(d\), with equality only for a singleton or its complement when \(d\ge3\). One direct proof is by induction: split the graph into opposite \((d-1)\)-cubes, so for \(S=S_0\cup S_1\),
 \[
 |\partial S|=|\partial S_0|+|\partial S_1|+|S_0\triangle S_1|.
 \]
-If both face-subsets are proper and nonempty, the first two terms sum to at least \(2(d-1)>d\) for \(d\ge4\). If a face-subset is empty or full, either the separating contribution is at least \(2^{d-1}>d\), or induction gives at least \(d-1\) internal crossings and at least one separating crossing. Equality then forces precisely a singleton or a complementary singleton. Thus the minimum cut classification holds.
+For \(d=3\), a case check over the two square faces gives precisely the singleton equality cases. If both face-subsets are nonempty and proper in dimension \(d\ge4\), their internal cuts contribute at least \(2(d-1)>d\). If one face-subset is empty or full, the displayed formula and the induction bound show that achieving \(d\) requires one face to have a singleton or co-singleton and the separating difference to have size one; the other possibility of an entire face separation contributes \(2^{d-1}>d\). This proves the classification.
 
-For a fixed normal \(u\), the interval of intercepts cutting off the unique minimum-projection vertex has length \(m(u)=\min_i a_i|u_i|\). The analogous interval near the maximum-projection vertex has the same length. The equality cases are null sets, so the total intercept measure yielding a simplex is exactly \(2m(u)\). The total admissible intercept measure is \(w(u)\). Consequently,
+The only intercepts producing a simplex are therefore the interval immediately above the lowest box vertex and the interval immediately below the highest vertex. Each has length \(m(u)=\min_i a_i|u_i|\). Consequently, for Haar-uniform \(U\) on the unit sphere,
 \[
-\Pr(N=d)=\frac{2\,\mathbb E_{U\sim\mathrm{Haar}}\min_i a_i|U_i|}{\mathbb E_{U\sim\mathrm{Haar}}\sum_i a_i|U_i|}.
+\Pr(N=d)=\frac{2\mathbb E\min_i a_i|U_i|}{\mathbb E\sum_i a_i|U_i|}.
 \]
-
-**2. Gaussian minimum integral.** Let \(G_i\) be independent standard normal random variables, put \(R=(\sum_iG_i^2)^{1/2}\), and \(U=G/R\). The direction \(U\) is Haar-uniform and independent of \(R\). Taking expectations in the homogeneous degree-one numerator and denominator above cancels \(\mathbb E R\). Since \(\mathbb E|G_1|=\sqrt{2/\pi}\) and
+**Gaussian normalization.** Let \(G=(G_1,\ldots,G_d)\) have independent standard normal coordinates, and write \(G=RU\). Radius and direction are independent. Both numerator and denominator above are homogeneous of degree one, so their common factor \(\mathbb ER\) cancels. Since \(\mathbb E|G_i|=\sqrt{2/\pi}\), and by the layer-cake identity and independence,
 \[
-\mathbb E\min_i(a_i|G_i|)=\int_0^\infty\Pr\{a_i|G_i|>t\text{ for all }i\}\,dt
-=\int_0^\infty\prod_i\operatorname{erfc}\left(\frac{t}{\sqrt2 a_i}\right)dt,
+\mathbb E\min_i a_i|G_i|
+=\int_0^\infty\Pr(a_i|G_i|>t\text{ for all }i)dt
+=\int_0^\infty\prod_i\operatorname{erfc}(t/(\sqrt2a_i))dt,
 \]
-the exact formula follows. The interchange uses Tonelli's theorem on a nonnegative integrand.
+the exact probability follows. All integrands are nonnegative, justifying Tonelli.
 
-**3. Unique cubic optimality among boxes.** For each fixed nonnegative vector \(x\), the function \(a\mapsto\min_i a_ix_i\) is concave as the pointwise minimum of affine functions. Averaging over Haar directions preserves concavity, and exchangeability of the coordinate absolute values makes the expectation symmetric. It is strictly increased by replacing any unequal pair \((a_i,a_j)\) by its arithmetic mean twice: write the two transposed side-length vectors, apply the concavity inequality, and note strictness on the positive-measure set where \(|U_i|\) and \(|U_j|\) are sufficiently close and both small enough that the other positive-coordinate products exceed these two. On this set the active minimum switches under swapping the unequal pair. The denominator \(\mathbb E\sum_i a_i|U_i|\) depends only on \(\sum_i a_i\); thus the simplex probability is strictly Schur-concave at fixed sum. Averaging unequal pairs leads to the equal-length maximizer and proves uniqueness.
+**Strict optimality.** For fixed positive \(x_i\), \(a\mapsto\min_i(a_ix_i)\) is concave as the pointwise minimum of affine functions. Averaging with exchangeable, continuous positive Gaussian absolute coordinates gives a symmetric concave numerator. If \(a_i\ne a_j\), average the vector with its coordinate transposition. On a positive-measure event where \(|G_i|\) and \(|G_j|\) are close, and all other products are larger, the identity of the active minimum switches between those two vectors; strict concavity occurs there. The denominator depends only on \(\sum_i a_i\). Thus averaging any unequal pair strictly improves the probability, which proves strict Schur concavity and the unique uniform-side maximizer.
 
-**4. The dimensional asymptotic.** For equal side lengths, put \(Q(t)=\Pr\{|G_1|>t\}=\operatorname{erfc}(t/\sqrt2)\). Since \(Q(t)=1-\sqrt{2/\pi}\,t+O(t^3)\) at zero and \(Q(t)\) has a Gaussian tail, a change of variables \(t=s/d\) followed by dominated convergence (split first at \(s=d\)) gives
+**Sharp asymptotic.** Put \(Q(t)=\operatorname{erfc}(t/\sqrt2)\). Since \(Q(t)=1-\sqrt{2/\pi}\,t+O(t^3)\), for each fixed \(s\ge0\) one has \(Q(s/d)^d\to\exp(-\sqrt{2/\pi}s)\). On \([0,1]\), \(Q(t)\le e^{-ct}\) for some \(c>0\); beyond \(1\), \(Q(t)\le Q(1)<1\) and \(\int_1^\infty Q(t)dt<\infty\). Splitting the integral at \(t=1\) justifies dominated convergence after the substitution \(s=dt\) and makes the remaining tail exponentially small. Therefore
 \[
-\lim_{d\to\infty}d\int_0^\infty Q(t)^d\,dt=\sqrt{\pi/2}.
+\lim_{d\to\infty}d\int_0^\infty Q(t)^d dt
+=\int_0^\infty e^{-\sqrt{2/\pi}s}ds=\sqrt{\pi/2},
 \]
-Multiplying by \(\sqrt{2\pi}/d\) proves the sharp limit \(d^2p_d^*\to\pi\).
+which yields \(d^2p_d^*\to\pi\). This completes the proof.
 
-**5. The cubic polygon spectrum: combinatorial reduction.** For the unit cube and an octant-normal with absolute components sorted as \(a\ge b\ge c>0\), let \(L_j(u)\) be the total intercept length producing \(j\) section vertices. The projected cube-vertex levels are the eight subset sums of \(a,b,c\). When \(a<b+c\), the successive polygon types are \(3,4,5,6,5,4,3\); otherwise they are \(3,4,5,4,5,4,3\). Hence
-\[
-L_3(u)=2c=2\min_i|u_i|,\qquad L_6(u)=(b+c-a)_+.
-\]
-The sum of lengths is \(a+b+c\). Moreover each of the twelve cube edges contributes its projected length to the integrated section-vertex count, giving \(\sum_j jL_j(u)=4(a+b+c)\) **for each normal**. Therefore \(\mathbb E[N]=4\), and with \(q_3+q_4+q_5+q_6=1\), one has \(q_5+2q_6=q_3\). It remains to evaluate \(q_3\) and \(q_6\).
+## Prior results and originality boundary
+The dimension-three probability of each polygon type for **all rectangular boxes** is established in *Elementary Crofton section-type law and quadratic hexagon extinction for rectangular boxes* (published 18 October 2026, https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-elementary-crofton-section-type-law-and-quadratic-hexagon-extinc--ecdb5fa9f8fa). This earlier result also explains that cube values and the rectangular-box triangular-section formula/shape extremizer had been studied previously. The three-dimensional distribution must not be credited here. Earlier papers on central hyperplane sections, fixed-offset slice volumes and expected section-vertex counts (Lonke, Marichal–Mossinghoff, Swan) concern distinct or weaker observables, and do not themselves imply the stated all-dimensional \(d\ge4\) event probability, strict shape law or \(\pi/d^2\) limit. Any more general prior stochastic-geometric theorem covering those conclusions would affect historical priority and must be evaluated on its actual mathematical implications; this comparison is best-of-knowledge, not an independence certificate.
 
-**6. Exact triangular probability.** The orientational average of the smallest absolute normal coordinate is \(\frac{12}{\pi}I\), where
-\[
-I=\int_{0\le x\le y\le z,\ x^2+y^2+z^2=1}x\,d\sigma
-=\frac12\int_{\pi/4}^{\pi/2}\frac{\cos^2\theta}{1+\cos^2\theta}\,d\theta
-=\frac\pi8-\frac{\arctan\sqrt2}{2\sqrt2}.
-\]
-For the first integral, project the ordered spherical octant onto the \((y,z)\)-plane: \(x\,d\sigma=dy\,dz\), the polar angle ranges from \(\pi/4\) to \(\pi/2\), and the radial lower bound is \((1+\cos^2\theta)^{-1/2}\). Since \(\mathbb E\sum_i|U_i|=3/2\), the formula \(q_3=2-4\sqrt2\arctan\sqrt2/\pi\) follows.
-
-**7. Exact hexagonal probability.** On the ordered positive spherical region
-\[
-\Omega=\{(x,y,z)\in S^2:x\ge y\ge z\ge0,\ x<y+z\},
-\]
-the hexagonal-intercept length is \(f=y+z-x\). The region is a spherical triangle with vertices \((1,1,1)/\sqrt3\), \((1,1,0)/\sqrt2\), \((2,1,1)/\sqrt6\). Write \(\eta=\arctan(1/\sqrt2)\). The geodesic side \(x=y\) has length \(\eta\), and the side \(x=y+z\) has length \(\pi/6\). Since \(\Delta_{S^2} f=-2f\), the spherical divergence theorem gives
-\[
-\int_\Omega f\,d\sigma
-=\frac12\left(\sqrt3\,\frac\pi6-\sqrt2\,\eta\right).
-\]
-Indeed, the outward unit normals to the three geodesic boundary arcs \(x=y\), \(y=z\), and \(x=y+z\) have directional derivatives of \(f\) equal to \(\sqrt2\), \(0\), and \(-\sqrt3\), respectively. The six coordinate orders and eight octants give factor \(48/(4\pi)=12/\pi\) for the orientational average. Divide by \(\mathbb E(a+b+c)=3/2\) to find \(q_6=2\sqrt3/3-4\sqrt2\eta/\pi\). The other two probabilities follow from normalization and the established first moment. \(\square\)
-
-## Verification
-
-The standalone `verify.py` requires Python 3 standard library only. Execute `python3 verify.py` in a directory containing the file. It checks all 1331 integer triples of side-direction products in the range one through eleven, 120 high-dimensional generic configurations in dimensions three through six, independent quadrature of the one-dimensional minimum integral, analytic probability normalization and first moments, and width-weighted Gaussian-normal numerical integration over 600,000 sampled directions. The output ends with `CUBE_AFFINE_CROFTON_VERIFICATION_OK`. Separately, 2,000,000 random cube-section normal/intercept pairs were evaluated by enumerating intersected edges, with deviations below \(0.00011\) from the four stated probabilities. These finite checks do not substitute for the analytic all-dimensional proof.
-
-## Relationship to prior work
-
-Lonke's arXiv:math/9812123 studies Haar-random **central linear** sections of cubes; its exact mean-face results cannot be substituted for translated Crofton hyperplanes. Marichal and Mossinghoff's arXiv:math/0607715 gives exact **volume** formulas for fixed cube halfspace slices and hyperplane sections, not the rotation-translation-averaged distribution of polygon types. Swan's arXiv:1808.09482 proves the exact expected number of vertices for Crofton-random affine cube sections and even parallelotopes; the mean \(4\) for a three-cube is therefore **prior art**, not asserted as new. These facts constrain the scope of the claim. A published central-section cuboid hexagon probability is similarly a distinct experiment, because the translation coordinate is held at zero. The contribution asserted here is the minimum-face-event probability and strict shape law in arbitrary dimension, its sharp \(\pi/d^2\) asymptotic, and the full noncentral cube polygon distribution.
-
-## Limitations
-
-The sampled hyperplanes use Euclidean-motion-invariant measure conditioned to meet the box; conclusions do not transfer to Haar-uniform normals followed by independent uniform intercepts. The all-dimensional theorem determines the probability of simplex sections, not full section-face vectors in dimensions four and above. The four-point polygon distribution is exact only for the three-dimensional cube. The maximization concerns **orthogonal boxes** with positive lengths and fixed sum, not arbitrary parallelotopes or general convex bodies. Searching indexed records cannot establish absolute historical novelty; obscure stereological tables or unpublished analyses may contain equivalent special cases. No independent mathematical audit is asserted.
+## Checks and limitations
+The finite checker associated with the original package explores generic edge cuts, numerical Gaussian integrals and conditional affine sampling; such checks do not establish a claim for every dimension or all real side lengths. The arguments above establish the unrestricted conclusions in their stated domain. They do not determine full high-dimensional face-vector distributions, nonorthogonal shapes, robustness to a different plane measure, or novelty relative to inaccessible unindexed literature.
 
 ## References
-
-1. Y. Lonke, *On random sections of the cube*, initial arXiv public version 1998-12-21, arXiv:math/9812123; *Discrete & Computational Geometry* 23 (2000), 157–169. https://arxiv.org/abs/math/9812123.
-2. J.-L. Marichal and M. J. Mossinghoff, *Slices, slabs, and sections of the unit hypercube*, initial arXiv public version 2006-07-27, arXiv:math/0607715; *Online Journal of Analytic Combinatorics* 3 (2008), 1–11. https://arxiv.org/abs/math/0607715.
-3. H. Swan, *Expected Number of Vertices of a Hypercube Slice*, initial arXiv public version 2018-08-28, arXiv:1808.09482. https://arxiv.org/abs/1808.09482.
+- B. M. Bray, *Invariant measures on multifids of convex polytopes*, Ph.D. thesis, University of Wollongong (2009), Chapter 10, https://ro.uow.edu.au/theses/3403.
+- Y. Lonke, *On random sections of the cube*, arXiv:math/9812123, https://arxiv.org/abs/math/9812123.
+- J.-L. Marichal and M. J. Mossinghoff, *Slices, slabs, and sections of the unit hypercube*, arXiv:math/0607715, https://arxiv.org/abs/math/0607715.
+- H. Swan, *Expected Number of Vertices of a Hypercube Slice*, arXiv:1808.09482, https://arxiv.org/abs/1808.09482.

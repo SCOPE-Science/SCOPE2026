@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational and analytical verification
+# Independent mathematical audit
 
-All proof assumptions, quantifiers, equations and deductions are in `RESULT.md`. The independently executable `verify.py` requires Python 3 standard library only: run `python3 verify.py`.
+## correctness
 
-The checker enumerated 1,331 generic integer component triples and 120 higher-dimensional sampled configurations to compare direct crossed-edge counts with the simplex event and cube-side polygon classifications. It independently integrated the Gaussian minimum expression in dimensions 3, 4, 5, 10, 30 and 100. In dimension 3 it checked the exact spherical integral representations, probability normalization, and mean vertex count. It also sampled 600,000 direction-weighted random affine sections per box and compared numerical probabilities across four boxes. The completed process ended with `CUBE_AFFINE_CROFTON_VERIFICATION_OK`.
+PASS
 
-An additional explicitly independent numerical program directly evaluated 2,000,000 random cube normals with intercept chosen from the conditional width interval. It found an empirical four-point polygon law whose largest absolute deviation from the exact theorem was below 0.00011. Sampling is corroborative only.
+For every d>=4, a generic simplex section corresponds to an edge cut of size d of Q_d; hypercube minimum edge cuts of size d isolate a singleton vertex (or its complement). For each normal the two extreme intercept intervals total 2 min_i a_i|u_i|, and conditional Crofton width is sum_i a_i|u_i|. Gaussian radial independence gives the exact erfc integral. The expected minimum is strictly Schur-concave via positive-measure switch under unequal pairwise averaging; at equal sides half-normal small-t asymptotics yield d^2 p_d -> pi. Independent 3D sampled integral checks and direct dimensional algebra supported normalization; full proof is analytic for arbitrary d and a_i. Repaired source explicitly restricts new mathematical claim to d>=4.
 
-The all-real, all-dimensional validity depends on the combinatorial hypercube-edge-cut classification, Crofton width normalization, exact Gaussian cancellation, strict concavity argument and spherical boundary integrations in the written proof. Every numerical quadrature is finite and does not certify an infinite-dimensional assertion or historical novelty. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+The ORIGINAL standalone claim that the 3D cube polygon distribution was new is false as an originality assertion: the full primary published 2026-10-18 Resultary theorem gives the stronger complete distribution of every three-dimensional rectangular box, including the cube exactly. The corrected high-dimensional d>=4 Crofton simplex law with strict cube shape optimum and pi/d^2 constant survives; the earlier 3D theorem does not cover d>=4. Swan covers affine-section mean, Lonke central sections, Marichal–Mossinghoff fixed-offset volumes; those do not imply this d>=4 event probability. Repaired final claim is assessed, not original 3D priority.
+
+## value
+
+PASS
+
+Exact simplex probability for arbitrary high-dimensional orthotopes and a sharp shape-optimality principle are natural integral-geometric invariants, with a nontrivial pi/d^2 rare-event constant. This surviving all-dimensional higher-d formula remains useful independently of the now-known 3D affine polygon census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
