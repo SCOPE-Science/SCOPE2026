@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T05:59:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For V=F_2^(2m), N=2^(2m), t=2^m (m>=2), the nondegenerate quadratic polar map is a bijection between coordinates and Walsh frequencies and yields Gauss transform ±t. Expanding g(x)g(x+a) gives A(a,b)=N/4[1_{b=0}+(-1)^Q(a)1_{b=L(a)}]+epsilon*t/4*(-1)^Q(z_b)[1+(-1)^(a·b)]. This formula gives one k=(N+epsilon*t)/2, 2(N-1) coefficients of magnitude lambda=(N+2epsilon*t)/4, (N-1)(N/2-1) of t/2, and N(N-1)/2 zeros. Real symmetric Weyl operators are exactly a·b=0; their output characters are orthogonal, so singular values are sqrt(N) times these magnitudes. Since t>=4 all symmetric coefficients are nonzero, giving maximal real-symmetric rank N(N+1)/2 and positive condition number t+epsilon; skew-symmetric matrices exhaust the complex-linear kernel. Real rank-one phase retrieval is injective up to sign via ff^T=hh^T. Independently enumerating all 256 coefficients at m=2 yielded ε=+1 magnitudes {10:1,6:30,2:105,0:120}, ε=-1 magnitudes {6:1,2:135,0:120}; this checks the coincident levels case but does not prove all m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bojarovska–Flinth Theorem 2.3 supplies frame bounds under all-complex injectivity premise, false here.",
+          "Leopardi bent functions imply Walsh Gauss amplitudes, not the complete overlap spectrum of translated level sets."
+        ],
+        "reasoning": "General Weyl diagonalization and bent Fourier sums are used as methods, but do not individually cover the complete zero-set tomography theorem.",
+        "searches": [
+          "https://arxiv.org/pdf/1503.05800",
+          "https://arxiv.org/abs/1504.02827",
+          "Resultary: exact Gabor lifting spectra scalar Boolean quadratic graph windows"
+        ]
+      },
+      "checked_sources": [
+        "Bojarovska–Flinth 2015 arXiv:1503.05800 PDF pp. 1–5, Theorems 2.2–2.3",
+        "Resultary full graph-window theorem published 2026-11-08",
+        "Leopardi 2015 arXiv:1504.02827 listed bent difference-set theory",
+        "Frozen RESULT.md blob 0b50304472b0d74fd0c37adaae1a227ed87dbf55"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bojarovska–Flinth Theorem 2.3 gives operator frame bounds when all ambiguity coefficients are nonzero, whereas half are zero here.",
+          "The present proof derives an exact tensor Walsh coefficient identity and then restricts to symmetric Weyl basis."
+        ],
+        "reasoning": "For characteristic two, real-symmetric injectivity is a distinct assertion not implied by full complex-operator criteria or the different graph support. The full explicit signed spectrum survives comparison.",
+        "searches": [
+          "https://arxiv.org/pdf/1503.05800",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-gabor-lifting-spectra-for-scalar-boolean-quadratic-graph-w--ca35e6a20ccb"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bojarovska–Flinth complex Gabor lifting is Weyl diagonalized but requires A≠0 for every index; symmetric binary windows have unavoidable skew zeros.",
+          "Graph support {(x,Q(x))} has different cardinality and Fourier overlap geometry from zero-shell support {Q=0}."
+        ],
+        "reasoning": "Same Weyl/Gabor terminology masks two distinct support objects. The published graph-window rank does not imply the present maximal symmetric rank or Gauss-sign-dependent spectral condition number.",
+        "searches": [
+          "Resultary: binary bent quadratic Gabor phase retrieval symmetric rank sign conditioning",
+          "https://arxiv.org/pdf/1503.05800",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-gabor-lifting-spectra-for-scalar-boolean-quadratic-graph-w--ca35e6a20ccb"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact submitted singular multiset has multiplicities 1, 2(N-1), (N-1)(N/2-1), N(N-1)/2.",
+          "Previously inspected graph-window theorem reports three magnitude levels and rank K(D²+4D-3) for a different ambient group."
+        ],
+        "reasoning": "No inspected published table matches the zero-level indicator and both Arf-sign conditioning laws; same number of levels alone is not implication.",
+        "searches": [
+          "Resultary: Gabor real intensity tomography binary quadratic bent indicator",
+          "https://arxiv.org/pdf/1503.05800",
+          "https://arxiv.org/abs/1504.02827"
+        ]
+      },
+      "rationale": "Bojarovska–Flinth 2015 Theorems 2.2–2.3, directly inspected in arXiv PDF, give complex Gabor phase retrieval and frame bounds when every Weyl ambiguity coefficient is nonzero. For real windows over F_2^n, every skew Weyl index vanishes necessarily, so that condition cannot apply. The published SCOPE scalar Boolean quadratic GRAPH window theorem concerns indicator of {(x,Q(x))} in one extra group coordinate, not indicator of the ZERO-LEVEL SET {x:Q(x)=0}; its rank is generally much less than full real-symmetric rank. The new statement is the exact all-m zero-set signed ambiguity spectrum and Gauss-sign conditioning; Gauss sums and bent difference-set parameters alone do not specify these operator singular-level counts.",
+      "residual_risks": [
+        "Earlier broad real-phase-retrieval over elementary 2-groups may contain an equivalent real-restricted criterion; no exhaustive historical text search is a novelty proof.",
+        "Arf-sign distinction is quantitative for linear lifting; no optimality across all windows or recovery in complex matrix domain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General complex lift sufficient condition is inapplicable to unavoidable skew-sector zeros.",
+          "evidence": [
+            "Theorem 2.2 assumes <g,g_lambda> nonzero for all shifts; Theorem 2.3 obtains bounds N min/max |<g,g_lambda>|² under that condition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1503.05800",
+          "material_read": "PDF pages 1–5, especially Theorems 2.2–2.3 and displayed Weyl frame-bound formulas, plus introductory scope",
+          "method": "Read extracted PDF text and visually inspected PDF screenshots of pages 4–5",
+          "title": "Phase Retrieval from Gabor Measurements",
+          "trigger": "Closest foundational intensity-lifting theorem"
+        },
+        {
+          "assessment": "Different graph support on F_2^m×F_2, with rank K(D²+4D−3), not the zero-set support on F_2^(2m).",
+          "evidence": [
+            "Graph-window theorem explicitly defines S_Q={(x,Q(x))} and generic-weighted rank N(N−K)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-gabor-lifting-spectra-for-scalar-boolean-quadratic-graph-w--ca35e6a20ccb",
+          "material_read": "Complete published RESULT.md: finding, all five proof steps, verification and limitations",
+          "method": "Fetched full published GitHub source through authorized read-only connector",
+          "title": "Exact Gabor lifting spectra for scalar Boolean quadratic graph windows",
+          "trigger": "Same binary quadratic terminology, possibly dominating spectrum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Structured real phase-retrieval windows with provably maximal symmetric-matrix tomography rank and exact worst-case conditioning are natural and useful in finite harmonic analysis. The result identifies both Arf-sign classes, complete singular multiplicities and a uniform sharp stability ratio. It is not merely a generic rank existence result or a relabeling of the published quadratic-graph measurement problem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Bojarovska–Flinth 2015 arXiv:1503.05800 PDF pp. 1–5, Theorems 2.2–2.3",
+    "Resultary full graph-window theorem published 2026-11-08",
+    "Leopardi 2015 arXiv:1504.02827 listed bent difference-set theory",
+    "Frozen RESULT.md blob 0b50304472b0d74fd0c37adaae1a227ed87dbf55"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only nondegenerate binary Q with Q(0)=0 in even dimension >=4; real-symmetric operator lift, unnormalized g."
+  ],
+  "residual_risks": [
+    "Earlier broad real-phase-retrieval over elementary 2-groups may contain an equivalent real-restricted criterion; no exhaustive historical text search is a novelty proof.",
+    "Arf-sign distinction is quantitative for linear lifting; no optimality across all windows or recovery in complex matrix domain."
+  ],
+  "schema_version": 1
+}

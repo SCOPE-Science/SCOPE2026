@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise mathematical object is the full real Walsh Gabor orbit of a nondegenerate binary quadratic zero-set indicator. The proof explicitly fixes character normalization, both matrix and output norms, and all frequencies. The quadratic Gauss transform and affine derivative identity yield equation (1), including its signed exceptional values. The symmetric/skew Weyl decomposition and output character orthogonality then give every singular value and its multiplicity, with all boundary coincidences accounted for. Since \(t=2^m\ge4\), the exceptional level \(\lambda=t(t+2\varepsilon)/4\) is always positive; no hidden zero sectors remain. The exact checker reproduces all coefficients at six independent test instances, and independently establishes full symmetric projector rank in dimension four via modular elimination. Finite calculations corroborate; the all-dimensional proof is algebraic. Risk: a different measurement normalization would rescale the listed singular values, which is why the conventions are explicit.
+## correctness
 
-## Originality — PASS under bounded review
-The closest primary Gabor framework is Bojarovska--Flinth (2015), whose theorem gives full complex lifting under a condition **inapplicable** to real binary windows because half of the Weyl indices correspond to skew-symmetric matrices; its difference-set sufficient criterion also does not apply when the smallest prime factor is two. Krahmer--Pfander--Rashkov (2006) studies STFT support and robustness of ordinary Gabor frames, not the stated real-symmetric projector rank. Leopardi (2015) supplies known bent difference-set parameters, not the four-level Gabor intensity-lifting spectrum. The published binary-quadric first-Walsh-band result studies character restrictions on an \((n+1)\)-dimensional band, whereas the current theorem covers all real symmetric matrices. The published hyperbolic quadratic-shell Gabor result is for odd field characteristic and level one, so does not subsume the binary zero-quadric theorem. Targeted semantic and equivalence searches yielded no covering claim. Risk: an overlooked real-phase-retrieval theorem for binary difference-set windows or a general Weyl-design result could imply this theorem, so unconditional historical priority is not claimed.
+PASS
 
-## Mathematical value — PASS
-An explicit, unweighted binary support with \(N/2+O(\sqrt N)\) points achieves the **maximum rank permitted to any real projector orbit**, recovering arbitrary real symmetric matrices rather than merely generic signals. The theorem identifies every unidentified complex operator direction, gives a three-level positive spectrum, and quantitatively separates the two quadratic Gauss signs by their sharp conditioning \(\sqrt N\pm1\). These are natural information-theoretic and harmonic-analysis invariants for a canonical classical family, and are not mere computational artifacts.
+For V=F_2^(2m), N=2^(2m), t=2^m (m>=2), the nondegenerate quadratic polar map is a bijection between coordinates and Walsh frequencies and yields Gauss transform ±t. Expanding g(x)g(x+a) gives A(a,b)=N/4[1_{b=0}+(-1)^Q(a)1_{b=L(a)}]+epsilon*t/4*(-1)^Q(z_b)[1+(-1)^(a·b)]. This formula gives one k=(N+epsilon*t)/2, 2(N-1) coefficients of magnitude lambda=(N+2epsilon*t)/4, (N-1)(N/2-1) of t/2, and N(N-1)/2 zeros. Real symmetric Weyl operators are exactly a·b=0; their output characters are orthogonal, so singular values are sqrt(N) times these magnitudes. Since t>=4 all symmetric coefficients are nonzero, giving maximal real-symmetric rank N(N+1)/2 and positive condition number t+epsilon; skew-symmetric matrices exhaust the complex-linear kernel. Real rank-one phase retrieval is injective up to sign via ff^T=hh^T. Independently enumerating all 256 coefficients at m=2 yielded ε=+1 magnitudes {10:1,6:30,2:105,0:120}, ε=-1 magnitudes {6:1,2:135,0:120}; this checks the coincident levels case but does not prove all m.
 
-## Limits of this review
-No claim of independence or exhaustive historical priority is made. Real-symmetric linear recovery does not imply complex-signal recovery or a nonlinear noise-robustness theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bojarovska–Flinth 2015 Theorems 2.2–2.3, directly inspected in arXiv PDF, give complex Gabor phase retrieval and frame bounds when every Weyl ambiguity coefficient is nonzero. For real windows over F_2^n, every skew Weyl index vanishes necessarily, so that condition cannot apply. The published SCOPE scalar Boolean quadratic GRAPH window theorem concerns indicator of {(x,Q(x))} in one extra group coordinate, not indicator of the ZERO-LEVEL SET {x:Q(x)=0}; its rank is generally much less than full real-symmetric rank. The new statement is the exact all-m zero-set signed ambiguity spectrum and Gauss-sign conditioning; Gauss sums and bent difference-set parameters alone do not specify these operator singular-level counts.
+
+## value
+
+PASS
+
+Structured real phase-retrieval windows with provably maximal symmetric-matrix tomography rank and exact worst-case conditioning are natural and useful in finite harmonic analysis. The result identifies both Arf-sign classes, complete singular multiplicities and a uniform sharp stability ratio. It is not merely a generic rank existence result or a relabeling of the published quadratic-graph measurement problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
