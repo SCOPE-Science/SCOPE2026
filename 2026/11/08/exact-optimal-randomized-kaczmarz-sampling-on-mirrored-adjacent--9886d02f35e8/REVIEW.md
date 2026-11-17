@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact domain comprises all integer dimensions \(n\ge3\) and all positive squared amplitudes \(a+b=1\). The upper bound is a valid dual weighted-diagonal certificate for *arbitrary* individual row probabilities; the explicit pair-balanced construction attains it. Nonnegative dual coefficients and complementary slackness establish uniqueness for \(a\ne b\), while the balanced construction gives a minimum-size edge cover without claiming balanced uniqueness. The rational verifier reproduces 4,992 certificate cases and 525 full-matrix cases. Its finite scope is supplementary to the symbolic proof.
+## correctness
 
-**Originality — PASS on the inspected material, with publication-priority risk.** Dai–Soltanalian–Pelckmans (arXiv:1402.2863) derive the general probability SDP, and Chen–Powell (arXiv:1403.6190) investigate Kaczmarz bounds over subspace distributions; both full texts were inspected at the relevant theorems and examples. Neither inspected source states the exact signed-path family value, its unique nonbalanced geometric sampler, the sparse balanced transition, or the asymptotically unbounded comparison with equal row sampling. A related published coordinate-sampling result concerns a different positive-inverse quadratic family. Agaskar–Wang–Lu (GlobalSIP 2014) discuss optimized sampling and exact MSE, but the full text was inaccessible; only the abstract was checked. Literature searches alone cannot establish absolute novelty.
+PASS
 
-**Mathematical value — PASS.** The frame is a concrete full-rank sparse measurement family with local two-coordinate observations and explicit observation-sign symmetry. The solution identifies a sharp change in optimal sampling support at equal amplitudes, gives a nontrivial geometric boundary layer in the unique probabilities, and proves that uniform norm-proportional sampling can lose a factor arbitrarily close to \(n-1\) in guaranteed one-step error reduction. This answers a natural constrained E-optimal design question beyond merely restating the general SDP formulation.
+For a unit row, exact conditional expected squared-error decrease is zᵀS(w)z; optimum is max λmin(S). Diagonal values are a p_i+b p_{i−1} and offdiagonals proportional to w_{i,+}−w_{i,−}. For a≤b the nonnegative dual vector y=(1/a,0,1−(−a/b)^1,…,1−(−a/b)^(n−2)) satisfies a y_i+b y_{i+1}=1, yielding 1≥Qλmin with Q=Σy. Primal equally split signed edge masses q_i/Q have all required diagonal entries ≥1/Q and offdiagonals zero; Σq=Q. Equality forces offdiagonals zero and recurrence unique when a<b; at a=b the positive q_i form a minimum edge cover. Reversal handles a>b, uniform gives c/(n−1), and ratio tends n−1 as c→0. Independent 48 rational primal–dual cases match, not the all-parameter proof.
 
-**Limitations and closest comparisons.** The result optimizes one-step worst-case expected squared-error decrease, not the exact asymptotic MSE exponent or a noisy inverse problem. The most relevant prior general results are Dai et al. (2014) and Chen–Powell (2014); the Agaskar et al. full-text comparison is unresolved. Independent review and external publication-priority confirmation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact E-optimal sample weights and saturated primal–dual certificates for the mirrored ± adjacent-coordinate frame, unique away from equal weights and sparse at the balanced phase boundary, are not supplied by the general Kaczmarz sampling SDP or earlier endpoint-anchored difference-path theorem.
+
+## value
+
+PASS
+
+A complete exact E-optimal design for the natural signed edge-measurement frame quantifies worst-direction convergence improvement, a unique all-row phase off balance, and a sharp sparse optimum at balance. Its exact primal-dual profile is a motivated nontrivial optimization fact beyond a generic SDP existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

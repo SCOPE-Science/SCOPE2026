@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T14:14:39.728457Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-optimal-randomized-kaczmarz-sampling-on-mirrored-adjacent--9886d02f35e8/RESULT.md",
+        "frozen verify.py blob fb5b1fff244a3080e8c89a4643d66ee240876013"
+      ],
+      "rationale": "For a unit row, exact conditional expected squared-error decrease is zᵀS(w)z; optimum is max λmin(S). Diagonal values are a p_i+b p_{i−1} and offdiagonals proportional to w_{i,+}−w_{i,−}. For a≤b the nonnegative dual vector y=(1/a,0,1−(−a/b)^1,…,1−(−a/b)^(n−2)) satisfies a y_i+b y_{i+1}=1, yielding 1≥Qλmin with Q=Σy. Primal equally split signed edge masses q_i/Q have all required diagonal entries ≥1/Q and offdiagonals zero; Σq=Q. Equality forces offdiagonals zero and recurrence unique when a<b; at a=b the positive q_i form a minimum edge cover. Reversal handles a>b, uniform gives c/(n−1), and ratio tends n−1 as c→0. Independent 48 rational primal–dual cases match, not the all-parameter proof.",
+      "residual_risks": [
+        "Only worst-case per-step expected decrease for fixed iid sampling; not exact multi-step MSE exponent."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general PSD optimization formulation covers the criterion but not explicit all-n geometric q_i and balanced support transition."
+        ],
+        "reasoning": "General SDP existence is not an explicit solution and equality uniqueness for this special frame must be proved separately.",
+        "searches": [
+          "Dai Soltanalian Pelckmans 2014 On the Randomized Kaczmarz Algorithm optimal probabilities",
+          "Gower Richtarik general sampling SDP"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-optimal-randomized-kaczmarz-sampling-on-mirrored-adjacent--9886d02f35e8/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-parity-forced-omission-and-a-complete-optimizer-face-for-kaczmar--e3e0e6dbd3bf",
+        "https://arxiv.org/abs/1402.2863",
+        "https://arxiv.org/abs/1403.6190",
+        "https://doi.org/10.1109/GlobalSIP.2014.7032145"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier theorem has λ*=1/Σ[1+√2min(i−1,n−i)]², optimizer with endpoint calibration and parity omission; current λ*=1/[1/c+n−2+c(1−(−c/d)^(n−2))] and both-sign-pair balancing."
+        ],
+        "reasoning": "Neither explicit optimum implies the other without a new change in rows and SDP proof; current proof supplies that distinct primal-dual certificate.",
+        "searches": [
+          "Current full frozen mirrored signed-path proof",
+          "Endpoint-anchored 2026-11-08 full proof",
+          "Dai SDP abstract and indexed results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Endpoint-anchored path has rows e1,en and (ei−ei+1)/√2, whereas current family has BOTH + and − rows per edge and no endpoint singleton rows."
+        ],
+        "reasoning": "Both share E-optimal λmin criterion but are distinct row sets and different exact optimizer faces; no simple renaming carries one theorem to the other.",
+        "searches": [
+          "Resultary randomized Kaczmarz optimal row probabilities signed adjacent coordinate path frame E-optimal minimum eigenvalue",
+          "Resultary 2026-11-08 endpoint-anchored path RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Other indexed exact Kaczmarz formulas concern triangle/forest inverse-Gram networks, endpoint anchors and exact multi-step MSE."
+        ],
+        "reasoning": "No exactly matching mirrored ± adjacent row-family sharp one-step sample law found; full Agaskar primary paper not inspected so priority is not certified.",
+        "searches": [
+          "Resultary signed path Kaczmarz complete minimax exact weights",
+          "Agaskar Wang Lu 2014 Exact MSE Analysis and Optimal Sampling Probabilities"
+        ]
+      },
+      "rationale": "Exact E-optimal sample weights and saturated primal–dual certificates for the mirrored ± adjacent-coordinate frame, unique away from equal weights and sparse at the balanced phase boundary, are not supplied by the general Kaczmarz sampling SDP or earlier endpoint-anchored difference-path theorem.",
+      "residual_risks": [
+        "Full Agaskar–Wang–Lu 2014 paper not inspected and may contain a dominating special-case sampling formula; literature search is not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING; different calibration rows and optimizer structure",
+          "evidence": "Earlier rows include e1 and en plus one difference edge; submitted has ± two rows on every edge.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-parity-forced-omission-and-a-complete-optimizer-face-for-kaczmar--e3e0e6dbd3bf",
+          "material_read": "Complete RESULT.md theorem, proof, equality cases and scope",
+          "method": "published GitHub primary research text",
+          "title": "Parity-forced omission and a complete optimizer face for Kaczmarz sampling on endpoint-anchored paths",
+          "trigger": "similar path structure and exact E-optimal probabilities"
+        },
+        {
+          "assessment": "Covers general SDP framework, not observed special closed-form path classification",
+          "evidence": "General criterion does not decide exact q profile without solving SDP.",
+          "identifier_or_url": "https://arxiv.org/abs/1402.2863",
+          "material_read": "Accessible abstract and bibliographic main theorem description; full manuscript not read this run",
+          "method": "arXiv page/abstract",
+          "title": "On the Randomized Kaczmarz Algorithm",
+          "trigger": "foundational optimal row sampling SDP"
+        },
+        {
+          "assessment": "Unresolved historical priority for specialized optimal sampling statements",
+          "evidence": "Paper analyzes exact MSE rather than demonstrated identical one-step E-optimal signed path geometry.",
+          "identifier_or_url": "https://doi.org/10.1109/GlobalSIP.2014.7032145",
+          "material_read": "Abstract only, no complete primary text inspected",
+          "method": "indexed abstract",
+          "title": "Randomized Kaczmarz Algorithms: Exact MSE Analysis and Optimal Sampling Probabilities",
+          "trigger": "potential exact optimal probability work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-optimal-randomized-kaczmarz-sampling-on-mirrored-adjacent--9886d02f35e8/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-parity-forced-omission-and-a-complete-optimizer-face-for-kaczmar--e3e0e6dbd3bf",
+        "https://arxiv.org/abs/1402.2863",
+        "https://arxiv.org/abs/1403.6190",
+        "https://doi.org/10.1109/GlobalSIP.2014.7032145"
+      ],
+      "rationale": "A complete exact E-optimal design for the natural signed edge-measurement frame quantifies worst-direction convergence improvement, a unique all-row phase off balance, and a sharp sparse optimum at balance. Its exact primal-dual profile is a motivated nontrivial optimization fact beyond a generic SDP existence theorem.",
+      "residual_risks": [
+        "The asserted acceleration concerns one-step guaranteed decrease Λ, not ratio of contraction factors 1−Λ or exact long-time exponent."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed iid one-step Kaczmarz optimality only, no inconsistent systems or arbitrary row graphs; possible unindexed historical E-optimal frame design."
+  ],
+  "schema_version": 1
+}

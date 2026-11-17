@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The accompanying `verify.py` was executed with Python 3 using only the standard library. It returned:
+# Independent mathematical audit
 
-```
-PASS: 4992 exact primal-dual and edge-cover certificates; 525 exact full-matrix projector identities
-```
+## correctness
 
-The certificate sweep checks \(n=3,\ldots,54\), with several rational amplitudes per dimension, plus the balanced edge-cover case. The matrix sweep covers \(n=3,\ldots,17\) and rational unit vectors obtained by normalizing integer-coordinate pairs. Every operation uses exact rational arithmetic. The code checks primal nonnegativity, dual nonnegativity, every dual edge equality, primal/dual objective agreement, the proposed primal diagonal lower bound and exact projector cancellations. The full-matrix examples verify the stated normalization and least diagonal eigenvalue.
+PASS
 
-These are finitely many checks, not exhaustive computational proofs over all dimensions and real parameters. The general theorem instead follows from the explicit primal-dual identities and positive-semidefinite equality argument in `RESULT.md`. The optimality criterion applies to the one-step worst-case expected squared error only; no claim of exact asymptotic MSE optimization has been checked. Independent mathematical audit has not been performed.
+For a unit row, exact conditional expected squared-error decrease is zᵀS(w)z; optimum is max λmin(S). Diagonal values are a p_i+b p_{i−1} and offdiagonals proportional to w_{i,+}−w_{i,−}. For a≤b the nonnegative dual vector y=(1/a,0,1−(−a/b)^1,…,1−(−a/b)^(n−2)) satisfies a y_i+b y_{i+1}=1, yielding 1≥Qλmin with Q=Σy. Primal equally split signed edge masses q_i/Q have all required diagonal entries ≥1/Q and offdiagonals zero; Σq=Q. Equality forces offdiagonals zero and recurrence unique when a<b; at a=b the positive q_i form a minimum edge cover. Reversal handles a>b, uniform gives c/(n−1), and ratio tends n−1 as c→0. Independent 48 rational primal–dual cases match, not the all-parameter proof.
+
+## originality
+
+PASS
+
+Exact E-optimal sample weights and saturated primal–dual certificates for the mirrored ± adjacent-coordinate frame, unique away from equal weights and sparse at the balanced phase boundary, are not supplied by the general Kaczmarz sampling SDP or earlier endpoint-anchored difference-path theorem.
+
+## value
+
+PASS
+
+A complete exact E-optimal design for the natural signed edge-measurement frame quantifies worst-direction convergence improvement, a unique all-row phase off balance, and a sharp sparse optimum at balance. Its exact primal-dual profile is a motivated nontrivial optimization fact beyond a generic SDP existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
