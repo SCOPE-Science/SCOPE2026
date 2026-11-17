@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The Frobenius constants \(x^p\) and \(y^p\) make every displayed bracket a direct consequence of the three elementary brackets of \(x\partial_y\), \(y\partial_x\), and \(x\partial_x-y\partial_y\). The calculation \((DE)^n(x)=(x^py^p)^n x\) proves infinite-dimensionality independently of finite testing. The odd-characteristic basis follows from bracket closure, generation, and monomial independence. The characteristic-two presentation follows from centrality, quadratic reductions, and evaluation on \(x,y\) proving polynomial independence. The package includes a rerunnable exact checker.
+## correctness
 
-## Originality
-PASS with a historical-priority risk. Bezushchak–Petravchuk (arXiv:2610.15731v1) impose local finiteness on every commutator; this explicit pair violates that hypothesis and exhibits an infinite associative algebra even though the generators have zero \(p\)-th power. Zaidenberg and Belabbas work in characteristic zero, and earlier homogeneous-derivation results do not directly classify the characteristic-two envelope. Searches for the precise Frobenius-twisted shears, odd-characteristic current family, and characteristic-two Clifford presentation identified no equivalent published statement. Similar constructions may exist under different terms.
+PASS
 
-## Value
-PASS. The theorem tests a precise necessary distinction in a recent finite-dimensionality criterion: local finiteness of all commutators cannot be replaced by uniform nilpotence of each generator. It additionally classifies a characteristic-dependent structural split, and in characteristic two proves that even a three-dimensional generated Lie algebra can have a rank-four-over-polynomial-ring infinite associative envelope. This supplies an explicit model for understanding the role of commutator hypotheses, beyond a numerical example.
+Over any field of characteristic p>0, ∂x and ∂y have p-th power zero, yielding D^p=E^p=0. Every derivation kills t=x^p y^p, so (DE)^n(x)=t^n x and H^n(x)=t^n x for H=[D,E]; monomial independence proves associative infinite-dimensionality and failure of local finiteness of H. Writing D=x^p(x∂y), E=y^p(y∂x), H=t(x∂x−y∂y) gives [D_i,E_j]=H_{i+j}, [H_i,D_j]=2D_{i+j+1}, [H_i,E_j]=−2E_{i+j+1}. For odd p all current families are generated and linearly independent by x/y monomial supports. For p=2 the 2 coefficients vanish, leaving 3D Heisenberg Lie algebra, but central H=DE+ED and square-zero D,E generate the rank-four K[H] envelope on {1,D,E,DE}; monomial actions on x,y show independence and K[T] is a polynomial algebra. Valid for arbitrary nonperfect K, char2 included. Inspected finite monomial tests supplement these symbolic unrestricted proofs.
 
-## Scope and limitations
-This is a self-contained result for one natural two-generator polynomial-derivation family over every positive-characteristic field, not a full classification of all such pairs. Potential previous appearances under current-algebra or Clifford-algebra terminology remain a historical-priority risk. Independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: explicit uniform p-nilpotent pair with infinite associative algebra, characteristic-dependent odd-p infinite current Lie algebra versus char2 three-dimensional Heisenberg Lie, and exact rank-four char2 operator envelope. Bezushchak–Petravchuk Theorem 1 is a sufficient criterion requiring every commutator to act finitely; H^n(x)=t^n x violates it. Theorem does not itself construct or classify this exact boundary example. Existing Lie/Clifford algebra vocabulary is an alias risk, checked semantically rather than only with exact generator names.
+
+## value
+
+PASS
+
+Gives a sharp structural counterexample to weakening a recent finite-dimensionality criterion to mere nilpotence of selected generators, and exhibits a nontrivial modular characteristic-two collapse of Lie dimension without collapsing associative dimension. The complete operator envelope is reusable algebraic information, not a trivial substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
