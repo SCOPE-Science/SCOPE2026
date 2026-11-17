@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of split-saturation shattering
+# Independent mathematical audit
 
-Run `python3 verify_partition_splits.py` from the directory containing this file. It uses only Python 3 standard libraries and tests the complete set of Bell partitions, all unordered nontrivial splits, and every family of queries for each ground-set order from one through five. It verifies agreement of the private-pair condition with full Boolean-label trace shattering without using the condition to compute the trace. Independently generated Prüfer trees verify that every largest shattered support is a unique tree-cut family. The same script computes all maximal support-size profiles and independently checks exact Littlestone dimensions through four elements using the full decision recurrence.
+## correctness
 
-Expected terminal marker: `PARTITION_SPLITS_PASS`. The observed face vectors for ground-set orders four and five are `[1,7,21,16]` and `[1,15,105,300,125]`; the observed inclusion-maximal support sizes are `{2:3,3:16}` and `{3:140,4:125}`. These finite checks establish the stated small computations and corroborate, but do not replace, the unrestricted proof.
+PASS
 
-Limitations: no exhaustive verification beyond five elements; no external independent audit or proof assistant validation; the mathematical theorem's unrestricted part rests on the explicit human-readable proof. Historical priority is not certified by any computational check.
+For the zero-at-Q/all-ones-elsewhere trace, a partition block yields a private crossing pair; conversely graph components of selected zero-label witness edges realize every pattern. The chosen private-pair graph has no cycle: along a cycle, each fixed split flips exactly once, a contradiction. At n−1 edges it is a spanning tree whose splits must be fundamental cuts; pairwise split-separation counts recover tree distances and uniqueness. The all-positive path of a complete online tree requires each queried split to refine the common atom partition, so depth<=n−1. Independent full trace enumeration and Prüfer comparisons checked coefficients for n=3,4,5 and n=4/5 nonpure facets, not a substitute for infinite n proof.
+
+## originality
+
+PASS
+
+The Boolean irredundance equivalence is explicitly classical and not claimed new. Nearby partition-learning results use same-cluster pair questions or exact-block questions, not whether a split is respected. The new formulation delivers the complete tree correspondence, extremal face enumeration, online upper bound and finite nonpure strata in one natural split-query model. Priority is qualified by older Boolean-algebra irredundance literature, whose entire original monograph was not read.
+
+## value
+
+PASS
+
+The exact VC and Littlestone dimensions, full criterion for all shattered supports, Cayley enumeration of extremal supports, and demonstrably nonpure shattering complex answer a natural learning-theoretic combinatorial question. The tree correspondence is structural, not a routine renaming of a point-count table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
