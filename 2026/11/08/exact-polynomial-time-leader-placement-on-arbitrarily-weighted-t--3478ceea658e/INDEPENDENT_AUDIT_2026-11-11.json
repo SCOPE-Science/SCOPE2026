@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T03:07:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof reconstructs the identity tr L_FF^{-1}=Σ_{v not leader}R_eff(v,S) for any nonempty grounded leader set. Tree deletion splits follower components. On each arm, open leader interval has explicit parallel resistance sum B_i(a,b), free tail cost Q_i(a), giving an acyclic exact path DP F_i(t,s). If center is leader, arms decouple. If center is follower, the triple of first leader positions (or ∞) determines every center-component resistance using conductance sum G, while distal components again use F_i. Exhaustion of O(N^3) first leader triples with three-arm O(k²) convolutions yields O(N^4+N^3 k²)=O(N^5) exact arithmetic operations and reconstructs an argmin. Independent rational Laplacian inversions on the unweighted arms (1,1,4) confirmed the unique one-leader optimum {3}, trace 11 and the disjoint unique two-leader optimum {0,5}, trace 13/3. Finite tests are corroboration; exhaustive structural case decomposition supplies arbitrary N,k,positive real weights.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest broader-graph 2017 work gives only two leaders on perfect M-ary trees, not arbitrary k/weights; its arbitrary k results require paths/cycles."
+        ],
+        "reasoning": "A superficially broader tree title does not imply the all-budget arbitrary-weight tripod algorithm.",
+        "searches": [
+          "Resultary: weighted tree leader placement dynamic programming arbitrary k",
+          "arXiv:1708.06873 Section IV-C"
+        ]
+      },
+      "checked_sources": [
+        "https://nmcglo.com/public-files/papers/2016_tcns_leader.pdf",
+        "https://arxiv.org/html/1708.06873v1",
+        "https://arxiv.org/abs/1412.6595",
+        "doi:10.1088/1742-5468/ac0f66"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2017 Section IV-C proves 2-leader perfect-tree results; submitted algorithm handles arbitrary k and arbitrary positive real conductances on a tripod."
+        ],
+        "reasoning": "Resistive objective and per-path costs are prior; new center-follower multiarm coupling and exhaustive polynomial choice logic are not implied by inspected source theorems.",
+        "searches": [
+          "arXiv:1412.6595",
+          "arXiv:1604.07094",
+          "arXiv:1708.06873",
+          "doi:10.1088/1742-5468/ac0f66"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Coherence under white noise is half of tr(L_FF^{-1}); electrical effective resistance sum equals the submitted trace."
+        ],
+        "reasoning": "The comparison uses the same objective despite different normalization by 1/2; optimal leader sets are identical.",
+        "searches": [
+          "Resultary: optimal k leader selection grounded Laplacian inverse trace tripod weighted trees",
+          "Patterson 2017 DOI:10.1109/TCNS.2016.2520201",
+          "arXiv:1708.06873"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known special stars, fixed-k perfect trees and path/ring tables do not tabulate all weighted tripod optimum values."
+        ],
+        "reasoning": "No checked exact table implies the general optimizer or the specific distinct k=1 and k=2 uniquely optimal nonnested sets; missed specialist work remains possible.",
+        "searches": [
+          "Resultary: optimal noise-free leaders on weighted star, three-leader coherence phases on subdivided stars",
+          "arXiv:1708.06873"
+        ]
+      },
+      "rationale": "Patterson–McGlohon–Dyagilev 2017 full original IEEE paper proves polynomial leader selection on weighted paths and rings, excluding degree-three branching. Patterson–Yi–Zhang arXiv:1708.06873 full HTML explicitly treats arbitrary k on cycles and paths and exactly TWO leaders on perfect M-ary trees (Section IV-C), not all k on arbitrarily weighted tripods. Fitch–Leonard is a given-set score, not exact optimizer. Resultary searches found no dominating all-k weighted tripod theorem. Sun–Li–Zheng 2021 discusses structured symmetric/asymmetric tree placements but full text inaccessible; material read is limited to abstract, a named priority risk, not automatic failure. Thus best-of-knowledge O PASS for complete weighted branching all-budget optimization and nonnested witness.",
+      "residual_risks": [
+        "Sun–Li–Zheng (2021) complete tree-coherence text inaccessible due authorization/VPN; its scope cannot be fully excluded.",
+        "Earlier algorithmic work on weighted spiders or tree k-medians could specialize to this inverse-resistance objective under an unindexed reduction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NO_COVERAGE_FOR_BRANCHING",
+          "evidence": "Abstract specifies one-dimensional weighted path/ring O(n³)/O(kn³), no branching tree algorithm.",
+          "identifier_or_url": "https://nmcglo.com/public-files/papers/2016_tcns_leader.pdf",
+          "material_read": "Full primary PDF read with title/abstract and path/ring method; first page screenshot inspected",
+          "method": "Web full PDF extraction plus page 1 visual verification",
+          "title": "Optimal k-Leader Selection for Coherence and Convergence Rate in One-Dimensional Networks",
+          "trigger": "Nearest exact weighted-k algorithm"
+        },
+        {
+          "assessment": "NO_ALL_K_WEIGHTED_TRIPOD",
+          "evidence": "Section IV-C explicitly restricted to two leaders on perfect M-ary trees, Sections IV-A/B to k on cycles and paths.",
+          "identifier_or_url": "https://arxiv.org/html/1708.06873v1",
+          "material_read": "Full HTML contents including Section II, III identity, Section IV-C and theorem declarations",
+          "method": "Full primary HTML section reading",
+          "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+          "trigger": "Arbitrary graph electrical objective and tree special cases"
+        },
+        {
+          "assessment": "PRIORITY_RISK_UNREAD_FULL",
+          "evidence": "Inspected abstract does not assert all-k/arbitrary weights optimizer; no definitive whole-paper noncoverage.",
+          "identifier_or_url": "doi:10.1088/1742-5468/ac0f66",
+          "material_read": "Abstract identifies three selected-leader placement patterns on structured symmetric/asymmetric trees; full text inaccessible",
+          "method": "Public primary abstract; OA attempt and authorized institutional retrieval disconnected VPN",
+          "title": "Leader selection for coherence in symmetric and asymmetric trees",
+          "trigger": "Potential earlier tree-algorithm priority"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Weighted noisy-consensus leader optimization is a motivated design problem. A single genuine branch makes path-only DP insufficient because arm resistances couple at the follower center. The theorem gives a nonexponential exact all-k weighted tripod optimizer plus a small sharp nonnested-optimality counterexample to greedy augmentation. These are structural algorithmic and counterexample contributions beyond routine substitution.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://nmcglo.com/public-files/papers/2016_tcns_leader.pdf",
+    "https://arxiv.org/html/1708.06873v1",
+    "https://arxiv.org/abs/1412.6595",
+    "doi:10.1088/1742-5468/ac0f66"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exactly three nonempty arms, strictly positive finite conductances, ideal noise-free leaders, exact-real arithmetic O(N^5) not rational bit complexity; not a generic-tree or directed-graph claim."
+  ],
+  "residual_risks": [
+    "Sun–Li–Zheng (2021) complete tree-coherence text inaccessible due authorization/VPN; its scope cannot be fully excluded.",
+    "Earlier algorithmic work on weighted spiders or tree k-medians could specialize to this inverse-resistance objective under an unindexed reduction."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NO_COVERAGE_FOR_BRANCHING",
+      "evidence": "Abstract specifies one-dimensional weighted path/ring O(n³)/O(kn³), no branching tree algorithm.",
+      "identifier_or_url": "https://nmcglo.com/public-files/papers/2016_tcns_leader.pdf",
+      "material_read": "Full primary PDF read with title/abstract and path/ring method; first page screenshot inspected",
+      "method": "Web full PDF extraction plus page 1 visual verification",
+      "title": "Optimal k-Leader Selection for Coherence and Convergence Rate in One-Dimensional Networks",
+      "trigger": "Nearest exact weighted-k algorithm"
+    },
+    {
+      "assessment": "NO_ALL_K_WEIGHTED_TRIPOD",
+      "evidence": "Section IV-C explicitly restricted to two leaders on perfect M-ary trees, Sections IV-A/B to k on cycles and paths.",
+      "identifier_or_url": "https://arxiv.org/html/1708.06873v1",
+      "material_read": "Full HTML contents including Section II, III identity, Section IV-C and theorem declarations",
+      "method": "Full primary HTML section reading",
+      "title": "A Resistance Distance-Based Approach for Optimal Leader Selection in Noisy Consensus Networks",
+      "trigger": "Arbitrary graph electrical objective and tree special cases"
+    },
+    {
+      "assessment": "PRIORITY_RISK_UNREAD_FULL",
+      "evidence": "Inspected abstract does not assert all-k/arbitrary weights optimizer; no definitive whole-paper noncoverage.",
+      "identifier_or_url": "doi:10.1088/1742-5468/ac0f66",
+      "material_read": "Abstract identifies three selected-leader placement patterns on structured symmetric/asymmetric trees; full text inaccessible",
+      "method": "Public primary abstract; OA attempt and authorized institutional retrieval disconnected VPN",
+      "title": "Leader selection for coherence in symmetric and asymmetric trees",
+      "trigger": "Potential earlier tree-algorithm priority"
+    }
+  ]
+}

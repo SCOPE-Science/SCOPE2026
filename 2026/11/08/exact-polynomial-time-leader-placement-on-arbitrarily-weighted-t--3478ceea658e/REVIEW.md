@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The grounded inverse diagonal equals electrical resistance to the wired leader set, by the Dirichlet Kirchhoff equations. On a tripod, every leader selection either grounds the center or has one first grounded vertex on one or more arms. Removing those vertices separates the center component from all distal paths; the center component is determined exactly by three first-leader indices, and distal path costs reduce to series/parallel formulas and acyclic shortest paths. Exhaustive enumeration of the at most cubic number of first-leader triples, plus budget convolution, gives an exact minimum with at most \(O(N^5)\) arithmetic operations. Strict positivity of the conductances justifies every resistance denominator. The candidate theorem was checked against direct exact grounded-Laplacian inversion in 4,577 finite regression cases, but the algebraic decomposition, not those cases, proves the general claim.
+PASS
 
-## Originality (O): PASS on inspected evidence, with limitations
+The frozen proof reconstructs the identity tr L_FF^{-1}=Σ_{v not leader}R_eff(v,S) for any nonempty grounded leader set. Tree deletion splits follower components. On each arm, open leader interval has explicit parallel resistance sum B_i(a,b), free tail cost Q_i(a), giving an acyclic exact path DP F_i(t,s). If center is leader, arms decouple. If center is follower, the triple of first leader positions (or ∞) determines every center-component resistance using conductance sum G, while distal components again use F_i. Exhaustion of O(N^3) first leader triples with three-arm O(k²) convolutions yields O(N^4+N^3 k²)=O(N^5) exact arithmetic operations and reconstructs an argmin. Independent rational Laplacian inversions on the unweighted arms (1,1,4) confirmed the unique one-leader optimum {3}, trace 11 and the disjoint unique two-leader optimum {0,5}, trace 13/3. Finite tests are corroboration; exhaustive structural case decomposition supplies arbitrary N,k,positive real weights.
 
-The closest foundational primary literature gives polynomial-time leader selection on weighted paths and rings, not on weighted three-arm trees. Its 2017 journal version expressly identifies tree extensions as further work. The general joint-centrality formulas score arbitrary selected sets but do not contain the stated polynomial-time optimum computation for all budgets on arbitrarily weighted tripods. The 2017 resistance-distance analysis of Patterson, Yi and Zhang proves the general electrical identity used here and two-leader optimization for perfect unweighted rooted trees, but its tree-specific theorems do not solve the arbitrary-budget weighted-tripod problem. The 2021 work on leader-follower coherence for symmetric/asymmetric trees is closest in subject but its accessible abstract describes prescribed placements on structured graphs rather than a universal polynomial-time tripod optimizer. Full text was unavailable, so possible uninspected coverage remains a publication-priority risk. Searches for spider/tripod leader selection, weighted trees, grounded inverse trace, dynamic programming, and stronger tree algorithms did not reveal an equivalent stronger theorem; absence of a search hit is not proof of novelty.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-Optimal leader selection in noisy consensus is a motivated discrete design problem. Weighted path/ring polynomial algorithms were known, but one genuine junction changes the electrical interactions between arms. The center-component electrical reduction and path-budget convolution yield an exact non-enumerative optimization algorithm for every budget and every positive set of conductances. The concrete unit-weight \((1,1,4)\) tripod exhibits uniquely non-nested optima, defeating ordinary greedy augmentation even at seven vertices. No general-tree complexity claim is asserted.
+Patterson–McGlohon–Dyagilev 2017 full original IEEE paper proves polynomial leader selection on weighted paths and rings, excluding degree-three branching. Patterson–Yi–Zhang arXiv:1708.06873 full HTML explicitly treats arbitrary k on cycles and paths and exactly TWO leaders on perfect M-ary trees (Section IV-C), not all k on arbitrarily weighted tripods. Fitch–Leonard is a given-set score, not exact optimizer. Resultary searches found no dominating all-k weighted tripod theorem. Sun–Li–Zheng 2021 discusses structured symmetric/asymmetric tree placements but full text inaccessible; material read is limited to abstract, a named priority risk, not automatic failure. Thus best-of-knowledge O PASS for complete weighted branching all-budget optimization and nonnested witness.
 
-## Closest sources and remaining limits
+## value
 
-Patterson–McGlohon–Dyagilev, arXiv:1412.6595 (2014), and IEEE TCNS doi:10.1109/TCNS.2016.2520201 (2016/2017): path/ring exact algorithms, with tree generalization not supplied. Fitch–Leonard, arXiv:1407.1569 (2014): joint-centrality score of prescribed leader sets. Patterson–Yi–Zhang, arxiv:1708.06873v1 (2017): grounded-resistance objective and two-leader perfect-tree designs, not an arbitrary-budget weighted tripod optimizer. Sun–Li–Zheng, doi:10.1088/1742-5468/ac0f66 (2021): tree-related coherence; accessible material did not resolve full-text overlap. The algorithm is exact only for tripods, has an algebraic-operation bound rather than a rational bit bound, and has not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Weighted noisy-consensus leader optimization is a motivated design problem. A single genuine branch makes path-only DP insufficient because arm resistances couple at the follower center. The theorem gives a nonexponential exact all-k weighted tripod optimizer plus a small sharp nonnested-optimality counterexample to greedy augmentation. These are structural algorithmic and counterexample contributions beyond routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
