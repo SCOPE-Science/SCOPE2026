@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T06:19:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two positional deletions of a finite sequence agree iff the intervening entries form a constant run; the deletion count is 1 plus adjacent changes. Adjacent ell-window Parikh vectors agree iff exiting and entering symbols agree. Thus B_ell=1+sum_(i<=n-ell)1{X_i != X_(i+ell)}. Each fixed-lag graph is a union of paths, so equalities form independent Bernoulli variables by exposing forest roots and fresh child labels. Any cycle violates independence because all edge equalities have probability q^(1-r) rather than q^(-r). Edges from two distinct lags are different and form a two-edge forest, proving zero covariance, while n=3 binary dependence rules out full independence. Independently exhausted q=2,n=5 and q=3,n=4 read sequences, descendant sets, binomial masses, cross-scale covariance. This does not prove the infinite theorem by enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2024 paper Definition 1 sets padded read length n+ell-1, and Theorem contributions are redundancy and two-read reconstruction.",
+          "Known forest edge-label independence is a general combinatorial lemma."
+        ],
+        "reasoning": "Generic forest coloring alone needs the nontrivial read-transition identification and does not state the deletion-ball law as a published read-channel theorem; ordered-mer codes concern a different output.",
+        "searches": [
+          "unordered composition read sequence single deletion sphere binomial law forest equality edge indicators covariance window sizes",
+          "arXiv:2401.15939",
+          "arXiv:2606.26434"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2401.15939v2 examined definition and main results",
+        "arXiv:2606.26434 abstract/indexed description",
+        "Resultary exact composition-deletion full RESULT.md",
+        "arXiv:2408.08223 bibliographic model description"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Banerjee et al. analyze padded binary ℓ-read codes with explicit boundary windows, not random interior composition-run counts.",
+          "Current equation B_ell=1+sum_i 1{X_i != X_(i+ell)} yields exact distribution and cross-length covariance."
+        ],
+        "reasoning": "The code redundancy claims do not imply the all-parameter distribution or pairwise decorrelation; different source alphabets and padding prevent direct specialization.",
+        "searches": [
+          "unordered composition read sequence single deletion sphere binomial law forest equality edge indicators covariance window sizes",
+          "arXiv:2401.15939 Definition 1 and main theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The unpadded read ambiguity equals the number of maximal runs among interior Parikh vectors; Banerjee et al. use padded binary Hamming-weight vectors and coding bounds."
+        ],
+        "reasoning": "Boundary padding changes the observation sequence and the deletion-descendant count; the claimed exact all-q unpadded law is not an equivalent formulation of that code theorem.",
+        "searches": [
+          "unordered composition read sequence single deletion sphere binomial law forest equality edge indicators covariance window sizes",
+          "arXiv:2401.15939"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closest Resultary exact distribution concerns prefix/suffix composition MULTISETS and random-walk return counts, not consecutive unpadded sliding windows."
+        ],
+        "reasoning": "Different observation type, size (2n vs n-ell+1), and law (renewal regimes vs simple binomial) preclude table equivalence.",
+        "searches": [
+          "unordered composition read sequence single deletion sphere binomial law forest equality edge indicators covariance window sizes",
+          "Resultary 2026/11/8 exact-composition-deletion-sphere-laws"
+        ]
+      },
+      "rationale": "Banerjee et al. 2024 analyze the related binary padded read vector of length n+ell-1 and code redundancy, not the interior unpadded q-ary composition-read output or its complete random deletion-sphere law. The prefix/suffix composition multiset predecessor counts different observations and their deletion multiplicity rather than consecutive sliding reads. Ye–Ge 2026 use ordered ell-mers. Neither these statements nor the reviewed published mathematical findings cover the joint all-lag covariance and exact read-sphere distribution. The graph forest coloring fact is standard and not claimed as independently invented.",
+      "residual_risks": [
+        "Full 2026 ordered ℓ-read paper and 2024 tandem-duplication source were not fully accessed in this execution; an unindexed equivalent read statistic remains possible.",
+        "Forest independence is known combinatorial machinery, explicitly not claimed as new; zero covariance does not imply mutual independence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_DISTINCT_MODEL",
+          "evidence": [
+            "Binary padded Hamming-weight reads; studies code redundancy and two noisy reads, not stated complete random interior q-ary deletion-ball law."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2401.15939",
+          "material_read": "Abstract, model/Definition 1 (padded n+ell-1), main theorem and reconstruction section, appendix heading",
+          "method": "web parsed PDF text and screenshots pages 1 and 5",
+          "title": "Correcting a Single Deletion in Reads from a Nanopore Sequencer",
+          "trigger": "Closest single-deletion binary read model"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": [
+            "Its input is multiset of prefix/suffix compositions, one occurrence deleted, giving q-dimensional return-walk distributions rather than sliding-window runs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-composition-deletion-sphere-laws-and-three-alphabet-regime--4b52d54dc239/RESULT.md",
+          "material_read": "Full RESULT.md finding, definitions, renewal-walk proof, asymptotic regimes and limitations",
+          "method": "Read published primary mathematical record",
+          "title": "Exact composition-deletion sphere laws and three alphabet regimes",
+          "trigger": "Exact deletion-sphere title and composition observations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact finite-length random deletion-ball statistics for a natural nanopore-style unpadded composition-read channel are useful for average-case ambiguity; the forest criterion identifies why all fixed-lag binomial laws coexist with pairwise covariance zero but non-independence. Scope is all q,n,ell rather than a cherry-picked case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2401.15939v2 examined definition and main results",
+    "arXiv:2606.26434 abstract/indexed description",
+    "Resultary exact composition-deletion full RESULT.md",
+    "arXiv:2408.08223 bibliographic model description"
+  ],
+  "disposition": "passed",
+  "final_claim": "For uniform q-ary words, deleting one observation from the unpadded interior unordered-composition ell-read sequence produces 1+Bin(n-ell,(q-1)/q) distinct descendants; counts at distinct lengths are pairwise uncorrelated but not jointly independent; equality-edge indicators are jointly independent exactly for forests.",
+  "limitations": [
+    "Full 2026 ordered ℓ-read paper and 2024 tandem-duplication source were not fully accessed in this execution; an unindexed equivalent read statistic remains possible.",
+    "Forest independence is known combinatorial machinery, explicitly not claimed as new; zero covariance does not imply mutual independence."
+  ],
+  "residual_risks": [
+    "Full 2026 ordered ℓ-read paper and 2024 tandem-duplication source were not fully accessed in this execution; an unindexed equivalent read statistic remains possible.",
+    "Forest independence is known combinatorial machinery, explicitly not claimed as new; zero covariance does not imply mutual independence."
+  ],
+  "schema_version": 1
+}

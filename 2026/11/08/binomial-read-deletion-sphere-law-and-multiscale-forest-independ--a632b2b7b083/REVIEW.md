@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The deletion-run bijection is proven with quantifiers and boundary case; adjacent composition windows differ only in their exiting and entering symbols. Forest coloring produces the exact product law of equality indicators; cycles have the all-equal obstruction. It follows that all lag-specific transitions are independent, and that transition indicators from distinct lags are pairwise independent. Explicit binary length-three example proves lack of mutual independence. A stand-alone exhaustive checker covers small cases; the infinite proof is combinatorial and does not rely on enumeration.
+PASS
 
-## Originality
+Two positional deletions of a finite sequence agree iff the intervening entries form a constant run; the deletion count is 1 plus adjacent changes. Adjacent ell-window Parikh vectors agree iff exiting and entering symbols agree. Thus B_ell=1+sum_(i<=n-ell)1{X_i != X_(i+ell)}. Each fixed-lag graph is a union of paths, so equalities form independent Bernoulli variables by exposing forest roots and fresh child labels. Any cycle violates independence because all edge equalities have probability q^(1-r) rather than q^(-r). Edges from two distinct lags are different and form a two-edge forest, proving zero covariance, while n=3 binary dependence rules out full independence. Independently exhausted q=2,n=5 and q=3,n=4 read sequences, descendant sets, binomial masses, cross-scale covariance. This does not prove the infinite theorem by enumeration.
 
-PASS under inspected evidence. The 2026 ordered ell-mer read-deletion paper does not assert the unpadded unordered composition-window distribution. The 2024 unordered-composition paper deals with tandem duplications and code rates, not this stochastic deletion sphere. The 2024 padded binary single-read-deletion paper uses run statistics for redundancy bounds, not the exact all-parameter binomial or full-window covariance law. Six research-index semantic queries, aliases, exact-table and broader-implication comparisons found nearby but distinct claims. The forest independence principle is elementary and fully disclosed as proof machinery; historical priority for the read-channel consequence is not independently assured.
+## originality
 
-## Value
+PASS
 
-PASS. The result solves an all-parameter, natural, finite-length random read-deletion ambiguity statistic and determines pairwise covariance across every pair of window scales; its complete forest criterion identifies exactly when the underlying indicators factor. The dependence counterexample prevents an incorrect multiscale independence interpretation. These facts are motivated by average-case read-channel analysis and are not a parameter-picked experimental anomaly.
+Banerjee et al. 2024 analyze the related binary padded read vector of length n+ell-1 and code redundancy, not the interior unpadded q-ary composition-read output or its complete random deletion-sphere law. The prefix/suffix composition multiset predecessor counts different observations and their deletion multiplicity rather than consecutive sliding reads. Ye–Ge 2026 use ordered ell-mers. Neither these statements nor the reviewed published mathematical findings cover the joint all-lag covariance and exact read-sphere distribution. The graph forest coloring fact is standard and not claimed as independently invented.
 
-## Limits and source comparison
+## value
 
-No claim about padded boundary windows, biased sources, ordered ell-mers, two deletions, or optimal code parameters. Closest literature: Ye and Ge (2026, arxiv:2606.26434), Yu–Ye–Schwartz (2024, arxiv:2408.08223) and Banerjee et al. (2024, arxiv:2401.15939). Possible unindexed prior coverage and lack of independent validation remain risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact finite-length random deletion-ball statistics for a natural nanopore-style unpadded composition-read channel are useful for average-case ambiguity; the forest criterion identifies why all fixed-lag binomial laws coexist with pairwise covariance zero but non-independence. Scope is all q,n,ell rather than a cherry-picked case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
