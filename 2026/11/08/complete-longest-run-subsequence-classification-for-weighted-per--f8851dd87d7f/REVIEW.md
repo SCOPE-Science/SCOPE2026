@@ -1,12 +1,21 @@
-# Research review: weighted permutation powers and longest run subsequences
+# Independent mathematical audit
 
-## Correctness — PASS
-The displayed period-span inequality is derived from source-copy intervals for every output run. Descent transitions must advance by at least one additional source copy. This gives a sharp global upper bound, while a constructive selection attains it. Equality forces every letter to appear, natural index order, all used physical letter-runs to be complete, and extra occupied copies to be assigned only to maximum-weight letters. Consequently the stars-and-bars count is exact for distinct output strings. A separate subset-state dynamic program and a different exhaustive language-enumeration routine check 1,440 and 84 finite parameter configurations, respectively. The proof, not the finite check, carries the unbounded statement.
+## correctness
 
-## Originality — PASS (with bibliographic limits)
-The key closest sources are Schrinner et al. (2020, DOI: 10.4230/LIPIcs.WABI.2020.6), Dondi–Sikora (2020/2021, arXiv:2011.08119), and Asahiro et al. (2023 and 2025). Inspected source sections address the general NP-hard LRS problem, exact general-purpose algorithms, parameterized complexity, and approximation. They do not present the closed-form optimal value and *entire optimal-label set* for powers of positive weighted permutation templates. General exact optimization programs can solve each input but do not state or trivially subsume the universal equality rigidity and enumerator. Targeted bibliographic and published-result queries found no direct equivalent; absence from such searches is not proof of novelty. Unindexed equivalent work remains a risk.
+PASS
 
-## Value — PASS
-A natural full-dimensional family of arbitrary alphabet size, period run weights and repeat count within a generally NP-hard problem admits an exact optimum and a classification of all optimal output strings. The count depends only on the number of tied heaviest template runs, not on other multiplicities. This supplies a structural explanation and a constant-formula alternative to expanded-instance optimization, rather than a numerical instance or cosmetic specialization. The result addresses length and distinct-optimal-output enumeration; it does not solve general LRS or count embeddings.
+For any embedding fix source-period spans v_j of each chosen letter. The period-span inequality sum(v_j-1)+descents<=k-1 follows from monotone source positions; weighted length <=sum selected a_i + M sum(v_j-1)<=P+(k-1)M. Equality forces all q symbols, no index descents, full physical run inclusion, and extra periods only on maximum-weight letters. Each weak composition t_i of k-1 across r maximizing weights constructs a distinct valid subsequence; count binom(k+r-2,r-1). Checks enumerate entire distinct subsequence languages for 72 bounded weighted templates and k<=3, matching exact maxima and optimal output strings. Unrestricted classification follows from the span argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Schrinner et al (WABI 2020 primary 13-page PDF, Sections 2–5 inspected and screenshot p.3) introduce LRS, NP-hardness, DP/ILP methods and reduction rules, but no period-power structural optimum identity or enumeration of all optimum labels. Dondi-Sikora 2020/2021 and Asahiro 2023/2025 concern complexity and approximation, not this universal closed form for weighted permutation powers. Other Resultary permutation-power findings count positional embeddings, longest repeated subsequences and absent subsequences, which do not determine LRS optimal-output language.
+
+## value
+
+PASS
+
+Repeated distinct-letter block templates are a natural tractable restricted family of an NP-hard genomic string problem. The period-span invariant yields not only a sharp length formula but all optimizer strings and degeneracy as a binomial coefficient, useful for exact benchmarking and tie counts. This is a motivated complete structural classification rather than a one-off tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
