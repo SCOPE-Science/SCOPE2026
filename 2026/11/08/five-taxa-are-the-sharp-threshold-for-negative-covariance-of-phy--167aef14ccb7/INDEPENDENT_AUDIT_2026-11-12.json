@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T13:12:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For k=2 ultrametricity gives PD=H+MPD/2, implying nonnegative covariance. For k=n both constants. When k=n-1, dropping taxon i gives PD=PD(all)-pendant_i and MPD=(total pair distance - distance-sum_i)/C(n-1,2), so covariance is Cov(pendant_i,distance-sum_i)/C(n-1,2). For n=4, balanced two-cherry and caterpillar ultrametric shapes have similarly ordered pendant and distance-sum vectors; their covariance is >=0, and zero branch limits cover multifurcations. For five-tip ((0,1),(2,(3,4))) exact polynomial 2/75(3Hx-Hy-2Hz+3x²-5xy-4xz+3y²+3z²) is a correct sign test. Direct edge-by-edge enumeration of all five four-leaf samples with H=1,x=1/10,y=3/10,z=1/4 yields covariance -7/1000, squared correlation 45/49 with negative sign.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/1208.6552 gives Cov(edge indicators) for calculating Var(PD), not Cov(PD,MPD).",
+          "The guide compares descriptor dimensions and recognizes PD/MPD noninterchangeability, not the finite sharp boundary."
+        ],
+        "reasoning": "General two-index disagreement does not imply existence of negative within-tree covariance under a fixed-size sampling law; prior marginal moments do not fix joint covariance.",
+        "searches": [
+          "https://arxiv.org/abs/1208.6552",
+          "https://discovery.ucl.ac.uk/id/eprint/10044099/",
+          "https://doi.org/10.1111/ecog.01694"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1208.6552",
+        "https://discovery.ucl.ac.uk/id/eprint/10044099/",
+        "https://doi.org/10.1111/ecog.01694",
+        "Resultary semantic search: ultrametric phylogenetic diversity mean pairwise distance covariance negative sharp five taxa uniform sample"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The explicit n=5 covariance has opposite sign to universal n<=4 inequality, established by ordered pendant/distance-sum proof.",
+          "The closest prior paper has a single-index variance, not joint PD/MPD statistic."
+        ],
+        "reasoning": "A higher-order covariance theorem could subsume this result but was not found in actual inspected primary material; the newly assessed object is a natural exact two-index dependence question.",
+        "searches": [
+          "https://arxiv.org/abs/1208.6552",
+          "https://discovery.ucl.ac.uk/id/eprint/10044099/",
+          "https://doi.org/10.1111/ecog.01694"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/1208.6552 uses hypergeometric rarefaction of PD, with indicators for PD edges.",
+          "MPD is a different pairwise-divergence index, explicitly distinguished in the metrics guide."
+        ],
+        "reasoning": "Comparisons include mean pairwise patristic distance, Rao-type diversity and PD; no identical raw covariance threshold is in the material inspected.",
+        "searches": [
+          "Resultary semantic search: ultrametric phylogenetic diversity mean pairwise distance covariance negative sharp five taxa uniform sample",
+          "https://arxiv.org/abs/1208.6552",
+          "https://discovery.ucl.ac.uk/id/eprint/10044099/"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved exact table of five-tip ultrametric PD/MPD covariance signs or the stated open parameter region."
+        ],
+        "reasoning": "Finite experimental metric tables would not by themselves imply the universal n<=4 nonnegativity result; no matching certified table was located.",
+        "searches": [
+          "Resultary semantic search: phylogenetic diversity mean pairwise distance covariance negative sharp five taxa uniform sample",
+          "fixed richness raw PD MPD covariance 5 taxa"
+        ]
+      },
+      "rationale": "Nipperess–Matsen established rooted PD mean and variance under rarefaction; Mazel and Tucker establish PD/MPD comparison and qualitative discordance. Those statements do not determine the joint PD–MPD covariance sign at fixed richness, its sharp five-taxon boundary or exact polynomial phase region.",
+      "residual_risks": [
+        "Full text of Mazel and the metrics survey was not freshly materially inspected here; an appendix may contain stronger covariance comparison.",
+        "Result concerns ultrametric rooted PD under uniform fixed-size distinct-leaf sampling, not arbitrary abundance mixtures or causal ecological effects."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS PD first and second moments; NOT MPD cross covariance or sharp negative threshold",
+          "evidence": [
+            "Sec.4 expresses PD as sum of edge indicators and variance as pairwise indicator covariances"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1208.6552",
+          "material_read": "Original full-text HTML mathematical sections 3–5, especially snips, X_i, Eq.1–3, variance formula and discussion",
+          "method": "Read primary preprint text and formulas",
+          "title": "The mean and variance of phylogenetic diversity under rarefaction",
+          "trigger": "Same uniform without-replacement sample and PD indicator variables"
+        },
+        {
+          "assessment": "Background on differing measures; cannot use abstract alone to rule out full-text exact comparison",
+          "evidence": [
+            "Defines PD and MPD as distinct anchor metrics"
+          ],
+          "identifier_or_url": "https://discovery.ucl.ac.uk/id/eprint/10044099/",
+          "material_read": "Accessible institutional abstract and taxonomy of metrics; full article not freshly read",
+          "method": "Read abstract/metadata only",
+          "title": "A guide to phylogenetic metrics for conservation, community ecology and macroecology",
+          "trigger": "Main survey of PD and MPD distinctions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rooted Faith diversity and mean pairwise distance are widely used structural descriptors; precise first negative cross-covariance under fixed-richness rarefaction, and an open parameter region, diagnose a real small-tree disagreement not reducible to correlation anecdotes or a raw table value.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Nonnegative four-leaf result assumes ultrametric tree, k>=2 uniform sample without replacement.",
+    "Five-leaf polynomial is for a specified rooted binary shape, not every possible tree."
+  ],
+  "schema_version": 1
+}
