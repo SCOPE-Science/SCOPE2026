@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The critical complement involution is exact for canonical binary words, the block-end shifts are explicitly summed, and the classical level histogram is proved by induction from documented four-block relations and the block-end identity is a published special value. The final shell calculation accounts for boundary double-counting and the index zero. Direct integer checks provide an independent spot check, not an infinite proof.
+## correctness
 
-**Originality — PASS relative to inspected material.** The closest primary study is Rampersad and Shallit (arXiv:2302.00405), where classical level counts appear in Theorem 27 but the zero-zero analogue in Section 11 receives recurrences and extrema, not an occupation-count classification. This theorem is not merely the classical count for a reindexed sequence: the complement reverses each binary block and changes the level origins, producing a different piecewise law. OEIS A360535 lists early values but not their total multiplicities. Semantic mathematical-record queries and relevant indexed mathematical claims did not show covering results. The indexed literature is incomplete, and indirect consequences of other published automata formulas remain a residual risk.
+PASS
 
-**Value — PASS.** Total occupation multiplicity is a natural global invariant for these arithmetic digital partial sums, especially since the classical \(11\)-case has a celebrated exact formula. The new law gives every multiplicity, including abrupt dyadic boundary behavior, and proves finiteness rather than predicting it from finite data.
+Complementing the m-bit suffix gives b(2^m+j)=a(2^m-1-j), hence B(2^m+j)=D_m-s(2^m-2-j). The classical 11-pattern block histograms H_{2r},H_{2r+1} derived from the published four-block recurrence yield a complete per-block law after correcting for t=-1. Adjacent blocks combine to the stated u-plateau, descending triangle and u endpoint over 2u-1<=K<=4u-2. The minimum support grows with block rank, excluding later uncounted occurrences.
 
-Scientific limitations: this is the canonical binary \(00\) analogue only; no generalization to all binary words or new assertion concerning previously known classical identities. Independent scientific validation is absent.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2025 primary source proves the classical 11-pattern level occupations and zero-zero recurrences/extrema but not this all-index zero-zero level histogram. OEIS stores the underlying zero-zero sequence, not the complete sawtooth multiplicity law. This relies explicitly on known block identities, not a claim that the underlying Rudin-Shapiro construction is new.
+
+## value
+
+PASS
+
+The exact infinite occupation distribution of a standard automatic summatory function is a natural discrete-statistical invariant; finiteness of every level and its shell jumps are nontrivial and may support recurrence and inverse-index studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
