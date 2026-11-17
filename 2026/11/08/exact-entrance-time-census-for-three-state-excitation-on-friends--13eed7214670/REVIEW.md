@@ -1,12 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The hub/support transition table is a total deterministic map on 189 states, exhaustively reproduced by a standalone exact checker and a 189-row certificate. It also verifies that none of the recurrent unordered pair trajectories conceal labelled swaps. Exact inclusion–exclusion with petal multiplicities \((1,2,2,1,2,1)\) derives every formula for all positive graph sizes. A separately written full-graph simulator exhaustively checks 199,287 colourings through five petals. Key risk is implementation error in the finite lemma, reduced by explicit transition tables, an independent adjacency-based implementation, and full reproducibility; no claim of external certification is made.
+## correctness
 
-## Originality
-PASS, qualified. The 2016 arbitrary-graph theorem of Gravner–Lyu–Sivakoff already gives qualitative convergence and, for these triangles, the *aggregate* extinction/oscillation counts. Those are expressly excluded from originality. The new assertion is the full ten-layer distribution of first periodic entry, including explicit positive fourth-entry populations and the conditional \(1/3\)-\(1/3\)-\(1/3\) limit. Full-text queries and theorem/proof inspection found no friendship-graph distribution in that primary source; the 1993 spatial-lattice paper was available as an abstract only and is not a close exact-graph comparison. Searches of published mathematical records and available previous claims did not identify a covering theorem. Residual risk: unindexed same-family work or an unknown derivation from the general theorem.
+PASS
 
-## Value
-PASS. Friendship graphs are the simplest growing family of triangles sharing a global pacemaker and are structurally different from disjoint triangles or universal-hub wheels. The probability of eventual oscillation and the entire distribution of *when* oscillations become established behave differently: almost every state oscillates, but entry times two, three, and four retain equal limiting shares. A complete, parameter-uniform temporal census resolves this natural finite-network question beyond the known aggregate-basin probability.
+The 3-state synchronous Greenberg–Hastings rule on W_r has six unordered petal types with weights (1,2,2,1,2,1); the center and nonempty type support form a finite 3(2^6−1)=189-state exact quotient, and ordered orientation must be checked to exclude hidden periods. I independently used the stronger 3(2^9−1)=1533 ordered-petal support quotient, classified every case microscopically, found only least periods 1 and 3 and first entry t<=4, and calculated inclusion-exclusion coefficients of k^r for k=1..9. These match all ten asserted N_(t,p)(r), F^7=F^4, r=1 sharp t3 and r>=2 sharp t4. Independent direct labelled adjacency simulation also confirms all states r1..4. Finite quotient exhaustiveness combined with type-support lifting proves every r, not an empirical extrapolation.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS narrowly and with major documented overlap. Gravner–Lyu–Sivakoff 2016 already provides circulation criterion and aggregate extinction/oscillation basins. A November 2, 2026 Resultary theorem on exactly the same friendship graphs and model gives every marginal first-entry count D_G,t, same three-cycle count, basin totals, t<=4 and uniform limiting entry-time law. Those facts are NOT new. The surviving asserted precision is the JOINT ten-class N_(t,p)(r), which partitions each marginal time layer by final fixed versus 3-periodic attractor. Earlier published marginals and aggregate basin totals do not logically identify the ten joint cells; inspected full prior RESULT.md does not explicitly state them. Earlier support-state algorithm might allow derivation but does not provide this classification. This is a small incremental but natural precise invariant; risk of algorithmic implication/historical coverage is material.
+
+## value
+
+PASS
+
+PASS narrowly. A full joint first-entrance/least-period census of a natural graph family is a mathematically motivated exact dynamical invariant, because identical total attraction and marginal settling distributions can conceal different entry-time conditional basins. The exact split of each temporal layer by period answers a natural question not supplied by the earlier published marginals, and the finite ordered-support certificate offers a complete parameter-uniform symbolic classification; no general theorem or large claimed novelty is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
