@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-From the directory containing these complete files, execute `python3 VERIFY.py` with Python 3.8 or later; no third-party modules are needed. The script performs a symmetry-reduced independent search that processes source positions one by one, creates all possible partial copies, retains only compatible common-prefix states, and checks full equality after the final position. It checks 286 positive four-run instances with 2–4 copies against the proposed arithmetic criterion. Separately it calculates 1,372 exact enumeration cells for 2–8 copies and source-copy counts up to 14, comparing the count formula with full enumeration of all allowed positive run compositions. Six large-parameter density comparisons confirm the predicted limiting constants numerically. All checks returned `ALL CHECKS PASSED` upon actual execution.
+## correctness
 
-The infinite proofs do not rely on these bounded checks. Especially, asymptotic numerical comparisons are illustrative, not a proof of a limit. The proof of the formula, of the limiting law and of uniqueness of the density minimum appears in RESULT.md. Literature search cannot establish mathematical uniqueness or priority definitively. No independent audit or external formal certification is asserted.
+PASS
+
+Reconstructed the two-run/four-run root dichotomy from first/last symbols and four source runs. Four-run identical roots force q-divisibility of every run; two-run roots 0^A1^B need k complete early copies with ceil(b/B)<=k<=floor(a/A), and the constructive allocation realizes them. Inclusion-exclusion over qA-1 by qB-1 run compositions gives the floor-sum formula; fixed-q Riemann floors yield density (q^3-q^2+q+1)/(2q^3), whose derivative (q-3)(q+1)/(2q^4) proves unique integer minimum at q=3. Independent explicit interleaving-state search for 34 small cases and arithmetic count checks for 448 cells agreed.
+
+## originality
+
+PASS
+
+The 2025 four-run shuffle-square classification is only q=2. The submitted q>=3 exact threshold and full composition-density law do not follow by mere substitution into a two-copy theorem. No equivalent q>=3 four-run result was identified in the targeted Resultary searches; this is a best-of-knowledge decision, not proof of global priority.
+
+## value
+
+PASS
+
+Classifies a natural bounded-run family in arbitrary equal-copy shuffle powers, gives a nontrivial exact composition enumeration and a sharp limiting density phase change q=3; neither a renaming nor routine one-line q=2 substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
