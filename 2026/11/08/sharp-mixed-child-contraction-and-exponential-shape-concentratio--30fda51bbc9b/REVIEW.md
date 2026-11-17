@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The geometric child-angle triples follow directly from angle bisection, then sorting. The scale-normalized recurrences have precisely three feasible left-order cases and two right-order cases. The minimum of the three half-angle coordinates cannot decrease. On each cell where the initial spread and branch formulas are affine, the relevant spread defects are convex; exact rational vertex enumeration is sufficient for the global bound. The accompanying executable enumerates 31 nonempty cells and 61 vertices with no positive mixed-block defect, and the isosceles identity proves the coefficient cannot be improved. Disjoint-block iteration, conditional expectation, and Markov's inequality establish the probabilistic consequences. **Risk:** the proof uses a finite computer-assisted exact polyhedral verification; the code and exhaustive cell argument are supplied, but no independent checker has reviewed them.
+## correctness
 
-**Originality (PASS under inspected evidence).** The 2019 largest-angle-bisection analysis and July 2026 largest-angle \(n\)-section paper concern geometric nondegeneracy and diameter refinement, not mixed-block projective shape contraction. The highly relevant November 2026 paper proves qualitative projective convergence and statistical regularization, including one-step monotonicity and strict mixed-step decrease. It does not provide the new quantitative sharp \(3/4\) global bound or the explicit \(7/8\) exponential binary-tree concentration. Actual searches in mathematical research records, the candidate's historical ledger, and primary literature found no stronger implied coverage. **Risk:** search is not proof of global historical novelty; subsequent or obscure dynamical-systems/mesh-refinement literature could contain an equivalent bound. The November 4 work is a later comparison, not used as an eligible starting-date source.
+PASS
 
-**Value (PASS).** An all-initial-shapes sharp quantitative mixed-block theorem resolves the rate question left open by qualitative largest-angle shape convergence. It directly converts symbolic branch switching into an exact deterministic contraction mechanism and a finite-depth exponential bound for how quickly most elements concentrate near right-isosceles shape, of immediate relevance in understanding refinement-tree geometry. It is not a routine finite input enumeration; the exact polyhedral certificate proves an infinite family of inequalities. **Risk:** the \(7/8\) rate is not asserted globally optimal and does not estimate physical mesh diameter.
+PASS: the submitted child-angle sorting recurrences are correct for every 0<y<=x<=1, with three left and two right order regions. For a=1/2,b=x,c=y, H-1=[max(a,b,c)-min(a,b,c)]/min(a,b,c). Each child cannot decrease the minimum coordinate (checked analytically from each halved-largest raw angle and the other entries). On each of the exact piecewise-affine initial-spread / first-child / second-child regions, max affine minus min affine is convex; independent exact rational polygon vertex enumeration checks both mixed orders, all 31 nonempty cells and 61 vertices, giving maximum V2-(3/4)V0=0, and V1<=V0. Since minima are nondecreasing, H(mixed)-1<=3/4(H(parent)-1) and individual child is nonexpanding. For x=y=t∈(0,1/2), exact RL ratio is 3/4, establishing sharpness in nondegenerate shapes. Disjoint pairs plus independent child choices produce expected factor 1-p(1-p)/2 per pair and 7/8 at p=1/2; Markov gives the full-tree tail bound. Independently replicated exact rational certificate, not mere samples.
 
-**Closest literature and scope limits.** Ismailescu et al. (2019), arXiv:1908.02749; Michaud–Korotov (July 2026), arXiv:2607.25457; Michaud (November 2026), arXiv:2611.06492. Applicable only to planar largest-angle bisecting refinements and the defined projective functional. Independent replication and broader priority checks remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, with close same-object comparison: Michaud's November 4 2026 paper establishes the same LAB shape normalization, one-step Lyapunov nonincrease, strict mixed-step decrease, qualitative almost-sure convergence and full-level concentration. These older statements are not credited as new and do not quantify a uniform sharp 3/4 mixed-block contraction or explicit (7/8)^floor(n/2) finite-level bound. Its conclusion expressly identifies quantitative convergence estimates as future work. Earlier 2019/July 2026 LAB studies concern nondegeneracy and diameter decay. Thus the mathematically distinct sharp quantitative estimate survives, qualified by possible undiscovered estimates.
+
+## value
+
+PASS
+
+PASS: The exact two-step contraction factor is a sharp structural quantitative strengthening of an existing natural triangle-refinement dynamical system, and yields an explicit exponential finite-depth shape-quality tail bound. It measures convergence rate of the entire binary refinement tree rather than restating qualitative almost-sure right-isosceles convergence. The 7/8 factor is only a valid guaranteed rate, not claimed asymptotically optimal.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

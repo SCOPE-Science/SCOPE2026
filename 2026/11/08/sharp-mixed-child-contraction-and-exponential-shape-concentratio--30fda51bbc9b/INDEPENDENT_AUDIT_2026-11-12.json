@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T22:57:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: the submitted child-angle sorting recurrences are correct for every 0<y<=x<=1, with three left and two right order regions. For a=1/2,b=x,c=y, H-1=[max(a,b,c)-min(a,b,c)]/min(a,b,c). Each child cannot decrease the minimum coordinate (checked analytically from each halved-largest raw angle and the other entries). On each of the exact piecewise-affine initial-spread / first-child / second-child regions, max affine minus min affine is convex; independent exact rational polygon vertex enumeration checks both mixed orders, all 31 nonempty cells and 61 vertices, giving maximum V2-(3/4)V0=0, and V1<=V0. Since minima are nondecreasing, H(mixed)-1<=3/4(H(parent)-1) and individual child is nonexpanding. For x=y=t∈(0,1/2), exact RL ratio is 3/4, establishing sharpness in nondegenerate shapes. Disjoint pairs plus independent child choices produce expected factor 1-p(1-p)/2 per pair and 7/8 at p=1/2; Markov gives the full-tree tail bound. Independently replicated exact rational certificate, not mere samples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Michaud Theorem 8 gives strict mixed decrease; Theorems on random branch/full tree yield qualitative limits, but no sharp uniform factor or finite-n exponential inequality.",
+          "July 2026 source gives uniform min angle and vanishing diameter, not right-isosceles shape rate."
+        ],
+        "reasoning": "Neither angle-nondegeneracy nor a strict Lyapunov inequality automatically yields a quantitative universal bound; submitted exact polyhedral certificate supplies the missing numerical constant.",
+        "searches": [
+          "Michaud arxiv:2611.06492 Sections 3.4,4.1,4.2,5",
+          "Michaud Korotov arxiv:2607.25457 geometric refinement",
+          "Ismailescu Kim Kim Lee arxiv:1908.02749"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2611.06492v1 (Michaud 2026, full primary text)",
+        "https://arxiv.org/abs/2607.25457 (Michaud–Korotov 2026, primary abstract and stated theorem)",
+        "https://arxiv.org/pdf/1908.02749 (Ismailescu et al 2019, primary PDF)",
+        "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-lab-boundary-attractor-degeneration-rates--2604f6e90e43 (distinct 3D dihedral LAB)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Michaud explicitly states one-step nonincrease and strict loss after any mixed transition, and establishes full-level concentration with no explicit rate; Section 5 calls for quantitative estimates.",
+          "The independent exact certificate yields sup_z [H(RL z)-1]/[H(z)-1]=3/4, and similarly LR, furnishing the missing uniform constant."
+        ],
+        "reasoning": "Existing statements could imply some unspecified convergence rate under extra arguments but do not logically provide the globally sharp coefficient or stated finite-n 7/8 bound without this new quantitative proof.",
+        "searches": [
+          "Michaud arxiv:2611.06492 Lemma 4, Theorems 8–9, Sections 4–5",
+          "Michaud Korotov arxiv:2607.25457",
+          "Ismailescu et al arxiv:1908.02749"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The previous projective metric D=log H and the new H-1 distortion have the same fixed point, but strict D decrease under a mixed step is not a uniform linear deficit rate in H-1.",
+          "The new statement is equivalent to a globally bounded nonlinear Lipschitz defect for each mixed composition, with sharp equality for every isosceles t<1/2."
+        ],
+        "reasoning": "Qualitative convergence of D cannot alone imply a common 3/4 contraction, particularly near boundary shapes and along slow paths.",
+        "searches": [
+          "arxiv:2611.06492 projective Lyapunov Hilbert metric largest angle bisection mixed branches",
+          "Resultary largest angle bisection 3/4 mixed-step contraction",
+          "arxiv:1908.02749 LAB largest angle bisection"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact Resultary item equals this assigned research, not a separate earlier source.",
+          "31 rational ordering cells with 61 vertices are a complete algebraic certificate, not an empirical table of sampled triangle shapes."
+        ],
+        "reasoning": "The 3/4 constant is derived by exhausting actual finite polyhedral regions of a continuum dynamical law; there is no known table implication identified among checked prior work.",
+        "searches": [
+          "Resultary 3/4 sharp mixed child contraction shape concentration",
+          "Michaud arxiv 2611.06492 quantitative rate 7/8 finite levels",
+          "LAB polyhedral 31 cells 61 vertices"
+        ]
+      },
+      "rationale": "PASS, with close same-object comparison: Michaud's November 4 2026 paper establishes the same LAB shape normalization, one-step Lyapunov nonincrease, strict mixed-step decrease, qualitative almost-sure convergence and full-level concentration. These older statements are not credited as new and do not quantify a uniform sharp 3/4 mixed-block contraction or explicit (7/8)^floor(n/2) finite-level bound. Its conclusion expressly identifies quantitative convergence estimates as future work. Earlier 2019/July 2026 LAB studies concern nondegeneracy and diameter decay. Thus the mathematically distinct sharp quantitative estimate survives, qualified by possible undiscovered estimates.",
+      "residual_risks": [
+        "A separately unpublished/sharply quantified projective LAB estimate could exist; the source record itself is not proof of novelty.",
+        "The all-shape contraction rests on an exact finite polyhedral certificate plus the coverage argument; 31-cell enumeration is complete only because the stated sorting branches cover the chamber.",
+        "The (7/8) random tree factor is established as an upper bound, not the exact rate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: qualitative dynamics and one-step nonincrease already known; NO sharp mixed-block factor or explicit exponential bound found",
+          "evidence": "Section 3 proves strict mixed step contraction and convergence without fixed factor; Section 4 gives qualitative full-tree concentration; Section 5 poses quantitative rates as future work.",
+          "identifier_or_url": "https://arxiv.org/html/2611.06492v1",
+          "material_read": "Complete publicly accessible 17-page arXiv HTML, Sections 2.1–2.3, 3.1–3.4, 4.1–4.2, 5 and references; specifically Lemma 4/Theorem 8 and qualitative concentration conclusions",
+          "method": "Full primary HTML theorem statements and proofs compared at implication level",
+          "title": "Largest-Angle Bisection and Statistical Regularization of Triangle Shapes",
+          "trigger": "Same object, same projective Lyapunov invariant, strongest conceivable prior coverage"
+        },
+        {
+          "assessment": "NOT_COVERING on examined material, full text remains priority risk",
+          "evidence": "Provides lower angle bound m_n and shrinking maximum diameter for LAB n-section, no projective H-1 two-step factor.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.25457",
+          "material_read": "Abstract and main stated nondegeneracy/diameter theorems; complete text not independently verified in this execution",
+          "method": "ArXiv primary abstract and theorem-summary comparison",
+          "title": "On Triangulations Generated by the Largest-Angle n-Section Algorithm",
+          "trigger": "Earlier generalization of the same bisection algorithm"
+        },
+        {
+          "assessment": "NOT_COVERING sharp mixed-child rate",
+          "evidence": "Preserves angle nondegeneracy and diameter shrink while admitting infinitely many similarity types; no finite-level exponential 7/8 estimate.",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.02749",
+          "material_read": "Original primary PDF abstract, main geometric results and pertinent pages; page image inspected",
+          "method": "Primary PDF parsed, theorem comparison, screenshot",
+          "title": "The largest angle bisection procedure",
+          "trigger": "Foundational LAB proof and possible shape-rate general theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The exact two-step contraction factor is a sharp structural quantitative strengthening of an existing natural triangle-refinement dynamical system, and yields an explicit exponential finite-depth shape-quality tail bound. It measures convergence rate of the entire binary refinement tree rather than restating qualitative almost-sure right-isosceles convergence. The 7/8 factor is only a valid guaranteed rate, not claimed asymptotically optimal.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2611.06492v1 (Michaud 2026, full primary text)",
+    "https://arxiv.org/abs/2607.25457 (Michaud–Korotov 2026, primary abstract and stated theorem)",
+    "https://arxiv.org/pdf/1908.02749 (Ismailescu et al 2019, primary PDF)",
+    "https://github.com/Resultary/2026/tree/main/2026/9/18/SCOPE-lab-boundary-attractor-degeneration-rates--2604f6e90e43 (distinct 3D dihedral LAB)"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Only Euclidean planar largest-angle bisection and the specific projective distortion H.",
+    "No claim about tetrahedral largest-dihedral bisection or exact optimal full-tree exponential decay.",
+    "Full proof relies on correct enumeration of all ordering cells; independently checked exact certificate, no Lean formalization or external attestation.",
+    "A separately unpublished/sharply quantified projective LAB estimate could exist; the source record itself is not proof of novelty.",
+    "The all-shape contraction rests on an exact finite polyhedral certificate plus the coverage argument; 31-cell enumeration is complete only because the stated sorting branches cover the chamber.",
+    "The (7/8) random tree factor is established as an upper bound, not the exact rate."
+  ],
+  "schema_version": 1
+}
