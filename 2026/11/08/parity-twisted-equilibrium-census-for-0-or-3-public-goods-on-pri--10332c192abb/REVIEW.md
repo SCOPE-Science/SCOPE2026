@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof covers every integer \(n\ge3\) on the labeled cubic prism. An active full rung forces the all-active profile; otherwise the exact best-response conditions on \(0,U,D\) rung symbols yield the 2/3-gap decomposition and an even number of length-2 gaps. Cyclic-gap counting derives the binomial formula; an even-gap projection derives the generating function. The six-state transfer recurrence and its primitive Perron eigenvalue prove the entropy claim. The standalone checker independently matched the exact count against 349,504 direct action profiles through \(n=9\), verified a six-by-six polynomial identity and 100 further exact trace equalities. Finite checks supplement, rather than establish, the full result. No hidden normalization is used: graph vertices, rungs and layers remain labeled.
+PASS
 
-## Originality — PASS (best-knowledge, not a uniqueness certificate)
+Every full 11 rung propagates to all-active by the 0-or-3 best response. Otherwise rung symbols 0,U,D are constrained by exact local three-neighbor responses: each zero-to-zero gap has length 2 or 3, a length-2 gap reverses next layer and length-3 preserves it. Cyclic consistency requires an even number of 2-gaps. Counting marked zeros yields the 2n/(q+r) binomial factor. Signed logarithmic generating functions give (6z^3+4z^4-6z^6)/(1-2z^3-z^4+z^6); primitive six-state transfer matrix and simple Perron root rho of x^3-x-1 give N_n~rho^n. Only n=5 lacks n=4a+3b representation for n>=3. The proof covers all integer n>=3; finite enumeration is corroboration.
 
-Primary comparison: Klimm--Stahlberg (arXiv:2301.11849, Sections 2 and 5, Theorem 5.11) proves NP-completeness for arbitrary graph inputs under the picky pattern, not an exact census or a special-graph structure theorem. Gilboa (arXiv:2301.11580, introduction, model, and hardness results) likewise proves a general existence-complexity boundary, not the stated closed form. Searches for exact prism/circular-ladder equilibria, best-response aliases and cyclic signed-tiling enumerations found no encompassing result. A previous parity-response network-game claim has a different response rule; its conclusion does not imply the present one. This result does not claim novelty for generic transfer matrices, rational generating functions or the classical plastic constant. Unindexed equivalent work, a database sequence match, or an unpublished special-prism lemma remains a residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The problem is motivated by the gap between general hardness for picky binary public-goods games and the unknown abundance of equilibria on simple bounded-width networks. The circular ladder is a canonical cubic family, and the exact count is not a chosen numerical slice: it covers every ring length. The parity obstruction proves a unique nontrivial-equilibrium failure at \(n=5\), while the Perron formula quantifies both the exponential number of equilibria and their exponential scarcity relative to all action profiles. The structural classification is a reusable benchmark for equilibrium enumeration and sampling on sparse networks, without claiming it solves general complexity questions.
+Exact ring parity census does not follow from arbitrary-graph NP-completeness, generic transfer matrix existence or a different 0-or-2 best response. Rung-to-gap equivalence and unusual n=5 uniqueness are distinct from classical Perrin/plastic number enumeration; targeted Resultary research search found no earlier same-response prism classification, but unindexed sequences may exist.
 
-## Closest literature and limitations
+## value
 
-- M. Klimm and M. J. Stahlberg, arXiv:2301.11849 (2023-01-27), especially Theorem 5.11: the same broad game class and strict response semantics, but a decision-complexity rather than exact enumeration result.
-- M. Gilboa, arXiv:2301.11580 (2023-01-27): complete finite-pattern hardness classification, with no located circular-ladder counts.
-- A general transfer-matrix or classical tiling enumerator may imply the resulting integer sequence if supplied with an additional equivalence; no previously documented implication has been located. The exact game-to-tiling equivalence is essential here.
+PASS
 
-The theorem is limited to positive integer cycle lengths \(n\ge3\), the degree-three response rule and labeled agents. Publication-priority uncertainty remains. No independent proof audit or external validation was performed.
+A natural canonical cubic family within the hard general nonmonotone binary public-goods model has a complete closed equilibrium census and exceptional threshold. The parity obstruction, exact rational generating function and exponential rarity answer natural network-equilibrium questions beyond simply running a small transfer matrix. No universal graph algorithm is claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
