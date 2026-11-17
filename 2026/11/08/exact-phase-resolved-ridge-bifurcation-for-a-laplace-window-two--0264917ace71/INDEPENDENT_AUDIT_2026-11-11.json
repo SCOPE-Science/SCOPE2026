@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T03:42:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a>0, omega>0 the bounded two-tone signal gives an absolutely convergent STFT. Explicit Fourier transformation of exp(-a|s|) produces P(y)=(8/a^2)N(t)/D(t)^2, t=y^2>=0, N=(1+c)(t+1+q)^2+4(1-c)qt, D=(t+1+q)^2-4qt>0, c=cos(2 omega x), q=(omega/a)^2. Its derivative has the stated cubic H; its t^2 coefficient is strictly negative, leading coefficient nonpositive and constant 2(1+q)^2((5+c)q-(1+c)). For q<=q*(c)=(1+c)/(5+c) a direct coefficient inequality makes H(t)<0 for t>0. For q>q* Descartes' sign rule gives exactly one positive H root: a unique symmetric pair of global maxima with a central local minimum. At q=q*>0 the first nonvanishing y derivative is negative quartic. The special c=-1 has q*=0. Uniform phase gives the exact arccosine beat occupancy, with small-q square-root law. Independent symbolic reconstruction of N,D,H and direct 30-case root classification corroborates but does not substitute for this continuous analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The closest Gaussian-window theory concerns a different window; extraction algorithms are not a global Lorentzian peak-count classification."
+        ],
+        "reasoning": "No verified general-window theorem covering Laplace was read; possible unadvertised coverage in the inaccessible full 76-page source is expressly a risk.",
+        "searches": [
+          "arXiv:2601.10910",
+          "Iatsenko McClintock Stefanovska 2016 ridge extraction"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md at Git blob d9e05f8c7e6a69c71f70cb648d1c927072d09bc5",
+        "assigned CHECK.py at Git blob 8e5ef95ba4d603a9aa8bcfd3e53402ed51c44c8e",
+        "arXiv:2601.10910 abstract",
+        "doi:10.1016/j.sigpro.2016.01.024 bibliographic record",
+        "Resultary two-tone Laplace ridge semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A change from exp(-frequency^2) to rational 1/(a^2+frequency^2) changes the critical derivative and root structure; mere two-tone STFT subject overlap is not a logical implication."
+        ],
+        "reasoning": "The exact q*(c), global peak count and arccosine duty fraction require the derived rational polynomial signs, not cited generic interference claims.",
+        "searches": [
+          "Chand-Nolen-Wu arXiv:2601.10910",
+          "Iatsenko et al DOI:10.1016/j.sigpro.2016.01.024"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The submitted threshold q>(1+c)/(5+c) comes from rational double-Lorentzian STFT intensity; Chand-Nolen-Wu use Gaussian Fourier factors and a different interference profile."
+        ],
+        "reasoning": "An STFT ridge is also a coherent Lorentzian doublet peak, but its precise phase-dependent quartic bifurcation does not follow by scaling Gaussian-window formulas.",
+        "searches": [
+          "Resultary: two equal-amplitude tones Laplace window STFT spectrogram phase-dependent ridge splitting bifurcation threshold duty cycle",
+          "Chand Nolen Wu arXiv:2601.10910"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published Resultary exact-Laplace match is this same submitted record; other returned two-tone findings concern Gaussian, Hermite or chirped windows."
+        ],
+        "reasoning": "This is a continuous analytical classification, not a table lookup. Search misses provide only bounded evidence, not publication-priority proof.",
+        "searches": [
+          "Resultary semantic query: Laplace-window two-tone ridge threshold duty cycle",
+          "search: coherent Lorentzian doublet phase maxima"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: the 2026 Chand-Nolen-Wu Gaussian-window two-tone interference study is close in physical problem, but its Gaussian multiplier is exponential rather than the exact rational Lorentzian multipliers; neither accessible abstract nor searched records establishes the same Laplace-window phase-dependent threshold, no-three-ridges theorem, explicit peak positions and beat-time duty law. General spectral-line and ridge-extraction methods are not equivalent. Their full paper was inaccessible after arXiv/OA attempts and authorized institutional access returned VPN disconnected; this leaves substantial priority risk, explicitly not turned into scientific failure.",
+      "residual_risks": [
+        "Full Chand-Nolen-Wu 2026 paper not inspected: arXiv/OA not obtained and institutional VPN disconnected; a general-window theorem might imply the submitted result.",
+        "Older coherent Lorentzian spectroscopy might contain equivalent phase-occupancy calculations under different names."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No claim that whole paper lacks a more general window theorem; uninspected full source is a material historical-priority risk.",
+          "evidence": [
+            "Abstract identifies Gaussian-window interference and spectral bubbles; full document unavailable."
+          ],
+          "identifier_or_url": "arXiv:2601.10910; doi:10.1016/j.acha.2026.101889",
+          "material_read": "Abstract, bibliographic record and source availability only; NOT the complete 76-page text",
+          "method": "arXiv/OA full-text routes attempted; authorized Oxford call returned vpn_disconnected job 7677fa640bea142aaaeb96fd02b7a048",
+          "title": "On spectral interference of the short-time Fourier transform and its nonlinear variations",
+          "trigger": "Same two-tone spectrogram and ridge-bifurcation problem"
+        },
+        {
+          "assessment": "Methodological ridge-extraction paper, no directly verified Laplace two-tone global critical curve",
+          "evidence": [
+            "Subject: extracting instantaneous frequencies from time-frequency ridges, not exact coherent Laplace-STFT classification."
+          ],
+          "identifier_or_url": "doi:10.1016/j.sigpro.2016.01.024",
+          "material_read": "Published abstract and bibliographic description only",
+          "method": "public source search",
+          "title": "Extraction of instantaneous frequencies from ridges in time-frequency representations of signals",
+          "trigger": "STFT ridge alternative terminology"
+        },
+        {
+          "assessment": "Highly ranked alternative records use Gaussian/Hermite/chirp windows; no dominating exact Laplace result shown",
+          "evidence": [
+            "Same-record result 2026/11/8/0264917ace71 is the work under review and not independent prior art."
+          ],
+          "identifier_or_url": "Resultary query: two equal-amplitude tones Laplace window STFT spectrogram phase-dependent ridge splitting bifurcation threshold duty cycle",
+          "material_read": "Titles, summaries and publication identifiers of returned records",
+          "method": "semantic Resultary search",
+          "title": "Related two-tone spectrogram findings (Resultary published search)",
+          "trigger": "Possible equivalent published formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number, locations and beat-time occupancy of frequency ridges directly quantify spectral resolvability of two close coherent tones. The rational critical curve, impossible third ridge, quartic transition and sharp small-gap duty scale make a natural complete, parameter-resolved classification for a non-Gaussian analysis window, not an arbitrary finite slice or a plotted numerical threshold.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Equal-amplitude fixed monochromatic tones, even Laplace window, angular-frequency unmodified STFT only; no arbitrary windows, chirps, unequal amplitudes, reassignment or noisy data.",
+  "schema_version": 1
+}
