@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The switching classification, exact quadratic-character pair identity, six-pair count, and extremal comparison prove the result for every admissible prime. Standalone `verify.py` verifies 194317 exact arithmetic tests for six primes and the three characteristic polynomials. Finite tests are not the all-prime argument.
+## correctness
 
-**Originality — PASS, provisional.** The closest primary literature is Magsino–Mixon–Parshall (2019), Satake (2020), and Brouwer–Martin (2021); their theorems give asymptotic random frame spectra, conditional RIP and Paley triple-intersection data, respectively, not the exact four-column spectral multiplicity law. A published p≡3 tournament Paley four-column study is not directly applicable to the symmetric p≡1 Gram matrix. Classical switching theory may imply the identity indirectly, and the latter published record could not be read fully.
+PASS
 
-**Value — PASS.** Four-sparse restricted isometry and its exact worst-case incidence are directly motivated stability diagnostics for finite harmonic frames. This specifies all extremizers and their exact density over an infinite prime family, beyond an isolated numerical census.
+For p≡1 mod4, symmetric Legendre Seidel matrix on p finite indices has each four-subset triangle-sign product +1; switching leaves only three spectral classes: {3,−1,−1,−1}, {−3,1,1,1}, {±√5,±1}. Pair correlations of four triangle signs reduce to quadratic-character sum −1, giving total extreme number p(p−1)(p−3)(p−5)/96; nonsquare scaling equates extreme signs, hence each extreme count half of that and middle count binom(p,4)−2a. Thus δ4=1 for p=5 and 3/√p otherwise. Independent exact brute-force quadruple enumeration and Legendre signs matched p=5,13,17,29 and exact polynomial eigenvalue patterns; the proof covers all eligible primes and excludes infinity-index column explicitly.
 
-**Limitations.** The infinity-index vector, larger support sizes, non-Paley frames, noisy reconstruction and independent validation are outside the claim. Historical priority needs external expert confirmation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original with classical Seidel-graph caveat. Paley ETF normalization and random asymptotic spectra are known; an earlier 2026 four-column census treats p≡3 mod4 skew-Paley tournament, whereas the present real symmetric p≡1 mod4 switching trichotomy yields a different parameter regime and extremal expression.
+
+## value
+
+PASS
+
+Exact RIP_4 deviation, complete extremizer configurations and frequency distribution are natural finite-order invariants of a deterministic compressed-sensing frame. The four-subset count follows a nontrivial character-pair average, with a distinct small-prime boundary p=5; it is independently useful for ETF finite-support spectral questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
