@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The theorem is an exact modular statement. The three-digit suffix list \(\{8,17,20,23,24,25,26\}\pmod{27}\), together with \(n\equiv2\pmod4\), gives the seven forbidden classes modulo \(108\). The forbidden positions in a step-\(2\) cycle of even residues are \(13,25,31,37,39,49,53\) modulo \(54\). Their cyclic gaps have maximum \(14\), so no \(14\) consecutive even terms are all valid. For odd terms, the two-digit residue set \(\{0,1,3,4\}\pmod9\) has no three-step-\(2\) run. Both arguments cover all positive starting values.
+## correctness
 
-To reproduce the finite calculations from the local extracted package, run `python3 check_prodigious.py` and compare its stdout with `check_output.json`. No libraries beyond the Python standard library are required. The script checks the exact seven-class residue list, every one of the \(54\) cyclic even starts, the \(9\) possible odd residues, the witness, and a finite selection of the infinite family. A scan up to \(200000\) is corroborative only and is not used to prove the universal upper bound. No independent scientific audit has been performed.
+PASS
+
+If n is odd, ternary prodigious n has no digit 2, hence n mod9 in {0,1,3,4} and at most 2 consecutive step-two odd terms. For even n with n=2 mod4, two 2 digits among three lowest ternary positions force 4|p3(n) but 4∤n. The exact CRT classes are {26,50,62,74,78,98,106} mod108, spaced by even step indices with maximum cyclic gap 14, so every 14-term even run hits one forbidden class. Independent exhaustive check of all 54 even residue starts and 9 odd residues reproduced this obstruction. Direct digit products of 108,110,...,132 equal [1,2,1,2,4,1,1,2,2,2,4,2,4] and divide each term. Adding 4*3^K for every K>=5 prepends two unit digits with no carry and preserves all divisibility, proving infinitely many sharp progressions. The universal claim follows from residue argument, not an unbounded scan.
+
+## originality
+
+PASS
+
+The previously published b-prodigious progression theorem handles stride d dividing the base and d<b/2, or d=b/2 for even bases; base b=3 and stride d=2 is outside both domains. The sharp length 13 and infinite attainment are a nontrivial, motivated first excluded fixed-stride parameter with no inspected equivalent table.
+
+## value
+
+PASS
+
+The natural prodigious-number progression problem in a first excluded odd-base stride admits a sharp global cutoff 13, substantially longer than the known contiguous-run bound 5, with an elementary structural obstruction and infinite sharpness family. This is a useful, self-contained natural exact invariant with motivated parameters; no sweeping generality is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
