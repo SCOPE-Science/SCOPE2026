@@ -1,11 +1,21 @@
-# Scientific review: minimal moving-hub fixation phase diagram
+# Independent mathematical audit
 
-**Correctness: PASS.** The model specifies parent selection, neighbor replacement, phase alignment, uniform initialization, absorbing boundaries and all quantifiers. Its six-state backward equation is exact. The coefficient identities were reproduced by a second, standard-library rational Markov solver at enough distinct fitness values to constitute a proved polynomial identity by the explicit degree bound, not a heuristic numerical fit. The resulting sign polynomials are uniformly positive or negative as claimed; the one exceptional sign polynomial reduces to a strictly increasing one-variable polynomial on the physical domain, proving uniqueness of its threshold. Both constituents' static amplification and the minimality of three vertices were checked. Risk: exact symbolic certificates have been reviewed in the same process but not independently externally audited.
+## correctness
 
-**Originality: PASS, subject to known priority risk.** The principal comparison is Bhaumik and Masuda, *Fixation probability in evolutionary dynamics on switching temporal networks* (arXiv:2304.00170). Their matrix framework makes the calculation possible and is credited. Their inspected models include an alternating three-site star/complete graph and higher-order star/complete-bipartite configurations, whereas the present result alternates two differently centered three-site paths, both static strict amplifiers. The first-four-block-length full-fitness sign classification and unique three-step critical fitness were not found in the relevant source sections or searched research records. Su–McAvoy–Plotkin's more general dynamic strategy-evolution work concerns different selective interaction models and does not in the inspected material cover this exact finite-population phase diagram. Risk: an unindexed equivalent or a sufficiently sharp general temporal Moran theorem could dominate the statement; keyword and semantic search alone do not establish uniqueness.
+PASS
 
-**Value: PASS.** This is a motivated, minimal boundary example for a core question in evolutionary graph theory: when does changing only graph timing reverse selection even when each constituent amplifies it? The exact global all-fitness certificate distinguishes universal suppression at one and two steps, a genuinely fitness-dependent transition at three, and universal amplification at four. This provides a qualitative switching-frequency/selection-intensity phase diagram rather than an arbitrary short enumeration. It is not claimed as a comprehensive all-block-length result.
+Defined the actual birth-death transition on three-bit mutant masks with fitness-proportional parent and uniform neighbor replacement, including self-loops. Two connected phases yield a 6x6 transient backward system for the boundary-aligned 2tau-update product. Independently solved this system in exact fractions at 30,58,86,114 positive integer fitness values respectively for tau=1..4, matching the claimed rational A_tau/B_tau certificate and verifying the coefficient identity for S_tau. The original proof establishes the rational numerator/denominator degree bound <=24tau by Cramer on entries with denominator ((r+2)(2r+1))^(2tau), so cross-multiplication has degree <=28tau+1; those 28tau+2 distinct exact rational checks prove identity for all r>0, not just finite samples. S1,S2 have strictly negative coefficients, S4 strictly positive; S3=r^5 H(r+1/r-2) with H(0)<0 and all positive higher coefficients yields exactly one root r*>1 and reciprocal. Static constituent path formula checked separately, and minimality of three sites follows from uniqueness of a connected 2-vertex simple graph.
 
-**Scientific scope.** Connected unweighted moving-center three-node paths; deterministic equal-length periodic blocks starting at a block boundary; birth–death updating; constant relative fitness; uniform one-mutant initialization; only block lengths one through four. The coefficient artifact and pure-Python verifier are provided. No independent external validation or publication-priority certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The switching-network matrix framework and effects for a path-to-triangle switch are acknowledged prior. The exact two-individually-amplifying P3 moving-hub pair, all-real-fitness universal signs for tau=1,2,4, and sharp unique tau=3 crossover are not covered by the inspected earlier mathematical statements.
+
+## value
+
+PASS
+
+The all-fitness signs demonstrate that two individually amplifying static networks can jointly suppress selection at short dwell times, then amplify at longer dwell times; a single precise three-step fitness crossing is a genuinely informative threshold. The network has the smallest nontrivial connected switching pair, and exact positivity-polynomial certificates permit reliable parameter comparison beyond numerics. Neither generic Markov solvability nor tau=1 neutral inspection gives this selection-reversal phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

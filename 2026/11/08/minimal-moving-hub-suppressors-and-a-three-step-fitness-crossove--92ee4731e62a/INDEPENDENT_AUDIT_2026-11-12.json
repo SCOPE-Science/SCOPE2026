@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T01:54:18.477614Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/minimal-moving-hub-suppressors-and-a-three-step-fitness-crossove--92ee4731e62a/RESULT.md",
+        "RESULT.md:9c7bcab7a5fb28b730247733c98ac4847de150c9",
+        "COEFFICIENTS.txt:497b096fc7b7f70bfeb3e17bc02561b80452401e",
+        "verify.py:28cc0a938726cbb17487ed23d08b5e41d1fc10b6",
+        "check_moving_hub.py:independent_exact_fraction_288_nodes"
+      ],
+      "rationale": "Defined the actual birth-death transition on three-bit mutant masks with fitness-proportional parent and uniform neighbor replacement, including self-loops. Two connected phases yield a 6x6 transient backward system for the boundary-aligned 2tau-update product. Independently solved this system in exact fractions at 30,58,86,114 positive integer fitness values respectively for tau=1..4, matching the claimed rational A_tau/B_tau certificate and verifying the coefficient identity for S_tau. The original proof establishes the rational numerator/denominator degree bound <=24tau by Cramer on entries with denominator ((r+2)(2r+1))^(2tau), so cross-multiplication has degree <=28tau+1; those 28tau+2 distinct exact rational checks prove identity for all r>0, not just finite samples. S1,S2 have strictly negative coefficients, S4 strictly positive; S3=r^5 H(r+1/r-2) with H(0)<0 and all positive higher coefficients yields exactly one root r*>1 and reciprocal. Static constituent path formula checked separately, and minimality of three sites follows from uniqueness of a connected 2-vertex simple graph.",
+      "residual_risks": [
+        "No theorem for tau>=5 or within-block initialization; strict signs established only for tau=1,2,3,4.",
+        "Finite interpolation is conclusive for all real r only because the explicit rational-degree bound is proved and nodes are exact; the numerical threshold is illustrative."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General periodic Markov methodology predicts computability of fixation probabilities; prior neutral moving-star theory holds only r=1 and cannot imply strict inequalities on all r>0."
+        ],
+        "reasoning": "A general matrix equation is not an explicit small-graph all-fitness phase diagram; exact sign of the rational fixation difference is an additional theorem.",
+        "searches": [
+          "Bhaumik Masuda 2023 full text switching fixation backward equation",
+          "Resultary: exact phase-dependent neutral fixation on two alternating hub stars",
+          "Su McAvoy Plotkin arXiv:2301.11982 strategy evolution dynamic networks"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2304.00170",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10539469/",
+        "https://arxiv.org/abs/2301.11982",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-phase-dependent-neutral-fixation-on-two-alternating-hub-st--8aa6551210e1",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-two-update-reversal-of-selection-on-the-smallest-switching-pop--e658fb661de7",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-minimal-moving-hub-suppressors-and-a-three-step-fitness-crossove--92ee4731e62a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "P3-to-K3 two-update reversal and P3-to-P3 moving-hub tau=1,2 suppressor have different transitions; neutral fixation may be a single r=1 point where all models are Moran-neutral."
+        ],
+        "reasoning": "The prior results neither dominate by a parameter substitution nor force the crossover root H(z)=0. New assertion is carefully restricted to tau<=4, not general switching systems.",
+        "searches": [
+          "Resultary: a two-update reversal of selection on smallest switching population network",
+          "Resultary: exact phase-dependent neutral fixation on two alternating hub stars",
+          "Bhaumik Masuda arXiv:2304.00170"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Changing center among two three-vertex paths is not isomorphic to the earlier three-site graph pair P3 + K3."
+        ],
+        "reasoning": "Conjugation of G0,G1 by relabeling does not turn them into a path/triangle pair; both individual constituents are strict amplifiers, an essential hypothesis and mathematically different network.",
+        "searches": [
+          "Resultary: switching temporal evolutionary birth death graph three vertex two star paths moving hub fixation fitness crossover",
+          "Bhaumik Masuda arXiv:2304.00170 switching temporal networks"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier reported three-site transition plot has different constituent graphs; no matching eight A/B arrays, H polynomial, or three-step fitness crossover located."
+        ],
+        "reasoning": "Published plots and a neutral-case formula are not the exact real-parameter sign classification for the changing-center P3 pair.",
+        "searches": [
+          "Resultary: moving-hub suppressor tau 3 crossover H polynomial",
+          "Bhaumik Masuda 2023 figures star triangle three vertices dwell time"
+        ]
+      },
+      "rationale": "The switching-network matrix framework and effects for a path-to-triangle switch are acknowledged prior. The exact two-individually-amplifying P3 moving-hub pair, all-real-fitness universal signs for tau=1,2,4, and sharp unique tau=3 crossover are not covered by the inspected earlier mathematical statements.",
+      "residual_risks": [
+        "A broader unpublished or unindexed temporal graph fixation calculation may contain this exact P3-to-P3 example.",
+        "Related Resultary neutral switching theorem was inspected only in summary; no claim is made that its full text contains no related coefficients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FRAMEWORK COVERS Markov backward equations, not two distinct P3 hubs all-fitness signs",
+          "evidence": "The published small example alternates a star/path with a triangle; submitted both phases are distinct P3 hubs.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10539469/",
+          "material_read": "Complete accessible 2023 primary article, model/transition treatment and three-vertex switching examples",
+          "method": "Read PMC full text and compare the actual graph pairs, update order and conclusions",
+          "title": "Fixation probability in evolutionary dynamics on switching temporal networks",
+          "trigger": "Exact dynamical process and smallest example"
+        },
+        {
+          "assessment": "SAME hub-switch structure at neutrality; cannot dominate nonneutral r-dependent classification on summary alone",
+          "evidence": "Search states explicit neutral birth-death fixation and n-dependent tau behavior; priority risk for any extensions.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-phase-dependent-neutral-fixation-on-two-alternating-hub-st--8aa6551210e1",
+          "material_read": "Resultary summary only; full primary was not inspected",
+          "method": "Semantic search and scoped summary, no whole-document noncoverage inferred",
+          "title": "Exact phase-dependent neutral fixation on two alternating hub stars",
+          "trigger": "Same moving-hub family and potential dominating theorem"
+        },
+        {
+          "assessment": "Same current record, no independent earlier theorem established",
+          "evidence": "A/B arrays and all-fitness H crossover belong to the submitted source.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-minimal-moving-hub-suppressors-and-a-three-step-fitness-crossove--92ee4731e62a",
+          "material_read": "Resultary summary and complete assigned source proof/certificates",
+          "method": "Direct mathematical comparison",
+          "title": "Minimal moving-hub suppressors and a three-step fitness crossover",
+          "trigger": "Exact indexed match"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10539469/",
+        "2026/11/08/minimal-moving-hub-suppressors-and-a-three-step-fitness-crossove--92ee4731e62a/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-phase-dependent-neutral-fixation-on-two-alternating-hub-st--8aa6551210e1"
+      ],
+      "rationale": "The all-fitness signs demonstrate that two individually amplifying static networks can jointly suppress selection at short dwell times, then amplify at longer dwell times; a single precise three-step fitness crossing is a genuinely informative threshold. The network has the smallest nontrivial connected switching pair, and exact positivity-polynomial certificates permit reliable parameter comparison beyond numerics. Neither generic Markov solvability nor tau=1 neutral inspection gives this selection-reversal phase diagram.",
+      "residual_risks": [
+        "The claim is intentionally a sharp tau<=4 small-graph classification, not a universal evolutionary network principle."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No theorem for tau>=5 or within-block initialization; strict signs established only for tau=1,2,3,4.",
+    "Finite interpolation is conclusive for all real r only because the explicit rational-degree bound is proved and nodes are exact; the numerical threshold is illustrative.",
+    "A broader unpublished or unindexed temporal graph fixation calculation may contain this exact P3-to-P3 example.",
+    "Related Resultary neutral switching theorem was inspected only in summary; no claim is made that its full text contains no related coefficients.",
+    "The claim is intentionally a sharp tau<=4 small-graph classification, not a universal evolutionary network principle."
+  ],
+  "schema_version": 1
+}
