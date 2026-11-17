@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the parity-sparsity theorem
+# Independent mathematical audit
 
-The file `verify_hyper_odd.py` was executed as standalone Python from this package with exact integers and no dependencies. Successful output:
+## correctness
 
-```
-VERIFY_OK bases=2..11 recurrence+state+direct_checked_terms 1121143 generating_function_bases=2..19 binary_residue_test=65536
-```
+PASS
 
-The verifier constructs `h_b(n)` by the restricted-partition recurrence, independently tallies odd values on base-power intervals, derives the three-state matrix recurrence, checks the rational generating function coefficientwise, and compares the binary mod-three criterion. Its direct enumeration covers every complete level up to 175,000 indices for bases 2 through 11, 22 generating-function coefficients in bases 2 through 19, and 65,536 indices in base two. These are finite experiments. The infinite statements are proved algebraically using the exact digit automaton and characteristic-root analysis in RESULT.md; the script does not establish bibliographic novelty or independent mathematical certification.
+The standard partition recurrence gives the (s_b(n),s_b(n+1)) three-nonzero-state automaton modulo2, with x_k−y_k=1 and H_k=x_k+z_k; multiplying transition matrix yields H_{k+1}=(b−1)H_k+2H_{k−1}−1. Characteristic roots give asymptotics, base-two congruence gives natural density 2/3, and bracketing X between powers b establishes Θ for b≥3.
+
+## originality
+
+PASS
+
+Edgar (2018) proves an individual-digit product, and Courtright–Sellers established underlying recurrences and binary parity. Those are credited. No inspected primary text explicitly states the aggregate all-base odd-level series and sharp sparsity exponent; digit-wise formulas may offer alternate derivation.
+
+## value
+
+PASS
+
+A sharp natural density-to-fractal-sparsity transition and exact support-count generating function answer a motivated aggregate statistical question on a classical partition family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
