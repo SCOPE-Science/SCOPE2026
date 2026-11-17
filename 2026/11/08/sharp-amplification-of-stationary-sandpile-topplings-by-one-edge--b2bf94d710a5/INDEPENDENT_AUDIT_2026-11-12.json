@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T09:58:03.520960Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/sharp-amplification-of-stationary-sandpile-topplings-by-one-edge--b2bf94d710a5/RESULT.md",
+        "2026/11/08/sharp-amplification-of-stationary-sandpile-topplings-by-one-edge--b2bf94d710a5/verify_extremal.py"
+      ],
+      "rationale": "The uniform recurrent sandpile addition map permutes states, so E[toppling vector]=L^{-1}e_r exactly. On a sink-rooted tree the grounded Green kernel is depth(LCA(u,v)), and because r is the sink-adjacent source leaf, L^{-1}e_r=e_r. For a new edge r-x at distance d from sink with descendant sizes q_i, Sherman-Morrison with b=e_r-e_x gives E X=1+(sum_{i=1}^d q_i-1)/(d+2). Every q_i<=N-i+1; a path achieves all bounds. The discrete difference F_N(d+1)-F_N(d)=2(N+2)/((d+2)(d+3))-1/2 yields the exact smallest maximizing chord and the asymptotic N+7/2-2sqrt(N+2)+O(N^-1/2). If the edge avoids r the mean remains 1. Independent rational grounded-Laplacian enumeration checked all missing edges for all labeled source-leaf trees with N<=3. Universal extremality is from the inequality and equality construction, not enumerations.",
+      "residual_risks": [
+        "Uniform recurrent distribution independently resampled after augmentation; expected total nonsink firing count, not maximum avalanche or nonstationary state; source leaf attached to sink is essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Matter-Nagnibeda Proposition 2.3.4 treats avalanche behavior in block-separable graphs, Cori-Micheli-Rossin tree avalanche distributions; neither inspected theorem derives all-tree one-edge extremal expectation."
+        ],
+        "reasoning": "A chorded cycle has a cycle initially, whereas a one-edge-augmented tree begins with a tree and only gains a single cycle; the exact optimization domains differ.",
+        "searches": [
+          "https://arxiv.org/pdf/0905.2823",
+          "https://arxiv.org/pdf/1105.4036",
+          "Resultary: sharp Braess-type sign law for sandpile avalanches on chorded cycles"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/0905.2823",
+        "https://arxiv.org/pdf/1105.4036",
+        "https://arxiv.org/abs/1106.5358",
+        "https://arxiv.org/abs/1605.02713",
+        "Resultary one-edge tree sandpile semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Green kernel plus rank-one perturbation implies a location formula; deriving the maximum requires the descendant upper bounds and simultaneous equality across depths."
+        ],
+        "reasoning": "The general perturbation identity alone is not the sharp extremal formula; arbitrary tree shape and chord location need the provided structural inequalities.",
+        "searches": [
+          "https://arxiv.org/pdf/1105.4036",
+          "Resultary 2026/11/8 chorded-cycle Braess-type sign law",
+          "arxiv:1106.5358"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mean topplings under uniform recurrent states equal column sum of L^{-1}; tree LCA Green kernel is a standard equivalent electrical formula."
+        ],
+        "reasoning": "Those equalities are correctly credited, but do not specify which edge maximizes over all trees and positions.",
+        "searches": [
+          "https://arxiv.org/pdf/0905.2823",
+          "https://arxiv.org/pdf/1105.4036",
+          "stationary sandpile mean firings grounded Green function edge update Sherman Morrison tree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Examined sandpile classes and their avalanche-polynomial tables, no exact N-indexed all-tree maximum or optimal d found."
+        ],
+        "reasoning": "Finite old graph tables cannot imply an all-N, all-tree extremal theorem unless a general argument is given; the submitted proof provides the missing path optimization.",
+        "searches": [
+          "https://arxiv.org/pdf/0905.2823",
+          "arxiv:1605.02713",
+          "Resultary semantic: one-edge augmentation rooted tree Abelian sandpile uniform recurrent mean topplings Green function extremal"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: earlier sandpile works establish uniform recurrent addition, Green-function expected topplings, tree avalanche polynomials and block-cut cycle formulas. These antecedents do not give the all-tree/all-one-edge-sharp extremum with a sink-adjacent source leaf, the optimal square-root chord depth, or the asymptotic deficit. Resultary search located a different Braess-type chord perturbation on cycles, whose base graphs are not trees; neither its sign law nor its ratio bound directly imply the tree optimization.",
+      "residual_risks": [
+        "Unindexed earlier single-edge electrical Green-function extremal optimizations may exist.",
+        "Relevant full Matter-Nagnibeda paper was available but inspection centered on relevant block sections, not every appendix."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_AVALANCHE_DISTRIBUTIONS_NOT_TREE_EDGE_EXTREMUM",
+          "evidence": "Polynomial avalanche counts for selected graph classes, no all-rooted-tree single-edge expected-topplings maximum in checked text.",
+          "identifier_or_url": "https://arxiv.org/pdf/0905.2823",
+          "material_read": "Full accessible primary PDF, portions concerning tree avalanches, formula sections and representative theorem",
+          "method": "Primary PDF body including rendered page inspection",
+          "title": "Avalanche polynomials",
+          "trigger": "Mean avalanche statistics and tree classification"
+        },
+        {
+          "assessment": "RELATED_BLOCK_DECOMPOSITION_NOT_EXTREMAL_THEOREM",
+          "evidence": "Formula propagates avalanche contributions across separable blocks; does not state the global N, d sharp maximum among source-leaf trees.",
+          "identifier_or_url": "https://arxiv.org/pdf/1105.4036",
+          "material_read": "Full original PDF available; relevant introduction, Section 2.3 Proposition 2.3.4 and block-decomposition context read",
+          "method": "Primary PDF body and rendered page comparison",
+          "title": "Abelian Sandpile Model on Randomly Rooted Graphs and Self-Similar Groups",
+          "trigger": "Block-cut and cycle avalanche formulas possibly covering single-chord trees"
+        },
+        {
+          "assessment": "DIFFERENT_INITIAL_GRAPH_CLASS",
+          "evidence": "It starts from C_n and adds a chord; submitted theorem starts from any tree with a sink-adjacent leaf.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-sharp-braess-type-sign-law-for-sandpile-avalanches-on-chorded--407b2e004342",
+          "material_read": "Published scientific summary with exact cycle chord expectation sign formula, not its full RESULT body",
+          "method": "Resultary full summary only; noncoverage limited to displayed claim",
+          "title": "A sharp Braess-type sign law for sandpile avalanches on chorded cycles",
+          "trigger": "Related one-edge sandpile perturbation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/0905.2823",
+        "https://arxiv.org/pdf/1105.4036"
+      ],
+      "rationale": "PASS: this is a natural and broad extremal graph perturbation question, and changing a single edge raises a stationary expectation from exactly 1 to order N. The path extremizer and sqrt(N) optimal chord depth are precise structural features; the theorem supplies a sharp bound on expectation for any finite rooted source-leaf tree, independently useful to sandpile and electrical-network perturbation studies.",
+      "residual_risks": [
+        "Uniform recurrent distribution independently resampled after augmentation; expected total nonsink firing count, not maximum avalanche or nonstationary state; source leaf attached to sink is essential."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality; positive prior coverage for rejected result and specific residual risks for accepted ones.",
+    "Uniform recurrent distribution independently resampled after augmentation; expected total nonsink firing count, not maximum avalanche or nonstationary state; source leaf attached to sink is essential.",
+    "Public metadata includes operational provenance; publication is withheld without verified sanitization."
+  ],
+  "schema_version": 1
+}

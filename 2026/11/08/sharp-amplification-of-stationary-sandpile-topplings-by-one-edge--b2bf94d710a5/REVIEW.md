@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Under the precise finite connected single-sink stationary ASM model, conservation and permutation of recurrent states prove the Green-column expectation. The rooted-tree Green kernel, rank-one Laplacian update, bound on descendant-subtree sizes, equality on a path and discrete integer optimization together prove the infinite-family statement. Two complementary exact rational verification programs check 20,796 missing-edge instances and 7,035 source-incident path instances, respectively, all within \(N\le5\); finite tests are corroboration rather than the proof.
+## correctness
 
-**Originality — PASS on examined evidence, provisional.** Direct comparison of arXiv:0905.2823, arXiv:1105.4036 (especially Propositions 2.3.4 and 2.4.4), arXiv:1106.5358, arXiv:1605.02713, related indexed mathematical findings, and a related earlier cycle perturbation claim found no full coverage of the exact optimal one-edge perturbation over **all** sink-adjacent-leaf rooted trees. Fixed-cactus block formulas and fixed-tree mean formulas are established prior work, not claimed as new. Residual risk remains from unindexed earlier specializations, including old lollipop calculations.
+PASS
 
-**Mathematical value — PASS.** This sharp extremal theorem quantifies an apparently paradoxical increase in stationary avalanche activity after adding a single edge, with a globally extremizing topology and chord position, an exact discrete transition law and a square-root-scale deficit. A source whose mean toppling count is precisely one can achieve \(N+O(\sqrt N)\) expected topplings with one extra edge even under maximum-degree-three constraints. The object and observable are natural in finite sandpile dynamics; the statement is more than enumeration of special graphs.
+The uniform recurrent sandpile addition map permutes states, so E[toppling vector]=L^{-1}e_r exactly. On a sink-rooted tree the grounded Green kernel is depth(LCA(u,v)), and because r is the sink-adjacent source leaf, L^{-1}e_r=e_r. For a new edge r-x at distance d from sink with descendant sizes q_i, Sherman-Morrison with b=e_r-e_x gives E X=1+(sum_{i=1}^d q_i-1)/(d+2). Every q_i<=N-i+1; a path achieves all bounds. The discrete difference F_N(d+1)-F_N(d)=2(N+2)/((d+2)(d+3))-1/2 yields the exact smallest maximizing chord and the asymptotic N+7/2-2sqrt(N+2)+O(N^-1/2). If the edge avoids r the mean remains 1. Independent rational grounded-Laplacian enumeration checked all missing edges for all labeled source-leaf trees with N<=3. Universal extremality is from the inequality and equality construction, not enumerations.
 
-**Limits and closest literature.** See arXiv:1105.4036 for separable-graph block behavior and arXiv:0905.2823 for earlier mean avalanche formulas on trees; those supply technical context, but no inspected passage settles this cross-tree extremal problem. Exact computations were confined to small graphs; the general quantifiers rely on the proof. Independent priority evaluation has not been completed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: earlier sandpile works establish uniform recurrent addition, Green-function expected topplings, tree avalanche polynomials and block-cut cycle formulas. These antecedents do not give the all-tree/all-one-edge-sharp extremum with a sink-adjacent source leaf, the optimal square-root chord depth, or the asymptotic deficit. Resultary search located a different Braess-type chord perturbation on cycles, whose base graphs are not trees; neither its sign law nor its ratio bound directly imply the tree optimization.
+
+## value
+
+PASS
+
+PASS: this is a natural and broad extremal graph perturbation question, and changing a single edge raises a stationary expectation from exactly 1 to order N. The path extremizer and sqrt(N) optimal chord depth are precise structural features; the theorem supplies a sharp bound on expectation for any finite rooted source-leaf tree, independently useful to sandpile and electrical-network perturbation studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
