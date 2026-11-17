@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof specifies a closed occurrence by its proper border and counts maximality by one-character extensions. Exhaustion of all possible repeated border configurations in four maximal runs yields four whole-run occurrences, the unique repeated-run bridge families and, only for alternating run labels, one nonunary bridge. The two exceptional indicators record exactly those unary bridges subsumed by a closed extension. Independence of run-length-pair summations then yields the stated rational generating function for arbitrary alphabet size and word length. The embedded standard-Python enumerator checks 17,484 direct interval classifications and every generating-function coefficient for alphabet sizes 2–5 through length 14. Finite checking is additional evidence rather than an all-length proof. Remaining risk is a hidden border case not captured by the four-run exhaustive structural argument.
+PASS
 
-## Originality — PASS with explicit residual risk
+Every four-run word X^aY^bZ^cT^d (positive run lengths, adjacent letters unequal) falls into mutually exclusive equality patterns: all four letters distinct gives exactly 4 whole-run maximal closed occurrences; one nonadjacent repeated pair gives 4+min(repeated run lengths); alternating ABAB gives 5+min(a,c)+min(b,d)-[c<=a]-[b<=d]. The proof partitions closed factors by zero through three transitions. Unary borders across nonadjacent repeated-letter runs yield bridge candidates, with precisely the two extension exclusions in ABAB; the single nonunary border gives the additional alternating interval. Two-variable geometric-series pair sums yield F_q(z,u)=q(q-1)(q-2)(q-3)u^4z^4/(1-z)^4+3q(q-1)(q-2)u^5z^4(1+z)/((1-z)^3(1-uz^2))+q(q-1)u^5z^4(1+uz)^2/((1-z)^2(1-uz^2)^2). At u=1 it reduces to q(q-1)^3 z^4/(1-z)^4. Independently enumerated all substring occurrences and borders for q=2,3,4 and run lengths each 1..3; full all-length result rests on border classification and formal series, not small tests.
 
-Compared with the primary full text of Umezaki et al., arXiv:2607.02838v1, and Fischer–Köppl, arXiv:2610.38114v1, the already-known valid-pair and output-sensitive algorithms generate maximal closed occurrences for any given run-length-encoded input. That general coverage is acknowledged. The new claim is the exact **global coefficient distribution over every word with four runs**, uniformly in alphabet size, with its rational generating function and explicit alternating boundary terms; no equivalent all-parameter enumeration was located in those sources or targeted indexed mathematical searches. A generic algorithm can compute individual instances but does not by itself state these all-input coefficients. Residual risk: the explicit formula might be derivable or present as an unindexed specialization of prior enumerative work. An older indexed result on closed-rich maxima is for all closed factors, a different statistic; an indexed result on binary de Bruijn MCS counts concerns particular long words, not the four-run distribution.
+## originality
 
-## Value — PASS
+PASS
 
-The number of MCS occurrences is precisely the output size governing output-sensitive algorithms. Four-run words are the first bounded-run family accommodating two separate repeated transition types and a genuinely nonunary maximal border. The result identifies the entire finite-length output-size histogram for every alphabet, including sharp finite-size changes at run-length equalities and linear output even for fixed run-count. This is a natural complete classification rather than an arbitrarily selected small example; it does not claim a new algorithm or general asymptotic bound.
+Best-of-knowledge PASS with qualified prior implication. The earlier published November 8 binary four-run theorem already gives the ABAB count and exact endpoint list (so the q=2 specialization is NOT original). The current claim extends to all alphabets q>=3 and proves the three run-letter coincidence classes and their complete bivariate all-length output-size histogram, which is not implied solely by the binary alternating formula. General Umezaki et al. run-length-encoded enumeration and Fischer–Köppl output-sensitive algorithms can compute individual instances but no accessible evidence states this all-q coefficient GF; their highly relevant full texts were inaccessible, so this noncoverage claim is carefully qualified and kept as residual risk. Exact all-q statistic and q>=3 branches survive.
 
-## Limits and closest sources
+## value
 
-Primary literature: Umezaki et al. (2026), arXiv:2607.02838v1, and Fischer–Köppl (2026), arXiv:2610.38114v1; related framework: Kosolobov (2024), arXiv:2410.00209v1. The current work counts occurrences, not distinct contents or all closed factors, and covers exactly four runs. An independently conducted mathematical audit and definitive publication-priority confirmation have not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Maximal closed substring occurrence count governs output size in string indexing/algorithms. Four runs are the first natural bounded-run class allowing distinct nonadjacent repeated transitions and a nonunary maximal border; the full alphabet-dependent output histogram is a complete motivated exact classification. The q>=3 taxonomy cannot be reduced to the prior binary-only alternating case. No new algorithm or arbitrary-run theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T05:07:11.119903Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every four-run word X^aY^bZ^cT^d (positive run lengths, adjacent letters unequal) falls into mutually exclusive equality patterns: all four letters distinct gives exactly 4 whole-run maximal closed occurrences; one nonadjacent repeated pair gives 4+min(repeated run lengths); alternating ABAB gives 5+min(a,c)+min(b,d)-[c<=a]-[b<=d]. The proof partitions closed factors by zero through three transitions. Unary borders across nonadjacent repeated-letter runs yield bridge candidates, with precisely the two extension exclusions in ABAB; the single nonunary border gives the additional alternating interval. Two-variable geometric-series pair sums yield F_q(z,u)=q(q-1)(q-2)(q-3)u^4z^4/(1-z)^4+3q(q-1)(q-2)u^5z^4(1+z)/((1-z)^3(1-uz^2))+q(q-1)u^5z^4(1+uz)^2/((1-z)^2(1-uz^2)^2). At u=1 it reduces to q(q-1)^3 z^4/(1-z)^4. Independently enumerated all substring occurrences and borders for q=2,3,4 and run lengths each 1..3; full all-length result rests on border classification and formal series, not small tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Umezaki et al. provide a general maximal closed substring enumeration framework for run-length encoded strings; Fischer–Köppl provide output-sensitive maximal closed substring enumeration."
+        ],
+        "reasoning": "These broader algorithmic methods may compute each word and potentially be specialized, but an algorithm for each input does not automatically establish the exact global all-q histogram. Full articles were inaccessible, so no whole-document NOT_COVERING is asserted.",
+        "searches": [
+          "https://arxiv.org/abs/2607.02838",
+          "https://arxiv.org/abs/2610.38114"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-maximal-closed-substring-spectrum-for-binary-four-run-word--5387a5bb0a25/RESULT.md",
+        "https://arxiv.org/abs/2607.02838",
+        "https://arxiv.org/abs/2610.38114",
+        "https://arxiv.org/abs/2410.00209"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-maximal-closed-substring-spectrum-for-binary-four-run-word--5387a5bb0a25/RESULT.md",
+          "Earlier binary four-run theorem fixes X=Z and Y=T; submitted theorem has additional all-distinct and single-repeat patterns of 3/4 distinct letters and q-dependent label counts."
+        ],
+        "reasoning": "Setting q=2 yields exactly the earlier theorem; conversely a binary theorem alone cannot logically derive the q>=3 frequency of single-repeat and all-distinct labels without additional analysis. The submitted structural proof supplies that extra enumeration.",
+        "searches": [
+          "Resultary: maximal closed substring four run all alphabet enumeration",
+          "https://arxiv.org/abs/2607.02838",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-maximal-closed-substring-spectrum-for-binary-four-run-word--5387a5bb0a25/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-maximal-closed-substring-spectrum-for-binary-four-run-word--5387a5bb0a25/RESULT.md",
+          "Earlier exact binary ABAB formula 5+min(a,c)+min(b,d)-[c<=a]-[b<=d] is the q=2 specialization."
+        ],
+        "reasoning": "A complete special-case equivalence is admitted; q>=3 includes three/four distinct letter patterns absent from a two-letter alphabet and their q-multiplicities.",
+        "searches": [
+          "Resultary: maximal closed substring four-run all alphabet enumeration",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-maximal-closed-substring-spectrum-for-binary-four-run-word--5387a5bb0a25/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-maximal-closed-substring-spectrum-for-binary-four-run-word--5387a5bb0a25/RESULT.md",
+          "Prior binary fixed-length attainable spectrum and count, but no verified all-q ternary/quaternary coefficient table."
+        ],
+        "reasoning": "The binary table is covered and credited; the global q-label and run-composition generating function includes new q>=3 coefficient families.",
+        "searches": [
+          "Resultary: exact maximal closed substring spectrum for binary four-run words",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-maximal-closed-substring-spectrum-for-binary-four-run-word--5387a5bb0a25/RESULT.md",
+          "Resultary: four-run all alphabet distribution generating function"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS with qualified prior implication. The earlier published November 8 binary four-run theorem already gives the ABAB count and exact endpoint list (so the q=2 specialization is NOT original). The current claim extends to all alphabets q>=3 and proves the three run-letter coincidence classes and their complete bivariate all-length output-size histogram, which is not implied solely by the binary alternating formula. General Umezaki et al. run-length-encoded enumeration and Fischer–Köppl output-sensitive algorithms can compute individual instances but no accessible evidence states this all-q coefficient GF; their highly relevant full texts were inaccessible, so this noncoverage claim is carefully qualified and kept as residual risk. Exact all-q statistic and q>=3 branches survive.",
+      "residual_risks": [
+        "Binary specialization is fully known, not claimed newly original. Both prior and submitted binary result are dated November 8 without verified intra-day ordering; do not infer precedence from day alone.",
+        "Full highly relevant run-length MCS primary articles inaccessible after authorized retrieval (VPN disconnected); potential implicit global enumerative specialization is a live risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS q=2 branch only; q>=3 additional alphabet patterns survive",
+          "evidence": "Existing alternating formula and all binary endpoint intervals, with no three/four distinct-letter classes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-maximal-closed-substring-spectrum-for-binary-four-run-word--5387a5bb0a25/RESULT.md",
+          "material_read": "Entire finding, assumptions, five-step proof, verification and references",
+          "method": "Full published GitHub RESULT.md",
+          "title": "Exact maximal-closed-substring spectrum for binary four-run words",
+          "trigger": "Identical statistic and same run count on binary alphabet"
+        },
+        {
+          "assessment": "PRIORITY UNDETERMINED for possible all-q coefficient specialization; no unsupported whole-document NOT_COVERING",
+          "evidence": "General maximal-closed-substring enumeration framework is known; no all-q histogram witnessed in accessible abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.02838",
+          "material_read": "Accessible abstract/metadata only; full source unavailable from lawful OA/arxiv and Oxford returned vpn_disconnected",
+          "method": "ArXiv/OA and authorized Oxford attempts",
+          "title": "Compact Enumeration of Maximal Closed Substrings in Run-Length Encoded Strings",
+          "trigger": "Potential general RLE theorem includes this four-run object"
+        },
+        {
+          "assessment": "RELATED algorithmic claim, uncertain if global histogram appears",
+          "evidence": "Output-sensitive enumeration rather than explicit all-words GF; full source not inspected.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.38114",
+          "material_read": "Accessible abstract/metadata only, no full-text inspection",
+          "method": "Accessible abstract and indexed comparisons",
+          "title": "Output-Sensitive Enumeration of Maximal Closed Substrings in Linear Space",
+          "trigger": "New general MCS enumeration method"
+        },
+        {
+          "assessment": "Supports three-class rational generating function",
+          "evidence": "All 0..3 transitions considered, unary-border extensions and nonunary ABAB unique interval; formal series derivation.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/the-exact-maximal-closed-substring-spectrum-of-four-run-words-ov--86be57deefbe/RESULT.md",
+          "material_read": "Complete proof and full Python enumerator inspected",
+          "method": "Pinned Git blobs and independently written exhaustive small-run checker",
+          "title": "The exact maximal closed-substring spectrum of four-run words over arbitrary alphabets",
+          "trigger": "Assigned full all-q enumerative theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Maximal closed substring occurrence count governs output size in string indexing/algorithms. Four runs are the first natural bounded-run class allowing distinct nonadjacent repeated transitions and a nonunary maximal border; the full alphabet-dependent output histogram is a complete motivated exact classification. The q>=3 taxonomy cannot be reduced to the prior binary-only alternating case. No new algorithm or arbitrary-run theorem is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-maximal-closed-substring-spectrum-for-binary-four-run-word--5387a5bb0a25/RESULT.md",
+    "https://arxiv.org/abs/2607.02838",
+    "https://arxiv.org/abs/2610.38114",
+    "https://arxiv.org/abs/2410.00209"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Linear four-run strings with positive lengths, labeled alphabet, occurrence counts not distinct contents.",
+    "Small exhaustive MCS verification q<=4 and each run<=3 does not prove all lengths; formal series uses symbolic border case split."
+  ],
+  "residual_risks": [
+    "Binary specialization is fully known, not claimed newly original. Both prior and submitted binary result are dated November 8 without verified intra-day ordering; do not infer precedence from day alone.",
+    "Full highly relevant run-length MCS primary articles inaccessible after authorized retrieval (VPN disconnected); potential implicit global enumerative specialization is a live risk."
+  ],
+  "schema_version": 1
+}
