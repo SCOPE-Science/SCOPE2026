@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof is exact and valid for every prime \(p\ge11\) and every smooth geometric parameter. The included `verify.py` uses only the Python standard library and directly expands the polynomials in \(\mathbb F_p[a,T]\) for each prime from \(11\) to \(43\), verifies the reciprocal and leading-coefficient identities, and compares with independently expanded \((x^{p+1}+ax^{(p+1)/2}+1)^{(p-1)/2}\) at each admissible parameter over \(\mathbb F_p\). The program also checks matrix rank and stable-power rank, plus the zero-rank uniqueness test at all these parameter values.
+## correctness
 
-To reproduce, execute `python3 verify.py` from the directory containing this file and `verify.py`; the script prints `VERIFY_PRIME_RIGIDITY_OK` followed by the exact rank census over the tested prime fields. This finite test is not a proof about all primes or algebraically closed parameters; the symbolic coefficient and anti-diagonal argument in the theorem supplies that proof. No independent mathematical audit has been performed.
+PASS
+
+Writing n=(p+1)/2 and g=n-1, the coefficient of x^{pi-j} in F(x)^g is nonzero only if j=n-i; the antidiagonal entry is b_{2i-1}(a). Reciprocal b_j=b_{2g-j} makes opposite antidiagonal entries equal, so the Frobenius-twisted square is diagonal with nonzero support exactly the Cartier support, proving stable rank=p-rank. Odd coefficients vanish at a=0; b1=b_{2g-1}=ga gives at least two nonzero entries for every a!=0. Each odd coefficient has a nonzero leading a-coefficient, so generic ordinary; parity from fixed-point-free pairing if g even. Verified original F squarefree precisely a²!=4 and genus g. Independent exact modular coefficient and stable-rank checks on smooth F_p parameters at p=11,13,17,19,23,29, not proof for all p.
+
+## originality
+
+PASS
+
+Borges–Gonçalves treat two-term Fermat type y^m=x^n+1, including the undeformed a=0 curve, not the entire parameter a pencil. Kudo–Nakagawa–Takagi treat fixed genus-four cyclic-six hyperelliptic models, different from all-prime-linked genus g. Resultary search on exact family and equivalent Cartier-dihedral polynomial formulas located no prior full all-prime stable-rank statement. Nevertheless classical dihedral Hasse–Witt literature may encode it, recorded as a specific risk.
+
+## value
+
+PASS
+
+An unbounded-genus arithmetic family has a complete explicit coefficient-level p-rank/a-number classification; Frobenius stable rank equals first Cartier rank universally, with a unique superspecial marked parameter, a forbidden rank-one stratum, and parity restriction. These are structural nontrivial constraints rather than a one-prime table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
