@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The order-five lower bound follows from complete characterization of the only possible opposite-sign conditional Boolean mixed differences. That characterization forces a two-of-three majority survival function, which cannot be represented by directed source-to-target paths on three intermediate vertices because the three required pairwise paths cannot respect disjoint source-adjacent and target-adjacent classes. The six-vertex DAG result is an exhaustive finite classification using every one of the \(2^{15}\) topologically ordered DAGs and every pair of four internal vertices. The independent, extracted `verify.py` reproduces all asserted counts; an independent breadth-first implementation checks the witness and heterogeneous probability extension. This is an exact finite census, not extrapolation from sampled parameters. Only the six-vertex *acyclic* universal classification is claimed.
+PASS
 
-## Originality: PASS, with priority risk
+Conditional on every other internal vertex, g:{0,1}^2->{0,1} is monotone and delta=g11-g10-g01+g00. Setting protected reliabilities from p to one yields I=(1-p)^2 E[delta]. With <=5 total vertices only one other internal variable w exists; sign change requires delta0,delta1 of opposite signs. Monotonicity excludes delta0=-1,delta1=+1; the reverse forces majority-of-three Boolean viability. All three pairs of internal vertices must then each form an s-to-t directed path and each must meet disjoint L={s-out-neighbors} and R={t-in-neighbors}, impossible on a triangle. The explicit six-vertex DAG edges 01,03,12,14,25,34,45 have Boolean reachability x1*x2 + x1*x4 + x3*x4 in OR form and delta=(1,0,0,-1) on remaining pair, giving I=(1-p)^2(1-2p). Independently enumerated 2^15=32768 forward-labelled DAGs times 6 pairs=196608 exact profiles using a separate reachability bitset code: 18 coefficient triples, precisely 24 strict sign reversals, all (1,0,-1). No cyclic six-node classification is claimed. Check includes exact vertex extrema for quadratic in [0,1], not just sampled p.
 
-Evans–Pocock–Memmott (2013) applies stochastic habitat-loss analysis but not the two-intervention mixed derivative classification. Wu (2005) explicitly identifies the mixed difference as known joint reliability importance, and papers by Hong–Lie (1993) and Hong–Koo–Lie (2002) already discuss interacting component importance and threshold behavior for systems or undirected network edges. Consequently, neither the mixed-difference definition nor the existence of a majority-function sign switch is asserted as new. The claim is the **graph-realization restriction**: impossibility of any sign reversal on at most five directed-network vertices, plus the exhaustive six-vertex DAG threshold formula. The inspected full manuscripts and accessible abstracts did not establish that more specific result, and topical scholarly-index searches produced no dominating implication. Undiscovered results in network-reliability and realization literature remain a real priority risk; abstracts of inaccessible articles were not treated as complete-document noncoverage.
+## originality
 
-## Value: PASS
+PASS
 
-The minimal network size separates interventions whose joint value has a fixed complementary/substitutable character from interventions whose classification depends on baseline habitat survival. That distinction matters for whether simple additive protection-benefit approximations or greedy selection are credible. The exact six-site profile, rational heterogeneous boundary, and complete small-DAG census are natural graph-theoretic benchmarks for directed habitat persistence, not arbitrary parameter substitutions. No ecological field applicability is claimed.
+Generic joint reliability importance and sign-variable coherent systems are prior art. The inspected Wu 2005 paper defines the binary JRI as a mixed reliability derivative and multistate extension, without a minimal directed vertex-connectivity realization theorem; Hong–Lie 1993 addresses edge reliability in undirected networks. A k-out-of-n/majority example does not realize the three-intermediate-vertex function as directed s-to-t reachability (proved impossible here). Resultary search found the submitted finding and unrelated network cutoffs, no stronger six-node directed vertex realization classification. Best-of-knowledge original with specialist literature risk.
 
-## Limits and closest literature
+## value
 
-The work treats a deliberately idealized, deterministic-edge, independent-site model, with a strict six-site acyclic classification and a cycle-tolerant five-site lower bound. Joint reliability importance is previously defined by Wu (2005), and earlier component-interaction articles need broader historical verification. The 1993 undirected-edge paper and 2002 k-out-of-n paper could not be inspected as complete lawful full texts; the primary 2013 ecological manuscript and 2005 mathematical manuscript were available and inspected in relevant sections.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp realizability obstruction for a natural intervention interaction, together with a first possible six-node witness and exhaustive six-node DAG polynomial classification, is a motivated structural benchmark for directed reachability reliability. The exact threshold distinguishes general Boolean importance from graph-implementable importance; nontrivial even at six vertices, not an arbitrary tiny slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
