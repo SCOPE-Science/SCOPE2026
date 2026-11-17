@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Jacobian calculation gives pointwise nilpotence; periodic recurrence proves the square-root equality. The converse is constructed by univariate quadratic interpolation, and reversing three distinct heights yields a second separate orbit. The exact example and symbolic identities were reproduced by `check.py`.
+## correctness
 
-## Originality — PASS within inspected evidence
-The 2022 source and the 2005 precursor establish existence of cycles with two equal heights, rather than classifying the distinct-height stratum and its inverse realization. The closest accessible mathematical-record finding concerns four-cycles, not this height spectrum. Synonymous or unindexed earlier formulations remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-The originating literature explicitly asks about three-cycle uniqueness. The result gives a structural restriction on *all* three-distinct-height cycles, a converse realizing *every* permissible unordered triple by genuine quadratic data, and paired disjoint rational counterexamples to uniqueness. This distinguishes a natural missing orbit stratum, not an arbitrary finite test slice.
+Direct differentiation yields pointwise trace(J)=det(J)=tr(J²)=0 and hence nilpotence. On a periodic orbit, z_i=Ax_i², so h_{i+1}=A(x_i-x_{i+1})² and x_{i+1}=P(h_i). For three indices this says the heights are precisely A times the three pairwise squared differences of real q_i=P(h_i). Distinct heights exclude zero and real line triangle distances satisfy max=sum of other two after square roots. Conversely interpolation q(r²)=0,q(s²)=(r+s)/sqrt A,q((r+s)²)=s/sqrt A gives a genuine degree-2 polynomial and both opposite cyclic height orders; coordinate reconstruction is exact. Direct substitution verifies the two rational example cycles and the reversal is not a rotation.
 
-## Limitations
-There is no claim to enumerate all three-cycles for a fixed polynomial or classify their multipliers. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Castañeda–Rebollo-Perdomo and Chamberland prove existence via repeated-coordinate three-cycles, not a classification of the three-distinct-height stratum or a converse realizing every positive triangle triple. A same-day fixed quadratic family develops two symmetry-breaking three-cycles at a sharp parameter threshold, a restricted subclass rather than a theorem covering every P and every admissible triple.
+
+## value
+
+PASS
+
+The original nilpotent-Jacobian dynamics literature asks whether three-cycles are unique. The square-root distance obstruction and exact converse give a complete natural missing orbit stratum and paired rational counterexamples, rather than an arbitrary slice or computational curiosity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
