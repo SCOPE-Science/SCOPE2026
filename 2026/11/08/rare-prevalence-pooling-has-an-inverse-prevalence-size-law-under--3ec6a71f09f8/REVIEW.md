@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All assumptions are stated: infinite exchangeable beta-mixture, perfect tests, no dilution or size cap, singleton tested only once, and the low-prevalence restriction \(\alpha=\kappa p<1\). Exact beta integration yields \(Q_k\). The signed finite difference follows by one recursion; the ratio of its threshold factor has numerator-minus-denominator \(k(1-\alpha)+2(\kappa-\alpha)>0\). Gamma-ratio bounds ensure an actual finite crossing. The special singleton is compared separately, using the negative asymptotic sign of \(C_k-1\). Compact-parameter uniform log-product expansions prove location and cost asymptotics. The standalone arithmetic tests are supporting diagnostics, not a replacement for this proof.
+PASS
 
-## Originality — PASS within inspected literature, provisional
+Under Beta(alpha,beta) latent prevalence, Q_k=(beta)_k/(kappa)_k and C_k=1/k+1-Q_k (k>=2, C_1=1). First differences have sign H_k-1, H_k=alpha k(k+1)Q_k/(kappa+k), with H_(k+1)/H_k=(k+2)(kappa+k-alpha)/[k(kappa+k+1)]. For alpha<1 this strictly exceeds 1, and gamma-ratio asymptotic makes H_k→∞. Thus the first H_k>=1 is the finite global optimum (possible adjacent tie); alpha<1 gives C_k<1 eventually, beating singleton. For alpha=kappa p→0, uniformly for k~t/alpha, log Q_k=-alpha(log k-psi(kappa))+o(alpha), so H_(floor(t/alpha))→t, alpha K_p→1 and min C=alpha[log(1/alpha)+1-psi(kappa)]+o(alpha). Independent exact-rational finite differences and global minimizers in three parameter pairs corroborated. Infinite p→0 follows from uniform logarithmic expansion.
 
-The 2011 clustered-testing paper already provides the beta-binomial negative-pool formula and correlated-test savings, so neither is new. The 2021 beta-binomial comparison proves the correlated optimum is not smaller than the independent optimum but does not state the integer one-crossing law or the unrestricted fixed-correlation \(p^{-1}\) scale and \(p\log(1/p)\) cost. The 2023 exchangeable-partition paper solves finite partitioning more generally, but its methodology does not by itself give this closed asymptotic statement; the problem and probability object overlap, not the asserted theorem. Searches of archived disease-screening work and prior mathematical results yielded no equivalent. Residual priority risk persists for specialized group-testing asymptotics and inaccessible older appendices. The 2010 working-paper date is verified only to the month, not to a calendar day.
+## originality
 
-## Value — PASS
+PASS
 
-Fixed positive intracluster dependence changes the rare-event optimum from the classical inverse-square-root prevalence scale to inverse prevalence; this is an order-of-magnitude design-law change for correlated infectious-status sampling, and not a numeric optimization or a routine parameter substitution. The exact unimodality rule permits global pool-size selection without arbitrary search cutoffs. The practical significance is conditional: finite clusters, dilution, misclassification and operational constraints can suppress the limiting regime.
+Best-of-knowledge PASS ONLY for inverse-prevalence optimizer and p log(1/p) sharp cost at fixed positive intracluster correlation. Crucial stronger prior: published October 18 SCOPE beta-correlated screening theorem ALREADY establishes Q_k, the exact H_k difference, strict increasing H_k for alpha<=1, global first-crossing optimum and arbitrary-pool-size advantage; these are NOT original and must be attributed. Lendle/Basso supply model and formula; Landolfi–Lall gives general finite exchangeable-partition framework but not inspected fixed-kappa unbounded-pooling p→0 asymptotic. The current source RESULT.md and self-review inaccurately present exact unimodality/one-crossing as a contribution and omit October 18. Science survives on the new asymptotic alone; unchanged source package is NOT publication-ready without complete corrected research files and attribution.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The asymptotic switch from classical independent k~p^-1/2 to positively correlated k~1/(kappa p), with optimum tests kappa p[log(1/(kappa p))+1-psi(kappa)]+o(p), is a meaningful exact scaling law for an established beta-binomial screening model. It answers a natural optimizer limit not mechanically determined by the known finite H crossing without uniform asymptotic analysis. This is mathematically substantive but practically conditional on unlimited clusters and no dilution; the previously known unimodality itself contributes no new value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
