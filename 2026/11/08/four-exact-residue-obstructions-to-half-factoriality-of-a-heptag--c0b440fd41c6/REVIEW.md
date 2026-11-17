@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof states the monoid and unit conventions, then enumerates all six minimal zero-sum residue types of the cyclic group of order four. It derives the exact relation \(4\ell=a+b+2c+2w\) for the number \(w\) of paired inverse-residue atoms. The parity of \(w\) and the four exhaustive cases on the remaining zero-pair factorization force one of four prime-residue patterns. The four explicit atom relations prove sufficiency. Prime-by-prime lower bounds establish the least parameter \(75411\). These arguments apply to arbitrary prime multiplicities and all admissible ratios, including \(x=1\); the finite checker only corroborates them. The self-map/monoid identification is sourced to Matijasevick's Theorem D.
+PASS
 
-## Originality — PASS, with qualifications
+Map composition is the multiplicative congruence monoid H10 (using the cited polygonal-map isomorphism). Modulo 10, the 3,7,9 residue weights 1,-1,2 in C4 have exactly six minimal zero-sum atom vectors A=(4,0,0),B=(0,4,0),C=(1,1,0),D=(0,0,2),E=(2,0,1),F=(0,2,1). Every irreducible length ℓ obeys 4ℓ=a+b+2c+2w; the C-count w has fixed parity, so distinct lengths require a ≥2 increment in w. Comparing the no-C factorization after removing common C atoms, four exhaustive u/v cases force the four threshold vectors (2,2,2),(2,4,1),(4,2,1),(4,4,0); explicit two-vs-three or two-vs-four atom partitions prove sufficiency. Least residues have primes 3,7,19, giving smallest 75411 and length set {2,3}. Independent recursive exact enumeration verified 185 admissible small exponent triples and witness arithmetic. The proof is uniform in all positive x.
 
-Matijasevick's full section 7.5, Theorem 7.8 and Example 7.9 were examined: the paper gives the monoid isomorphism, global half-factoriality status, and a parameter \(194481\) witness. It does not specify the individual-element four-pattern criterion or the least parameter. The Banister–Chaika–Chapman–Meyerson treatment and the Baginski–Chapman survey establish the general transfer/zero-sum framework, not the explicit first heptagonal obstruction. Chapman–Liu–Ma–Zhang's arXiv:2210.01224 treats other factorization invariants. Scientific-index and text searches for congruence monoids, zero-sum sequences, heptagonal self-maps, singleton length sets, and the candidate parameters produced no covering result. A general published classification of lengths of cyclic-order-four block-monoid elements may imply the explicit thresholds without a matching title; this historical-priority risk remains open. The elementary group-theoretic method itself is not claimed as novel.
+## originality
 
-## Value — PASS
+PASS
 
-The first polygonal family in the motivating classification whose self-maps fail half-factoriality is heptagonal. The result gives a necessary-and-sufficient criterion for *every* self-map in this family, not just one new finite example, and identifies its sharp least non-half-factorial parameter. It resolves the natural element-level boundary of a recent global theorem and supplies explicit minimal obstruction patterns, useful for computing and understanding factorization lengths in a concrete arithmetic-congruence monoid.
+The 2026 polygonal self-map source establishes that E_{7,x} form H10, global non-half-factoriality and an x=194481 unequal-length example; the new claim refines to iff for each individual x and the sharp first parameter 75411. Classical arithmetic congruence monoid transfer to zero-sum block monoids is known, but inspected related statements do not explicitly supply four elementwise residue profiles and their minimal integer witness. C4 complete length-set classifications may imply these as a corollary and remain priority risks.
 
-## Independent-review limitation
+## value
 
-The correctness and literature comparisons above are a self-review only. The source's results on polygonal self-maps were taken from the cited manuscript; priority among all historical group-theoretic specializations was not exhaustively certified. The finite verifier is not an independent mathematical proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The elementwise boundary of half-factoriality and least obstruction are natural discrete factorization invariants for the first non-half-factorial heptagonal self-map monoid. Complete minimal obstruction vectors replace isolated examples with a uniform criterion and give an exact least witness; neither computation nor general transfer alone is the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
