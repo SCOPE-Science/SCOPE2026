@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Finite verification report
+# Independent mathematical audit
 
-Execute `python3 verify_grid_robust.py` using Python 3.10 or newer. No external packages or input files are needed.
+## correctness
 
-The independent-four-set enumeration finds exactly 61 forbidden quartets; the two complexes contain respectively 1,415 and 2,679 nonempty faces. The checker pairs 697 and 1,329 face incidences by first-available row-major vertex toggling. It constructs all 6,160 and 13,744 codimension-one cover incidences and topologically sorts their fully oriented Hasse diagrams, visiting every node and thus proving acyclicity. Critical-cell dimensions are \(\{0:1,5:20\}\) and \(\{0:1,4:20\}\), respectively. Euler characteristics agree independently.
+PASS
 
-For the identity, row reversal, column reversal and their product, the checker recomputes every fixed face, signed vertex permutation and augmented Lefschetz number. Both top rational homology characters are \((20,0,-4,0)\). A separate square-triple fixed-set routine verifies the corresponding signed permutation module character and its four irreducible multiplicities.
+I independently enumerated all C(12,4)=495 masks; exactly 61 independent quartets. Enumerating every nonempty 12-vertex subset gives 1415 K and 2679 T simplices and the exact f-vectors in RESULT. Rebuilt deterministic row-major vertex-toggle matchings: K 697 pairs, residual critical 1 vertex and 20 5-cells; T 1329 pairs, 1 vertex and 20 4-cells. Independently built entire directed Hasse graphs, respectively 6160 and 13744 cover incidences; topological sorts visited all nodes with no gradient cycles. Forman therefore proves integral wedges, stronger than Betti numbers alone. Signed reduced Lefschetz trace enumeration for 1,R,C,RC yields (20,0,-4,0) on both; the independent 20 square-triples permutation has character (20,0,4,0) and column sign twist gives same rational character. Modules over Q[V4] are determined by characters. Standalone verify_grid_robust.py was inspected and independently reproduced in separate local script; exhaustive finite enumeration is a genuine finite proof here, not sampling or assertion from a log.
 
-The exact recorded output is in `verification_output.txt`. The output alone would not certify the theorem; the complete executable finite enumeration and the accompanying discrete Morse/Lefschetz arguments are the proof. The result is limited to this one finite grid. Independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+IMPORTANT direct prior art: Bayer et al arXiv:2209.13503 Table 2 *already states beta_4(T)=20 for G(3,4)*; its Section 5 uses Morse matchings to obtain Betti data and says homotopy wedge shape is suggested, not fully proved in the inspected material. The claimed novelty is therefore only verified integral wedge homotopy for K and T together and Klein-four character (20,0,-4,0), not tabulated rank or definitions. Filakovsky and Chandrakar cover other grid/threshold ranges; prior 4x4 total3 symmetry results do not imply this statement. A hidden prior computational wedge certificate is the material residual risk.
+
+## value
+
+PASS
+
+The rectangular 3x4 grid with robust parameter four is the smallest non-edge-gluing three-row case explicitly outside broad k<=3 grid theorems, so the object/parameter are motivated before any computation. An exact integer wedge decomposition and a nontrivial Klein-four reflection character from a rigorous finite Morse/Lefschetz certificate are mathematical structure not mechanically implied by the ALREADY KNOWN beta_4(T)=20 table. The table rank itself and the Alexander-dual equality are not claimed new. A finite self-contained case can be useful while the arbitrary-grid conjecture remains open.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
