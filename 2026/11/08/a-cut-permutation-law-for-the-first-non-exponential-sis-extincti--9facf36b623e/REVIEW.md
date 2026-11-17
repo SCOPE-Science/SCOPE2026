@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The renewal identity for the squared coefficient of variation follows from the exact first-two-moment equations. The uniform finite-graph jump bound controls infection detours; the infection-free paths give the stated leading conditional successful-excursion time and the positive cut coefficient. Exact-rational finite-state calculations and complete-graph evaluations corroborate (but do not replace) the analytic proof. The asymptotic domain is fixed finite connected graphs as \(\lambda\to\infty\), not growing networks.
+## correctness
 
-**Originality (PASS, provisional).** Inspected full primary texts on finite-network SIS survival time and on contact-process extinction do not state the cut-permutation correction to normalized extinction-time variance. General exponential metastability and exact mean formulas are already known, and a standard finite-state perturbation expansion may be able to recover the coefficient; the latter is an unresolved priority risk. The new claim is the explicit all-connected-graph coefficient and sharp order, not the general exponential approximation.
+PASS
 
-**Value (PASS).** A quantitative finite-size deviation from exponential extinction-time laws is directly relevant to interpreting rare-outbreak extinction risk. The coefficient distinguishes two four-patch networks with identical leading mean behavior, demonstrating additional graph-topological information unavailable from the leading expected extinction time. It also gives the positive correction for every connected graph rather than an arbitrary single numerical instance.
+Reconstructed regenerative first and second moments for V→(V or empty) excursions. Exact identity 1−CV²=2E(LI)/μ−p E L²/μ²; positive cuts give p=R_G/(nλ^{n−1})+O(λ^{-n}) and E(LI)=C_G/(2nλ^n)+O(λ^{-n−1}). Uniform O(λ^{-1}) excursion moments remove the remaining term at order λ^{-n−1}; n≥2 fixed and all infection/recovery assumptions explicit. Independently computed K2 exact mean (λ+3)/2 and CV²=(λ+1)(λ+5)/(λ+3)² (limit deficit 4), and P4/star exact R=8,C=38 versus 112/3, matching the theorem. Inspected check.py actual generator and rational elimination, not relying on terminal PASS alone.
 
-**Closest sources.** Van de Bovenkamp and Van Mieghem (2015), DOI https://doi.org/10.1103/PhysRevE.92.032806; Schapira and Valesin (2015), https://arxiv.org/abs/1509.04133. Both were inspected in accessible full text. Residual risk: related Markov rare-event and reliability asymptotics beyond this primary corpus.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty is the fixed-finite-graph first nonexponential squared-coefficient-of-variation correction C_G, not the previously published leading mean term R_G or the usual exponential limit. Searched Resultary and read relevant earlier full mathematical statements, including the all-tree mean theorem. No inspected prior theorem yields C_G or the P4/star fluctuation separation.
+
+## value
+
+PASS
+
+Exact strictly positive first nonexponential normalized-variance correction resolves a natural stochastic metastability observable. P4 and K1,3 have identical leading extinction mean yet distinct first shape deviations, so the cut-permutation invariant distinguishes survival-time fluctuations hidden by previous tree-product means.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
