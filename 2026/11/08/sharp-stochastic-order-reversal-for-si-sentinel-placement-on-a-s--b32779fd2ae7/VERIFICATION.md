@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_star.py` in a directory containing this file and the script. Only the Python standard library is required. An actual execution produced:
+## correctness
 
-`PASS exact-state and survival checks: 6048`
+PASS
 
-The script independently enumerates infected-state masks and uses exact rational first-step recursions for the Laplace transform of first detection, for all tested \(1\le m\le7\), every \(1\le k\le m\), three positive rational values of \(\alpha\), four selections of \(\beta\) (one designed to hit the exact equality threshold), and three positive rational transform arguments. It tests both hub-monitoring and leaf-only layouts and their signed transform difference. Numerical survival checks at three positive times supplement, but do not replace, exact arithmetic.
+For uniform initial infected seed on the directed-rate star and k perfect monitors, leaf symmetry leaves exactly layouts H (hub monitored, k−1 leaves) or L (k leaves, hub unmonitored). H has atom k/(m+1) at 0 and Exp(α) with weight (m−k+1)/(m+1). L has same atom and Exp(kβ) with weight 1/(m+1), or independent Exp(α)+Exp(kβ) with weight (m−k)/(m+1). Survival difference equals [(m−k+1)α−kβ]/(m+1) times strictly positive convolution ∫_0^t e^{−αu}e^{−kβ(t−u)}du for every t>0, including equal-rate limit. This gives exact stochastic ordering, full-law ties at kβ=(m−k+1)α, and budget boundary k_c=(m+1)α/(α+β). Direct independent symbolic calculation confirms Laplace difference s[kβ−(m−k+1)α]/[(m+1)(s+α)(s+kβ)] under the correct sign convention. The proof covers all m≥1,1≤k≤m,α,β>0; finite CTMC checks only corroborate.
 
-The all-parameter proof is analytical: conditioning on the initial seed gives the three mixture components, and a positive exponential convolution fixes the sign of the survival difference for every positive time. Finite tests do not prove the theorem for untested sizes or rates. Source comparison and historical priority are not mechanically certified.
+## originality
+
+PASS
+
+The exact two-class all-time stochastic-order phase diagram for continuous-time directed SI on a star, including equality of entire detection-time laws at the sharp budget, is not stated in the primary surveillance works inspected. Leskovec et al give general expected-detection reward and submodular placement, Ciccolini et al optimize expected detection on hospital movement networks by heuristics, and Colman et al simulate SIR sentinel strategies. Related SCOPE cycle and path sentinel results use different topology and/or objective. The result is a best-of-knowledge original exact solvable boundary.
+
+## value
+
+PASS
+
+The highest-degree star hub need not be stochastically optimal for monitoring when many vertices can be observed. The precise budget-driven rank reversal and whole-law tie form a meaningful, fully classified stochastic-order result, strengthening mean-only design criteria for a natural exactly solvable epidemic-network benchmark. It does not purport to recommend clinical allocations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T21:05:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For uniform initial infected seed on the directed-rate star and k perfect monitors, leaf symmetry leaves exactly layouts H (hub monitored, k−1 leaves) or L (k leaves, hub unmonitored). H has atom k/(m+1) at 0 and Exp(α) with weight (m−k+1)/(m+1). L has same atom and Exp(kβ) with weight 1/(m+1), or independent Exp(α)+Exp(kβ) with weight (m−k)/(m+1). Survival difference equals [(m−k+1)α−kβ]/(m+1) times strictly positive convolution ∫_0^t e^{−αu}e^{−kβ(t−u)}du for every t>0, including equal-rate limit. This gives exact stochastic ordering, full-law ties at kβ=(m−k+1)α, and budget boundary k_c=(m+1)α/(α+β). Direct independent symbolic calculation confirms Laplace difference s[kβ−(m−k+1)α]/[(m+1)(s+α)(s+kβ)] under the correct sign convention. The proof covers all m≥1,1≤k≤m,α,β>0; finite CTMC checks only corroborate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary cycle-based uniform first-detection rank theorem requires cyclic topology; PNAS model uses empirical hospital networks, while PLOS uses SIR simulation and infected-before-detection measures."
+        ],
+        "reasoning": "Broader network analyses do not provide an exact all-parameter dominance statement from which the star result follows as a corollary, at least in material actually read.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-uniform-first-detection-ranks-and-stochastic-optimal-sentinels-o--bb072e8b5145",
+          "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007517",
+          "https://www.pnas.org/doi/10.1073/pnas.1308062111"
+        ]
+      },
+      "checked_sources": [
+        "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007517",
+        "https://www.pnas.org/doi/10.1073/pnas.1308062111",
+        "https://www-cs.stanford.edu/~jure/pubs/detect-techRept.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-uniform-first-detection-ranks-and-stochastic-optimal-sentinels-o--bb072e8b5145"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Submodular expected reward of generic sensor placement does not fix full detection-time law, the sign of every tail, or equality of distributions. The derived exact convolution factor establishes all three."
+        ],
+        "reasoning": "The submitted comparison cannot be obtained merely by substituting m and k into the inspected general expected-performance claims; no decisive stronger coverage found.",
+        "searches": [
+          "https://www-cs.stanford.edu/~jure/pubs/detect-techRept.pdf",
+          "https://www.pnas.org/doi/10.1073/pnas.1308062111",
+          "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007517"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary epidemic-surveillance studies concern general network submodularity, heuristics and simulations; no inspected exact directed star pair of detection-time mixtures or full stochastic tie."
+        ],
+        "reasoning": "The concept of sentinels is prior but the complete analytical stochastic-order comparison and oriented-rate threshold are distinct.",
+        "searches": [
+          "Resultary semantic: SI epidemic exact star graph uniform source first infection detection hub leaf multiple sentinels stochastic ordering",
+          "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007517",
+          "https://www.pnas.org/doi/10.1073/pnas.1308062111",
+          "https://www-cs.stanford.edu/~jure/pubs/detect-techRept.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No identified known table with sharp k_c=(m+1)α/(α+β), the full-law equality, or every-t survival difference for the directed star."
+        ],
+        "reasoning": "This classification is not a database lookup; it is an analytically motivated exact finite-topology model, albeit elementary.",
+        "searches": [
+          "Resultary semantic: SI epidemic exact star graph uniform source first infection detection hub leaf multiple sentinels stochastic ordering",
+          "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007517",
+          "https://www.pnas.org/doi/10.1073/pnas.1308062111"
+        ]
+      },
+      "rationale": "The exact two-class all-time stochastic-order phase diagram for continuous-time directed SI on a star, including equality of entire detection-time laws at the sharp budget, is not stated in the primary surveillance works inspected. Leskovec et al give general expected-detection reward and submodular placement, Ciccolini et al optimize expected detection on hospital movement networks by heuristics, and Colman et al simulate SIR sentinel strategies. Related SCOPE cycle and path sentinel results use different topology and/or objective. The result is a best-of-knowledge original exact solvable boundary.",
+      "residual_risks": [
+        "Finite star is a deliberately narrow model; an unindexed textbook star example or full online supplement could cover the same law. Statistical/clinical applicability is not implied by a stylized SI calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic expected sensor benefit and greedy approximation; no exact SI star all-time stochastic-order theorem identified",
+          "evidence": [
+            "Expected detection rewards, sensor selection and submodular approximation framework"
+          ],
+          "identifier_or_url": "https://www-cs.stanford.edu/~jure/pubs/detect-techRept.pdf",
+          "material_read": "PDF title/abstract, methods on outbreak detection and objective/submodularity (selected passages); first page visually inspected; not every appendix read",
+          "method": "Primary PDF selected sections and first-page screenshot",
+          "title": "Cost-effective Outbreak Detection in Networks",
+          "trigger": "Foundational sensor monitoring theorem with potentially broader placement results"
+        },
+        {
+          "assessment": "Uses directed hospital movements and heuristic priority lists, minimizing expected detection; does not give sharp oriented-star full-law comparison",
+          "evidence": [
+            "Methods: hospital-based SI with patient transfers and heuristic site priority list; numerical hospital networks"
+          ],
+          "identifier_or_url": "https://www.pnas.org/doi/10.1073/pnas.1308062111",
+          "material_read": "Complete accessible HTML main article, model/optimization methods and Results/discussion passages, no supplemental full appendix claim",
+          "method": "Direct primary HTML model, methods, results reading",
+          "title": "Efficient surveillance for healthcare-associated infections spreading between hospitals",
+          "trigger": "Directed SI propagation and hospital sentinel placement, potentially same objective"
+        },
+        {
+          "assessment": "Studies SIR simulation and percentage infected before/after detection, not continuous-time SI first-detection stochastic dominance on a star",
+          "evidence": [
+            "Methods use SIR rather than SI and compare spatial/modular/global simulations"
+          ],
+          "identifier_or_url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007517",
+          "material_read": "Complete accessible HTML main article, SIR model Methods/Results and sentinel strategy comparisons",
+          "method": "Direct primary HTML methods and results",
+          "title": "Efficient sentinel surveillance strategies for preventing epidemics on networks",
+          "trigger": "Degree versus distributed sentinel placement on networks"
+        },
+        {
+          "assessment": "Cycle geometry and spacing gap law differ from star directed two-rate case",
+          "evidence": [
+            "Cycle gap uniform rank and equal-spaced sentinels"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-uniform-first-detection-ranks-and-stochastic-optimal-sentinels-o--bb072e8b5145",
+          "material_read": "Resultary semantic summary and structural comparison, not full theorem proof",
+          "method": "Semantic source discovery",
+          "title": "Uniform first-detection ranks and stochastic-optimal sentinels on a cycle",
+          "trigger": "Nearby stochastic dominance under SI for another topology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The highest-degree star hub need not be stochastically optimal for monitoring when many vertices can be observed. The precise budget-driven rank reversal and whole-law tie form a meaningful, fully classified stochastic-order result, strengthening mean-only design criteria for a natural exactly solvable epidemic-network benchmark. It does not purport to recommend clinical allocations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1007517",
+    "https://www.pnas.org/doi/10.1073/pnas.1308062111",
+    "https://www-cs.stanford.edu/~jure/pubs/detect-techRept.pdf",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-uniform-first-detection-ranks-and-stochastic-optimal-sentinels-o--bb072e8b5145"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform single initial infection, continuous exponential oriented transmissions, permanent SI, perfect continuous monitors, star topology only.",
+    "No claim about SIR or SIS, patient health outcomes, detection effectiveness, real epidemiology or optimal policies on general graphs."
+  ],
+  "residual_risks": [
+    "Finite star is a deliberately narrow model; an unindexed textbook star example or full online supplement could cover the same law. Statistical/clinical applicability is not implied by a stylized SI calculation."
+  ],
+  "schema_version": 1
+}
