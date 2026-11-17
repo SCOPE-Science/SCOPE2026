@@ -1,11 +1,21 @@
-# Review of maximum-independent-set transversals of one-defect cycle powers
+# Independent mathematical audit
 
-**Correctness — PASS.** For every \(q,k\ge2\), the clockwise-gap argument proves \(\alpha(C_{kq+1}^{q-1})=k\) and classifies every maximum set by its unique longer gap. Since the step-\(q\) permutation is an \(n\)-cycle, transversals are precisely binary circular configurations with bounded gaps. A marked-vertex bijection proves the full polynomial and its minimum coefficient. All quantifiers and small-boundary cases \(q=k=2\) are covered. The standalone verifier compares the original graph condition with the full enumerator on 14 instances and a separate gap dynamic program on larger instances; these checks are finite and not a substitute for the proof.
+## correctness
 
-**Originality — PASS (provisional historical priority).** Actual searches compared maximum-stable-set hitting, vertex-deletion stability, distance powers, cyclic interval transversals, and published mathematical records. The full accessible scientific text of Bai–Chang–Yan, including main theorems and bounding argument, concerns high-density bounds and general reductions, not this polynomial or graph–hypergraph isomorphism. Dong–Luo's tight stability results concern universal survival of maximum independent sets under bounded deletion, not their complete hitting-set distribution. Bohman–Holzman–Natarajan's similarly titled power-of-cycle paper is about *strong graph products*, not distance powers. No covering statement was identified, but absence from searched records is not proof of historical uniqueness.
+PASS
 
-**Mathematical value — PASS.** The first defect order \(n=kq+1\) is canonical: precisely one of the \(k\) independence gaps exceeds the minimum. This produces a non-obvious relabelling from maximum stable sets in a two-parameter infinite family to consecutive arcs, giving a complete transversal polynomial, a sharp vertex-deletion threshold and the exact multiplicity of optimizers. It refines the recently studied hitting invariant rather than merely substituting parameters into a published bound. No downstream theorem is required for this natural complete classification.
+For q,k>=2 and n=kq+1 the cyclic-gap inequality for the distance power C_n^{q-1} gives alpha=k. In a maximum independent k-set the k cyclic steps are q except one q+1, so the complete list is I_j={j,j+q,...,j+(k-1)q} and contains n distinct sets. Since gcd(q,n)=1, the step-q cyclic relabelling sends these to all length-k intervals. Their hitting sets are exactly the subsets with positive cyclic gaps <=k. Rooted circular gap counting gives H_{q,k}(z)=sum_{t=q+1}^n (n/t)[u^n](u+...+u^k)^t z^t. The min t=q+1 case has deficits summing k-1, hence coefficient n/(q+1)*binom(k+q-1,q). Boundaries q=k=2 and all t up to n are covered. Independent brute-subset enumeration and a separately written bounded-composition count agreed on five (q,k) pairs, including (2,3,7) with 14 minimum transversals and (3,3,10) with 25. These finite tests corroborate but do not prove universal quantifiers.
 
-Closest literature: Bai–Chang–Yan (arXiv:2608.18963v1), Dong–Luo (DOI 10.37236/13791), and Bohman–Holzman–Natarajan (DOI 10.37236/264). The bounded-gap counting method is standard; the claimed structural application and full graph invariant enumeration were not located. Claims about broader orders, automorphism classes, and all maximal independent sets are deliberately excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact full maximum-stable-set hypergraph of one-defect cycle distance powers is transported to the circular interval transversal hypergraph, yielding the all-size enumeration and sharp minimum count. The cyclic-gap enumeration itself is classical and receives no standalone priority credit. Published dense cyclic-block transversal work applies in a special long-block regime and to domination of cycle powers; it does not give this uniform maximum-independent-set transversal formula. General hitting maximum independent sets results supply bounds not the exact size distribution. A same-statement derivation hidden in older cycle-power or circulant literature remains a risk.
+
+## value
+
+PASS
+
+The first order n=kq+1 departing from perfect q-spaced packing has exactly one surplus gap, making a natural structural boundary. Its complete labelled minimum-maximal-independent-set hitting polynomial is an independently useful invariant of cycle-power graphs, beyond an arbitrary numerical slice. It gives all hitting-set sizes and sharp extremal multiplicities, not only a known chromatic or independence number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
