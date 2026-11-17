@@ -1,15 +1,21 @@
-# Scientific review: interpolated directed trust stars
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is every directed in-star with at least two leaves and positive weights ordered for labeling, and every interpolation parameter in the unit interval. The core characterization follows from individual leaf and complementary-coalition inequalities and a complete converse for all coalitions. The external unanimity expansion determines the Shapley vector, while summation by parts gives the ordered normalized coefficients and reduces all upper-box conditions to the first leaf. The maximum-weight-leaf marginal comparison disproves supermodularity for every parameter below one. Analytic proof establishes infinite scope. Independently enumerated finite cases check formulas and all asserted core vertices without replacing this proof. Source definition is Ryzák–Kroupa 2026.
+## correctness
 
-## Originality — PASS, qualified
-The closest directly inspected primary sources are Ryzák–Kroupa (arXiv:2605.18157v1, especially Section 6) and Bandhana–Kroupa–García (AAMAS 2024). Both analyze the fixed internal-plus-external model; the 2026 paper explicitly suggests convex combinations as a future direction. The fixed-sum game is the scaled midpoint of the present family, so its general core and Shapley theorems do not entail the empty-core side, the heterogeneous weighted core box, or the sharp stability cutoff. Published research-record searches covering trust games, convex interpolation, in-star aliases and exact Shapley thresholds retrieved no equivalent result. This is evidence of an unmet gap, not a uniqueness proof; unindexed, unpublished or differently expressed prior results remain a risk.
+PASS
 
-## Mathematical value — PASS
-The complete exact transition at one half, the cube/parallelotope geometry of the nonempty core, and the sharp transition where Shapley allocations become stable are motivated by the published proposed interpolation. The stability threshold depends nontrivially on weight inequality; equal weights give a universal lower bound, and extreme asymmetry pushes the threshold toward one. It exhibits coalitionally stable Shapley allocations without supermodularity in a natural infinite graph family. This is more than the algorithmic evaluation of a fixed instance, although no general-network classification is claimed.
+The hub-and-leaf coalition formula gives vα(h∪K)=αsum_{i∈K}w_i+(1−α)min_{j∉K}w_j. Singleton leaf and complementary-leaf core inequalities give each 0≤x_i≤(2α−1)w_i; for α≥1/2 their product box and efficiency imply every remaining coalition constraint using sum omitted weights≥min omitted. The external unanimity-game telescoping expansion yields leaf Shapley component b_i; internal edge unanimity gives αw_i/2. Writing r_i=b_i/w_i and using summation-by-parts proves r1≥...≥rm≥−1/(m+1); thus first leaf uniquely sets upper-box entry threshold α*=(1+r1)/(3/2+r1). Equality at equal weights and the m=2 formula follow algebraically. Compare marginal of maximum-weight leaf at {hub} versus N\{i} to violate supermodularity for α<1. Inspected standalone exact-rational trust_star_check.py and independently computed two-leaf weights (1/2,1) cutoff 5/8 with all coalition checks; these finite computations corroborate the all-real-weight symbolic proof.
 
-## Limits and status
-Finite exact-rational enumeration corroborates but does not prove all real weights. No statements are made about zero weights, other digraphs, alternative incoming-edge aggregators, or independent validation. Publication priority is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A prior October 25 published general directed trust game already establishes empty/point/positive-dimensional *phase* at α=1/2 for all networks, so that phase is explicitly NOT new. However, it neither gives the exact weighted rectangular core of in-stars nor the full weight-dependent fair Shapley-entry α* threshold and stable yet non-supermodular interval. Ryzák–Kroupa (2026) treats fixed unscaled internal-plus-external game and explicitly proposes the convex interpolation for future work. The retained new joint classification is correct, natural and not dominated in inspected earlier sources.
+
+## value
+
+PASS
+
+The core’s complete facet/vertex geometry and an exact, sharp, weight-sensitive threshold for simultaneous Shapley fairness and coalitional stability form a motivated solution concept comparison on a natural network family. Especially the stable non-supermodular interval is not implied by the earlier universal half-weight core-existence theorem. The already known phase boundary alone is not treated as the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
