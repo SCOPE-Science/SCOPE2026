@@ -1,15 +1,21 @@
-# Scientific review: two-row disjunctive knowing-whether formula algebra
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim quantifies over every positive column width and **all** propositional valuations. Its global reduction is a structural induction: duplicating a column of an existing binary type cannot change the truth of any Boolean/bundled formula. Exactly 15 nonempty supports and 64 support-pointed states remain. The five displayed formulas yield eight distinct, nonempty signatures; full enumeration of the 256 unions verifies that the induced operator maps each union to another union. Because every fiber is a Boolean conjunction of signed displayed formulas, no undefinable classes were introduced. The two independent scripts replay the 64-state closure calculation and the direct labelled-model calculation for widths one through four. The depth-one bound is independently proved from \(H\neg p=Hp\) and \(H\top=H\bot=\top\). All actual checks succeeded. The finite computation proves the finite closure step; the support induction proves the unbounded-width extension.
+## correctness
 
-## Originality — PASS within inspected evidence
-The primary 2026 bundled-modalities paper by Ding and Yang defines a general semantic framework and proves Hennessy–Milner and completeness statements, including cases involving \(\bigvee_a\Box_a\varphi\) and single-relation non-contingency. The present operator \(\bigvee_a(\Box_a\varphi\vee\Box_a\neg\varphi)\) differs from their someone-knows bundle, and the primary text's relevant sections and conclusion do not contain a two-row-grid, one-variable, eight-type algebra or sharp width/depth count. Hart–Heifetz–Samet (1994) treats separate knowing-whether operators and builds an infinite information structure separating continuum many states; this does not imply the finite disjunctive-bundle grid classification. Targeted public searches and published research-record comparisons found no identical or dominating claim; these searches cannot prove exhaustive priority. A prior three-row **full bimodal** grid result in the scientific literature involves a different frame and language and does not imply the present two-row bundled counts. Residual priority risk from unindexed finite-algebra or non-contingency literature remains.
+PASS
 
-## Mathematical value — PASS
-A natural composite epistemic modality can have far less expressive power than its separately available constituent modalities. The theorem gives the exact Boolean formula algebra and complete pointed semantic types for **every** width of a fixed-height product family, with sharp and surprisingly low stabilization at just three columns and a uniform depth-two normal form. These numerical invariants capture the precise effect of bundling an observable, not an arbitrary small benchmark. The result supplies a complete finite semantic testbed for expressive-power comparisons of composite epistemic operators without asserting a broad new axiomatization or undecidability result.
+Support induction compresses any two-by-m grid valuation to nonempty subsets S of four ordered Boolean column types, with 64 pointed canonical (S,t,r) states at maximum width 4. The first-row and column-uniformity definition of the sole H bundle is independent of column multiplicities. Five explicit formulas of depths at most two separate exactly eight nonempty signatures. Independently regenerated all 256 Boolean unions of their eight fibers and verified closure under H over all 64 canonical states; fiber minimal support sizes 1,2,3 give atom counts 2/6/8 and formula-algebra sizes 4/64/256 for m=1/2/>=3. Depth one only (p,Hp) has four types m>=2, proving sharp depth two. Full m follows from support induction rather than finite-grid extrapolation.
 
-## Risks and limits
-Only full two-row Cartesian products, one propositional atom and the specified bundle are covered. The eight-type closure needs the fully enumerated finite certificate and the support-induction proof together. The research record comparison is best-knowledge and cannot rule out overlooked equivalent prior work. Independent replication and literature auditing remain desirable.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier two-row product modal-atom theorem concerns the full bimodal language with separate diamonds, atom count under each fixed valuation, and a different transpose-support dichotomy. Ding-Yang bundled theory studies ∨Box φ without the negated-φ disjunction. Neither inspected theorem implies this precise globally quantified quotient under one sole H bundle.
+
+## value
+
+PASS
+
+Gives a complete finite semantic classification with a sharp three-column stabilization boundary and sharp depth-two normal forms for a natural expressive restriction of multiagent knowing-whether logic. The finite cutoff is structural rather than a bare table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

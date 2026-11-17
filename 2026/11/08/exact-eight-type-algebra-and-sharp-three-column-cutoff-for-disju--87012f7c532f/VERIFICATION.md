@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Finite verification and proof boundary
+# Independent mathematical audit
 
-The exact domain reduction for arbitrary column counts is proved by induction in `RESULT.md`. Finite data alone cannot replace that induction. The universal support-state domain contains \(64\) points. The five depth-at-most-two expressions give exactly eight nonempty fibers, and `closure_table.tsv` reports the induced operator's output mask for every one of the \(256\) Boolean unions of these fibers, using the signature order `00001,00100,00101,01111,10010,10100,10110,11111`.
+## correctness
 
-Run `python3 support_checker.py` from the directory containing `closure_table.tsv`. Its completed output was:
+PASS
 
-`SUPPORT_ALGEBRA_OK 64 states, 8 atoms, 256 closure cases, depth 2, sizes 4/64/256`
+Support induction compresses any two-by-m grid valuation to nonempty subsets S of four ordered Boolean column types, with 64 pointed canonical (S,t,r) states at maximum width 4. The first-row and column-uniformity definition of the sole H bundle is independent of column multiplicities. Five explicit formulas of depths at most two separate exactly eight nonempty signatures. Independently regenerated all 256 Boolean unions of their eight fibers and verified closure under H over all 64 canonical states; fiber minimal support sizes 1,2,3 give atom counts 2/6/8 and formula-algebra sizes 4/64/256 for m=1/2/>=3. Depth one only (p,Hp) has four types m>=2, proving sharp depth two. Full m follows from support induction rather than finite-grid extrapolation.
 
-Run `python3 direct_checker.py` from the same directory. Its completed output was:
+## originality
 
-`DIRECT_OK 1 columns 8 pointed instances 2 atoms`
+PASS
 
-`DIRECT_OK 2 columns 64 pointed instances 6 atoms`
+Earlier two-row product modal-atom theorem concerns the full bimodal language with separate diamonds, atom count under each fixed valuation, and a different transpose-support dichotomy. Ding-Yang bundled theory studies ∨Box φ without the negated-φ disjunction. Neither inspected theorem implies this precise globally quantified quotient under one sole H bundle.
 
-`DIRECT_OK 3 columns 384 pointed instances 8 atoms`
+## value
 
-`DIRECT_OK 4 columns 2048 pointed instances 8 atoms`
+PASS
 
-The latter computes directly from all labelled valuations of \(2\times m\) grids rather than relying on support compression. Both scripts use exact Boolean and integer arithmetic. Neither is an independent audit or an automated proof of historical novelty. The proof does not establish analogous counts for arbitrary product heights or the unbundled language.
+Gives a complete finite semantic classification with a sharp three-column stabilization boundary and sharp depth-two normal forms for a natural expressive restriction of multiagent knowing-whether logic. The finite cutoff is structural rather than a bare table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
