@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Compile `scan2.cpp` using `g++ -O3 -std=c++17 scan2.cpp -o scan2`; run `./scan2 > /tmp/hist.csv`; the result must be byte-identical to the included `hist2.csv` after normalizing only the output path. All \(2^{24}=16777216\) spin assignments are counted by Gray-code updates of their plus population, disagreeing internal bonds and disagreeing external bonds. The 539 output rows together sum to \(16777216\).
+## correctness
 
-Separately run `python3 verify_degeneracies.py`, which must print `VERIFIED EXACT DEGENERACIES`. This script counts \(2^{12}\) cube-edge orientations and recursively enumerates local sets of one, two, or zero chosen ports under the opposite-edge exclusion condition. It does not import or read the C++ histogram or any external data.
+PASS
 
-The two methods agree on the five total ground degeneracies and all coexistence magnetization counts. Evaluating the exact energy formula on histogram bins at strictly positive \((J,K)=(1,1),(1,3),(3,1),(1,7)\), at the two critical fields and within the open regions, reproduces the same values. The general phase-boundary theorem is previously known; the independent complete enumeration supports the particular truncated-cube count theorem. No infinite-system or quantum-physics assertion is verified.
+At every J,K>0 the quoted three-branch ground-energy envelope and equality conditions follow from the explicit antiferromagnetic triangle/external-link lower bounds in the prior general theorem. The 24-site Q3 truncation has 8 triangles and 12 links, so the degree-of-freedom normalization is exact. Independently re-counted all 2^12 cube orientations with no source/sink (450), one-port choices (828), six-port proper minus subsets at h=K (450,2520,4572,3312,828) and independent port assignments at h=K+2J (828,4272,8056,7632,4092,1296,240,24,1). Counts respectively sum to 11682 and 26441. Negative h by global spin inversion; at h=0 magnetization is zero. Complete graph-specific cases are finite exhaustions, and the general energy theorem supplies the globally optimal equality manifolds.
+
+## originality
+
+PASS
+
+The previously published universal triangle-expanded cubic theorem proves the energy envelope and structural equality manifolds, not the exact truncated-cube Q3 ground-state population and sector distributions. The physically identifiable 24-site object and nontrivial critical degeneracies are a distinctive natural exact invariant, conditional on unlocated earlier tables.
+
+## value
+
+PASS
+
+The truncated cube is a natural, physically documented eight-trimer 24-site cluster. Exact labelled zero-temperature ground-state entropy and sector-resolved coexistence counts at both field crossings are meaningful finite-cluster observables, not an arbitrary parameter slice. The large degeneracy spikes 11682 and 26441 are not mechanically supplied as numbers by a general energy envelope. No paper-sized/bulk claim is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
