@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify_coupon.py` with Python 3 and no third-party packages. Its exact dynamic program independently conditions on the next sampled type, includes all self-loops when the type's multiplicity exceeds the tracked level, and computes both terminal exact-frequency count and its mixed stopped-draw moment. It agrees with the exponential-moment formula for all \(2\le n\le8\) and \(1\le r\le6\), checks strictly increasing moment ratios for \(2\le n\le32\) and \(1\le r\le12\), and checks the \(n=2,r=2\) equality boundary.
+# Independent mathematical audit
 
-Expected output: `PASS: 457 exact assertions; independent truncated-count state recursion versus Poissonized moments`.
+## correctness
 
-The checker corroborates finitely many instances only. The arbitrary-size exact formula is proved by independent Poisson processes and a beta-transform density, and the asymptotic location of the sign transition is established analytically by exponential-moment bounds and uniform integrability. No numerical result is used as an infinite proof, and no external or independent audit was performed.
+PASS
+
+Rate-one per-type Poissonization gives E[tau|labels]=T/n and E tau=H_n, so Cov(T,C)=n Cov(tau,C). Marking the final type and tilting the max of n-1 exponential first-arrival times by exp(-t) identifies the auxiliary Beta(2,n-1) law and sum of rates 2..n. The exact mixed-moment identity follows. Strict moment log-convexity makes R_r=mu_(r+1)/mu_r strictly increasing, R_1<H_n and R_r->infinity, giving a single sign transition. The centered variable Y-log n has limiting gamma-log MGF Gamma(2-t) for t<2; uniform exponential moments justify r/log n->alpha<2 tilt and threshold alpha=1. Independent exact moment arithmetic showed sign sequences n=2,3,5 including zero at (2,2).
+
+## originality
+
+PASS
+
+An earlier exact all-r completion-time/multiplicity transform (October 12) already implies the submitted finite mixed covariance identity by differentiation; the r=1 singleton relationship is historically known. Those are credited as implication-level coverage. The surviving claim is a structural strict one-transition theorem for the whole r spectrum and its moving threshold r~log n, not stated or directly evaluated in the inspected transform. The moment-ratio and tilted-gamma arguments add substantive nontrivial analysis.
+
+## value
+
+PASS
+
+The dependence sign between completion time and terminal exact multiplicities distinguishes rare/common occurrence classes and identifies the canonical logarithmic crossover scale. This meaningful full-profile result survives prior exact transforms and has natural stopped-occupancy applications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
