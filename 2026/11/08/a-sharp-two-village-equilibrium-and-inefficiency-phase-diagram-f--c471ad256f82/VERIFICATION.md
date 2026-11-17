@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The analytic proof separately checks (1) same-position clients cannot split between distinct facilities; (2) the crossed configuration always admits a strict improvement; (3) pooling and segregation conditions including equality boundaries; (4) minimum social cost across all allocations; and (5) the exact maximum welfare ratio across positive separation and opening-cost parameters. The proof applies to all integers \(m\ge1\) and all real \(C,d>0\).
+# Independent mathematical audit
 
-The accompanying `verify.py`, running solely on Python's standard library with `fractions.Fraction`, enumerates all labeled strategy assignments for \(1\le m\le5\), at two building-cost values and boundary-sensitive distances. It independently computes every direct unilateral deviation, actual welfare, the minimum over all assignments, and worst equilibrium inefficiency. It reports 24,536 assignments and checks sharp fixed-size formulas through \(m=7\). It does not enumerate all parameter choices or prove statements beyond its tested range; these are covered by the mathematical proof.
+## correctness
 
-Command: `python3 verify.py`.
+PASS
 
-No independent external audit has been performed.
+Reconstructed strict Nash deviation comparisons. Adding inequalities for two same-village clients assigned to different sites yields C/k+C/l<=C/(k+1)+C/(l+1), impossible. The only equilibrium profiles are the two poolings (r<=1-1/(2m)) and home segregation (r>=1/[m(m+1)]); crossing fails strict comparison. Welfare OPT=min(C+md,2C), giving exact attained worst-PNE envelope 4/3 (m=1), 3/2 (m=2), (2m+1)/4 (m>=3). Independently enumerated 33 rational (m,d,C) regimes with all labeled profiles for m<=5; these checks support but do not prove arbitrary m.
+
+## originality
+
+PASS
+
+PASS: Ma et al. study the same equal-share facility-assignment game and provide a potential-derived PNE and a distinct-location noncrossing lemma, but do not classify all pure equilibria for colocated populations nor their sharp worst-equilibrium price of anarchy. General PoA/PoS facility literature does not imply the two threshold faces. The special symmetric subclass is original to current best of knowledge, not a priority certificate.
+
+## value
+
+PASS
+
+PASS: The sharp coexistence interval and attained worst-PNE PoA growing linearly with population size isolate a natural inefficiency boundary in a standard fixed-facility game. This all-PNE result is different from a guarantee for one computed equilibrium.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
