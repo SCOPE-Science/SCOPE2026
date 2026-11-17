@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T02:51:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every nonhub-positive-indegree orientation on a petal is exactly +^a-^(ell-a), with ell-1 outward and two cyclic directions. At least one cyclic petal is necessary to feed the hub. Hub and internal predecessors are forced: outward contribution ell-3, cyclic ell-2, and one extra terminal cyclic predecessor dominates hub; score b+c, b=2+sum(ell_i-3), c>=1 cyclic petals. Product of (ell_i-1+2z) minus all-outward yields A(z). For each noncyclic petal there are two endpoint-orientation unique choices and ell-3 interior orientations with two choices; weighted factor 2(ell_i-2). Cyclic factor2z times c choices to dominate hub, giving T=z^b z d/dz product(2(ell_i-2)+2z). Direct independently written orientation/subset brute-force matches both polynomials on several multi-petal graphs; infinite proof is the local decomposition.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier theorem already gives lower/upper spectra for all r>=2, all unequal lengths and no-gap property.",
+          "Earlier proof explicitly analyzes two predecessor choices for inner sinks and cyclic hub predecessor."
+        ],
+        "reasoning": "Prior full proof supplies a stronger basis than just the polynomial statement: the new minimum-set enumeration follows by attaching the already-described number of local choices.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-orientable-total-domination-spectrum-of-cycle-bouquets--cb8aee37824a/RESULT.md",
+          "Resultary semantic query: orientable directed total domination cycle bouquet friendship graph orientation score polynomial minimum sets"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: orientable directed total domination cycle bouquet friendship graph orientation score polynomial minimum sets",
+        "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-orientable-total-domination-spectrum-of-cycle-bouquets--cb8aee37824a/RESULT.md",
+        "arXiv:2311.16307",
+        "arXiv:2411.04560"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original prior proof states outward path sink predecessor choice: one if branch length1, two if both branches >=2; cyclic petals have one terminal hub predecessor, choose one among c.",
+          "Multiplying local weights 2(ell_i-2)+2z and marking c by z d/dz gives T_B directly."
+        ],
+        "reasoning": "The full submitted finding follows from the prior theorem and its detailed proof by a one-line generating-function specialization, so the derivative extension does not rescue novelty or independent value.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-orientable-total-domination-spectrum-of-cycle-bouquets--cb8aee37824a/RESULT.md",
+          "Resultary semantic query: orientable directed total domination cycle bouquet friendship graph orientation score polynomial minimum sets"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oct13 publication defines the exact same graph wedge of cycles, valid indegree at each vertex, directed total domination and labelled-edge orientation counting.",
+          "Its Z_B(z)=z^(sum(ell_i-3)+2)(prod(ell_i-1+2z)-prod(ell_i-1)) is exactly submitted A_B(z)."
+        ],
+        "reasoning": "Only notation b vs beta differs. The prior A_B theorem is mathematically identical in all quantifiers.",
+        "searches": [
+          "Resultary semantic query: orientable directed total domination cycle bouquet friendship graph orientation score polynomial minimum sets",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-orientable-total-domination-spectrum-of-cycle-bouquets--cb8aee37824a/RESULT.md",
+          "arXiv:2311.16307"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact A_B polynomial and orientation count already appear in published full Resultary 2026/10/13.",
+          "New derivative pair count uses 2(ell-2) outward weighted choices and 2z cyclic terms with z d/dz."
+        ],
+        "reasoning": "No independent table remains once previously proved choice classification is taken into account; derivative is routine bookkeeping rather than unknown data.",
+        "searches": [
+          "Resultary semantic query: orientable directed total domination cycle bouquet friendship graph orientation score polynomial minimum sets",
+          "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-orientable-total-domination-spectrum-of-cycle-bouquets--cb8aee37824a/RESULT.md"
+        ]
+      },
+      "rationale": "FAIL for the package as a single claimed distinct contribution: Oct13 2026 published same-cycle-bouquet orientable total-domination spectrum contains identical A_B(z), all min/max values, orientation count and full petal proof. Crucially its proof already distinguishes outward petal path lengths, forced predecessor sets, two alternative sink predecessors and the c cyclic hub predecessors. The new claimed derivative T is a direct routine weighting of those explicitly classified local choices, not a new structural classification. No independent non-covered main claim survives the original combined finding.",
+      "residual_risks": [
+        "The derivative polynomial is a mathematically valid explicit formula, but its scientific novelty depends on disregarding the already published constructive local proof; this audit does not."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers score polynomial and supplies local minimum-set choice decomposition implying later derivative",
+          "evidence": "Earlier precise A(z), b+c, all spectra, and outward sink two-choice statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-orientable-total-domination-spectrum-of-cycle-bouquets--cb8aee37824a/RESULT.md",
+          "material_read": "Complete RESULT.md including finding, assumptions, cyclic/outward classification, forced-vertex proof and orientation polynomial, limitations",
+          "method": "Published GitHub complete mathematical source via connected reader",
+          "title": "Orientable total-domination spectrum of cycle bouquets (2026-10-13)",
+          "trigger": "Exactly same graph, invariant, orientation spectrum and local proof"
+        },
+        {
+          "assessment": "Does not alter decisive Oct13 coverage",
+          "evidence": "Single-cycle result and general orientable total domination context.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.16307",
+          "material_read": "Reference and background in both inspected complete cycle-bouquet findings; full primary paper not independently re-read",
+          "method": "Citation/claim comparison through actual SCOPE mathematical source",
+          "title": "Orientable total domination in graphs",
+          "trigger": "Earlier general invariant and unicyclic context"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: the first central formula and its whole extremal consequences have been published exactly, while the second polynomial is an immediate product-weight derivative of the published detailed local minimum-set proof, without a separate difficult invariant or motivated open classification that needs a distinct contribution. It is a correct arithmetic corollary but lacks independent substantial value in context.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "The derivative polynomial is a mathematically valid explicit formula, but its scientific novelty depends on disregarding the already published constructive local proof; this audit does not.",
+    "Exactly the assigned source Git tree was read; no GitHub writes, dispatcher closeout or external certification was performed.",
+    "Original Lean/expert verification status was preserved; finite checks are not universal proofs."
+  ],
+  "schema_version": 1
+}
