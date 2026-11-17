@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The proof in `RESULT.md` is the mathematical justification for all integer ring lengths. Python 3 is the only execution dependency for these standalone scripts.
+## correctness
 
-- `python3 verify_direct.py` enumerates all \(2^n\) input configurations for every \(1\leq n\leq18\), tabulates exact output indegrees from the local truth table, checks the claimed maximum and complete set of maximizers, and prints `DIRECT_VERIFY_OK`.
-- `python3 verify_inverse.py` implements simultaneous `10`-to-`01` swaps separately, checks inverse-swap subset counts and cyclic junction clauses against exhaustive output fibers for every \(1\leq n\leq14\), and prints `INVERSE_VERIFY_OK`.
-- `python3 verify_run_formula.py` uses transfer matrices constructed from cyclic run lengths, checks the proposed alternating and near-alternating counts for all lengths through 200, and checks rotation invariance and extremal bounds on random examples; it prints `RUN_FORMULA_VERIFY_OK 200`.
+PASS
 
-The first and second scripts have independently coded forward updates. The third does not depend on either. All three checks completed with these exact success markers. No finite execution certifies the theorem for unbounded length; that quantifier is established by the written combinatorial proof. Historical novelty and independent audit are not program-certified.
+Rule 184 swaps disjoint input 10 junctions to 01. Reversing an arbitrary subset of output 01 junctions is a valid predecessor iff it destroys every original output 10; for cyclic alternating runs this is exactly the stated Boolean clause, with both adjacent 01 selections permitted only when the intervening 1 or 0 run has length one. The set of valid choices injects into vertex covers of a cyclic t-vertex graph (L_t choices); n≥2t. For even n=2k, only t=k all-unit runs attain L_k; for odd n=2k+1, t=k enforces a single unit clause and leaves a path with F_{k+1} covers, giving exactly 2n maximizers. The exceptional t=2 tie at n=7 is strictly reduced by a long run; n≤3 are bijective. Independent direct full-state enumeration for n=1..12 verified all claimed maxima and entire maximizer sets; source checkers independently code successor and inverse clause enumeration through n=14/18 as corroboration. These checks are finite, the proof supplies all n.
+
+## originality
+
+PASS
+
+Best of knowledge: full indexed cyclic one-step extremal predecessor multiplicity and equality classification of Rule 184 are not given by earlier block-preimage formulas, generic de Bruijn transfer algorithms, distinct-rule Lucas results or Rule 184 total image-size counts. General transfer matrices can compute an individual fiber but do not themselves state or logically settle which output maximizes every n.
+
+## value
+
+PASS
+
+One-step predecessor ambiguity is a natural symbolic-dynamics/inverse-problem invariant for traffic Rule 184. An all-ring sharp Fibonacci/Lucas maximum, rigid optimizer sets, and exact Boolean formula for every inverse fiber are nontrivial structural facts useful for inverse cellular automata, not simply renaming a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

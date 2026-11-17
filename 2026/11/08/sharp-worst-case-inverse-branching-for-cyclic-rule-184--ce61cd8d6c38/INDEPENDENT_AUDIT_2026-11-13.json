@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T02:17:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, verify_direct.py, verify_inverse.py and verify_run_formula.py, from exact Git blobs",
+        "Fukś, Exact results for deterministic cellular automata traffic models, arXiv:comp-gas/9902001",
+        "Powley, Global properties of cellular automata, University of York PhD 2009, Chapter 4, §9.3",
+        "Resultary 2026/11/8 Tribonacci–Lucas parity law for Rule 172 and traffic Rule 184 image cardinalities",
+        "Resultary published inverse fiber laws for other elementary Rules 18,28,110"
+      ],
+      "rationale": "Rule 184 swaps disjoint input 10 junctions to 01. Reversing an arbitrary subset of output 01 junctions is a valid predecessor iff it destroys every original output 10; for cyclic alternating runs this is exactly the stated Boolean clause, with both adjacent 01 selections permitted only when the intervening 1 or 0 run has length one. The set of valid choices injects into vertex covers of a cyclic t-vertex graph (L_t choices); n≥2t. For even n=2k, only t=k all-unit runs attain L_k; for odd n=2k+1, t=k enforces a single unit clause and leaves a path with F_{k+1} covers, giving exactly 2n maximizers. The exceptional t=2 tie at n=7 is strictly reduced by a long run; n≤3 are bijective. Independent direct full-state enumeration for n=1..12 verified all claimed maxima and entire maximizer sets; source checkers independently code successor and inverse clause enumeration through n=14/18 as corroboration. These checks are finite, the proof supplies all n.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Powley gives an algorithmic transfer trace for periodic preimage counts of an arbitrary prescribed word, not an analytic all-output maximum/equality list in the checked sections.",
+          "Fukś derives local block counts and deterministic traffic-density formulas; finite blocks differ from indexed cyclic one-step all-output maximization."
+        ],
+        "reasoning": "A method capable of computing individual instances does not directly entail the sharp Fibonacci/Lucas maximum or the rigid alternating maximizing words without the argument supplied.",
+        "searches": [
+          "Powley 2009 Global properties of cellular automata Chapter 4 §9.3 de Bruijn generic inverse method",
+          "Fukś 1999 traffic CA exact finite-block preimage distribution"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md, verify_direct.py, verify_inverse.py and verify_run_formula.py, from exact Git blobs",
+        "Fukś, Exact results for deterministic cellular automata traffic models, arXiv:comp-gas/9902001",
+        "Powley, Global properties of cellular automata, University of York PhD 2009, Chapter 4, §9.3",
+        "Resultary 2026/11/8 Tribonacci–Lucas parity law for Rule 172 and traffic Rule 184 image cardinalities",
+        "Resultary published inverse fiber laws for other elementary Rules 18,28,110"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Number of reachable outputs cannot determine largest size of any one preimage fiber without further distribution information.",
+          "General de Bruijn algebra evaluates each target but leaves maximization over 2^n targets unproved."
+        ],
+        "reasoning": "The cyclic run length clauses, unit-clause transition and equality proof are needed for the submitted extremal result; hence neither prior finding mechanically implies it.",
+        "searches": [
+          "Powley 2009 thesis periodic configuration predecessor transfer matrices",
+          "Resultary 2026/11/8 Tribonacci–Lucas image-size law Rule 184"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rule 184 full indexed cyclic predecessor count d_n(y) is a trace/transfer-matrix count; candidate maximizes it over all cyclic n-bit outputs and classifies equality.",
+          "Resultary Rule 184 image cardinality computes number of distinct outputs, a sum of 1_{d_n(y)>0}, not max_y d_n(y)."
+        ],
+        "reasoning": "Inversion automata, traffic swaps and de Bruijn trace are equivalent descriptions, but no prior same-rule all-output extremal theorem appeared in indexed results.",
+        "searches": [
+          "Resultary: cyclic elementary cellular automaton Rule 184 maximum preimage count Fibonacci Lucas alternating output full ring",
+          "Resultary: cellular automaton 184 maximal preimages periodic configurations golden ratio"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary Rule 28 and Rule 18 records have Lucas counts but non-equivalent local Boolean update rules.",
+          "Small n=1..12 independently enumerated and matching; no prior all-n Rule 184 maximum tabulation identified."
+        ],
+        "reasoning": "An earlier table could have the same small values without giving the closed all-n classification; limited searches leave that possibility explicit.",
+        "searches": [
+          "Resultary Rule 184 full ring inverse fiber and image counts",
+          "Resultary Rule 28 and Rule 18 Lucas inverse fibers"
+        ]
+      },
+      "rationale": "Best of knowledge: full indexed cyclic one-step extremal predecessor multiplicity and equality classification of Rule 184 are not given by earlier block-preimage formulas, generic de Bruijn transfer algorithms, distinct-rule Lucas results or Rule 184 total image-size counts. General transfer matrices can compute an individual fiber but do not themselves state or logically settle which output maximizes every n.",
+      "residual_risks": [
+        "Older cellular-automaton predecessor/traffic-model literature may encode the same maximal cyclic inverse fiber in a transfer-matrix table or thesis appendix; the specialized corpus has not been exhaustively searched.",
+        "Indexed full-ring outputs are not rotation quotient and the theorem is only one synchronous step; neither multi-step basins nor image-size classification follows.",
+        "Independent exhaustive direct check was limited to n≤12; all-length assertion relies on the explicit cyclic clause and cover-count proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CORRECT",
+          "evidence": [
+            "One-to-one inverse choices, exact cyclic Boolean clauses, vertex cover Lucas bound, odd path Fibonacci count."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-worst-case-inverse-branching-for-cyclic-rule-184--ce61cd8d6c38",
+          "material_read": "Full RESULT.md and three named verifier source files with local update/clauses/transfer code",
+          "method": "Snapshot Git blob reads and separate independently written n≤12 exhaustive enumerator",
+          "title": "Sharp worst-case inverse branching for cyclic Rule 184",
+          "trigger": "Assigned exact one-step inverse law"
+        },
+        {
+          "assessment": "RELATED_METHOD, no matching global extremal claim in inspected relevant material",
+          "evidence": [
+            "Generic periodic word predecessor transfer-matrix expression, without maximizer classification."
+          ],
+          "identifier_or_url": "https://www.cs.york.ac.uk/nature/group/theses/EdPowley.pdf",
+          "material_read": "PDF full text extracted and inspected around Chapter 4 and §9.3, including periodic de Bruijn trace; screenshot attempts failed due tool size",
+          "method": "OA PDF text extraction, targeted section search; visual rendering unavailable",
+          "title": "Global properties of cellular automata",
+          "trigger": "Highly relevant PhD thesis on periodic preimage/transfer matrices"
+        },
+        {
+          "assessment": "PRIOR_BACKGROUND, full-text priority risk remains",
+          "evidence": [
+            "Deterministic Rule 184 density and finite-block preimage formulas; no verified claim of the full-ring maximizer."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/comp-gas/9902001",
+          "material_read": "Abstract and cited block-preimage/density propositions; full paper text not independently inspected",
+          "method": "ArXiv abstracts and available primary references",
+          "title": "Exact results for deterministic cellular automata traffic models",
+          "trigger": "Earlier same traffic rule 184 dynamics and preimages"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md, verify_direct.py, verify_inverse.py and verify_run_formula.py, from exact Git blobs",
+        "Fukś, Exact results for deterministic cellular automata traffic models, arXiv:comp-gas/9902001",
+        "Powley, Global properties of cellular automata, University of York PhD 2009, Chapter 4, §9.3",
+        "Resultary 2026/11/8 Tribonacci–Lucas parity law for Rule 172 and traffic Rule 184 image cardinalities",
+        "Resultary published inverse fiber laws for other elementary Rules 18,28,110"
+      ],
+      "rationale": "One-step predecessor ambiguity is a natural symbolic-dynamics/inverse-problem invariant for traffic Rule 184. An all-ring sharp Fibonacci/Lucas maximum, rigid optimizer sets, and exact Boolean formula for every inverse fiber are nontrivial structural facts useful for inverse cellular automata, not simply renaming a known table.",
+      "residual_risks": [
+        "Older cellular-automaton predecessor/traffic-model literature may encode the same maximal cyclic inverse fiber in a transfer-matrix table or thesis appendix; the specialized corpus has not been exhaustively searched.",
+        "Indexed full-ring outputs are not rotation quotient and the theorem is only one synchronous step; neither multi-step basins nor image-size classification follows.",
+        "Independent exhaustive direct check was limited to n≤12; all-length assertion relies on the explicit cyclic clause and cover-count proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Older cellular-automaton predecessor/traffic-model literature may encode the same maximal cyclic inverse fiber in a transfer-matrix table or thesis appendix; the specialized corpus has not been exhaustively searched.",
+    "Indexed full-ring outputs are not rotation quotient and the theorem is only one synchronous step; neither multi-step basins nor image-size classification follows.",
+    "Independent exhaustive direct check was limited to n≤12; all-length assertion relies on the explicit cyclic clause and cover-count proof."
+  ],
+  "schema_version": 1
+}
