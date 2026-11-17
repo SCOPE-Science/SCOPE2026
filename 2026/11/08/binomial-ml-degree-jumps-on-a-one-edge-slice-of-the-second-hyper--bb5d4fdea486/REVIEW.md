@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The central rank lemma is an explicit block decomposition of each principal scaling matrix; every eigenvalue and the final two-by-two determinant is given. Every exceptional rank loss has corank one and an independently countable set of supporting subsets. The known Euler-characteristic interpretation of ML degree and a self-contained quadric cone Euler calculation turn each rank loss into one critical point removed from the generic degree. The full proof treats every integer \(d\ge7\) and every nonzero complex \(t\). Rational exact arithmetic independently tests all subset ranks and all sums for orders four through nine. Finite computations are corroboration, not the general proof.
+## correctness
 
-## Originality
-PASS (historical priority provisional). The closest 2026 article, arXiv:2606.16482v1, establishes a general Euler method, rank-three/rank-four theorems and complete small-order investigations; it does not state the all-order one-edge resonance formula. The 2024 article arXiv:2312.10010v2 gives the principal determinant and low-order examples, not the binomial jumps in full-rank models of arbitrarily large order. The new claim is restricted to \(d\ge7\); no earlier low-order values are claimed as discoveries. The general Euler method is essential shared background, so priority would change if an independent work already evaluated this one-edge family. Public research searches and index searches did not identify such a formula; absence from a search is not proof of uniqueness. The supplementary computer material of these works was not fully examined.
+PASS
 
-## Mathematical value
-PASS. ML degree controls the number of complex likelihood critical points. This one-edge line is a minimal symmetry-breaking perturbation of the homogeneous toric model, making a natural slice through the scaling discriminant. The theorem determines *all* its exceptional parameters, explicitly counts the coincident principal-rank defects, and proves their binomial contribution to likelihood-degree loss in unbounded dimension. For \(2\le k\le d-3\), the degree drops although the full scaling matrix remains nonsingular, behavior not captured by only examining global rank. This is not a generic-rank formula restated at a single numerical input.
+Decompose each principal symmetric matrix by the distinguished antisymmetric vector, the unmarked sum-zero subspace, and the 2x2 block [[t,k],[2,k-1]]. For t!=0, singularity occurs precisely when t(k-1)=2k, with corank one and binom(d-2,k) such subsets. The singular projective quadric of rank r has Euler characteristic s-1+1_{r even}, with s=1 handled separately. Inclusion-exclusion on the coordinate torus changes (-1)^d chi(Q cap T) by -1 for each corank-one subset. Generic ML degree is Eulerian 2^(d-1)-d by the established toric generic-degree theorem. Independent exact SymPy rational ranks and alternating Euler sums corroborate d=4..7 at six generic/exception scalings; not a proof for unbounded d.
 
-## Residual risks
-The universal Euler-method framework can be specialized to the family, and unpublished computational supplements or older algebraic-statistical calculations may have evaluated it already. The classification concerns ML degree, not full discriminant scheme or arbitrary perturbations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Clarke et al. 2024 identify principal A-determinant factors and show particular d=4,5 ML-degree tables but not the all-d one-edge rational transition/jump formula. Oldekop 2026 supplies Euler/rank theory and low-dimensional classifications, but its accessible abstract does not assert this one-edge formula. This particular 1-parameter all-order binomial degeneracy evaluation is not mechanically a restatement of the generic toric ML degree; the matrix-rank and Euler contributions are essential additional work. Full Oldekop text could not be inspected; explicit risk remains, not automatic failure.
+
+## value
+
+PASS
+
+The one-edge perturbation is a canonical minimal symmetry-breaking discriminant slice of the second-hypersimplex model. Determining all resonance locations and their exact binomial ML-degree jumps for arbitrary d is structurally useful for likelihood critical-point counts, especially the surprising drops while the full matrix stays nonsingular.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
