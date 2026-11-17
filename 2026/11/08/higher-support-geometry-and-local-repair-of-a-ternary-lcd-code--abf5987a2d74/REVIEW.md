@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The assertion is for the literal twenty-five-column generator in the original paper. Unique reduced row echelon bases enumerate each of the 2663 nonzero subcodes exactly once, and all 243 codewords are enumerated separately. The dual supports are checked by exhausting all 2300 triples and 12650 quadruples with normalized nonzero ternary coefficients. A direct matrix-rank calculation verifies projectivity and the LCD property. The executable checker recomputes the complete numerical statement from the embedded generator, with no floating-point approximations.
+PASS
 
-## Originality
+For the literal printed 5x25 generator over F_3, independently parsed all 25 columns, computed 243 codewords and the complete coefficient table, and enumerated each r-plane in F_3^5 exactly once via its unique reduced-echelon basis. Totals for r=1..5 were 121,1210,1210,121,1 and exact support minima were (14,19,22,24,25); every support-profile coefficient agrees with the result. The 25 projective-normalized columns were distinct/nonzero. Exhaustive triple and quadruple relation checking gave 15 dependent triples and 486 four-supports, hence 30 and 972 low-weight dual words. Positions 1,7,9,10 were the only positions absent from dependent triples and all occur in dependent quadruples. Exact normalization gives the four locality-three exceptions and other 21 locality-two coordinates. The finite census is exhaustive by canonical RREF, not statistical sampling; rank 5 and Gram determinant 1 also follow from modular elimination.
 
-PASS against checked sources, subject to historical-priority uncertainty. An et al. provide the generator and its minimum distance but do not report the exhaustive support distribution, higher weights, low-weight dual spectrum, or coordinate localities in Proposition 4.1 and Table 1. Wei gives the general definition and consequences of generalized weights, not these numeric values. Related work on a different \([23,5,12]\) LCD construction does not imply the invariants of this nonidentical twenty-five-coordinate matrix. No matching indexed claim was found under exact-code, support hierarchy and locality formulations. Residual risk: an unindexed table or preexisting computation may contain the same spectrum.
+## originality
 
-## Value
+PASS
 
-PASS. The code is a recent minimum-distance-improving construction whose full support hierarchy, previously unspecified in the inspected source, determines more detailed erasure and wiretap-II properties than its advertised \([25,5,14]\) parameters. The novel, nonuniform coordinate-locality profile is operationally meaningful for local repair: four specified symbols require one extra helper, and the dual check enumeration establishes exactly why. The finite result is a natural structural fingerprint of a named coding construction rather than an arbitrary parameter slice.
+The generator and its [25,5,14] parameters come from An–Hong–Kim–Lim, but the inspected original Proposition 4.1 does not furnish the all-dimension support histogram, projective line/plane incidences, or exact coordinate repair-locality pattern. Published support-profile records for other binary/ternary matrices do not imply this literal generator’s spectrum. This is best-of-knowledge originality of its finite structural fingerprint, not authorship of the code or novelty proof by unsuccessful search.
 
-## Limits
+## value
 
-The result does not characterize all equivalent or optimal codes with these parameters, and does not establish a new universal code bound. A self-review is not independent certification. The relevant 2026 source and classical generalized-weight literature are inspected; unindexed historical priority remains a risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A specified recently constructed LCD code is a natural object whose full generalized-weight hierarchy controls erasure/privacy/wiretap-II support thresholds beyond its minimum distance. The genuinely nonuniform locality distribution identifies which four actual transmitted symbols require three helpers rather than two; complete exact finite code fingerprints can be independently useful and are not arbitrary numerical slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

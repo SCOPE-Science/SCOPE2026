@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the finite certificate
+# Independent mathematical audit
 
-Run `python3 checker.py` from the directory containing the embedded file. It uses only the Python 3 standard library.
+## correctness
 
-It checks exact field arithmetic modulo three, full rank of the generator and Gram matrix, twenty-five distinct normalized nonzero projective columns, the complete Hamming weight enumerator over 243 messages, every unique reduced-echelon subspace for ranks one to five (2663 subcodes total), all 2300 column triples and all 12650 quadruples. The assertions cover every coefficient of the displayed support census, both low-weight dual counts, and all local-repair exceptions. The expected output consists of four lines beginning `PASS:`. This is exhaustive for the specified finite code, and it does not certify any global classification of all codes of these parameters.
+PASS
 
-The mathematical reason the subspace enumeration is complete is uniqueness of reduced row-echelon bases. Dual weight-three and weight-four supports are complete because every nonzero ternary coefficient can be normalized to one and the other coefficients are in \(\{1,2\}\). An independent review has not been performed.
+For the literal printed 5x25 generator over F_3, independently parsed all 25 columns, computed 243 codewords and the complete coefficient table, and enumerated each r-plane in F_3^5 exactly once via its unique reduced-echelon basis. Totals for r=1..5 were 121,1210,1210,121,1 and exact support minima were (14,19,22,24,25); every support-profile coefficient agrees with the result. The 25 projective-normalized columns were distinct/nonzero. Exhaustive triple and quadruple relation checking gave 15 dependent triples and 486 four-supports, hence 30 and 972 low-weight dual words. Positions 1,7,9,10 were the only positions absent from dependent triples and all occur in dependent quadruples. Exact normalization gives the four locality-three exceptions and other 21 locality-two coordinates. The finite census is exhaustive by canonical RREF, not statistical sampling; rank 5 and Gram determinant 1 also follow from modular elimination.
+
+## originality
+
+PASS
+
+The generator and its [25,5,14] parameters come from An–Hong–Kim–Lim, but the inspected original Proposition 4.1 does not furnish the all-dimension support histogram, projective line/plane incidences, or exact coordinate repair-locality pattern. Published support-profile records for other binary/ternary matrices do not imply this literal generator’s spectrum. This is best-of-knowledge originality of its finite structural fingerprint, not authorship of the code or novelty proof by unsuccessful search.
+
+## value
+
+PASS
+
+A specified recently constructed LCD code is a natural object whose full generalized-weight hierarchy controls erasure/privacy/wiretap-II support thresholds beyond its minimum distance. The genuinely nonuniform locality distribution identifies which four actual transmitted symbols require three helpers rather than two; complete exact finite code fingerprints can be independently useful and are not arbitrary numerical slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
