@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (PASS).** The genus and \(3\)-rank follow from the single pole of order \(7\). The valuation of \(dx\) is \(10\), giving six explicit regular differentials. Applying Cartier yields an exact matrix whose rank is \(2\) or \(3\) according to whether the reduced \(x^5\) coefficient vanishes. For the two models, the geometric automorphism descent is justified by the no-exception criterion in [1, Lemma 3.2(i)], and the affine coefficient identities force base-map identity, leaving the three deck automorphisms. The polynomial identities have been replayed with exact finite-field algebra. Scientific risk: the geometric descent relies on the cited, inspected structural theorem; no independent expert proof of that external input is claimed.
+## correctness
 
-**Originality (PASS, qualified).** The 2026 automorphism classification [1] asks about a-number prescription but does not perform it. The 2026 invariant-ring paper [2] uses exactly the same genus-six standard form and gives isomorphism constraints, but not the Cartier-rank dichotomy or the two simultaneous minimal-aut-group models. General Cartier methods [3,4] provide relevant machinery and examples in other cases, but the statements inspected do not imply the combined claim. Historical-priority risk remains for broader known results and unpublished examples; database searching does not establish novelty conclusively.
+PASS
 
-**Value (PASS).** The genus-six, rank-zero Artin--Schreier stratum is fixed by natural arithmetic invariants; determining its *complete* set of a-numbers and showing **each** is compatible with the smallest possible full geometric automorphism group directly answers a concrete first case of [1, Question 7.5]. The classification is not an arbitrary finite census or a mere change of notation; the coefficient criterion and explicit group rigidity connect two independent invariants. Its special-characteristic, genus-six scope is stated rather than oversold.
+For char 3, unique pole order 7 implies genus 6 and p-rank0. The displayed basis of six holomorphic differentials has distinct valuations at infinity, and Cartier images have ranks 2 if a5=0, else 3; thus a=4 or 3 for every polynomial coefficient choice. Full geometric automorphism comparison invokes the cited nonexceptionality theorem to restrict every automorphism to x↦Ax+B,y↦uy+h(x); the exact coefficient identities for both concrete examples force A=1,B=0 and h a constant in F3, giving full C3. Independently verified the two finite polynomial Groebner elimination ideals [B,A−1] and rank matrices; infinite-field conclusion follows from symbolic proof, not enumeration.
 
-**Closest literature:** [1] arXiv:2610.13279 (structural automorphism theorem, one example, open Question 7.5); [2] arXiv:2602.22435 (exact same standard forms and isomorphism constraints); [3] arXiv:1202.4183 (constant Cartier rank under incompatible congruence); [4] arXiv:1807.10313 (a-number bounds and other characteristic examples). Independent validation is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Two distinct public November 8 genus-six one-pole Cartier papers already prove the full rank/a-number dichotomy (indeed Cartier iterates), so there is NO originality in the global dichotomy alone. The separate contribution is explicit geometric minimal-automorphism C3 examples realizing both values simultaneously, responding to Tafazolian–Kazemifard finer automorphism-versus-a-number question. Those earlier Cartier sources do not classify Aut of both specific models. PASS qualified to this intersection and pair of full group calculations; primary authors’ paper only abstract/selected material accessed.
+
+## value
+
+PASS
+
+The exact intersection of two natural moduli conditions—Cartier a-number and absence of extra geometric automorphisms—is a motivated obstruction/existence problem. The two complementary examples settle a concrete genus/rank case, not merely re-tabulate a-numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Exact verification and limits
+# Independent mathematical audit
 
-The accompanying `verify.py` requires Python 3 and SymPy, and was executed with SymPy 1.14.0. From the source files execute `python3 verify.py`. Expected output:
+## correctness
 
-```text
-a5=0 CARTIER_RANK=2 A_NUMBER=4 AUTOMORPHISM_BASE_MAP_IDENTITY_OK
-a5=1 CARTIER_RANK=3 A_NUMBER=3 AUTOMORPHISM_BASE_MAP_IDENTITY_OK
-CERTIFICATE_OK
-```
+PASS
 
-For each fixed curve the code computes the polynomial coefficients of \(f(Ax+B)-A^7 f(x)\) modulo \(3\). It imposes that \(A^7\) be a nonzero constant in \(\mathbb F_3\), and that the difference be of the form \(h(x)^3-h(x)\) for \(\deg h\le2\). The reduced Gröbner basis in each case is \(\{B,A-1\}\). Exact Gaussian elimination modulo \(3\) checks the ranks \(2\) and \(3\) of the two displayed Cartier matrices.
+For char 3, unique pole order 7 implies genus 6 and p-rank0. The displayed basis of six holomorphic differentials has distinct valuations at infinity, and Cartier images have ranks 2 if a5=0, else 3; thus a=4 or 3 for every polynomial coefficient choice. Full geometric automorphism comparison invokes the cited nonexceptionality theorem to restrict every automorphism to x↦Ax+B,y↦uy+h(x); the exact coefficient identities for both concrete examples force A=1,B=0 and h a constant in F3, giving full C3. Independently verified the two finite polynomial Groebner elimination ideals [B,A−1] and rank matrices; infinite-field conclusion follows from symbolic proof, not enumeration.
 
-The program does **not** establish the descent of all geometric automorphisms to affine base transformations; that necessary theorem is stated and cited as [1, Lemma 3.2(i)] and applied in `RESULT.md`. Nor is the all-coefficient Cartier rank formula inferred from finite examples: its proof appears explicitly in `RESULT.md`. Scientific priority has only self-review; independent audit is not performed.
+## originality
+
+PASS
+
+Two distinct public November 8 genus-six one-pole Cartier papers already prove the full rank/a-number dichotomy (indeed Cartier iterates), so there is NO originality in the global dichotomy alone. The separate contribution is explicit geometric minimal-automorphism C3 examples realizing both values simultaneously, responding to Tafazolian–Kazemifard finer automorphism-versus-a-number question. Those earlier Cartier sources do not classify Aut of both specific models. PASS qualified to this intersection and pair of full group calculations; primary authors’ paper only abstract/selected material accessed.
+
+## value
+
+PASS
+
+The exact intersection of two natural moduli conditions—Cartier a-number and absence of extra geometric automorphisms—is a motivated obstruction/existence problem. The two complementary examples settle a concrete genus/rank case, not merely re-tabulate a-numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
