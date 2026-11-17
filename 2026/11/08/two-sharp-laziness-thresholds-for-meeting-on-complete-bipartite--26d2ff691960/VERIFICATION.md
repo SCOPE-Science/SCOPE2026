@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_meeting.py` with Python 3.9 or later. No third-party packages, input datasets, compiled extensions, or network access are required.
+## correctness
 
-The checker directly builds the individual-walker lazy transition matrix on each \(K_{a,b}\), forms the synchronous two-particle dynamics on unordered distinct vertex pairs by combining both possible label assignments, treats diagonal meetings as absorbing, and solves the full rational absorbing-time system using exact Gauss–Jordan elimination. This is independent of the three-class reduction used in the mathematical proof. The tested graphs have \(1\le a,b\le4\) except \(K_{1,1}\), and five exact rational holding probabilities are used for each. Further tests check the rational difference identities and the threshold-sign boundaries for part sizes up to \(100\). The extracted checker printed `VERIFY_OK 31129 exact assertions` on replay.
+PASS
 
-**Scope of verification:** These are finite exact computations, not a proof of statements for arbitrarily large graphs. The all-size conclusion is provided by the explicit first-step recurrences, rational elimination, positivity of denominators, strict monotonicity of the comparison polynomials, and exact endpoint evaluations in `RESULT.md`.
+The three realizable nonmeeting pair classes L,S,X have exact substochastic Q from simultaneous independent p-hold/q-move choices. For p,q>0, absorption has positive bounded-step probability. Solve (I−Q)H=1 to obtain H_L=2m(2s+p−1)/[(1−p²)(m+s+p−1)], H_S symmetric, and H_X from its first-step equation. Differences H_L−H_X and H_S−H_X equal F_{m,s}(p)/D and F_{s,m}(p)/D where D=2p(1−p²)(m+s+p−1)>0. Each F strictly increases from negative to positive, zeros straddle 1/3, upper beta<1/2 and lower alpha>(5−√17)/4. m=s balanced tie p=1/3 and s=1 unrealizable S class separately handled. Independent exact rational full-chain small examples and symbolic identities corroborate, all-size conclusion analytic.
 
-**Unperformed:** No independent external mathematical audit, experimental confidence interval, or historical-priority certification is claimed.
+## originality
+
+PASS
+
+The sharp all-size three-start-class order and fair point p=1/3 are not supplied by earlier same-family opposite-start optimal-laziness result or full primary lazy-walk article on lines/cycles/grids. Qualified PASS with indexed but unread Warwick thesis as explicit residual risk.
+
+## value
+
+PASS
+
+The exact ranking of which initial placement meets sooner as holding probability varies is a natural finite stochastic-process question; the two sharp crossings and distinct star/balanced limits exhibit real dynamical structure, extending beyond generic Markov-chain inversion. This is a meaningful all-size classification with explicit phase boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
