@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact transformation from closed SIR to the positive Lotka–Volterra system follows by differentiation for every admissible strictly positive SIR state. The nonnegative conserved energy has strictly convex compact positive levels; each nonzero level is a nonsingular periodic orbit. Prevalence and incidence logarithmic derivatives are respectively \(v-\gamma\) and \(v-h-b\). Restricting the energy to these two stationary-point loci gives a unique minimum in each case, proving the two *if and only if* peak thresholds, including equality tangency and the absence of other extrema. Reconstructing both physical observables yields the exact shift multiplier \(e^{-aP}\). Numerical checks in `check.py` are supplementary and finite, not the basis for an infinite-time claim.
+PASS
 
-## Originality — PASS (qualified)
+Differentiating v=beta*S/N,h=beta*I/N yields v'=v(a-h), h'=h(v-(gamma-a)); F(v,h) is coercive with a unique center and closed positive nonzero levels. Physical I=(N/beta0)e^{-at}h and incidence c=(N/beta0)e^{-at}vh. Exact logarithmic growth signs are v-gamma and v-h-(gamma-a). Restriction of F to each crossing locus has a unique minimum, and transversal crossing away from equality gives exactly one minimum and maximum per transformed period. Equal energy is tangential without a strict extremum. Independent numerical algebra gave a=b=0.5, h_c=sqrt(2)/4, E_c=0.11299357795674864, E_I=0.15342640972002736; for (v,h)=(0.93,0.5), E=0.11971175613744506 falls strictly between, witnessing incidence-only oscillatory peak regime. Finite tests do not establish perpetual cycling; the integral and orbit geometry do.
 
-The nearest primary 2026 work already states the general incidence stationary-point equation and the log-linear knot representation, and earlier CoSIR work already exploits a different feedback-induced SIR–Lotka–Volterra reduction. Neither inspected source gives the fixed exponentially growing transmission reduction, the two sharp energy threshold curves for original prevalence and incidence, and their exact periodic-geometric peak laws. The standard conservative Lotka–Volterra mechanics are acknowledged. Targeted comparisons found no matching result; this is best-knowledge originality, not an assertion that every unindexed treatment of epidemic oscillations has been excluded. The nearest alternative, adaptive CoSIR control, is materially different and does not supply the asserted implication.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sharp, explicitly calculable threshold answers a natural complexity/interpretability question from recent peak-preserving SIR literature: even monotone forcing of minimal log-knot complexity can produce an arbitrarily large raw count of strict peaks, while their amplitudes have a precisely specified decay. The difference between raw extrema and observably prominent waves matters mathematically for formulating lower bounds on forcing complexity. The result avoids claiming that two knots preserve arbitrary empirical wave geometry.
+Crucial direct predecessor found and materially read: the 2026-10-13 published theorem on the IDENTICAL exponentially forced closed SIR model already proves the Lotka–Volterra reduction, exact prevalence threshold and geometric attenuation, not merely a different control law. After normalization v=gamma*Q,h=a*P, its E>gamma+a is precisely F(v,h)>F(gamma,a). These elements are NOT original. The present final two-observable threshold theorem is nonetheless strictly stronger in a material direction: it gives the exact necessary-and-sufficient INCIDENCE threshold E>E_c, proves a unique incidence max/min each cycle, and identifies a nonempty E_c<E≤E_I regime with incidence waves but no prevalence peaks. The predecessor proves only at least one incidence maximum for E>E_I and offers no converse or E_c. This specific exact incidence phase boundary is a natural and independently valuable uncaptured mathematical fact. The source's literature narrative omits that direct predecessor; this omission is documented explicitly and must be corrected in any further scholarly release, though the mathematical claim as a stronger two-threshold theorem survives.
 
-## Closest literature and scientific limitations
+## value
 
-Rabajante (2026, arXiv:2610.05556v1) covers general time-varying transmission, peak conditions and empirical MPPC; it does not supply the present single-slope exact classification. Shetty–Maheshwari–Bannur–Merugu (medRxiv 2020/2021) identify a Lotka–Volterra structure for a different *state-dependent feedback policy*, not a prescribed exponential transmission function. Classical predator–prey energy geometry is shared and is not presented as new. The exponential growth of transmission makes the conclusion a mathematical phenomenon, not a realistic long-run public-health prediction; the peaks eventually fall below every fixed positive prominence floor. An equivalent specialized result outside searchable sources remains possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp observable-specific separation is important in dynamical epidemiology: incidence peaks can recur even while prevalence decreases monotonically, and the exact energy window determines when this happens. This nontrivial boundary is not the already-known log-linear forcing, LV reduction, or damping law. Meaningful all-initial-data exact classification; not an empirical prediction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
