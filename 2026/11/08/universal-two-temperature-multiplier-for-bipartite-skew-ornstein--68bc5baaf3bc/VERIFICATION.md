@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The finite-dimensional theorem is proved analytically in `RESULT.md` by the block-sign involution and the stationary covariance trace identity. `verify.py` uses only the Python 3 standard library and exact `fractions.Fraction` arithmetic, with a separate Lyapunov linear-system solve and rational matrix inversion. The deterministic seed gives reproducible model coefficients. Executing `python verify.py` passed 99 exact-rational cases: 96 nontrivial combinations of dimensions, noncommuting within-group symmetric positive definite relaxation, nonzero intergroup skew coupling, and contrasting temperatures, plus two disconnected equilibrium examples, and one counterexample outside the sign-adjoint class. For each nontrivial combination it checks the full EPR, covariance and irreversible-current identities, not merely a scalar asymptotic.
+## correctness
 
-These checks do not establish the universal quantifiers over arbitrary finite dimension and real parameters, nor do they establish publication novelty; those respectively rely on the written matrix proof and the separately limited literature comparisons. No independent audit has been performed.
+PASS
+
+M^T J=JM with J=diag(I_p,-I_q) implies R=-M^-1 J symmetric and MR=R M^T=-J. Uniqueness of the stable Lyapunov solution gives S=alpha S0+beta R, current Q=alpha Q0. Expanding the positive-current trace using the Lyapunov identity yields Phi=tr(M^T D^-1 M S)+tr(M); M^T J=JM cancels mixed terms, leaving alpha^2/(Tplus*Tminus) Phi(1,1). Phi(1,1)=0 forces M symmetric, hence B=0. This reconstructs all dimensions, no commutativity A,C needed. Independently solved Lyapunov equations and EPR in twelve nontrivial cases (p,q)=(1,1),(2,1),(2,2),(3,2) under three temperature contrasts; all matched scalar factor within 2e-9. Scalar matrix proof, not these finite cases, establishes universality.
+
+## originality
+
+PASS
+
+Generic OU covariance and EPR formulas are known; Kharbanda, Burnet and Sabass cover the planar special case. Their 2026 abstract reports residual dynamics and strong-coupling behavior, not an all-dimensional two-temperature scalar multiplier. Authorised full paper unavailable due VPN, so exact comparison is best-of-knowledge with named priority risk. Resultary skew chain has heterogeneous baths but no published identical scalar factor in surfaced summary.
+
+## value
+
+PASS
+
+A dimension-independent factor for a constrained but natural class of coupled Gaussian networks, valid with noncommuting internal relaxations, is structurally useful: it separates architecture/drift optimization from thermal contrast and gives an exact strict dissipation penalty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

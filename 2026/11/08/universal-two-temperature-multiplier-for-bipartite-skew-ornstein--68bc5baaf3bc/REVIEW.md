@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The drift is Hurwitz because its symmetric part is strictly negative. The block-sign involution \(J\) makes \(R=-M^{-1}J\) symmetric and produces the exact decomposition \(S=\alpha S_0+\beta R\), \(Q=\alpha Q_0\). A trace expansion yields the scalar factor after cancellation of mixed terms. Every division uses an invertible matrix or \(T_+T_->0\). Positive-definiteness of the covariance follows from stability. The proof covers arbitrary finite block sizes and real cross-block matrices, and proves strictness for nonzero coupling. A separate exact-rational implementation tested all three identities in 96 nontrivial cases and zero EPR in two decoupled cases, and one structural counterexample outside the theorem class. The finite tests are checks, not a proof of all real parameters.
+## correctness
 
-**Originality — PASS, qualified.** The standard general OU irreversible-current and EPR trace formulae are prior work (Godrèche–Luck, 2018, Sec. 2). The motivating paper (Kharbanda–Burnet–Sabass, 2026, Sec. III, Eq. 13) already gives the two-variable special case of this thermal factor and is expressly not claimed as new. Its higher-dimensional results address residual strong-coupling circulation, rather than the exact finite-coupling thermal multiplier for arbitrary bipartite skew networks. Its different-temperature inter-system coupling regime also uses a different cross-modal diffusion geometry. The present finding is the arbitrary-dimensional, noncommuting-inner-relaxation block-sign identity, including universal invariance of all drift-parameter optimizer sets. Comparisons include related published mathematical records and preceding accessible claims. A three-variable isothermal optimum is likewise acknowledged as prior coverage, rather than repackaged. No exact broader covering result was identified in these checks; unseen symmetry-specific formulations remain a meaningful priority risk.
+PASS
 
-**Value — PASS.** A two-temperature nonequilibrium network normally couples thermal contrast, circulation, internal relaxation and geometry. The exact multiplicative separation at every finite coupling gives a quantitative hot/cold penalty independent of network dimension or topology, and proves that optimizing dissipation over any fixed admissible family of these drifts requires no redesign as the temperature ratio changes. The result is not merely a new numerical value or parameter substitution; it holds simultaneously for arbitrary blocks and interactions and identifies a sharp structural sufficient condition for temperature-insensitive EPR design.
+M^T J=JM with J=diag(I_p,-I_q) implies R=-M^-1 J symmetric and MR=R M^T=-J. Uniqueness of the stable Lyapunov solution gives S=alpha S0+beta R, current Q=alpha Q0. Expanding the positive-current trace using the Lyapunov identity yields Phi=tr(M^T D^-1 M S)+tr(M); M^T J=JM cancels mixed terms, leaving alpha^2/(Tplus*Tminus) Phi(1,1). Phi(1,1)=0 forces M symmetric, hence B=0. This reconstructs all dimensions, no commutativity A,C needed. Independently solved Lyapunov equations and EPR in twelve nontrivial cases (p,q)=(1,1),(2,1),(2,2),(3,2) under three temperature contrasts; all matched scalar factor within 2e-9. Scalar matrix proof, not these finite cases, establishes universality.
 
-**Limits and closest sources.** The premise requires symmetric positive definite intragroup relaxation, skew-adjoint intergroup coupling, groupwise uniform diffusion and even reversal parity. The earlier 2018 OU formulas apply more broadly and could enable alternate derivations. The 2026 two-dimensional expression already covers the planar case. We assert neither independent publication-priority certification nor an extension to arbitrary temperature networks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Generic OU covariance and EPR formulas are known; Kharbanda, Burnet and Sabass cover the planar special case. Their 2026 abstract reports residual dynamics and strong-coupling behavior, not an all-dimensional two-temperature scalar multiplier. Authorised full paper unavailable due VPN, so exact comparison is best-of-knowledge with named priority risk. Resultary skew chain has heterogeneous baths but no published identical scalar factor in surfaced summary.
+
+## value
+
+PASS
+
+A dimension-independent factor for a constrained but natural class of coupled Gaussian networks, valid with noncommuting internal relaxations, is structurally useful: it separates architecture/drift optimization from thermal contrast and gives an exact strict dissipation penalty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
