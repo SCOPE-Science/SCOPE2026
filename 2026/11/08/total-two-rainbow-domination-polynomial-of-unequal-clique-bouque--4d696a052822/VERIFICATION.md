@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python verify_total_rainbow_windmills.py` in Python 3 with no third-party dependencies. The verifier constructs each bouquet's graph, enumerates all four labels at every vertex, applies the two defining open-neighborhood conditions to each label assignment, and separately expands the claimed polynomial with integer polynomial arithmetic. It compares all coefficients, minimum weight, and minimum multiplicities, not just the scalar total.
+## correctness
 
-A full run returned:
+PASS
 
-`VERIFY_OK clique_bouquets=126 labelings_examined=5197632 feasible_labelings=2461279 full_polynomials=PASS minimum_multiplicities=PASS`
+Split by label of the universal center: both colors requires at least one nonempty petal label; one color requires in every petal the missing color or all same-color positive labels (factor B_m); empty center forces at least two positives per petal and subtracts precisely the two globally monochromatic assignments (factor D_m). The m=1 case makes the center-empty class impossible. Extracting degree3 distinguishes r=2 from r>=3. Conditional on center nonfull, every fixed petal has a positive local failure probability, so reliability converges to p². Independently enumerated complete label assignments for petal tuples (1,1),(1,2),(2,2),(1,1,1),(2,1,2); full polynomial and minima agree.
 
-All cases with total petal order between two and seven and at least two ordered petals were included; additional larger examples cover repeated size-two petals and mixed sizes. The code is an independent finite check but is not a proof over all positive petal sizes. The displayed symbolic argument establishes the unrestricted formula and fixed-size reliability limit. No external independent audit is claimed.
+## originality
+
+PASS
+
+Jiang–Rao 2022 defines and analyzes minimum total 2-rainbow domination and complexity, with tree algorithms; the full inspected paper does not count every weighted labeling on unequal clique bouquets. Existing Italian, total Roman and ordinary 2-rainbow bouquet results have different labels/constraints and do not imply this full three-case factorization. The 2018 originating source was not inspected fully, so best-of-knowledge historical priority remains qualified.
+
+## value
+
+PASS
+
+The complete exact weight distribution of a natural connected block graph family, including unequal and size-one petals, supplies all nonminimum counts and exact independent-color reliability, not determined by minimum number or Roman/Italian variants; it is a motivated graph enumeration independent of wider algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
