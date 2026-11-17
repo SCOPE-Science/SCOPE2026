@@ -1,15 +1,21 @@
-# Scientific review: power lecture-hall vertex-covariance spectrum
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact vertex distribution implies the covariance kernel entry by entry. The inverse is verified from the Dirichlet difference Green function, and independent rational matrix products check the formula in small dimensions. The compact Jacobi limit uses norm convergence of finite principal compressions; the continuum limit uses a uniform step-kernel approximation and a fully specified Dirichlet Sturm-Liouville boundary problem. Its Bessel solutions and eigenvalues are established by the positive zeros of the ordinary Bessel function. The limiting condition-number exponent follows by dividing independent positive extreme-eigenvalue limits. The real-number approximations are illustrative, not inputs to the proof.
+## correctness
 
-## Originality — PASS, subject to historical priority
-The continuum Bessel spectrum is **covered** by Deheuvels and Martynov (2003) and Deheuvels (2006, Fact 1.2), so it is not an independent novelty claim. Kohl and Olsen (2017 first public version, revised 2020) and Brändén and Solus (2019) develop algebraic and Ehrhart properties of the relevant lecture-hall simplices; the inspected sections and relevant theorems contain no uniform-vertex spectral formula. The closest accessible published-finding corpus record concerns Euclidean inradii of lecture-hall order polytopes, not covariances, and local prior work covers other matrix and matroid polytopes. Pycke (2024) studies a nonidentical hypergeometric/Hahn weighted discrete bridge. The combined two-edge spectral result, and especially the Jacobi hard-edge hierarchy and exact polynomial anisotropy coefficient, were not found as implications of these results. An equivalent formulation in discrete weighted-bridge numerics remains possible; the 2003 chapter was available by abstract only. No historical uniqueness is certified.
+PASS
 
-## Mathematical value — PASS
-All the studied bodies share exactly the same combinatorial simplex type, but their Euclidean second-moment anisotropy can be forced through every even polynomial exponent at least four by the canonical lecture-hall choice of integer weights. The top and bottom eigenvalues have different asymptotic normalizations and are governed by genuinely different operators, giving a concrete sharp boundary-vs-continuum spectral mechanism. This is an entire natural family and a full pair of fixed-index spectral limits, not an arbitrary finite table or a cosmetic substitution.
+From the n+1 suffix vertices of P(n,p), exact Bernoulli bridge covariance C_ij=i^p*j^p*(min(i,j)/(n+1)-ij/(n+1)^2) and inverse (n+1)D^-1 L_Dirichlet D^-1 follow. Compactness and operator-norm convergence of weighted tridiagonal compressions give all fixed-index lower edges. The rescaled finite covariance step kernels converge in norm to s^p t^p(min(s,t)-st); its Dirichlet Sturm-Liouville eigenproblem selects J_{1/(2p+2)} zeros and yields fixed-index upper edges. Combining positive limits gives condition number exponent 2p+2; finite diagonal trace and Bessel Rayleigh identity give trace limit. p=0 sine diagonalization differs genuinely. Independent exact Fraction vertex/matrix calculations for p=0..3 and dimensions 2..5 reproduced the inverse identities (16 cases); these checks are corroboration of the operator proof.
 
-## Limitations
-The weighted-bridge Bessel component is previously known, and the result concerns only the Euclidean uniform-vertex measure and fixed powers and spectral indices. The discrete spectral constants are operator norms/eigenvalues rather than claimed elementary numbers. The residual priority risk is a prior study of exactly the same discrete power-weighted Green matrix. Verification experiments do not prove asymptotics, and an independent mathematical review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Bessel continuum identity for a weighted Brownian bridge is known explicitly (Deheuvels/Deheuvels–Martynov) and is excluded from novelty. Earlier lecture-hall literature studies integer/face geometry, not the two simultaneous spectral edges of uniform vertex covariance; the compact Jacobi hard edge and anisotropy coefficient are additional, not implied merely by the known continuum edge.
+
+## value
+
+PASS
+
+Uniform vertex covariance is a natural Euclidean invariant of the lecture-hall simplex; it reveals growth of anisotropy that combinatorial equivalence of all simplices cannot detect. The sharp exponent, full fixed-index upper/lower edge limits and Jacobi norm coefficient form a useful nontrivial structural spectral classification, rather than restating a continuous bridge theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
-The proof applies for every fixed integer \(p\ge0\) and all \(n\ge2\). The exact finite covariance and its tridiagonal inverse are derived algebraically. The continuum and discrete spectral limits follow from, respectively, operator-norm convergence of step kernels and compact Jacobi finite sections (with an exact sine-basis exception for \(p=0\)).
+# Independent mathematical audit
 
-To reproduce numerical checks, run `python checks/verify_power_lecture_hall.py` with Python, NumPy, and SciPy. The checker enumerates vertices with exact fractions for \(p=0,1,2,3\) and \(n\le6\), verifies every entry of the inverse product, checks the \(p=0\) finite spectrum, and evaluates top and bottom normalizations at selected larger dimensions. The actual execution returned `POWER_LECTURE_HALL_TWO_EDGE_SPECTRUM_CHECKS_PASSED`.
+## correctness
 
-The numerical bounds used in the checker are tolerances for illustrative finite-dimensional convergence, not validated infinite-dimensional certificates. The decimal values reported for the Jacobi norm and Bessel zero should not be interpreted as formally certified enclosures. Historical priority and any mathematical review by another investigator remain open.
+PASS
+
+From the n+1 suffix vertices of P(n,p), exact Bernoulli bridge covariance C_ij=i^p*j^p*(min(i,j)/(n+1)-ij/(n+1)^2) and inverse (n+1)D^-1 L_Dirichlet D^-1 follow. Compactness and operator-norm convergence of weighted tridiagonal compressions give all fixed-index lower edges. The rescaled finite covariance step kernels converge in norm to s^p t^p(min(s,t)-st); its Dirichlet Sturm-Liouville eigenproblem selects J_{1/(2p+2)} zeros and yields fixed-index upper edges. Combining positive limits gives condition number exponent 2p+2; finite diagonal trace and Bessel Rayleigh identity give trace limit. p=0 sine diagonalization differs genuinely. Independent exact Fraction vertex/matrix calculations for p=0..3 and dimensions 2..5 reproduced the inverse identities (16 cases); these checks are corroboration of the operator proof.
+
+## originality
+
+PASS
+
+The Bessel continuum identity for a weighted Brownian bridge is known explicitly (Deheuvels/Deheuvels–Martynov) and is excluded from novelty. Earlier lecture-hall literature studies integer/face geometry, not the two simultaneous spectral edges of uniform vertex covariance; the compact Jacobi hard edge and anisotropy coefficient are additional, not implied merely by the known continuum edge.
+
+## value
+
+PASS
+
+Uniform vertex covariance is a natural Euclidean invariant of the lecture-hall simplex; it reveals growth of anisotropy that combinatorial equivalence of all simplices cannot detect. The sharp exponent, full fixed-index upper/lower edge limits and Jacobi norm coefficient form a useful nontrivial structural spectral classification, rather than restating a continuous bridge theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
