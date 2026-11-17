@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The random endpoints use the exact side arclength Jacobian. The radial deficit is uniformly \(f(u)\) after \(n^2/\pi^2\) scaling, and all near-diameter events constrain the opposite-angle error to a bounded window for fixed \(t\). The cosine law gives the joint deficit, whose sublevel level sets have zero area. Local piecewise-linear areas yield the even \(1/2\) and odd \(16/9\) constants. Uniform bounds of \(f\) give the large-argument envelope. Standalone independent diagnostic verifies finite cases; it is not treated as an infinite proof.
+## correctness
 
-## Originality — PASS, provisional historical priority
-Harutyunyan–Ohanyan (2009) and Bäsel (2012) were inspected in full on accessible PDFs, including definitions and main results. They analyze motion-invariant lines and interior-point distance laws, not independently arclength-uniform boundary endpoints under coupled polygon refinement. A related center-passing angular chord theorem concerns a singular one-dimensional endpoint coupling rather than the two-dimensional product arclength law. An older Gates (1982) abstract concerns a random-line inverse problem; complete text was not inspected. The comparisons support nonimplication; they do not establish exhaustive historical priority.
+PASS
 
-## Mathematical value — PASS
-The exact parity-dependent onset and its common circular square-root crossover quantify a singular failure of uniformity in the polygon-to-circle limit. The fixed-polygon near-diameter quadratic scale collapses into a continuous family of circular diameters, but even and odd polygons retain different critical thresholds. This exposes a natural, concrete geometric-probability effect, with an explicit limiting integral and sharp onset coefficients.
+For unit-circumradius regular n-gons, the polar boundary parametrization has vertex directions at integer angular coordinates, radius r_n(u)=cos(pi/n)/cos((pi/n)(1-2 dist(u,Z))) and arclength density pi*cos(pi/n)/(n*sin(pi/n)*cos((pi/n)(1-2dist(u,Z)))^2). Opposing directions have phase shift sigma=0 for even n and 1/2 for odd n. Expanding the cosine-rule chord deficit at angular separation pi+2pi v/n gives pi^2[n^-2][2q(u)(1-q(u))+2q(u+sigma+v)(1-q(u+sigma+v))+v^2]+O(n^-4) locally. Positivity localizes v to bounded intervals for fixed t; dominated convergence gives n P(D>2-pi^2t/n^2)=H_sigma(t). Piecewise-affine corner geometry yields even H_0(t)~t^2/2 and odd hard cutoff H_1/2(t)=0 for t<=1/4 and 16(t-1/4)^2/9 opening. 0<=f<=1/2 proves circular square-root envelope H~2sqrt(t) as t grows. Minor normalization wording in the original proof calls integer directions side normals, although its displayed radius puts *vertices* there; this is a harmless coordinate-description slip, not a change in any formula or theorem. Six independent finite-n vs limit quadratures reproduce agreement, and finite checks do not prove the limit.
 
-## Remaining limitations
-No uniform finite-\(n\) error rate, no arbitrary convex polygon generalization and no independent audit or historical priority certification are asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier regular-polygon distance literature concerns invariant-line chords or two interior-area-uniform endpoints; its CDF cannot be substituted for independently sampled perimeter-arclength endpoints. Published polygon short-chord coefficients concern D near zero, whereas this is n-dependent near-diameter probability. Lao-based maximum sample diameter at fixed odd polygon has different sample-count and extremal ordering. The explicit parity-split n^-2 boundary-chord scaling and local onset do not follow from those theorems. No exact or stronger matched result located; historical priority provisional.
+
+## value
+
+PASS
+
+This is a natural critical double scale for boundary chords as regular polygons converge to a circle, where isolated versus flat antipodal maximizers and parity lead to qualitatively different threshold behavior. The explicit H_sigma integral, hard odd gap and sharp onset coefficients encode useful geometry beyond a small finite example; the result is an analytically proved asymptotic invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

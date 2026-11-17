@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T04:47:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unit-circumradius regular n-gons, the polar boundary parametrization has vertex directions at integer angular coordinates, radius r_n(u)=cos(pi/n)/cos((pi/n)(1-2 dist(u,Z))) and arclength density pi*cos(pi/n)/(n*sin(pi/n)*cos((pi/n)(1-2dist(u,Z)))^2). Opposing directions have phase shift sigma=0 for even n and 1/2 for odd n. Expanding the cosine-rule chord deficit at angular separation pi+2pi v/n gives pi^2[n^-2][2q(u)(1-q(u))+2q(u+sigma+v)(1-q(u+sigma+v))+v^2]+O(n^-4) locally. Positivity localizes v to bounded intervals for fixed t; dominated convergence gives n P(D>2-pi^2t/n^2)=H_sigma(t). Piecewise-affine corner geometry yields even H_0(t)~t^2/2 and odd hard cutoff H_1/2(t)=0 for t<=1/4 and 16(t-1/4)^2/9 opening. 0<=f<=1/2 proves circular square-root envelope H~2sqrt(t) as t grows. Minor normalization wording in the original proof calls integer directions side normals, although its displayed radius puts *vertices* there; this is a harmless coordinate-description slip, not a change in any formula or theorem. Six independent finite-n vs limit quadratures reproduce agreement, and finite checks do not prove the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Exact short-chord laws give small-r quadratic coefficients for one fixed polygon; the Lao-based work studies extrema among many boundary points at fixed odd polygon."
+        ],
+        "reasoning": "Neither allows the n->infinity, n^-2 deficiency, two-boundary-point parity limit as a parameter specialization. The long-diameter and small-distance ends are not interchangeable.",
+        "searches": [
+          "regular n-gon two independent uniform boundary arclength points distance near diameter polygon circle even odd rescaled tail integral asymptotic",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-short-chord-laws-and-sharp-angular-rigidity-for-convex-pol--6aa43036918b/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-rare-diameter-corner-profiles-and-cyclic-feasibility-polytopes-o--ce40c585ddb4/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/223967035_Random_chords_and_point_distances_in_regular_polygons",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-short-chord-laws-and-sharp-angular-rigidity-for-convex-pol--6aa43036918b/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-rare-diameter-corner-profiles-and-cyclic-feasibility-polytopes-o--ce40c585ddb4/RESULT.md",
+        "https://arxiv.org/abs/1204.2707"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "In a fixed polygon, short-chord CDF and N-sample maximum diameter concern distinct events; Bäsel uses interior area sampling."
+        ],
+        "reasoning": "Even combining these results does not yield a boundary-pair scaling with n and its parity-dependent antipodal angular shift. The submitted localization and piecewise-quadratic onset analysis is needed.",
+        "searches": [
+          "https://arxiv.org/abs/1204.2707",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-short-chord-laws-and-sharp-angular-rigidity-for-convex-pol--6aa43036918b/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-rare-diameter-corner-profiles-and-cyclic-feasibility-polytopes-o--ce40c585ddb4/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bäsel computes invariant-line chords and distances of two area-uniform interior polygon points, not two independently arclength-uniform boundary points."
+        ],
+        "reasoning": "The same word chord is not an equivalent probability experiment. Crofton-invariant chords and fixed-geometry chord laws do not identify the moving polygon boundary-endpoint near-diameter limit.",
+        "searches": [
+          "regular n-gon two independent uniform boundary arclength points distance near diameter polygon circle even odd rescaled tail integral asymptotic",
+          "https://arxiv.org/abs/1204.2707",
+          "https://www.researchgate.net/publication/223967035_Random_chords_and_point_distances_in_regular_polygons"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed nearby findings tabulate corner-gap extreme limits and short-chord coefficients, but not the functions H_0,H_1/2 or the 1/4 odd onset."
+        ],
+        "reasoning": "No exact corpus table replaces the two limiting integrals or onset classification; the problem is not a named integer-sequence census.",
+        "searches": [
+          "regular n-gon two independent uniform boundary arclength points distance near diameter polygon circle even odd rescaled tail integral asymptotic",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-short-chord-laws-and-sharp-angular-rigidity-for-convex-pol--6aa43036918b/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-rare-diameter-corner-profiles-and-cyclic-feasibility-polytopes-o--ce40c585ddb4/RESULT.md"
+        ]
+      },
+      "rationale": "Earlier regular-polygon distance literature concerns invariant-line chords or two interior-area-uniform endpoints; its CDF cannot be substituted for independently sampled perimeter-arclength endpoints. Published polygon short-chord coefficients concern D near zero, whereas this is n-dependent near-diameter probability. Lao-based maximum sample diameter at fixed odd polygon has different sample-count and extremal ordering. The explicit parity-split n^-2 boundary-chord scaling and local onset do not follow from those theorems. No exact or stronger matched result located; historical priority provisional.",
+      "residual_risks": [
+        "A geometric probability paper using antipodal boundary chord asymptotics rather than regular-polygon distance language could predate the result.",
+        "The proof uses a vertex-based angular origin despite one sentence saying side normals; notational correction may help readability but does not change the established formulas."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_SAMPLING_MODEL",
+          "evidence": [
+            "Invariant-line chords and independent *interior*-uniform points; not perimeter-pair sampling."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/223967035_Random_chords_and_point_distances_in_regular_polygons",
+          "material_read": "Full accessible author-distributed paper text, including model definitions, chord distribution, point-distance construction, discussion and references",
+          "method": "Read accessible research statement and proof, compare defined objects, assumptions, conclusion and its logical implications",
+          "title": "Uwe Bäsel, Random chords and point distances in regular polygons",
+          "trigger": "Same regular polygons and random distance terminology"
+        },
+        {
+          "assessment": "DIFFERENT_TAIL",
+          "evidence": [
+            "Small-radius exact CDF 2r/P+B(Q)r^2/P^2, not the near-diameter n-dependent probability."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-short-chord-laws-and-sharp-angular-rigidity-for-convex-pol--6aa43036918b/RESULT.md",
+          "material_read": "Complete RESULT.md: theorem, stepwise side/corner integration proof, limitations, references",
+          "method": "Read accessible research statement and proof, compare defined objects, assumptions, conclusion and its logical implications",
+          "title": "Exact short-chord laws and sharp angular rigidity for convex polygon boundaries",
+          "trigger": "Same two arclength boundary points"
+        },
+        {
+          "assessment": "DIFFERENT_EXTREMAL_EXPERIMENT",
+          "evidence": [
+            "Maximal diameter among N sampled points in fixed odd k-gon, not one chord as k increases."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-rare-diameter-corner-profiles-and-cyclic-feasibility-polytopes-o--ce40c585ddb4/RESULT.md",
+          "material_read": "Complete RESULT.md: Lao representation, corner conditional law, endpoints, proof and references",
+          "method": "Read accessible research statement and proof, compare defined objects, assumptions, conclusion and its logical implications",
+          "title": "Rare-diameter corner profiles and cyclic feasibility polytopes of odd regular polygons",
+          "trigger": "Boundary arclength sampling and diameter endpoint statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural critical double scale for boundary chords as regular polygons converge to a circle, where isolated versus flat antipodal maximizers and parity lead to qualitatively different threshold behavior. The explicit H_sigma integral, hard odd gap and sharp onset coefficients encode useful geometry beyond a small finite example; the result is an analytically proved asymptotic invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Parity subsequences and fixed rescaled t only; not a uniform finite-n error rate or statistical inference theorem.",
+    "The limiting angular expression is analytic but its full CDF is not reduced to one elementary closed formula."
+  ],
+  "schema_version": 1
+}
