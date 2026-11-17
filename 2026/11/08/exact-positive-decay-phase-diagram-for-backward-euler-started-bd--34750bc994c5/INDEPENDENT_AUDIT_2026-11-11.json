@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T03:07:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The frozen proof uses genuine variable-step BDF2 with r_n=h_n/h_{n-1}, backward-Euler u1=u0/(1+x), and arbitrary positive alternating normalized steps x first, y second. Algebra gives det P=xy/(D_x D_y), trace P=[s²(2-s)+2xy(s+1)]/(D_x D_y), and discriminant s^4[(x-y)²-4(s-1)]/(D_x²D_y²). Independent SymPy expansion verifies this exact identity. For s<2 and Δ≥0, positive distinct eigenvalues and a positive dominant starter component or a positive Jordan correction at Δ=0 establish all-index positivity; complex roots oscillate in sign, and negative-real roots for s>2 force sign changes. The recurrence difference identity makes every positive trajectory strictly decreasing. Exact-rational 120-step trajectories corroborated both short-first (1/8,9/8) and long-first (9/8,1/8) boundary, and excluded equal-step example (3/5,3/5) displayed sign loss. The proof treats all index and parameter quantifiers; finite checks alone would not.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Other sources determine two-step spectral radii or absolute stability, not all-index positivity of the short-first BE-started trajectory."
+        ],
+        "reasoning": "Floquet spectral stability does not ensure a positive orbit for a particular starter; submitted short-first extension was not logically covered by inspected prior results.",
+        "searches": [
+          "Resultary: a sharp fixed-budget Floquet optimizer for two-periodic variable-step BDF2",
+          "Resultary: unrestricted complex half-plane stability two-periodic BDF2",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-positivity-threshold-for-alternating-grid-bdf2--4cca231041b2/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-positivity-threshold-for-alternating-grid-bdf2--4cca231041b2/RESULT.md",
+        "https://arxiv.org/abs/2201.00527",
+        "https://arxiv.org/abs/2003.00421",
+        "doi:10.3103/S1066369X14030025"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior proof fixes y1=y0/(1+λH); short-first submitted fixes y1=y0/(1+λh). Same two-step coefficients after shifting one phase, but distinct initial vector in the monodromy."
+        ],
+        "reasoning": "Prior H-first theorem alone cannot be applied to a short-first BE-started path by time shift, because its shifted trajectory would not start with the required BE ratio. The submitted proof verifies the new initial vector coefficient and critical Jordan case.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-positivity-threshold-for-alternating-grid-bdf2--4cca231041b2/RESULT.md",
+          "Resultary: sharp fixed-budget Floquet optimizer two-periodic variable-step BDF2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier r=H/h≥1, z=λh has threshold z≤2/(√r+1)² and specifically BE first step H; substitution x=rz,y=z yields Δ≥0, s<2 on that long-first domain."
+        ],
+        "reasoning": "The earlier boundary formula is algebraically identical for the long-first phase. Reversing the alternating order changes the BE starter and is not simply relabeling the same initial-value problem.",
+        "searches": [
+          "Resultary: exact positivity threshold alternating-grid BDF2",
+          "2026-10-26 prior full RESULT",
+          "Resultary: both short-first and long-first BDF2 positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing long-first exact table reproduces one half of submitted (x,y) phase diagram, not the x<y half after BE initialization."
+        ],
+        "reasoning": "This prior coverage is explicitly substantial; the unaddressed phase-specific all-iterate condition is the only novelty claimed, not a new boundary number.",
+        "searches": [
+          "Resultary: positivity threshold alternating-grid BDF2 October 2026",
+          "Resultary: backward-Euler started two-periodic positivity"
+        ]
+      },
+      "rationale": "The earlier October 26, 2026 full theorem Exact positivity threshold for alternating-grid BDF2 already proves the sharp boundary 0<λh≤2/(√r+1)² for a **long-first** H,h,H,h,... sequence with backward-Euler first step of size H. Algebra with r=H/h shows its boundary equals the submitted symmetric (x+y)² relation when x≥y. That whole long-first portion and its high-contrast limit are decisively prior and are NOT claimed novel. The earlier result does not cover the reverse **short-first** BE starter x<y, because changing time origin alters the initial BDF2 history. The submitted all-index argument covers this additional phase and proves the same sharp boundary/strict decay without inherited-starter equivalence. No checked stronger all-phases result was found; originality PASS best-of-knowledge for phase-completeness ONLY, with unusually large partial prior coverage and a residual possibility of trivial or implicit phase derivation in old Floquet analyses.",
+      "residual_risks": [
+        "Substantial 2026-10-26 long-first prior theorem covers the exact same threshold and most of the submitted phase diagram; genuinely surviving novelty is short-first BE initialization/phase invariance only.",
+        "A general periodic fundamental-solution positivity theorem or implicit short-first corollary may erase the surviving increment; present assessment best-of-knowledge and no worldwide priority guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERS",
+          "evidence": "Covers all long-first x≥y and the high-contrast limit; does not state BE short-first phase or arbitrary x,y.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-positivity-threshold-for-alternating-grid-bdf2--4cca231041b2/RESULT.md",
+          "material_read": "Full earlier published proof, discriminant, positivity ratio-map and stated H,h,H,h... initialization",
+          "method": "GitHub full prior RESULT",
+          "title": "Exact positivity threshold for alternating-grid BDF2",
+          "trigger": "Exact threshold matching algebraically"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_DECISIVE",
+          "evidence": "Grid norm-stability is not identical to all-iterate positivity for prescribed BE starter.",
+          "identifier_or_url": "https://arxiv.org/abs/2201.00527",
+          "material_read": "Abstract and accessible result summary; full theorem not inspected",
+          "method": "ArXiv abstract source, no whole-text negative conclusion",
+          "title": "Stability of variable-step BDF2 and BDF3 methods",
+          "trigger": "Possible general-grid theorem"
+        },
+        {
+          "assessment": "BACKGROUND_RISK",
+          "evidence": "General characteristic-root positivity tools are prior; exact short-first BDF2 application may be implicit.",
+          "identifier_or_url": "doi:10.3103/S1066369X14030025",
+          "material_read": "Bibliographic/abstract-level relevant statement, full paper not inspected",
+          "method": "Literature abstract",
+          "title": "On Positiveness of the Fundamental Solution of a Difference Equation",
+          "trigger": "Generic recurrence root-positivity theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact all-index sign preservation of a genuine variable-step multistep method under both starting phases is a natural numerical-analysis robustness criterion; an initial BE value depends on the first step. Establishing phase invariance of the sharp boundary at arbitrarily large step contrast and strict monotone decay gives meaningful additional completeness beyond the published long-first theorem. Importance resides in the nontrivial short-first starter analysis, not a claimed discovery of the already known boundary polynomial or high-contrast limit.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-positivity-threshold-for-alternating-grid-bdf2--4cca231041b2/RESULT.md",
+    "https://arxiv.org/abs/2201.00527",
+    "https://arxiv.org/abs/2003.00421",
+    "doi:10.3103/S1066369X14030025"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Positive scalar linear decay, exact alternating two steps, BE first startup and true variable-step BDF2; no general nonlinear/matrix positivity or perturbation robustness."
+  ],
+  "residual_risks": [
+    "Substantial 2026-10-26 long-first prior theorem covers the exact same threshold and most of the submitted phase diagram; genuinely surviving novelty is short-first BE initialization/phase invariance only.",
+    "A general periodic fundamental-solution positivity theorem or implicit short-first corollary may erase the surviving increment; present assessment best-of-knowledge and no worldwide priority guarantee."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PARTIALLY_COVERS",
+      "evidence": "Covers all long-first x≥y and the high-contrast limit; does not state BE short-first phase or arbitrary x,y.",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-exact-positivity-threshold-for-alternating-grid-bdf2--4cca231041b2/RESULT.md",
+      "material_read": "Full earlier published proof, discriminant, positivity ratio-map and stated H,h,H,h... initialization",
+      "method": "GitHub full prior RESULT",
+      "title": "Exact positivity threshold for alternating-grid BDF2",
+      "trigger": "Exact threshold matching algebraically"
+    },
+    {
+      "assessment": "BACKGROUND_NOT_DECISIVE",
+      "evidence": "Grid norm-stability is not identical to all-iterate positivity for prescribed BE starter.",
+      "identifier_or_url": "https://arxiv.org/abs/2201.00527",
+      "material_read": "Abstract and accessible result summary; full theorem not inspected",
+      "method": "ArXiv abstract source, no whole-text negative conclusion",
+      "title": "Stability of variable-step BDF2 and BDF3 methods",
+      "trigger": "Possible general-grid theorem"
+    },
+    {
+      "assessment": "BACKGROUND_RISK",
+      "evidence": "General characteristic-root positivity tools are prior; exact short-first BDF2 application may be implicit.",
+      "identifier_or_url": "doi:10.3103/S1066369X14030025",
+      "material_read": "Bibliographic/abstract-level relevant statement, full paper not inspected",
+      "method": "Literature abstract",
+      "title": "On Positiveness of the Fundamental Solution of a Difference Equation",
+      "trigger": "Generic recurrence root-positivity theory"
+    }
+  ]
+}

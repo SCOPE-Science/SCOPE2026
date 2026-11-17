@@ -1,11 +1,21 @@
-# Review of the alternating-grid BDF2 positivity classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim specifies the true unequal-grid interpolation recurrence, positive decay parameter, backward-Euler starter, and all positive step sizes. The two-period monodromy identities and starter inequality are exact rational-algebra identities checked independently by a standalone symbolic script. Positive distinct roots and the critical Jordan case give positive pairs for every index. Complex-root oscillation, negative-real-root alternation, and the strict-decay difference identity establish the converse and monotonicity. Finite rational trajectories are supplementary, not infinite certificates. The limits to scalar decay, periodicity and a prescribed starter are explicit.
+## correctness
 
-**Originality — PASS on the inspected evidence, with residual risk.** Closest literature includes Bonaventura–Della Rocca's one-step TR-BDF2 absolute monotonicity study, Wang–Mao–Wang's genuine variable-step BDF2 stability/error results (including a backward-Euler starter), Liao–Tang–Zhou's sufficient nonlinear maximum-bound results, Li–Liao's arbitrary-grid norm stability, and Malygina's general constant-coefficient fundamental-solution positivity criterion. The last provides a known spectral/nonoscillation mechanism, not the unequal-grid BDF2 specialization with the prescribed starter. Comparison at the level of formulas and implications did not find an explicit iff \(x+y<2\), \((x-y)^2\geq4(x+y-1)\) with the starter analysis; the published equal-step positivity case is recovered and not claimed independently. Specialist literature on cyclic recurrence disconjugacy could imply an equivalent result and remains the principal priority risk. This review is not an independent or exhaustive publication-priority certification.
+PASS
 
-**Value — PASS.** The full two-parameter positivity phase diagram is mathematically natural for adaptive second-order multistep methods: it separates temporal step contrast from total scaled time advance, identifies a sharp nonoscillation boundary, and handles the repeated Floquet multiplier without imposing conservative uniform ratio restrictions. Its unusual, exactly quantified high-contrast region (doubling limiting mean step but requiring quadratic contrast) gives a meaningful distinction between sign preservation and conventional error/robustness considerations. It is a complete infinite-family classification, not an arbitrary finite numerical sample.
+The frozen proof uses genuine variable-step BDF2 with r_n=h_n/h_{n-1}, backward-Euler u1=u0/(1+x), and arbitrary positive alternating normalized steps x first, y second. Algebra gives det P=xy/(D_x D_y), trace P=[s²(2-s)+2xy(s+1)]/(D_x D_y), and discriminant s^4[(x-y)²-4(s-1)]/(D_x²D_y²). Independent SymPy expansion verifies this exact identity. For s<2 and Δ≥0, positive distinct eigenvalues and a positive dominant starter component or a positive Jordan correction at Δ=0 establish all-index positivity; complex roots oscillate in sign, and negative-real roots for s>2 force sign changes. The recurrence difference identity makes every positive trajectory strictly decreasing. Exact-rational 120-step trajectories corroborated both short-first (1/8,9/8) and long-first (9/8,1/8) boundary, and excluded equal-step example (3/5,3/5) displayed sign loss. The proof treats all index and parameter quantifiers; finite checks alone would not.
 
-**Limitations and priority risk.** Scalar linear autonomous decay only, fixed backward-Euler initialization, two-periodic positive steps, no perturbation-stability or full nonlinear/matrix monotonicity conclusion. Earlier general oscillation theory may contain an implicit reduction. The independent mathematical review is unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier October 26, 2026 full theorem Exact positivity threshold for alternating-grid BDF2 already proves the sharp boundary 0<λh≤2/(√r+1)² for a **long-first** H,h,H,h,... sequence with backward-Euler first step of size H. Algebra with r=H/h shows its boundary equals the submitted symmetric (x+y)² relation when x≥y. That whole long-first portion and its high-contrast limit are decisively prior and are NOT claimed novel. The earlier result does not cover the reverse **short-first** BE starter x<y, because changing time origin alters the initial BDF2 history. The submitted all-index argument covers this additional phase and proves the same sharp boundary/strict decay without inherited-starter equivalence. No checked stronger all-phases result was found; originality PASS best-of-knowledge for phase-completeness ONLY, with unusually large partial prior coverage and a residual possibility of trivial or implicit phase derivation in old Floquet analyses.
+
+## value
+
+PASS
+
+Exact all-index sign preservation of a genuine variable-step multistep method under both starting phases is a natural numerical-analysis robustness criterion; an initial BE value depends on the first step. Establishing phase invariance of the sharp boundary at arbitrarily large step contrast and strict monotone decay gives meaningful additional completeness beyond the published long-first theorem. Importance resides in the nontrivial short-first starter analysis, not a claimed discovery of the already known boundary polynomial or high-contrast limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
