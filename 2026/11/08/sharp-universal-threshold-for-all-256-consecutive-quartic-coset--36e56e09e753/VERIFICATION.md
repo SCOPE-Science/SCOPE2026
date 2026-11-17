@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computational verification and limits
+# Independent mathematical audit
 
-The full exact finite calculation was replayed from the bundled `verify_quartic4.cpp` path using a C++17 compiler. The output matched `quartic4_output.txt` byte-for-byte. The code sieves all primes below 263681, filters \(p\equiv1\pmod4\), tests a primitive root using the prime factors of \(p-1\), and evaluates every consecutive four-letter coset word. It checks 11538 eligible primes and finds 144 exceptions, the last 3361. At 3361 the only missing code is 195, corresponding to \((3,0,0,3)\) with the least primitive root. At the next eligible prime 3373 all 256 words occur.
+## correctness
 
-The separate `check_quartic4_independent.py` verifier was also replayed from this package and reported all 269 eligible primes through 4000, 144 exceptions, and last exceptional prime 3361. It determines cosets by constructing fourth-power sets and multiplying by powers of the least quadratic nonresidue; it does not share the primitive-root procedure. It also checks several larger selected primes. The second calculation does not independently cover every prime below 263681; the first computation does.
+PASS
 
-The infinite tail uses the explicit standard character-sum estimate derived in `RESULT.md`: \(256N_p\ge p-513\sqrt p-256\), positive from 263681. Thus the finite computation is used only for a proved exhaustive range; no inference from experiments to an infinite statement is made. The exact cutoff and source comparisons have not received a separate external audit.
+Character orthogonality for four nonzero adjacent residues gives 256 N_p(a) >= p-513 sqrt(p)-256. Exactly 12,54,108,81 nontrivial exponent vectors have support 1,2,3,4; Weil bounds plus at most 4-r removed roots yield the claimed coefficient. At p=263681 the integer squared positivity difference is 65536, and the bound increases thereafter. Independently wrote and compiled a distinct C++17 sieve/primitive-root bitmap verifier, exhaustively checking all 11538 eligible primes below 263681: exactly 144 have incomplete coverage; last is 3361 with sole missing code 195=(3,0,0,3), next eligible 3373 complete; zero-word last absent at 2689. Thus a justified finite exhaustion joins the infinite proof, not sampled extrapolation.
+
+## originality
+
+PASS
+
+Earlier exact 64-word three-consecutive quartic-coset threshold at p=1181 and classical monochromatic length-four residue runs cannot entail all 256 mixed 4-label extensions. Lehmer 1983 has highly plausible power-residue-pattern scope; secondary review indicates least prescribed all-residue patterns, while complete text inaccessible; retain priority risk, not automatic scientific failure.
+
+## value
+
+PASS
+
+A sharp all-prime eventual coverage threshold for all 256 naturally defined residue words, with exact exceptional-prime census and mixed rather than monochromatic last obstruction, is a meaningful complete finite/analytic classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
