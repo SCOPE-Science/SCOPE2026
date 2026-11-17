@@ -1,0 +1,160 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T07:46:03.156990Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Any palstar with exactly four 1s has either one positive palindromic block containing all four or two positive palindromic blocks with two each; zero-only blocks have even length. For gap word 0^a 1 0^b 1 0^c 1 0^d 1 0^e, two-block case iff b,d are even and c>=alpha+beta with c≡alpha+beta mod2, alpha=a mod2,beta=e mod2. One-block case iff b=d,c even,alpha=beta. Constructive paddings show both necessity and sufficiency. The case generating functions are G_II=(1+x)^2/(1-x)^5, G_I=(1+x)/(1-x)^4, intersection (1+x²)/((1-x²)(1-x)^3), so inclusion-exclusion yields (1+5x+x²+x³)/((1-x)^5(1+x)) and P_m=(4m^4-4m^3+2m²-8m+3-3(-1)^m)/24 for all integers m>=2. The leading coefficient gives density 1/4 within exactly-four-ones slice. Independently used a direct palindrome-cut dynamic program on EVERY fixed-weight-four binary word for lengths 4,6,...,22 and matched both gap criterion and counts 1,9,32,84,181,345,600,976,1505,2225. The exact parametric factorization, not the finite experiment, is the unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier three-one palindromic length paper has unrestricted palindromic factors and PL(w), not membership in star of even palindromes.",
+          "Unrestricted global palstar language identities are structurally broader but do not display a specific weight-four enumeration or imply its exact rational expression by a trivial substitution."
+        ],
+        "reasoning": "A general theory might be used for alternative derivation, but inspected results do not contain a strong prior implication or matching specialization.",
+        "searches": [
+          "palstar weight four generating function content bivariate binary",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-palindromic-length-at-binary-weight-three-and-its-one-sixt--16acd708aa81"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1008.2440",
+        "https://arxiv.org/abs/1311.2318",
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-palindromic-length-at-binary-weight-three-and-its-one-sixt--16acd708aa81",
+        "https://oeis.org/A246019"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Target count requires separating single four-one palindromic block from two two-one blocks and subtracting overlap, absent from the univariate total count theorem.",
+          "The prior PL weight-three enumeration differs by block parity and number of ones, hence does not imply target."
+        ],
+        "reasoning": "The constructive gap criterion and intersection subtraction are genuine distinct content-refined mathematics, not mere wording or known-table recomputation.",
+        "searches": [
+          "https://arxiv.org/abs/1008.2440",
+          "https://arxiv.org/abs/1311.2318",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-palindromic-length-at-binary-weight-three-and-its-one-sixt--16acd708aa81"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rampersad–Shallit–Wang introduce prime-palstar/unbordered characterization and factorization; no content-refined four-one gap theorem in their inspected sections.",
+          "Richmond–Shallit enumerate all palstars over fixed alphabet, not fixed symbol content."
+        ],
+        "reasoning": "Total univariate generating series does not mechanically identify exact four-one coefficient without new bivariate decomposition.",
+        "searches": [
+          "palstars exactly four ones even palindromes binary 5 zero gaps classification",
+          "https://arxiv.org/abs/1008.2440",
+          "https://arxiv.org/abs/1311.2318"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary first match is the submitted current record; no independent weight-four palstar table matched.",
+          "OEIS A246019 is total counts by length, not the fixed-weight-four refined sequence."
+        ],
+        "reasoning": "The exact fixed-weight table appears not previously listed in examined sources, but database absence is not novelty proof.",
+        "searches": [
+          "Resultary semantic search binary palstars with four ones exact gap quasipolynomial",
+          "OEIS A246019 binary palstar counts",
+          "https://arxiv.org/abs/1311.2318"
+        ]
+      },
+      "rationale": "The two primary palstar papers develop prime-factor and unrestricted total-length enumerations; inspected their theorem statements and counting setups but found no extraction for exactly four ones or this complete five-gap membership test. A nearby exact palindromic-length theorem allows odd palindrome blocks and has three ones; it is a different language and statistic.",
+      "residual_risks": [
+        "A broader multivariate generating function in uninspected combinatorics literature could implicitly yield the coefficient.",
+        "Exact theorem pertains only to binary four-one slice, not all content weights or alphabets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General prime structure, not exact four-one gap criterion/count",
+          "evidence": [
+            "arXiv:1008.2440, Sections 2–3"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1008.2440",
+          "material_read": "Accessible primary complete article, Sections 2–3, prime-palstar characterization and factorization Theorems 3 and 6",
+          "method": "Read paper full-text mathematical definitions and key theorems",
+          "title": "Inverse Star, Borders, and Palstars",
+          "trigger": "Foundational palstar structural characterization"
+        },
+        {
+          "assessment": "Unrestricted alphabet-size/length count, not fixed four ones or presented five-gap enumeration",
+          "evidence": [
+            "arXiv:1311.2318, Theorem 2"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1311.2318",
+          "material_read": "Accessible complete primary article Sections 1–4, particularly Theorem 2 generating series and asymptotics",
+          "method": "Read mathematical definitions, unrestricted generating derivation and results",
+          "title": "Counting the Palstars",
+          "trigger": "Most plausible global enumeration subsuming content count"
+        },
+        {
+          "assessment": "Not a palstar weight-four count; plain palindrome factorization allows odd length",
+          "evidence": [
+            "Resultary 2026/10/25 RESULT.md"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-palindromic-length-at-binary-weight-three-and-its-one-sixt--16acd708aa81",
+          "material_read": "Complete published RESULT.md with classification by four gaps and PL values",
+          "method": "Read main claim and proof and contrasted language, length parity and weight",
+          "title": "Exact palindromic length at binary weight three and its one-sixth extremal density",
+          "trigger": "Potential nearby fixed-content palindromic counting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed-content enumeration is a natural refinement of palstar counting. The exhaustive structural characterization of all five-gap words and nontrivial overlap correction determine a new uniform quasipolynomial and density 1/4; the explicit membership test and exact count are independently reusable mathematical facts beyond a tabulation of small lengths.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1008.2440",
+    "https://arxiv.org/abs/1311.2318",
+    "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-palindromic-length-at-binary-weight-three-and-its-one-sixt--16acd708aa81",
+    "https://oeis.org/A246019"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Restricted to linear indexed binary words with exactly four ones; density conditioned on weight."
+  ],
+  "residual_risks": [
+    "A broader multivariate generating function in uninspected combinatorics literature could implicitly yield the coefficient.",
+    "Exact theorem pertains only to binary four-one slice, not all content weights or alphabets."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "General prime structure, not exact four-one gap criterion/count",
+      "evidence": [
+        "arXiv:1008.2440, Sections 2–3"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1008.2440",
+      "material_read": "Accessible primary complete article, Sections 2–3, prime-palstar characterization and factorization Theorems 3 and 6",
+      "method": "Read paper full-text mathematical definitions and key theorems",
+      "title": "Inverse Star, Borders, and Palstars",
+      "trigger": "Foundational palstar structural characterization"
+    },
+    {
+      "assessment": "Unrestricted alphabet-size/length count, not fixed four ones or presented five-gap enumeration",
+      "evidence": [
+        "arXiv:1311.2318, Theorem 2"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1311.2318",
+      "material_read": "Accessible complete primary article Sections 1–4, particularly Theorem 2 generating series and asymptotics",
+      "method": "Read mathematical definitions, unrestricted generating derivation and results",
+      "title": "Counting the Palstars",
+      "trigger": "Most plausible global enumeration subsuming content count"
+    },
+    {
+      "assessment": "Not a palstar weight-four count; plain palindrome factorization allows odd length",
+      "evidence": [
+        "Resultary 2026/10/25 RESULT.md"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-palindromic-length-at-binary-weight-three-and-its-one-sixt--16acd708aa81",
+      "material_read": "Complete published RESULT.md with classification by four gaps and PL values",
+      "method": "Read main claim and proof and contrasted language, length parity and weight",
+      "title": "Exact palindromic length at binary weight three and its one-sixth extremal density",
+      "trigger": "Potential nearby fixed-content palindromic counting"
+    }
+  ]
+}
