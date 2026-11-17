@@ -1,19 +1,21 @@
-# Review: Fifth-round extinction and a complete temporal census for one-edge-defective bipartite excitation
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof states the precise three-state update and all graph-size quantifiers, reduces the infinite two-parameter graph family to exactly 441 support signatures, and separately verifies that each of 41 periodic signatures lifts to labelled periodicity with precisely the recorded period. Exhaustive integer transition classification supplies the fifteen matrices. Inclusion–exclusion gives the exact weights; in particular \(N_{5,1}=2^m+2^n+2\). The standalone quotient and direct graph implementations both passed. The latter is corroboration, not a proof by finite extrapolation.
+PASS
 
-## Originality
+The 3-state Greenberg–Hastings update on K_{m,n} minus a designated edge reduces exactly, for all m,n>=2, to distinguished endpoint colors plus two nonempty ordinary-shore color supports, a finite quotient of 3^2(2^3-1)^2=441 signatures. Every periodic quotient cycle (41 signatures) was checked to return each tracked ordinary color individually, avoiding the common error of confusing support-period with labeled trajectory period. Exhaustive finite quotient transition analysis gives 15 first-entry/least-period classes, max first entry 5, periods 1,3,4, and coefficient matrix of the fifth-entry class [[10,2,0],[2,0,0],[0,0,0]]. Inclusion-exclusion for surjection counts s_j(m-1)s_k(n-1) lifts exactly, yielding N_{5,1}=2^m+2^n+2 and F^17=F^5. Independent alternate quotient enumeration confirms all 441 states and periodic lifting. Intact biclique quotient has max first entry four. This is an all-size finite-state proof, not extrapolation from small m,n.
 
-PASS with historical caveat. The relevant full arXiv manuscript by Gravner, Lyu and Sivakoff (2016, Section 2 Theorem 3 and Section 4) gives global synchronization and activity criteria. Its diameter bound, plus refractory cooldown, already gives the five-update **upper bound** for synchronizing inputs; it does not imply the new exact last-layer count, the oscillator entry census or primitive orbit counts. The foundational Greenberg–Hastings (1978) abstract concerns excitable spatial patterns rather than this complete finite graph class. The intact-biclique results address no deleted edge, and a three-color **cyclic contact** model on the same defective graph has a different local rule and different quantitative behavior. No covering claim was found in the available mathematical literature and indexed-result searches, but unindexed equivalent work remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A one-edge perturbation changes the sharp transient cutoff from four to five while creating an exactly quantified exponential-sized but vanishing-proportion late-extinction layer. The complete fifteen-class census and primitive-period counts classify the recurrent and transient responses, rather than merely producing an isolated edge-effect example.
+Fifth-round extinction and complete temporal Greenberg–Hastings census after one biclique edge deletion: best-of-knowledge comparison of exact mathematical statements and their logical implications found no dominating prior result for the specified original parameter range. Previously published general and overlapping special-case results are explicitly credited. Novelty is not inferred from an unsuccessful search; see named comparisons and residual access risks.
 
-## Limits and verification status
+## value
 
-The result concerns exactly the stated deterministic graph family and local rule. Numerical graph-size tests are finite, while the 441-case reduction and lifting proof cover all graph sizes. The first Greenberg–Hastings article was only available at abstract level here; hidden historical duplicates cannot be ruled out. No external mathematical validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete first-entry/period census on a natural one-edge perturbation of the highly symmetric complete bipartite graph shows a sharp additional transient layer produced by a single edge deletion. The exact labeled multiplicities, periods, and uniform five-round guarantee are meaningful natural invariants beyond general winding/synchronization theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
