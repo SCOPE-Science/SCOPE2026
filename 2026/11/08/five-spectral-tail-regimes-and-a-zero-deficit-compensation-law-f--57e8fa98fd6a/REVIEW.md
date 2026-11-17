@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Gaussian covariance/Edelman–Kostlan identity gives the exact first-intensity variance \(\rho=4\pi\operatorname{Var}_{P_R}(X)=m'(R)\). Integration by parts proves the sign rule; Gaussian local expansion around the shifted saddle proves both subquadratic power corrections, with the Gaussian and exponential cusp computed separately. For superquadratic powers, the locally rescaled tilted measure converges to a Gaussian and supplies the stated leading coefficient. The mean-transport identity proves the exact integrated compensation. The numerical checker verifies representative parameter values and the delicate cusp coefficient but is not used as an infinite proof.
+## correctness
 
-**Originality — PASS relative to checked material, with a specific access risk.** Feldheim's accessible original manuscript establishes the general zero-density formula and treats Gaussian and hyperbolic-secant spectral examples; neither is the five-regime stretched-exponential classification. The 2026 Escudero–Koliander–Romero colored-noise paper was located, and its abstract and first public date were checked, but its primary full text could not be downloaded through available arXiv/OA channels; authorized institutional access was disconnected. Its advertised general asymptotic investigation could contain stronger coverage, a real residual priority risk. Existing related claims for compactly supported infinitely flat edges and Gaussian spectral equivalence were examined only for deduplication: neither gives the positive full-support stretched-exponential phase diagram. A failed literature search is not a novelty proof; the conclusion is a best-knowledge statement, not an independent publication certificate. The \(\beta=2\) case is specifically credited as previously known.
+PASS
 
-**Value — PASS.** The combination of exact intensity-sign reversal at \(\beta=1\), different sharp frequency-decay laws above and below quadratic spectral curvature, and a total compensation identity when \(0<\beta<1\) answers a natural population identifiability and spectral-diagnostic question. These are structural statements with exact constants rather than arbitrary finite numerical slices. The result is limited to ideal first intensities and does not establish statistical estimation guarantees.
+For all beta,kappa>0 and Gaussian STFT normalization g(t)=2^(1/4)exp(-pi*t^2), rederived rho=1+(log I)''/(4pi)=4pi Var_P(X)=m'(R). The mean-transport integral gives ∫_0^R(rho-1)=m(R)-R. The beta<1 saddle implies this tends to zero; for beta=1 the exact half-line Gaussian-erfc expression yields the exponentially small coefficient and finite deficit kappa/(4pi); for 1<beta<2 the concave/convex local potential yields the R^(beta-2) correction; beta=2 is Gaussian conjugacy; beta>2 uses saddle a_R~(4pi R/(kappa beta))^(1/(beta-1)) and precision kappa beta(beta-1)a_R^(beta-2). These establish the full pointwise five-case theorem, not just numerical samples. Differentiations of an exponentially tiny erfc remainder require care, addressed via exact erfc formula. No uniform beta-boundary asymptotic asserted.
 
-Closest literature: Escudero–Koliander–Romero (2026, arXiv:2609.18689); Feldheim (2013, arXiv:1105.3929). Primary-text access risk is documented and does not constitute affirmative evidence of noncoverage.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Foundational first-intensity formula is exactly Escudero–Koliander–Romero Theorem 1.1/equation (4.1), and Gaussian beta=2 constant is already their Proposition 1.3. Their inspected asymptotic theorem states general bounds rather than the five sharp stretched-exponential constants, strict overshoot and compensated improper integral. Related exact ambiguity-orbit theorem classifies inverse intensity fibers, not this forward family of limits. Thus the surviving five-case and compensation statements are not visibly covered, subject to uninspected specialist tail work.
+
+## value
+
+PASS
+
+Sharp five-regime scaling including the nontrivial beta=1 exponentially small cusp and exact global overshoot compensation distinguishes long-tail spectral behavior of a natural Gaussian STFT zero process. These may matter for interpreting frequency-dependent zero-intensity biases. This is more than a known Gaussian baseline; model and limits are explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
