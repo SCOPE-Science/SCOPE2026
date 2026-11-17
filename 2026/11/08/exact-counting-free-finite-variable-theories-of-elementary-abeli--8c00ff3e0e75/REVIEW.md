@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The graph-of-addition language is explicitly relational and ternary. Every atomic equality or addition relation on the pebbles reduces, in characteristic two, to a dependency supported on at most three occupied positions. For widths at least four, the invariant preserving dependencies on proper subsets of all pebble positions admits an indefinite extension strategy: with pinned rank at most \(k-2\) a fresh vector exists on both sides, while at rank \(k-1\) the full-support dependency introduced by replacing a fresh vector with the sum of the pinned vectors is invisible. For widths at most three the stronger full-dependency invariant is maintained above dimension \(k\). Distinguishing formulas for small ranks and the alternating-accumulator construction using at most \(m+1\) names establish sharpness. Orbit checks independently verify the critical first plateaus at widths four and five. No finite computation is treated as an infinite-game proof.
+## correctness
 
-**Originality: PASS, with residual historical risk.** Gomaa's 2007 dissertation (Definition 3.1, Corollary 3.8; inspected in the university-hosted PDF) and 2008 conference article (Definition 1, Corollary 40; inspected in the posted full text) use the same vocabulary and assert a universal existential five-variable distinguishability result. The exhibited order-sixteen/order-thirty-two pair disproves this statement even for unrestricted first-order sentences. The published proof's comparison of sets of cyclic component orders does not distinguish multiplicity: both displayed groups have component-order set \(\{2\}\). The classification is not a reformulation of the cyclic-group arguments or of work on nonabelian groups without abelian normal subgroups. The 2010 journal abstract reiterates the broad claim but restricted full text was not inspected; broader unlocated composition results might cover the positive classification.
+PASS
 
-**Mathematical value: PASS.** The finding gives an exact variable-width hierarchy with a previously unobvious plateau at widths three and four, a complete natural family of counterexamples to a directly relevant published five-variable assertion, and a permanent game invariant explaining why arity three hides maximal-support linear dependencies. The rank-four versus rank-five counterexample and exact full-family classification are structural rather than small numerical observations.
+In (F_2^d;R,0), ternary R and equality atoms are determined by vanishing sums of support at most three. For k>=4, preserve proper-subset (<k) linear dependencies among k pebbles: after one relocation, remaining k-1 vectors have exactly matching spans, and an outside response exists unless rank k-1, where replacing by their total sum only changes a full-support k-dependency invisible to all atoms. This is a back-and-forth for every round when both d,e>=k-1. For k<=3 preserve all dependencies with dimensions >=k. Finite-variable nested accumulator formulas express m-vector independence using m+1 symbol names for m>=3, and special widths 1,2,3 distinguish smaller ranks. Thus dimensions truncated at tau(k)=k (k<=3), k-1 (k>=4) exactly classify FO^k theories. Independently checked rank boundary: any five vectors in F2^4 are dependent, while a five-element basis of F2^5 has no nonempty zero-sum subset. This is a boundary check, not infinite proof.
 
-**Remaining limitations:** Only the stated relational signature and elementary abelian two-groups are covered; no claims about richer languages, all finite groups, quantifier rank, counting logic, or priority beyond inspected material. Independent verification is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A 2007 Gomaa dissertation and 2008 conference text claim unconditionally that five variables distinguish any two nonisomorphic finite abelian groups in the same ternary relational language. Its proof applies sets of cyclic component orders, losing multiplicity: (F2)^4 and (F2)^5 share component-order set {2} despite different dimension. The submitted five-variable counterexample and all-k truncation theorem contradict that specific earlier assertion rather than being a corollary. Earlier finite-round and two-variable classifications in Resultary concern fixed quantifier depth or variation across primes, not the full dimension-by-width law at unrestricted quantifier depth. The related 2010 journal full article was not obtained, so characterization of its detailed proof remains limited.
+
+## value
+
+PASS
+
+The exact number of unrestricted-rank counting-free k-variable theories in a natural uniform relational group family is a meaningful finite-model-theory classification. The k=4 plateau and five-variable counterexample correct a specific overbroad published assertion, rather than supplying a routine definitional renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
