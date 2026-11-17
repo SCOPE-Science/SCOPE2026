@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility checks and limits
+# Independent mathematical audit
 
-From the extracted package directory run `python3 verify_two_coupon.py` (Python standard library only). The checker builds each four-state post-erasure Markov transition matrix directly from the acquisition/erasure rule, solves an independent three-transient-state hitting system and a normalized four-state stationary linear system using exact rational Gaussian elimination, and compares both results to the closed forms at a family of rational input pairs including zero-loss boundaries. It checks derivative numerator monotonicity with exact rational arithmetic and the budget-one-half witness, plus finite-mesh optimization diagnostics for 199 budgets. An initial run passed 20,031 assertions and finite numerical diagnostics.
+## correctness
 
-The symbolic derivative and endpoint polynomial argument in RESULT.md, not finite numerical tests, proves classification for every real budget. This package does not independently certify historical novelty, priority or correctness. Exact valid scope: two uniformly drawn labels, post-draw per-type independent erasure, and total loss strictly between zero and one. No external or independent audit has been performed.
+PASS
+
+The actual four-state post-loss transition kernel has nonnegative normalized rows; one-label stationarity m_i=q_i/(2-q_i) yields Pi=t(s-t)/(4-2s+t). Independent 3-transient-state hitting equations yield H=((5-s)t+4-2s)/(t(s-t)). At fixed s in (1,2), feasible t is [s-1,s^2/4]; exact differentiation gives strictly decreasing D_Pi=(4-2s)(s-2t)-t^2 and increasing D_H=(5-s)t^2+2(4-2s)t-s(4-2s), so clipped unique roots, with four endpoint polynomials, are global optima. Independent SymPy checks verified derivatives and exact budget-half values 27/80,152/27,1/3,11/2. Cubic root intervals in (1,2) follow derivative positivity; boundary one loss probability zero is included. Finite budget meshes do not prove continuum uniqueness.
+
+## originality
+
+PASS
+
+The Cruciani–Dudeja FUN 2026 full HTML paper studies common loss probability p and names type-dependent losses as future research, so it does not imply a fixed total heterogeneous budget two-objective phase diagram. Other Resultary clumsy coupon exact balancing results concern a different replacement/erase model or sampling weights. No stronger published same post-erasure two-type optimization was found; no failed-search novelty guarantee.
+
+## value
+
+PASS
+
+The allocation of a fixed erasure budget is a natural robust-cache design decision; stationary all-held availability and transient recovery time are different mathematically motivated operational objectives. Their sharply separated optimal strategies and four exact thresholds provide nontrivial new information beyond elementary mean-time evaluation, with a strict rational witness at B=1/2.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

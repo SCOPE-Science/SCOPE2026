@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T11:53:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The actual four-state post-loss transition kernel has nonnegative normalized rows; one-label stationarity m_i=q_i/(2-q_i) yields Pi=t(s-t)/(4-2s+t). Independent 3-transient-state hitting equations yield H=((5-s)t+4-2s)/(t(s-t)). At fixed s in (1,2), feasible t is [s-1,s^2/4]; exact differentiation gives strictly decreasing D_Pi=(4-2s)(s-2t)-t^2 and increasing D_H=(5-s)t^2+2(4-2s)t-s(4-2s), so clipped unique roots, with four endpoint polynomials, are global optima. Independent SymPy checks verified derivatives and exact budget-half values 27/80,152/27,1/3,11/2. Cubic root intervals in (1,2) follow derivative positivity; boundary one loss probability zero is included. Finite budget meshes do not prove continuum uniqueness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published homogeneous careless-chain algorithms exploit permutation symmetry and do not optimize independent heterogeneous p_i.",
+          "Interlacing theorem concerns a distinct clumsy update mechanism."
+        ],
+        "reasoning": "Neither currently inspected prior framework gives these four exact thresholds or the competing allocation optimizers as a covered case.",
+        "searches": [
+          "Resultary: interlacing geometric factors and sharp loss budgets in clumsy coupon collection",
+          "Cruciani–Dudeja Sections 3–4"
+        ]
+      },
+      "checked_sources": [
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol366-fun2026/html/LIPIcs.FUN.2026.14/LIPIcs.FUN.2026.14.html",
+        "https://arxiv.org/abs/2605.14511",
+        "Resultary 2026/11/8 interlacing geometric factors for clumsy collectors",
+        "SCOPE2026 pinned RESULT.md and verify_two_coupon.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cruciani–Dudeja eq. S_(t+1)=(S_t union C_t)\\loss_i uses iid common p and asks future type-dependent loss.",
+          "The submitted thresholds follow derivative conditions on new heterogeneous rational functions, not substitution in a previous common-p theorem."
+        ],
+        "reasoning": "The prior homogeneous specialization is a 1-dimensional subfamily that cannot imply the heterogeneous optimization; a general Markov resolver supplies a method, not the sharp claim.",
+        "searches": [
+          "Cruciani–Dudeja full HTML model equation and Future research directions",
+          "Resultary clumsy optimization theorem summary comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source uses post-draw independent loss with common p; it explicitly lists type-specific p_i as future research.",
+          "Resultary clumsy collector differs by its global single-label refresh/erase dynamics."
+        ],
+        "reasoning": "Model equivalence is exact with the careless process only before imposing homogeneous losses. Extending to q1!=q2 changes the four-state stationary and hitting optimization and is not an alias of sampling-weight Schur-convexity.",
+        "searches": [
+          "Resultary semantic: two-type careless coupon collector loss budget stationary first completion optimal bifurcations",
+          "Cruciani Dudeja FUN 2026 full HTML Sections 1–4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching indexed exact optimizer table identified; the only source-matched two-type optimization in results uses finite-window unequal sampling, not fixed loss budget."
+        ],
+        "reasoning": "No single natural database table dominates the continuum optimization statement; lack of matches is retained only as limited search evidence.",
+        "searches": [
+          "Resultary query two-type careless stationary availability allocation threshold",
+          "Web search heterogeneous erasure coupon cache optimum two labels"
+        ]
+      },
+      "rationale": "The Cruciani–Dudeja FUN 2026 full HTML paper studies common loss probability p and names type-dependent losses as future research, so it does not imply a fixed total heterogeneous budget two-objective phase diagram. Other Resultary clumsy coupon exact balancing results concern a different replacement/erase model or sampling weights. No stronger published same post-erasure two-type optimization was found; no failed-search novelty guarantee.",
+      "residual_risks": [
+        "General historical stochastic reliability/cache optimization results not exhaustively indexed.",
+        "Four-state optimization is elementary given the model; priority claims are best-of-knowledge, not external certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING heterogeneous fixed-budget optimization.",
+          "evidence": "Sec 1 eq. S_{t+1} with iid p; Sec 1 future research specifically proposes type-dependent loss p_i.",
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol366-fun2026/html/LIPIcs.FUN.2026.14/LIPIcs.FUN.2026.14.html",
+          "material_read": "Complete HTML article, Sections 1–4, formal chain (Sec 1), future directions (Sec 1), expected hitting-time treatment (Sec 4).",
+          "method": "Read full publisher-hosted open HTML.",
+          "title": "The Careless Coupon Collector’s Problem",
+          "trigger": "Same discrete-time post-loss collector model."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The allocation of a fixed erasure budget is a natural robust-cache design decision; stationary all-held availability and transient recovery time are different mathematically motivated operational objectives. Their sharply separated optimal strategies and four exact thresholds provide nontrivial new information beyond elementary mean-time evaluation, with a strict rational witness at B=1/2.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://drops.dagstuhl.de/storage/00lipics/lipics-vol366-fun2026/html/LIPIcs.FUN.2026.14/LIPIcs.FUN.2026.14.html",
+    "https://arxiv.org/abs/2605.14511",
+    "Resultary 2026/11/8 interlacing geometric factors for clumsy collectors",
+    "SCOPE2026 pinned RESULT.md and verify_two_coupon.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For two uniformly drawn labels independently erased after acquisition at fixed 0<B=p1+p2<1, stationary full availability and empty-state first-completion expectation have the stated rational formulas, four ordered bifurcation thresholds and distinct optimizers exactly when sqrt(2)-1 < B < 2-sigma_+.",
+  "limitations": [
+    "General historical stochastic reliability/cache optimization results not exhaustively indexed.",
+    "Four-state optimization is elementary given the model; priority claims are best-of-knowledge, not external certification.",
+    "Plan is not importable pending authorized public-file confidentiality remediation."
+  ],
+  "schema_version": 1
+}
