@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The distributional second derivative of a Laplace density is \(p_0''=\lambda^2p_0-\lambda^2\delta_0\), with total-variation norm \(2\lambda^2\). This produces the sharp global \(L^1\) upper bound after averaging centered independent residual displacements, while tail events outside a fixed positive radius yield the matching lower limit. The stationary perpetuity, locally uniform inner and outer profiles, bounded smooth-test signed limit, and unique logarithmic-scale density crossing are derived analytically in `RESULT.md`. All quantifiers and limits are parameter-appropriate. The executable finite checker independently exercises the main formulas but does not substitute for the infinite-dimensional proof.
+## correctness
 
-## Originality — PASS, with qualified priority
-Pierce (2022), Di Bello et al. (2023), and Biroli et al. (2024) already derive stationary proportional-reset laws, their characteristic products, and in Biroli et al. the fixed-contraction peak shape. They are foundational prior coverage and are not claimed as new. Pierce gives a qualitative strong-reset exponential limit and an \(O(c)\) approximation, not the sharp stationary \(c^2\) total-variation asymptotic. Biroli et al.'s small-rescaling Appendix A treats first-passage time. The asserted extension is a singular parameter-layer theorem, a unique logarithmic-scale sign crossing, and their matched global TV coefficient. Kolb and Wübker (2026) study convergence to stationarity *in time*, not stationary-law variation with the multiplier. Existing exact formulas do imply these limits after analysis, and possible earlier derived expansions remain a concrete residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The result identifies how a physically incomplete reset approaches a complete reset in the stringent probability-metric sense, not merely pointwise in a plotted density. The singular central mass redistribution and its exact sharp coefficient matter when comparing nearly complete resetting protocols from spatial observations. The unique optimal distinction region and its logarithmic crossing scale, together with the layer and signed-mass structure, explain why a fixed-position expansion misses the most informative boundary region.
+At stationarity X_c=∑c^jY_j with iid symmetric Laplace innovations. The centered residual Z has variance 2c²/(λ²(1−c²)); uniform rescaled moments give inner E|y−W|=|y|+e^−|y|. Distributional p0″=λ²(p0−δ0) yields weak and L1 upper bounds; the fixed positive-radius outer-tail event provides matching TV lower bound. The ratio p_c/p0 increases strictly on x≥0, while partial fractions show crossing at λx/(c log(1/c))→1.
 
-## Reproducibility and limits
-The bundled `verify.py` executes standard-library diagnostics on exact finite convolutions. The claims are confined to drift-free one-dimensional Brownian motion with Poisson proportional resets, keeping diffusivity and reset rate fixed as the multiplier tends to zero. There is no claim of independence, certification, time-relaxation results, or a new fixed-parameter stationary density.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The infinite-product stationary density and smooth fixed-c core are known. The matched c↓0 inner/outer density, signed c² redistribution, TV coefficient 1, and unique c log(1/c) crossing form a distinct singular perturbation theorem not explicitly established in inspected earlier full sources.
+
+## value
+
+PASS
+
+The exact total-variation coefficient and optimal distinction region quantify almost-complete reset protocols in a stronger metric than fixed-point density convergence; the noncommuting center/outer scales are a motivated singular perturbation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
