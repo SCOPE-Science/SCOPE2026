@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T05:51:31Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For M1, all four-letter substitution adjacent pairs stabilize at levels 4 and 5. Every length<=18 factor lies in two adjacent 64-symbol third-iterate blocks, and each possible pair actually occurs, so the ten-block palindrome spectrum is exhaustive, not a long-prefix extrapolation. Direct enumeration gives (2,2,2,2,2,2,2,2,2,3,0,3,0,2,0,2,0,0), total 28, max length16; absence at lengths 11 and 18 excludes every longer odd/even palindrome. For M2, the existing binary-digit parity formula gives the eight-block recurrence with complemented palindromic block 01100110; iterating the two palindrome-image morphism yields palindromic prefixes length 8^r for all r>=0. Independent fresh language enumeration and prefixes through 8^4 match.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior M1 theorem also determines sharp prefix palindrome-defect stabilization for all N>=196, extending the submitted census.",
+          "Campbell–Cloitre Theorem 26 provides the complete digit formula for M2."
+        ],
+        "reasoning": "The M1 portion is a special case of stronger earlier M1 work; the M2 prefix assertion is directly implied by Theorem 26 and the palindromic length-eight parity pattern.",
+        "searches": [
+          "Resultary semantic search: palindromic spectra 4 automatic meta-automatic sequences A392736 A391614 Campbell Cloitre 28 palindrome factors",
+          "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-the-complete-palindromic-spectrum-of-a-meta-automatic-binary-wor--d762b0b804a1/RESULT.md",
+          "https://arxiv.org/html/2602.23395"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-the-complete-palindromic-spectrum-of-a-meta-automatic-binary-wor--d762b0b804a1/RESULT.md",
+        "https://arxiv.org/html/2602.23395",
+        "https://oeis.org/A392736",
+        "https://oeis.org/A391614"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "M1 values are identical to prior. M2 binary parity of digits outside positions ≡2 mod3 implies M2(8n+j)=M2(n) XOR c_j with c=01100110, a palindrome."
+        ],
+        "reasoning": "Define images 0↦c,1↦complement(c); both are palindromes. Prefixes of lengths 8^r are then palindromes by the standard elementary morphic induction. Nothing unproved or substantial remains beyond preceding sources.",
+        "searches": [
+          "Resultary semantic search: palindromic spectra 4 automatic meta-automatic sequences A392736 A391614 Campbell Cloitre 28 palindrome factors",
+          "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-the-complete-palindromic-spectrum-of-a-meta-automatic-binary-wor--d762b0b804a1/RESULT.md",
+          "https://arxiv.org/html/2602.23395"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior October 27 uses exactly 0→0112,1→1230,2→2301,3→3023 coded modulo two and prints the same complete 18-length palindrome-count vector and two maximal words."
+        ],
+        "reasoning": "The same binary fixed point M1 appears under u or M_1, so the equality of spectra is literal, not an inferred similarity.",
+        "searches": [
+          "Resultary semantic search: palindromic spectra 4 automatic meta-automatic sequences A392736 A391614 Campbell Cloitre 28 palindrome factors",
+          "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-the-complete-palindromic-spectrum-of-a-meta-automatic-binary-wor--d762b0b804a1/RESULT.md",
+          "https://arxiv.org/html/2602.23395"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior published exact M1 table P(n)=2 (1..9,14,16), 3 (10,12), 0 otherwise; total 28, max16.",
+          "OEIS records original sequences, not the prefix-palindrome enumeration."
+        ],
+        "reasoning": "The full M1 numerical language census is already published; the fact that M2 unbounded palindromic prefixes are not tabulated does not make a routine implication a new exact table.",
+        "searches": [
+          "Resultary semantic search: palindromic spectra 4 automatic meta-automatic sequences A392736 A391614 Campbell Cloitre 28 palindrome factors",
+          "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-the-complete-palindromic-spectrum-of-a-meta-automatic-binary-wor--d762b0b804a1/RESULT.md",
+          "https://oeis.org/A392736",
+          "https://oeis.org/A391614"
+        ]
+      },
+      "rationale": "The October 27 published theorem for precisely the same M1 four-state morphism and coding gives the identical entire palindrome complexity vector, total 28, both length-16 words and a stronger sharp prefix defect threshold at length196. The only remainder concerns M2 prefixes, an immediate application of Campbell–Cloitre’s already-published binary-digit formula: split positions mod8 to obtain two palindromic complementary 8-blocks and iterate. This is an elementary corollary, not a separately motivated original classification; the paired composite finding has no original substantive remainder.",
+      "residual_risks": [
+        "M2 full palindromic complexity is not computed, and no such census is claimed.",
+        "The proof of the eight-power palindromic prefixes is valid but consists of a routine morphic corollary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "C PASS but O/V FAIL due covered and routine parts",
+          "evidence": [
+            "All 28 M1 factors and M2 palindromic 8-power prefixes checked independently."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/palindromic-spectra-of-two-meta-automatic-binary-words--eff936841c5f/RESULT.md",
+          "material_read": "Entire RESULT.md, including both morphisms, finite M1 two-block cover and M2 digit recursion",
+          "method": "GitHub frozen source read",
+          "title": "Submitted two-meta-automatic palindrome theorem",
+          "trigger": "assigned source"
+        },
+        {
+          "assessment": "COVERS M1 and proves strictly stronger sharp defect",
+          "evidence": [
+            "Exact identical complexity vector and 28-palindrome count."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/27/SCOPE-the-complete-palindromic-spectrum-of-a-meta-automatic-binary-wor--d762b0b804a1/RESULT.md",
+          "material_read": "Entire RESULT.md including exhaustive 10-block proof, list of words, defect theorem and verification",
+          "method": "GitHub full source RESULT.md",
+          "title": "The complete palindromic spectrum of a meta-automatic binary word",
+          "trigger": "exact M1 word and invariant"
+        },
+        {
+          "assessment": "Digit formula implies M2 8-block palindrome recurrence",
+          "evidence": [
+            "M2 digit parity outside bit positions congruent 2 mod3."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.23395",
+          "material_read": "Relevant complete HTML sections defining morphisms, M1/M2 digit formulas including Theorem 26",
+          "method": "arXiv lawful open-access HTML",
+          "title": "Meta-Automatic Sequences",
+          "trigger": "primary source of both defining sequences"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "M1 exact language census is already known with a stronger defect theorem. The unbounded M2 prefixes follow by a one-line palindrome-preserving morphism observation from a published digit formula and are not an independently motivated new invariant or classification. Correctness and a fresh finite certificate do not overcome these coverage/value deficiencies.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "No exact M2 palindrome-count spectrum is proved.",
+    "Proof of M1 finite exhaustion is valid but covered by earlier exact result."
+  ],
+  "schema_version": 1
+}
