@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification notes
 
-The accompanying `VERIFY_NUMERIC.py` is standalone and requires Python 3, SciPy and NumPy. It integrates \(\dot{\log x}=-y\), \(\dot y=e^{\log x}-1\) rather than relying on the Lambert branch for its trajectory values. It independently uses the conserved-energy endpoint root as a check, detects the first positive observable-speed crossing, compares with the analytic two-term law, checks the first boundary-layer correction, and checks the Gaussian initial-distance inversion. It runs 24 parameter combinations plus one separate direct physical-time quadrature.
+# Independent mathematical audit
 
-Command: `python VERIFY_NUMERIC.py`
+## correctness
 
-Observed output: `VERIFY_OK ODE_first_exits=24 root_conditions=24 Gaussian_log_inverse=24 independent_time_quadrature=1`
+PASS
 
-The proof's infinite-parameter statements rely on exact energy conservation, monotonicity, and controlled boundary-layer asymptotics, not the finite numerical tests. Machine precision limits the checks for very small initial data; integrating the logarithm of the initial coordinate avoids underflow. The related 2022 source could not be fully inspected, and no independent review has been carried out.
+Conserved H=x-log x+y^2/2 and xdot=-xy, ydot=x-1 imply a unique initial small-x exit on negative-y branch for sufficiently small epsilon. At exit y=-z, x=s/z, energy equation z^2/2+log z+s/z=L+eta^2/2+log s+epsilon. Exact physical time integral of 1/(1-X(y)) has boundary layer s/z^2+O(z^-3), which cancels -s/R^2 from endpoint expansion, leaving time eta+sqrt(2L)+(eta^2+2log s-log(2L))/(2sqrt(2L))+O((log L)^2/L^(3/2)). Independent mpmath high-precision Lambert W quadrature at eta=0,s=1,L=100 yields 13.95456467198 against 13.95481181679 asymptotic and reconstructs Gaussian inverse. Fixed positive s, bounded eta only.
+
+## originality
+
+PASS
+
+Prior transient-center theory defines finite-time exit concepts and studies the same flow but inspected abstracts do not establish this explicit threshold speed first-exit asymptotic and Gaussian inverse proximity. Resultary search found different systems with logarithmic escape laws, none equivalent by smooth conjugacy or parameter substitution. 2022 SIAM full text unavailable; best-of-knowledge PASS with explicit unresolved priority risk, not a whole-text NOT_COVERING declaration.
+
+## value
+
+PASS
+
+A sharp residence-time versus distance law for a documented nonequilibrium transient-center example is a natural quantitative diagnostic, with nontrivial cancellation of the physical-time layer. The Gaussian-in-time precision is relevant to distinguishing slow observable dynamics from simple logarithmic hyperbolic escape.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

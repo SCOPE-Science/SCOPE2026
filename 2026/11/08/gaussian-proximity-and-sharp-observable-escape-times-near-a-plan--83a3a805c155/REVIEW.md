@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof starts from the exact conserved energy and solves the actual first exit through an increasing negative-vertical observable speed. This gives the unique large endpoint root. An exact physical-time quadrature is then reduced to a one-sided Gaussian boundary layer, with a justified integrable exponential domination yielding the correction \(s/z^2+O(z^{-3})\). Expansion of the endpoint and cancellation of its second-order threshold term establish the claimed uniform two-term exit law and Gaussian inversion. The independent ODE, root, and quadrature numerical checks passed in all specified cases. No finite experiment is used as proof of an all-size claim.
+## correctness
 
-## Originality — PASS within inspected evidence
-The 2026 arXiv primary source and the complete 2023 Mathematical Biosciences and Engineering treatment address transient centers, including the identical planar ODE, and yield qualitative rather than quantified speed-threshold first-exit results. The earlier 2022 SIAM work on general transient-center quantification was identified and its abstract inspected, but the full original remained inaccessible; this limits exhaustive priority assessment. Nearby period and escape-time literature concerns other observables, different equations, or complete periodic-orbit times, none of which directly implies the displayed specific logarithmic correction and Gaussian-initialization prefactor. This is a provisional literature-backed novelty assessment, not a claim of exhaustive bibliographic uniqueness.
+PASS
 
-## Mathematical value — PASS
-The motivating theory isolates arbitrarily long but finite slow transients near an invariant nonstationary line without predicting their residence time. The result converts that qualitative phenomenon into a sharp physically timed quantitative law, showing both a nonhyperbolic square-root logarithmic escape scale and a Gaussian fine-tuning requirement. Crucially, cancellation between the exit-coordinate shift and physical-time retardation produces the stronger error and exact reciprocal-time prefactor. The statement supplies a reproducible benchmark and an obstruction to extrapolating ordinary hyperbolic logarithmic-residence intuition.
+Conserved H=x-log x+y^2/2 and xdot=-xy, ydot=x-1 imply a unique initial small-x exit on negative-y branch for sufficiently small epsilon. At exit y=-z, x=s/z, energy equation z^2/2+log z+s/z=L+eta^2/2+log s+epsilon. Exact physical time integral of 1/(1-X(y)) has boundary layer s/z^2+O(z^-3), which cancels -s/R^2 from endpoint expansion, leaving time eta+sqrt(2L)+(eta^2+2log s-log(2L))/(2sqrt(2L))+O((log L)^2/L^(3/2)). Independent mpmath high-precision Lambert W quadrature at eta=0,s=1,L=100 yields 13.95456467198 against 13.95481181679 asymptotic and reconstructs Gaussian inverse. Fixed positive s, bounded eta only.
 
-## Closest sources and remaining risk
-The same ODE and the conserved energy are not new; the quantitative theorem is compared at the level of conclusions with Pasion–Magpantay 2026 and Liu–Magpantay–Abdella 2023. The 2022 SIAM source was not inspected in full, so earlier derivation of the quantitative formula cannot be categorically excluded. The result does not address perturbed equations or thresholds tending to zero.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior transient-center theory defines finite-time exit concepts and studies the same flow but inspected abstracts do not establish this explicit threshold speed first-exit asymptotic and Gaussian inverse proximity. Resultary search found different systems with logarithmic escape laws, none equivalent by smooth conjugacy or parameter substitution. 2022 SIAM full text unavailable; best-of-knowledge PASS with explicit unresolved priority risk, not a whole-text NOT_COVERING declaration.
+
+## value
+
+PASS
+
+A sharp residence-time versus distance law for a documented nonequilibrium transient-center example is a natural quantitative diagnostic, with nontrivial cancellation of the physical-time layer. The Gaussian-in-time precision is relevant to distinguishing slow observable dynamics from simple logarithmic hyperbolic escape.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

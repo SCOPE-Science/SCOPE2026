@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T22:00:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conserved H=x-log x+y^2/2 and xdot=-xy, ydot=x-1 imply a unique initial small-x exit on negative-y branch for sufficiently small epsilon. At exit y=-z, x=s/z, energy equation z^2/2+log z+s/z=L+eta^2/2+log s+epsilon. Exact physical time integral of 1/(1-X(y)) has boundary layer s/z^2+O(z^-3), which cancels -s/R^2 from endpoint expansion, leaving time eta+sqrt(2L)+(eta^2+2log s-log(2L))/(2sqrt(2L))+O((log L)^2/L^(3/2)). Independent mpmath high-precision Lambert W quadrature at eta=0,s=1,L=100 yields 13.95456467198 against 13.95481181679 asymptotic and reconstructs Gaussian inverse. Fixed positive s, bounded eta only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2610.41930: Abstract describes general finite-time escape conditions and delay-of-stability-loss example.",
+          "https://www.aimspress.com/article/doi/10.3934/mbe.2023540: 2023 paper states properties and reachability of transient centers.",
+          "https://doi.org/10.1137/20M1367131: Journal abstract defines long transients and reachable centers; full theorem comparison unavailable."
+        ],
+        "reasoning": "General reachable-transient-center criteria establish qualitative long persistence and finite exit, but the checked abstracts have no explicit first-exit expansion for this exact observable and threshold. Complete 2022 paper remains inaccessible, so implication cannot be excluded categorically.",
+        "searches": [
+          "Resultary: planar dynamical system Gaussian proximity observable escape near unstable equilibrium",
+          "arXiv:2610.41930 nonequilibrium transient centers",
+          "2023 MBE doi:10.3934/mbe.2023540",
+          "2022 SIAM doi:10.1137/20M1367131, authorized full-text request VPN disconnected"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.41930",
+        "https://www.aimspress.com/article/doi/10.3934/mbe.2023540",
+        "https://doi.org/10.1137/20M1367131",
+        "Resultary semantic query: Resultary: planar dynamical system Gaussian proximity observable escape near unstable equilibrium"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2610.41930: Abstract describes general finite-time escape conditions and delay-of-stability-loss example.",
+          "https://www.aimspress.com/article/doi/10.3934/mbe.2023540: 2023 paper states properties and reachability of transient centers.",
+          "https://doi.org/10.1137/20M1367131: Journal abstract defines long transients and reachable centers; full theorem comparison unavailable."
+        ],
+        "reasoning": "The first integral and examples of slowly varying transient states are not new; the new conclusion is the fully quantified fixed-speed exit time, first correction with cancellation, and inverse Gaussian proximity prefactor.",
+        "searches": [
+          "Resultary: planar dynamical system Gaussian proximity observable escape near unstable equilibrium",
+          "arXiv:2610.41930 nonequilibrium transient centers",
+          "2023 MBE doi:10.3934/mbe.2023540",
+          "2022 SIAM doi:10.1137/20M1367131, authorized full-text request VPN disconnected"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2610.41930: Abstract describes general finite-time escape conditions and delay-of-stability-loss example.",
+          "https://www.aimspress.com/article/doi/10.3934/mbe.2023540: 2023 paper states properties and reachability of transient centers.",
+          "https://doi.org/10.1137/20M1367131: Journal abstract defines long transients and reachable centers; full theorem comparison unavailable."
+        ],
+        "reasoning": "Observable speed threshold |xy|>s differs from return-time/period estimates on a full Hamiltonian level or generic unstable equilibrium eigenvalue calculation. The invariant line x=0 has ydot=-1 and produces Gaussian-in-time rather than exponential hyperbolic separation.",
+        "searches": [
+          "Resultary: planar dynamical system Gaussian proximity observable escape near unstable equilibrium",
+          "arXiv:2610.41930 nonequilibrium transient centers",
+          "2023 MBE doi:10.3934/mbe.2023540",
+          "2022 SIAM doi:10.1137/20M1367131, authorized full-text request VPN disconnected"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/2610.41930: Abstract describes general finite-time escape conditions and delay-of-stability-loss example.",
+          "https://www.aimspress.com/article/doi/10.3934/mbe.2023540: 2023 paper states properties and reachability of transient centers.",
+          "https://doi.org/10.1137/20M1367131: Journal abstract defines long transients and reachable centers; full theorem comparison unavailable."
+        ],
+        "reasoning": "No finite table is relevant to a real ODE limit; the verification covers a continuum of epsilon, s, eta only through the analytic energy/root/time argument.",
+        "searches": [
+          "Resultary: planar dynamical system Gaussian proximity observable escape near unstable equilibrium",
+          "arXiv:2610.41930 nonequilibrium transient centers",
+          "2023 MBE doi:10.3934/mbe.2023540",
+          "2022 SIAM doi:10.1137/20M1367131, authorized full-text request VPN disconnected"
+        ]
+      },
+      "rationale": "Prior transient-center theory defines finite-time exit concepts and studies the same flow but inspected abstracts do not establish this explicit threshold speed first-exit asymptotic and Gaussian inverse proximity. Resultary search found different systems with logarithmic escape laws, none equivalent by smooth conjugacy or parameter substitution. 2022 SIAM full text unavailable; best-of-knowledge PASS with explicit unresolved priority risk, not a whole-text NOT_COVERING declaration.",
+      "residual_risks": [
+        "Full 2022 SIAM source could not be read; authorized Oxford retrieval returned vpn_disconnected (job 1170e3b5c973464b90eb716e96c4310a).",
+        "Full 2026 Pasion–Magpantay preprint could not be retrieved through attempted arXiv HTML/PDF routes; possible exact example in its interior remains a publication-priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative finite-time slow-regime escape criteria, no inspected sharp expansion for xdot=-xy with fixed observable speed threshold. No full-text noncoverage claim.",
+          "evidence": "Abstract describes general finite-time escape conditions and delay-of-stability-loss example.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.41930",
+          "material_read": "Primary arXiv abstract; full arXiv HTML and PDF attempts failed",
+          "method": "arXiv abstract and metadata",
+          "title": "Nonequilibrium Transient Centers in Continuous-Time Systems",
+          "trigger": "Introduces nonequilibrium transient-center speed-exit criteria"
+        },
+        {
+          "assessment": "Provides transient-center criteria, but a full comparison of same-ODE boundary-layer asymptotic remains open.",
+          "evidence": "2023 paper states properties and reachability of transient centers.",
+          "identifier_or_url": "https://www.aimspress.com/article/doi/10.3934/mbe.2023540",
+          "material_read": "Publisher journal abstract and metadata; site full-text HTML control did not expose article body",
+          "method": "Publisher webpage",
+          "title": "A framework for long-lasting, slowly varying transient dynamics",
+          "trigger": "Earlier transient-center results and same integrable flow context"
+        },
+        {
+          "assessment": "Does not justify a definitive whole-document noncoverage conclusion.",
+          "evidence": "Journal abstract defines long transients and reachable centers; full theorem comparison unavailable.",
+          "identifier_or_url": "https://doi.org/10.1137/20M1367131",
+          "material_read": "SIAM abstract; no complete text; institutional retrieval gave vpn_disconnected",
+          "method": "Primary publisher abstract, arXiv/OA attempts, authorized Oxford request with disconnected VPN",
+          "title": "A Quantification of Long Transient Dynamics",
+          "trigger": "Potential 2022 original theorem covering sharp residence-time law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp residence-time versus distance law for a documented nonequilibrium transient-center example is a natural quantitative diagnostic, with nontrivial cancellation of the physical-time layer. The Gaussian-in-time precision is relevant to distinguishing slow observable dynamics from simple logarithmic hyperbolic escape.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.41930",
+    "https://www.aimspress.com/article/doi/10.3934/mbe.2023540",
+    "https://doi.org/10.1137/20M1367131",
+    "Resultary semantic query: Resultary: planar dynamical system Gaussian proximity observable escape near unstable equilibrium"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Full 2022 SIAM source could not be read; authorized Oxford retrieval returned vpn_disconnected (job 1170e3b5c973464b90eb716e96c4310a).",
+    "Full 2026 Pasion–Magpantay preprint could not be retrieved through attempted arXiv HTML/PDF routes; possible exact example in its interior remains a publication-priority risk."
+  ],
+  "schema_version": 1
+}
