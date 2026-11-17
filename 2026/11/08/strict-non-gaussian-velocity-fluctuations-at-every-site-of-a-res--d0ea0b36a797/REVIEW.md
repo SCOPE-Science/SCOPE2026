@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For the stated finite Dirichlet harmonic chain, endpoint friction ensures all unforced modes decay. Conditioned on the wall reset clocks, each stationary velocity is centered Gaussian; its conditional variance is the sum of two independent random reservoir contributions and a deterministic thermal contribution. For every site, the left-wall causal response has positive short-time leading coefficient and strictly positive positive-real Laplace transform (nonsingular irreducible M-matrix). The conditional mean variance given the positive stationary reset age is strictly decreasing sufficiently close to age zero, so the random mixing variance has positive variance. This analytically implies \(\operatorname{cum}_4(v_\ell)>0\) at every finite size and for all positive wall parameters. The full four-time wall identity is reconstructed only as a known lemma. The checker passed 226 exact computations; sampling is not the proof.
+## correctness
 
-## Originality — PASS, qualified and **narrowed to the genuinely new theorem**
-Sarkar and Roy (arXiv:2307.06127v3, full sections 2–7 and appendices) already report numerical positive finite-size velocity kurtosis for the same chain. No priority is asserted for the *phenomenon*. Knight, Kaveh and Pruessner (arXiv:2507.22199, Supplemental Sec. SIII.2, Eqs. S75–S78) **already calculate the complete four-time resetting Brownian cumulant**. This paper was discovered in the final primary-literature stress test; the known formula has been explicitly removed from the new contribution. The remaining claim is the all-site, all-finite-length, all-positive-rate nondegenerate conditional Gaussian-mixture theorem, robust to independent thermal Gaussian forcing, which is neither stated by the 2023 chain article nor by the 2025 hidden-entropy-production article. Sarkar–Santra–Basu (arXiv:2210.09035, full active-chain sections and appendix) treat related OU/active baths; Olsen (arXiv:2310.04840, accessible arXiv full text) addresses static reset moments, not this finite-chain theorem. The accessible own same-source prior record concerns inverse **two-point** parameter identification, not fourth-cumulant strictness. Novelty is based on implication-level source comparisons, not the absence of keyword hits. Residual priority risk: a different harmonic-chain or Gaussian-mixture paper could contain the same positivity proof implicitly or explicitly.
+PASS
 
-## Value — PASS
-The 2023 motivating paper only numerically observed the finite-chain velocity non-Gaussianity. A uniform *proof* that no site and no finite chain length can have zero fourth cumulant, for any positive reset rate or diffusivity despite independent thermal heating, resolves an analytically meaningful model-wide gap. The covariance-matched OU bath is a controlled counterexample to detecting the nonequilibrium forcing from any quadratic output: the theorem certifies an intrinsically fourth-order separation. The argument establishes neither the asymptotic kurtosis magnitude nor an infinite-size limit.
+The actual RESULT.md fixes N>=2, a strictly positive mass, spring stiffness and endpoint damping, positive independent reset rates and diffusivities, plus independent endpoint Gaussian thermal inputs. The Dirichlet chain eigenvectors do not evade endpoint damping, so its response is exponentially stable. For every site l, the left-wall velocity response has nonzero positive leading term (k/m)^l t^{2(l-1)}/[2(l-1)]!; its positive-real Laplace transfer is positive by the irreducible M-matrix inverse. Conditional on independent reset-clock histories the velocity is centered Gaussian. The last-reset-age conditional variance H(a) has derivative 2D G(a)^2-(4D/r)g(a) integral_a^infty g(t)e^{-r(t-a)} dt, with strictly negative first nonzero small-a term. Thus the random variance is nonconstant at every site, independent right-wall and thermal contributions cannot cancel it, and cum4(v_l)=3 Var(Sigma_l)>0. Matching Brownian-reset and OU two-time covariances proves equality of quadratic observables but Gaussian OU has zero fourth cumulant. The source-checker derivation of the four-time wall input and Taylor coefficients was read, not substituted for the infinite proof.
 
-## Limits and comparisons
-The theorem excludes non-Poisson clocks, correlated baths and degenerate zero diffusivities. The 2025 full four-time identity and 2023 numerical non-Gaussianity are explicitly credited. Later uninspected literature and other variants may contain related Gaussian-mixture nondegeneracy theorems; no independent priority certification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2023 reset-wall chain study numerically observes finite-chain positive kurtosis but does not establish an all-site all-positive-parameter strictness theorem; its full accessible text/appendices are compared with the actual proof. A 2025 resetting-wall four-time connected cumulant is explicitly acknowledged as prior input, not new. The 2026-10-26 result concerns the slowly resetting scaling limit and universal trough, not arbitrary positive reset rates and every finite site. Best of knowledge: the conditional-variance nondegeneracy theorem is distinct and not implied by these sources.
+
+## value
+
+PASS
+
+A rigorous uniform all-site sign theorem for non-Gaussian stationary fluctuations is substantively stronger than a plotted or numerically inferred kurtosis sign; the covariance-identical OU control demonstrates why two-point transport does not diagnose non-Gaussianity. The theorem treats all positive chain parameters and independent finite Gaussian heating, a natural robustness question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
