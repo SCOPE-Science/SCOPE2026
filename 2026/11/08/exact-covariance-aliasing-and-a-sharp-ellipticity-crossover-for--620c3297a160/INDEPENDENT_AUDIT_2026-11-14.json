@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T23:40:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Integrating factor W(t)=e^(−At)X(t)e^(−Aᵀt) gives W′(t)=e^(−At)Qe^(−Aᵀt), a rotating rank-one projector. Substituting the actual published two-/three-stage SSPRK Shu–Osher updates yields trapezoidal/Simpson node weights. Complex anisotropy of F(t) is exp(2iωt), and finite geometric sums give T/2(1±ρ_N|cosφ|) versus T/2(1±ρ_N(2+cosφ)/3), ρ_N=|sinNφ/(Nsinφ)| with continuous phase limits. Positive weighted sampled-projector spans prove rank deficiency iff φ∈πZ for trapezoid and 2πZ for Simpson. Comparing the amplitude factors yields sign threshold cosφ=−1/2 and equality at ρ_N=0 or cosφ=1. Taylor expansion gives the fixed-N quadratic near-odd-half-turn coefficients. Independently formed all sampled matrices and checked all eigenvalues in 70 (N,φ,method) cases, including exact resonance; universal sets follow from span/analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang–Lan–Jing Theorem 3.1 proves positive SEMIdefiniteness for any step and their Theorem 3.3 bounds the 2nd-order error.",
+          "General SSP integrating-factor stability and Gramian controllability are prior tools."
+        ],
+        "reasoning": "A PSD guarantee allows singularity; it does not imply when two distinct methods lose rank or which has larger λmin as φ varies.",
+        "searches": [
+          "arXiv:2606.15703",
+          "arXiv:1708.02595"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.15703",
+        "https://www.researchgate.net/publication/407115978_Strong_Stability_Preserving_Integrating_Factor_Runge-Kutta_Methods_for_Differential_Lyapunov_Equations_with_Positivity_Preservation",
+        "https://arxiv.org/abs/1708.02595",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-covariance-order-frontier-for-positivity-preserving-if-s--3f16ed31cfd1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Actual first/third-order IF methods are pre-existing and spectral formulas follow from applying complex phase sums to them.",
+          "Prior PSD theorem is strictly weaker than exact singular and comparison sets; no theorem in inspected original text states the current crossover."
+        ],
+        "reasoning": "Generic quadrature formulas permit independent derivation but do not themselves settle this sharp classification without the mathematical work under review.",
+        "searches": [
+          "arXiv:2606.15703",
+          "integrating factor Lyapunov Runge Kutta covariance aliasing positivity sharp phase 2nd 3rd order plane rotation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2026 original IF-SSPRK2/3 schemes (5),(6) become standard composite trapezoid/Simpson after conjugation in the state-independent forcing example.",
+          "Generic sampled controllability Gramians are a valid equivalent language for W, but do not directly assert the exact all-N crossed eigenvalue formulas."
+        ],
+        "reasoning": "The equivalent quadrature formulation is recorded and not passed off as a new numerical algorithm; the spectral/eigenvalue phase classification is the asserted contribution.",
+        "searches": [
+          "arXiv:2606.15703",
+          "integrating factor Lyapunov Runge Kutta covariance aliasing positivity sharp phase 2nd 3rd order plane rotation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "All N≥1 and all real φ>0 are classified by exact trigonometric formulas, including N=1 and resonant phases."
+        ],
+        "reasoning": "The authors’ test plots/numerical examples of matrix positivity are not an exact exhaustive phase table; no identical table identified.",
+        "searches": [
+          "integrating factor Lyapunov Runge Kutta covariance aliasing positivity sharp phase 2nd 3rd order plane rotation",
+          "arXiv:2606.15703"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: Zhang–Lan–Jing introduce the exact methods and show SPSD/second-order accuracy, but their accessible full text does not assert strict positivity, exact rank-loss phases, smallest-eigenvalue crossover, or near-resonance coefficients. Generic Lyapunov Gramian and SSP theory provide methods and representation, not this complete phase classification. A trigonometric quadrature aliasing restatement remains possible.",
+      "residual_risks": [
+        "The classification can be expressed as a sampled controllability-Gramian aliasing theorem that might appear under signal processing/observability terms.",
+        "The numerical matrices assume exact exponential evaluation, exact quadrature weights and zero initial covariance; floating point rank is not decided."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Numerical schemes and semidefinite guarantees are prior; neither all-step planar spectral aliasing nor sharp cosφ=−1/2 comparison in the inspected material.",
+          "evidence": [
+            "Zhang–Lan–Jing (June 14 2026), methods (5)/(6), Theorem 3.1"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.15703",
+          "material_read": "Accessible full paper transcribed publicly: definitions, IF-SSPRK2/3 methods (5),(6), Theorem 3.1 SPSD, Theorem 3.3 error estimate, examples and concluding sections",
+          "method": "Primary preprint complete public HTML via author-uploaded ResearchGate text",
+          "title": "Strong Stability Preserving Integrating Factor Runge-Kutta Methods for Differential Lyapunov Equations with Positivity Preservation",
+          "trigger": "Exact named method and potential direct coverage"
+        },
+        {
+          "assessment": "Classical high-order IF-SSP stability background, no whole-document noncoverage inference.",
+          "evidence": [
+            "Gottlieb–Grant–Isherwood (2017) SSP IF-RK framework"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.02595",
+          "material_read": "Abstract and high-level scope; full text not inspected",
+          "method": "ArXiv primary bibliographic summary",
+          "title": "Strong Stability Preserving Integrating Factor Runge-Kutta Methods",
+          "trigger": "General SSP integrating-factor theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Positive semidefiniteness can mask a singular numerical covariance despite a full-rank continuous Gramian. The exact mechanism and a counterintuitive phase sector where higher order helps or hurts conditioning provide a motivated structural boundary for a natural positivity-preserving method.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2606.15703",
+    "https://www.researchgate.net/publication/407115978_Strong_Stability_Preserving_Integrating_Factor_Runge-Kutta_Methods_for_Differential_Lyapunov_Equations_with_Positivity_Preservation",
+    "https://arxiv.org/abs/1708.02595",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-sharp-covariance-order-frontier-for-positivity-preserving-if-s--3f16ed31cfd1"
+  ],
+  "disposition": "passed",
+  "final_claim": "For rank-one forced planar rotation Lyapunov flow, IF-SSPRK2 is trapezoidal and IF-SSPRK3 Simpson quadrature of the rotated projector; their full spectra show distinct exact rank-loss phase sets and a sharp smallest-eigenvalue crossover at cos(ωh)=−1/2.",
+  "limitations": [
+    "The classification can be expressed as a sampled controllability-Gramian aliasing theorem that might appear under signal processing/observability terms.",
+    "The numerical matrices assume exact exponential evaluation, exact quadrature weights and zero initial covariance; floating point rank is not decided."
+  ],
+  "residual_risks": [
+    "The classification can be expressed as a sampled controllability-Gramian aliasing theorem that might appear under signal processing/observability terms.",
+    "The numerical matrices assume exact exponential evaluation, exact quadrature weights and zero initial covariance; floating point rank is not decided."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Numerical schemes and semidefinite guarantees are prior; neither all-step planar spectral aliasing nor sharp cosφ=−1/2 comparison in the inspected material.",
+      "evidence": [
+        "Zhang–Lan–Jing (June 14 2026), methods (5)/(6), Theorem 3.1"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2606.15703",
+      "material_read": "Accessible full paper transcribed publicly: definitions, IF-SSPRK2/3 methods (5),(6), Theorem 3.1 SPSD, Theorem 3.3 error estimate, examples and concluding sections",
+      "method": "Primary preprint complete public HTML via author-uploaded ResearchGate text",
+      "title": "Strong Stability Preserving Integrating Factor Runge-Kutta Methods for Differential Lyapunov Equations with Positivity Preservation",
+      "trigger": "Exact named method and potential direct coverage"
+    },
+    {
+      "assessment": "Classical high-order IF-SSP stability background, no whole-document noncoverage inference.",
+      "evidence": [
+        "Gottlieb–Grant–Isherwood (2017) SSP IF-RK framework"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1708.02595",
+      "material_read": "Abstract and high-level scope; full text not inspected",
+      "method": "ArXiv primary bibliographic summary",
+      "title": "Strong Stability Preserving Integrating Factor Runge-Kutta Methods",
+      "trigger": "General SSP integrating-factor theory"
+    }
+  ]
+}

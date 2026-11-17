@@ -1,19 +1,21 @@
-# Scientific review: exact covariance aliasing for integrating-factor Lyapunov integrators
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two published integrating-factor methods reduce to composite trapezoidal and Simpson quadrature of a continuously rotating rank-one projector. The matrix trace is exactly the elapsed time, and the two-dimensional anisotropy is a geometric sum of doubled phase angles. Those facts yield both eigenvalue formulas without numerical approximation. A positive-sum spanning argument identifies *all* singular step phases and directly proves the odd-half-turn rank separation; a short trigonometric inequality proves exact continuous strict positivity. The comparison phase is exactly determined by a piecewise linear expression in cosine. The displayed near-resonance expansions follow by Taylor series with fixed iteration count. Direct-stage numerical checks passed 2940 comparisons. These diagnostics are supportive only, not an infinite-dimensional proof; the theorem itself is finite-dimensional and analytic.
+PASS
 
-## Originality — PASS, with stated historical risk
+Integrating factor W(t)=e^(−At)X(t)e^(−Aᵀt) gives W′(t)=e^(−At)Qe^(−Aᵀt), a rotating rank-one projector. Substituting the actual published two-/three-stage SSPRK Shu–Osher updates yields trapezoidal/Simpson node weights. Complex anisotropy of F(t) is exp(2iωt), and finite geometric sums give T/2(1±ρ_N|cosφ|) versus T/2(1±ρ_N(2+cosφ)/3), ρ_N=|sinNφ/(Nsinφ)| with continuous phase limits. Positive weighted sampled-projector spans prove rank deficiency iff φ∈πZ for trapezoid and 2πZ for Simpson. Comparing the amplitude factors yields sign threshold cosφ=−1/2 and equality at ρ_N=0 or cosφ=1. Taylor expansion gives the fixed-N quadratic near-odd-half-turn coefficients. Independently formed all sampled matrices and checked all eigenvalues in 70 (N,φ,method) cases, including exact resonance; universal sets follow from span/analytic proof.
 
-Zhang–Lan–Jing (arXiv:2606.15703v1) introduced IF-SSPRK2/3 and showed preservation of positive semidefiniteness, but their method, theorem and experiments do not state the exact two-method covariance spectra, strict-positivity resonances, or signed crossover at the half-turn phase sector. The general integrating-factor SSP literature (Gottlieb–Grant–Isherwood, arXiv:1708.02595) supplies the algorithmic framework but does not imply the oscillator-specific eigenvalues as a stated theorem. Standard continuous reachability theory already implies that the exact oscillator covariance is positive definite; no novelty is claimed for that fact alone. Related empirical-Gramian analysis (Grundel–Himpe–Saak, 2019) treats general reachability approximations. The earlier Gillis–Diehl positivity-preserving scheme uses a different discretization (only an abstract was accessible). Semantic mathematical-record searches addressing Simpson, trapezoid, exact covariance ranks, aliasing and SSP integrating factors did not identify the full comparison statement; failure to locate one is not proof of priority. Equivalent older sampled-Gramian results remain a meaningful residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-A positive-semidefinite discretization can become singular despite a strictly positive-definite continuous covariance. Rank loss can break downstream control-energy and Kalman-type inverse-covariance calculations even when negative eigenvalues never occur. The exact classification shows that the higher-order scheme eliminates half-turn numerical rank failure, and the global crossover prevents an incorrect inference that higher order always gives a better minimum eigenvalue. This is a natural diagnostic for step selection and explains a structural stability distinction not measured by ordinary convergence order.
+Best-of-knowledge PASS: Zhang–Lan–Jing introduce the exact methods and show SPSD/second-order accuracy, but their accessible full text does not assert strict positivity, exact rank-loss phases, smallest-eigenvalue crossover, or near-resonance coefficients. Generic Lyapunov Gramian and SSP theory provide methods and representation, not this complete phase classification. A trigonometric quadrature aliasing restatement remains possible.
 
-## Scope and limitations
+## value
 
-The proof assumes a nonzero fixed planar angular velocity, zero initial covariance, a single constant rank-one forcing vector, exact exponentials, and fixed positive steps. It is not a characterization of arbitrary differential Lyapunov systems, floating-point positivity, statistical confidence accuracy, or universal higher-order superiority. Additional historical source coverage and independent mathematical assessment remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Positive semidefiniteness can mask a singular numerical covariance despite a full-rank continuous Gramian. The exact mechanism and a counterintuitive phase sector where higher order helps or hurts conditioning provide a motivated structural boundary for a natural positivity-preserving method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof in RESULT.md is the evidence for the infinite families of step counts and phases. It establishes the exact two-node and three-node quadrature representations directly from the Shu–Osher stages; applies a finite geometric-series identity; uses a rank-one spanning criterion for all singularities; and verifies the strict phase crossover algebraically. All domains and exceptional phases are specified there.
+## correctness
 
-The attached standard-library check.py separately evaluates both published integrating-factor Runge–Kutta stage recurrences. Executing `python check.py` returned `CHECK_OK 2940 direct-stage/eigenvalue/phase comparison checks`. It tests 20 iteration counts and 21 ordinary/near-resonant step phases for both integrators, plus additional exact-resonance and spectral-order checks. The resonance comparisons use floating-point arithmetic in the script; their *exact* correctness is established by the analytic projector sums in RESULT.md, not inferred from a floating-point tolerance.
+PASS
 
-Symbolic special case: at an odd half-turn step, Simpson's projector weights are one third along the initial axis and two thirds along the orthogonal axis, whereas the trapezoidal weights all lie on the initial axis. Both matrices remain positive semidefinite. The continuous integral has two equal eigenvalues because the total angle is an integer number of half-turns.
+Integrating factor W(t)=e^(−At)X(t)e^(−Aᵀt) gives W′(t)=e^(−At)Qe^(−Aᵀt), a rotating rank-one projector. Substituting the actual published two-/three-stage SSPRK Shu–Osher updates yields trapezoidal/Simpson node weights. Complex anisotropy of F(t) is exp(2iωt), and finite geometric sums give T/2(1±ρ_N|cosφ|) versus T/2(1±ρ_N(2+cosφ)/3), ρ_N=|sinNφ/(Nsinφ)| with continuous phase limits. Positive weighted sampled-projector spans prove rank deficiency iff φ∈πZ for trapezoid and 2πZ for Simpson. Comparing the amplitude factors yields sign threshold cosφ=−1/2 and equality at ρ_N=0 or cosφ=1. Taylor expansion gives the fixed-N quadratic near-odd-half-turn coefficients. Independently formed all sampled matrices and checked all eigenvalues in 70 (N,φ,method) cases, including exact resonance; universal sets follow from span/analytic proof.
 
-This verification does not test arbitrary matrices, rounding-error effects, nonconstant forcing, higher dimensions, or global literature priority. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: Zhang–Lan–Jing introduce the exact methods and show SPSD/second-order accuracy, but their accessible full text does not assert strict positivity, exact rank-loss phases, smallest-eigenvalue crossover, or near-resonance coefficients. Generic Lyapunov Gramian and SSP theory provide methods and representation, not this complete phase classification. A trigonometric quadrature aliasing restatement remains possible.
+
+## value
+
+PASS
+
+Positive semidefiniteness can mask a singular numerical covariance despite a full-rank continuous Gramian. The exact mechanism and a counterintuitive phase sector where higher order helps or hurts conditioning provide a motivated structural boundary for a natural positivity-preserving method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
