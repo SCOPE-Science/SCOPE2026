@@ -1,19 +1,21 @@
-# Scientific review of the paired-disjunctive cycle census
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. In every proper selected subset of a cycle, induced connected components are paths, which have perfect matchings exactly at even orders. A zero-run of length at least four violates the distance-two alternative, while each run of length at most three satisfies it. The labeled run-rooting count is \(n/s\) with exactly \(s\) roots per selected set. Formal differentiation yields the rational series; the defect identity establishes all five minimum-multiplicity cases. The simple-pole argument proves the total-count asymptotic with leading constant exactly one. All graph-level distributions for orders three through seventeen agree with a separate rational coefficient calculation, and additional exact arithmetic matches the consequences through order 250.
+PASS
 
-## Originality
+For proper S in C_n, each induced component is a path with perfect matching iff its maximal one-run has even positive length. Every omitted gap of length <=3 is disjunctively dominated, and gap >=4 has a second unserved zero. Rooting at one of s selected-run starts yields exactly n/s times the positive composition coefficients. Independent exact enumerations of all labeled vertex subsets for n=3..14 using generic shortest-path domination and recursive perfect-matching tests matched every full polynomial coefficient. Formal logarithmic cycle construction then yields the claimed rational generating function. The deficit d=5k−n and s=k or k−1 gives the five-residue min-set formulas, and unique simple positive pole rho yields total P_n(1)~rho^(−n) with unit coefficient. Finite tests support but do not prove all n.
 
-PASS, with explicitly provisional publication priority. The 2022 preprint/2023 journal work of Henning, Pandey, and Tripathi defines the parameter and reports the minimum cardinality for cycles, which this work credits. The available abstract does not establish the full cardinality distribution; the closely related 2025 publication repeats only the minimum formula. Ordinary paired-domination and published complete multipartite/chain-graph enumerations concern different feasibility constraints or graph families. Search comparisons returned no equivalent cyclic census. The core 2023 paper could not be inspected in full, so an unobserved equivalent result remains a real risk, not a proven absence.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A single minimum cardinality is insufficient to recover the cardinality distribution. This theorem completely enumerates feasible labeled sets of every size, gives an explicit five-residue quasi-polynomial for the multiplicity of minimum configurations, determines the top two coefficients and full parity-restricted support, and proves a sharp exponential total-count asymptotic with constant one. These are natural data for the original graph-domination problem, not arbitrary selected small cases.
+Henning, Pandey, Tripathi (2023) is the original primary source on this exact paired-disjunctive domination definition and determines minimum order 2 ceil(n/5) for cycles. Its publicly available abstract identifies minimum numbers and algorithms, not an all-cardinality labeled cycle polynomial or exact extremal multiplicities. Other Resultary paired domination polynomials concern different graph families or ordinary paired domination, a stronger neighborhood notion. Full 2023 paper was not obtainable via lawful open sources and institutional Oxford reports disconnected VPN, so no whole-paper noncoverage is claimed; this is a best-of-knowledge originality PASS with explicit material priority risk.
 
-## Sources and limits
+## value
 
-Closest: Henning–Pandey–Tripathi, Theoretical Computer Science 966–967 (2023), 113990, DOI 10.1016/j.tcs.2023.113990, with preprint first posted September 3, 2022. A 2025 Symmetry paper, DOI 10.3390/sym17081170, explicitly quotes the existing cycle minimum. Jiang–Wu–Zhang–Rao (2022), DOI 10.3934/math.2022069, treats ordinary paired domination. The original 2023 full text was inaccessible through the attempted routes and no complete material comparison with it is asserted. Finite computations are corroboration only; no independent mathematical validation was carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+All-size labeled subset census and five-residue optimal multiplicities refine a natural known graph-domination parameter and provide an independently useful exact enumerator and asymptotic growth, not a random arbitrary slice. Does not require a separate downstream theorem to be valuable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
