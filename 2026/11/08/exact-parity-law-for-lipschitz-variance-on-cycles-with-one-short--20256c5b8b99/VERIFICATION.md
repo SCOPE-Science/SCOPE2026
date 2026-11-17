@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible verification
 
-Run `python3 verify.py` from the extracted file directory, using Python 3 and no third-party packages. The script enumerates the vertices of the weighted cycle increment section, computes centered variance by exact fractions, and checks the closed forms for orders three to ten with four rational edge lengths. It also checks reflection distance-kernel inequalities for orders three through thirty. Its expected final marker is `ALL_ONE_SHORT_EDGE_CYCLE_TESTS_OK`.
+# Independent mathematical audit
 
-The main proof, not finite enumeration, establishes the all-order, all-real-parameter statement. The critical circular rearrangement argument is supplied in `RESULT.md`; the code does not certify the infinitely many instances of that argument. The literature comparison supports a self-review, not an independent priority guarantee. No independent audit has been performed.
+## correctness
+
+PASS
+
+For zero-sum cyclic increment d, strict convexity places a maximizing profile at a box-section vertex with at most one non-bound coordinate. The odd-n unit-edge maximizer has one zero increment and can rotate its zero onto the shortened edge, showing rigidity; the even-n vertex multiset is (+1)^(m-1),λ,(-1)^(m-1),-λ. The cyclic Laplacian Green kernel, discrete circle polarization and integrated heights prove the sharp variance (n²-4)/48+λ²/4 for even n, ((n²-1)(n²+3))/(48n²) for odd n. Independent exact rational vertex enumeration checked all n=3..9 at λ=1/3,1/2,1 (21 cases). The infinite-n upper bound relies on the written nonstandard rearrangement argument, not these finite checks.
+
+## originality
+
+PASS
+
+The exact odd rigidity and n-independent even quadratic loss for a fixed centered L2 inclusion differ from the older weighted-cycle Banach–Mazur optimization and known unweighted endpoint. Historical priority remains qualified.
+
+## value
+
+PASS
+
+A natural sharp metric-perturbation law for centered Lipschitz spread, with odd parity invariance and a universal even deficit independent of graph size. This is a substantial quantitative boundary, not an unweighted-case reformulation or a tiny numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

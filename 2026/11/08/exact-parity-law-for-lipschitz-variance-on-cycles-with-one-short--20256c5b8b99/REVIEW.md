@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim specifies finite cycles with one exceptional edge length in \((0,1]\), real-valued functions, uniform vertex probabilities, and the centered \(L^2\) norm. The proof converts the Lipschitz ball to a zero-sum weighted increment section, classifies extreme increments in both parities, and evaluates the centered quadratic form using the cyclic Green matrix. The nonstandard step is a finite-circle rearrangement inequality: its reflection comparison and finite auxiliary-order argument appear explicitly in `RESULT.md`. This proves a global upper bound without treating finite enumeration as an infinite proof. The proposed potentials attain both bounds. Exact-rational enumeration for orders three through ten and four weights is corroborative only.
+## correctness
 
-## Originality — PASS, qualified
-The published exact **unweighted** cycle variance is covered by the known symmetric-edge-polytope inradius result and is not claimed as new. The previously available one-edge weighted-cycle Banach–Mazur theorem optimizes Euclidean structures, while the numerical-index rigidity result optimizes operator numerical radii; neither quantity determines a fixed uniform-vertex centered Lipschitz-to-\(L^2\) norm. The 2009 random-graph spread preprint introduces the classical functional and discusses random edge lengths, not the present deterministic single-edge deformation. Searches were performed for cycle spread, graph concentration, weighted cycles, shortest-path Lipschitz norms, and metric-free dual and rearrangement equivalents. The distinct statement is the *exact size-independent quadratic loss for even cycles together with total invariance for odd cycles*. Unindexed equivalences and less-accessible circle-concentration literature remain bibliographic risks.
+PASS
 
-## Mathematical value — PASS
-The result establishes a sharp perturbation law for a natural functional-analytic metric embedding norm, not a numerical table or a routine rewriting of the unweighted endpoint. It identifies a genuine parity boundary under a continuous family of metric deformations: complete rigidity in one parity and a universal, strictly positive loss in the other, independent of cycle size. These quantitative results supply benchmarks for edge-weighted graph concentration and expose a contrast with different weighted-cycle Banach invariants.
+For zero-sum cyclic increment d, strict convexity places a maximizing profile at a box-section vertex with at most one non-bound coordinate. The odd-n unit-edge maximizer has one zero increment and can rotate its zero onto the shortened edge, showing rigidity; the even-n vertex multiset is (+1)^(m-1),λ,(-1)^(m-1),-λ. The cyclic Laplacian Green kernel, discrete circle polarization and integrated heights prove the sharp variance (n²-4)/48+λ²/4 for even n, ((n²-1)(n²+3))/(48n²) for odd n. Independent exact rational vertex enumeration checked all n=3..9 at λ=1/3,1/2,1 (21 cases). The infinite-n upper bound relies on the written nonstandard rearrangement argument, not these finite checks.
 
-## Scientific limits
-The result is restricted to one edge shorter than the others and positive length. It does not classify all maximizers, all edge-weight vectors, nonuniform measures, or higher moments. The independent review and all external validation are still unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact odd rigidity and n-independent even quadratic loss for a fixed centered L2 inclusion differ from the older weighted-cycle Banach–Mazur optimization and known unweighted endpoint. Historical priority remains qualified.
+
+## value
+
+PASS
+
+A natural sharp metric-perturbation law for centered Lipschitz spread, with odd parity invariance and a universal even deficit independent of graph size. This is a substantial quantitative boundary, not an unweighted-case reformulation or a tiny numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
