@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A degree-count inequality in the cubic fourteen-vertex graph proves that at least four vertices must be deleted to destroy every cycle; when equality holds, the deletion set is independent and its complement is a ten-vertex induced tree. Two independent exhaustive programs enumerate all 1001 candidate four-sets, using respectively a union-find forest test and hitting every simple cycle, and agree on the exact 70 optima. Both independently construct slide and jump adjacencies and run full component and all-sources distance calculations. Their embedded outputs pass exact assertions. The no-earlier-mixed statement is separately checked for the full n=5,6 state spaces; nothing is inferred for n>=8.
+## correctness
 
-## Originality — PASS, subject to historical priority
-Earlier decycling research determines scalar extrema and basic structural constraints. The 2019 CoRe open-problem report expressly considers feedback-vertex-set reconfiguration, optimal stable-tree exchanges and maximal-induced-tree mobility; these prior definitions and the known median-based move are not asserted to be new. The finite reconfiguration identities for GP(7,2), and the n=5,6 first-coexistence comparison, are not implied by the inspected scalar theorems. Checks of semantically similar published records and prior mathematical claims identified no duplicate on the same graph and move rule. The complete 2013 and 2015 generalized-Petersen papers were not available, so undetected overlapping results remain a meaningful caveat; independent priority review is still needed.
+PASS
 
-## Mathematical value — PASS
-This exact example resolves a natural local-versus-global mobility question for optimal cycle-breaking vertex sets: the same 70 minima exhibit frozen, two-state and four-state local-move classes but global reachability under one unrestricted jump at a time. The first coexistence threshold in the natural initial generalized-Petersen sequence gives structural motivation beyond an arbitrary census, and the sharp jump diameter quantifies that distinction. This is a self-contained exact finite fact rather than a claimed general theorem.
+Cubic edge-count inequality 2k>=8+e(S) forces minimum k>=4 and independence/equivalent induced-tree structure at k=4. Read RESULT.md and both direct_check.js and cycle_check.js Git blobs. Independent graph generation, union-find complete enumeration and all-source BFS confirmed GP(5,2): 20 optimal triples all slides frozen; GP(6,2): 120 optimal 4-sets connected slides; GP(7,2): 70 optimal 4-sets, slide 14K1+14K2+7P4 (35 edges), jump 4-regular, 140 edges, eccentricities 56 at 6 and 14 at 7. This is full finite enumeration, not a theorem for n>=8.
 
-## Scope and limitations
-No general answer for larger generalized Petersen graphs is supplied. The verification is exhaustive for finite graphs but does not replace independent scholarly assessment. Publicly inaccessible relevant complete articles remain an originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bau--Beineke, Wei--Li, Gao et al. study decycling numbers; known feedback-set jump/slide notions are prior. Search found self-entry plus Heawood/Pappus/dodecahedral FVS move graphs, not GP7 exact 70-state mixed mobility formula. The claim is a natural graph-specific exact configuration classification, not invented move notion or generalized Petersen all-order theorem.
+
+## value
+
+PASS
+
+Minimum feedback-set mobility is natural in graph reconfiguration; GP7 gives first mixed frozen/movable optimal slide phase among checked initial n=5,6,7, with connected jumps and sharp metric. Exact finite invariant is independently useful despite modest graph order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

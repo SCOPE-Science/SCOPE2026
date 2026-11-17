@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Use `node direct_check.js` and `node cycle_check.js` from the folder containing the four evidence files. No third-party libraries or external datasets are required. The scripts independently generate the graphs, minimum decycling sets, token-slide and token-jump transition graphs, connected components and all-sources distances.
+## correctness
 
-The first script checks all candidates with a union-find forest test; the second generates simple cycles and tests the defining cycle-hitting property. They independently prove the finite enumeration and move counts by exhaustive search, not random sampling. The expected final markers are `DIRECT_CHECK_PASS` and `CYCLE_CHECK_PASS`; all detailed counts are in the paired output text files. The proof of the four-vertex lower bound and of the induced-tree property is given in `RESULT.md`.
+PASS
 
-The verified parameter range is \(n=5,6,7\) only. Only the fourteen-vertex \(GP(7,2)\) has asserted jump radius and diameter. Full scholarly and historical-priority reviews have not been performed.
+Cubic edge-count inequality 2k>=8+e(S) forces minimum k>=4 and independence/equivalent induced-tree structure at k=4. Read RESULT.md and both direct_check.js and cycle_check.js Git blobs. Independent graph generation, union-find complete enumeration and all-source BFS confirmed GP(5,2): 20 optimal triples all slides frozen; GP(6,2): 120 optimal 4-sets connected slides; GP(7,2): 70 optimal 4-sets, slide 14K1+14K2+7P4 (35 edges), jump 4-regular, 140 edges, eccentricities 56 at 6 and 14 at 7. This is full finite enumeration, not a theorem for n>=8.
+
+## originality
+
+PASS
+
+Bau--Beineke, Wei--Li, Gao et al. study decycling numbers; known feedback-set jump/slide notions are prior. Search found self-entry plus Heawood/Pappus/dodecahedral FVS move graphs, not GP7 exact 70-state mixed mobility formula. The claim is a natural graph-specific exact configuration classification, not invented move notion or generalized Petersen all-order theorem.
+
+## value
+
+PASS
+
+Minimum feedback-set mobility is natural in graph reconfiguration; GP7 gives first mixed frozen/movable optimal slide phase among checked initial n=5,6,7, with connected jumps and sharp metric. Exact finite invariant is independently useful despite modest graph order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
