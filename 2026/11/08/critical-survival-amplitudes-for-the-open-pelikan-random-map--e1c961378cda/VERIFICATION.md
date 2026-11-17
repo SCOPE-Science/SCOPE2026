@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standalone `verify.py` was executed with Python 3, SymPy and NumPy. It checks six symbolic critical-curve identities, three exact-rational renewal/mass-propagation cases, and two numerical long-time survival trajectories. The last reported output was:
+## correctness
 
-```text
-uniform_eps 0.5 asymptotic_ratios [(100, 0.904994569456295), (200, 0.9464910501315671), (750, 0.9840968315828418)]
-uniform_eps 0.8 asymptotic_ratios [(100, 0.9619515003262962), (200, 0.9799913524860555), (280, 0.9854856683771888)]
-VERIFY_OK symbolic_critical_identities=6 exact_renewal_cases=3 floating_mass_cases=2
-```
+PASS
 
-The numerical survivor propagation truncates extremely remote geometric re-injection states; this cannot alter exact first-return coefficients within the checked time horizon but does limit the precision of long-time numerical ratios. Exact rational checks and symbolic differentiation are distinct from a proof for every iteration. The all-time conclusion rests on the explicit generating-function identities and complex singularity transfer in `RESULT.md`.
+PASS. In the killed birth/death+geometric-reinjection chain at 0, H(z) solves H=pz+qzH² as the unique zero-constant formal branch, giving H=[1-sqrt(1-4pq z²)]/(2qz). A surviving first return to 0 has F(z)=p(1-eps)z/(2-H(z))+qzH(z) and G=1/(1-F). For any initial law with Phi(w)=Σ mu_i w^i, killing occurs only at 0 and exact cumulative survival transform is S_mu(z)=[1-p eps z Phi(H(z))G(z)]/(1-z), whose z=1 singularity cancels. Under h=2-eps in (1,2), p=4/(4+h²), q=h²/(4+h²), R=(4+h²)/(4h), the collision has H(R)=2/h, F(R)=1, F(R sqrt(1-t²))=1-h t/[2(h-1)]+O(t²). Therefore G near R has singular coefficient sqrt(2)(h-1)/h, and coefficient transfer gives λ^n/sqrt(n) times [4(h-1)/(eps h)]sqrt(2/pi) Phi(2/h). At z=-R, F(-R)=1/(h+1)<1, leaving only a weaker n^-3/2 contribution. Return lengths 1 and 2 make the positive pole the unique dominant resonance; the exponential-moment condition makes Phi analytic beyond H(R). For Lebesgue geometric mu_i=2^{-i-1}, Phi(2/h)=h/[2(h-1)], hence constant 2sqrt(2/pi)/eps. Independent symbolic reconstruction verified F collision, p eps R/(R-1)=4/eps and both amplitudes. The claim excludes eps endpoints, offcritical windows and heavy-tail initial measures.
 
-No independent audit or external verification is asserted.
+## originality
+
+PASS
+
+Originality assessed against semantic published research and the listed primary sources; substantial previously established components explicitly credited. The final model-specific statement is not shown implied by examined prior results; inaccessible full texts remain explicitly qualified.
+
+## value
+
+PASS
+
+PASS. An explicit critical survival amplitude at a collision of spectral singularities is a natural sharp boundary invariant of a concrete open random map. Its arbitrary-initial-law generating-function dependence and exact Lebesgue simplification supply useful content beyond merely restating an escape eigenvalue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

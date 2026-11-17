@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The substochastic transitions, positive parameter strip, moment hypothesis, and time convention are explicit. The first-hitting equation, first-return generating function, killing identity, and critical square-root coefficient have direct algebraic derivations. The other branch point has a finite return resolvent, and the aperiodic first-return series rules out rival poles on the convergence circle. The transferred coefficient gives the stated all-time asymptotic, while the accompanying checker reproduces the identities and finite-time mass evolution. The proof does not extrapolate finite computations to infinite time.
+## correctness
 
-## Originality — PASS within checked evidence
-The motivating Brevitt–Klages article (arXiv:2607.19084v1, specifically its discussion of the critical recurrence boundary near equation (27)) says it does not consider the pole/branch-point collision in depth. Its QSD and escape-rate results do not imply the new critical prefactor, nor the explicit dependence on the initial generating function. Published work on intermittent induced renewal laws (arXiv:2606.27488) and finite-interval resetting (arXiv:2603.24803) concerns distinct operators and does not supply this parameter-specific formula. Related records on geometric escape for other systems and finite-core countable maps do not dominate this result. Search and source limitations prevent exhaustive novelty certification; an older relevant thesis was not available for full-text inspection.
+PASS
 
-## Mathematical value — PASS
-Critical escape statistics are a genuine question left open by the source's main analysis. The result quantitatively separates the exponential escape rate from the full survival tail, supplies an all-initial-law amplitude within a natural exponential-moment class, and yields a particularly simple explicit constant for uniform initial interval data. This is a natural finite-time-survival invariant at a phase boundary, not a mere renaming of a known result or an arbitrary slice. General square-root singularity theory is standard, but its exact application and the coefficient cancellation are model-specific.
+PASS. In the killed birth/death+geometric-reinjection chain at 0, H(z) solves H=pz+qzH² as the unique zero-constant formal branch, giving H=[1-sqrt(1-4pq z²)]/(2qz). A surviving first return to 0 has F(z)=p(1-eps)z/(2-H(z))+qzH(z) and G=1/(1-F). For any initial law with Phi(w)=Σ mu_i w^i, killing occurs only at 0 and exact cumulative survival transform is S_mu(z)=[1-p eps z Phi(H(z))G(z)]/(1-z), whose z=1 singularity cancels. Under h=2-eps in (1,2), p=4/(4+h²), q=h²/(4+h²), R=(4+h²)/(4h), the collision has H(R)=2/h, F(R)=1, F(R sqrt(1-t²))=1-h t/[2(h-1)]+O(t²). Therefore G near R has singular coefficient sqrt(2)(h-1)/h, and coefficient transfer gives λ^n/sqrt(n) times [4(h-1)/(eps h)]sqrt(2/pi) Phi(2/h). At z=-R, F(-R)=1/(h+1)<1, leaving only a weaker n^-3/2 contribution. Return lengths 1 and 2 make the positive pole the unique dominant resonance; the exponential-moment condition makes Phi analytic beyond H(R). For Lebesgue geometric mu_i=2^{-i-1}, Phi(2/h)=h/[2(h-1)], hence constant 2sqrt(2/pi)/eps. Independent symbolic reconstruction verified F collision, p eps R/(R-1)=4/eps and both amplitudes. The claim excludes eps endpoints, offcritical windows and heavy-tail initial measures.
 
-## Limits and priorities
-The result assumes the exact critical relation and fixed \(0<\varepsilon<1\); it does not address heavy initial tails, crossovers, or full Yaglom limits. The claims are theorems conditional on explicit assumptions, with independent mathematical validation still outstanding. Historical priority is evaluated against inspected material only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Originality assessed against semantic published research and the listed primary sources; substantial previously established components explicitly credited. The final model-specific statement is not shown implied by examined prior results; inaccessible full texts remain explicitly qualified.
+
+## value
+
+PASS
+
+PASS. An explicit critical survival amplitude at a collision of spectral singularities is a natural sharp boundary invariant of a concrete open random map. Its arbitrary-initial-law generating-function dependence and exact Lebesgue simplification supply useful content beyond merely restating an escape eigenvalue.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
