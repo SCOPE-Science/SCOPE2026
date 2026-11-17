@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result follows from the explicit equal-step extragradient matrix, the normal two-plane single-stage decomposition, and an exact positive-semidefinite rank-two Gram reduction for the period product. The Gram trace and determinant identify all three singular values, including parallel and orthogonal boundaries. Strict derivative negativity follows from the exact certificate \(4(1-c^2)>0\); the minimizer \(h=1/\sqrt2\) is unique even when larger steps \(h>1\) are allowed. The near-parallel expansion uses the verified derivative of the closed-form angular bound. The standalone verifier passed 16,131 assertions, including exact symbolic and rational identities. Finite numerical sampling is not used to prove universal quantifiers.
+PASS
 
-## Originality — PASS, with residual precedence risk
+Each single-stage T_w fixes its perpendicular neutral vector e_w and has squared singular matrix kI+δ e_w e_w^T, where δ=h²(1−h²), k=1−δ. The product P=T_v T_u gives P^TP=k²I+kδ aa^T+δbb^T with a=e_u and b=T_u^T e_v; its rank-two Gram matrix has trace δ(2k+δc²), determinant δ²k²(1−c²), yielding the three claimed singular values for 0≤h≤1. Independently recomputed exact symbolic characteristic polynomial for rational unit overlap (c,s)=(3/5,4/5), h=1/2. The derivative sign identity (2−δc²)²−c²(4(1−δ)+δ²c²)=4(1−c²)>0 gives unique δ=1/4 at h²=1/2 for c<1. At h>1 each stage σ_min=1 and hence P has σ_min≥1, excluding a better global step; c=1 neutral direction gives norm1. Angular derivative at c=1 is 1/7, giving θ²/14. No Floquet spectral-radius optimality is inferred.
 
-The closest prior source is Feng et al., arXiv:2310.02604v1, Theorem 3.1 and Appendix B: it proves general periodic extragradient convergence and stage normality, but its Floquet-eigenvalue discussion does not supply the present two-step Euclidean singular-value classification or optimize its one-period norm. Zhang and Yu, arXiv:1908.05699v4, Sec. 2–4, and Azizian et al., arXiv:1906.05945v5, study fixed-game convergence/parameter choices; these do not cover the changing rank-one payoff geometry. Targeted mathematical-record searches and primary literature comparisons did not establish an equivalent result. Noncommuting products of simple contractions and the required Gram algebra are established techniques; an unidentified specialized source could still contain the same formula. Novelty is this precise sharp classification, not the tools or general periodic convergence.
+## originality
 
-## Value — PASS
+PASS
 
-Two-period rank-one bilinear games are a minimal nontrivial time-varying example: each update leaves a one-dimensional neutral subspace, yet two nonparallel stages jointly contract every direction. The exact complete singular spectrum quantifies this effect, gives the optimal common step independently of row angle, and identifies a sharp near-degenerate slowdown of order \(\theta^2/14\). It directly addresses a periodwise robust stepsize-design question complementary to existing Floquet asymptotics. The claim concerns worst-case two-step error, not expected error, asymptotic rate optimization, or computational runtime. It is not an arbitrary parameter substitution or routine restatement of a fixed-payoff result.
+Feng et al NeurIPS 2023 treat arbitrary periodic bilinear games using normal one-step maps and spectral/Floquet contraction, but their actual Theorem3.1 and text do not state the sharp singular spectrum or optimize one-period Euclidean operator norm of two noncommuting rank-one 1×2 stages. Earlier fixed-game EG step results and stochastic two-oracle coupling results concern different matrices/objectives. Underlying Gram update is standard; the new part is the closed full singular spectrum and universal optimal step independent of payoff-row angle for this noncommuting period-two class.
 
-## Closest literature and limitations
+## value
 
-Relevant full-text sections inspected: Feng et al. (2023), method, Theorem 3.1 and Appendix B; Zhang and Yu (2020), equal-stage update, stability and rate sections; Azizian et al. (2020), fixed-game EG discussion. Further specialist prior results on products of rank-two normal contractions may cover the exact algebra. The scientific scope excludes noisy, nonunit, adaptive, constrained or nonlinear games and higher-dimensional untouched modes.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp worst-case one-period contraction factor and universal step are motivated numerical-optimization invariants for a natural minimal noncommuting time-periodic game. The exact angle-dependent defect quantifies loss near common null directions and provides an actionable deterministic tuning principle, while carefully not claiming runtime or asymptotic spectral radius optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

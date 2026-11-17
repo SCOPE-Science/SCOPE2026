@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T09:56:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each single-stage T_w fixes its perpendicular neutral vector e_w and has squared singular matrix kI+δ e_w e_w^T, where δ=h²(1−h²), k=1−δ. The product P=T_v T_u gives P^TP=k²I+kδ aa^T+δbb^T with a=e_u and b=T_u^T e_v; its rank-two Gram matrix has trace δ(2k+δc²), determinant δ²k²(1−c²), yielding the three claimed singular values for 0≤h≤1. Independently recomputed exact symbolic characteristic polynomial for rational unit overlap (c,s)=(3/5,4/5), h=1/2. The derivative sign identity (2−δc²)²−c²(4(1−δ)+δ²c²)=4(1−c²)>0 gives unique δ=1/4 at h²=1/2 for c<1. At h>1 each stage σ_min=1 and hence P has σ_min≥1, excluding a better global step; c=1 neutral direction gives norm1. Angular derivative at c=1 is 1/7, giving θ²/14. No Floquet spectral-radius optimality is inferred.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "NeurIPS 2023 treats general periodic matrices but does not optimize full two-stage operator norm; fixed-payoff analysis does not control orientation of noncommuting stages."
+        ],
+        "reasoning": "Generality of the dynamic model is not coverage of this specific sharp one-period singular-value extremum.",
+        "searches": [
+          "https://proceedings.neurips.cc/paper_files/paper/2023/file/457ab261562014550e53351422-Paper-Conference.pdf",
+          "https://arxiv.org/abs/1908.05699",
+          "https://arxiv.org/abs/1906.05945"
+        ]
+      },
+      "checked_sources": [
+        "https://proceedings.neurips.cc/paper_files/paper/2023/file/457ab261562014550e53351422-Paper-Conference.pdf",
+        "https://arxiv.org/abs/1908.05699",
+        "RESULT.md f06b692843ad7f93403bf4643de7e952aeca9d43",
+        "verify.py 9e5e66154735e60d4da6898b7f8b7eea86c30c66",
+        "Independent SymPy characteristic polynomial and monotonicity algebra"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Stage normality in Feng is one shared lemma; it does not determine the two-stage singular spectrum without the noncommuting rank-two Gram calculation."
+        ],
+        "reasoning": "A theorem on spectral radius convergence does not imply the optimal operator-norm factor; distinct mathematical objective.",
+        "searches": [
+          "https://proceedings.neurips.cc/paper_files/paper/2023/file/457ab261562014550e53351422-Paper-Conference.pdf",
+          "https://arxiv.org/abs/1908.05699"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Feng Theorem3.1 establishes last-iterate convergence at h<1/σ and a Floquet exponent; present full singular-value multiset and h optimum are distinct finite-period objectives."
+        ],
+        "reasoning": "Norm optimization of a matrix product is stronger/different than showing its Floquet exponents contract.",
+        "searches": [
+          "Resultary rank one two-phase extragradient exact spectrum optimal step",
+          "Resultary periodic bilinear games two-step Euclidean operator norm universal half power",
+          "https://proceedings.neurips.cc/paper_files/paper/2023/file/457ab261562014550e53351422-Paper-Conference.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Current closed 3-singular spectrum depends on c and h exactly; independent symbolic characteristic identity checked."
+        ],
+        "reasoning": "No inspected database/table with these exact angle-dependent singular values or sharp h=1/sqrt2 optimality beyond this assigned record.",
+        "searches": [
+          "Resultary rank one extragradient singular value angle c delta optimal h",
+          "https://proceedings.neurips.cc/paper_files/paper/2023/file/457ab261562014550e53351422-Paper-Conference.pdf"
+        ]
+      },
+      "rationale": "Feng et al NeurIPS 2023 treat arbitrary periodic bilinear games using normal one-step maps and spectral/Floquet contraction, but their actual Theorem3.1 and text do not state the sharp singular spectrum or optimize one-period Euclidean operator norm of two noncommuting rank-one 1×2 stages. Earlier fixed-game EG step results and stochastic two-oracle coupling results concern different matrices/objectives. Underlying Gram update is standard; the new part is the closed full singular spectrum and universal optimal step independent of payoff-row angle for this noncommuting period-two class.",
+      "residual_risks": [
+        "A specialized matrix-product scaled-rotation singular-value identity could make the spectrum a known corollary of classical matrix analysis.",
+        "Main NeurIPS paper read; separate supplementary technical appendix not fully inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE FLOQUET RATES, NOT SHARP PERIOD NORM",
+          "evidence": [
+            "Theorem3.1 only gives eigenvalue-based decay with h<1/σ; the paper acknowledges single-stage normality and difficulty of product eigenvalues."
+          ],
+          "identifier_or_url": "https://proceedings.neurips.cc/paper_files/paper/2023/file/457ab261562014550e53351422-Paper-Conference.pdf",
+          "material_read": "Actual relevant sections of primary full text: Original 2023 NeurIPS paper, §2 EG update and §3 Theorem3.1 and comparison; PDF page4 screenshot",
+          "method": "Lawful full-text browser read; PDF page screenshots when PDF",
+          "title": "On the Last-iterate Convergence in Time-varying Zero-sum Games: Extra Gradient Succeeds where Optimism Fails",
+          "trigger": "Directly relevant prior mathematical result"
+        },
+        {
+          "assessment": "FIXED-GAME SCOPE ONLY",
+          "evidence": [
+            "No full-document negative coverage claim is made from this abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1908.05699",
+          "material_read": "Title, abstract/publication context and scope; full proof NOT inspected",
+          "method": "Public abstract and cited context",
+          "title": "Convergence of Gradient Methods on Bilinear Zero-Sum Games",
+          "trigger": "Fixed-matrix comparator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp worst-case one-period contraction factor and universal step are motivated numerical-optimization invariants for a natural minimal noncommuting time-periodic game. The exact angle-dependent defect quantifies loss near common null directions and provides an actionable deterministic tuning principle, while carefully not claiming runtime or asymptotic spectral radius optimization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For two alternating unit 1×2 real bilinear payoff rows and equal-step extragradient, the entire period singular spectrum depends only on c=|u·v|, and for c<1 the unique operator-norm-minimizing real h≥0 is 1/√2 with exact minimum (sqrt(48+c²)+c)/8 and near-parallel defect θ²/14.",
+  "limitations": [
+    "Only equal-step, two-stage 1x2 real unit payoff vectors; no claims about higher-dimensional neutral coordinates.",
+    "Optimizes a one-period Euclidean operator norm, not Floquet asymptotic rate, arbitrary stochastic dynamics, or runtime.",
+    "Only one rational symbolic specialization independently rerun; analytic rank-two derivation supplies generality."
+  ],
+  "schema_version": 1
+}
