@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T09:58:03.520730Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/sharp-alternating-step-bdf3-parasitic-damping-without-any-ratio--9886ec9aa193/RESULT.md",
+        "2026/11/08/sharp-alternating-step-bdf3-parasitic-damping-without-any-ratio--9886ec9aa193/verify_bdf3.py"
+      ],
+      "rationale": "The exact cubic interpolation weights on alternating h,rh nodes yield the claimed difference transfer a(r)=r^2(4r+3)/(5r^2+5r+1), b(r)=-r(r+1)/(5r^2+5r+1). Multiplying reciprocal phases and setting q=r+1/r gives trace (-q^2+q+7)/D and determinant (q+2)/D, D=5q^2+30q+41. The three strict quadratic Schur inequalities for 5P have manifestly positive numerators for q>=2. The discriminant numerator q^4-22q^3-173q^2-390q-279 has exactly one root q*>2 (Descartes plus signs). For q<q* the modulus is sqrt(d(q)), strictly decreasing; beyond collision, t<0, t' and d' are negative, so (-t+sqrt(t^2-4d))/2 increases. Thus the unique minimizing q and reciprocal r pair, no fixed ratio ceiling and sharp unattained 1/5 supremum are established. Independent exact rational transfer computation for six ratios agrees. Spectral results apply only to homogeneous BDF3 on a fixed two-periodic grid, not arbitrary grids or nonzero spectral parameter.",
+      "residual_risks": [
+        "Fixed positive alternating ratio r, scalar homogeneous BDF3 only; no general variable-grid, absolute stability, or uniform-in-r transient bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 12 all-order BDF theorem covers BDF3 for every positive alternating ratio."
+        ],
+        "reasoning": "This is direct stronger coverage of the zero-stability part, even without the exact optimal radius.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/12/SCOPE-sharp-alternating-grid-zero-stability-boundary-for-variable-step--db4710dbacc7/RESULT.md",
+          "Resultary search: order 1 through 5 alternating step variable BDF zero stability"
+        ]
+      },
+      "checked_sources": [
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-sharp-1-5-floquet-damping-for-bdf3-on-alternating-grids--8639cc7a1b91/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/12/SCOPE-sharp-alternating-grid-zero-stability-boundary-for-variable-step--db4710dbacc7/RESULT.md",
+        "https://arxiv.org/abs/2201.00527"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier t(q),d(q),F(q), Schur margin and real/complex mode boundary permit direct derivative comparison on the two sign regimes."
+        ],
+        "reasoning": "The new minimum spectral-radius claim follows by elementary monotonicity on each side of the already-known discriminant-zero collision; no independent claim escapes the prior theorem.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-sharp-1-5-floquet-damping-for-bdf3-on-alternating-grids--8639cc7a1b91/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/12/SCOPE-sharp-alternating-grid-zero-stability-boundary-for-variable-step--db4710dbacc7/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nov 2 publication has the same alternating grid, same homogeneous y'=0 model, parasitic multipliers and exact discriminant polynomial F(q)=q^4-22q^3-173q^2-390q-279.",
+          "Earlier trace/determinant are algebraically identical after q=r+1/r."
+        ],
+        "reasoning": "Companion matrices on y values versus differences are similar on the parasitic invariant subspace: they encode the same two nontrivial Floquet eigenvalues.",
+        "searches": [
+          "Resultary semantic: variable step BDF3 2-periodic alternating positive step ratio zero stability Floquet parasitic eigenvalues optimal ratio without ceiling",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-sharp-1-5-floquet-damping-for-bdf3-on-alternating-grids--8639cc7a1b91/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Both earlier primary RESULTS give the same parameter-specific exact polynomial and its unique >2 real collision root; this is a theorem rather than a numerical table."
+        ],
+        "reasoning": "The exact root, not just an approximation near 28.515, is already recorded. A fresh decimal approximation cannot establish novelty.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-sharp-1-5-floquet-damping-for-bdf3-on-alternating-grids--8639cc7a1b91/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/12/SCOPE-sharp-alternating-grid-zero-stability-boundary-for-variable-step--db4710dbacc7/RESULT.md"
+        ]
+      },
+      "rationale": "FAIL: the earlier November 2 published Resultary primary theorem on the identical interpolation-based alternating BDF3 gives the exact same trace/determinant (via r+1/r), strict 1/5 sharp universal bound and precisely the SAME quartic discriminant and reciprocal collision ratios 28.515. The later purported global optimum occurs at that earlier identified double root, directly following by monotonicity of its previously published t(q),d(q); no independent theorem survives. An additional October 12 stronger all-BDF-order result also covers the unrestricted BDF3 homogeneous zero stability. This is positive mathematical implication evidence, not a negative keyword search.",
+      "residual_risks": [
+        "An earlier Guglielmi-Zennaro result could provide additional coverage, but the two inspected published exact theorems already decisively reject originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_AND_IMPLIES_CLAIM",
+          "evidence": "Exact same 1/5 bound and same quartic F(u) with unique root u*>2 and reciprocal ratios r*.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-sharp-1-5-floquet-damping-for-bdf3-on-alternating-grids--8639cc7a1b91/RESULT.md",
+          "material_read": "Full original RESULT.md: finding, assumptions, cubic interpolation, exact monodromy, Schur inequalities, discriminant/root and prior-work section",
+          "method": "Primary full scientific result/proof text, direct mathematical comparison",
+          "title": "Sharp (1/5) Floquet damping for BDF3 on alternating grids",
+          "trigger": "Exact same method and alternating-ratio invariant, earlier November 2 publication"
+        },
+        {
+          "assessment": "COVERS_ZERO_STABILITY_COMPONENT",
+          "evidence": "Order three shown strongly zero-stable for every positive fixed r.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/12/SCOPE-sharp-alternating-grid-zero-stability-boundary-for-variable-step--db4710dbacc7/RESULT.md",
+          "material_read": "Full original RESULT.md including k=3 monodromy coefficient formula and strict Schur region",
+          "method": "Primary full scientific result/proof text",
+          "title": "Sharp alternating-grid zero-stability boundary for variable-step BDF through order five",
+          "trigger": "Earlier theorem on all alternating variable-step BDF orders"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-sharp-1-5-floquet-damping-for-bdf3-on-alternating-grids--8639cc7a1b91/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/12/SCOPE-sharp-alternating-grid-zero-stability-boundary-for-variable-step--db4710dbacc7/RESULT.md"
+      ],
+      "rationale": "FAIL: zero-stability, the sharp 1/5 bound and the shape of the collision already appear as exact claims in the earlier source. Selecting the collision as the minimum by an elementary monotonicity calculation does not supply a mathematically distinct worthwhile invariant or structural gap under the unchanged claim. Correctness and reproducible rational verification cannot rescue the covered result.",
+      "residual_risks": [
+        "Fixed positive alternating ratio r, scalar homogeneous BDF3 only; no general variable-grid, absolute stability, or uniform-in-r transient bound."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Best-of-knowledge originality; positive prior coverage for rejected result and specific residual risks for accepted ones.",
+    "Fixed positive alternating ratio r, scalar homogeneous BDF3 only; no general variable-grid, absolute stability, or uniform-in-r transient bound.",
+    "Public metadata includes operational provenance; publication is withheld without verified sanitization."
+  ],
+  "schema_version": 1
+}
