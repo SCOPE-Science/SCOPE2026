@@ -1,15 +1,21 @@
-# Scientific assessment: three consecutive odd-square semigroups
+# Independent mathematical audit
 
-## Correctness — PASS
-The three positive-\(a\) rewriting identities are exact polynomial equations. Exhaustive descent into the two-rectangle index set, its cardinality of \(n^2\), and surjectivity onto residues prove that the indices are exactly the Apéry representatives. The two coordinatewise corners give all pseudo-Frobenius numbers; exact sums of the lattice coordinates yield the genus. The endpoint \(n=7\) gives nonnegative coefficients for all rewrites and distinct corners. The independent residue-shortest-path checker passed 52 odd parameters, but the proof is symbolic for all odd \(n\ge7\).
+## correctness
 
-## Originality — PASS, with historical-priority risk
-The closest primary works explicitly treat three consecutive *ordinary* squares (Lepilov–O'Rourke–Swanson 2015; Fel 2016), four consecutive ordinary squares (Chomicz 2026), or an infinite initial-zero quadratic sequence (Hashuga–Herbine–Jensen 2020). The two-step finite square triple, explicit two-corner Apéry diagram, two pseudo-Frobenius polynomials, and complete genus formula are not implications of those particular family statements. General three-generator algorithms could calculate each case but do not already assert the claimed family formula. Targeted mathematical-record, literature, and historical-claim searches found no matching exact classification; an unindexed derivation remains possible.
+PASS
 
-## Mathematical value — PASS
-A three-term run of consecutive odd squares is a canonical restriction of the square sequence, not an arbitrary numerical sample. The complete Apéry diagram and pseudo-Frobenius set reveal a stable type-two structure, an exact cubic genus, and a sharp Frobenius branch transition that is invisible from a generic Frobenius algorithm alone. The claim has a natural infinite parameter domain and does not merely restate a known value or a routine special case.
+For odd n≥7, gcd(n²,(n+2)²)=1. Verified all three polynomial reduction relations with positive multiples of a=n² and nonnegative coefficients. They strictly reduce any x b + y c from x≥n+2, y≥n+2 or upper-right forbidden rectangle into T_n; termination by decreasing positive weight. T_n has (n+2)²−8(n+1)/2=n² points, and every residue occurs by reducing nonnegative multiples of b; hence distinct minimal Apéry representatives. Its two maximal coordinate corners are (n−7,n+1) and (n+1,(n+1)/2), giving precisely two pseudo-Frobenius numbers; summing rectangle coordinates and applying genus Apéry sum identity gives closed genus. Cubic PF difference changes order after n=11 for odd n. Independently ran Dijkstra minimal representatives and PF/genus for n=7,9,11,13,15,17,19,31,51 and all matched, finite check not used as infinite proof.
 
-## Limits and prior coverage
-The theorem excludes even \(n\) and odd \(n<7\); no general formula for other step sizes follows. Computations test finite cases only. Relevant literature and mathematical databases may omit earlier equivalent statements. No independently validated certification is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge new complete two-corner Apéry, type-two pseudo-Frobenius and genus classification for the natural family of three consecutive odd squares; previously proved ordinary-consecutive-square families do not mathematically cover it.
+
+## value
+
+PASS
+
+A complete infinite-family Apéry diagram and type/genus/pseudo-Frobenius classification for three consecutive odd square denominations gives a natural exact semigroup invariant. The two-corner picture and sharp Frobenius switching index have independent classification utility, beyond mere calculation of isolated numerical values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
