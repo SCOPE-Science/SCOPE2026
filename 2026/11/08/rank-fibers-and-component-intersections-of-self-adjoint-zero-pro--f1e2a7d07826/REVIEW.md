@@ -1,19 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof proceeds through a perfect pairing \(V/U^\perp\cong U^*\), the correspondence between self-adjoint operators supported on \(U\) and symmetric linear maps \(U^*\to U\), and the equivalence \(AB=0\iff \operatorname{im}B\subseteq(\operatorname{im}A)^\perp\). These are valid in characteristic two. The smooth-stratum parameterization is an open locus in a vector bundle over a relative Grassmannian. Every reduced component intersection is the surjective image of a second irreducible incidence bundle and has a dense complementary-rank locus. All ranks, intersection dimensions and asymptotic exponents are checked algebraically. The only external counting input is the standard, explicitly displayed MacWilliams invertible symmetric-matrix formula. Two independent finite verification scripts agree with every tested rank fiber and component incidence.
+PASS
 
-## Originality — PASS (provisional)
+For any nondegenerate symmetric bilinear g including characteristic two, selfadjoint A with image in U factors V→V/U-perp≅U*→U, second map symmetric; full-image maps form open nonsingular Sym²(U) locus. AB=0 with both selfadjoint is exactly orthogonality of images U=imA and W=imB, giving ranks s+t<=n; the incidence base Gr(t,U-perp) over Gr(s,V) is smooth geometrically irreducible, with affine symmetric-tensor bundle. Dimension reduces to D_n(s+t)=(s+t)(2n-s-t+1)/2. Proper incidence with allowed ranks proves C_i closed irreducible, equidimensional, and any intersection determined by min/max indices, generically rank (i,n-j); no statement on scheme-theoretic reducedness. For finite fields choose U/W by Gaussian binomials and nonsingular symmetric tensors S_s,S_t, valid for q even and odd; summing gives Z_n(q), leading (n+1)q^{n(n+1)/2} at fixed n. Independent complete F2 matrix enumeration n=2 and n=3 verifies total 18 and 204 and all rank fibers. These finite tests are limited; the all-field statements follow from incidence geometry and symmetric-matrix counts.
 
-The primary contrast is with Schröer's decomposition for unrestricted mutually annihilating matrices, which does not establish irreducibility of the self-adjoint intersection or its exact finite-field rank counts. Huang gives a finite-field generating function for arbitrary zero-product matrix pairs, not its self-adjoint fixed locus. Lewis et al. give the single-symmetric-matrix rank formula, not coupled zero-product fibers. Brouwer–Gow–Sheekey count individual nilpotent self-adjoint matrices; nilpotence restrictions make their scope different. Basili's abstract mentions reducible symmetric commuting varieties but supplies no product-zero component/intersection theorem. Five targeted semantic searches in mathematical research records, original-paper searches, and comparison with related published square-zero classifications located no equivalent or implication-dominating theorem. Historical priority is not certified. Basili's complete article was inaccessible and remains a named risk, as does a possible general self-adjoint incidence result.
+## originality
 
-## Value — PASS
+PASS
 
-This is a natural complete geometric and arithmetic classification of the product-zero representation locus inside an involution-fixed linear subspace: all reduced components, all intersections, every ordered rank-fiber count, and the leading uniform probability. The result is uniform in dimension, field characteristic, and bilinear-form type. Form independence is a structural distinction from the Witt-sensitive individually square-zero locus. The full intersection pattern and rank census are not just an isolated small numerical example or a relabeling of the unrestricted pair count.
+Targeted Resultary and literature comparisons show no earlier exact all-rank and all-component intersection classification for pairs of g-selfadjoint operators with only AB=0 and no square-zero restriction. Earlier full theorems on mutually annihilating selfadjoint tuples require EACH X_i²=0, inducing totally isotropic common image and Witt-dependent counts; they do not imply arbitrary zero-product pairs, which include (I,0). Unrestricted matrix zero-product and nilpotent-pair results likewise omit fixed selfadjoint constraints. Basili 2000 commuting rank-variety abstract is related but does not state product-zero stratification; full article inaccessible and remains specific residual risk. Originality assessed best-of-knowledge.
 
-## Scope and limits
+## value
 
-No nonreduced scheme structure, singularity classification, operator-conjugacy classification, or comprehensive historical-priority certification is established. Verification scripts test finite cases; infinite statements follow from proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The reduced self-adjoint zero-product variety is a natural representation-theoretic intersection, and its complete smooth rank-stratum and all multiple-component intersection classification across all characteristics is structurally meaningful. The all-q exact rank census, Witt-independence and leading term are additional natural invariants, not arbitrary slices or a trivial restatement of commuting varieties.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
