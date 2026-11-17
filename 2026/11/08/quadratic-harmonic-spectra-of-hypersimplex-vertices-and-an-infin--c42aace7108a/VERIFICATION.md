@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The reproducible exact checker `checker.py` uses Python's standard-library `fractions.Fraction` and `itertools.combinations`, with no external datasets or packages. The command `python checker.py` returned:
+## correctness
 
-```
-EXACT_FRAME_CHECKS_PASS 14764
-FIRST_FIVE_PELL_PAIRS [(1, 3, 1), (2, 8, 2), (3, 27, 6), (4, 98, 21), (5, 363, 77)]
-```
+PASS
 
-It directly builds the Gram matrix \(G_{I,J}=\langle u_I,u_J\rangle^2-1/d\) for five small pairs, verifies its predicted zero and two nonzero spectral scalars via exact matrix identities and trace moments, checks the Pell recurrence for eight solutions, and tests exact equality of the two explicit frame eigenvalues for every permissible integer pair with \(5\le n\le200\). These checks are finite. The all-integer theorem relies on the counting and Pell proofs in `RESULT.md`. No independent audit, external proof certification, or numerical noise analysis has been performed.
+Orthogonal sectors P diag(x)P and zero-diagonal symmetric W exhaust real trace-zero harmonics. Subset incidence sums yield Lambda1 and Lambda2 as stated, with multiplicities n-1 and n(n-3)/2. Cross sector vanishes by zero row sums. Equality becomes 6k(n-k)=n(n+1), or Pell (n-1)^2-3(n-2k)^2=1. Permutation symmetry provides second-moment isotropy, so tight quadratic harmonic frame yields real projective 2-design. Independently formed rational-form sample Gram matrices and checked eigenvalues n,k=(6,2),(8,2),(8,3). The balanced n=2k degeneracy was checked.
+
+## originality
+
+PASS
+
+The earlier October 26 cubic harmonic theorem already names the same Pell pairs as zeros of its U1 cubic sector. That exact Pell locus is NOT new by itself. The present quadratic full two-sector singular spectrum, invertibility, conditioning and projective 2-design equivalence are different harmonic-degree statements, not consequences of cubic-rank loss alone. The classical 28-line case is also credited.
+
+## value
+
+PASS
+
+The two explicit sampling eigenvalues give optimal conditioning for a natural full hypersimplex orbit, while the infinite projective design family (beyond the known first case) provides a nontrivial geometric use of the exact quadratic spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
