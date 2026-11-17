@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(p,q\ge2\) and positive real clique-edge weight \(t\), the distribution over distinct zonotope vertices is exactly a uniform clique order with independent uniformly chosen gaps. Deriving moments from that law gives a strict positive clique-contrast eigenvalue, a fixed independent-contrast eigenvalue, a fixed axial eigenvalue, and one zero direction. The increasing clique mode crosses each fixed mode at most once. The exact inequalities \(q\le p\) and \(q<T(p)\) determine which crossings exist, including the boundary cases, and therefore establish the complete condition-number phase diagram. The independent exact checker compares 1,344 covariance entries and verifies 35,164 additional parameter sign profiles; finite checks supplement the displayed proof.
+PASS
 
-## Originality — PASS (historical priority provisional)
+Each positive weighted zonotope vertex uniquely corresponds to an acyclic orientation. For split graph K_p∨overline K_q this is a uniformly permuted clique order and q independently chosen uniform gaps, giving exactly p!(p+1)^q distinct vertices. In endpoint-contribution coordinates X_i=t(R_i−1)+Σ_j 1_{G_j<R_i}, X_j=G_j. Uniform gap and rank covariances yield L_I=p(p+2)/12 (multiplicity q−1), L_C(t)=[p(p+1)t²+2pqt+(pq²+q(p+2))/(p+1)]/12 (p−1), L_A=(p+q)(p+2)/12 (1), and one zero from fixed coordinate sum. The two fixed eigenvalues impose κ≥L_A/L_I; strictly increasing L_C(t) crosses L_I only q≤p and crosses L_A iff q<T(p), explaining both plateau cases and an unattained zero-weight infimum. Independent full rational enumeration of all p!(p+1)^q distinct vertices in 15 small cases, up to 600 vertices, reproduced all eigenvalues. Proof is symbolic and covers every integer p,q≥2 and real t>0; t=0 cannot inherit the uniform vertex law.
 
-Padrol--Pilaud--Poullot, *Deformed Graphical Zonotopes* (arXiv:2111.12422; original public version 2021-11-24), was inspected in full open-access HTML, including deformation-cone theorems and proofs. It concerns facet inequalities and deformation-space bases, not vertex-uniform covariance. Pešović--Stojadinović, *Between graphical zonotope and graph-associahedron* (arXiv:2209.12053; first public 2022-09-24), was also examined in full HTML and develops graph-polytope enumerators, not this spectral classification. Searches for aliases involving acyclic orientation indegree variance and weighted graphical zonotope covariance found no decisive implication. Published records on weighted-zonotope inradii, multipartite circumspheres, and intrinsic-volume covariance are different statements; the full texts of some published index hits were inaccessible. No claim of exhaustive historical uniqueness or independent priority certification is made.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The new object is not an arbitrary slice of a known table: complete-split graphs have two canonical edge orbits, and continuously varying the clique orbit while fixing the complete-join orbit is a natural deformation. The exact eigenvalues explain a mathematically nonobvious feature: a whole interval of positive deformations has **identical optimal covariance conditioning**, but the plateau disappears beyond an explicit graph-size threshold. The theorem gives all eigenvalue multiplicities, every crossing, the sharp best condition number, the unattained-infimum cases, and the fixed-parameter growth law. Those metric facts are not consequences of counting vertices or knowing the normal fan alone.
+Best-of-knowledge PASS: the graphical-zonotope acyclic-orientation fan and deformation-cone theory is classical, but the vertex-uniform weighted complete-split covariance eigendecomposition and positive-weight optimization plateaus were not provided by the inspected primary or published related results. Distinguish volume-uniform zonotope studies and adjacent two-clique graphs from this sampling law and exact graph.
 
-## Limitations and source comparison
+## value
 
-The result is for vertex-uniform sampling, not uniform intrinsic volume or independent segment coefficients. The weight-zero endpoint changes the vertex measure, even though limits from positive weights exist. No extension to arbitrary edge weights or arbitrary split graphs is proved. The nearest framework papers and the specific published related record titles were compared by mathematical implication, not merely title matching. Equivalent older work about moments of acyclic-orientation degree sequences remains an open priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Uniform-vertex covariance conditions have intrinsic geometric relevance to optimization/sampling, and the zero-weight fan-discontinuity plus phase plateau is a natural nontrivial exact classification on a canonical family; the precise optimum and its unattainability transition could be reused for weighted zonotope anisotropy comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
