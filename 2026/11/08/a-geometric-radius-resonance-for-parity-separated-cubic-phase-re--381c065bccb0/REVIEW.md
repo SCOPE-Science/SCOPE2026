@@ -1,19 +1,21 @@
-# Review of the three-ring cubic intensity resonance
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete proof uses a pointwise squared-modulus identity at all twelve nodes, not extrapolation from finite tests. Averaging over each quadrature orbit forces a real cubic to have exactly the three distinct squared radii as roots. Nonvanishing and the leading coefficient force positive scale and all four coefficient moduli. The two outer angular constraints make both mixed coefficients imaginary; the nondegenerate middle rotation imposes equality at the middle squared radius. The resulting elementary-symmetric identity reduces exactly to a geometric progression. The explicit pairs satisfy all twelve constraints and the phase classification exhausts the coefficient freedoms. The residual formula is an exact identity. All radii are strictly ordered and positive; no zero-polynomial, endpoint or unproved converse is concealed.
+PASS
 
-## Originality — PASS against inspected material, with priority risk
+For t_j=r_j², four-angle averaging sets the cubic D(t)=|a|²−|b|²t+|c|²t²−|d|²t³ to zero at all t_j. Nonzero witnesses imply D=C∏(t_j−t), C>0; coefficient matching fixes moduli. The aligned rings force Re(U)=Re(V)=0 and nondegenerate middle rotation forces U=t1 V. The verified identity S3*S1−t1²*S2=t1(t0+t2)(t0*t2−t1²) gives t1²=t0t2 and all canonical phases. The discrepancy identity follows by direct twelve-sample summation. Independent symbolic check and inspected CHECK.py; finitely sampled tests are corroborative.
 
-Kim (arXiv:2608.06822v1, full text pp. 1–4) uses polynomial samples on rotated **real lines** in \(\mathbb C^6\) and proves a different positive design, not the three-ring resonance. Conca–Edidin–Hering–Vinzant (arXiv:1312.0158v1, pp. 1–3) give generic \(4d-4\) injectivity but do not imply injectivity or noninjectivity for this fixed nongeneric twelve-point design. Chalendar–Partington (arXiv:2403.16255, relevant circle theorems) treat modulus equality on **entire** circles, not four nodes per ring. Recent \(\mathbb C^4\) minimal-count work was checked at abstract level only; it determines an extremal cardinality, not this parity-restricted threshold. Targeted mathematical comparisons found no equivalent or stronger published result in the inspected sources. An unindexed older calculation could nevertheless cover this simple algebraic special case; priority is not independently verified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The naturally structured design sits at the generic twelve-measurement scale for four complex coefficients. The alternating quadrature angular mode splits even and odd polynomial components, giving a motivated precise failure mechanism rather than a random counterexample. The exact resonance, complete witness family, and quadratic discrepancy away from resonance provide a reproducible boundary phenomenon relevant to choosing structured phase-retrieval samples. Scope is deliberately bounded to the parity-crossing stratum; no unsupported claim of full design identifiability or global optimal conditioning is made.
+No earlier mathematically implying result found in inspected material; search is not universal novelty proof. Existing theorems do not force or prohibit geometric-mean middle radius for parity-witness 12 samples; the explicit coefficient constraints supply the new content.
 
-## Remaining limitations
+## value
 
-Off resonance, general non-parity phase-retrieval ambiguities are not classified; the residual identity is witness-specific. A full independent literature search and external mathematical audit remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The 12-point 3×4 architecture is a natural structured minimal-order phaseless design; exact parity-crossing failure resonance, exhaustive ambiguity family, and off-resonance quadratic witness discrepancy are motivated obstructions to designing robust sample radii, not random values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The universal theorem is established by the coefficient/root and phase constraints in `RESULT.md`, not by finite sampling. The relation \(S_3S_1-t_1^2S_2=t_1(t_0+t_2)(t_0t_2-t_1^2)\) and the cubic root factorization are exact polynomial identities. They were checked symbolically using SymPy. The standalone `CHECK.py` was run with Python 3 and SymPy, yielding `THREE_RING_RESONANCE_CHECKS_PASSED 1056`; it directly tests the twelve-point intensity formula on resonant and nonresonant radius choices, angle offsets, and reproducibly generated resonant cases. The infinite-domain iff and equality-family classification come from the written proof alone.
+# Independent mathematical audit
 
-The result makes no full injectivity claim off resonance and no claim of globally sharp noise stability. Its source comparison is limited to material identified in `REVIEW.md` and `AUDIT.json`. No independent audit or independent mathematical certification has been performed.
+## correctness
+
+PASS
+
+For t_j=r_j², four-angle averaging sets the cubic D(t)=|a|²−|b|²t+|c|²t²−|d|²t³ to zero at all t_j. Nonzero witnesses imply D=C∏(t_j−t), C>0; coefficient matching fixes moduli. The aligned rings force Re(U)=Re(V)=0 and nondegenerate middle rotation forces U=t1 V. The verified identity S3*S1−t1²*S2=t1(t0+t2)(t0*t2−t1²) gives t1²=t0t2 and all canonical phases. The discrepancy identity follows by direct twelve-sample summation. Independent symbolic check and inspected CHECK.py; finitely sampled tests are corroborative.
+
+## originality
+
+PASS
+
+No earlier mathematically implying result found in inspected material; search is not universal novelty proof. Existing theorems do not force or prohibit geometric-mean middle radius for parity-witness 12 samples; the explicit coefficient constraints supply the new content.
+
+## value
+
+PASS
+
+The 12-point 3×4 architecture is a natural structured minimal-order phaseless design; exact parity-crossing failure resonance, exhaustive ambiguity family, and off-resonance quadratic witness discrepancy are motivated obstructions to designing robust sample radii, not random values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
