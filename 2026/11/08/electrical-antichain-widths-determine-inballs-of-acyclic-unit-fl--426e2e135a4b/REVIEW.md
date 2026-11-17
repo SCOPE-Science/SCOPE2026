@@ -1,19 +1,21 @@
-# Scientific review: electrical antichain inballs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The route-mixture characterization follows from acyclic flow decomposition. The weighted-orthogonal coordinate-projection formula is derived directly using \(BQ^{-1}B^{\mathsf T}\) and its pseudoinverse and identifies the precise intrinsic distance to each nonnegative-coordinate boundary. A weighted Dilworth argument gives a route-mixture distribution dominating every electrical edge weight simultaneously. Maximum-antichain inequalities give the opposite radius bound, and their equality supplies the full incenter characterization and tangency certificate. The proof covers zero-projection edges without mistaking nonfacets for metric obstructions. Independent exact-rational resistor computations, path-mixture LP optimizations, and parallel-path computations agree in 96 graph/metric cases, 678 coordinate entries, and four special profiles. The finite tests are corroborative; the theorem is justified by the analytic proof.
+PASS
 
-## Originality — PASS, provisional historical priority
+On the affine unit flow space Bx=e_s−e_t with positive diagonal metric Q, the norm squared of coordinate e restricted to ker B is [Q⁻¹−Q⁻¹Bᵀ(BQ⁻¹Bᵀ)^+BQ⁻¹]_{ee}=q_e⁻¹−q_e⁻²R_e. Thus a Q-ball of radius r fits exactly when a unit flow satisfies x_e≥r α_e for all edges, including α_e=0 inactive constraints. Every unit DAG flow is a convex combination of s–t route incidence vectors. Each reachability-poset antichain meets any route at most once, so r≤1/max_AΣ_{e∈A}α_e. The weighted Dilworth lemma supplies a distribution of maximal chains with inclusion probabilities at least α_e/W: for integer weights, replace each poset element by that many incomparable clones, partition into W chains by ordinary Dilworth, project and extend; rational scaling and simplex compactness give arbitrary real weights. This proves the bound attained and the entire incenter locus; equality gives maximum-antichain tangencies. A pair of internally disjoint paths of lengths a,b gives r=sqrt(a+b)/2 under the inherited Euclidean metric. I examined the exact grounded-Laplacian plus independent path-mixture LP checker; no claim that its 96 numerical examples alone prove the general theorem.
 
-The closest inspected full primary text is von Bell et al., arXiv:2101.10425: §§1–2 define precisely these unit-flow polytopes but focus on \(\nu\)-caracol triangulations, volumes, and combinatorial lattices, rather than metric inballs. Further source comparisons cover arXiv:2203.01896 (flow triangulations, Gorenstein structure) and arXiv:2205.09168 (subdivision algebra). Known general network projection identities and weighted Dilworth each supply indispensable parts; neither alone asserts the complete weighted intrinsic-radius, all-centers, and tangency theorem. Published claims about inradii of graphical zonotopes or signed-order polytopes involve different metric embeddings, so affine/equivalence shortcuts do not dominate the present statement. Closely related results for some complete directed flow polytopes do not contain the entire arbitrary-DAG, electrical-weighted description. A broader LP duality or weighted-poset theorem may imply a reformulation and remains the principal historical-priority risk. Search absence alone has not been used as proof of originality.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Unit-flow polytopes of directed acyclic graphs are standard geometric objects with natural inherited Euclidean metrics. Their inradius is not invariant under the integral-affine transformations used in the conventional triangulation literature. The result makes the exact metric inradius computable through two independently meaningful graph invariants: electrical effective resistance and maximum antichain weight. It also determines the complete optimal-center polytope and supplies explicit mandatory tangency witnesses; this is structural geometry for all finite acyclic networks, not an arbitrary small numerical example. The parallel-path specialization illustrates a nontrivial exact radius even in a simple family.
+Best-of-knowledge PASS: classical source–sink flow polytopes and their route decompositions, electrical coordinate projections, and weighted Dilworth are known; however, the inspected prior flow-polytope triangulation/volume results and unrelated geometric inradius results do not give the present exact weighted electrical-antichain formula and full incenter locus for arbitrary acyclic source–sink networks. A 2026 same-week complete-network inball result has stricter graph and netflow restrictions and does not dominate all positive diagonally weighted DAGs.
 
-## Scope and remaining risks
+## value
 
-The strongest possible priority issue is a previously published Chebyshev-center theorem for path-mixture polytopes or an equivalent weighted Dilworth packing formulation. The inspected sources were selected for the same unit-flow object and related polytopal geometry; literature discovery is not exhaustive. No claim is made for cyclic graphs, general netflow, or non-diagonal metrics. No outside independent mathematical review is represented.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural complete metric-geometric characterization of a broad class of network flow polytopes: electrical resistances determine facet speeds, poset antichains give tight inball certificates and an explicit finite convex locus of all incenters. It unifies electrical network geometry and weighted Dilworth, with useful path-length examples. It makes no unfounded claim about all netflows or arbitrary affine metrics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
