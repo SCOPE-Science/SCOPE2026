@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The binary norm-one conic has zero, one or two intersections with each nontrivial translate. Direct calculation of the one-variable quadratic yields the exact count, while odd-order roots and cyclotomic irreducibility prevent any false Fourier cancellations. Weyl diagonalization then gives rank, kernel and the singular bands. The arcsine limit is the direct Riemann-sum pushforward of the uniform modulations over a two-point translate. Enumerations for primes \(3,5,7,11\), and an independent direct small matrix SVD, corroborate the argument; finite checks are not universal proofs.
+## correctness
 
-**Originality — PASS within a bounded literature review.** Iosevich--Koh supply Fourier-sphere methods; Bojarovska--Flinth supply general finite Gabor machinery; and the closest published result treats hyperbolic shells in dimensions at least four. Their inspected statements do not directly determine this 2D conic Gabor rank and the asymptotic positive-spectrum arcsine law. A stronger unlocated general theorem could cover this specialization; historical priority is not claimed.
+PASS
 
-**Mathematical value — PASS.** The exact loss of operator identifiability and limiting singular-value distribution are natural, quantitative invariants of a canonical finite-field Fourier aperture. The limiting law captures a qualitative spectral phenomenon invisible in a simple difference-set count.
+The Weyl-projector orbit diagonalization gives singular values p|A(a,b)|. For nonzero norm t=Q(a), the intersection count is 1+chi(t(4-t)), and anisotropic zero-norm nonzero shifts have none. A sum of at most two odd-order roots cannot vanish, while the zero-shift sum of |S|=p-chi(-1) roots cannot vanish by cyclotomic irreducibility. Counting norm values gives support size 1+(p-chi(-1))^2/2. The two-point-shift frequency grid 2|cos(pi j/p)| dominates Theta(p^4) nonzero singular values, yielding the stated arcsine weak limit. Correct for odd prime fields, all complex matrices; neither zero-shift character sums nor nonlinear phase retrieval are fully classified.
 
-**Limitations.** The base field is prime and odd. The result is complex-linear operator lifting, not nonlinear pure-signal reconstruction. Zero-shift Fourier magnitudes are explicit but unevaluated. Independent mathematical audit and validation have not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The spectral law and nonsplit arithmetic remain unreported by the inspected finite-field Gabor results. The split circle for p congruent 1 mod 4 is linearly equivalent to the hyperbola, so the rank for that congruence class already follows from the earlier hyperbola theorem; this overlap is explicitly excluded from novelty. The limiting arcsine distribution and nonsplit cases survive the comparisons.
+
+## value
+
+PASS
+
+The exact arithmetic-dependent identifiable operator fraction together with a full parameterized positive spectrum and universal arcsine bulk law supplies a natural operator-tomography invariant not determined by generic Gabor theory; it quantifies spectrum, not just a yes/no phase-retrieval property.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

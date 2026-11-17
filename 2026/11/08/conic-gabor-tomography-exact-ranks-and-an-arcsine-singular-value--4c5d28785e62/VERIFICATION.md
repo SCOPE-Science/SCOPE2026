@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Run `python3 checks/verify.py` with Python 3 and NumPy. The program checks norm-one conic sizes and all shift overlaps in four prime fields, directly enumerates full ambiguity coefficients and rank for each, and checks the predicted singular values against the direct lifting SVD when the field order is three. Recorded output:
+## correctness
 
-```text
-p=3 conic_size=4 shift_support=9 pair_counts={1: 4, 2: 4, 4: 1} Gabor_rank=81 nullity=0
-p=5 conic_size=4 shift_support=9 pair_counts={0: 16, 1: 4, 2: 4, 4: 1} Gabor_rank=225 nullity=400
-p=7 conic_size=8 shift_support=33 pair_counts={0: 16, 1: 8, 2: 24, 8: 1} Gabor_rank=1617 nullity=784
-p=11 conic_size=12 shift_support=73 pair_counts={0: 48, 1: 12, 2: 60, 12: 1} Gabor_rank=8833 nullity=5808
-CONIC_GABOR_AMBIGUITY_RANK_CHECKS_OK
-DIRECT_COMPLEX_LIFTING_SVD_OK
-```
+PASS
 
-The direct enumeration and SVD comparisons use floating-point tolerances. The mathematical proof of all-prime nonvanishing is exact via cyclotomic irreducibility and odd-order root structure. Weak convergence is analytic, not numerically inferred. The zero-shift Fourier magnitudes have not been individually evaluated. No external independent validation has been conducted.
+The Weyl-projector orbit diagonalization gives singular values p|A(a,b)|. For nonzero norm t=Q(a), the intersection count is 1+chi(t(4-t)), and anisotropic zero-norm nonzero shifts have none. A sum of at most two odd-order roots cannot vanish, while the zero-shift sum of |S|=p-chi(-1) roots cannot vanish by cyclotomic irreducibility. Counting norm values gives support size 1+(p-chi(-1))^2/2. The two-point-shift frequency grid 2|cos(pi j/p)| dominates Theta(p^4) nonzero singular values, yielding the stated arcsine weak limit. Correct for odd prime fields, all complex matrices; neither zero-shift character sums nor nonlinear phase retrieval are fully classified.
+
+## originality
+
+PASS
+
+The spectral law and nonsplit arithmetic remain unreported by the inspected finite-field Gabor results. The split circle for p congruent 1 mod 4 is linearly equivalent to the hyperbola, so the rank for that congruence class already follows from the earlier hyperbola theorem; this overlap is explicitly excluded from novelty. The limiting arcsine distribution and nonsplit cases survive the comparisons.
+
+## value
+
+PASS
+
+The exact arithmetic-dependent identifiable operator fraction together with a full parameterized positive spectrum and universal arcsine bulk law supplies a natural operator-tomography invariant not determined by generic Gabor theory; it quantifies spectrum, not just a yes/no phase-retrieval property.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
