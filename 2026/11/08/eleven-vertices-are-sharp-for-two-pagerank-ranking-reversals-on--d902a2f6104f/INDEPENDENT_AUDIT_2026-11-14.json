@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T13:44:12Z",
+  "axes": {
+    "correctness": {
+      "rationale": "W=AD^-1 has spectrum [-1,1] via reversible similarity, so det(I-αW)>0 for 0<α<1. Tree determinant equals matching polynomial, adjugate and Neumann recurrence yield exact numerator coefficients. Exhaustive NetworkX nonisomorphic-tree representatives 1,1,2,3,6,11,23,47,106,235 for n2..11 tested with exact Fractions; interval Descartes sign variation <=1 for every pair n<=10. For n11 exactly 30 pairs are Descartes candidates; independent symbolic exact root counting after removing forced endpoint factors leaves exactly 3 actual two-crossing pairs, one automorphism orbit (3,10),(4,10),(5,10) in one tree. Witness F(α)=3α^6+4α^5-18α^4-16α^3+26α²+12α-12 has exactly two interval roots by sign samples/Descartes. Fresh independent n2..11 census and exact witness rational evaluations reproduced all counts; any roots at 0 or1 were excluded.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boldi et al treat analytic dependence of PageRank; Bressan/Peserico allow general ranking flexibility on wider graphs."
+        ],
+        "reasoning": "Broader damping theorems provide rationality/possibility, not the tree-restricted sharp n=11 double-crossing minimality or unique pair orbit.",
+        "searches": [
+          "https://doi.org/10.1145/1060745.1060827",
+          "https://doi.org/10.1016/j.jda.2009.11.001"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1201.4787",
+        "https://doi.org/10.1145/1060745.1060827",
+        "https://doi.org/10.1016/j.jda.2009.11.001",
+        "https://networkx.org/documentation/stable/reference/generated/networkx.generators.nonisomorphic_trees.html"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Directed web data and flexible graph constructions are not equivalent to an undirected tree 11-node optimal example."
+        ],
+        "reasoning": "The broad statements do not specialize to the precise cutoff; no checked implication dominates the result.",
+        "searches": [
+          "https://arxiv.org/abs/1201.4787",
+          "https://doi.org/10.1016/j.jda.2009.11.001"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Son et al paper studies PageRank ranking reversals in directed networks; related Katz centrality uses I-αA instead of AD^-1."
+        ],
+        "reasoning": "Tree-random-walk weight normalization changes centrality polynomial and crossing threshold; no direct equivalence to Katz or directed results.",
+        "searches": [
+          "Resultary: PageRank rank reversal undirected trees damping 11 vertices pair",
+          "Resultary: undirected PageRank rank reversal damping two crossings tree 11"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Standard 235 unlabelled 11-vertex tree count; independent pair census checked 12,925 pairs, 30 Descartes candidates and three exact two-root pairs."
+        ],
+        "reasoning": "General unlabeled-tree enumerations do not tabulate this PageRank marked-pair invariant.",
+        "searches": [
+          "Resultary: PageRank rank reversal undirected trees damping 11 vertices pair",
+          "NetworkX nonisomorphic_trees 11 counts and PageRank reversing vertex pair"
+        ]
+      },
+      "rationale": "General PageRank damping dependence (Boldi 2005), arbitrary rankings (Bressan/Peserico 2010), and directed-network rank reversals (Son 2012) precede the study, but no checked source covers the precise first repeated crossing cutoff on undirected trees or the unique 11-node pair orbit. Katz centrality related result does not imply degree-normalized PageRank.",
+      "residual_risks": [
+        "Bressan/Peserico full article not materially read; equivalent tree-specific example could be buried.",
+        "Depends on exhaustive correctness of the documented NetworkX generator, with exact independent arithmetic on output representatives."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_TREE_CUTOFF",
+          "evidence": "Directed network global ranking sensitivity, not complete finite undirected-tree pair census.",
+          "identifier_or_url": "https://arxiv.org/abs/1201.4787",
+          "material_read": "Accessible full arXiv HTML main text and directed empirical analysis",
+          "method": "Web full primary text",
+          "title": "PageRank and rank-reversal dependence on the damping factor",
+          "trigger": "Same notion of ranking reversals as damping varies"
+        },
+        {
+          "assessment": "PRIOR_ANALYTIC_FRAMEWORK",
+          "evidence": "The rational resolvent approach and dependence are standard; no cutoff evidence in accessible material.",
+          "identifier_or_url": "https://doi.org/10.1145/1060745.1060827",
+          "material_read": "Publisher abstract and bibliographic description, not full author-hosted PDF",
+          "method": "Web primary metadata",
+          "title": "PageRank as a Function of the Damping Factor",
+          "trigger": "Core analytic damping literature"
+        },
+        {
+          "assessment": "ACCESS_PRIORITY_RISK",
+          "evidence": "Cannot exclude unexamined exact tree double-crossing statement from full article, though abstract concerns general graphs.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jda.2009.11.001",
+          "material_read": "Publisher abstract/bibliographic and source-package discussion; full text inaccessible in run",
+          "method": "Web indexed material only",
+          "title": "Choose the Damping, Choose the Ranking?",
+          "trigger": "Prior flexible ordering constructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp graph-order boundary for double PageRank ranking reversals and unique witness classification is a motivated exact structural invariant showing limits of damping robustness on the simplest connected graphs. Full finite census is meaningful, not an arbitrary small example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1201.4787",
+    "https://doi.org/10.1145/1060745.1060827",
+    "https://doi.org/10.1016/j.jda.2009.11.001",
+    "https://networkx.org/documentation/stable/reference/generated/networkx.generators.nonisomorphic_trees.html"
+  ],
+  "disposition": "passed",
+  "final_claim": "In uniform-teleportation PageRank of unweighted connected undirected trees, no vertex pair reverses strict score ranking twice for n<=10; at n11 a single tree/pair isomorphism orbit achieves two reversals with exact polynomial witness.",
+  "limitations": [
+    "Unweighted undirected trees, uniform teleportation only; not directed, Katz, weighted, personalized PageRank."
+  ],
+  "residual_risks": [
+    "Bressan/Peserico full article not materially read; equivalent tree-specific example could be buried.",
+    "Depends on exhaustive correctness of the documented NetworkX generator, with exact independent arithmetic on output representatives."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING_TREE_CUTOFF",
+      "evidence": "Directed network global ranking sensitivity, not complete finite undirected-tree pair census.",
+      "identifier_or_url": "https://arxiv.org/abs/1201.4787",
+      "material_read": "Accessible full arXiv HTML main text and directed empirical analysis",
+      "method": "Web full primary text",
+      "title": "PageRank and rank-reversal dependence on the damping factor",
+      "trigger": "Same notion of ranking reversals as damping varies"
+    },
+    {
+      "assessment": "PRIOR_ANALYTIC_FRAMEWORK",
+      "evidence": "The rational resolvent approach and dependence are standard; no cutoff evidence in accessible material.",
+      "identifier_or_url": "https://doi.org/10.1145/1060745.1060827",
+      "material_read": "Publisher abstract and bibliographic description, not full author-hosted PDF",
+      "method": "Web primary metadata",
+      "title": "PageRank as a Function of the Damping Factor",
+      "trigger": "Core analytic damping literature"
+    },
+    {
+      "assessment": "ACCESS_PRIORITY_RISK",
+      "evidence": "Cannot exclude unexamined exact tree double-crossing statement from full article, though abstract concerns general graphs.",
+      "identifier_or_url": "https://doi.org/10.1016/j.jda.2009.11.001",
+      "material_read": "Publisher abstract/bibliographic and source-package discussion; full text inaccessible in run",
+      "method": "Web indexed material only",
+      "title": "Choose the Damping, Choose the Ranking?",
+      "trigger": "Prior flexible ordering constructions"
+    }
+  ]
+}

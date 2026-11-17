@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is about exactly one pair-ranking crossing phenomenon, with a fixed stochastic PageRank normalization. The matching-polynomial determinant formula follows from the tree determinant expansion; the adjugate proves polynomiality of score numerators, which the checker confirms through all degrees. The exact root bound uses the substitution \(\alpha=z/(1+z)\) and Descartes’ rule, with exact rational Sturm counts only for exceptional sign patterns. The census generates every nonisomorphic tree through eleven vertices; its 20,398 unordered vertex-pair comparisons exclude two crossings below eleven and establish one minimal isomorphism class. The displayed witness has a directly verified exact factorization and two sign-changing roots. An independent rational matrix inversion reproduces sample score differences. Risk: enumeration completeness inherits the established tree generator, rather than a separate hand-derived classification.
+## correctness
 
-## Originality — PASS within inspected evidence
-The analytic dependence of PageRank on damping and nonmonotone ranking in general networks is established in Boldi–Santini–Vigna (2005), Bressan–Peserico (2009/2010), and Son–Christensen–Grassberger–Paczuski (2012). Their inspected statements do not imply a sharp minimum and unique unlabelled-tree/vertex-pair classification, and the model is distinct from adjacency-based Katz centrality. The relevant 2009/2010 comparison paper was inspected at abstract/metadata level only; no unconditional historical-priority assertion is made. Semantic searches also found no matching indexed claim. These absences do not establish novelty by themselves.
+PASS
 
-## Mathematical value — PASS
-The sharp eleven-vertex threshold settles the earliest possible non-single-crossing PageRank behavior on tree social networks. The unique minimal witness compares two leaves with equal degree, so a degree-only comparison cannot detect the two reversals. The finite cutoff and full first-layer isomorphism classification are natural structural information about damping-sensitive centrality, not a convenience-selected graph example.
+W=AD^-1 has spectrum [-1,1] via reversible similarity, so det(I-αW)>0 for 0<α<1. Tree determinant equals matching polynomial, adjugate and Neumann recurrence yield exact numerator coefficients. Exhaustive NetworkX nonisomorphic-tree representatives 1,1,2,3,6,11,23,47,106,235 for n2..11 tested with exact Fractions; interval Descartes sign variation <=1 for every pair n<=10. For n11 exactly 30 pairs are Descartes candidates; independent symbolic exact root counting after removing forced endpoint factors leaves exactly 3 actual two-crossing pairs, one automorphism orbit (3,10),(4,10),(5,10) in one tree. Witness F(α)=3α^6+4α^5-18α^4-16α^3+26α²+12α-12 has exactly two interval roots by sign samples/Descartes. Fresh independent n2..11 census and exact witness rational evaluations reproduced all counts; any roots at 0 or1 were excluded.
 
-## Limitations and close antecedents
-The statement is not about all graph classes, directed graphs, personalized teleportation, nonuniform edge weights, or adjacency-based Katz scores. Bibliographic antecedents and the limitation of abstract-only inspection of Bressan–Peserico are documented in RESULT.md and AUDIT.json. The embedded checker and its output constitute reproducible mathematical evidence, not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General PageRank damping dependence (Boldi 2005), arbitrary rankings (Bressan/Peserico 2010), and directed-network rank reversals (Son 2012) precede the study, but no checked source covers the precise first repeated crossing cutoff on undirected trees or the unique 11-node pair orbit. Katz centrality related result does not imply degree-normalized PageRank.
+
+## value
+
+PASS
+
+Sharp graph-order boundary for double PageRank ranking reversals and unique witness classification is a motivated exact structural invariant showing limits of damping robustness on the simplest connected graphs. Full finite census is meaningful, not an arbitrary small example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
