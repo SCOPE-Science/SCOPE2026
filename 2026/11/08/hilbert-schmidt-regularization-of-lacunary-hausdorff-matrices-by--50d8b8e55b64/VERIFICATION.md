@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and the standard library. The checker used exact rational arithmetic and passed 871 finite assertions: monomial commutator coefficients at three rational atomic parameters, explicit Gram inequalities across fifteen atom levels, the positivity of both displayed Riesz constants, and nonnegative finite-section Hilbert–Schmidt pairings. It prints:
+## correctness
 
-`ATOMIC_HAUSDORFF_COMMUTATOR_OK 871 exact assertions; analytic infinite proof separate`
+PASS
 
-These checks do not establish the residue formula, infinite-dimensional convergence, or parent unboundedness. Those steps are proved in RESULT.md using rational residues, a uniform Schur bound, and boundary concentration. No independent audit has been performed. No claim is made about trace-class membership or optimal Riesz constants.
+PASS: Weighted-composition symbol ψ_t=−(1−t)z(1−z)/(1−(1−t)z)^2 yields rational circle residue K(t,s); diagonal tK(t,t)=(1−t)/(2−t)≥15/31 and off-diagonal ≤64^{−|i−j|} give the explicit positive Riesz constants. The polynomial-domain bound and positive harmonic-coefficient truncations prove convergence and parent unboundedness; finite rational coefficient and Gram tests corroborate only bounded portions.
+
+## originality
+
+PASS
+
+Qualified best-knowledge PASS for the exact two-atom Hilbert–Schmidt commutator Gram K(t,s), quantitative lacunary Riesz synthesis and unbounded positive Hausdorff parent with Hilbert–Schmidt shift commutator. Parent boundedness criterion is known; searches and available primary materials did not establish prior implication of the combined theorem.
+
+## value
+
+PASS
+
+PASS: An unbounded densely defined positive Hausdorff matrix with an S2 shift commutator is a substantive counterexample separating parent boundedness from commutator regularity; the exact two-atom kernel plus quantitative Riesz ℓ² synthesis is a motivated structural statement, not a routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
