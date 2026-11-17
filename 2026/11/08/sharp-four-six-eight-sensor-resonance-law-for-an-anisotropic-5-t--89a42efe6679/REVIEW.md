@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is a complete parameterized statement for every positive anisotropy ratio, not an extrapolation from sampling. It follows from the 12 cosine-orbit eigenvalues, a degree-two/degree-three cyclotomic intersection proving 18 distinct resonance ratios, a maximal-eigenspace lower bound, and explicit Vandermonde block decompositions of the stated four-, six-, and eight-site sensor sets. At resonances exactly one pair of cosine orbits collides; consequently each spectrum has 11 distinct eigenvalues rather than 12. Independent floating-point tests reconstruct the full observation matrix and all spatial eigenspace ranks but are supplementary to the proof.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-The 2026 graph-dynamical-sampling paper gives the general eigenspace observability test, not this exact arithmetic stratification or these optimal vertex placements. The survey is likewise general. The 2020 work on Cartesian products concerns structural observability under generic edge weights, whereas the theorem addresses exact weighted spectral degeneracies in one constrained parameter. The existing closely related square prime torus result is not an implication: it uses equal cycle lengths and no one-parameter 18-coupling resonance classification. Searches for aliases, weighted product-cycle observability, and eigenvalue resonance disclosed no dominating statement; this is evidence of noncoverage in inspected records, not proof of global publication priority.
+PASS
 
-## Value — PASS
-The smallest unequal odd-prime torus gives a natural complete exact model of exceptional weights in network reconstruction. The proven optimal spatial budget has three distinct levels, with constructive placements, rather than a generic lower bound. The fact that a four-site rectangle fails at mixed-axis coincidences yet a four-site skew pattern succeeds makes the distinction between eigenspace dimension and physical vertex placement substantive. The finite classification is useful for choosing sensors and for testing robustness near spectral collisions.
+For r>0 the C5xC7 characters have 12 candidate cosine-level eigenvalues with multiplicities 1,2,4. Any collision requires opposite monotone indices and has r=(b_l-b_j)/(a_i-a_k). The degree-2 real fifth cyclotomic field and degree-3 real seventh field have intersection Q; distinct fifth cosine gaps have irrational ratios, while traces and cubic Galois action eliminate distinct rational seventh gap ratios. Hence all 18 couplings differ and no triple collision exists. Eigenspace dimension forces spatial lower bounds 4/6/8, achieved by the displayed skew four-point set or tensor 3x2, 2x3, 4x2 grids; character Vandermonde matrices prove injectivity on every orbit. Time Vandermonde with 12 distinct levels generically and 11 at resonance recovers all 35 coefficients. Reconstructed exact logic, not merely numerical rank.
 
-## Closest literature and limitations
-Bulai et al., arXiv:2609.25472, Section 4/Theorem 4.1, contains the generic observability criterion; Aldroubi et al., arXiv:2511.10769, Section 2.2.1, reviews it. Doostmohammadian, arXiv:2001.04699, develops structural observability for Cartesian networks without exact anisotropic Fourier degeneracies. A related exact square-torus sensor theorem concerns identical prime cycle lengths and a distinct collision mechanism. The result does not provide perturbation-uniform conditioning, noisy reconstruction, or a shortest-time horizon; publication-priority residual risk remains.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality: established general criteria and overlapping special cases are explicitly credited. Fresh exact finite/arithmetic or spectral classification not mathematically implied by inspected broader statements. Inaccessible plausible primary sources are retained as risks, not falsely described as read.
+
+## value
+
+PASS
+
+This is a motivated exact first unequal-odd-prime Cartesian cycle example: a single continuous edge-weight parameter causes 18 isolated arithmetic observability resonances, with nonmonotonic optimal spatial counts 4,6,8, explicit attaining physical sensors and finite reconstruction. These sharp stability-sensitive phase boundaries are not merely restatements of an abstract general observability test; no universal torus claim or downstream theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
