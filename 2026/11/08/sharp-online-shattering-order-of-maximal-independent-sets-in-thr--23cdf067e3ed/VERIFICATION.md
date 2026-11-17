@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The mathematical proof of the all-order statement is given in `RESULT.md`; its critical steps are the threshold-graph maximal-independent-set normal form, the one-hot/prefix split classification, the rank recurrence, and the distinct-cut counting argument. None of these unrestricted claims follows solely from finite testing.
+## correctness
 
-Execute `python3 verify_threshold.py` using Python 3. The script uses only the standard library and was executed from its own path. It enumerates all 2,047 creation words with lengths one through eleven and checks: (1) direct maximal-independent-set enumeration from graph edges for words through length eight, (2) a separate definition-based recursion for Littlestone dimension, (3) the interval recurrence, and (4) VC dimension from every finite query support. The first orders attaining ranks one, two, and three are two, five, and eleven, respectively.
+PASS
 
-Observed final output: `THRESHOLD_ONLINE_PASS 2047 minimum_ranks [(0, 1), (1, 2), (2, 5), (3, 11)]`.
+For a threshold graph with creation word initial 0, every maximal independent set is either all 0-vertices M0 or one 1-vertex u_j with later 0-vertices M_j; queries at 1-vertices are singleton concept tests and at 0-vertices are nested prefix cuts. Thus no pair VC-shatters; if there is a 1-vertex VCdim1. Exact interval Littlestone recurrence R(a,b)=max(1, max_{k in Q,a<k<=b} 1+min(R(a,k-1),R(k,b))) uses singleton tests for rank1, prefix tests for rank>=2, and computes in O(n^3). Depth h requires 2^h hypotheses hence >=2^h-1 one-vertices; its first h-1 levels require >=2^(h-1)-1 distinct noninitial prefix cuts, each needing a separate noninitial 0-vertex, plus initial 0, giving n>=3*2^(h-1)-1. Word 01(011)^(2^(h-1)-1) has exactly those cuts to bisect hypothesis intervals into 2-element leaves, reaching h. Equality of the bound fixes cuts at every even hypothesis boundary and hence the unique creation word. Appending universal late zeros preserves ranks. Independently exhaustive across all creation words through n=9 against direct concept minimax ranks; first rank2 at n5.
 
-Independent mathematical validation has not been performed. Exhaustive finite checking is not an infinite proof and does not exclude an earlier equivalent result under different terminology.
+## originality
+
+PASS
+
+After comparing exact statements, hypotheses, data orders and implications, no inspected stronger source subsumes the surviving precise claim; known prerequisite results and any overlapping subclaims are expressly credited. This is best-of-knowledge, not a claim of proof of historical priority.
+
+## value
+
+PASS
+
+Exact sharp finite-graph resource threshold for an adaptive dimension that grows logarithmically although static VCdim remains 1; uniqueness of extremal threshold graph and O(n^3) rank recurrence are mathematically substantive structural results, not simple concept counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

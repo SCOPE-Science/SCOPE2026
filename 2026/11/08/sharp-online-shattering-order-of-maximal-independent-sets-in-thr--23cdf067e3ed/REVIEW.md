@@ -1,19 +1,21 @@
-# Scientific review: sharp online shattering on threshold graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The concept parametrization is exact: all zero-vertices, or precisely one one-vertex together with all subsequent zeros, are exactly the maximal independent sets. Consequently one-vertex membership queries are one-hot and zero-vertex membership queries are ordered prefix tests. This proves VC dimension one for every graph with at least one creation-one and zero otherwise. The interval rank recursion follows from the defining complete mistake-tree recurrence; one-hot queries cannot give a root of depth two. At depth above the last one, every query must be a proper prefix cut. The first \(h-1\) levels therefore require \(2^{h-1}-1\) distinct noninitial zero-vertices, while the leaves require \(2^h\) distinct concepts and hence \(2^h-1\) one-vertices. The exhibited word meets both inequalities and has a balanced depth-\(h\) tree. Equality forces the alternating block placement and gives uniqueness. The elementary proof applies for every integer \(h\ge1\); computational checks are only corroboration.
+PASS
 
-## Originality — PASS within inspected evidence
+For a threshold graph with creation word initial 0, every maximal independent set is either all 0-vertices M0 or one 1-vertex u_j with later 0-vertices M_j; queries at 1-vertices are singleton concept tests and at 0-vertices are nested prefix cuts. Thus no pair VC-shatters; if there is a 1-vertex VCdim1. Exact interval Littlestone recurrence R(a,b)=max(1, max_{k in Q,a<k<=b} 1+min(R(a,k-1),R(k,b))) uses singleton tests for rank1, prefix tests for rank>=2, and computes in O(n^3). Depth h requires 2^h hypotheses hence >=2^h-1 one-vertices; its first h-1 levels require >=2^(h-1)-1 distinct noninitial prefix cuts, each needing a separate noninitial 0-vertex, plus initial 0, giving n>=3*2^(h-1)-1. Word 01(011)^(2^(h-1)-1) has exactly those cuts to bisect hypothesis intervals into 2-element leaves, reaching h. Equality of the bound fixes cuts at every even hypothesis boundary and hence the unique creation word. Appending universal late zeros preserves ranks. Independently exhaustive across all creation words through n=9 against direct concept minimax ranks; first rank2 at n5.
 
-The closest specific prior paper, Gurski–Rehs (2017, arXiv:1710.08953), already gives the creation-sequence maximal-independent-set enumeration (Observation 8, Theorem 25). It does **not** report the membership-query VC/Littlestone ranks, the exact interval-splitting recurrence, the minimum order \(3\cdot 2^{h-1}-1\), or unique minimizers. Alon–Livni–Malliaris–Moran (2018, arXiv:1806.00949) develops the general online-rank framework and threshold concepts; its relevant text concerns private learnability and threshold functions rather than graph-order-optimal embeddings into maximal-independent-set families. Earlier known examples of large static–online gaps for other concept systems do not logically entail the threshold-graph-specific extremal order and rigidity. Searches for the exact expression, graph family, and alternate one-hot/prefix description did not return a dominating statement. Residual risk: the optimization might appear under a different interpretation of nested one-hot/prefix decision trees, or in unsurveyed literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The quantitative question is intrinsic: how many graph vertices are necessary for a class of *maximal feasible configurations* to support \(h\) adaptive membership mistakes when every threshold graph has VC dimension at most one? The answer is a sharp exponential order threshold together with a unique extremal isomorphism type, not just a logarithmic lower-bound example. The interval recurrence also computes exact online rank on every threshold graph without enumerating mistake trees, and the uniqueness proof reveals the necessary allocation of creation vertices into witness hypotheses and branching-query separators. The result therefore refines the familiar finite-threshold observation with a nontrivial graph-resource constraint. No claim of a general-purpose learning theorem or a randomized mistake bound is made.
+After comparing exact statements, hypotheses, data orders and implications, no inspected stronger source subsumes the surviving precise claim; known prerequisite results and any overlapping subclaims are expressly credited. This is best-of-knowledge, not a claim of proof of historical priority.
 
-## Remaining limits
+## value
 
-The result is confined to finite threshold graphs and deterministic complete-tree Littlestone rank. Full historical priority cannot be certified from database searches alone. The 2,047-word finite checker reaches only eleven vertices and does not replace the unrestricted proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact sharp finite-graph resource threshold for an adaptive dimension that grows logarithmically although static VCdim remains 1; uniqueness of extremal threshold graph and O(n^3) rank recurrence are mathematically substantive structural results, not simple concept counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

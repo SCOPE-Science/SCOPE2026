@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T21:52:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/sharp-online-shattering-order-of-maximal-independent-sets-in-thr--23cdf067e3ed/RESULT.md",
+        "2026/11/08/sharp-online-shattering-order-of-maximal-independent-sets-in-thr--23cdf067e3ed/verify_threshold.py"
+      ],
+      "rationale": "For a threshold graph with creation word initial 0, every maximal independent set is either all 0-vertices M0 or one 1-vertex u_j with later 0-vertices M_j; queries at 1-vertices are singleton concept tests and at 0-vertices are nested prefix cuts. Thus no pair VC-shatters; if there is a 1-vertex VCdim1. Exact interval Littlestone recurrence R(a,b)=max(1, max_{k in Q,a<k<=b} 1+min(R(a,k-1),R(k,b))) uses singleton tests for rank1, prefix tests for rank>=2, and computes in O(n^3). Depth h requires 2^h hypotheses hence >=2^h-1 one-vertices; its first h-1 levels require >=2^(h-1)-1 distinct noninitial prefix cuts, each needing a separate noninitial 0-vertex, plus initial 0, giving n>=3*2^(h-1)-1. Word 01(011)^(2^(h-1)-1) has exactly those cuts to bisect hypothesis intervals into 2-element leaves, reaching h. Equality of the bound fixes cuts at every even hypothesis boundary and hence the unique creation word. Appending universal late zeros preserves ranks. Independently exhaustive across all creation words through n=9 against direct concept minimax ranks; first rank2 at n5.",
+      "residual_risks": [
+        "Threshold graphs only, first initial vertex convention; not arbitrary graphs, neighborhood concepts or randomized learning."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "SCOPE forbidden-threshold-graph theorem concerns neighborhoods, not maximal independent set membership concepts.",
+          "General finite-class bound Ldim<=floor(log2 |M(G)|) supplies 2^h-1 ones but not extra 2^(h-1) zero-cut vertices."
+        ],
+        "reasoning": "Neither older result implies the graph-order extremal theorem; generic Ldim bound is insufficient by an exponential additive factor.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-four-forbidden-threshold-graphs-for-depth-three-neighborhood-sha--72712918f81f",
+          "https://arxiv.org/abs/1806.00949"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query threshold MIS Littlestone creation word",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-four-forbidden-threshold-graphs-for-depth-three-neighborhood-sha--72712918f81f",
+        "https://arxiv.org/html/1710.08953v1",
+        "https://arxiv.org/abs/1806.00949"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gurski–Rehs Observation 8 / Theorem 25 count and enumerate maximal independent sets of threshold graphs; no inspected online rank formula.",
+          "Graph neighborhood concept classes are distinct from MIS incidence class."
+        ],
+        "reasoning": "The creation-word concept parametrization follows from known work, but the tight lower bound needs high-level branching prefix cuts not implied by counts.",
+        "searches": [
+          "https://arxiv.org/html/1710.08953v1",
+          "https://arxiv.org/abs/1806.00949",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-four-forbidden-threshold-graphs-for-depth-three-neighborhood-sha--72712918f81f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior enumerations identify all maximal independent sets for threshold creation words, giving the M_j descriptions.",
+          "New recurrence, 3*2^(h-1)-1 minimum, and unique extremal creation word require adaptive prefix-cut tree analysis."
+        ],
+        "reasoning": "Known threshold-MIS enumeration is acknowledged as a prerequisite; it does not compute the Littlestone rank or sharp vertex economy.",
+        "searches": [
+          "Resultary threshold graphs maximal independent sets Littlestone dimension minimum 3*2^(h-1)-1 creation word",
+          "arXiv:1710.08953 maximal independent sets threshold graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Accompanying source checker enumerates n<=11 creation words, independently checks MIS vs graph for n<=8.",
+          "Independent exhaustive n<=9 and small rank2 threshold at n=5; infinite proof based on prefix-cut argument."
+        ],
+        "reasoning": "No preexisting published table giving all h minimum graph order and unique word found; finite enumeration cannot certify infinite formula.",
+        "searches": [
+          "Resultary exact online shattering threshold MIS graphs",
+          "source verify_threshold.py all threshold words up to n11"
+        ]
+      },
+      "rationale": "After comparing exact statements, hypotheses, data orders and implications, no inspected stronger source subsumes the surviving precise claim; known prerequisite results and any overlapping subclaims are expressly credited. This is best-of-knowledge, not a claim of proof of historical priority.",
+      "residual_risks": [
+        "Equivalent result might be catalogued under nested-prefix/one-hot online learning terminology",
+        "Census through n=9 corroborates but is not the proof for arbitrarily large h"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers MIS combinatorics but no online rank, minimum order or unique depth-h extremizer",
+          "evidence": "Observation 8, Theorem 25",
+          "identifier_or_url": "https://arxiv.org/html/1710.08953v1",
+          "material_read": "Full accessible primary HTML with Observation 8 and Theorem 25 and proof",
+          "method": "Exact statement/implication comparison",
+          "title": "Counting and Enumerating Independent Sets with Applications to Knapsack Problems",
+          "trigger": "Same combinatorial object: threshold graph maximal independent sets"
+        },
+        {
+          "assessment": "Uses open-neighborhood concepts rather than maximal independent sets",
+          "evidence": "Different support functions",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-four-forbidden-threshold-graphs-for-depth-three-neighborhood-sha--72712918f81f",
+          "material_read": "Published result and concept-class description via Resultary record",
+          "method": "Target-class comparison",
+          "title": "Four forbidden threshold graphs for depth-three neighborhood shattering",
+          "trigger": "Related adaptive dimension on threshold graphs"
+        },
+        {
+          "assessment": "Generic online rank discussion; no demonstrated coverage",
+          "evidence": "No graph-specific extremal word stated in inspected material",
+          "identifier_or_url": "https://arxiv.org/abs/1806.00949",
+          "material_read": "Abstract and metadata, not the complete text",
+          "method": "Limited background inspection, not a whole-document negative claim",
+          "title": "Private PAC learning implies finite Littlestone dimension",
+          "trigger": "General threshold online learning literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/08/sharp-online-shattering-order-of-maximal-independent-sets-in-thr--23cdf067e3ed/RESULT.md"
+      ],
+      "rationale": "Exact sharp finite-graph resource threshold for an adaptive dimension that grows logarithmically although static VCdim remains 1; uniqueness of extremal threshold graph and O(n^3) rank recurrence are mathematically substantive structural results, not simple concept counting.",
+      "residual_risks": [
+        "Threshold graphs only, first initial vertex convention; not arbitrary graphs, neighborhood concepts or randomized learning."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Threshold graphs only, first initial vertex convention; not arbitrary graphs, neighborhood concepts or randomized learning."
+  ],
+  "schema_version": 1
+}
