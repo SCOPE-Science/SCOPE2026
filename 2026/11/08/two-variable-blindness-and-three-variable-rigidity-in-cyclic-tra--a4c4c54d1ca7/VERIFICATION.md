@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification of cyclic transitive-block tournament classification
+# Independent mathematical audit
 
-Execute with Python 3 standard library only:
+## correctness
 
-```
-python3 tournament_logic_refinement.py
-python3 tournament_formula_check.py
-```
+PASS
 
-The exact stdout is preserved in `tournament_logic_refinement.out` and `tournament_formula_check.out`. The first program computes stabilized counting-free finite-variable tuple types from atomic arc/equality types with *sets* of one-coordinate replacement types; over twenty rotation-orbit representatives of sizes three through eight it finds one width-two sentence type, twenty width-three types, and tests all four hundred ordered graph pairs. The second program independently checks all 364 positive ordered triples of total sizes three through fourteen: 48,321 ordered same-block pair cases, 589,407 ordered distinct-vertex cycle cases, 52,416 local block-size thresholds, and orbit numbers for twelve orders. It also recognizes the class among all labelled tournaments of orders three through six and obtains counts 2, 24, 240 and 2,400 respectively, as predicted.
+In T(a,b,c), a directed 3-cycle consists of exactly one vertex from each of the three transitive blocks. S(x,y)=[x=y or no third vertex making a cyclic triple] consequently defines the blocks in FO^3, and S(x,y)∧R(x,y) is their internal total order. Recursive path-length tests reuse only three variable symbols and separate every finite block size; a directed cycle of representatives records their cyclic order. Every vertex has both an in-neighbor and out-neighbor, giving an indefinite two-pebble Duplicator strategy. Burnside gives [binom(N-1,2)+2*1_(3|N)]/3, and rigid internal orders give N!*binom(N-1,2)/3 labelled objects. Independently re-enumerated cyclic composition orbits for N=3..13 and obtained the formula. These finite tests corroborate, not replace, the unrestricted-depth pebble/formula arguments.
 
-Both programs were run from their actual embedded contents and their stdout reproduced. They are *finite corroborations*, not independent or exhaustive validation of the all-orders result. The theorem's critical noncomputational steps are the exact directed-triangle block lemma, syntactically three-name recursive unary path tests, indefinite two-pebble strategy, and Burnside/orbit counting. These are proved separately in `RESULT.md`. No third-party paper or unavailable data file is required to replay either program.
+## originality
+
+PASS
+
+The 2026-11-08 general two-variable tournament theorem strictly covers the FO^2-blindness part for source/sink-free tournaments, but does not imply the FO^3 interpretation, orientation-sensitive cyclic triple classification, exact spectrum, or labelled census. Classical C3-structure identifies interval behavior but not this logic threshold; surviving three-variable theorem is a nontrivial new claim at the best-of-knowledge level.
+
+## value
+
+PASS
+
+An exact expressive-power boundary for a natural tournament substitution family, distinguishing unrestricted-depth FO^2 from FO^3 and classifying all theory types. The recoverable cyclic block order is a structural lemma applicable to other tournament logic constructions; the nontrivial k=3 threshold is not merely a formula-renaming artifact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

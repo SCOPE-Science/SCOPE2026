@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** In the pure arc language the directed-triangle predicate detects whether three vertices come from distinct substituted blocks; nonempty third blocks make the absence-of-triangle relation exactly the partition into three blocks. Internal arc orientation supplies definable strict linear orders. Three reusable variable names suffice for arbitrary finite successor chains and hence every exact block-size test; the proposed oriented-triangle sentence separates precisely cyclic-rotation orbits. A permanent two-pebble strategy works because each vertex has both kinds of neighbors. Burnside's lemma and a unique-three-rotations labelling count establish the census. The two independent executable checks support finite cases, not the unrestricted proof.
+## correctness
 
-**Originality — PASS, qualified.** Searches for cyclic lexicographic tournament substitutions, fixed-variable equivalence, directed three-cycle modules, exact block-size triples, and stronger enumeration formulas found no covering statement. The closest structural source, Boussaïri–Ille–Lopez–Thomassé (2004), supplies the \(C_3\)-structure/interval framework but no unrestricted two-versus-three-variable theory classification. General pebble-game results, tournament reconstruction and twin-width work do not specify this spectrum. An unrecognized stronger general composition theorem or differently titled historical result is a genuine residual priority risk. Some historical literature has only year-level public dating; no earlier calendar day is invented.
+PASS
 
-**Value — PASS.** The sharp collapse at width two and recovery of *every* isomorphism type at width three is a structural threshold for an infinite tournament family. The defining formulas, canonical three-block parameter orbit, exact unlabelled and labelled enumerations, and automorphism classification exhibit consequences beyond a finite computation or a single special example. The family is natural in lexicographic tournament decomposition.
+In T(a,b,c), a directed 3-cycle consists of exactly one vertex from each of the three transitive blocks. S(x,y)=[x=y or no third vertex making a cyclic triple] consequently defines the blocks in FO^3, and S(x,y)∧R(x,y) is their internal total order. Recursive path-length tests reuse only three variable symbols and separate every finite block size; a directed cycle of representatives records their cyclic order. Every vertex has both an in-neighbor and out-neighbor, giving an indefinite two-pebble Duplicator strategy. Burnside gives [binom(N-1,2)+2*1_(3|N)]/3, and rigid internal orders give N!*binom(N-1,2)/3 labelled objects. Independently re-enumerated cyclic composition orbits for N=3..13 and obtained the formula. These finite tests corroborate, not replace, the unrestricted-depth pebble/formula arguments.
 
-The complete evidence and limits are recorded in the proof and the attached verification scripts; no independent mathematical audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026-11-08 general two-variable tournament theorem strictly covers the FO^2-blindness part for source/sink-free tournaments, but does not imply the FO^3 interpretation, orientation-sensitive cyclic triple classification, exact spectrum, or labelled census. Classical C3-structure identifies interval behavior but not this logic threshold; surviving three-variable theorem is a nontrivial new claim at the best-of-knowledge level.
+
+## value
+
+PASS
+
+An exact expressive-power boundary for a natural tournament substitution family, distinguishing unrestricted-depth FO^2 from FO^3 and classifying all theory types. The recoverable cyclic block order is a structural lemma applicable to other tournament logic constructions; the nontrivial k=3 threshold is not merely a formula-renaming artifact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
