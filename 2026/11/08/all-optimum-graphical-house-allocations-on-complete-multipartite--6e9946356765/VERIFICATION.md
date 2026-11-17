@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification procedures and limits
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3 standard library. The checker uses a direct sum of absolute differences across all pairs of vertices of different parts and exhaustive enumeration of every possible part-label assignment word. It tests all sorted positive part-size multisets with total vertices between \(3\) and \(9\) and number of parts between \(3\) and \(5\), under two positive valuation-gap sequences per profile. It compares *sets* of minimizers, the minimum objective value, and the exact optimizer count. The observed output was `PASS 106 exact direct-cost instances; 215126 complete group-label assignments tested`.
+## correctness
 
-This enumeration is complete only for the enumerated finite parameter domain. The full mathematical theorem for unbounded part sizes and arbitrary positive real value gaps is established by the cut-decomposition and simultaneous-priority-maximization proof in `RESULT.md`. No formal proof assistant, independent external audit, or general-case computational certificate is claimed. The priority comparison with an inaccessible pre-2023 path-wirelength source remains incomplete as documented in `REVIEW.md`.
+PASS
+
+Every difference |v_j-v_i| telescopes across positive adjacent house-value gaps. At prefix r, the cross-cut edge count equals r(N-r)-sum_i x_i(r)(n_i-x_i(r)). The within-part term has strictly decreasing marginal priorities n_i-2k-1. Choosing largest r globally maximizes the term; one common sorted priority order attains every cut maximum simultaneously. Strictly positive gaps require every such optimum, proving iff with tied-level choices. Each part contributes at most one priority per level, yielding product_w m_w! words times product_i n_i! labelled allocations. Independent brute-force direct edge-cost enumeration checked 364 instances and 408204 complete part-label words on small q=3..5, N<=8, two distinct strictly increasing valuation patterns; finite verification is corroboration only.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: Hosseini et al. (2023) Theorems 4.5–4.7 treat complete bipartite graphical house allocation, not this q>=3 complete optimiser classification. Rajan et al. 2020 complete multipartite-to-path wirelength optimizes the equal-spacing scalar cost and may contain stronger arrangements; full paper not available from lawful routes, so it is a significant explicit priority risk, not conclusive coverage. Actual searched prior records do not furnish the arbitrary positive-gap iff and labelled optimum multiplicity.
+
+## value
+
+PASS
+
+PASS: classifying every minimizer and exact labelled multiplicity on a natural family q>=3 under arbitrary strictly ordered values is meaningful beyond the known minimum for equal spacing; the exchange/cut priority principle offers an exact implementable characterization rather than a random finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
