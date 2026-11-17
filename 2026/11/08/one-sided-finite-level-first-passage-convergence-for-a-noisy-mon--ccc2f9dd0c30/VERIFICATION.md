@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification of the finite-level first-passage theorem
+# Independent mathematical audit
 
-Run the included `check.py` from the directory containing this document:
+## correctness
 
-```
-python check.py
-```
+PASS
 
-The only dependency is the Python 3.9+ standard library. The run checked 1,232 assertions, including exact rational solutions of the stopped Markov backward system versus the claimed Laguerre ratio, strict normalized Laplace comparisons, numerical Bessel series and the first inverse-threshold coefficient, and the exact second-moment formula. Independently computed finite solutions validate the normalization and generator signs; the argument for all thresholds and all positive Laplace arguments is the analytic coefficient-product comparison and summable remainder in `RESULT.md`.
+The generator backward recursion is the standard Laguerre three-term recurrence with absorption at B and bottom zero, so the transform is 1/L_B(-s/B). Writing its denominator as A_B(s)=sum s^k/(k!)^2 prod_{j<k}(1-j/B) gives strict increase in B for s>0 (term k=2 is strict), bounded by I_0(2sqrt s). The product union bound 1-prod<=k(k-1)/(2B), including k>B, yields the all-B error; a second-order product remainder <=k^4/B^2 summed uniformly for s in [0,S] yields the positive B^-1 coefficient. Taylor coefficients give mean 1 and variance (B+1)/(2B); diffusion generator x d²/dx²+d/dx gives the I_0 hitting transform. Independently solved rational absorbing birth-death backward systems for B<=9 and s=1/2, matching Laguerre closed form. No claim of distribution-function stochastic order or finite monitoring intervals.
 
-Reproducibility limits: finite computations are not proofs of asymptotic statements. The proof's uniformity is restricted to bounded Laplace-parameter intervals. No finite measurement-spacing correction, arbitrary-initial-state statement, CDF dominance or independent external validation has been asserted.
+## originality
+
+PASS
+
+Ryan et al already derive the exact finite Laguerre passage transform and leading Mehler-Heine limit; neither is presented as novel. The meaningful surviving statement is strict monotonicity across ALL finite thresholds with a uniform global error certificate and explicitly calibrated rate. The first coefficient may be mechanically obtainable from general Laguerre asymptotics (Deaño et al); novelty must rest on combined global order and physical threshold law. Full Ryan paper not accessible; best-of-knowledge priority qualified.
+
+## value
+
+PASS
+
+Uniform one-sided control matters mathematically for approximating a diffusion first-passage law by finite number-state chains: it gives a nonasymptotic comparison and direction/sign of finite-size bias at every Laplace parameter. Unlike routine restatement of the known Laguerre identity, the all-threshold inequality supplies a sharp systematic finite-resolution bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

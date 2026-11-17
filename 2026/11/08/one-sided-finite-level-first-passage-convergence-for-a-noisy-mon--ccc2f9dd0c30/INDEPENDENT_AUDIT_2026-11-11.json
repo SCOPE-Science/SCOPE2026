@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T22:56:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The generator backward recursion is the standard Laguerre three-term recurrence with absorption at B and bottom zero, so the transform is 1/L_B(-s/B). Writing its denominator as A_B(s)=sum s^k/(k!)^2 prod_{j<k}(1-j/B) gives strict increase in B for s>0 (term k=2 is strict), bounded by I_0(2sqrt s). The product union bound 1-prod<=k(k-1)/(2B), including k>B, yields the all-B error; a second-order product remainder <=k^4/B^2 summed uniformly for s in [0,S] yields the positive B^-1 coefficient. Taylor coefficients give mean 1 and variance (B+1)/(2B); diffusion generator x d²/dx²+d/dx gives the I_0 hitting transform. Independently solved rational absorbing birth-death backward systems for B<=9 and s=1/2, matching Laguerre closed form. No claim of distribution-function stochastic order or finite monitoring intervals.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General Laguerre asymptotics give local large-B expansions; Ryan provides leading quantum-to-classical scaling."
+        ],
+        "reasoning": "Neither accessible statement is an all-B one-sided monotonicity theorem or supplies the global nonasymptotic bound for these normalized first-passage transforms. Unread relevant full text remains a risk.",
+        "searches": [
+          "Resultary: noisy monitored oscillator Laguerre first passage normalized level one sided monotonic Laplace Bessel rate finite threshold",
+          "arXiv:1301.4266",
+          "arXiv:2608.08267"
+        ]
+      },
+      "checked_sources": [
+        "Ryan, Gorbaty, Teitsworth and Noel, Quantum-classical crossover in noisy monitored oscillators, arXiv:2608.08267",
+        "NIST Digital Library of Mathematical Functions §18.11.6 Laguerre Mehler-Heine",
+        "Deaño, Huertas and Marcellán, Strong and ratio asymptotics for Laguerre polynomials revisited, arXiv:1301.4266",
+        "Martin, Behn and Germano, First-passage and first-exit times of a Bessel-like stochastic process, doi:10.1103/PhysRevE.83.051115"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known Mehler-Heine limit proves convergence, not its side or monotonicity; known Laguerre expression enables but does not expressly state the monotonic inequality."
+        ],
+        "reasoning": "The B^-1 asymptotic follows by standard series algebra, but all-size strict ordering is a separate implication requiring coefficientwise comparison. Novelty qualified by full-text gap.",
+        "searches": [
+          "Resultary: noisy monitored oscillator Laguerre first passage normalized level one sided monotonic Laplace Bessel rate finite threshold",
+          "arXiv:2608.08267",
+          "arXiv:1301.4266"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The finite Laguerre identity and the diffusion Bessel limit are known; the new comparison is monotonicity of 1/L_B(-s/B) with B for every positive s."
+        ],
+        "reasoning": "Algebraically equivalent ordering of finite Laguerre denominators is the exact core, rather than re-branding the known oscillator model.",
+        "searches": [
+          "Resultary: noisy monitored oscillator Laguerre first passage normalized level one sided monotonic Laplace Bessel rate finite threshold",
+          "arXiv:2608.08267",
+          "DLMF:18.11.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Finite exact transform and Bessel limiting function occur in the literature, but no listed all-B ordering/table of errors."
+        ],
+        "reasoning": "There is no natural independent enumerative database; the exact comparison is a function inequality, so numerical tables cannot establish or supersede its all-B proof.",
+        "searches": [
+          "Resultary: noisy monitored oscillator Laguerre first passage normalized level one sided monotonic Laplace Bessel rate finite threshold",
+          "DLMF:18.11.6"
+        ]
+      },
+      "rationale": "Ryan et al already derive the exact finite Laguerre passage transform and leading Mehler-Heine limit; neither is presented as novel. The meaningful surviving statement is strict monotonicity across ALL finite thresholds with a uniform global error certificate and explicitly calibrated rate. The first coefficient may be mechanically obtainable from general Laguerre asymptotics (Deaño et al); novelty must rest on combined global order and physical threshold law. Full Ryan paper not accessible; best-of-knowledge priority qualified.",
+      "residual_risks": [
+        "Directly relevant Ryan et al 2026 article could be inspected only through accessible abstract and exact derivation reproduced in assigned source; original full text inaccessible by arXiv/OA and Oxford job 03f5241dce72fa16270652ac8128a654 returned vpn_disconnected. Potential appendix-level overlap is not ruled out.",
+        "Higher-order Laguerre expansion in Deaño et al can yield the B^-1 coefficient; no claim to novelty of coefficient alone.",
+        "Only vacuum initial state, infinite-frequency monitoring, Laplace order; not CDF dominance or global-s uniform remainder."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PUBLISHED_INPUT: finite transform and leading classical scaling are credited; no complete-paper negative coverage claim made",
+          "evidence": "The identified published equations (10),(27)-(29) are input in the assigned package; full source priority risk explicitly retained.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.08267",
+          "material_read": "Accessible abstract and accessible descriptions of sections III.1 and Appendices A-B; ORIGINAL FULL TEXT NOT READ",
+          "method": "arXiv/OA attempts unsuccessful; Oxford authorized retrieval vpn_disconnected",
+          "title": "Quantum-classical crossover in noisy monitored oscillators",
+          "trigger": "Exactly same physical birth-death chain and finite Laguerre transform"
+        },
+        {
+          "assessment": "KNOWN limiting Bessel transform, not all-B strict Laplace monotonicity",
+          "evidence": "The leading Laguerre Mehler-Heine limit is a classical identity.",
+          "identifier_or_url": "https://dlmf.nist.gov/18.11.E6",
+          "material_read": "Formula §18.11.E6 and limit statement",
+          "method": "Web mathematical reference reading",
+          "title": "Laguerre Mehler-Heine formulas",
+          "trigger": "Relevant general limit of Laguerre"
+        },
+        {
+          "assessment": "POSSIBLE first-order coefficient implication; no established all-B ordering from inspected material",
+          "evidence": "Higher-order expansion techniques must be credited.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.4266",
+          "material_read": "Accessible abstract and sections identified in source; full paper coverage not independently established",
+          "method": "ArXiv search and citation comparison",
+          "title": "Strong and ratio asymptotics for Laguerre polynomials revisited",
+          "trigger": "Possible more general asymptotic coefficient"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Uniform one-sided control matters mathematically for approximating a diffusion first-passage law by finite number-state chains: it gives a nonasymptotic comparison and direction/sign of finite-size bias at every Laplace parameter. Unlike routine restatement of the known Laguerre identity, the all-threshold inequality supplies a sharp systematic finite-resolution bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ryan, Gorbaty, Teitsworth and Noel, Quantum-classical crossover in noisy monitored oscillators, arXiv:2608.08267",
+    "NIST Digital Library of Mathematical Functions §18.11.6 Laguerre Mehler-Heine",
+    "Deaño, Huertas and Marcellán, Strong and ratio asymptotics for Laguerre polynomials revisited, arXiv:1301.4266",
+    "Martin, Behn and Germano, First-passage and first-exit times of a Bessel-like stochastic process, doi:10.1103/PhysRevE.83.051115"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the vacuum-start infinitely monitored oscillator birth-death chain with rates kappa(n+1), kappa*n and first level B, the Laplace transforms E[exp(-s kappa*T_B/B)] strictly decrease at every B and s>0 toward 1/I_0(2sqrt(s)); a global O(1/B) Bessel bound and sharp uniform-on-compacts first correction are explicit.",
+  "limitations": [
+    "Directly relevant Ryan et al 2026 article could be inspected only through accessible abstract and exact derivation reproduced in assigned source; original full text inaccessible by arXiv/OA and Oxford job 03f5241dce72fa16270652ac8128a654 returned vpn_disconnected. Potential appendix-level overlap is not ruled out.",
+    "Higher-order Laguerre expansion in Deaño et al can yield the B^-1 coefficient; no claim to novelty of coefficient alone.",
+    "Only vacuum initial state, infinite-frequency monitoring, Laplace order; not CDF dominance or global-s uniform remainder."
+  ],
+  "residual_risks": [
+    "Directly relevant Ryan et al 2026 article could be inspected only through accessible abstract and exact derivation reproduced in assigned source; original full text inaccessible by arXiv/OA and Oxford job 03f5241dce72fa16270652ac8128a654 returned vpn_disconnected. Potential appendix-level overlap is not ruled out.",
+    "Higher-order Laguerre expansion in Deaño et al can yield the B^-1 coefficient; no claim to novelty of coefficient alone.",
+    "Only vacuum initial state, infinite-frequency monitoring, Laplace order; not CDF dominance or global-s uniform remainder."
+  ],
+  "schema_version": 1
+}
