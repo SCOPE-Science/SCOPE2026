@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Finite-dimensional piecewise-affine coefficient masks are all realized; discrete coarea reduces each mask norm to cuts. Difference commutation and orthogonal ℓ1-ℓ2 bounds give √N upper bound. Independent Rademacher selectors, fourth moment and character cancellation give (N-2)/(2√(6N)) lower bound. All 2^(N-1) masks and 2^N-2 cuts were exactly enumerated in each d=1,2,3 and sharp chamber pairs reproduced by verify.py. The all-d proof does not depend on finite sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen et al. arXiv:1411.7414 full paper Sections II–VIII develops graph-signal recovery and quadratic graph variation, not sharp two-input nonlinear Walsh threshold stability",
+        "Cheraghchi–Indyk arXiv:1504.07648 full HTML sections address sparse Fourier recovery in coefficient norm, not graph BV operator norm",
+        "published-finding corpus 2026/10/18/SCOPE-sharp-endpoint-hodge-stability-on-anisotropically-weighted-boole--69d6ee2277a6 has edge-flow Hodge projections in a different endpoint norm"
+      ],
+      "reasoning": "No inspected primary or published summary gives a stronger general Walsh-soft-threshold edge-BV bound entailing the Θ(2^{d/2}) statement or exact spectral-mask/cut characterization. A generic Hilbert nonexpansivity theorem is insufficient because BV and ℓ2 metrics differ.",
+      "searches": [
+        "published-finding corpus: arbitrary Walsh spectral mask Fourier projection graph bounded variation norm sup over cuts of Boolean cube",
+        "published-finding corpus: Walsh Hadamard soft thresholding hypercube graph total variation sensitivity grows square root number vertices",
+        "Web: Hadamard transform thresholding denoising total variation graph Fourier binary cube 2014 2015"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1411.7414",
+      "https://arxiv.org/abs/1504.07648",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d",
+      "arxiv:1112.1744 (abstract level; Fourier index-variation, different invariant)",
+      "published DCT-II path-BV soft thresholding item 5000fe7c-11db-484b-a522-038afc08de0b",
+      "published Haar path-BV soft thresholding item 8271a7c1-10ab-4bc2-9313-9caf78e635cd"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Closest prior DCT-II: item 5000fe7c-11db-484b-a522-038afc08de0b (finite path variation, trigonometric basis, Θ(√n))",
+        "Closest prior Haar: item 8271a7c1-10ab-4bc2-9313-9caf78e635cd (finite path variation, multiresolution basis, Θ(log N))",
+        "Walsh coordinate-shadow full text gives max-edge projection norm, not total graph variation"
+      ],
+      "reasoning": "The previous DCT and Haar results do not imply the complete spectral/cut formula for hypercube edge graph variation, nor the exponential-in-coordinate-dimension growth. The underlying norms have different extremal sets (path jumps versus arbitrary cube cuts), preventing transfer by basis renaming. General local spectral-mask differentiation is acknowledged as standard and is not separately claimed new.",
+      "searches": [
+        "published-finding corpus: graph BV orthogonal spectral mask Walsh two-input soft threshold",
+        "published-finding corpus: orthonormal Walsh coefficient shrinkage hypercube graph BV stability, independent of threshold spectral subgradients",
+        "Published own prior: exact two-input DCT-II soft-thresholding variation gain; discrete Haar soft thresholding on paths"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest: 2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d; full RESULT.md read, max-edge Lipschitz norm and dual Lipschitz-free projection",
+        "No corresponding formula for sum-of-edge-differences and nonlinear Walsh shrinkage identified in relevant searched results"
+      ],
+      "reasoning": "The sum of absolute graph-edge gradients is not the sup of absolute edge gradients. The Hamming Lipschitz and free-space projection theorems cannot supply the binary-cut BV norm: they optimize different operator geometries. The claim is not a rephrasing of Fourier Carleson index variation.",
+      "searches": [
+        "published-finding corpus: Walsh Hadamard soft thresholding graph edge total variation on Boolean cube, sharp two-input Lipschitz, exponential growth 2^(d/2)",
+        "published-finding corpus: orthonormal Walsh coefficient shrinkage hypercube graph BV stability, independent of threshold spectral subgradients",
+        "Web: Walsh Fourier multipliers total variation Boolean cube operator norm random idempotent projections variation seminorm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus matches were Walsh Hamming Lipschitz-free projections and Walsh polynomial/transform spectra, not this all-mask/all-cut graph-BV extremum",
+        "Exact rational checker enumerates dimensions one to three using independently derived projection formula; this checks correctness only, not global historical uniqueness"
+      ],
+      "reasoning": "No sourced graph-BV Walsh projection tables with the same input/output seminorm and all-mask maximum were identified. This is qualified best-knowledge comparison, not a claim of exhaustive uniqueness across all archives.",
+      "searches": [
+        "published-finding corpus: Walsh Hadamard soft thresholding graph edge total variation on Boolean cube, sharp two-input Lipschitz, exponential growth 2^(d/2)",
+        "published-finding corpus: random Walsh Fourier spectral projections boolean cube graph BV seminorm norm square root",
+        "Web: Walsh soft threshold image graph variation spectral projection norm"
+      ]
+    },
+    "rationale": "Accessible published-finding corpus and classical primary texts concern different norms/problems: Hamming Lipschitz-free max-edge projection norms, graph signal recovery quadratic TV, sparse Walsh transforms and finite-path Haar/DCT shrinkage. Their actual statements do not entail the Boolean-cube graph-edge sum-variation sharp spectral/cut theorem and exponential-dimension growth. Historical equivalence remains possible and independent priority assessment is absent.",
+    "residual_risks": [
+      "Older unindexed Fourier multiplier theorems might imply the graph BV stability order in a different notation.",
+      "The exact asymptotic leading constant and maximizing mask structure are unresolved.",
+      "Prior published cube results are norm-specific; no universal claim of priority beyond the searches is justified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the present soft-threshold graph edge-BV two-input norm; mainly quadratic graph variation optimization",
+        "evidence": [
+          "arxiv v1 November 26, 2014; Section II and III specify quadratic graph total variation and ADMM signal recovery, no Walsh coefficient soft-threshold sharp operator modulus"
+        ],
+        "identifier_or_url": "arxiv:1411.7414v1; https://arxiv.org/html/1411.7414v3",
+        "material_read": "Full OA article accessed; introduction, Section II graph variation, recovery formulation and relevant results/sections read, plus PDF pages 1 and 3 visually checked",
+        "method": "primary lawful OA full text HTML and PDF screenshots",
+        "title": "Signal Recovery on Graphs: Variation Minimization",
+        "trigger": "archival graph Fourier/variation signal recovery"
+      },
+      {
+        "assessment": "Addresses computing and approximating Walsh coefficient vectors, not edge-BV two-input soft thresholding",
+        "evidence": [
+          "arxiv v1 April 28, 2015; transform defined as normalized Hadamard matrix, sparse recovery ℓ1/ℓ1 performance; no graph TV result"
+        ],
+        "identifier_or_url": "arxiv:1504.07648v1; https://arxiv.org/abs/1504.07648",
+        "material_read": "OA Full OA HTML article accessed: introduction, Walsh transform definition, abstract and substantive sparse-recovery results; document search for threshold",
+        "method": "primary arXiv full HTML paper",
+        "title": "Nearly Optimal Deterministic Algorithm for Sparse Walsh-Hadamard Transform",
+        "trigger": "archival Walsh Fourier basis and sparse transform source"
+      },
+      {
+        "assessment": "Not covering: maximum coordinate difference and Lipschitz-free dual norm instead of total SUM of graph edge differences; no soft thresholding or all-cut BV formula",
+        "evidence": [
+          "Fourier projection constant max_i mean|coordinate-shadow Walsh kernel|, where Lipschitz seminorm is maximum absolute edge jump; current claim optimizes sum of all absolute edge jumps"
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d",
+        "material_read": "Full accessible RESULT.md including definitions, all proof steps, norms and references",
+        "method": "published primary full text",
+        "title": "Coordinate-shadow norm formula for Walsh projections on Hamming Lipschitz-free spaces",
+        "trigger": "highly plausible same Walsh frequencies and Hamming cube projection constants"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0b2aff0e-8d4f-49f4-b4ae-6095aa75f171",
+  "value": {
+    "rationale": "The theorem pinpoints an exponential coordinate-dimension loss in graph-TV perturbation stability for a natural Walsh spectral shrinkage method despite Hilbert nonexpansivity, yields an attained exact all-mask/all-cut formula and a sharp first expansive dimension, and distinguishes a real graph variation norm from Fourier or Hamming Lipschitz norms. This is a mathematically motivated structural boundary, not a manufactured fixed-size numerical target.",
+    "status": "PASS"
+  }
+}

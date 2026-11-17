@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The map is piecewise affine in Walsh coefficients, each derivative mask is genuinely realizable in a strict chamber, and integrating derivatives establishes the global coefficient. Discrete coarea plus layer cake proves the norm reduces to finite binary cuts; this does not rely on one-dimensional jump extremizers. The upper bound follows from orthogonal \(\ell^2\) contraction and commuting graph differences. The lower bound follows from independent random Walsh masks, exact cancellation on the frequency halfspace, and the Rademacher fourth moment inequality. The finite exact checker completely enumerates dimensions \(1\)–\(3\); selected higher-dimensional masks are only illustrative. The two-input masks are attained exactly by sufficiently small perturbations of interior points. A different source normalization of the Walsh coefficients merely rescales the strictly positive threshold and has no effect on the proved modulus.
+
+## Originality — PASS (qualified)
+Primary graph-signal recovery work (Chen et al., arXiv:1411.7414) uses a quadratic graph-variation objective and does not analyze the graph-edge \(\ell^1\) two-input norm of coefficient soft thresholding. Primary Walsh sparse transform work (Cheraghchi–Indyk, arXiv:1504.07648) does not assert spectral-shrinkage total-variation stability. The full accessible prior Walsh coordinate-shadow result concerns the **maximum** edge slope and Lipschitz-free dual; it is neither an equivalent norm nor a theorem covering the sum-of-edge-jumps problem. Previously known Haar/DCT finite-path soft thresholding estimates concern different bases and path-edge seminorms; they neither establish the hypercube cut formula nor yield the stated dimension-dependent gain. No exact or dominating theorem appeared in the searches recorded in the structured report. Historical unindexed projection-norm estimates and unspecified sharper constants remain risks.
+
+## Value — PASS
+Walsh coefficient shrinkage is a standard spectral nonlinear transformation. Graph total variation penalizes neighbor jumps and captures a stability criterion distinct from the Hilbert metric where shrinkage is nonexpansive. A complete graph-cut reduction identifies the appropriate extremal geometry, while the theorem proves that worst-case perturbation instability grows exponentially in the number of cube coordinates. The precise onset at dimension three is exhaustive and sharp. The phenomenon clarifies when orthogonal spectral regularization ceases to preserve bounded-variation perturbations; this is not merely a single fixed-size coefficient or a change of notation from path estimates.
+
+## Closest literature and limits
+The closest accessible Walsh result computes projection constants in the cube Lipschitz-free geometry and uses coordinate-shadow kernels. Chen et al. develop graph variation optimization, and Cheraghchi–Indyk treat sparse Walsh recovery. No independently checked universal leading constant is asserted. The all-dimension result is analytical; finite tests are explicitly limited.
+
+Self-review: passed. Independent audit: not yet performed.
