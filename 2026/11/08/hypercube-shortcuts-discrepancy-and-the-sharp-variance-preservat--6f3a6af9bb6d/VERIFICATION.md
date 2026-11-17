@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible verification and limits
+# Independent mathematical audit
 
-Execute `python check_hypercube_chord.py` with Python 3.8 or later. The checker uses only the standard library (`fractions`, `itertools`). Expected final marker:
+## correctness
 
-```
-ALL_HYPERCUBE_CHORD_PRESERVATION_CHECKS_OK
-```
+PASS
 
-Actual replay checked all anchored integer Lipschitz functions on Boolean cubes of dimension 1, 2 and 3 (respectively 3, 19 and 495 assignments), then checked the three-dimensional case with an added full diagonal (457 assignments) and verified sharp variance \(3/4\). It also checked every possible single-chord support through dimension 8, 21 distinct point pairs across the seven Fano lines, absence of a valid Fano two-coloring, complete-triple-system examples, and the exact Fourier deficit identity for a test function. These are finite sanity checks. The universal upper and equality bounds, the quantitative gap, and NP-completeness are established by the written proof and external classical NP-completeness theorem; they are not certified by enumeration.
+Walsh Parseval gives Var f<=1/4 sum E(Δ_i f)^2<=d/4, equality iff f=c+sum ε_i x_i with ε_i=±1. Unit chords to triples require |sum_(i in S) ε_i|<=1, exactly Property B. For δ=d/4-Var f the deficit identity bounds high-order ||h||²<=δ and sum(1-t_i²)<=8δ; a monochromatic triple forces 8δ+2^(1+d/2)sqrtδ>=2, impossible for δ<=2^(-d-1) and d>=3. Classical NP-complete monotone NAE-3-Sat with three distinct variables reduces identically to chord triples; certificate length depends on appearing variables, not binary d. Independently enumerated all 128 Fano sign assignments (noncolorability), all single shortcuts in d=3..8 with preserving sign witnesses, and the symbolic deficit inequalities. Finite checks are not the all-d proof.
 
-This document reports no independent mathematical audit.
+## originality
+
+PASS
+
+The unperturbed hypercube spread d/4, edge monotonicity, product tensorization and monotone NAE-3-SAT NP-hardness are known. The meaningful new theorem identifies the precise graph-shortcut preservation boundary and all equality functions, with explicit uniform no-instance gap and succinct graph-norm complexity consequence. The two-colorability equivalence is derived from analytic equality cases rather than merely renaming known Property B, and retrieved sources do not assert this graph-spread optimization relationship.
+
+## value
+
+PASS
+
+Preservation under natural Hamming-distance-three unit shortcuts links a sharp analytic graph invariant to a canonical hypergraph coloring obstruction; optimizer rigidity, a quantitative deficit and compact-encoding NP-completeness are meaningful structural and algorithmic facts. The exact gap is a nonsharp certified bound, as plainly stated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

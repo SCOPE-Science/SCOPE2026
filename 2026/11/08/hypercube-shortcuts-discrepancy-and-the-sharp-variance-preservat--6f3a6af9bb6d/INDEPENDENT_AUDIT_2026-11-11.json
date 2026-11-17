@@ -1,0 +1,91 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T17:54:07.982903Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Walsh Parseval gives Var f<=1/4 sum E(Δ_i f)^2<=d/4, equality iff f=c+sum ε_i x_i with ε_i=±1. Unit chords to triples require |sum_(i in S) ε_i|<=1, exactly Property B. For δ=d/4-Var f the deficit identity bounds high-order ||h||²<=δ and sum(1-t_i²)<=8δ; a monochromatic triple forces 8δ+2^(1+d/2)sqrtδ>=2, impossible for δ<=2^(-d-1) and d>=3. Classical NP-complete monotone NAE-3-Sat with three distinct variables reduces identically to chord triples; certificate length depends on appearing variables, not binary d. Independently enumerated all 128 Fano sign assignments (noncolorability), all single shortcuts in d=3..8 with preserving sign witnesses, and the symbolic deficit inequalities. Finite checks are not the all-d proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/0902.1156 Section 1.1 edge monotonicity and spread(Q_d)=d/4, Section 6 random cycle shortcuts",
+          "https://arxiv.org/pdf/1908.04198 Theorem 1"
+        ],
+        "reasoning": "Earlier general graph spread work gives basic upper bound and random-cycle shortcuts, not this structured cube-origin triple family or loss bound.",
+        "searches": [
+          "hypercube graph spread edge shortcuts property B hypergraph two-colorability variance Lipschitz NP complete"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/0902.1156",
+        "https://arxiv.org/pdf/1908.04198",
+        "Frozen RESULT.md blob 203cf50231935e9da349b50e0570e75b733c85bb and check_hypercube_chord.py blob 9f698a04273694be424e2d9e7235ad6aca93692b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/0902.1156 cube tensorization, no chord equality criterion",
+          "https://arxiv.org/pdf/1908.04198 Monotone 3-uniform Property B NP-complete"
+        ],
+        "reasoning": "The decision reduction uses known NP-completeness but a new exact spread-preservation equivalence; known constituent statements alone do not state the graph-norm decision problem or uniform variance gap.",
+        "searches": [
+          "hypercube shortcuts Lipschitz spread preserving equality graph Property B NP complete"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/0902.1156 pp.1-4 cube spread and product tensorization",
+          "https://arxiv.org/pdf/1908.04198 Theorem 1 Monotone NAE-3-Sat-E4 NP-complete"
+        ],
+        "reasoning": "Known Property B and cube norm are ingredients, but exact equivalence for shortcut-augmented cube Lipschitz variance requires the equality rigidity theorem and the chord constraints.",
+        "searches": [
+          "hypercube graph spread edge shortcuts property B hypergraph two-colorability variance Lipschitz NP complete",
+          "hypercube shortcuts Lipschitz spread preserving equality graph Property B NP complete"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary index: exact weighted spread crown graph is different base graph",
+          "No recovered prior exact cube-chord table beyond the submitted result"
+        ],
+        "reasoning": "The Fano seven-shortcut example and all-coloring optimizer count were not found in known tables; database absence is not proof of global priority.",
+        "searches": [
+          "hypercube shortcuts Lipschitz spread preserving equality graph Property B NP complete"
+        ]
+      },
+      "rationale": "The unperturbed hypercube spread d/4, edge monotonicity, product tensorization and monotone NAE-3-SAT NP-hardness are known. The meaningful new theorem identifies the precise graph-shortcut preservation boundary and all equality functions, with explicit uniform no-instance gap and succinct graph-norm complexity consequence. The two-colorability equivalence is derived from analytic equality cases rather than merely renaming known Property B, and retrieved sources do not assert this graph-spread optimization relationship.",
+      "residual_risks": [
+        "Earlier unindexed spread under added metric constraints may exist; no literature search proves universal novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ANTECEDENT_NOT_EXACT_TRIPLE_CHORD",
+          "evidence": "Known spread(Q_d)=d/4 and edge monotonicity; random chords added to cycles, not selected weight-three cube vertices",
+          "identifier_or_url": "https://arxiv.org/pdf/0902.1156",
+          "material_read": "Introduction/Section 1.1 including Q_d tensorization; Section 6 model of random cycle shortcuts; relevant table and theorem passages",
+          "method": "Open access arXiv PDF textual sections and screenshots",
+          "title": "On the spread of random graphs",
+          "trigger": "Primary source for exact cube spread and edge monotonicity"
+        },
+        {
+          "assessment": "PROVES_SOURCE_HARDNESS",
+          "evidence": "Theorem 1 proves Monotone NAE-3-Sat-E4 NP-complete with three distinct literals",
+          "identifier_or_url": "https://arxiv.org/pdf/1908.04198",
+          "material_read": "Definitions of monotone clauses and Section 3 Theorem 1/its hardness statement",
+          "method": "Open access arXiv PDF text and screenshots",
+          "title": "On simplified NP-complete variants of Not-All-Equal 3-Sat and 3-Sat",
+          "trigger": "Primary source for exact complexity premise"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Preservation under natural Hamming-distance-three unit shortcuts links a sharp analytic graph invariant to a canonical hypergraph coloring obstruction; optimizer rigidity, a quantitative deficit and compact-encoding NP-completeness are meaningful structural and algorithmic facts. The exact gap is a nonsharp certified bound, as plainly stated.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Q_d with uniform vertex measure and unit shortcuts from origin to selected weight-three vertices, sharp Lipschitz variance d/4 is preserved iff the triple system is two-colorable; all maximizing affine sign functions are classified, every NO case has spread loss >2^(-d-1), and succinct recognition is NP-complete.",
+  "limitations": "Only common-origin triples, real Lipschitz maps and uniform measure; decision complexity is succinct representation; no sharp loss magnitude outside preservation.",
+  "schema_version": 1
+}
