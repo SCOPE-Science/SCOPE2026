@@ -1,15 +1,21 @@
-# Scientific review: dyadic symbol-pair generation filtration of \(\operatorname{RM}(2,m)\)
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns binary degree-at-most-two evaluations in precisely specified numerical coordinate order, with cyclic wrap. Its proof is all-length: (i) the rank formula for quadratic Walsh sums establishes the gap between weights \(n/4\) and \(3n/8\) and characterizes minimum supports as affine codimension-two flats; (ii) a flat involving a low-order numerical bit has a run-count obstruction; (iii) adjacent eight-block pairs generate the top-three-bit layer; and (iv) explicit quadratic words create all remaining quotient directions at exactly the stated dyadic thresholds. These ingredients prove both sides of the filtration identity, not just dimension bounds. The independent direct enumeration in `check.py` covers all nonzero codewords for \(m=3,4,5\) and tests the explicit constructions through \(m=8\). The finite checks are corroboration, not an infinite-length proof. Boundary \(m=3\), endpoints and cyclic wrapping are explicit.
+## correctness
 
-## Originality — PASS within inspected literature
-The primary motivation, Singh and Singh (arXiv:2609.10989, 2026-09-10), defines the generation profile and provides the Cayley-graph component connection, but its inspected Section V gives general implications and small-code illustrations, not a Reed–Muller quadratic filtration. Li (arXiv:1903.08058, 2019), and the 1970 work it reproduces, classify ordinary Hamming weights of quadratic Reed–Muller evaluations; those distributions neither specify coordinate ordering nor imply the adjacent-pair span profile. Searches for pair-weight enumerators, rank-filtration aliases, Reed–Muller pair-graph connectedness, and exact threshold formulas returned no claim with equivalent implication. The closest research-record result concerns primitive cyclic Hamming codes with a distinct weight profile, and the nearest existing related claim for first-order Reed–Muller codes concerns a different code family. The new assertion concerns the exact subcode at *every* radius for second-order Reed–Muller codes. Residual priority risk: an older or unindexed coordinate-sensitive Reed–Muller result may contain an equivalent characterization, and published general principles could imply parts of the claim after additional unpublished derivation.
+PASS
 
-## Value — PASS
-The source framework identifies the low-pair-weight span as the exact obstruction to stronger function protection, so knowing the *whole filtration* determines all component sizes and admissible numbers of protected classes for this classical family. The sharp staircases \(7,11,16,22,\ldots\), explicit generators, and final threshold \(3n/8\) encode a genuine interaction of second-degree Boolean structure with numerical adjacency. This is more informative than a minimum pair distance, a finite lookup, or a substitution into the Hamming spectrum. The result uses only an elementary quadratic-form weight gap plus a new dyadic run argument, and provides a reproducible family-wide theorem.
+Binary quadratic polar alternating rank yields minimum Hamming weight n/4 on codimension-two affine flats and next possible Hamming weight >=3n/8. The first essential bit j of an affine-flat indicator forces at least n/2^(j+3) cyclic one-runs; with weight n/4 this yields T_j threshold. Adjacent eight top-bit block-pair indicators give 7-dimensional RM(2,3); explicit (x_j+x_{j+1})(x_i+b) and three-equal-bit indicator add independent quotient monomials at each lower-bit threshold. Cayley components are cosets of H_alpha. Independent full direct enumeration at m=3,4,5 (127+2047+65535=67709 nonzero words) reproduces successive ranks, and actual check.py examined; this is corroboration of induction, not infinite proof. Need exact LSB order and cyclic wrap.
 
-## Boundaries and risks
-The coordinate order is essential: arbitrary permutations need not have the same pair profile. No claim is made for higher-order or nonbinary Reed–Muller codes, or for independent priority or mathematical certification. Source comparison is extensive but not exhaustive of all historical literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier published Resultary findings give the complete RM(1,m) symbol-pair spectrum/profile in the SAME numerical ordering, but neither includes quadratic monomials or the n/4-based RM(2,m) subcode filtration. Classical Reed–Muller Hamming distributions supply the Hamming gap but cannot infer order-sensitive runs. Singh–Singh establish general pair-generation/coset framework but available abstract gives no all-layer RM(2,m) classification; best-of-knowledge risk retained.
+
+## value
+
+PASS
+
+This is a complete natural higher-order code-filtration theorem, giving every connected component and all sharp layer jumps under a concrete symbol-pair read channel; it is nontrivial beyond ordinary distance or RM1.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
