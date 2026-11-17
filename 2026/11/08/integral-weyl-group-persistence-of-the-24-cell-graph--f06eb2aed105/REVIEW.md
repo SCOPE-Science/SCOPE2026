@@ -1,15 +1,21 @@
-# Scientific review: Integral Weyl-group persistence of the 24-cell graph
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact vertex coordinates, pairwise distances, octahedral-facet membership and clique-triangle identity are checked by a complete enumeration, not sampled experimentation. The key geometric proof that the scale-one flag complex is the two-skeleton of a convex three-sphere, and that removing twenty-four facet interiors gives a wedge of twenty-three two-spheres, is independent of numerical field homology. The scale-two graph is a complete graph with twelve forbidden antipodal pairs, giving a join of twelve zero-spheres. The integral \(W(F_4)\)-lattice follows from the top cellular exact sequence and a consistent ambient boundary orientation. The degree-eleven determinant character is proved from four generating reflections. All \(1152\) graph automorphisms are independently enumerated and all stated rational traces verified.
+## correctness
 
-## Originality — PASS relative to inspected evidence
-Adamaszek (2011) provides the foundational graph-power complex construction, not this symmetry calculation. Saleh (2023, §4.2 p.73) *already gives* the numerical ranks of degree-two and degree-eleven homology at related Euclidean thresholds for the same vertex configuration. Such numerical ranks and classical \(24\)-cell face data are **not** claimed as new. The inspected prior results do not supply the full integral \(W(F_4)\)-module quotient, the complete \(1152\)-element degree-two character distribution, the degree-eleven determinant action or their graph-shortest-path equivariant persistence. The strongest risk is an unindexed calculation or use of routine equivariant CW formalism in a previously uninspected text; definitive publication priority is not certified.
+PASS
 
-## Mathematical value — PASS
-The exceptional \(W(F_4)\) action on this canonical regular polytope makes equivariant persistent topology a natural invariant. Explicit integral lattice structure matters here: the quotient by the diagonal class is not to be silently replaced by the integral augmentation kernel. The representation determines all rational traces and proves that the two positive-degree homology groups have no invariant classes. These conclusions are invisible in the previously tabulated nonequivariant Betti numbers and are more than a routine numerical increment. The theorem is deliberately restricted to the graph metric on one canonical polytope; no general polytopal theorem or independent validation is asserted.
+The 24 long D4 roots give a 24-vertex graph with 96 edges, pairwise graph distances counts (96,168,12) at distances (1,2,3), where only antipodes are at distance 3. Radius-one cliques are exactly the 96 triangle faces of the convex 24-cell: K1 is the 2-skeleton of its S3 boundary. Removing the interiors of 24 octahedral 3-facets gives wedge23 S2; cellular boundary d3 maps Z[24 facets] onto H2 with kernel the signed orientation sum. Thus the exact ZW lattice is determinant-twisted permutation quotient Z[F]/Zsum, not an integral augmentation kernel. Radius two is a join of twelve S0 pairs = S11; radius three is a simplex. The group action on 11-sphere equals determinant on W(F4). Independently regenerated all 24 roots, facets, triangles, reflection group of order 1152 and checked all 1152 character traces and cross-polytope orientation signs; H2 trace distribution {-11:12,-5:12,-1:597,1:444,3:54,5:32,23:1} and H11 +/-1 576 each as claimed. This is exact finite plus cellular geometric proof, not finite-field extrapolation.
 
-## Sources and residual limits
-The most directly relevant inspected primary documents are Adamaszek, *Clique complexes and graph powers* (arXiv:1104.0433, 2011), and Saleh, *On Vietoris-Rips Complexes of the 2-Sphere* (2023), Chapter 4 §4.2 p.73. The latter uses a four-distance convention and documents the overlapping non-equivariant ranks, while the present graph metric has diameter three. Finite checks use the included code; priority conclusions are qualified by the scope of actual literature and index coverage.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Saleh 2023 already lists ranks 23 (H2) and 1 (H11) for related Euclidean 24-cell scale stages, so those numerical ranks alone are NOT new. Graph-shortest-path metric is different (diameter 3 versus Euclidean four distinct positive distances); the complete integral W(F4) signed lattice and character distribution were not supplied in inspected prior work.
+
+## value
+
+PASS
+
+A complete exact integral equivariant persistence module for the canonical 24-cell graph, including determinant-twisted facet lattice and all 1152 character values, is a motivated representation-level refinement of pre-existing Betti data; it determines symmetry invariants absent from dimension tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
