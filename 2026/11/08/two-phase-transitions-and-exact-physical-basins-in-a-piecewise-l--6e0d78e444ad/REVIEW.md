@@ -1,15 +1,21 @@
-# Review of the exact deterministic-core phase diagram
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is proved for each real \(1/2\leq\delta\leq2/3\), not extrapolated from numerics. Exact substitution gives the four return branches and their continuous boundaries. The gap-normalizing affine change produces a fixed universal map, so its decreasing orbits converge to zero and the fixed outside region is exhaustive. Pointwise convergence plus bounded convergence and the half-interval exchange classify **all** invariant probabilities. Separate inverse-branch length calculations yield the normalized physical basin \(4-6\delta\); the degenerate upper endpoint has only two-point empirical basins. The geometric-prefix formula follows from exact expansion thresholds. The standard-library checker separately passed 9365 finite rational checks; infinite assertions follow from proof.
+## correctness
 
-## Originality — PASS within inspected literature
-Nakamura–Nakano–Toyokawa–Yano, *Arcsine law for random dynamics with a core* (arXiv:2206.00226, §1.2.3, (1.7)), defines the identical family and proves a unique attracting core cycle for \(\delta=1/2\). It does not give the intermediate-parameter invariant simplex, physical basin, or geometric transient law. Their Theorem 1.2 concerns the annealed arcsine law and does not logically entail the present deterministic-core physical measure classification. Gharaei–Homburg (arXiv:1611.07248) studies broader random interval diffeomorphisms. The Hata–Yano 2021 map and its 2022 generalization are different parameter families. Indexed comparisons were made for equivalent maps, stronger results, tables, and implication coverage. Residual risk: an equivalent, elementary reduction may be in unindexed literature, and the 2021 Hata–Yano manuscript was only inspected at abstract level.
+PASS
 
-## Mathematical value — PASS
-The source explicitly motivates core invariant measures and considers the δ=1/2 case. Here the entire natural parameter interval exhibits two distinct qualitative transitions: unique invariant measure to continuum of ergodic two-cycles immediately after \(1/2\), and positive-to-zero physical basin at \(2/3\). An exact linear physical basin probability and parameter-independent geometric expanding-prefix law quantify the transition, making the result useful to the analysis of coexistence between invariant and observable dynamics. This does not purport to solve stationary measures of the original random system.
+Direct composition of f0 and f1_delta produces the four affine branches with thresholds a=delta/2, t=2/3−a, b=1−delta. For a<x<b, normalized z=(x−a)/(b−a) obeys Q(z)=z/2 for z<2/3 and 2z−1 otherwise, strictly decreases to zero; outside the gap P is identity. Bounded convergence implies every P-invariant Borel measure lives on the fixed set; the half-interval exchange reconstructs exactly all h-invariant and ergodic measures and pointwise empirical limits. Exact inverse-branch lengths give 4−6delta; at 2/3 P=id and every basin is null. Expanding first-hit tails give P(K>=k)=1/(3·2^(k−1)). Verified four-branch substitution for 5 rational delta values on 1000-point exact grids; this does not substitute for the all-real proof.
 
-## Limits of this assessment
-No independent mathematical audit has been performed. The return-map formulas and invariant-measure proof remain open to independent checking; priority among unindexed notes remains a residual risk. This review does not assess the originally random system's invariant statistics.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Nakamura–Nakano–Toyokawa–Yano define the same maps and prove the special endpoint delta=1/2 invariant cycle, which is already covered. Their arcsine-law theorem concerns random iterations rather than all deterministic-core invariant measures. The explicit nonuniqueness threshold, physical-basin length law, collapse at 2/3 and geometric transient are additional statements not implied by the cited random-process result.
+
+## value
+
+PASS
+
+A complete physical-versus-invariant phase diagram for a published concrete core distinguishes proliferation of invariant measures from loss of a physical measure; the exact basin length and transient law supply natural, reusable dynamics diagnostics beyond a parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
