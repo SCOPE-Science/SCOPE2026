@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The checker constructs all 2^15 edge subsets twice, as (i) degree tests and (ii) ten forbidden full stars. Both select exactly 10,895 faces including the empty face. Repeated increasing-index toggles yield 5,447 disjoint augmented pairs and one unmatched seven-edge face. After removing only the empty/singleton pair, the ordinary face poset has 5,446 pairs and exactly one critical 0-cell and one 6-cell. Each of its 64,005 Hasse incidences is reoriented according to this matching; Kahn's algorithm visits all 10,894 nonempty faces, proving acyclicity. Forman discrete Morse theory then gives a CW complex with exactly these two cells; the sole six-cell attaches to a point, hence the homotopy type S6. All quantifiers are finite and exhaustively checked; no inferred infinite-family theorem.
+## correctness
 
-## Originality — PASS against inspected evidence
-Vega 2019 gives general definitions and special graph families, not the pentagonal-prism case; Singh 2020 classifies complete/complete bipartite higher matchings; Agarwal–Basak 2026 studies independence and perfect-matching complexes of the same prism family but not M2. Targeted indexed searches and prior scientific-claim comparisons found no statement implying the new six-sphere classification; overlapping source titles alone were not treated as proof. Residual bibliographic and history-access risks remain explicit.
+PASS
 
-## Value — PASS
-The pentagonal prism is the smallest odd circular ladder after the triangular prism, and a canonical vertex-transitive cubic polyhedral graph. Its ordinary one-matching complex has homology in two dimensions, whereas relaxing the bound to two gives an unexpected single six-sphere despite nonpure faces reaching dimension nine. The exact 10,894-face Morse reduction is a meaningful complete benchmark for degree-bounded complexes on cyclic cubic graphs, without claiming an entire family theorem.
+The canonical cubic graph C5 square K2 has 10 vertices and 15 edges; M2 selects exactly edge subsets avoiding each of the ten degree-three full stars (equivalent to all selected degrees <=2). An independent complete 2^15-subset enumeration reproduced 10,895 faces including empty and f-vector (1,15,105,445,1245,2358,2985,2400,1100,230,11), dimensions -1..9. Independently applied the source's deterministic increasing-edge toggle matching: 5,447 augmented pairs leave one 7-edge face. Discarding the (empty,{edge0}) pair leaves exactly one critical vertex and one dimension-six simplex. A fresh directed Hasse graph checked all 64,005 incidences and a Kahn topological sort visited all 10,894 nonempty faces, ruling out gradient cycles. Forman's theorem yields one 0-cell plus one 6-cell with constant attaching map, hence integral homotopy S^6. No extrapolation to larger prisms.
 
-## Closest results and residual risks
-Vega (arXiv:1909.10406) treats the same kind of two-matching complex for different families. Singh (arXiv:2006.13632) treats complete and complete bipartite graphs. Agarwal–Basak (arXiv:2608.30601v2) treats the same circular-ladder family only for independence and perfect-matching complexes. The distinction is the actual defining face conditions, not title similarity. A possible unindexed equivalent result and incomplete bibliographic coverage remain risks. The new statement is a single exact finite-graph classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: this exact ordinary degree-two bounded matching complex on the ten-vertex pentagonal prism is not implied by the prior same-graph ordinary degree-one matching complex (341 faces, S^2∨S^2∨S^3∨S^3), the perfect-extendibility complex, independence complex, or published matching results for other graph families. The published Resultary exact-title hit dated November 8 mirrors the assigned claim and was not counted as an independently earlier work. Vega's 2-matching graph-family theorems are for different graph inputs. Neither the matching-family definitions nor independent search results force S^6 on this specific graph; residual unindexed-equivalent risk remains.
+
+## value
+
+PASS
+
+PASS: C5 square K2 is a natural first small odd circular-ladder cubic graph, and allowing degree two instead of ordinary matching changes its combinatorial topology sharply. The exact integral S^6 homotopy type of a 9-dimensional nonpure complex gives a reusable natural finite graph invariant and a motivated benchmark for higher matching homotopy of prisms, not a random parameter slice or a routine consequence of degree-one matching results. An infinite-family theorem is not required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
