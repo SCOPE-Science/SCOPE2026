@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact rank-one forward branching matrix yields the reproduction factor. A strictly convex quadratic integer objective gives all susceptibility-ratio boundaries with single or adjacent double minima. The endpoint leaf shielding and exact supercritical/subcritical example are direct substitutions. A separate exact-rational checker passed 87,475 assertions across finite ranges; the complete proof is algebraic and does not infer an infinite theorem from finite tests.
+PASS
 
-## Originality — PASS within inspected evidence, provisional
+The forward infection matrix has entries (d_i-1) beta psi_j d_j/(2K) and rank one; its nonzero eigenvalue is beta[psi_H d_H(d_H-1)+psi_L d_L(d_L-1)]/(2K). Exchanging ordered degrees reduces the objective when d_H>d_L. For d_H=K-r and d_L=K+r, the exact discrete increment F(r+1)-F(r)=2[(K+r)-rho(K-r-1)] is strictly increasing in r; its unique zero gives consecutive ratio thresholds, with no non-adjacent ties. K=2 and both endpoint inequalities included. Independence of psi_H on r=K-1 follows from d_H(d_H-1)=0. K=3 case returns 21/20 versus 1/6. Rechecked by independent exact rational enumeration K=2,...,16 around all thresholds; this finite sample corroborates the algebra, not an infinite proof.
 
-The original 2011 weighted-configuration epidemic theory already provides the branching framework; its theorem is not being relabeled. Smilkov et al. (2014) and Yang et al. (2015) already explain the protective role of negative susceptibility-degree correlation for SIS models. Baxter and Timár (2021, Section 4.2, Equation 46) give a general SIR destination-degree transmission threshold, directly implying the unoptimized reproduction expression here. The inspected full-text passages and searched records did not contain the integer two-class degree-allocation minimizer, its entire sharp staircase including ties, the exact first-improvement ratio, or the degree-one plateau under the stated equal-class budget. Residual risk: an uninspected paper could already have solved this elementary, natural specialization; world-wide priority is not certified.
+## originality
 
-## Value — PASS
+PASS
 
-With mean connectivity and class sizes fixed, reallocating integer contacts can cross the epidemic invasion threshold even though removing contacts overall is prohibited. The exact first-improvement condition distinguishes when a mild susceptibility difference makes *any* negative degree correlation helpful from when heterogeneity is counterproductive under a convex excess-degree penalty. The phase thresholds give every budget-constrained optimum, and the high-risk-degree-one plateau explains a qualitatively distinct protection mechanism. This is a motivated, natural complete classification within the restricted SIR model, not a recommendation to engineer real contact networks.
+General recipient-degree SIR branching thresholds and susceptibility-degree correlations are established; the full staircase for two positive integer class degrees at a fixed equal-class budget, isolated ties, sharp homogeneous-improvement boundary and degree-one plateau are not stated in the inspected direct model theorem or in the closest published optimization of mixing at fixed two contact classes. Priority remains bounded, with a risk that elementary convex resource-allocation work implicitly contains the staircase.
 
-## Limitations and closest literature
+## value
 
-The calculation is valid only in the asymptotic uncorrelated configuration-model, class-regular two-type Reed–Frost setting. General network designs, different mixing, and SIS models need not obey the same thresholds. Closest work: Britton–Deijfen–Liljeros (2011), Smilkov–Hidalgo–Kocarev (2014), Yang–Tang–Gross (2015), Baxter–Timár (2021). Mathematical correctness and novelty have not been independently audited.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact discrete policy transition points and susceptibility-independent boundary change whether epidemic invasion is possible with the same average number of contacts, as the explicit threshold-crossing example demonstrates. The integer allocation problem is a natural constrained design, not an arbitrary numerical slice, even though its final optimization is elementary convex algebra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
