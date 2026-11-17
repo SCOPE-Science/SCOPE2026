@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The claimed formula follows from a connected-tight-graph characterization of Lipschitz-polytope vertices, an exhaustive 16-state distinguished-triple classification, and a limit argument on the two parameter walls. The supplied `check_facets.py` executes exact rational comparisons for all four regimes, checks 54 outsider assignments families, and independently enumerates all four-point vertices from active inequalities for nine rational parameter pairs. Universal correctness is a mathematical claim based on the written proof; finite checker cases are not used as exhaustive proof over the real parameter domain or all dimensions.
+# Independent mathematical audit
 
-Run `python3 check_facets.py` and `python3 check5_extra.py` from the directory containing the standalone programs. The second program independently enumerates all active four-constraint intersections for four five-point examples without using the 16-state templates. Python standard library only. No external verification or independent audit has been performed.
+## correctness
+
+PASS
+
+For the N-point metric with only adjacent d(a,b)=r and d(b,c)=s shorter than one, 0<r,s<1,r+s≥1, vertices of the dual Lipschitz polytope are exactly connected tight-edge configurations. Every outsider must take one of two binary values; the special (a,b,c)-triple has 16 feasible connected-tight templates in the generic chamber. Counting 10 all-zero outsider, 10 all-one outsider and 16 for every mixed binary outsider assignment yields 2^(N+1)-12. On r=s or r+s=1, exact independent coalescences of candidate triples yield counts 7·2^(N−2)−10 and 7·2^(N−2)−12, and 3·2^(N−1)−10 at their intersection. A vertex at a boundary is a limit of maximizing vertices from the adjacent chamber, so no new templates appear. Fresh exact rational active-halfspace enumeration independent of the template recovered N=4 counts 20,18,16,14 and N=5 counts 52,46,44,38. This is finite corroboration; the tight-graph proof is all-N.
+
+## originality
+
+PASS
+
+Prior Gordon–Petrov generic metric face-number theorems do not apply numerically to these highly nongeneric almost-equilateral metrics. The closest all-dimensional four-cycle shortened-edge released theorem has FOUR modified edges with one shared length, not two incident independent lengths. A disjoint matching-shortened result has a disjointness hypothesis; equal adjacent elongated-edge result is outside r,s<1. None provides the two separate r=s and r+s=1 walls or this exact formula.
+
+## value
+
+PASS
+
+Two adjacent rather than disjoint modified distances is the first meaningful connected perturbation of an equilateral metric. Four exact facet-count chambers isolate symmetry and triangle-equality degeneracies of Lipschitz-free norm balls in all dimensions. This is a complete natural polyhedral classification rather than routine low-dimensional enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
