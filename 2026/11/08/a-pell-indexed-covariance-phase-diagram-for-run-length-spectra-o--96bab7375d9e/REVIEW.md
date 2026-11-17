@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite mixed moment follows from counting exactly two compatible placement types for distinct fully bounded runs: disjoint patterns and patterns sharing one boundary zero. Falling-factorial hypergeometric probabilities yield an exact identity for every admissible length and fixed symbol total. A uniform fixed-pattern factorial expansion gives the covariance density; quadratic discriminant algebra supplies the sign classification, and Pell's equation indexes tangencies. The first-tangency rational identity is independently checked by exact arithmetic. The standard-library verifier passed 2,440 exact assertions. This is a proof plus supplementary computation, not inference from a finite census.
+## correctness
 
-## Originality — PASS (with historical-priority risk)
-The conditional joint generating function in Inoue–Aki (2006 online, Theorem 4.2) is the closest stronger framework and necessarily contains all finite joint moments; the source was inspected in detail. It does not explicitly give the asymptotic two-root covariance sign phase, the Pell classification of all tangency lengths, or the first-tangency square-root window and inverse-length cancellation. The new claim is confined to this qualitative/asymptotic classification, not ownership of the finite distributions or ordinary mixed-moment technology. Relevant published research and accessible historical claims were compared. A specialized consequence may have been derived elsewhere or could be regarded as implicit in a known generating function, so independent historical verification remains necessary.
+PASS
 
-## Value — PASS
-Two distinct run lengths under fixed symbol totals need not compete uniformly: a positive covariance density is possible only beyond the sharp length-asymmetry boundary, with the first example \((1,9)\) giving the simple interval \((3/5,3/4)\). The equality lengths have an unexpected infinite Pell structure, and the first boundary case has an additional finite-size suppression. This supplies a natural, complete dependence classification with relevance to fixed-composition run tests, not an arbitrary finite numerical slice.
+For different exact interior patterns 0 1^r 0 and 0 1^s 0, simultaneous occurrences are disjoint (h(h−1) ordered placements) or share exactly one boundary zero (2h), giving E[XrXs]=h(h−1)P_N(r+s,4)+2hP_N(r+s,3). Uniform fixed-weight falling-factorial expansion yields density −p^(r+s−1)(1−p)^3 F_rs(p); discriminant Δ=(s−3r−1)^2−8r(r+1) and monotone s>r force the stated sign interval. Equality leads to (2r+1)^2−2u²=1. Independent enumeration of all sampled fixed-weight words N=7..11 and exact rational moments confirmed formulas; symbolic r=1,s=8 tangency and center-factorization checked. The Pell/critical window formula follows from exact rational covariance and analytic expansion, not from finite samples.
 
-## Closest literature and limits
-The Inoue–Aki 2005 full text develops joint run statistics under independent Bernoulli trials. Their 2006 full text explicitly derives conditional joint generating functions under fixed symbol totals. Mytalas–Zazanis 2013 treats unconditioned Bernoulli/Markov multivariate run asymptotics. The present claim is only about interior, fully zero-bounded run counts with two distinct fixed lengths. It asserts limiting covariance signs, not uniformly signed finite covariance or a growing-length limit. The stronger general generating function is the main possible priority/implication risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): published Inoue–Aki conditional joint run PGF and fixed-weight moment framework cover general finite distributional machinery but, in inspected sections, neither state the fully bounded interior-window covariance density, the sharp discriminant sign phase and Pell indexed degenerate pairs, nor the cancellation and N^(−1/2) composition window. Other detected records address cyclic/unconditioned runs or different statistics. This is a best-of-knowledge classification with substantive residual general-PGF implication risk: if a prior theorem explicitly yields the same sign phase as a routine corollary it would be covered.
+
+## value
+
+PASS
+
+Exact covariance sign changes under a fixed global composition constraint are nontrivial dependence phenomena; a sharp phase boundary and Pell arithmetic classification supply a natural complete result, including an exceptional finite-size cancellation. No arbitrary slice or mere code validation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
