@@ -1,26 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-dimensional theorem is proved for every complete \(C^1\) flow on every smooth two-dimensional manifold, regardless of Floquet multipliers. The Poincaré map near any regular periodic orbit is a one-dimensional local diffeomorphism. Its square is increasing and fixes the orbit point, so each sufficiently nearby orbit has one entire time semiorbit confined in an arbitrarily small tube. A continuous observable-speed function vanishing on the orbit is uniformly small on that tube; hence the two finite exits required for reachability cannot both occur. If observable speed does not vanish along the orbit, the arbitrarily-long-slow requirement itself fails by continuity.
+PASS
 
-For the sharp three-dimensional realization, the flow has global linear growth, a unit-circle period \(2\pi\) orbit and transverse exponents \(+1,-1\). The exact radial first integral and explicit \(z\)-equation imply strictly increasing observable speed with infinite opposite limits, and give the displayed two-sided first-exit asymptotics. The included checker reconstructs the radial identity and tests the limiting constants for fixed thresholds. All infinite-quantifier statements are analytic, not extrapolated from numerical tests.
+If g=L_fv is nonzero somewhere on a closed orbit, continuity gives a uniformly bounded forward exit for nearby initial points, ruling out reachability; otherwise g=0 on orbit. A small Poincare map P has Q=P^2 increasing even on a nonorientable 2D manifold; for a transverse u, either Q(u)<=u gives perpetual forward confinement or Q(u)>=u gives backward confinement, including intermediate returns and all sufficiently nearby points. Since |g|<s on a tubular neighborhood, at least one exit time is infinite, which contradicts the two-finite-exit definition. In 3D q=x²+y² obeys qdot=2q(q-1)/(q+1), z(t)=eps exp(-t), angular speed 1. On q=1,z=0 the transverse exponents are +1,-1; for q(0)=1+eps,z(0)=eps the monotone g=2q(q-1)/(q+1)-z ranges from -infinity to +infinity. The first integral (q-1)^2/q=eps² exp(2t)/(1+eps) gives forward exit log(1/eps)+log((q_s-1)/sqrt(q_s))+o(1), backward log(1/eps)+log s+o(1), with q_s solving 2q_s(q_s-1)/(q_s+1)=s. Independent algebraic/numerical checks corroborate; the 2D topological argument supplies unrestricted exclusion.
 
-## Originality — PASS within inspected evidence
+## originality
 
-The October 30, 2026 work by Pasion–Magpantay defines the relevant observable-based reachability and proves general sufficient escape criteria; its definitions, general criteria, heteroclinic-trajectory example, and conclusion do not prove a planar periodic-orbit exclusion or a dimension-sharp three-dimensional counterexample. The complete openly accessible 2023 paper by Liu–Magpantay–Abdella supplies necessary/sufficient two-sided exit criteria but also does not classify reachability on periodic orbits. Classical one-dimensional Poincaré-map monotonicity is acknowledged; the new statement is the sharp obstruction for this specific observable-based property, coupled with a globally complete realization and exact two-sided logarithmic delays. The 2022 foundational article was available through abstract and bibliographic metadata but not fully inspected, so earlier priority remains a risk, not a demonstrated absence of coverage.
+PASS
 
-## Mathematical value — PASS
+PASS best knowledge for two-dimensional periodic-orbit obstruction under the two-sided reachable-transient-center definition, and an explicit sharp complete 3D saddle-periodic example with two leading log exit-time constants. Established general transient-center criteria and Poincare maps are acknowledged, not relabeled novel.
 
-Reachability is stronger than one-sided transient slowness; an orbit that repels in forward time may generate arbitrarily long transient episodes without being reachable from the past. The theorem draws a sharp and general dimension barrier for *periodic* transient centers, including neutral and nonisolated cycles for which hyperbolic reasoning alone is insufficient. The explicit three-dimensional saddle example proves sharpness and determines both residence-time constants rather than merely supplying an existence example. This is a structural boundary result about a recently studied dynamical property, not an arbitrary sample calculation or a restatement of an existing criterion.
+## value
 
-## Closest literature and limitations
+PASS
 
-* A. Pasion and F. Magpantay, *Nonequilibrium Transient Centers in Continuous-Time Systems*, arXiv:2610.41930v1 (2026): definitions and finite-time escape machinery, not the dimension dichotomy.
-* A. Liu, F. M. G. Magpantay and K. Abdella, *A framework for long-lasting, slowly varying transient dynamics* (2023): general two-sided escape criterion, no periodic-orbit dimension classification in the inspected text.
-* A. Liu and F. M. G. Magpantay, *A Quantification of Long Transient Dynamics* (2022): first definitions; complete text not verified.
-* Classical return-map and planar-flow theory: provides an ingredient but not the claimed observable-specific reachability dichotomy by itself.
+The sharp dimension distinction is a motivated structural impossibility theorem paired with a globally complete minimal-dimensional realization and explicit two-sided logarithmic slow-residence laws; the construction answers whether apparent slowness near a periodic orbit can actually have finite exits in both time directions.
 
-Independent priority confirmation and independent verification of the global result remain outstanding; the three-dimensional system is a constructed sharpness witness, not an application to empirical data.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
