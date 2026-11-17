@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T11:56:55.322427Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/sharp-disk-opening-loss-for-convex-polygons-and-a-vertex-cone-fo--18bd315b48c2/RESULT.md",
+        "2026/11/08/sharp-disk-opening-loss-for-convex-polygons-and-a-vertex-cone-fo--18bd315b48c2/opening_verify.py",
+        "https://hub.valency.io/works/W_ryfhy9gc"
+      ],
+      "rationale": "With unit facet normals, P_r is the intersection of all inward-translated supporting halfspaces; dist(v,P_r+rB)=max(0,dist(v,P_r)-r). Convexity of the distance function reduces maximal opening loss to vertices. For each vertex its incident facet constraints imply dist(v,P_r)>=r lambda_v; the minimizing feasible tangent displacement meets nonincident facets for all sufficiently small r, giving local equality. In plane lambda_v=csc(theta_v/2). The polygon angle sum yields min theta <=(n-2)pi/n and global E/r>=sec(pi/n)-1. For regular n-gons the exact homothetic erosion gives equality all 0<r<=Rin. Monotone inverse-cosecant gives all-angle stability; rhombus perturbation proves linear order cannot improve. Independent square/rhombus check E/r=sqrt(2)-1, and inspected supplied clipping/LP numerical code; finite geometry checks do not establish all polygons.",
+      "residual_risks": [
+        "No uniform small-radius equality threshold across different polygons; unit Euclidean normals crucial. At inradius endpoint P_r can be a singleton."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cappello Theorem 1.1 is a characterization of C^(1,alpha) convex bodies via approximate inner balls, not a sharp nonsmooth n-gon side-count minimax Hausdorff theorem. Heppes 1963 p363 expressly recognizes disk opening rounds corners; the inspected paper develops area and perimeter/hexagon packing inequalities, not this Hausdorff angular rigidity."
+        ],
+        "reasoning": "Prior general opening/regularity results do not imply the sharp n-dependent sec(pi/n)-1 bound or near-equality angle estimates without additional tangent-cone and angle-sum argument.",
+        "searches": [
+          "https://hub.valency.io/works/W_ryfhy9gc",
+          "https://real.mtak.hu/201454/1/cut_MATKUTINT_8_3_1963_pp363_-_371.pdf",
+          "https://search.r-project.org/CRAN/refmans/spatstat.geom/html/opening.html"
+        ]
+      },
+      "checked_sources": [
+        "https://hub.valency.io/works/W_ryfhy9gc",
+        "https://real.mtak.hu/201454/1/cut_MATKUTINT_8_3_1963_pp363_-_371.pdf",
+        "https://search.r-project.org/CRAN/refmans/spatstat.geom/html/opening.html",
+        "2026/11/08/sharp-disk-opening-loss-for-convex-polygons-and-a-vertex-cone-fo--18bd315b48c2/RESULT.md",
+        "2026/11/08/sharp-disk-opening-loss-for-convex-polygons-and-a-vertex-cone-fo--18bd315b48c2/opening_verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General distance-to-opening identity (also in Cappello Equation 4.2) plus qualitative corner rounding does not alone yield max_v min||z|| with incident facet constraints, nor sharp angle-sum minimax and quantified stability."
+        ],
+        "reasoning": "Explicit convex geometry lemmas supply the additional substantive parameter-sharp step absent from these broader opening definitions.",
+        "searches": [
+          "https://hub.valency.io/works/W_ryfhy9gc",
+          "https://real.mtak.hu/201454/1/cut_MATKUTINT_8_3_1963_pp363_-_371.pdf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P(r)=(P erosion rB)+rB is morphological opening, and its Hausdorff loss equals max over vertices of (dist(v,P_r)-r)_+. At planar vertex coefficient is csc(theta/2)-1."
+        ],
+        "reasoning": "Matched the operation under erosion+dilation nomenclature and its vertex-distance functional, not only phrases about polygons.",
+        "searches": [
+          "Resultary semantic: convex polygon Euclidean ball morphological opening Hausdorff distance vertex angle inradius csc theta half sharp bound",
+          "https://hub.valency.io/works/W_ryfhy9gc",
+          "https://real.mtak.hu/201454/1/cut_MATKUTINT_8_3_1963_pp363_-_371.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The formula applies all convex n-gons, is exact locally for each polygon, and attains equality for regular n-gons at all admissible r; not a precomputed small shape table."
+        ],
+        "reasoning": "No all-n angular Hausdorff coefficient table or exact formula was found in the inspected primary texts; failed search by itself is not originality proof.",
+        "searches": [
+          "Resultary semantic: convex polygon Euclidean ball morphological opening Hausdorff distance vertex angle inradius csc theta half sharp bound",
+          "https://real.mtak.hu/201454/1/cut_MATKUTINT_8_3_1963_pp363_-_371.pdf"
+        ]
+      },
+      "rationale": "The general morphological opening and known corner rounding are prior. The explicit all-d convex polytope small-radius tangent-cone Hausdorff coefficient, sharp every-radius fixed-n bound sec(pi/n)-1, equality angle rigidity and quantitative global angular stability are not supplied by the inspected Cappello regularity paper or Heppes qualitative opening/area-perimeter bounds. Best-of-knowledge; classical morphology equivalence remains risk.",
+      "residual_risks": [
+        "Serra 1982 book and older mathematical morphology monographs not inspected in full; an older equivalent corner-distance formula could exist.",
+        "Global lower bound and angular rigidity do NOT give an exact all-radius formula for arbitrary nonregular polygons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for nonsmooth polygon angle constants",
+          "evidence": [
+            "Theorem concerns smooth convex-body regularity; lacks polygon/vertex-cone fixed-side bounds"
+          ],
+          "identifier_or_url": "https://hub.valency.io/works/W_ryfhy9gc",
+          "material_read": "Full accessible HTML including abstract, introduction, definitions, theorem and geometric argument segments",
+          "method": "Primary lawful full-text HTML inspection",
+          "title": "An approximate inner ball condition characterizing C^(1,alpha) convex bodies",
+          "trigger": "same inner-ball condition and opening P_r+rB"
+        },
+        {
+          "assessment": "QUALITATIVE_OVERLAP, no identified exact Hausdorff coefficient",
+          "evidence": [
+            "p363 defines C(r) as union of inside radius-r discs and says convex polygon corners are rounded; remainder treats area/perimeter and hexagon packing inequalities"
+          ],
+          "identifier_or_url": "https://real.mtak.hu/201454/1/cut_MATKUTINT_8_3_1963_pp363_-_371.pdf",
+          "material_read": "PDF page 363 inspected visually via PDF screenshot; text from later pages 364-371 reviewed for theorem statements on hexagon area/perimeter, not a claimed full systematic absence proof",
+          "method": "Primary scanned PDF screenshot plus extracted content",
+          "title": "Filling of a domain by discs",
+          "trigger": "historical polygonal disk-opening primary source"
+        },
+        {
+          "assessment": "GENERAL_BACKGROUND",
+          "evidence": [
+            "Morphological erosion followed by dilation, not a sharp n-gon Hausdorff theorem"
+          ],
+          "identifier_or_url": "https://search.r-project.org/CRAN/refmans/spatstat.geom/html/opening.html",
+          "material_read": "Documentation-level definition only",
+          "method": "Public documentation",
+          "title": "Mathematical morphology opening reference",
+          "trigger": "known name and foundational formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/08/sharp-disk-opening-loss-for-convex-polygons-and-a-vertex-cone-fo--18bd315b48c2/RESULT.md",
+        "https://hub.valency.io/works/W_ryfhy9gc",
+        "https://real.mtak.hu/201454/1/cut_MATKUTINT_8_3_1963_pp363_-_371.pdf"
+      ],
+      "rationale": "Polygonal ball opening is a natural nonsmooth convex-geometric approximation; its exact corner-controlled Hausdorff error, universal sharp side-count minimax and quantitative angle rigidity are connected structural invariants. General polytope tangent-cone certificate explains the two-dimensional bound and supplies a reusable local obstruction.",
+      "residual_risks": [
+        "Earlier morphology may contain equivalent formulations; result is angle rigidity, not a claim of near-regular metric shape control."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Classical opening definition and qualitative corner rounding credited. Only small-r exactness per polytope, all-r lower bound, no general all-r closed formula.",
+  "schema_version": 1
+}

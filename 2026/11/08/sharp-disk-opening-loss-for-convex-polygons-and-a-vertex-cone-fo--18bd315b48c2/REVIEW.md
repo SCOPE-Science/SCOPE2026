@@ -1,19 +1,21 @@
-# Scientific review: disk-opening loss of convex polytopes and polygons
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim is for all Euclidean convex polytopes of dimension at least two and, more specifically, convex polygons with genuine corners; radii range over the closed admissible interval except zero. Inward unit-normal facet offsets give the exact center set; convexity of point-to-set distance reduces the Hausdorff error to vertices. Each incident-facet cone gives the global lower bound and a feasible minimizer at sufficiently small radii because nonincident facets have strict slack. In the plane the center-to-apex distance of an inset wedge is exactly the cosecant of half the interior angle. The polygon bound then follows from the exact angle sum; regular polygons achieve equality at every radius because all their supporting sides are tangent to one circle. The stability expression is an exact inversion of the corner lower bound plus angle summation. A perturbation by rhombi proves linear-order sharpness. Finite computations are corroboration only, not an infinite proof. The standalone verifier completed the stated 568 numerical radius cases successfully.
+PASS
 
-## Originality
+With unit facet normals, P_r is the intersection of all inward-translated supporting halfspaces; dist(v,P_r+rB)=max(0,dist(v,P_r)-r). Convexity of the distance function reduces maximal opening loss to vertices. For each vertex its incident facet constraints imply dist(v,P_r)>=r lambda_v; the minimizing feasible tangent displacement meets nonincident facets for all sufficiently small r, giving local equality. In plane lambda_v=csc(theta_v/2). The polygon angle sum yields min theta <=(n-2)pi/n and global E/r>=sec(pi/n)-1. For regular n-gons the exact homothetic erosion gives equality all 0<r<=Rin. Monotone inverse-cosecant gives all-angle stability; rhombus perturbation proves linear order cannot improve. Independent square/rhombus check E/r=sqrt(2)-1, and inspected supplied clipping/LP numerical code; finite geometry checks do not establish all polygons.
 
-**PASS, subject to historical-priority risk.** The motivating 2026 manuscript of Cappello contains the approximate inner ball definition, convexity of the center set, and an instance of the point-to-opening distance identity. Those elementary prerequisites are credited. Its theorems concern smooth boundary regularity; they do not give the facet-cone coefficient, the sharp all-radius convex-polygon bound, the equiangular equality criterion, or the explicit global angle-stability modulus. Classical morphological opening (Serra, 1982) is known and not claimed as new. More directly, Heppes (1963, p. 363) describes polygonal disk opening as rounding the corners by arcs, in the context of area/perimeter isoperimetric problems; that geometry is credited and differs from the asserted sharp Hausdorff coefficient and angle-rigidity theorem. The closest inspected published mathematical records concern Pach–Tardos triangle roundness and a fourth-order random-pair-distance coefficient, respectively. Neither theorem has disk-opening loss as its object or implies the new bound by its stated conclusions. Searches for equivalent morphological opening, erode–dilate, Hausdorff, polygon-angle, and regular-polygon expressions found no stronger directly covering statement. An overlooked classical morphological theorem remains possible; this has not been independently checked.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A recent approximate-inner-ball condition makes the best possible approximation of nonsmooth convex bodies by unions of inscribed disks a natural open quantitative boundary question. The result does more than compute a single polygon: it provides an exact finite local cone certificate for every polytope, a sharp bound valid at **every** admissible radius across all convex polygons with a fixed edge budget, a complete equality criterion in the small-radius regime, and a dimensionless quantitative rigidity law whose linear order is optimal. These facts characterize a natural geometric obstruction to ball approximation and translate it into explicit angle-control for polygonal shapes. The argument is elementary, but the combined sharp extremum and rigidity are not simply a restatement of the smooth regularity theorem.
+The general morphological opening and known corner rounding are prior. The explicit all-d convex polytope small-radius tangent-cone Hausdorff coefficient, sharp every-radius fixed-n bound sec(pi/n)-1, equality angle rigidity and quantitative global angular stability are not supplied by the inspected Cappello regularity paper or Heppes qualitative opening/area-perimeter bounds. Best-of-knowledge; classical morphology equivalence remains risk.
 
-## Closest literature and limitations
+## value
 
-Cappello, *An approximate inner ball condition characterizing \(C^{1,\alpha}\) convex bodies*, arXiv:2610.36238v1 (2026), especially definitions (1.1)–(1.2), Proposition 2.4 and equation (4.2). Heppes, *Filling of a domain by discs* (1963), describes disk openings of polygons in the introduction but develops area/perimeter results. The `spatstat.geom` documentation identifies Serra (1982) as another source for classical morphological opening. The two published mathematical records examined in full discuss angle-based invariants distinct from the Hausdorff error of disk opening. The original Serra book and all possible older formulations have not been comprehensively inspected; historical priority should be verified separately. The theorem does not claim that nonregular polygons have the local cone expression at all radii, or that a bound on angle deviations implies shape closeness without extra geometric normalization.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Polygonal ball opening is a natural nonsmooth convex-geometric approximation; its exact corner-controlled Hausdorff error, universal sharp side-count minimax and quantitative angle rigidity are connected structural invariants. General polytope tangent-cone certificate explains the two-dimensional bound and supplies a reusable local obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

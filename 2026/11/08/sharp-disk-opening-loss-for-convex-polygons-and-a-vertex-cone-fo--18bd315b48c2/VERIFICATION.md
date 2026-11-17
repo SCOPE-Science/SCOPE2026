@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The theorem's infinite-domain statements have an analytic proof in `RESULT.md`: (1) inward offsets of Euclidean unit-normal halfspaces describe all admissible ball centers; (2) the Hausdorff error of a convex opening is determined by vertices; (3) the local tangent-cone quadratic program controls those vertex distances globally below and exactly for sufficiently small radius; (4) an inset planar angle contributes \(\csc(\theta/2)-1\); (5) angle sum gives the sharp side-count bound, attained at every radius by a regular polygon; and (6) elementary inversion and angle summation give the global angular stability estimate. No finite experiment is used to infer an infinite quantifier.
+## correctness
 
-To reproduce supplementary numerical checks, run `python3 opening_verify.py` with Python 3, NumPy and SciPy. The program uses exact geometric definitions and floating-point clipping, segment-distance, and linear-programming routines. Its completed run printed:
+PASS
 
-`OPENING_GEOMETRY_NUMERIC_OK 220 random convex polygons x 2 radii; 112 regular-polygon radii; 16 rectangle radii`
+With unit facet normals, P_r is the intersection of all inward-translated supporting halfspaces; dist(v,P_r+rB)=max(0,dist(v,P_r)-r). Convexity of the distance function reduces maximal opening loss to vertices. For each vertex its incident facet constraints imply dist(v,P_r)>=r lambda_v; the minimizing feasible tangent displacement meets nonincident facets for all sufficiently small r, giving local equality. In plane lambda_v=csc(theta_v/2). The polygon angle sum yields min theta <=(n-2)pi/n and global E/r>=sec(pi/n)-1. For regular n-gons the exact homothetic erosion gives equality all 0<r<=Rin. Monotone inverse-cosecant gives all-angle stability; rhombus perturbation proves linear order cannot improve. Independent square/rhombus check E/r=sqrt(2)-1, and inspected supplied clipping/LP numerical code; finite geometry checks do not establish all polygons.
 
-The checks probe 440 radius choices on randomly generated convex polygons, 112 choices on regular polygons of 3–18 sides, and 16 on four rectangles. Floating-point tolerances are specified in the code; these checks are not formal mathematical certificates and do not establish completeness for any infinite family.
+## originality
 
-Limits: the local equality threshold is polygon-dependent; for arbitrary nonregular polygons the global bound can be strict at larger radii. Historical priority is provisional. No independent mathematical review has been carried out.
+PASS
+
+The general morphological opening and known corner rounding are prior. The explicit all-d convex polytope small-radius tangent-cone Hausdorff coefficient, sharp every-radius fixed-n bound sec(pi/n)-1, equality angle rigidity and quantitative global angular stability are not supplied by the inspected Cappello regularity paper or Heppes qualitative opening/area-perimeter bounds. Best-of-knowledge; classical morphology equivalence remains risk.
+
+## value
+
+PASS
+
+Polygonal ball opening is a natural nonsmooth convex-geometric approximation; its exact corner-controlled Hausdorff error, universal sharp side-count minimax and quantitative angle rigidity are connected structural invariants. General polytope tangent-cone certificate explains the two-dimensional bound and supplies a reusable local obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
