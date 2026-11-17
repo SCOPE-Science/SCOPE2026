@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-`verify.py` is a standalone standard-library Python 3 program. Execute `python verify.py` from this directory.
+## correctness
 
-The checker constructs the actual length-\(n\) factors from the \(a+b\) cyclic starts, computes overlapping counts of every letter and digram directly, and partitions signatures by exact tuple equality. It compares the resulting class count with the formula for all \(1\leq a,b\leq14\) and all \(1\leq n\leq2(a+b)+4\), totaling 6,664 factor-length cases. For each of the 196 parameter pairs, it also checks the maximum over one residue period and the claimed phase-identifiability criterion.
+PASS
 
-The observed output is `PASS: 6664 factor-length profiles and 196 peak/threshold configurations`.
+For each fixed cyclic starting phase, adding full period L translates counts of symbols and adjacent digrams by a constant independent of the phase, so p2(n+L)=p2(n). A length r<=L factor crosses at most two run transitions. Monochrome classes yield [r<=a]+[r<=b]; one-transition orientations with x in [max(1,r-b),min(a,r-1)] each yield T(r) distinct classes; two-transition factors yield exactly one class per middle-run orientation when r>=b+2 or r>=a+2. Letter/digram counts determine first and last letters, proving disjointness. Summing yields boxed profile; max L cap vs 2min(a,b)+2 and gap-two phase threshold follow. Independently reproduced 7875 signatures for a,b<=15 across lengths 1..2L+3, matching peak and threshold. Finite checks are not proof of arbitrary parameters.
 
-The infinite assertions are established by the period-reduction and run-classification proof in `RESULT.md`. Finite checks are not presented as exhaustive verification for unbounded parameters. There is no independent scientific audit.
+## originality
+
+PASS
+
+PASS best of knowledge: foundational 2-Abelian complexity papers and 2-automatic examples do not supply the complete two-run periodic parameter profile or phase-information threshold. Prior complete multispectrum counts over all binary words and cyclic inverse-necktie k-decks address different sets of observed objects; they do not imply factor-restricted phase counts.
+
+## value
+
+PASS
+
+PASS: Exact two-parameter infinite family of a standard word-combinatorics invariant, with a sharp information-loss threshold |a-b|=2. The saturation at 2min(a,b)+2 is a structural classification of local digram-statistic identifiability, rather than an arbitrary finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review — two-run 2-Abelian factor complexity
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The central identity is proved for every positive run-length pair and factor length. Extending a factor by one period translates the letter-count and overlapping-digram-count vector by a phase-independent vector, reducing all lengths to the finite interval from one through the ordinary period. Within that interval a factor has zero, one, or two transitions. Constant factors yield the two indicators; one-transition factors are distinguished by their run lengths and yield twice the interval count; and two-transition factors form exactly one 2-Abelian class for each possible middle-run orientation. The proof separately checks existence, disjointness, and completeness. Evaluating this expression gives the sharp maximum and the all-phases-distinguishable threshold. The standalone direct enumerator passed 6,664 length profiles and 196 separate maximum/threshold checks. These finite tests corroborate but do not substitute for the full proof.
+PASS
 
-## Originality — PASS, with residual bibliographic uncertainty
+For each fixed cyclic starting phase, adding full period L translates counts of symbols and adjacent digrams by a constant independent of the phase, so p2(n+L)=p2(n). A length r<=L factor crosses at most two run transitions. Monochrome classes yield [r<=a]+[r<=b]; one-transition orientations with x in [max(1,r-b),min(a,r-1)] each yield T(r) distinct classes; two-transition factors yield exactly one class per middle-run orientation when r>=b+2 or r>=a+2. Letter/digram counts determine first and last letters, proving disjointness. Summing yields boxed profile; max L cap vs 2min(a,b)+2 and gap-two phase threshold follow. Independently reproduced 7875 signatures for a,b<=15 across lengths 1..2L+3, matching peak and threshold. Finite checks are not proof of arbitrary parameters.
 
-The closest foundational treatment, Karhumäki–Saarela–Zamboni (arXiv:1301.5104, Sections 2–4), defines the equivalence and establishes general complexity/periodicity results; those statements do not imply the parameterized run-family profile or phase threshold. Parreau–Rigo–Rowland–Vandomme (arXiv:1405.3532, especially Sections 1, 4–7) concerns 2-automatic aperiodic words such as Thue–Morse and period doubling. Fici–Puzynina (arXiv:2207.09937, Sections 8.1.2–8.1.3) discusses 2-Abelian complexity and general class structure, not the special cyclic two-run spectrum. A published published-finding corpus finding on binary length-two multispectra counts equivalence classes over *all* binary words and treats singleton classes; this does not give the class count restricted to factors of each specified two-run periodic word or the sharp gap-two identifiability law. The same-model literature comparisons did not find a directly covering statement. No bibliographic search establishes uniqueness; an unindexed equivalent result is possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete two-parameter infinite-family classification of a standard refinement of factor complexity. Its phase-identifiability corollary establishes a nontrivial sharp boundary: length-two local statistics can distinguish every cyclic phase for some window length exactly when the two monochromatic run lengths differ by at most two, even though the ordinary period always contains that many distinct phases. The maximum number of distinguishable phases saturates at twice the shorter run length plus two, independently of further growth of the longer run. This is a structural information-loss phenomenon, not a numerical one-off or a restatement of a general periodicity criterion.
+PASS best of knowledge: foundational 2-Abelian complexity papers and 2-automatic examples do not supply the complete two-run periodic parameter profile or phase-information threshold. Prior complete multispectrum counts over all binary words and cyclic inverse-necktie k-decks address different sets of observed objects; they do not imply factor-restricted phase counts.
 
-## Scientific limitations
+## value
 
-The proof covers only the specified binary two-run family and 2-Abelian observations. No higher-order signature classification is asserted. An uncatalogued special-case theorem could reduce originality. The self-review checks the proof and accessible literature, not independent priority or validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Exact two-parameter infinite family of a standard word-combinatorics invariant, with a sharp information-loss threshold |a-b|=2. The saturation at 2min(a,b)+2 is a structural classification of local digram-statistic identifiability, rather than an arbitrary finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
