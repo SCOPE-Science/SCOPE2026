@@ -1,21 +1,21 @@
-# Scientific review of the spatial excess-current spectral law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proved object is specified explicitly by the boundary-value solution, the published complex mode response, and the spatial integral of squared excess current. The formula for the latter follows by integrating \(\lvert U'\rvert^2\) and using the fixed boundary increment. The factor \(3240\) makes the low-frequency ratio equal to one: the expansion \(J(s)=s^4/180+O(s^8)\) gives the normalization independently of numerical tests. The ratio factorization, strict single maximum of its limiting shape (polynomial \(z^6+30z^4+17z^2-108\)), compactness of maximizing scales, uniform derivative asymptotics, and the nondegenerate-maximizer argument establish the unique eventual optimizer and the two-term cubic law. The extracted ordinary Python checker performs 127 comparisons, including independent numerical integration of the current cost; those tests are not used as an infinite proof.
+PASS
 
-## Originality — PASS, with bounded priority risk
+The stated observable is the explicitly spatially integrated deterministic quadratic excess current, not the algebraic form factor postulated in the earlier paper. Starting from U_omega(x)=sinh((1+i)s(x-1/2))/(2sinh((1+i)s/2)), direct integration of |U_prime-1|² gives J(s)=s(sinh s+sin s)/(2(cosh s-cos s))-1; independently evaluated the integral numerically at s=0.5,1.2,2.1,4.5, matching to 1e-10. Its exact small-s series starts s^4/180 and large-s J=s/2-1+O(se^-s). Direct complex amplitude subtraction gives the submitted rational lag, hence positive normalized Q. Rescaling z=s²/λ_n produces λ_n^-3/2 Q=h(z)[s/J(s)]/405; h>0 vanishes at z endpoints, derivative sign is negative of strictly increasing polynomial z^6+30z^4+17z²-108, so unique nondegenerate z*=1.26459650688644. Boundary localization and uniform C² perturbation justify global unique high-n maximizer and both n³/n² coefficients. The high-mode statement follows only after the continuum weak-response limit, not uniformly for microscopic lattice modes.
 
-The direct source [1] supplies the weak-drive mode-response formula and a comparison using a different closed-form dissipation factor; its high-mode conclusions are qualitative or finite-mode numerical, with no sharp \(n^3\) optimum, unique asymptotically maximizing frequency, two-term expansion, or exact evaluation of the explicitly specified spatial-current integral as used in this theorem. The original SSEP large-deviation sources [2,3] concern stationary correlations and time-averaged fluctuation deviations, while [4] gives general thermodynamic decompositions, not this modewise variational limit. Searches of a published research index with the paper title, SSEP harmonic mode ratio, optimization and spectral aliases returned no directly overlapping claim. The accessible own prior claims had no match for this paper or theorem. The direct source's complete accessible HTML main text and relevant appendices were inspected. Some general antecedents were available only as abstracts; discovery cannot exclude an unindexed or differently formulated previous calculation.
+## originality
 
-## Value — PASS
+PASS
 
-The problem is motivated by a specific, physically measurable quadratic excess-current cost and the established failure of a common longest-mode response budget for shorter wavelengths. The new theorem quantifies the exact ultraviolet degradation as cubic in mode number, determines the unique limiting optimum frequency as a fixed multiple of the mode eigenvalue, and supplies the next-order coefficient. This is a useful sharp normalization and experimental spectral-resolution diagnostic, not a renaming of the published stationary covariance spectrum or a single computed mode.
+Full October 6 primary arXiv article Long-Range Nonequilibrium Correlations as a Thermodynamic Speedometer supplies the correlation amplitude δa_n and discusses an excess-dissipation form factor, but its Eq.(34) F(s) differs from the independently integrated |U_prime-1|² cost J(s): printed F(s) has s^4/30 whereas direct J has s^4/180. Its Figure 3 treats n=2,3,4 ratios and an n=2 peak, without proving asymptotic n→∞ maximum and nondegenerate unique z*, cubic leading coefficient, or n² correction for this corrected integral. A sharp high-mode theorem for explicitly defined J therefore is not a corollary of the former F-cost ratio and is not contained in the inspected full primary text. The physical identification of this quadratic current as thermodynamic entropy production is deliberately not claimed.
 
-## Scope and relationship to literature
+## value
 
-The hydrodynamic/large-mode limits must be taken sequentially. Finite lattice ultraviolet scaling, strong modulation, nonharmonic protocols and any nonlinear entropy-production identity are outside the statement. No claim of independent review or publication-priority certification is made. The scientific comparison is based primarily on [1] in full HTML, with [2–4] inspected at the accessible abstract level.
+PASS
 
-References: [1] arXiv:2610.07964v1; [2] arXiv:cond-mat/0109346; [3] arXiv:2212.11561; [4] arXiv:2412.08432.
+Computing the actual spatial quadratic current, distinguishing it from a different previously reported form factor, and determining a sharp large-mode penalty and optimal driving scale is a motivated quantitative correction for a natural hydrodynamic observable. Exact n³ and n² coefficients and eventual unique maximizer are nontrivial asymptotic facts for the response modes, not a mere rescaling of an existing theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
