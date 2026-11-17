@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The admissibility conditions follow by an invertible rational change of marked parameters \(s=(1-\lambda)/\lambda\), \(t=1-\mu/\lambda\), yielding the exact forbidden set \(t\in\{0,1,-s,s^2\}\). Counting nonsquares separately gives \((q-1)(q-3)/2\) for every odd prime power. The source's displayed involution is an algebraic identity over the quadratic field; its Galois conjugate is its product with the hyperelliptic involution, so all odd Frobenius traces vanish. The two conjugate elliptic quotient factors have the same \(q^2\)-trace and determine \(1-aT^2+q^2T^4\). Tate's theorem identifies the induced-isogeny class. Exact modular checks in the bundled verifier confirm seven independently counted genus-two/elliptic examples for two twists, plus eleven finite prime parameter censuses and a complete characteristic-three \(\mathbb F_9\) sample check. Finite checks are not the uniform proof.
+## correctness
 
-## Originality
-**PASS, with priority uncertainty.** The closest primary paper is Iezzi--Qiu Kawakita--Timpanella, arXiv:2306.01928v1, Section 3, Theorem 2 and proof. It states the elliptic quotient decomposition assuming \(\lambda(\lambda-\mu)\) is a square and prints the Rosenhain equation and involution. The present result treats precisely its omitted nonsquare stratum, counts all its admissible marked parameters uniformly, and determines a \(q\)-Frobenius zeta polynomial and odd-extension point counts. Freeman--Satoh (2011), Section 3, Proposition 3.2, proves the general induced Frobenius-polynomial mechanism, and Section 4 treats different special genus-two families. That general theorem subsumes the **last step once the source family has been identified as a Weil restriction**, but it does not itself give the exact Rosenhain nonsquare condition or its marked-parameter count. The new claim does not assert novelty for Weil restrictions, for the source's involution, or for its explicit elliptic quotients. Direct exact-formula searches and searches of accessible historical claims did not reveal covering statements. Remaining risk: the nonsplit special case or parameter census might appear under another parameterization in older bielliptic-curve literature.
+PASS
 
-## Mathematical value
-**PASS.** The source is motivated by many-point constructions. The result gives a uniform obstruction for a full, explicitly measured geometric stratum: no one of its \((q-1)(q-3)/2\) marked curves exceeds \(q+1\) rational points, regardless of the twist, and the obstruction persists across *all odd-degree extensions*. The even-degree point counts reduce to one elliptic quotient over \(\mathbb F_{q^2}\), a practical simplification for such searches. The square/nonsquare dichotomy covers all \((q-3)^2\) smooth marked pairs, but no claim is made for unique moduli classes or a complete list of possible elliptic traces.
+Coordinate substitution s=(1−λ)/λ, t=1−μ/λ gives λ=1/(s+1), Δ=λ²t and admissibility s∉{0,-1}, t∉{0,1,−s,s²}; count (q−3)² total, (q−1)(q−3)/2 nonsplit for every odd q≥5, including characteristic three. On quadratic extension K=F_(q²), sqrt(Δ) has conjugate negative, and Frobenius exchanges the nonhyperelliptic genus-one involutions σ and ισ. Since hyperelliptic involution acts by −1 on H¹, FσF^{-1}=−σ and every odd Frobenius trace vanishes. Kani–Rosen elliptic decomposition and equal conjugate q²-Frobenius elliptic traces a give L=1−aT²+q²T⁴ and Jac isogenous over F_q to Res_(K/k)E by Tate. Independent exact checks enumerated all prime-field marked pairs for q=5,7,11,13,17,19,23, verifying nonsplit populations and F_q point counts q+1 with two twists; uniform proof is algebraic, not finite extrapolation.
 
-## Closest sources and limitations
-The full Rosenhain theorem and proof in the 2023 source and the Weil restriction theory of Freeman--Satoh have been compared at the level of hypotheses and implications. Howe's 2004 genus-two Frobenius-polynomial work provides a further nearby context; its full article was not inspected, so a historical-equivalence risk remains. The bundled finite tests are checks rather than a certification of independent mathematical correctness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing elliptic-quotient and general Weil-restriction methods are explicitly credited. The new all-q exact nonsquare marked-locus census and concrete genus-two Galois-conjugate quotient zeta classification were not covered by checked source material; residual priority risk remains for alternate bielliptic normal forms.
+
+## value
+
+PASS
+
+The number of admissible nonsplit marked genus-two curves and their forced q+1 point counts across all odd extensions give an exact arithmetic obstruction for point-rich curve searches and an explicit family of induced Jacobian zeta functions. This is a natural full-parameter classification, not merely restating Weil restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
