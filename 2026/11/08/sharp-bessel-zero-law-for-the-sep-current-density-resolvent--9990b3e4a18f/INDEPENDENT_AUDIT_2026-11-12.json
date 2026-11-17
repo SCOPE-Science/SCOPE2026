@@ -1,0 +1,93 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T11:53:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The kernel e^(-u-v)I_1(2 sqrt(uv)) has positive rank-one Gram expansion, giving compact self-adjoint positive operator A_t with trivial kernel and simple positive top eigenvalue. Positive SEP right-hand forcing overlaps the Perron vector, so the analytic Neumann series radius is exactly 1/Lambda(t), and the leading negative pole is not removable. Short t follows from the k=0 Gram term t²/2-2t³/3+O(t^4), remainder O(t^4). Diffusive scaling of critical Feller branching and sampled-killing to Dirichlet-killing semigroup yield t(1-Lambda(t))->j_1,1²/4; its regular ground state sqrt(x)J1(2sqrt(beta x)) meets upper Dirichlet at beta=j_1,1²/4. The restriction is in complex omega, not lambda. Independently rebuilt positive symmetric Nyström matrices at t=0.03,0.2,2,20,100 and checked spectra below 1 and long-time trend; these do not substitute for the semigroup proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Parent SEP result derives the one-body reduction; Bessel spectral surveys provide generic Dirichlet zeros, neither states that the sampled SEP current-density resolvent approaches the J1-zero pole with correction 1/t."
+        ],
+        "reasoning": "One can combine known Feller diffusion spectral facts with the finite-interval SEP kernel, but the specific sampled-to-continuous killing comparison and exact resolvent-pole interpretation are needed.",
+        "searches": [
+          "https://arxiv.org/abs/2610.18626",
+          "https://arxiv.org/abs/1904.11190"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.18626",
+        "https://arxiv.org/abs/1904.11190",
+        "https://dlmf.nist.gov/10.21",
+        "Resultary semantic search: SEP symmetric simple exclusion current density resolvent Bessel I1 kernel analyticity pole eigenvalue J1 zero critical branching"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The SEP parent paper solves one-body equation for physical parameters but does not compute nearest complex continuation singularity.",
+          "General critical branching killed-generator spectrum supplies beta=j_1,1²/4; the transition from sampled to continuous killing in the submitted proof identifies its coefficient."
+        ],
+        "reasoning": "The large-time constant is not immediately a prior SEP corollary without proving the operator-to-killed-semigroup limit; no stronger published exact omega-pole theorem found.",
+        "searches": [
+          "https://arxiv.org/abs/2610.18626",
+          "https://arxiv.org/abs/1904.11190"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bénichou–Grabsch Eq.(14)–(16) gives the same kernel G(T|u), but not an exact nearest pole in analytically continued omega."
+        ],
+        "reasoning": "Kernel equality is admitted; the nontrivial new statement concerns the spectral radius of its finite-interval symmetric conjugate and the zero of J1, not the existence of one-body SEP equation.",
+        "searches": [
+          "SEP symmetric simple exclusion current density resolvent Bessel I1 kernel analyticity pole eigenvalue J1 zero critical branching",
+          "https://arxiv.org/abs/2610.18626"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "DLMF tables list j_1,1, and finite numerical Nyström tables can approximate Lambda(t); none provides the finite-time SEP scalar analytic-radius theorem."
+        ],
+        "reasoning": "A known Bessel zero alone does not constitute a table for the nontrivial microscopic operator norm or its pole.",
+        "searches": [
+          "SEP symmetric simple exclusion current density resolvent Bessel I1 kernel analyticity pole eigenvalue J1 zero critical branching",
+          "https://dlmf.nist.gov/10.21"
+        ]
+      },
+      "rationale": "Bénichou–Grabsch 2026 provides the exact microscopic one-body SEP kernel and integral equation used as premises. Its displayed finite-time propagator/current-density formulas do not establish the principal truncated operator eigenvalue, exact nearest resolvent pole, or the long-time J1-zero correction. Earlier integrated-current asymptotics or Bessel spectral references treat other parameters/objects. Originality is best-of-knowledge, with parent appendices not fully inspected.",
+      "residual_risks": [
+        "Parent Bénichou–Grabsch appendices were not fully read; an implicit operator resolvent pole may be stated there.",
+        "An older killed critical branching sampled semigroup spectral paper might compute an equivalent 1/t gap; no exhaustive priority certification.",
+        "The sample-at-integers to continuous-killing operator norm limit relies on boundary regularity and Hilbert-Schmidt domination; analytical source proof was checked but not formally verified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides necessary kernel/integral equation, not established exact finite-time pole spectral law in inspected material",
+          "evidence": "Displays G(T|u)=e^(-T-u)sqrt(u/T)I1(2sqrt(Tu)); microscopic profile relation is a premise.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.18626",
+          "material_read": "Primary PDF equations (3),(5),(14)–(16), and selected current-density results (18)–(22); appendices not read in full",
+          "method": "Read relevant source PDF pages with page images and compare explicit equations",
+          "title": "Exact Microscopic One-Body Reduction in the Symmetric Exclusion Process",
+          "trigger": "Identical kernel, possible exact pole prior"
+        },
+        {
+          "assessment": "Covers general zeros and spectral sums, not direct SEP truncated kernel resolvent",
+          "evidence": "Known J1 zero supplies beta but not SEP resolvent identity.",
+          "identifier_or_url": "https://arxiv.org/abs/1904.11190",
+          "material_read": "Abstract/reference description and Bessel eigenvalue context, not full text",
+          "method": "Literature metadata and formula comparison",
+          "title": "A physicist's guide to explicit summation formulas involving zeros of Bessel functions and related spectral sums",
+          "trigger": "Potential general J1 eigenvalue coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The analyticity radius and leading pole quantify precisely where the microscopic scalar current-density resolvent perturbation ceases to converge at each physical time; the sharp first Bessel-zero correction supplies an exact nontrivial long-time spectral invariant, distinct from hydrodynamic current cumulants. Boundary in omega is carefully stated to avoid false physical-tilt claims.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Radius is complex scalar omega not exponential lambda, not necessarily physically accessible; parent full appendices not audited; numerical matrices do not certify infinite-time theorem.",
+  "schema_version": 1
+}

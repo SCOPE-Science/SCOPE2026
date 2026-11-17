@@ -1,19 +1,21 @@
-# Scientific review: sharp Bessel-zero law for the SEP current–density resolvent
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the \(L^2(0,t)\) operator \(A_t\) with kernel \(e^{-(u+v)}I_1(2\sqrt{uv})\), its largest eigenvalue \(\Lambda(t)\), and the analytically continued one-body current–density resolvent. The positive Gram decomposition gives compactness, positivity and the simple Perron eigenvalue; a positive source vector proves the leading negative real pole is not removable. The explicit Feller branching Laplace transform identifies the semigroup; the finite-interval cutoff proves \(\Lambda(t)<1\); the rank-one expansion proves \(\Lambda(t)=t^2/2-2t^3/3+O(t^4)\). The nontrivial large-time step is checked through sampled-to-continuous killing, with kernel domination in Hilbert–Schmidt norm, and the Dirichlet eigenvalue \(j_{1,1}^2/4\). The supplied verifier passed 89 deterministic assertions. Mathematical proof, not finite sampling, covers all \(t>0\).
+PASS
 
-## Originality — PASS (qualified)
+The kernel e^(-u-v)I_1(2 sqrt(uv)) has positive rank-one Gram expansion, giving compact self-adjoint positive operator A_t with trivial kernel and simple positive top eigenvalue. Positive SEP right-hand forcing overlaps the Perron vector, so the analytic Neumann series radius is exactly 1/Lambda(t), and the leading negative pole is not removable. Short t follows from the k=0 Gram term t²/2-2t³/3+O(t^4), remainder O(t^4). Diffusive scaling of critical Feller branching and sampled-killing to Dirichlet-killing semigroup yield t(1-Lambda(t))->j_1,1²/4; its regular ground state sqrt(x)J1(2sqrt(beta x)) meets upper Dirichlet at beta=j_1,1²/4. The restriction is in complex omega, not lambda. Independently rebuilt positive symmetric Nyström matrices at t=0.03,0.2,2,20,100 and checked spectra below 1 and long-time trend; these do not substitute for the semigroup proof.
 
-The 2026 parent paper establishes the microscopic one-body equation and exact Bessel transition kernel (arXiv:2610.18626, equations (14)–(22)), but the inspected material does not give the closest complex pole or the two-sided short-/long-time convergence-radius theorem. Earlier current statistics (arXiv:0902.2364) and large-scale macroscopic fluctuations (arXiv:2202.05213) do not imply the stated finite-microscopic-time expansion as a quoted result. Bessel spectral theory and killed branching diffusions are established tools, so novelty is confined to their exact use in the SEP transformed current–density resolvent and its sharp analyticity boundary. Published-result databases and relevant earlier scientific claims were searched for aliases, resolvent poles, principal eigenvalues and Bessel roots; relevant related but noncovering mathematical records are identified in the structured audit. The parent's appendices were not fully retrievable; this leaves a genuine publication-priority risk, not proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The perturbation series in the current-tilt parameter is an actual analytic method for the exact interacting-particle current–density profile. The principal-eigenvalue identification gives the precise convergence disk for every finite microscopic time, proves all singularities lie on a negative real axis, and quantifies the singular approach of the nearest one to the physical boundary using a non-obvious Bessel-zero constant. This sharp cross-scale limit requires distinguishing discrete sampling from continuous absorbing dynamics and is not a routine re-expression of the source's known current cumulants. It helps determine when current-tilt expansions can legitimately be used near large observation times.
+Bénichou–Grabsch 2026 provides the exact microscopic one-body SEP kernel and integral equation used as premises. Its displayed finite-time propagator/current-density formulas do not establish the principal truncated operator eigenvalue, exact nearest resolvent pole, or the long-time J1-zero correction. Earlier integrated-current asymptotics or Bessel spectral references treat other parameters/objects. Originality is best-of-knowledge, with parent appendices not fully inspected.
 
-## Closest literature and limitations
+## value
 
-Bénichou–Grabsch 2026 (arXiv:2610.18626) is the essential parent kernel; Derrida–Gerschenfeld 2009 (arXiv:0902.2364) establishes current statistics; Mallick–Moriya–Sasamoto 2022 (arXiv:2202.05213) covers macroscopic fluctuations; Grebenkov's Bessel spectral review (arXiv:1904.11190) supplies general background. The present result concerns analyticity in \(\omega\), not necessarily the physical \(\lambda\)-plane; it assumes step Bernoulli data, an infinite symmetric exclusion lattice, and positive microscopic time. A closed-form exact finite-\(t\) eigenvalue is not claimed. Independent priority and formal audits have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The analyticity radius and leading pole quantify precisely where the microscopic scalar current-density resolvent perturbation ceases to converge at each physical time; the sharp first Bessel-zero correction supplies an exact nontrivial long-time spectral invariant, distinct from hydrodynamic current cumulants. Boundary in omega is carefully stated to avoid false physical-tilt claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
