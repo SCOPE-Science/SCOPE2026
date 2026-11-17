@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python verify.py` with the standard Python 3 library. The run prints `VERIFY_OK prime_power_cases=10 shift_cases=3 triple_at_level_one_p11=3` after checking the complete input period of ten prime-power instances, including exponent levels equal to the certified cutoff for primes three, five, seven, eleven, and thirteen. It computes pairwise intersection targets independently via Teichmüller modular lifts; all such targets are represented at least twice. The script additionally confirms that coprime shifts preserve the fiber histogram in three examples and that there are exactly three triple fibers at the low-level prime-eleven case.
+## correctness
 
-For arbitrary primes and exponents, the exact theorem is derived by the algebraic norm argument in RESULT.md. The finite computation does not independently certify historical novelty, extend the theorem below the cutoff, or replace the universal proof. No independent mathematical audit has been performed.
+PASS
+
+The quotient is well defined modulo p^k on input classes modulo p^(k+1). Each admissible residue class r in 1,...,p-2 is a graph of p^k points: the Teichmuller-based quotient map has unit derivative with a one-power valuation drop. For distinct r,s, equality of both quotient coordinates gives a 2x2 Teichmuller linear system with unit determinant mod p (r-s), so exactly one pairwise intersection. A triple exact common point yields three distinct complex numbers on circles centered at 0 and 1, impossible. Nonzero cyclotomic numerator has every conjugate bounded by 8, hence rational norm <=8^phi(p-1); any triple mod p^k forces this integer norm divisible by p^(k+1), contradicting k cutoff. Multiplication by h maps the two coordinates by a unit affine map and preserves multiplicities. The p=3 one-branch and p=11,k=1 triple-fiber boundaries are explicit. Independently enumerated full periods p=3,k1,2; p=5,k3; p=7,k3; p=11,k1,2 and unit shifts (5,2,2),(7,2,3). This is not an infinite computational proof.
+
+## originality
+
+PASS
+
+Exact simultaneous prime-power pair-image fiber multiplicities are not supplied by the identified interval/discrepancy and single-quotient papers. The closest same-day pair-Fourier result computes additive convolutions modulo p and does not imply higher p^k branch pair-intersection stabilization. The cyclotomic norm cutoff and complete single/double count remain a motivated new result on currently inspected evidence.
+
+## value
+
+PASS
+
+The exact image and fiber distribution of two neighboring Fermat quotients across all prime powers is a natural arithmetic distribution invariant. Exact pairwise intersection and effective stabilization constitute substantive structure, not merely finite tabulation, and distinguish a strict high-exponent law from the demonstrated low-exponent triple overlap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

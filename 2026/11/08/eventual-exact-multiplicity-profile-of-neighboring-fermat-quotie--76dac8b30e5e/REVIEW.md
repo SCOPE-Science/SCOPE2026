@@ -1,21 +1,21 @@
-# Review of the eventual Fermat-quotient pair-image theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is precisely a finite-level fiber-multiplicity classification for each odd prime, each unit shift, and all exponents at or beyond the explicit cutoff. The argument uses the exact quotient map on each Teichmüller residue branch, not a limiting heuristic. A unit determinant gives exactly one intersection per pair of branches. A three-branch coincidence would produce three distinct points on two distinct complex circles, hence a nonzero cyclotomic integer. Its field norm is bounded by the product of archimedean estimates, ruling out high-order congruences. The quotient-coordinate valuation loss of exactly one is accounted for in the cutoff. Exact Python enumeration confirms small cases but is not substituted for the proof.
+PASS
 
-Risk: the effective threshold is intentionally not optimized, and no claim is made below the cutoff. The counterexample of triple fibers at the first level for prime eleven confirms why that distinction matters.
+The quotient is well defined modulo p^k on input classes modulo p^(k+1). Each admissible residue class r in 1,...,p-2 is a graph of p^k points: the Teichmuller-based quotient map has unit derivative with a one-power valuation drop. For distinct r,s, equality of both quotient coordinates gives a 2x2 Teichmuller linear system with unit determinant mod p (r-s), so exactly one pairwise intersection. A triple exact common point yields three distinct complex numbers on circles centered at 0 and 1, impossible. Nonzero cyclotomic numerator has every conjugate bounded by 8, hence rational norm <=8^phi(p-1); any triple mod p^k forces this integer norm divisible by p^(k+1), contradicting k cutoff. Multiplication by h maps the two coordinates by a unit affine map and preserves multiplicities. The p=3 one-branch and p=11,k=1 triple-fiber boundaries are explicit. Independently enumerated full periods p=3,k1,2; p=5,k3; p=7,k3; p=11,k1,2 and unit shifts (5,2,2),(7,2,3). This is not an infinite computational proof.
 
-## Originality — PASS (best-knowledge, priority-qualified)
+## originality
 
-The closest full-text comparison is Ostafe–Shparlinski (arXiv:1001.1504, Section 4.1, Theorem 11), which controls joint distributions of short sequences with Fourier sums and discrepancy bounds, not exact multiplicities of the pair image over all prime powers. Shparlinski (arXiv:1104.3909) primarily estimates one-dimensional image sizes and exponential sums. Chen–Winterhof (2012, DOI 10.1142/S1793042112500352) investigates joint vectors for generalized Euler–Fermat quotients; available abstracts discuss discrepancy, while its full text could not be inspected. Published-record comparisons found no statement with equivalent unit-shift, prime-power, pairwise-intersection, or cutoff implications. These are comparisons of implications rather than merely titles.
+PASS
 
-Risk: a general historical result on intersections of cyclotomic residue graphs or a later version of the 2012 vector paper might imply this theorem; historical priority is therefore not independently established.
+Exact simultaneous prime-power pair-image fiber multiplicities are not supplied by the identified interval/discrepancy and single-quotient papers. The closest same-day pair-Fourier result computes additive convolutions modulo p and does not imply higher p^k branch pair-intersection stabilization. The cyclotomic norm cutoff and complete single/double count remain a motivated new result on currently inspected evidence.
 
-## Mathematical value — PASS
+## value
 
-The simultaneous image of consecutive Fermat quotients is a natural arithmetic invariant already motivating joint-distribution studies. This result replaces approximate distribution information with an eventual *complete fiber-multiplicity profile* for every odd prime and every coprime shift. The surprising stabilization is exact: all distinct branch pairs contribute exactly one collision, independent of the exponent, while no higher collisions survive beyond an explicit bound. The explicit norm argument supplies a uniform effective cutoff rather than a purely qualitative existence theorem.
+PASS
 
-Risk: the bound is conservative, and minimal stabilization exponents and short-interval behavior remain unknown.
+The exact image and fiber distribution of two neighboring Fermat quotients across all prime powers is a natural arithmetic distribution invariant. Exact pairwise intersection and effective stabilization constitute substantive structure, not merely finite tabulation, and distinguish a strict high-exponent law from the demonstrated low-exponent triple overlap.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
