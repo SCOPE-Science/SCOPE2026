@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The algebra isomorphism reduction to simultaneous permutations follows from invertible-square monomial rigidity in characteristic two and is reconstructed directly in `RESULT.md`. Every binary \(5\times5\) matrix is enumerated; binary Gaussian elimination exactly tests invertibility. The two group-type enumerators use independent complete orbit algorithms (generator reachability versus lexicographic minima among all permutations) and agree on all thirteen rows. A third, orbital-matrix Burnside count gives \(85{,}411\) classes independently. The sums of orbit sizes recover \(9{,}999{,}360\) labeled invertible matrices. The proof is finite and exhaustive for dimension five, not an extrapolation.
+PASS
 
-## Originality — PASS relative to inspected evidence
+Over F2 a perfect evolution algebra has invertible structure M; every algebra isomorphism is monomial, hence a permutation (all nonzero scalars 1). The full automorphism group is exactly its S5 stabilizer under simultaneous row/column permutation. Independent exhaustive C++ enumeration checked all 2^25 binary matrices, their invertibility, every orbit and every permutation stabilizer; it reproduced 9,999,360 labelled invertible matrices, 85,411 orbits and the complete thirteen-type counts (trivial 81408, C2 3694, C3 80, C4 8, V4 113, C5 3, C6 8, S3 73, D8 8, D10 1, S3xC2 7, S4 7, S5 1). Separate fixed-matrix Burnside enumeration reproduced classwise invertible counts 9999360,21504,1536,504,24,32,15, giving 85411. Finite complete certificate, not extrapolation.
 
-The published automorphism-group criterion and the \(S_n\) extreme case are prior results of Sriwongsa–Zou (arXiv:2202.01333). Wei–Zou (arXiv:2310.12368) provides the general orbit framework and low-dimensional total counts through dimension four. Hu's October 2026 3-transitive classification concerns a different field regime for its exceptional five-dimensional case. These works do not state the complete thirteen-cell binary dimension-five abstract stabilizer-type distribution. Earlier asymptotic results on rare binary automorphisms do not imply the exact finite-order multiplicities. Searches for the exact numbers, equivalent binary-matrix orbit descriptions, and stabilizer-order tables located no directly covering source. The unique \(S_5\) stratum and overall Burnside framework are not independently novel. A previously unlocated binary-digraph classification table remains a publication-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the first dimension beyond the dimension-two, -three, and -four explicit classifications of Wei–Zou, at the smallest finite field. The complete finite moduli symmetry profile answers a natural classification question not answered by a total isomorphism-class count: which groups occur, with what multiplicities, and how many classes are rigid. It distinguishes nonisomorphic automorphism groups with equal orders and rules out other types. This exact natural finite cutoff is useful as a benchmark for future higher-dimensional enumeration and for automorphism-group classification; no unsupported all-dimension extension is claimed.
+Prior automorphism criterion of Sriwongsa–Zou and Wei–Zou orbit/Burnside framework are foundational and already imply some totals, but neither determines all thirteen stabilizer-type multiplicities at dimension5 over F2. Search equivalences include invertible binary directed adjacency-matrix permutation orbits, not just evolution algebra nomenclature. Hu’s recent A5 exceptional classification assumes other characteristic and does not supply this histogram. Potential unindexed digraph census retained as risk.
 
-## Scope and residual risk
+## value
 
-Only perfect five-dimensional evolution algebras over \(\mathbb F_2\), with field-linear automorphisms, are counted. Exactness depends on the explicitly inspectable exhaustive computer programs; independent mathematical audit has not been performed. Source priority remains provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete abstract automorphism-group type spectrum is a natural finite moduli invariant at dimension five beyond previously tabulated dimensions two through four. It distinguishes nonisomorphic stabilizers of the same order, identifies exact rigid/nonrigid strata and records all attainable group types; a generic Burnside total alone is insufficient. Motivated classification, not a renamed count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

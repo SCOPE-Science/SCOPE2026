@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T18:15:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-automorphism-type-spectrum-of-five-dimensional-perfect--0a1e95678f35/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-automorphism-type-spectrum-of-five-dimensional-perfect--0a1e95678f35/verify_orbits.cpp",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-automorphism-type-spectrum-of-five-dimensional-perfect--0a1e95678f35/verify_canonical.cpp",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-automorphism-type-spectrum-of-five-dimensional-perfect--0a1e95678f35/verify_burnside.cpp"
+      ],
+      "rationale": "Over F2 a perfect evolution algebra has invertible structure M; every algebra isomorphism is monomial, hence a permutation (all nonzero scalars 1). The full automorphism group is exactly its S5 stabilizer under simultaneous row/column permutation. Independent exhaustive C++ enumeration checked all 2^25 binary matrices, their invertibility, every orbit and every permutation stabilizer; it reproduced 9,999,360 labelled invertible matrices, 85,411 orbits and the complete thirteen-type counts (trivial 81408, C2 3694, C3 80, C4 8, V4 113, C5 3, C6 8, S3 73, D8 8, D10 1, S3xC2 7, S4 7, S5 1). Separate fixed-matrix Burnside enumeration reproduced classwise invertible counts 9999360,21504,1536,504,24,32,15, giving 85411. Finite complete certificate, not extrapolation.",
+      "residual_risks": [
+        "Finite n=5/F2 census does not extend to all fields/dimensions; code is exhaustive for fixed finite domain, not formal mechanized proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2310.12368 general orbit-count formula and dimensions 2,3,4 worked",
+          "https://arxiv.org/abs/2202.01333 full Sn automorphism case"
+        ],
+        "reasoning": "Known broader formalism counts total permutation-orbits, and an Sn extreme, not the distribution by all abstract subgroup isomorphism types; counting group types requires additional subgroup/stabilizer intersection data.",
+        "searches": [
+          "five dimensional F2 perfect evolution algebra automorphism group types spectrum 85411 classes",
+          "Wei Zou isomorphism classes idempotent evolution algebra Fq n5 orbit formula",
+          "Hu 2026 triply transitive idempotent evolution algebra A5 dimension5"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2202.01333",
+        "https://arxiv.org/abs/2310.12368",
+        "https://www.preprints.org/manuscript/202610.0914",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-automorphism-type-spectrum-of-five-dimensional-perfect--0a1e95678f35/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General S5-permutation equivalence in 2202.01333",
+          "Explicit low-dimension examples and general sum in 2310.12368"
+        ],
+        "reasoning": "A total 85411 and existence of a unique S5-symmetric object cannot recover e.g. eight C4 vs 113 Klein-four, eight C6 vs 73 S3, or 81408 rigid classes; therefore published conclusions do not imply the final 13-cell theorem.",
+        "searches": [
+          "five dimensional F2 perfect evolution algebra automorphism group types spectrum 85411 classes",
+          "arxiv 2202.01333 automorphism criterion S5",
+          "arxiv 2310.12368 dimension five finite-field isomorphism classes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sriwongsa–Zou arxiv:2202.01333 monomial automorphism criterion; exact action is S5-conjugacy on GL5(F2)",
+          "Assigned RESULT.md full thirteen stabilizer spectrum"
+        ],
+        "reasoning": "Evolution-algebra isomorphism is equivalent to simultaneous vertex relabeling of invertible binary directed adjacency matrices; also to S5 conjugacy orbit stabilizer types. These precise equivalences were searched.",
+        "searches": [
+          "five dimensional F2 perfect evolution algebra automorphism group types spectrum 85411 classes",
+          "invertible binary five by five matrices permutation similarity stabilizer group histogram 85411",
+          "F2 5 vertex directed graphs loops automorphism types adjacency invertible"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual complete table is thirteen types, independent exhaustive Burnside confirms only aggregate 85411",
+          "Relevant articles arxiv:2202.01333, arxiv:2310.12368 examined for tables"
+        ],
+        "reasoning": "No checked primary database gives the complete thirteen-type table. An obscure unindexed looped digraph table with invertible adjacency may pre-exist, the main residual risk.",
+        "searches": [
+          "five dimensional F2 perfect evolution algebra automorphism group types spectrum 85411 classes",
+          "\"85411\" \"81408\" evolution algebra",
+          "5 vertex invertible adjacency directed graphs stabilizer subgroup census"
+        ]
+      },
+      "rationale": "Prior automorphism criterion of Sriwongsa–Zou and Wei–Zou orbit/Burnside framework are foundational and already imply some totals, but neither determines all thirteen stabilizer-type multiplicities at dimension5 over F2. Search equivalences include invertible binary directed adjacency-matrix permutation orbits, not just evolution algebra nomenclature. Hu’s recent A5 exceptional classification assumes other characteristic and does not supply this histogram. Potential unindexed digraph census retained as risk.",
+      "residual_risks": [
+        "Historical-priority risk of an unindexed exact five-vertex binary digraph stabilizer table restricted to invertible adjacency.",
+        "Finite n=5/F2 census does not extend to all fields/dimensions; code is exhaustive for fixed finite domain, not formal mechanized proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes acting group and symmetry extreme, not this finite 13-group distribution.",
+          "evidence": "Permutation-monomial criterion; no complete n=5 F2 automorphism type histogram.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.01333",
+          "material_read": "Accessible full manuscript; initial definitions, monomial automorphism theorem and full symmetric automorphism cases.",
+          "method": "OA primary PDF text plus rendered page checks",
+          "title": "On Automorphism Groups of Idempotent Evolution Algebras",
+          "trigger": "Exact algebra isomorphism/automorphism criterion"
+        },
+        {
+          "assessment": "General class-count formula and dimensions n<=4 worked, but lacks separate n=5 F2 stabilizer isomorphism types.",
+          "evidence": "Distinguish Burnside aggregate from stabilizer distribution.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.12368",
+          "material_read": "Full accessible manuscript sections describing orbit/Burnside formula and detailed low-dimensional classifications.",
+          "method": "OA PDF text, key page images",
+          "title": "Isomorphism Classes of Idempotent Evolution Algebras",
+          "trigger": "General field/dimension orbit-count formula might dominate"
+        },
+        {
+          "assessment": "Not covering F2 thirteen-stratum distribution; exceptional A5 classification has different characteristic scope.",
+          "evidence": "Characteristic assumptions and focus on triply transitive images rather than full group-type counts.",
+          "identifier_or_url": "https://www.preprints.org/manuscript/202610.0914",
+          "material_read": "Abstract and theorem description checked; accessible portion, not claimed full manuscript verification.",
+          "method": "Public primary abstract/preprint landing content",
+          "title": "Triply Transitive Natural Permutation Images of Idempotent Evolution Algebras",
+          "trigger": "Potentially relevant A5 dimension-five exceptional symmetry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2202.01333",
+        "https://arxiv.org/abs/2310.12368",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/complete-automorphism-type-spectrum-of-five-dimensional-perfect--0a1e95678f35/RESULT.md"
+      ],
+      "rationale": "The complete abstract automorphism-group type spectrum is a natural finite moduli invariant at dimension five beyond previously tabulated dimensions two through four. It distinguishes nonisomorphic stabilizers of the same order, identifies exact rigid/nonrigid strata and records all attainable group types; a generic Burnside total alone is insufficient. Motivated classification, not a renamed count.",
+      "residual_risks": [
+        "Historical-priority risk of an unindexed exact five-vertex binary digraph stabilizer table restricted to invertible adjacency.",
+        "Finite n=5/F2 census does not extend to all fields/dimensions; code is exhaustive for fixed finite domain, not formal mechanized proof."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Historical-priority risk of an unindexed exact five-vertex binary digraph stabilizer table restricted to invertible adjacency.",
+    "Finite n=5/F2 census does not extend to all fields/dimensions; code is exhaustive for fixed finite domain, not formal mechanized proof."
+  ],
+  "schema_version": 1
+}
