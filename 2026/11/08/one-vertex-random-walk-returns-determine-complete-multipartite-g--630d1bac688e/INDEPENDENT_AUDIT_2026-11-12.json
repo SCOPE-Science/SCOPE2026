@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T00:12:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For known N>=2, connected K_(n1,...,nr), r>=2 and root v in part i of size a, P decomposes into zero on within-part zero-sum W and invertible quotient Q=uw^T-diag(d_j), d_j=n_j/(N-n_j); determinant=(-1)^r*(1-r)*product(d_j) !=0. Zero spectral weight at v is 1-1/a, recovering a. After removing that atom, quotient diagonal resolvent G(z) yields X(z)=(z-G(z)^(-1))/(d_i+z-G(z)^(-1))=sum_{j!=i}d_j/(z+d_j). Distinct poles -s/(N-s) and positive residues m_s*s/(N-s) recover remaining part sizes and multiplicities. Reversible P has at most N real spectral atoms; the difference of two return measures has <=2N atoms, so equality of moments t=0..2N-1 forces equality by Vandermonde. Without N, rooted K_(a,b) all return p_2t=1/a, p_(2t+1)=0 regardless of b. Algebra checked with independent exact rational quotient/full-matrix resolvents on small multipartitions, not used as unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun--Das normalized Laplacian characteristic polynomial describes global spectrum of multipartite graphs; Zatloukal develops general local return resolvents for some graph families."
+        ],
+        "reasoning": "Broader forward spectral techniques do not imply a local rooted inverse theorem without the explicit zero-atom and positive-residue decoding. Global spectrum and rooted spectral measure have different information.",
+        "searches": [
+          "https://doi.org/10.1016/j.dam.2020.03.041",
+          "https://arxiv.org/abs/2012.15399"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: complete multipartite graphs rooted random walk return probabilities spectral measure reconstruct part sizes",
+        "https://arxiv.org/abs/2012.15399",
+        "https://doi.org/10.1016/j.dam.2020.03.041",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-one-rooted-spanning-tree-degree-law-reconstructs-every-complete--243c0c6fa37e/RESULT.md",
+        "https://arxiv.org/pdf/2012.15399",
+        "https://doi.org/10.1016/j.dam.2020.03.041",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-one-rooted-spanning-tree-degree-law-reconstructs-every-complete--243c0c6fa37e/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier spanning-tree one-root law inverts multiplicities of polynomial zeros from the degree marginal; present theorem inverts negative resolvent poles from the ordinary random-walk return law."
+        ],
+        "reasoning": "Neither inverse observation implies the other for an arbitrary graph; despite both reconstructing the same multipartite object, the submitted rooted-walk decoder and 2N-moment sufficiency are not the statements or corollaries of the reviewed prior papers.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-one-rooted-spanning-tree-degree-law-reconstructs-every-complete--243c0c6fa37e/RESULT.md",
+          "https://arxiv.org/abs/2012.15399",
+          "https://doi.org/10.1016/j.dam.2020.03.041"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zatloukal discusses local-time resolvents and forward rooted return probabilities; an earlier one-vertex uniform-spanning-tree degree marginal also reconstructs complete multipartite parts, but is a different random experiment."
+        ],
+        "reasoning": "Equivalence of resolvent and return probabilities is classical and explicitly acknowledged. Uniform spanning-tree root degree is not the root random-walk spectral measure, so its injectivity does not imply the present claim. No same-object same-observable inverse theorem verified.",
+        "searches": [
+          "Resultary: one vertex random walk return law complete multipartite reconstruction",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-one-rooted-spanning-tree-degree-law-reconstructs-every-complete--243c0c6fa37e/RESULT.md",
+          "https://arxiv.org/abs/2012.15399"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sun--Das publishes a global normalized-spectral formula; actual finite rational checker lists 25,856 comparisons through N=11, not a universal enumerative database."
+        ],
+        "reasoning": "Finite graph tables and global spectral characteristic data do not establish the all-N rooted local return injectivity. Exact pole-residue inversion handles unbounded many part sizes.",
+        "searches": [
+          "https://doi.org/10.1016/j.dam.2020.03.041",
+          "Resultary: multipartite local return signature database isomorphism"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct exact result after comparing named equivalent, broader and database formulations; known subclaims explicitly credited, with residual priority risks.",
+      "residual_risks": [
+        "Potential earlier work may imply rooted inverse through omitted detailed resolvent identities; uniqueness of local inverse not universally certified.",
+        "Only exact probabilities and known N; no noisy statistical recovery, stability, or arbitrary-graph reconstruction theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Forward local-time/return resolvent framework, not a multipartite one-vertex inverse claim",
+          "evidence": "No constructive all-part-size recovery or 2N moment cutoff in inspected text.",
+          "identifier_or_url": "https://arxiv.org/pdf/2012.15399",
+          "material_read": "Full arXiv PDF sections I-IV and representative equations on complete graphs, stars, line examples",
+          "method": "Downloaded lawful arXiv PDF, inspected text and pages",
+          "title": "Local time of random walks on graphs",
+          "trigger": "Same rooted random-walk resolvent observable"
+        },
+        {
+          "assessment": "Global normalized spectrum, not local rooted-return measure inversion",
+          "evidence": "A characteristic polynomial does not alone give the diagonal spectral weights at arbitrary root.",
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2020.03.041",
+          "material_read": "Accessible full HTML theorem/intro and normalized-Laplacian characteristic polynomial discussion",
+          "method": "Full HTML mathematical statement and theorem inspection",
+          "title": "Normalized Laplacian spectrum of complete multipartite graphs",
+          "trigger": "Same complete multipartite family and global spectral sufficiency"
+        },
+        {
+          "assessment": "Distinct random experiment, overlap in inverse target but no covering implication",
+          "evidence": "Uses uniform spanning-tree degree PGF, not Markov return resolvent or its 2N moments.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-one-rooted-spanning-tree-degree-law-reconstructs-every-complete--243c0c6fa37e/RESULT.md",
+          "material_read": "Entire RESULT.md including polynomial root-multiplicity inversion and proof",
+          "method": "GitHub full source read",
+          "title": "One rooted spanning-tree degree law reconstructs every complete multipartite graph",
+          "trigger": "Same inverse target and one-vertex statistical observation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact one-sensor inverse reconstruction for a natural graph family is a meaningful spectral identifiability theorem: it upgrades general forward random-walk resolvents to constructive part-size recovery, identifies a finite-lag cutoff, and gives a sharp unknown-order obstruction.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary: complete multipartite graphs rooted random walk return probabilities spectral measure reconstruct part sizes",
+    "https://arxiv.org/abs/2012.15399",
+    "https://doi.org/10.1016/j.dam.2020.03.041",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-one-rooted-spanning-tree-degree-law-reconstructs-every-complete--243c0c6fa37e/RESULT.md",
+    "https://arxiv.org/pdf/2012.15399",
+    "https://doi.org/10.1016/j.dam.2020.03.041",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-one-rooted-spanning-tree-degree-law-reconstructs-every-complete--243c0c6fa37e/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Potential earlier work may imply rooted inverse through omitted detailed resolvent identities; uniqueness of local inverse not universally certified.",
+    "Only exact probabilities and known N; no noisy statistical recovery, stability, or arbitrary-graph reconstruction theorem.",
+    "No report is imported or independently certified; public source metadata have not been safely sanitized."
+  ],
+  "residual_risks": [
+    "Potential earlier work may imply rooted inverse through omitted detailed resolvent identities; uniqueness of local inverse not universally certified.",
+    "Only exact probabilities and known N; no noisy statistical recovery, stability, or arbitrary-graph reconstruction theorem."
+  ],
+  "schema_version": 1
+}

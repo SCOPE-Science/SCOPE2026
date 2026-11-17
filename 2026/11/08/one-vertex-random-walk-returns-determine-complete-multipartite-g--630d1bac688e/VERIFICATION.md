@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification procedure and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python's standard library. It independently constructs all labeled-by-part simple random-walk transition matrices over integer partitions of each order from 2 through 11, computes exact return sequences through time \(2N-1\), and compares each with the exact quotient-chain prediction. It checks that no different rooted multipartition at the same order gives the same truncated return sequence, and independently evaluates full and quotient matrix resolvents at two rational spectral parameters. The algebraic inversion of the quotient resolvent is checked at the same points, and the zero-space partwise projection is tested by rational matrix products. The bipartite ambiguity when the order is unknown is checked for multiple integer pairs.
+## correctness
 
-Recorded execution: `VERIFY_OK 25856 exact-rational checks`; uniqueness signature counts by \(N=2,\ldots,11\) were respectively 1, 3, 6, 11, 18, 29, 44, 66, 96, 138.
+PASS
 
-These calculations do not certify all graph orders or settle historical novelty. The universal claim rests on the explicit algebraic proof in `RESULT.md`. No external mathematical audit was performed.
+For known N>=2, connected K_(n1,...,nr), r>=2 and root v in part i of size a, P decomposes into zero on within-part zero-sum W and invertible quotient Q=uw^T-diag(d_j), d_j=n_j/(N-n_j); determinant=(-1)^r*(1-r)*product(d_j) !=0. Zero spectral weight at v is 1-1/a, recovering a. After removing that atom, quotient diagonal resolvent G(z) yields X(z)=(z-G(z)^(-1))/(d_i+z-G(z)^(-1))=sum_{j!=i}d_j/(z+d_j). Distinct poles -s/(N-s) and positive residues m_s*s/(N-s) recover remaining part sizes and multiplicities. Reversible P has at most N real spectral atoms; the difference of two return measures has <=2N atoms, so equality of moments t=0..2N-1 forces equality by Vandermonde. Without N, rooted K_(a,b) all return p_2t=1/a, p_(2t+1)=0 regardless of b. Algebra checked with independent exact rational quotient/full-matrix resolvents on small multipartitions, not used as unrestricted proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct exact result after comparing named equivalent, broader and database formulations; known subclaims explicitly credited, with residual priority risks.
+
+## value
+
+PASS
+
+Exact one-sensor inverse reconstruction for a natural graph family is a meaningful spectral identifiability theorem: it upgrades general forward random-walk resolvents to constructive part-size recovery, identifies a finite-lag cutoff, and gives a sharp unknown-order obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

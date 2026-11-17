@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The partwise constant / within-part zero-sum decomposition gives an exact nonzero quotient; the quotient determinant is nonzero for every connected multipartition. The root zero-eigenvalue atom recovers the root part size, and a rank-one resolvent identity exposes the other part sizes as positive distinct poles. The Vandermonde moment argument proves the finite \(2N\)-moment cutoff. The standalone exact-rational matrix checker passed 25,856 assertions through order 11; those finite cases are corroboration, not the universal proof.
+## correctness
 
-**Originality — PASS, with historical risk.** The closest inspected primary sources were Zatloukal's 2020-12-31 preprint (return/local-time resolvent framework, complete-graph/star examples) and Sun–Das (2020, global normalized-Laplacian spectra and characteristic polynomial of the multipartite quotient). Neither inspected claim supplies the local rooted inverse construction. The local random-walk return law is not the uniform-spanning-tree degree law from another reconstruction result on the same graph family, and no implication between the two data types has been established. published-finding corpus queries for local return-spectral reconstruction and multipartite graph reconstruction did not produce a directly covering statement. Rooted spectral measures and quotient matrix formulas are known; only the exact local-to-global inversion with its finite moment cutoff is assessed here. Residual risk: uninspected literature could contain equivalent inverse formulations.
+PASS
 
-**Value — PASS.** Exact reconstruction of an arbitrary unlabelled multipartition from observations at only one vertex is a natural local-to-global inverse question. The proof supplies an explicit decoder and demonstrates that knowing the total order is mathematically essential, so the assumption is not merely cosmetic. A universal sufficient finite-lag bound makes the result an exact finite-data identifiability theorem, although it has no stability guarantee.
+For known N>=2, connected K_(n1,...,nr), r>=2 and root v in part i of size a, P decomposes into zero on within-part zero-sum W and invertible quotient Q=uw^T-diag(d_j), d_j=n_j/(N-n_j); determinant=(-1)^r*(1-r)*product(d_j) !=0. Zero spectral weight at v is 1-1/a, recovering a. After removing that atom, quotient diagonal resolvent G(z) yields X(z)=(z-G(z)^(-1))/(d_i+z-G(z)^(-1))=sum_{j!=i}d_j/(z+d_j). Distinct poles -s/(N-s) and positive residues m_s*s/(N-s) recover remaining part sizes and multiplicities. Reversible P has at most N real spectral atoms; the difference of two return measures has <=2N atoms, so equality of moments t=0..2N-1 forces equality by Vandermonde. Without N, rooted K_(a,b) all return p_2t=1/a, p_(2t+1)=0 regardless of b. Algebra checked with independent exact rational quotient/full-matrix resolvents on small multipartitions, not used as unrestricted proof.
 
-The result assumes exact returns, known \(N\), unweighted connected complete multipartite graphs, and ordinary non-lazy walk. It does not establish optimal lag count or sample complexity. Published full-paper evidence is strongest for Zatloukal; the relevant Sun–Das theorem and introduction were inspected through indexed article text, not a fully retrieved paper. Independent validation remains open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct exact result after comparing named equivalent, broader and database formulations; known subclaims explicitly credited, with residual priority risks.
+
+## value
+
+PASS
+
+Exact one-sensor inverse reconstruction for a natural graph family is a meaningful spectral identifiability theorem: it upgrades general forward random-walk resolvents to constructive part-size recovery, identifies a finite-lag cutoff, and gives a sharp unknown-order obstruction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
