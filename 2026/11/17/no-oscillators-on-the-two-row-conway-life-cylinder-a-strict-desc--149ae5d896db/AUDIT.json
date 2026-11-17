@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For every circumference at least three the complete local column cases imply that singleton count cannot rise. If it stays unchanged, no empty-column birth is possible, so full count decreases on any changed state. Therefore the integer (n+1)S+D is strictly decreasing at every non-fixed update, establishing finite-time fixation and excluding all temporal cycles of least period greater than one. The 16-state edge rule yields a bijection between labelled still lifes and length-n closed walks and the exact Newton-identity determinant. 87,360 direct transitions and the 3-by-4 witness were recomputed as independent finite corroboration.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Buckingham and Callahan, Experimental Mathematics 7 (1998), pp.221–241, discuss broad constructions of long Life cycles, not the absence of all cycles on the dead-bounded height-two cylinder.",
+        "Conway’s Game of Life is Omniperiodic, arXiv:2312.02799, addresses existence of all temporal periods in the unrestricted plane, a different domain.",
+        "The classical three-row blinker demonstrates existence above two rows but supplies no lower-width obstruction."
+      ],
+      "reasoning": "The unrestricted planar model and dead-bounded width-two model have different state spaces and update rules at boundaries; planar existence theorems cannot dominate this no-oscillation statement. Three-row periodic-point counts do not imply the two-row strict potential.",
+      "searches": [
+        "Conway Game of Life strip width 2 attractors oscillators minimal height three",
+        "\"2-row\" \"B3/S23\" \"oscillation\"",
+        "\"two-row\" Life automaton \"fixed points\" \"periodic\"",
+        "\"Tight Bounds on Periodic Cell Configurations in Life\" pdf Buckingham Callahan"
+      ]
+    },
+    "checked_sources": [
+      "Gardner, Scientific American 223 (1970), doi:10.1038/scientificamerican1070-120 (metadata and public rules excerpt)",
+      "Buckingham–Callahan, Experimental Mathematics 7 (1998), doi:10.1080/10586458.1998.10504370 (partial author-uploaded extract)",
+      "Brown et al., Conway’s Game of Life is Omniperiodic, arXiv:2312.02799 (abstract and scope)",
+      "LifeWiki Bounded grids/Cylinder/One-cell-thick pattern (indexed descriptions)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gardner (1970) defines the original Life rule; derivation of the strict height-two descent potential is an extra result.",
+        "The known 3-cell blinker is a period-two pattern fitting a height-three open strip; it establishes an upper bound on oscillatory width but not the height-two impossibility.",
+        "Buckingham–Callahan long-period constructions are compatible with this theorem because their configurations need greater vertical support."
+      ],
+      "reasoning": "Neither the original definition, a three-row witness, nor existence of complex planar oscillators logically entails the absence of every temporal period greater than one at height two. The proof establishes that missing lower-bound mechanism and adds a precise fixed-count transfer polynomial.",
+      "searches": [
+        "Game of Life strip 2 cells wide periodic boundary row two oscillation convergence invariant",
+        "Rule Conway Life width two oscillators fixed-point minimal height blinker",
+        "\"Tight Bounds on Periodic Cell Configurations in Life\" Buckingham Callahan"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gardner (1970), doi:10.1038/scientificamerican1070-120, establishes the B3/S23 birth/survival rule on an unrestricted infinite plane, not two-row dead boundaries.",
+        "LifeWiki Bounded grids and Cylinder entries specify vertical-open/cyclic boundary geometry but no all-initial-state descent invariant in accessible text.",
+        "Buckingham–Callahan (1998), doi:10.1080/10586458.1998.10504370, constructs general planar oscillators; accessible author text not a direct equivalent statement."
+      ],
+      "reasoning": "Identical local B3/S23 rules do not imply the two-row all-time fixation theorem. No checked exact statement supplies a strictly descending function of singleton/full columns or equivalent complete all-period exclusion. Source access limits remain explicit.",
+      "searches": [
+        "\"Life\" \"two row\" \"oscillators\" \"cylinder\"",
+        "\"Conway\" \"two-row\" \"eventually\" \"fixed\" cellular automaton",
+        "Conway Game of Life B3/S23 two-row horizontally periodic strip all trajectories converge to still life no oscillators lexicographic potential singleton column",
+        "Game of Life two-row cylinder Lyapunov function no periodic orbit and three-row first oscillator minimal strip height"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The fixed-count sequence obtained directly is 16,5,26,82,43,213 for circumferences 3–8, and the 16-state transfer determinant is \\(1-z-5z^3+4z^4-4z^5+4z^6\\).",
+        "The search-indexed LifeWiki bounded-grid documentation describes the geometry but does not present a width-two equilibrium transfer polynomial.",
+        "No inspected source/table was found with the identical determinant and all-period exclusion."
+      ],
+      "reasoning": "The exact enumerator concerns labelled cylindrical still lifes at all circumferences, not ordinary finite planar still-life patterns counted up to isometry. The searched catalogues did not provide the matching transfer polynomial. This is limited evidence, not an exhaustive table uniqueness claim.",
+      "searches": [
+        "Conway Game of Life still life counts on width 2 cylinder trace transfer matrix",
+        "Game of Life two row strip cylinder eventual fixed point no oscillators width two all configurations",
+        "\"two-row\" \"Game of Life\" \"still\" \"oscillator\" cylinder"
+      ]
+    },
+    "rationale": "A targeted mathematical database and primary-literature comparison found no equivalent or stronger dead-bounded width-two all-period fixation result with strict descent, nor the same stationary transfer determinant. Originality is qualified, with inaccessible/full-math primary risks explicitly documented.",
+    "residual_risks": [
+      "Older narrow-strip or bounded Life work may not be indexed by the exact terminology searched.",
+      "The critical mathematical pages of the 1998 oscillator paper were not fully retrieved, so absence of coverage in that work is not asserted definitively."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DEFINITIONS_ONLY: defines planar update, not cylindrical no-periodicity or transfer enumeration.",
+        "evidence": "Publisher article title and October 1, 1970 date; reproduced rules of birth on three, survival on two/three.",
+        "identifier_or_url": "doi:10.1038/scientificamerican1070-120",
+        "material_read": "Official publisher metadata (date 1970-10-01) and a public verbatim excerpt of the three update rules; publisher full article is subscription-limited.",
+        "method": "Web publisher listing and accessible reprint excerpt (gist.github.com/textarcana/213950)",
+        "title": "The fantastic combinations of John Conway’s new solitaire game Life",
+        "trigger": "Earliest public definition of B3/S23 and primary date verification"
+      },
+      {
+        "assessment": "PARTIALLY_READ: the document’s described results construct high-period planar oscillators, not evidently a height-two dead-bounded impossibility; incomplete full mathematical text is a priority risk.",
+        "evidence": "Experimental Mathematics 7:3 (1998), 221–241; sections on Herschel-loop/stable-reflector/low-diameter oscillators and abstract claims periods 58 onward.",
+        "identifier_or_url": "doi:10.1080/10586458.1998.10504370",
+        "material_read": "Author-uploaded ResearchGate HTML extract: abstract, contents, section headings, available partial prose on constructive oscillator methods; critical theorem mathematics not fully legible.",
+        "method": "Read indexed author-uploaded text and inspected paper structure; no assertion of fully reading the PDF.",
+        "title": "Tight Bounds on Periodic Cell Configurations in Life",
+        "trigger": "Plausibly broad primary oscillator research in Life"
+      },
+      {
+        "assessment": "CONTEXT_ONLY: validates model terminology without establishing a theorem.",
+        "evidence": "Finite cylinders identify one pair of opposite edges but keep the other boundaries open.",
+        "identifier_or_url": "https://conwaylife.com/wiki/Bounded_grid",
+        "material_read": "Search-indexed explanations of finite cylinders and dead versus identified edges; page access returned forbidden on direct opening.",
+        "method": "Indexed result text, not full-page verification",
+        "title": "Bounded grids and Cylinder (LifeWiki)",
+        "trigger": "Boundary convention comparability"
+      },
+      {
+        "assessment": "INAPPLICABLE_SCOPE: existence of unrestricted planar oscillators is not a statement about a two-row invariant subsystem.",
+        "evidence": "Brown et al. (2023), abstract establishes planar Life’s omniperiodicity.",
+        "identifier_or_url": "arXiv:2312.02799",
+        "material_read": "Accessible complete abstract and mathematical scope: periods of oscillators on the unrestricted Life plane, not two-row dead-bounded cylinders.",
+        "method": "Web abstract/full bibliographic listing",
+        "title": "Conway’s Game of Life is Omniperiodic",
+        "trigger": "Potentially stronger universal temporal-period existence theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "149ae5d8-96db-4b2f-9d02-5bff026c218c",
+  "value": {
+    "rationale": "The first height supporting a genuine Life oscillator on vertically open cyclic strips is a natural, sharply defined dynamical threshold. A proved strict all-configuration Lyapunov potential, finite-time upper bound, extension to finitely supported infinite strips, and exact all-circumference still-life spectrum supply structural information not obtained by scanning isolated finite rings. The theorem excludes every possible temporal period at width two and provides an explicit sharp height-three witness.",
+    "status": "PASS"
+  }
+}
