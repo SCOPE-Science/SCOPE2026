@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For any nonzero real matrix and positive mixture weight, an explicit singular-direction sketch yields a strictly negative estimator, and Gaussian full support makes this event positive probability. Rank-one sketches reduce exactly to independent scaled chi-square variables. The exact tail integral follows by conditioning. The rate minimum is unique in sum/difference coordinates, and a two-variable boundary Laplace calculation gives the \(r^{-1/2}\) prefactor; a uniform variant handles the variance-optimal weight. Exact-rational, randomized-algebra, quadrature and Bessel-function tests in `verify.py` all passed (`VERIFY_OK 35456 checks`). Limits: this proof requires real Gaussian sketches and the rank-one asymptotic excludes higher ranks.
+## correctness
 
-## Originality — PASS, with documented priority risk
-The primary 2026 Hutch# paper was examined in its publicly accessible full HTML text (introduction, method definition, Sections 2–5 and Appendix A). Its exact variance formula, oracle mixture optimizer, and mean-square error guarantee are acknowledged as prior results; the new claim is about sign safety and **sharp one-sided negative-output probability**. Neither those source results nor the inspected Hutch++ baseline imply the all-matrix sign classification or the explicit rank-one sharp prefactor. Targeted literature and semantic mathematical-record searches for Hutch# negativity, chi-square-product equivalents, weighted-mixture safety, and rare-event limits yielded no matching result. The original general product-gamma probability literature is not exhaustively indexed, and the accessible Hutch++ baseline was primarily abstract-level; historical priority is consequently not independently established. A lack of search hits is not treated as uniqueness proof.
+PASS
 
-## Value — PASS
-The object is a numerical estimator of a squared norm, for which sign admissibility is an intrinsic reliability requirement. The result distinguishes unconditional sign safety from improved variance, gives an exact failure probability rather than merely an illustrative negative sample, and quantifies the rare-event effect of the source paper's variance-optimal weight by a nontrivial limiting factor \(e^{-2}\). This is relevant to interpreting or guarding nonadaptive matrix-free norm outputs. It does not claim that negative values are common, nor that sign clipping preserves unbiasedness.
+The claimed estimator is a quadratic-minus-quartic polynomial. At alpha=0 all contributions are nonnegative; for alpha>0 a singular-vector sketch with first columns tv and tu yields sigma²[(1+alpha)t²/r-alpha t⁴/r²]<0 above t²>r(1+alpha)/alpha, giving a positive-probability Gaussian open set for every nonzero matrix. In rank one X,Y are independent chi-square_r/r and negativity means XY>c(X+Y) with c=(1+alpha)/(2alpha). The integral follows by conditioning. The rate function I(x)+I(y) has unique boundary saddle (2c,2c), J(c)=2c-1-log(2c); the local t/r and d/sqrt(r) coordinates produce prefactor 1/[sqrt(2pi r)(2c-1)sqrt(4c-1)]. The c_r=1+2/r perturbation yields the oracle e^-2 factor. We independently expanded the saddle Hessian and Jacobian; no finite check was substituted for the large-r argument.
 
-## Scientific limitations
-The sharp probability law is established for rank-one real matrices and deterministic weights; the all-matrix conclusion is only the qualitative sign-safety boundary. The distinct full-rank negative-tail law remains open here. No independent mathematical validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality lies in sign-safety for fixed weighted Hutch#, the exact negative-rank-one chi-square probability and sharp Gaussian saddle prefactor, not the source paper variance calculation or its oracle alpha. The primary defining paper was located but its full text could not be independently retrieved in this run; title/abstract and source result comparisons are not whole-document noncoverage certifications.
+
+## value
+
+PASS
+
+A norm-squared estimator returning negative output is a substantive reliability and interpretability issue. Quantifying a sharp exponential, leading coefficient and oracle weighting effect clarifies how infrequently this failure occurs and distinguishes deterministic sign safety from variance optimization. Rank-one restriction is sharply motivated as the simplest nontrivial spectrum rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

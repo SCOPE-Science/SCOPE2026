@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T18:57:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The claimed estimator is a quadratic-minus-quartic polynomial. At alpha=0 all contributions are nonnegative; for alpha>0 a singular-vector sketch with first columns tv and tu yields sigma²[(1+alpha)t²/r-alpha t⁴/r²]<0 above t²>r(1+alpha)/alpha, giving a positive-probability Gaussian open set for every nonzero matrix. In rank one X,Y are independent chi-square_r/r and negativity means XY>c(X+Y) with c=(1+alpha)/(2alpha). The integral follows by conditioning. The rate function I(x)+I(y) has unique boundary saddle (2c,2c), J(c)=2c-1-log(2c); the local t/r and d/sqrt(r) coordinates produce prefactor 1/[sqrt(2pi r)(2c-1)sqrt(4c-1)]. The c_r=1+2/r perturbation yields the oracle e^-2 factor. We independently expanded the saddle Hessian and Jacobian; no finite check was substituted for the large-r argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hutch++ uses a different adaptive projection-residual mechanism.",
+          "Generic Gaussian quadratic concentration does not state the boundary-saddle sharp coefficient for this quartic difference."
+        ],
+        "reasoning": "Broader trace estimation guarantees concern relative error, not this exact signed one-sided estimator tail; possible generic large-deviation theorem remains a risk.",
+        "searches": [
+          "Resultary: nonadaptive Gaussian Hutch# weighted Frobenius estimator",
+          "Hutch++ SOSA 2021 trace estimator"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.28472",
+        "https://doi.org/10.1137/1.9781611976496.16"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source variance is (1-alpha)^2/r+4alpha²/r² for rank one, determining alpha_r*=r/(r+4) as known.",
+          "The sign event requires XY>c(X+Y), and tail-prefactor analysis is not entailed by variance alone."
+        ],
+        "reasoning": "Unbiasedness and variance-optimized weights do not logically establish negative-output probability or its sharp saddle constant; the oracle minimizer itself is credited prior.",
+        "searches": [
+          "https://arxiv.org/abs/2609.28472",
+          "Resultary: Hutch# Frobenius nonadaptive negative output"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source authors define the exact nonadaptive two-sketch estimator and variance-optimized blending; no identical negative-tail theorem in the inspected abstract.",
+          "Direct quadratic-minus-quartic singular sketch demonstrates sign phenomenon."
+        ],
+        "reasoning": "Equivalent formulation would be a sign-risk or signed fourth-order Gaussian cross-sketch tail theorem; no distinct covering indexed source found. Search absence does not establish novelty.",
+        "searches": [
+          "Resultary: nonadaptive Gaussian Hutch# weighted Frobenius estimator negative probability rank one sign safety sharp tail",
+          "Chen et al., arxiv:2609.28472"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Index returned target record but no distinct exact rank-one negative-probability table."
+        ],
+        "reasoning": "A chi-square product identity could occur in special-function probability literature; no historical table is certified absent.",
+        "searches": [
+          "Resultary: weighted Hutch# negative rank-one probability integral e^-2",
+          "arxiv:2609.28472"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality lies in sign-safety for fixed weighted Hutch#, the exact negative-rank-one chi-square probability and sharp Gaussian saddle prefactor, not the source paper variance calculation or its oracle alpha. The primary defining paper was located but its full text could not be independently retrieved in this run; title/abstract and source result comparisons are not whole-document noncoverage certifications.",
+      "residual_risks": [
+        "No independently accessible full Hutch# article in this run, so a pre-existing one-sided probability statement in uninspected main text/appendix is a nontrivial originality risk.",
+        "Generic product-chi-square saddlepoint literature could contain an equivalent sharp prefactor.",
+        "The original finite verify.py was read but not executed; analytical coefficient was independently checked."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINING_FORMULA_AND_VARIANCE_PRIOR_FULL_NONCOVERAGE_UNVERIFIED",
+          "evidence": [
+            "arXiv:2609.28472 primary abstract defines two independent Gaussian sketches and their quartic cross term; submitted source names weighted mixture."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.28472",
+          "material_read": "Public arXiv indexed abstract with displayed unweighted estimator, dated 2026-09-23; attempted full HTML retrieval returned unavailable",
+          "method": "Web search and indexed primary abstract; no claim to complete source reading",
+          "title": "Hutch#: Optimal non-adaptive Frobenius norm estimation",
+          "trigger": "Identical estimator and mixing parameter"
+        },
+        {
+          "assessment": "DIFFERENT_ESTIMATOR_PRIORITY_RISK",
+          "evidence": [
+            "Hutch++ comparison in 2026 defining paper is complexity/variance not same signed quadratic quartic statistic."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/1.9781611976496.16",
+          "material_read": "Bibliographic scope of adaptive stochastic trace method only",
+          "method": "Targeted source comparison; complete text not read",
+          "title": "Hutch++: Optimal Stochastic Trace Estimation",
+          "trigger": "Potential broadly stronger estimator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A norm-squared estimator returning negative output is a substantive reliability and interpretability issue. Quantifying a sharp exponential, leading coefficient and oracle weighting effect clarifies how infrequently this failure occurs and distinguishes deterministic sign safety from variance optimization. Rank-one restriction is sharply motivated as the simplest nontrivial spectrum rather than an arbitrary slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.28472",
+    "https://doi.org/10.1137/1.9781611976496.16"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The full mathematical evidence is summarized by the separate C/O/V reasons and scope in the pinned RESULT.md; the programmatic checks are finite corroboration, not proof of unrestricted claims.",
+    "External historical-priority coverage is best-of-knowledge as qualified in originality; no guarantee of independent scientific certification.",
+    "Publication is withheld pending authorized privacy remediation of potentially public metadata."
+  ],
+  "residual_risks": [
+    "No independently accessible full Hutch# article in this run, so a pre-existing one-sided probability statement in uninspected main text/appendix is a nontrivial originality risk.",
+    "Generic product-chi-square saddlepoint literature could contain an equivalent sharp prefactor.",
+    "The original finite verify.py was read but not executed; analytical coefficient was independently checked."
+  ],
+  "schema_version": 1
+}
