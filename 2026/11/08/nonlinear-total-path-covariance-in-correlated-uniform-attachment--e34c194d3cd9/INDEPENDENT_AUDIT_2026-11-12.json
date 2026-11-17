@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T02:20:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/nonlinear-total-path-covariance-in-correlated-uniform-attachment--e34c194d3cd9/RESULT.md",
+        "https://arxiv.org/abs/2606.02472",
+        "independent_science_checks.py: all paired parent histories through n=5 at rational couplings"
+      ],
+      "rationale": "For each uniform-attachment arrival, M_n^{(a)}=(S_n^{(a)}−n(H_n−1))/n has centered martingale increment (D_parent−empirical depth mean)/(n+1). Aligned parent selection yields conditional cross-increment covariance αQ_n/(n+1)^2; independent selections contribute zero. The exact centered sample-covariance update gives q_{n+1}=n(n+1+α)q_n/(n+1)^2+n/(n+1)^2, c_{n+1}=c_n+αq_n/(n+1)^2. Product solution n q_n=[1+αn−∏_{j=1}^n(1+α/j)]/[α(1−α)] and endpoint limits check. L² boundedness follows by domination by identical-tree empirical depth variance O(log n), yielding almost-sure and L² martingale limits. Binomial generating-function integral and partial fractions give C(α)=∑_{j≥2} α/[j²(j−α)], with strictly positive zeta expansion coefficients and attenuation C(α)<α(2−ζ2). Independently enumerated all paired parent histories for n=2..5 at α=0,1/2,1 and compared q_n,c_n to exact recurrences, all equal. Finite enumeration is not the proof of infinite series or convergence.",
+      "residual_risks": [
+        "No unrooted observation/identifiability claim, no joint Gaussian limit, no varying α_n; exact covariance only.",
+        "Proof of series uses justified nonnegative integral interchange and endpoint domination, not only finite recurrence tests."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gałązka–Wdowicka weighted recursive tree path-length laws include uniform one-tree marginal variance",
+          "Dobrow–Fill 1999 determines one-tree recursive-tree total path length behavior"
+        ],
+        "reasoning": "Even a stronger exact marginal path-length law fixes Var(M∞) but cannot imply Cov(M∞¹,M∞²) as a nonlinear function of coupling probability: the cross-joint construction is additional data.",
+        "searches": [
+          "root path length covariance correlated recursive trees alpha zeta",
+          "https://arxiv.org/abs/2610.00614",
+          "https://doi.org/10.1017/S0963548399003855"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.02472",
+        "https://arxiv.org/abs/2610.00614",
+        "https://doi.org/10.1017/S0963548399003855",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/nonlinear-total-path-covariance-in-correlated-uniform-attachment--e34c194d3cd9/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bäumler et al. arXiv:2606.02472v1, central hypotheses and Appendix A: unrooted matching and leaf-count covariance objectives",
+          "Single-tree path-limit source determines C(1)=2−ζ(2) but not its α-dependence"
+        ],
+        "reasoning": "Endpoints C(0),C(1) are covered by independence/single-tree law; interior strict convex zeta response requires the candidate cross-depth recurrence and does not follow from those endpoint cases.",
+        "searches": [
+          "https://arxiv.org/abs/2606.02472",
+          "https://arxiv.org/abs/2610.00614",
+          "https://doi.org/10.1017/S0963548399003855",
+          "correlated uniform attachment random recursive trees coupled total path length covariance copying probability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bäumler–Rácz–Ross–Sridhar 2026 defines exactly the Bernoulli-aligned versus independently selected parent pair",
+          "Their accessible arXiv analysis focuses on detecting correlation in unrooted unlabeled pairs and leaf statistics"
+        ],
+        "reasoning": "The candidate uses the same coupling model but a rooted sum-of-depths observable; a result on unrooted matching or leaf-count fluctuations does not determine this path-length cross-covariance.",
+        "searches": [
+          "correlated uniform attachment random recursive trees coupled total path length covariance copying probability",
+          "https://arxiv.org/abs/2606.02472",
+          "correlated attachment tree joint total path martingale covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary candidate same-day self-hit, plus distinct record 2026/11/8/3469578c4e97 on cross-tree outdegree-profile covariances",
+          "Resultary 2026/10/18/99a911c57a5d and 2026/11/8/4a37b2712591 consider shared-prefix terminal/leaf histories, not the per-arrival Bernoulli copying model with total path length"
+        ],
+        "reasoning": "The matched object is natural but retrieved exact tables concern degree/leaf counts or different shared-ancestry coupling; none yields the root-path covariance formula C(α).",
+        "searches": [
+          "correlated uniform attachment random recursive trees coupled total path length covariance copying probability",
+          "root path length covariance correlated recursive trees alpha zeta"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for the exact nonlinear two-tree root-path covariance, not the already-known single-tree variance or the general coupling construction.",
+      "residual_risks": [
+        "An indexed general coupling/noise-operator theory might yield the same C(α) through a nonobvious reduction; unexamined literature cannot prove absolute novelty.",
+        "The original unrooted detection model does not make root-depth sums observable from unrooted unlabeled data."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_DIFFERENT_OBSERVABLE",
+          "evidence": "Found parent-copy coupling, unrooted matching and leaf counts; no root-depth cross-covariance formula in inspected relevant text.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.02472",
+          "material_read": "arXiv v1 full PDF: model definition, main matching/detection results, Appendix A leaf-count statements",
+          "method": "Examined relevant primary full-text sections and queried root-path/total-path coverage",
+          "title": "Correlated uniform attachment trees, Bäumler et al. 2026",
+          "trigger": "Exact same parent-copying model and potential full-joint theorem"
+        },
+        {
+          "assessment": "SINGLE_TREE_ONLY_COMPARISON",
+          "evidence": "Single-tree variance constant is insufficient to infer a coupled-pair covariance.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.00614",
+          "material_read": "Accessible primary abstract/title and one-tree statement identified in cited background; complete general theorem not used as excluding evidence",
+          "method": "Compared stated observable and one-tree versus paired model, without declaring whole-document absence",
+          "title": "Total Path Length in Power-Weight Recursive Trees, Gałązka–Wdowicka 2026",
+          "trigger": "Possible stronger uniform recursive-tree total-path theorem"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": "Provides baseline marginal result, no paired parent-copy probability.",
+          "identifier_or_url": "https://doi.org/10.1017/S0963548399003855",
+          "material_read": "Accessible bibliographic material and known one-tree path-length theorem as cited; no assertion that full article was exhaustively read",
+          "method": "Compared single-tree statistical scope to explicit paired parent-copying law",
+          "title": "Total Path Length for Random Recursive Trees, Dobrow–Fill 1999",
+          "trigger": "Foundational single-tree covariance might dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bäumler et al. 2026 same growth model",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/nonlinear-total-path-covariance-in-correlated-uniform-attachment--e34c194d3cd9/RESULT.md"
+      ],
+      "rationale": "The exact covariance response quantifies a natural global growth-cost statistic under continuously tuned inter-tree attachment dependence. Strict ρ(α)<α, strict convexity and the complete finite-n recurrence are informative structural facts beyond copying a marginal constant. Relevant to correlated tree statistics even without a general graph-matching estimator.",
+      "residual_risks": [
+        "Only specified planted common-root labels and fixed independent per-arrival coupling; not directly applicable to unrooted observations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No identifiability or Gaussian law; joint L2 convergence and covariance under a fixed rooted model.",
+    "Originality limited by broader unindexed noise-operator and paired-tree theory."
+  ],
+  "schema_version": 1
+}

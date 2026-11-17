@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The claim fixes the coupled parent-choice law, rooted depth normalization, full parameter interval and both types of convergence. The martingale innovation formula follows from uniform parent marginals; conditional cross-innovation covariance is exactly \(\alpha Q_n\). The two-variable centered-sample update proves the stated finite recursion without a false assumption that the two existing trees are independent. The closed product solution checks against that recursion. A nonnegative generalized-binomial integral and an explicitly verified partial-fraction step yield the limiting series. The endpoint cases use summable domination from the identical-tree case. Independently enumerating all paired histories through six vertices for five rational parameters and solving the recurrence gives 273 passing checks in the accompanying program. As usual, finite checks do not prove asymptotics.
+PASS
 
-## Originality
+For each uniform-attachment arrival, M_n^{(a)}=(S_n^{(a)}−n(H_n−1))/n has centered martingale increment (D_parent−empirical depth mean)/(n+1). Aligned parent selection yields conditional cross-increment covariance αQ_n/(n+1)^2; independent selections contribute zero. The exact centered sample-covariance update gives q_{n+1}=n(n+1+α)q_n/(n+1)^2+n/(n+1)^2, c_{n+1}=c_n+αq_n/(n+1)^2. Product solution n q_n=[1+αn−∏_{j=1}^n(1+α/j)]/[α(1−α)] and endpoint limits check. L² boundedness follows by domination by identical-tree empirical depth variance O(log n), yielding almost-sure and L² martingale limits. Binomial generating-function integral and partial fractions give C(α)=∑_{j≥2} α/[j²(j−α)], with strictly positive zeta expansion coefficients and attenuation C(α)<α(2−ζ2). Independently enumerated all paired parent histories for n=2..5 at α=0,1/2,1 and compared q_n,c_n to exact recurrences, all equal. Finite enumeration is not the proof of infinite series or convergence.
 
-PASS, provisional and subject to broader historical search. The source defining correlated uniform-attachment trees (Bäumler–Rácz–Ross–Sridhar, arXiv:2606.02472v1) proves tree-matching and leaf-count results, not the root-path-length covariance function. Single-tree path-length theory, including Dobrow–Fill (1999) and Gałązka–Wdowicka (arXiv:2610.00614v1), determines marginal variances but does not determine the law-dependent cross-covariance of two independently coupled copies. Related published recursive-tree findings address root-degree/path-length covariance within one tree, a different pair of variables. No exact covering two-tree statement was identified in the consulted sources. The unresolved risk is an equivalent description through general noise-operator or correlated recursive-tree theory.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The question tests how repeatedly injected microscopic alignment affects a natural global growth-cost functional. Unlike merely reproducing the known one-tree variance, it gives a complete exact coupling-response curve, including strict nonlinear attenuation, analytic zeta coefficients and all finite-size covariance recurrences. It is a reproducible structural second-order result relevant to correlated growth and rooted search costs. The result makes no claim to solve the unlabeled, hidden-root estimation problem.
+PASS best-of-knowledge for the exact nonlinear two-tree root-path covariance, not the already-known single-tree variance or the general coupling construction.
 
-## Closest literature and residual limitations
+## value
 
-The 2026 coupled-tree paper is the primary object source. The 2026 power-weight paper and the 1999 total-path paper supply marginal benchmarks, and the published single-tree root-degree/path result is an especially close but nondominating covariance comparison. The new formula concerns rooted total path length, not a directly observable function of unrooted unlabeled trees; the joint limit is not claimed to be Gaussian. Independent priority assessment is not yet available.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact covariance response quantifies a natural global growth-cost statistic under continuously tuned inter-tree attachment dependence. Strict ρ(α)<α, strict convexity and the complete finite-n recurrence are informative structural facts beyond copying a marginal constant. Relevant to correlated tree statistics even without a general graph-matching estimator.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
