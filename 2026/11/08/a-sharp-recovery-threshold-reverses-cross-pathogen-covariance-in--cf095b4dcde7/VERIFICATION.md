@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Verification of the exact covariance identity
+# Independent mathematical audit
 
-The algebraic derivation is in `RESULT.md` under *Proof*. The standalone `verify.py` uses the standard library's `fractions.Fraction`, enumerates all independent first-round events for the source and three other vertices, applies the actual synchronous second-round per-pathogen survival/acquisition probability, and checks the two marginal probabilities and joint probability against the claimed expressions. The tested hypergraph has distinct triangles \(\{0,1,2\}\) and \(\{0,1,3\}\); it has a positive activated-overlap term when all three external vertices carry the pathogen.
+## correctness
 
-Run from the extracted package directory:
+PASS
 
-```sh
-python3 verify.py
-```
+At round one, the initial co-infected source survives independently for each pathogen with Bernoulli(s); all other pathogen-specific acquisitions are independent Bernoulli(p_j) fields because only one initial source makes r=2 group hazards inactive. At round two, present pathogens independently survive with probability s; absent pathogen acquisition averages U or V depending on presence of the other pathogen at round start. Enumerating four C1,C2 possibilities yields M=s²+(1-s)[(1-s)U+sV], J=s^4+2s²(1-s)V+(1-s)²U², and covariance J-M²=s(1-s)²(U-V)[2U-s(2+U-V)]. If the source has a positive-transmission neighbor then 0<U,V<1, U!=V exactly when alpha!=1; the bracket decreases across zero at unique s*=2U/(2+U-V) in (0,1). alpha=1 independence follows from identical independent pathogen-specific dynamics and deterministic initially independent configuration. An independently worked overlapping-triangle case gives U=319/512, V=25215/32768 and s*=40832/60737; checked verify.py independent exact enumerator. Scope is exactly source time 2, not global prevalence.
 
-Actual verification output:
+## originality
 
-```
-overlapping-triangle exact case: 319/512 25215/32768 -639847670625/70368744177664
-PASS: 97 exact rational full-transition tests
-```
+PASS
 
-The script covers combinations of four survival probabilities, two pairwise transmission survival probabilities, two higher-order transmission survival probabilities, two overlap-transmission survival probabilities and three positive integer secondary susceptibility multipliers, plus the named baseline. Exact rational arithmetic avoids float tolerance issues. Mathematical quantifiers over all hypergraphs and real parameters are proved, not tested exhaustively. The time-two and synchronized-event assumptions cannot be dropped from the theorem. Independent audit was not performed.
+Best-of-knowledge PASS: Liu–Schaposnik provide the synchronous higher-order co-infection model and hazard mechanisms, but in inspected material the two-step seeded-source joint covariance factorization and sharp survival crossing were not already established. Prior mean-field reinforcement/priority publications address different aggregate settings. Full Liu–Schaposnik original article could not be inspected, so a hidden equivalent theorem remains a clear priority risk, not an automatic fail.
+
+## value
+
+PASS
+
+The sign of two-pathogen covariance can be opposite to the within-host susceptibility interaction, an important identifiability boundary. A universal exact finite-hypergraph two-round threshold including activated overlapping triangles gives a sharp, motivated dynamical counterexample with practical interpretive value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

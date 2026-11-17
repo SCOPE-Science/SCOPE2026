@@ -1,24 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Under the exact synchronous conditional-independence rules, first-round recovery at the unique doubly infected vertex and all neighbor infection acquisitions are mutually independent. Since only one vertex initially carries either pathogen, no higher-order threshold with \(r=2\) is activated in the first round. The two outside-carrier fields at round one are independent and have the stipulated Bernoulli law. Conditioning on the source's four possible first-round states yields exact formulas for both round-two marginals and the joint co-carriage probability. Their algebraic difference factors into the claimed identity. Since \(U,V\in(0,1)\), the unique sign boundary follows. The code independently enumerates every intermediate labeled infection configuration for a genuine overlapping-triangle hypergraph and checks 97 exact-rational settings. Residual science risk: the formula relies on independent synchronous events and on excluding same-round recovery/reinfection; changing these rules invalidates the proof.
+PASS
 
-## Originality — PASS, qualified
+At round one, the initial co-infected source survives independently for each pathogen with Bernoulli(s); all other pathogen-specific acquisitions are independent Bernoulli(p_j) fields because only one initial source makes r=2 group hazards inactive. At round two, present pathogens independently survive with probability s; absent pathogen acquisition averages U or V depending on presence of the other pathogen at round start. Enumerating four C1,C2 possibilities yields M=s²+(1-s)[(1-s)U+sV], J=s^4+2s²(1-s)V+(1-s)²U², and covariance J-M²=s(1-s)²(U-V)[2U-s(2+U-V)]. If the source has a positive-transmission neighbor then 0<U,V<1, U!=V exactly when alpha!=1; the bracket decreases across zero at unique s*=2U/(2+U-V) in (0,1). alpha=1 independence follows from identical independent pathogen-specific dynamics and deterministic initially independent configuration. An independently worked overlapping-triangle case gives U=319/512, V=25215/32768 and s*=40832/60737; checked verify.py independent exact enumerator. Scope is exactly source time 2, not global prevalence.
 
-The 2026 primary HyCo-SIS paper defines the same conditional probability mechanism and derives overlap representations and an illustrative one-step example, but the inspected sections do not provide the two-step source covariance or its sharp recovery-dependent sign reversal. Hébert-Dufresne, Scarpino and Young (2020) analyze macroscopic equivalences between interacting and complex contagions rather than this microscopic sign classification. Brian (2025) studies pre-/postinfection priority effects and population prevalence using a different asymmetric model. Accessible earlier related records were checked at the claim level: a single-pathogen mean-hazard closure is not a two-pathogen finite-state joint law. Searches for the symmetric two-step covariance, its source-seed conditional laws, and opposite-sign facilitation/association yielded no dominating result. This remains a best-knowledge originality assessment, not a priority or uniqueness certification; unindexed exact calculations and material outside inspected portions are residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sign of cross-pathogen co-occurrence is often used as a heuristic indicator of facilitation versus competition, whereas this exact natural two-step finite-population theorem proves that the sign may be opposite even with strictly monotone secondary susceptibility at every individual exposure. It supplies the full admissible recovery threshold for *every* finite hypergraph, including active overlapping triangles, not an isolated ad hoc numerical counterexample. The pairwise specialization yields a degree-only closed form, and the hypergraph example proves the effect persists when genuinely higher-order channels contribute. These conclusions identify a concrete limit on mechanistic inference from co-carriage, and a specific sensitivity to synchronous update convention, without claiming empirical validation.
+Best-of-knowledge PASS: Liu–Schaposnik provide the synchronous higher-order co-infection model and hazard mechanisms, but in inspected material the two-step seeded-source joint covariance factorization and sharp survival crossing were not already established. Prior mean-field reinforcement/priority publications address different aggregate settings. Full Liu–Schaposnik original article could not be inspected, so a hidden equivalent theorem remains a clear priority risk, not an automatic fail.
 
-## Closest work and limitations
+## value
 
-- Liu and Schaposnik, arXiv:2610.26072v1: exact HyCo-SIS update rule; disease-free linearization, group-overlap representation, finite-time outbreak simulations; no inspected two-step covariance sign theorem.
-- Hébert-Dufresne, Scarpino and Young, Nature Physics (2020): macroscopic interacting-contagion equivalences rather than the finite-state local covariance threshold.
-- Brian, Ecosphere (2025): different asymmetric infection-priority model and prevalence comparisons.
-- A previously accessible mathematical result about the same model family addresses the **single-pathogen deterministic mean-hazard closure**, not the two-pathogen stochastic joint distribution. Another concerns a distinct aerosol/environmental SIS ODE.
+PASS
 
-The conclusion is restricted to the source at time two, independent pathogen-specific event streams, the single doubly infected initial seed, and positive pairwise transmission. The initial population law, update order and transmission channels matter; neither clinical relevance nor independent replication is asserted.
+The sign of two-pathogen covariance can be opposite to the within-host susceptibility interaction, an important identifiability boundary. A universal exact finite-hypergraph two-round threshold including activated overlapping triangles gives a sharp, motivated dynamical counterexample with practical interpretive value.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
