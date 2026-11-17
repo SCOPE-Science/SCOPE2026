@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The exact innovation recurrence \(v_{j+1}=(1-p_j^2)v_j+p_j(1-p_j)\), \(v_2=0\), follows from conditional total variance. Orthogonality gives the variance series for the already established centered path-length limit. Uniform bounds \(p_j=j^\alpha(1+O(2^\alpha))\), \(v_j=O(2^\alpha)\) in the extreme old-age regime isolate the index-three contribution \(18^\alpha\), the index-four contribution \(32^\alpha\), and a tail of order \(O(50^\alpha)\). The correction of the first term is \(O(36^\alpha)\), which is smaller than \(32^\alpha\). The remaining martingale tail is negligible in squared standard-deviation units, while the leading Bernoulli innovation is activated with probability tending to zero. This establishes the weak collapse without incorrectly inferring second-moment convergence. The independent checker passed 49 exact and numerical assertions; these supplement, not replace, the analytic argument.
+PASS
 
-## Originality: PASS, with residual historical risk
+For each alpha<-1 the mean-centered n-scale limit is the L2 martingale series sum_{j>=2}p_j xi_j, variance sum_{j>=3}p_j^2v_j; innovations are orthogonal and v_{j+1}=(1-p_j^2)v_j+p_j(1-p_j). For t=-alpha→∞, p_j=j^-t(1+O(2^-t)) uniformly, v_j=O(2^-t), so j=3 contributes 18^-t+O(36^-t), j=4 contributes 32^-t(1+o(1)), j>=5 contributes O(50^-t). The j=3 rare Bernoulli attachment K_3=2 has probability p_2→0 and dominates variance; all j>=4 remainder has o(variance) L2, proving Z_alpha/sigma_alpha→0 in probability despite its exact unit second moment. Independently enumerated all parent vectors at n=5,6 and exponent -2,-4; finite variance agreed exactly with innovation expansion. These checks do not certify the alpha limit.
 
-Gałązka--Wdowicka (2026), arXiv:2610.00614v1, proves the fixed-parameter martingale limit and exact variance recurrence, but its open-problems discussion specifically identifies asymptotics of the variance coefficient as an outstanding question. The two explicit extreme-parameter terms and the unit-variance weak collapse are not reported there. The 2022 insertion-depth literature concerns one-vertex marginals, not the cross-vertex global correction. Searches for the same variance asymptotics, rare-event degeneration, equivalent global statistics, and stronger weighted-tree statements did not produce a directly covering theorem. The exact recurrence is acknowledged as existing input; the asymptotic passage requires a new uniform parameter argument. A broader as-yet-unlocated theorem could still subsume the claim, and older insertion-depth full text was not completely inspected.
+## originality
 
-## Value: PASS
+PASS
 
-The variance coefficient is a natural invariant of total path length and its exponent dependence is expressly singled out in the motivating paper. The explicit bases \(18\) and \(32\) identify which two earliest random choices dominate a global observable in the strong old-age regime. The second conclusion shows that variance-normalization gives a degenerate weak limit, clarifying why ordinary Gaussian approximations fail in this parameter limit. This is a meaningful boundary description of a natural stochastic tree family, not an arbitrary finite numerical computation.
+Best-of-knowledge PASS for two extreme-negative-exponent terms and nonuniform-integrability phenomenon. Gałązka–Wdowicka establish the n-scale martingale/variance representation for fixed alpha, which must not be credited as new; their described open problem concerns dependence of the variance coefficient on alpha. Other SCOPE stretched-exponential and root-degree covariance findings have different weight ranges/functionals and do not determine 18^alpha+32^alpha or standardized weak collapse. Primary paper full text could not be inspected because lawful arXiv full text unavailable and institutional access blocked; residual source-priority risk explicitly retained.
 
-## Scope and limitations
+## value
 
-All tree-size limits occur at fixed \(\alpha<-1\) before the extreme-parameter limit. Nothing is asserted about arbitrary simultaneous \(n\)-and-\(\alpha\) limits. Independent mathematical verification and exhaustive historical-priority checking have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The extreme-parameter behavior of an exact variance coefficient left open in the initiating random-tree paper is mathematically motivated, and the nonuniform-integrability paradox (unit variance with weak collapse to zero) identifies the rare-attachment mechanism. The two exponential scales provide precise nontrivial information, not a numeric parameter sample or mere rebranding of the known fixed-alpha limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
