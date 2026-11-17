@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification of the cyclic double-elliptic stratification
+# Independent mathematical audit
 
-## Executed checks
+## correctness
 
-From the package directory the following two standalone Python standard-library programs were run successfully:
+PASS
 
-`python3 verify_multinomial.py`
+The two hyperplane factors x and y+t z cut six distinct transverse branch points on smooth E for t²!=1; Riemann–Hurwitz gives genus four. Complete-intersection Hasse–Witt coefficient extraction from (PQ)^{p−1} yields exactly diag(0,0,0,t²−2) for p=5 and diag(3,3t³−2t,0,t³−2t) for p=7. Independently reconstructed all sixteen polynomial entries at both p via exact multinomial enumeration. Each nonzero diagonal entry survives Frobenius iteration, so ranks and a-numbers follow over algebraic closure, not merely prime field. Elliptic Hasse invariant 0 at p5 and 3 at p7; the degree-two Prym splitting is prime-to-p and preserves p-divisible invariants, giving the Prym table. Exceptional root sets are disjoint off t²=1.
 
-The multinomial computation returned the complete characteristic-five Hasse–Witt matrix with its only nonzero polynomial entry \(t^2-2\) in the fourth diagonal position, and the complete characteristic-seven diagonal entries \(3\), \(3t^3-2t\), \(0\), \(t^3-2t\). Terminal marker: `VERIFY_MULTINOMIAL_PASS`.
+## originality
 
-`python3 verify_expansion.py`
+PASS
 
-A distinct modular sparse-polynomial multiplication implementation computed \(225\) terms at characteristic five and \(784\) at characteristic seven for \((PQ)^{p-1}\), then matched all sixteen Hasse–Witt target monomials and the same coefficients. Terminal marker: `VERIFY_EXPANSION_PASS`.
+The 2024 Ogasawara–Ohashi–Sakata–Harashita primary paper establishes the general double-elliptic model, smoothness criterion, coefficient extraction formula and full genus-four superspecial classification, including known p5 one isomorphism class and no p7 superspecial Jacobians. Those are not claimed new. Its relevant full HTML theorem/appendices/conclusion do not state the parameter-by-parameter full Cartier strata of this cyclic family, nor the superspecial Prym over an ordinary E at p7 t=0. These require evaluating and factoring the full special matrix and prime-to-p Prym decomposition. Earlier implicit computation remains residual risk.
 
-## Mathematically verified limits
+## value
 
-Both scripts certify finite exact coefficient identities over \(\mathbf F_p[t]\), not all possible geometric branch divisors or arbitrary-characteristic curves. The full assertions for every \(t\in\overline{\mathbf F}_p\) follow from polynomial identities plus the transversality, Frobenius-semilinearity, and prime-to-\(p\) Prym-isogeny arguments in `RESULT.md`. No finite parameter enumeration is passed off as an infinite proof. No independent mathematical audit is asserted, and the priority search is incomplete by its nature.
+PASS
+
+The distinguished cyclic one-parameter family is natural inside double covers of elliptic curves, and the exact p5/p7 strata directly expose a superspecial Prym hidden by the non-superspecial full Jacobian in characteristic seven. This answers a mathematically motivated Prym-vs-quotient question at a sharp isolated marked parameter, not a mere known genus-four superspecial isomorphism count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
