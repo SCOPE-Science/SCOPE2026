@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The two equal-perimeter regular \(m\)-gons, separated by angle \(\pi/m\), reconstruct the prescribed alternating facet measure exactly by planar Minkowski additivity. Their normals and vertex pairing yield both radii in equation (4), including the limiting one-parity cases. A convexity comparison proves the inward support deficit dominates the outward one for the entire parameter square. For each Wasserstein formula an explicit primal transport meets an explicit \(1\)-Lipschitz dual witness; this supplies optimality rather than only an upper bound. The exact Fourier coefficient proves the design-strength change, and the uniform Taylor remainder is legitimate since \(|\varepsilon|\le1\). The proof is self-contained subject to the standard planar Minkowski theorem, metric duality, and elementary polygon geometry. The numerical checks are not substituted for proof.
+PASS
 
-## Originality: PASS (historical priority provisional)
+Planar Minkowski support-measure linearity constructs K as weights (1±epsilon)/2 of two m-gons rotated by pi/m; their support values and adjacent vertex sums give precise inradius and circumradius even for endpoint zero weights. A convexity comparison F(s)=R(s)+r(s)<2 from both endpoint values proves the inward deficit dominates for all s=|epsilon|. Cell-based primal couplings to nodes, and matching geodesic 1-Lipschitz potentials, establish each exact W1 by dual equality. Uniform Taylor expansion proves dH=(pi²/(3N²))(1+3|epsilon|)+O(N^-4). Independent convex-hull Minkowski geometry across m=3,4,7,15 and 5 imbalance values matched radii and dH; these finite checks supplement analytic proof.
 
-An's October 2026 paper proves the regular equal-weight case, general planar inversion, the \(W_1\) Lipschitz bound, and a sufficient perturbation condition for preserving quadratic convergence. Those results are explicit inputs, not discoveries claimed here. The additional theorem is a sharp closed parameter profile for the alternating two-grid measure and a constructed order-of-magnitude separation between actual preservation and that sufficient condition. Its W1 profile needs a sharp transport dual witness. The closest inspected published Cauchy **perimeter quadrature** result optimizes an unrelated error operator and does not determine these two metrics. Searches for alternating normals, weighted equiangular polygons, and Minkowski-grid convergence found no equivalent statement. General inversion identities could permit a later deduction of portions of the formulas, and historical unindexed special-family treatments remain a risk; searches do not prove universal originality.
+## originality
 
-## Value: PASS
+PASS
 
-This is a motivated, dimensionally natural boundary example for the recent Minkowski reconstruction perturbation theory, not an arbitrary polygon slice. It answers exactly how order-one alternating density variation changes geometric convergence and transport discrepancy, quantifies the entire transition between an \(N\)-grid and an \(N/2\)-grid, and shows why a sharp existing sufficient \(W_1\)-perturbation hypothesis cannot be read as a necessary one. The effect persists for all even grid sizes and includes explicit finite-size constants, not merely numerical examples. It does not claim a general reconstruction theorem.
+An 2026 proves equal-weight epsilon=0 regular-grid formulas and a general sufficient W1 perturbation condition, not entire alternating-imbalance family. October 25 Resultary period-three weighted polygons already exhibit order 1/N transport coexisting with quadratic shape convergence, so this qualitative implication gap is NOT independently novel. The genuinely new part is the exact full one-parameter period-two profile, including sharp geodesic transport duals and all endpoint formulas; no inspected source tabulates these identical constants. Any unindexed equiangular alternation computation remains historical priority risk.
 
-## Closest work and residual limitations
+## value
 
-C. An (arXiv:2610.11814v1, 2026-10-08), particularly Theorem 5.1, Proposition 6.2 and Corollary 6.4; Böröczky, Machado and Ramos (arXiv:2603.17726); a published finite-direction Cauchy quadrature result. The new formula is an explicit special-family refinement and could conceivably occur in unindexed historical studies of alternately weighted equiangular polygons. Proof review is same-model only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The period-two alternating grid is the simplest genuinely nonuniform balanced facet measure and naturally tests sharpness of Minkowski reconstruction stability hypotheses. A complete sharp family-wise Hausdorff and two Wasserstein formulas, including endpoint support collapse, is a useful standalone natural invariant, even though the broader qualitative possibility of order-1/N transport with order-1/N² shape was previously shown for other patterns.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
