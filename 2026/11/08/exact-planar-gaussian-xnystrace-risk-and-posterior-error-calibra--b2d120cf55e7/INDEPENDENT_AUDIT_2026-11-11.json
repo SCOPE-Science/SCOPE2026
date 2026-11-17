@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T03:42:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unnormalized Gaussian two-probe XNysTrace on arbitrary 2x2 SPD A, rank-one residual after holding out g_j is tau(theta_j) v(theta_j)v(theta_j)^T, tau=ab/(a cos²theta+b sin²theta), with independent Gaussian radial squares of means 2 and fourth moments 8. The centered leave-one-out terms T_i−tr A=tau(theta_j)(R_i² sin²(theta_1−theta_2)−1). Thus each term has variance 2X where X=E tau²=sqrt(ab)(a+b)/2. The shared angle produces covariance 2Y from E[tau cos4theta]=sqrt(ab) r² and E[(2sin²Delta−1)^2]=cos²2Delta, giving Y=ab(1+r^4)/4. Consequently Var(T_hat)=X+Y, and expected squared-proxy S=E[(T1−T2)²]/4=X−Y. Explicit positive polynomial factorizations in t=sqrt(b/a)>0 prove X≥4Y, the sharp ratio ≤5/3 and Var≤5(a²+b²)/8, equality at a=b; as t→0 or infinity the ratio→1. At A=I2 this gives variance 5/4, E S=3/4. Independent direct angular integrations for three spectra corroborate the Fourier moments; not an unrestricted proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier n×n identity theorem specialized to n=m=2 gives precisely the isotropic ratio 5/3; prior variance bounds cover more dimensions but do not give current sharp anisotropic spectral formula or 5/8 relative Gaussian estimator."
+        ],
+        "reasoning": "Credit the known isotropic endpoint and calibration identity, but neither is a dominating statement for arbitrary anisotropic 2x2 SPD inputs.",
+        "searches": [
+          "full Resultary 2026-10-13 Gaussian identity XNysTrace theorem",
+          "XTrace arXiv:2301.07825 Proposition 2/5"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md blob b46dacd993ba132bf5dac860f0f52921ad46fbd0",
+        "assigned verify.py blob 5b385c217f960440b19f1a5c9ca7411ae624bd12",
+        "Epperly Tropp Webber arXiv:2301.07825 complete HTML",
+        "full prior Resultary 2026-10-13 identity Gaussian XNysTrace RESULT.md",
+        "arXiv:2512.15929 abstract only",
+        "Resultary planar XNysTrace semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original covariance identity needs Cov(T1,T2); original identity-matrix result says Corr=1/(n-m+4), giving 1/4 only at A=I2. For a!=b, cross moment includes r^4 and needs a separate Fourier computation."
+        ],
+        "reasoning": "The isotropic source data cannot determine anisotropic r^4 dependence or 5/8 sharp comparator, so the claimed general theorem is not merely a numerical substitution.",
+        "searches": [
+          "Epperly et al Eq(8),(9), Proposition 2",
+          "full October-13 identity XNysTrace RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original Proposition 2 expresses posterior undercalibration in terms of covariance; current theorem supplies full anisotropic tau(theta) Fourier coefficient."
+        ],
+        "reasoning": "The general correlation identity does not evaluate the actual cross-probe covariance; the present result does so for all a,b>0.",
+        "searches": [
+          "Resultary: planar XNysTrace variance exact covariance posterior squared error positive definite eigenvalues two probes",
+          "Epperly Tropp Webber arXiv:2301.07825"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Identity spectra one-parameter entries are covered by prior; new expression X=√ab(a+b)/2 and Y=ab(1+r⁴)/4 depends on eigenratio."
+        ],
+        "reasoning": "No finite database of spectra; a continuous all-positive-eigenvalue formula with sharp inequalities is compared against source formulas rather than named-table matching.",
+        "searches": [
+          "Resultary XNysTrace calibration semantic query",
+          "2026-10-13/SCOPE-exact-gaussian-xnystrace-correlation-and-a-vanishing-diagnostic--4aed760e42f3"
+        ]
+      },
+      "rationale": "PASS qualified. Original Epperly-Tropp-Webber XTrace paper states the unnormalized leave-one-out estimator and general posterior-calibration correlation identity; no complete anisotropic planar covariance or sharp all-spectra 5/8 Gaussian comparator bound is stated in inspected sections. A previously published October 13, 2026 identity-matrix XNysTrace covariance theorem already gives the isotropic 5/3 endpoint, which is NOT counted as new. The new exact arbitrary-(a,b) dependence through fourth angular Fourier moments and sharp Gaussian-Hutchinson comparison is not logically implied by the identity-matrix case. A 2025 Epperly thesis was not fully readable; record that priority risk.",
+      "residual_risks": [
+        "The earlier published isotropic endpoint already establishes the maximum 5/3 at A=I2; novelty rests on full anisotropic spectral law and independently sharp 5/8 comparison.",
+        "Later 2025 Epperly thesis not read in full; may already contain exact anisotropic case.",
+        "Two matrix-vector products suffice to reconstruct a 2x2 matrix, and the optional residual-normalized XNysTrace variant is exact; the result is a calibration diagnostic only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic estimator, bounds and posterior correlation identity are established; no explicit all-anisotropic 2x2 covariance or sharp 5/8 constant",
+          "evidence": [
+            "Proposition 2 concerns exchangeable basic-estimator covariance in general; current spectral Fourier coefficient is not tabulated."
+          ],
+          "identifier_or_url": "arXiv:2301.07825; https://ar5iv.labs.arxiv.org/html/2301.07825",
+          "material_read": "Accessible full ar5iv HTML, equations (7)-(9), Section 2.3, Proposition 2 and sections 5.3 and 5.6",
+          "method": "web full text with theorem/section location search",
+          "title": "XTrace: Making the most of every sample in stochastic trace estimation",
+          "trigger": "Definition of basic unnormalized XNysTrace and posterior squared error"
+        },
+        {
+          "assessment": "COVERS A=I2 calibration endpoint but NOT arbitrary positive-definite 2x2 eigenvalues",
+          "evidence": [
+            "Earlier Corr=1/(nu+3), Var(T_m)=2nu(n+3)/(m(nu+3)), E J_m=2nu(nu+2)/(m(nu+3)), only for A=I_n."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/13/SCOPE-exact-gaussian-xnystrace-correlation-and-a-vanishing-diagnostic--4aed760e42f3/RESULT.md",
+          "material_read": "Entire RESULT.md, theorem, beta-angle covariance derivation and limits",
+          "method": "GitHub connector raw mathematical text",
+          "title": "Exact Gaussian XNysTrace correlation and a vanishing-diagnostic variance cliff",
+          "trigger": "Earlier exact XNysTrace result may dominate 2D case"
+        },
+        {
+          "assessment": "Unassessed possible dominating thesis result remains explicitly a priority risk; no snippet-based NOT_COVERING claim",
+          "evidence": [
+            "Later Epperly thesis might develop same exact two-dimensional covariance; material not checked."
+          ],
+          "identifier_or_url": "arXiv:2512.15929 (2025 dissertation)",
+          "material_read": "Abstract/bibliographic information only, not full mathematical thesis",
+          "method": "arXiv/OA search; complete source unavailable",
+          "title": "Make the Most of What You Have: Resource-Efficient Randomized Algorithms for Matrix Computations",
+          "trigger": "Potentially broader full Gaussian XNysTrace analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The estimator's own squared-error proxy is intended for reliability/calibration; its dependence on the full positive planar spectrum and worst-case undercalibration factor are natural joint-covariance invariants of the basic leave-one-out algorithm. The exact spectral sharpness and variance comparison allow a controlled small-budget stress test and reveal a genuine dependence mechanism. The result is intentionally a baseline diagnostic, not an information-theoretic optimal estimator: two 2D matvecs can reveal A, and residual-normalized XNysTrace is different and can be exact in 2D.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Only basic, unnormalized, 2-probe standard real Gaussian XNysTrace on 2x2 SPD; not its normalized variant, complex/Gaussian-free probes, high-dimensional optimality.",
+  "schema_version": 1
+}

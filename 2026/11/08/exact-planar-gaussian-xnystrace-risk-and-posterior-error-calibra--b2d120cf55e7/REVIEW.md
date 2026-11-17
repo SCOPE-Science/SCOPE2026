@@ -1,19 +1,21 @@
-# Scientific review: exact planar Gaussian XNysTrace risk and calibration
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is restricted to the unnormalized two-probe leave-one-out definition (Epperly–Tropp–Webber, equations (8)–(9)); the independent standard Gaussian probes, matrix positivity, ambient dimension, and posterior squared-error normalization are explicit. Diagonalization and the exact rank-one Nyström residual reduce the two basic errors to Gaussian radial factors and uniform angles. The covariance is computed, not assumed zero; the angular Poisson-kernel coefficient at frequency four is the critical step. Exact symbolic polynomial factorizations show both global bounds and their equality conditions. The standalone verifier reproduces the factorization, five independent angular integrations and five independent direct-estimator simulations. No finite numerical enumeration substitutes for the general proof. The small-dimension and normalized-algorithm distinctions are stated.
+PASS
 
-## Originality — PASS, with residual risk
+For unnormalized Gaussian two-probe XNysTrace on arbitrary 2x2 SPD A, rank-one residual after holding out g_j is tau(theta_j) v(theta_j)v(theta_j)^T, tau=ab/(a cos²theta+b sin²theta), with independent Gaussian radial squares of means 2 and fourth moments 8. The centered leave-one-out terms T_i−tr A=tau(theta_j)(R_i² sin²(theta_1−theta_2)−1). Thus each term has variance 2X where X=E tau²=sqrt(ab)(a+b)/2. The shared angle produces covariance 2Y from E[tau cos4theta]=sqrt(ab) r² and E[(2sin²Delta−1)^2]=cos²2Delta, giving Y=ab(1+r^4)/4. Consequently Var(T_hat)=X+Y, and expected squared-proxy S=E[(T1−T2)²]/4=X−Y. Explicit positive polynomial factorizations in t=sqrt(b/a)>0 prove X≥4Y, the sharp ratio ≤5/3 and Var≤5(a²+b²)/8, equality at a=b; as t→0 or infinity the ratio→1. At A=I2 this gives variance 5/4, E S=3/4. Independent direct angular integrations for three spectra corroborate the Fourier moments; not an unrestricted proof.
 
-Closest primary source: Epperly, Tropp and Webber, arXiv:2301.07825, full accessible text inspected at equations (7)–(9), Proposition 2, Sections 2.3, 5.3 and 5.6. It defines the estimator and provides general variance bounds and a correlation-based posterior-calibration identity; it does not evaluate the planar two-probe Gaussian covariance or state the sharp \(5/3\) and \(5/8\) spectral boundaries. Persson, Cortinovis and Kressner, arXiv:2109.10659, full text inspected at Sections 1 and 2, treat a different fixed-split Nyström++ procedure. Relevant prior mathematical results concerning one-column planar Nyström residual means and Hutch++ variances do not determine this joint covariance. Targeted searches for two-probe XNysTrace variance and error-estimator calibration, together with comparisons of accessible prior scientific claims, did not identify an equivalent or stronger statement. This is provisional literature-led originality, not a universal uniqueness certificate; obscure or subsequent work may contain the same formula.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The posterior error estimator is part of the source algorithm and informs adaptive stopping. The exact nonzero covariance of its two leave-one-out corrections produces a systematic underreporting factor with a complete sharp spectrum-dependent upper boundary; general correlation identities do not quantify it. The exact variance supplies a sharp fixed-Gaussian-probe baseline benchmark. This is a natural complete planar classification, not an arbitrary parameter substitution. The two-by-two case is deliberately a stress test: two matvecs already permit full matrix reconstruction, and the optional normalized scheme can be exact. Thus the result informs reliability analysis of the basic baseline variant rather than claiming practical optimality.
+PASS qualified. Original Epperly-Tropp-Webber XTrace paper states the unnormalized leave-one-out estimator and general posterior-calibration correlation identity; no complete anisotropic planar covariance or sharp all-spectra 5/8 Gaussian comparator bound is stated in inspected sections. A previously published October 13, 2026 identity-matrix XNysTrace covariance theorem already gives the isotropic 5/3 endpoint, which is NOT counted as new. The new exact arbitrary-(a,b) dependence through fourth angular Fourier moments and sharp Gaussian-Hutchinson comparison is not logically implied by the identity-matrix case. A 2025 Epperly thesis was not fully readable; record that priority risk.
 
-## Literature and verification limitations
+## value
 
-No independent audit or expert validation was performed. Stronger undiscovered specialist work may contain the same formulas. The later Epperly (2025) thesis, arXiv:2512.15929, has a related scope, but only its metadata/abstract could be retrieved; its full text was not compared. The optional normalized variant, complex arithmetic, semidefinite singular cases, higher dimensions, and non-Gaussian probes are excluded. The exact source date is the first arXiv posting, January 19, 2023, not the 2024 journal date.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The estimator's own squared-error proxy is intended for reliability/calibration; its dependence on the full positive planar spectrum and worst-case undercalibration factor are natural joint-covariance invariants of the basic leave-one-out algorithm. The exact spectral sharpness and variance comparison allow a controlled small-budget stress test and reveal a genuine dependence mechanism. The result is intentionally a baseline diagnostic, not an information-theoretic optimal estimator: two 2D matvecs can reveal A, and residual-normalized XNysTrace is different and can be exact in 2D.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
