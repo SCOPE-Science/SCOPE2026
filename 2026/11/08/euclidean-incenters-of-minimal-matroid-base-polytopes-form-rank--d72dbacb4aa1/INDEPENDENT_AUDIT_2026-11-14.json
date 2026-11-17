@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T00:09:13.975124Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen original RESULT.md full theorem and proof, actual source Git blob 8226b5564ba90e06b682e5c08b9dfe430c0919cc",
+        "Independent analytical reconstruction and local independent_checks.py finite checker; 99443 aggregate assertions"
+      ],
+      "rationale": "Reflecting k black coordinates maps Ferroni minimal-matroid bases isometrically to conv(0,{e_i+f_j}) in H:sum y=sum z=s; an explicit product decomposition with weights y_i z_j/s proves the full halfspace system y_i,z_j>=0 and s<=1. The intrinsic projected normal norms are h=sqrt((n-1)/n) for coordinates and b=sqrt(kr/n) for the base facet. Clearance constraints y_i,z_j>=h rho and s+b rho<=1 give rho<=1/(max(k,r)h+b), attained by feasible centers. At equality the max-size group coordinates are fixed to h rho while the other group surplus is an arbitrary nonnegative vector of sum |k-r| h rho; hence full center locus a regular simplex dimension min(k,r)-1 except rank=corank gives unique point. Tangency and fixed-n maximum floor((n-3)/2) follow. An independent scipy linear-program check for all 2<=k,r<=7 matched the analytic radius, but algebra proves the unrestricted statement.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2026-10-11 rank-two matroid theorem gives a broader metric formula when k=2; by duality covers r=2.",
+          "Earlier minimum enclosing sphere of minimal-matroid base polytopes is the opposite min-enclosing optimization.",
+          "Lattice-path matroid/order-polytope equivalences are affine rather than isometric."
+        ],
+        "reasoning": "The rank-two result dominates the exact lower-rank boundary but does not establish the higher rank k,r>=3 simplex center locus. External enclosing-ball result does not imply inball.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-euclidean-inradius-of-connected-rank-two-matroid-base-poly--04d0301093d4",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minimal-matroid-base-polytopes-have-a-one-exception-minimum-sphe--82125c812c6f",
+          "arXiv:1701.05529",
+          "arXiv:2303.10458"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2003.02679",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-euclidean-inradius-of-connected-rank-two-matroid-base-poly--04d0301093d4",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minimal-matroid-base-polytopes-have-a-one-exception-minimum-sphe--82125c812c6f",
+        "https://arxiv.org/abs/1701.05529",
+        "https://arxiv.org/abs/2303.10458"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ferroni facet model yields coordinate constraints but solving intrinsic facet normal offsets requires projection and coupled sum feasibility.",
+          "Existing rank-two formula does not propagate to all k,r through a valid rank reduction."
+        ],
+        "reasoning": "The result is not merely changing variables in the earlier rank-two theorem, and the outer circumball is a distinct extremum. The independent new conclusion is the complete center simplex phase for k,r>=3.",
+        "searches": [
+          "arXiv:2003.02679",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-euclidean-inradius-of-connected-rank-two-matroid-base-poly--04d0301093d4",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minimal-matroid-base-polytopes-have-a-one-exception-minimum-sphe--82125c812c6f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ferroni Prop. 2.2 gives the same base set and Prop. 2.6 its halfspace inequalities.",
+          "The present theorem fixes intrinsic Euclidean metric and describes all Chebyshev centers, not just affine polytope type."
+        ],
+        "reasoning": "Ferroni contains the exact combinatorial object as a prerequisite. The new Euclidean optimization and entire incenter simplex cannot be identified merely by the known affine equivalence to an order polytope.",
+        "searches": [
+          "Resultary: minimal matroid base polytope Euclidean inradius incenter locus rank corank",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-euclidean-inradius-of-connected-rank-two-matroid-base-poly--04d0301093d4",
+          "pyramid over product simplices Euclidean Chebyshev center"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Rank-two formula includes min over coordinate/class obstructions and can specialize to the k=2 boundary.",
+          "Ferroni records face and Ehrhart numbers, not an inradius or simplex-center table."
+        ],
+        "reasoning": "The lower rank exact inradius is known and separately credited; there is no verified existing table that supplies the full k,r>=3 radius and center-simplex family.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-euclidean-inradius-of-connected-rank-two-matroid-base-poly--04d0301093d4",
+          "minimal matroid Euclidean inradius rank corank",
+          "Ferroni minimal matroid base polytope inball"
+        ]
+      },
+      "rationale": "Ferroni 2020/2022 derives the defining minimal-matroid base polytope but studies Ehrhart and lattice counts, not intrinsic inballs. An earlier Resultary formula for all connected rank-two matroids already covers k=2 and by duality corank r=2, which are acknowledged boundary cases. That theorem does not imply the genuinely higher rank-and-corank regular-simplex family. The earlier minimal-matroid minimum enclosing ball is an outer metric optimization. No precise higher-rank all-incenters theorem was found under equivalent pyramid-of-product-of-simplices terminology, but unindexed work remains a risk.",
+      "residual_risks": [
+        "Rank-two and corank-two metric boundary cases already covered; novelty restricted to higher rank and full incenter simplices.",
+        "Unlocated equivalent Chebyshev-center theorem for a Euclidean pyramid over product of simplices could overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PROVIDES_GEOMETRIC_INPUT_NOT_INBALL",
+          "evidence": "The paper describes base/facet data, not a largest Euclidean inscribed ball",
+          "identifier_or_url": "https://arxiv.org/abs/2003.02679",
+          "material_read": "Accessible journal full text and preprint relevant Sections 2-3, especially Proposition 2.2 basis model and Proposition 2.6 inequalities",
+          "method": "Read primary open-access mathematical text",
+          "title": "On the Ehrhart Polynomial of Minimal Matroids",
+          "trigger": "Identical connected minimal matroid polytope"
+        },
+        {
+          "assessment": "COVERS_K_EQUALS_TWO_BOUNDARY",
+          "evidence": "k=2 and dual r=2 boundary subsumed; no higher-rank theorem",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-euclidean-inradius-of-connected-rank-two-matroid-base-poly--04d0301093d4",
+          "material_read": "Entire published RESULT.md including all-class rank-two formula and Chebyshev-center set",
+          "method": "Read full published result",
+          "title": "Exact Euclidean inradius of connected rank-two matroid base polytopes",
+          "trigger": "Potential stronger exact metric theorem"
+        },
+        {
+          "assessment": "OTHER_METRIC_OPTIMIZATION",
+          "evidence": "Circumradius versus inradius not logically interchangeable",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minimal-matroid-base-polytopes-have-a-one-exception-minimum-sphe--82125c812c6f",
+          "material_read": "Published theorem and summary on enclosing sphere contact phases; complete source text not read",
+          "method": "Read published result summary",
+          "title": "Minimal-matroid base polytopes have a one-exception minimum-sphere transition",
+          "trigger": "Same minimal matroid and Euclidean metric"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Final mathematical claim and proof in frozen source RESULT.md",
+        "Compared actual earlier primary and published mathematical statements"
+      ],
+      "rationale": "Largest inscribed ball and complete incenter locus are motivated intrinsic Euclidean invariants of a canonical connected matroid base polytope. The nonuniqueness transition with an exact min(rank,corank)-1 regular simplex, tangency structure and sharp fixed-n dimension provide structural information beyond known Ehrhart and outer-sphere facts; no external large theorem is required for value.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2003.02679",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-euclidean-inradius-of-connected-rank-two-matroid-base-poly--04d0301093d4",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minimal-matroid-base-polytopes-have-a-one-exception-minimum-sphe--82125c812c6f",
+    "https://arxiv.org/abs/1701.05529",
+    "https://arxiv.org/abs/2303.10458"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The intrinsic canonical incidence-vector metric is essential and is not invariant under arbitrary affine order-polytope equivalences.",
+    "Rank/corank two boundaries overlap prior known metric formula; only higher-dimensional center classification is new."
+  ],
+  "residual_risks": [
+    "Rank-two and corank-two metric boundary cases already covered; novelty restricted to higher rank and full incenter simplices.",
+    "Unlocated equivalent Chebyshev-center theorem for a Euclidean pyramid over product of simplices could overlap."
+  ],
+  "schema_version": 1
+}
