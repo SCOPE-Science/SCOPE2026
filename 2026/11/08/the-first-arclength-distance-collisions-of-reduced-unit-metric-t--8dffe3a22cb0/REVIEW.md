@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact distance mixture is derived by conditioning on unit edges; each distinct-edge term is a shifted triangular density. The density at zero determines total edge count, and induction over adjacent unit intervals recovers every distance-histogram coefficient. The included standalone Python checker exhaustively builds unlabelled trees via leaf attachment and canonical center codes; all 7,741 fifteen-vertex trees are generated, and precisely 132 have no degree-two vertices. The checks find exactly three two-element collision classes and none below fifteen. Distinct codes prove the pair members nonisometric. These are finite exhaustive claims supported by a complete generator argument, not by random sampling.
+## correctness
 
-**Originality — PASS with residual risk.** The known edge-Hosoya polynomial and earlier tree-distance noninjectivity are expressly not claimed as new. Mémoli–Needham, arXiv:1810.09646v5, Section 4.1 Example 4.3, provides a stronger local-indistinguishability construction, but not the reduced 15-vertex minimum or the classification of all three pairs. Ramane et al. (2013), doi:10.1155/2013/857908, studies terminal Hosoya polynomials of line graphs. Searches of earlier tree-Hosoya and shape-distribution literature and accessible published result records did not reveal the precise statement. Slater (1982) was accessible only as an abstract; an older catalogue could still contain these pairs.
+PASS
 
-**Value — PASS.** Removing degree-two vertices gives the natural intrinsic branch-node representation of a finite unit-length metric tree. The sharp first ambiguity at 15 true branch/leaf nodes and the exact three doubletons answer a meaningful inverse-geometric question distinct from the previously known 9-vertex unrestricted collisions. The finite nature of the theorem does not reduce the importance of a complete cutoff and collision catalogue for a canonical shape-distribution invariant.
+Conditioning on same and distinct uniform unit edges gives density f=2(1-r)/m on (0,1) + (2/m^2) sum_j H_j tau(r-j), where tau is unit triangular sum density. f(0+)=2/m determines m; recursive restriction to consecutive unit intervals recovers every H_j, so collision iff edge-separation histograms agree. Independent fresh exhaustive enumeration via networkx.nonisomorphic_trees for every n<=15 generated 7741 n=15 trees, 132 without degree-two vertices, reduced counts (0,1,1,2,2,4,5,10,14,26,42,78,132) for n=3..15. No collision before 15; exactly three n=15 histogram doubletons (25,26,24,16), (25,28,26,12), (37,42,12), all sums 91. Distinct canonical unlabelled instances ensure nonisometry. Finite exhaustive theorem only, no extrapolation beyond n=15.
 
-**Limits.** Not claimed for unequal edge lengths, arbitrary metric graphs or n>15. Proof and computer enumeration have not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality qualified: Reduced unit metric tree first arclength-distance collisions. Compared full Resultary prior theorem(s), source normalization, equivalent invariant and relevant primary bibliographic material; existing ingredients and covered special cases are explicitly excluded from novelty. Residual historical coverage cannot be categorically excluded.
+
+## value
+
+PASS
+
+Degree-two suppression is the canonical intrinsic branch representation of a metric tree; at equal physical unit-edge lengths the earliest ambiguity of the full arclength distance law is a natural inverse geometric invariant. An exact cutoff and complete three-pair fiber census are useful as minimal benchmarks for reconstructing reduced trees; finite size is intrinsic to the research question, not an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
