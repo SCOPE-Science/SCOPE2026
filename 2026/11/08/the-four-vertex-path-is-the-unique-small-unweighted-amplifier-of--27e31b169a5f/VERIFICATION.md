@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible exact checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3. The program uses only `fractions.Fraction` and `itertools`. It lists all 64 labeled undirected simple graphs on four vertices, filters the 38 connected ones, and performs exact rational polynomial checks also on all connected two- and three-vertex graphs. Nine representative generalized characteristic polynomials, graph class multiplicities and the rational witness are checked. Expected output ends with `PASS: 43 connected labeled graphs; 9 exact characteristic polynomials and rational witness.` This output was observed from the embedded program before preparation.
+## correctness
 
-The checker constructs each neighbor-averaging matrix directly from the graph and evaluates determinants by signed permutation expansion, not by floating-point eigenvalue approximations. The exact roots and positivity/nonpositivity in the mathematical proof follow from the factored polynomials and the two-dimensional reflection reduction; the code alone is not a proof for real-valued opinions or larger networks. The precise claim requires only graphs with at most four vertices, no self-loops, no edge weights, and one synchronous step.
+PASS
 
-Independent scientific verification was not performed.
+Gamma(x)=n*x^T J x and P1=1 reduce supremum to generalized eigenvalue of H^TP^TJPH vs H^TH on the zero-sum subspace; any real eigenvector rescales into [0,1]. Independent rational Sympy enumeration of all 43 connected labeled graphs on orders 2,3,4 and their 9 classes verified only P4 has lambda>1. Reflection reduction yields eigenvalues 1/4,(3+-sqrt5)/4, and explicit witness x=(1/2,1,0,1/2) has Gamma=2 and Gamma(Px)=5/2. Degree-one n=1 is degenerate, not incorrectly optimized.
+
+## originality
+
+PASS
+
+Best-of-knowledge original sharp small unweighted graph census and attainable global disagreement amplification; prior weighted example and other graph projections do not imply the exact P4 threshold.
+
+## value
+
+PASS
+
+The foundational DeGroot literature distinguished global all-pairs disagreement from edge-weighted network disagreement; the exact minimum size at which unit-weight topology alone can amplify the global metric is a motivated structural boundary. A complete first-nontrivial graph census and attained algebraic amplification factor offer a sharp transparent counterexample, not an arbitrary graph slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

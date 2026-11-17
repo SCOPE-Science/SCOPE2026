@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-The claim fixes unweighted loopless connected simple graphs, simultaneous neighbor-only updates, and the global (not network-weighted) pairwise squared disagreement metric. The exact quadratic identity converts the universal optimization over all opinion vectors to a finite generalized-eigenvalue problem, and affine rescaling justifies the bounded opinion domain. The nine characteristic polynomials give the full connected graph census through four nodes, while the reflection decomposition independently reconstructs the nontrivial golden-ratio path value. The exact rational witness gives strict increase; the standalone verifier checked all 43 connected labeled graphs and all nine expected rational polynomials. The mathematics supports one-step conclusions only.
+## correctness
 
-## Originality (O) — PASS, with historical-priority risk
-Dandekar–Goel–Lee (arXiv:1209.5998v1, §3, Definition 3.1 and following paragraph) already point out that suitable *weighted* DeGroot networks can increase global disagreement. The present result does not claim that phenomenon as new. Their Theorem 2 and Appendix B address edge-weighted network disagreement; their weighted global counterexample does not establish the sharp **unweighted** minimum of four, uniqueness of the path, or the sharp operator norm. Bindel–Kleinberg–Oren (arXiv:1203.2973v1) analyze an intrinsic-opinion anchored equilibrium objective, not synchronous unanchored one-step global amplification. Targeted literature and semantic-database comparisons located no stronger theorem implying the complete census. An unlocated historical exact small-graph example remains possible; absence from search is not proof of priority.
+PASS
 
-## Value (V) — PASS
-The question is not an arbitrary graph statistic: it isolates precisely the divergence metric for which the foundational paper already warns that DeGroot averaging need not be depolarizing under weighted influence. The result answers when unit-strength topology alone suffices, with a sharp minimal network size, complete first nontrivial isomorphism layer, and exact achievable quantitative amplification. The distinction is relevant to interpreting claims that simple averaging must reduce aggregate opinion dispersion. This is a finite mathematical benchmark, not an empirical causal model of social polarization.
+Gamma(x)=n*x^T J x and P1=1 reduce supremum to generalized eigenvalue of H^TP^TJPH vs H^TH on the zero-sum subspace; any real eigenvector rescales into [0,1]. Independent rational Sympy enumeration of all 43 connected labeled graphs on orders 2,3,4 and their 9 classes verified only P4 has lambda>1. Reflection reduction yields eigenvalues 1/4,(3+-sqrt5)/4, and explicit witness x=(1/2,1,0,1/2) has Gamma=2 and Gamma(Px)=5/2. Degree-one n=1 is degenerate, not incorrectly optimized.
 
-## Closest literature and limitations
-The closest direct antecedent is Dandekar–Goel–Lee's explicit weighted-global-disagreement observation and network-disagreement monotonicity theorem. DeGroot supplies the averaging model; Bindel–Kleinberg–Oren provide a distinct intrinsic-opinion model. Restrictions to unweighted, loopless, synchronous finite networks and one step are substantive. Weighted counterexamples are not new, larger graphs are not classified, and a historical matching small-graph census may exist.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original sharp small unweighted graph census and attainable global disagreement amplification; prior weighted example and other graph projections do not imply the exact P4 threshold.
+
+## value
+
+PASS
+
+The foundational DeGroot literature distinguished global all-pairs disagreement from edge-weighted network disagreement; the exact minimum size at which unit-weight topology alone can amplify the global metric is a motivated structural boundary. A complete first-nontrivial graph census and attained algebraic amplification factor offer a sharp transparent counterexample, not an arbitrary graph slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

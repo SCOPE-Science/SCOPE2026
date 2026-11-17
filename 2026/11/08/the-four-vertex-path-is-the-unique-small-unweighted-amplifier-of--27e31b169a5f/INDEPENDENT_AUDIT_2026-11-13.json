@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T12:59:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 67e6b9c7a2908cd6bc52ed53cf3139d4a86c3fbe",
+        "assigned exact verify.py blob 2a67f66bfac8ceb29f35ee313cb19aae84ce9516",
+        "/mnt/data/independent_scope_checks_20261113.py rational graph census"
+      ],
+      "rationale": "Gamma(x)=n*x^T J x and P1=1 reduce supremum to generalized eigenvalue of H^TP^TJPH vs H^TH on the zero-sum subspace; any real eigenvector rescales into [0,1]. Independent rational Sympy enumeration of all 43 connected labeled graphs on orders 2,3,4 and their 9 classes verified only P4 has lambda>1. Reflection reduction yields eigenvalues 1/4,(3+-sqrt5)/4, and explicit witness x=(1/2,1,0,1/2) has Gamma=2 and Gamma(Px)=5/2. Degree-one n=1 is degenerate, not incorrectly optimized.",
+      "residual_risks": [
+        "Only one synchronous update and n<=4 graph universe; does not assert monotonicity at all times, for weighted/loopy networks, or empirical polarization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dandekar Theorem 2 enforces decay of edge-weighted network disagreement, not the global Gamma being optimized here.",
+          "Graph edge-gradient projector norm results address a distinct linear map from neighbor averaging and a distinct edgewise norm."
+        ],
+        "reasoning": "Neither general theorem covers the P4 sharp quotient. A universal unweighted DeGroot Gamma contraction would in fact be contradicted by the explicit P4 rational witness.",
+        "searches": [
+          "Resultary one-third graph edge-gradient amplification gap Oct26",
+          "Dandekar network disagreement monotonicity theorem Appendix B",
+          "Resultary graph affine projection stability bound"
+        ]
+      },
+      "checked_sources": [
+        "Dandekar–Goel–Lee arXiv:1209.5998",
+        "DeGroot 1974 DOI 10.1080/01621459.1974.10480137",
+        "Bindel–Kleinberg–Oren arXiv:1203.2973",
+        "Resultary searches above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original paper gives model, not this sharp finite graph spectral extremum.",
+          "An arbitrary weighted example fails to imply any unweighted four-node exception, let alone uniqueness of P4 and (3+sqrt5)/4."
+        ],
+        "reasoning": "The current graph-size restriction is mathematically substantive: all connected unweighted graphs through size 4 are exhaustively classified, rather than a parameter renaming of known weighted counterexamples.",
+        "searches": [
+          "Dandekar Goel Lee §3 Definition 3.1",
+          "DeGroot 1974 Reaching a Consensus",
+          "Resultary targeted DeGroot P4 query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dandekar et al use the same synchronous neighbor-averaging formalism and explicitly distinguish edge-weighted network disagreement from global all-pairs disagreement.",
+          "Their global counterexamples change edge weights; the present theorem is about each simple unweighted topology and global metric on <=4 vertices."
+        ],
+        "reasoning": "Same divergence metric in the foundational weighted discussion, but weighted existence is weaker with respect to unweighted-minimal graph classification and exact sharp amplification. Anchored Friedkin-Johnsen equilibrium is a different update/functional.",
+        "searches": [
+          "Resultary: DeGroot unweighted P4 global pairwise disagreement amplifier",
+          "Dandekar Goel Lee arXiv:1209.5998 sections 2-3",
+          "Bindel Kleinberg Oren arXiv:1203.2973"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching prior complete 9-graph class spectrum or 12-of-38 count found in checked sources. The submitted exact rational polynomials were independently checked for all 43 connected labeled graphs on 2..4 points."
+        ],
+        "reasoning": "The 43 graph checks fully cover the finite graph domain, while literature search cannot exclude an unindexed equivalent census. Known weighted examples do not constitute an exact unweighted table.",
+        "searches": [
+          "Resultary: P4 golden-ratio DeGroot variance graph exact spectra",
+          "Dandekar 2013 appendix graph-global counterexample",
+          "DeGroot first amplification four-node census"
+        ]
+      },
+      "rationale": "Best-of-knowledge original sharp small unweighted graph census and attainable global disagreement amplification; prior weighted example and other graph projections do not imply the exact P4 threshold.",
+      "residual_risks": [
+        "An obscure unweighted 4-node DeGroot spectral enumeration could establish the same result.",
+        "Not a general claim about persistent polarization, stochastic opinion rules or weighted networks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_WEIGHTED_NOT_SHARP_UNWEIGHTED",
+          "evidence": "Global disagreement can rise under weighted averaging, but network disagreement is a distinct metric and no exact unweighted <=4 graph classification appears in inspected model/results.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.5998",
+          "material_read": "Accessible full-text arXiv HTML: §§2–3 definitions of network/global disagreement, Theorem 2 and relevant Appendix B",
+          "method": "read primary text and compare exact metrics/weight conditions",
+          "title": "Biased Assimilation, Homophily, and the Dynamics of Polarization",
+          "trigger": "Direct global disagreement increase under DeGroot and graph weights"
+        },
+        {
+          "assessment": "SAME_RECORD_NOT_PRIOR",
+          "evidence": "Identical November 8 finding in the search index represents the work being audited, not a separate earlier predecessor.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-four-vertex-path-is-the-unique-small-unweighted-amplifier-of--27e31b169a5f",
+          "material_read": "Resultary index title and summary only, compared to assigned frozen RESULT.md",
+          "method": "semantic search result inspection, not independent earlier scientific text",
+          "title": "The four-vertex path is the unique small unweighted amplifier of global DeGroot disagreement",
+          "trigger": "Indexed duplicate of the present source; exclude as independent priority"
+        },
+        {
+          "assessment": "NOT_DECISIVE",
+          "evidence": "Anchored Friedkin-Johnsen equilibrium objective is distinct from no-inertia one-step neighbor averaging. Do not claim whole-paper exclusion from abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/1203.2973",
+          "material_read": "Accessible bibliographic/abstract material and description in assigned source; arXiv HTML full text could not be obtained in this audit",
+          "method": "abstract/source-based limited inspection",
+          "title": "How Bad is Forming Your Own Opinion?",
+          "trigger": "Popular related network opinion dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dandekar-Goel-Lee §3 global-vs-network disagreement",
+        "independent complete finite graph census"
+      ],
+      "rationale": "The foundational DeGroot literature distinguished global all-pairs disagreement from edge-weighted network disagreement; the exact minimum size at which unit-weight topology alone can amplify the global metric is a motivated structural boundary. A complete first-nontrivial graph census and attained algebraic amplification factor offer a sharp transparent counterexample, not an arbitrary graph slice.",
+      "residual_risks": [
+        "Finite small graph theorem should not be presented as a general dynamics or policy result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For connected unweighted loopless undirected simple graphs with <=4 vertices, one-step global pairwise-squared DeGroot disagreement increases only on P4, with exact sharp factor (3+sqrt5)/4, attained by opinions in [0,1], and 12 of the 38 four-vertex labeled connected graphs.",
+  "limitations": [
+    "Only connected simple unweighted loopless graphs n<=4, no inertial/anchored/asynchronous rule.",
+    "Historical-priority uncertainty for potential unindexed finite spectral tables."
+  ],
+  "schema_version": 1
+}
