@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and validation boundaries
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and the SymPy package installed. The symbolic module constructs, without importing precomputed fixation outputs, the six-state Markov first-step system for all four combinations of habitat placement and update rule. It compares exact solved fractions to the formulas in `RESULT.md`, then checks their two polynomial difference factorizations and the strictly positive coefficient list. A second independently coded Gaussian elimination solver with standard-library `fractions.Fraction` checks 96 cases on rational parameter pairs, including strict and equality cases.
+## correctness
 
-The positivity of the displayed polynomial and positive denominators is an analytic proof for every pair of positive real parameters; a finite test grid is not substituted for this argument. No independent external audit, complete formal proof certification, or search-completeness guarantee is claimed. The result applies only to the stated small-graph model.
+PASS
+
+For each nonabsorbing mutant mask of P3, the precisely stated Bd or dB parent-replacement probabilities define a finite absorbing Markov chain. The 6-state Dirichlet solution yields explicit rational fixation probabilities for center/end r-site placements. Subtracting factors differences into +2(r−s)P(r,s)/positive and −2(r−s)/[9(r+1)(s+1)], with every coefficient of P positive for r,s>0; r=s ties. Independently constructed exact Fraction first-step elimination reproduces the r=2,s=1 values 11/24 vs 25/63 for Bd and 1/3 vs 10/27 for dB. This finite diagnostic supports, but does not replace, the general symbolic factorization.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement/implication comparison across relevant published findings and primary papers; no direct stronger theorem covering the precise final result was identified. Unread/inaccessible sources remain concrete priority risks rather than novelty certification.
+
+## value
+
+PASS
+
+The smallest path with inequivalent habitat positions exhibits an across-update-rule reversal in optimal placement for every positive mutant-only fecundity contrast. Position-dependent environmental selection and update-order sensitivity are natural evolutionary-graph questions; a complete sharp universal three-site classification is nontrivial despite tiny graph size, because it distinguishes placement from initial-mutant-site effects.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
