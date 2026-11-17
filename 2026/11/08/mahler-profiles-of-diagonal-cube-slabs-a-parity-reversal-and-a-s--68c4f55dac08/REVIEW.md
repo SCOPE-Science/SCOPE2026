@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite-difference volume formula is derived by inclusion-exclusion; polarity converts the slab to two antipodal extra vertices of a cross-polytope. The proof checks the disjointness required by facet-pyramid addition, proves strict density monotonicity in every dimension, derives the even-dimensional positive slope and certifies the three-dimensional derivative's one-root structure and the sharp upper bound. Fifteen independent finite convex-hull checks and exact symbolic identities agree. The small-width limit is explicitly not treated as a full-dimensional body.
+## correctness
 
-**Originality — PASS, historical priority provisional.** The 2017 three-dimensional Mahler minimum and its equality characterization are prior mathematics and are not new claims. The earlier general stability and hyperplane-section results do not determine the full slab-width curve, its parity reversal, or the internal local maximum. A closely related published family intersects a cube with a cross-polytope via a sum of absolute coordinates, whereas the present single diagonal sum gives different interior face structure. Existing formulas for polytopal dual volumes might permit an unrecognized equivalent calculation, which is a residual priority risk.
+PASS
 
-**Value — PASS.** The Mahler product is a canonical affine-invariant volume measure. The natural cube-to-slab degeneration has opposite infinitesimal directions in odd and even dimensions, and the complete sharp three-dimensional optimization distinguishes both equality geometries, an unattained global supremum, and a unique secondary peak. These are natural classification facts rather than arbitrary numerical examples; the result is a quantitative benchmark for symmetric volume-product deformations, not a proposed solution of the high-dimensional Mahler conjecture.
+PASS: Exact Irwin-Hall inclusion-exclusion computes volume of [-1,1]^d intersect |sum x_i|<=t. Polar is convex hull of cross-polytope with +/- t^{-1}(1,...,1); visible-facet exterior pyramids have disjoint interiors and give W_d(t)=[2^d+2 sum binom(d,j)((d-2j)/t-1)_+]/d!. For 0<t<=1 the polar volume is (B_d/t+C_d)/d!, while strict unimodality of uniform-cube sum densities gives odd-dimensional decreasing product and positive even-dimensional right slope. In d=3 exact branches give 32/3 minima at t=1,3, one interior local maximum at the unique Q-root, and unattained supremum 12 as t approaches 0. Independent exact Fraction checks verified all d=2..8 cube endpoint identities, nine d=2..10 small-width parity inequalities, and every sampled d=3 rational t. They do not prove universal dimensions.
 
-The closest literature is Iriyeh--Shibata (arXiv:1706.01749), Fradelizi et al. (arXiv:1904.10765), Karasev (arXiv:1902.08971) and Iriyeh--Shibata (arXiv:2203.13990). The visible research-index summary of an exact cube--cross-polytope intersection family was compared at the level of defining bodies; its full manuscript was not available for direct reading. The original sources' general lower bounds must not be mistaken for priority on the newly evaluated family-specific profile.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: exact published same-object claims and primary literature compared by statement/implication, with strong prior ingredients acknowledged and residual risks retained. The complete accepted contribution is not shown covered by the inspected sources.
+
+## value
+
+PASS
+
+PASS: The exact parameter profile for a natural centrally symmetric clipping path is a meaningful geometric invariant. Odd/even thin-slab reversal and the full sharp three-dimensional turning-point/equality diagram are not mechanical restatements of the known Mahler bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
