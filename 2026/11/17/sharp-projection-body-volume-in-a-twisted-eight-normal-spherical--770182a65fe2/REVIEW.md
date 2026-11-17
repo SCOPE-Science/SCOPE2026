@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The eight unit normals have exactly the required spherical moments through degree three. The discrete Minkowski theorem provides the equal-area polytope. Cauchy's formula makes its projection body an explicit eight-generator zonotope. A complete partition of all 56 generator triples into 8 same-square, 16 opposite-pair and 32 adjacent-pair triples proves the determinant sum with absolute-value signs checked throughout the fundamental twist interval. The classical zonotope volume identity then gives the claimed normalization, sharp extrema, equality cases, and endpoint deficit laws. The standalone checker passed exact rational determinant tests, cubic-moment checks, and independent convex-hull volume calculations. Numerical checks are secondary, not proofs for continuous twists.
+
+## Originality — PASS (historical priority provisional)
+The original 2026 spherical-design Minkowski paper was inspected in substantive full-text sections on realization and projection bodies; it derives general identities and uniform brightness bounds, not the exact eight-node twist-volume law. Published research on twisted latitude rings concerns spherical covering, while the six-normal spherical-design result concerns projection-area variance. Earlier work on aligned square-ring designs addresses their original-body geometry and projection-body support extrema; the full variable-twist volume formula is not a consequence of those statements. Classical Cauchy and zonotope volume identities supply general tools, but their application does not itself determine the sharp twist-dependent 56-term absolute determinant sum. Searches of published mathematical records and public literature were carried out using description, aliases, fixed-eight-node parameters and polar/projection interpretations. A still-unindexed exact formula remains a residual priority risk; two nearby indexed records were accessible only in summary.
+
+## Mathematical value — PASS
+The family is a geometric one-parameter moduli class of eight-node spherical \(3\)-designs with exactly identical degree-three normal moments and fixed surface area. The computed projection-body volume varies by the nonzero sharp factor \((1+\sqrt2)/2\), giving a quantified obstruction to recovering this nonlinear geometric invariant from low-degree isotropy. It determines all extremizing twists and distinguishes a linear endpoint cusp from quadratic stability at the optimum. This is a complete natural classification of a motivated metric invariant, not an arbitrary finite table or a claim of new general projection-body identities.
+
+## Residual limits
+The theorem is only for the two-square latitude family, not for every eight-node design. A few nearby published indexed records lacked accessible full manuscripts; the accessible motivating preprint was read beyond its abstract. External independent mathematical audit remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
