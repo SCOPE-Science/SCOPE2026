@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Finite and symbolic checks
+# Independent mathematical audit
 
-Standalone `verify.py` (Python 3 standard library only) independently reconstructs Roman feasibility and pointwise minimality, without using the gap theorem as an oracle for its exhaustive labelings. On all cycles of orders 3–11, it checks all 265707 ternary functions. A second exhaustive checker constructs defender sets independently through order 18 (524280 subsets) and compares canonical labels with the claimed unique private-neighbor family. Exact integer arithmetic independently compares explicit binomial coefficients against the rational bivariate recurrence for all orders 3–45 (1075 candidate coefficients), and checks the support and unweighted recurrence for orders up to 65.
+## correctness
 
-Expected observed output:
+PASS
 
-`VERIFY_OK bruteforce_labelings_n=3..11 265707 independent_defender_subsets_n=3..18 524280 explicit_coefficients_n=3..45 1075 recurrence_and_support_n=3..65 PASS`
+Pointwise minimality follows from forced 0/1 labels outside the 2-defender set and an open private-zero neighbor for every defender. Cyclic gaps have no adjacent short gaps. The transfer matrix [[L,S],[L,0]] with L=x^3 z^2/(1-xz), S=z^2(x+x^2) yields the displayed trace-log generating function, with n/k counting labelled cycles including periodic words. All-long constructions realize weights n-j, 0<=j<=floor(n/3). Independent full enumeration of all 3^n functions for 3<=n<=8 matched the rational polynomial coefficients; finite cases corroborate, the gap proof supplies all n.
 
-The unrestricted theorem is established by the combinatorial proof in RESULT.md. These finite tests are corroboration only, not an infinite formal certificate. A primary PDF page-image attempt yielded HTTP 403, but indexed text of its all-RDF theorem was read. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+PASS restricted to the bivariate minimal-only cycle weight enumerator and coefficient/support classification. The numeric total sequence and 5-cycle count are covered by Plouffe (1992) and Abu-Khzam–Fernau–Mann (2024); the all-RDF cycle polynomial is a different population. No stronger equivalent bivariate cycle formula appeared in checked published records or accessible relevant primary sections.
+
+## value
+
+PASS
+
+A complete polynomial on the canonical cycle family distinguishes minimum from nonminimum pointwise-minimal Roman functions. The exact gap classification and coefficients constitute motivated enumerative data not furnished by total counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

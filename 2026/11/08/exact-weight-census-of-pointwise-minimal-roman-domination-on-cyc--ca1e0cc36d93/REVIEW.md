@@ -1,19 +1,21 @@
-# Scientific review — exact minimal Roman cycle weight census
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-A pointwise-minimal Roman function is determined uniquely by its set of vertices labelled \(2\): all their other neighbors are \(0\) and remaining vertices are \(1\). Each labelled \(2\) must have a private adjacent \(0\), or its value can be reduced. Along a cycle this is equivalent to forbidding adjacent cyclic gaps of lengths zero or one. The block transfer-matrix trace logarithm counts all admissible circular gap words, and its multiplicity \(n/k\) is justified by counting distinguished defenders, even for periodic patterns. Independent binomial counts recover every coefficient. The lower weight bound and all-long-gap constructions prove the precise support. The all-one RDF and small-order/single-defender boundary cases are included. The extracted verifier independently checked exhaustive functions and defender sets plus rational arithmetic; no extrapolation from finite computation is used as proof.
+PASS
 
-## Originality: PASS, with residual publication-priority risk
+Pointwise minimality follows from forced 0/1 labels outside the 2-defender set and an open private-zero neighbor for every defender. Cyclic gaps have no adjacent short gaps. The transfer matrix [[L,S],[L,0]] with L=x^3 z^2/(1-xz), S=z^2(x+x^2) yields the displayed trace-log generating function, with n/k counting labelled cycles including periodic words. All-long constructions realize weights n-j, 0<=j<=floor(n/3). Independent full enumeration of all 3^n functions for 3<=n<=8 matched the rational polynomial coefficients; finite cases corroborate, the gap proof supplies all n.
 
-Abu-Khzam–Fernau–Mann (2022, arXiv:2204.04765) already established the general definition and private-neighbor criterion, and counted 16 minimal Roman functions on the five-cycle. *Roman Census* (arXiv:2208.05261) enumerates minimal functions for paths; it does not state this complete cycle polynomial. Deepak–Alwardi–Indiramma (2021) enumerates **all**, not minimal-only, RDFs on cycles; minimum-weight coefficients coincide and are already known. Plouffe (1992), Appendix A.178, contains exactly the univariate total sequence and rational denominator after an index shift; these numerical results are explicitly treated as **covered**. The surviving claim is the **full bivariate weight distribution**, its labelled gap-word counting identity, coefficient formula and support. Relevant indexed-record searches and cross-checks found no equivalent bivariate claim, but an unindexed stronger theorem remains possible. The 2021 primary PDF's indexed text was read; page screenshots returned HTTP 403.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The general enumerability of minimal Roman functions and the previously developed all-RDF cycle polynomial motivate a complete minimal-only weight refinement for this canonical infinite family. The result describes every nonminimum minimal labeling weight, not just a known extremal coefficient, and supplies exact coefficients with structural private-neighbor explanations. The bivariate polynomial strictly refines the known numeric Fielder sequence. This is a motivated natural complete classification, although the scalar totals themselves are not new.
+PASS restricted to the bivariate minimal-only cycle weight enumerator and coefficient/support classification. The numeric total sequence and 5-cycle count are covered by Plouffe (1992) and Abu-Khzam–Fernau–Mann (2024); the all-RDF cycle polynomial is a different population. No stronger equivalent bivariate cycle formula appeared in checked published records or accessible relevant primary sections.
 
-## Limitations and prior-coverage statement
+## value
 
-Scope is labelled simple cycles \(C_n\) with \(n\ge3\), and pointwise rather than weight-minimal RDFs. The univariate total sequence, minimum Roman domination weight and the five-cycle total are known before this work. The evidence does not establish exhaustive publication priority or independent mathematical validation. See RESULT.md for proof and references; verify.py reproduces finite checks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete polynomial on the canonical cycle family distinguishes minimum from nonminimum pointwise-minimal Roman functions. The exact gap classification and coefficients constitute motivated enumerative data not furnished by total counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
