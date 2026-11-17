@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Replay `python verify.py` with SymPy installed. This checks two exact symbolic rational identities and, over every ordered positive-part composition totaling 3 through 8 and containing at least two parts, 1,230 Crank–Nicolson matrices for 246 graph profiles. Every matrix is inverted over exact rationals, every off-diagonal sign checked, and every minimum diagonal and threshold comparison checked. All checks passed. The arbitrary-order theorem is proved in RESULT.md, not inferred from this finite enumeration.
+## correctness
 
-No independent review or independent certification is asserted.
+PASS
+
+Spectral decomposition of multipartite L has modes 0, N−a_j, N with exact vertex-projection masses. M-matrix inverse gives positive offdiagonal of C=2R−I; rational R_b(s)-R_c(s) has sign b−c, so smallest parts control. The minimum diagonal numerator 1+as−(N−a)(N−2)s² has unique positive root; strict R_a decreasing and uniform stationary limit prove no second window. Independent symbolic root evaluation and exact rational matrix inversions for five positive part profiles verified crossing, offdiagonal positivity and critical part; general theorem follows from algebra, not finite checks.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality accepted for the precise surviving claim, not for its cited earlier ingredients; statement/implication comparisons and residual access risks are recorded.
+
+## value
+
+PASS
+
+The sharp timestep at which a standard A-stable discretization loses entrywise nonnegativity is a substantive invariant for a natural graph family. Its collapse to only the smallest part, identity of the failing vertices, and sharp partition extremizers distinguish the result from the known general resolvent test and complete-graph example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

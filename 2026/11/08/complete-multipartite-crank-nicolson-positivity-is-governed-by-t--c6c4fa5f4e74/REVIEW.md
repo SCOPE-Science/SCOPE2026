@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph Laplacian is explicitly diagonalized into constant, within-part, and block-constant eigenspaces with exact projection weights. The resolvent diagonals have a sign-definite difference formula ordered by part size; the smallest diagonal has one quadratic positive zero. Positivity off diagonal follows from the inverse of the irreducible M-matrix. Two symbolic identities and 1,230 exact full-matrix checks over 246 profiles were replayed; finite tests do not prove the all-size statement.
+## correctness
 
-## Originality — PASS, bounded published comparison
-The 2014 invariance-threshold paper gives broad rational-method sufficient bounds, not a complete-multipartite closed classification. The published general reversible Crank–Nicolson resolvent-return criterion supplies prior matrix identities and spectral crossing facts, but does not evaluate multipartite diagonal weights, prove the sharp minimum-part selector, the partition-independent two-parameter threshold, or fixed-order extremal characterization. Extensive analogous searches in published-finding corpus and literature found no dominating explicit classification; the possibility of unindexed specialist results remains.
+PASS
 
-The closest publication is [A resolvent-return law for Crank–Nicolson positivity on reversible Markov chains](https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a), which already supplies the general Cayley/resolvent diagonal criterion and the complete-graph threshold. The 2014 Horváth–Song–Terlaky paper provides the broader rational-discretization framework. The present finding claims only the explicit complete-multipartite threshold, critical-size ordering, and sharp partition-extremal law. The risk of unindexed overlapping formulae is real.
+Spectral decomposition of multipartite L has modes 0, N−a_j, N with exact vertex-projection masses. M-matrix inverse gives positive offdiagonal of C=2R−I; rational R_b(s)-R_c(s) has sign b−c, so smallest parts control. The minimum diagonal numerator 1+as−(N−a)(N−2)s² has unique positive root; strict R_a decreasing and uniform stationary limit prove no second window. Independent symbolic root evaluation and exact rational matrix inversions for five positive part profiles verified crossing, offdiagonal positivity and critical part; general theorem follows from algebra, not finite checks.
 
-## Mathematical value — PASS
-The exact full classification replaces graph-size matrix resolvent tests by a closed quadratic in total order and minimum part size for arbitrarily many unequal parts. It identifies which vertices lose positivity, proves strict no-recovery, and characterizes sharp extremizers under fixed graph order and part count. These are motivated natural parameter effects for positivity-preserving implicit graph heat timestepping, not a chosen finite table.
+## originality
 
-## Scientific limitations
-Finite exact checks are supplementary to a symbolic proof. The scope excludes weighted graphs and solver-stage nonnegativity. Specialist literature priority and independent validation remain unresolved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Best-of-knowledge originality accepted for the precise surviving claim, not for its cited earlier ingredients; statement/implication comparisons and residual access risks are recorded.
+
+## value
+
+PASS
+
+The sharp timestep at which a standard A-stable discretization loses entrywise nonnegativity is a substantive invariant for a natural graph family. Its collapse to only the smallest part, identity of the failing vertices, and sharp partition extremizers distinguish the result from the known general resolvent test and complete-graph example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
