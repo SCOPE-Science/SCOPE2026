@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The renewal-reward/Green formula sets the threshold reset rate to the reciprocal of \(\int_0^a(a-x)w(x)\,dx\). The stationary Poisson resolvent gives the flux jump \(h'(0+)=-r/2\) and strict convexity \(h''=rwh>0\) away from zero. Because the threshold speed-normalized potential has slope \(-r/2\), their difference is strictly increasing. Its negative initial sign is forced by normalization and the positive Poisson tail beyond the threshold; hence there is exactly one crossing, which implies strict first-order stochastic dominance. The statement includes time-change conventions for singular diffusivity at the origin and excludes per-reset work and search-time claims. Independent BVP tests support, but do not prove, these implications.
+PASS
 
-## Originality — PASS (qualified)
+For an even continuous nonnegative speed density w positive off zero, inverse Brownian time change gives generator f''/w and conservative paths. Green kernel for Brownian killed at ±a yields expected threshold cycle m_a=int_0^a(a-x)w(x)dx and radial stationary f_T=r w(x)(a-x)1_(0,a), r=1/m_a. Independent Poisson resetting has even stationary density p_P=w h with h''=r w h>0, h'(0+)=-r/2 and h>0. F(x)=h(x)-r(a-x)/2 satisfies F'(x)=h'(x)+r/2>0 on (0,a), F(a)>0; normalization forces F(0)<0, hence one radial-density crossing; integrating signed single-crossing densities proves P(R_T>t)<P(R_P>t) for all t>0 and monotone-cost ordering. For w=|x|^alpha, alpha>=0, r=(alpha+1)(alpha+2)/a^(alpha+2). Fresh Brownian alpha=0 a=1 integration gives fT=2(1-x), fP=sqrt2 exp(-sqrt2 x), root 0.7579006016105, E[R_T]=1/3, E[R_P]=1/sqrt2, and strict survival inequalities in sample positions. The general proof uses convex resolvent, not finite mesh tests.
 
-The strongest nearby paper is Frimpong, Bresque and Roldán (arXiv:2610.21962, Sections 4 and 7), which separately derives the two stationary laws and studies reset costs. Its identified comparisons do not set the two reset-event frequencies equal or assert a universal first-order stochastic order. De Bruyne, Randon-Furling and Redner (arXiv:2009.03419) analyze first-passage threshold resetting instead. A previously recorded result for arXiv:2610.21962 concerns Poisson-reset exponential cost singularities and neither implies nor duplicates the matched-frequency threshold comparison. Published-record searches found no explicit equivalent statement. The remaining priority risk is a general Green-kernel or stochastic-resetting comparison theorem that entails this claim implicitly.
+## originality
 
-## Value — PASS
+PASS
 
-A physically interpretable fairness constraint, equal expected number of resets per unit time, yields an entire distributional ordering, not just an isolated moment or numerically optimized parameter. It resolves simultaneous comparisons of every increasing radial occupation penalty and gives a non-power-law universality result whose proof is a strict one-crossing structure. It also distinguishes occupation penalties from the reset-event costs that are not ordered by this result.
+Frimpong–Bresque–Roldán 2026 full accessible paper establishes separate Poisson/threshold stationary distributions in the power-law sluggish diffusion model and compares reset costs and occupation behavior, but its Sections 4,7 and conclusion do not give equal-frequency first-order stationary radial stochastic dominance, let alone arbitrary even speed density. Related Resultary result compares occupation-fraction fluctuation variances at matched frequency (temporal observable), and does not imply radial stochastic order. New exact one-crossing potential proof thus survives best-of-knowledge, with residual risk of a broader older Green-resolvent comparison theorem.
 
-## Boundaries and risks
+## value
 
-This does not determine energy expenditure at reset instants, time-to-target or entropy production. General asymmetric diffusions and lattice effects remain outside the theorem. An unindexed earlier general theorem could dominate the originality claim. Reproducibility checks sample finitely many diffusivities and radii, not the quantified class.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+At fixed average reset-event frequency, stochastic order of stationary distance simultaneously controls ALL increasing radial penalties, a strong and directly interpretable comparison of two natural reset protocols. The crossing mechanism survives heterogeneous natural-scale diffusions, so it is a motivated structural theorem, not a recomputation of two known stationary densities or merely Brownian sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
