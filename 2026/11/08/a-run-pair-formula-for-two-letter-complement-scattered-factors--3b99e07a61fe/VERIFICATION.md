@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 standard library only. It prints a line beginning `PASS 269880 words` when all checks succeed. This standalone program evaluates the closed run formula, a separate streaming implementation, and direct enumeration of all position-pair deletions. It also checks the full run-pair collision classes against local-move chains, not just their cardinalities. Testing covers every ternary word of length \(0\) through \(11\) and reproducible random words of lengths \(12,16,\ldots,60\) over alphabets of sizes \(2\) through \(5\). It separately verifies the rational expected-count formula by complete enumeration for \(q\in\{2,3\}\) and \(2\le n\le7\).
+## correctness
 
-The mathematical proof in `RESULT.md` establishes the statement for all finite lengths and all alphabets. Finite checks are corroboration, not an infinite certificate. No independent external mathematical audit has yet been performed.
+PASS
+
+For arbitrary finite source word over any alphabet and distinct prescribed a,b, every scattered ab deletion maps to one eligible ordered (a-run,b-run) pair. Distinct run-pair outputs can coincide only across local a^r b a b^s windows with singleton intermediate runs; comparing first deleted differing positions and iterating proves the collision graph is a disjoint union of paths, one edge per contiguous abab factor. Thus |C(w,ab)|=M_ab(w)-N_abab(w) without missing longer-range identifications. Separating run-start pairs into boundary, adjacent and disjoint positions gives the exact stated q-ary expectation by linearity, without false independence assumptions. Independent brute-force deletions on all 9,841 ternary words of lengths 0..8 agreed with the formula.
+
+## originality
+
+PASS
+
+Best-of-knowledge original exact all-word/all-alphabet count for prescribed deletion pattern ab (a≠b). Adamson–Fleischmann–Huch (2026) develop the exact complement-scattered-factor object and general algorithms but identify even special closed counting formulas as future work; their full available paper does not supply the run-pair/abab collision-fiber identity. Older unrestricted two-deletion descendants and alternating-host formulas are different statistics or narrower hypotheses; possible shuffle/deletion terminology overlap remains a risk.
+
+## value
+
+PASS
+
+Solves a directly motivated exact counting problem for the first nontrivial ordered distinct-letter deletion pattern, over arbitrary alphabets/source words; explains every collision fiber, replaces construction of an output set by a linear scan, and yields an exact random-word expectation. The result has structural content beyond its computational verification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
