@@ -1,19 +1,21 @@
-# Review: optimal dephasing on a trapped friendship network
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise trace-decreasing Lindblad generator, graph and rate conventions are defined in `RESULT.md`. The quantum dissipator has strictly negative spectral real part for every positive dephasing rate by the Hilbert–Schmidt quadratic form and graph connectivity. The eighteen real orbit coordinates are exhaustive under the trap stabilizer; their generator is affine in the number of indistinguishable triangles, allowing an exact rational symbolic solution. The supplied executable code reconstructs the generator and certifies the rational identity, two globally valid coefficientwise positive polynomial lower bounds, critical scaling and derivative. Fifteen full complex-Liouvillian comparisons provide an independent finite-dimensional numerical cross-check. The proof explicitly excludes zero dephasing and arbitrary trap rates from its asymptotic claims.
+PASS
 
-## Originality — PASS on examined evidence, with residual priority risk
+On friendship graph with m>=3 triangles, unit hopping, off-diagonal dephasing g>0, peripheral population-loss rate 2 and initial peripheral in another triangle, dissipative Hilbert–Schmidt quadratic form makes the Lindblad generator strictly stable: zero real dissipation would force diagonal operator zero at trap and constant over connected edges, hence zero. Permutations of nondistinguished triangles and within-pair swaps leave 18 real Hermitian orbit coordinates. Each generator entry is affine in m; evaluating orbit bases at m=3,4 exactly reconstructs all m. Independently formed the exact symbolic 18x18 matrix and integrated trace rational N/D; SymPy confirms all coefficients of N,D and of (g+1)N-m^2 D/4 and N-m g D/4 are nonnegative in g,m-2, proving T>=m^2/[4(g+1)] and T>=mg/4. Exact scaling g=z sqrt(m) gives F(z)=2(z^2+1)(z^2+2)/(z(3z^2+4)). Coercive bounds exclude optimizing z->0 or infinity; unique positive root of 3z^6+3z^4-6z^2-8 gives z*=1.226929487... and F(z*)=1.681019855... . Independent full (2m+1)^2 complex Liouvillian solves at m=3..6, g=0.5,1,3 agree with reduced mean in 12 tests. No extrapolation replaces the exact symbolic identity.
 
-Plenio–Huelga (arXiv:0807.4902) develops the qualitative dephasing-assisted mechanism, while Caruso et al. (arXiv:0901.4454, sections II and Appendix A) give complete fully connected network formulas and demonstrate dark-state effects. Neither paper gives the friendship-graph rate-two peripheral trapping mean or the exact scaling profile and optimal constant. A closely motivated exact star-network calculation has no within-triangle edges and therefore does not imply this topology-specific rational profile. Broad searches for friendship/windmill graphs, local dephasing, and peripheral sinks found no corresponding formula, although incompleteness of the accessible indexed literature remains possible. The comparison is about the mathematical statements, not only differing graph names.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Friendship networks isolate a physically interpretable local motif (triangular coherent interference) while holding the hub-bottleneck architecture fixed. The finding identifies both the exact performance exponent and a nontrivial, unique optimally scaled noise strength. The sharp function and coefficient differ from those of a star, giving a quantitative benchmark for noise engineering and demonstrating that adding triangles changes capture kinetics beyond merely changing the total vertex count. The global lower bounds distinguish an actual all-noise optimum from a chosen scaling limit; this is more than a routine finite enumeration.
+After comparing exact statements, hypotheses, data orders and implications, no inspected stronger source subsumes the surviving precise claim; known prerequisite results and any overlapping subclaims are expressly credited. This is best-of-knowledge, not a claim of proof of historical priority.
 
-## Limitations and closest literature
+## value
 
-The proof is only for unit hopping, unit-dephasing convention, trap population-loss rate two and a starting peripheral in a different triangle. It does not describe transient trapping probability or arbitrary dephasing/trap parameters. The full Caruso et al. preprint was examined, including the fully connected model and Appendix A. Plenio–Huelga was inspected for generator and chain results. Lloyd–Mohseni was consulted at abstract level for symmetry-based physical motivation, not treated as full-text negative evidence. A specialized unpublished or unindexed friendship-network calculation may exist. Finite Liouvillian tests are not infinite proofs. Priority and independent validation remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp transport-rate and optimal-noise asymptotics for a natural hub-of-triangles network with a peripheral trap, adding peripheral pair bonds absent from star models. Exact 18-orbit reduction and global optimizer convergence explain a nontrivial m^(3/2) bottleneck and quantitatively distinct minimizer/constants. Potentially useful as a benchmark for dephasing-assisted trapping; not an experimental or multiparticle claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

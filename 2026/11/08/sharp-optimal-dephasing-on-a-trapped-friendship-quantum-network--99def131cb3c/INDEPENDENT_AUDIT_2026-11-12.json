@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T21:52:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/sharp-optimal-dephasing-on-a-trapped-friendship-quantum-network--99def131cb3c/RESULT.md",
+        "2026/11/08/sharp-optimal-dephasing-on-a-trapped-friendship-quantum-network--99def131cb3c/verify_friendship.py"
+      ],
+      "rationale": "On friendship graph with m>=3 triangles, unit hopping, off-diagonal dephasing g>0, peripheral population-loss rate 2 and initial peripheral in another triangle, dissipative Hilbert–Schmidt quadratic form makes the Lindblad generator strictly stable: zero real dissipation would force diagonal operator zero at trap and constant over connected edges, hence zero. Permutations of nondistinguished triangles and within-pair swaps leave 18 real Hermitian orbit coordinates. Each generator entry is affine in m; evaluating orbit bases at m=3,4 exactly reconstructs all m. Independently formed the exact symbolic 18x18 matrix and integrated trace rational N/D; SymPy confirms all coefficients of N,D and of (g+1)N-m^2 D/4 and N-m g D/4 are nonnegative in g,m-2, proving T>=m^2/[4(g+1)] and T>=mg/4. Exact scaling g=z sqrt(m) gives F(z)=2(z^2+1)(z^2+2)/(z(3z^2+4)). Coercive bounds exclude optimizing z->0 or infinity; unique positive root of 3z^6+3z^4-6z^2-8 gives z*=1.226929487... and F(z*)=1.681019855... . Independent full (2m+1)^2 complex Liouvillian solves at m=3..6, g=0.5,1,3 agree with reduced mean in 12 tests. No extrapolation replaces the exact symbolic identity.",
+      "residual_risks": [
+        "Uniform positive site dephasing g, m>=3 triangles, one peripheral trap loss rate2, unit hopping and specified initial peripheral. No multiparticle or time-dependent transport claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Caruso et al. exact reduction uses fully connected networks, not sparse friendship m triangles sharing one hub.",
+          "Plenio–Huelga noise-assisted transport considers linear-chain model, not this friendship sink geometry."
+        ],
+        "reasoning": "Prior general noise assistance and exact complete/star network results do not give the 18-coordinate rational profile F(z) for friendship geometry.",
+        "searches": [
+          "https://arxiv.org/pdf/0901.4454",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-peripheral-trapping-on-a-dephased-quantum-star-has-an-exact-m-3--d5c50e491e7c",
+          "https://arxiv.org/html/0807.4902v1"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query friendship graph dephased trapping sharp m^(3/2)",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-peripheral-trapping-on-a-dephased-quantum-star-has-an-exact-m-3--d5c50e491e7c",
+        "https://arxiv.org/pdf/0901.4454",
+        "https://arxiv.org/html/0807.4902v1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fully connected vs hub-plus-triangle adjacency have non-equivalent generator blocks and different dark-sector structure.",
+          "Star formula has different optimization coefficient; cannot derive friendship F by reparametrization of m because exact z dependence and constants differ."
+        ],
+        "reasoning": "Neither general noise-assisted transport nor known star law implies current constant/profile; a specialized friendship-network calculation would be covering, but was not found.",
+        "searches": [
+          "https://arxiv.org/pdf/0901.4454",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-peripheral-trapping-on-a-dephased-quantum-star-has-an-exact-m-3--d5c50e491e7c",
+          "https://arxiv.org/html/0807.4902v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Friendship F_m has m additional peripheral–peripheral bonds, so is not isomorphic to a star; Lindblad orbit space has 18 vs 7 coordinates.",
+          "A published star result gives gamma/sqrt m->1 and optimum coefficient1, whereas present friendship constants are 1.226929... and 1.681019... ."
+        ],
+        "reasoning": "The shared scaling exponent is not equivalence; extra graph edges change transfer generator, exact F and optimum. No same-graph formula found.",
+        "searches": [
+          "Resultary: friendship graph trapped quantum dephasing optimal rate sqrt m mean absorption time m^3/2",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-peripheral-trapping-on-a-dephased-quantum-star-has-an-exact-m-3--d5c50e491e7c"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual package has reproducible symbolic polynomial certificates and finite full Liouvillian comparisons; auditor independently reconstructed 18-coordinate symbolic certificate and full solves.",
+          "No existing published table of the same F(z) and sharp z* identified."
+        ],
+        "reasoning": "Computational reproducibility alone does not establish originality; but no table already supplying these exact friendship constants was located.",
+        "searches": [
+          "Resultary friendship graph quantum network trapping dephasing exact constants",
+          "source verify_friendship.py rational identity"
+        ]
+      },
+      "rationale": "After comparing exact statements, hypotheses, data orders and implications, no inspected stronger source subsumes the surviving precise claim; known prerequisite results and any overlapping subclaims are expressly credited. This is best-of-knowledge, not a claim of proof of historical priority.",
+      "residual_risks": [
+        "Unindexed exact friendship-graph Lindblad reduction may establish same profile under graph-transport terminology",
+        "Conclusions limited to fixed unit hopping/sink normalization and single excitation; no transients or arbitrary rates",
+        "Symbolic coefficient certificates need a trusted rerun for archival proof validation although independently regenerated in this audit"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different fully connected adjacency and invariant operator classes",
+          "evidence": "Main fully connected model, Appendix A",
+          "identifier_or_url": "https://arxiv.org/pdf/0901.4454",
+          "material_read": "Primary PDF main model and Appendix A (including equations A1–A30), page-image checks of first and appendix pages",
+          "method": "Full materially relevant text on exact complete-graph reduction",
+          "title": "Highly efficient energy excitation transfer in light-harvesting complexes: The fundamental role of noise-assisted transport",
+          "trigger": "Canonical exact symmetry reduction with dephasing and traps"
+        },
+        {
+          "assessment": "General effect known; no friendship-graph optimal finite-size constant",
+          "evidence": "Equations in opening sections",
+          "identifier_or_url": "https://arxiv.org/html/0807.4902v1",
+          "material_read": "Accessible HTML method, Lindblad equations, linear chain model and conclusion",
+          "method": "Direct model and conclusion comparison",
+          "title": "Dephasing assisted transport: Quantum networks and biomolecules",
+          "trigger": "Foundational dephasing-assisted transport"
+        },
+        {
+          "assessment": "Star is mathematically distinct and does not imply friendship law",
+          "evidence": "Star m ordinary leaves with no edges between peripherals; star F optimum1",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-peripheral-trapping-on-a-dephased-quantum-star-has-an-exact-m-3--d5c50e491e7c",
+          "material_read": "Full published RESULT.md, model, exact formula, optimizer theorem and proof",
+          "method": "Exact graph/normalization/formula comparison",
+          "title": "Peripheral trapping on a dephased quantum star has an exact m^(3/2) optimum",
+          "trigger": "Closest published SCOPE rate-optimization theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/11/08/sharp-optimal-dephasing-on-a-trapped-friendship-quantum-network--99def131cb3c/RESULT.md"
+      ],
+      "rationale": "Sharp transport-rate and optimal-noise asymptotics for a natural hub-of-triangles network with a peripheral trap, adding peripheral pair bonds absent from star models. Exact 18-orbit reduction and global optimizer convergence explain a nontrivial m^(3/2) bottleneck and quantitatively distinct minimizer/constants. Potentially useful as a benchmark for dephasing-assisted trapping; not an experimental or multiparticle claim.",
+      "residual_risks": [
+        "Uniform positive site dephasing g, m>=3 triangles, one peripheral trap loss rate2, unit hopping and specified initial peripheral. No multiparticle or time-dependent transport claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform positive site dephasing g, m>=3 triangles, one peripheral trap loss rate2, unit hopping and specified initial peripheral. No multiparticle or time-dependent transport claim."
+  ],
+  "schema_version": 1
+}
