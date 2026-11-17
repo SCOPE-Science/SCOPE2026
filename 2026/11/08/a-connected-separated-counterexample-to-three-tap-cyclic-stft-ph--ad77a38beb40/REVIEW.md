@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The STFT convention, window length, circular support graph and precise separation parameter are fixed. The three possible translated window sums yield exact formulas in terms of \(S=|A|^2+|B|^2\) and \(P=A\overline B\). These prove pointwise spectrogram equality for every frequency and translation, every multiple of three of dimension at least six, and every positive unequal pair. A quadratic with roots \(|A|^2\), \(|B|^2\) establishes the complete two-orbit classification only within the stated periodic family. `VERIFY.py` checks the rational autocorrelations independently on six dimensions; no finite sample is used as an infinite proof.
+PASS
 
-## Originality
+At t modulo 3 the three-term STFT polynomials reduce, up to unit phases, to A+Bz, B+Az^2 and z(A+Bz); all measured intensities depend only on S=|A|^2+|B|^2 and P=A conjugate(B), including frequencies where the polynomial pair differs. With d>=6 Fourier inversion of the t=0 intensity uniquely gives S and P, and conversely S,P determine all rows. For positive a,b the swap leaves S,P invariant but changes site magnitudes, ruling out global-phase equality. The nonzero cyclic gaps alternate lengths 1,2, hence support is 2-connected and there is a zero every block (1-separated). The quadratic X^2-SX+|P|^2 has exactly two positive ordered magnitude pairs unless equal; P fixes relative phase after a common phase gauge, proving ONLY the restricted fiber statement. Independently reconstructed full complex spectrograms over all d^2 time-frequency pairs for d=6,9,12 with (2,3,0) vs (3,2,0): maximum squared-intensity difference was zero to floating error; exact autocorrelation proof handles every d=3m.
 
-PASS with residual bibliographic risk. The 2022/2023 Bartusel primary paper states the half-window extension as a conjecture; its periodic Example 4.2.3 has one nonzero in each relevant block, whereas here two occupied sites per block make the support connected. The 2024 dissertation Theorem 7.2.12 expressly asserts the contrary connectedness equivalence; its narrow exceptional configuration again has just one occupied site per window block. Nonvanishing-signal and two-tap-window results do not imply the present three-tap connected ambiguity. Relevant published comparisons and independently searchable aliases did not identify an earlier exact statement; an unindexed specialist example remains possible. This establishes best-knowledge rather than absolute priority.
+## originality
 
-## Value
+PASS
 
-PASS. The example supplies a concrete infinite family that separates support connectivity from genuine magnitude identifiability exactly at the previously conjectured half-window separation threshold. It also resolves the number of phase-inequivalent solutions in the natural periodic two-site stratum. This is not just a computation for an arbitrary parameter slice: it tests a specific structural boundary of a named phase-retrieval assertion.
+The counterexample contradicts the unconditional cyclic short-window connectedness direction of Bartusel 2024 Theorem 7.2.12(b) under the theorem’s stated L=2, ceil(L/2)=1 separation, while it is not the lone-occupied-index-per-(L+1) exceptional support of part(a). The 2023 article has stronger L-separation hypotheses; previously published three-tap full-support fibers concern nowhere-zero signals and different arithmetic, not the present sparse period-3 amplitude swap. Genuine best-of-knowledge novelty is qualified by possible unindexed counterexamples.
 
-## Limitations
+## value
 
-The fiber count applies only after restricting both signals to periodic blocks \((A,B,0)\). A complete classification of competing unrestricted signals or nonflat windows is not proved. The cited 2024 theorem is compared as printed; this analysis does not establish a reason for that source's proof behavior. The result has not received independent mathematical review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit all-multiples-of-three counterexample pinpoints a false support-connectivity sufficiency theorem at its claimed half-window separation threshold, and the exact restricted phase-fiber classification identifies the underlying amplitude-exchange obstruction. This informs the correct hypotheses for finite STFT recovery and is a motivated nonroutine exception.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T06:10:55.110713Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At t modulo 3 the three-term STFT polynomials reduce, up to unit phases, to A+Bz, B+Az^2 and z(A+Bz); all measured intensities depend only on S=|A|^2+|B|^2 and P=A conjugate(B), including frequencies where the polynomial pair differs. With d>=6 Fourier inversion of the t=0 intensity uniquely gives S and P, and conversely S,P determine all rows. For positive a,b the swap leaves S,P invariant but changes site magnitudes, ruling out global-phase equality. The nonzero cyclic gaps alternate lengths 1,2, hence support is 2-connected and there is a zero every block (1-separated). The quadratic X^2-SX+|P|^2 has exactly two positive ordered magnitude pairs unless equal; P fixes relative phase after a common phase gauge, proving ONLY the restricted fiber statement. Independently reconstructed full complex spectrograms over all d^2 time-frequency pairs for d=6,9,12 with (2,3,0) vs (3,2,0): maximum squared-intensity difference was zero to floating error; exact autocorrelation proof handles every d=3m.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published 2026/11/01 boxcar theorem requires every coordinate nonzero, N even >=8 and 3 not dividing N. Here d divisible by 3, one third coordinates zero. Earlier Bartusel periodic exception has one occupied site per block rather than two."
+        ],
+        "reasoning": "The general theorem apparently claims recovery and is falsified, not a prior source of this counterexample; previously classified fibers address disjoint support/dimension hypotheses.",
+        "searches": [
+          "STFT three consecutive window connected support 1 separated swap A B 0 Bartusel injectivity",
+          "arxiv:2206.06729",
+          "doi:10.18154/RWTH-2024-03402"
+        ]
+      },
+      "checked_sources": [
+        "https://publications.rwth-aachen.de/record/983400/files/983400.pdf",
+        "https://publications.rwth-aachen.de/record/968225/files/968225.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exact-full-support-phase-fibers-for-the-three-site-cyclic-boxcar--59629c2cc6c5/RESULT.md",
+        "https://arxiv.org/pdf/2206.06729"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Primary thesis pp109-111 Theorem 7.2.12(b) explicitly asserts the contradicted equivalence, and preceding Example 7.2.4/Theorem 7.2.11 focus on a different one-site periodic exception. 2023 paper uses L-separated regime."
+        ],
+        "reasoning": "The counterexample is a direct refutation of a stated theorem in a special case, and its novel mathematical content is not entailed by the narrower preceding result. No stronger recovery assumption (nonvanishing ambiguity function) is asserted.",
+        "searches": [
+          "STFT three consecutive window connected support 1 separated swap A B 0 Bartusel injectivity",
+          "arxiv:2206.06729",
+          "doi:10.18154/RWTH-2024-03402"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bartusel 2024 Thm 7.2.12 says for g supported length L+1, ceil(L/2) separated f is phase retrievable iff L-connected. Here L=2, support gaps 1,2, f has zero runs length 1 and connected 2-graph; equality of all magnitudes refutes iff."
+        ],
+        "reasoning": "This is a modulus/fiber statement, not merely support equality or a Fourier-frequency shift. The restricted exact fiber count follows from phase-product reconstruction.",
+        "searches": [
+          "STFT three consecutive window connected support 1 separated swap A B 0 Bartusel injectivity",
+          "arxiv:2206.06729",
+          "doi:10.18154/RWTH-2024-03402"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "One analytic pair exists for every d multiple of 3 and yields an exact restricted-family two-point fiber, no finite table required. Retrieved Resultary exact boxcar classification excludes 3|N."
+        ],
+        "reasoning": "Small-d computations alone are not the theorem; no relevant published all-d sparse period-3 amplitude-swap table was located.",
+        "searches": [
+          "STFT three consecutive window connected support 1 separated swap A B 0 Bartusel injectivity",
+          "arxiv:2206.06729",
+          "doi:10.18154/RWTH-2024-03402"
+        ]
+      },
+      "rationale": "The counterexample contradicts the unconditional cyclic short-window connectedness direction of Bartusel 2024 Theorem 7.2.12(b) under the theorem’s stated L=2, ceil(L/2)=1 separation, while it is not the lone-occupied-index-per-(L+1) exceptional support of part(a). The 2023 article has stronger L-separation hypotheses; previously published three-tap full-support fibers concern nowhere-zero signals and different arithmetic, not the present sparse period-3 amplitude swap. Genuine best-of-knowledge novelty is qualified by possible unindexed counterexamples.",
+      "residual_risks": [
+        "Bartusel’s thesis has a stated theorem that the counterexample contradicts; its appendix proof was not traced line-by-line to identify the precise invalid inference.",
+        "Another source could already have identified the same sparse connected periodic counterexample; targeted database/literature search is not conclusive.",
+        "The exact two-class count holds only within 3-periodic two-positive-sites support, NOT among all complex d-vectors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_CONTRADICTION_TO_THEOREM_7_2_12_B",
+          "evidence": "For L=2 and d divisible by 3, two nonzero sites per block satisfy 1-separated, connected but are not phase retrievable; the theorem excludes no such pattern in part b.",
+          "identifier_or_url": "https://publications.rwth-aachen.de/record/983400/files/983400.pdf",
+          "material_read": "Complete nearby Section 7.2 pp103-111, including Theorems 7.2.9, 7.2.11, 7.2.12 and comparison; PDF theorem page visually inspected; Appendix A.1 not read in full",
+          "method": "Primary lawful-OA PDF text extraction + screenshot theorem context",
+          "title": "The role of connectedness in phase retrieval (doctoral thesis)",
+          "trigger": "Source of explicit target Theorem 7.2.12 and periodic exceptions"
+        },
+        {
+          "assessment": "EARLIER_STRONGER_SEPARATION_NOT_COVERING",
+          "evidence": "Article does not state the half-window separator theorem; its periodic example is distinct from two-positive-entry swap.",
+          "identifier_or_url": "https://publications.rwth-aachen.de/record/968225/files/968225.pdf",
+          "material_read": "Primary 2023 journal full PDF relevant discrete/STFT sections and abstract, comparison with 2024 extension",
+          "method": "Open primary PDF read, screenshot sampled",
+          "title": "Injectivity Conditions for STFT Phase Retrieval on Z, Zd and Rd",
+          "trigger": "Preceding cyclic short-window theorems"
+        },
+        {
+          "assessment": "DISJOINT_NOWHERE_ZERO_AND_ARITHMETIC_CASE",
+          "evidence": "Earlier finite-dimensional source requires no zero coordinates and 3 not dividing dimension; does not classify 3-periodic (A,B,0).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exact-full-support-phase-fibers-for-the-three-site-cyclic-boxcar--59629c2cc6c5/RESULT.md",
+          "material_read": "Full public RESULT.md, quantified dimension/support assumptions and proof, limitations",
+          "method": "Connected GitHub full read, scope comparison",
+          "title": "Exact full-support phase fibers for the three-site cyclic boxcar window",
+          "trigger": "Same flat three-tap window published exact fiber classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit all-multiples-of-three counterexample pinpoints a false support-connectivity sufficiency theorem at its claimed half-window separation threshold, and the exact restricted phase-fiber classification identifies the underlying amplitude-exchange obstruction. This informs the correct hypotheses for finite STFT recovery and is a motivated nonroutine exception.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned Git tree and frozen RESULT.md/verification code at https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-connected-separated-counterexample-to-three-tap-cyclic-stft-ph--ad77a38beb40: 8c624c2ffc235b974d298c19097436b8e91d2a50",
+    "https://publications.rwth-aachen.de/record/983400/files/983400.pdf",
+    "https://publications.rwth-aachen.de/record/968225/files/968225.pdf",
+    "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-exact-full-support-phase-fibers-for-the-three-site-cyclic-boxcar--59629c2cc6c5/RESULT.md",
+    "https://arxiv.org/pdf/2206.06729"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every d=3m>=6 and flat three-tap cyclic STFT window g=1_{0,1,2}, the positive real signals repeating (a,b,0) and (b,a,0) for 0<a<b have equal full STFT intensities though they are distinct up to global phase, despite 2-connected support and 1-separation. In the restricted 3-periodic complex (A,B,0) family with AB nonzero, each intensity fiber modulo common phase has exactly two classes if |A|!=|B| and one otherwise.",
+  "limitations": [
+    "Flat three-site window and dimensions divisible by three only, one zero in each length-3 block.",
+    "No complete ambiguity class among arbitrary nonperiodic signals, no stability or generic-window guarantee.",
+    "Finite Fourier checks d=6,9,12 are corroborative, analytic autocorrelations establish arbitrary m."
+  ],
+  "residual_risks": [
+    "Bartusel’s thesis has a stated theorem that the counterexample contradicts; its appendix proof was not traced line-by-line to identify the precise invalid inference.",
+    "Another source could already have identified the same sparse connected periodic counterexample; targeted database/literature search is not conclusive.",
+    "The exact two-class count holds only within 3-periodic two-positive-sites support, NOT among all complex d-vectors.",
+    "Original METADATA.json (474ce3fcdd88724fc38e424035eca3766b4fcc29) and AUDIT.json (cccd09c0fdeb48e1f0bc35aa3473e0f726106fef) contain the operational source identifier scope_run_id and provenance fields, which are not cleared for public metadata; no complete semantically audited sanitized replacement was prepared. Withhold publication."
+  ],
+  "schema_version": 1
+}
