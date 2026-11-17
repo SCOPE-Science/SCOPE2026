@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T16:55:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/unique-optimal-spectral-gap-allocation-on-an-even-cycle-with-alt--cb4124bf98d2/RESULT.md at Git blob f4cdc65606f114f91e2bce7ef5993b0eca155e36",
+        "2026/11/08/unique-optimal-spectral-gap-allocation-on-an-even-cycle-with-alt--cb4124bf98d2/verify.py at Git blob 16881cb0eb60a3b78b33999c7e1bd4d6922b8a23",
+        "Independent SymPy rational C6 instance and Bloch/Rayleigh argument"
+      ],
+      "rationale": "The full RESULT.md proof is reconstructible: lambda_2 is concave in edge weights, so rotation-by-two averaging produces a symmetric optimum but does not by itself prove all-weights uniqueness. Bloch diagonalization gives the lower spectral band a+b-sqrt((a+b)^2-4ab sin^2(pi/m)). The substitution U,V>=0 with UV=cos^2(pi/m) and weighted AM-GM gives the two-rate optimum. A fixed two-dimensional complex eigenvector with squared edge chord lengths proportional to prices gives a sharp Rayleigh upper bound for any independent feasible vector; equality enforces both real and imaginary parts as eigenvectors, and the two noncollinear circle chords at each vertex determine both incident weights uniquely. The m=2 eigenspace is handled separately. Independent exact rational substitution for C6 with price (4,1), B=1 gives w_even=5/84,w_odd=2/21,lambda_2=1/14. The actual source verifier performs 48 rational case tests and principal minor PSD checks, only finite corroboration.",
+      "residual_risks": [
+        "The finite verifier does not prove the m-unbounded theorem; the analytic circle certificate is essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Both prior cycle theorems allow arbitrary independently selected edge rates, not merely alternating rate candidates; Sun et al 2006 supplies the general convex formulation."
+        ],
+        "reasoning": "Neither alternating-symmetry reduction nor all-weight uniqueness escapes earlier coverage; the earlier theorems already include the claimed all-m and arbitrary-price family.",
+        "searches": [
+          "fastest mixing continuous-time Markov process alternating edge prices even cycle maximize algebraic connectivity uniqueness weighted Laplacian",
+          "Sun Boyd Xiao Diaconis fastest mixing Markov process continuous-time cycle unequal edge price SDP"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-square-root-price-geometry-for-fastest-mixing-on-alternating-eve--479ebc83d8ff/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-and-unique-fastest-diffusion-on-two-price-even-cycles--33fae1c22fc4/RESULT.md",
+        "Resultary semantic query: fastest mixing continuous-time Markov process alternating edge prices even cycle maximize algebraic connectivity uniqueness weighted Laplacian"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Oct 18 'Exact and unique fastest diffusion on two-price even cycles' theorem has the identical assumptions, optimizer and uniqueness proof; Oct 13 independent source confirms equality."
+        ],
+        "reasoning": "All claimed corollaries (C4 equal allocation, large-m sqrt ratio, C6 rational case) are direct substitutions or limits of the October formulas. The unchanged final claim fails originality.",
+        "searches": [
+          "fastest mixing continuous-time Markov process alternating edge prices even cycle maximize algebraic connectivity uniqueness weighted Laplacian",
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-square-root-price-geometry-for-fastest-mixing-on-alternating-eve--479ebc83d8ff",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-and-unique-fastest-diffusion-on-two-price-even-cycles--33fae1c22fc4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oct 13 result: a=(1+cos(pi/m)sqrt(d/c))/(mD), b=(1+cos(pi/m)sqrt(c/d))/(mD), gap=2sin^2(pi/m)/(mD).",
+          "Oct 18 result uses c_A,c_B and arbitrary budget B and derives the same unique labelled optimal vector."
+        ],
+        "reasoning": "Renaming price classes and scaling the budget maps every parameter and optimizer exactly; equality of statements, not just similar titles.",
+        "searches": [
+          "fastest mixing continuous-time Markov process alternating edge prices even cycle maximize algebraic connectivity uniqueness weighted Laplacian",
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-square-root-price-geometry-for-fastest-mixing-on-alternating-eve--479ebc83d8ff",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-and-unique-fastest-diffusion-on-two-price-even-cycles--33fae1c22fc4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The closed-form formula as a function of m,c,d,B occurs verbatim at the level of mathematical values in two earlier published RESULT.md findings."
+        ],
+        "reasoning": "No separate numerical database or finite table is necessary: a complete symbolic all-parameter formula already dominates every example and exact numeric value in this record.",
+        "searches": [
+          "fastest mixing continuous-time Markov process alternating edge prices even cycle maximize algebraic connectivity uniqueness weighted Laplacian",
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-square-root-price-geometry-for-fastest-mixing-on-alternating-eve--479ebc83d8ff",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-and-unique-fastest-diffusion-on-two-price-even-cycles--33fae1c22fc4"
+        ]
+      },
+      "rationale": "Two earlier published results state and prove exactly this complete theorem. The Oct 13 and Oct 18 full RESULT.md findings have the same graph, all m>=2, independent nonnegative edge weights, strictly positive alternating price pair, same conductance allocation, same unnormalized Laplacian gap, global uniqueness, four-cycle exception and large-ring limit. B<= budget vs equality is immaterial because a connected positive maximizer spends the full budget. There is no surviving separately claimed new invariant.",
+      "residual_risks": [
+        "Chronological access proves published coverage on Oct 13 and 18, but does not establish who originally invented the method before those dates."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Decisive prior complete coverage",
+          "evidence": "Oct 13 exact a*, b*, lambda*, same unnormalized Laplacian and all independent nonnegative weights",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-square-root-price-geometry-for-fastest-mixing-on-alternating-eve--479ebc83d8ff",
+          "material_read": "Entire original RESULT.md: theorem, assumptions, full dual-circle proof, uniqueness argument, asymptotics and references",
+          "method": "Fetched actual published GitHub RESULT.md blob",
+          "title": "Square-root price geometry for fastest mixing on alternating even cycles",
+          "trigger": "Same C2m, cost pair and global uniqueness"
+        },
+        {
+          "assessment": "Decisive independently checked complete coverage",
+          "evidence": "Oct 18 all-budget formula, all m>=2 and global labelled-edge uniqueness",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-and-unique-fastest-diffusion-on-two-price-even-cycles--33fae1c22fc4",
+          "material_read": "Entire original RESULT.md including full proof and boundary cases",
+          "method": "Fetched actual published GitHub RESULT.md blob",
+          "title": "Exact and unique fastest diffusion on two-price even cycles",
+          "trigger": "Potential duplicate all-parameter mathematical claim"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-square-root-price-geometry-for-fastest-mixing-on-alternating-eve--479ebc83d8ff",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-and-unique-fastest-diffusion-on-two-price-even-cycles--33fae1c22fc4"
+      ],
+      "rationale": "The underlying spectral optimization is useful, but its exact complete answer and boundary cases were already independently published twice. The reviewed unchanged package offers no distinct motivated mathematical lemma or invariant not logically determined by those results; a different derivation or rational example is not new scientific value.",
+      "residual_risks": [
+        "This is rejection for duplicated finding, not a claim that spectral-gap optimization lacks intrinsic importance."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For every even simple cycle C_{2m} (m>=2) with arbitrary independent nonnegative conductances, strictly positive alternating edge prices and total linear budget B, the unique maximizer of unnormalized Laplacian lambda_2 has explicit period-two weights and spectral gap; the four-cycle equal-weight exception and large-m square-root price limit follow.",
+  "limitations": [
+    "Continuous-time unnormalized Laplacian only; not discrete-time SLEM or arbitrarily priced nonalternating edges.",
+    "No academic authorship or chronology beyond documented publication timestamps inferred."
+  ],
+  "schema_version": 1
+}
