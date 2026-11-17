@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The carry conservation identity \(s_2(n+t)-s_2(n)=s_2(t)-C\) follows digit by digit. The crucial clipping lemma accounts for the fact that an incoming carry already costs one; \(k\) further consecutive carry-producing zero digits violate the \(C\le k\) budget, while without a carry additional zero digits cannot create one. This proves both exact density invariance and the bounded-length finite search domain for every positive integer weight. The finite-state transitions have been reconstructed from the four elementary input/carry cases, and the geometric carry-tail factor is summed exactly. The standalone integer enumerator covers every permitted canonical tuple through weight eight, and its output matches a separately implemented rational reference on the tractable first five weights; the remaining cases are supported by exhaustive primary arithmetic and independent spot checks. The optimizer exhaustiveness argument also verifies none of the eight-weight canonical minimizers meets the clipping boundary. Risk: the largest finite count is computer-enumerated, not hand-tabulated; reproducibility programs and exact algorithm are included.
+## correctness
 
-## Originality — PASS (qualified priority)
-The new uniform gap cap, bounded canonical optimization domain, global attainment theorem, and complete first-eight fixed-weight minima and equality sets were compared *by implication* against: the precise fixed-weight extremal problem and large-weight asymptotic in Cheng arXiv:2608.25899v1; his universal lower bound in arXiv:2606.23398v1; and the standard fixed-\(t\) recurrence and already-tabulated small values in Drmota–Kauers–Spiegelhofer arXiv:1509.08623v2. The prior results allow calculation for *each specified* shift and give large-weight bounds, but do not, in the material inspected, provide the global finite search reduction needed to certify the eight fixed-weight optima over all shifts. At least \(c_{11}=c_{13}=19/32\) is explicitly old; individual entries are not presented as new independent evaluations. Six semantic scientific-record queries found no directly covering record; the closest returned records address unrelated Hamming balls, word patterns and finite codes.  Residual risk: unindexed work or a structural lemma concealed in less-read source material might be equivalent; independence is not claimed.
+PASS
 
-## Value — PASS
-The fixed-Hamming-weight extremal quantity is a natural object recently studied for its sharp asymptotics, but the general fact that its infimum is attained and can be certified by a finite computation at *any fixed weight* resolves a genuinely different structural question. The first eight exact minima and all equality shifts provide the initial finite benchmark profile and reveal nonmonotonic optimiser geometry. This is not an arbitrary slice: it is the initial segment of the same explicitly defined invariant, with a uniform reduction valid for every weight. The finite table is a meaningful application of the general theorem, not a surrogate for an infinite proof.
+Carry conservation s_2(n+t)-s_2(n)=k-C identifies the nondecrease event as C<=k. If a carry enters an inter-one zero run, its first incoming carry already contributed at least one to C; after k zero digits any continuing carry would exceed the budget. Longer runs therefore cannot change retained probabilities, proving d_i -> min(d_i,k+1) for all k and finite bound t<2^(k^2). Exact two-state carry updates and geometric tail give common denominator 2^(k^2+k+1). Independently implemented Fraction recursion and an unrelated C++17 128-bit exhaustive canonical-gap enumerator; all 5,063,361 tuples k=1..8 reproduced every minimum and complete odd optimizer list (1;5;11,13;27;107;219;439,475;951), with no optimizer at a clipping boundary. This verifies all-weight lemma plus finite exact table, not any larger-k table.
 
-## Relationship and limitations
-The claim does not replace Cheng's asymptotic theorem or provide values for weight nine onward. The source-comparison and external-priority limitations are recorded explicitly in `RESULT.md` and `AUDIT.json`. No external mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Fixed-t carry recurrences and individual small values, and Cheng large-k sharp extremal asymptotics, are antecedents. A separate October 25 finite-gap shielding theorem treats ONLY widely separated set bits (gaps at least k), not arbitrary short-gap clipping or complete minimizer search. The universal short-gap-to-finite-search reduction and exact initial eight-weight optimal sets are not implied by any inspected full comparator.
+
+## value
+
+PASS
+
+Cusick fixed-weight infima are a natural studied extremal invariant; uniform exact attainment/search cutoff for every weight changes an infinite optimization into a finite certified task, and the first eight complete extrema provide meaningful benchmarking and optimizer geometry, not arbitrary small numerical examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

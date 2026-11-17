@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T18:21:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Carry conservation s_2(n+t)-s_2(n)=k-C identifies the nondecrease event as C<=k. If a carry enters an inter-one zero run, its first incoming carry already contributed at least one to C; after k zero digits any continuing carry would exceed the budget. Longer runs therefore cannot change retained probabilities, proving d_i -> min(d_i,k+1) for all k and finite bound t<2^(k^2). Exact two-state carry updates and geometric tail give common denominator 2^(k^2+k+1). Independently implemented Fraction recursion and an unrelated C++17 128-bit exhaustive canonical-gap enumerator; all 5,063,361 tuples k=1..8 reproduced every minimum and complete odd optimizer list (1;5;11,13;27;107;219;439,475;951), with no optimizer at a clipping boundary. This verifies all-weight lemma plus finite exact table, not any larger-k table.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 25 theorem proves finite-gap shielding for d_i>=k, first contact correction for d_i=k",
+          "Cheng gives sharp k->infinity lower asymptotic, not exact finite minimizing shifts"
+        ],
+        "reasoning": "The known gap theorem has the opposite condition and does not address very short gaps; bounds/asymptotics do not determine exact k<=8 minimizer sets.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-finite-gap-shielding-and-first-contact-correction-for-bina--2fd2f492b4f5",
+          "arXiv:2608.25899",
+          "arXiv:2606.23398"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-finite-gap-shielding-and-first-contact-correction-for-bina--2fd2f492b4f5",
+        "arXiv:2608.25899",
+        "arXiv:2606.23398",
+        "arXiv:1509.08623",
+        "Cusick fixed Hamming weight minimum gap clipping carry process exact minima",
+        "Frozen verify_extrema.cpp and reference_check.py 42d5aeca528416311f0b97305717fe4fdf49d787"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Long-gap low-carry law is valid under gap>=k; the submitted clipping lemma holds for EVERY gap",
+          "Cheng asymptotic does not identify all exact minimizers at small fixed k"
+        ],
+        "reasoning": "Neither antecedent dominates the uniform finite search plus exact minimizer classification.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-finite-gap-shielding-and-first-contact-correction-for-bina--2fd2f492b4f5",
+          "arXiv:2608.25899"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known carry automata compute c_t for fixed shifts and list c_11=c_13=19/32",
+          "They do not supply a uniform all-shift clipping rule in inspected material"
+        ],
+        "reasoning": "Computability for one t is not equivalent to a finite maximum gap valid uniformly in all weight-k shifts.",
+        "searches": [
+          "Cusick fixed Hamming weight minimum gap clipping carry process exact minima",
+          "arXiv:1509.08623",
+          "arXiv:2608.25899"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known isolated values 11,13 precede the census",
+          "No complete table of all 5,063,361 canonical minimizer comparisons through k=8 located"
+        ],
+        "reasoning": "The individually known k=3 rationals are excluded from originality; certified global exhaustion is the remaining fact.",
+        "searches": [
+          "Cusick fixed Hamming weight minimum gap clipping carry process exact minima",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-finite-gap-shielding-and-first-contact-correction-for-bina--2fd2f492b4f5",
+          "arXiv:1509.08623"
+        ]
+      },
+      "rationale": "Fixed-t carry recurrences and individual small values, and Cheng large-k sharp extremal asymptotics, are antecedents. A separate October 25 finite-gap shielding theorem treats ONLY widely separated set bits (gaps at least k), not arbitrary short-gap clipping or complete minimizer search. The universal short-gap-to-finite-search reduction and exact initial eight-weight optimal sets are not implied by any inspected full comparator.",
+      "residual_risks": [
+        "Complete Cheng and Drmota–Kauers–Spiegelhofer full PDF reading was not achieved; a hidden equivalent clipping lemma remains possible.",
+        "Exact table stops k=8; full infinite minimizer formula for arbitrary k not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering arbitrary short-gap clipping nor finite global minima",
+          "evidence": "Requires d_i>=k whereas clipping handles arbitrary positive d_i",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-finite-gap-shielding-and-first-contact-correction-for-bina--2fd2f492b4f5",
+          "material_read": "Entire RESULT.md proof including its matrix expansion and sharp contact correction",
+          "method": "GitHub raw full primary finding",
+          "title": "Exact finite-gap shielding and first-contact correction for binary carry counts",
+          "trigger": "closest published finite-gap structural theorem"
+        },
+        {
+          "assessment": "Large-weight asymptotics, possible unpublished/collateral finite structure remains risk",
+          "evidence": "No claim that inaccessible complete text was exhaustively ruled out",
+          "identifier_or_url": "https://arxiv.org/abs/2608.25899",
+          "material_read": "Abstract/indexed overview, not complete PDF",
+          "method": "arXiv abstract and literature search",
+          "title": "Sharp extremal asymptotics for Cusick sum-of-digits bias at fixed Hamming weight",
+          "trigger": "same fixed-weight extremal F(k)"
+        },
+        {
+          "assessment": "Known per-shift algorithm and sample c11=c13, no direct exact global table established",
+          "evidence": "Gap clipping not directly established by inspected excerpts",
+          "identifier_or_url": "https://arxiv.org/abs/1509.08623",
+          "material_read": "Abstract and cited fixed-shift results, not complete article",
+          "method": "abstract and record statement",
+          "title": "On a conjecture of Cusick concerning the sum of digits of n and n+t",
+          "trigger": "fixed-shift recurrences and old k=3 minima"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cusick fixed-weight infima are a natural studied extremal invariant; uniform exact attainment/search cutoff for every weight changes an infinite optimization into a finite certified task, and the first eight complete extrema provide meaningful benchmarking and optimizer geometry, not arbitrary small numerical examples.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Complete Cheng and Drmota–Kauers–Spiegelhofer full PDF reading was not achieved; a hidden equivalent clipping lemma remains possible.",
+    "Exact table stops k=8; full infinite minimizer formula for arbitrary k not claimed."
+  ],
+  "schema_version": 1
+}
