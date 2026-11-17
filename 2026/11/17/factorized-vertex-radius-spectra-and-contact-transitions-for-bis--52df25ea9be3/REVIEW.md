@@ -1,0 +1,15 @@
+# Self-review: bistar edge-diamond vertex-radius theorem
+
+## Correctness — PASS
+An exposing vector with strictly increasing absolute coordinate magnitudes along any tree orientation yields every signed indegree vector as a unique polytope vertex. The leaf-deletion argument makes the orientation-to-indegree map injective, and every vertex admits a generic exposing vector, so the list is exhaustive. Exact grouping of pendant-edge orientations and the bridge direction gives the factorized radial enumerator; its evaluations at one and its leading terms give the vertex count, radius and complete contact multiplicities. Central symmetry and the strict convexity of squared distance establish the unique enclosing sphere and all diametral pairs. The independent endpoint-sum enumeration in `verify.py` passed 3,535 exact assertions for nine finite instances. The proof, rather than these instances, establishes all positive integer parameters.
+
+## Originality — PASS (historical priority provisional)
+Dai et al. (2026, arXiv:2608.16037v2), especially the definitions, Section 3, Section 4 and Problem 5.4, treat the broad cross-polytope Minkowski family and lattice/Ehrhart invariants, explicitly raising face enumeration; they do not give the present Euclidean vertex-shell/outer-contact classification. Two closest published results on edge-diamond sums were compared in full: one classifies cycle graphs and the other complete-multipartite graphs. Neither implies the diameter-three bistar family. Borsik–Madarasi (arXiv:2509.06182) address separable convex optimization of indegrees, with accessible abstract-level comparison but without complete-text examination. Actual research-record and literature queries checked variants under edge diamonds, signed graph orientation, bistar and Minkowski-sum terminology. An unindexed equivalent statement in orientation-counting literature cannot be excluded; the result is not independently priority-certified.
+
+## Mathematical value — PASS
+The first face number for a two-parameter graph-incidence family is a natural response to the motivating paper's explicit face-vector question, and the bistar is the smallest tree shape with two branching centers. The complete radial enumerator refines this count into meaningful Euclidean strata, while the exact contact transition reveals a discrete change in outer geometry even though all examples have identical local edge-diamond constituents. The result is a complete classification for all positive bistar parameters rather than a small numerical case or an arbitrary slice. It does not purport to solve the full general-graph face-vector problem.
+
+## Limitations and closest literature
+The formulas require one unit diamond per edge and Euclidean orthonormal embedding. The main historical risks are unindexed equivalent graph-orientation enumerators and the uninspected complete text of the indegree-optimization paper. Numerical or finite tests are corroborative only.
+
+Self-review: passed. Independent audit: not yet performed.
