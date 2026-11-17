@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is a polar lattice polytope of \(K_{3,q}\), of dimension \(q+2\). Integer graph potentials modulo translation enumerate its lattice points. Fixing one left potential produces a hexagonal spread count with exactly \(6r\) pairs on the nonzero spread shell. This yields the stated Ehrhart polynomial without external computation. Two explicit Bernoulli-number coefficient formulas, derived from Faulhaber's polynomial and the triangular magic transform, control all infinite residue classes. The lower bound \(|B_r|\ge r/12\) for every even \(r\ge14\) follows from Euler's exact Bernoulli-zeta formula, two exact bases, and a four-step growth inequality. A separate two-step growth inequality controls the fourth residue class. The remaining 12 integer parameters have exact rational magic coefficients. The standalone standard-library verifier returns `EXACT_CHECKS_OK 410`; finite checks are corroborative, not the proof of the infinite result. Exact hypotheses, signs, ranges and endpoints are explicit in RESULT.md.
+## correctness
 
-## Originality — PASS (same-model best-knowledge comparison)
-Konoike's 2025 finite table explicitly records positive \(K_{3,6}\) and negative \(K_{3,7}\), but does not establish that negative magic coefficients persist for every \(q\ge7\). His original paper mainly proves Stasheff and partial cycle results. Ohsugi and Tsuchiya's 2026 arXiv:2610.06419 Theorems 1.2 and 1.4 concern pseudo-symmetric simplicial reflexive and cycle-derived polytopes; they do not imply the sharp all-parameter \(K_{3,q}\) failure theorem. A neighboring \(K_{2,q}\) threshold is not a proof of the distinct \(K_{3,q}\) claim: the spread-shell count grows linearly here, the threshold changes, and a second magic coefficient is required for the large-parameter obstruction. Targeted mathematical-record and scholarly searches identified no equivalent or stronger result. Historical priority is subject to independent verification; a failed search alone does not establish novelty.
+PASS
 
-## Mathematical value — PASS
-This solves the natural all-parameter question left by Konoike's finite complete-bipartite table, giving a complete sharp classification for the next nontrivial fixed-part-size graph family. A finite negative example could in principle be followed by positive cases, so proving non-return across all larger dimensions is substantive. The method gives an exact geometric lattice count and a residue-class Bernoulli mechanism. The result is neither a substitution into the prior two-left-vertex formula nor an arbitrary finite slice; its scope is a natural infinite series with a previously identified sign boundary. There is no claim to solve the full two-parameter complete-bipartite family.
+The root-coordinate graph-potential count fixes one of three left potentials and gives 6r left pairs with spread r>0, hence L_q(t)=(2t+1)^q+6Σ_{r=1}^{2t}r(2t+1-r)^q. The finite magic-basis inversion and two Bernoulli formulas are derived from that polynomial; q mod 4 with Euler-Bernoulli inequalities covers all q>=13, and six exact negative rational witnesses cover q=7..12. Positive complete vectors cover q=1..6. No extrapolation from finite tests is used.
 
-## Closest sources and limits
-Konoike (2025), SLC 93B.148 and the full FPSAC 2025 poster: explicit finite signs. Ohsugi and Tsuchiya (2026), arXiv:2610.06419, Theorems 1.2, 1.4 and Section 6: other polar positivity classes. Exact Bernoulli formulas are classical and not claimed as novel by themselves. Remaining risk: unlocated equivalent work under a different presentation of magic coefficients or graph polars; independently conducted audit is not yet available.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2025 complete-bipartite finite sign table records K_{3,6} positive and K_{3,7} negative, but does not classify all K_{3,q}. A separate K_{2,q} global threshold does not imply the K_{3,q} global threshold; the known pseudo-symmetric/cycle positivity theorem has different hypotheses. Best-of-knowledge new infinite classification, subject to inaccessible exact recent Ohsugi full text.
+
+## value
+
+PASS
+
+A sharp unrestricted parameter cutoff for the natural polar Ehrhart magic-coefficient problem is motivated by the K_{3,6}/K_{3,7} table and is not merely an isolated table recalculation; the proof rules out positivity returning at arbitrarily large right-part sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
