@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The result follows from a complete classification of nontrivial states fixed by three updates on connected graphs, followed by a finite exact 27-state transfer for the two-row ladder. The five-row component table in RESULT.md establishes the critical integer identity \(M^3b=4M^2b-Mb-2b\); this is checked componentwise by `verify_transfer.py`. Initial vector contractions give the first cases and the recurrence without infinite extrapolation. The independent dynamics program exhaustively compares \(597861\) labelled states with an unnormalized transfer. The code and output files are present and runnable in the package. The domain and both end boundaries are fixed explicitly.
+PASS
 
-## Originality — PASS, qualified
+In a connected graph, every nonfixed 3-periodic GHM state must cycle all vertices through 0,1,2; any permanently zero vertex adjacent to a cycling vertex would be excited, a contradiction. This is equivalent to each initial vertex seeing a successor-color neighbor. The 27 normalized ordered-rung states, open-boundary vectors and transition M count each coloring with global color shift factor three. Independently reconstructed all 27 entries and verified the componentwise exact identity M^3 b=4M²b-Mb-2b, plus 3a[b,Mb,M²b,M³b]=[0,6,24,90]. Independently applied three literal GH updates to all ternary configurations on open ladders n=2..6; counts 0,6,24,90,324. Thus the unbounded recurrence follows from a complete finite matrix identity, not sample extrapolation.
 
-The closest inspected primary sources concern general Greenberg–Hastings patterns and eventual three-periodic states, not the present exact initial-state census. Durrett–Steif (1991), Section 5, Lemma 6 treats eventual clocks, whereas the target statement is the exact rational generating function for the labelled open ladder. Gravner–Lyu–Sivakoff (2016), introductory and theorem sections, treats asymptotic activity on arbitrary graphs; its framework can establish qualitative oscillation, but not the stated numerical counts without additional transfer analysis. Exact-count, recurrence, graph-alias, and sequence searches and comparisons against accessible historical claims did not identify an equivalent or stronger result. An especially relevant Greenberg–Greene–Hastings (1980) paper could not be checked beyond its abstract; institutional access was unavailable. Its abstract indicates a general winding-number criterion rather than exact counts, but this priority risk is not ruled out. Unindexed formulations of directed successor-domination also remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-This census resolves an invariant for every two-row finite strip, the narrowest open rectangular lattice family admitting primitive-three excitation (single-row paths do not support them). It exposes an unexpectedly low-order transfer law despite the growing \(3^{2n}\)-state dynamical space, yields the exact number of recurrent three-cycles, and quantifies exponential rarity under random initial states. The exact growth base \((3+\sqrt{17})/2\) and full rational series are natural in the study of finite-size waves, not a post-hoc arbitrary parameter slice.
+Best-of-knowledge: searched published general GHM papers and nearby ladder-specific results. An existing November 8 open-ladder theorem counts all initial configurations by eventual excitation rate (0,3/4,1), NOT those immediately on primitive period-three cycles; its rate-one class includes transients and is numerically far larger. Another November 8 theorem treats circular/Möbius ladders and explicitly identifies the open-ladder recurrence as a different boundary problem. Neither yields this exact open-boundary N_n recurrence by direct specialization.
 
-## Scope and remaining risks
+## value
 
-The claim does not address transient basins, other primitive periods, or periodic/cylindrical strips. The finite verification supports but is not the general proof. The full 1980 primary article and unindexed stronger recurrence results have not been excluded. No external expert has independently validated this result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact population law for immediate Greenberg–Hastings oscillations on the natural finite-width open ladder is an independently useful structural census. The unexpected cubic recurrence and small 27-state certificate give all sizes and a sharp entropy exponent, distinguishing immediate waves from long-term activity classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

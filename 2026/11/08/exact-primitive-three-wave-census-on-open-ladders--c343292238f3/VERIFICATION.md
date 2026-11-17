@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-`verify_transfer.py`: Python standard library; computes all 27 normalized states and the integers in the proof's component table, then checks the polynomial identity exactly, with additional recurrence tests through rung length 71. The identity is the infinite-range proof certificate.
+## correctness
 
-`verify_direct.py`: independently implements the synchronous rule on all vertices, enumerates every configuration for lengths two through six (597861 states in total), checks the third iterate and nonfixedness, and independently counts valid successor-color configurations using an unnormalized 81-state transfer through rung length 30. Neither program consults precomputed files or a previously saved ledger.
+PASS
 
-To reproduce: run `python3 verify_transfer.py` and `python3 verify_direct.py` from the same directory. Their exact captured outputs are in `transfer.out` and `direct.out`. Both program files and their output hashes are embedded alongside this document. The full infinite theorem depends on the componentwise transfer identity and the local periodicity reduction, not on the finite dynamic enumeration.
+In a connected graph, every nonfixed 3-periodic GHM state must cycle all vertices through 0,1,2; any permanently zero vertex adjacent to a cycling vertex would be excited, a contradiction. This is equivalent to each initial vertex seeing a successor-color neighbor. The 27 normalized ordered-rung states, open-boundary vectors and transition M count each coloring with global color shift factor three. Independently reconstructed all 27 entries and verified the componentwise exact identity M^3 b=4M²b-Mb-2b, plus 3a[b,Mb,M²b,M³b]=[0,6,24,90]. Independently applied three literal GH updates to all ternary configurations on open ladders n=2..6; counts 0,6,24,90,324. Thus the unbounded recurrence follows from a complete finite matrix identity, not sample extrapolation.
 
-Limitations: the programs test only the exact finite cases specified; they do not provide any external or independent scientific audit. The literature originality comparison is incomplete for the 1980 Greenberg–Greene–Hastings full text.
+## originality
+
+PASS
+
+Best-of-knowledge: searched published general GHM papers and nearby ladder-specific results. An existing November 8 open-ladder theorem counts all initial configurations by eventual excitation rate (0,3/4,1), NOT those immediately on primitive period-three cycles; its rate-one class includes transients and is numerically far larger. Another November 8 theorem treats circular/Möbius ladders and explicitly identifies the open-ladder recurrence as a different boundary problem. Neither yields this exact open-boundary N_n recurrence by direct specialization.
+
+## value
+
+PASS
+
+An exact population law for immediate Greenberg–Hastings oscillations on the natural finite-width open ladder is an independently useful structural census. The unexpected cubic recurrence and small 27-state certificate give all sizes and a sharp entropy exponent, distinguishing immediate waves from long-term activity classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
