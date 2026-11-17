@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source-model reduction was reconstructed from its edge-environment payoff matrix, symmetric-community invariant conditions, and equal environmental recovery equations. The two conserved quantities are a log-odds difference and an explicitly normalized separable Hamiltonian. Strict positive curvature and coercivity ensure closed interior ovals; asymptotic turning-point estimates and two separately controlled caps prove the physical-time period law for each fixed parameter/leaf. The symbolic and numerical `verify.py` checks run successfully, but the analytic proof, not extrapolation, establishes the infinite-energy limit.
+PASS
 
-## Originality — PASS on available evidence
+The fixed-symmetry reduction of the two-community equal-recovery reversal-payoff system is an invariant 3D flow with conserved c=logit(n)−logit(m). In logits u,v, u’=w(u)[1−2M_c(v)], v’=(1+theta)sigma(u)−1. Exact F’=( (1+theta)sigma(u)−1 )/w(u), G_c’=2M_c−1 yield a conserved strictly convex coercive Hamiltonian and smooth periodic ovals for E>0. End slopes F’(−∞)=−1/b,F’(+∞)=theta/a,G’(±∞)=±1 give u turning point lengths bE and aE/theta; the central upper/lower branch speed yields 2(1−epsilon)(1+1/theta)E, while two turning caps take O(epsilon E+1) by monotone v. Sending E→∞ then epsilon→0 proves T_c(E)/E→2(1+1/theta) in original physical time for fixed a,b,theta>0,0<delta<1,c real. I independently verified F’ and F’’ symbolic identities. No extension to transverse 5D or moving parameters is implied.
 
-The 2024 source explicitly records a line of equilibria and periodic orbits for the reversal payoff family, and the 2016 single-environment paper already uses a Hamiltonian quantity. Gong–Gao–Cao (2018) proves periodicity in a different two-population common-environment system. None of these reviewed statements or their direct implications supplies the exact **two-edge-environment, original-clock** period-to-energy coefficient \(2(1+1/\theta)\), simultaneously independent of four fixed data dimensions. A different system's universal linear period law is not a covering theorem. Exact aliases/physical time normalizations and published research-record comparisons were searched. An accessible abstract for Kawano et al. (2019) confirms related periodic-orbit work but does not resolve full-text details; this remains a residual publication-priority risk, as do possible unindexed equivalent statements.
+## originality
 
-## Value — PASS
+PASS
 
-Oscillation periods quantify how quickly environmental stress and cooperative strategies recur. The source paper identifies oscillatory states but not their severe large-amplitude time scale. The theorem identifies a natural, sharp coefficient for oscillations approaching the polarized boundary, and shows an unexpected independence from payoffs, within/across interaction fraction, and pre-existing environmental imbalance. This gives a reproducible prediction without requiring an additional global theorem about the original five-dimensional dynamics.
+The original Betz–Fu–Masuda model gives periodicity under reversal-symmetric ecological feedback, not the leading original-clock period as explicitly normalized energy grows on a fixed environmental-imbalance leaf. Other periodic-game work uses a single environmental variable or different Hamiltonian; its conclusions do not entail this two-edge-environment numerical coefficient. The leading coefficient's parameter independence is a nontrivial temporal result. Same-paper source and semantic published-record searches were checked; an inaccessible related 2019 full text leaves residual risk, not an automatic O failure.
 
-## Boundaries and residual risks
+## value
 
-The theorem is restricted to an invariant symmetric subsystem with a fixed environmental-imbalance leaf. It gives a leading large-energy asymptotic only, not transverse attraction, period monotonicity, or a uniform parameter limit. The 2019 related article's original full text was not obtained, and no external independent review has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the naturally occurring oscillatory subsystem of a two-community game, an observable high-energy period is a nontrivial quantitative invariant. Its sharp physical-time slope is independent of four seemingly relevant fixed choices (payoff gaps, mixing weight and imbalance), giving a useful robust temporal law not implied by qualitative cycle existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
