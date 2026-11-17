@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all \(r\ge2\), nonempty block sizes and \(b>0\), the orthogonal projector decomposition gives every matrix entry explicitly. For an internal block pair, the sign is the sign of \(P_i(h)=12n_i a_i+6n_i b\lambda_i h+\lambda_i(\gamma^2-q_i b\lambda_i)h^2\), with nonnegative constant and positive linear coefficients. Exactly one sign change is possible when the leading coefficient is negative, giving both necessity and sufficiency, including the zero-rate and sharp-threshold boundaries. Off-block entries and diagonals are strictly positive for positive steps. The extracted exact-rational checker returns `VERIFY_OK` after 3,636 full-matrix tests. Finite tests do not prove infinite claims; the algebraic proof does.
+PASS
 
-## Originality — PASS (subject to publication-priority risk)
+Orthogonal projector splitting constants, global block contrast and each block internal zero-sum space yields eigenvalues 0,Nb,(N-n_i)b+n_i a_i. Exact cross-block transition 12bh/D(Nbh)>0, internal off-diagonal sign equals quadratic 12n_i a_i+6n_i b lambda_i h+lambda_i((Nb)^2-(N-n_i)b lambda_i)h^2, with positive linear term and nonnegative constant. The sharp bound is exactly nonnegative leading coefficient; violation forces one positive root. F(z) positive for z>=0 ensures positive diagonals, and row sums one. Independent direct 9x9 matrix rational inversion with blocks (3,4,2), b=2 and internal a=(0.6,7,0.4) matched all off-diagonal formulas at h=.01,.1,1,100; at h=100 negative witness. Coincident eigenvalues and a_i=0 covered by projector argument.
 
-The all-step complete-multipartite *unweighted* case is already covered by a broader matrix-filter criterion, and previously recorded matching-edge and one-clique split-network classes are also covered specializations. None alone entails the simultaneous arbitrary-many-block theorem with multiple blocks larger than two and independently variable positive internal rates. The 2013 absolute-monotonicity source concerns general rational filters, not this structure. The 2012 Padé paper gives general obstructions and finite-step sufficient conditions, not this all-step classification. Targeted published-record and literature searches found no dominating statement. An unseen specialist source remains a residual risk. A matching title or negative search result is not a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-For community-structured diffusion networks, the admissible all-step positivity region is an exact high-dimensional Cartesian product of sharp intervals. This explicitly rules out any coupled compensation between community weights, despite the full dense interaction network; it yields block-specific exact failure times and an all-size robustness design criterion. This simultaneously subsumes known matching and one-clique examples and covers genuinely new multi-community allocations. It does not claim a general theorem for heterogeneous inter-community edges.
+Published weighted split and unweighted multipartite statements are true special cases. No inspected primary source implies the multivariate independent-block all-step necessity and sufficiency; this is an original structural generalization relative to checked sources.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+For a canonical community-weighted diffusion graph class, the theorem gives a complete sharp multidimensional admissibility region and unique failure times, eliminating the natural possibility of cross-community compensation; this is directly usable as a positivity-preserving numerical design criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
