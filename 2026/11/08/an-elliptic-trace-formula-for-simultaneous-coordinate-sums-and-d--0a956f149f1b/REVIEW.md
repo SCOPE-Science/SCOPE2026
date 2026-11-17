@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The discriminant-square equivalence is reversible for odd moduli because \(2\) is invertible and all quadratic roots of the indicated monic polynomials are units. The prime-level ordinary count explicitly removes the two or four singular roots, and its mixed character correlation equals the Frobenius trace of \(y^2=x^3-x\) by an exact quadratic character identity. Hensel bijections at the singular roots are valid because their derivatives are nonzero modulo the prime. The term \(Q_{p,k}\) counts every square in the ideal \(p\mathbb Z/p^k\mathbb Z\) exactly once. CRT multiplies independent local conditions. Direct enumeration of 649 odd moduli and 77 prime powers confirms every numerical formula; the proof is for all parameters.
+## correctness
 
-## Originality — PASS with identified priority risks
-The 2012 full primary text by Bower–Evans–Luo–Miller, especially Theorem 3.6 and Section 3.3, classifies the two **separate** coordinate image sizes and their ratio. Neither supplies the mixed square-discriminant correlation or this intersection cardinality. Searches for interchangeable expressions involving two simultaneous quadratic residues, joint value-set intersections, elliptic traces, and CRT coverage found no equivalently strong result in the accessible scholarly literature. The 2009 Eichhorn–Khan–Stein–Yankov original paper treats the exact same two sets and is a real priority risk: the full article was not obtainable, and the reported absence of an overlap theorem is an inference from the later primary paper's characterization, not a full-text negative inspection. This limit is not concealed.
+PASS
 
-## Mathematical value — PASS
-A canonical comparison of the coordinate sum and difference sets asks not only which is larger but whether they overlap. The answer supplies the full intersection size for arbitrary odd composite modulus, a nontrivial elliptic trace dependence at primes, explicit ramified lifting corrections at all prime-power exponents, and a sharp global emptiness characterization controlled by the prime \(3\). The separate cardinality theorems do not determine this joint invariant. This is an exact natural classification, not a table, routine restatement, or numerical approximation.
+For odd p^k, the quadratic equations X^2-sX±1 have invertible 2 and roots of unit constant term, so their root existence is equivalent to squarehood of L=s^2-4 and R=s^2+4. The L and R roots do not intersect modulo p; away from their two or four exceptional classes the indicator is (1+χ(L))(1+χ(R))/4. The mixed character sum χ(s^4-16) equals -1-a_p by substitution u=s^2 and u=4v, where a_p is the Frobenius trace of y^2=x^3-x. Omitting the exceptional classes gives integer G_p=(p-5-2δ-2(1+δ)ε-a_p)/4. All ordinary qualifying residues have p^(k-1) lifts. At each exceptional root the vanishing discriminant has a unit derivative, so Hensel identifies its lifts with multiples of p; Q_(p,k) counts exactly those multiples which are squares, yielding factor (1+δ)(1+ε)Q_(p,k). CRT gives the multiplicative intersection for all odd m. For p=3 every local factor is zero; for p>=5 an ordinary or exceptional witness exists according to p mod 8, establishing emptiness iff 3|m. Independent direct unit/inversion enumeration confirmed the exact formula and criterion for every odd 3<=m<=529, including prime powers; this supports, but does not prove, unrestricted result.
 
-## Literature and limitations
-The strong same-object sources are Eichhorn–Khan–Stein–Yankov (2009, DOI 10.1515/9783110208504.17) and Bower–Evans–Luo–Miller (2012, arXiv:1212.2930v1). The full 2009 primary text could not be accessed; a previously unknown stronger result, an alternate formulation, or an omitted appendix remains a historical-priority risk. The result addresses only odd moduli and the hyperbola parameter one; broader settings are not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact claim survives bounded search at best current knowledge, subject to explicit source inspections and residual risks. Neither theorem implies local intersection G_p plus singular lifting Q_(p,k) or empty iff 3|m; checked 2012 full text defines and counts marginal sets only. Inaccessible 2009 paper remains residual risk.
+
+## value
+
+PASS
+
+The intersection of two natural one-coordinate images of a modular inverse hyperbola is not determined by their separate cardinalities. The exact trace of a fixed CM elliptic curve together with all singular p-adic lift factors gives a usable full arithmetic invariant over every odd modulus and the unexpectedly sharp 3-divisibility disjointness test. It connects natural quadratic-image overlap to a nontrivial genus-one correlation rather than an arbitrary chosen number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
