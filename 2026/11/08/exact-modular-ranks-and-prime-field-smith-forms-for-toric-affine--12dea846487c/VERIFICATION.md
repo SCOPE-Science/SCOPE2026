@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of arithmetic line tomography
+# Independent mathematical audit
 
-The supporting checker is `toric_radon_checker.py`. From the extracted package, run:
+## correctness
 
-```bash
-python toric_radon_checker.py
-```
+PASS
 
-Expected final output is `TORIC_RADON_SMITH_AND_JACOBI_PASS 7_fields=checked`.
+Finite-field map (a,b),(x,y) in (F_q^*)^2, entry 1[y=ax+b]. Reparametrization to rx+sy=1 diagonalizes under multiplicative characters with Jacobi multipliers, yielding singular values q-2, 1, sqrt q and rational invertibility for q>2. Mod-p character basis valid since p does not divide q-1; Lucas digit condition yields rank (p(p+1)/2)^f-2 for odd p and -3 for p=2. For prime p>=5 determinant p^e(p-2), rank mod p loses e and any ell|p-2 loses exactly one rank, forcing SNF 1^((p-1)^2-e), p^(e-1),p(p-2). Independently reconstructed B_p at p=3,5,7 and checked exact modular rank, determinant and square singular-value multiplicities. Edge case p=3 unimodular; no extension-field SNF claimed.
 
-The checker reconstructs the incidence matrices over \(\mathbb F_q\) for \(q\in\{3,4,5,7,8,9,11\}\), performs exact modular rank elimination and tests the complete complex singular spectrum. It uses exact integer matrix arithmetic for the polynomial reconstruction relation over \(q\in\{3,4,5,7\}\), and independent exact Smith-form calculations for prime fields \(p\in\{3,5,7\}\). The numerical singular-value comparisons employ standard floating point and do not certify exact algebraic identities. The defining-characteristic rank and prime-field Smith formula for all parameters are established by symbolic character sums, Lucas's theorem, and invariant-factor counting in `RESULT.md`.
+## originality
 
-The checker depends on Python 3, NumPy and SymPy. Its input is constructed in the code, with no unavailable datasets or downloads. This is computational corroboration and self-review only; independent mathematical validation has not been performed.
+PASS
+
+Best-of-knowledge exact arithmetical result for a doubly restricted point/line incidence on nonzero-coordinate torus. Classical Jacobi sums and full affine/projective point-flat Smith forms give methods but not arbitrary toric submatrix invariant factors or the asserted digit-count rank.
+
+## value
+
+PASS
+
+The restricted operator is rationally invertible yet often loses information modulo its defining characteristic. Exact modular ranks for all extension fields and complete prime-field SNF determine nontrivial integral reconstruction obstructions for a geometrically natural toric affine tomography family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The zero-one operator is precisely specified, with nonzero coordinate point and nonzero slope/intercept line sets, over every finite field of order at least three. Reindexing maps it to the bilinear slice \(rx+sy=1\). The multiplicative-character transform is orthogonal in characteristic zero and invertible in the defining characteristic, so Jacobi sums control every singular value and every modular rank. In defining characteristic the exact binomial identity and Lucas digit criterion count the nonzero sectors without finite extrapolation. For prime fields, the determinant valuation, characteristic rank, and one-dimensional rank loss at primes dividing \(p-2\) uniquely determine the Smith factors. Both \(p=2\) and \(p=3\) boundary cases are handled explicitly. Seven finite-field cases, three exact Smith decompositions, and four integer spectral-polynomial identities corroborate the derivation.
+PASS
 
-## Originality — PASS under bounded published comparison
+Finite-field map (a,b),(x,y) in (F_q^*)^2, entry 1[y=ax+b]. Reparametrization to rx+sy=1 diagonalizes under multiplicative characters with Jacobi multipliers, yielding singular values q-2, 1, sqrt q and rational invertibility for q>2. Mod-p character basis valid since p does not divide q-1; Lucas digit condition yields rank (p(p+1)/2)^f-2 for odd p and -3 for p=2. For prime p>=5 determinant p^e(p-2), rank mod p loses e and any ell|p-2 loses exactly one rank, forcing SNF 1^((p-1)^2-e), p^(e-1),p(p-2). Independently reconstructed B_p at p=3,5,7 and checked exact modular rank, determinant and square singular-value multiplicities. Edge case p=3 unimodular; no extension-field SNF claimed.
 
-The novelty claim excludes the classical absolute values of Jacobi sums and routine inversion by character diagonalization. Chandler--Sin--Xiang treat complete finite-geometry incidence matrices (including affine point-flat incidence), whereas this operator deletes coordinate-axis points and line families to form a square multiplicative-torus transform; the Smith forms of the complete matrices do not imply the restricted Smith form. Vandervelde treats Jacobi-sum tables and their classical magnitudes, not the modular point-line incidence rank or its Smith invariants. Koh and DeDeo--Velasquez consider broader Radon operations and analytical reconstruction but do not provide the exact arithmetic classifications here. The exact Lucas-digit rank formula for all prime powers and prime-field Smith diagonal were not found in targeted published comparisons or accessible indexed mathematical records. This is bounded evidence rather than a proof of historical priority; an implicit prior corollary in the large incidence-scheme literature remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural critically sampled geometric tomography matrix. Its rational nonsingularity coexists with exponentially increasing modular nullity as extension degree grows. The exact Smith factors settle solvability modulo every integer for infinitely many prime-field sizes, not merely a normalized spectral restatement. The determinant and reconstruction polynomial also give exact consistency checks. The arithmetic loss of information and integral obstruction are meaningful structural classifications, not a selected numerical example.
+Best-of-knowledge exact arithmetical result for a doubly restricted point/line incidence on nonzero-coordinate torus. Classical Jacobi sums and full affine/projective point-flat Smith forms give methods but not arbitrary toric submatrix invariant factors or the asserted digit-count rank.
 
-## Limitations and close literature
+## value
 
-Jacobi-sum magnitudes are established; prime-power Smith forms beyond prime fields are not determined. The full-incidence Smith-form results of Chandler--Sin--Xiang and the Jacobi-sum techniques of Vandervelde are the closest inspected literature, but a hidden application of broader known results remains a residual priority risk. Finite checker evidence is corroborative only, and no external verification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The restricted operator is rationally invertible yet often loses information modulo its defining characteristic. Exact modular ranks for all extension fields and complete prime-field SNF determine nontrivial integral reconstruction obstructions for a geometrically natural toric affine tomography family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
