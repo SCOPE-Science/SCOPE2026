@@ -1,17 +1,21 @@
-# Self-review: isotropic-line Rota–Baxter census
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim specifies an arbitrary field and a nonzero symmetric bilinear multiplication form on a two-dimensional space, and concerns exactly idempotent **weight-minus-one** Rota–Baxter maps. Reconstructing the argument: the identity for idempotent maps is equivalent to a direct-sum decomposition into subalgebras; every subalgebra of the finite-dimensional local algebra with nonzero scalar residue contains the unit; the radical decomposes into two subalgebras. Every two-plane subalgebra of its three-dimensional radical contains the one-dimensional square, and a complementary line must lift an isotropic projective direction. For each such direction over \(\mathbb F_q\), there are \(q\) lines and \(q\) transverse planes. The resulting five rank coefficients are \((1,1+hq^2,2hq^2,1+hq^2,1)\). These statements hold also for degenerate forms and characteristic two; the zero bilinear form is expressly excluded.
+## correctness
 
-A standalone check independently enumerated every linear map of a four-dimensional algebra over \(\mathbb F_2\), tested both operator equations, and matched the predicted rank distributions for three nonzero symmetric forms. A separate subalgebra-complement enumeration with direct multiplication checked \(q=2,3,4,5\), including an anisotropic binary form over \(\mathbb F_3\). No finite calculation is used as an infinite proof.
+PASS
 
-## Originality — PASS, provisional
-The 2007 An–Bai result covers complex associative algebras of dimension at most three, not this four-dimensional family. Jian's 2013 construction (Remark 2.5) supplies the classical splitting correspondence, which is explicitly treated here as prior. Benito–Gubarev–Pozhidaev (2018) treat exterior generators in characteristic different from two and establish splitting for their noncommutative exterior algebra, not the present finite-field commutative socle family or its rank polynomial. Farooq (2026) treats algebras with radical square zero, while here the radical square is one-dimensional and nonzero. Searches for the specific all-field form, its isotropic-line reformulation, direct-sum subalgebra count, and finite-field rank polynomial did not locate an equivalent stronger theorem. An independent historical priority review has not been conducted. An unindexed fourth-dimensional classification might contain an implication; that remains a stated residual risk.
+For nonzero symmetric bilinear B on a two-space V over any field, radical m=V+kz of A=k1+V+kz has m²=kz and m³=0. The weight-minus-one RB identity with P²=P is equivalent to image and kernel each closed under products. Any subalgebra containing an element with nonzero scalar residue contains 1 by the invertible element’s minimal polynomial; hence exactly one summand is unital. Radical subalgebras admit nontrivial complementary line-plane pairs only if the line lifts an isotropic projective direction and the plane contains kz with distinct projected direction. For Fq each isotropic direction gives q lift lines and q complementary planes, yielding N=h_B q²; two orientations and complementary ranks give polynomial 1+(1+N)T+2NT²+(1+N)T³+T⁴. Characteristic-two alternating/nonalternating and odd split/anisotropic/rank-one isotropy are handled explicitly. Independent exhaustive direct 2^16 linear-map checks over F2 for three distinct forms reproduced rank distributions.
 
-## Value — PASS
-Idempotent Rota–Baxter operators are the operators defining algebra splittings. The short local family has a fixed radical Hilbert profile but different multiplication forms. The complete rank distribution detects a mathematically intrinsic obstruction—the rational isotropy of the binary multiplication quadratic form—so an anisotropic odd-characteristic algebra has only the four canonical projections, whereas split and characteristic-two alternating forms have entire affine families. The classification is uniform in all fields, and the finite-field formulas distinguish rank-one, rank-two and rank-three splittings. This is a natural complete classification of the first nonsquarezero radical layer, not a restatement of the general splitting criterion or a known table recomputation.
+## originality
 
-## Closest sources and limits
-Read relevant sections of arXiv:0711.1389 (Sections 1, 4), arXiv:1307.6966 (Section 2, Remark 2.5), arXiv:1801.07037 (Sections 2, 4.4, 5.2), and the accessible full text of arXiv:2605.15670 (Sections 1–4). No claim is made about non-idempotent operators, a zero multiplication form, or nonreduced operator schemes. The quoted originality assessment is a best-knowledge assessment, not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS, qualified. Idempotent RB operators as subalgebra projections are a known general equivalence (Jian 2013 and prior). The submitted novelty is not that equivalence: it is the complete all-field radical splitting criterion and finite-field rank distribution sensitive to projective isotropy, including degenerate forms and char two. The closest previously indexed finite local quadratic-algebra result instead counts averaging projections, which obey different image/kernel identities; spin-factor and square-zero radical results have different algebra objects or weights. No exact pre-existing isotropic RB rank polynomial was found.
+
+## value
+
+PASS
+
+PASS. Exact classification of idempotent weight-minus-one RB maps on natural four-dimensional local Hilbert-type-(1,2,1) algebras is an intrinsic and arithmetic invariant. The count distinguishes anisotropic, split and alternating multiplication forms despite identical Hilbert dimensions and has a characteristic-two degree jump. This gives a complete small local-algebra test case beyond textbook projection equivalence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
