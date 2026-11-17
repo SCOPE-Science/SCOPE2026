@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification scope
 
-The universal result is derived in `RESULT.md` by a three-cone reduction, exact affine spectral comparisons, and a scalar two-step return. For a universal statement, symbolic derivative checks and numerical orbit samples alone are insufficient; all parameter and orbit quantifiers rely on the written argument.
+# Independent mathematical audit
 
-The standalone `verify.py` uses SymPy and standard-library rational arithmetic. It reconstructs the two expanding branch characteristic polynomials, exact finite orbit coordinates, rank-one two-step spectra, rational scalar-return identities, 1,844 negative-cone rational samples, 1,000 rational return cases, and 5,000 typical orbit simulations. Its successful output was:
+## correctness
 
-`VERIFY_OK symbolic_matrices=3 exact_2cycles=4 invariant_cone_grid=1844 diagonal_returns=1000 numerical_escape_samples={1: 1000, 1.5: 1000, 2: 1000, 2.5: 1000, 3: 1000}`
+PASS
 
-The simulation cannot certify that every orbit escapes; the proof establishes the exception set, including exact periodic orbits and their preimages. This material has had a self-review, not an independent audit.
+One iteration satisfies x_new-y_new=2max(-x,0)+2a max(y,0)>=0. The invariant negative cone y<=x<=0 has affine matrix [-1,a;1,a] and both eigenvalues outside [-1,1], with affine fixed point outside cone; hence strong divergence there. Positive cone x>=y>=0 has expanding invertible matrix [1,a;1,-a] with unique fixed P=(2+1/a,1/a). In fourth quadrant x>=0>=y the map collapses to (t,t), t=x+ay-1; the remaining positive diagonal excursions return via t->(1+2a-a²)t-(a+2). If a>=2 returns descend into negative cone; if 1<=a<2 the sole fixed return is q=(a+2)/(a(2-a)), below q enters negative cone and above q diverges, with q forming the cycle. Backward preimages of special orbits are countably many affine lines/points owing to the rank-one branch; hence planar null. I independently checked the eigenvalue polynomial signs at ±1 and two-step return algebra, including a=1 and 2 endpoints; numerical simulations alone would be insufficient.
+
+## originality
+
+PASS
+
+The full primary 2026 Tikjha four-partition paper studies the same general map and low cycles, but its highlighted degenerate reduction is c=a and does NOT imply all bounded orbits on c=-a. The latter has different collapsing quadrant. Search comparisons of Resultary related four-quadrant inverse-valence and c=a dynamics did not find this global all-orbit c=-a result. Priority is best of knowledge, residual unindexed literature remains.
+
+## value
+
+PASS
+
+A complete global classification and measure-zero exception on a natural singular parameter slice is a substantial new qualitative constraint: it excludes all bounded aperiodic attractors and identifies exact finite survivors, not just local eigenvalue stability. It distinguishes mechanisms at the opposite singular lines of the same noninvertible planar family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
