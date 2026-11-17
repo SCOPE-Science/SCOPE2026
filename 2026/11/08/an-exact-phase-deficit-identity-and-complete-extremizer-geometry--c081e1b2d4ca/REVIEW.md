@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is an exact polynomial/rational identity for a real parameter \(s>2\) and unit-circle phases. Independent direct expansion verifies the completion of squares and factorization; all denominators are strictly positive in their stated range. Equality cases follow by setting both nonnegative terms to zero, identifying the two repeated-phase branches and checking attainability for \(s_0\le s\le4\). The symbolic checker replays the critical identities from the included standalone source. No finite sample is used to prove a universally quantified assertion.
+## correctness
 
-## Originality — PASS, best-knowledge with a residual risk
-The 2012 Grinshpan–Kaliuzhnyi-Verbovetskyi–Woerdeman paper already gives the sharp ratio and optimizing coefficient; these are explicitly excluded from the novelty claim. Its Section 6 and Remark 6.2 do not state this positive global deficit identity or a complete phase-extremizer classification. Hartz–Wang 2026 gives exact Schur–Agler norms (Example 6.4) but not the phase-deficit equality. published-finding corpus semantic searches on the named polynomial, equivalent norm formulations and phase rigidity returned no directly covering record. Residual risk: an earlier unimodular-quadratic-form stability theorem may entail the identity under a different normalization.
+PASS
 
-## Mathematical value — PASS
-The known scalar ratio alone does not determine the structure or stability of the torus maximizers. The parameter-uniform two-square identity is a constructive positivity certificate separating coefficient-phase and pair-separation deficits, and it yields the full equality geometry including both endpoint degeneracies. This is a natural extremizer classification of an important three-variable spectral-set counterexample, not an unrelated numerical slice. It does not claim a general operator-tuple stability theorem.
+After a common phase and permutation, any torus triple has first two phases e^{±iθ} with 0<=θ<=π/2. Writing u=cosθ, x=u², v=cosφ and A=4x-s-2<0, expansion gives |P_s|²=(A-1)²+4s²u²+4Av²-4su(A+1)v. Completing the square in v and factoring H_s-G_s(x) gives exactly the stated two nonnegative terms for every s>2 and all torus phases. Independent exact symbolic cancellation returned identically zero. For s in [(1+sqrt(17))/2,4], x=1 with v=s(3-s)/(2(2-s)) in [-1,1] attains H_s. The alternate zero branch x=(s²-s-4)/(4(s-2)), whenever feasible, forces v*=u and hence two equal coordinates; permutation reduces it to x=1. Thus all maximizing triples are those stated modulo common phase and permutation; endpoint coincidences are included. Preexisting sharp Schur-Agler ratio is not re-claimed.
 
-## Closest sources and limitations
-Hartz–Wang, arXiv:2602.14047v1, Example 6.4; Grinshpan et al., arXiv:1208.2288v1, Section 6 and Remark 6.2. The earlier optimizing coefficient and sharp ratio are already known. Source priority beyond the inspected works remains a risk. The present review is not independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Older work computes the Schur–Agler/supremum norm ratio of the symmetric three-variable quadratic, including coefficient optimization, but does not present the global two-square pointwise PHASE deficit, its zero set, or all torus extremizers for the whole s interval. Algebraic identity and equality classification remain a distinct refinement; ratio explicitly credited to prior sources. Priority is best knowledge.
+
+## value
+
+PASS
+
+The Kaijser–Varopoulos/Holbrook three-variable quadratic is a standard sharp test for the Schur–Agler norm gap. An exact nonnegative two-term pointwise phase deficit and complete extremizing torus orbit classify equality beyond the known ratio, and provide an explicit quantitative stability witness. This is mathematically useful as an equality-geometry refinement, even though it does not produce a new norm-ratio bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
