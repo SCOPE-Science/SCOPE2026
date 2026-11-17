@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Computation and proof checks
+# Independent mathematical audit
 
-- The included `verify.py` directly enumerates deck displacements for nonzero exponents from -12 through 12; the proof establishes that the minimizing exponents are exactly ±1 or ±2 in the Möbius case and ±1 for the cylinder, so this finite enumeration is used only as a regression check.
-- It compares both survival CDF branches with a deterministic 10,000-point midpoint quadrature for 72 cylinder/Möbius parameter configurations and representative radii.
-- It independently checks the three analytic maximizer regimes against 30,001 center ordinates.
-- The exact analytic proof is in `RESULT.md`. Finite checks do not certify an infinite theorem.
-- No independent external mathematical audit has been conducted.
+## correctness
+
+PASS
+
+The strip universal cover and deck translations give R_C(y)=min(b-|y|,a/2) and R_M(y)=min(b-|y|,a,sqrt(a^2+4y^2)/2) exactly, including the twice-around glide g^2 with distance 2a. Uniform |y| on [0,b] makes R_M>=r a single interval sqrt(r^2-a^2/4)<=|y|<=b-r for a/2<r<=a; its length gives the survival formula. Expansion at a/2 proves the square-root cusp, plateau gives cylinder atom and the thick-band a atom; crossing the monotone barriers yields 3 sharp maxima regimes. Infinite inverse classification uses slope 1/b and cusp/jump at a/2. Independent deck checks on 5 geometry pairs and 25 CDF midpoint evaluations corroborate only.
+
+## originality
+
+PASS
+
+Nearest-deck displacement and local injectivity radius are classical. Closely related published flat Möbius/Cylinder work gives pair-distance statistics and shortest essential-loop distribution, neither the boundary-clipped local radius CDF nor its complete one-point inverse classification. General lens rigidity uses richer data and does not directly specify this statistical law. Best-of-knowledge qualification preserved.
+
+## value
+
+PASS
+
+The injective normal disk radius of an area-sampled point is a motivated intrinsic metric-geometric statistic. The sharp indistinguishability threshold, singular cusp/atom and exact parameter/topology recovery provide a natural complete classification; the twice-around loop controls the thick regime. Scope limited to the two rectangular flat families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

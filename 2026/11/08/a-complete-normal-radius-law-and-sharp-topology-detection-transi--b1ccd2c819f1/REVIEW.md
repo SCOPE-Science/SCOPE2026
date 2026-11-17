@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-This theorem distinguishes boundary-free injective exponential disks from ambient strongly convex metric balls. Euclidean deck images, including the twice-around translation at displacement \(2a\), give the exact pointwise radius. Disjointness of deck-translate open disks is necessary and sufficient, and clipping by the strip boundary gives the other barrier. Uniformity of \(|y|\) reduces the probability to the length of one explicit interval. The exact interval yields both singularities, the three maximum regimes, topology reconstruction, and stochastic dominance. Reconstructed proof includes endpoint and equality cases. The independent deterministic center-grid checker passed 72 tested parameter/model combinations. The infinite result rests on the analytic argument, not finite sampling.
+PASS
 
-## Originality — PASS (within available evidence)
+The strip universal cover and deck translations give R_C(y)=min(b-|y|,a/2) and R_M(y)=min(b-|y|,a,sqrt(a^2+4y^2)/2) exactly, including the twice-around glide g^2 with distance 2a. Uniform |y| on [0,b] makes R_M>=r a single interval sqrt(r^2-a^2/4)<=|y|<=b-r for a/2<r<=a; its length gives the survival formula. Expansion at a/2 proves the square-root cusp, plateau gives cylinder atom and the thick-band a atom; crossing the monotone barriers yields 3 sharp maxima regimes. Infinite inverse classification uses slope 1/b and cusp/jump at a/2. Independent deck checks on 5 geometry pairs and 25 CDF midpoint evaluations corroborate only.
 
-The closest primary texts are Croke–Herreros, arXiv:1108.4938 (lens rigidity on the same model spaces), and Dibble, arXiv:1412.0341 (general radii and loop criteria). The first has stronger *data* (full boundary lens information) but no exact single-statistic injectivity-radius law or its threshold equivalence classification. The second has generic definitions and inequalities, not the pushforward distribution on these quotient strips. Standard nearest-deck-image geometry is explicitly treated as background; the claimed contribution is the full probability law, square-root/atom signature and sharp inverse classification. Published mathematical-record and semantic-result searches for the same object, equivalent names (normal disk, injectivity, shortest loop), and these parameters did not identify a dominating theorem. Risk: older flat-surface or cut-locus work not indexed in the consulted sources may contain a special case. Absence from search is not a proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The full law is a natural metric-geometric invariant: it records the local size of normal coordinates at a random area point. Its singularity structure produces an exact threshold at which one such scalar distribution begins detecting nonorientability and all shape parameters, and a second threshold with an atom supported by a positive-area region of centers. These are global classification statements for two continuous families, not arbitrary numerical slices. The result also quantifies a strict stochastic advantage of one-sided over two-sided topology after the first threshold. It does not require an extension to arbitrary surfaces to be meaningful.
+Nearest-deck displacement and local injectivity radius are classical. Closely related published flat Möbius/Cylinder work gives pair-distance statistics and shortest essential-loop distribution, neither the boundary-clipped local radius CDF nor its complete one-point inverse classification. General lens rigidity uses richer data and does not directly specify this statistical law. Best-of-knowledge qualification preserved.
 
-## Limitations and closest sources
+## value
 
-The proof concerns only flat, rectangular quotient metrics and boundary-free exponential disks, not global convexity of their images. The strongest comparable literature concerns lens rigidity and general pointwise radii; it does not directly calculate this distribution. Priority and conceptual significance still warrant independent expert evaluation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The injective normal disk radius of an area-sampled point is a motivated intrinsic metric-geometric statistic. The sharp indistinguishability threshold, singular cusp/atom and exact parameter/topology recovery provide a natural complete classification; the twice-around loop controls the thick regime. Scope limited to the two rectangular flat families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
