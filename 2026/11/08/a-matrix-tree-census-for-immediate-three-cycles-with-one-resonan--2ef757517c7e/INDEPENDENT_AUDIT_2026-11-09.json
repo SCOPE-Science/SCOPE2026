@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T10:46:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 7f342d7a969c30db175af789a214582d260e2989",
+        "Assigned check_single_resonance.py blob 2cdff3f9b927974b954aed441cef6c20b36847ec",
+        "Assigned check_direct_chip.py blob b62e25856c041dc276d9f290418a0ce5acd298da"
+      ],
+      "rationale": "For any initial primitive synchronous period-three state U³x=x≠Ux, the connected Laplacian forces a common firing count in three rounds, necessarily one or two per vertex. A once-firing phase map a_v∈Z/3 imposes the exact local chip interval d_v≤z_v≤d_v+r_v(a)−1 where r_v is the number of neighbors at the preceding firing phase. Its product counts chip configurations and is bijective to selected outgoing predecessor-phase neighbour arrows. A selected arrow strictly decreases phase mod3, so every functional-digraph directed cycle has length divisible by3. With exactly one resonant graph simple cycle C, arrows must select a consistently oriented C and a C-rooted forest; contracting C gives τ(G/C), keeping parallel edges. Two C orientations and three phase shifts give six once-firing states per tree; the bounded complement x_v→2d_v−1−x_v bijects once/twice-firing states for 12 τ. With no 3-divisible cycle, every functional graph has impossible directed cycle and P3=0; cactus bridge/cycle tree-factorization gives 12∏ℓ_j. Direct update checks reproduce P3=12 for triangle and 48 for triangle sharing a vertex with a square; no transient or different primitive periods claimed.",
+      "residual_risks": [
+        "Boundary convention when degree d_v is positive and complement bounded by 2d_v−1 is essential; source proof treats this for both firing densities.",
+        "Finite graph enumeration scripts are corroboration, not an exhaustive argument across all graph orders."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jiang–Scully–Zhang analyze parallel-chip-firing patterns and graph gliders, not the explicit unique-resonant-cycle counted family in the material read.",
+          "Backman spanning-tree bijection is for a sink/hereditary recurrent model rather than sink-free synchronous immediate primitive period-three states.",
+          "Dall Asta treats one-dimensional ring cases, not arbitrary unique-resonant-cycle connected graphs."
+        ],
+        "reasoning": "None of the inspected primary statements implies an unrestricted 12 τ(G/C) matrix-tree count on graphs with exactly one length-3k cycle; no arbitrary graph census was inferred from ring or sink-based recurrences.",
+        "searches": [
+          "Resultary query: parallel chip firing immediate period three cycle unique resonant length divisible three spanning tree contraction census (2026-11-09)",
+          "arxiv:1211.6786 Jiang Scully Zhang",
+          "arxiv:1003.0943 Jiang on periods",
+          "arxiv:cond-mat/0601267 Dall Asta ring",
+          "arxiv:1207.6175 Backman hereditary sink-based model"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:1211.6786",
+        "arxiv:1003.0943",
+        "arxiv:cond-mat/0601267",
+        "arxiv:1207.6175",
+        "Resultary 2026/11/08 unique resonant Greenberg-Hastings cacti finding"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From Q_3 phase counting, the unique 3-divisible undirected cycle C forces one directed feedback cycle, two orientations, three phase shifts, and a spanning forest rooted on C: Q3=6 τ, P3=12 τ.",
+          "Greenberg–Hastings cactus count has different factor 6∏(2 floor(l/3)+1), not the chip-firing 12∏ l."
+        ],
+        "reasoning": "Existing periodic pattern or generic matrix-tree results do not imply the weighted, immediate synchronous chip-firing count unless the novel local firing-phase correspondence is established. The source supplies that correspondence and complement involution explicitly, and no earlier equivalent lemma was identified in read full text.",
+        "searches": [
+          "Resultary query: parallel chip firing immediate period three cycle unique resonant length divisible three spanning tree contraction census (2026-11-09)",
+          "arxiv:1211.6786 full 2012 primary paper",
+          "arxiv:1207.6175",
+          "Resultary 2026/11/08 Greenberg–Hastings related cacti"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact phase-count expression Q_3(G)=Σ_{a:V→Z/3}∏_v #neighbors in phase a_v−1 and 2Q_3=P_3 is a functional-digraph count, not a general Greenberg–Hastings cellular automaton.",
+          "A selected-neighbour mapping has one oriented directed cycle of length divisible by 3; under unique resonance its off-cycle forest corresponds bijectively to spanning trees of multigraph G/C."
+        ],
+        "reasoning": "Searched equivalent phase tilings, functional digraphs with prescribed cycle, rooted spanning-forest/matrix-tree identities, deterministic sandpile and synchronous chip-firing. Shared language “period three excitation” does not make different state-transition rules equivalent.",
+        "searches": [
+          "Resultary query: parallel chip firing immediate period three cycle unique resonant length divisible three spanning tree contraction census (2026-11-09)",
+          "arxiv:1211.6786 Motors and impossible firing patterns",
+          "Resultary 2026/11/08 resonant excitation on cacti / Greenberg–Hastings",
+          "arxiv:1207.6175 sink-based spanning tree correspondence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No published direct table of P_3(G)=12 τ(G/C) for the unique-resonance family appeared in semantic results beyond the assessed record itself.",
+          "Independent direct update enumeration gives P3(C3)=12 and P3(C3∨C4 at one vertex)=48, as predicted by τ(G/C)=1 and 4."
+        ],
+        "reasoning": "These finite instances corroborate but are not novelty proof; prior full-text discussion of phase patterns was checked independently. The exact natural invariant is a full family spanning-tree formula, not only its tiny samples.",
+        "searches": [
+          "Resultary query: parallel chip firing immediate period three cycle unique resonant length divisible three spanning tree contraction census (2026-11-09)",
+          "Resultary chip-firing resonance and matrix tree query",
+          "Assigned direct chip and cycle enumeration scripts"
+        ]
+      },
+      "rationale": "Best-of-knowledge new structural exact matrix-tree enumeration for immediate primitive period-three synchronous chip-firing with one resonant simple cycle; related full primary text on motors and graph gliders does not state or logically imply the count.",
+      "residual_risks": [
+        "Potential unindexed matrix-tree correspondence for immediate chip-firing periods elsewhere in literature.",
+        "Only one primary same-dynamics preprint read in full; other papers read only by abstract/quoted structure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partially related dynamics, but does not establish exact 12 τ(G/C) primitive-three state census in material examined",
+          "evidence": "Authors study possible firing patterns and gliders and describe cycle/tree graph cases as further development, not contraction matrix-tree cardinalities.",
+          "identifier_or_url": "https://arxiv.org/pdf/1211.6786",
+          "material_read": "Full PDF inspected with pages including early definitions, Theorem 6.2 on absence of clumpy periodic firing patterns, final graph-structure discussion and references; PDF screenshots inspected",
+          "method": "arXiv lawful OA full PDF, text search and page-level visual inspection",
+          "title": "Motors and impossible firing patterns in the parallel chip-firing game",
+          "trigger": "Direct primary earlier work on same synchronous firing system and graph-period pattern obstructions"
+        },
+        {
+          "assessment": "Specific ring mechanism, no established implication to arbitrary unique-resonant-cycle graph count",
+          "evidence": "Ring-specific analysis cannot determine τ(G/C) when off-cycle graph has multiple spanning forests.",
+          "identifier_or_url": "arxiv:cond-mat/0601267",
+          "material_read": "Accessible abstract and assigned source comparison; full paper not fully read this run",
+          "method": "arXiv bibliographic/source evidence",
+          "title": "Exact solution of the one-dimensional deterministic fixed-energy sandpile",
+          "trigger": "Ring period-three baseline"
+        },
+        {
+          "assessment": "Not direct coverage: sink-based hereditary stabilization rather than immediate sink-free three-cycle firing",
+          "evidence": "Different transition and recurrent-state definition; extra phase-to-forest bijection required.",
+          "identifier_or_url": "arxiv:1207.6175",
+          "material_read": "Abstract/bibliographic comparison and model description; full paper not read",
+          "method": "Published citation and mathematical model comparison",
+          "title": "A bijection between recurrent configurations of a hereditary chip-firing model and spanning trees",
+          "trigger": "Spanning tree bijection might superficially dominate matrix-tree count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/1211.6786",
+        "Assigned RESULT.md and exact rooted-tree argument"
+      ],
+      "rationale": "The exact formula identifies a natural restricted but broad graph class in which an immediate nonlinear chip-firing dynamical census equals 12 times a classical spanning-tree invariant of a contraction. The unique-resonance boundary and cactus product show structural stability under branches and quantifiable influence of other graph cycles; these are useful mathematical distinctions, not arbitrary small experiments.",
+      "residual_risks": [
+        "Does not classify multiple resonant cycles, basins, or eventual periods; those limitations do not nullify the exact theorem for a naturally defined class."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only immediate primitive period three; multiple resonant simple cycles outside formula.",
+    "Full historical priority not proved by absence of semantic index hits."
+  ],
+  "schema_version": 1
+}
