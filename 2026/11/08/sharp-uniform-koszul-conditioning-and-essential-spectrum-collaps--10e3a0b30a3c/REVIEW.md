@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The nonzero row bound supplies a joint spectral measure on the bounded \(\ell^2\) ball; the verified normal CAR Laplacian identity reduces every degree to the positive distance operator. Explicit contracting preimages establish both uniform solvability and its optimal constant. Infinite exterior multiplicities or a nonclosed degree-zero range separately exclude Fredholmness at all spectral support points. The perturbation bound follows from spectral approximate eigenvectors, not finite-dimensional eigenvalue enumeration. The comparison to the source's precise Definitions 1.1 and 1.12 fixes the nonstandard Fredholm convention.
+## correctness
 
-## Originality — PASS (best knowledge)
-The closest work is Wang–Zhang–Zhang–Zhu, arXiv:2610.41882v1. Lemma 2.12 (CAR), Lemma 3.10 (normal spectrum), Theorem 1.14 (equality **when** partial Koszul sums converge in norm), and Remarks 3.12/5.5 (examples) were read and compared by implication. The new combined normal-class result removes the norm-tail hypothesis and supplies the **exact** degree-uniform lifting optimum and sharp column-norm Hausdorff bound. Existing normal spectral theory supplies the proof ingredients; no direct published complete coverage was identified. An older equivalent theorem or a derivation viewed as standard remains a real originality risk.
+PASS
 
-## Mathematical value — PASS
-The degree-uniform lifting constant is central to the new infinite Koszul definition, so its exact value gives quantitative conditioning rather than just qualitative invertibility. The absence of normal-class Fredholm points is a classification that sharply differs from the classical finite-variable behavior, and the quantitative perturbation law holds even for genuinely noncompact spectral supports. This is a natural structural classification, not an arbitrary finite parameter slice. It is not claimed to be a broad nonnormal theorem.
+Commuting normality and the row bound give an abelian spectral model with essential range in a bounded ell2 ball, so B_lambda=strong-sum (T_j-lambda_j)^*(T_j-lambda_j) is multiplication by ||z-lambda||². CAR anticommutation supplies the degreewise Laplacian dd*+d*d=B_lambda⊗I; independently tested this identity and nilpotence for a small normal-diagonal finite tuple. For lambda off spectral support, B_lambda≥delta²I, and the exact contracting preimage B_lambda^-1 d* has norm at most delta^-1; degree-zero Moore–Penrose minimum preimages attain the same operator norm. At lambda in support, a nonzero kernel of B_lambda yields infinite harmonic homology in every positive exterior degree, or else d1 has dense nonclosed range and infinite algebraic quotient dimension, so infinite-degree Fredholmness fails. Approximate joint eigenvectors yield d_H(K_T,K_S)≤column norm; scalar tuples attain coefficient 1. The noncompact example T_j=projection onto e_j has K={e_j}, showing why norm-summability must not be inferred.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Wang–Zhang–Zhang–Zhu already provide the normal CAR Laplacian, normal joint spectrum characterization and a spectral/essential equality theorem under the extra NORM-convergence of row sums; all credited. The assigned theorem removes that hypothesis for arbitrary normal row-bounded tuples (including a noncompact-support projection tuple) and states the exact all-degree conditioning constant plus sharp column-metric Hausdorff stability. Inspected relevant original definitions and results do not state this entire quantitative unrestricted package. Some conclusions follow with short standard spectral arguments once CAR is known, leaving an originality/value boundary risk, but no decisive whole-claim earlier coverage identified.
+
+## value
+
+PASS
+
+The uniform lifting norm is the exact condition number intrinsic to the recently defined infinite Koszul complex, and failure of any Fredholm point for normal tuples changes the finite-variable intuition even for isolated finite-multiplicity spectral atoms. Sharp column-metric perturbation stability and noncompact support demonstrate nontrivial structural scope beyond the previously norm-summable class.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
