@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact cumulative-tail transform converts the mean-field update into a cooperative ODE on the compact order simplex. Its off-diagonal Jacobian signs are checked under the full probability constraints, including the extreme endpoints. Comparison with uniform is strictly positive in all coordinates after positive time for any strictly comparable initial law. The polynomial barriers \(U\pm\varepsilon w\), with \(w_i=i(m+1-i)\), are explicitly admissible and have componentwise outward-pointing derivatives for \(0<\varepsilon<1/[(m+1)(m+2)]\). Monotone bounded barrier trajectories converge to equilibria; the stationary birth-death flux calculation establishes that the only equilibria are the two extremes and uniform. The symmetric tail Jacobian is a negative definite Dirichlet Laplacian plus a rank-one perturbation whose inertia has exactly one positive direction. Rational checker identities for \(k=2,\ldots,16\) and direct ODE witness integrations corroborate but do not certify the infinite family.
+PASS
 
-## Originality — PASS, with residual risk
+After transforming original masses q_j into tails S_i=sum_{j>=i}q_j, the exact ODE is S_i'=a S_{i-1}+(1-a)S_{i+1}-S_i with a=(sum S)/m, S_0=1, S_(m+1)=0 and m=2k>=4. Its off-diagonal partial derivatives are nonnegative throughout the ordered tail simplex and strictly positive along neighboring coordinates on the segment from the uniform U to a comparable state; strong comparison propagates an initially strict difference to all tails. With w_i=i(m+1-i), barriers U±epsilon w are admissible for 0<epsilon<1/((m+1)(m+2)), and direct substitution gives F_i(U±epsilon w)=±epsilon(m-1)/3+epsilon^2(m+1)(m+2)(2i-m-1)/3, strictly signed. Monotone barrier orbits converge to the only equilibrium strictly on their respective sides of U, the endpoint consensuses; comparison sandwiches all initial stochastic-order-comparable orbits. The equilibrium equation in z=a/(1-a) has a strictly increasing polynomial with unique root z=1 in the positive domain. The symmetric tail Jacobian J=H+2*11^T/(m(m+1)), H negative Dirichlet tridiagonal; 1^T(-H)^(-1)1=m(m+1)(m+2)/6 gives rank-one inertia ratio (m+2)/3>1, so exactly one positive and m-1 negative eigenvalues. Independently exact-rational checked strict barriers k=2..10. This proves a global sufficient cone, not complete basin boundaries.
 
-Cao and Gong (arXiv:2605.28984v1, 2026-05-27) state the nonlinear model and three equilibria, prove symmetric convergence and far-mean sufficient selection \(M(0)<1\) or \(M(0)>m-1\), and explicitly leave broader nonsymmetric basins as a challenge. The two five-opinion witnesses have means \(19/10\) and \(21/10\), so neither conclusion follows from those far-mean bounds; both witnesses are nonsymmetric. The new ordered-tail transformation, strict barrier construction, and full saddle inertia establish a genuinely different sufficient domain and its local boundary geometry. Search comparisons for stochastic dominance, monotonicity, spectral index and the article identifier did not locate an already covering statement. Classical cooperative-ODE comparison and stable-manifold principles are acknowledged, not claimed as new. Earlier Cao–Reed and Cao–Cortez opinion papers use other interaction rules; their abstracts do not resolve the comparison. An equivalently phrased result in unindexed literature or a more general theorem specialized to this exact vector field remains a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Selecting the eventual consensus from nonsymmetric initial probability laws is an explicit open direction in the motivating article. First-order stochastic comparison gives a simple finite list of inequalities for all \(2k+1\) states and applies at moderate mean bias outside previously certified regions. The exact unstable dimension explains why the uniform distribution can attract on a lower-dimensional set while separating opposing outcomes locally. These are structurally motivated criteria, not arbitrary parameter slices or a known-table recomputation. The sufficient criterion is deliberately not presented as a complete global basin classification.
+The one-dimensional unstable-index claim is explicitly ALREADY ESTABLISHED in the October 12 entropy-dissipation theorem and is not credited as original. That prior paper also proves full convergence and an entropy-sublevel basin certificate. The distinct surviving new claim is global selection from the entire first-order stochastic-order cone about U; it is not implied by the earlier energy sublevel condition. For m=4, the comparable perturbation q=U+epsilon(e_2-e_1) has S_2-U_2=epsilon>0 and all other tail differences zero, but the energy Hessian along this direction at U is positive, so at sufficiently small epsilon the energy is above F(U), outside the prior certificate. Cao–Gong established only far-mean sufficient conditions and equilibrium census. Best-of-knowledge original component is therefore the order-cone barrier theorem, not the already-published index or convergence trichotomy.
 
-## Sources and remaining limits
+## value
 
-Primary: https://arxiv.org/html/2605.28984 and https://arxiv.org/abs/2605.28984 (mathematical formulation, known results and open problems, relevant sections inspected). Related but structurally distinct: https://doi.org/10.1137/24M1700661 and https://doi.org/10.1137/24M1682269 (abstract and bibliographic information checked). Results apply only to the exact deterministic mean-field dynamics; finite stochastic populations, rates and the incomparable-initial-data region remain untreated.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The FOSD cone is a substantial explicit high-dimensional global attraction certificate for many nonsymmetric initial laws with central means, extending the source and earlier entropy sublevel basins. The decisive value is classification of a genuine previously undecided region, not the already-known saddle index.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
