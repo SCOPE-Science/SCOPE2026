@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The scalar half-density Zak fiber is derived from the unitary convention; three nonnegative coefficients in each of two fiber polynomials satisfy the necessary middle-dominance inequality. Both phase extrema occur simultaneously, so the two-dimensional continuous minimax problem reduces exactly to two one-dimensional piecewise quadratic envelopes. The lower-envelope stationary point, its feasibility interval and its two crossing quadratics are derived algebraically. Endpoint matching, normalization and a standalone direct-Zak checker provide supplementary crosschecks. The result is proved analytically for all real parameters; finite numerical tests alone were not used to establish the theorem.
+## correctness
 
-## Originality — PASS, provisional
-The 2018 frame-set paper treats membership/compact duals, the 2023 obstruction paper treats nonframes, and the 2026 Stangl–Frederick work advertises a complete qualitative membership theorem. The previously published adjacent-interval sharp-bound theorem on the same Gabor family was read in full: its exact scope is \(3/2\le b\le7/4\), whereas this theorem covers \(1\le b\le3/2\). The common endpoint is not claimed as new. A different sharp onset result concerns \(b>2\). A different newer zero-set manuscript remained inaccessible in full, and an older implicit Zak-minimization result remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-The canonical piecewise-linear window has a nontrivial sharp spectral optimization problem even where frame membership is settled. The two exact symmetry-breaking minimizer switches, together with the full sharp lower/upper frame functions and condition numbers, supply a natural complete one-parameter spectral classification rather than a single numerical example or routine increase.
+At redundancy 2 the unitary Zak fiber is the sum of squares of two explicit three-term Laurent polynomials; each has nonnegative coefficients with middle coefficient dominating its two neighbors, hence θ=1/2 minimizes each modulus and θ=0 maximizes. The spatial extrema reduce to exact piecewise convex quadratics in physical y∈[0,a], a=1/(2b). The center and symmetric off-center stationary positions exchange at the two roots b0=2−sqrt(10)/4 and b1=(19−sqrt(10))/12. The displayed A(b)>0 three-piece and B(b) formula are continuous and sharp on every real b∈[1,3/2]. Independent direct finite-Zak evaluations corroborated sample b,y,phase; infinite continuum follows from coefficient dominance and complete envelope comparisons, not those samples.
 
-## Limitations
-Only this window, half-density lattice and indicated parameter interval are established. No independent external audit or formal verification is claimed. The checker validates finite instances and exact polynomial identities, not the infinite-dimensional fiber theorem itself.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: published frame-set criteria and zero-locus papers address membership/obstructions, not the optimal continuous quantitative spectral bounds with two interior optimizer transitions on 1≤b<3/2. The October 11 exact hat-spline bound theorem begins at b=3/2, sharing only its endpoint.
+
+## value
+
+PASS
+
+PASS: For a canonical compactly supported spline window, exact optimal frame constants and geometric locations of the worst Zak fibers are natural conditioning invariants. Their two nontrivial symmetry-breaking transitions give a full positive-interval spectral phase diagram, beyond a frame-membership or single sample calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

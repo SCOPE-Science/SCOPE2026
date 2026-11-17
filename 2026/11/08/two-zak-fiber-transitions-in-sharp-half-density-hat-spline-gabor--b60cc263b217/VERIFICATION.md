@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Mathematical verification and limits
+# Independent mathematical audit
 
-The analytic proof reduces frame bounds to scalar Zak-fiber extrema, computes two exact Laurent polynomials, proves simultaneous phase minimization/maximization by coefficient dominance, and solves the remaining piecewise quadratic problem. The endpoint and switching equations are stated in the proof. The standalone `verify.py` uses only Python standard-library operations and reports `HAT_SPLINE_EXACT_BOUNDS_CHECKS_PASS 20242`, including rational coefficient-dominance checks, direct finite Zak sums, and global mesh inequalities. Tests are finite; the mathematical proof, not numerical verification, establishes the all-real theorem. No independent mathematical audit has been performed.
+## correctness
+
+PASS
+
+At redundancy 2 the unitary Zak fiber is the sum of squares of two explicit three-term Laurent polynomials; each has nonnegative coefficients with middle coefficient dominating its two neighbors, hence θ=1/2 minimizes each modulus and θ=0 maximizes. The spatial extrema reduce to exact piecewise convex quadratics in physical y∈[0,a], a=1/(2b). The center and symmetric off-center stationary positions exchange at the two roots b0=2−sqrt(10)/4 and b1=(19−sqrt(10))/12. The displayed A(b)>0 three-piece and B(b) formula are continuous and sharp on every real b∈[1,3/2]. Independent direct finite-Zak evaluations corroborated sample b,y,phase; infinite continuum follows from coefficient dominance and complete envelope comparisons, not those samples.
+
+## originality
+
+PASS
+
+PASS best of knowledge: published frame-set criteria and zero-locus papers address membership/obstructions, not the optimal continuous quantitative spectral bounds with two interior optimizer transitions on 1≤b<3/2. The October 11 exact hat-spline bound theorem begins at b=3/2, sharing only its endpoint.
+
+## value
+
+PASS
+
+PASS: For a canonical compactly supported spline window, exact optimal frame constants and geometric locations of the worst Zak fibers are natural conditioning invariants. Their two nontrivial symmetry-breaking transitions give a full positive-interval spectral phase diagram, beyond a frame-membership or single sample calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
