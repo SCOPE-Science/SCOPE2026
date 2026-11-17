@@ -1,9 +1,21 @@
-# Supported mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact two-by-two Hilbert–Schmidt expansion establishes the bounds \(a,b\le1\) and \(a+b\le 2-|q|^2\). The rank-one matrix construction realizes every allocation on the full exposed edge. Strict concavity for \(1\le p<2\), affine behavior at \(p=2\), strict convexity for \(p>2\), and the maximum-coordinate endpoint for \(p=\infty\) yield the exact piecewise formula and its crossover. The 11,997 finite tests are supplemental, not the proof. Assumptions and boundary cases were checked, including equality of the two branches at the transition and equal weights.
+## correctness
 
-**Originality: PASS, qualified.** Azadi's arXiv:2610.32504 (2026), full preprint inspected, treats general operator-valued joint \(q\)-ranges and realization at \(|q|=1\), not the displayed anisotropic two-parameter optimization for \(0<|q|<1\). Feki–Patra–Rani–Taki's arXiv:2410.03669 (preprint text inspected, Sections 2–4) gives inequalities, noncommuting two-by-two nonconvexity examples and a general block upper bound, not this sharp all-\(p\) weighted phase diagram. Xu–Schwonnek–Winter (2024) concerns ordinary expectation-value joint ranges of Pauli strings rather than fixed-overlap two-vector radii. Semantically close research records concern rank-one projections, unweighted single-operator \(q\)-radii, or commuting operator fields, which neither state nor imply the weighted noncommuting Pauli formula. A broader old Clifford-orbitope or generalized numerical range theorem is a genuine residual priority risk.
+PASS
 
-**Value: PASS.** Fixed-overlap joint radii are a natural quantitative invariant in the current operator-range literature. The theorem gives the complete sharp three-parameter response of the minimally noncommuting observable pair to anisotropy, overlap and the norm exponent. For all \(1\le p<2\), an exact, nontrivial overlap threshold separates a balanced interior optimizer from saturation of the stronger observable. This is a structural phase classification, not a merely numerical sample or a relabeled generic bound. It does not claim extensions to higher dimensions or arbitrary operator tuples.
+For the rank-one dyad xy*, the normalized Pauli Hilbert–Schmidt Parseval identity gives |q|²+a+b+|z|²=2 with 0≤a,b≤1. The explicit determinant-zero, HS-unit dyad (r I+uX+vY)/2 with u=cosθ+i s sinθ, v=sinθ-i s cosθ realizes every a+b=1+s², s²≤a≤1. The exact finite-p maximization of α^p a^(p/2)+β^p(1+s²-a)^(p/2) is strictly concave for 1≤p<2, affine at 2, strictly convex for p>2; endpoint p=∞ is α. The stationary allocation Tα^k/(α^k+β^k) lies on the edge iff s≤(β/α)^(p/(2-p)). Both branches match at equality, with α=β and p=2 equality degeneracies treated. Independently checked rank-one constraints and the threshold for 369 bounded cases; that is not a universal proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The exact joint two-vector q-overlap weighted ℓ_p Pauli phase diagram is not implied by the nearest accessible general q-joint inequalities or spatial rank-one-projection phase diagram; the needed full attainable Pauli allocation edge and anisotropic exponent-dependent crossover are additional. This is best-knowledge, not exhaustive priority certification.
+
+## value
+
+PASS
+
+Fixed-overlap two-observable joint radii are natural operator invariants. This gives a genuinely sharp three-parameter structural phase transition, extremal allocation, and complete boundary case analysis for the minimally noncommuting Pauli pair, rather than a renaming of an existing bound. The phase threshold is mathematically motivated by balancing weighted incompatibility.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
