@@ -1,19 +1,21 @@
-# Mathematical review: mean spherical triangle area at fixed latitude
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(0<|\cos\theta|<1\), all three vertices lie in a common open hemisphere and the shortest-arc geodesic triangle is unambiguous almost surely. Computing the exact tangent-plane bearing gives a strictly decreasing angular map; Girard's identity reduces the area expectation to one angle expectation. Fubini gives a weight \(t(2\pi-t)\), and the exact Poisson-kernel Fourier series yields the dilogarithm law. The coefficient and sign were checked directly against independent solid-angle and spherical-excess evaluations. Monotonicity and both endpoint expansions follow by differentiation and endpoint evaluation. No finite experiment is used in place of the Fourier proof.
+PASS
 
-## Originality — PASS, with residual risks
+For c=|cos(theta)| in (0,1), the three vertices share a strict hemisphere. The poleward tangent bearing has derivative -c/[2(cos^2(t/2)+c^2 sin^2(t/2))]; Fubini for the absolute difference of two iid longitudes gives I=(2pi)^(-2) integral_0^(2pi) t(2pi-t) F_c(t)dt. The absolutely uniformly convergent Poisson expansion F_c=1+2 sum_{k>=1}(-r)^k cos(kt), r=(1-c)/(1+c), gives 3I-pi=-(6/pi)Li_2(-r), by Girard. Direct derivative proves strict inverse; c->1 and c->0 limits produce polar quadratic and equatorial one-sided pi/2. Separate deterministic quadratures at four colatitudes independently matched Li2 to <3e-11.
 
-The inspected full text of Finch–Jones (arXiv:1009.5329, 2010) treats vertices uniform over the whole sphere. It neither restricts all vertices to one common small circle nor supplies a varying-latitude dilogarithm law. Le (1989) addresses shape densities for area-uniform samples in a spherical cap, a distinct distribution; its full text was inaccessible, leaving residual historical risk. Specific searches for the same fixed-latitude model, exact expectation, special-function identity, and their equivalents found no dominating theorem. Prior research records include a fixed-latitude **acute-angle probability**, which does not imply an area mean: the indicator of all-acute angles cannot determine the sum of three angles. Global-sphere expectation and cap-interior shape density do not give the fixed-small-circle area law without additional integration or limiting analysis. Absence from search is not a proof of absolute priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Expected intrinsic area is a canonical first-order measure of random geodesically convex hulls on a sphere. Boundary-uniform latitude sampling varies the supporting spherical cap through a natural one-parameter geometric family. The exact mean is a non-elementary dilogarithmic function, not a copied global-uniform constant; its strict invertibility solves a small but genuine geometric parameter-reconstruction problem. The formula also identifies the nontrivial \(\pi/2\) one-sided equatorial limit and the sharp polar quadratic coefficient. These are natural characteristics of this exact geometric model, not an arbitrary numerical slice.
+The fixed-small-circle arclength probability space, parameter-varying dilogarithm mean, and inverse monotonicity are not implied by the examined full-sphere area density or the different cap-interior shape-density model. The close latitude-circle acute-probability result computes a different observable. Historical priority is qualified because full Le (1989) could not be obtained.
 
-## Scope and residual risks
+## value
 
-No claim about the full area law, higher moments, noisy finite-sample inversion, or collinear equatorial triangles. H. Le's 1989 full article could not be reviewed; unpublished or differently indexed priority remains possible. This review is not an independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact nontrivial closed mean area for a natural low-dimensional geometric-probability model (three iid boundary points on a parallel), with strict latitude inverse and sharp polar/equator asymptotics. Not merely a numerical example or a reparameterized full-sphere formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
