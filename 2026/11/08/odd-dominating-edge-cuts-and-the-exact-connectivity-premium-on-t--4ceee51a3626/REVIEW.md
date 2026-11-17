@@ -1,15 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem fixes the closed-neighborhood parity definition on \(T_n=L(K_n)\). For every binary selected edge indicator \(x_{ij}\), the independently reconstructible quantities \(d_i\) satisfy \(d_i+d_j+x_{ij}=1\); the double-counting identity \(\sum_i d_i=0\) forces the even-\(n\) uniqueness and allows exactly the even-cardinality \(d_i=1\) subsets for odd \(n\). The reverse construction is checked explicitly by recomputing the parities. The disjoint-clique decomposition proves the full weight distribution, connectivity criterion and both minima, for all \(n\ge3\). The two executable checks independently enumerate and solve finite instances, and their recorded outputs are inspected. Finite tests do not establish the infinite formula; the symbolic parity reduction does.
+## correctness
 
-## Originality — PASS, with priority risk
-The 2003 Caro–Klostermeyer paper sets the odd-domination framework; the relevant introductory text focuses on complete-partite graphs, cycles and grids, not an explicit triangular-graph cardinality-and-connectivity profile. The 2005 Caro–Klostermeyer–Yuster full paper studies connected odd domination and treats grid graphs, cycle powers, complete multipartite graphs and path powers. The checked text and graph-family comparison do not establish the new full classification of odd-dominating sets on \(L(K_n)\) or the exact connectivity premium. published-finding corpus searches for line-graph parity solutions, triangular graph weight distributions, and connected odd domination returned other graph families and different invariants rather than implication-equivalent classifications. Recoverable historical claim searches found no identical result. Search noncoverage is not a mathematical proof of priority, and the 2003 scanned text was not read in full; this remains a stated risk.
+PASS
 
-## Value — PASS
-General odd domination and connected odd domination are established motivating problems. Triangular graphs are a canonical infinite line-graph/Johnson-graph family. The theorem determines every parity-feasible configuration and its weight, shows a sharp even/odd phase change in solution-space dimension, and quantifies a quadratic connectivity penalty for every odd size at least five. This answers a precise connected-versus-unrestricted comparison, instead of merely repeating generic existence or reporting a small finite count. The proof also explains the nonconnectivity through the forced disjoint-clique geometry.
+For line-graph vertices ij of K_n, closed-neighborhood parity is d_i+d_j+x_ij=1 over F2, D=sum_i d_i=0. For even n every d_i=1 and x_ij=1; for odd n any even-size set U={i:d_i=1} yields exactly edges internal to U and its complement, and every solution arises uniquely. The induced components are T_|U| and T_(n-|U|), giving the weight enumerator, minimum, exactly n+1 connected solutions and connectivity penalty. Independently enumerated all subsets for n=3,4,5,6 and their induced connectivity, matching counts 4/4,1/1,16/6,1/1. Note a duplicated alternative U definition in source proof is an editorial slip; its subsequent degree/converse calculation unambiguously uses U={d_i=1} and the theorem remains correct. All-parameter proof is algebraic, not based on enumeration.
 
-## Scope and limitations
-Only closed-neighborhood odd domination on \(L(K_n)\), \(n\ge3\), is addressed. The two programs independently validate finite ranges; no other graph family or independent external audit is claimed. The scanned 2003 source's full text was not inspected and historical-priority certainty is not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General mod-two odd domination, connected odd-domination existence and complexity, and triangular graph total/ordinary domination are prior; the inspected 2005 full manuscript treats grids, complete multipartite graphs and powers of cycles, not this line graph's full parity-cut enumerator and connectivity premium. The 2003 paper's accessible material focuses general/family bounds; its complete scanned full text was not audited, a residual priority risk.
+
+## value
+
+PASS
+
+All solutions and their induced connectivity, weight profile and exact optimality premium for the natural triangular graph family are genuine finite-graph structural invariants, not simply the general existence theorem for odd domination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
