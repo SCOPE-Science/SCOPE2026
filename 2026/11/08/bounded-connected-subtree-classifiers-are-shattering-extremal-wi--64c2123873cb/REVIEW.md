@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Necessity uses the forced path through an internal queried vertex, sufficiency explicitly constructs a Boolean cube using the nonleaf hull vertices, and leaf-hull inversion proves extremality. Both singleton and two-vertex boundary cases are handled. The star decomposition is proved from the simplex-skeleton lemma and graph attachments; the package includes finite brute-force and homology tests.
+## correctness
 
-**Originality — PASS within the inspected evidence, with residual risk.** Five primary source texts and repeated published-record and semantic-record searches were compared by implication. The older unbounded leaf-VC bounds, general-position characterizations, leafed-subtree optimization, classical subtree enumerators, and general shattering-extremality terminology are prior work. They do not, as inspected, present the exact size-capped support-to-leaf bijection together with the all-support strong-shattering equality and the higher-dimensional star topology. Other terminology could cover the principal assertion, and the review is not an exhaustive historical priority proof.
+PASS
 
-**Value — PASS.** The exact description classifies all Boolean membership-label patterns rather than only maximizing leaves. Strong shattering at every support is a structural property of the concept class. The star family has two sizes of facets and nonzero reduced homology in both low and arbitrarily high degrees; this makes the result more than a leaf-count computation or a parameter substitution.
+PASS. For any shattered S, the all-positive trace forces its Steiner hull to have size <=r; any queried internal hull vertex cannot be excluded while maintaining positive queried vertices across both sides, hence S must be its leaf set. Conversely, fixing all interior Steiner vertices and toggling its leaves realizes the full strong-shattering cube; the 1- and 2-vertex cases work separately. U maps bijectively to L(U), giving equality of concepts and shattered supports. In a star, the leaf (r-2)-skeleton and center spokes give the asserted wedge of circles and spheres; standard simplex-skeleton homology applies. Independently enumerated all supports of a 5-vertex path and 6-vertex star at every cap and confirmed exact criterion.
 
-**Closest known literature and limits.** Munaro (arXiv:1302.6500) covers classical connected-subgraph VC questions; Klavžar et al. (arXiv:2105.08391) cover graph Steiner general position; Baste (arXiv:2301.12783) covers bounded induced-subtree leaf objectives; Aliste-Prieto et al. (arXiv:2402.10333) cover the pre-existing subtree polynomial; and Kusch–Mészáros (arXiv:1710.03165) cover general shattering-extremal theory. The new proof is tree-specific and the topological claim is star-specific. Finite experiments are not substituted for proof. Residual historical priority risk and the absence of external mathematical review remain explicit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with historical-priority limits. Munaro (2016) and Kranakis et al. earlier bound VC dimensions through maximum-leaf spanning trees; subtree polynomial/leaf-count optimization is established. Their statements do not give a size-capped all-support leaf-hull iff shattering theorem, a fixed-outside Boolean cube, or star shattered-complex homotopy. Resultary semantic search found adjacent clade and tree-path query systems with different concept families, not a stronger covering theorem. The exact strong-shattering equivalence and mixed-dimensional topological consequence survive; older lopsided/convex-range aliases remain a risk.
+
+## value
+
+PASS
+
+PASS. Membership-query concepts on budgeted connected tree subgraphs are natural classification objects. A complete description of every shattered support and strong shattering at every budget is more informative than a scalar VC bound; the explicit nonpure, multi-degree homology star complexes provide a meaningful structural/topological consequence, not mere recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
