@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T05:46:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact Markov state (a,b,h) has intra-clique rates binom(a,2), binom(b,2), cross rate lambda h, and a hypergeometric loss in h after an internal dimer. On s=nt, the limiting vacant proportions and matched overlap are (1/(1+s),1/(1+s),1/(1+s)^2), yielding Poisson crossing intensity lambda/(1+s)^2. A bounded supermartingale Lyapunov F=h/a+h/b controls crossings after S/n by O(1/(1+S)), completing X_n=>Poisson(lambda). At jamming each clique has at most one vacancy; each cross-dimer removes one on either side, giving pathwise R_n=2 1_{n-X_n odd}, and the parity probabilities follow from the Poisson pgf. The proof's worst-case generator inequality was compared to the full earlier exact derivation and verifier state recurrences. The finite-state verifier code uses correct hypergeometric rates; no claim of having rerun its whole script is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier theorem includes all lambda>=0; submission assumes fixed lambda>0.",
+          "Earlier article also explicitly states E U=1-(-1)^n e^-2lambda +o(1), beyond the submitted limit."
+        ],
+        "reasoning": "The earlier admissible parameter domain strictly contains the submitted one, hence fully subsumes the final claim.",
+        "searches": [
+          "random greedy dimer adsorption two cliques joined matching Poisson accepted crossing dimers parity jamming",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-poisson-bridge-adsorption-and-parity-dependent-jamming-in-two-co--627ac68ff87a/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-poisson-bridge-adsorption-and-parity-dependent-jamming-in-two-co--627ac68ff87a/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/poisson-cross-dimer-counts-and-parity-jamming-on-two-matching-li--3dcb1ba4cceb/RESULT.md",
+        "random greedy dimer adsorption two cliques joined matching Poisson accepted crossing dimers parity jamming"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior M_n=>Poi(lambda) and pathwise U_n=2*1_{n-M_n odd} give submitted conclusions by variable renaming.",
+          "Submitted proof uses identical state triple and asymptotic intensity lambda/(1+s)^2 and the same bounded Lyapunov strategy."
+        ],
+        "reasoning": "The earlier full theorem immediately implies all claims; no separate substantive mathematical remainder survives.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-poisson-bridge-adsorption-and-parity-dependent-jamming-in-two-co--627ac68ff87a/RESULT.md",
+          "random greedy dimer adsorption two cliques joined matching Poisson accepted crossing dimers parity jamming"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier M_{n,lambda} equals submitted X_n; U_{n,lambda} equals submitted R_n; a,b,c are the same vacancy and matching overlap state as a,b,h.",
+          "Both give X_n=>Poisson(lambda), U=2 indicator of mismatched n-bridge-count parity, and defect limits (1-(-1)^n e^-2lambda)/2."
+        ],
+        "reasoning": "The objects, stochastic process, time scale, probability laws and finite parity statements are mathematically identical, not merely similarly titled.",
+        "searches": [
+          "random greedy dimer adsorption two cliques joined matching Poisson accepted crossing dimers parity jamming",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-poisson-bridge-adsorption-and-parity-dependent-jamming-in-two-co--627ac68ff87a/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full earlier RESULT.md contains exact same claimed displayed formulas for Poisson bridges and parity-jamming probabilities."
+        ],
+        "reasoning": "An exact prior theorem, not merely a database table or recomputed small n enumeration, settles this check as COVERED.",
+        "searches": [
+          "random greedy dimer adsorption two cliques joined matching Poisson accepted crossing dimers parity jamming",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-poisson-bridge-adsorption-and-parity-dependent-jamming-in-two-co--627ac68ff87a/RESULT.md"
+        ]
+      },
+      "rationale": "FAIL by direct exact prior mathematical coverage. The full published October 26 Resultary theorem has precisely the same graph (two K_n linked by n paired matching edges), internal unit rates and bridge rate lambda, proves the same limit X_n=>Poisson(lambda) and same pathwise terminal defect U_n=2 1_{n-X_n not congruent to 0 mod 2}. It additionally includes lambda=0. The submitted record on November 8 with lambda>0 is wholly contained in the earlier result, not a new theorem. Both source full proofs, including the same count-state fluid and Lyapunov argument, were read.",
+      "residual_risks": [
+        "Dyer and Frieze (1991) full article not consulted, but no source-access uncertainty changes the decisive accessible October 26 direct coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_FULL_COVERAGE",
+          "evidence": [
+            "For all lambda>=0, same two cliques and matched bridge edges, bridge Poisson(lambda) and precise two-vacancy parity law.",
+            "Same fluid ODE and bounded late-event Lyapunov proof already present."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-poisson-bridge-adsorption-and-parity-dependent-jamming-in-two-co--627ac68ff87a/RESULT.md",
+          "material_read": "Entire published RESULT.md: statement, assumptions, five proof steps, finite-state verification, limitations and references",
+          "method": "Read the accessible research statement, hypotheses and mathematical proof and compare exact theorem implications",
+          "title": "Poisson bridge adsorption and parity-dependent jamming in two coupled cliques",
+          "trigger": "Exactly matched model/rates/claims found via Resultary search"
+        },
+        {
+          "assessment": "CORRECT_BUT_COVERED",
+          "evidence": [
+            "Same limiting crossing count and exactly same finite terminal parity identity as the October 26 source."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/poisson-cross-dimer-counts-and-parity-jamming-on-two-matching-li--3dcb1ba4cceb/RESULT.md",
+          "material_read": "Entire assigned RESULT.md proof and accompanying verify.py source",
+          "method": "Read the accessible research statement, hypotheses and mathematical proof and compare exact theorem implications",
+          "title": "Poisson cross-dimer counts and parity jamming on two matching-linked cliques",
+          "trigger": "Assigned final scientific claim"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL independent-value bar: the entirety of the conclusion and its parity-jamming interpretation is printed in a stronger earlier theorem, with the same exact graph and rates, so this submission adds no separate classification, counterexample, or motivated invariant beyond rederiving known mathematics. Correctness and replication do not restore scientific value.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Dyer and Frieze (1991) full article not consulted, but no source-access uncertainty changes the decisive accessible October 26 direct coverage."
+  ],
+  "schema_version": 1
+}
