@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T04:51:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For unit harmonic oscillator, position/velocity Strang maps A=[[d,hc],[-h,d]], B=[[d,h],[-hc,d]], with d=1−h²/2,c=1−h²/4, have unit determinants and trace 2−h² in (−2,2) for 0<h<2, hence fixed powers bounded. Independent symbolic calculation gives (AᵀA+BᵀB)/2=(1+h⁶/32)I, proving exact all-n fair expected physical energy and time scale n h⁶. For arbitrary interior p, the 3D covariance determinant det(I−T_p)=−h⁸p(1−p)(8−h²)²/128<0; positivity gives a growing mean-square covariance mode (not every deterministic start or almost-sure growth). For deterministic alternating AB, the trace is 2−4h²+h⁴−h⁶/16; unimodularity and crossing tr=-2 at h=sqrt(5)−1 with AB≠−I establish bounded, Jordan, expanding regimes. SymPy verified polynomial identities independently; no extrapolation from finite h tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Casas–Sanz-Serna–Shaw 2022 analyzes deterministic splitting semitraces and stability, not iid mixing of two Verlet adjoints.",
+          "Published paired Euler theorem optimizes correlated first-order orderings over two steps but not the present palindromic maps."
+        ],
+        "reasoning": "General symplectic stability theory gives individual boundedness, not the mean-square random product or sharp deterministic alternating boundary. No inspected broader theorem subsumes all claims.",
+        "searches": [
+          "randomized Verlet order energy inflation harmonic oscillator",
+          "fixed Strang splitting harmonic oscillator position velocity Verlet stability",
+          "https://arxiv.org/abs/2210.07048",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-energy-growth-coupling-reversals-and-a-resonance-for-paire--2e4edb0ffe14/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2210.07048",
+        "https://arxiv.org/abs/2407.18726",
+        "https://doi.org/10.1063/1.1389855",
+        "https://arxiv.org/abs/2103.16506",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-energy-growth-coupling-reversals-and-a-resonance-for-paire--2e4edb0ffe14/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-method semitrace tr A=tr B=2−h² gives elliptic bounded powers.",
+          "Distinct nonlinear polynomial dependence of second-order palindromic compositions on h produces h⁶/32 Gram inflation and AB threshold; first-order Euler pairing does not supply those expressions."
+        ],
+        "reasoning": "All known precursor statements were evaluated under the actual A/B definitions and observables. Deterministic fixed-order boundedness is covered, but stochastic iid order energy and alternating phase diagram are not.",
+        "searches": [
+          "https://arxiv.org/abs/2210.07048",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-energy-growth-coupling-reversals-and-a-resonance-for-paire--2e4edb0ffe14/RESULT.md",
+          "https://arxiv.org/abs/2407.18726",
+          "randomized Verlet order energy inflation harmonic oscillator"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Paired Euler source defines A=KD,B=DK (first order); this theorem uses D_(h/2)K_hD_(h/2) and K_(h/2)D_hK_(h/2) (second order).",
+          "Both families are 2×2 elliptic symplectic maps, but their Gram multipliers differ (Euler fair one-step 1+h⁴/2 vs Verlet 1+h⁶/32)."
+        ],
+        "reasoning": "The nearby first-order result is a meaningful analogue, not an implication of the current exact sixth-order coefficient, unbiased covariances, or AB trace. Mere renaming of ordering alone would not be enough; here the compositions and quantitative regime genuinely differ.",
+        "searches": [
+          "randomized Verlet order energy inflation harmonic oscillator",
+          "symplectic Euler randomized ordering and velocity position Verlet equivalence",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-energy-growth-coupling-reversals-and-a-resonance-for-paire--2e4edb0ffe14/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior first-order Euler energy-block polynomial 1+2h⁶+r h⁴(h⁴−8h²+4) differs from Verlet factor 1+h⁶/32.",
+          "The new two-step tr(AB)=2−4h²+h⁴−h⁶/16 and transition h=sqrt5−1 were independently rederived."
+        ],
+        "reasoning": "No exact published table read gives the equal-randomized Verlet conditional Gram law or the deterministic two-step AB stability threshold; this is not an inference from a merely different title.",
+        "searches": [
+          "randomized Verlet order energy inflation harmonic oscillator",
+          "Verlet ordering mean energy 1+h6/32 alternating sqrt5-1",
+          "https://arxiv.org/abs/2210.07048",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-energy-growth-coupling-reversals-and-a-resonance-for-paire--2e4edb0ffe14/RESULT.md"
+        ]
+      },
+      "rationale": "Earlier published paired symplectic Euler treats first-order drift–kick maps over TWO elementary steps and can not be substituted for the two palindromic second-order position/velocity Verlet maps here. General Strang-splitting and modified-Hamiltonian texts analyze fixed order stability, not independent switching mean physical energy or the exact AB boundary. The exact sixth-power rate and the sharp alternating threshold for these particular second-order maps survive implication comparisons; unknown older mixed-Verlet papers remain a priority risk.",
+      "residual_risks": [
+        "A specialized old geometric-integrator paper could contain equivalent random Verlet ordering calculations or AB trace.",
+        "No claim of almost-sure energy growth or nonlinear extension; biased law guarantees a growing covariance mode, not every initial condition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FIXED_ORDER_COVERED_ONLY",
+          "evidence": "Deterministic Strang criteria do not contain iid random pair choices or exact expected energy at arbitrary steps.",
+          "identifier_or_url": "https://arxiv.org/html/2210.07048v3",
+          "material_read": "Primary full-text definitions, semitrace, stability/optimality statements for deterministic splittings",
+          "method": "primary arXiv HTML sections",
+          "title": "A New Optimality Property of Strang's Splitting",
+          "trigger": "fixed Strang stability comparator"
+        },
+        {
+          "assessment": "DIFFERENT_METHOD",
+          "evidence": "Uses first-order KD/DK, not the palindromic position-/velocity-Verlet A/B; exact coefficients differ.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-energy-growth-coupling-reversals-and-a-resonance-for-paire--2e4edb0ffe14/RESULT.md",
+          "material_read": "Full published RESULT.md and polynomial energy multipliers",
+          "method": "published primary text",
+          "title": "Exact energy growth, coupling reversals, and a resonance for paired symplectic Euler",
+          "trigger": "same oscillator, different first-order compositions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Symplectic time integrators are selected for bounded oscillatory long-time error, so independent random choice of two individually stable second-order variants is a natural failure mode. The exact scalar energy inflation coefficient 1/32, physical time h^(−5) onset, all-interior-p instability and contrasting deterministic alternation boundary furnish a precise, meaningful and reusable benchmark, not an arbitrary tiny numerical adjustment.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2210.07048",
+    "https://arxiv.org/abs/2407.18726",
+    "https://doi.org/10.1063/1.1389855",
+    "https://arxiv.org/abs/2103.16506",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-energy-growth-coupling-reversals-and-a-resonance-for-paire--2e4edb0ffe14/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact single-frequency linear oscillator without forcing/noise, independent iid choices and fixed h.",
+    "Alternation analyzed for repeated period-two AB only."
+  ],
+  "residual_risks": [
+    "A specialized old geometric-integrator paper could contain equivalent random Verlet ordering calculations or AB trace.",
+    "No claim of almost-sure energy growth or nonlinear extension; biased law guarantees a growing covariance mode, not every initial condition."
+  ],
+  "schema_version": 1
+}
