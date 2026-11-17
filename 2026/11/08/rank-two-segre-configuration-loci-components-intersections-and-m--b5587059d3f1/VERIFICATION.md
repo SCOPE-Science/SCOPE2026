@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-The accompanying `verify.py` requires only a standard Python 3 interpreter. Run `python3 verify.py`. It enumerates ordered tuples of Segre points over finite prime fields and computes their projective row ranks by exact modular elimination, then separately evaluates the closed motivic class using finite-field counts of projective spaces and Grassmannians. The five independent tests are for \((q;m_1,\ldots,m_r;n)=(2;1,1;3),(2;1,1;4),(3;1,1;3),(2;1,2;3),(2;1,1,1;3)\), with counts \(261,729,928,1449,2295\).
+## correctness
 
-The all-parameter statements are proven geometrically in `RESULT.md`: the quadrics/three-point argument, line classification, irreducible incidence families, pairwise intersections, and scissor relation. Checks over finite fields do not prove an infinite-parametric theorem. No check of radicality or Cohen–Macaulayness of the original ideal is claimed. Independent validation has not been performed.
+PASS
+
+For n>=3 Segre decomposable points of span<=2 have at most two distinct values or three points on a line. Quadratic generators force the latter entire line inside Segre, and its lines vary exactly one tensor factor. Hence components are the r ruling families L_j and 2^(n-1)-1 two-value E_S, closed irreducible and mutually not contained by dense-open arguments. Pairwise intersections of distinct E_S and L_j are the small diagonal, while E_S∩L_j=B_j×(P^{m_j})^2. Stratifying L_j into diagonal and unique-line incidence (P1)^n minus diagonal, then scissor inclusion-exclusion, gives the displayed K_0(Var) class for arbitrary characteristic; component dimensions imply equidimensionality iff m_j all equal and n=D-m+2. Exhaustive independent prime-field counts matched 261,729,928,1449,2295. The statements are for reduced loci, not minors schemes.
+
+## originality
+
+PASS
+
+Classical Segre lines and minors and the motivating hyperplane-determinantal work are prior. No inspected stronger theorem provides arbitrary-format rank<=2 configuration component/intersection/motivic arrangement; the claim is confined to the reduced locus.
+
+## value
+
+PASS
+
+The first non-hyperplane Segre-determinantal configuration family is naturally reducible: a full arbitrary-format irreducible-component and intersection arrangement and Grothendieck-class formula is a useful exact geometric invariant, beyond a known elementary line classification or an arbitrary special-case count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

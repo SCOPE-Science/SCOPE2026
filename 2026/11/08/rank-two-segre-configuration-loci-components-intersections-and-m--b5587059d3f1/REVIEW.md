@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof distinguishes three distinct Segre points from at most two: a quadratic defining equation vanishing at three points of a line vanishes on that line, and every line inside a Segre product varies one factor only. This supplies an exhaustive set-theoretic decomposition. The ruling and two-value loci are closed and irreducible; their dimensions and pairwise intersections are determined directly. Uniqueness of the spanning line away from the diagonal makes the Grassmann incidence class calculation exact. Finite-field point counts independently match the resulting motivic expression. The proof concerns only the reduced subvariety, not the minors ideal as a scheme.
+## correctness
 
-## Originality
-PASS, with provisional historical priority. The 2026 Alstad–Duff–Katzman primary source proves its maximal-minor hyperplane case and expressly separates higher-codimension cases; the proposed formula concerns rank-at-most-two, with exponentially many irreducible components, and does not follow as a stated specialization of primality or universal Gröbner-basis results. Pratt's 2025 Segre determinant addresses a common hypersurface. The classical classification of Segre lines is acknowledged as prior knowledge, while the full arbitrary-factor incidence decomposition and motivic inclusion–exclusion are the claimed refinement. Search results did not show the same full formula. Example 2.7 of the 2026 source was inspected: it gives a nonprimality example for 4×4 minors on three \(\mathbb P^1\) factors, not the complete 3×3-minor component/intersection/motivic classification. Earlier equivalent geometric formulations remain a residual risk.
+PASS
 
-## Value
-PASS. The formula gives the complete natural component and intersection structure, as well as a universal motivic class, for the rank-two endpoint of the higher-codimension linear-span conditions in the Segre-determinantal setting. It yields a sharp equidimensionality criterion, exposes an exponential growth of collision-pattern components, and specializes to exact finite-field point counts. This is a meaningful classification of a nonprime family rather than a small finite numerical extension.
+For n>=3 Segre decomposable points of span<=2 have at most two distinct values or three points on a line. Quadratic generators force the latter entire line inside Segre, and its lines vary exactly one tensor factor. Hence components are the r ruling families L_j and 2^(n-1)-1 two-value E_S, closed irreducible and mutually not contained by dense-open arguments. Pairwise intersections of distinct E_S and L_j are the small diagonal, while E_S∩L_j=B_j×(P^{m_j})^2. Stratifying L_j into diagonal and unique-line incidence (P1)^n minus diagonal, then scissor inclusion-exclusion, gives the displayed K_0(Var) class for arbitrary characteristic; component dimensions imply equidimensionality iff m_j all equal and n=D-m+2. Exhaustive independent prime-field counts matched 261,729,928,1449,2295. The statements are for reduced loci, not minors schemes.
 
-## Closest literature and limitations
-See Alstad–Duff–Katzman, arXiv:2606.31965v1, and Pratt, arXiv:2505.09204v1. The rank-two variety is explicitly reduced; no primary decomposition, radicality or Cohen–Macaulayness statement about the minors ideal is included. The first paper's Section 2 and nonprimality Example 2.7 were compared directly; an equivalent earlier incidence theorem remains possible, so exhaustive historical priority cannot be certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Segre lines and minors and the motivating hyperplane-determinantal work are prior. No inspected stronger theorem provides arbitrary-format rank<=2 configuration component/intersection/motivic arrangement; the claim is confined to the reduced locus.
+
+## value
+
+PASS
+
+The first non-hyperplane Segre-determinantal configuration family is naturally reducible: a full arbitrary-format irreducible-component and intersection arrangement and Grothendieck-class formula is a useful exact geometric invariant, beyond a known elementary line classification or an arbitrary special-case count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
