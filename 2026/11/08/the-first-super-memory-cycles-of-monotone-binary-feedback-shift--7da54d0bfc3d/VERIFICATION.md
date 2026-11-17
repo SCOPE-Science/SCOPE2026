@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification of the finite classification
+# Independent mathematical audit
 
-The standalone files `verify_bruteforce.cpp` and `verify_pruned.py` test the full finite range of candidate periods greater than their memory, for each memory from one to six. Sperner's inequality gives the exhaustive cutoff \(L\le\binom{n}{\lfloor n/2\rfloor}\), so no length above this cutoff can occur. The direct C++ search visits all \(2^L\) binary rooted words; the independent Python algorithm prunes only when already completed ordinary length-\(n\) windows are comparable, followed by an exact cyclic-boundary test. Both compare the complete canonical-rotation sets and their rooted counts.
+## correctness
 
-Reproduction commands, from the directory containing the files:
+PASS
 
-```sh
-c++ -std=c++17 -O2 verify_bruteforce.cpp -o verify_bruteforce
-./verify_bruteforce
-python3 verify_pruned.py
-```
+PASS: The update is order preserving; comparability of two distinct orbit states would create a weakly increasing cycle and force equality. Conversely the positive-DNF monotone extension realizes any antichain of cyclic length-n windows, giving a two-way criterion. LYM/Sperner bounds periods by C(n,floor(n/2)), so exhaustive rooted-word counts for n<=6 and L>n are logically complete. An independently written C++ enumeration checked n=6,L=7 rooted=28/canonical=4, L=9 rooted=18/canonical=2, zero for all other L<=20; all smaller memory super-memory ranges were empty. A positive monotone feedback formula explicitly realizes period nine.
 
-Expected final output markers: `BRUTEFORCE_VERIFY_OK` and `PRUNED_VERIFY_OK`. Both appeared in the actual pre-delivery execution. The Python program additionally verifies coordinatewise monotonicity of the synthesized feedback on all comparable six-bit inputs and verifies the prescribed successors of the cycle words. The `counts.tsv` table lists the full exact enumerated range. Assertions are checked from each package source; no external tables, runtime-specific logs, or private files are needed.
+## originality
 
-A finite exhaustive certificate proves only the enumerated portion. The antichain criterion and Sperner cutoff are essential to convert it into a proof for every feedback function in the stated six widths. These checks are not independent scientific review or historical-priority certification.
+PASS
+
+For coordinatewise monotone one-feedback binary shift registers, six is the smallest memory with a super-memory cycle, and nine is the sharp maximum with six explicit necklace types at excess periods.
+
+## value
+
+PASS
+
+The first width at which monotone single-feedback shifts support a period longer than memory is a motivated structural cutoff for an elementary cooperative dynamical architecture. Sharp maximum nine (rather than unrestricted monotone-network Sperner 20), absence of eight, and six distinct exact realizable period-7/9 classes form a nontrivial finite complete classification with a mathematical exhaustive cutoff.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

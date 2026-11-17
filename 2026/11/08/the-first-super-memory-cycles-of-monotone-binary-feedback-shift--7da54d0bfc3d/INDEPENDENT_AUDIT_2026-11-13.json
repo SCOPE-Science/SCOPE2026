@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T09:16:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "verify_bruteforce.cpp",
+        "verify_pruned.py",
+        "counts.tsv",
+        "https://doi.org/10.1186/1687-1847-2013-313"
+      ],
+      "rationale": "PASS: The update is order preserving; comparability of two distinct orbit states would create a weakly increasing cycle and force equality. Conversely the positive-DNF monotone extension realizes any antichain of cyclic length-n windows, giving a two-way criterion. LYM/Sperner bounds periods by C(n,floor(n/2)), so exhaustive rooted-word counts for n<=6 and L>n are logically complete. An independently written C++ enumeration checked n=6,L=7 rooted=28/canonical=4, L=9 rooted=18/canonical=2, zero for all other L<=20; all smaller memory super-memory ranges were empty. A positive monotone feedback formula explicitly realizes period nine.",
+      "residual_risks": [],
+      "status": "PASS",
+      "verified_checks": [
+        "Reviewed both frozen verify_bruteforce.cpp and verify_pruned.py, checking loops cover all 2^L rooted words or prune only permanent incomparable windows.",
+        "Independently enumerated all binary rooted words n<=6, n<L<=C(n,floor n/2), obtaining the two asserted nonzero counts and identical six canonical rotations.",
+        "Checked positive DNF monotone extension and explicit nine-state trajectory against the antichain criterion."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full-length nonlinear feedback registers and random noncoalescing FSRs are different models: no monotone coordinatewise constraint, or XOR feedback except pure-cycling cases."
+        ],
+        "reasoning": "The earlier stronger statements under different feedback assumptions cannot directly imply this monotone-restricted sharp finite classification.",
+        "searches": [
+          "monotone Boolean feedback shift register n=6 maximum period 9 antichain necklace",
+          "https://doi.org/10.1587/transfun.E93.A.1226",
+          "https://doi.org/10.1017/S0963548323000020"
+        ]
+      },
+      "checked_sources": [
+        "Resultary published search for monotone binary feedback max period",
+        "Just–Enciso 2013",
+        "Çalık et al 2010",
+        "Arratia–Canfield–Hales 2023"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General cooperative network bound C(6,3)=20 admits periods absent from the shift-register topology; n=6 sharp 9 is a strict improvement for this natural restricted model."
+        ],
+        "reasoning": "There is no mathematical implication from unrestricted monotone-network maximum to sharp single-feedback shift-register cycles; the constructive periodic-word characterization is model-specific.",
+        "searches": [
+          "https://doi.org/10.1186/1687-1847-2013-313",
+          "https://doi.org/10.1587/transfun.E93.A.1226",
+          "https://doi.org/10.1017/S0963548323000020"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general monotone Boolean network antichain/Sperner bound yields at n=6 an upper bound 20; it does not enforce a single-feedback shift-register window overlap or classify feasible shift-period necklaces."
+        ],
+        "reasoning": "The shift register is a special cooperative system but its tight maximum 9 and full length-7/9 type census are not implied by the general bound 20.",
+        "searches": [
+          "monotone Boolean feedback shift register n=6 maximum period 9 antichain necklace",
+          "https://doi.org/10.1186/1687-1847-2013-313"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published search found no n=6 constrained single-feedback table with four period-7 and two period-9 rotation types."
+        ],
+        "reasoning": "It is a complete finite constrained model classification proved by exhaustive upper cutoff, not an arbitrary sampled enumeration; an unindexed table remains possible.",
+        "searches": [
+          "Resultary search:monotone Boolean feedback shift register n=6 maximum period 9 antichain necklace",
+          "https://doi.org/10.1186/1687-1847-2013-313"
+        ]
+      },
+      "rationale": "For coordinatewise monotone one-feedback binary shift registers, six is the smallest memory with a super-memory cycle, and nine is the sharp maximum with six explicit necklace types at excess periods.",
+      "residual_risks": [
+        "Specialized older monotone shift register catalogues might contain an equivalent finite n<=6 table; complete historical priority not certified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_PRIOR_NOT_EXACT",
+          "evidence": [
+            "Sperner LYM antichain bound known; no inspected single-feedback length-six full census."
+          ],
+          "identifier_or_url": "https://doi.org/10.1186/1687-1847-2013-313",
+          "material_read": "Full accessible article text inspected, including order-preserving cycles and upper bound discussion",
+          "method": "Read journal full-text HTML and compared state-transition classes",
+          "title": "Ordered dynamics in biased and cooperative Boolean networks",
+          "trigger": "Same monotone/cooperative systems and antichain cycle bound"
+        },
+        {
+          "assessment": "RELATED_NOT_FULLY_INSPECTED",
+          "evidence": [
+            "Period 2^n nonlinear feedback, not the specific monotone admissible cycles."
+          ],
+          "identifier_or_url": "https://doi.org/10.1587/transfun.E93.A.1226",
+          "material_read": "Model and article result descriptions from primary publication; whole paywalled article not exhaustively read",
+          "method": "Compared max-length feedback setting with coordinatewise monotone setting",
+          "title": "On Feedback Functions of Maximum Length Nonlinear Feedback Shift Registers",
+          "trigger": "Shift-register maximum period literature"
+        },
+        {
+          "assessment": "MODEL_INAPPLICABLE",
+          "evidence": [
+            "Noncoalescing/XOR family is not same subclass; pure cycling is common."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0963548323000020",
+          "material_read": "Article abstract and feedback-formulation material in accessible text",
+          "method": "Compared x1 XOR g noncoalescing model to monotone DNF model",
+          "title": "Random feedback shift registers and the limit distribution for largest cycle lengths",
+          "trigger": "Potential broader feedback-register period coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first width at which monotone single-feedback shifts support a period longer than memory is a motivated structural cutoff for an elementary cooperative dynamical architecture. Sharp maximum nine (rather than unrestricted monotone-network Sperner 20), absence of eight, and six distinct exact realizable period-7/9 classes form a nontrivial finite complete classification with a mathematical exhaustive cutoff.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite model memory <=6, no implication for n>=7; count is for cycle words modulo rotation, not number of feedback functions."
+  ],
+  "schema_version": 1
+}
