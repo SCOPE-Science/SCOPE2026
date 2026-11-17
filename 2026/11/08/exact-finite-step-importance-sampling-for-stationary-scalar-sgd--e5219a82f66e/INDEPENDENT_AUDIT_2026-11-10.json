@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T20:08:53.044813Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For scalar strongly convex quadratics with independent static unbiased weighted sampling, e_{t+1}=(1−ηa_i/(mp_i))e_t−ηr_i/(mp_i), with Σr_i=0. The stationary mean is zero in the mean-square-stable region, and its exact variance is V(p)=(Σr_i²/p_i)/(2m²ā/η−Σa_i²/p_i). Cauchy–Schwarz gives the sharp stability frontier η<2/ā and unique root of (Σsqrt(r_i²+V a_i²))²=(2m²ā/η)V. Strict root monotonicity and Cauchy equality prove the unique full-support minimizer, including residual-zero components. Independently reconstructed multipliers and stationary variances exactly: a=(1,1,10),r=(1,−1,0),η=2/9 yields p*=(2/9,2/9,5/9), V*=1/15 versus uniform 1/3. General analytic root and inequality, not grid scans, establish global optimum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Défossez–Bach study averaged LMS and state that exact resampling optimization is difficult, using small-step simplification; stationary additive-noise covariance formulas omit sampling-dependent multiplicative curvature."
+        ],
+        "reasoning": "A generalized covariance operator could imply scalar V(p) once specialized, but its existence does not automatically give the global minimax p* and nonlinear root for random weighted curvatures; no inspected theorem includes this conclusion.",
+        "searches": [
+          "scalar quadratic SGD optimal importance sampling fixed step stationary variance curvature residual",
+          "arxiv:1412.0156 Sections 3–4",
+          "arxiv:2012.03636 noise finite learning rate SGD"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1412.0156",
+        "https://arxiv.org/pdf/2103.12293",
+        "scalar quadratic SGD optimal importance sampling fixed step stationary variance curvature residual",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-finite-step-importance-sampling-for-stationary-scalar-sgd--e5219a82f66e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior small-η variance sampling uses weights proportional to residual-gradient magnitude, while p*(η) contains a positive sqrt(V*)a_i curvature term even where r_i=0."
+        ],
+        "reasoning": "Small-step optimality and averaged-risk assertions are not equivalent to exact fixed-step last-iterate stationary-MSE optimization; the nonzero residual-free component makes the distinction mathematically explicit.",
+        "searches": [
+          "arxiv:1412.0156 Section 4.3",
+          "arxiv:2103.12293",
+          "scalar quadratic SGD optimal importance sampling fixed step stationary variance curvature residual"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Importance-weighted SGD can be formulated as a random-coefficient affine recursion, whose stationary second moment obeys a discrete Lyapunov scalar equation."
+        ],
+        "reasoning": "The equivalent scalar random-affine viewpoint gives a tractable derivation, but the prior reweighted-gradient objective optimizes instantaneous estimator variance, not the same invariant last-iterate risk.",
+        "searches": [
+          "scalar quadratic SGD optimal importance sampling fixed step stationary variance curvature residual",
+          "arxiv:2103.12293 stochastic reweighted gradient descent",
+          "arxiv:1412.0156 least mean squares"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact witness parameters a=(1,1,10), r=(1,−1,0), η=2/9 show p*=(2/9,2/9,5/9) and V*=1/15; direct independent covariance computation confirms."
+        ],
+        "reasoning": "No known published table of this exact instance was located. The example is informative but not the independent basis for novelty or all-parameter proof.",
+        "searches": [
+          "scalar quadratic SGD optimal importance sampling fixed step stationary variance curvature residual",
+          "SGD three component scalar 1/15 1/3 importance sampling"
+        ]
+      },
+      "rationale": "The sharp Cauchy optimum for instantaneous residual-gradient variance is prior art, as are resampling techniques, stochastic quadratic covariance equations and small-step approximations. But this claim optimizes exact **unaveraged invariant iterate MSE** for arbitrary fixed stable nonzero step, where the sampling law controls both multiplicative Hessian contraction and innovation variance. Défossez–Bach explicitly discuss averaged constant-step LMS and approximate optimization for small step, distinct from this objective. No primary or database source inspected supplies this exact scalar root solution; best-of-knowledge PASS with substantial alternate nomenclature risk.",
+      "residual_risks": [
+        "Equivalent stationary scalar random-affine or least-mean-square importance-sampling formula could appear under different terminology.",
+        "Noninterpolating residual condition is essential for uniqueness; multidimensional and time-adaptive sampling are outside claim.",
+        "Optimal weights depend on unknown minimizer residuals and curvatures; this is a mathematical oracle formula, not a directly data-free sampler."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "AVERAGED_AND_SMALL_STEP_NOT_EXACT_LAST_ITERATE",
+          "evidence": "Authors analyze averaged LMS and replace hard exact resampling optimization by small-step approximation; their Cauchy optimum differs from fixed-η positive-curvature solution.",
+          "identifier_or_url": "https://arxiv.org/pdf/1412.0156",
+          "material_read": "Abstract, Sections 3 and 4, especially 4.1 and 4.3–4.4 and the Section 6 covariance derivation",
+          "method": "Full OA PDF text with visual screenshots of pages 0, 6 and 14; mathematical objective comparison",
+          "title": "Constant Step Size Least-Mean-Square: Bias-Variance Trade-offs and Optimal Sampling Distributions",
+          "trigger": "closest named optimal resampling theorem in strongly convex least squares"
+        },
+        {
+          "assessment": "INSTANTANEOUS_VARIANCE_NOT_STATIONARY_RISK",
+          "evidence": "Optimizer addresses gradient-estimator instantaneous variance/tracked gradients rather than invariant MSE of the unaveraged iterate.",
+          "identifier_or_url": "https://arxiv.org/pdf/2103.12293",
+          "material_read": "Model and objective in intro and gradient sampling sections, PDF page 3",
+          "method": "Open OA PDF and visual page screenshot, compare objective",
+          "title": "Stochastic Reweighted Gradient Descent",
+          "trigger": "importance-weighted component-gradient sampling with possible optimizer overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Stationary error is an intrinsic optimization-quality measure for a constant-step method, and the exact optimizer shows a counterintuitive concrete effect: a zero-residual but high-curvature component receives most samples and improves final risk fivefold. This distinguishes finite-step optimal sampling from familiar instantaneous gradient-norm importance sampling.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1412.0156",
+    "https://arxiv.org/pdf/2103.12293",
+    "scalar quadratic SGD optimal importance sampling fixed step stationary variance curvature residual",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-finite-step-importance-sampling-for-stationary-scalar-sgd--e5219a82f66e"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Equivalent stationary scalar random-affine or least-mean-square importance-sampling formula could appear under different terminology.",
+    "Noninterpolating residual condition is essential for uniqueness; multidimensional and time-adaptive sampling are outside claim.",
+    "Optimal weights depend on unknown minimizer residuals and curvatures; this is a mathematical oracle formula, not a directly data-free sampler."
+  ],
+  "residual_risks": [
+    "Equivalent stationary scalar random-affine or least-mean-square importance-sampling formula could appear under different terminology.",
+    "Noninterpolating residual condition is essential for uniqueness; multidimensional and time-adaptive sampling are outside claim.",
+    "Optimal weights depend on unknown minimizer residuals and curvatures; this is a mathematical oracle formula, not a directly data-free sampler."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "AVERAGED_AND_SMALL_STEP_NOT_EXACT_LAST_ITERATE",
+      "evidence": "Authors analyze averaged LMS and replace hard exact resampling optimization by small-step approximation; their Cauchy optimum differs from fixed-η positive-curvature solution.",
+      "identifier_or_url": "https://arxiv.org/pdf/1412.0156",
+      "material_read": "Abstract, Sections 3 and 4, especially 4.1 and 4.3–4.4 and the Section 6 covariance derivation",
+      "method": "Full OA PDF text with visual screenshots of pages 0, 6 and 14; mathematical objective comparison",
+      "title": "Constant Step Size Least-Mean-Square: Bias-Variance Trade-offs and Optimal Sampling Distributions",
+      "trigger": "closest named optimal resampling theorem in strongly convex least squares"
+    },
+    {
+      "assessment": "INSTANTANEOUS_VARIANCE_NOT_STATIONARY_RISK",
+      "evidence": "Optimizer addresses gradient-estimator instantaneous variance/tracked gradients rather than invariant MSE of the unaveraged iterate.",
+      "identifier_or_url": "https://arxiv.org/pdf/2103.12293",
+      "material_read": "Model and objective in intro and gradient sampling sections, PDF page 3",
+      "method": "Open OA PDF and visual page screenshot, compare objective",
+      "title": "Stochastic Reweighted Gradient Descent",
+      "trigger": "importance-weighted component-gradient sampling with possible optimizer overlap"
+    }
+  ]
+}

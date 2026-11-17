@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python verification/check.py` from the extracted package root. It uses Python's standard library only and exercises exact rational arithmetic using `fractions.Fraction`.
+## correctness
 
-Observed execution: `PASS: 11 exact example identities; 9053 rational grid candidates (4164 stable); 288 independent exact rational covariance identities; 99 floating-point root consistency checks`.
+PASS
 
-The exact arithmetic covers the three-component optimizer's stationary value, the uniform benchmark, the fivefold ratio, both one-step multipliers and the Cauchy equality certificate. The grid checks compare stable probability vectors at eight denominators; they are finite corroboration, **not** a proof that the global minimum has been located. The proof's universal quantifiers, positive-root uniqueness, and stability equivalence follow analytically from independent affine recursions, monotonicity and Cauchy–Schwarz as stated in `RESULT.md`. The numerical root checks use floating point and are only diagnostics.
+For scalar strongly convex quadratics with independent static unbiased weighted sampling, e_{t+1}=(1−ηa_i/(mp_i))e_t−ηr_i/(mp_i), with Σr_i=0. The stationary mean is zero in the mean-square-stable region, and its exact variance is V(p)=(Σr_i²/p_i)/(2m²ā/η−Σa_i²/p_i). Cauchy–Schwarz gives the sharp stability frontier η<2/ā and unique root of (Σsqrt(r_i²+V a_i²))²=(2m²ā/η)V. Strict root monotonicity and Cauchy equality prove the unique full-support minimizer, including residual-zero components. Independently reconstructed multipliers and stationary variances exactly: a=(1,1,10),r=(1,−1,0),η=2/9 yields p*=(2/9,2/9,5/9), V*=1/15 versus uniform 1/3. General analytic root and inequality, not grid scans, establish global optimum.
 
-Independent mathematical validation and full publication-precedence review have not been performed.
+## originality
+
+PASS
+
+The sharp Cauchy optimum for instantaneous residual-gradient variance is prior art, as are resampling techniques, stochastic quadratic covariance equations and small-step approximations. But this claim optimizes exact **unaveraged invariant iterate MSE** for arbitrary fixed stable nonzero step, where the sampling law controls both multiplicative Hessian contraction and innovation variance. Défossez–Bach explicitly discuss averaged constant-step LMS and approximate optimization for small step, distinct from this objective. No primary or database source inspected supplies this exact scalar root solution; best-of-knowledge PASS with substantial alternate nomenclature risk.
+
+## value
+
+PASS
+
+Stationary error is an intrinsic optimization-quality measure for a constant-step method, and the exact optimizer shows a counterintuitive concrete effect: a zero-residual but high-curvature component receives most samples and improves final risk fivefold. This distinguishes finite-step optimal sampling from familiar instantaneous gradient-norm importance sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

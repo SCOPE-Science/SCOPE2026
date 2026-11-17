@@ -1,15 +1,21 @@
-# Scientific review: exact finite-step importance sampling for stationary scalar SGD
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The unbiased scalar update yields an exact independent affine recursion. Its second-moment multiplier is \(1-2\eta\bar a+\eta^2 m^{-2}\sum_i a_i^2/p_i\), which determines the sharp finite-variance stability region. The invariant mean-square error is the positive ratio of residual and curvature harmonic sums; the root equation has exactly one positive solution by monotonicity, and Cauchy–Schwarz gives a **global lower bound with uniquely attained equality**. The explicit three-component witness has stationary errors \(1/15\) and \(1/3\). The packaged independent-from-formula rational checker tests finite identities, not the universal proof. Mathematical boundary cases \(\sum_i r_i^2=0\) and \(\eta\ge2/\bar a\) are explicitly separated.
+PASS
 
-## Originality — PASS, qualified
+For scalar strongly convex quadratics with independent static unbiased weighted sampling, e_{t+1}=(1−ηa_i/(mp_i))e_t−ηr_i/(mp_i), with Σr_i=0. The stationary mean is zero in the mean-square-stable region, and its exact variance is V(p)=(Σr_i²/p_i)/(2m²ā/η−Σa_i²/p_i). Cauchy–Schwarz gives the sharp stability frontier η<2/ā and unique root of (Σsqrt(r_i²+V a_i²))²=(2m²ā/η)V. Strict root monotonicity and Cauchy equality prove the unique full-support minimizer, including residual-zero components. Independently reconstructed multipliers and stationary variances exactly: a=(1,1,10),r=(1,−1,0),η=2/9 yields p*=(2/9,2/9,5/9), V*=1/15 versus uniform 1/3. General analytic root and inequality, not grid scans, establish global optimum.
 
-The closest source is El Hanchi–Stephens (arXiv:2103.12293, sections 1–2), whose optimized quantity is the instantaneous gradient-estimator variance rather than the unaveraged stationary error with state-dependent multiplicative curvature. Its related arXiv:2103.12243 Appendix D contains only experimental fixed-step adaptations. Défossez–Bach (arXiv:1412.0156, section 4) treat averaged LMS and explicitly turn to a small-step limit for optimizing resampling. Liu–Ziyin–Ueda (arXiv:2012.03636, section 4.1) solve a fixed-additive-noise stationary covariance problem but not the state-multiplier sampling optimization. Other related sampling and stochastic-optimization findings were compared by the implications of their claims, not by titles alone. Publication precedence under classical fractional-programming or scalar-random-recurrence terminology remains a residual risk; this self-review is not independent certification.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives a natural, exact, computable design benchmark for the standard conflict between noise reduction and mean-square stability when importance weighting changes component curvature. It determines the **entire admissible step-size interval** and the unique optimal probability law, not an arbitrary finite numerical example. The exact example shows a factor-five stationary-risk improvement and the counterintuitive need to sample a zero-gradient component with majority probability. This answers a motivated design question complementary to the instantaneous-variance criterion in importance sampling literature. Implementing it requires unknown problem-specific quantities at the optimum.
+The sharp Cauchy optimum for instantaneous residual-gradient variance is prior art, as are resampling techniques, stochastic quadratic covariance equations and small-step approximations. But this claim optimizes exact **unaveraged invariant iterate MSE** for arbitrary fixed stable nonzero step, where the sampling law controls both multiplicative Hessian contraction and innovation variance. Défossez–Bach explicitly discuss averaged constant-step LMS and approximate optimization for small step, distinct from this objective. No primary or database source inspected supplies this exact scalar root solution; best-of-knowledge PASS with substantial alternate nomenclature risk.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Stationary error is an intrinsic optimization-quality measure for a constant-step method, and the exact optimizer shows a counterintuitive concrete effect: a zero-residual but high-curvature component receives most samples and improves final risk fivefold. This distinguishes finite-step optimal sampling from familiar instantaneous gradient-norm importance sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
