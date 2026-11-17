@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,19 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility of exact finite checks
 
-Run `python3 verify_crown.py` from the directory containing this file. The program requires Python 3 and the standard library only. For each integer \(4\le n\le8\), it constructs the graph from the deleted-perfect-matching adjacency rule, independently simulates the usual power-domination observation and forcing process for all \(2^{2n}\) vertex subsets, checks the exact shore-support characterization, derives both coefficient arrays and the minimal-set counts from direct enumeration, and uses explicit graph traversal to count all TAR components for budgets from \(2\) to \(n\). Every test is an assert-fail on disagreement.
+# Independent mathematical audit
 
-Observed result:
+## correctness
 
-```
-CHECK n=4 powersets=256 PDS=247 minimal=28 TAR_tests=3
-CHECK n=5 powersets=1024 PDS=993 minimal=45 TAR_tests=4
-CHECK n=6 powersets=4096 PDS=4013 minimal=66 TAR_tests=5
-CHECK n=7 powersets=16384 PDS=16187 minimal=91 TAR_tests=6
-CHECK n=8 powersets=65536 PDS=65099 minimal=120 TAR_tests=7
-VERIFY_OK orders=4..8 subsets=87296 power_dominating=86539 minimal=350 TAR_cases=25 exact_polynomials=PASS exact_components=PASS
-```
+PASS
 
-The unrestricted theorem is proved by the explicit neighbor-count and TAR-path arguments in `RESULT.md`. Finite experiments alone do not prove it for arbitrary \(n\). No claim of independent mathematical certification is made.
+For n>=4, a mixed pair observes all but at most two vertices after the closed-neighborhood step and one-observed-neighbor forcing completes it; a pure r-set with r>=2 observes B and can force the n-r unseen same-shore vertices iff n-r<=2. A singleton stalls. The iff classification yields the two polynomials by direct shore selection and the minimal sizes 2,n-2. At TAR budget 2 all n^2 mixed pairs are isolated (n=4 additionally 12 pure pairs); at budget>=3 pairs exchange via an added token; at budget n-2 each minimal pure (n-2)-set is an isolated new vertex, and at n-1 adding one opposite-shore token joins every pure set. Verified n=4,5,6 independently by exhaustive domination and budget components; this is a finite cross-check, not the n-unbounded proof.
+
+## originality
+
+PASS
+
+Prior original-source comparisons and Resultary queries show no earlier exact crown power-domination all-set and nonmonotone TAR component profile; ordinary domination on the same graph yields demonstrably different feasibility. The 2019 same-family generalized k-domination result was inspected as fully as available; text rendering remains a known risk.
+
+## value
+
+PASS
+
+The power-domination all-set and minimal-set polynomials resolve a natural exact enumerative graph invariant. The nonmonotone component count and distinct first/stable connectivity thresholds give a complete, motivated example in reconfiguration theory, beyond knowing the power-domination number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

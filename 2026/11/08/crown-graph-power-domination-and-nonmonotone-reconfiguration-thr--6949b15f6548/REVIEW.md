@@ -1,19 +1,21 @@
-# Scientific review: Crown-graph power domination and reconfiguration
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph and power-forcing model are defined for each integer \(n\ge4\). Mixed-shore pairs are certified power dominating by an explicit initial-observation/force sequence; the pure-shore criterion is proved by counting remaining white neighbors at every observed vertex. This iff gives the all-set and inclusion-minimal enumerators. At budget \(k=n-2\), all \(2\binom n2\) new pure minimal sets are isolated; at \(k=n-1\) they bridge into the connected mixed-set component. The exceptional \(n=4\) case is handled separately. Independent finite verification of the graph rule, both polynomials and reconfiguration components succeeded for every \(4\le n\le8\).
+PASS
 
-## Originality — PASS, with publication-priority risks
+For n>=4, a mixed pair observes all but at most two vertices after the closed-neighborhood step and one-observed-neighbor forcing completes it; a pure r-set with r>=2 observes B and can force the n-r unseen same-shore vertices iff n-r<=2. A singleton stalls. The iff classification yields the two polynomials by direct shore selection and the minimal sizes 2,n-2. At TAR budget 2 all n^2 mixed pairs are isolated (n=4 additionally 12 pure pairs); at budget>=3 pairs exchange via an added token; at budget n-2 each minimal pure (n-2)-set is an isolated new vertex, and at n-1 adding one opposite-shore token joins every pure set. Verified n=4,5,6 independently by exhaustive domination and budget components; this is a finite cross-check, not the n-unbounded proof.
 
-Brimkov et al. (2018, arXiv:1805.10984) define the relevant polynomial but do not give the present family profile. Bjorkman et al. (2026, DOI:10.1007/s44007-025-00187-5) develop reconfiguration and supply generic bounds; those imply only \(n-1\le pd_0\le n\) in this setting and do not establish the exact crown component counts. Chandrasekaran and Sulthana (2019) study generalized power domination of crown graphs, but the readable text addresses minimum values and contains ambiguous mathematical layout; rendered pages could not be inspected. No direct formula/profile was found in recorded literature and research-record searches; an unindexed equivalent remains possible. Nonmonotone connectivity itself is previously known and is not claimed as a new phenomenon in general.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives every feasible sensor-placement cardinality, all inclusion-minimal placement types, the exact upper power domination number, and the entire token-addition/removal connectivity phase diagram for a classical connected regular bipartite graph family. The gap between the first and stable connectivity thresholds is unbounded, and disconnectedness reappears after an initially connected budget, a motivated distinction from minimum-cardinality results alone.
+Prior original-source comparisons and Resultary queries show no earlier exact crown power-domination all-set and nonmonotone TAR component profile; ordinary domination on the same graph yields demonstrably different feasibility. The 2019 same-family generalized k-domination result was inspected as fully as available; text rendering remains a known risk.
 
-## Limits
+## value
 
-The proof applies to the standard power-domination process on the perfect-matching-deleted balanced complete bipartite graph for \(n\ge4\); it does not establish analogous results for arbitrary deleted matchings, generalized forcing thresholds, token jumping, or other graph families. Finite checks do not replace the all-order proof. Publication priority needs independent literature confirmation, particularly for the 2019 PDF.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The power-domination all-set and minimal-set polynomials resolve a natural exact enumerative graph invariant. The nonmonotone component count and distinct first/stable connectivity thresholds give a complete, motivated example in reconfiguration theory, beyond knowing the power-domination number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
