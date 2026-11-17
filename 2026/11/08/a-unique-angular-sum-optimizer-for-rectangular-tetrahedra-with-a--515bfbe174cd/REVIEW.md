@@ -1,19 +1,21 @@
-# Review: angular-sum optimization for right-corner tetrahedra
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All tetrahedra are parametrized, up to similarity and arm permutation, by the single continuous parameter \(t\in[1,R]\) once \(R>1\) is fixed. The spherical-excess computation gives the normalized total solid angle without assuming any unproved identity. Its derivative has the explicit sign of a strictly increasing function minus a constant; the two endpoint comparisons are strict and equivalent to \(R>1\). Thus the stationary point exists, is unique, lies in the interior, and is the global minimum. The degeneration estimates derive both the cube-root intermediate arm and the fractional-power correction using uniform elementary expansions along the proven scale. Independent determinant-based angle evaluations in `verify.py` corroborate the closed identity and numerical root behavior; they are not the proof.
+PASS
 
-## Originality — PASS (historical priority provisional)
+PASS. Rectangular tetrahedron T=conv{0, ae1,be2,ce3} with arm anisotropy R>1 has total normalized vertex solid angle Σ=1/2-(1/(2π))∑arcsin((1/a_j)/sqrt(∑1/a_k²)). This follows from spherical excess counted twice over six dihedral edges. With arms (1,R/t,R), 1≤t≤R, derivative sign is that of sqrt(R²+1)-Rt/sqrt(1+t²)-t/sqrt(R²+t²); its comparison function is strictly increasing, below/above target at endpoints, ensuring unique strict interior minimum. Root asymptotics t³/R²→1/2, b=R/t~(2R)^(1/3); arctan expansion yields Σmin=1/4-1/(2πR)+3/(2^(8/3)π)R^(-5/3)+o. R=1 explicitly excluded from interior claim. Read included independent trihedral-det formula checker; direct numerical recalculation independently compared angles and stationary roots. All-R proof is analytic, not mesh enumeration.
 
-Licht (2026) proves geometric-comparability bounds for the **smallest individual** solid angle and recalls a general total-angle bound; he does not state the fixed orthogonal-arm ratio optimization. Kabluchko–Schange (2025), Theorem 8.5, gives **individual** internal and external angle integrals for rectangular orthocentric simplices but does not classify the unique anisotropy-constrained angular-sum minimizer or its fractional-power asymptotics. The classical spherical angle sum formula is acknowledged as input. Targeted mathematical-record searches for the constrained tetrahedral angle-sum extremum, its root equation and its cubic balancing law returned related tetrahedral invariants but no equivalent assertion. The accessible historical geometric records, especially older tetrahedral angle-measure literature, may not be exhaustive; historical priority is not independently certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result solves a natural complete one-parameter shape-optimization problem suggested by recent investigations of solid-angle shape measures. The sum of vertex solid angles is a standard angular-geometric invariant and differs essentially from the previously studied minimum individual solid angle. The minimizing intermediate arm is strictly interior for every nontrivial anisotropy, showing that neither symmetric two-equal-arm endpoint minimizes. Its sharp scaling \(R^{1/3}\) and fractional asymptotic \(R^{-5/3}\) expose a genuine competition among the three facet-normal components that would not be deduced from a coarse regularity bound. The solution supplies an exact computable scalar equation, uniqueness and leading correction, rather than a numerical optimum for arbitrary parameters.
+PASS on best-of-knowledge evidence for the fixed-perpendicular-arm-ratio optimizer of the total *sum* of vertex solid angles, its unique interior root and cube-root fractional asymptotic. Kabluchko–Schange Theorem8.5 supplies general individual angle formulas for orthocentric/right simplices but no optimization under fixed anisotropy; Licht Theorem1.1 bounds the *minimum individual* angle against fullness, different functional. Resultary search found related minimum-angle orthoscheme and sharpness results, not the same total-angle constrained variational theorem. This is a conditional historical originality judgment, not absolute priority proof; older tetrahedron shape measure work may contain equivalent optimization.
 
-## Closest work and limitations
+## value
 
-The two primary sources are Licht (arXiv:2610.05883v1, 2026) and Kabluchko–Schange (arXiv:2505.05048v1, 2025); Liu–Joe (1994) concerns related tetrahedral shape measures. Formula (1) is classical, and the broader angle formulas of Kabluchko–Schange are not new here. The result is limited to three-dimensional right-corner tetrahedra and the ratio of their perpendicular arms. It does not characterize maxima, arbitrary tetrahedra, or historical uniqueness in all literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Total normalized solid-angle mass is a natural tetrahedral shape invariant, and fixing extreme orthogonal arm anisotropy is a geometrically meaningful constraint rather than arbitrary slice. Optimizer is strictly nonboundary, characterized for every R>1 by a sharp monotone equation; the 1/3 scaling and noninteger R^(-5/3) correction are nontrivial and not determined by merely knowing separate angle formulas. Independent self-contained asymptotic fact can be useful in comparing right-corner simplex shapes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

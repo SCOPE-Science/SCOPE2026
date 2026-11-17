@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T00:03:58.173813Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. Rectangular tetrahedron T=conv{0, ae1,be2,ce3} with arm anisotropy R>1 has total normalized vertex solid angle Σ=1/2-(1/(2π))∑arcsin((1/a_j)/sqrt(∑1/a_k²)). This follows from spherical excess counted twice over six dihedral edges. With arms (1,R/t,R), 1≤t≤R, derivative sign is that of sqrt(R²+1)-Rt/sqrt(1+t²)-t/sqrt(R²+t²); its comparison function is strictly increasing, below/above target at endpoints, ensuring unique strict interior minimum. Root asymptotics t³/R²→1/2, b=R/t~(2R)^(1/3); arctan expansion yields Σmin=1/4-1/(2πR)+3/(2^(8/3)π)R^(-5/3)+o. R=1 explicitly excluded from interior claim. Read included independent trihedral-det formula checker; direct numerical recalculation independently compared angles and stationary roots. All-R proof is analytic, not mesh enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 8.5 handles individual internal/external angles in arbitrary dimension, but the read statement does not optimize their sum under fixed arm ratio."
+        ],
+        "reasoning": "Having more dimensions in a pointwise angle formula does not mathematically imply a unique optimal intermediate arm or asymptotic cube-root balance without a new constrained analysis.",
+        "searches": [
+          "Resultary search: trirectangular tetrahedron orthogonal arms fixed longest shortest arm sum vertex solid angles unique optimizer",
+          "arXiv:2505.05048"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2505.05048 (Kabluchko–Schange), Section8.3 Theorem8.5",
+        "arXiv:2610.05883 (Licht), Theorem1.1",
+        "Liu–Joe 1994 Relationship between tetrahedron shape measures (bibliographic awareness, not full inspected)",
+        "SCOPE frozen RESULT.md and verify.py blobs 45f01a046afcdc265be7c68338dddfb9d0afe9e7 / 8af8bda684bb7ad8ca0a6a67903d9a87c6c7f2d0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known individual-angle and fullness formulas give mathematical ingredients; distinct constrained derivative sign h_R’>0 and t~R^(2/3) supply final asserted optimizer."
+        ],
+        "reasoning": "Inspected prior statements do not directly imply the optimization classification without extra mathematics, so PASS on available evidence with stated historical risk.",
+        "searches": [
+          "arXiv:2505.05048 Theorem 8.5",
+          "arXiv:2610.05883 Theorem 1.1",
+          "Resultary search: trirectangular tetrahedron orthogonal arms fixed longest shortest arm sum vertex solid angles unique optimizer"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Orthocentric simplex angle formulas permit evaluating angles at given arm triple; minimum-angle/fullness addresses a different extremal statistic."
+        ],
+        "reasoning": "The submitted optimization is over the sum of all four vertex angles for fixed max/min of three perpendicular arms, not individual minimum angle or all six edge ratios.",
+        "searches": [
+          "Resultary search: trirectangular tetrahedron orthogonal arms fixed longest shortest arm sum vertex solid angles unique optimizer",
+          "arXiv:2505.05048, Section 8.3 Theorem 8.5",
+          "arXiv:2610.05883, Theorem 1.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned orthogonal-simplex angle catalogs/angle orderings but no established exact table of t_R or Σmin(R)."
+        ],
+        "reasoning": "Continuous parameter R and fractional asymptotics are not a finite census; pointwise angle computation tables would not settle the optimizer.",
+        "searches": [
+          "Resultary search: trirectangular tetrahedron orthogonal arms fixed longest shortest arm sum vertex solid angles unique optimizer",
+          "Liu and Joe 1994 Relationship between tetrahedron shape measures"
+        ]
+      },
+      "rationale": "PASS on best-of-knowledge evidence for the fixed-perpendicular-arm-ratio optimizer of the total *sum* of vertex solid angles, its unique interior root and cube-root fractional asymptotic. Kabluchko–Schange Theorem8.5 supplies general individual angle formulas for orthocentric/right simplices but no optimization under fixed anisotropy; Licht Theorem1.1 bounds the *minimum individual* angle against fullness, different functional. Resultary search found related minimum-angle orthoscheme and sharpness results, not the same total-angle constrained variational theorem. This is a conditional historical originality judgment, not absolute priority proof; older tetrahedron shape measure work may contain equivalent optimization.",
+      "residual_risks": [
+        "1994 Liu–Joe tetrahedron shape-measure primary work was not inspected in complete full text; an implicit earlier constrained optimizer is historically possible.",
+        "Prior exact angle formulas are known; no novelty claimed for individual angles, dihedral sum identity, or spherical excess.",
+        "No extension to arbitrary six-edge anisotropy or nonorthogonal tetrahedra."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_DIRECTLY_COVERING the constrained sum optimizer; formula background",
+          "evidence": "Theorem8.5 evaluates angles per fixed rectangular simplex but does not state fixed-R extremal shape or b~(2R)^(1/3).",
+          "identifier_or_url": "arXiv:2505.05048",
+          "material_read": "Section 8.3 and Theorem 8.5 on internal and external angle formulas; PDF p39 screenshot",
+          "method": "arXiv full-text PDF inspection with relevant theorem screenshot",
+          "title": "Angles of orthocentric simplices",
+          "trigger": "rectangular/right-corner simplices and all vertex angles"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE: minimum angle vs sum of four angles",
+          "evidence": "Theorem1.1 bound concerns min_v Ω_v; submitted Σ=∑_v Ω_v/(4π).",
+          "identifier_or_url": "arXiv:2610.05883",
+          "material_read": "Full abstract/introduction and Theorem1.1 on minimum single-vertex solid angle vs fullness; PDF first-page screenshot",
+          "method": "arXiv PDF and theorem inspection",
+          "title": "On solid angles and simplex shape measures",
+          "trigger": "simplex angle sums vs minimum-solid-angle notions"
+        },
+        {
+          "assessment": "Proof reconstructed; finite checks corroborate and do not replace inequalities",
+          "evidence": "Derivative function h_R strictly increasing on (1,R) and endpoint comparisons; asymptotic t³/R²→1/2.",
+          "identifier_or_url": "SCOPE frozen Git RESULT.md blob 45f01a046afcdc265be7c68338dddfb9d0afe9e7",
+          "material_read": "Complete RESULT.md Steps1-4 and accompanying verify.py source",
+          "method": "Read-only GitHub frozen blobs",
+          "title": "A unique angular-sum optimizer for rectangular tetrahedra with a cube-root balancing law",
+          "trigger": "actual assigned proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Total normalized solid-angle mass is a natural tetrahedral shape invariant, and fixing extreme orthogonal arm anisotropy is a geometrically meaningful constraint rather than arbitrary slice. Optimizer is strictly nonboundary, characterized for every R>1 by a sharp monotone equation; the 1/3 scaling and noninteger R^(-5/3) correction are nontrivial and not determined by merely knowing separate angle formulas. Independent self-contained asymptotic fact can be useful in comparing right-corner simplex shapes.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2505.05048 (Kabluchko–Schange), Section8.3 Theorem8.5",
+    "arXiv:2610.05883 (Licht), Theorem1.1",
+    "Liu–Joe 1994 Relationship between tetrahedron shape measures (bibliographic awareness, not full inspected)",
+    "SCOPE frozen RESULT.md and verify.py blobs 45f01a046afcdc265be7c68338dddfb9d0afe9e7 / 8af8bda684bb7ad8ca0a6a67903d9a87c6c7f2d0"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "1994 Liu–Joe tetrahedron shape-measure primary work was not inspected in complete full text; an implicit earlier constrained optimizer is historically possible.",
+    "Prior exact angle formulas are known; no novelty claimed for individual angles, dihedral sum identity, or spherical excess.",
+    "No extension to arbitrary six-edge anisotropy or nonorthogonal tetrahedra."
+  ],
+  "residual_risks": [
+    "1994 Liu–Joe tetrahedron shape-measure primary work was not inspected in complete full text; an implicit earlier constrained optimizer is historically possible.",
+    "Prior exact angle formulas are known; no novelty claimed for individual angles, dihedral sum identity, or spherical excess.",
+    "No extension to arbitrary six-edge anisotropy or nonorthogonal tetrahedra."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_DIRECTLY_COVERING the constrained sum optimizer; formula background",
+      "evidence": "Theorem8.5 evaluates angles per fixed rectangular simplex but does not state fixed-R extremal shape or b~(2R)^(1/3).",
+      "identifier_or_url": "arXiv:2505.05048",
+      "material_read": "Section 8.3 and Theorem 8.5 on internal and external angle formulas; PDF p39 screenshot",
+      "method": "arXiv full-text PDF inspection with relevant theorem screenshot",
+      "title": "Angles of orthocentric simplices",
+      "trigger": "rectangular/right-corner simplices and all vertex angles"
+    },
+    {
+      "assessment": "DIFFERENT_OBJECTIVE: minimum angle vs sum of four angles",
+      "evidence": "Theorem1.1 bound concerns min_v Ω_v; submitted Σ=∑_v Ω_v/(4π).",
+      "identifier_or_url": "arXiv:2610.05883",
+      "material_read": "Full abstract/introduction and Theorem1.1 on minimum single-vertex solid angle vs fullness; PDF first-page screenshot",
+      "method": "arXiv PDF and theorem inspection",
+      "title": "On solid angles and simplex shape measures",
+      "trigger": "simplex angle sums vs minimum-solid-angle notions"
+    },
+    {
+      "assessment": "Proof reconstructed; finite checks corroborate and do not replace inequalities",
+      "evidence": "Derivative function h_R strictly increasing on (1,R) and endpoint comparisons; asymptotic t³/R²→1/2.",
+      "identifier_or_url": "SCOPE frozen Git RESULT.md blob 45f01a046afcdc265be7c68338dddfb9d0afe9e7",
+      "material_read": "Complete RESULT.md Steps1-4 and accompanying verify.py source",
+      "method": "Read-only GitHub frozen blobs",
+      "title": "A unique angular-sum optimizer for rectangular tetrahedra with a cube-root balancing law",
+      "trigger": "actual assigned proof"
+    }
+  ]
+}
