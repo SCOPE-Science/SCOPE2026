@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The original graph is given by 30 exact modular edges; every graph distance and every potential clique is checked. Thirty simplex pairs have demonstrably free codimension-one faces at the moment of removal. The remaining two-complex has a full 71-generator, 90-relator edge-path presentation of its fundamental group. The standalone program performs 71 exact Tietze generator eliminations and verifies that the final presentation is empty, proving simple connectivity. Euler characteristic and the two-dimensionality imply free integral second homology of rank 19, and Hurewicz and Whitehead establish the sphere wedge. Mod-two Betti numbers are independent corroboration, not a substitute for simple connectivity.
+## correctness
 
-## Originality — PASS (best-knowledge, residual literature risk)
-The closest indexed named-graph comparison is the intrinsic Desargues Čech nerve at radius 3/2 (49 two-spheres), a different complex. Desargues independence and matching-complex calculations do not imply its distance-two Rips complex. The known high-girth graph-power recovery mechanisms and other generalized Petersen instances do not state the same conclusion. Searches for the Desargues–Levi graph, generalized Petersen \(GP(10,3)\), graph square clique complex and 19 two-spheres found no equivalence. The original full text of the Desargues Čech report was not available for inspection; abstract-level distinction of functors is clear, but unindexed work remains a risk.
+PASS
 
-## Mathematical value — PASS
-The Desargues graph is a natural highly symmetric cubic graph of girth six, at the boundary where high-girth scale-two graph recovery can fail. Its Rips complex is four-dimensional before collapse, and the exact 19-sphere decomposition is a nontrivial finite integral homotopy invariant. The collapse and nonabelian presentation give reusable and reproducible benchmarks for the girth-six boundary, in contrast to reporting only mod-two Betti numbers. The result is narrow, not an infinite-family classification.
+Reconstructed graph from modular edges u_i-u_{i+1},u_i-v_i,v_i-v_{i+3}; graph has 20 vertices/30 edges. All shortest-path tables and distance <=2 cliques yield (20,90,120,30) simplicial face vector and zero five-cliques. Independently performed 30 legitimate free triangle-tetrahedron elementary collapses leaving a 2-complex with (20,90,90) faces. For its 1-skeleton, 19 spanning-tree edges give 71 non-tree generators; 90 triangle relators (nontrivial reduced relators as presented) admit 71 exact generator-once Tietze eliminations with complete substitutions leaving no relators/generators. Hence pi1 trivial, not merely abelianization. Euler characteristic 20 implies H2=Z^19, and Hurewicz plus homology Whitehead theorem gives wedge of nineteen S2. All finite computations reconstructed from graph equations rather than saved output.
 
-## Limitations and sources
-The proof applies only to inclusive graph-metric radius two on the 20-vertex Desargues graph. Closest known computations concern a Čech nerve, other complexes on the same graph, and graph-metric Rips filtrations of torus grids. See RESULT.md and AUDIT.json for source comparisons and residual uncertainty. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge primary-source and published-record comparison: the full conjunction of the exact result and its required structural/integral statement is not implied by identified prior results; the specific partial overlaps and inaccessible-source risks are recorded.
+
+## value
+
+PASS
+
+The Desargues graph is a canonical cubic girth-six incidence/generalized Petersen graph and scale two is a natural first thickening at the girth boundary. An explicit integral homotopy type with a nonabelian pi1 certificate (19 spheres) is a meaningful exact benchmark for graph-metric Rips theory, distinct from previously studied Desargues Cech complexes and GP(n,2) powers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
