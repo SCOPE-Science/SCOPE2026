@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The proof states the finite-tree uniform-priority process, the path expectation \(\alpha_k\), the shattering functional \(\nu\), and the correct definition of proper KC moves. Its novel step is strictness of the alternating mixed difference \(F_j\): the explicit second-difference kernel is positive, strictly decreasing and strictly convex in its index; the associated first decrement is also strictly convex. A two-dimensional checkerboard partition and an alternating-series pairing prove strictness for bare paths of at least two edges. For adjacent KC endpoints, a neighbor on one side witnesses a strict gain through the inequality \(1+\alpha_b>\alpha_{b+1}\). The published off-path comparison and path decomposition then establish strict \(\nu\)-monotonicity. The known proper-KC tree poset and exact first-vertex recursion imply unique minimization. All 30,741 packaged finite exact-arithmetic checks passed; these test but do not replace the all-order proof.
+PASS
 
-## Originality (O): PASS, with residual priority risk
+For n>=4 the object is a finite simple tree, the vertex processing order uniform, and m(T) the mean greedy maximal independent-set size. Reconstructed the first-arrival recurrence m(T)=1+n^{-1} sum_v sum_{C in T-N[v]}m(C), the exact path sequence alpha and second difference (-2)^(k+1)/(k+2)!, and the published KC split into nonnegative off-path changes and the on-path F_j(a,b) sum. The rectangle checkerboard argument applies to the strictly decreasing, strictly convex kernel w_k=2^(j+k+1)/(j+k+2)! and g_k=w_k-w_{k+1}, proving the positive decreasing eta_j and strictly positive alternating on-path sum for bare-path length at least two. If length one, an off-path neighbor of x contributes at least 1+alpha_b-alpha_(b+1)>0; all remaining contributions are nonnegative. Thus nu(T′)>nu(T) for every proper KC shift, yielding uniqueness by induction and KC reachability. A separate NetworkX exact rational traversal checked 292 oriented proper moves on the 45 unlabelled trees of orders four through eight, every time strict. The finite tests are diagnostic, not the all-order proof. Published 2024 KMM&S non-strict lemmas are explicitly used.
 
-Krivelevich, Mészáros, Michaeli and Shikhelman [1] prove only \(m(P_n)\le m(T)\) and explicitly state that their proof does not establish uniqueness; their Theorem 8.3 only gives \(\nu(T')\ge\nu(T)\). The new strict checkerboard argument and separate length-one splitting case together prove \(\nu(T')>\nu(T)\), leading to the equality classification. The 2020 version [3] gives the older non-strict minimum. Other graph-family random-greedy output-law results are not stronger theorems on this tree extremality problem. A known example of a proper KC move reducing the greedy expectation does not contradict the result, which does not assert monotonicity of \(m\). There remains a risk that an unindexed paper proves the same equality characterization by another method.
+## originality
 
-## Value (V): PASS
+PASS
 
-Uniqueness is an expressly identified missing step in the main tree-extremality theorem for random greedy maximal independent sets. Establishing strictness of the auxiliary tree-shattering functional gives a structural equality case for every finite order, not a numerical improvement or arbitrary finite slice. It also identifies why direct expectation monotonicity is unnecessary and demonstrates an explicit, all-parameter strictness mechanism for KC transformations.
+The October 26 Resultary full theorem proves the IDENTICAL headline uniqueness statement by strictness of only the FIRST proper move from the path, plus non-strict KC monotonicity for later moves. It fully covers that headline, and this has been explicitly credited; it does NOT assert or entail strict nu growth across EVERY proper KC move, a stronger structural assertion included in the submitted full finding and proved with a new decreasing checkerboard-kernel lemma plus the adjacent-endpoint case. KMM&S 2024 establish nondecreasing nu only. Best-of-knowledge originality is confined to this globally strict structural lemma; rebranding the already-known path theorem alone would fail O.
 
-## Scientific limits
+## value
 
-The proof is conditional on the established first-vertex formula, \(\alpha\)-subadditivity, KC decomposition and KC-poset reachability from [1, 2]; the new strictness argument and its boundary case are written out here. No quantitative stability constant, nonuniform-priority extension, or new result for general graphs is claimed. Historical-priority review is best-knowledge rather than exhaustive bibliographic certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The globally strict order-preserving behavior of the same natural path-shattering functional on the entire KC tree poset is a structural strengthening: it eliminates all equality edges, gives a strict combinatorial potential for transformations and sharpens the exact equality anatomy beyond the prior first-step argument. It is directly motivated by the published non-strict KC inequality and is not a fabricated downstream theorem or merely recomputation. The already-known unique path minimizer alone has no new value; the strict all-moves lemma independently earns V under the same structural-lemma bar.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
