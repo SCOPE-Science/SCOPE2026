@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Reproducing checks
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing the extracted files. The verifier uses only the standard library. It constructs literal Abelian-square factor sets independently of the closed theorem, compares these sets with the three classified families for every \(0\le i,j,k\le18\), tests the lower bound, and exhausts all parameters with \(4\le n\le40\) to check the sharp minimum and explicit witness formulas.
+## correctness
 
-Expected final lines:
+PASS
 
-```
-PASS: 6859 triples, independent literal factor sets, counts, lower bounds
-PASS: sharp minimum and constructive witnesses at every length 4..40
-```
+For w=b^i a^3 b^j a b^k each Abelian square uses 0,2,or4 a symbols. Zero-a factors are b^(2h) up to floor(max(i,j,k)/2). With two a symbols only aa and the last triple a plus singleton yield ab^j ab^y with 0<=y<=min(j,k) and y≡j mod 2, with exactly the j=0 duplicate. Four-a squares must contain all markers and midpoint between the second and third a, hence b^(j+y)a^3 b^j ab^y, j+y<=i. These disjoint content families give theta formula including degeneracies. Universal case split proves 4theta>=i+j+k+3 and modular n=4q+r witnesses attain floor((n+2)/4) for n>=5, with n=4 separate theta=2. Finite direct enumerations of literal factors support but do not establish all n.
 
-The infinite result requires the complete proof in `RESULT.md`. The finite program is a reproducibility check, not a replacement for quantifier-wide mathematical reasoning. The theorem has not undergone an independent mathematical audit.
+## originality
+
+PASS
+
+Best-of-knowledge original **five-run** complete content census and sharp restricted minimum over 3+1-marker family; already-known four-run witnesses and k=0 boundary are specifically not claimed new. Published primary four-run classification and bounded unrestricted n<=128 census do not dominate genuine i,j,k>0 symbolic classification.
+
+## value
+
+PASS
+
+The fixed-four-marker Abelian-square minimization remains interesting beyond known effective four-run examples. The exact five-run factor set with all boundary degeneracies is a natural family-wide invariant and symbolic restricted bound, despite not solving unrestricted M(4,n).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

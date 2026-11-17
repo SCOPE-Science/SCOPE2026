@@ -1,11 +1,21 @@
-# Scientific review: triple-plus-singleton Abelian-square theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** All possible distinct Abelian squares are partitioned by their number of occurrences of the sparse letter (zero, two, four). The proof derives exact necessary-and-sufficient half-length conditions and disjointness, including the \(j=0\) duplicate, then proves the sharp lower bound for every integer parameter triple via an exhaustive three-case inequality. Four residue-class families attain equality for every \(n\ge5\). The independent literal enumeration in `verify.py` passed 6,859 triples and all restricted lengths 4–40; it corroborates rather than substitutes for the proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Fazekas et al. (arXiv:2604.23188, Sections 3–5 and Theorem 12) obtain fixed-weight minima up through three occurrences and give an effective four-run example. A previously recorded general four-run enumeration covers the boundary \(k=0\); its hypotheses do not cover genuine five-run words \(i,j,k>0\), and its four-run sharp minimum does not supply the new factor-set formula or five-run lower bound. Actual published-record and literature queries found no implication-equivalent result for the three-plus-singleton five-run family. Priority outside the indexed or inspected literature remains unconfirmed.
+PASS
 
-**Value — PASS.** Four occurrences of a minority symbol are the first open fixed-weight case in the motivating source. The run-composition \((3,1)\) is a natural, non-arbitrarily chosen structural subfamily, not a numeric slice. The theorem gives the complete *literal* factor-language invariant for all parameters, proves the exact bound even when a fifth run is present, and isolates the remaining marker compositions to investigate for the unrestricted problem. The existence of four-run equality witnesses is not counted as a new contribution.
+For w=b^i a^3 b^j a b^k each Abelian square uses 0,2,or4 a symbols. Zero-a factors are b^(2h) up to floor(max(i,j,k)/2). With two a symbols only aa and the last triple a plus singleton yield ab^j ab^y with 0<=y<=min(j,k) and y≡j mod 2, with exactly the j=0 duplicate. Four-a squares must contain all markers and midpoint between the second and third a, hence b^(j+y)a^3 b^j ab^y, j+y<=i. These disjoint content families give theta formula including degeneracies. Universal case split proves 4theta>=i+j+k+3 and modular n=4q+r witnesses attain floor((n+2)/4) for n>=5, with n=4 separate theta=2. Finite direct enumerations of literal factors support but do not establish all n.
 
-**Limits.** No conclusion is made for the other four-marker run compositions, higher weights or global optimality among unrestricted four-marker words. An equivalent unindexed treatment might exist. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original **five-run** complete content census and sharp restricted minimum over 3+1-marker family; already-known four-run witnesses and k=0 boundary are specifically not claimed new. Published primary four-run classification and bounded unrestricted n<=128 census do not dominate genuine i,j,k>0 symbolic classification.
+
+## value
+
+PASS
+
+The fixed-four-marker Abelian-square minimization remains interesting beyond known effective four-run examples. The exact five-run factor set with all boundary degeneracies is a natural family-wide invariant and symbolic restricted bound, despite not solving unrestricted M(4,n).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
