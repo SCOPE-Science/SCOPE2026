@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** Basepoint freeness of \(-K_X\) follows from the explicit three cubics with the seven Fano points as reduced base locus; adjunction and Cauchy bounds restrict negative curves to strict lines, conics, and cubics. Fano incidence and Bézout eliminate every candidate but seven strict Fano lines and seven exceptionals. The incidence form is negative definite precisely on induced matchings, since forbidden induced two-edge stars have singular principal matrices. Bauer–Funke–Neumann's chamber correspondence then applies. The complete \(2^{14}\)-support count was checked by a separate exact Sylvester calculation from the standalone program.
+## correctness
 
-**Originality (PASS, provisional priority).** The foundational 2009 article computes general-position del Pezzo chamber counts and supplies the abstract support method, not this seven-\((-2)\)-curve characteristic-two resolution or its Heawood support stratification. The 2012 improved chamber algorithm examines other examples; the smooth-degree-two classification studies a different smooth (ample-anticanonical) category. The available prior algebraic-surface records cover collinear/conic/six-point/diagonal blowups, not the seven-node Fano arrangement. Searches did not identify identical geometric classification or polynomial. General searches are not a proof of novelty; an unindexed specialist weak-del-Pezzo count or tabulated Heawood dissociation polynomial could require priority correction.
+PASS
 
-**Mathematical value (PASS).** This is a complete exact chamber stratification for the maximally symmetric seven-line Fano arrangement in the smallest characteristic where it is realizable, not an arbitrary small numerical slice. The geometric negative-curve classification yields a natural combinatorial equivalence with Heawood dissociation sets and all support-size coefficients, distinguishing the weak anticanonical degree-two configuration from the well-known general-position degree-two case.
+The three anticanonical cubics separate tangent directions at the seven Fano base points, giving nef and big -K (degree 2). Adjunction, degree/multiplicity Cauchy constraints and Fano incidence rule out additional irreducible -1 and -2 curves: exactly seven exceptional -1 curves and seven strict transforms of F2 lines -2. Their intersections are the Heawood bipartite point-line graph. An induced vertex of degree >=2 creates a singular three-curve principal block; degree<=1 decomposes into singleton and negative-definite 2x2 blocks. Independent direct enumeration of all 2^14=16384 point-line vertex subsets gives (1,14,91,322,651,728,392,58), total 2257, agreeing with the source exact rational criterion. It is an exhaustive finite consequence of the proved geometry, not a claim that numerical tests alone prove the curve inventory.
 
-**Source comparison.** Bauer–Funke–Neumann (arXiv:0912.0958), Proposition 1.1 and Section 3, is the closest source for the counting method. Bauer–Schmitz (arXiv:1204.4373) is the closest general computational improvement. Dolgachev–Martin's characteristic-two study treats smooth degree-two del Pezzo surfaces, whereas the surface here contains seven \((-2)\)-curves and is weak del Pezzo. Independent historical and scientific review remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Generic degree-two del Pezzo chamber counts concern 7 blowups in general position and are not covering this characteristic-two Fano configuration. Classical Fano/Heawood incidence and weak del Pezzo classification supply the geometry, not the exact chamber-support equivalence and 2257 polynomial in the sources inspected. Best-of-knowledge original as a geometric–combinatorial specialization; specialist Heawood dissociation-set tables may already encode the numbers, recorded as a risk.
+
+## value
+
+PASS
+
+The Fano-plane blowup is a natural exceptional weak del Pezzo surface. The induced-degree-one characterization translates its full chamber decomposition into a canonical Heawood graph invariant, not an arbitrary induced-subgraph slice. The exact 2257 and size distribution form independently useful boundary data for characteristic-two surface geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
