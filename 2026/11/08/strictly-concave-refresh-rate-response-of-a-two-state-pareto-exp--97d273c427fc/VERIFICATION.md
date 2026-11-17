@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The analytic proof of global strict concavity uses a positive cubic-division remainder, and the endpoint coefficients follow from exact rational expansions. Independently, `python3 verification/check_inverse.py` passed 485 exact-rational parameter cases, checking determinant substitution, positivity, two algebraically different curvature formulas, and limiting constants. The check is finite and supplements rather than replaces the universally quantified proof. It uses only Python's standard library and no external packages.
+# Independent mathematical audit
 
-All numerical examples concern the parameters of the specified two-state stationary-tail model. No measurement-noise or finite-sample identification theorem is asserted. Independent mathematical audit has not been performed.
+## correctness
+
+PASS
+
+For Itô redistribution model J>0, 0<d_l<d_h,0<β<1 and μ>0, the physical smallest determinant root q=α−1 lies in (J/d_h,J/dbar). Exact isolation gives μ=G(q)=(1+q)(J−d_l q)(d_h q−J)/(J−dbar q); direct signs show G′>0, G′′=2 d_l d_h/dbar+2 dbar² P(J/dbar)/(J−dbar q)^3>0. Hence α′=1/G′>0 and α′′=−G′′/(G′)^3<0. Endpoint q=J/d_h has G′=(J+d_h)/β, while q↗J/dbar yields the precise positive variance-proportional 1/μ deficit. Independently checked symbolic identities, not merely graph samples.
+
+## originality
+
+PASS
+
+The source Arutkin–Vallée paper gives the physical determinant and fast/slow exponent bounds; these are credited as prior. Direct algebra supplies the inverse rational calibration map, strict all-rate derivative signs from a positive-pole partial-fraction decomposition, and both exact endpoint sensitivity constants. The general Beare–Toda first-order comparative-static result does not itself imply strict global concavity and these coefficients in the two-channel redraw model. No known exact equivalent coverage found in the targeted Resultary semantic comparison; residual historical risk retained.
+
+## value
+
+PASS
+
+The global strict concavity/identifiability structure answers a natural calibration question for a physically defined tail exponent, gives sharp endpoint sensitivities, and separates slow sensitivity independent of d_l from fast variance-dependent response. It is more informative than a monotonicity plot, but remains a model-specific refinement, not a universal Markov growth theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
