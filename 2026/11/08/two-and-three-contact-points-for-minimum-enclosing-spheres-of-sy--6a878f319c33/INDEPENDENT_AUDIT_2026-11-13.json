@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T12:58:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 7bcf2686a7b265c79b424d85b6398e6b8af1a57f, analytic proof steps 1–5",
+        "VERIFY.py blob 6acbb0cd5b9535df45e1a5d458dbd804a2b4e419, rational test source",
+        "Independent exact Fraction arithmetic over multiple odd/even d and a above/below one: 2460 sample inequalities/contacts"
+      ],
+      "rationale": "Endpoint midpoint E and odd half-difference O are orthogonal, giving radius lower bound S. Setting x=t²/a², for even d and a²<=1 the coordinatewise bound (1−x^j)^2 <= 1−x^(2j−1) proves every curve point within ball centered E, and strictness aside from the stated contacts. For even d and a²>1, exact identity R²−||γ(t)−λE||²=Σ a^(4j) x^j(1+1/M−x^j−x^(j−1)/M) proves strict containment for 0<x<1, while λE is the strictly positive barycenter of 0 and two endpoints at equal radius, proving uniqueness/minimality. For odd d, pairing even terms with preceding or following odd terms (depending M<=1 or M>=1) bounds distance by S strictly except at |t|=a. Strict convexity excludes all other hull contacts. Fresh independent rational coordinate-norm checks (2460 distances) corroborate equations; they are not the unrestricted proof.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Present theorem covers every compact real T containing endpoints and zero, all d>=2,a>0",
+          "General methods find minimal enclosing spheres but do not establish this family formula"
+        ],
+        "reasoning": "Existing integer diameter work is a narrower parameter domain and different objective; generic enclosing-ball theory needs the new polynomial inequalities to yield the explicit result.",
+        "searches": [
+          "Resultary: moment-curve diameter integer samples",
+          "Elzinga–Hearn generic enclosing sphere method"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic query: symmetric polynomial moment curve minimum enclosing ball contact points cyclic polytope midpoint endpoints threshold",
+        "2026/11/8/SCOPE-an-arithmetic-parity-law-for-the-euclidean-diameter-envelope-of--c6908734756f/RESULT.md (read complete)",
+        "Konoike, Ehrhart polynomials of cyclic polytopes as averages of zonotope Ehrhart polynomials, arXiv:2609.28417 (abstract/read failed lawful full text; institutional VPN disconnected)",
+        "Elzinga–Hearn 1974 generic minimum enclosing sphere algorithm"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For d even and a>1, center λE differs from either endpoint midpoint or zero, has three contacts",
+          "The earlier diameter max only records two-point separation at integer t"
+        ],
+        "reasoning": "The enclosing-ball theorem implies containment and a metric bound on any pair; the prior integer diameter theorem cannot force the ball center or the third contact and so does not cover this claim.",
+        "searches": [
+          "Full earlier arithmetic diameter RESULT.md",
+          "Konoike arXiv record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equal-radius contacts and positive barycenter characterize optimal enclosing ball",
+          "Earlier theorem only classifies diametral pairs on integer moment curves"
+        ],
+        "reasoning": "Compared dual/contact formulations and ball-vs-diameter implication: for a three-contact even-d ball, the diameter bound is strictly weaker and cannot determine the ball; both objects use the same curve but different invariants.",
+        "searches": [
+          "Resultary: Euclidean diameter moment curve parity",
+          "Classical enclosing ball optimality contact barycenter"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Current precise even critical scale a=1 and two/three contacts",
+          "Earlier diameter table switches between opposite-endpoint pair and endpoint-zero at discrete m values"
+        ],
+        "reasoning": "No accessible table of complete minimal-ball centers across all real parameters identified; Konoike full text unresolved and cannot be ruled out.",
+        "searches": [
+          "Resultary: moment curve exact ball center/sphere contacts",
+          "Konoike arXiv:2609.28417 abstract"
+        ]
+      },
+      "rationale": "Best-of-knowledge original all-real-parameter enclosing-ball contact theorem; an earlier same-moment-curve source gives only Euclidean diameter envelope for integer parameter subsets, a genuinely weaker metric quantity and parameter domain. Konoike cyclic-polytope work inspected at abstract level emphasizes Ehrhart geometry, but full text unavailable and retained as priority risk.",
+      "residual_risks": [
+        "Konoike arXiv:2609.28417 full paper inaccessible through attempted arXiv/OA and authorized Oxford route (VPN disconnected); full-text coverage not ruled out.",
+        "The same-family integer Euclidean diameter parity theorem is known and receives no originality credit.",
+        "Classical enclosing-ball contact/KKT theory is used as a premise and is not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_INTEGER_DIAMETER_NOT_MINIMUM_BALL",
+          "evidence": "For integer T gives maximal pair distance and equality classifications; diameter alone is a lower bound on ball radius but not enough to establish center, R or contacts for every real t.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-an-arithmetic-parity-law-for-the-euclidean-diameter-envelope-of--c6908734756f/RESULT.md",
+          "material_read": "Entire published RESULT.md, theorem and all proof steps",
+          "method": "Read exact full source blob",
+          "title": "An arithmetic parity law for the Euclidean diameter envelope of moment-curve polytopes",
+          "trigger": "Same moment curve and Euclidean metric with parity transition"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_PRIMARY",
+          "evidence": "Available material describes Ehrhart averaging, not the contact theorem; cannot assert entire paper NOT_COVERING without full reading.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.28417",
+          "material_read": "Public abstract/secondary synopsis; attempted lawful arXiv/OA full text unsuccessful; authorized institutional request blocked by VPN disconnect",
+          "method": "Abstract and bibliographic reading, not full text",
+          "title": "Ehrhart polynomials of cyclic polytopes as averages of zonotope Ehrhart polynomials",
+          "trigger": "Same polynomial moment-curve object and recent primary manuscript"
+        },
+        {
+          "assessment": "GENERAL_ALGORITHM_NOT_EXPLICIT_PARAMETRIC_RESULT",
+          "evidence": "Generic algorithm motivates contact optimality; no source-specific formula verified from abstract.",
+          "identifier_or_url": "https://doi.org/10.1002/nav.3800210414",
+          "material_read": "Bibliographic and abstract-level material on generic algorithm",
+          "method": "Literature bibliographic review",
+          "title": "The minimum sphere covering a convex polyhedron",
+          "trigger": "General minimum enclosing sphere theory and contact certificates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Motivation and full statement in frozen RESULT.md at blob 7bcf2686a7b265c79b424d85b6398e6b8af1a57f",
+        "Frozen RESULT.md blob 7bcf2686a7b265c79b424d85b6398e6b8af1a57f, analytic proof steps 1–5"
+      ],
+      "rationale": "A sharp dimension-parity and real-scale contact transition for the canonical metric realization of cyclic polytopes, with a closed minimum-ball center/radius valid under arbitrarily many interior insertions. The two-vs-three support-point phenomenon is a concrete structural result useful for computational convex geometry and metric polytope comparisons.",
+      "residual_risks": [
+        "Fixed unweighted monomial embedding is essential; nonorthogonal affine transforms do not preserve minimum ball."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all d>=2,a>0, compact T⊂[-a,a] containing −a,0,a, Euclidean minimal enclosing ball of conv{(t,…,t^d)} has center E and R²=S in odd dimension; in even d center E at a<=1, or λE (λ=(a²+1)/(2a²)) at a>1, with only two endpoint contacts except the even a>=1 regime where zero joins.",
+  "limitations": [
+    "Requires symmetric interval and T containing both endpoints and 0, Euclidean metric in exact monomial coordinates.",
+    "Full Konoike manuscript inaccessible due VPN disconnect; priority qualified."
+  ],
+  "schema_version": 1
+}
