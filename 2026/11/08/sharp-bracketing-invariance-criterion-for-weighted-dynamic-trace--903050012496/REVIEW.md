@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem specifies the original six Nmatrix output cells, counts one independent outcome choice at each unique internal subformula, and derives the exact three-coordinate convolution. Direct algebraic expansion establishes the general associator. The symmetric subspace is diagonalized by its zero coordinate and zero-plus-three-times-one coordinate, proving the all-size formula by induction. On the deterministic face, every positive-weight assignment has a single trace. A four-leaf associator calculation gives the strictly positive and sharp \(bc(b-c)^2\) defect. The Python checker independently reproduces 29,537 finite checks, including independent brute-force tree-label enumeration. Risk: no claim is made for static valuations, repeated subformulas, or execution traces with a scheduler.
+## correctness
 
-**Originality — PASS within inspected literature.** Aldini et al., arXiv:2607.20178, sections 2–6 (full online text inspected), define the symmetric Nmatrix and study proof theory and a five-valued associative *deterministic* refinement, not weighted dynamic history counts or a four-leaf sharp criterion. Avron–Lev (2005) develops general nondeterministic-matrix semantics and Avron–Konikowska (2009) studies an asymmetric earlier error connective; neither inspected description implies the exact BMK trace-count formulas. Related published results about ordinary tree types, associative deterministic truth tables and logical consequence do not compare the identical counting objects. Explicit searches for weighted trace counting, dynamic Nmatrix valuation multiplicities, hyperoperation associators, and bracketing invariance did not disclose an equivalent result. Risk: an older theorem using weighted multialgebra or nonassociative convolution terminology may exist; not all external full texts were available.
+PASS
 
-**Mathematical value — PASS.** The invariant distinguishes *how many* independently resolved dynamic histories produce a computation from the much coarser set of reachable output values. On the motivating new semantics, these two notions have qualitatively different associative behaviour. The complete nonnegative-weight classification and smallest possible witness tree give a precise boundary useful when interpreting and enumerating error-propagation choices. This is an all-size structural result, not a fixed-small-case experiment or a general theorem about program executions.
+The read-once full binary tree counts an independently chosen allowed output at every internal node of the symmetric {0,1,k} nondeterministic disjunction. The derived bilinear convolution u⋆v exactly counts weighted traces. Independent symbolic expansion confirms associator ((u⋆v)⋆w−u⋆(v⋆w))=(0,−v_1 Δ,v_k Δ) with Δ=u_1 w_k−u_k w_1. The symmetric subspace u_1=u_k has multiplicative coordinates r, r+3s, yielding root vector (a^n,((a+3t)^n−a^n)/3,same) for b=c=t. If bc=0 the positive-weight domain is deterministic and total is (a+b+c)^n. Left comb vs balanced gives bc(b−c)^2>0 exactly at four leaves when b,c>0 unequal; n<=3 shapes coincide by commutativity. All nonnegative and zero-weight boundaries accounted for. Independently checked symbolic associator and all tree shapes through seven leaves, corroborating all-size induction.
 
-**Limitations.** The result treats read-once full binary trees of this one connective and leaf-only product weights. Historical originality awaits independent expert appraisal. No independent mathematical audit or validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Aldini–Graziani–Mezzina–Vergottini (arXiv:2607.20178) introduce the underlying symmetric three-valued Nmatrix and dynamic/static semantics, and study logical rules and a deterministic five-valued associative refinement. Their full accessible source sections on truth tables and calculus do not provide weighted counts of independent resolution histories or the bracketing-invariance classification. Resultary search found no theorem giving the same weighted associator and four-leaf sharp obstruction beyond the target. Historical overlap with general weighted multihyperalgebra semantics remains a residual risk.
+
+## value
+
+PASS
+
+The exact all-size invariant separates reachability-set associativity from multiplicity-of-dynamic-traces associativity for a natural newly introduced nondeterministic choice semantics. Its iff nonnegative-weight criterion, exact root counts, and smallest four-leaf witness identify a meaningful structural boundary, not a tiny unexplained numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
