@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T18:11:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The first-step equilibrium h=λ P h with pinned unit sources is uniquely solvable since 0<λ<1. On each wheel rim gap of m edges, the degree-three linear recurrence has unique interior values cx+(1-cx)p_{m,j}, with c=λ/(3-2λ). Summing all gaps yields the hub value X=λ(k+Q)/[n-λc(n-k-Q)] and the worst support min(X,cX+(1-cX)ψ_M); selecting the hub sets x=1. The gap-sum q_m is strictly concave, so equalizing gaps strictly increases X and never reduces the worst rim floor; thus exactly cyclically balanced profiles optimize the hub-free fixed-k problem. In the hub-selected case every pattern with maximum gap L=ceil(n/k) is optimal. Rooted-gap composition counts n*binom(k,b)/k and (n/k)[x^n](x+...+x^L)^k are valid integer counts for labelled rim sets. An independently written exact Fraction linear-system solver enumerated every nonempty source set for n=4..7 and λ=1/2,4/5 and verified the formula and optimizer-class conditions; no finite test substitutes for all-n analytic strict concavity. At n=4 λ=1/2 τ=1/3, the two opposite-rim pairs are only minimum placements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full prior Oct25 theorem covers all wheel values but explicitly declines to characterize all maximizers: Limitations say ties can occur.",
+          "Allagan primary abstract covers general definition, complexity and spider algorithm, not enumerating wheel maximizers."
+        ],
+        "reasoning": "Although generic graph optimization can enumerate solutions by exhaustive search, the earlier theorem and general methods do not supply the exact uniform all-optima classification/closed counts. Partial coverage remains credited.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-balanced-source-placement-and-exact-discounted-hitting-dominatio--2315619e35e1/RESULT.md",
+          "arXiv:2609.31535 discounted hitting domination general graphs",
+          "Resultary cycles discounted hitting domination"
+        ]
+      },
+      "checked_sources": [
+        "Full Oct25 Resultary wheel theorem and all proof/limitations, compared formulas and the strictly stronger enumeration",
+        "Resultary semantic wheel and cycle searches",
+        "arXiv:2609.31535 abstracts and primary publication details",
+        "Frozen RESULT.md and source verify.py",
+        "Independent rational wheel equilibrium exhaustive n=4..7 λ=1/2,4/5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior states a maximizer is balanced, not that every hub-free maximizer is balanced.",
+          "With hub included, any gap pattern with maximal gap <=ceil(n/k) attains the same threshold, so a large nonbalanced optimizer family is counted."
+        ],
+        "reasoning": "The earlier theorem implies the value portion but does not imply complete multiplicity/rigidity portion as stated; the stronger surviving claim makes the whole theorem an original extension, with prior value explicitly credited in review.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-balanced-source-placement-and-exact-discounted-hitting-dominatio--2315619e35e1/RESULT.md",
+          "published 2026-10-25 wheel result and 2026-11-08 extended exact placement theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier wheel W_n=K1∨C_n uses same λ,τ, source sets and hub recurrence. Its D_m is the complement of new q_m: D_m=m-1-q_m.",
+          "Earlier optimum R_{n,k} equals submitted U_{n,k}, H_{n,k} identical."
+        ],
+        "reasoning": "The value formulas are equivalent under D_m=m-1-q_m and variable renaming; the present *complete optimizer set/count* does not follow directly from the older statement that a balanced optimizer exists.",
+        "searches": [
+          "Resultary: discounted hitting domination wheel graph optimal source placement gaps cyclic symmetry",
+          "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-balanced-source-placement-and-exact-discounted-hitting-dominatio--2315619e35e1/RESULT.md",
+          "arXiv:2609.31535 weighted walk hit support"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier Oct25 source has no labelled optimizer-count formulas or exclusivity of balanced patterns for hub-free placements.",
+          "Independent direct small wheel counts n=4..7 at two λ matched all optimal classes."
+        ],
+        "reasoning": "The submitted all-size counts are a new enumerative classification beyond previously known exact optimum values.",
+        "searches": [
+          "all fixed-cardinality wheel hitting support optimal labelled placement count n/k binomial",
+          "wheel source placement optimizer class enumeration max gap"
+        ]
+      },
+      "rationale": "The October 25 published wheel theorem already establishes the same model, wheel all-parameter discounted hitting domination number, balanced *existence* as optimizer in both hub states, and a hub-excluding optimum at a different parameter. Full prior proof inspected. The present theorem must not claim those ingredients as original. However that earlier theorem explicitly does NOT classify all maximizers, and supplies no complete labelled optimizer counts; the submitted strict hub-free balancing uniqueness, all hub-included max-gap patterns, and two explicit counting formulas are stronger, motivated remaining claims. Neither generic Allagan discounted domination theory nor a cycle/spider result implies these complete wheel optimizer classes. O passes on the genuinely new all-optimizer classification, with significant partial coverage documented; no repair of a false claim is needed as the final theorem states the stricter classification and agrees with the prior value formulas.",
+      "residual_risks": [
+        "Value formula and existence of balanced optimizers were already proved October 25; acceptance applies to the additional complete optimizer classes/counts only.",
+        "Earlier literature outside the inspected wheel theorem might include complete optimizer counts under another potential-theory terminology.",
+        "Only homogeneous unweighted wheel with n>=4, and counts are cardinality-wise maximin optimizers, not all threshold-feasible sets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY COVERING: all value formulas, no all-optimizer class/count",
+          "evidence": "Older limitations: balance provides an optimizer but does not characterize all maximizers",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-balanced-source-placement-and-exact-discounted-hitting-dominatio--2315619e35e1/RESULT.md",
+          "material_read": "complete Finding, assumptions, all five proof parts, verification, relationship and limitations",
+          "method": "GitHub published RESULT.md Oct25",
+          "title": "Balanced source placement and exact discounted hitting domination on wheel graphs",
+          "trigger": "identical wheel model and value formulas"
+        },
+        {
+          "assessment": "correct stronger optimizer rigidity/enumeration",
+          "evidence": "unique hub-free balanced patterns, hub-included all max-gap configurations, labelled counts",
+          "identifier_or_url": "SCOPE-Science/SCOPE2026 frozen RESULT.md and verify.py",
+          "material_read": "complete proof, formulas and verifier plus metadata",
+          "method": "GitHub commit-pinned reading; independently written rational source-subset enumeration",
+          "title": "Exact discounted hitting domination and optimal placements on wheel graphs",
+          "trigger": "assigned stronger theorem"
+        },
+        {
+          "assessment": "background not established complete wheel enumeration, no entire-text exclusion",
+          "evidence": "arXiv published Sep25 and focuses spiders and optimization",
+          "identifier_or_url": "https://arxiv.org/abs/2609.31535",
+          "material_read": "full primary abstract describing hitting equilibrium, submodularity, complexity and spider results; full paper not available",
+          "method": "arXiv and alphaXiv abstract reading",
+          "title": "Discounted Hitting Domination on Graphs with Submodularity, Complexity and Exact Algorithms",
+          "trigger": "original hitting-domination problem definition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete extremizer classification and counting are natural next questions after a sharp minimum-source value: they distinguish how rigid hub-free placement is and how many alternatives remain when the hub is selected, with implications for facility-layout robustness. This is not just recomputing a known value/table or a tiny numerical improvement; it supplies all cardinalities and continuous discount parameters for an important wheel family.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Full Oct25 Resultary wheel theorem and all proof/limitations, compared formulas and the strictly stronger enumeration",
+    "Resultary semantic wheel and cycle searches",
+    "arXiv:2609.31535 abstracts and primary publication details",
+    "Frozen RESULT.md and source verify.py",
+    "Independent rational wheel equilibrium exhaustive n=4..7 λ=1/2,4/5"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Value formula and existence of balanced optimizers were already proved October 25; acceptance applies to the additional complete optimizer classes/counts only.",
+    "Earlier literature outside the inspected wheel theorem might include complete optimizer counts under another potential-theory terminology.",
+    "Only homogeneous unweighted wheel with n>=4, and counts are cardinality-wise maximin optimizers, not all threshold-feasible sets.",
+    "Scientific assessment complete but publication not_ready; no public file content or protected verification channel modified."
+  ],
+  "residual_risks": [
+    "Value formula and existence of balanced optimizers were already proved October 25; acceptance applies to the additional complete optimizer classes/counts only.",
+    "Earlier literature outside the inspected wheel theorem might include complete optimizer counts under another potential-theory terminology.",
+    "Only homogeneous unweighted wheel with n>=4, and counts are cardinality-wise maximin optimizers, not all threshold-feasible sets."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PARTIALLY COVERING: all value formulas, no all-optimizer class/count",
+      "evidence": "Older limitations: balance provides an optimizer but does not characterize all maximizers",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/25/SCOPE-balanced-source-placement-and-exact-discounted-hitting-dominatio--2315619e35e1/RESULT.md",
+      "material_read": "complete Finding, assumptions, all five proof parts, verification, relationship and limitations",
+      "method": "GitHub published RESULT.md Oct25",
+      "title": "Balanced source placement and exact discounted hitting domination on wheel graphs",
+      "trigger": "identical wheel model and value formulas"
+    },
+    {
+      "assessment": "correct stronger optimizer rigidity/enumeration",
+      "evidence": "unique hub-free balanced patterns, hub-included all max-gap configurations, labelled counts",
+      "identifier_or_url": "SCOPE-Science/SCOPE2026 frozen RESULT.md and verify.py",
+      "material_read": "complete proof, formulas and verifier plus metadata",
+      "method": "GitHub commit-pinned reading; independently written rational source-subset enumeration",
+      "title": "Exact discounted hitting domination and optimal placements on wheel graphs",
+      "trigger": "assigned stronger theorem"
+    },
+    {
+      "assessment": "background not established complete wheel enumeration, no entire-text exclusion",
+      "evidence": "arXiv published Sep25 and focuses spiders and optimization",
+      "identifier_or_url": "https://arxiv.org/abs/2609.31535",
+      "material_read": "full primary abstract describing hitting equilibrium, submodularity, complexity and spider results; full paper not available",
+      "method": "arXiv and alphaXiv abstract reading",
+      "title": "Discounted Hitting Domination on Graphs with Submodularity, Complexity and Exact Algorithms",
+      "trigger": "original hitting-domination problem definition"
+    }
+  ]
+}
