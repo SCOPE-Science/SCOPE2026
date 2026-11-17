@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-In the balanced odd wheel, hub–rim energy is identically \(-K\) and the uniform-field energy is zero. Rim-edge exchanges yield exactly the forbidden words \(++--\) and \(--++\); hub-edge exchanges yield \(---\) after fixing the hub spin. The bijective run enumeration and cyclic composition argument give every coefficient of the energy-resolved polynomial for all odd rim sizes, while a constructive run family proves an exponential lower bound. The direct-energy verifier and independent cyclic transfer method agree on finite cases, but the all-size claim rests on the combinatorial proof.
+PASS
 
-## Originality — PASS on examined evidence
+For any balanced spin assignment, the hub-spoke K term equals -K and the uniform field term vanishes, including after every allowed exchange. The exchange energy differences give exactly the forbidden cyclic rim patterns '---' for a negative rim spin swapping with positive hub and '++--'/'--++' for rim swaps. The remaining negative runs are only singles and doubles; if t doubles, q=(n+1)/2 negative spins imply u=q-2t singles and positive-run extra length t-1. Long positive runs occur only between two singleton-negative runs. Counting circular S/D blocks with s blocks yields the stated A_(q,t) via cyclic compositions and stars-bars; the energy level is E0+4J(t-1), t>=1. For t>=2 feasibility u>=2 gives first n=11, and explicit t=2 witnesses exist from then onward. The constructed DSS family gives central-binomial multiplicity and liminf log(B_n)/n>=log2/4. Independent direct adjacency-exchange exhaustive calculations for odd n=3..13 agreed with the exact sum; the finite work corroborates the all-n run bijection. No claim that weak minima are absorbing under zero-energy moves.
 
-Full-text comparisons included the ferromagnetic-chain blocked-state enumeration of De Smedt–Godrèche–Luck (arXiv:cond-mat/0210477v1), the antiferromagnetic-chain relaxation analysis of Grynberg (arXiv:1009.4511v1), and the first/second-neighbor chain metastable-state analysis of Gómez Albarracín–Rosales–Grynberg (arXiv:1601.04375v1). None provides the hub exchange condition, balanced wheel run grammar, eleven-rim onset or complete polynomial. Searches of related published mathematical records and accessible previous results found no implication that covers this claim. Generic enumeration tools and other wheel spin-flip stability results are not identified as original contributions here. An unindexed equivalent remains a residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact all-size energy spectrum reveals that a wheel's central exchange channels create excited weak local minima beginning at a sharp finite size, with exponentially proliferating possibilities rather than merely the linear number of ground states. Independence from spoke coupling and external field within the balanced sector is structural. The work supplies a natural finite-size benchmark for conservative kinetic Ising models; it deliberately does not identify these configurations as long-lived states under zero-energy motion.
+The exact claim survives bounded search at best current knowledge, subject to explicit source inspections and residual risks. Neither theorem implies the three forbidden words or exact circular-run binomial polynomial; the new theorem is a distinct conservation-law/move-set problem.
 
-## Limits and prior-art risks
+## value
 
-Only odd rim size, zero total magnetization and graph-edge spin swaps are included. Zero-energy swaps are allowed, so no Arrhenius or absorbing-state assertions follow. Sharp configurational entropy is not determined. Historical priority has not been independently established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The wheel's central edge exchanges and a fixed magnetization constraint create a new natural kinetically constrained combinatorial enumeration. The sharp excited-state onset at 11, complete energy spectrum at every odd rim size and exponential family of weak minima are structurally meaningful, with independence from field and spoke strength in the balanced sector. One-spin minima on wheels do not determine these exchange-local minima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

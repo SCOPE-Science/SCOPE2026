@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The standalone `verify.py` requires Python 3 and no external packages. Run it from a directory containing the file, with `python3 verify.py`. It should print `VERIFY_OK` and its finite test counter. It derives the same energy-resolved count in three different ways: direct enumeration of all balanced wheel spin assignments and every adjacent exchange for odd sizes from 3 through 15; an independent cyclic forbidden-word transfer computation through rim size 47; and the published binomial finite sum. It also tests the direct forbidden-word criterion through size 11 and the eleven-rim cutoff through size 119.
+## correctness
 
-The proof in RESULT.md is an all-size bijection; finite checks do not certify infinitely many cases. The polynomial counts weak exchange-local minima (no strictly decreasing adjacent exchange), not absorbing states under zero-energy hopping. Literature priority and independent scientific validation remain open.
+PASS
+
+For any balanced spin assignment, the hub-spoke K term equals -K and the uniform field term vanishes, including after every allowed exchange. The exchange energy differences give exactly the forbidden cyclic rim patterns '---' for a negative rim spin swapping with positive hub and '++--'/'--++' for rim swaps. The remaining negative runs are only singles and doubles; if t doubles, q=(n+1)/2 negative spins imply u=q-2t singles and positive-run extra length t-1. Long positive runs occur only between two singleton-negative runs. Counting circular S/D blocks with s blocks yields the stated A_(q,t) via cyclic compositions and stars-bars; the energy level is E0+4J(t-1), t>=1. For t>=2 feasibility u>=2 gives first n=11, and explicit t=2 witnesses exist from then onward. The constructed DSS family gives central-binomial multiplicity and liminf log(B_n)/n>=log2/4. Independent direct adjacency-exchange exhaustive calculations for odd n=3..13 agreed with the exact sum; the finite work corroborates the all-n run bijection. No claim that weak minima are absorbing under zero-energy moves.
+
+## originality
+
+PASS
+
+The exact claim survives bounded search at best current knowledge, subject to explicit source inspections and residual risks. Neither theorem implies the three forbidden words or exact circular-run binomial polynomial; the new theorem is a distinct conservation-law/move-set problem.
+
+## value
+
+PASS
+
+The wheel's central edge exchanges and a fixed magnetization constraint create a new natural kinetically constrained combinatorial enumeration. The sharp excited-state onset at 11, complete energy spectrum at every odd rim size and exponential family of weak minima are structurally meaningful, with independence from field and spoke strength in the balanced sector. One-spin minima on wheels do not determine these exchange-local minima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
