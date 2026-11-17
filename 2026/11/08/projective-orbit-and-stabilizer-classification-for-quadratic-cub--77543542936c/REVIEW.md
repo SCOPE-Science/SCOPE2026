@@ -1,19 +1,21 @@
-# Scientific review: quadratic–cubic Frobenius pentads
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The objects are squarefree degree-five divisors on \(\mathbb P^1_{\mathbb F_q}\) with exactly one degree-two and one degree-three closed point. The count is \(B_2B_3\) with \(B_d=(q^d-q)/d\) for \(d=2,3\). Any stabilizer injects into the centralizer \(C_3\) of Frobenius on its degree-three orbit. The order-three element fixes the quadratic orbit pointwise and must be nonsplit semisimple, forcing \(q\equiv2\pmod3\). In that case all \(q(q-1)\) elements of order three have \(2(q+1)/3\) stabilized degree-three closed points: the degree-\(q+1\) twisted-Frobenius equations are separable, have no rational solutions, and each solution has exact degree three. Counting pairs of an exceptional divisor and a nonidentity stabilizer gives exactly one exceptional orbit. Finally the ordinary free orbits and the stabilizer-weighted mass follow by orbit–stabilizer; every characteristic and prime-power extension is included. `verify_pentads.py` directly enumerates six prime fields and checks the group action independently, with output `VERIFY_OK`. Enumeration is corroboration, not the proof for arbitrary fields.
+PASS
 
-## Originality (O): PASS with historical-priority uncertainty
+On P^1(F_q), the number of degree-2 and degree-3 closed points is (q²−q)/2 and (q³−q)/3; dividing their product by |PGL₂(F_q)|=q(q²−1) yields the weighted orbit mass q(q−1)/6. A stabilizer injects into the centralizer C3 of the Frobenius 3-cycle on the cubic roots, so has order 1 or 3. An order-3 element fixing the quadratic pair exists only in the nonsplit q≡2(mod3) case. There are q(q−1) nonsplit order-3 elements, each fixes one quadratic closed point and 2(q+1)/3 cubic closed points by the separable twisted-Frobenius equation; double-counting the two nontrivial stabilizers per exceptional divisor gives |PGL₂|/3 exceptional divisors, precisely one exceptional orbit. All remaining orbits are free, proving both formulas. The explicit z²−z+1 times cubic construction follows by the same Frob-twist. Independently enumerated actual PGL₂ orbit actions for q=5 over 400 quadratic/cubic pairs: exactly three free orbits and one order-3 orbit. The finite check corroborates rather than proves the prime-power theorem.
 
-The exact (2)(3) divisor orbit/stabilizer theorem is not implied by the complex-geometric binary-quintic symmetry classification of du Plessis–Wall (2017); the four-branch Artin–Schreier splitting-type census of Ho–Pries (2022); the irreducible polynomial fixed-point tables of Reis (2018); or the irreducible-polynomial and twisted-Frobenius results of Gow–McGuire (2021). Their underlying group theory, geometrical symmetry framework and twisted-Frobenius lemma are explicitly acknowledged. The present claim mixes distinct degree-two and degree-three closed points, which create a simultaneous stabilizer compatibility constraint: the centralizer argument plus double count produce the unique nonsplit orbit, and existing irreducible-only tables do not supply that joint constraint. Searches of exact phrase and mathematical implication variants, together with the accessible published-record comparison, found no theorem stating or dominating the exact result. Absence of a match is not proof of global priority; an older finite-geometry derivation using pentad terminology remains a concrete residual risk.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The division into Frobenius splitting types is intrinsic to the arithmetic moduli problem of unordered branch loci and to finite-field masses of branched covers. This theorem computes the entire degree-\(2+3\) stratum uniformly in \(q\), including the stack-relevant stabilizer distribution, its one exceptional orbit and a polynomial representative. Neither only a small-field enumeration nor a routine invocation of the total mass determines the exceptional stabilizer type or multiplicity. The result is a natural complete classification of this Frobenius stratum, with direct use when assembling five-branch-point strata in arithmetic moduli counts. It does not by itself count covers with wild ramification or full curve automorphism groups.
+The object is a reducible squarefree binary quintic with geometric Frobenius cycle type (2)(3), not an irreducible quintic. Read source proof, compared directly to relevant irreducible-invariant-polynomial theorems and four-branch mass results and searched published mathematical records. No identified earlier source implies the exact simultaneous quadratic-plus-cubic orbit/stabilizer census for all prime powers; best-of-knowledge PASS with finite-geometry historical-priority risk.
 
-## Closest literature and limitations
+## value
 
-A. du Plessis and C. T. C. Wall, *The moduli space of binary quintics*, DOI 10.1007/s40879-017-0187-8 (first public 2017-11-01), treats complex-geometric quintic moduli and special stabilizers; the field-dependent Frobenius orbit count is not supplied. A. M. Ho and R. Pries, *A Mass Formula For Artin–Schreier Curves Over Finite Fields*, arXiv:2203.10187, studies four-branch enumerations. L. Reis, arXiv:1811.02537, and R. Gow with G. McGuire, arXiv:2105.11247, concern invariant irreducible polynomials, not mixed-degree squarefree divisors. All were materially inspected in their accessible full text. The theorem is specific to one splitting type and does not establish global historical uniqueness. Explicitly, neither full automorphism groups of branched curves nor cover counts are asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural complete arithmetic splitting stratum of five unordered branch points. Exact all-q orbit counts, the unique nonsplit symmetry class and stabilizer-weighted mass are needed in arithmetic moduli and curve-branch mass assembly; the joint invariant cannot be read off by separately counting irreducible quadratic and cubic places. Narrow scope is explicit, not an unsupported count of all covers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

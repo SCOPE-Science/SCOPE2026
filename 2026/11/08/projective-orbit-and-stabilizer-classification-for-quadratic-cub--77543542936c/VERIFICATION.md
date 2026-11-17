@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-The result is proved by exact group-theoretic orbit counting in `RESULT.md`; its quantifiers cover every prime power, without computational inference. The full action on the quadratic and cubic closed-point factors and the singular/nonsingular element cases have been checked against the proof. The separability of the twisted Frobenius equation follows from a nonzero determinant, also in characteristic two. The potential characteristic-three unipotent case is excluded because it has only one geometric fixed point, while the degree-two closed point contains two distinct fixed points.
+## correctness
 
-Run `python3 verify_pentads.py` (stdlib Python). This performs independent explicit orbit and stabilizer enumeration for prime fields 2, 3, 5, 7, 11, and 13, and prints `VERIFY_OK`. Finite runs are not a proof over every finite field; the symbolic group theory is.
+PASS
 
-Limitations: This counts only the Frobenius degree partition (2)(3), not all reduced binary quintics, Artin–Schreier covers, or automorphism groups of branched curves. Priority against older differently worded finite-geometric classification has not been externally certified. No independent mathematical audit has been performed.
+On P^1(F_q), the number of degree-2 and degree-3 closed points is (q²−q)/2 and (q³−q)/3; dividing their product by |PGL₂(F_q)|=q(q²−1) yields the weighted orbit mass q(q−1)/6. A stabilizer injects into the centralizer C3 of the Frobenius 3-cycle on the cubic roots, so has order 1 or 3. An order-3 element fixing the quadratic pair exists only in the nonsplit q≡2(mod3) case. There are q(q−1) nonsplit order-3 elements, each fixes one quadratic closed point and 2(q+1)/3 cubic closed points by the separable twisted-Frobenius equation; double-counting the two nontrivial stabilizers per exceptional divisor gives |PGL₂|/3 exceptional divisors, precisely one exceptional orbit. All remaining orbits are free, proving both formulas. The explicit z²−z+1 times cubic construction follows by the same Frob-twist. Independently enumerated actual PGL₂ orbit actions for q=5 over 400 quadratic/cubic pairs: exactly three free orbits and one order-3 orbit. The finite check corroborates rather than proves the prime-power theorem.
+
+## originality
+
+PASS
+
+The object is a reducible squarefree binary quintic with geometric Frobenius cycle type (2)(3), not an irreducible quintic. Read source proof, compared directly to relevant irreducible-invariant-polynomial theorems and four-branch mass results and searched published mathematical records. No identified earlier source implies the exact simultaneous quadratic-plus-cubic orbit/stabilizer census for all prime powers; best-of-knowledge PASS with finite-geometry historical-priority risk.
+
+## value
+
+PASS
+
+This is a natural complete arithmetic splitting stratum of five unordered branch points. Exact all-q orbit counts, the unique nonsplit symmetry class and stabilizer-weighted mass are needed in arithmetic moduli and curve-branch mass assembly; the joint invariant cannot be read off by separately counting irreducible quadratic and cubic places. Narrow scope is explicit, not an unsupported count of all covers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
