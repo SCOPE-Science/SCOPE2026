@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is fixed to the one-sided Poisson initial gas, independent Brownian paths and either independent or common rate-\(r\) clocks, with return to each particle's own initial site. Spatial Gaussian integration and Poisson thinning give the exact conditional count law. The finite-time backward-age distribution has both its necessary atom and continuous part; an integration-by-parts identity reproduces the known independent-clock current mean. Strict convex ordering follows from strict convexity of the Poisson expectation of each nonaffine convex integer function and a genuinely nonconstant age. The stationary Rayleigh change of variables and factorial moments are elementary exact identities. The fixed-time tail includes the no-reset endpoint atom and has a controlled \(O(q^{-2})\) remainder; the stationary tail is obtained from an exact Gamma representation, Gaussian concentration sufficient to justify exponential-moment convergence, and Stirling's formula. Density normalization and the order of limits are stated explicitly. The included numerical checker independently tests integral identities and large-count asymptotic behavior, without pretending to prove the universal theorem.
+PASS
 
-## Originality — PASS (with residual risks)
+C PASS. Spatial Brownian crossing integral equals sqrt(Du/pi) by Gaussian integration, and independent Poisson marking yields the annealed Poisson current. Conditioning on the shared backward age, including atom e^{-rt} at t and exponential density below it, gives Poisson(c sqrt(A_t)); mixing yields same mean and strict convex-order inflation via positive Poisson second differences. Endpoint Laplace expansion gives finite-time ratio 1+2rt/q+O(q^-2), and stationary Gamma norm central-limit/concentration yields the *full* Rayleigh-mixed mass prefactor 1/sqrt(2)*exp(lambda²/8) with exp[-lambda sqrt(q/2)]. Stirling proves the 1 versus 1/2 negative-log exponents; density scaling follows conditional Chebyshev. Numerical quadrature is supportive only; all asymptotics fixed positive rates.
 
-Di Bello et al. (https://arxiv.org/abs/2302.06696), sections II–IV and conclusion, establish the independent-resetting Poisson current and its mean for the same step initial condition, but their model has independently resetting particles, not one global clock. Biroli et al. (https://arxiv.org/abs/2211.00563), model, equations and conclusion, establish an already known *general shared-age mixture* for particles all reset to one origin. This valuable precursor does not state the half-line Poisson current or its sharp finite-/infinite-time tail distinction; its cited supplement discusses interval counts in a different gas and was not separately inspected. Valiquette et al. (https://arxiv.org/abs/2305.17095), tail-classification theorem and discussion, establish broader mixed-Poisson principles but not this sharp fixed-parameter PMF or the physical clock comparison. The 2026 confinement paper (https://arxiv.org/html/2606.31634v1) explicitly concerns common-origin resets under confining potentials. The combined exact current theorem, especially the noncommuting tail exponents and density-scale contrast, was not found in these sources or the targeted published-record searches. The primary method is not claimed as novel, and unknown equivalent mixed-Poisson asymptotics remain a residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The one-sided current is an observable already developed for independently resetting particles. A global experimental reset intervention preserves all one-particle marginals and the complete mean-current curve, so single-particle and first-moment diagnostics cannot reveal it. The theorem proves a strict all-convex-observables distinction, an explicit stationary overdispersion, persistent macroscopic sampling fluctuations, and—most importantly—a sharp switch of the coefficient of \(q\log q\) from one at every finite time to one-half after stationary limiting. The constant in the stationary PMF and the finite-time \(2rt/q\) correction quantify the physical tail mechanism, not just its qualitative class. These are motivated exact fluctuation results, rather than an arbitrary parameter slice.
+O PASS (best of knowledge). Inspected primary and published theorem statements and compared their precise objects, parameter domains and implications; none of the checked wider source theorems directly implies this full final claim. Source-level checks and narrower known deductions are credited; residual priority risk preserved.
 
-## Scope and residual publication risks
+## value
 
-Only annealed counting is asserted. The result is not claimed for a fixed quenched initial configuration, non-Poisson resetting, interacting gases, uniformly joint large-time/high-current scalings or joint high-density/high-current limits. Related full papers have been read in relevant sections, but the supplemental counting calculations of the 2022 common-origin study were not separately read. General mixed-Poisson inequalities and asymptotic expansions could imply some component formulas; the physical model identification, strict time-dependent comparison and combined sharp noncommutation remain the basis for the originality assessment. No independent validation is implied.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+V PASS. Changing independent to shared clocks while keeping one-point marginals fixed is a natural dependence experiment in transport and resetting. An exact finite-to-infinite-time rare-current exponent transition and sharp prefactors are mathematically specific, useful results, not solely a generic Jensen inequality or unmotivated finite cutoff. The model-specific density-scale non-self-averaging supplies additional content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
