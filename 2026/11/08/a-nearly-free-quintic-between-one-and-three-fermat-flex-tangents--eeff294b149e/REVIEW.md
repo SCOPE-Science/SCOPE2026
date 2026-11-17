@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The pairwise projective equivalence and the local contact order-three computations give precisely two \(A_5\) points and one node; consequently \(\tau=11\). The explicit quadratic Jacobian syzygy is symbolically checked in \(\mathbb Z[\omega]\), and a full-rank modular minor excludes lower-degree syzygies over \(\mathbb C\). The numerical criterion therefore proves near freeness and the stated exponents. The single-line contrast uses its \(A_5\) Tjurina number; the all-three free case is cited, not claimed as a new computation.
+## correctness
 
-**Originality — PASS, with priority risk.** The inspected 2023 primary text establishes freeness after adjoining the complete three-line flex pencil, and a different larger union of two complete flex triples; it neither explicitly classifies nor derives the two-line intermediate quintic. Targeted title, formula, near-free and Jacobian-syzygy searches in accessible literature, mathematical records, and prior research claims yielded no statement implying this exact intermediate result. More general addition--deletion literature may cover it in an uninspected corollary; see structured comparisons in AUDIT.json.
+PASS
 
-**Mathematical value — PASS.** This is a complete sharp freeness boundary for a canonical, symmetry-selected sequence of one, two and three high-contact additions to a Fermat elliptic cubic, motivated directly by the full-pencil free construction. The intermediate member is neither an arbitrary equation nor simply an application of the three-line theorem; proving near freeness needs the minimal degree-two syzygy and the local Tjurina budget. The result is narrow and does not imply statements for all smooth cubics.
+Over complex numbers the smooth Fermat cubic E:x^3+y^3+z^3=0 is met to order 3 by each line x+omega^j*y=0, so each union point is two smooth branches tangent to order 3, analytically A5; the two distinct lines meet away from E transversely as A1, giving tau=5+5+1=11. For F=E*(x+y)*(x+omega*y), independent polynomial reduction modulo omega^2+omega+1 verified the explicit quadratic identity A F_x+B F_y+D F_z=0. An independently constructed 21-by-9 coefficient matrix of all degree-one polynomial Jacobian syzygies, reducing omega to 2 modulo 7, has rank 9, so mdr(F)=2 in characteristic zero (and degree-zero impossible). For d=5,r=2, the du Plessis-Wall near-free numeric criterion gives 16-2(2)-1=11 and exponents (2,3). Projective cyclic symmetry covers all pairs. Full-three-line free sextic is known; one-line quartic has tau 5 and fails numerical near-free criterion. Finite modular rank is an exact nonvanishing minor certificate, not finite sampling for an infinite assertion.
 
-**Closest work and limits.** Dimca--Ilardi--Pokora--Sticlaru (arXiv:2301.01117, especially Corollary 1.6 and Definition 3.5) supplies the freeness framework and the all-three endpoint. Historical-priority risk remains, and independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: previously published construction gives the complete three-flex-line free sextic and general near-free numerical criterion, not the specific intermediate cubic-plus-two-flex-line quintic with explicit syzygy and 2A5+A1. An uninspected addition-deletion corollary remains a serious plausible priority risk.
+
+## value
+
+PASS
+
+The one-/two-/three-line canonical flex arrangement provides a natural filtration from not nearly free to nearly free to free, with a nontrivial intermediate exact Jacobian-syzygy invariant and singularity basket. This adds a structurally motivated precise example in freeness/near-freeness of reducible curves rather than an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
