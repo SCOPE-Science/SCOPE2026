@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible checks
+# Independent mathematical audit
 
-Use Python 3 with the dependency in `requirements.txt`, then run `python verify_periodic_pd.py`. The standalone script derives the exact single-step determinant/trace and the two-step Jury-margin polynomial using symbolic identities; it also checks the critical boundary values and the explicit rational instability witness.
+## correctness
 
-The second verifier uses `fractions.Fraction` to compute the transition matrices and strict Jury inequalities independently over \(9{,}227\) rational sampled cases, including explicit destabilizing samples throughout the open gain-ratio window. `verification_output.txt` records the actual execution status.
+PASS
 
-# Proof and reproducibility limits
+Exact constant-acceleration integration gives F_r(t)=[[1-rt²/2,t-t²/2],[-rt,1-t]], determinant 1-t+rt²/2 and trace 2-t-rt²/2. Jury gives single-step interval (0,min(2,2/r)). For product the first two tests hold automatically, while 2(1+T+D)=8-4(a+b)+4(1-r)ab+r²a²b². Holding ab fixed and using a+b<L+ab/L reduces the infimum to one boundary edge; direct quadratic minimization yields all four cases, including strictly interior stability at zero boundary infima. Independent symbolic algebra and 896 rational pairs corroborated; true proof is real-variable optimization.
 
-Only the analytic Jury inequalities and boundary-reduction argument establish the universal assertions over all positive real gains and all admissible periods. Neither the rational grid nor symbolic equality checks constitute exhaustive numerical verification of all real parameter values. The analysis does not cover arbitrary switching among more than two sampling intervals. No external independent validation has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge original exact joint-stability dichotomy. The inspected sufficient robust aperiodic sampling methods and different delayed-feedback, variable-step integrators do not identify this one-plant fixed-PD two-period exact iff region. No published Resultary result found with a stronger theorem implying this exact gain-ratio frontier; search failure alone is not novelty proof.
+
+## value
+
+PASS
+
+Two individually Schur-stable held-feedback maps can destabilize each other: sharp universal safe-gain intervals and rational witness quantify a genuine noncommutative stability obstruction. Exact gain phase boundaries and infimum Jury margin are natural control invariants, not parameter relabelling or an arbitrary tiny-instance enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

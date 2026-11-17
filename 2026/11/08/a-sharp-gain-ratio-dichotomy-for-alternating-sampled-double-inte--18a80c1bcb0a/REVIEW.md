@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-An exact zero-order-held double-integrator transition yields three scalar Jury inequalities for each individual step. For a two-step product, two inequalities are automatically strict for individually stable steps, while the last becomes the explicit polynomial \(S_r(a,b)\). For fixed product \(ab\), the polynomial decreases with the step sum, whose sharp upper bound occurs at a single-step stability boundary. Optimizing the resulting edge quadratics proves every interval of the gain-ratio classification and the stated infimum, with strictness in the open square even at the critical ratios. A rational witness demonstrates actual instability. A standalone exact-arithmetic verifier supplements the proof, not replaces it.
+PASS
 
-## Originality — PASS, with residual precedence risk
+Exact constant-acceleration integration gives F_r(t)=[[1-rt²/2,t-t²/2],[-rt,1-t]], determinant 1-t+rt²/2 and trace 2-t-rt²/2. Jury gives single-step interval (0,min(2,2/r)). For product the first two tests hold automatically, while 2(1+T+D)=8-4(a+b)+4(1-r)ab+r²a²b². Holding ab fixed and using a+b<L+ab/L reduces the infimum to one boundary edge; direct quadratic minimization yields all four cases, including strictly interior stability at zero boundary infima. Independent symbolic algebra and 896 rational pairs corroborated; true proof is real-variable optimization.
 
-The examined sampled-data control primary literature develops general sufficient robust maximum-sampling-interval bounds or state-feedback design procedures; the double-integrator symplectic-discretization source changes its feedback design with the discrete model. Those results do not state nor directly imply the full fixed-gain two-period Schur-stability equivalence with gain-ratio thresholds \(1/2\) and \(2\). Comparison with related mathematical-record results found a two-period recurrence bound and a periodic-oscillator resolvent result, both for distinct objects and invariants. Originality is assigned narrowly to this exact classification and margin, not to the classical Jury test or exact sampled flow. Inaccessible older specialist control papers remain a specific risk.
+## originality
 
-## Value — PASS
+PASS
 
-Individually stabilizing sampling intervals are not automatically safe under alternation, even for an elementary feedback-stabilized double integrator. The classification identifies exactly when that obstruction occurs in terms of a physically interpretable dimensionless ratio and provides a reproducible rational witness. It is a sharp robust-stability boundary for a complete natural two-period family, not an arbitrary numerical example or routine restatement of single-step stability.
+Best-of-knowledge original exact joint-stability dichotomy. The inspected sufficient robust aperiodic sampling methods and different delayed-feedback, variable-step integrators do not identify this one-plant fixed-PD two-period exact iff region. No published Resultary result found with a stronger theorem implying this exact gain-ratio frontier; search failure alone is not novelty proof.
 
-## Closest literature and limitations
+## value
 
-Berberich et al., arXiv:2011.09221, and Wildhagen et al., arXiv:2103.14353, concern general aperiodic sampling guarantees and design. Kotyczka and Lefèvre (IFAC 2020) use exact double-integrator discretization for a different symplectic feedback-design purpose. Sevim and Goren-Sumer (arXiv:2212.02922) derive sufficient common-contraction criteria for nonuniformly sampled double-integrator consensus and do not give an exact if-and-only-if two-period gain-ratio boundary. The theorem concerns fixed-gain two-period held control only, not arbitrary switching, uncertain plants, noisy measurements, or complete prevalence of earlier results in specialist sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two individually Schur-stable held-feedback maps can destabilize each other: sharp universal safe-gain intervals and rational witness quantify a genuine noncommutative stability obstruction. Exact gain phase boundaries and infimum Jury margin are natural control invariants, not parameter relabelling or an arbitrary tiny-instance enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

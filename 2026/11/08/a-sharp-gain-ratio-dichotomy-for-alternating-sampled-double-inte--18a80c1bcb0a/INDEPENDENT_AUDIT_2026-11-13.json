@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T01:16:02.918428Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact constant-acceleration integration gives F_r(t)=[[1-rt²/2,t-t²/2],[-rt,1-t]], determinant 1-t+rt²/2 and trace 2-t-rt²/2. Jury gives single-step interval (0,min(2,2/r)). For product the first two tests hold automatically, while 2(1+T+D)=8-4(a+b)+4(1-r)ab+r²a²b². Holding ab fixed and using a+b<L+ab/L reduces the infimum to one boundary edge; direct quadratic minimization yields all four cases, including strictly interior stability at zero boundary infima. Independent symbolic algebra and 896 rational pairs corroborated; true proof is real-variable optimization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Berberich et al. Theorem 4 provides sufficient aperiodic sampling stabilizability under model-data conditions; no necessity for all pairs.",
+          "Resultary mean-period delayed integrator uses previous-sample feedback, unlike current control."
+        ],
+        "reasoning": "Arbitrary-aperiodic theorems could dominate a periodic case if necessary-and-sufficient, but inspected sources supply only sufficient robust bounds or different updates; they do not imply the sharp region.",
+        "searches": [
+          "Resultary: alternating sample double integrator PD gain ratio r in (1/2,2) fixed two-step Floquet",
+          "arxiv:2011.09221"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2011.09221",
+        "https://arxiv.org/abs/2212.02922",
+        "https://arxiv.org/abs/2103.14353",
+        "https://arxiv.org/abs/2011.09221",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-gain-ratio-dichotomy-for-alternating-sampled-double-inte--18a80c1bcb0a/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Individual Schur stability alone permits unstable product at r=1, a=3/4, b=7/4 (S=-71/256).",
+          "Related prior periodic oscillator and AB/BDF products concern different propagators."
+        ],
+        "reasoning": "Neither sufficiency-based sampled-data stability criteria nor these different schemes algebraically imply the iff r≤1/2 or r≥2; distinct objectives and hypotheses checked.",
+        "searches": [
+          "arxiv:2011.09221",
+          "arxiv:2212.02922",
+          "Resultary: exact two-period gain stability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same-model state matrix F_r(t) and Jury product S_r are explicit in assigned proof.",
+          "Berberich et al. require sufficient LMIs/maximum sampling intervals for arbitrary aperiodic sampling, not an exact two-phase product."
+        ],
+        "reasoning": "Compared same held-feedback plant and product-matrix parameter r vs robust LMI conditions; equivalent LMI feasibility is not an explicit if-and-only-if gain ratio and no source proved equivalence.",
+        "searches": [
+          "Resultary: periodic alternating zero-order hold sampling double integrator fixed gains stability gain ratio two periods Schur instability",
+          "arxiv:2011.09221",
+          "arxiv:2212.02922"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact parameter table or two-period stability boundary appeared among reviewed results."
+        ],
+        "reasoning": "This is a continuum of all positive interval pairs, not a small fixed numerical census; unknown historical exact tabulations remain a residual risk.",
+        "searches": [
+          "Resultary exact periodic double integrator two-step Floquet Jury polynomial rational gain-ratio table",
+          "arxiv:2212.02922"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact joint-stability dichotomy. The inspected sufficient robust aperiodic sampling methods and different delayed-feedback, variable-step integrators do not identify this one-plant fixed-PD two-period exact iff region. No published Resultary result found with a stronger theorem implying this exact gain-ratio frontier; search failure alone is not novelty proof.",
+      "residual_risks": [
+        "Older control-engineering literature on periodically sampled fixed-PD double integrators may have equivalent stability inequalities not indexed by present searches.",
+        "Sevim–Goren-Sumer complete primary manuscript was not inspected; abstract-based comparison is only partial."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING of exact two-period iff; only sufficient data/model-based robust conditions",
+          "evidence": [
+            "Theorem 4 conditions are sufficient and concern arbitrary aperiodic intervals; no r=kp/kd² dichotomy."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2011.09221",
+          "material_read": "Full PDF opened; title/abstract, model/setup, Theorem 4 sufficient LMI stability conditions and sections around it inspected, with page screenshots of pp. 1 and 5",
+          "method": "Public arXiv PDF text inspection and page screenshots",
+          "title": "Data-driven analysis and control of continuous-time systems under aperiodic sampling",
+          "trigger": "Aperiodic zero-order-hold stability potentially dominates 2-period"
+        },
+        {
+          "assessment": "POSSIBLE RELATED; cannot claim whole-paper not covering",
+          "evidence": [
+            "Multiagent switching with sufficient contraction; no exact same one-plant theorem in read material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.02922",
+          "material_read": "Abstract and available index/search material only; full paper not read",
+          "method": "Public abstract and search",
+          "title": "Consensus of Double Integrator Multiagent Systems under Nonuniform Sampling and Changing Topology",
+          "trigger": "Double integrator under nonuniform sampling"
+        },
+        {
+          "assessment": "Analytic proof reconstructable",
+          "evidence": [
+            "S_r(a,b), quadratic boundary minima, equality case r=1/2 and 2."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-sharp-gain-ratio-dichotomy-for-alternating-sampled-double-inte--18a80c1bcb0a/RESULT.md",
+          "material_read": "Full frozen Finding/Proof; all boundary quadratics, rational witness, restrictions",
+          "method": "Connected private GitHub source read",
+          "title": "A sharp gain-ratio dichotomy for alternating sampled double-integrator feedback",
+          "trigger": "Assigned exact model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two individually Schur-stable held-feedback maps can destabilize each other: sharp universal safe-gain intervals and rational witness quantify a genuine noncommutative stability obstruction. Exact gain phase boundaries and infimum Jury margin are natural control invariants, not parameter relabelling or an arbitrary tiny-instance enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Ideal scalar double integrator with full-state fixed PD feedback and two alternating positive held steps. No arbitrary-switching guarantee, stochastic jitter, nonlinear dynamics, or uniform transient bound.",
+  "schema_version": 1
+}
