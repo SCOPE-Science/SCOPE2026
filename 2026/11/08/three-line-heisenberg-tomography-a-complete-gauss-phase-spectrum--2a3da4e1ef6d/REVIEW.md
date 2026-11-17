@@ -1,15 +1,21 @@
-# Review of the three-line Heisenberg theorem
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The group law, projection normalization, one-dimensional character count, and degree-\(p\) regular multiplicities give an exact dimension ledger. The nontrivial triple trace is reduced to the explicit quadratic central phase \(At^2+Bt\), and the cubic follows from a rank-three Gram determinant. Gershgorin gives strictly positive cubic roots for \(p\ge5\), while all six characteristic-three quadratic residues yield the stated real Gauss phases. The characteristic-three census counts every triple of cyclic subgroups with distinct projected directions, not individual generators. Standalone finite regular matrices and exact representative ranks agree. No finite calculation is treated as an infinite proof.
+## correctness
 
-## Originality
-**PASS under bounded primary-literature and indexed-record comparison.** Prior mutually unbiased basis results already provide the pairwise overlap; general finite Radon theory already supplies the Fourier-block language. The claim is the specific complete three-direction regular spectrum, the sharp rank transition, and its exhaustive \(36/72\) subgroup-triple count. The closest primary sources inspected were Šulc–Tolar (Heisenberg MUB construction), Ilmavirta (general finite-group Radon transform), and Blanchfield (dependent MUB configurations). The latter provides the most material risk around the characteristic-three geometry; dependence in small dimension alone is not asserted to be newly discovered. A possibly dominating general stabilizer-Gram theorem remains a residual historical-priority risk.
+PASS
 
-## Value
-**PASS.** Three chosen noncommuting line directions define a natural limited-angle finite-group tomography problem. The theorem gives its complete normal-operator spectrum, precisely which Fourier information is recoverable, and an exceptional six-dimensional extra information loss at the smallest odd prime. The subgroup-triple census is complete over the natural parameter space; it is not an arbitrarily selected slice. No general multi-direction or optimal-conditioning result is claimed.
+Used regular decomposition into p² scalar characters and p−1 degree-p Schrödinger irreps, each p times. For three distinct directions each subgroup average is rank-one projection in a degree-p irrep, pair squared overlap 1/p by group trace orthogonality; triple trace is p^-2 sum_t exp(2πiτ(At²+Bt)/p). Gram cubic (λ−1)^3−3(λ−1)/p−2 Re(qτ)=0 gives every block; p>=5 Gershgorin lower bound 1−2/sqrt(p)>0, and p3 direct Gauss-phase values yield 0,1,2 at B0 versus positive roots for B!=0. Character census 3(p−1) ones, rest zeros; 4 direction choices×27 lift choices gives exactly 36/72. Independently built regular convolution matrices and checked ranks p3 B=0/1 19/25, p5 B=0/1 73. The infinite claim relies on representation argument, not these tests.
 
-## Scope and independent checks
-The precise statement, proof, and finite verification are in `RESULT.md`; `check_heisenberg.py` is executable. Independent validation remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Passed with explicit restriction: general finite-group Radon Fourier framework and Heisenberg MUB overlaps are classical. Ilmavirta full-geometry Radon transform and Blanchfield dependent MUB vectors do not give the selected three-subgroup regular-operator spectrum and exact central-lift rank census in inspected statements. An older triple-stabilizer Gram theorem could subsume cubic, retained as risk.
+
+## value
+
+PASS
+
+Exact spectral tomography/stability and precise exceptional p=3 rank-jump census for an important finite noncommutative group, an objectively motivated incomplete-view inverse problem. The 36/72 count and cubic phase link are meaningful beyond restating standard pairwise MUB overlaps.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
