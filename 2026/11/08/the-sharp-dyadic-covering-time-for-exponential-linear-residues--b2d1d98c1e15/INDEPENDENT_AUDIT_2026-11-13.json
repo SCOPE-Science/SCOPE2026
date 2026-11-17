@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T11:17:56Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "verify.py"
+      ],
+      "rationale": "For odd a, n−t odd implies parity mismatch, n−t even with v2(n−t)=v ensures a^(n−t)−1 divisible by 2^(v+2); hence v2[(a^n+bn)−(a^t+bt)]=v2(n−t), giving a residue permutation in the first m terms. For even a, a^n≡0 mod2^k for n>=k, so m consecutive indices from k provide universal upper bound m+k−1. Sharpness avoids the one missing residue b(k−1) among indices through m+k−2: small k verified explicitly; for k>=7 random a=2u and C2×C_{2^(s−2)} power-map fibers give union bound 2^(2−k) Σ_{n<=floor(log2(k−2))}n2^n<1, hence an even sharp witness. Independently exhausted every a mod2^k, odd b mod2^k for k<=8 with exact pow modular arithmetic, finding maxima 2,5,10,19,36,69,134,263 and no bad odd-base cases. Infinite theorem rests on proof, not finite tests.",
+      "residual_risks": [
+        "Large-k extremizer is existential via probabilistic counting and may vary with b,k; no fixed-base construction claimed."
+      ],
+      "status": "PASS",
+      "verified_checks": [
+        "Independently reconstructed exact analytic/combinatorial argument from the frozen RESULT.md",
+        "Inspected frozen verifier source blob and reran bounded independent checks in /mnt/data/audit1104_checks.py",
+        "Fetched actual source Git tree object and checked returned tree SHA and file blob identities"
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun Theorem 1.1 spans arbitrary moduli with gcd(b,m)=1 but with m² rather than optimal dyadic m+log2(m)−1 bound."
+        ],
+        "reasoning": "Generality over modulus does not dominate the new sharp dyadic time, nor force sharpness witnesses.",
+        "searches": [
+          "exponential linear a^n+bn modulo powers of two covering time 2^k+k-1",
+          "https://arxiv.org/abs/1312.1166"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1312.1166",
+        "https://people.csail.mit.edu/rivest/pubs/Riv01c.pdf",
+        "RESULT.md",
+        "verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A universal m² coverage theorem cannot yield exact m+k−1 sharp worst-case, and the odd-base isometry alone says nothing about adversarial even bases."
+        ],
+        "reasoning": "Sharp existence needs a separate 2-adic unit-group avoidance/union-bound proof.",
+        "searches": [
+          "exponential linear a^n+bn modulo powers of two covering time 2^k+k-1",
+          "https://arxiv.org/abs/1312.1166"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun considers a^n+bn modulo m and m² coverage; special dyadic sharp first-coverage and odd-base isometry are separate quantified statements."
+        ],
+        "reasoning": "Equivalent first-covering-time formulation in powers of two checked directly, rather than matching only the sequence expression.",
+        "searches": [
+          "exponential linear a^n+bn modulo powers of two covering time 2^k+k-1",
+          "https://arxiv.org/abs/1312.1166"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Rivest classifies permutation polynomials modulo 2^w, not maps n↦a^n+bn or first-cover times."
+        ],
+        "reasoning": "No matching exact table discovered; finite verification is an independent new census not a proof of novelty.",
+        "searches": [
+          "exponential linear a^n+bn modulo powers of two covering time 2^k+k-1",
+          "https://people.csail.mit.edu/rivest/pubs/Riv01c.pdf"
+        ]
+      },
+      "rationale": "Sun proves coverage in first m² terms for coprime b, a substantially weaker and more general modulus theorem. Rivest studies permutation polynomials, not exponential-plus-linear words. Earlier power-of-two exact worst-case m+log2(m)−1 covering was not found in searched sources and is not an immediate corollary of general Sun bound.",
+      "residual_risks": [
+        "Unindexed number-theory literature may contain equivalent 2-adic permutation or sharp exponential-linear covering results; failed discovery is not priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_WEAKER_BOUND",
+          "evidence": "First m² coverage and b±1 conjecture, no exact power-of-two m+k−1 worst-case.",
+          "identifier_or_url": "https://arxiv.org/pdf/1312.1166",
+          "material_read": "Full original six-page PDF, Theorem 1.1 and Conjecture 1.1",
+          "method": "Read primary full text and sharpness scope",
+          "title": "On a^n+bn modulo m",
+          "trigger": "Identical exponential-linear residue sequence, direct priority comparison"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT",
+          "evidence": "Classifies polynomial functions f(n); exponential term a^n is generally not polynomial with a bounded coefficient representation, no first-coverage-time theorem.",
+          "identifier_or_url": "https://people.csail.mit.edu/rivest/pubs/Riv01c.pdf",
+          "material_read": "Full six-page PDF theorem, assumptions and polynomial recurrence proof",
+          "method": "Read primary PDF and inspected opening page",
+          "title": "Permutation Polynomials Modulo 2^w",
+          "trigger": "Power-of-two residue permutations and potential equivalent reformulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact optimal horizon and unavoidable delay for modular exponential-linear sequences in a natural dyadic regime, with clean odd/even phase distinction and all-k proof. Useful for arithmetic covering and residue sequence structure.",
+      "residual_risks": [
+        "Only odd b and powers of two; does not resolve Sun conjecture for general moduli."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Large-k extremizer is existential via probabilistic counting and may vary with b,k; no fixed-base construction claimed.",
+    "Unindexed number-theory literature may contain equivalent 2-adic permutation or sharp exponential-linear covering results; failed discovery is not priority proof.",
+    "Only odd b and powers of two; does not resolve Sun conjecture for general moduli."
+  ],
+  "schema_version": 1
+}

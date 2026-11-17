@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The odd-base valuation equality is proved for both parity classes of exponent differences. The even-base tail gives a universal bound, and the sharp lower bound uses an explicit missing residue plus a finite-group power-map fiber bound; the union bound is strictly below one for every \(k\ge7\). The small cases \(1\le k\le6\) are covered by stated explicit bases and independently tested. The proof is valid for every odd coefficient and all integral bases. The finite checker is supplementary rather than an infinite certificate.
+## correctness
 
-**Originality — PASS, with residual risk.** Sun (2013, arXiv:1312.1166v1), Theorem 1.1, gives an \(m^2\) coverage cutoff and Conjecture 1.1 discusses shorter general cutoffs for \(b=\pm1\); neither states the sharp all-odd-coefficient worst-case time for \(m=2^k\). Rivest (2001) treats polynomial permutations, not the sharp initial coverage time of exponential-linear sequences. Searches for exponential-plus-linear dyadic permutations and the claimed exact cutoff did not locate stronger coverage. An older equivalent modular-exponential formulation remains a possible priority risk.
+PASS
 
-**Mathematical value — PASS.** This determines an optimal universal first-covering invariant in a published modular exponentiation problem for the full natural prime-power family \(m=2^k\). The sharpness construction requires a nontrivial power-map counting argument; the result improves the general quadratic bound to linear-plus-logarithmic and settles the power-of-two portion of the proposed short-coverage phenomenon. It does not settle other prime-power moduli.
+For odd a, n−t odd implies parity mismatch, n−t even with v2(n−t)=v ensures a^(n−t)−1 divisible by 2^(v+2); hence v2[(a^n+bn)−(a^t+bt)]=v2(n−t), giving a residue permutation in the first m terms. For even a, a^n≡0 mod2^k for n>=k, so m consecutive indices from k provide universal upper bound m+k−1. Sharpness avoids the one missing residue b(k−1) among indices through m+k−2: small k verified explicitly; for k>=7 random a=2u and C2×C_{2^(s−2)} power-map fibers give union bound 2^(2−k) Σ_{n<=floor(log2(k−2))}n2^n<1, hence an even sharp witness. Independently exhausted every a mod2^k, odd b mod2^k for k<=8 with exact pow modular arithmetic, finding maxima 2,5,10,19,36,69,134,263 and no bad odd-base cases. Infinite theorem rests on proof, not finite tests.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Sun proves coverage in first m² terms for coprime b, a substantially weaker and more general modulus theorem. Rivest studies permutation polynomials, not exponential-plus-linear words. Earlier power-of-two exact worst-case m+log2(m)−1 covering was not found in searched sources and is not an immediate corollary of general Sun bound.
+
+## value
+
+PASS
+
+Exact optimal horizon and unavoidable delay for modular exponential-linear sequences in a natural dyadic regime, with clean odd/even phase distinction and all-k proof. Useful for arithmetic covering and residue sequence structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
