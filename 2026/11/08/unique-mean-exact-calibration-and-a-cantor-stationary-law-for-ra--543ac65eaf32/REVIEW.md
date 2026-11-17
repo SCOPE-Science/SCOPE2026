@@ -1,15 +1,21 @@
-# Review of Unique mean-exact calibration and a Cantor stationary law for randomized two-state generator splitting
+# Independent mathematical audit
 
-## Correctness
-PASS. Exact subflow matrices reduce to a one-dimensional affine random recursion; the unique invariant law follows from strict contraction. The invariant mean equation has a unique solution because an exponential integral is strictly monotone. At that solution, Bernoulli-sum moments yield exact mean/variance at every discrete time, and the separated cylinder argument proves the Cantor support, dimensions and first-level gap. A standalone standard-library verifier supports the exact arithmetic through 6,557 assertions, without replacing the infinite proofs.
+## correctness
 
-## Originality
-PASS, subject to publication-precedence risk. Veldman and Zuazua, *A framework for randomized time-splitting in linear-quadratic optimal control* (arXiv:2109.13798), establish importance-scaled random exact subflows and general finite-horizon error bounds. Eisenmann and Stillfjord (arXiv:2210.05375) analyze a related randomized implicit evolution scheme. The exact self-similar measure technology of Hutchinson (1981) and Bernoulli convolutions is preexisting and explicitly credited, and Chakraborty (2023) studies a different random-matrix-entry distribution. None of the inspected statements covers the exact rate-proportional mean semigroup identity coupled to the finite-time error constant and invariant equilibrium gap for these two-state one-way flows. The specialist 2023 article was not completely retrieved, so an equivalent unpublished or specialized result cannot be ruled out.
+PASS
 
-## Value
-PASS. Two-state continuous-time Markov generators give a minimal but natural test of randomized time-splitting. The result identifies a unique mean-unbiased configuration while showing that for coarse steps every numerical realization is uniformly separated from the target equilibrium. It gives a precise design and diagnostic boundary with exact, reproducible error constants rather than a generic variance warning.
+The exact subflow maps are z->exp(-ah/p)z and z->exp(-bh/(1-p))z+1-exp(-bh/(1-p)); coupling provides Wasserstein contraction of laws. Solving the invariant-mean equation and using strict decrease of (1-e^{-hx})/x forces uniquely p=a/(a+b). At this p, q=e^{-(a+b)h} and iid Bernoulli(r=b/(a+b)) bits give z_{n+1}=qz_n+(1-q)B_n, exact mean semigroup and variance pr(1-q)/(1+q)*(1-q^{2n}). Independently enumerated exact rational paths for p=2/5,q=1/3 and checked mean 535/891 and variance 1312/10935 at chosen finite n. Separated affine branches for q<1/2 prove Cantor support and dimension by standard self-similar/cylinder entropy laws; q=1/2 has binary digit law. The first-level gap correctly requires q<min(p,r), not only q<1/2. The finite tests do not prove dimension, which follows from the stated cylinder argument.
 
-## Scientific limits
-The proof does not extend to arbitrary state counts or inexact subsolvers, and does not classify the overlapping Bernoulli-convolution range. An invariant law of randomized probability-vector propagation is different from the underlying CTMC equilibrium or an exact CTMC sample path. Specialist publication precedence remains an open risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Scheme-specific unique rate-proportional sampling p=a/(a+b) yielding exact semigroup mean, exact finite-time variance and coarse-step forbidden-equilibrium region are not covered by the inspected randomized-splitting finite-horizon literature. Classical Bernoulli convolution support and dimension are credited, not claimed as new abstract results.
+
+## value
+
+PASS
+
+This minimal CTMC numerical splitting model demonstrates a sharp conceptual distinction between exact mean evolution and pathwise/measure-level fidelity. It gives exact finite-horizon RMS error and a threshold beyond which individual numerical probability vectors avoid the true equilibrium, a useful benchmark and diagnostic for randomized integrators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
