@@ -1,15 +1,21 @@
-# Self-review of the complete-bipartite Mahler-product theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is an intrinsic Euclidean volume product, with explicit definitions of the zero-sum subspace, polar and normalization. Three independent geometric ingredients reconstruct it: orthogonal slicing of the convex hull of opposite Cartesian simplex faces; gauge integration of the polar using the exact projected-coordinate Jacobian \(N^{-1/2}\); and the published \(h^*\) formula for the complete-bipartite graph. The strict threshold uses positive correlation of increasing functions of \(t(1-t)\), and one-step monotonicity uses strict monotone likelihood ratios, not finite enumeration. The limit is justified by an exact variance formula for a mixture of order statistics. The growth bound uses Chebyshev and Cauchy–Schwarz. Direct rational and Euclidean convex-hull calculations confirmed the formulas in the recorded finite ranges. The one-dimensional endpoint \(p=q=1\) and the degenerate zero-dimensional simplex factors are included.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Primary full-text comparison found the existing primal \(h^*\) and volume formula in Higashitani–Jochemko–Michałek (2018), and the facet/face-subgraph classification in Chen–Davis–Korchevskaia (2021). Both have been inspected beyond abstracts. Neither establishes the same polar volume, probability-density overlap, strict Mahler threshold and growth implications. Related searchable prior research covers complete-bipartite graph Laplacian spectra, Lipschitz-free Banach–Mazur distance, graph-metric facet counts, and graphical zonotope ellipsoids, none of which implies the asserted volume product. The earlier exact primal volume is credited rather than presented as new. Unindexed metric convexity sources remain a material novelty risk; absence of a retrieved record is not treated as proof of absolute novelty.
+PASS
 
-## Mathematical value — PASS
-Mahler products are natural affine invariants and the complete-bipartite graph family is an established, infinite, structurally distinguished family of symmetric edge polytopes. Exact normalized volume-product formulas reveal where the parallelotope benchmark is attained, prove strict separation otherwise, supply a genuine two-parameter monotonicity law and give a uniform square-root asymptotic regime. These are geometric claims beyond evaluating a known integer sequence or relabeling a previously computed primal volume. The positive results are not extrapolated from the seven numerical polytope checks.
+The primal root-polytope is a two-opposite-face join; orthogonal section integration yields 2sqrt(N)/[(p-1)!(q-1)!] times integral A_(p-1)A_(q-1). For the polar |u_i-v_j|<=1, anchor minimum left value at zero, integrate left block max M with right interval length 2-M, and divide anchored volume by sqrt(N), giving 2^(N-1)p!q!/[sqrt(N)(N-1)!]. The density B_r=r A_(r-1)/2^(r-1) integrates to one; the known h-star identity also gives the finite sum. A_(r-1) is a polynomial with nonnegative coefficients in h=t(1-t), B_1=B_2=1, B_r strictly increasing for r>=3. Strict Chebyshev covariance gives R>1 iff p,q>=3 and MLR of successive B_r gives strict coordinatewise monotonicity. The B_q order-statistic mixture weakly concentrates at 1/2 as q diverges; the fixed-p limit and sqrt(min)-order growth bound follow by elementary concentration/Cauchy-Schwarz. Independently recomputed 64 exact beta-integral overlaps and the h-star finite sum for 1<=p,q<=8, applicable monotonic inequalities, and R(3,3)=81/80; no infinite claim inferred from those checks.
 
-## Scope and risks
-The concentration lower constant is not sharp; neither the independent verification of priority nor a theorem for arbitrary graphs is claimed. The infinite-dimensional conclusions rest on the analytical proof, not on sample computations. The polar gauge volume has been checked in both the \(p=1\) case and the general \(p\ge2\) case.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+IMPORTANT qualification: neither the primal-volume formula (Higashitani–Jochemko–Michałek 2018) nor the polar-volume formula is novel: the published 2026-10-18 complete-multipartite Lipschitz-dual volume identity at t=2 gives exactly the anchored K_(p,q) polar volume (numerically and algebraically cross-checked). The genuinely surviving originality is the Mahler overlap-density structure, the rigid equality iff min<=2, strict normalized-product monotonicity in each nontrivial class size, and the two-parameter sqrt(min) growth/finite fixed-class limit. These comparisons were not claimed by the inspected older sources.
+
+## value
+
+PASS
+
+The strict threshold min(p,q)<=2 and strict Mahler hierarchy establish a natural shape-ordering in a canonical family of graph-root bodies, connecting volume-product geometry to stochastic overlap monotonicity. The sqrt(min) asymptotic distinguishes fixed-class and jointly growing regimes and is a genuinely motivated geometric comparison even though component volume formulas are known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
