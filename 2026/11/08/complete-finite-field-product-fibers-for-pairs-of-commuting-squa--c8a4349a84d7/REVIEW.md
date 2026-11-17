@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four original matrix identities force the factor blocks and disjoint injections, then identify the remaining blocks with an independently counted pair of mutually annihilating square-zero endomorphisms of a complementary space of dimension \(n-4t\). The injection and linear-lift factors are counted without quotienting; the zero-product count is established by two exact subspace Möbius inversions. The resulting formula holds in any characteristic, with all empty-block and zero-target cases explicit. Direct exhaustive checks reproduce the zero-product counts up to dimension three and the entire nonzero product fiber for a fixed four-dimensional binary target, with every predicted pair for a five-dimensional rank-one binary target also tested against the original identities.
+## correctness
 
-**Originality — PASS, provisional.** The image/rank bound and qualitative realizability are published in Kokol Bukovšek–Košir–Novak–Oblak, and an earlier finite-field result computes the complete four-dimensional product fibers. Those claims are explicitly excluded as new. An earlier double-flag count determines the zero-product base terms \(Z_b(q)\), but does not state the nonzero fibers in all dimensions. The inspected original papers and research-index searches do not exhibit the all-dimensional multiplicative fiber law. An unindexed general product-fiber theorem is a residual risk; failed search is not proof of priority.
+PASS
 
-**Value — PASS.** The multiplication pushforward on a natural representation variety has been studied qualitatively, but the exact sizes of all product fibers across every finite field, dimension and admissible product rank are a natural, motivated arithmetic invariant. The formula gives uniform fibers for every nonzero square-zero conjugacy class and makes the nonzero fiber computation reducible to a smaller-dimensional zero-product census. It generalizes rather than merely repeats the four-dimensional census.
+BC=CB=D forces D²=0 and annihilation BD=DB=CD=DC=0. The adapted decomposition E⊕H⊕F gives B and C as upper-block matrices with PH0=US=I, PS=UH0=0, so two disjoint t-dimensional injections into H require n>=4t. Their counts are I_q(n-2t,t) and q^{t²}I_q(n-3t,t); free P,U extension and Q,V blocks contribute q^{2t(n-4t)+2t²}. The remaining R,T mutually annihilate and square to zero on a complement of dimension n-4t, giving Z_{n-4t}(q). For D=0, a flag U=im B+im C contained in K=ker B∩ker C and two subspace-Möbius inversions derive Z_n(q) with no overcount. Directly calculated q=2 rank-1 n=4 and 5 fiber predictions 24 and 672; verified n=4 n>=4t boundary.
 
-**Closest literature and limitations.** The 2007 product-characterization paper establishes support but not fiber sizes; Levy treats geometry in characteristic two; Britnell–Wildon treats commuting-class existence. Earlier finite-field results cover the four-dimensional fiber and the zero-product flag count; both are credited. The theorem counts ordered labeled matrices, not orbits or higher nilpotency. Full independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: Kokol Bukovšek et al. 2007 Proposition 2.2 exactly proves the rank/shape support iff 4t<=n but not multiplicities. Later full-rank commuting square-zero product-rank strata, maximal-Jordan partner joint-rank fibers, and noncommuting bidirectional product-rank counts have different conditioning, thus none states or directly implies the all-n fixed-target fiber multiplicities. Already known n=4 fiber and zero-product Z_n are explicitly excluded as innovations.
+
+## value
+
+PASS
+
+PASS: The fixed-target multiplication pushforward is a canonical quantitative refinement of a classical existence problem, with uniform fibers by target conjugacy class and a nontrivial dimension-descent formula. It predicts all positive fibers over all finite fields, not merely a narrow or arbitrary example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
