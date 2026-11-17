@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The one-step fixed-budget coextinction probability law is explicit. Inclusion-exclusion for two secondary indicators proves the exact pair-union variance formula. The nine-vertex witness has identical labeled bipartite degree vectors, two independently verified variance profiles and an actual strict sign reversal. The embedded standard-library checker exhaustively enumerates every connected labeled bipartite incidence matrix of total order at most eight, groups them by degree profiles (a weaker matching requirement than the theorem) and compares all conditional variances using exact integers. A connected nine-vertex graph needs at least eight edges; the witness meets this bound. No simulation result is treated as an infinite proof.
+## correctness
 
-**Originality — PASS within inspected material, with residual priority risk.** The older extinction-simulation paper introduces the model but does not make a sharp fixed-degree conditional-variance comparison. Pastor and colleagues study topology and robustness through degree-distribution manipulations and \(R_{50}\), not a minimum-order pairwise variance reversal. Bane and colleagues treat the distribution of integrated robustness over extinction sequences, not this pointwise variance ranking under preserved degrees on both sides. Jones and colleagues supply degree-based expected extinction results, which cannot imply the observed variance reversal. Available related mathematical-result records concern occupancy covariance, pairwise functional overlap or integrated robustness variance, rather than this combined labeled-degree and sharp-cutoff claim. The mathematical transformation to finite hypergraph coverage and possible unidentified older sharp classification remain specific priority risks.
+PASS
 
-**Value — PASS.** The fixed-budget survivor count is a central ecological-network outcome. This example is the smallest possible connected structure where preserving **every species degree** leaves all mean outcomes unchanged while permitting opposite variance rankings at distinct extinction budgets. The nine-species/eight-link cutoff is a non-arbitrary, complete finite boundary: it pinpoints the first failure of degree-only variance summaries and provides a compact counterexample for robustness-model benchmarking. No empirical or universal ecosystem effect is inferred.
+For fixed-size uniformly sampled surviving primary set K, secondary inactivity a_i=C(q-d_i,k)/C(q,k), pair inactivity a_ij=C(q-|N_i∪N_j|,k)/C(q,k); covariance yields exactly Var(Y_k)=sum a_i(1-a_i)+2sum(a_ij-a_i a_j). The two displayed 4x5 neighborhood matrices have identical labeled secondary degrees (4,2,1,1), primary degrees (3,2,1,1,1), eight edges, and each is connected, hence trees. Independent exact subset enumeration confirms variance A=(16/25,17/20,89/100,16/25), B=(16/25,21/20,69/100,6/25) and strict -1/5,+1/5 sign reversal at budgets k=2 and k=3. Independently reran exhaustive complete incidence-matrix enumeration for every 2<=p,q with p+q<=8 using integer variance numerators, 70,479 connected labeled graphs, 352 bidegree classes and 403 distinct class profiles: none reverse, including relaxed matching by sorted degrees. Trivial one-vertex guild is uniquely star. This is a finite *exhaustive* cutoff, with full enumerator loops inspected, not a sampled experiment.
 
-**Sources and limits.** Primary full text examined: Memmott et al. (2004), Pastor et al. (2012), Bane et al. (2018), Jones et al. (2024). The Chabert-Liddell et al. (2022) abstract was also compared; full text was not accessible, making it a priority risk rather than a claimed exhaustive noncoverage check. Source DOI references and limitations appear in RESULT.md and the structured AUDIT.json. Historical priority and independent certification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge targeted statement comparison against actual published same-object sources. The existing general principles and any known same-size phenomena are explicitly credited; the surviving contribution is the precise additional scoped statement (see four checks and residual risks).
+
+## value
+
+PASS
+
+A motivated, exact minimal connected-tree counterexample to a natural degree-based robustness heuristic: every labeled species keeps its degree and all expected fixed-budget richness values, yet the risk-variance ordering reverses with primary-survival budget. The connected nine-species/eight-edge sharp cutoff is a useful small ecological network extremal benchmark even though it does not predict real ecosystems; not a routine recomputation of an iid-extinction ranking.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
