@@ -1,19 +1,21 @@
-# Scientific review: complete graph spectra of rank-one evolution algebras
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS (same-model only). The theorem fixes a nonzero generator of the one-dimensional square and writes multiplication as a symmetric bilinear form times that vector. The radical equals the annihilator. Natural bases coincide with orthogonal bases; the positive-outdegree sources are exactly the non-radical basis elements. The three algebraic cases are distinguished intrinsically by \(A^3=0\) and \((A^2)^2=0\). Witt transitivity over algebraically closed fields of characteristic not two proves that any active coordinate support with the stipulated size is possible, and radical shears realize arbitrary radical coordinates. Labelings, exact counts and simultaneous realization follow. A standalone exact-arithmetic checker independently constructs 124 patterns in small dimensions. It does not replace the general proof.
+PASS
 
-## Originality
+For dim A²=1 write xy=B(x,y)v, where B is symmetric and radical=Ann(A). Any natural basis diagonalizes B, giving d active source coordinates T; all active squares are nonzero multiples of v so their directed out-neighborhood equals the same nonempty support S. The projection w of v to A/Ann(A) is zero exactly when A³=0; if w≠0, B(v,v)=0 gives isotropic case requiring ≥2 active coordinates, and B(v,v)≠0 requires ≥1. Over algebraically closed char≠2, nondegenerate quadratic form has orthonormal basis, and orthogonal-group transitivity on equal-norm nonzero vectors (including isotropic) realizes any allowed active support. Radical shears independently assign arbitrary radical support when w≠0; if w=0, radical basis changes realize every nonempty S in radical. Permutation gives all T; direct subsets counts give labeled C(n,d) times 2^r(2^d-d-1), 2^r(2^d-1), or 2^r-1, and isomorphism classes depend solely on the two support sizes. This also proves finite-family simultaneous realization within a fixed algebra. Finite SymPy construction illustrates d<=3,r<=2 but is not the arbitrary-dimensional proof.
 
-PASS with residual priority risk (same-model only). The 2026 survey explicitly poses simultaneous graphical realization as Question 30. The 2020 natural-family paper gives the block form of basis changes and orthogonality criteria; the 2021 and 2025 one-dimensional-square papers classify quadratic models and algebra isomorphism types. None of these inspected texts states the complete graph-support spectrum, the attainability of every listed pattern in each fixed algebra, or the labeled and unlabeled graph counts. The older quadratic-space classification and Witt extension are powerful inputs, so an equivalent unstated consequence in earlier literature remains possible. Searches of mathematical research records using rank-one natural bases, graph supports, isotropy, and simultaneous graphical realization found no equivalent asserted theorem; unsuccessful searches are not a proof of global novelty.
+## originality
 
-## Mathematical value
+PASS
 
-PASS (same-model only). The result gives a natural complete classification of an invariant set of combinatorial presentations for an entire infinite family, including degenerate algebras with arbitrary annihilator dimension, and a precise boundary between active-isotropic and active-anisotropic behavior. The result also completely resolves the finite-family simultaneous-graph question when the underlying algebra has one-dimensional square, one of the simplest nonperfect families for which the graph depends on natural basis. Its exact graph counts are not algebra-isomorphism counts and do not settle the general open question.
+The quadratic-form normal model and Witt orthogonal transitivity are known, but the inspected earlier literature and Resultary entries do not state the complete support-graph spectrum of all ordered natural bases of one fixed rank-one-square algebra, nor its exhaustive labeled/unlabeled counts and simultaneous-realization criterion over algebraically closed char≠2. Earlier binary finite-field spectra involve different orbit geometry.
 
-## Closest sources and limitations
+## value
 
-Closest primary literature: Boudi–Cabrera Casado–Siles Molina (2020), especially Corollary 2.13 and Proposition 2.16; Brache et al. (2021), classification by symmetric bilinear forms; Martín Barquero et al. (2025), Theorems 4.18–4.23 and Corollary 4.22; Kaygorodov et al. (2026), Question 30. The ambient field must be algebraically closed and of characteristic different from two; no graph-spectrum claim is made over general fields or for \(\dim A^2>1\). A human priority review is advisable given the direct relationship to established quadratic-space methods.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural graph invariant of evolution algebras depends on the choice of natural basis. The theorem classifies all graph presentations for every algebra with one-dimensional square, including its radical, computes exact labeled and unlabeled spectra, and answers a motivated restricted simultaneous-realization problem. The Witt and radical-shear realization removes an actual structural ambiguity beyond mere form classification. It is a meaningful complete infinite-family structural fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
