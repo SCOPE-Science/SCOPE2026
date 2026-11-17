@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof begins with the exact identity for \(F^*F\), removes the first isometry by unitary conjugation, and uses the polar decomposition of the arbitrary bounded corner. The explicit continuous matrix \(W(s)\) diagonalizes every positive scalar parameter, including the zero endpoint, so the operator-level functional calculus yields a genuine unitary equivalence, not only setwise equality of spectra. Eigenspace multiplicities follow from the injectivity of the restricted positive modulus; the Fredholm essential spectrum requires a separate factorization at the exceptional value \(1\). Schatten membership and its exact formula follow from a direct-sum singular-value count. Finite complex-matrix checks cover rectangular corners and every possible rank up to size six. Continuous spectral claims rest on the proof, not enumeration.
+## correctness
 
-## Originality — PASS (best-knowledge comparison)
-The initiating 2026 source, Nag–Golla, treats norm/minimum attainment and Fredholm indices but does not assert this unitary normal form or full ideal profile. Garcia's 2009 Foguel theorem supplies reciprocal spectral mapping away from the points \(0\) and \(1\) for a shift-based model; the new statement explicitly credits it. Raghupathi's 2012 theorem gives a Schur-complement proof of that mapping and determines invertibility at the unit point for a one-isometry model; these earlier results make the elementary scalar branch and unit-point criterion alone unoriginal. The new scope concerns simultaneous **unitary classification of the positive modulus including spectral multiplicities, arbitrary pairs of isometries, arbitrary defect dimensions, and exact Schatten perturbation identities**. Relevant primary sections were materially inspected, and targeted semantic searches produced no covering equivalent. Priority remains unverified: an older unstated decomposition may subsume the argument; further specialist checking is appropriate.
+PASS
 
-## Mathematical value — PASS
-The theorem determines the complete natural singular spectral data for a recently studied operator family and separates information lost in norm and spectral-set formulas. In particular, it distinguishes Fredholm unit gaps from isolated essential unit points, shows why the second isometry is invisible to the entire positive modulus despite controlling the Fredholm index of the original operator, and supplies exact Schatten perturbation costs for every exponent, including quasi-ideals. The uniform structural classification is motivated by the literature rather than an arbitrary finite instance. Claims for general nonnormal spectra are expressly excluded.
+The Gram operator F*F has top-left projection V1V1*, off-diagonal V1T and lower diagonal I+T*T; conjugating V1H1⊕ker V1* separates 0_E and the shear Gram G*G. Polar decomposition of T splits ker T*, ker T and K=(ker T)^⊥, reducing the nontrivial part to the commuting positive block [[I,S],[S,I+S²]]. The stated continuous 2×2 unitary W(s) diagonalizes this exactly for all s>=0, yielding unitary |F| normal form with φ(S),φ(S)^−1 and exact exceptional eigenspace multiplicities. At λ≠1 Schur complement reduces Fredholmness to (1−λ²)²/λ²−T*T; at λ=1 the off-diagonal [[0,T],[T*,0]] is Fredholm iff T is Fredholm; infinite ker V1* adds essential 0. Thus the full essential spectrum and Schatten p criteria follow for arbitrary bounded T and two isometries. Independently checked eigenvalues of scalar blocks s=0,.25,1,4 and inspected finite matrix checker for all rectangular ranks; finite data do not establish infinite theorem.
 
-## Risks and scope
-Classical spectral mapping identities and the scalar reciprocal functions are prior results, not independent new claims. The diagonalizer uses only standard polar decomposition and continuous functional calculus, making priority against earlier block-operator normal forms the principal residual risk. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Garcia 2009 and Raghupathi 2012 already give nonexceptional singular spectral mapping and norm formulas for classical Foguel-type operators; these are credited, not claimed anew. Nag–Golla 2026 concerns norm/minimum attainment and Fredholm data of generalized two-isometry blocks. The final claim is stronger: full positive unitary decomposition as an operator including identity and zero defect multiplicities, continuous spectrum, and all Schatten-power formulas. No read source establishes this exact complete normal form, but it is derived from elementary polar decomposition; a previously known block-shear normal form remains a material priority risk. Full primary-text access failed, so O is best-knowledge with nontrivial caveat.
+
+## value
+
+PASS
+
+A complete singular spectral normal form for all bounded corners and arbitrary isometric diagonals is a natural uniform classification, not a numerical sample. It resolves exceptional unit and zero multiplicities that setwise spectrum omits, distinguishes Fredholm unit gaps from isolated essential unit points, and gives exact all-p Schatten perturbation costs. These motivate the precise result independently of any broad new operator theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
