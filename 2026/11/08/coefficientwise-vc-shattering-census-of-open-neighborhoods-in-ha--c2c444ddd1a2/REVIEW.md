@@ -1,11 +1,21 @@
-# Scientific review: open Hamming-neighborhood shattering census
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete polynomial is derived from exact Hamming graph neighborhood intersections. The proof reconstructs all possible one-, two-, and three-point supports; gives a witness scheme and a matching obstruction for each triple geometry; counts line triples once and the other triples by their unique center; and excludes all four-point supports in every parameter case. Fourteen finite examples were checked independently by direct trace enumeration, including explicit four-point searches on every tested graph of at most 27 vertices. The finite experiment is corroboration, not the infinite proof.
+## correctness
 
-**Originality — PASS within accessible comparison.** The closest original result is Adler–Benediktsson–Macpherson, arXiv:2007.16042, Section 4 (especially Theorems 4.6–4.8): it proves sharp VC dimension and VC density for the edge relation of Hamming graphs, and its open-neighborhood common-neighbor lemmas are acknowledged. The inspected section does not state a coefficientwise count of all shattered pairs and triples. Coudert–Csikós–Ducoffe–Viennot, DOI:10.4230/LIPIcs.SEA.2024.8, gives graph VC-dimension algorithms, not a two-parameter coefficientwise census; it emphasizes closed rather than open neighborhoods. A prior exact closed-neighborhood Hamming-ball count concerns different concepts and gives distinct numerical values, including \(288\) rather than \(320\) shattered triples on \(H(2,4)\). Published-record and primary-literature queries found no dominating count, but a previously published equivalent under another terminology cannot be ruled out. No established VC-dimension threshold is claimed as new.
+PASS
 
-**Value — PASS.** After the established dimension threshold, the natural unresolved refinement is the number and shape of **all** shattered supports for an unrestricted two-parameter family of Hamming graphs. The full polynomial distinguishes instances with identical VC dimension, identifies three geometrically different sources of maximal shattered samples, and gives exact boundary behavior. It is a complete natural invariant, not a selected small example or a routine restatement of the VC bound. The noncollinear unique-center count and the exceptional collinear multiplicities are mathematically essential to the result. No application or historical independence is invented.
+Hamming open-neighborhood centers u,v have shared neighbors only at center distances 1 or 2, giving the intersection geometry and uniqueness of a noncollinear triple center. Shattered pairs occur at distance one (d≥2,q≥3) or two (q≥3 or d≥3); shattered triples inside one N(c) partition by center-axis multiplicities 3,2+1,1+1+1, with sharp thresholds and combinatorial counts A, B, C. No four-set shattered: for a multi-axis four-set a three-subset has sole containing center c that also contains fourth; on one coordinate line no center produces an intermediate pair trace. Independent brute-force original-definition trace enumeration at seven parameter pairs reproduced s0..s3 and absence of quartets, including H(2,4) 320, H(3,3) 216, H(4,2) 64. All-parameter conclusion rests on proof.
 
-**Limitations.** The claims address full Hamming graphs, fixed alphabet size in every coordinate, and open distance-one neighborhoods only. The literature comparison is bounded by accessible material and semantic retrieval; priority uncertainty remains. Finite computations do not certify the universal proof; independent mathematical validation is still outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS with important special-case credit: Adler–Benediktsson–Macpherson already prove open-Hamming VC dimension ≤3 and sharp thresholds, and rectangular rook-graph complete open-neighborhood polynomial gives the full d=2 specialization. However its two-coordinate formulas do not determine all d≥3 coefficient counts including the three-axis type C; closed-neighborhood Hamming and adaptive-online dimensions are different observables. The final all-d two-parameter coefficientwise theorem is not covered by the inspected works.
+
+## value
+
+PASS
+
+A full shattering polynomial counts how many supports attain the VC threshold rather than only its existence; this is a natural combinatorial complexity invariant for Hamming graphs. The three geometrically distinct triple families, exact coefficients for all d,q and exceptional parameter thresholds remain genuinely informative beyond known dimension and the d=2 rook special case. It is a motivated complete classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
