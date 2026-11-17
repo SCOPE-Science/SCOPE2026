@@ -1,16 +1,21 @@
-# Research review: exact three-periodic excitation on full subdivisions
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces primitive three-periodicity to the local successor-neighbor condition by excluding partially dormant three-cycles on a connected graph. Each inserted edge-vertex has one or two legal phase labels. For unlike-colored original endpoints, only one endpoint can benefit from an edge's optional helpful label, so the requirement for nonempty helping-edge sets factors over original vertices. This proves the exact product formula. The finite-functional-graph argument gives necessity of a cycle of length divisible by three, and extending a periodic phase coloring through a spanning forest gives sufficiency. The complete-graph multinomial formula is an exact grouping, and the period-three orbit division is exact.
+## correctness
 
-Two independent standalone programs passed: direct enumeration of 774927 states on five subdivided graphs, and a separate edge-extension / cycle-criterion census of all 43 connected labelled graphs on at most four original vertices. The proof is unrestricted in graph order; the computations are finite sanity checks, not an infinite certificate.
+PASS
 
-## Originality — PASS (qualified)
-The closest primary full text is Gravner–Lyu–Sivakoff, arXiv:1610.07320v1, particularly Theorem 3 on general excitation activity and synchronization. That theorem can be used to reason about excitation rates on arbitrary connected graphs, but it does not state an exact count of initially primitive period-three states on full subdivisions or the product of local choices. Durrett–Griffeath, arXiv:patt-sol/9303002, supplies the earlier excitable-media motivation; the accessible abstract concerns spatial spiral and threshold-range phenomena rather than the claimed count. The latter paper's complete text was not inspected, so an implicit precursor cannot be ruled out from the abstract alone.
+For any finite connected loopless H with >=2 vertices, proved primitive 3-periodic GHM states on S(H) are globally rotating, not partly dormant: a dormant site cannot border a cycling site, and connectedness propagates. Each inserted edge-site has precisely the local allowable predecessor labels; helpful edge options belong to one original vertex, giving product_v(2^{d^-_c(v)}-1) summed over all ternary original labels, with no double count. Nonzero summands iff each original vertex has an incoming predecessor; iterating a chosen predecessor forces a simple directed cycle length divisible by three, and a rooted-forest extension gives the converse. Initial fixed state is uniquely all zero, so F^3 fixed count is 1+P3 and primitive orbit count P3/3. Independently summed K_n for n=3..8: 6,108,2850,127440,9109086,1024394868; separately enumerated all 729 states of subdivided K3, finding 6 primitive 3-periodic and 1 fixed. This corroborates rather than proves general H.
 
-Targeted searches covered the model name, full subdivisions, period-three orbit counts, ternary locally constrained colorings, and stronger arbitrary-graph activity theorems. A search miss is not a uniqueness proof. The nearest accessible historical findings are exact counts or periods for other graph families, not a statement implying the general full-subdivision factorization or its cycle-length criterion. Residual risks are unindexed historical work and equivalent formulations through locally constrained coloring or directed-neighborhood cover systems.
+## originality
 
-## Mathematical value — PASS
-The result classifies the complete **initially primitive three-periodic** subsystem on an arbitrary finite connected full subdivision, not merely on one hand-picked small graph. It links the existence of these oscillations to a natural graph-cycle invariant (presence of a simple length-multiple-of-three cycle) and gives a nontrivial factorized count despite the dependence of excitation conditions on adjacent vertices. The complete-graph multinomial formula resolves a natural infinite family; in particular, the subdivision of \(K_{2,b}\) has no such states for any \(b\ge2\), while subdivisions of \(K_{3,b}\) do for \(b\ge3\). These restrictions concern only primitive period three, not every form of long-term oscillation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The core product formula and iff-resonant-cycle criterion on full subdivisions are not stated in the inspected 2018 arbitrary-graph cycle-activity theorem. Resultary has independently published exact period-three counts for selected cacti, triangular chains, theta graphs and open ladders, but none located supplied the all-connected-H full-subdivision factorization. This is source-bounded novelty, not a guarantee against an equivalent directed-coloring identity.
+
+## value
+
+PASS
+
+The product factorization counts a natural dynamical invariant for every connected graph, not just a small instance, and the iff 3-divisible simple cycle condition isolates a nontrivial structural boundary. It is a reproducible nonstandard extension of general activity theory rather than a textbook deduction or an arbitrary narrow slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
