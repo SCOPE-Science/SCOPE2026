@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "For every n>=1 and k>=3, induction on the directed suffix gives a true bijection d_i=(x_i+b_{i+1}) mod k and b_i=b_{i+1}+1[d_i=1]. Refractory decay accounts for b=0 separately. Direct exhaustive C++ enumeration verifies full extinction counts for 25 (k,n) pairs and an independently coded Python suffix method verifies burst counts for 35 pairs; both are finite consistency checks, not substitutions for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gravner, Lyu, Sivakoff 2016 investigates undirected simple graphs, with finite-graph oscillation versus synchronization depending on cycles, but no exact all-k directed avalanche distribution.",
+        "Reported exact excitation censuses on undirected complete bipartite and tripartite graphs permit recurring 3- and 4-cycles, unlike acyclic tournaments."
+      ],
+      "reasoning": "An all-graph result would dominate this one only if it supplied full first-extinction distributions under the same oriented update. The cited general synchronization results lack that object, and the undirected graph results are different systems. No stronger matching statement was found among inspected sources.",
+      "searches": [
+        "Greenberg Hastings directed acyclic graphs extinction theorem feedforward automaton",
+        "feedforward complete directed network k-stage excitable dynamics consecutive active steps, binomial clock via triangular relabeling",
+        "three-state Greenberg Hastings excitable dynamics on finite directed acyclic graphs threshold and exact extinction time"
+      ]
+    },
+    "checked_sources": [
+      "R. Fisch, J. Gravner, D. Griffeath, arXiv:patt-sol/9304001 (public abstract only)",
+      "J. Gravner, H. Lyu, D. Sivakoff, arXiv:1610.07320v1 (full accessible HTML)",
+      "Related exact transitive-tournament cyclic successor-contact finding, identifier a06908b9-224b-4235-9140-d2ecc6941c00 (recoverable formal claim)",
+      "Published GH censuses of undirected bicliques, tripartite graphs and excitable paths (search result summaries, not full text; less directly relevant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3 and Section 3 of arXiv:1610.07320: undirected cycles, universal covering spaces, auxiliary maximum-ranking process; no oriented complete-graph time counts.",
+        "The earlier transitive-tournament cyclic cellular automaton uses successor-contact updating of all colors and yields a different all-size absorption distribution.",
+        "Theorem 1 in the new work gives a new exact triangular bijection, burst histogram, refractory-only contribution, and unique extremizer for every k>=3."
+      ],
+      "reasoning": "Different update functions prevent direct implication even on the same digraph; the 2016 source additionally assumes undirected adjacency, while this result uses an asymmetric out-neighbor rule. Its activity and synchronization statements cannot imply the binomial count coefficients, which require an independent inductive coding.",
+      "searches": [
+        "Limiting behavior of 3-color excitable media on arbitrary graphs arXiv 1610.07320 theorem tournament expansion",
+        "synchronous three-state Greenberg-Hastings on directed acyclic tournaments exact stabilization-time polynomial",
+        "reversible wave k-state transitive tournament first fixation time distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full text of arXiv:1610.07320 defines an undirected neighbor set in Eq. (1) and Theorem 3; Section 3 defines tournament expansion as a maximum-rank auxiliary comparison on the universal cover.",
+        "No exact directed complete-tournament binomial extinction-time formula occurred among the retrieved close mathematical records."
+      ],
+      "reasoning": "The word “tournament” in the 2016 source is used for a maximum-ranking auxiliary process, not for a directed graph of reciprocal-free arcs. Formulae for the latter cannot be inferred from its theorems. Searches for equivalent excitable feedforward networks, avalanche duration, and direct binomial representations did not show a matching statement; absence of hits is not proof of novelty.",
+      "searches": [
+        "Greenberg Hastings on transitive tournament extinction time distribution generating polynomial n k states",
+        "Binomial distribution for duration of nonempty excitation on acyclic transitive tournament under k-state Greenberg Hastings, exact formula sum of (k-1+z)^n"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical research search returned graph-family GH censuses for bipartite/crown/tripartite graphs but no exact tournament-table entry in the close hits.",
+        "Accessible prior scientific record a06908b9-224b-4235-9140-d2ecc6941c00 treats a different three-color successor-contact rule on a transitive tournament; it has a different rational fixation-time polynomial."
+      ],
+      "reasoning": "No matching exact period or extinction table with the same update and directed graph was identified. This is limited to inspected indexes and accessible claims, not an assertion that no unpublished or unindexed table exists.",
+      "searches": [
+        "Greenberg Hastings on a complete acyclic digraph with directed successor excitation, unique longest avalanche and exact finite-time extinction",
+        "Greenberg Hastings transitive tournament acyclic digraph extinction binomial duration model k states"
+      ]
+    },
+    "rationale": "No equivalent or stronger claim was found in the inspected published mathematical sources, the closest result index hits, or the accessible own claims. Exact source comparisons distinguish the oriented complete feedforward process from undirected GHM, 3-color cyclic successor-contact dynamics on the same orientation, and undirected exact GH basin formulas. Historical priority remains qualified.",
+    "residual_risks": [
+      "The 1993 foundational paper full text was not accessible through attempted public PDF retrieval; no whole-document NOT_COVERING assessment is made for it.",
+      "Equivalent directed feedforward automata may have appeared under different terminology in literature not covered by the searches.",
+      "This is a special-graph result; it is not unique just because a database search did not locate a counterpart."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: finite undirected graph activity/synchronization and an auxiliary tournament-ranking construction, not the directed transitive tournament k-state extinction distribution",
+        "evidence": [
+          "2016 arXiv HTML Eq. (1) defines undirected neighbor set N(v), Theorem 3 is an irrotationality theorem, Section 3 (lines 228-267 of inspected rendering) describes ranking process, not oriented arcs"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1610.07320v1",
+        "material_read": "Full accessible HTML including Introduction and rule Eq. (1), Theorem 3, Section 3 tournament expansion, and conclusions; verified graph-scope and statement types",
+        "method": "Read primary article HTML and compared formal rules, hypotheses and theorem conclusions",
+        "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+        "trigger": "Same named excitation dynamics and a deceptively similar tournament expansion title"
+      },
+      {
+        "assessment": "INCOMPLETE_COMPARISON: abstract describes multidimensional lattice threshold-range scaling; no evidence of a directed tournament census in the abstract, but full-paper noncoverage was not established",
+        "evidence": [
+          "1993-04-02 submission; abstract describes two-dimensional lattice, k-color wheel and general Greenberg–Hastings rule"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/patt-sol/9304001",
+        "material_read": "ArXiv bibliographic record and complete abstract, not full paper; PDF acquisition unavailable through the attempted public URL",
+        "method": "Inspected public abstract, dates and described research setting",
+        "title": "Threshold-Range Scaling of Excitable Cellular Automata",
+        "trigger": "Earliest day-verified foundational source for multistate excitable rule"
+      },
+      {
+        "assessment": "DIFFERENT_RULE: contact-driven advancement of every color is not Greenberg–Hastings refractory advancement; neither formula implies the other",
+        "evidence": [
+          "Existing claim has a 3-color CCA polynomial with n-1 worst-case fixation time; present claim has k-state GHM with n+k-2 extinction-time bound"
+        ],
+        "identifier_or_url": "a06908b9-224b-4235-9140-d2ecc6941c00",
+        "material_read": "Recoverable formal claim and its exact fixation distribution; no old scientific audit or corrections inspected",
+        "method": "Compared update-rule quantifiers and exact claimed time polynomial",
+        "title": "Related exact transitive-tournament cyclic successor-contact result",
+        "trigger": "Same directed object might subsume a new result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "437a2c5d-1493-412f-80ea-0b031bdab356",
+  "value": {
+    "rationale": "A natural complete all-size and all-refractory-length dynamical classification on the unique dense acyclic tournament. The constructive triangular permutation makes the nonlinear duration exactly binomial under uniform input, with a rare unique maximum-time initial wave and a normal typical-time limit; this sharply separates typical and worst-case feedforward behavior and supplies a reusable exact benchmark for directed excitable networks. It is not a cosmetic specialization of known undirected or cyclic-contact formulae.",
+    "status": "PASS"
+  }
+}
