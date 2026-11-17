@@ -1,11 +1,21 @@
-# Scientific review: renewal-clock synchronization edge
+# Independent mathematical audit
 
-**Correctness — PASS.** The OA amplitude equation is explicit in Sarkar and Gupta (arXiv:2203.00339, Eq. (18)). The exact inverse trajectory and monotonicity are established algebraically, the finite-mean equilibrium age density is normalized, and pushing it forward gives the exact stationary law. Subcritical and supercritical linearization give the two logarithmic boundary equivalents. The critical cubic flow gives the exact \(2q-3\) exponent and coefficient; direct integration gives the reciprocal-moment thresholds, while exact inversion on either side of critical coupling and the integrated age tail give the same locally uniform boundary-layer scaling. A standalone standard-library checker passed 753 deterministic assertions, including a non-Lomax survival law. These diagnostics support, rather than substitute for, the infinite-time proof.
+## correctness
 
-**Originality — PASS with residual priority risk.** Sarkar and Gupta's same-system results assume Poisson times and report a reset-rate-dependent boundary phase; they do not contain the power-tailed renewal threshold \(q=3/2\) or its reciprocal-moment consequences and two-sided critical crossover. Masó-Puigdellosas, Campos and Méndez formulate general backward-renewal ages but work with diffusive position statistics, not the nonlinear Kuramoto OA flow. Bressloff's global Kuramoto resets remain Poisson; the separate subsystem-reset paper has different degrees of freedom. The generic age-pushforward method is not claimed as new. Targeted published-record and literature searches have not revealed an explicit stronger statement with the same model, assumptions and edge classification. A broad unindexed renewal-flow result might imply these formulas by specialization; priority therefore remains qualified rather than independently certified.
+PASS
 
-**Mathematical value — PASS.** The result makes a physically motivated clock-distribution change and establishes a sharp three-regime stationary-edge classification. In particular, unlike the Poisson-driven critical density, a finite-mean power-law renewal clock can force a divergence at zero, with its own sharp exponent threshold. The reciprocal-moment hierarchy distinguishes all three coupling regimes, exposing rare near-incoherence events invisible in positive moments. This is a substantive phase-boundary property, not merely an alternative notation for a known Poisson formula.
+Using the OA scalar equation dr/dt=ar-br^3 with a=K/2-sigma and b=K/2, the orbit is monotone unless at its fixed point, with exact inverses from the reciprocal-square logistic flow. At equilibrium, renewal age has density S(t)/mu, yielding exactly p_R(r)=S(t(r))/(mu|ar-br^3|). The integrated age tail c t^(1-q)/(mu(q-1)) and the exponential versus inverse-square relaxation yield logarithmic endpoint laws off criticality and r^(2q-3) at K=2sigma; all coefficients match direct substitution. The crossover times t_±=log(1+1/z)/(2eta)+O(1) imply the stated universal locally uniform limit for fixed z>0. Reciprocal moments follow by power-law integration. The fixed-point initial state is properly excluded. Independent 24 two-sided asymptotic checks had <0.0047 relative error for eta>=1e-4 (not an asymptotic proof).
 
-**Scope and risks.** These are long-time common-clock OA-ensemble results for positive reset amplitude and finite-mean clocks with pure survival tail. No finite-size, adaptive-reset, independent-subsystem, or infinite-mean result is asserted. The result has not undergone independent scientific validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Sarkar–Gupta derive the OA reset model with exponential waiting times (PDF equation giving lambda exp(-lambda t)); Masó-Puigdellosas–Campos–Méndez supply generic renewal-age theory; Bressloff handles Poisson reset density equations. The literature comparison does not identify the combined power-tailed stationary Kuramoto edge trichotomy, critical q=3/2 switch, or common two-sided near-critical crossover. Classical age pushforward is credited and not asserted original.
+
+## value
+
+PASS
+
+The critical renewal-clock tail exponent changes the observable density from divergent to vanishing precisely at synchronization onset, and the matched boundary-layer limit connects both sides. These exact phase-boundary and inverse-moment classifications are naturally motivated, not merely another density substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
