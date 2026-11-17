@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The finite simple graph, named palette and preference cycle definitions are explicit. A matching orientation reaches at most four vertices, or three without matching edges. Every larger member contains the five-vertex obstruction with a fixed three-colour ranking profile; the \(12\) proper assignments each have a specifically identified mutually envying edge. The Grundy-number argument separately caps first-fit colours at three. The exact \(624/576/48\) breakdown was exhaustively computed with two independent directed-cycle tests and explicitly stated enumeration bounds. The verifier was replayed from the final package.
+## correctness
 
-**Originality: PASS (priority provisional).** Koana--Oh--Yoneda, *Graph Coloring with Color Preferences* (arXiv:2609.00569, first public 2026-09-01), gives the base \(K_{2,n}\) case and general upper/lower tools, not the matching-edge jump, explicit five-vertex obstruction, or exact profile count. The closest semantically indexed record treats preference-stability of \(K_{2,3,3}\), a non-isomorphic complete tripartite graph, rather than the matching-augmented bipartite family. Related preferential-colouring definitions require care; no stronger matching-family coverage was found in the inspected sources. Full priority and broad literature exhaustiveness cannot be certified.
+PASS
 
-**Mathematical value: PASS.** Adding a single edge to the \(K_{2,n}\) side raises the stable chromatic requirement sharply while leaving its usual Grundy lower bound unchanged; the universal 5-vertex obstruction and uniform sharp orientation explain this gap throughout an infinite family. The exact five-vertex profile census distinguishes 2-cycle obstructions from genuinely longer blocking cycles, which is relevant to stability recognition.
+In G_{m,r}, where the two hubs are nonadjacent and the opposite part is a matching plus isolates, orient each matching edge once and join edges toward hubs for n≥3 to obtain maximum reachable set size four (three without matched edges); reverse joins for n≤2. Koana–Oh–Yoneda acyclic reachability implies stable-colour upper bounds. An explicit ranking profile on G_{1,1} blocks all 12 proper named three-colour assignments via a mutual-envy pair; subgraph monotonicity extends the 4 lower bound. The ordinary triangle/K_{2,n} cases give other lower bounds; a neighbor-colour counting proof shows Grundy=3 on the matched n≥3 family. Independently enumerated 6^5=7776 ranking profiles against all 12 assignments and classified exactly 624 with no acyclic envy graph: 576 unavoidable 2-cycles plus 48 with longer cycles only. This is exhaustive for labelled G_{1,1} with exactly three colors, not for all graph sizes.
 
-The structural theorem is confined to an explicit graph family, and the \(7776\)-profile census is confined to a single labelled graph and three named colours. No independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A motivated five-vertex explicit preference obstruction yields a stable-chromatic jump beyond the Grundy bound and an exact full-profile obstruction census; inspected known stable-colouring families do not imply the new lower bound or census.
+
+## value
+
+PASS
+
+A single matching-edge perturbation forces preference stability from three to four colors while the Grundy number remains three, an exact small obstruction to a natural lower-bound mechanism. Exhaustive 624/576/48 structure distinguishes unavoidable mutual envy from intrinsically longer blocking cycles; such fine enumeration of the minimal witness has intrinsic combinatorial value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

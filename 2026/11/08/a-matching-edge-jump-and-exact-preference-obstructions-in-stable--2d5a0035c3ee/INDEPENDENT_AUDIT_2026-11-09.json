@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T10:46:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob ee57090d0e44933cb6bebb7fd0f40932108563c0",
+        "Assigned verify.py blob 9071a6cafbd3e731673187468fb74e53659f3947"
+      ],
+      "rationale": "In G_{m,r}, where the two hubs are nonadjacent and the opposite part is a matching plus isolates, orient each matching edge once and join edges toward hubs for n≥3 to obtain maximum reachable set size four (three without matched edges); reverse joins for n≤2. Koana–Oh–Yoneda acyclic reachability implies stable-colour upper bounds. An explicit ranking profile on G_{1,1} blocks all 12 proper named three-colour assignments via a mutual-envy pair; subgraph monotonicity extends the 4 lower bound. The ordinary triangle/K_{2,n} cases give other lower bounds; a neighbor-colour counting proof shows Grundy=3 on the matched n≥3 family. Independently enumerated 6^5=7776 ranking profiles against all 12 assignments and classified exactly 624 with no acyclic envy graph: 576 unavoidable 2-cycles plus 48 with longer cycles only. This is exhaustive for labelled G_{1,1} with exactly three colors, not for all graph sizes.",
+      "residual_risks": [
+        "The cited general Koana–Oh–Yoneda theorems were not fully re-read from an accessible primary paper; source correctly identifies exact theorem/proposition roles."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Koana–Oh–Yoneda general acyclic-orientation reachability upper bound supplies at most four, their Grundy lower bound supplies at most three here, and their K_{2,n} exact value supplies the zero-matching base.",
+          "K_t∨H degree-two-core theorem adds a dominating CLIQUE, not two independent hubs; K_{2,m,n} has entirely different adjacency within and between parts."
+        ],
+        "reasoning": "No inspected broader result forces the sharp four-colour lower bound on G_{1,1} or the 624/576/48 census. General reachability and Grundy inequalities leave a one-colour gap that the explicit obstruction settles.",
+        "searches": [
+          "Resultary query: stable graph coloring color preferences added matching edges K2 join induced matching stable chromatic number five vertex obstruction counts (2026-11-09)",
+          "arxiv:2609.00569 Koana Oh Yoneda",
+          "Resultary 2026/10/18 one-apex complete bipartite",
+          "Resultary 2026/10/25 K_{2,m,n}",
+          "Resultary 2026/11/02 clique join degree-two cores"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2609.00569",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-preference-stable-chromatic-numbers-of-clique-joins-with-degree--7b32697367f7/RESULT.md",
+        "Resultary 2026/10/18 one-apex complete bipartite and 2026/10/25 tripartite hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The reachability theorem yields upper bound four; K_{2,n} yields three when m=0.",
+          "The five-vertex ranking forces mutual envy in all twelve three-colour assignments; monotonicity lifts the obstruction to the family."
+        ],
+        "reasoning": "Combining existing generic tools with the newly supplied five-vertex obstruction establishes the jump, but the prior tools alone do not imply the precise obstruction/census. Generic clique-join additivity cannot logically transfer to an independent hub pair.",
+        "searches": [
+          "Resultary query: stable graph coloring color preferences added matching edges K2 join induced matching stable chromatic number five vertex obstruction counts (2026-11-09)",
+          "arxiv:2609.00569 Thm 3.1, Prop 3.4, Prop 3.7 as quoted in source",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-preference-stable-chromatic-numbers-of-clique-joins-with-degree--7b32697367f7/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The family consists of two NONadjacent universally adjacent hubs, with internal opposite-part matching plus isolates; it is not K_2∨H where the hubs are adjacent.",
+          "An induced five-vertex member G_{1,1} is a K_{2,3} with one edge added within the 3-side."
+        ],
+        "reasoning": "Searched the equivalent split-with-two-false-twin-hubs formulation, added matching in K_{2,n}, and minimal five-vertex preference obstruction. A clique-cone additivity theorem does not apply because adding the missing hub edge changes the graph and invariant.",
+        "searches": [
+          "Resultary query: stable graph coloring color preferences added matching edges K2 join induced matching stable chromatic number five vertex obstruction counts (2026-11-09)",
+          "arxiv:2609.00569",
+          "Resultary 2026/11/02 clique-joins with degree-two cores"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No separately indexed full ranking-profile table on G_{1,1} was located in the result set.",
+          "The 7776 profiles and 12 proper assignments were reconstructed independently from the given edges and 3! named color orders."
+        ],
+        "reasoning": "A failed table search cannot certify novelty. The 624/576/48 subdivision is an exact new finite data claim relative to inspected coverage, rather than a generic chromatic-number table value.",
+        "searches": [
+          "Resultary query: stable graph coloring color preferences added matching edges K2 join induced matching stable chromatic number five vertex obstruction counts (2026-11-09)",
+          "Resultary stable-coloring query 2026-11-09",
+          "SCOPE 5-vertex exact preference profile source verify.py"
+        ]
+      },
+      "rationale": "A motivated five-vertex explicit preference obstruction yields a stable-chromatic jump beyond the Grundy bound and an exact full-profile obstruction census; inspected known stable-colouring families do not imply the new lower bound or census.",
+      "residual_risks": [
+        "Full text of very relevant Koana–Oh–Yoneda 2026 preprint could not be accessed; this is an explicit priority risk, not an automatic rejection.",
+        "Possible unindexed finite ranking-profile census for the five-vertex obstruction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers definitions, generic tools and K_{2,n}; stronger coverage of 5-vertex matched-core claim not established from accessed material",
+          "evidence": "Theorem 3.1 orientation upper bound, Theorem 3.3 Grundy lower, Proposition 3.4 monotonicity, Proposition 3.7 K_{2,n} as cited in audited package.",
+          "identifier_or_url": "arxiv:2609.00569",
+          "material_read": "arXiv abstract and assigned in-package precise proposition/theorem references; original complete primary text inaccessible",
+          "method": "arXiv metadata/abstract with targeted result comparison, institutional retrieval attempted",
+          "title": "Graph Coloring with Color Preferences",
+          "trigger": "Foundational exact same preference-stable invariant and general reachability/subgraph tools"
+        },
+        {
+          "assessment": "NOT applicable: added vertices form K_t, whereas assessed two added hubs are an independent pair",
+          "evidence": "Exact formula χstable(K_t∨H)=t+σ(H), maximum-degree-two H; adjacency of the t added hubs is essential.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-preference-stable-chromatic-numbers-of-clique-joins-with-degree--7b32697367f7/RESULT.md",
+          "material_read": "Complete RESULT.md finding and proof and limitations",
+          "method": "GitHub read-only raw source inspection",
+          "title": "Preference-stable chromatic numbers of clique joins with degree-two cores",
+          "trigger": "Appears to classify joins over matching/path cores"
+        },
+        {
+          "assessment": "Cannot infer comprehensive NOT_COVERING from snippet; no immediate logical implication since K_{2,m,n} is complete tripartite",
+          "evidence": "Resultary summary gives χstable(K_{2,m,n})=m+3; the submitted graph has internal matching and isolated edges, not a complete tripartite core.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-stable-chromatic-number-of-the-two-by-variable-complete-triparti--1672b1e31ffc",
+          "material_read": "Indexed title and short summary only, not full text",
+          "method": "Resultary semantic search; scope comparison",
+          "title": "Stable chromatic number of the two-by-variable complete tripartite family",
+          "trigger": "Same invariant and two-vertex part"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md and exact independently reconstructed preference assignments",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-preference-stable-chromatic-numbers-of-clique-joins-with-degree--7b32697367f7/RESULT.md"
+      ],
+      "rationale": "A single matching-edge perturbation forces preference stability from three to four colors while the Grundy number remains three, an exact small obstruction to a natural lower-bound mechanism. Exhaustive 624/576/48 structure distinguishes unavoidable mutual envy from intrinsically longer blocking cycles; such fine enumeration of the minimal witness has intrinsic combinatorial value.",
+      "residual_risks": [
+        "Small finite census alone would be weak; value is tied to the infinite matched-core transition and the minimal obstruction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only graph family with two independent hubs and maximum one internal matching edge per vertex; no claim on arbitrary split graphs.",
+    "Full original Koana–Oh–Yoneda text inaccessible; search cannot establish unconditional first discovery."
+  ],
+  "schema_version": 1
+}
