@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Execute `python3 checker.py` with Python 3 and no external dependencies. It enumerates every signed depth-\(k\) profile for \(k=1,\ldots,7\), confirming counts \(4,12,36,108,324,972,2916\), and confirms all unsigned flags occur. It computes exact signed-positive lattice antichain counts by a finite-poset branching recursion at depths \(1,2,3\), giving \(5,83,70806\) upsets of the punctured signed profile poset. The depth-one empty upset is not representable by positive terms, hence four rather than five logical classes. A different check enumerates all monotone four-argument truth tables and obtains 83 distinct restrictions at depth two. It also checks the usual Dedekind counts through five generators. Successful terminal marker: `LETF_LADDER_FINITE_CHECKS_OK`.
+## correctness
 
-Proof of global bivaluation extendibility and the universal classification for all depths is in `RESULT.md`; finite computations are corroboration only. The present review is not independent verification. Originality remains subject to specialist inspection of unsearched/abstract-only literature, and no claim is made about propagation logic or arbitrary formulas.
+PASS
+
+The minimal LET_F^- semantic rule v(◦A)=1 => v(A)≠v(¬A) forces t_{i+1}=1 ⇒ t_i≠f_i. The simultaneous positive/negative structural recursion extends every compatible finite profile to a global bivaluation, including arbitrary other formula syntax. The profile count is 4×3^(k−1) and unsigned projection all 2^k assignments. Thus unsigned positive formulas are free unbounded distributive lattice D(k)−2. For signed atoms, truth sets are upsets of S_k\{0}; every nonempty upset is positive DNF and empty is realized when k≥2 by a0∧¬a0∧a1; k=1 exceptional four classes. Separate independent exact bitset-antichain recursion gives 83 upsets at k=2 and 70,806 at k=3, with profile counts through k=7.
+
+## originality
+
+PASS
+
+Important partial prior coverage: fully read published 2026-11-02 unary LET_F^- three-premise forbidden-triple theorem constructs global valuations for arbitrary unary classicality formulas. Its general sufficiency already entails the ladder compatibility condition (and 4×3^(k−1) by elementary counting), so those are not independently original. The surviving new finding is the signed-positive finite consequence quotient as a full specified punctured-profile upset lattice with exact 83 and 70,806 classes (plus fixed unsigned positive fragment); neither the prior satisfiability criterion nor the primary 2026 sequent-calculus source states this quotient or tabulation. O PASS is qualified by generic finite-poset upset methods and inaccessible primary full text.
+
+## value
+
+PASS
+
+The full consequence algebra of positive signed classicality ladders is a naturally motivated invariant of weak paraconsistent evidence logic. Identifying the lattice, not merely its cardinality, gives finite-depth semantic classification and the first sizable exact class counts. A substantial structural bridge from nondeterministic bivaluations to distributive upsets remains valuable despite elementary counting ingredients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
