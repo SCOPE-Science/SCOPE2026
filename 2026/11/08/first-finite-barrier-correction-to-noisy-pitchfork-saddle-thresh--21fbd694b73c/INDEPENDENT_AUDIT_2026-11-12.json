@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T12:17:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stated stopped additive-noise diffusion has a finite exit mean solving the symmetric backward Dirichlet equation. Integration yields 2∫_0^b exp(2V(z))∫_0^z exp(-2V(y))dy dz with V=rx²/2−x⁴/4. For |beta|<=B and r→∞ the well integral equals sqrt(pi)/(2sqrt(r))*(1+O(r^-2)); the exact saddle change z=sqrt(r)-t/sqrt(r) gives exponent r²/2−2t²+2t³/r−t⁴/(2r²). Gaussian domination and the J3 moment exp(-2beta²)(beta²/4+1/8) yield precisely Phi(2beta)+(2beta²+1)exp(-2beta²)/(2sqrt(2pi)r)+O_B(r^-2), with the claimed Kramers scale. No assertion for growing beta or whole escape distribution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic Kramers/Laplace asymptotics describe the method; the same-model paper reports an empirical finite-size multiplier near 0.6, not a uniform r^-1 coefficient."
+        ],
+        "reasoning": "A general asymptotic method would permit derivation after new expansion, but the inspected prior theorem statements do not give this beta-dependent controlled term as a stated special case.",
+        "searches": [
+          "Resultary semantic: noisy pitchfork Langevin mean first exit time barrier saddle detector Gaussian crossover finite-barrier 1/r correction Kramers",
+          "Berglund arxiv:1106.5799 Kramers review",
+          "Sanders et al. arxiv:2610.38866"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.38866v1",
+        "https://doi.org/10.1140/epje/i2016-16077-6",
+        "https://arxiv.org/abs/1106.5799",
+        "Resultary semantic: noisy pitchfork Langevin mean first exit time barrier saddle detector Gaussian crossover finite-barrier 1/r correction Kramers"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact integral in Sanders et al. does not itself state the evaluated uniform first correction.",
+          "Leading Gaussian profile at saddle in Jungblut–Dellago is independent of the cubic skew responsible for the correction."
+        ],
+        "reasoning": "The known equations mathematically enable the new calculation but do not already state its explicit coefficient with uniform remainder; the novel claim is deliberately narrower than general Kramers law.",
+        "searches": [
+          "arxiv:2610.38866v1 Appendix A Eq A.7/A.8",
+          "doi:10.1140/epje/i2016-16077-6 Eq77",
+          "Resultary semantic: noisy pitchfork Langevin mean first exit time barrier saddle detector Gaussian crossover finite-barrier 1/r correction Kramers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sanders et al. study exactly dX=(-rX+X³)dt+dW, with the same backward MFPT integral.",
+          "Jungblut–Dellago Eq.77 gives the known leading Gaussian near-barrier error-function crossover."
+        ],
+        "reasoning": "The equivalent moving-threshold error-function asymptotic is prior, so neither integral nor Phi(2beta) nor the half factor is claimed original; the source-specific next coefficient is additional.",
+        "searches": [
+          "Resultary semantic: noisy pitchfork Langevin mean first exit time barrier saddle detector Gaussian crossover finite-barrier 1/r correction Kramers",
+          "arxiv:2610.38866v1 Appendix A",
+          "doi:10.1140/epje/i2016-16077-6 Sect.4.3 Eq.(77)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same-model numerical exit-time curves, and Gaussian profiles, are not a table of the claimed positive (2beta²+1)exp(-2beta²)/(2sqrt(2pi)) coefficient."
+        ],
+        "reasoning": "No exact table or database recording the coefficient was identified; negative search evidence alone is not novelty certification.",
+        "searches": [
+          "Resultary semantic: noisy pitchfork Langevin mean first exit time barrier saddle detector Gaussian crossover finite-barrier 1/r correction Kramers",
+          "Sanders et al. figure 2",
+          "Jungblut–Dellago near-barrier MFPT"
+        ]
+      },
+      "rationale": "Classical backward integral and leading error-function crossover are known. The explicitly controlled cubic-pitchfork r^-1 saddle-skew coefficient, uniform for bounded moving-boundary offsets, is not stated by the compared primary works or closest semantic records; this is a best-of-knowledge assessment, not proof of historical priority.",
+      "residual_risks": [
+        "An earlier higher-order moving-barrier Laplace expansion might already imply the coefficient without naming this SDE.",
+        "The source exact integral is prior; originality is the explicit controlled evaluation, not a new integral method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the same SDE and exact MFPT representation, NOT the explicit uniform r^-1 moving-boundary term",
+          "evidence": [
+            "Appendix A (A.7) integral; (A.8) leading approximation; figure uses empirical correction"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.38866v1",
+          "material_read": "Full accessible HTML including Appendix A backwards integral (A.7), leading (A.8), Figure 2 discussion",
+          "method": "Read primary text and equations directly",
+          "title": "Early warning of critical transitions: Distinguishing supercritical and subcritical bifurcations from noisy observations",
+          "trigger": "Identical stochastic pitchfork equation and escape experiment"
+        },
+        {
+          "assessment": "Covers the leading erf curve and saddle half-factor only in accessible material",
+          "evidence": [
+            "Section 4.3 Eq.(77) mean first-passage error function"
+          ],
+          "identifier_or_url": "https://doi.org/10.1140/epje/i2016-16077-6",
+          "material_read": "Parsed accessible portions of primary PDF at section 4.3 Eq.(77); screenshot fetch returned 403 so not claiming visual PDF inspection",
+          "method": "Compared exact displayed equation with pitchfork coefficient",
+          "title": "Pathways to self-organization: Crystallization via nucleation and growth",
+          "trigger": "Potential general first-passage crossover coverage"
+        },
+        {
+          "assessment": "Generic framework relevant; cannot exclude a formula implied by a general higher-order theorem",
+          "evidence": [
+            "General Kramers theory; higher-order formula not established as read"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1106.5799",
+          "material_read": "Bibliographic record and framework referenced; no fresh entire primary text reading",
+          "method": "Compared accessible theorem summaries and already known general setting",
+          "title": "Kramers’ law: Validity, derivations and generalisations",
+          "trigger": "Broader Eyring–Kramers methodology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The original same-model pitchfork study used an empirical prefactor correction near 0.6. A uniform explicit offset-dependent first finite-barrier term and effective detector shift (beta²/2+1/4)/r have concrete calibration use at the natural saddle fluctuation scale; a nonconstant quantitative next-order bias is not merely renaming the classical Gaussian leading law.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only fixed bounded beta, one-dimensional unit additive noise and symmetric absorbers; no growing-offset or escape-time-distribution claim.",
+    "Generic higher-order Kramers literature may entail the stated term; priority conditional.",
+    "All five source packages were read at frozen assignment commit; scientific verdict is independent of publication status, and no GitHub writes or formal/expert attestation were made."
+  ],
+  "schema_version": 1
+}
