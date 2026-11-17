@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The joint transition probabilities and drift follow by conditioning on independent selections. The phase portrait has exactly two strictly stable nonsymmetric equilibria in the stated range, the symmetric interior equilibrium is linearly unstable, and the origin is ruled out by a stopped-supermartingale bound. The usual asymptotic-pseudotrajectory theorem and instability exclusion then imply almost-sure selection of one attractor. The inverse parameter map is an elementary consequence of the two distinct observed limits. Exact finite-state algebra has been tested by the standalone checker; finite checks alone are not proof.
+## correctness
 
-**Originality — PASS, provisional.** Maulik–Roy–Sadhukhan (arXiv:2509.10225v1) prove the equal-fidelity theorem; the unequal model has a different transition kernel at fixed mean because its zero probability depends on the product of fidelities. A later single-parameter study (arXiv:2609.06641) has a different scope. General multi-draw urn results can provide analytical tools but do not state the exact two-parameter equilibrium or its inverse. Their broader possible implication remains a historical priority risk.
+PASS
 
-**Mathematical value — PASS.** The two independently noisy memory channels are a natural extension. The theorem separates two statistical effects: a mean-fidelity threshold controls whether ballistic motion occurs, whereas the product controls its nonzero speed. It yields strong identification of the unordered pair from a single observed path, a concrete inverse problem that cannot be addressed by a one-parameter theorem.
+The conditional three-color increments under independent memory sampling give E sigma=s(2-q)x and nonzero probability 2q-3q²/2+ab x²/2. Resulting planar stochastic-approximation drift has origin, saddle (0,2/3), stable ±(v,q*), q*=2-1/s; analytical Dulac and bounded-noise/unstable-equilibrium arguments plus supermartingale exclusion of zero activity imply almost-sure attraction. Symmetry gives fair sign. From zero fraction infer s and from v infer ab, roots give unordered p1,p2. Exact rational transition and equilibrium checks corroborate not replace the infinite-time argument.
 
-Limitations: strictly supercritical interior parameters and with-replacement sampling only; neither critical behavior nor error rates are determined. The available 2018 general urn source was reviewed by abstract/metadata rather than full text, and the 2026 single-parameter follow-up by abstract; no final historical-priority conclusion is implied.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The unequal-fidelity two-channel model has a genuinely different conditional zero probability involving ab (not s^2); the resulting speed and inverse law use both symmetric combinations of fidelities. Published equal-fidelity ballistic limits are a special diagonal slice and do not imply off-diagonal identification. General stochastic-approximation theorems supply tools but not computed two-parameter limits.
+
+## value
+
+PASS
+
+The unequal-fidelity extension yields a nontrivial two-parameter ballistic phase result and solves an inverse identifiability problem from two observable long-time statistics; equal-fidelity theorem cannot answer parameter heterogeneity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
