@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every maximal geodesic is a cyclic block of \(\lfloor n/2\rfloor+1\) vertices. The exact gap and deletion criteria \(d_i\le L+1\) and \(d_{i-1}+d_i\ge L+2\) restrict minimal transversals to size at most three. A two-gap count and the three-gap deficiency bijection give the coefficients for all \(n\ge3\), including both parity boundaries. Direct shortest-path enumeration and per-subset comparison through \(n=18\) corroborate the independent proof.
+## correctness
 
-**Originality — PASS, provisional.** The 2021 original geodesic-transversal literature and equivalent maximal-shortest-path-cover literature establish the scalar cycle minimum \(2\); they do not, in the inspected relevant statements, present all inclusion-minimal cycle solutions or their count. General circular-arc hitting-set dualization (Elbassioni–Rauf, 2010) gives an enumeration method and a per-arc 2-exact property, not the exact sharp labelled count or purity pattern. Existing analogous ladder results cover the isolated \(C_4\) case but not the cycle family. Exact-scope searches did not identify a stronger statement covering the infinite family. Publication priority remains provisional because inaccessible or differently indexed enumerations could cover it.
+PASS
 
-**Mathematical value — PASS.** The natural inclusion-minimal, rather than smallest-cardinality, refinement of shortest-path covering has a complete classification. It reveals a striking nonmonotone phenomenon: three-point minimal covers first appear at nine vertices, vanish at ten, then exist for every larger cycle. Their number grows as \(n^3/24\), whereas the already-known optimal two-point covers occur only linearly often. The exceptional purity set is a meaningful structural boundary, not a restatement of the known minimum.
+For every simple labelled C_n, n>=3, explicitly identified all maximal geodesics as n consecutive length-floor(n/2)+1 vertex blocks (including antipodal even cycles). Hitting is exactly gap d_i<=L+1; essentiality of each chosen vertex is exactly d_(i-1)+d_i>=L+2. Sum of latter bounds forces at most three selected vertices. Two-gaps yield b_n=n (odd) or 3n/2 (even). Three-gaps yield d_i<=r=ceil(n/2)-2, and the bounded composition count gives c_n=(n/3)binom(3r-n+2,2) when 3r>=n, else zero. This implies the exceptional purity rebound at n=10. Independently constructed shortest-path maximal blocks and enumerated all candidate subsets for n=3..15; results agree. Infinite n follows from the gap argument rather than finite checks.
 
-**Scope and risks.** The result is for labelled cycles only. Finite checks are not an infinite proof, and public literature may contain an equivalent circular-arc hitting-set count under different terminology. The independently reviewed status has not been claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known minimum geodesic-transversal size two for cycles and general circular-arc transversal enumeration are excluded from novelty credit. None of the inspected earlier statements implies the exact inclusion-minimal distribution or re-entrant purity; best-of-knowledge originality is confined to that explicit refinement.
+
+## value
+
+PASS
+
+The complete inclusion-minimal transversal distribution of a basic graph family is a natural exact obstruction invariant: it distinguishes minimum hitting sets from larger essential hitting sets and determines the purity of the corresponding independence complex. The loss, return, and permanent loss of purity at n=9,10,11 is a nontrivial boundary, not a merely renamed minimum-two result. The exact cubic-vs-linear counts permit direct use in cyclic blocker and simplicial-complex work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

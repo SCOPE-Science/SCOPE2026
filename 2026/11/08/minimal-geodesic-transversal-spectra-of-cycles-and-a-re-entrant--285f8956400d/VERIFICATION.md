@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Reproducible verification
-Run `python3 verify.py` with Python 3.8 or newer. Only the Python standard library is used.
+# Independent mathematical audit
 
-The verifier independently constructs the cycle's shortest simple paths, keeps only maximal geodesics, enumerates each vertex subset for every cycle order \(3\le n\le18\), and checks the original path-hitting and inclusion-minimality definitions directly. It then compares each minimal set with the proved cyclic-gap criterion and its cardinality with the exact coefficient formula. The observed output is:
+## correctness
 
-```text
-VERIFY_OK cycle_orders=3..18 all_subsets=524280 minimal_sets=497 independent_shortest_paths=PASS gap_characterization=PASS exact_count_polynomial=PASS reentrant_purity=PASS
-```
+PASS
 
-The verification exhausts only the indicated finite range; the unrestricted result rests on the proof in RESULT.md. Neither the program nor this report supplies independent peer review or publication-priority certification.
+For every simple labelled C_n, n>=3, explicitly identified all maximal geodesics as n consecutive length-floor(n/2)+1 vertex blocks (including antipodal even cycles). Hitting is exactly gap d_i<=L+1; essentiality of each chosen vertex is exactly d_(i-1)+d_i>=L+2. Sum of latter bounds forces at most three selected vertices. Two-gaps yield b_n=n (odd) or 3n/2 (even). Three-gaps yield d_i<=r=ceil(n/2)-2, and the bounded composition count gives c_n=(n/3)binom(3r-n+2,2) when 3r>=n, else zero. This implies the exceptional purity rebound at n=10. Independently constructed shortest-path maximal blocks and enumerated all candidate subsets for n=3..15; results agree. Infinite n follows from the gap argument rather than finite checks.
+
+## originality
+
+PASS
+
+The known minimum geodesic-transversal size two for cycles and general circular-arc transversal enumeration are excluded from novelty credit. None of the inspected earlier statements implies the exact inclusion-minimal distribution or re-entrant purity; best-of-knowledge originality is confined to that explicit refinement.
+
+## value
+
+PASS
+
+The complete inclusion-minimal transversal distribution of a basic graph family is a natural exact obstruction invariant: it distinguishes minimum hitting sets from larger essential hitting sets and determines the purity of the corresponding independence complex. The loss, return, and permanent loss of purity at n=9,10,11 is a nontrivial boundary, not a merely renamed minimum-two result. The exact cubic-vs-linear counts permit direct use in cyclic blocker and simplicial-complex work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

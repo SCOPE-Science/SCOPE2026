@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T01:54:18.477600Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/minimal-geodesic-transversal-spectra-of-cycles-and-a-re-entrant--285f8956400d/RESULT.md",
+        "RESULT.md:517cc074ea6609448416eb11f2f0022f31eb00d3",
+        "verify.py:7f185e5576d3220be602d3339aa0d67fc7cc0f63",
+        "independent_checks.py:cycle_transversals"
+      ],
+      "rationale": "For every simple labelled C_n, n>=3, explicitly identified all maximal geodesics as n consecutive length-floor(n/2)+1 vertex blocks (including antipodal even cycles). Hitting is exactly gap d_i<=L+1; essentiality of each chosen vertex is exactly d_(i-1)+d_i>=L+2. Sum of latter bounds forces at most three selected vertices. Two-gaps yield b_n=n (odd) or 3n/2 (even). Three-gaps yield d_i<=r=ceil(n/2)-2, and the bounded composition count gives c_n=(n/3)binom(3r-n+2,2) when 3r>=n, else zero. This implies the exceptional purity rebound at n=10. Independently constructed shortest-path maximal blocks and enumerated all candidate subsets for n=3..15; results agree. Infinite n follows from the gap argument rather than finite checks.",
+      "residual_risks": [
+        "No independent symbolic verification of an arbitrary hypergraph minimal transversals is implied; statement only concerns equal-length circular blocks arising from cycles.",
+        "Source verifier enumerates finite n; completeness for all n rests on verified combinatorial inequalities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Circular-arc hypergraph transversal enumeration algorithm and 2-exact machinery address a larger input class, but do not provide uniform cyclic-block coefficient expressions or the nonmonotone n=9,10 purity boundary."
+        ],
+        "reasoning": "Algorithms for enumerating transversals do not mathematically imply a closed case formula without running/deriving the specialization; no earlier theorem inspected provides that specialization.",
+        "searches": [
+          "Resultary: wheel geodesic transversals minimal-set polynomial and linear spectral gaps",
+          "Elbassioni and Rauf 2010 polynomial-time dualization r-exact hypergraphs circular arcs DOI:10.1016/j.disc.2010.05.017"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2101.08042",
+        "https://doi.org/10.3390/math9141592",
+        "https://doi.org/10.1016/j.disc.2010.05.017",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-minimal-geodesic-transversal-spectra-of-cycles-and-a-re-entrant--285f8956400d",
+        "https://github.com/Resultary/2026/tree/main/2026/10/27/SCOPE-wheel-geodesic-transversals-minimal-set-polynomial-and-linear-sp--f09969ac81b3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior gt(C_n)=2 is one extremal coefficient; submitted M_n has a second, sometimes nonzero coefficient and a re-entrant purity pattern."
+        ],
+        "reasoning": "Knowing a minimum equal to 2 does not determine whether size-three minimal transversals exist. The neighboring wheel graph is a distinct graph, with hub-created geodesics, not a dominating theorem for cycles.",
+        "searches": [
+          "Manuel Brešar Klavžar arXiv:2101.08042 geodesic transversal cycles",
+          "Peterin Semanišin doi:10.3390/math9141592",
+          "Resultary: wheel geodesic transversals"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Maximal shortest paths cover is the same hitting-set notion; Proposition 2(ii) establishes minimum 2 for cycles, not all inclusion-minimal sets."
+        ],
+        "reasoning": "Relabel as transversals of cyclic uniform consecutive-block hypergraph; minimum hitting number does not imply its blocker polynomial or facet purity.",
+        "searches": [
+          "Resultary: minimal geodesic transversal hitting maximal shortest paths cycles inclusion-minimal cardinality polynomial purity",
+          "Peterin and Semanišin 2021 Proposition 2(ii) DOI:10.3390/math9141592"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published cycle data give scalar minimum of 2; no found exact size-three counts n/3 binom(delta+2,2) or full n-spectrum."
+        ],
+        "reasoning": "The previously tabulated minimum and generic enumeration procedures are not an exact database/table of all inclusion-minimal cycle transversals. An unindexed table remains possible.",
+        "searches": [
+          "Resultary: cycle geodesic transversal polynomial 2 3 minimal sets purity",
+          "Peterin and Semanišin 2021 cycle table/proposition"
+        ]
+      },
+      "rationale": "The known minimum geodesic-transversal size two for cycles and general circular-arc transversal enumeration are excluded from novelty credit. None of the inspected earlier statements implies the exact inclusion-minimal distribution or re-entrant purity; best-of-knowledge originality is confined to that explicit refinement.",
+      "residual_risks": [
+        "An older uniform circular-arc hypergraph exact blocker table under different terminology might imply the formula, despite inspected primary coverage being narrower.",
+        "General dualization literature was reviewed for relevant mathematics, not exhaustively every cited appendix."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the minimum size two, NOT the inclusion-minimal enumerator",
+          "evidence": "Proposition 2(ii) reports cycle covering number 2 and identifies maximal shortest paths.",
+          "identifier_or_url": "https://doi.org/10.3390/math9141592",
+          "material_read": "Full accessible 2021 primary article; definitions and Proposition 2(ii) on cycles",
+          "method": "HTML reading of theorem, cycle argument and scope",
+          "title": "On the Maximal Shortest Paths Cover Number",
+          "trigger": "Exactly same hitting-family alias and cycles"
+        },
+        {
+          "assessment": "GENERAL ENUMERATION BACKGROUND; no inspected equality with exact cycle coefficient theorem",
+          "evidence": "Input-class and algorithmic generality do not furnish b_n,c_n or exceptional n=10 purity.",
+          "identifier_or_url": "https://doi.org/10.1016/j.disc.2010.05.017",
+          "material_read": "Accessible 2010 article and relevant circular-arc dualization statements/method",
+          "method": "HTML source and theorem comparison",
+          "title": "Polynomial-time dualization of r-exact hypergraphs with applications in geometry",
+          "trigger": "Potential general circular-arc blocker enumeration dominance"
+        },
+        {
+          "assessment": "SAME record, not independent earlier coverage",
+          "evidence": "The result identity and date match the assigned source; not counted as external priority evidence.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-minimal-geodesic-transversal-spectra-of-cycles-and-a-re-entrant--285f8956400d",
+          "material_read": "Published result summary plus the frozen assigned full RESULT.md",
+          "method": "Semantic search and proof-level side-by-side",
+          "title": "Minimal geodesic-transversal spectra of cycles and a re-entrant purity exception",
+          "trigger": "Resultary exact record comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://doi.org/10.3390/math9141592",
+        "https://doi.org/10.1016/j.disc.2010.05.017",
+        "2026/11/08/minimal-geodesic-transversal-spectra-of-cycles-and-a-re-entrant--285f8956400d/RESULT.md"
+      ],
+      "rationale": "The complete inclusion-minimal transversal distribution of a basic graph family is a natural exact obstruction invariant: it distinguishes minimum hitting sets from larger essential hitting sets and determines the purity of the corresponding independence complex. The loss, return, and permanent loss of purity at n=9,10,11 is a nontrivial boundary, not a merely renamed minimum-two result. The exact cubic-vs-linear counts permit direct use in cyclic blocker and simplicial-complex work.",
+      "residual_risks": [
+        "No general circular-arc blocker classification claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No independent symbolic verification of an arbitrary hypergraph minimal transversals is implied; statement only concerns equal-length circular blocks arising from cycles.",
+    "Source verifier enumerates finite n; completeness for all n rests on verified combinatorial inequalities.",
+    "An older uniform circular-arc hypergraph exact blocker table under different terminology might imply the formula, despite inspected primary coverage being narrower.",
+    "General dualization literature was reviewed for relevant mathematics, not exhaustively every cited appendix.",
+    "No general circular-arc blocker classification claimed."
+  ],
+  "schema_version": 1
+}
