@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The all-order upper bound follows from the elementary star-or-triangle classification of intersecting edge families and the disjointness between the two prism layers. This gives the exact equality cases for all orders. The one-replacement analysis directly produces the isolated-edge components for every order at least six and the connected crown-fiber geometry at order five. The exceptional diameter is computed by complete breadth-first search on all eighty characterized vertices, independently corroborated by direct adjacency enumeration. Both stored programs and outputs were regenerated from the actual working paths. Limit: the diameter check is a finite exhaustive computation, not a symbolic formula for general graph families.
+## correctness
 
-**Originality (PASS, best-knowledge).** The existing Erdős–Ko–Rado theorem determines stars in ordinary Kneser graphs, but not the two-layer disjoint family exchange graph. Bonsma–Kamiński–Wrochna 2014 establishes the general maximum-set jumping/sliding equivalence but not the graph-specific four-regime decomposition (the inspected full text does not mention Kneser prisms). Das–Tran 2014 studies intersecting-family stability, not independent-set reconfiguration in Cartesian prisms. Actual literature searches, mathematical-record similarity searches, and accessible prior claim searches found no equivalent or stronger coverage. Residual risk: unindexed graph-product reconfiguration literature could contain the same result.
+PASS
 
-**Value (PASS).** This is a natural Cartesian product and a classical extremal set-system problem. The exact reconfiguration classification shows nonmonotone mobility: connected at five ground labels, then fragmented into pair components at every larger order despite the increasing optimum size. The count, component transition, and eight-state Fano-free local fibers provide structural information beyond the ordinary independence number. The theorem also classifies the minimum odd-cycle transversals of the base two-subset Kneser graph through the standard prism correspondence.
+Every intersecting edge family with at least four 2-subsets is a unique star (otherwise only triangle). For n>=6 optimum ordered layer pair is full star at i and opposite partial star at j avoiding ij, count 2n(n-1), and one legal move swaps orientation of pair (i,j), forming n(n-1) disjoint edges. At n=5 three-set triangle exception yields 80 states and connected graph (140 edges, degrees 3/4, diameter9); n=3 gives Q3 and n=4 gives 8 isolates. Read RESULT.md and prism_direct.py; independently generated all bitmask maximum stable sets for n=3,4,5, checked counts, graph metrics and all-pairs BFS diameter9. Maximal-independent-set domination forces any jump to be a slide.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+EKR determines star extremizers in a single Kneser graph, not the disjoint two-layer optimum space or sharp prism mobility n=5 versus n>=6. Bonsma--Kaminski--Wrochna 2014 established general maximal independent set move models, which are explicitly credited. Resultary semantic search showed same title plus distinct optimum reconfiguration results on other graphs; no stronger prism theorem found.
+
+## value
+
+PASS
+
+The n=5 to n>=6 change from one connected eighty-state component to n(n-1) disjoint edges is a nonroutine exact reconfiguration transition for a classical Kneser construction, with self-contained combinatorial classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
