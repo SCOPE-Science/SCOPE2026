@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T09:57:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@b0e95ae124c6a0e1a43dab35f490b119e0fbbb37:2026/11/08/the-finite-noise-transition-from-full-to-partial-gaussian-antith--a7c25255549a/RESULT.md blob 53e79be21368778cdfa14d95a626860a74dee3fc",
+        "/mnt/data/scope_worker03_20261113T0938Z/independent_checks.py",
+        "/mnt/data/scope_worker03_20261113T0938Z/independent_checks.log"
+      ],
+      "rationale": "For every K>=2 and jointly Gaussian correlation matrix R, Isserlis identities give Var[mean(aZ+b(Z^2-1))]=(a^2 1^TR1+2b^2 tr R^2)/K^2. For b!=0 strict Frobenius convexity and permutation averaging force a unique equicorrelation optimum with rho=-min{1/(K-1),a^2/(4b^2)}; the feasible rho interval is exact even at its singular left endpoint. Conditional CV expansion with a=2(c-1)(c sqrt(alpha)+1/sqrt(alpha))sigma Y and b=(c^2 alpha+2c)sigma^2 yields P/(2Q)=S(alpha), whose derivative is strictly negative. Independent exact fractions reproduce K=2, c=1/2, alpha=4: rho=-9/64, expected conditional variances 5167/1024, 8 and 41/8. b=0 nonuniqueness correctly excluded. Finite sweep not a universal proof; covariance algebra and strict convexity are.",
+      "residual_risks": [
+        "Independent finite checks certify only stated bounded cases; universal conclusion rests on symbolic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2608.08089 describes zero-sum necessity as alpha tends to zero; arXiv:2412.14423 treats bounded/reducible variance in small perturbation; Resultary 2026/11/2 studies heat Fourier phase minimax."
+        ],
+        "reasoning": "An asymptotic zero-noise theorem, or a minimax inside already zero-sum couplings, does not optimize arbitrary positive-alpha Gaussian covariance matrices.",
+        "searches": [
+          "Gaussian antithetic randomization finite perturbation optimal correlation quadratic estimator randomized cross validation",
+          "finite alpha Gaussian randomized cross validation equicorrelation optimal partial antithetic Hermite chaos",
+          "Resultary phase-unknown heat Fourier Gaussian minimax coupling 2026"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2412.14423",
+        "arXiv:2608.08089",
+        "arXiv:2610.01120",
+        "Resultary 2026/11/2 phase-unknown heat Fourier Gaussian minimax coupling"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original source paper supplies the same CV score, and small-alpha zero-sum optimality; new proof minimizes its exact fixed-alpha variance over all feasible Gaussian R."
+        ],
+        "reasoning": "Published small-alpha necessity cannot imply an interior optimum or the unique crossover for all positive alpha.",
+        "searches": [
+          "Gaussian antithetic randomization finite perturbation optimal correlation quadratic estimator randomized cross validation",
+          "finite alpha Gaussian randomized cross validation equicorrelation optimal partial antithetic Hermite chaos",
+          "Resultary phase-unknown heat Fourier Gaussian minimax coupling 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The normal linear-plus-centered-square response is a first-plus-second Hermite chaos Gaussian estimator; its variance is an exact linear-plus-Frobenius-squared functional of the correlation matrix."
+        ],
+        "reasoning": "Same mathematical objective as covariance design for two Gaussian Hermite chaoses, not the indicator-coupling or phase-unknown Fourier estimator objectives.",
+        "searches": [
+          "Gaussian antithetic randomization finite perturbation optimal correlation quadratic estimator randomized cross validation",
+          "finite alpha Gaussian randomized cross validation equicorrelation optimal partial antithetic Hermite chaos",
+          "Resultary phase-unknown heat Fourier Gaussian minimax coupling 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Target rho=-9/64 and the 5167/1024 expected conditional variance come from direct Gaussian variance algebra; no exact fixed-alpha covariance optimizer table identified in Resultary results."
+        ],
+        "reasoning": "The finite comparison itself is algebraically reproducible rather than a known numerical table; absence of a hit does not prove priority.",
+        "searches": [
+          "Gaussian antithetic randomization finite perturbation optimal correlation quadratic estimator randomized cross validation",
+          "finite alpha Gaussian randomized cross validation equicorrelation optimal partial antithetic Hermite chaos",
+          "Resultary phase-unknown heat Fourier Gaussian minimax coupling 2026"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality qualified: Finite-noise Gaussian antithetics. Compared full Resultary prior theorem(s), source normalization, equivalent invariant and relevant primary bibliographic material; existing ingredients and covered special cases are explicitly excluded from novelty. Residual historical coverage cannot be categorically excluded.",
+      "residual_risks": [
+        "Full primary 2024/2026 cross-validation papers not independently read cover-to-cover in this execution; exact finite-alpha optimum may be an unindexed specialization of quadratic Gaussian antithetic Monte Carlo formulas.",
+        "Implementation requires unknown signal-to-noise parameter; no oracle-free optimal tuning is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ASYMPTOTIC_RELATED",
+          "evidence": "Source describes Gaussian randomized CV/antithetic zero-sum design; full text not inspected in this run",
+          "identifier_or_url": "https://arxiv.org/abs/2412.14423",
+          "material_read": "Abstract/accessible bibliographic description and source paper citations; no full-text verification in this execution",
+          "method": "web arXiv metadata and frozen package",
+          "title": "Cross-Validation with Antithetic Gaussian Randomization",
+          "trigger": "same CV randomization object"
+        },
+        {
+          "assessment": "POSSIBLE_HISTORICAL_RISK",
+          "evidence": "Claimed small-noise boundedness/zero-sum condition has different quantifiers from fixed-alpha optimum",
+          "identifier_or_url": "https://arxiv.org/abs/2608.08089",
+          "material_read": "Abstract/accessible metadata and the frozen source mathematical comparison; full text not newly read",
+          "method": "web arXiv metadata",
+          "title": "On the Optimality of Antithetic Randomization for Cross-Validation",
+          "trigger": "same estimator, zero-sum necessity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2412.14423",
+        "arXiv:2608.08089",
+        "arXiv:2610.01120",
+        "Resultary 2026/11/2 phase-unknown heat Fourier Gaussian minimax coupling"
+      ],
+      "rationale": "Gaussian coupling strength is a physically natural design parameter of randomized cross-validation. The exact finite-noise optimizer and unique full-to-partial-antithetics threshold give a real decision reversal relative to asymptotically zero-sum designs (e.g. 8 versus 5167/1024 variance at alpha=4), while holding marginal distributions/bias fixed. General Hermite moment algebra is elementary background; the precise finite-perturbation phase diagram is an independently useful benchmark, not a general non-Gaussian guarantee.",
+      "residual_risks": [
+        "Full primary 2024/2026 cross-validation papers not independently read cover-to-cover in this execution; exact finite-alpha optimum may be an unindexed specialization of quadratic Gaussian antithetic Monte Carlo formulas.",
+        "Implementation requires unknown signal-to-noise parameter; no oracle-free optimal tuning is established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full primary 2024/2026 cross-validation papers not independently read cover-to-cover in this execution; exact finite-alpha optimum may be an unindexed specialization of quadratic Gaussian antithetic Monte Carlo formulas.",
+    "Implementation requires unknown signal-to-noise parameter; no oracle-free optimal tuning is established.",
+    "Potentially public source metadata not sanitized; publication withheld.",
+    "Source git file blobs inspected at assigned frozen commit; independent full directory tree SHA reconstruction not performed."
+  ],
+  "schema_version": 1
+}
