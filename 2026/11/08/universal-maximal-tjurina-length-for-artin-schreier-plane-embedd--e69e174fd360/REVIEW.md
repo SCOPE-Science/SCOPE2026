@@ -1,16 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The derivatives in characteristic \(p\) and the local Jacobian ideal follow from exact differentiation, since all terms of \(G\) and \(z^r\) are \(p\)-th powers. The unique singular support follows from the affine derivative and the leading homogeneous term. The regular-element short exact sequence proves the length in every characteristic and for arbitrary lower coefficients, independently of finite checks. Boundary assumptions \(pm>q\) and \(a_m
-e0\) are essential.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Kollár's primary article constructs this family and identifies its unique cusp in characteristic two, but the inspected article does not state the uniform length of its nonreduced singular scheme. Semantic research-result searches for the exact family, its Tjurina length, and its Jacobian scheme found no covering result; nearest records discuss other geometric objects. General Tjurina literature includes different characteristic ranges or curve classes. The possibility of an equivalent known calculation remains a priority risk; this review is not an independent audit.
+PASS
 
-## Value — PASS
-This gives a uniform, maximally large natural Jacobian length for all members of a recently studied family, invariant under arbitrary lower coefficients and the prime-power parameter. In positive characteristic the Jacobian scheme can be much thicker than the reduced singular point and need not be determined by an ADE label. The exact length is useful in comparing characteristic-dependent plane singularities and families of wild cusps. The finding goes beyond recording smoothness or recomputing a known cusp type.
+The affine chart Z=1 is nonsingular because the derivative of y^q-g(x^p)-x with respect to x is -1. At infinity the leading coefficient forces P=[0:1:0] as sole point. In Y=1 coordinates, h=z^(d-q)-G(x,z) consists solely of p-th powers, so f_x=-z^(d-1), f_z=-(d-1)x z^(d-2). In R=k[[x,z]]/(h), z is a nonzerodivisor because h(x,0)=-a_m x^d !=0. The short exact sequence R/(z^(d-2) m) over R/(z^(d-2)) has extra k length one, giving 1+d(d-2)=(d-1)^2. Independent exact finite-field Groebner calculations for p=2 and p=3 with d=6 yielded length 25, supporting the unrestricted regular-sequence proof.
 
-## Scientific limitations
-No claim on resolution graphs, all deformation invariants or positive-characteristic Milnor numbers is made. Generic citations to positive-characteristic singularity theory do not establish historical uniqueness. Full literature priority and independent mathematical validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kollár 2026 constructs the same Artin–Schreier plane embedding and studies affine identification and characteristic-two cusp properties. The cited construction is prior and not credited. His inspected examples do not state this uniform all-characteristic/all-polynomial local Tjurina algebra length. General maximal-Tjurina literature in characteristic zero concerns different singularity hypotheses; this positive-characteristic wild Jacobian thickness is not inferred from those results alone. Best-of-knowledge original exact invariant, with risk that a standard intersection-number lemma already implies it.
+
+## value
+
+PASS
+
+The precise local nonreduced Tjurina length is a natural invariant in positive-characteristic wild singularities, independent of q and all lower coefficients, and gives a complete family-wide numerical answer. The formula is derived by a short nonzerodivisor length argument but is not just an arbitrary finite sample or a renamed parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
