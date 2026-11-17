@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The output-to-history equivalence is established by exact comparison of two shifted burst deletions. Its contiguous-valid-start consequence makes second differences an exact inversion rather than a heuristic. The pairwise intersection formula treats both overlap lengths and the boundary \(s=m+1\). The period-\(b\) equalities are independent under uniform centers because their comparison graph is a forest of paths. The checker independently enumerates 736 centers and 54,360 outputs and checks the expected distribution and Bernoulli-run recurrence. This is a proof for all finite parameters, not an extrapolation from small cases.
+## correctness
 
-**Originality — PASS against inspected evidence, with priority risk.** Lan et al. (arXiv:2504.20460v1, Sections III and IV) determine cardinalities of insertion balls and maximal intersections between *different* centers. Xi et al. (arXiv:2506.07817v1, Sections 2–3) give the underlying period-\(b\) equivalence and analyze fixed-length edit balls. The new histogram distinguishes insertion histories within a fixed center; complete second-difference fiber counts, their universal low-multiplicity portion, all expected entries and the random maximum law are not determined by those published numerical ball-size statements. The relevant 2023 single-burst reconstruction article has not been checked in full; an implicit equivalent and other unindexed work are residual risks. Search nonmatches are evidence of no identified coverage, not a proof of priority.
+PASS
 
-**Value — PASS.** The edit-channel output measure under uniformly sampled insertion locations is not uniform on the known insertion sphere. Computing its complete multiplicity spectrum is a natural missing invariant for assessing alignment ambiguity and output concentration. The theorem resolves this invariant for every center, burst width and alphabet size, and the independent-Bernoulli reduction gives an exact finite extreme-value law plus logarithmic typical maxima. The known sphere-size formula is explicitly excluded from the originality claim.
+Equality of two deletion histories iff x[t]=x[t+b] throughout the intervening interval proves interval convexity of valid starts. Endpoint intersection sizes are q^(b-d) for d<=b, and a unique period-b indicator for d>b. Each output with h histories contributes (h-s+1)_+ to T_s, so second differences reconstruct each N_s, including m=0 and terminal zero conventions. Uniform vertex labels on the b disjoint comparison paths give independent equality indicators, hence expected counts and longest-run law; standard union/block bounds establish log_q m scaling at fixed b,q. Fresh literal enumerations checked 1,281 fixed-center parameter cases, not an infinite proof.
 
-**Limitations.** Fixed one-burst insertions only; random-source statements use uniform independent symbols. No multiple-burst, nonuniform-source or code-rate theorem. Formal external validation and exhaustive historical priority review are unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2025 Lan–Sun–Yu–Ge theorem computes burst-insertion ball *cardinality*, and Xi–Sun–Ge compute fixed-length burst Levenshtein ball statistics and period equivalences. Neither of the inspected main proofs asserts the within-a-single-center *output-history fiber multiplicities* with maximum-atom law, which is not determined by scalar sphere size. Best-of-knowledge PASS with 2023 single-burst reconstruction full-text priority risk.
+
+## value
+
+PASS
+
+The full conditional likelihood distribution and extremal atom determine channel ambiguity/decoding behavior beyond a constant insertion-ball size; the random iid source law and exact longest-run reduction are natural probability invariants for a one-burst synchronization channel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 checker.py` from the directory containing the supplied files, using Python 3 with only standard-library modules. The checker independently enumerates all possible length-\(b\) block strings and insertion locations for a collection of small parameter instances. For each center it compares the actual numbers of output words with \(s\) valid deletion locations against the closed finite-difference formula, checks contiguity of valid positions, conservation of operation histories, the known total ball size, and the formula for the maximal multiplicity. Further exact rational comparisons average over all short words and test the independent Bernoulli run recurrence.
+## correctness
 
-The checker passing is a finite test of the formulas, not an exhaustive proof over unbounded center length. The general proof and boundary conventions are in `RESULT.md`. The period-\(b\) equality criterion and previously known insertion-ball size are expressly not newly claimed.
+PASS
+
+Equality of two deletion histories iff x[t]=x[t+b] throughout the intervening interval proves interval convexity of valid starts. Endpoint intersection sizes are q^(b-d) for d<=b, and a unique period-b indicator for d>b. Each output with h histories contributes (h-s+1)_+ to T_s, so second differences reconstruct each N_s, including m=0 and terminal zero conventions. Uniform vertex labels on the b disjoint comparison paths give independent equality indicators, hence expected counts and longest-run law; standard union/block bounds establish log_q m scaling at fixed b,q. Fresh literal enumerations checked 1,281 fixed-center parameter cases, not an infinite proof.
+
+## originality
+
+PASS
+
+The 2025 Lan–Sun–Yu–Ge theorem computes burst-insertion ball *cardinality*, and Xi–Sun–Ge compute fixed-length burst Levenshtein ball statistics and period equivalences. Neither of the inspected main proofs asserts the within-a-single-center *output-history fiber multiplicities* with maximum-atom law, which is not determined by scalar sphere size. Best-of-knowledge PASS with 2023 single-burst reconstruction full-text priority risk.
+
+## value
+
+PASS
+
+The full conditional likelihood distribution and extremal atom determine channel ambiguity/decoding behavior beyond a constant insertion-ball size; the random iid source law and exact longest-run reduction are natural probability invariants for a one-burst synchronization channel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
