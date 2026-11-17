@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The theorem is proved analytically in `RESULT.md`, including the boundary sectors and all equality cases. The associated independent numerical test uses genuine geometric overlaps of two intervals and a separate numerical integral rather than re-integrating the closed formula. Run:
+## correctness
 
-```sh
-python3 verify.py
-```
+PASS
 
-It uses only Python 3 standard-library modules (`math`, `random`) and a fixed pseudorandom seed. A successful run prints `CHECKS_OK 6171`, representing 180 independently quadrature-compared random input triples plus 5,082 parameter-grid minimum checks and 909 deficit-grid checks.
+Verified affine reduction and one-dimensional overlap pushforward: each coordinate gives a plateau atom at one and constant ramp density. Multiplying these distributions yields V=d1*d2+2(1-theta)(m1*d2+m2*d1)+4(1-theta+theta log theta)m1*m2. The crossed-ratio derivative is strictly negative until nesting; on 1<=r<=rho, V=rho+1+4theta log theta+(1-2theta)(r+rho/r), giving precise minimizer families at both sides and at theta=1/2. Differentiation yields -2A(sqrt(rho)-1)^2. Independently checked exact deficit identities symbolically; finite numerical script read but did not substitute for proof.
 
-The Simpson quadrature uses a logarithmic change of variables to resolve small overlap thresholds. Numerical tolerances allow for finite precision. A passing computational test cannot certify the claimed continuum of parameter values; the overlap-distribution proof and analytic minimization establish those statements. No independent audit, external theorem-prover verification, or historical-priority certification is represented.
+## originality
+
+PASS
+
+The sharp area-ratio constrained two-parallelogram minimization and full half-level equality phase diagram are not stated by inspected unrestricted convex-body bounds or single-body covariograms. Best-of-knowledge positive priority with specialized literature residual risk.
+
+## value
+
+PASS
+
+A natural variational problem with a quantified universal first-order shape transition, a nontrivial continuum of critical optimizers, sharp geometric equality classes and a closed kink size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
