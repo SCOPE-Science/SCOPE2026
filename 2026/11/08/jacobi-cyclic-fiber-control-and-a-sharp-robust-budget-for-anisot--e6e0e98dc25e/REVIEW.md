@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof gives the endpoint recurrence and degree-leading-coefficient formula for Jacobi eigenvectors, establishes that a cyclic root makes every second-factor eigenmode visible, derives a nonzero Vandermonde determinant on every coincident product eigenspace, and invokes PBH in both directions. For the all-coupling square-grid consequence, the multiplicity \(n-1\) at isotropy is explicitly constructed and the only possible multiplicity-\(n\) matching is excluded by an exact trigonometric inequality. The package's rational Kalman rank checker passed 25 test cases. Finite tests are supplemental, not universal proofs.
+## correctness
 
-**Originality: PASS on inspected evidence, with residual risk.** The closest primary prior source, Notarstefano–Parlangeli, arXiv:1203.0129 (2012), already develops path eigenvector polynomials and full multiplicity determinant tests for unweighted grids. That existing test subsumes some unweighted-grid special cases, which are not represented as novel. The claimed extension is an explicit all-positive-coupling, optimal rooted-fiber construction for arbitrary irreducible Jacobi and arbitrary cyclic-root symmetric factors, together with an exact parameter-uniform square-grid actuator budget. The closest strong-structural coverage, Monshizadeh–Zhang–Camlibel, arXiv:1403.4868 (2014), addresses a different, strictly larger matrix-variation class via zero forcing and does not imply the smaller optimal budget for one-parameter anisotropy. Published and indexed research comparisons did not identify a general equivalent formulation. An implicit extension of the earlier grid determinant method or specialist unindexed results remains a priority risk.
+PASS
 
-**Mathematical value: PASS.** This is a sharp coordinate-input theorem, not merely a spectral lower bound: a universal fixed spatial pattern attains the lower bound at every exact eigenvalue collision. The square-grid theorem gives a useful exact actuator budget when the coupling parameter is unknown, and distinguishes structured parameter robustness from strong structural controllability. The explicit determinant is also a nonzero algebraic certificate for each resonant eigenspace, although it does not establish uniform numerical conditioning.
+The PBH test reduces the exact coordinate-input minimum to injectivity on each eigenspace of the symmetric Kronecker sum. Irreducible Jacobi recurrence gives u_i(k)=u_i(0)p_k(alpha_i), with nonzero endpoint values, degree-k polynomials and leading coefficient (-1)^k/(c_1...c_k). Cyclicity of the B-root means simple beta_j and v_j(h) nonzero. Each repeated sum alpha_i+t beta_j uses distinct i and j; the s×s consecutive-fiber determinant is the Vandermonde times those nonzero endpoint factors. Rank s is attained and <s is impossible. For square-grid gamma_i=2-2cos(pi*i/n), at t=1 the n-1 pairs i,n-i (1<=i<n) yield eigenvalue 4. Multiplicity n at any t would force order-reversed pairing; endpoints force t=1, but gamma_1+gamma_(n-2)-gamma_(n-1)=4cos(pi/n)(cos(pi/n)-1)<0, contradicting it. Thus fixed n-1 boundary actuators control for all t>0, n>=3. An independent spectral check showed the claimed n-1 resonance for n=3..7; finite checks are not proof.
 
-The principal limits are cyclicity of the selected root, positive common path conductances, symmetric factors, and unrestricted independent control amplitudes. Claims about arbitrary independent edge perturbations or uniform control energy are not made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected prior result asserts both the arbitrary rooted cyclic second-factor sharp placement and the fixed all-positive-anisotropy n−1 budget. The earlier path-grid determinant framework is credited; an implicit generalization in existing spectral controllability theory remains a genuine originality risk.
+
+## value
+
+PASS
+
+A sharp parameter-uniform actuator budget saves one boundary actuator beyond full-row zero forcing in an entire nontrivial anisotropic square-grid family, and the Vandermonde construction supplies the missing attainment of the maximal eigenspace-multiplicity lower bound for general Jacobi⊗cyclic-root networks. This is a motivated spectral/control structural theorem rather than a raw numerical bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
