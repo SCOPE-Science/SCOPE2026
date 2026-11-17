@@ -1,18 +1,21 @@
-# Scientific review: minimum generating sets for units of a finite magma monoid
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The argument starts with a fully specified operation and an equivariant-map anti-isomorphism. It proves the known unit decomposition without assuming it, identifies a three-dimensional elementary abelian quotient giving the sharp lower bound, and constructs three generators by obtaining all adjacent transpositions and individual base flips. The five-generator consequence uses the diagonal-restriction ideal, the unit ideal complement, and explicit nonunits of both indispensable diagonal types. Finite exhaustive checks corroborate the algebra in the package. The proof works for all finite cardinalities claimed.
+## correctness
 
-## Originality
-**PASS, with a historical-priority reservation.** The 2026 *Generator Sets for the Magma Monoid* paper gives a bound of four for the full monoid, based on a two-generated **subgroup** of units; it does not establish the exact rank of the full unit group. The 2026 transformation-semigroup paper treats ideals, idempotents and regular elements, not this sharp generator number. The 2022 originating paper established the structure and size of the unit group, which are treated as known here. Direct search for the minimum rank, the three-generator operation-table construction, and the five-generator lower bound returned no identified equivalent statement in accessible published sources or research records. The exact rank may nevertheless be derivable from standard group-generation theory and an inaccessible earlier proof; this residual risk is recorded rather than dismissed.
+PASS
 
-## Mathematical value
-**PASS.** The exact minimum number of invertible operations needed is a basic structural invariant of a finite monoid, and it is **uniformly three** despite rapidly growing group order. The explicit pair of signed-permutation generators and explicit triple of binary operations allow concrete reconstruction. Most importantly, the invariant directly sharpens the recent literature's lower bound on the generation of the entire magma monoid from four to five for every \(n\ge3\). This does not solve the full monoid generation problem, which remains outside scope.
+PASS: The map f↦T_f(a,b)=(f(a,b),f(b,a)) is an anti-isomorphism to maps commuting with coordinate swap. Bijective maps split into independent permutations of n diagonal points and signed permutations of N=binom(n,2) two-cycles, giving S_n×B_N. For n≥3 its abelianization is C2^3. For B_N, generators (e1,c_N),(0,(12)) produce allones via u^N and an independent e2 via (uv)^(N−1), then all coordinate flips by conjugation; three product-group generators recover adjacent S_n transpositions and full B_N. At least two distinct nonunit types (nonbijective/bijective diagonal restriction) must occur in any full monoid generating set because I and nonunits are ideals and each type exists. Direct signed-permutation closure independently found |B3|=48 and |B4|=384, consistent; all-n proof is algebraic.
 
-## Closest literature and boundaries
-- López-Permouth, Owusu-Mensah and Rafieipour (2022) give background on units; only abstract and bibliographic material of that original article were accessible.
-- Owusu-Mensah (2026), *Generator Sets for the Magma Monoid*, was materially inspected in full, especially its units subsection and the minimal-spanning-set section. It supplies the closest stated four-generator lower bound.
-- Baiduk and Kozerenko (2026), arXiv:2607.13746v1, motivated the transformation viewpoint; its unit order is not the new claim.
-- General generation results about \(S_n\), hyperoctahedral groups, and direct products may subsume parts of the argument; historical priority has not been independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (qualified): Existing monoid literature supplies the unit decomposition and a four-generator full-monoid lower bound. Owusu-Mensah 2026 explicitly two-generates the *subgroup* S_n×C2, not the full S_n×(C2 wr S_N), and does not establish 3 unit generators nor 5 lower bound. A prior product-generation theorem or inaccessible 2022 original may contain an equivalent numerical result; risk retained, not automatic failure.
+
+## value
+
+PASS
+
+PASS: Minimal generating rank of the naturally defined entire unit group is a precise structural invariant, with explicit uniform generators and a genuine new obstruction for the full monoid. The five-generator lower bound improves the previous four-generator obstruction while carefully not claiming full monoid rank equality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
