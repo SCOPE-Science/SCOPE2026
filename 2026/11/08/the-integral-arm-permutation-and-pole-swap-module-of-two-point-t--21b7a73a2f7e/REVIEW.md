@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The input graph satisfies Prue–Scrimshaw's stable-equivalence hypotheses for two unordered particles: its nontrivial loops have length at least four, and paths joining its two poles have length two. The complete enumerated cubical model has \(\binom{m+2}2\) vertices, \(2m^2\) edges and \(m(m-1)\) two-cells. Every one of the latter has a unique free edge \(q_{ji}\), producing a uniform collapse to a subdivided complete graph with pendant leaves. Its rank is exactly \(\binom m2\), with no torsion or higher homology. Explicit cycles form an integral triangle basis. Signed formulas for the chain action and square boundaries show arm permutations realize the exterior square and pole swap acts by \(-1\). The character follows from the trace identity for an exterior square of a permutation representation. Direct program checks for \(2\le m\le7\), with all permutations through \(m=5\), support the theorem. The infinite claim rests on the universal argument, not finite enumeration.
+PASS
 
-## Originality — PASS relative to inspected evidence
+For m>=3 the two essential poles in K2m are separated by two graph edges and every cycle has >=4 edges, so the Abrams unordered two-particle cubical model is a deformation retract by Prue-Scrimshaw sufficient-subdivision conditions. Its c0=binom(m+2,2), c1=2m², c2=m(m-1), with all squares s_ij=(a_i,b_j), i != j. Each q_ji=(b_j,w_i) is a unique free 1-face of s_ij, so collapsing all squares yields a graph homotopy equivalent to subdivided K_(m+1) plus m leaves; cycle rank binom(m,2) for all m. Explicit triangle cycles z_ij=p_ji-p_ij+y_j-y_i form a primitive Z-basis; arm reindexing acts as wedge^2 Z^m. Pole swap sends p_ij to -q_ij and y_i to -x_i, and square boundary q_ji=y_j+x_i-p_ij gives tau[z_ij]=-[z_ij]. Hence the claimed integral S_m x C2 module and character hold universally; independent exact free-square counts and rank checks verified m=3..8.
 
-Foundational sources establish the configuration-space model and nonequivariant graph braid methods. Maciążek–Sawicki investigate complete bipartite graph configuration homology, so the ordinary rank is not a novelty claim. The inspected Section 5.6 does not determine a \(S_m\times C_2\) integral homology action, nor a natural exterior-square isomorphism or pole-swap sign. Indexed nearby work describes three-particle theta relations, sink configurations, Borel–Moore exchange-sign homology, and Morse complexes, each with a different configuration space or invariant. None of the inspected published results logically supplies the precise full integral group action. The key remaining risk is an equivalent but unindexed classwise character or a symmetry interpretation implicit in older graph-braid presentations.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Graph braid groups and their homology are used to describe topological exchanges on branched networks. The generalized theta family has nontrivial arm and pole symmetries, so a complete integral lattice action distinguishes behaviors that ordinary Betti numbers and wedge classifications cannot resolve. The universal orientation reversal on exchanging the two degree-high poles and the exterior-square branch representation provide a reusable natural construction, not just a finite numerical example.
+Earlier results of 2026-10-18 and 2026-11-01 already compute the full rational S_m x C2 symmetry character and the nonequivariant homology of topologically equivalent length-three subdivisions, but BOTH explicitly disclaim an integral S_m x C2 lattice identification. Rational isomorphism does not determine a Z[G]-lattice; the new explicit integral basis and integral pole action are a mathematically stronger assertion not implied by the earlier rational representations. Searches of older published theta and graph-configuration results found no exact integral exterior-square module statement. Best-of-knowledge originality, subject to residual risk of hidden integral braid-group results.
 
-## Scope and remaining uncertainty
+## value
 
-Only two unordered, collision-free particles on \(K_{2,m}\) for \(m\ge3\) are covered. A nonequivariant circle-wedge classification is not a claimed new principle. No integral equivariant homotopy splitting or larger particle count is established. Publication-priority searches are substantial but cannot exclude unindexed or implicit equivalent results.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For a canonical m-parameter family of graph braid spaces, the integral automorphism module is genuinely finer than known Betti numbers and rational character: integral representations with identical Q-character need not be isomorphic. The explicit Z-basis and uniform pole-sign action provide exact natural equivariant topological data researchers can reuse; no generalized particle number theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
