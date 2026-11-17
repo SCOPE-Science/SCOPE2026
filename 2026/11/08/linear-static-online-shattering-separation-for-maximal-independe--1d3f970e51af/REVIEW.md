@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact VC bound has a two-case induction on the least shattered coordinate, and the lower bound is an induced-matching construction followed by maximal extension. Exact counts through order nine force the Littlestone ranks to equal VC ranks there. The ten-vertex depth-four tree is a self-contained 16-leaf certificate checked from source words, and the separator map preserves maximal independent sets for arbitrary numbers of blocks. The result claims only a lower adaptive bound on larger paths; finite tests are not used as infinite proofs.
+## correctness
 
-**Originality — PASS within the checked record.** The closest inspected full-text result, Liu–Shangguan–Skokan–Xu (2024), Lemma 2.20, bounds VC dimension of maximal-independent-set hypergraphs via bipartite induced matchings. It neither yields the exact smaller VC dimension of the ten-vertex path nor computes its adaptive dimension. The work of Malliaris–Moran on stable/Littlestone classes and of Krivelevich–Mészáros–Michaeli–Shikhelman on random greedy path-independent sets addresses different claims. Queries for aliases, duals, parameters, and implication were compared against accessible recorded findings. An obscure prior result under a different term remains possible.
+PASS
 
-**Value — PASS.** The result demonstrates a linear gap between static and adaptive shattering on a very restricted connected, maximum-degree-two family. The exact static classification, first finite separation at ten vertices, and an explicit connector-based amplification constitute a structural mechanism rather than an arbitrary isolated parameter table. The unrestricted online rank beyond the first ten orders remains unresolved.
+The infinite-parameter VC claim is proved by an induced matching on queried positions 2,5,...,3t-1 (all label patterns extend to maximal independent sets) and induction using the minimum queried vertex: conditioning on its answer 1 or, if it is vertex 1, 0 forces a dominated prefix and leaves a suffix of at most n-3 with independently maximal restrictions. Thus VCdim(M_n)=floor((n+1)/3) for all n. For n<=9 complete concept counts 1,2,2,3,4,5,7,9,12 make the 2^{VC}<=|M|<2^{VC+1} bound tight for Littlestone; at n=10 there are 16 concepts, and the actual fetched tree_P10.json has 15 internal query nodes and 16 distinct valid maximal independent-set word leaves consistent with every path, certifying Ldim=4 vs VC=3. The connected amplification inserts one separator between any two P10 blocks and sets it to 1 exactly when both neighboring block endpoints are 0; every juxtaposed choice of block concepts remains independent and dominating. This yields depth >=4k on P_{11k-1}; VC=floor(11k/3), so the lower gap is ceil(k/3). Independent finite enumeration through n=10 and k=2 tested 256 product realizers; infinite conclusion relies on symbolic separator proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS for the complete final theorem on connected paths, qualified. The prior November 2 record proves the exact P10 first gap and unbounded growth only for DISCONNECTED disjoint unions of P10, explicitly does not establish connected path amplification. The new separator embedding preserves full product without disconnecting the graph, giving linear unbounded separation for connected paths and a universal exact VC formula. Neither the known induced-matching upper bound nor the prior disjoint union alone implies the connected result. No equivalent earlier connected-path theorem was located in the checked indexed searches or primary comparison, but unindexed equivalent online-learning work remains a priority risk.
+
+## value
+
+PASS
+
+PASS. Maintaining connectivity while obtaining an unbounded static/adaptive shattering gap is a meaningful new structural strengthening: paths are the simplest connected max-degree-2 graphs, and connecting disjoint components generally destroys the Cartesian product of maximal independent-set concepts. The explicit one-vertex separator extension solves the genuine domination boundary obstruction and proves quantitative linear gap along an infinite family. This is mathematically motivated even without an exact formula for general path Littlestone dimensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
