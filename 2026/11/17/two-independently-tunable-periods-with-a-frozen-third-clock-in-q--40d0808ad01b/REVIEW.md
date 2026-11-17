@@ -1,0 +1,11 @@
+# Review of the fixed-geometry period-control theorem
+
+**Correctness (C): PASS.** The polynomial invariance and exact angular speeds follow by differentiation; the hyperbolic, coprime, degree-four region follows from Cao–Llibre's proven classification. The first two physical periods are smooth positive integrals. Their parameter-Jacobian has a nonzero large-positive-parameter coefficient. The essential new separation lemma is proved globally: disjoint geometry splits permitted radii into intervals on which an explicitly derived \(\rho\) is strictly monotone, with disjoint image ranges. The inverse-function theorem completes the local controllability claim. The executable test reproduces representative values but does not replace the proof.
+
+**Originality (O): PASS with residual literature risk.** The motivating source derives the normal form, angular velocities and hyperbolicity criterion, but does not state the simultaneous rank-two period map or establish the global separation lemma. The full-text period-realization result of Margalef-Bentabol and Peralta-Salas gives arbitrary-period realizations with a different, higher-degree bound; it does not imply rank two within this quartic family while fixing the third period. A general prescribed-limit-cycle construction by Christopher concerns geometric realizations rather than this constrained period map. Related work classifying stability at lower degree does not determine independent period-response rank. Unindexed period-realization literature could affect historical priority.
+
+**Mathematical value (V): PASS.** Prescribing three circles and maintaining degree four restricts admissible polynomial fields to a small family; demonstrating exact two-dimensional period freedom within that family, despite a rigid third period, resolves a natural constrained realization question. The all-geometries nondegeneracy is structural, not a single parameter evaluation. No global or arbitrary triple-period realization is claimed.
+
+**Limits and relevance.** Local changes only, fixed nonzero parameters, strict geometric disjointness and sufficiently large positive shift parameter. Closest inspected sources: Cao–Llibre (2026), Margalef-Bentabol–Peralta-Salas (2015 preprint), and Christopher (2001 abstract).
+
+Self-review: passed. Independent audit: not yet performed.
