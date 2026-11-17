@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "When \\(E\\geq AD\\), logistic comparison gives \\(0<x\\le B\\). The compensator \\(h(x)=2\\int_0^x g_+(u)/q(u)\\,du\\) is finite and continuous, including at \\(E=AD\\). Above the threshold \\(y\\geq2R(B^p+C)/M\\), the exact inequalities \\(\\dot x\\le -q(x)y/2\\) and \\(d(\\log y+h(x))/dt\\le0\\) give a uniform excursion bound for \\(y\\). For \\(E<AD\\), \\(g(x)\\geq\\delta=D-E/A>0\\) forces finite-time blow-up and \\(1/y(t)=\\int_t^Tg(x(s))\\,ds\\) yields \\(y\\geq1/[D(T-t)]\\). Hence \\(x=O((T-t)^\\kappa)\\) for some \\(\\kappa>0\\), then \\(1/y=\\delta(T-t)+O((T-t)^{1+\\kappa})\\) and \\(\\dot x/x=-\\nu/(T-t)+O(1+(T-t)^{\\kappa-1})\\). Integrability of the error establishes a strictly positive finite prey amplitude and the exact derivative exponent. All signs and boundary cases are handled analytically; exact arithmetic and finite numerical checks are diagnostic only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Patra–Maitra–Kundu 2024 Section 8.1 proves \\(D>E/A\\) is sufficient for blow-up; Section 3 discusses conditional boundedness, not the entire complementary parameter region.",
+        "Indexed nearby predator–prey results concern extinction near invasion thresholds, discrete maps, delay equations or different predation terms; none of their indicated vector fields reduces to the present coupled Riccati equation with the same parameters."
+      ],
+      "reasoning": "The 2024 sufficient blow-up theorem covers one direction but not the necessity or prey derivative exponent. General ODE comparison and Riccati estimates do not imply a sharp global parameter dichotomy without a further feedback/Lyapunov argument. Other model families do not dominate the claim via parameter specialization.",
+      "searches": [
+        "sharp finite time blowup versus global boundedness boundary Y'=(D-E/(X+A))Y^2 X'=R X(1-X/K)-MXY/(X^p+C)",
+        "Lyapunov log predator integral of positive predator growth divided by prey attack rate bounds globally for non-delayed Leslie Gower group defense",
+        "Patra Kundu Maitra Srivastava Antwi Fordjour Parshad global boundedness dichotomy generalist predator prey",
+        "Patra Maitra Kundu 2024 Dynamics blow-up control Leslie-Gower generalist group defence condition D E/A boundedness global theorem full text"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2104.09166",
+      "https://arxiv.org/abs/2306.13666",
+      "https://www.researchgate.net/publication/379392950_DYNAMICS_AND_BLOW-UP_CONTROL_OF_A_LESLIE-GOWER_PREDATOR-PREY_MODEL_WITH_GROUP_DEFENCE_IN_PREY",
+      "https://doi.org/10.1063/5.0171950",
+      "https://doi.org/10.1142/S0218339024500165",
+      "Published mathematical index result IDs listed in O comparisons"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2021 source analyzes conditional boundedness and the original model. The new positive-data all-parameter \\(E\\geq AD\\) bound is stronger in hypothesis scope.",
+        "2023 source proposes blow-up, quenching and large-data basins, but does not give the universal \\(E\\geq AD\\) no-blowup theorem or the three exact derivative regimes.",
+        "2024 sufficient blow-up assertion \\(D>E/A\\) is implied by the new dichotomy but not a novelty contribution; its converse and exact exponent do not follow from that sufficient assertion."
+      ],
+      "reasoning": "Prior \\(D>E/A\\) blow-up sufficiency is explicitly credited rather than claimed. The new converse requires a global compensating Lyapunov estimate; the exact asymptotic amplitude requires an integrable logarithmic derivative correction. Neither is implied by local stability or the sufficient Riccati comparison. The 2023 numerical case \\(D=0.5,E=0.2,A=0.2\\) has \\(E>AD\\); the proven all-data boundedness excludes true finite-time blow-up for the printed undelayed ODE at those parameters.",
+      "searches": [
+        "arXiv:2104.09166v1 positivity and conditional boundedness section",
+        "arXiv:2306.13666v1 Theorems 3/4 and quenching examples",
+        "DOI:10.1142/S0218339024500165 Sections 3 and 8.1",
+        "arXiv:2306.13666 non-delayed generalist predator group defence ODE universal blow-up threshold E=AD and exact prey vanishing exponent M/(C(D-E/A))",
+        "prey derivative quenching iff M < C (D-E/A) exponent M/[C(D-E/A)] finite time blowup"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Both relevant preprints use the dimensional equations \\(\\dot x=Rx(1-x/K)-Mxy/(x^p+C)\\) and \\(\\dot y=[D-E/(x+A)]y^2\\). The 2023 preprint studies large-data blow-up and quenching; the 2021 original analyzes conditional boundedness.",
+        "The group-defence model has a known sufficient condition \\(D>E/A\\) for blow-up, given separately in 2024, which is explicitly excluded from the novelty claim."
+      ],
+      "reasoning": "Compared restored dimensional equations, parameter aliases, and sufficient-condition implications; searched the signs of \\(D-E/A\\) and \\(E-AD\\), the exponent \\(M/[C(D-E/A)]\\), and its derivative threshold. No inspected claim established the complementary all-data uniform bound and the exact three-regime prey derivative behavior.",
+      "searches": [
+        "Srivastava Antwi-Fordjour Parshad generalist predator group defence finite time blowup modified Leslie Gower D minus E/(X+A) Y squared sharp condition D A > E",
+        "arXiv:2306.13666 non-delayed generalist predator group defence ODE universal blow-up threshold E=AD and exact prey vanishing exponent M/(C(D-E/A))",
+        "generalist predator group defense E >= A D uniform bounded for all initial conditions predator equation (D-E/(x+A)) y squared with finite time blowup E < A D",
+        "prey derivative quenching iff M < C (D-E/A) exponent M/[C(D-E/A)] finite time blowup",
+        "arXiv:2306.13666v1 Theorems 3-4",
+        "arXiv:2104.09166v1 original equations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical index yielded closest IDs 2026/11/8/SCOPE-critical-predator-allee-decay-with-a-fear-induced-stretched-expo--b94ee46bd8f2 and 2026/10/11/SCOPE-universal-cubic-slowing-at-a-doubly-tangent-predator-only-thresh--574227374316, neither on this exact ODE."
+      ],
+      "reasoning": "No exact claim or tabulated equivalent was returned by the actual mathematical index searches or found in the inspected primary publications; negative search is not proof of uniqueness.",
+      "searches": [
+        "prey quenching at predator blowup exact power law exponent group defense Holling type IV",
+        "simultaneous prey quenching and predator blowup critical exponent one derivative bounded versus infinite",
+        "generalist predator group defense E >= A D uniform bounded for all initial conditions predator equation (D-E/(x+A)) y squared with finite time blowup E < A D",
+        "prey derivative quenching iff M < C (D-E/A) exponent M/[C(D-E/A)] finite time blowup"
+      ]
+    },
+    "rationale": "Same-model 2021 original conditional boundedness and 2023 finite-time numerical/quenching analysis do not imply an all-positive-data converse no-blowup half or the exact exponent trichotomy; 2024 independently proves \\(D>E/A\\) sufficiency and is fully credited, excluded from claimed novelty. Search comparisons with closest indexed claims concern non-equivalent dynamics and do not dominate the precise statement; publication priority remains conditional on accessible evidence.",
+    "residual_risks": [
+      "2024 journal manuscript on the original same ODE was only accessible via material author-posted excerpts, not continuously read in full.",
+      "The full published Chaos 2024 revision may contain details absent from the accessible 2023 preprint.",
+      "Semantic database search  cannot rule out unindexed equivalent results ."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the original equation and conditional boundedness, no all-positive-data \\(E\\geq AD\\) bound or finite-time prey exponent identified",
+        "evidence": [
+          "First publicly posted 2021-04-19; printed model and conditional boundedness conditions in its early theory section."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2104.09166",
+        "material_read": "arXiv-indexed article body: model, positivity, Section on boundedness, original theorems and parameter conventions",
+        "method": "Full open indexed arXiv HTML primary text, compared vector field and hypotheses",
+        "title": "Effect of delay and control on a predator-prey ecosystem with generalist predator and group defence in the prey species",
+        "trigger": "Original exact model, potential prior global bound"
+      },
+      {
+        "assessment": "Reports large-data blow-up/quenching, but the positive-data sharp parameter boundary and exact three-regime prey derivative exponent are not established in inspected text",
+        "evidence": [
+          "First arXiv submission 2023-06-14; Theorem 3/4 and examples include \\(D=0.5,E=0.2,A=0.2\\) in the global-side inequality \\(E\\geq AD\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.13666",
+        "material_read": "ArXiv-indexed article body: model definition, Theorems 3-4, proofs, numerical examples and discussion/conjectures",
+        "method": "Open primary arXiv HTML full article and compare mathematical parameters and claims directly",
+        "title": "Exploring unique dynamics in a predator-prey model with generalist predator and group defence in prey",
+        "trigger": "Exact same ODE and asserted predator blow-up/prey quenching"
+      },
+      {
+        "assessment": "Section 8.1 independently establishes \\(D>E/A\\) sufficiency. Section 3 discusses conditional bounds, not the complementary uniform result in the read material. Full document inaccessible; residual priority risk retained.",
+        "evidence": [
+          "DOI:10.1142/S0218339024500165; author-posted Section 8.1 condition (8.1) \\(D-E/A\\)>0, 2024 publication."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/379392950_DYNAMICS_AND_BLOW-UP_CONTROL_OF_A_LESLIE-GOWER_PREDATOR-PREY_MODEL_WITH_GROUP_DEFENCE_IN_PREY",
+        "material_read": "Author-posted publicly searchable material excerpts including equations (2.1), Section 3 boundedness, and complete quoted Section 8.1 sufficient blow-up argument",
+        "method": "Published full-text excerpt indexed by search; full page inaccessible for continuous reading",
+        "title": "Dynamics and blow-up control of a Leslie-Gower predator-prey model with group defence in prey",
+        "trigger": "Same undelayed equations; possible domination of blow-up claim"
+      },
+      {
+        "assessment": "2024 abstract repeats finite-time blow-up/quenching narrative; full journal text was not independently available in the inspected publisher channel",
+        "evidence": [
+          "Chaos 34, 013107 (2024); DOI 10.1063/5.0171950; journal published 2024-01-09."
+        ],
+        "identifier_or_url": "https://doi.org/10.1063/5.0171950",
+        "material_read": "Publisher bibliographic abstract and article preview, contrasted with arXiv 2023 full-text",
+        "method": "Open indexed publisher preview and primary OA preprint",
+        "title": "Exploring unique dynamics in a predator-prey model with generalist predator and group defense in prey (journal version)",
+        "trigger": "Possible newer published version of the same 2023 preprint"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ff8ac4de-50a6-4e25-8936-4c464c0b562e",
+  "value": {
+    "rationale": "Finite-time explosion versus global boundedness is a central unresolved classification issue for this same group-defence model: the sharp \\(E=AD\\) boundary determines the behavior of every positive start. On the explosion side, the exact exponent \\(\\nu=M/[C(D-E/A)]\\) distinguishes divergent, finite nonzero, and zero prey derivative limits by the natural thresholds \\(\\nu<1\\), \\(\\nu=1\\), and \\(\\nu>1\\), while predators always blow up. This is a substantive all-data feedback estimate with direct implications for interpreting reported quenching examples, not merely a local linear or numerical observation.",
+    "status": "PASS"
+  }
+}
