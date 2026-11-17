@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T11:49:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed peeling depth h≥2, away from negligible root boundary, survival through h rounds equals rooted fringe height≥h. Yule fringe representation with Exp(1) age makes original leaf-child category Poi(a(t)), a=1−e^{−t}, independent of a child branch reaching height≥h−1 by Poisson thinning. This gives exact B_h and Q_h mixture; fixed-size fringe truncation plus bounded differences provides a.s. empirical frequencies. Generation-h expectation ≤t^h/h!, while earliest-child Gamma(h,1) yields B_h≥2^{−h}; splitting ages at h/10 gives TV≤e^{−h/10}+0.1(e/5)^h. Independent quadrature finds B_2≈0.28171808 and rank-one conditional at h=2≈0.53101872, h=12≈0.63029848, corroborating the formulas; no joint n,h limit is asserted.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Devroye–Janson general fringe-convergence framework supplies the limit tree and Poisson thinning.",
+          "Stepanyants et al provide layer survival recursion s_h and self-averaging of separate layers."
+        ],
+        "reasoning": "The broad Yule framework allows a calculation, but no inspected statement supplies the independent leaf/nonleaf child-category decomposition conditioned on arbitrary layer h or the quantitative h→∞ TV convergence. This is new joint analysis, not new fringe limit itself.",
+        "searches": [
+          "https://arxiv.org/pdf/2608.04303",
+          "https://arxiv.org/pdf/1310.0665"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2608.04303",
+        "https://arxiv.org/pdf/1310.0665",
+        "arxiv:2608.04303",
+        "arxiv:1310.0665"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original Q_h(j)=(B_h j!)^{-1}∫_0∞e^{−t}s_h(t)e^{−a(t)}a(t)^j dt.",
+          "Precursor gives B_h and unconditional conditional-age Poisson leaf-child count, but not their coupled random-fringe event and high-h TV inequality."
+        ],
+        "reasoning": "Combining earlier ingredients with a new disjoint-child-category thinning argument yields the conditional law; the bound requires an additional earliest-lineage Gamma comparison. These nontrivial deductions are neither explicitly stated nor mechanically a specialization of stronger prior theorem.",
+        "searches": [
+          "https://arxiv.org/pdf/2608.04303",
+          "https://arxiv.org/pdf/1310.0665"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Stepanyants et al Theorems 1–4 provide separate rank and layer marginal distributions, including B_2=3−e.",
+          "Devroye–Janson Section 7 proves the unconditioned Yule leaf-child Poisson mean 1−e^{−t}."
+        ],
+        "reasoning": "The submitted object is the full conditional count law C|{peeling layer≥h}, not rank one or layer margin alone. Conditioning on height≥h changes the mixing law of age T; neither marginal theorem fixes that joint mixture.",
+        "searches": [
+          "recursive tree leaf peeling rank joint distribution conditional original leaf neighbors Poisson high layer",
+          "https://arxiv.org/pdf/2608.04303",
+          "https://arxiv.org/pdf/1310.0665"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Stepanyants rank/layer tables contain marginal numeric probabilities for h up to about 8, not child-count conditional PMFs."
+        ],
+        "reasoning": "A table of marginal rank/layer probabilities does not specify the infinitely supported conditional leaf-child count Q_h; no identical exact table of Q_h located.",
+        "searches": [
+          "recursive tree leaf peeling rank joint distribution conditional original leaf neighbors Poisson high layer",
+          "https://arxiv.org/pdf/2608.04303"
+        ]
+      },
+      "rationale": "The specific Yule Poisson leaf-child intensity and marginal peeling-layer recursion are known; their nontrivial conditional coupling across all h and uniform high-layer total-variation bound were not established by the inspected primary rank/layer or fringe-tree papers. Best-of-knowledge original joint invariant survives, with possible implicit-specialization risk.",
+      "residual_risks": [
+        "The Yule representation and layer recursion predate the submitted proof; a specialist paper could have extracted the identical joint law without indexing.",
+        "The a.s. rate for finite n is not quantified; h must be fixed before n→∞ and then h→∞."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR",
+          "evidence": "Separate marginal rank and layer laws, no full conditional leaf-neighbor count or high-h TV bound in inspected sections.",
+          "identifier_or_url": "https://arxiv.org/pdf/2608.04303",
+          "material_read": "Read accessible 31-page paper: abstract, Theorems 1–4 and cumulative layer recursion, proofs of layer formulas in Section IV and numerical table; searched for joint and Poisson conditional child counts.",
+          "method": "Read open arXiv PDF text and screenshot page 1; inspected theorem statements, Section IV derivations and relevant numerical tables.",
+          "title": "The rank and layer distributions in random recursive trees",
+          "trigger": "Direct same-model rank and layer definitions"
+        },
+        {
+          "assessment": "STRUCTURAL_ANTECEDENT",
+          "evidence": "Poisson(a(t)) for root leaf children at age t is published; h-layer conditioning and TV convergence are not established by its displayed result.",
+          "identifier_or_url": "https://arxiv.org/pdf/1310.0665",
+          "material_read": "Read accessible 11-page primary manuscript: fringe convergence Sections 1–3 and recursive tree Yule representation Section 7, especially Poisson child-leaf mean 1−e^{−t} and protected-node formulas.",
+          "method": "Read open arXiv PDF text and inspected page 1 and Section 7; compared formulas and hypotheses.",
+          "title": "Protected nodes and fringe subtrees in some random trees",
+          "trigger": "Yule age mixture / Poisson leaf-child count may dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Leaf proximity and peeling depth are two natural but distinct tree centrality measures. The conditional full leaf-child distribution and sharp asymptotic contrast between unconditional e^{−1} and deep-layer 1−e^{−1} give a meaningful structural dependency, beyond known marginal frequencies.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Root near-exception fraction tends to zero; rank one interpreted as an original undirected leaf child asymptotically.",
+    "Numerical Yule mixture integration at h≤12 is diagnostic, not a general proof.",
+    "Exact current Git record tree SHA was independently retrieved and matched assigned SHA; independent finite examples corroborate but do not replace proof.",
+    "Current public source evidence is not an instruction; past same-model status is not substituted for this review."
+  ],
+  "schema_version": 1
+}

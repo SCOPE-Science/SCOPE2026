@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Yule fringe construction, independent thinning of child branches into leaf and deep-height categories (which are disjoint for layer thresholds at least two), and the exponentially stopped first-born path yield the explicit conditional probability mass function and the quantitative total-variation bound. A bounded-differences truncation and root-boundary comparison give almost-sure empirical convergence. The finite standalone checker passed 53,374 assertions, including exhaustive trees up to eight vertices, numeric calibration and reproducible simulation. Experiments alone are not used as proofs of asymptotic limits.
+## correctness
 
-**Originality — PASS, subject to historical-priority risk.** The 2026 Stepanyants–Krapivsky–Hartle–Krioukov article gives separate marginal rank and peeling-layer laws, not the new full conditional leaf-child-count mixture or its high-layer Poisson limit in the inspected sections. The older Devroye–Janson paper establishes the Yule fringe model and standalone protected-node calculations but not the layer-conditioned distribution. Search comparisons also found no directly subsuming statement. Generic fringe-tree convergence by itself does not imply the displayed quantitative high-layer bound without the joint thinning and age-concentration argument. Broader literature could contain an equivalent; novelty cannot be absolutely certified by absence from search results.
+PASS
 
-**Mathematical value — PASS.** The relation of leaf distance (rank) to iterative leaf stripping (layer) is a natural structural question arising from two previously studied marginal statistics. The conditional law gives the full local leaf-count distribution, not only a trivial recombination of means; the striking limiting rank-one frequency of \(1-e^{-1}\) in deep layers contrasts with the known unconditional \(e^{-1}\). The explicit uniform-in-layer bound quantifies this structural change.
+For fixed peeling depth h≥2, away from negligible root boundary, survival through h rounds equals rooted fringe height≥h. Yule fringe representation with Exp(1) age makes original leaf-child category Poi(a(t)), a=1−e^{−t}, independent of a child branch reaching height≥h−1 by Poisson thinning. This gives exact B_h and Q_h mixture; fixed-size fringe truncation plus bounded differences provides a.s. empirical frequencies. Generation-h expectation ≤t^h/h!, while earliest-child Gamma(h,1) yields B_h≥2^{−h}; splitting ages at h/10 gives TV≤e^{−h/10}+0.1(e/5)^h. Independent quadrature finds B_2≈0.28171808 and rank-one conditional at h=2≈0.53101872, h=12≈0.63029848, corroborating the formulas; no joint n,h limit is asserted.
 
-**Sources and boundaries.** 2026 primary: arXiv:2608.04303 (rank, layer and recurrence). 2013 primary: arXiv:1310.0665 (Yule fringe limit, protected-node constructions). The theorem concerns a sequential double limit, not simultaneous growth of layer with tree size. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The specific Yule Poisson leaf-child intensity and marginal peeling-layer recursion are known; their nontrivial conditional coupling across all h and uniform high-layer total-variation bound were not established by the inspected primary rank/layer or fringe-tree papers. Best-of-knowledge original joint invariant survives, with possible implicit-specialization risk.
+
+## value
+
+PASS
+
+Leaf proximity and peeling depth are two natural but distinct tree centrality measures. The conditional full leaf-child distribution and sharp asymptotic contrast between unconditional e^{−1} and deep-layer 1−e^{−1} give a meaningful structural dependency, beyond known marginal frequencies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
