@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T07:49:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: A proper vertex-centred radius-r ball on C_n is an odd contiguous cyclic arc. For any three-point support, full trace exists iff max clockwise gap ≥ n-2R; all pair-only traces exist iff every gap ≤2R, yielding n-2R≤max gap≤2R for R below diameter. Radius zero realizes singleton and empty traces, and alternating four vertices cannot be shattered, so degree ≤3. Bounded positive three-composition inclusion-exclusion yields s3 and direct distance counting yields s2. Separate even- and odd-n diameter cases give all vs all but n consecutive triples. The normalized three-gap simplex gives the two-piece limiting density and VCdim transition ceil(n/4). Independent direct enumeration of all actual ball traces on pairs and triples for n=4..14 and all R confirmed the criteria; analytic arguments cover all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chalopin et al. Proposition 10 provides proper size-three compression for arbitrary-radius cycle balls. Such a compression bound only constrains capacity; it does not count the sets shattered for each radius cutoff."
+        ],
+        "reasoning": "No general graph-ball bound inspected logically yields the exact s2/s3 coefficients or limiting two-regime probability without additional full gap enumeration.",
+        "searches": [
+          "https://arxiv.org/abs/2206.13254",
+          "sample compression for balls in graphs cycles 2022",
+          "closed-neighborhood VC graph cycle radius-one algorithms"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2206.13254",
+        "https://arxiv.org/abs/2405.07588",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/radius-filtered-graph-balls-on-cycles-exact-shattering-polynomia--da8d9213216f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Compression size three implies a VC-dimension upper bound, but not n/3*(Q_n(2R)-Q_n(n-2R-1)) shattered triples; the latter needs both maximal gap inequalities and bounded-composition counting."
+        ],
+        "reasoning": "The submitted exact radius threshold/density profile is not a direct special case of the inspected compression theorem.",
+        "searches": [
+          "https://arxiv.org/abs/2206.13254",
+          "circular interval shattering largest clockwise gap criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same family can be represented as vertex-centred odd-length circular intervals of length ≤2R+1. Chalopin et al. Section 4 uses graph balls and cycle sample compression, not the full radius-filtered shattering polynomial."
+        ],
+        "reasoning": "Equivalent circular-interval representation was tested; general interval VCdim≤3 does not give exact labelled support counts for every R.",
+        "searches": [
+          "graph metric balls cycle VC shattering circular arcs radius bounded",
+          "https://arxiv.org/abs/2206.13254"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bounded semantic Resultary search returned this exact source and different graph/classifier families, not a prior C_n radius-cutoff coefficient table; direct finite trace enumeration independently corroborated formulas at n≤14."
+        ],
+        "reasoning": "Finite tables are not a novelty proof; the unbounded all-n closed coefficient formulas and simplex limit are the claim.",
+        "searches": [
+          "radius-filtered cycle graph ball shattering polynomial triples exact tables",
+          "Resultary graph cycle ball VC shattering",
+          "https://arxiv.org/abs/2206.13254"
+        ]
+      },
+      "rationale": "PASS best of knowledge: Chalopin et al. establish cycle-ball compression size three and general graph-ball learning complexity, but do not supply support-by-support radius-filtered exact shattering counts, parity-dependent diameter counts, or the two-piece density law. General cyclic-interval VC bounds do not determine this centred odd-length interval subclass at each maximum radius. No earlier identical polynomial/table identified by bounded searches. Alternate circular-arc range terminology remains a serious historical search risk.",
+      "residual_risks": [
+        "Older VC-dimensional results phrased for circular interval hypergraphs, circular arcs, or finite range spaces may encode these same maximum-gap counts implicitly.",
+        "The n=3 exceptional case is explicitly separated from n≥4, not absorbed into general formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_CAPACITY_ONLY",
+          "evidence": [
+            "Cycle compression size 3, no complete radius-dependent triple counts or asymptotic random support law"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2206.13254",
+          "material_read": "Freely accessible complete conference PDF; introduction, Section 4 cycle-ball construction and Proposition 10 examined with page screenshot",
+          "method": "Read primary relevant theorem and compared output (compression size) vs exact shattering coefficient",
+          "title": "Sample compression schemes for balls in graphs (Chalopin, Chepoi, Mc Inerney, Ratel, Vaxès, 2022)",
+          "trigger": "Direct cycle ball concept class and possible upper general theorem"
+        },
+        {
+          "assessment": "BOUNDED_INAPPLICABLE_COMPARISON",
+          "evidence": [
+            "A fixed radius-one bound does not directly supply entire radius profile"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2405.07588",
+          "material_read": "Abstract-level related result only; not full text",
+          "method": "Separated radius-one neighborhood problems from all-radius family",
+          "title": "Graph closed-neighborhood and distance VC literature",
+          "trigger": "Could supply the fixed radius-one case or stronger graph family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The count of shattered supports at each radius quantifies the full capacity profile of a natural graph metric concept class rather than only its VC dimension. Explicit integer and parity transitions and the limiting random-triple law answer motivated sample-complexity and graph-learning invariants and recover the threshold where 3-way labelings become expressible.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only nonempty vertex-centred shortest-path balls on unweighted simple cycles; no weighted/continuous-centre result.",
+    "Historical circular-arc/shattering enumerations may use different terminology."
+  ],
+  "schema_version": 1
+}
