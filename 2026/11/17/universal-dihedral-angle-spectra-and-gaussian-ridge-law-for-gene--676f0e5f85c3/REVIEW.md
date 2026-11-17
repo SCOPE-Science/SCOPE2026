@@ -1,0 +1,19 @@
+# Self-review
+
+## Correctness — PASS
+The claim is precise about the polytope, ambient metric, codimension-two ridges, interior angles, all integer parking parameters, and the two boundary regimes. Published full-parameter vertex/facet descriptions give the necessary and sufficient ridge-incidence classes. Substituting their explicit outward normals gives every angle; counting strict nested subset pairs gives the exact multiplicities, including the missing size-\(n-1\) facets and the extra acute incidences when \(b_1=1\). The high-dimensional result uses a uniform exponentially small exclusion probability and two valid delta-method steps. Exact incidence counts were independently cross-checked by the provided finite enumerator, which also measures actual angles. No numerical extrapolation is used as a proof of the limiting theorem.
+
+## Originality — PASS, priority provisional
+The 2022 work of Hanada–Lentfer–Vindas-Meléndez develops the two-parameter face geometry. Bayer et al. (first posted 2024, examined as arXiv full text and in the open 2025 version) provide arbitrary-parameter vertex, facet, and nested-set *combinatorial* descriptions; these are expressly used as inputs, not rediscovered. Their full texts contain no stated interior dihedral-angle spectrum, no classification of the finite acute orbit, and no central limit theorem for the angle of a uniformly counted ridge. A source-independent calculation must combine the incidence cases, Euclidean outward-normal dot products, exact ternary assignments, and a multinomial delta limit; the resulting complete metric statement is not an explicitly stated prior proposition. Semantic overlap searches of published mathematical records returned papers on inballs, Gaussian *vertex-cone angles*, and widths but no equivalent ridge-angle measure law. The prior face-lattice results make this a fairly accessible consequence; that is a historical-priority risk rather than a claim of entirely new polytope structure.
+
+## Mathematical value — PASS
+The ridge dihedral-angle multiset is a natural complete intrinsic-to-the-given-realization metric invariant of a very large family of combinatorially controlled polytopes. The finding identifies geometric rigidity under arbitrary changes in the parking parameters, a sharp *acute-angle* dichotomy at the classical type, and a universal \(135^\circ\) concentration with a nondegenerate Gaussian fluctuation law despite exponentially many distinct ridges. These distinguish angle-weighted boundary geometry from known face counts and inball/width invariants; the result is not an arbitrary low-dimensional table or a renaming of a known count. Its stated value is the complete Euclidean angle law itself, not an unsupported downstream application.
+
+## Closest sources, limitations, and risks
+- Hanada, Lentfer, Vindas-Meléndez, *Generalized parking function polytopes*, arXiv:2212.06885, initial public date 2022-12-13: two-parameter facet and vertex geometry, not arbitrary-parameter angle distribution.
+- Bayer et al., *Combinatorics of generalized parking-function polytopes*, arXiv:2403.07387, initial public date 2024-03-12; Theorems 2.3, 3.12: complete arbitrary-parameter face structure and normals, which are the main prior ingredients. The open 2025 version was also inspected and contains no stated ridge-angle multiset or stochastic limit.
+- Existing related records on parking-polytope inradii, circumradii, covariance and Gaussian widths/normal-cone spectra concern different functionals, but the bibliography may be incomplete.
+
+The result does not cover affine changes of metric or area-weighted ridge selection. Its absolute historical priority has not been independently verified. The finite code covers dimensions 3–5 only; the unrestricted proof is analytical.
+
+Self-review: passed. Independent audit: not yet performed.
