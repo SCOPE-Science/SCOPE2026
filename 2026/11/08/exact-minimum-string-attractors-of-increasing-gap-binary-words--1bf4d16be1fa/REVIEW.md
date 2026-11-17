@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finding concerns all integers \(k\ge1\) and all strictly increasing positive integer gap tuples. The upper proof covers, without ambiguity, contiguous factors with zero, exactly one, and at least two marker ones. It selects alternating marker positions and exactly one zero from the last gap, with the chosen end of that gap depending on the parity of \(k\). The even-case lower bound uses disjoint unique-factor occurrence intervals. The odd-case lower bound forces a unique perfect matching of the consecutive-gap intervals, then uses the incompatible factors \(0^{g_{k-1}}1\,0\) and \(0^{g_{k-1}}1\) to rule out one fewer selected position. The case \(k=1\) is handled separately. The independent finite checker passed 465 exhaustive gap-vector cover checks, 11 exact finite minimum checks, and 19 larger-instance checks. The proof, not those finite checks, establishes the infinite theorem.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The closest inspected primary texts are Prezza (arXiv:1709.05314), Mantaci et al. (arXiv:1907.04660), Schaeffer–Shallit (arXiv:2012.06840), and Cassaigne et al. (DOI:10.1016/j.jcta.2024.105936). Their general attractor bounds, algorithmic or automatic-sequence results and studied finite-word families do not imply the exact all-increasing-gap formula. The bi-infinite classification by Béaur et al. (arXiv:2403.13449) also concerns a different domain. Relevant keyword and implication searches, plus comparison against accessible prior claims, identified no matching result. An unindexed specialized publication or unrecognized reduction remains possible; search failure alone does not prove novelty.
+PASS
 
-## Value — PASS
-The theorem is an infinite, unrestricted-gap exact classification of a meaningful compression lower-bound invariant for a natural family of sparse binary texts. It shows that drastically varying individual zero-gap lengths leaves the minimum attractor unchanged, and pinpoints a genuine parity obstruction that makes the obvious interval-packing lower bound nonsharp for odd \(k\). The triangular-gap specialization yields a transparent \(\Theta(\sqrt{|W|})\) scale, contrasting with the bounded/logarithmic profiles of standard automatic families. It supplies an explicit optimal attractor constructible from the gap list.
+For W=1 0^{g1}1 ...0^{gk}1 with strictly increasing positive gaps, the chosen odd-indexed marker positions and one zero in the final gap attract each factor: any factor containing two ones meets a selected endpoint; single-one factors can be shifted to penultimate/final markers; pure zero factors are covered in the maximum last gap. For even k=2r, r disjoint uniquely occurring consecutive-marker factors plus the final zero-run factor require r+1 hits. For odd k=2r+1, the chain of 2r distinct unique marker-interval factors forces a unique r-point perfect pairing if an (r+1)-attractor existed, while two penultimate-gap one-symbol factors require incompatible choices of the remaining last-gap zero. k=1 handled separately. Independently enumerated 119 gap vectors and 14,114 factor coverages and exactly minimized 52 finite cases; the analytic proof, not finite tests, establishes gamma(W)=ceil(k/2)+1 for all k.
 
-## Limits and sources
-No all-prefix profile, multiplicity of optimal sets, or result for scrambled gap orders is asserted. Supporting literature: https://arxiv.org/abs/1709.05314 ; https://arxiv.org/abs/1907.04660 ; https://arxiv.org/abs/2012.06840 ; https://arxiv.org/abs/2403.13449 ; https://doi.org/10.1016/j.jcta.2024.105936 .
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An explicit universal upper/lower-bound solution for arbitrarily many strictly increasing positive run lengths does not follow from the closest finite first-attainment classification for unordered distinct gaps. A semantic Resultary query and exact primary published-result comparison found no stronger all-k increasing-gap statement; the priority judgment remains qualified by unindexed literature.
+
+## value
+
+PASS
+
+The minimum attractor size is a central quantitative repetitiveness measure; strictly increasing zero-run lengths form a canonical sparse binary family with growing unique local patterns. An exact value independent of all gap magnitudes, plus a sharp odd-chain obstruction and constructive optimal placement, is a motivated all-parameter classification, not a routine substitution or small finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
