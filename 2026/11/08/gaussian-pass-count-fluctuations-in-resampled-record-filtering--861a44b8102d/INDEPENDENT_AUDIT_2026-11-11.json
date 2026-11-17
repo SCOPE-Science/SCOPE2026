@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T22:00:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed independently distributed record indicators with Bernoulli(1/j), decrement R_m, H_m mean and H_m-H_m^(2) variance. Harmonic potential A(m) telescopes to D_n-A_n=-sum martingale differences -drift-debt, with expected accumulated debt <=C log n. Stopping at epsilon n gives occupation time (1-epsilon)n/log n and scaled predictable variance 1; middle visits and sub-n^(1/3) visits are negligible, centered fourth moments give Lindeberg O(log^4 n/n). The resulting Gaussian CLT is for fresh resampling only. Independent exact Stirling recurrence computed E D_4=2.4375, D_8=3.938150680..., D_13=5.537486634..., and all A_n-ED_n positive; not an asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/2604.23825: PDF p5 Theorem 3 and p12 Theorem 10; resampling model explicitly separated.",
+          "https://arxiv.org/abs/1512.04750: Model distinction stated and independently compared against the exact decrement law."
+        ],
+        "reasoning": "Published Theorem 3 recurrence determines finite means but not asymptotic Gaussian fluctuations or correct variance; Theorem 10 nonresampling TW result is not a stronger claim for the RDS chain.",
+        "searches": [
+          "Resultary: record driven filtering resampled passes Gaussian central limit count",
+          "Full primary PDF arXiv:2604.23825, Theorems 3 and 10",
+          "arXiv:1512.04750 record leader election"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2604.23825",
+        "https://arxiv.org/abs/1512.04750",
+        "Resultary semantic query: Resultary: record driven filtering resampled passes Gaussian central limit count"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/2604.23825: PDF p5 Theorem 3 and p12 Theorem 10; resampling model explicitly separated.",
+          "https://arxiv.org/abs/1512.04750: Model distinction stated and independently compared against the exact decrement law."
+        ],
+        "reasoning": "Prior exact expectation recurrence is needed input, but the harmonic potential, accumulated debt estimate, and martingale variance convergence add new arguments that yield a central limit distribution and exact center.",
+        "searches": [
+          "Resultary: record driven filtering resampled passes Gaussian central limit count",
+          "Full primary PDF arXiv:2604.23825, Theorems 3 and 10",
+          "arXiv:1512.04750 record leader election"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/2604.23825: PDF p5 Theorem 3 and p12 Theorem 10; resampling model explicitly separated.",
+          "https://arxiv.org/abs/1512.04750: Model distinction stated and independently compared against the exact decrement law."
+        ],
+        "reasoning": "Non-resampling DS is a longest decreasing subsequence/TW problem; RDS fresh-rank chain m->m-R_m is not that model. Retained-record leader election iterates m->R_m, not m->m-R_m.",
+        "searches": [
+          "Resultary: record driven filtering resampled passes Gaussian central limit count",
+          "Full primary PDF arXiv:2604.23825, Theorems 3 and 10",
+          "arXiv:1512.04750 record leader election"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/pdf/2604.23825: PDF p5 Theorem 3 and p12 Theorem 10; resampling model explicitly separated.",
+          "https://arxiv.org/abs/1512.04750: Model distinction stated and independently compared against the exact decrement law."
+        ],
+        "reasoning": "Stirling number transition table is already known and explicitly credited; the new CLT is neither a recomputation of the finite table nor a reparameterized already-tabulated expectation.",
+        "searches": [
+          "Resultary: record driven filtering resampled passes Gaussian central limit count",
+          "Full primary PDF arXiv:2604.23825, Theorems 3 and 10",
+          "arXiv:1512.04750 record leader election"
+        ]
+      },
+      "rationale": "The full fifteen-page Zariski–Kratter source was examined at its matching Section 2.1: Theorem 3 only gives a mean recurrence for the resampled chain. Section 2.3 Theorem 10 proves Tracy-Widom for nonresampling. The new martingale limit and harmonic-potential exact center are not a corollary of either theorem without new variance and occupation estimates. Resultary returned only distinct record-biased permutation fluctuation results.",
+      "residual_risks": [
+        "A general stochastic-depletion/renewal-reward CLT may imply the result after verification of problem-specific hypotheses; no direct covering theorem was located.",
+        "Finite exact checks do not test the infinite occupation-control argument."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 3 is the Stirling-number expectation recurrence for the resampled version; the n^(1/6) Tracy-Widom theorem concerns the nonresampled version. Neither is the claimed Gaussian n/log n pass-count CLT.",
+          "evidence": "PDF p5 Theorem 3 and p12 Theorem 10; resampling model explicitly separated.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.23825",
+          "material_read": "Complete PDF text sections 1, 2.1, 2.3 and theorem statements; visual inspection of PDF page 5",
+          "method": "Full accessible 15-page primary PDF text and targeted page screenshot",
+          "title": "Recursive Record Filtering and Longest Decreasing Subsequences",
+          "trigger": "Same exact resampled record-filtering Markov chain"
+        },
+        {
+          "assessment": "Iterates retained records (m->R_m), not discarded nonrecords (m->m-R_m).",
+          "evidence": "Model distinction stated and independently compared against the exact decrement law.",
+          "identifier_or_url": "https://arxiv.org/abs/1512.04750",
+          "material_read": "Bibliographic/abstract-level model comparison only; full text not accessed",
+          "method": "Primary link/model comparison from publication information",
+          "title": "A leader-election procedure using records",
+          "trigger": "Potential record-count iteration equivalence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The primary source poses a natural recursive resampling process but only solves its expectation recurrence; a sharp Gaussian fluctuation theorem with correct nontrivial centering is a meaningful distribution-level completion. The contrast with longest decreasing subsequence/TW behavior identifies the effect of resampling.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2604.23825",
+    "https://arxiv.org/abs/1512.04750",
+    "Resultary semantic query: Resultary: record driven filtering resampled passes Gaussian central limit count"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A general stochastic-depletion/renewal-reward CLT may imply the result after verification of problem-specific hypotheses; no direct covering theorem was located.",
+    "Finite exact checks do not test the infinite occupation-control argument."
+  ],
+  "schema_version": 1
+}

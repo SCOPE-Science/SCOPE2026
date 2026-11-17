@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact transition decrement is a sum of independent record Bernoulli indicators. The written proof bounds the predictable potential correction in conditional expectation by \(C/m\), telescopes across distinct descending states, establishes the necessary quadratic-variation limit with a high/low state split, and checks conditional Lindeberg with the fourth moment. The central limit and expectation comparison therefore follow. `verify_rds.py` supplies finite independent consistency checks, not an infinite certification.
+## correctness
 
-**Originality: PASS (subject to historical-priority limits).** The motivating source proves the expectation recurrence for the resampling algorithm, but gives fluctuation asymptotics for a different, non-resampling algorithm. The leader-election process retains records rather than removing them, producing an incompatible state transition and scaling; the card-merging CLT has a distinct one-step law. Targeted database and public-literature searches found no direct result for the stated resampling-pass CLT with harmonic centering. General stochastic-depletion limit theorems remain a potential priority risk.
+PASS
 
-**Value: PASS.** The resampling question is specifically introduced in the motivating paper without its limiting fluctuations. The result identifies the Gaussian universality class and its exact normalization, sharply distinguishing it from the Tracy--Widom, \(\sqrt n\)-order non-resampling process. The \(O(\log n)\) potential-center error makes the normal law usable without recursively computing the exact mean.
+Reconstructed independently distributed record indicators with Bernoulli(1/j), decrement R_m, H_m mean and H_m-H_m^(2) variance. Harmonic potential A(m) telescopes to D_n-A_n=-sum martingale differences -drift-debt, with expected accumulated debt <=C log n. Stopping at epsilon n gives occupation time (1-epsilon)n/log n and scaled predictable variance 1; middle visits and sub-n^(1/3) visits are negligible, centered fourth moments give Lindeberg O(log^4 n/n). The resulting Gaussian CLT is for fresh resampling only. Independent exact Stirling recurrence computed E D_4=2.4375, D_8=3.938150680..., D_13=5.537486634..., and all A_n-ED_n positive; not an asymptotic proof.
 
-The reviewed claim is only the one stated in `RESULT.md`; no variance-convergence claim or Berry--Esseen bound is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full fifteen-page Zariski–Kratter source was examined at its matching Section 2.1: Theorem 3 only gives a mean recurrence for the resampled chain. Section 2.3 Theorem 10 proves Tracy-Widom for nonresampling. The new martingale limit and harmonic-potential exact center are not a corollary of either theorem without new variance and occupation estimates. Resultary returned only distinct record-biased permutation fluctuation results.
+
+## value
+
+PASS
+
+The primary source poses a natural recursive resampling process but only solves its expectation recurrence; a sharp Gaussian fluctuation theorem with correct nontrivial centering is a meaningful distribution-level completion. The contrast with longest decreasing subsequence/TW behavior identifies the effect of resampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

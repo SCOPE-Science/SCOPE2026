@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Exact rational and enumeration checks: `python3 verify_rds.py`. Execution yielded 146 passed assertions, including enumeration of independent permutations through length seven, and rational transition and potential identities through length thirteen. Finite assertions verify implementation consistency, not the asymptotic limit.
+# Independent mathematical audit
 
-The proof of the limit relies on a positive potential correction with expected total at most \(O(\log n)\), predictable quadratic-variation convergence after a large-state/small-state decomposition, and a fourth-moment Lindeberg bound. The paper source was checked for the resampling model and for its non-resampling theorem, and comparison was made with related record-retention and card-merging models. Independence, authorship, and historical priority are not independently certified.
+## correctness
+
+PASS
+
+Reconstructed independently distributed record indicators with Bernoulli(1/j), decrement R_m, H_m mean and H_m-H_m^(2) variance. Harmonic potential A(m) telescopes to D_n-A_n=-sum martingale differences -drift-debt, with expected accumulated debt <=C log n. Stopping at epsilon n gives occupation time (1-epsilon)n/log n and scaled predictable variance 1; middle visits and sub-n^(1/3) visits are negligible, centered fourth moments give Lindeberg O(log^4 n/n). The resulting Gaussian CLT is for fresh resampling only. Independent exact Stirling recurrence computed E D_4=2.4375, D_8=3.938150680..., D_13=5.537486634..., and all A_n-ED_n positive; not an asymptotic proof.
+
+## originality
+
+PASS
+
+The full fifteen-page Zariski–Kratter source was examined at its matching Section 2.1: Theorem 3 only gives a mean recurrence for the resampled chain. Section 2.3 Theorem 10 proves Tracy-Widom for nonresampling. The new martingale limit and harmonic-potential exact center are not a corollary of either theorem without new variance and occupation estimates. Resultary returned only distinct record-biased permutation fluctuation results.
+
+## value
+
+PASS
+
+The primary source poses a natural recursive resampling process but only solves its expectation recurrence; a sharp Gaussian fluctuation theorem with correct nontrivial centering is a meaningful distribution-level completion. The contrast with longest decreasing subsequence/TW behavior identifies the effect of resampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
