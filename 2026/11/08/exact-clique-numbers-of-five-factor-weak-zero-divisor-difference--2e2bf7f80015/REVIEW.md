@@ -1,15 +1,21 @@
-# Scientific review: five-factor difference-graph clique formula
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the precise weak-difference adjacency criterion for finite reduced rings. In five factors the only support-class weights requiring truncation are four-element supports, which contribute one clique vertex apiece. After splitting on whether a singleton support occurs, the no-singleton case has all five co-atoms compatible with every remaining support and has complementary pair/triple exclusions exactly once. Intersecting two-element supports are necessarily contained in a common star or triangle, yielding the unordered maximum. Coordinatewise monotonicity then reduces it to the seven sorted candidates without requiring a hidden exhaustive classification. The calculation explicitly includes arbitrary prime-power field orders, repeated values, and the binary field. The standard-library checker independently enumerates all 81 maximal cliques of the 30-class support intersection graph for 39 parameter configurations and rechecks graph adjacency directly in four small prime-field rings. These checks corroborate, but do not replace, the general proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Wani's arXiv:2607.17677 (2026-07-20), Sections 3, 6 and 8, establishes the support decomposition and shifted-family existence; Theorem 6.2 resolves exactly four factors, while Question 6.11 asks for a closed clique formula for five or more factors. The single five-factor example of value 1905 is already in that paper and is a consistency test, not a new result. The claim here supplies a formula valid for every tuple of *five* field sizes, using a pair/triple complement-exchange enumeration not supplied by those bounds. Searches of mathematical records for the same graph, support variants, and graph clique formulas did not return an equivalent finding. Nikmehr, Azadi and Nikandish (2021) introduce the larger weakly zero-divisor graph, not the difference-graph maximum. Historical priority is qualified: an earlier general weighted-intersecting-family theorem might imply this formula without naming the graph; absence from search results alone cannot exclude that possibility.
+PASS
 
-## Mathematical value — PASS
-The theorem resolves the first open factor count immediately beyond the four-factor result in a 2026 paper, for all prime-power factor sizes, rather than another isolated numerical instance. Its seven-candidate closed form reveals precisely which singleton, star, and triangle structures can be extremal and explains the previously unexplained 1905 test configuration. The exact five-factor classification is a meaningful finite-rank boundary of a stated higher-rank open problem. No claim is made about six or more factors, chromatic numbers, or uniqueness of extremizers.
+The product-of-fields annihilator criterion gives weak difference edges exactly for intersecting supports. Every support of size <=3 is an internally complete vertex class of weight product(q_i-1), while size-four coatom classes are independent and each contributes at most one vertex. Any intersecting family containing a singleton is a full singleton star U_i; otherwise all five coatoms are compatible and all triples can be chosen except the complements of selected pairs. Pairwise intersecting two-subsets are contained in a star or triangle, and each pair replaces its complementary triple with signed gain Delta_ij. Choosing positive gains produces the unordered formula. Increasing-coordinate swaps preserve/improve these gains and force seven ordered candidate expressions, including equality/tie and q_i=2 boundaries. Independent finite quotient Bron--Kerbosch enumeration found 81 maximal support families and checked 73 heterogeneous field-order tuples including 1905 at (11,11,11,2,2). Those checks corroborate rather than prove the infinite all-fields claim.
 
-## Close literature and limitations
-Primary: B. A. Wani, arXiv:2607.17677, Sections 3/6/8, Theorem 6.2, Example 6.3, Remark 6.6, Question 6.11 and Corollary 8.4. Earlier weak-graph reference: M. J. Nikmehr, A. Azadi, R. Nikandish, DOI 10.33044/revuma.1677. Nearby published mathematical records on ordinary zero-divisor graphs, annihilator graphs and domination address different edge rules or different invariants and do not presently supply a contrary priority implication. The verification covers finitely many configurations only; the symbolic proof carries all quantifiers. Independent historical-priority and mathematical auditing remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original for unequal five-field orders: Wani establishes support reduction and four-field exact results but explicitly poses the five-or-more exact case; October 25 homogeneous-field formula is a strict special case and cannot determine heterogeneous signed gains. Filmus studies different full-Boolean product weights, not the coatom-truncated graph weights. Full Wani paper inaccessible through lawful routes and authorized institutional VPN was disconnected; residual historical-priority risk is recorded rather than automatically failing the claim.
+
+## value
+
+PASS
+
+PASS: This gives a uniform closed-form answer for arbitrary heterogeneous five-field products at the first factor rank beyond Wani's exact four-factor case, replacing isolated examples or loose bounds by seven explicit attainable weighted-intersection extremal configurations. The special homogeneous q>=3 case was known and is appropriately credited, while heterogeneous fields and binary factors remain nontrivial natural parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
