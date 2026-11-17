@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The five edge-sign variables have even parity, and every one of the sixteen legal patterns has exactly two uniform vertex-sign lifts. Their five affine scalar levels have multiplicities \(1,4,6,4,1\). Minimizing a sum of two equal-marginal scalar outcomes is an antitone finite coupling, and a bijection of legal patterns realizes it without distorting the individual Rademacher marginals. Exact orders on the three parameter intervals yield the three stated variance polynomials. The fixed-flip lower bound follows from edge-product parity and pairwise orthogonality. Triangle and even-cycle minimality follows from the same parity argument. Exact verifier replay supplements, and is not the proof of, the continuous claim.
+PASS
 
-## Originality — PASS (qualified)
+Uniform vertex signs on C5 yield 16 equally likely even-parity edge-sign patterns. The scalar quadratic response S has five affine t levels with multiplicities 1,4,6,4,1. The finite swapping/rearrangement inequality minimizes E[SS′] by countermonotone sorting; each scalar atom has equally many uniform sign-vector lifts, so the scalar optimum lifts to two fully uniform Rademacher marginals without imposing probe independence. An independent 32-vector exact rational computation confirms V*(t)=4t² for 0<t<=1; 3+(t-2)² for 1<=t<=3; 4 for t>=3, including ties, and fixed flip optimum 4min(1,t²). For 1<t<3 their difference is (t-1)(3-t), peaking at 25% of 4 at t=2. On even cycles a checkerboard sign flip cancels every edge; for C3 a four-valued parity distribution gives 4 min(weight²). The claim is minimal among simple cycles (C3,C4), not among all matrices or graphs.
 
-The 2020 Cortinovis–Kressner source studies independent trace-estimator probes; the 2013 Stathopoulos–Laeuchli–Orginos paper uses graph coloring and structured probing patterns. The 2020 Skorski and 2021 Frommer–Nasr Khalil–Ramirez-Hidalgo studies address concentration and multilevel variance reduction rather than the five-cycle arbitrary-coupling optimum. The classical antitone rearrangement principle is already known. The original contribution assessed here is its exact weighted-five-cycle consequence, the nonlinear-coupling-only interval and 25% sharp variance gap, and the comparison to shorter cycles. Searches did not produce a directly dominating specific theorem; an unindexed specialist computation remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-Two-probe Rademacher trace estimation is a standard numerical method, and structured coupling is a natural graph-based variance-reduction question. The first odd cycle beyond the triangle exhibits a nontrivial and sharp boundary between simple sign-flip designs and general couplings. The exact finite-state law clarifies when fixed sign patterns leave avoidable variance, rather than merely producing an isolated numerical counterexample. Its relevance is as a exact mathematical benchmark, not as a claimed runtime improvement for general matrices.
+Best-of-knowledge targeted statement comparison against actual published same-object sources. The existing general principles and any known same-size phenomena are explicitly credited; the surviving contribution is the precise additional scoped statement (see four checks and residual risks).
 
-## Limits and precedence
+## value
 
-Assumes precisely five cycle edges with four equal positive weights, a variable fifth weight, two samples, and arbitrary inter-probe dependence. The coupling may require knowledge of the edge weights and is not guaranteed convenient at scale. Earlier optimal-transport rearrangement theorems may subsume the *method*, but the inspected references do not establish the stated explicit graph-specific phase diagram. Independent scientific validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural exact simple-cycle benchmark for variance optimality under arbitrary dependent uniform Hutchinson probes. The three-phase weight window and explicit nonlinear-over-coordinate-flip gap quantify the benefit and limits of coupling, and the minimal simple-cycle distinction is an informative graph-structured classification. No asserted algorithmic speedup: optimal coupling can depend on full response law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

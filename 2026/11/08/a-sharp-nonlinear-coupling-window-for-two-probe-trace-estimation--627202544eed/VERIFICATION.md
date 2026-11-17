@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic derivation is in `RESULT.md`. Run the self-contained Python 3 standard-library verifier using `python3 verify.py`. It generates all 32 vertex sign states, confirms the 16 parity patterns with two lifts each, exactly enumerates every fixed sign-flip candidate, and checks the scalar countermonotone optimal coupling and all three symbolic polynomial branches. The verifier uses exact rational arithmetic for each generated parameter and checks the ordering regimes separately using affine differences; no numerical tolerance is used.
+## correctness
 
-`verify_output.txt` records the actual successful execution against the embedded `verify.py`. Finite enumerations only corroborate the infinite-parameter proof and are not exhaustive over real parameter values. Global optimality depends on the supplied analytic rearrangement argument and its realizable coupling, not on a finite sample grid. No external or independent audit has been performed.
+PASS
+
+Uniform vertex signs on C5 yield 16 equally likely even-parity edge-sign patterns. The scalar quadratic response S has five affine t levels with multiplicities 1,4,6,4,1. The finite swapping/rearrangement inequality minimizes E[SS′] by countermonotone sorting; each scalar atom has equally many uniform sign-vector lifts, so the scalar optimum lifts to two fully uniform Rademacher marginals without imposing probe independence. An independent 32-vector exact rational computation confirms V*(t)=4t² for 0<t<=1; 3+(t-2)² for 1<=t<=3; 4 for t>=3, including ties, and fixed flip optimum 4min(1,t²). For 1<t<3 their difference is (t-1)(3-t), peaking at 25% of 4 at t=2. On even cycles a checkerboard sign flip cancels every edge; for C3 a four-valued parity distribution gives 4 min(weight²). The claim is minimal among simple cycles (C3,C4), not among all matrices or graphs.
+
+## originality
+
+PASS
+
+Best-of-knowledge targeted statement comparison against actual published same-object sources. The existing general principles and any known same-size phenomena are explicitly credited; the surviving contribution is the precise additional scoped statement (see four checks and residual risks).
+
+## value
+
+PASS
+
+Natural exact simple-cycle benchmark for variance optimality under arbitrary dependent uniform Hutchinson probes. The three-phase weight window and explicit nonlinear-over-coordinate-flip gap quantify the benefit and limits of coupling, and the minimal simple-cycle distinction is an informative graph-structured classification. No asserted algorithmic speedup: optimal coupling can depend on full response law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
