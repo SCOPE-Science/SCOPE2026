@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Independent enumeration of the four open-edge patterns yields exact two-point noninfection probabilities. Conditioning is handled by dividing raw infection events by the positive outbreak probability, not by pretending the Bernoulli seeds remain independent after selection. Both covariance numerators factor exactly. A Bernstein-basis formula with three positive coefficients proves a strictly increasing threshold polynomial for all admissible parameters. The two-vertex minimality and limiting thresholds follow by direct calculation and continuity. The embedded checker reproduces 21,825 exact rational diagnostics, while the infinite-parameter claims rely on the written proof.
+PASS
 
-## Originality
+For independently seeded P3, q in (0,1), independent bond transmissibility p in [0,1], S at least one imported seed, read exact RESULT.md and reconstructed all four edge states and eight seed states. In noninfection form, conditional covariance is [z(1-A-B+C)-(1-A)(1-B)]/z^2 with z=1-(1-q)^3. Independent symbolic algebra reproduced z^2 Cov(X0,X1|S)=q^2t^2(1-p)F_t(p) and z^2 Cov(X0,X2|S)=-q^2t^3(1-p)^2[1+2p(1+t)+tp^2]. The published Bernstein-basis formula for F_t prime is strictly positive on p in [0,1], F_t(0)<0<F_t(1), proving a UNIQUE interior adjacent sign threshold, with two-node failure and endpoint strict negativity for p<1. Verified q=1/2 root approximately .218089980704572 and asymptotic boundary coefficients; unconditioned covariance is nonnegative by product-measure positive association. This is a finite-graph exact symbolic proof, not a simulation of all real parameter values.
 
-**PASS within the inspected evidence; provisional priority.** The 2000 percolation epidemic model concerns reachability and threshold behavior, not the conditional two-point covariance phase diagram. The full six-page 2014 correlation paper was examined: its comparison is for same-time infectious states and fixed initial infection sets, and its positive-association calculation is not preserved under conditioning on at least one imported seed. The full four-page 2018 comment addresses finite-time SIR state dependence, not the present conditional final-ever-infection output. A comparison against published indexed research and accessible existing result claims found nearby but non-implicative work on unconditional path and star covariances under exactly one uniform seed. These are boundary cases of a different source law and do not supply the full independent-importation parameter phase diagram. The possibility of earlier general results in conditional reliability literature remains a residual risk; no global novelty certification is asserted.
+## originality
 
-## Value
+PASS
 
-**PASS.** Outbreak-only samples naturally exclude zero-importation realizations. This introduces a mathematically sharp selection effect: the signs for adjacent and distant pairs differ, although the usual product-space association is nonnegative. The three-vertex model is minimal for a sign reversal and the theorem gives a complete parameter classification rather than an isolated simulation or arbitrary statistic. It provides a methodological benchmark for outbreak-conditioned association, not a clinical forecast.
+One-source outbreak component models and unconditioned infection correlations predate this result. A very close published same-week path theorem has one UNIFORMLY CHOSEN initial source, not three independent q-seeds conditioned on nonemptiness. The one-source model is the q-to-zero limit, but it does not imply the finite-q cubic transition and negative endpoint identity. Originality is limited to this conditional multi-seed phase diagram.
 
-## Limitations and comparison
+## value
 
-The model uses undirected bond transmission and independent seeds, not time-dependent Markovian infectious states. Real contact networks, heterogeneous risks and sampling beyond the nonempty event are not covered. Historical priority is provisional because no search establishes uniqueness across every older publication.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A minimal three-node counterexample where conditioning changes the sign of an intrinsically positively associated final-infection field, with a rigorously unique transmissibility threshold for adjacent sites and persistent endpoint anticorrelation, is a motivated sharp boundary case. It identifies the first path size permitting reversal and clarifies the hazards of outbreak-selection conditioning. It is valuable as a finite exact test case, not a universal epidemic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
