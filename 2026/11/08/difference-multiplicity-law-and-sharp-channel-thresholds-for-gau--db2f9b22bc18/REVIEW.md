@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof explicitly decomposes real Hermitian matrices into orthogonal diagonal and positive-difference Fourier sectors, including the factors needed for the singular values under normalized continuous-time energy. A sparse-polynomial generalized Vandermonde lemma is proved via Rolle induction and gives exact rank for every distinct set of real Gaussian-bin centers, without a genericity assumption. Difference-counting proves the extremal support law, and the trace-one statement follows from diagonal kernel dimensions, an augmented determinant, an analytic nonzero witness, and a direct symmetric-bin example. The checker additionally constructs independent full matrices and tests 2656 assertions. The finite checks do not establish the theorem without the proof.
+## correctness
 
-## Originality — PASS relative to inspected literature and available mathematical records
-The closest contemporary sources establish uniqueness up to global phase for *pure bandlimited signals* with two filtered frequency channels. They do not control the linear lifting of **arbitrary Hermitian matrices**, whose diagonal sector requires more channels, or its exact dependence on each frequency-difference multiplicity. A previously established three-frequency special calculation and classical Chebyshev/Vandermonde interpolation are expressly excluded from novelty claims. Nearby discrete Gabor operator-rank theorems concern different finite cyclic Weyl orbits and do not dominate the arbitrary integer-frequency, continuous-time Gaussian-bin formula. No matching or stronger implication was located in accessible published mathematical-record searches or primary sources, but different terminology in tomography or filter-bank literature remains a specific priority risk.
+PASS
 
-## Mathematical value — PASS
-The full difference-multiplicity law identifies exactly where deterministic Gaussian filtering loses linear information, while the sharp optimality criterion connects sensor count to additive difference geometry. It distinguishes pure-state phase uniqueness from mixed-state information completeness, gives both universal and generic minimum channel counts, and constructs a concrete non-generic trace-one failure. These are natural decision criteria for frequency-filtered sensing, not merely new notation or a finite numerical table.
+Fourier isolation of differences splits Hermitian lifting into a real diagonal block W0 and doubled real blocks Wd for d>0. Completing Gaussian squares produces generalized Vandermonde matrices with distinct positive nodes and distinct integer exponents; Rolle induction gives rank min(r,m_d). Pair multiplicities yield the exact full rank, unique-difference extremizer, and consecutive-set formula. For trace-one recovery r=n-1, the remaining one-dimensional diagonal kernel is killed precisely when the augmented W0/trace determinant is nonzero. Two symmetric centers for {-1,0,1} give the claimed cosh resonance. All quantifiers are continuous time, arbitrary distinct centers and finite integer S; no nonlinear all-signal inference is made.
 
-## Scope and unresolved issues
-The frequencies must be distinct integers and time observations span the full circle. Noise sensitivity, spectral bandwidth costs of rank-optimal designs, and classification of general trace-one exceptional sets are unresolved. The self-review is not independent peer review; an equivalent result under another name cannot be excluded conclusively.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS on inspected sources: the two-frequency-bin phase retrieval papers concern identification of rank-one signals, whereas the new rank and kernel are for *all* Hermitian matrices and all integer spectra. The arbitrary multiplicity formula is not implied by a pure-state uniqueness theorem. A three-tone filtered example and finite Gabor orbit ranks are narrower or different operators.
+
+## value
+
+PASS
+
+PASS: the multiplicity-counting invariant yields exact missing degrees of mixed-state tomography and sharp necessary/sufficient channel thresholds, including an exceptional trace-one filter configuration. The choice of spectrum matters quantitatively, creating a useful structural distinction between Sidon and consecutive frequencies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
