@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T13:07:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K_delta=[[1,delta],[delta,1]], row targets a,1-a and column targets b,1-b, direct row-then-column normalization yields x^+=B[(1-a+a delta^2)x+delta]/[delta x+a+(1-a)delta^2]. The positive matrix M=[[BA,B delta],[delta,C]] has determinant B*a*(1-a)*(1-delta^2)^2>0 and positive eigenvalues; the two fixed points have opposite signs, and exact Möbius cross-ratio conjugacy has eigenvalue multiplier (S-D)/(S+D). Independent rational-arithmetic spot tests matched the exact update and cross-ratio conjugacy. For b=a+kappa*delta, independent symbolic expansion of (F_delta(x)-x)/delta equals [a+kappa*x-(1-a)*x^2]/[a(1-a)]. The positive attracting fixed point stays in a uniform compact interval along fixed x0, giving the needed uniform discrete-Euler/Gronwall convergence over bounded t=n*delta; the explicit row-normalized fluxes follow by substitution and preserve correct normalization. The discriminant and log expansion give the joint mismatch/delta rate with no illegal division at kappa=0. Tests are finite corroboration, not infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deb et al 2023 considers smooth density Wasserstein mirror-gradient flow under different hypotheses.",
+          "Knight 2008 gives fixed kernel asymptotic convergence factor.",
+          "The named Resultary source proves fixed-parameter optimal projective Lipschitz envelope and ordering, without a joint near-zero-kernel near-matching-marginals scaling."
+        ],
+        "reasoning": "Neither the smooth transport-flow theorem nor a fixed-positive-kernel contraction certificate alone entails uniform Riccati trajectories and physical off-diagonal flux limits in the singular atomic model.",
+        "searches": [
+          "Deb Kim Pal Schiebinger 2023 arxiv:2307.16421",
+          "Knight 2008 Theorem 4.5",
+          "Resultary 2026/11/8/SCOPE-sharp-marginal-sensitive-projective-contraction-and-sweep-orderi--312bdfd301f9"
+        ]
+      },
+      "checked_sources": [
+        "Knight (2008), Theorem 4.5, https://strathprints.strath.ac.uk/19685/1/skapp.pdf",
+        "Lehmann et al. (2020) arXiv:2012.12562 cited, complete primary not re-read in this audit",
+        "Deb et al. (2023) arXiv:2307.16421 flow theorem",
+        "Resultary 2026/11/8/SCOPE-sharp-marginal-sensitive-projective-contraction-and-sweep-orderi--312bdfd301f9"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General local spectral contraction does imply a rate after working out the scaled operator; bare contraction is not new.",
+          "The new asserted contribution also gives uniform critical X(t), P12(t)/delta, P21(t)/delta and rescaled column residual, and critical iteration coefficient.",
+          "Deb smooth-density continuum theory excludes the two-atom family."
+        ],
+        "reasoning": "The prior conclusions do not state or immediately imply the full observed singular perturbation without additional Riccati asymptotic analysis; novelty is credited only to the combined boundary layer.",
+        "searches": [
+          "Knight 2008 Theorem 4.5",
+          "Resultary 2026/11/8/SCOPE-sharp-marginal-sensitive-projective-contraction-and-sweep-orderi--312bdfd301f9",
+          "Deb et al arxiv:2307.16421 Theorem flow"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical two-point projective Sinkhorn is a fractional-linear map; Knight 2008 Theorem 4.5 covers fixed-kernel local spectral rates.",
+          "Resultary Nov 8 sharp marginal-sensitive contraction determines a global log-projective Lipschitz factor for an arbitrary positive 2x2 kernel, but no singular rescaling with b-a=kappa delta and entire trajectory."
+        ],
+        "reasoning": "The current result includes the full n*delta critical asymptotic and row-flux/residual limits, not merely exact fixed-parameter cross-ratio convergence.",
+        "searches": [
+          "Sinkhorn matrix scaling two by two nearly disconnected symmetric kernel small off diagonal row column marginal mismatch critical Riccati trajectory cross-ratio iteration asymptotics",
+          "two by two iterative proportional fitting Riccati differential equation small cross diagonal",
+          "Resultary 2026/11/8/SCOPE-sharp-marginal-sensitive-projective-contraction-and-sweep-orderi--312bdfd301f9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No accessible searched mathematical record supplied the exact coupled mismatch/singular-kernel flux trajectory.",
+          "The claim is an infinite-continuum asymptotic family, not the value of a finite database or a listed table."
+        ],
+        "reasoning": "The absence of an exact table is neither a novelty proof nor dispositive; stronger analytical statements are compared separately.",
+        "searches": [
+          "Resultary semantic exact query Sinkhorn matrix scaling two by two nearly disconnected symmetric kernel small off diagonal row column marginal mismatch critical Riccati trajectory cross-ratio iteration asymptotics",
+          "Sinkhorn 2x2 near reducible matrix scaling small off diagonal critical marginal imbalance Riccati time rescaling limit"
+        ]
+      },
+      "rationale": "Best-of-knowledge original combined critical two-parameter singular-kernel/marginal-mismatch Riccati trajectory and normalized flux profiles. Exact two-by-two Möbius fixed-kernel local rates are known and not assigned novelty credit.",
+      "residual_risks": [
+        "The exact two-atom iterative proportional fitting critical layer may exist in older contingency-table literature under another normalization.",
+        "The general Möbius-to-Riccati limit may be an immediate specialization of a stronger singular dynamical theorem not inspected.",
+        "A full cover-to-cover reading of all nearby sources was not achieved; comparisons are bounded and best-of-knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-positive-kernel local convergence rate covered; singular coupled trajectory and flux not asserted in inspected sections",
+          "evidence": [
+            "Theorem 4.5 gives fixed-matrix second-singular-value local rate."
+          ],
+          "identifier_or_url": "https://strathprints.strath.ac.uk/19685/1/skapp.pdf",
+          "material_read": "Sections 2-4 including Theorem 4.5 and selected discussion, with direct page image inspection",
+          "method": "Primary PDF text plus rendered page",
+          "title": "The Sinkhorn-Knopp algorithm: convergence and applications",
+          "trigger": "Classical local convergence theorem could cover rate"
+        },
+        {
+          "assessment": "Computes optimal fixed-positive-kernel global contraction and sweep ordering; does not state Riccati limit or its flux",
+          "evidence": [
+            "Theorem q(r,R)=eta^2/(1+sqrt(1+eta^2))^2."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-marginal-sensitive-projective-contraction-and-sweep-orderi--312bdfd301f9",
+          "material_read": "Entire RESULT.md (theorem, derivation, limits and references)",
+          "method": "Primary GitHub scientific file at main",
+          "title": "Sharp marginal-sensitive projective contraction and sweep ordering for binary Sinkhorn scaling",
+          "trigger": "Same 2x2 Sinkhorn map and sharp projective constant"
+        },
+        {
+          "assessment": "Smooth densities and different continuum assumptions; atomic two-point scaling not within stated hypotheses",
+          "evidence": [
+            "General smooth-density Wasserstein flow is not a two-atom projective Riccati expansion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2307.16421",
+          "material_read": "Introduction and main flow theorem with PDF page inspection; not a complete cover-to-cover reading",
+          "method": "Primary arXiv PDF text/page",
+          "title": "Wasserstein Mirror Gradient Flow as the Limit of the Sinkhorn Algorithm",
+          "trigger": "Potentially stronger universal Sinkhorn flow"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The mismatch-dependent critical slowdown at a nearly disconnected transport kernel is a natural singular perturbation phenomenon; the uniform entire-trajectory Riccati equation together with observable cross-flux/column residual profiles and sharp sweep scale answers a motivated quantitative algorithmic question. It is not only a reparametrized fixed-kernel contraction constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Strictly positive 2x2 symmetric kernels 0<delta<1 and interior masses; Riccati trajectory requires b=a+kappa delta and fixed positive x0, finite t windows.",
+    "Iteration estimate measures projective cross-ratio reduction, not absolute residual-based numerical stopping cost."
+  ]
+}

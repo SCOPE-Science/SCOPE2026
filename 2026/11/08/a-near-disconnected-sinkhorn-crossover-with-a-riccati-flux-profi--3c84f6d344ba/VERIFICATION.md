@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python3 verify_sinkhorn.py` using only Python's standard library. On the supplied program, this returns `PASS: 624 rational identities, 1026 finite-iterate comparisons, 42 asymptotic spot-checks; total 1692.`
+## correctness
 
-The 624 rational tests independently compute complete row-then-column sweeps and confirm the proposed fractional-linear map, its positive determinant factorization, and the off-diagonal row entries. The 1,026 finite-iterate checks examine the geometric projective cross-ratio and the bounded-time Riccati approximation. The 42 asymptotic spot-checks cover balanced, mismatched and critically mismatched marginals at multiple small kernel values. Direct execution tests can support algebraic consistency and detect mistakes, but do not prove uniformity over all positive real data or an asymptotic limit.
+PASS
 
-For analytic verification, first derive the exact map from the two componentwise balancing operations. Confirm its projective fixed points and eigenvalue ratio via its positive two-by-two representing matrix. Show the critical map expansion \(F_\delta(x)=x+\delta f(x)+O(\delta^2)\) on compact positive subsets, and show the positive fixed points remain uniformly bounded away from zero and infinity. Discrete Gronwall then yields a uniform \(O_T(\delta)\) difference from the Riccati solution. Separately expand the spectral discriminant uniformly for every \(b_\delta\to a\), dividing by the strictly positive scale \(\sqrt{(b_\delta-a)^2+4a(1-a)\delta^2}\). Finally compute the row-normalized fluxes and column residual directly from the multipliers. No external computational or independent scientific certification is claimed.
+For K_delta=[[1,delta],[delta,1]], row targets a,1-a and column targets b,1-b, direct row-then-column normalization yields x^+=B[(1-a+a delta^2)x+delta]/[delta x+a+(1-a)delta^2]. The positive matrix M=[[BA,B delta],[delta,C]] has determinant B*a*(1-a)*(1-delta^2)^2>0 and positive eigenvalues; the two fixed points have opposite signs, and exact Möbius cross-ratio conjugacy has eigenvalue multiplier (S-D)/(S+D). Independent rational-arithmetic spot tests matched the exact update and cross-ratio conjugacy. For b=a+kappa*delta, independent symbolic expansion of (F_delta(x)-x)/delta equals [a+kappa*x-(1-a)*x^2]/[a(1-a)]. The positive attracting fixed point stays in a uniform compact interval along fixed x0, giving the needed uniform discrete-Euler/Gronwall convergence over bounded t=n*delta; the explicit row-normalized fluxes follow by substitution and preserve correct normalization. The discriminant and log expansion give the joint mismatch/delta rate with no illegal division at kappa=0. Tests are finite corroboration, not infinite proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge original combined critical two-parameter singular-kernel/marginal-mismatch Riccati trajectory and normalized flux profiles. Exact two-by-two Möbius fixed-kernel local rates are known and not assigned novelty credit.
+
+## value
+
+PASS
+
+The mismatch-dependent critical slowdown at a nearly disconnected transport kernel is a natural singular perturbation phenomenon; the uniform entire-trajectory Riccati equation together with observable cross-flux/column residual profiles and sharp sweep scale answers a motivated quantitative algorithmic question. It is not only a reparametrized fixed-kernel contraction constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The fractional-linear sweep follows by substituting the two row scalings into the two column scalings. Its positive determinant and two eigenvectors yield a projective conjugacy with exactly geometric cross-ratio error. For marginal discrepancy \(b_\delta-a=\kappa\delta\), a uniform Taylor expansion around the identity on a parameter-uniform positive compact region establishes the Riccati limit with \(O_T(\delta)\) error by discrete Gronwall. The discriminant asymptotic is uniform across all relative orders of marginal discrepancy and kernel weight; the denominator stays away from zero. The off-diagonal transport masses and the column residual are explicit continuous functions of the projective state, hence their whole paths converge. The source package contains a standard-library exact-rational and numerical checker; 1,692 assertions pass. No finite check is represented as proof of the full limit.
+## correctness
 
-## Originality — PASS, with bounded precedence risk
-Knight (2008), especially Theorem 4.5, already gives the general exact local linear convergence factor through a scaled matrix singular value; Lehmann et al. (2020) use the same spectral characterization for overrelaxation. The local rate or existence of a Möbius representation alone is not claimed as an original advance. Brossard and Leuridan (2016) characterize fixed-support feasibility and convergence or two-cycle behavior of iterated proportional fitting. Chen et al. (2022) alter the regularization schedule; Deb et al. (2023) prove a smooth-density Sinkhorn flow on a different inverse-regularization timescale, without including this singular two-atom kernel and jointly closing marginal gap. The claim evaluated here is the uniform singular-kernel Riccati trajectory, the joint small-mismatch sharp rate, and the evolving physical off-diagonal and column-residual fluxes. No checked source was found to cover this combination through an equal or stronger statement. An obscure elementary two-by-two matrix-scaling or Möbius-to-Riccati equivalence may exist; this is a genuine publication-precedence risk, and separate human verification is still needed.
+PASS
 
-## Value — PASS
-Near a disconnected support, the requirement of balancing nearly compatible marginals creates a mathematically natural singular regime: the kernel's small off-support mass and marginal mismatch are of the same size. The present law specifies exactly when the projective contraction becomes slow, which fluxes remain dynamically relevant and how many complete sweeps reduce the projective error by a fixed factor. This goes beyond just calculating a known local eigenvalue: the entire finite-time transport/error path, uniformly on compact rescaled horizons, is described. It is a deliberately narrow exact boundary-layer theorem, not a higher-dimensional complexity theorem.
+For K_delta=[[1,delta],[delta,1]], row targets a,1-a and column targets b,1-b, direct row-then-column normalization yields x^+=B[(1-a+a delta^2)x+delta]/[delta x+a+(1-a)delta^2]. The positive matrix M=[[BA,B delta],[delta,C]] has determinant B*a*(1-a)*(1-delta^2)^2>0 and positive eigenvalues; the two fixed points have opposite signs, and exact Möbius cross-ratio conjugacy has eigenvalue multiplier (S-D)/(S+D). Independent rational-arithmetic spot tests matched the exact update and cross-ratio conjugacy. For b=a+kappa*delta, independent symbolic expansion of (F_delta(x)-x)/delta equals [a+kappa*x-(1-a)*x^2]/[a(1-a)]. The positive attracting fixed point stays in a uniform compact interval along fixed x0, giving the needed uniform discrete-Euler/Gronwall convergence over bounded t=n*delta; the explicit row-normalized fluxes follow by substitution and preserve correct normalization. The discriminant and log expansion give the joint mismatch/delta rate with no illegal division at kappa=0. Tests are finite corroboration, not infinite proof.
 
-## Closest literature and limitations
-Primary comparison: P. A. Knight, *The Sinkhorn–Knopp algorithm: convergence and applications* (2008); T. Lehmann et al., *A note on overrelaxation in the Sinkhorn algorithm* (2020), arXiv:2012.12562; J. Brossard and C. Leuridan, *Iterated proportional fitting procedure and infinite products of stochastic matrices* (2016), arXiv:1606.09126; J. Chen et al., *Exponential Convergence of Sinkhorn Under Regularization Scheduling* (2022), arXiv:2207.00736; N. Deb et al., *Wasserstein Mirror Gradient Flow as the Limit of the Sinkhorn Algorithm* (2023), arXiv:2307.16421. The initial multiplier must remain positive and fixed in the singular limit, and the unrelaxed kernel is exactly two-by-two. There is no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original combined critical two-parameter singular-kernel/marginal-mismatch Riccati trajectory and normalized flux profiles. Exact two-by-two Möbius fixed-kernel local rates are known and not assigned novelty credit.
+
+## value
+
+PASS
+
+The mismatch-dependent critical slowdown at a nearly disconnected transport kernel is a natural singular perturbation phenomenon; the uniform entire-trajectory Riccati equation together with observable cross-flux/column residual profiles and sharp sweep scale answers a motivated quantitative algorithmic question. It is not only a reparametrized fixed-kernel contraction constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
