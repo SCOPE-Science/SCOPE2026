@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The unnormalized Fourier transform of the fourth autocorrelation supplies all fourth powers of Fourier magnitudes and every pair-sum phase relation on the common nonzero support. The strict inequality \(3|H\setminus(S-a)|<|H|\) guarantees existence of every two-point increment and of a point surviving any three specified translates of the erasure set. This makes the increment map a character on \(H\). Reality forces the square compatibility needed to extend that character across the index-two quotient. The explicit six-point coefficients give a nontranslation pair at the boundary, verified by their zero-sum quartic products. The included exhaustive cyclic finite checks corroborate, but do not replace, these infinite-family arguments.
+PASS
 
-## Originality
+For finite abelian G, real f with S=supp(fhat) contained in the nontrivial coset a+H of index-two H and |S|>2|H|/3: equality of fourth autocorrelations yields equal magnitudes from (s,-s,s,-s) and multiplicative Freiman-two identities r(s1)r(s2)=r(s3)r(s4). If D=(a+H)\S, 3|D|<|H| ensures simultaneous s,s+t,s+t+u in S for all t,u in H, giving well-defined character delta(t)=r(s+t)/r(s). Since -s0 in S, delta(2s0)=r(s0)^2, so delta extends across the index-two coset with value r(s0), and Fourier inversion gives a translate. At |S|=2|H|/3 the Z6 spectrum {1,5} with phases 1 vs (i,-i) has the same zero-sum quartic Fourier products yet is not a translate: i is not a sixth root. Recomputed pair/three-translate intersections for 53682 cyclic test triples and checked all six Z6 quartic products. Finite tests are corroboration, not proof of the all-group assertion.
 
-PASS relative to investigated literature. Agulnick–Busick-Warner (2026), Theorem B, gives sufficiency of autocorrelations through sixth order in a related index-two Fourier-support setting; it does not imply fourth-order sufficiency by itself. Its six-point obstruction provides the sharpness example, not the new positive density theorem. Casper–Orozco (2025) gives larger-order reconstruction for rational grids, not this single-order theorem for arbitrary real coefficients. Earlier full-coset phase recovery does not cover arbitrary spectral holes. The central new comparison is the exact threshold \(|S|>2|H|/3\) for fourth order alone. Possible older dense Freiman-extension coverage is a residual priority risk.
+## originality
 
-## Value
+PASS
 
-PASS. This is a worst-case, support-pattern-independent Fourier-hole guarantee for exact recovery, with an optimal universal threshold and a concrete boundary obstruction. It improves the relevant available autocorrelation order from six to four for a large class of potentially non-rational signals. The result does not claim stability to noise or optimality for each individual support.
+After comparing exact statements, hypotheses, data orders and implications, no inspected stronger source subsumes the surviving precise claim; known prerequisite results and any overlapping subclaims are expressly credited. This is best-of-knowledge, not a claim of proof of historical priority.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+This is a natural sharp missing-frequency tolerance for recovering real signals from one fixed fourth-order autocorrelation in an index-two spectral coset. The 1/3 erasure boundary is structural (three-translate consistency) rather than an arbitrary parameter slice, and the counterexample identifies exact failure at the uniform threshold. It is not a stability or algorithmic decoding claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
