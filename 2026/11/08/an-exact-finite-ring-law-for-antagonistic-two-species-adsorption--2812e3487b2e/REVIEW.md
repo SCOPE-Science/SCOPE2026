@@ -1,19 +1,21 @@
-# Mathematical review: exact repeated-proposal adsorption on cycles
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The first accepted deposition on a ring reduces the process to an interval with equal occupied endpoint species. With a nonempty interval of length at least two, accepted rates are \(1/2\) at each edge site and \(1\) at each strictly interior site. This leads to the exact two-boundary recurrences, the factorial difference between opposite- and equal-boundary expectations, and a solvable first-order generating-function equation. Algebraic coefficient extraction reproduces the stated finite-ring expectation, monotonicity difference, and limit. The boundary argument using strict local minima of first proposal times proves the infinite-line identification. Independent exact continuous-time state recursions and coefficient tests passed 324 rational comparisons. The finite checks are supplementary to, not replacements for, the proof.
+PASS
 
-## Originality
+The successful-deposition state process on C_L is finite and absorbing: a terminal empty site must have two opposite occupied neighbors. First accepted deposition leaves an interval of L−1 vacancies bounded by the same species. For auxiliary m-site intervals, first successful transitions at two ends occur at rate 1/2 and interior attempts rate 1, giving (m−1)a_m=a_(m−1)+sum_{j=1}^{m−2}(a_j+b_j) and analogous b. Subtracting proves b_m−a_m=1/(m−1)!, and the generating function ODE yields A(z)=[e^(−z)/(1−z)^2−e^z]/2, B=A+e^z. Coefficient extraction gives exact E X_L for all L≥3; difference of consecutive blocked-site fractions is strictly positive. Coupled first-arrival local-minimum shields bound the origin's dependence on distant sites and identify the infinite-line limit. Independent Fraction calculations matched n=3..11 including E X4=1/2, E X5=5/6, E X6=13/12; finite tests do not establish the all-L recurrence.
 
-**PASS, qualified by historical-priority risks.** Martins, Dickman and Ziff (arXiv:2211.04622, Section V) conjectured the same finite-ring formula from numerical evidence, so the formula itself is prior. The result here proves that conjecture for every \(L\ge3\), and derives explicit generating functions for the two boundary classes and a strict factorial convergence law. Do Amaral and dos Santos (arXiv:2306.09786) treat the explicitly different one-attempt-per-site model. Penrose and Sudbury (arXiv:math/0503519) study monomer/dimer exclusion and annihilation models, not the stated two-species repeated rule at the level of their abstract. The closest prior exact repeated-adsorption results on complete multipartite graphs cover only small ring examples (not all cycles with at least five vertices). The announced, unlocated follow-up on one-dimensional adsorption remains a historical-priority risk, not proof of an earlier solution.
+## originality
 
-## Value
+PASS
 
-**PASS.** The theorem resolves a particular published analytic gap about the saturation of antagonistic adsorption on finite periodic one-dimensional lattices. The interval decomposition provides an explanatory structural reason for the unexpected alternating-factorial expression, not simply a numerical rederivation. The derived monotone, factorially rapid finite-size approach provides additional experimentally and computationally relevant information.
+The exact finite-ring mean was *already conjectured* in Martins–Dickman–Ziff Eq.(47); originality does not attach to the displayed numerical guess. The all-L proof, boundary-conditioned interval generating functions, factorial monotonicity and rigorous infinite-line reduction are not supplied by that numerical evidence; best-of-knowledge accepted with explicit unpublished-one-dimensional-work risk.
 
-## Limits
+## value
 
-Equal species proposal rates, initially empty periodic simple rings, repeated Poisson attempts and terminal coverage are required. There is no biased-rate exact formula, finite-time density formula, full blocked-site-count distribution, or independent mathematical validation in this package. The 2022 conjectural expression is acknowledged as previous literature, not advertised as a newly discovered formula.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The already-published finite-ring expression was a numerical conjecture, making a proof for all lengths a meaningful mathematical gap; the boundary-conditioned generating functions and sharp factorial monotonic finite-size correction are independently reusable structural identities. This is not credited as discovery of the derangement sequence itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and proof checkpoints
+# Independent mathematical audit
 
-Execute `python verify_ab_cycle.py` with Python 3 and the standard library. No downloads or external packages are needed. The checker obtains independent cycle expectations from exact finite-state continuous-time transition recursions, including all allowed species/site choices; it separately computes same- and opposite-boundary segment expectations, the analytic first-arrival recurrence, the factorial difference, and the generating-function coefficients. Every comparison uses exact rational arithmetic.
+## correctness
 
-Latest execution: 324 exact comparisons passed. The direct exhaustive finite-state calculation covers cycle lengths \(3\) through \(11\), with \(16,239\) reachable configurations in the largest case, and compares endpoint conditions for segment lengths \(1\) through \(9\). Analytical identities are checked to segment length \(80\), and the strict finite-size increment is checked through ring length \(59\).
+PASS
 
-The all-size statement is proved through an exact first-success conditioning recurrence and its generating-function solution, **not** by extrapolating finite computations. The infinite-line identification additionally uses independent local minima of first proposal times as permanent shielding anchors; finite enumeration does not establish that part. The full distribution of terminal vacancies and unequal-rate dynamics are not checked or claimed.
+The successful-deposition state process on C_L is finite and absorbing: a terminal empty site must have two opposite occupied neighbors. First accepted deposition leaves an interval of L−1 vacancies bounded by the same species. For auxiliary m-site intervals, first successful transitions at two ends occur at rate 1/2 and interior attempts rate 1, giving (m−1)a_m=a_(m−1)+sum_{j=1}^{m−2}(a_j+b_j) and analogous b. Subtracting proves b_m−a_m=1/(m−1)!, and the generating function ODE yields A(z)=[e^(−z)/(1−z)^2−e^z]/2, B=A+e^z. Coefficient extraction gives exact E X_L for all L≥3; difference of consecutive blocked-site fractions is strictly positive. Coupled first-arrival local-minimum shields bound the origin's dependence on distant sites and identify the infinite-line limit. Independent Fraction calculations matched n=3..11 including E X4=1/2, E X5=5/6, E X6=13/12; finite tests do not establish the all-L recurrence.
+
+## originality
+
+PASS
+
+The exact finite-ring mean was *already conjectured* in Martins–Dickman–Ziff Eq.(47); originality does not attach to the displayed numerical guess. The all-L proof, boundary-conditioned interval generating functions, factorial monotonicity and rigorous infinite-line reduction are not supplied by that numerical evidence; best-of-knowledge accepted with explicit unpublished-one-dimensional-work risk.
+
+## value
+
+PASS
+
+The already-published finite-ring expression was a numerical conjecture, making a proof for all lengths a meaningful mathematical gap; the boundary-conditioned generating functions and sharp factorial monotonic finite-size correction are independently reusable structural identities. This is not credited as discovery of the derangement sequence itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

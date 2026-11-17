@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T23:00:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The successful-deposition state process on C_L is finite and absorbing: a terminal empty site must have two opposite occupied neighbors. First accepted deposition leaves an interval of L−1 vacancies bounded by the same species. For auxiliary m-site intervals, first successful transitions at two ends occur at rate 1/2 and interior attempts rate 1, giving (m−1)a_m=a_(m−1)+sum_{j=1}^{m−2}(a_j+b_j) and analogous b. Subtracting proves b_m−a_m=1/(m−1)!, and the generating function ODE yields A(z)=[e^(−z)/(1−z)^2−e^z]/2, B=A+e^z. Coefficient extraction gives exact E X_L for all L≥3; difference of consecutive blocked-site fractions is strictly positive. Coupled first-arrival local-minimum shields bound the origin's dependence on distant sites and identify the infinite-line limit. Independent Fraction calculations matched n=3..11 including E X4=1/2, E X5=5/6, E X6=13/12; finite tests do not establish the all-L recurrence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Martins et al. analyze one-dimensional jamming via a three-site approximation and simulations, explicitly label the finite-size formula strong numerical evidence, not a theorem.",
+          "Complete multipartite exact ring cases n=3,4 are special small graphs; cycles n>=5 are not complete multipartite."
+        ],
+        "reasoning": "Existing numerical observations and different one-attempt or other-graph theorems do not imply the recursive proof for every cycle.",
+        "searches": [
+          "Resultary: two species antagonistic random sequential adsorption repeated attempts cycle ring finite size coverage vacancy e inverse",
+          "https://arxiv.org/abs/2211.04622",
+          "https://arxiv.org/html/2306.09786v1",
+          "Resultary: complete multipartite repeated two species adsorption"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: two species antagonistic random sequential adsorption repeated attempts cycle ring finite size coverage vacancy e inverse",
+        "https://arxiv.org/abs/2211.04622",
+        "https://arxiv.org/html/2306.09786v1",
+        "Resultary: exact terminal jamming laws on complete multipartite graphs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Martins et al. Section V explicitly say 'strong numerical evidence for the closed-form expression' Eq.47 and announce future one-dimensional details.",
+          "The submitted independent first-success recurrences, b_m-a_m=1/(m−1)!, A(z), B(z), strict L monotonicity, and shield coupling are not provided in the materially inspected earlier Section V."
+        ],
+        "reasoning": "A numerical conjecture is prior knowledge of the expression, not logical proof; the finite/infinite mathematical proof and new recurrences are valuable unless the announced follow-up already proved them.",
+        "searches": [
+          "Resultary: two species antagonistic random sequential adsorption repeated attempts cycle ring finite size coverage vacancy e inverse",
+          "https://arxiv.org/abs/2211.04622",
+          "https://arxiv.org/html/2306.09786v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Independent rate-1/2 repeated Poisson attempts correspond to random sequential site/species proposals after rejection thinning; this matches Martins et al.'s 2022 repeated model.",
+          "do Amaral–dos Santos allow only one deposition attempt per site; an incompatible first attempt permanently removes the site from further attempts, yielding different processes."
+        ],
+        "reasoning": "Matched transition mechanisms before comparing formulas; the one-attempt dynamic is not an equivalent rate rescaling, so cannot transfer exact results.",
+        "searches": [
+          "Resultary: two species antagonistic random sequential adsorption repeated attempts cycle ring finite size coverage vacancy e inverse",
+          "https://arxiv.org/abs/2211.04622",
+          "https://arxiv.org/html/2306.09786v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Martins–Dickman–Ziff Eq. (47) contains the same coverage expression theta_infty(L)=1−1/2 sum_{k=0}^L(−1)^k/k!+(L−1)/(2L!).",
+          "The cited derangement count is an exact combinatorial sequence, but the paper offers strong computational support rather than a proof of stochastic model identity."
+        ],
+        "reasoning": "An exact formula already printed is NOT a new numerical discovery. What survives is a new rigorous derivation and two boundary generating functions, not re-tabulating the sequence.",
+        "searches": [
+          "Resultary: two species antagonistic random sequential adsorption repeated attempts cycle ring finite size coverage vacancy e inverse",
+          "https://arxiv.org/abs/2211.04622",
+          "OEIS: number of derangements of n elements with even number of cycles"
+        ]
+      },
+      "rationale": "The exact finite-ring mean was *already conjectured* in Martins–Dickman–Ziff Eq.(47); originality does not attach to the displayed numerical guess. The all-L proof, boundary-conditioned interval generating functions, factorial monotonicity and rigorous infinite-line reduction are not supplied by that numerical evidence; best-of-knowledge accepted with explicit unpublished-one-dimensional-work risk.",
+      "residual_risks": [
+        "Martins–Dickman–Ziff explicitly announce R. Dickman, P.H.L. Martins, R.M. Ziff 'To be published' 2022 one-dimensional follow-up; if a full proof subsequently appeared, it could defeat originality. No definitive matching full paper was found.",
+        "The finite-ring formula and infinite density themselves were already numerically identified in 2022; acceptance attaches to rigorous proof/structural recurrences, not first discovery of numeric expression."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IDENTICAL CONJECTURED FORMULA; NOT RIGOROUS ALL-L PROOF",
+          "evidence": [
+            "Section V Eq.47 and numerical evidence stated explicitly; paper predicts 1−1/(2e) and announces future one-dimensional publication."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2211.04622",
+          "material_read": "Full rendered text, especially Section II dynamics and Section V Eq.(46)-(47), description of experiments and announced one-dimensional follow-up",
+          "method": "Read primary arXiv full HTML mathematics",
+          "title": "Percolation in two-species antagonistic random sequential adsorption in two dimensions",
+          "trigger": "Identical closed-form finite-ring expression"
+        },
+        {
+          "assessment": "NOT SAME REPEATED PROPOSAL MECHANISM",
+          "evidence": [
+            "Each site has only one attempted deposition; differs at already rejected sites from repeated attempts."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2306.09786v1",
+          "material_read": "Full accessible rendered HTML, setup and analytic density results",
+          "method": "Read primary arXiv HTML",
+          "title": "One-dimensional AB random sequential adsorption with one deposition per site",
+          "trigger": "Plausible competing exact one-dimensional adsorption law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The already-published finite-ring expression was a numerical conjecture, making a proof for all lengths a meaningful mathematical gap; the boundary-conditioned generating functions and sharp factorial monotonic finite-size correction are independently reusable structural identities. This is not credited as discovery of the derangement sequence itself.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary: two species antagonistic random sequential adsorption repeated attempts cycle ring finite size coverage vacancy e inverse",
+    "https://arxiv.org/abs/2211.04622",
+    "https://arxiv.org/html/2306.09786v1",
+    "Resultary: exact terminal jamming laws on complete multipartite graphs",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/an-exact-finite-ring-law-for-antagonistic-two-species-adsorption--2812e3487b2e"
+  ],
+  "disposition": "passed",
+  "final_claim": "An exact finite-ring law for antagonistic two-species adsorption",
+  "limitations": [
+    "Only unbiased repeated A/B independent arrivals on cycles length≥3 and the corresponding interval boundaries; no biased rates, full jamming distribution or finite-time law; older announced unpublished 1D work unresolved.",
+    "Finite checker output alone is not an all-size proof. Originality remains a qualified best-of-knowledge assessment."
+  ],
+  "residual_risks": [
+    "Martins–Dickman–Ziff explicitly announce R. Dickman, P.H.L. Martins, R.M. Ziff 'To be published' 2022 one-dimensional follow-up; if a full proof subsequently appeared, it could defeat originality. No definitive matching full paper was found.",
+    "The finite-ring formula and infinite density themselves were already numerically identified in 2022; acceptance attaches to rigorous proof/structural recurrences, not first discovery of numeric expression."
+  ],
+  "schema_version": 1
+}
