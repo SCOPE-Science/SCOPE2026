@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact finite verification
 
-The file `verify_cech.py` is a standalone Python 3 program using only the standard library. Running it enumerates the Fano flags and their 42 line-graph edges, applies the exact intrinsic graph Čech rule at scale three, and checks face counts in two independent ways. It also enumerates mod-two boundary ranks and verifies two distinct complete acyclic discrete-Morse matchings by topologically sorting all oriented Hasse incidences.
+# Independent mathematical audit
 
-Expected outputs include: 21 vertices, 42 graph edges, 42 six-dimensional Čech facets, 3,395 nonempty faces, 13,755 Hasse incidences, 1,659 matched pairs per order, exactly one critical vertex and 76 critical two-cells, and reduced mod-two Betti number 76 in degree two. Both matching orders have been executed. At scale two it also confirms one critical vertex and eight critical one-cells (and mod-two first Betti rank eight).
+## correctness
 
-The output in `verification_output.json` was produced by the program before packaging, not reverse-engineered from an expected value. If the checker fails on another system, do not treat the claimed result as externally certified.
+PASS
 
-The finite acyclic matching supplies an integral homotopy proof for this single finite graph. No extension to other graphs or independent external audit is asserted.
+The projective-plane incidence flags are the 21 vertices of L(H), with 42 graph edges. Odd-scale Cech facets are 42 distinct seven-vertex closed-neighborhood unions. Independently regenerated 3395 nonempty faces with f=(21,210,854,1155,819,294,42). Vertex-sweep matching independently produced 1659 face-coface pairs, leaving one critical vertex plus 76 critical two-simplices; topological sorting all 13755 oriented incidences proves acyclicity and hence an integral wedge of 76 S² by Forman. The original verify_cech.py checks both orders, 2^21 mask membership and mod-two ranks (20,190,588,567,252,42). Pure 6-dimensional with non-top H2 makes non-shellability valid.
+
+## originality
+
+PASS
+
+The complete published Cech persistence of the 14-vertex Heawood incidence graph has 48 S² at scale three, not the 21-vertex flag line graph with 76. The general scale-two line-graph collapse, hypercube results and clique-complex line-graph theorem compute different parameters/complexes. No inspected theorem entails this 76-sphere integral homotopy; the exact-value search is not proof of absolute novelty.
+
+## value
+
+PASS
+
+The flag graph of the smallest projective plane is a canonical symmetric 21-vertex graph, and a sharp next-scale change from the eight-loop scale-two behavior to 76 two-sphere classes is a natural topological benchmark. The exact integral wedge and non-shellability exceed routine graph Euler characteristic calculations; no family theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
