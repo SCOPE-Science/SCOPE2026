@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T07:52:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Bellman parity-step induction for integer imbalance z is valid: the next imbalance choices differ by an even number, parity monotonicity is preserved, and 0<=F_W(2)-F_W(0)<=2. The four-good (1,1,3,1) and (1,1,2,0) witnesses attain greedy/optimum totals 6/4 and 5/3 respectively, and the reverse-triangle bound rules out three-good failure. Independently checked all 1022 {1,2} words of lengths 1..9 with exact dynamic programming and both counterexamples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Oct 25 already classifies all K<=2 and K>=3, all horizons; Nov 2 additionally covers zero-valued and three-agent counterexamples"
+        ],
+        "reasoning": "Older papers include the submitted conclusions among strictly broader sharp failure regimes, leaving no new theorem.",
+        "searches": [
+          "Resultary: two positive item values cumulative envy exact myopic",
+          "Oct 25 theorem full proof and limits",
+          "Nov 2 theorem full proof and limits"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-myopic-cumulative-envy-minimization-for-two-positive-item--123d637e6747/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-two-denomination-greedy-frontier-for-cumulative-temporal-envy--146190d77f86/RESULT.md",
+        "arXiv:2610.09843"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Oct 25: arbitrary positive a values a,2a, all fixed orders, no future knowledge; four-good first failure at 3; Nov 2: exact 0 example and no <=3 nonnegative failures"
+        ],
+        "reasoning": "The October theorem logically implies the whole main theorem; the November theorem logically implies the claimed extra zero boundary. Alternative induction is not an independent mathematical finding.",
+        "searches": [
+          "Read full https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-myopic-cumulative-envy-minimization-for-two-positive-item--123d637e6747/RESULT.md",
+          "Read full https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-two-denomination-greedy-frontier-for-cumulative-temporal-envy--146190d77f86/RESULT.md",
+          "arXiv:2610.09843 binary greedy benchmark"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Oct 25: E_t=|L1-L2|, C=sum_t E_t and every finite {a,2a} fixed order; Nov 2 identical functional C_T and same two-level valuations"
+        ],
+        "reasoning": "The older theorem is identical after scaling by a>0 and renaming signed imbalance; positive-integer B<=2 iff the class is contained in {1,2}.",
+        "searches": [
+          "Resultary semantic query two agents identical valuations cumulative sum maximum envy irrevocable greedy 1 2",
+          "full-text https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-myopic-cumulative-envy-minimization-for-two-positive-item--123d637e6747",
+          "full-text https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-two-denomination-greedy-frontier-for-cumulative-temporal-envy--146190d77f86"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact witness (1,1,3,1) greedy 6 optimum 4 is explicitly calculated in both published proofs; zero witness (1,1,2,0) 5 versus 3 is explicit in Nov 2"
+        ],
+        "reasoning": "A tabular reproduction is not needed: both prior proof texts give exact universal analytic statements and the same numerical boundary.",
+        "searches": [
+          "Resultary 2026/10/25/123d637e6747",
+          "Resultary 2026/11/2/146190d77f86"
+        ]
+      },
+      "rationale": "The complete October 25 published theorem proves the same arbitrary-horizon, arbitrary-fixed-order optimality for two agents and {a,2a}, exactly the same positive-integer alphabet barrier, and four-good shortest counterexample. The November 2 published theorem also covers the zero-valued boundary and the three-good nonnegative minimality. Thus the entire submitted claim follows from earlier results, not merely a similarly named paper.",
+      "residual_risks": [
+        "Earlier publications share exact key assertions; priority of identical statements is not rescued by an alternative proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_COVERAGE",
+          "evidence": [
+            "Full finding states all finite {a,2a} fixed-order sequences; (1,1,3,1) costs 6 and optimum 4; no three-good counterexample."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-myopic-cumulative-envy-minimization-for-two-positive-item--123d637e6747",
+          "material_read": "Complete publicly published RESULT.md including assumptions, Bellman proof, sharp witness, three-good minimality",
+          "method": "Read full pinned public proof via GitHub connector",
+          "title": "Exact myopic cumulative-envy minimization for two positive item values",
+          "trigger": "Near-identical objective and quantified alphabet"
+        },
+        {
+          "assessment": "EXACT_COVERAGE",
+          "evidence": [
+            "(1,1,2,0) greedy 5 vs optimum 3, and length-three nonnegative threshold."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-two-denomination-greedy-frontier-for-cumulative-temporal-envy--146190d77f86",
+          "material_read": "Complete publicly published RESULT.md, proof and limitations",
+          "method": "Read full mathematical proof via GitHub connector",
+          "title": "A two-denomination greedy frontier for cumulative temporal envy",
+          "trigger": "Zero-valued boundary and two-denomination exactness"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": [
+            "Binary {0,1} greedy and general fixed-order algorithm are background; independent covering proof supplied by earlier published results."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.09843",
+          "material_read": "Abstract and target record quotations only this execution; full source not obtained",
+          "method": "Bibliographic/query comparison",
+          "title": "Minimizing Cumulative Envy in Allocating a Sequence of Items",
+          "trigger": "Originating general cumulative-envy functional"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Exactness would be a worthwhile optimization boundary if new, but both sharp cutoff and short failure witnesses have already been established in published complete proofs. Reproduction and an alternate Bellman invariant do not provide a separately motivated unknown invariant or mathematical advance.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-myopic-cumulative-envy-minimization-for-two-positive-item--123d637e6747/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-a-two-denomination-greedy-frontier-for-cumulative-temporal-envy--146190d77f86/RESULT.md",
+    "arXiv:2610.09843"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Only the stated theorem/model/normalizations are assessed, not unclaimed extensions.",
+    "Finite computational checks do not establish unrestricted claims except where exhaustion and an explicit hereditary argument suffice."
+  ],
+  "residual_risks": [
+    "Earlier publications share exact key assertions; priority of identical statements is not rescued by an alternative proof."
+  ],
+  "schema_version": 1
+}
