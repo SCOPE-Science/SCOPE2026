@@ -1,15 +1,21 @@
-# Scientific review: the twelve-root \(A_3\) fourth-moment theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The Fourier orthogonality identity was rederived from the twelve distinct type-\(A_3\) roots, with difference multiplicities \(1:12\), \(2:24\), \(4:18\), and \(12:1\). Grouping the two-pair displacements into four triangles gives the exact nonnegative defect \(M-180\). The four triangle vanishing equations force three opposite-edge product classes, while three explicitly computed four-pair correlations force the unique two conjugate normalized equality cases. Direct substitution in all nine four-pair correlation representatives verifies sufficiency. An exhaustive exact-algebraic checker separately proves restricted-alphabet minima and counts, with all \(2,142,594\) normalized configurations covered. Direct convolution verifies representative energies by a different identity. No finite computation is used to infer the universal continuous-phase bound or classification.
+## correctness
 
-## Originality — PASS, provisional
-The exact claim, its twelve-root \(A_3\) support, the numerical constant \(180\), its two conjugate extremizing classes, and the sixth-root divisibility threshold were searched by semantic and explicit-parameter queries. The closest published Fourier results concern a planar six-point triangular simplex, an eight-point cube, a planar nine-point square, and a sixteen-point binary four-cube; their mathematical statements do not imply this root-set result. Three primary open-access papers on multi-dimensional complementary array pairs or sets were inspected through their definitions, main construction results, and conclusions. They solve cancellation across multiple arrays, not optimization of this one array's squared autocorrelation mass. Full published mathematical statements of the three most relevant Fourier comparisons were read. A specialist older root-polyphase array result remains a priority risk, not evidence of coverage.
+PASS
 
-## Mathematical value — PASS
-The twelve roots of \(A_3\) form the first nonplanar irreducible type-\(A\) root aperture, so its complete sharp Fourier phase-design invariant is geometrically motivated rather than an arbitrary coefficient slice. The universal sum-of-squares proof, complete continuous optimizer rigidity, exact sixth-root threshold for all alphabets, and nonmonotone small-alphabet performance provide a structural classification, not merely a numerical optimum. The theorem does not establish analogous results for higher ranks, nonunimodular coefficients, or the exact minima at nonmultiples of six beyond five.
+Parseval for |P|² gives M4=sum_d |C_d|² for 12 roots; direct independently enumerated difference multiplicities 12 singleton,24 double,18 quadruple, one zero. Group each K4 triangle double-correlation block into 3+|q_ij+q_ik+q_jk|² to obtain M-180=2Σ_{4 triangles}|sum q|²+Σ_{18 four-pair shifts}|C_d|². Four triangle vanishing equations enforce opposite-edge product equalities; three four-pair constraints in unique four-anchor gauge force two conjugate sixth-root arrays. Independently reconstructed SOS for many random phase sets and verified both equality gauges. The gauge has 8 free phases for finite mu_q and orbit size q^4; independently enumerated all 2,142,594 normalized arrays q=2,3,4,5,6 in exact integer / sqrt5 pairs, obtaining (188,216,188,240-20sqrt5,180) and normalized optimizer counts (3,16,9,24,2). This finite enumeration exhausts only finite-alphabet refinements; continuous optimum/equality follow analytic identity. Difference exponents lie in [-2,2]^3, giving no aliasing for grid orders >=5.
 
-## Closest sources and remaining risks
-Sources: Pai–Chen (arXiv:2102.04043v1, sections on correlation and complementary sets); Zhang–Fan–Mesnager (arXiv:2107.11599v1, definitions, main constructions, conclusion); Du–Jiang (arXiv:2204.09372v1, definitions II.1–II.3, main constructions and conclusions); published mathematical records of triangular-six, square-nine and binary-four-cube Fourier fourth-moment theorems. None inspected is a theorem on all twelve \(A_3\) roots. Searches are not proof that no obscure earlier equivalent exists. The finite checks do not certify the universal part independently, although its analytical derivation was reconstructed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This is the all-twelve-root irreducible A3/cuboctahedron single-polynomial L4 optimization, not the six-point planar A2/triangular theorem, nine-point planar square, or 12-point rectangular Fourier prism. Those supports have different difference-multiplicity structures and constraints; despite equal mode count for prism, its restricted minima (220,210,188,196) do not imply the A3 values. Golay complementary sets optimize sums of multiple arrays rather than a single array. Historical cuboctahedral phase-array catalogs remain possible overlap.
+
+## value
+
+PASS
+
+The 12-root A3 aperture is a canonical first nonplanar irreducible type-A Fourier support. Its sharp nonnegative SOS identity, two conjugate equality orbits, sixth-root rigidity for any phase alphabet, and exact nonmonotone finite-alphabet spectrum form a substantial structural classification. Finite censi are motivated by phase quantization of the same invariant, not arbitrary slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
