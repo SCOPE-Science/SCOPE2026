@@ -1,19 +1,21 @@
-# Scientific review: sharp Frobenius diameter of partial alternating-sign-matrix polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source establishes that the objects whose convex hull defines the polytope are precisely its vertices [1, Proposition 4.3]. Independently, binary column prefixes bound the count of negative entries in row \(i\) by \(i-1\), so the sum of squares of one vertex is at most \(m^2\). Each negative inner-product contribution consumes a negative entry in one of the two matrices. These estimates give the global squared diameter bound. Equality forces maximal negatives in every row, unit row sums, all negative entries matched with opposite positive entries, and no overlapping positives. Row-prefix automata force the bottom row's two unmatched positives to bracket alternating overlapping signs, requiring \(2m\) columns. Equality then forces successive rows by interlacing and column-prefix exhaustion, yielding the unique staggered-diamond pair for each column selection. Constructed pairs meet all constraints and achieve the claimed bound. The transpose reduction covers tall rectangles. The separate strict-convexity argument excludes nonvertex diametral endpoints. Exhaustive integer checker tests and construction checks corroborate the analytic argument but do not certify all sizes.
+PASS
 
-## Originality — PASS, with residual priority risk
+PASS: Binary column-prefix constraints give ≤i−1 negatives and norm²≤m² for every row; pairing negative entries in the cross inner product yields the universal 2m(2m−1) squared Frobenius bound. Equality forces row sums one and full negative counts, disjoint positive supports, and staggered alternating bottom-row positives on 2m columns; backward interlacing proves exactly one unordered pair per 2m-column choice. Explicit diamond matrices attain the bound; transpose covers m>n; strict convexity excludes nonvertex endpoints. Independently generated every PASM for (1,1),(1,3),(2,3..6),(3,5..6): computed exact diameters and saturation counts 1,5,15,1. This is bounded corroboration, not an all-dimension certificate.
 
-Full primary text [1] was checked at its definition, vertex theorem, inequality theorem, face lattice, and projection sections. It establishes no Euclidean/Frobenius diameter or complete diametral-pair count. The relevant sections of [2] address a distinguished family of faces and order/flow equivalences, which cannot bound all distances in the full polytope. [3] studies projected partial permutohedra; a nonisometric projection cannot transfer ambient Frobenius distance identities. Searches by the equivalent descriptions “partial alternating sign matrix”, “sign restricted matrix”, “rectangular signed matrix”, “Frobenius distance”, and explicit threshold/diamond-pattern parameters yielded no covering statement. Distinct published Euclidean-diameter statements for partial permutohedra concern the projection and do not cover the claim. The exhaustive historical literature has not been established: a formula in earlier sign-matrix or six-vertex-model literature remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This identifies a global Euclidean invariant of a canonical infinite family of signed polyhedra with complicated face structure, including a sharp rectangular aspect-ratio transition and a complete, nontrivial enumeration of farthest vertex pairs. The extremizers are forced into nested staggered alternating diamonds by the interaction of horizontal and vertical prefix restrictions. Their squared diameter grows quadratically in the shorter side, unlike the linear upper scale for the contained nonnegative partial-permutation matrices. This resolves a natural entire saturation regime, not a selected numerical example or isolated parameter slice.
+PASS best-of-knowledge: original Heuer–Striker complete primary paper studies vertices, inequalities, facets, face lattice, volume, and nonisometric projection to partial permutohedra, not the ambient Frobenius diameter; Heuer–Solhjem–Striker study a special face, not global farthest pairs. Searches under PASM/partial ASM/Euclidean-Frobenius signed-matrix terminologies found no dominating diameter+saturation count theorem. Earlier studies of partial permutohedra do not transfer Frobenius metric across a nonisometric projection.
 
-## Scope and unresolved matters
+## value
 
-There is no exact subthreshold diameter formula. Both geometry and counts depend on the standard matrix-coordinate metric. The finite checks are not an all-size proof. Historical priority remains provisional pending external literature review, and independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The exact saturation threshold t>=2s, full diametral-pair combinatorial rigidity and count binomial(t,2s) solve a natural metric geometry question for a canonical infinite family. Unlike an arbitrary finite slice, this gives all rectangular dimensions with complete characterization in the saturated regime; it explicitly leaves exact unsaturated diameters unknown.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

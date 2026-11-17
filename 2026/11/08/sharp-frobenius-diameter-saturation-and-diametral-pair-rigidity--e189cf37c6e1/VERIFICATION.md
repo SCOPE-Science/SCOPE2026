@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and proof limits
+# Independent mathematical audit
 
-The independent finite checker bundled as `verify_pasm_diameter.py` uses binary vertical-prefix-state column generation and exhaustive pairwise integer distances. The following independently generated configurations were exhaustively verified: `(1,1)`, `(1,2)`, `(1,3)`, `(2,1)`, `(2,2)` through `(2,6)`, and `(3,2)` through `(3,6)`. The first saturation cases include `(2,4)`, `(2,5)`, `(2,6)`, `(3,6)`; their exact numbers of unordered farthest pairs are `1`, `5`, `15`, and `1`. It additionally checks 1,626 explicit staggered-diamond pairs and verifies both orientations by transposition, through seven-row cases.
+## correctness
 
-Execute `python verify_pasm_diameter.py` in a directory containing the embedded checker. The expected success marker starts `PASM_RECTANGULAR_SHARP_DIAMETER_CHECKS_PASSED`.
+PASS
 
-The finite enumeration cannot establish a universal theorem or historical novelty. The universal bound, strict threshold, and complete equality-pair classification are supplied by the analytic proof in `RESULT.md`. The unsaturated regime is not classified numerically or analytically beyond strictness. No independent audit has been performed.
+PASS: Binary column-prefix constraints give ≤i−1 negatives and norm²≤m² for every row; pairing negative entries in the cross inner product yields the universal 2m(2m−1) squared Frobenius bound. Equality forces row sums one and full negative counts, disjoint positive supports, and staggered alternating bottom-row positives on 2m columns; backward interlacing proves exactly one unordered pair per 2m-column choice. Explicit diamond matrices attain the bound; transpose covers m>n; strict convexity excludes nonvertex endpoints. Independently generated every PASM for (1,1),(1,3),(2,3..6),(3,5..6): computed exact diameters and saturation counts 1,5,15,1. This is bounded corroboration, not an all-dimension certificate.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: original Heuer–Striker complete primary paper studies vertices, inequalities, facets, face lattice, volume, and nonisometric projection to partial permutohedra, not the ambient Frobenius diameter; Heuer–Solhjem–Striker study a special face, not global farthest pairs. Searches under PASM/partial ASM/Euclidean-Frobenius signed-matrix terminologies found no dominating diameter+saturation count theorem. Earlier studies of partial permutohedra do not transfer Frobenius metric across a nonisometric projection.
+
+## value
+
+PASS
+
+PASS: The exact saturation threshold t>=2s, full diametral-pair combinatorial rigidity and count binomial(t,2s) solve a natural metric geometry question for a canonical infinite family. Unlike an arbitrary finite slice, this gives all rectangular dimensions with complete characterization in the saturated regime; it explicitly leaves exact unsaturated diameters unknown.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
