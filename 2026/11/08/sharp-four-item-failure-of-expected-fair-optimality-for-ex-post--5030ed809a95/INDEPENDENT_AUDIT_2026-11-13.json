@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T18:15:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 311d66167fbb04dfb18f084decdd58acfe49bf32",
+        "assigned verify.py blob b94c6ed4b4d50e6bcefeabb74a0614161200dbbf",
+        "independent exact rational 4-good full probability sums"
+      ],
+      "rationale": "For two agents and mutually independent Bernoulli(p_j) values on each agent-good pair, per-agent EF1 failure is explicitly enumerable, and cross-agent events multiply. With m=3 an ex-ante EF partition can be parametrized by (x+y,x,y), and balanced singleton probability exceeds alternatives by y² and x²; empty-bundle allocations cannot improve. For m=4 with p=(eps,1/3,2/3,1/3+eps), A={1,3}|{2,4} is exactly ex-ante EF while B={3}|{1,2,4} is not. Computing A and B EF1 probabilities from independent Bernoulli vectors gives difference eps*(19-652eps+48eps²-36eps³)/729; its cubic is strictly decreasing over (0,1/3), with unique positive crossover ~0.0292025. At eps=1/60 the exact excess is 5431/29160000. Integer subset-sum weights (1,20,40,21) confirm A and its complement are all ex-ante EF partitions. Independently computed two-agent joint probabilities by finite exact Fraction enumeration (A=27909869/29160000, B=10339/10800) and verified gap and polynomial simplification. General m<=3 proof is analytic.",
+      "residual_risks": [
+        "The threshold describes only A-vs-B comparison, not a global optimum for all eps. Proof of m<=3 covers ex-ante EF where it exists."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing exact EF optimality has no readable EF1 counterpart; full shared-value EF1 theorem requires a single realized value common to all agents, unlike this agent-specific independent sampling; fair-allocation lotteries with fixed utilities randomize allocation instead."
+        ],
+        "reasoning": "The strongest relevant themes do not mathematically imply that four heterogeneous item Bernoulli probabilities break ex-ante EF optimality for EF1.",
+        "searches": [
+          "https://arxiv.org/abs/2610.34906",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8",
+          "https://arxiv.org/abs/2005.14122"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.34906",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8",
+        "https://arxiv.org/abs/2005.14122",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-four-good-asymmetry-and-the-quadratic-rare-event-law-for-r--e2cd71b5fa1f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Record3 varies probabilities by agent with all goods identical within agent, so any two-two allocation is ex-ante EF, and cannot specialize to distinct p_j=(eps,1/3,2/3,1/3+eps) within each agent. Record4 instead keeps agent marginals identical per good and constructs a non-expected-EF superior EF1 allocation."
+        ],
+        "reasoning": "A common four-good horizon is not theorem equivalence; neither heterogeneous parameter axis implies the other. The exact r=3 boundary is an independent nontrivial claim.",
+        "searches": [
+          "https://arxiv.org/abs/2610.34906",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-four-good-asymmetry-and-the-quadratic-rare-event-law-for-r--e2cd71b5fa1f"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ex-ante EF is equality of expected subset sums, while realized EF1 is at most one valued good removed; the objective concerns probability over independent agent-good randomness with varying p_j. Igarashi-Oh known results concern exact EF, which is strictly stronger event and different optimization."
+        ],
+        "reasoning": "Not equivalent to randomizing an allocation itself, or to per-agent iid parameters. Here both agents have identical marginal p_j on each good, but values remain independent across agents, so neither shared-realization theorem nor global iid symmetry applies.",
+        "searches": [
+          "Resultary: ex ante envy free deterministic allocation may not maximize ex post EF1 probability four heterogeneous Bernoulli goods",
+          "https://arxiv.org/abs/2610.34906"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A distinct published record with per-agent iid Bernoulli goods (same-week record3) uses different parameter heterogeneity. No found earlier exact parameter family or subset-sum witness with epsilon=1/60."
+        ],
+        "reasoning": "This is a minimal counterexample with an exact polynomial phase, rather than an arbitrary small-instance enumeration. Search absence alone cannot establish novelty.",
+        "searches": [
+          "Resultary: heterogeneous Bernoulli per-good EF1 four item threshold ex ante fairness exact counterexample",
+          "Resultary: sharp four-item failure expected fair EF1 probability"
+        ]
+      },
+      "rationale": "This is a sharp four-item counterexample to expected-EF optimality for realized EF1 when item probabilities are heterogeneous but common across agents, a different slice from all-agent iid Bernoulli EF1. The primary Igarashi-Oh exact-EF paper is not full-text accessible and remains a priority risk; best-of-knowledge O PASS with qualification.",
+      "residual_risks": [
+        "Full Igarashi-Oh 2026 source unread due authentication VPN disconnected, could contain a stronger EF1 result.",
+        "No universal search of all combinatorial counterexamples and same-day public result ordering."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_PARAMETER_SLICE",
+          "evidence": [
+            "per-agent probability p_i constant across goods, not itemwise p_j identical across agents"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-four-good-asymmetry-and-the-quadratic-rare-event-law-for-r--e2cd71b5fa1f",
+          "material_read": "Entire sister RESULT.md and exact model assumptions",
+          "method": "Frozen GitHub source blob read",
+          "title": "Sharp four-good asymmetry and quadratic rare-event law for realized EF1",
+          "trigger": "Same event and four goods"
+        },
+        {
+          "assessment": "INAPPLICABLE_SHARED_VALUES",
+          "evidence": [
+            "all agents see identical realized value on each item; here their values for a given item are independent"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-strict-balancing-and-polynomial-decay-of-realized-ef1-for-shared--a2e3a16cddf8",
+          "material_read": "Entire RESULT.md, including shared-realization hypothesis",
+          "method": "GitHub full published source blob",
+          "title": "Strict balancing and polynomial decay of realized EF1 for shared Bernoulli lottery goods",
+          "trigger": "Broader balancing theorem might preclude unbalanced optimum"
+        },
+        {
+          "assessment": "UNREAD_FULL_TEXT_PRIORITY_RISK",
+          "evidence": [
+            "exact EF theorem in abstract, EF1 treatment in unseen full text cannot be confidently excluded"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.34906",
+          "material_read": "Public title/abstract and indexing only; arxiv and lawful OA did not yield full article; authorized Oxford returned VPN disconnected",
+          "method": "Public metadata and failed authorized institutional access",
+          "title": "Fair Division of Lotteries",
+          "trigger": "Direct original fair-division primary"
+        },
+        {
+          "assessment": "DIFFERENT_RANDOMNESS",
+          "evidence": [
+            "randomized allocations under fixed values rather than fixed allocations under agent-good values"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2005.14122",
+          "material_read": "Abstract / metadata only, not full source",
+          "method": "Public indexing",
+          "title": "Best of Both Worlds: Ex-Ante and Ex-Post Fairness in Resource Allocation",
+          "trigger": "Related ex-ante/ex-post fairness"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "three-good domination inequalities",
+        "four-good independent exact rational enumeration",
+        "Igarashi-Oh exact EF distinction"
+      ],
+      "rationale": "A concrete smallest-good-number counterexample disproves a natural probability-optimality extrapolation from ex-ante expected fairness to ex-post EF1. The sharp analytic parameter window and exact unique expected-fair partition make the witness robust and reproducible. Its small numerical gain is not the sole motivation; the precise m<=3 versus m=4 boundary is the mathematical point.",
+      "residual_risks": [
+        "Scope limited to two-agent binary independent item-value model, not general fair allocation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Four-good polynomial threshold compares named A and B; global optimum over all allocations not classified for every epsilon.",
+    "Primary full literature inaccessible; priority provisional."
+  ],
+  "schema_version": 1
+}

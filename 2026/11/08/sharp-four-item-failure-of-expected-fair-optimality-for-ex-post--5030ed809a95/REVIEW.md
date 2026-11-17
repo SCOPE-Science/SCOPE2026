@@ -1,11 +1,21 @@
-# Review of the Bernoulli-lottery EF1 item-count boundary
+# Independent mathematical audit
 
-**Correctness — PASS.** The independence reduction isolates one-agent EF1 comparisons. The small-item theorem follows from explicit event formulas and the gaps \(x^2\) and \(y^2\); the four-good phase inequality follows from an exact cubic-factor identity and its monotonicity. A standalone verifier independently enumerates all joint Bernoulli realizations for the rational witness and checks a grid of three-item symbolic identities. Finite tests supplement the all-parameter proof.
+## correctness
 
-**Originality — PASS, qualified.** Igarashi–Oh's *Fair Division of Lotteries* (arXiv:2610.34906v1) handles ex-post exact envy-freeness, not realized EF1 probability; its conclusion proposes EF1 as further work. Other ex-ante/ex-post papers treat lotteries over assignments rather than uncertainty of item values. Nearby indexed records concern exact EF with exponential goods or EF1 with agent-specific homogeneous Bernoulli probabilities, not the item-specific heterogeneous Bernoulli EF1 theorem. Unknown unindexed equivalents remain a risk.
+PASS
 
-**Mathematical value — PASS.** This proves a sharp transition between a guarantee and its failure, in the simplest nondegenerate bounded discrete utility family. Despite the small numerical improvement, the boundary is about the validity of a universal expected-fair optimality principle, not the size of a welfare gain. The explicit one-parameter family also identifies a nonempty open region of failure.
+For two agents and mutually independent Bernoulli(p_j) values on each agent-good pair, per-agent EF1 failure is explicitly enumerable, and cross-agent events multiply. With m=3 an ex-ante EF partition can be parametrized by (x+y,x,y), and balanced singleton probability exceeds alternatives by y² and x²; empty-bundle allocations cannot improve. For m=4 with p=(eps,1/3,2/3,1/3+eps), A={1,3}|{2,4} is exactly ex-ante EF while B={3}|{1,2,4} is not. Computing A and B EF1 probabilities from independent Bernoulli vectors gives difference eps*(19-652eps+48eps²-36eps³)/729; its cubic is strictly decreasing over (0,1/3), with unique positive crossover ~0.0292025. At eps=1/60 the exact excess is 5431/29160000. Integer subset-sum weights (1,20,40,21) confirm A and its complement are all ex-ante EF partitions. Independently computed two-agent joint probabilities by finite exact Fraction enumeration (A=27909869/29160000, B=10339/10800) and verified gap and polynomial simplification. General m<=3 proof is analytic.
 
-The claim is limited to two agents and independent Bernoulli agent–item values; the four-item polynomial only compares the specified allocations. No optimality classification for general item counts is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+This is a sharp four-item counterexample to expected-EF optimality for realized EF1 when item probabilities are heterogeneous but common across agents, a different slice from all-agent iid Bernoulli EF1. The primary Igarashi-Oh exact-EF paper is not full-text accessible and remains a priority risk; best-of-knowledge O PASS with qualification.
+
+## value
+
+PASS
+
+A concrete smallest-good-number counterexample disproves a natural probability-optimality extrapolation from ex-ante expected fairness to ex-post EF1. The sharp analytic parameter window and exact unique expected-fair partition make the witness robust and reproducible. Its small numerical gain is not the sole motivation; the precise m<=3 versus m=4 boundary is the mathematical point.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
