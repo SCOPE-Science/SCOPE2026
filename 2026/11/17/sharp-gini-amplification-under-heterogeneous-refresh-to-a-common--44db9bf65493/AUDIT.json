@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The operator preserves constants. Positive threshold layers yield an exact cut norm. Fixed-cut Gini is convex in every rate, so a rate-cube maximizer is binary. For a k-versus-m cut with r and s refreshed sites, the exact output difference from km is [k s(m-k-s)+m r(k-m-r)]/n. The smaller-side refresh count is zero at the maximum; integer quadratic optimization and even/odd monotonicity prove that a singleton cut maximizes the rate-cube norm. An explicit binary-rate singleton attains the formula for all n; mixing it with an all-rows uniform reset yields a strictly positive stochastic matrix whose Gini ratio still exceeds one for n>=4. Exact rational checker independently tests 86,360 extreme cut/rate pairs and further rational and symbolic witness cases. The proof, not finite tests, proves all dimensions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd et al., Randomized Gossip Algorithms, IEEE TIT 52 (2006), pp. 2508-2510: pairwise gossip matrices, doubly stochastic expected operator, and spectral averaging time.",
+        "Gaubert and Qu, arXiv:1302.5226, §§1-4: general Markov/consensus estimates in Hopf oscillation, not the specified Gini norm.",
+        "For a heterogeneous mean-refresh matrix, its jth column sum is 1-a_j+(sum_i a_i)/n, so it is doubly stochastic iff all site rates coincide."
+      ],
+      "reasoning": "Majorization contraction of a doubly stochastic kernel does cover the homogeneous case, but not the heterogeneous family optimized here. The general Dobrushin theorem gives oscillation/TV bounds and does not imply the sharp 5/4 Gini envelope. The earliest full relevant primary accounts were examined for the norm, kernel and parameter scope.",
+      "searches": [
+        "universal contraction bound for all row-stochastic matrices with state dependent relaxation to uniform global mean, in pairwise absolute difference seminorm",
+        "partial consensus mean field update agents select independently to replace opinion with average, sharp dispersion amplification",
+        "Gini contraction of stochastic kernels rank-one perturbations of diagonal matrices",
+        "site dependent reset uniform consensus Gini seminorm amplification asynchronous gossip",
+        "Lipschitz norm Gini variation rank one stochastic matrix diagonal rows convex combination"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1302.5226 (2013-02-21, first public lead version)",
+      "https://arxiv.org/abs/1307.4649 (2013-07-17, closely relevant updated text)",
+      "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf (2006, independent consensus kernel framework)",
+      "Published-record searches with eight specific target queries in the four named originality checks",
+      "Scientific overlap comparison to accessible earlier complete-split, biclique-lazy, heat, isotonic and Cesaro Gini claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gaubert and Qu derive the Doeblin-Dobrushin coefficient as the oscillation contraction ratio, and the adjoint total-variation ratio; the present ratio is of the Gini norm on the original signal space.",
+        "Boyd et al. use eigenvalues of doubly stochastic pairwise gossip, not independent refresh probabilities toward a common mean.",
+        "Accessible earlier claims on complete-split random walks, half-lazy balanced bicliques, and bipartite heat use different kernel families; their Gini estimates cannot specialize to every matrix I-diag(a)+a*ones^T/n."
+      ],
+      "reasoning": "The old results do not imply the explicit fixed-n universal optimization or strict-positive counterexample: a single stochastic P with full support is an oscillation contraction, yet its Gini norm exceeds one. Graph spectral and random-walk statements cannot be renamed into independent heterogeneous diagonal-plus-rank-one rates. The shared use of binary-cut norm reductions is a proof technique, not substantive subsumption.",
+      "searches": [
+        "Sharp Lipschitz contraction of heterogeneous state dependent refreshment Markov kernels in complete pair Gini seminorm; rank one stochastic reset with variable rates",
+        "Complete-pair Gini variation sharp one-step Markov averaging operator seminorm stochastic matrices state-dependent mean reset",
+        "stochastic matrices Gini seminorm contraction coefficient complete graph pairwise differences state dependent holding probabilities reset",
+        "\"Gini\" \"refresh\" \"matrix\" consensus"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gaubert and Qu, arXiv:1302.5226 (2013), Introduction and Theorem 1.1: Hopf oscillation/diameter norm and dual total-variation of measures.",
+        "Gaubert and Qu, arXiv:1307.4649 (2013), Introduction equations (1)-(4): total-variation coefficient and maximum coordinate oscillation.",
+        "The Gini seminorm sums all pairwise differences and is not a scalar multiple of maximum oscillation for n >= 4; this is witnessed by four-vectors with equal ranges and unequal Gini variation."
+      ],
+      "reasoning": "For three coordinates Gini is exactly twice oscillation, but in four or more it is a genuinely different quotient norm. Abstract generality of the cone contraction theorem does not equate the two norms. Its TV dual acts on probability differences, not on real signals with complete-pair Gini. The explicit all-positive four-site example has strictly contracting oscillation but expands Gini.",
+      "searches": [
+        "Sharp Lipschitz contraction of heterogeneous state dependent refreshment Markov kernels in complete pair Gini seminorm; rank one stochastic reset with variable rates",
+        "Gini pairwise dispersion state dependent mean refresh matrix I-D+D 11^T/n sharp five fourth amplification n four",
+        "heterogeneous refresh operator Gini seminorm one-step sharp universal 5/4",
+        "stochastic matrices Gini seminorm contraction coefficient complete graph pairwise differences state dependent holding probabilities reset",
+        "Markov operator mean absolute difference contraction coefficient Gini mean difference stochastic matrices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The directly queried published-record hits include Exact transport amplification for asymmetric bipartite Markov semigroups (different Wasserstein norm and bipartite generator).",
+        "Published-record results also include Sharp cyclic variation stability of two-cell conditional expectations (cyclic edge variation and conditional expectations, not one-step common-mean refresh).",
+        "No inspected exact-norm table or paper specified the rate-cube extremum 1+floor((n-2)^2/4)/(n(n-1))."
+      ],
+      "reasoning": "The source and claim were tested with algebraic and verbal aliases, small-dimension factors, rank-one-plus-diagonal terms, and a sharper complete-pair description. The displayed 5/4 value and four-site onset were not recovered in these searches; absence of a retrieved match is not a proof of historical novelty.",
+      "searches": [
+        "Gini pairwise dispersion state dependent mean refresh matrix I-D+D 11^T/n sharp five fourth amplification n four",
+        "heterogeneous refresh operator Gini seminorm one-step sharp universal 5/4",
+        "diagonal plus rank-one row stochastic mean averaging Gini variation extremal 5/4",
+        "Complete-pair Gini variation sharp one-step Markov averaging operator seminorm stochastic matrices state-dependent mean reset",
+        "\"Gini\" \"5/4\" \"stochastic\" \"operator\" dispersion",
+        "\"pairwise absolute differences\" \"heterogeneous\" averaging \"contraction\""
+      ]
+    },
+    "rationale": "Comparison against the identified primary literature, targeted published-record searches and accessible earlier Gini/Markov operator statements found no formula or stronger implication covering the independent heterogeneous common-mean refresh family. Gaubert and Qu handle a different seminorm and its dual, while Boyd et al. handle doubly stochastic pairwise gossip. The all-rate exact factor and full-support amplifying witness are not implied by those statements. Residual risk is unindexed historical equivalence.",
+    "residual_risks": [
+      "A published equivalent under a different term such as mean absolute difference or simultaneous heterogeneous relaxation may be unindexed and has not been ruled out.",
+      "Generalisations to arbitrary stochastic kernels or weighted distributions are outside this theorem.",
+      "Published-record search is not a formal uniqueness or originality guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the proposed Gini claim: the norm is Hopf oscillation and the dual total variation, not sum of all pairwise signal differences.",
+        "evidence": "ArXiv v1 dated 2013-02-21; text explicitly identifies Hopf oscillation with maximum coordinate diameter and its Dobrushin coefficient.",
+        "identifier_or_url": "https://arxiv.org/abs/1302.5226",
+        "material_read": "Full-text HTML Introduction sections 1.1-1.2, Theorem 1.1 and the statements describing Sections 2-4 and the Dobrushin reduction.",
+        "method": "Read accessible source HTML and checked its treatment of the concrete stochastic matrix norm; compared definitions and quantifiers.",
+        "title": "Dobrushin ergodicity coefficient for Markov operators on cones, and beyond",
+        "trigger": "Direct lead on contraction coefficients for consensus operators, a plausible dominating theorem."
+      },
+      {
+        "assessment": "NOT_COVERING: the oscillation/TV norm is defined and distinguished explicitly; no formula for complete-pair Gini or a rate-cube maximization.",
+        "evidence": "ArXiv 1307.4649 initial date 2013-07-17; author OA PDF https://www.cmap.polytechnique.fr/~gaubert/PAPERS/GaubertQuIEOTD14QuFinal.pdf, introduction equations (1)-(4).",
+        "identifier_or_url": "https://arxiv.org/abs/1307.4649",
+        "material_read": "Full-text introduction and definitions in the OA author PDF (pages 1-6), including the Dobrushin theorem and stochastic consensus normalization; corresponding arXiv HTML introduction.",
+        "method": "Read extracted text and visually checked the second PDF page containing the duality and row-stochastic formulas.",
+        "title": "Dobrushin's ergodicity coefficient for Markov operators on cones",
+        "trigger": "Revised and published-scope counterpart of the lead; directly plausible broader coverage."
+      },
+      {
+        "assessment": "NOT_COVERING: the paper studies pairwise doubly stochastic gossip and spectral averaging time, not the generally non-doubly-stochastic rank-one mean-refresh kernel in Gini seminorm.",
+        "evidence": "IEEE Transactions on Information Theory 52 (2006), pp. 2508-2530, DOI 10.1109/TIT.2006.874516; model eqs. (1)-(2).",
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/gossip.pdf",
+        "material_read": "Journal PDF introduction and model sections, pp. 2508-2510, plus text searches for Gini and dispersion formulations.",
+        "method": "Read OA journal PDF text and visually checked p. 2509; compared averaging matrix and stated spectral convergence metrics.",
+        "title": "Randomized Gossip Algorithms",
+        "trigger": "Consensus mixing and averaging under potentially site-specific randomized updates."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "44db9bf6-5493-4f2c-9f55-82552e81882b",
+  "value": {
+    "rationale": "A natural heterogeneous mean-refresh operator family exhibits a sharp four-agent onset and an exact all-dimensional rate-independent cap approaching 5/4. Most importantly even entrywise strictly positive Doeblin kernels in this family can amplify the complete-pair Gini signal norm, separating established robust oscillation contraction from dispersion stability. Explicit optimal polarized updates and an attained fixed-dimension formula make the boundary useful for finite consensus/Markov operator stability analysis.",
+    "status": "PASS"
+  }
+}
