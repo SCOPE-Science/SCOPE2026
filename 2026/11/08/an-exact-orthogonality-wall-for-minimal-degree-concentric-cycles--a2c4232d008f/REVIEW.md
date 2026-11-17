@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The rotated field gives an exact radial factorization and explicitly integrable angular motion on each designated circle. The Floquet exponent is a one-dimensional trigonometric integral; its sign is strict for nonzero forcing–twist inner product. On the zero-inner-product wall, the displayed first integral has an analytically regular extension across each simple radial root, with nonzero normal gradient; local nearby level sets are periodic because the angular flow remains strictly monotone. The minimal-degree obstruction follows from polynomial divisibility and vanishing at the origin. Symbolic and numerical checks support the identities. The proof neither asserts a global cycle count nor uses finite orbit simulation as a universal proof.
+## correctness
 
-## Originality — PASS within the inspected literature
-Jana–Sarkar's full arXiv HTML text (Sections 2–3) contains the general invariant-circle normal form, an **already-known single-circle quadratic inner-product criterion (Proposition 2.3)**, and the quartic circle-count bound; it does not state the all-\(m\ge2\) simultaneous annular-integrability theorem or its joint exact period/multiplier classification. The single-circle condition is expressly excluded from the novelty claim. Dolov–Pavlyuk already establish a sharp concentric-degree bound; that bound is cited as known, not new. The full 2015 Margalef-Bentabol–Peralta-Salas postprint constructs polynomial flows with prescribed cycle configurations, periods, multiplicities and stability but its distinct higher-degree general construction does not imply an exact orthogonality wall for the present sharp-degree affine-twist field. Closest research records for a polar Dulac circle and homogeneous star-node Floquet formulas have different defining radial equations and do not imply the present multi-circle equivalence. Residual risk: the complete text of the 2016 circular-cycle classification was not accessible in this comparison; a general older classification might subsume some quantitative pieces.
+PASS
 
-## Mathematical value — PASS
-At the sharp least polynomial degree allowing a prescribed finite set of concentric algebraic limit cycles, the smallest nonconstant affine angular factor exhibits a single codimension-one surface that simultaneously converts an arbitrary number of alternating hyperbolic cycles into integrable period annuli. This is a structural, all-number-of-circles classification and supplies exact physically measured periods and multipliers, rather than merely re-counting known cycles or choosing a numerical parameter slice. The theorem is not a classification of all polynomial fields of that degree.
+For m>=2 prescribed positive circles, rotation aligning w gives dot(s)=2F(s)(epsilon xi+beta eta), C=c+h xi and on each circle angular speed -(c+h r_i cos theta) without stagnation. Integrating original time yields T_i=2pi/sqrt(c^2-h^2 r_i^2), and the linear radial equation gives Lambda_i=(4pi(v.w)/h^2) F'(r_i^2)[1-c/sqrt(c^2-h^2 r_i^2)]. Independent adaptive numerical quadrature checked two radii against formula. On epsilon=0, H=int ds/F-(2beta/h)log(C) has derivative zero; locally removing logarithmic singularity with J_i=(s-s_i)e^{B_i(s)}C^{-2beta F'(s_i)/h} yields a real-analytic first integral with nonzero normal gradient; nearby levels are two-sided periodic annuli. Degree lower bound follows from radial polynomial xP+yQ divisible by degree-2m F, nonzero and vanishing at origin; quotient must have degree>=1. Noncircular cycles elsewhere not classified.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Earlier work on concentric invariant circles supplies a general normal form and the classical degree lower bound; it does not in inspected summaries establish the sharp simultaneous v.w=0 analytic period-annulus transition with exact physical periods and Floquet multipliers for this minimal-degree affine-angular-speed family. Best-of-knowledge with literature access risk.
+
+## value
+
+PASS
+
+The exact simultaneous degeneration of an arbitrarily long alternating collection of hyperbolic circular cycles into analytic period annuli at a single geometric inner-product wall is a motivated structural bifurcation theorem. Degree optimality and physical periods/multipliers provide quantitative geometry, not an arbitrary tiny numerical instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
