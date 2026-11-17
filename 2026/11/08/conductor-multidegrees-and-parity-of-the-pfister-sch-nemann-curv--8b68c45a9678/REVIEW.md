@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** For all integers \(m\ge4\), Newton–Hensel factorization gives two outer branches, one axis branch, and one or two inner branches according to parity. Exact valuations of the complete-intersection residue form determine the complete conductor exponents using normalization duality. The Gorenstein conductor-length identity yields the delta invariant. A standalone finite checker tests valuation balances and identities through \(m=100\); no numerical extrapolation is used as a proof.
+## correctness
 
-**Originality — PASS (provisional historical priority).** Pfister and Schönemann (1989) classify the local nonquasihomogeneous family and its differential-complex behavior. He and Wang (arXiv:2604.05825v2, Proposition C.7) use branch conductors symbolically to construct projective examples and state their total length, but their inspected result does not determine each branch exponent or give the parity count. No equivalent formula was identified in actual searches of related literature or research records. Wall’s historical singularity tables remain a specific residual risk. The first preprint version of arXiv:2604.05825 dates to April 7, 2026, while the relevant family application first appears in its November 4, 2026 revision; this chronology is disclosed.
+PASS
 
-**Value — PASS.** This gives a complete, naturally motivated conductor-multidegree classification for the precise germs used in a contemporary global pinching construction. The parity transition governs the number of branches, conductor jets, and delta invariant, information not contained in the aggregate conductor relation alone.
+For all m>=4 over C, eliminating x=-z^3/y gives u=z/y and u^4-u^2=y^(m-3). Two outer branches and one x-axis branch always exist; the inner quadratic splits into two analytic branches when m odd, and one primitive quadratic-ramified branch when m even. Residue differentials omega=dy/[2z(y^2-2z^2)] yield outer orders -3, axis order -2, inner order -(m+3)/2 each (odd m) or -(m+2) (even m). Gorenstein finite-normalization duality yields the claimed conductor valuation tuple. Sum of exponents equals 2delta and Milnor identity mu=2delta-r+1=m+7. Independent parity, conductor-sum and Milnor-delta arithmetic checked for m4..30. m=4 tuple is earlier known, not independently new.
 
-Independent replication and broader historical priority checking remain unperformed. The claim is restricted to complex analytic complete-intersection curve germs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for entire parity-dependent m>=4 classification, excluding the already published m=4 instance. He–Wang Nov4 revision Appendix B.1 gives (2,3,3,6) for m=4; Appendix C provides only aggregate sum(c_i-1)=m+6 for all m, so does not determine individual m>4 conductor partitions. Original Pfister–Schönemann full text remains a risk.
+
+## value
+
+PASS
+
+Branchwise conductor exponents and parity-dependent branch count determine exact local pinching/normalization jet cutoffs, materially finer than the already known Milnor/Tjurina and aggregate conductor lengths. Natural classification of the original analytic family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
