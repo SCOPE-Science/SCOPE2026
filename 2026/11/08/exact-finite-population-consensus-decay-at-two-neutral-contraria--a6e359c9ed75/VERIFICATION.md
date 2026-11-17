@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The all-size proof derives the exact conditional binomial output distributions, mixed-triple sampling probability, total conditional variance, quadratic eigenfunction, and two-sided hitting-time survival bounds. These are algebraic steps valid for any population size divisible by three; finite enumeration is additional evidence, not an infinite verification certificate.
+## correctness
 
-Run `python check.py` in the directory containing this file and `check.py`. The program enumerates all unordered partitions of the labeled population into triples and uses exact rational arithmetic for each possible one-step configuration and post-update binomial count at sizes 3, 6, and 9. It checks the stated conditional first and second moments and the global-complement one-step kernel, plus the deterministic density-map corner substitutions. The observed output was:
+PASS
 
-```
-n=3: exact kernels, conditional means, variances, and heterozygosity checked for all 4 counts
-n=6: exact kernels, conditional means, variances, and heterozygosity checked for all 7 counts
-n=9: exact kernels, conditional means, variances, and heterozygosity checked for all 10 counts
-PASS: exhaustive rational finite tests
-```
+For each triple with a pre-update A agents, individual outputs are Binomial(3,a/3) at (c30,c21)=(0,1/3) and Binomial(3,1−a/3) at (1,2/3). Mixed triples have variance 2/3; the expected number under fresh uniform triple partition with k A agents is k(N−k)/(N−1). Consequently conditional K-next mean is k or N−k and conditional variance 2k(N−k)/[3(N−1)]. H(k)=k(N−k) is a one-step eigenfunction with q_N=1−2/[3(N−1)] on both corners. H is bounded above N²/4 and below N−1 off unanimity, hence two-sided geometric survival bounds, finite a.s. hitting, matching log(q_N) exponent; martingale/signed martingale yields initial A-fraction phase probability. Complement kernel duality gives reversal interpretation. Handles N=3, k=0,N boundaries without asserting positive tail there.
 
-The script depends only on the Python standard library. The finite tests do not address any other population size, alternative interaction mechanism, or near-corner parameter perturbation. No independent scientific audit has been performed.
+## originality
+
+PASS
+
+Original Galam (2026) supplies the cubic deterministic density map and known identity/involution corners. Its accessible primary full text emphasizes dynamical fixed points and does not provide the particular annealed finite-N conditional variance or full two-phase hitting tail. Toth–Galam group-decision flips have a different variance kernel. Standard neutral-drift convergence alone does not fix q_N for this update rule.
+
+## value
+
+PASS
+
+Two deterministic neutral singular corners do not describe stochastic finite populations. An exact all-N absorption-rate baseline and alternating consensus selection distinguish independent individual activation from shared group flipping, and quantify the scale of stochastic drift. The model is specified enough to be a meaningful benchmark rather than a generic voter slogan.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
