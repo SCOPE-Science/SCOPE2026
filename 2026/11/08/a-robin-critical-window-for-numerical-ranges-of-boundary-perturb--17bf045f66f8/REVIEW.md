@@ -1,12 +1,21 @@
-# Review of the boundary-defect numerical-range theorem
+# Independent mathematical audit
 
-## Correctness
-PASS. For each support direction the self-adjoint part is a free Jacobi operator with a single boundary potential. The discrete-gradient identity proves absence of a top eigenvalue at or below coupling \(1/2\), while a unique square-summable geometric eigenvector above that coupling gives the complete support function and the exact attained/nonattained boundary. Chebyshev recurrence fixes every finite compression and the exact crossing \((n+1)/(2n)\); its trigonometric/hyperbolic roots prove the two-sided Robin critical profile, the angular scale and fixed-coupling rates. The eigenvector at the crossing is explicitly positive, justifying the top-eigenvalue identification. An executable checker performs 261 exact-rational or numerical finite diagnostics, which are not substitutes for the infinite proofs.
+## correctness
 
-## Originality
-PASS, qualified best-knowledge comparison. The motivating paper arXiv:2610.15242v1 gives exact numerical radii for alternating off-diagonal block paths and integral identities, not a diagonal defect or the sharp two-scale finite-section transition. Ko–Lee (2011) considers the encompassing rank-one perturbation class, but its public full text addresses eigenvalues, hyponormality and the commutant, not these numerical-range statements. Chien–Sheu (2013) and Vandanjav–Undrakh (2014) work on weighted-shift edges, not diagonal perturbations. A published numerical-radius threshold for one exceptional \(\ell_p\) shift weight (published-finding corpus identifier ending 6d4363552adb) and a separate critical-window calculation for singular values of finite nilpotent-shift resolvents (identifier ending ad9e67002c01) have been compared by implication and do not state this result. The finite free-Jacobi recurrence and Robin analysis are standard, hence are not themselves claimed original. Classical Jacobi boundary asymptotics could supply equivalent general statements without the numerical-range language; the older 2014 article was not fully accessible. Priority is not independently certified.
+PASS
 
-## Mathematical value
-PASS. The exact distinction between the ordinary and essential numerical range is paired with a sharp *finite-size* crossing, a nonlinear Robin crossover from subcritical to supercritical and two different geometric scales in the same natural one-defect model. This is a complete intrinsic classification of a motivated operator family, not just a small finite table or a routine bound. The result makes no claim for arbitrary defects or general operator matrices.
+Half-line H_v=(S+S*)/2+vP0 has upper edge one without an ℓ² top eigenvector for v<=1/2, and exactly one geometric bound state for v>1/2, giving all support lines and boundary-attainment arcs. Determinant 2^-n(U_n−2tU_{n−1}) and eigenvector n,...,1 prove exact finite crossing. Root limits of k cot k=2α and κ coth κ=2α give n^-2 Robin profile; replacing t with t cos(β/sqrt n) gives angular α−β²/4. Independent finite Chebyshev/tridiagonal numerical checks of multiple sizes and both critical branches corroborated exact formulas, without replacing n→∞ proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-knowledge original exact boundary-attainment and two-parameter finite-size Robin critical-window classification for T_t=S+tP0; no inspected published source implies the complete claim. The Chebyshev/Jacobi tools themselves are classical, not new.
+
+## value
+
+PASS
+
+One rank-one boundary defect yields a sharp, geometrically transparent transition and a two-scale Robin finite-section critical window; the n-dependent boundary layer is a nontrivial, reusable quantitative model, rather than a routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

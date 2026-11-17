@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-The self-contained proof in `RESULT.md` checks the half-line spectral support formula, the entire complex numerical-range boundary, finite-section characteristic determinants and threshold eigenvectors, two-branch Robin scaling, the angular boundary layer, and both polynomial/exponential fixed-parameter convergence. Numerical tests do not establish infinite-dimensional results or originality.
+## correctness
 
-The accompanying `checker.py` runs from the same directory using Python, NumPy and SciPy: `python checker.py`. Its successful result is `CHECKS_PASSED 261`; the exact-rational checks verify finite polynomial identities and finite cutoff equalities, while the floating-point tests check sample eigenvalues and predicted rates. No extrapolation of finite testing is used in the proof.
+PASS
 
-General Jacobi theory, more general compact or rank-one perturbations, and a separate external mathematical audit remain outside the asserted conclusions.
+Half-line H_v=(S+S*)/2+vP0 has upper edge one without an ℓ² top eigenvector for v<=1/2, and exactly one geometric bound state for v>1/2, giving all support lines and boundary-attainment arcs. Determinant 2^-n(U_n−2tU_{n−1}) and eigenvector n,...,1 prove exact finite crossing. Root limits of k cot k=2α and κ coth κ=2α give n^-2 Robin profile; replacing t with t cos(β/sqrt n) gives angular α−β²/4. Independent finite Chebyshev/tridiagonal numerical checks of multiple sizes and both critical branches corroborated exact formulas, without replacing n→∞ proof.
+
+## originality
+
+PASS
+
+Best-knowledge original exact boundary-attainment and two-parameter finite-size Robin critical-window classification for T_t=S+tP0; no inspected published source implies the complete claim. The Chebyshev/Jacobi tools themselves are classical, not new.
+
+## value
+
+PASS
+
+One rank-one boundary defect yields a sharp, geometrically transparent transition and a two-scale Robin finite-section critical window; the n-dependent boundary layer is a nontrivial, reusable quantitative model, rather than a routine substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
