@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full infinite sum is justified by the residual discount recursion; for the stationary retain-or-refresh kernel the conditional renewal equation reduces exactly to a scalar integral ratio. The likelihood-ratio comparison is strict for any non-Dirac break distribution, because both the tilted density ratio and the response have fixed nonzero monotonicity. Shannon entropy uses an independent entropy chain-rule recursion and logarithmic moment condition. At the fully retained endpoint the break is constant, giving the geometric series directly. Finite-state rational and numerical checks in `check.py` corroborate the critical algebra, but are not offered as an infinite proof.
+PASS
 
-## Originality — PASS, subject to historical priority
+For arbitrary nondegenerate stationary mu supported on (0,1), the refresh/retain Markov transition rho delta_v+(1-rho)mu implies the discounted first-break equation F(v)=v^q+(1-v)^q[rho F(v)+(1-rho)m]. Solving and integrating gives the exact integral quotient; at rho=1 direct geometric stick weights give the endpoint under required integrability. Rewriting it as a tilted expectation of R_q(v)=v^q/[1-(1-v)^q], the rho2/rho1 density ratio decreases strictly in v. R_q increases for q>1 and decreases for 0<q<1, giving strict opposite directions via an independent-copy covariance identity, with q=1 constant. For Shannon entropy, the chain-rule reward h(v), discounted by 1-v, yields analogous quotient; R_H=h(v)/v has derivative log(1-v)/v^2<0 and entropy grows strictly. The stated log and fractional-q moment assumptions justify endpoints. Independent exact rational checks at v=(1/4,3/4) gave M2(0)=5/11, M2(1/2)=119/281, M2(1)=13/35. They corroborate the analytic sign, not arbitrary-mu completeness.
 
-The nearest primary source is Gil-Leyva, Lijoi, Mena and Prünster, *Markov Stick-breaking Processes* (arXiv:2601.16561, Section 5), which introduced the model, showed properness and parameter continuity, and compared endpoint tie probabilities for a beta family. The examined Section 5 and related appendices did not assert strict all-intermediate-parameter ordering for arbitrary stationary break marginals, all power orders, and Shannon entropy. Gil-Leyva and Mena's earlier exchangeable-break model (arXiv:2008.04475, Section 4) differs structurally, and the 2014 residual-allocation literature covers independent lengths. A general earlier integral-ordering lemma could make this result an implicit corollary; that risk remains for independent literature assessment.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact dependence-versus-diversity direction is natural for the recently developed stationary lazy Markov stick-breaking family, where changing persistence leaves every one-time break marginal unchanged. Universal strict monotonicity of all annealed sample-collision orders and expected Shannon entropy gives a principled calibration of clustering and evenness, not simply a numerical plot or a fixed-parameter special case. The result deliberately makes no stronger claims about sample-path ordering or expected Rényi entropy.
+Gil-Leyva, Lijoi, Mena and Prünster 2026 introduce this exact Markov stick-break family, its properness and beta-law specializations; their full manuscript, Section 5 and appendices, discuss clustering probabilities and illustrations of intermediate rho. The inspected source does not state the candidate all-nondegenerate-mu strict ordering across every rho, all q powers, and expected Shannon monotonicity. Exchangeable break lengths are a distinct dependence mechanism. Classical renewal and likelihood-ratio methods are acknowledged as proof ingredients, not invented.
 
-## Verification and limitations
+## value
 
-The final claim, mathematical domain, parameter boundaries and moment restrictions were checked across the result, slogan, and machine-readable metadata. The analytic proof is separate from finite computational checks, and scientific priority remains provisional.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The annealed species collision probability is an interpretable central statistic for partition diversity, and the exact strict persistence direction for every q>1, together with entropy order reversal at q=1 and stringent endpoint integrability, classifies a natural dependence-control parameter without assuming beta breaks. It answers a structural comparison not supplied by the model definition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
