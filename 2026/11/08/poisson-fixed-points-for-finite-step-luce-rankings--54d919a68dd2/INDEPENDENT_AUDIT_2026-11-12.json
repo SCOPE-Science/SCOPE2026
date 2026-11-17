@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T05:46:25Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exponential-race representation of Luce sampling (independent Exp(w_j) clocks) makes label orders uniform independent within each class conditional on the class word. For H_{j,n} eligible positions of color j in its own consecutive label interval, the exact conditional joint factorial moments are ∏(H_j)_{r_j}/(n_j)_{r_j}. The empirical weighted-clock CDF converges to G(t)=∑ α_h(1-e^{-w_h t}); quantile convergence at class-block endpoints gives H_j/n_j -> λ_j=e^{-w_j t_{j-1}}-e^{-w_j t_j}. Bounded conditional factorial moments imply a joint vector of independent Poisson(λ_j), with TV convergence on the discrete countable state space. The diagonal permuton density integral reproduces Λ=Σλ_j, but permuton convergence alone is not invoked for fixed points. The two-block derivative with respect to rate ratio a/b is positive because dΛ/dc=v e^{-(c+1)v}/[u c e^{-cv}+(1-u)e^{-v}]>0. Independent exact enumeration of four-label two-weight Luce rankings verified 30 conditional factorial-moment relations, not the n->infinity theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borga–Chatterjee–Diaconis Section 5.2 poses the general fixed-point Poisson law rather than proving it.",
+          "Finite-spikes result uses finitely many O(n)-weight labels, so fails the fixed bounded positive weight-step hypotheses."
+        ],
+        "reasoning": "Neither accessible published theorem subsumes the complete joint independent finite-step block limit.",
+        "searches": [
+          "Luce model finite step weights fixed point Poisson permutation independent blocks Borga Chatterjee Diaconis",
+          "https://arxiv.org/abs/2509.07729",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-finite-spikes-decouple-fixed-point-counts-from-the-luce-permuton--7ea2577a5fda/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Luce model finite step weights fixed point Poisson permutation independent blocks Borga Chatterjee Diaconis",
+        "https://arxiv.org/abs/2509.07729",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-finite-spikes-decouple-fixed-point-counts-from-the-luce-permuton--7ea2577a5fda/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary paper explicitly leaves fixed-point distribution for Luce permutations open; weak permuton convergence cannot determine atomic diagonal coincidences.",
+          "The exact conditional factorial moment identity and empirical quantile law together force the independent Poisson vector, supplying the missing implication."
+        ],
+        "reasoning": "The submitted theorem covers a nontrivial special case of the older conjecture, not a restatement of an already proven distributional result.",
+        "searches": [
+          "https://arxiv.org/abs/2509.07729",
+          "Luce model finite step weights fixed point Poisson permutation independent blocks Borga Chatterjee Diaconis"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Luce rankings are exponential races with class-constant rates; the special case d=1 is uniform random permutation Poisson(1).",
+          "Borga et al. provide a permuton density, not the weakly discontinuous diagonal fixed-point counting law; they conjecture its Poisson form."
+        ],
+        "reasoning": "Permutation inversion preserves fixed points so draw-position and inverse one-line conventions agree for total count; within-block joint law needs the new conditional uniform-bijection proof.",
+        "searches": [
+          "Luce model finite step weights fixed point Poisson permutation independent blocks Borga Chatterjee Diaconis",
+          "https://arxiv.org/abs/2509.07729",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-finite-spikes-decouple-fixed-point-counts-from-the-luce-permuton--7ea2577a5fda/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The diagonal density integral from Borga Proposition 2.2 matches Σλ_j, but a density diagonal integral is a proposed intensity, not a distributional theorem.",
+          "The well-known uniform d=1 fixed point count is Poisson(1); the new d>=2 nonuniform block means need quantile thresholds."
+        ],
+        "reasoning": "No prior table supplies the full vector Poisson law with quantile-dependent intensities; searched related indexed permutations and Luce results.",
+        "searches": [
+          "Luce model finite step weights fixed point Poisson permutation independent blocks Borga Chatterjee Diaconis",
+          "https://arxiv.org/abs/2509.07729"
+        ]
+      },
+      "rationale": "PASS best of knowledge. The Borga–Chatterjee–Diaconis primary Luce-permuton paper explicitly presents the limiting fixed-point law with diagonal intensity as an open problem in Section 5.2. The submitted theorem proves that prediction for every fixed finite positive step profile and establishes joint blockwise independence. A separate Resultary finite-spike theorem has weights growing linearly with n, outside the uniform bounded finite-step assumptions, and does not imply this law. Classical Poisson fixed points of uniform permutations are the d=1 special case and are acknowledged as such.",
+      "residual_risks": [
+        "A newer or unindexed proof of the finite-step special case of the Borga–Chatterjee–Diaconis open conjecture might preempt originality.",
+        "Rates must remain fixed and all class proportions bounded away from zero; no quantitative TV error or growing-block theorem is provided."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "OPEN_CONJECTURE_SUBCLASS_RESOLVED",
+          "evidence": [
+            "Section 5.2 asks for Poisson fixed-point law with diagonal intensity; Proposition 2.2 provides density, not rare exact fixed-point convergence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.07729",
+          "material_read": "Accessible complete primary arXiv manuscript, including Proposition 2.2, Section 5.2 on fixed points, main proof and discussion",
+          "method": "Read the accessible research statement, hypotheses and mathematical proof and compare exact theorem implications",
+          "title": "Permuton and local limits for the Luce model",
+          "trigger": "Same probabilistic ranking model, announced fixed-point conjecture"
+        },
+        {
+          "assessment": "DIFFERENT_GROWING_WEIGHT_REGIME",
+          "evidence": [
+            "Finite O(n) weight spikes and a finite correction do not meet the bounded step-profile class."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-finite-spikes-decouple-fixed-point-counts-from-the-luce-permuton--7ea2577a5fda/RESULT.md",
+          "material_read": "Published indexed result statement and abstract via Resultary search, not claimed full-text inspection",
+          "method": "Read the Resultary indexed scientific summary and compare parameter regimes; not a whole-document noncoverage assertion",
+          "title": "Finite spikes decouple fixed-point counts from the Luce permuton",
+          "trigger": "Related Resultary fixed-point law with modified Luce rates"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem resolves a stated open fixed-point question for a mathematically natural non-exchangeable subclass of Luce rankings, with explicit joint per-weight-block Poisson laws and two-block monotonic sensitivity. Rare diagonal permutation points are not continuous in permuton convergence; an exact conditional factorial-moment method is needed. It is a substantial probability result despite not solving the arbitrary-profile conjecture.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A newer or unindexed proof of the finite-step special case of the Borga–Chatterjee–Diaconis open conjecture might preempt originality.",
+    "Rates must remain fixed and all class proportions bounded away from zero; no quantitative TV error or growing-block theorem is provided."
+  ],
+  "schema_version": 1
+}
