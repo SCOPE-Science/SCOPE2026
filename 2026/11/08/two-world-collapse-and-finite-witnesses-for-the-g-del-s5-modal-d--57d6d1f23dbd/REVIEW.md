@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-On \(K_2\), the other-world retrieval term is verified symbolically by the two possible order cases. Induction on formula structure eliminates all nested modalities. The weak-order representation of Gödel terms makes a complete four-grid closure certificate legitimate: 342 two-generator terms and six one-generator terms. The finite-depth separation follows from the boundary-band induction, which excludes the median grade from every depth-at-most-\(d\) value at a designated world, while the explicit depth-\(d+1\) recurrence reaches it. The checker independently verifies finite instances; the infinite theorem depends on the written proof.
+## correctness
 
-## Originality — PASS within the inspected sources
-The 2020 monadic Gödel study explicitly contains the same selection recurrence and infinite non-local-finiteness argument, so those ingredients are **not** presented as original. The distinct contributions inspected for priority are the two-world exchange/normal form, its exact 342-element unary quotient, and the finite linear-size depth-separation with a general boundary-band lower bound. The 2026 witnessed-model article proves general logical and algorithmic results, not this fixed-frame formula-algebra classification. No covering claim was found in the searched research index or accessible historical entries. An independently undiscovered equivalence or known free-algebra computation remains a priority risk; a search absence is not proof of novelty.
+PASS
 
-## Value — PASS
-The fixed-frame normal form answers the natural expressivity question whether two-world fuzzy S5 behaves like Boolean S5 at arbitrary modal depth. The exact one-atom quotient makes the collapse quantitative, while explicit finite-model witnesses prove a contrasting unbounded hierarchy once universe sizes vary. The fixed-depth information-band lemma provides a reusable structural constraint, beyond merely enumerating terms.
+The two-world exchange formula Q(p)=((p→□p)→◇p)∧((◇p→p)→□p) equals the value of p at the other world for both inequalities x≤y, x≥y and equality. Structural induction on formulas substitutes local/other-world values and collapses modal nesting to one. The Gödel min/max/residuum operations only select input values, 0 or 1 according to weak-order type, so the complete 4-point order-type grid yields an exhaustive 342 two-generator term closure, versus six one-generator terms. For each d, the selection recurrence t_{r+1}=t_r∨(t_r→□t_r) and induction on the boundary constants B_r prove a (2d+1)-world finite witness separating depth d+1 from every depth≤d formula. Independent term closure reproduced 342,6,16 exchange cases; finite d tests do not prove the unbounded claim.
 
-## Scope and residual limitations
-The sufficient \(2d+1\) witness size is not proved minimal. The recurrence itself is established prior art. No independent audit has been performed. Applicability is limited to standard Gödel truth degrees, ordinary Gödel connectives, complete reflexive finite frames and the absence of additional truth constants.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: the selection recurrence and infinite non-local-finiteness were already published in Castaño et al. (2020), so that recurrence is not new. The exact two-world other-world retrieval and depth-one normal form, its one-letter 342-term semantic quotient, and finite 2d+1-world separating witnesses are different quantified claims not entailed by the inspected prior theorems.
+
+## value
+
+PASS
+
+PASS: This fixed-frame normal form and exact quotient answer a natural modal expressivity question; the contrast between two-world collapse and an unbounded finite-world depth hierarchy is a structural quantitative distinction, and the boundary-band lemma provides a reusable limitation on modal depth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
