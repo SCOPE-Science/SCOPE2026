@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The join is a lattice polytope of dimension \(p+q+1\). Lattice slices give an exact integer-point convolution; the standard cube and cross-polytope generating functions yield \(h^*(z)=A_p(z)(1+z)^q\). Expanding the binomial-basis expression yields integral scaled coefficients. The full finite ranges in the claim are enumerated without omissions, from \(p+q=2\) through \(17\) and the four specified fixed-cube cases. The complete `verify.py` script reproduces all exact signs and fractions. Independent direct counts agree in 2,122 instances. The enumeration is a complete proof for the bounded statement, not a sample used to prove an unbounded assertion. Risk: software/arithmetic implementation not externally certified.
+## correctness
 
-## Originality — PASS, provisional
-The exact family-specific first-failure dimension, two exceptional pairs and nonmonotone reentrant fixed-cube profile were compared by mathematical-record searches and primary literature. Liu–Tao–Xin (2026, arXiv:2606.18794) proves general nonpreservation under joins; only its abstract was accessible, so a same-family result hidden in the full text is an unresolved priority risk. Liu (2026, arXiv:2610.06338) gives broad operation formulas; abstract only. Liu–Tsuchiya (2018, arXiv:1806.08403, Section 3) gives the numerator product for ordinal sums of antichains and lists negative cases around \((7,7)\), while also covering some Ehrhart-equivalent objects with one small factor. Its inspected text does not list or imply the complete reported cube–cross parameter census. Ferroni–Morales–Panova (2026) provides general order-polytope context, not the specified family classification. Mathematical-record matches on Cartesian log-concavity and cube–cross intersections concern distinct operations. No global priority certification is claimed.
+PASS
 
-## Mathematical value — PASS
-The two factors separately have positive Ehrhart coefficients, yet their canonical join first fails positivity at a natural exact ambient-dimension cutoff. The exhaustive two-parameter boundary and the reentrance when the second factor gains dimensions are independently motivated geometry: they expose the limitations of preservation heuristics and a nonmonotone sign mechanism for a canonical regular-polytope pairing. A bounded complete classification with unusual reentrance is substantively informative, not a routine isolated coefficient recomputation.
+For J_{p,q} the integral join-height section gives sum_{s=0}^t (t-s+1)^p * |s X_q cap Z^q| with |s X_q|=sum_j 2^j binom(q,j)binom(s,j). Therefore the Ehrhart series equals A_p(z)(1+z)^q/(1-z)^{p+q+2}. All ordinary coefficients can be computed exactly by integer arithmetic. Exhaustive p,q>=1, p+q<=17 (136 pairs) finds strict positivity through d=17 and precisely two d=18 failures (14,3), (16,1), each only at t^1, with coefficients -10397/510 and -897/170; p=14, q=2,3,4,5 has sign pattern +,-,-,+, and q4/q5 linear coefficients -76729/3990, 618397/67830. All boundary and quantifier ranges checked; no unbounded-dimension theorem.
 
-## Residual limitations
-No general classification above dimension 18 and no independent audit. A plausible 2026 paper's unavailable full text remains a genuine priority uncertainty. The calculations are fully reproducible but have not been externally independently verified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general Ehrhart join product identity is prior and directly yields the formula from Eulerian numerator and (1+z)^q. Nonetheless the sharp parameter-wide positivity comparison requires coefficient extraction and a finite complete sign classification absent from the cited source. A general existence counterexample cannot imply the exact first failure or reentrance. Liu–Tao–Xin prove join generating-series multiplication and that some joins of positive factors have negative coefficients (including a 100-times dilated four-cube). This general nonpreservation does not imply exact undilated U_p-X_q coefficient signs. The published all-p cube+unit-segment classification is a different segment lattice length and does not dominate arbitrary q cross-polytopes.
+
+## value
+
+PASS
+
+Sharp minimum ambient dimension 18 and two exceptional parameter pairs furnish an exact sign boundary for a natural pair of standard polytope families; return of positivity as q increases is a concrete nonmonotonic phenomenon that motivates finer coefficient inequalities and disproves naive monotonicity within this family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
