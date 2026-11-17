@@ -1,15 +1,21 @@
-# Review of six-periodic neighborhood \(3\)-balanced colorings
+# Independent mathematical audit
 
-## Correctness — PASS
-For every integer \(n\ge3\), the finite prism and Möbius-ladder definitions admit exact periodic/twisted strip lifts. At each rung, the two open-neighborhood constraints are both necessary. Eliminating the second row over \(\mathbb F_3\) forces \(a_{i-2}+a_i+a_{i+2}=0\). Nonrepetition of the two horizontal neighbors forces nonzero increments on both parity subsequences; these subsequences have order three and hence the entire strip repeats after six columns. The same recurrence proves a shift of three columns swaps the rows. Conversely, each of \(3\cdot2\cdot3\cdot2=36\) initial quadruples with the two inequalities satisfies every neighbor-color constraint. Exactly six patterns have period three. Ordinary versus twisted closure yields the full table. The total-domatic partition interpretation is a direct consequence of degree three, and every claimed minimum/maximum of this parameter is supported by the construction and degree bound. The self-contained independent transfer/checking program was executed from the supplied path, checked direct ternary enumeration for \(n=3,4,5,6\), two separate transfer traces through 72, and the 36 explicit periodic patterns through 120. These checks corroborate but do not prove the infinite theorem.
+## correctness
 
-## Originality — PASS, provisional historical priority
-The September 27, 2026 paper on det-extremal cubic graphs and total domatic number supplies a fresh motivation but studies the criterion for total domatic number one, not three-balanced-coloring multiplicities. Minyard–Sepanski's original October 7, 2024 preprint, later published open access in 2026, establishes neighborhood three-balanced *existence* for generalized Petersen graphs and Möbius ladders, specifically Sections 4 and 6; the complete public HTML was inspected, including Theorems 4.2 and 6.1 and relevant discussion, and no exact census/three-column swap classification was found. Li–Shao–Zhu's 2020 injective-coloring paper gives the analogous injective chromatic-number criterion; its complete text was inaccessible, so equivalently stated counts in that proof remain a genuine residual risk. The claim is explicitly restricted to the new 36-strip-pattern classification, sharp labelled counts for both closures, and six-column/three-column twist law; prior existence criteria and the total-domatic equivalence are credited. Searches of related published mathematical claims and targeted primary-literature records found no implication covering this classification. Exact database absence is not asserted as a proof of priority.
+PASS
 
-## Value — PASS
-This is a complete and structurally restrictive enumeration for a natural infinite pair of cubic families already studied by injective coloring and total-domatic theory. It identifies *all* possible colorings, not just whether one exists; shows an explicit six-step rigidity and a three-step row-swap law; and quantifies the effect of the Möbius seam by switching the precise 6 and 36 counts. The constant numbers of colorings on an arbitrarily large graph are an informative rigidity phenomenon. The exact number of unlabelled three-class total-dominating partitions follows without claiming additional unrelated graph parameters.
+The neighborhood conditions over F3 are b_i=-a_{i-1}-a_{i+1} and a_i=-b_{i-1}-b_{i+1}; eliminating b yields a_{i-2}+a_i+a_{i+2}=0. Every parity subsequence is then an arithmetic progression, with nonzero step forced by the required distinct horizontal neighbor colors. Hence a_{i+6}=a_i and x_{i+3}=row_swap(x_i), with exactly (3*2)^2=36 admissible four-entry initial choices and 6 row-symmetric period-three choices. Ordinary versus row-swapped cyclic closure gives prism/Mobius counts (0,0) if 3 does not divide n; (6,36) if n=3 mod 6; (36,6) if n=0 mod 6 for n>=3. Every cubic 3-balanced coloring is an ordered partition into three total dominating sets, so divide by 6 for unordered counts. Independent brute force of all 3^(2n) assignments for n=3..6 returned exactly those counts. The all-n proof is the field recurrence, not finite experiments.
 
-## Limitations
-The graph family is restricted to prisms and Möbius ladders with \(n\ge3\), fixed vertex labels, and three named colors. No graph-automorphism quotient or classification of broader generalized Petersen graphs is proved. The September 2026 motivating preprint and the 2020 Houston article were read only to the extent publicly accessible (abstract and bibliographic information), so priority comparisons with their full proofs are not exhaustive. The older 2024 preprint is treated as prior work despite its 2026 journal appearance. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The public full-text Minyard–Sepanski paper establishes existence of 3-balanced colorings on generalized Petersen/prism and Möbius families, but the inspected theorems classify existence, not all labelled colorings or the 36/6 periodic and twisted closure patterns. A complete six-periodic row-exchange census is a distinct stronger statement.
+
+## value
+
+PASS
+
+This is a complete and exact classification of all 3-balanced colorings on two natural infinite cubic graph families and their total-domatic partitions, including a six-column rigidity/row-swap law and exact labelled counts. Such a full census is a mathematically motivated strengthening of known feasibility results; independent researchers can use the exact multiplicities and rigidity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

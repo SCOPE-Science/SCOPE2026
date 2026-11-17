@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T05:12:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The neighborhood conditions over F3 are b_i=-a_{i-1}-a_{i+1} and a_i=-b_{i-1}-b_{i+1}; eliminating b yields a_{i-2}+a_i+a_{i+2}=0. Every parity subsequence is then an arithmetic progression, with nonzero step forced by the required distinct horizontal neighbor colors. Hence a_{i+6}=a_i and x_{i+3}=row_swap(x_i), with exactly (3*2)^2=36 admissible four-entry initial choices and 6 row-symmetric period-three choices. Ordinary versus row-swapped cyclic closure gives prism/Mobius counts (0,0) if 3 does not divide n; (6,36) if n=3 mod 6; (36,6) if n=0 mod 6 for n>=3. Every cubic 3-balanced coloring is an ordered partition into three total dominating sets, so divide by 6 for unordered counts. Independent brute force of all 3^(2n) assignments for n=3..6 returned exactly those counts. The all-n proof is the field recurrence, not finite experiments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Minyard–Sepanski Theorems 4.2 and 6.1 cover broader graph classes at the weaker yes/no level.",
+          "Earlier 2020 injective coloring generalized Petersen result likewise studies feasibility."
+        ],
+        "reasoning": "Broader object class is not broader mathematical claim: neither criterion enumerates or identifies all prism/Möbius assignments.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s00373-026-03038-4",
+          "neighborhood balanced 3 coloring prism Mobius ladder exact 6 36 periodic count",
+          "three balanced mobius ladder coloring generalized petersen exact count"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00373-026-03038-4",
+        "https://www.math.uh.edu/~hjm/Vol46-1.html",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/six-periodic-rigidity-of-neighborhood-3-balanced-colorings-on-pr--766f520bafef"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existence holds exactly when 3 divides n, a direct corollary of current periodicity.",
+          "Previously published conditions do not give x_(i+3)=row_swap x_i for every coloring nor 36 strip states."
+        ],
+        "reasoning": "Credit the exact labelled/unordered counts and complete rigidity, not existence criterion, domination equivalence or general cubic framework.",
+        "searches": [
+          "https://link.springer.com/article/10.1007/s00373-026-03038-4",
+          "https://www.math.uh.edu/~hjm/Vol46-1.html",
+          "neighborhood balanced 3 coloring prism Mobius ladder exact 6 36 periodic count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For cubic graphs neighborhood 3-balanced is equivalent to injective 3-coloring and a 3-class total domatic partition.",
+          "This theorem counts labelled colorings, with 6-to-1 quotient by color name permutations."
+        ],
+        "reasoning": "Checked all three equivalent terms. Previously published criteria detect existence (3|n), not the complete number of colorings or 6-period row swap; full classification is not implied simply by knowing injective chromatic number 3.",
+        "searches": [
+          "neighborhood balanced 3 coloring prism Mobius ladder exact 6 36 periodic count",
+          "injective 3 coloring generalized Petersen prism total domatic three sets",
+          "https://link.springer.com/article/10.1007/s00373-026-03038-4",
+          "https://www.math.uh.edu/~hjm/Vol46-1.html"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No tables in the inspected 2026 article provide the current exact 6/36 labelled-coloring census."
+        ],
+        "reasoning": "Prior small-order graph enumeration is not shown to give the unrestricted n-periodic counts; possible implicit enumeration in older 2020 thesis remains residual priority risk.",
+        "searches": [
+          "neighborhood balanced 3 coloring prism Mobius ladder exact 6 36 periodic count",
+          "https://link.springer.com/article/10.1007/s00373-026-03038-4",
+          "prism Möbius 3 balanced colorings number 36 6 enumeration"
+        ]
+      },
+      "rationale": "The public full-text Minyard–Sepanski paper establishes existence of 3-balanced colorings on generalized Petersen/prism and Möbius families, but the inspected theorems classify existence, not all labelled colorings or the 36/6 periodic and twisted closure patterns. A complete six-periodic row-exchange census is a distinct stronger statement.",
+      "residual_risks": [
+        "Unaccessed complete Li–Shao–Zhu 2020 primary paper might contain implicit counting.",
+        "Search and reviewed open article support best-of-knowledge rather than absolute historical novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "provides existence, not unrestricted labelled coloring counts",
+          "evidence": [
+            "2026 published abstract describes determination of which graphs are 3-balanced; cited theorem statements are existential, not 6/36 enumeration"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00373-026-03038-4",
+          "material_read": "full publicly accessible HTML: introduction, generalized Petersen case Theorem 4.2, Möbius case Theorem 6.1 and cubic characterizations",
+          "method": "read published full-text HTML / entire relevant theorem and proof sections",
+          "title": "Neighborhood 3-Balanced Graphs",
+          "trigger": "closest primary result covers same prism and Möbius graphs"
+        },
+        {
+          "assessment": "priority risk: inaccessible complete enumeration",
+          "evidence": [
+            "Known injective coloring feasibility is equivalent to the 3-balanced existence condition"
+          ],
+          "identifier_or_url": "https://www.math.uh.edu/~hjm/Vol46-1.html",
+          "material_read": "journal volume listing and cited theorem context, not entire 2020 article",
+          "method": "journal index and references in the full Minyard–Sepanski paper; not full 2020 primary article",
+          "title": "Injective coloring of generalized Petersen graphs",
+          "trigger": "equivalence to injective 3-coloring on cubic families"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a complete and exact classification of all 3-balanced colorings on two natural infinite cubic graph families and their total-domatic partitions, including a six-column rigidity/row-swap law and exact labelled counts. Such a full census is a mathematically motivated strengthening of known feasibility results; independent researchers can use the exact multiplicities and rigidity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Counts use fixed labelled vertices/colors, not quotient by graph automorphisms.",
+    "No claims outside two-row cyclic strips or about arbitrary cubic graphs."
+  ],
+  "schema_version": 1
+}
