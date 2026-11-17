@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The inverse-transversal factorization is necessary and sufficient by the sandwich equations, with independently chosen image transversals and kernel cuts. The power-moment identity counts two independently indexed compositions and handles rank one. The maximum/minimum claims follow from balanced-product inequalities. The conditional Gaussian law follows from Fourier inversion for conditioned geometric compositions, a nondegenerate residual log statistic, a tight two-endpoint slack law, and independence of kernel and image choices. The attached checker independently exhausts all pairs through size six. Residual mathematical risk: the Fourier local-limit argument is standard but is not formalized; the exact CLT is an asymptotic theorem, not a conclusion of the simulations.
+## correctness
 
-## Originality — PASS with historical-priority qualification
-The 2026 Higgins paper already gives the inverse relation and permutation matching, and earlier inverse-pair analysis gives its first moment and the Gaussian **rank of a valid pair**, neither of which is claimed as new. The distinct conditional law here concerns log of the number of inverse partners for a uniformly selected *fixed-rank individual map*, and the arbitrary-order moment formula goes beyond the known first moment. Relevant prior sources and published-finding corpus were searched by claim and implication. No existing source stating this log-degree law or higher-moment factorization was found. Residual risk: old enumerative papers or a general conditioned-compositions theorem might imply parts of the result.
+PASS
 
-## Mathematical value — PASS
-The 2026 matching construction has to accommodate sharply nonuniform inverse neighborhoods, in contrast with a regular inverse graph. This theorem quantifies that nonuniformity at every finite moment, pins down exact extreme degrees, and identifies the typical logarithmic fluctuations throughout the proportional-rank range. Those statistics provide structural information about inverse graphs not determined by existence of matchings or their total edge count. A precise stochastic profile is naturally motivated by the same failure of regular inverse degrees that required balanced weightings.
+The repaired final claim isolates proportional-rank log-degree fluctuations, not prior enumerative results. For uniform rank-r isotone maps, kernel positive composition and image subset are independent. Each factor can be represented by geometric variables conditioned on their sum. With r=floor(αn), the conditional characteristic function of the residual log Z−μ−β(Z−1/α), orthogonal to Z, converges to exp(−t²v/2); lattice aperiodicity and exponential tails control Fourier minor arcs. Image endpoint slack is tight with asymptotic (s+1)α²(1−α)^s and only O_P(1) shifts the conditioned composition. Two independent log sums yield centering (2r−1)μ and variance 2rv. v>0 as log j not affine over j≥1. No CLT at α=0,1 and no rate claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Original all-moment formula, exact inverse degree product, fixed-rank maxima and first-moment counts are covered by full October25 prior Resultary; November2 also covers extremal degrees. They cannot be accepted as original. Repaired final claim explicitly credits them and retains only the new proportional-rank (r~αn) conditional logarithmic Gaussian law, not implied by fixed-r Dirichlet asymptotics. Generic conditioned-composition CLTs might specialize, residual priority risk.
+
+## value
+
+PASS
+
+The inverse graph has nonregular vertex degrees even at fixed rank. The explicit asymptotic mean and positive residual logarithmic variance on the natural extensive-rank scale give useful degree-distribution information not determined by all-moment identities at a fixed finite size or fixed-r Dirichlet limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
