@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact claim applies to the conditional mean of walk first-passage time along the unique infinite ray, with a fixed Bernoulli attachment parameter strictly between zero and one. The independent geometric zero-run lengths give an explicit i.i.d. pair of backbone advances and tooth lengths. A finite-tree edge-cut identity gives an exact quenched mean, and the standard regenerative functional CLT applies because every block reward and block length has exponential tails. The centered block variance is computed exactly and equals \(q/(1+q)\), producing variance rate \(pq\). Time integration gives the stated process limit and the \(4pq/3\) marginal variance. Enumerative and exact arithmetic checks agree. The theorem does not claim the walk's hitting time itself is asymptotically Gaussian.
+## correctness
 
-## Originality — PASS, subject to independent priority assessment
-The motivating Bernoulli-tree paper gives the model and results on ends and collisions, not the stated quenched-mean fluctuation law. Earlier tree hitting identities and regenerative limit theorems are used, not claimed as new. An earlier model-specific Kemeny-constant investigation concerns a global finite-volume trace statistic, not fluctuations of the first-passage conditional mean along the infinite ray. A different random comb invariance principle analyzes fluctuations of the walk path itself. Directed textual and semantic searches for the precise model, aliases, equivalent renewal rewards and possible encompassing results identified no stated stronger theorem whose direct specialization supplies this full claim. A hidden general regenerative-comb application remains a priority risk.
+PASS
 
-## Value — PASS
-For a natural recently studied one-ended random tree, the first known qualitative random-walk conclusions do not quantify how conditional transport times vary with the environment. The result determines both the \(m^2\) growth constant and the random \(m^{3/2}\) fluctuation profile, including a simplified parameter-exact variance. The relevant joint tree geometry cannot be obtained from a marginal tooth-length distribution alone. The result can inform environment sensitivity and comparisons of transport statistics in finite-width random combs.
+For fixed 0<p<1, geometric independent success gaps K have exact joint ray advance H=floor(K/2)+1 and tooth reward A=ceil(K/2); D=A-qH is centered with E D²=q/(1+q), E H=1/[p(1+q)], so renewal-reward variance rate pq. Independently summed exact geometric terms to K=299 at p=1/3,1/2,3/4, matching these constants to tiny tail errors. Tree edge first-passage identity H_m=m²+2 sum_{h=1}^m C_h follows from 2e+1 crossing times. Renewal-reward Donsker/time change and max-block O_P(log m) imply functional CLT; integrating gives 2sqrt(pq)∫B and t=1 variance 4pq/3; strong law gives 1+q. All results are tree-environment fluctuations of quenched MEAN, not walk path hitting distribution.
 
-## Limits and closest literature
-Related sources include Tang–Wang–Wu (arXiv:2607.02916), Georgakopoulos–Wagner (arXiv:1302.3212), Janson (arXiv:2305.13229) and Gantert–Klenke (doi:10.1007/s10955-023-03091-w). Remaining risks are unlocated comb-specific renewal applications and independent proof checking. There is no result on finite-volume cover time, full hitting-time distribution or variable attachment parameter.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Bernoulli recursive-tree source studies one end and collisions, not this quenched mean-time functional law. A full prior same-model result studies an annealed Brownian distance field in birth-time coordinates, with height/diameter variances, but does not provide conditional hitting-mean weighted tooth reward or its pq coefficient. General regenerative CLTs and tree edge hitting identities provide tools, not the entire evaluated model-specific limit. Full original primary text inaccessible here and is explicitly a priority risk.
+
+## value
+
+PASS
+
+Conditional mean first-passage cost is a natural transport observable on the unique infinite ray. The exact regenerative block dependence and integrated Brownian fluctuation profile, including variance 4pq/3, distinguish environment disorder from path noise and give a quantitatively useful all-parameter (fixed p in (0,1)) second-order law beyond general qualitative recurrence results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

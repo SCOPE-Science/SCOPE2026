@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T19:16:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed 0<p<1, geometric independent success gaps K have exact joint ray advance H=floor(K/2)+1 and tooth reward A=ceil(K/2); D=A-qH is centered with E D²=q/(1+q), E H=1/[p(1+q)], so renewal-reward variance rate pq. Independently summed exact geometric terms to K=299 at p=1/3,1/2,3/4, matching these constants to tiny tail errors. Tree edge first-passage identity H_m=m²+2 sum_{h=1}^m C_h follows from 2e+1 crossing times. Renewal-reward Donsker/time change and max-block O_P(log m) imply functional CLT; integrating gives 2sqrt(pq)∫B and t=1 variance 4pq/3; strong law gives 1+q. All results are tree-environment fluctuations of quenched MEAN, not walk path hitting distribution.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same-model field gives Gaussian pair distances with σ²=pq/(1+q)^3 and diameter; it does not compute H_m/m² or integrated quenched-mean variance 4pq/3."
+        ],
+        "reasoning": "General FCLT tools can be applied only after deriving exact marked regenerative geometry and crossing-time functional.",
+        "searches": [
+          "Resultary full 2026/11/8 uniform Brownian distance-field",
+          "Tang Wang Wu arXiv:2607.02916 abstract",
+          "Janson arXiv:2305.13229 renewal CLT"
+        ]
+      },
+      "checked_sources": [
+        "Tang–Wang–Wu 2026 arXiv:2607.02916 (abstract)",
+        "Resultary same-model uniform distance field (full mathematical proof)",
+        "Georgakopoulos–Wagner 2013 arXiv:1302.3212 (general tree hitting identities)",
+        "Janson 2023 arXiv:2305.13229 (regenerative CLT)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior theorem supplies a height martingale CLT; the current H_m involves 2∑ C_h and a different regeneration reward D=A-qH."
+        ],
+        "reasoning": "Prior height path or tree-edge crossing identity alone does not imply the evaluated distributional integrated-Brownian law without the new reward covariance argument.",
+        "searches": [
+          "Resultary prior uniform Brownian distance field complete proof",
+          "Tang et al arXiv:2607.02916",
+          "Georgakopoulos–Wagner arXiv:1302.3212"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform Brownian distance field controls random metric distances of birth-indexed vertices; current quantity is walk-averaged conditional crossing sum and tooth reward."
+        ],
+        "reasoning": "Metric distance-field CLT is not the same observable or direct asserted corollary of that earlier theorem.",
+        "searches": [
+          "Resultary search Bernoulli recursive comb quenched mean hitting time integrated Brownian",
+          "Resultary same-model uniform Brownian distance field",
+          "arXiv:2607.02916"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Existing indexed tables concern Kemeny, distances or random-walk collision, not this exact conditional-mean time coefficient."
+        ],
+        "reasoning": "No natural exact table substitutes for the proved infinite environment functional limit.",
+        "searches": [
+          "Resultary recursive tree Kemeny/height/distance results",
+          "web search Bernoulli recursive tree hitting time expectation integrated Brownian"
+        ]
+      },
+      "rationale": "The original Bernoulli recursive-tree source studies one end and collisions, not this quenched mean-time functional law. A full prior same-model result studies an annealed Brownian distance field in birth-time coordinates, with height/diameter variances, but does not provide conditional hitting-mean weighted tooth reward or its pq coefficient. General regenerative CLTs and tree edge hitting identities provide tools, not the entire evaluated model-specific limit. Full original primary text inaccessible here and is explicitly a priority risk.",
+      "residual_risks": [
+        "Original Tang–Wang–Wu full text was unavailable and Oxford returned vpn_disconnected (job fd48bc60ee10ccf7fb7fa5f810081b35); appendix overlap cannot be ruled out.",
+        "No claim of all-p p_n-uniformity or quenched CLT for individual walks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_DIFFERENT_OBSERVABLE",
+          "evidence": "Brownian field is annealed birth-indexed metric; submitted theorem is quenched walk-mean hitting time.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-uniform-brownian-distance-field-limit-for-bernoulli-recursive--494c72361216",
+          "material_read": "Complete RESULT.md: height martingale, pairwise distance field, diameter and pair-distance variance, proof limitations",
+          "method": "GitHub full text fetched",
+          "title": "A uniform Brownian distance-field limit for Bernoulli recursive trees",
+          "trigger": "Same attachment rule and functional Gaussian limits"
+        },
+        {
+          "assessment": "FULL_TEXT_INACCESSIBLE_PRIORITY_RISK",
+          "evidence": "Abstract identifies one end and collisions, not hitting-mean fluctuations; cannot exclude uninspected appendix.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.02916",
+          "material_read": "Abstract/metadata only; original full paper inaccessible from arXiv HTML and OA mirror",
+          "method": "Web search and arXiv bibliographic access; authorized institutional attempt vpn_disconnected",
+          "title": "Infinite collisions of simple random walks on random recursive trees generated by Bernoulli sequences",
+          "trigger": "Introduces precisely this random tree model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Conditional mean first-passage cost is a natural transport observable on the unique infinite ray. The exact regenerative block dependence and integrated Brownian fluctuation profile, including variance 4pq/3, distinguish environment disorder from path noise and give a quantitatively useful all-parameter (fixed p in (0,1)) second-order law beyond general qualitative recurrence results.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed Bernoulli attachment probability strictly between zero and one; limit is over realized-tree environments.",
+    "Full original model paper not inspected; historical priority qualified."
+  ],
+  "schema_version": 1
+}
