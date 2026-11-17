@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The main proof exhaustively enumerates all 1586 subsets of size at most five in the twelve-vertex graph, with an exact predicate for distinguishing the 276 pairs of graph edges. Two separately implemented programs (bitmask cover versus full signatures, swap lookup versus pairwise set intersection) agree on all 192 bases, 1152 jumps, 428 slides, all-root eccentricities and eight slide-degree classes. Each program verifies connectivity and radius/diameter from all 192 sources, so no experiment is extrapolated. The 24-edge construction has degree four at all 12 vertices and matches the canonical Chvátal graph presentation.
+## correctness
 
-## Originality — PASS with historical-priority risk
-The January 2016 foundational edge-metric article defines the invariant without establishing the Chvátal exact edge-basis/mobility census. A 1970 primary graph-construction paper identifies the chromatic obstruction but does not treat edge metric resolution, introduced much later. Previous investigations of reconfiguration of four-colorings of the Chvátal graph study proper color assignments, not distances to edges; they do not imply the 192 edge-metric bases or 428 legal sensor slides. Available database and mathematical-record searches for metric resolution, bases, Chvátal, and token replacement returned other families rather than the same exact graph. Unindexed historical calculations cannot be ruled out.
+PASS
 
-## Value — PASS
-The smallest four-regular, four-chromatic, triangle-free graph is a natural fixed test object for structural graph invariants, not a graph selected by an arbitrary numeric parameter. Its full optimal edge-sensing configuration space is a natural invariant. Despite imposing a strict original-edge locality rule, the space stays connected across all 192 optima, with a sharp seven-step worst-case relocation cost versus five for unconstrained exchange. The exact degree/eccentricity spectra describe local robustness and global reachability in a way the minimum dimension alone does not. This is a motivated self-contained exact finite classification, not a restatement of a prior graph coloring result.
+The graph is defined by the exact 24 edges in artifacts/verify_masks.py and independently by an upper-triangular adjacency table in verify_signatures.py. All 276 edge pairs are separated by landmark bitmask OR iff the set resolves; exhaustive choose(12,0..5) tests give no bases below five and 192 five-landmark optima. Pairwise one-vertex exchanges across all 192 bases give 1152 jump and 428 original-graph-adjacent slide edges. Complete BFS from every basis certifies connectivity and eccentricity histograms 5:192 and 6:120,7:72, as well as the slide degree distribution 2:28,3:32,4:48,5:32,6:32,7:8,8:8,10:4. Both independent implementation source files were examined and an additional local reconstruction gave the same counts. Finite exhaustive proof is sufficient because the graph and all configurations are finite.
 
-## Scope and risks
-The graph is finite and the argument computationally exhaustive. No infinite-family consequence or independent external mathematical audit is claimed. Unindexed or inaccessible papers may overlap. The relevant previously recorded proper-coloring reconfiguration problem has different states and does not directly cover edge-resolving landmark swaps.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Kelenc–Tratnik–Yero introduced edge metric dimension but do not establish these exact Chvátal optimal basis and token-slide invariants. Similar Resultary results for Heawood or Clebsch graphs concern distinct underlying graphs and basis families, and no identified general theorem implies the 192/428/diameter-seven combination. Unindexed enumerations remain possible.
+
+## value
+
+PASS
+
+The twelve-vertex Chvátal graph is a canonical small triangle-free four-chromatic obstruction, and its edge-metric sensing bases are natural optima. Exact mobility under adjacency-constrained slides has mathematical content distinct from the base-size census, especially the non-frozen connected slide network; this is a motivated finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
