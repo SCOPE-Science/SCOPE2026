@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The source Minkowski polytope yields an eight-ray, sixteen-maximal-cone smooth fan. Four primitive relations of degrees \(0,0,2,2\) establish nefness and nonampleness; the full-dimensional anticanonical polytope establishes bigness. An explicit character gives divisibility by two, and an opposite pair of rays proves maximality. The normal fan of the anticanonical polytope glues four pairs of adjacent cones. The two exceptional stars have the square fan and do not meet. Their image cones have primitive parallelogram relations, giving transverse ordinary double points. Exact Ehrhart counts prove \(L^4=20\). Standard toric divisor–polytope and orbit–cone correspondences are used.
+## correctness
 
-**Originality — PASS, with historical risk.** [1] already identifies the variety and supplies its moment polytope; [4] already provides the general criterion for Bott weak Fano varieties. [2] provides the earlier torus parametrization, while [3] concerns a different Catalan-type family. The inspected primary material and targeted published-finding searches did not identify the *specific* index, volume, two small exceptional surfaces, or complete target singular-curve classification for this fourfold. A specialization in an uninspected toric table remains possible. General algorithms do not, without performing the computation, tabulate the geometric result here.
+PASS
 
-**Value — PASS.** This is the first identified dimension-four toric Richardson example with a torus larger than the flag variety's standard rank. Determining that its anticanonical geometry is a crepant small contraction of two conifold lines is a natural structural refinement, relevant to its birational geometry and distinct from simply restating a generic positivity test. The exact half-anticanonical degree gives a numerical invariant of the target as well.
+The three explicit moment summands in the primary Richardson paper give 34 distinct sums and the displayed eight primitive facet rays. Rational vertex enumeration yields 16 simple unimodular maximal cones, four opposite-ray pairs, and Picard rank 8−4=4. Primitive relations have degrees 0,0,2,2, so −K is nef, big and not ample. For character m=(1,1,1,1), 1−<m,r_i>=(0,0,0,0,2,2,2,2), yielding −K=2L; opposite primitive rays prevent divisibility by >2. The anticanonical polytope has 12 lattice vertices, eight simple vertices and four nonsimple 5-ray vertices; its fan merges 16 cones into eight isolated ones and four square-adjacent pairs. These yield exactly two disjoint exceptional P1×P1 surfaces V(r1,r4), V(r3,r6), mapping along one ruling to disjoint P1 curves, with transverse unimodular conifold square cone uv−wz=0. No ray is contracted, so contraction is small and crepant, target toric Gorenstein Fano. Ehrhart L-polytope counts [1,14,69,216,525] give L^4=20, (−K)^4=320. Independent exact matrix determinants and active-inequality counts confirm 16/12 vertices and four 5-ray nonsimplicial charts; finite checker supports, rather than replaces, toric fan/orbit arguments.
 
-**Limits.** The theorem is for a specific fourfold and is not a classification of all toric Richardson varieties. Existing foundational sources and standard toric facts are credited. Independent historical-priority verification may change the originality assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026-10-26 theorem already identifies this very fourfold as weak Fano, non-Fano, with anticanonical degree 320 and four zero-degree invariant curves. Gorsky–Kim–Sherman-Bennett Example 5.2 already specifies its toric polytope. However neither inspected source determines the entire anticanonical contraction geometry, the two disjoint exceptional ruled surfaces, their images and local conifold singularities, or the primitive half-anticanonical degree L^4=20. Those remain an original classification by best accessible evidence.
+
+## value
+
+PASS
+
+The exceptional-locus geometry and explicit singularity type are a natural, substantive birational classification of a distinguished toric Richardson fourfold; they explain the previously known zero-curve anticanonical obstruction and provide concrete crepant-resolution and Fano-model geometry. The pre-existing weak-Fano and (−K)^4=320 facts are not counted as new value. It is a narrow but structurally motivated complete result, not a parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
