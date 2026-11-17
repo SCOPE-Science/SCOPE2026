@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T06:17:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The line-graph independent sets are precisely matchings of the bouquet. Hub-unmatched matchings factor as product of path polynomials p_{ℓ_i-1}; hub-matched matchings choose exactly one of two incident edges in exactly one cycle and yield 2z p_{ℓ_i-2} times the other factors. The p_m recurrence (p0=p1=1, p_m=p_{m-1}+z p_{m-2}) is exact. At z=-1, generating function (1+t)/(1+t^3) shows p_{ℓ-1}(-1)=0 iff 3|ℓ and the zero is simple, with derivative (-1)^(ℓ/3-1)ℓ/3 and neighbor path value (-1)^(ℓ/3-1). For c=0, the remaining factor is the nonzero odd integer (1-2b). For c≥1, the c terms at order c-1 contribute a same-signed positive sum of 1/k_i; no cancellation. Independent sympy polynomial reconstructions checked mixed/repeated cycle lengths and exact roots; source verifier independently constructs bouquet edge sets and tests 126 matching-polynomial coefficients, but only the algebraic argument proves all r and lengths.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bhardwaj et al. arXiv:2607.08480 Section 6 addresses forests; Xu 2509.23842 bounds all matching-root multiplicities but does not provide the exact order for every bouquet; Ghorbani 1011.0284 includes the all-triangle friendship specialization."
+        ],
+        "reasoning": "General bounds, forest results and the triangle-only case do not logically determine arbitrary mixed length multisets. The all-triangle case and line-graph bijection are acknowledged as prior.",
+        "searches": [
+          "independence polynomial line graphs cycle bouquet matching -1 root multiplicity cycle length divisible by 3",
+          "Bhardwaj Chau Ikram Lather Nanjangud Venugopal line graphs forests independence -1",
+          "Xu matching polynomial root multiplicity bound 2509.23842",
+          "Ghorbani graphs few matching roots friendship"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob afb2b1f568e1ed6a67d3013caf2c7a4b0e2fea60",
+        "https://arxiv.org/abs/2607.08480",
+        "https://arxiv.org/html/1011.0284v3",
+        "https://arxiv.org/abs/2509.23842"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arbitrary lengths may fall into residues 0,1,2 mod3; the friendship specialization fixes all ℓ_i=3 and cannot imply the full signed Taylor coefficient when lengths vary."
+        ],
+        "reasoning": "The product formula for the hub decomposition is elementary; the exact uniform root multiplicity from its specialization and noncancellation is not visibly a corollary of prior few-root or forest classifications.",
+        "searches": [
+          "independence polynomial line graphs cycle bouquet matching -1 root multiplicity cycle length divisible by 3",
+          "Ghorbani friendship graph all triangles matching roots",
+          "Bhardwaj 2607.08480 line graphs forests"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "I_{L(B)} equals the matching polynomial of B by standard identity; the path recursion and evaluation z=-1 translate the root order to divisibility of cycle lengths by 3."
+        ],
+        "reasoning": "Looked under matching-root and independence-root terminology, flowers, friendship graphs and one-cut-vertex cacti; exact general mixed length law not found in inspected sources.",
+        "searches": [
+          "independence polynomial line graphs cycle bouquet matching -1 root multiplicity cycle length divisible by 3",
+          "cycle bouquet matching polynomial root minus one multiplicity",
+          "line graph independence polynomial rooted cactus matching transfer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned own candidate and graph-polynomial works on other objects; no inspected exact mixed-cycle matching-root census in table form."
+        ],
+        "reasoning": "No matching table was identified, not a proof of worldwide priority. No finite enumeration used to claim other cycle types absent.",
+        "searches": [
+          "independence polynomial line graphs cycle bouquet matching -1 root multiplicity cycle length divisible by 3",
+          "matching polynomial bouquet cycles tables -1 zeros",
+          "line graph cactus matching polynomial mod 3 cycle lengths"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement/implication comparison: Looked under matching-root and independence-root terminology, flowers, friendship graphs and one-cut-vertex cacti; exact general mixed length law not found in inspected sources. General bounds, forest results and the triangle-only case do not logically determine arbitrary mixed length multisets. The all-triangle case and line-graph bijection are acknowledged as prior. No matching table was identified, not a proof of worldwide priority. No finite enumeration used to claim other cycle types absent. The product formula for the hub decomposition is elementary; the exact uniform root multiplicity from its specialization and noncancellation is not visibly a corollary of prior few-root or forest classifications.",
+      "residual_risks": [
+        "Full Bhardwaj et al. primary PDF unavailable after public OA routes; Oxford VPN disconnected (job bc3463f30f194f05807af045a1c9a3f9). Cannot assert unread appendices do not cover the theorem.",
+        "Exact classification restricted to vertex bouquets, not general cactus graphs or block chains.",
+        "The all-triangle friendship case and hub-matching identity are prior elementary or published results; novelty only the full arbitrary-length residue law and leading coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Forest theorems do not cover a nonforest cycle bouquet; full text not assessed for any unobserved appendix",
+          "evidence": [
+            "Section 6 is described as treating line graphs of forests, not general cycle bouquets"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.08480",
+          "material_read": "Public abstract and source Section 6 description of line graphs of forests; full text inaccessible via available open routes",
+          "method": "Public arXiv/OA retrieval attempted; authorized Oxford returned VPN disconnected",
+          "title": "Multiplicity of negative one of independence polynomials of graphs",
+          "trigger": "Same root and line graph connection; potential direct coverage"
+        },
+        {
+          "assessment": "Covers homogeneous triangle bouquet, not arbitrarily mixed cycles",
+          "evidence": [
+            "The all-triangle case is a strict specialization ℓ_i=3"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1011.0284v3",
+          "material_read": "Accessible public article sections and search result discussing friendship graph matching formulas; not necessarily every page",
+          "method": "Read open arXiv HTML passages on friendship roots",
+          "title": "Graphs with few matching roots",
+          "trigger": "Friendship graphs are bouquets of triangles"
+        },
+        {
+          "assessment": "General maximum/root bounds and equality cases differ from arbitrary bouquet exact root order",
+          "evidence": [
+            "Bounds do not yield the value max(c-1,0) for every mixed multiset"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.23842",
+          "material_read": "Public abstract and theorem descriptions, not full PDF",
+          "method": "Public arXiv abstract and references",
+          "title": "On the multiplicity of matching polynomial roots and θ-critical graphs",
+          "trigger": "General nonzero matching-root bounds could dominate exact result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete congruence-modulo-three classification of a graph-polynomial root over an infinite natural family of block graphs is a useful exact structural invariant, including arbitrarily high multiplicities and an explicit leading coefficient. The hub decomposition is elementary but the noncancellation/root-order law for arbitrary unequal cycle lengths is a coherent, nontrivial extension beyond homogeneous friendship graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full Bhardwaj et al. primary PDF unavailable after public OA routes; Oxford VPN disconnected (job bc3463f30f194f05807af045a1c9a3f9). Cannot assert unread appendices do not cover the theorem.",
+    "Exact classification restricted to vertex bouquets, not general cactus graphs or block chains.",
+    "The all-triangle friendship case and hub-matching identity are prior elementary or published results; novelty only the full arbitrary-length residue law and leading coefficient."
+  ],
+  "schema_version": 1
+}

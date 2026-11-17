@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The specified cycle bouquet has exactly one shared vertex. The proof counts all matchings in disjoint cases according to whether that vertex is used, giving the polynomial identity without omitted configurations. The path generating series and its derivative at \(z=-1\) establish the zero criterion and exact nonzero Taylor coefficient for every \(r\ge1\), \(\ell_i\ge3\). The positive reciprocal sum prevents cancellation. Direct enumeration of matching polynomials in 126 bounded bouquets and 336 further residue checks succeeded; those tests corroborate but do not replace the proof.
+## correctness
 
-## Originality — PASS, qualified
-Bhardwaj et al. (2026, arXiv:2607.08480, §6) treat line graphs of forests and give the classical matching-polynomial bridge. Xu (2025, arXiv:2509.23842) proves general upper bounds for nonzero matching-root multiplicities, without identifying the exact root order for each arbitrary bouquet. Ghorbani (2012, arXiv:1011.0284) includes the friendship-graph special case among the few-matching-roots results. Mphako-Banda (2007) studies a structurally different edge-sharing flower with chromatic/flow polynomials. Searches under matching, independence, cut-vertex and bouquet terminology did not find a covering theorem for arbitrary mixed cycle lengths. The friendship specialization, classical recurrence and maximum bounds are not novel. Unindexed priority remains a risk.
+PASS
 
-## Mathematical value — PASS
-The result classifies the root order for every one-point union of arbitrarily many cycles of arbitrary lengths, not just a small parameter slice. The unexpectedly complete modulo-three dependence and explicit nonvanishing leading coefficient identify the precise mechanism by which joining cyclic blocks affects a graph-polynomial root. The full coefficient enumerator makes the result useful as an exact benchmark for the broader problem of line graphs of cacti. No theorem about arbitrary cacti is asserted.
+The line-graph independent sets are precisely matchings of the bouquet. Hub-unmatched matchings factor as product of path polynomials p_{ℓ_i-1}; hub-matched matchings choose exactly one of two incident edges in exactly one cycle and yield 2z p_{ℓ_i-2} times the other factors. The p_m recurrence (p0=p1=1, p_m=p_{m-1}+z p_{m-2}) is exact. At z=-1, generating function (1+t)/(1+t^3) shows p_{ℓ-1}(-1)=0 iff 3|ℓ and the zero is simple, with derivative (-1)^(ℓ/3-1)ℓ/3 and neighbor path value (-1)^(ℓ/3-1). For c=0, the remaining factor is the nonzero odd integer (1-2b). For c≥1, the c terms at order c-1 contribute a same-signed positive sum of 1/k_i; no cancellation. Independent sympy polynomial reconstructions checked mixed/repeated cycle lengths and exact roots; source verifier independently constructs bouquet edge sets and tests 126 matching-polynomial coefficients, but only the algebraic argument proves all r and lengths.
 
-## Limitations and status
-The one-point-union hypothesis is essential to the given proof. Computational tests have finite scope, historical priority is provisional, and independent mathematical assessment has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement/implication comparison: Looked under matching-root and independence-root terminology, flowers, friendship graphs and one-cut-vertex cacti; exact general mixed length law not found in inspected sources. General bounds, forest results and the triangle-only case do not logically determine arbitrary mixed length multisets. The all-triangle case and line-graph bijection are acknowledged as prior. No matching table was identified, not a proof of worldwide priority. No finite enumeration used to claim other cycle types absent. The product formula for the hub decomposition is elementary; the exact uniform root multiplicity from its specialization and noncancellation is not visibly a corollary of prior few-root or forest classifications.
+
+## value
+
+PASS
+
+A complete congruence-modulo-three classification of a graph-polynomial root over an infinite natural family of block graphs is a useful exact structural invariant, including arbitrarily high multiplicities and an explicit leading coefficient. The hub decomposition is elementary but the noncancellation/root-order law for arbitrary unequal cycle lengths is a coherent, nontrivial extension beyond homogeneous friendship graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
