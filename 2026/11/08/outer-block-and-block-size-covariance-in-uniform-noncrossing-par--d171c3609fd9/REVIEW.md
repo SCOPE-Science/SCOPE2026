@@ -1,13 +1,21 @@
-# Review of the outer-block covariance result
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses two well-defined formal series: one marking every size-\(r\) block and the other marking only outer irreducible components. Differentiation yields the exact unnormalized mixed moment, and the formal residue substitution yields both stated binomial coefficients. Catalan coefficient extraction supplies the outer-block mean. All parameter boundaries, including \(n=2\), \(r=n\), the zero at \((n,r)=(4,2)\), and the fixed-\(r=3\) asymptotics, follow algebraically. The embedded `verify.py` independently exhausts every noncrossing partition through \(n=9\) and passes \(263\) exact/bounded checks. No finite experiment is used to justify an infinite sign theorem.
+## correctness
 
-**Originality — PASS, with explicit residual risk.** The 2011 Bergerson–Miller–Pliml–Reiner–Shearer–Stanton–Switala paper provides the count of a marked size-\(r\) block, not the cross-moment with *outer* blocks. Li's thesis establishes the marginal outer-block law and explicitly names a larger joint size-resolved question. Arizmendi's marked-block enumerations, the general simply generated tree model of Kortchemski–Marzouk, and Kargin's cross-covariances among size-class counts do not assert the exact outer/size mixed moment or the all-size finite sign rule in the material inspected. The previously published Lambert-W covariance result concerns *unrestricted* set partitions and *total* block count and therefore does not imply the present NC outer-block identity. These are scientific implication comparisons, not a claim of exhaustive historical novelty. Older ordered-tree root-degree/count formulas and nonindexed articles might implicitly encode it; a specialist priority check remains appropriate.
+PASS
 
-**Value — PASS.** The number of outer blocks governs irreducible decomposition while size-class counts describe fine block structure. Their exact interaction is a natural part of the joint outer-block/size-profile problem raised in Li's thesis (Question 5.1.3). The unexpectedly simple affine size-biased regression law, global finite sign dichotomy, one isolated equality, and different fixed-size limiting regimes provide structural information beyond separate marginal expectations. This is one finite-sample covariance theorem, not a full solution of Li's distributional question.
+Reconstructed standard initial-block decomposition C(z,u)=1/(1-zC)+(u-1)(zC)^r, irreducible generating function I=1-1/C, and outer-component series F=1/(1-sI). Formal differentiation at u=s=1 and residue z=t(1-t) yield [z^n]C_u=M_n,r=binom(2n-r-1,n-r), [z^n]F_s=3n Cat_n/(n+2), and mixed [z^n]F_su=((3n-2r)/n)M. Thus Cov(R_n,C_n,r)=(M/Cat)*2(3n-r(n+2))/(n(n+2)), with exact signs and equality r=2,n=4. Independent exhaustive enumeration of labelled noncrossing partitions for n=2..7 (all feasible r) gave every rational mixed moment and covariance. Direct factorial asymptotics give limit (3-r)/2^r for fixed r!=3 and n*Cov(R,C3)->-3/4; finite enumeration does not establish all n.
 
-**Closest scientific sources:** Bergerson et al. (2011), https://combinatorialpress.com/article/ars/Volume%2099/volume-99-paper-9.pdf; Arizmendi (2012), https://arxiv.org/abs/1201.6576; Li (2014 repository publication), https://uwspace.uwaterloo.ca/items/feaced88-b45e-42c7-9e48-33938562f7c9; Kortchemski–Marzouk (2015), https://arxiv.org/abs/1503.09174; Kargin (2019), https://arxiv.org/abs/1907.00632. The 2011 paper's original manuscript notes an August 2006 preparation date, but the selected public record date is the verified April 30, 2011 publisher date; preparation is not asserted as public dissemination.
+## originality
 
-**Limitations:** All claims use the *uniform* noncrossing model and \(1\le r\le n\). Neither a joint limit theorem nor absence of any earlier implicit expression is established. Independent review has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Earlier marked-block identities give the exact mean M_n,r, and earlier outer-block work gives its marginal mean 3n/(n+2), but neither fixes the mixed derivative or sharp sign rule. A thesis explicitly raises more general joint size-resolved outer/total block problems. This specialized cross moment is at least not expressly stated in inspected primary sources; the formal-series framework is standard and can encode it implicitly, so priority is best-of-knowledge.
+
+## value
+
+PASS
+
+The covariance between a global nesting statistic (number of outer components) and local class-size counts is a natural exact Catalan invariant. The all-n phase diagram (singleton positive, size >=3 negative, doubleton finite-size reversal at n=4) and size-biased expected outer count 3-2r/n give interpretable structural information unavailable from separate marginals. Exact finite-sign boundaries and n^{-1} borderline size-three asymptotic are not arbitrary slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
