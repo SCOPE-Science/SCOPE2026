@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For all \(m,n\ge2\), the shortest maximal geodesics in \(K_m\square K_n\) are precisely diameter-two L-shaped triples; the order bound is therefore \(\lfloor mn/3\rfloor\). Explicit base tilings and a terminating strip decomposition prove attainability for every rectangle, including the \(4\)-by-\(4\) residual board. In the two-row case, every packing has a unique description by pivot columns, their two row assignments, and rowwise injective wing assignments. The corresponding falling-factorial count is exact. The unoccupied-cell characterization proves both directions of inclusion-maximality, and disjoint-hole/binomial-sum counting yields the maximal polynomial. The three residue classes of \(n\) recover the correct maximum multiplicities. The accompanying verifier independently enumerates all geodesic families for \(2\le n\le7\), checks maximality directly, and checks constructive witnesses for \(2\le m,n\le16\). These checks are finite, while the supplied proof establishes arbitrary sizes.
+## correctness
 
-## Originality — PASS (provisional)
-The principal prior source [1], inspected in its accessible full online text (especially the original rook-graph argument), identifies maximal geodesics, proves the upper bound, and determines a different, transversal invariant; it does not directly supply the sharp equality for all rectangles or the two-row packing polynomials. The closest own previously recorded results concern geodesic packing in complete multipartite graphs and a different three-row rook family; their claims do not imply the two-row formulas or all-rectangle equality. Additional queries for induced three-vertex-path packings, rook prism packings, the two-row factorial counts and all maximal shortest-path covers did not identify a dominating source. The relation to earlier P3-packing literature remains a real risk, so priority must not be inferred from an absence of search hits.
+PASS
 
-## Value — PASS
-The graph family is the same natural test family used in the introduction of geodesic packing, and the result closes its vertex-count packing bound for every nontrivial rectangle. The thin-factor specialization does more than substitute parameters: it determines two complete polynomials, a full interval of inclusion-maximal packing sizes, and the exact multiplicity of each maximum packing according to a three-way arithmetic distinction. This gives a complete, reproducible classification of a natural infinite path-packing set system, including a genuine lower-versus-upper maximal-packing distinction for larger graphs. It does not claim a general algorithm or counts for arbitrary-height all-packing families.
+In each rook graph K_m□K_n (m,n>=2), maximal geodesics are precisely three-cell right-angle L paths, so at most floor(mn/3) can be vertex-disjoint. The 2×2,2×3,3×3 and 4×4 constructions plus strip decompositions cover all dimension residues and attain the ceiling. In K_2□K_n each L comprises a full pivot column and a wing cell in another column: choosing k pivot columns, distributing wing rows and injective wing columns gives the stated P_n polynomial. The unused cells admit no L iff either (a) there is no fully empty nonpivot column or (b) the only empty cells are exactly one full nonpivot column. This yields the given M_n polynomial including its n≡1 mod3 exceptional coefficient and all maximal cardinalities ceil(n/2)...floor(2n/3). The maximum counts follow by substitution; all n>=2 boundaries and path reversal convention handled. Independently enumerated all two-row packings and inclusion-maximal subsets for n=2..6.
 
-## Closest sources and limits
-[1] Manuel–Brešar–Klavžar (2022 preprint, 2023 article): exact L-shaped geometry and generic upper bound already known; present equalities and complete two-row enumerators not found in the material inspected.
+## originality
 
-[2] Peterin–Semanišin (2021): maximal-shortest-path *cover* rather than disjoint packing; its statements do not supply packing multiplicities.
+PASS
 
-Specific limitations are listed in the proof document. Residual risk is independent discovery via induced \(P_3\)-packing or tromino-like incidence terminology; no independent mathematical or priority audit was carried out.
+Earlier complete Resultary papers cover two major parts: Oct 13 proves the all-rectangle packing number floor(mn/3), and Nov 2 proves the exact all-packing polynomial and residue-dependent maximum counts for two rows. Those are expressly NOT novel here. The distinct surviving claim is a COMPLETE polynomial enumerating inclusion-maximal geodesic packings (not merely all or maximum packings), the exact gap-free maximal-size support, and the exceptional empty-column family. Neither earlier full RESULT.md gives this maximal-set enumerator; the Manuel–Brešar–Klavžar source introduces the invariant and bounds but not its explicit classification. Best-of-knowledge novelty qualified against broader induced P3-packing literature.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The inclusion-maximal geodesic-packing polynomial enumerates ALL saturated rather than merely maximum families on a natural standard rook graph. Its exact distribution and gap-free spectrum identify how far greedy/saturated packings can fall below optimal and the exceptional full-unoccupied-column family. This is a natural complete classification and potentially reusable combinatorial invariant; its significance does not rest on the previously known maximum packing number or all-packing polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
