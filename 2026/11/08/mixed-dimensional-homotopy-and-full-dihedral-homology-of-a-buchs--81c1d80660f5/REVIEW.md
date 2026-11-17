@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS (same-model only).** The explicit 127-pair discrete-Morse matching is acyclic across all 260 faces and 720 Hasse incidences, leaving critical-cell counts \((1,1,0,4)\). As there are no two-cells and all maps from \(S^2\) into the circle are null, this determines ordinary homotopy, not just Betti numbers. An explicit primitive closed integral one-cochain determines the degree-one symmetry character. Exhaustive signed simplicial Lefschetz traces for all 32 automorphisms determine the other character, and averaging yields the rational quotient statement. Every finite certificate is constructed and checked by `verify.py`. Residual issue: these checks have not been independently audited.
+## correctness
 
-**Originality — PASS relative to material inspected.** Earl–Vander Meulen–Van Tuyl (arXiv:1505.02837, complete HTML text, especially section 7/Table 1) list the graph as Buchsbaum and one-well-covered without asserting this homotopy type or dihedral character. Adamaszek (arXiv:1106.6250, inspected theorem and cycle-power recursion) concerns a different consecutive-step family. Similar published character calculations about the four-cube, Möbius–Kantor graph and circular ladders concern different graphs and do not imply the present claim. Both direct-label and alternate-description mathematical searches found no covering theorem; negative searches are not proof of novelty. Equivalent unindexed work is a residual risk.
+PASS
 
-**Value — PASS.** The source singles out this 16-vertex graph as a Buchsbaum, non-Cohen–Macaulay example with established well-covered structure but no homotopy classification. The exceptional lower-dimensional circle together with four top spheres explains its non-Cohen–Macaulay behavior structurally; the dihedral characters further distinguish how these two kinds of homology transform. The rationally acyclic full quotient is invisible to ordinary Betti numbers. This motivated complete finite example and its symmetry analysis do not claim a general classification.
+An independently constructed C16(1,2,6) has 48 edges and exactly 260 independent faces with dimensions (16,72,112,60). Reconstructing the 16-position deterministic toggle matching yields 127 matched pairs and critical cell dimensions (0,1,3,3,3,3), with an acyclic 720-incidence Hasse orientation. Its Morse CW model has a single one-cell and four three-cells, whose S² attaching spheres map trivially into S¹ (π2 S¹=0), giving S¹∨4S³. Exhaustive adjacency-preserving permutations give exactly D16 (32 elements). The 15-edge-support integer 1-cocycle is closed on all 112 triangles, primitive on the specified five-edge cycle, and every rotation/reflection action yields degree-one character ε. Signed fixed-face Lefschetz calculations yield four-dimensional H3 character equal to Q(zeta8), with rotation traces 4,-4,0 and reflection 0. Rational invariants vanish in H1 and H3, hence orbit cohomology rationally acyclic. All finite graph and character universes were exhausted, not sampled.
 
-**Scientific limitations.** A finite specific graph; ordinary not equivariant homotopy; no integral group-module determination in degree three; no integral quotient classification. Potential equivalent literature not fully indexed. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The named 2015 Earl–Vander Meulen–Van Tuyl study explicitly includes C16(1,2,6) as Buchsbaum, 1-well-covered and not Cohen–Macaulay. Those algebraic properties do not determine its mixed integral homotopy or full D16 homology character. Adamaszek cycle-power splitting treats consecutive powers C_n(1,...,k), whose generator set cannot equal {1,2,6}; nearby Resultary circulants C16(1,4,8) and two other Buchsbaum graphs concern different edge relations. No earlier matching complete homotopy plus symmetry character found; residual unindexed older-source risk remains.
+
+## value
+
+PASS
+
+The exact topology and full automorphism rational homology representation refine a historically singled-out Buchsbaum/non-Cohen–Macaulay circulant. They separate algebraic-depth classification from actual fundamental group, higher sphere multiplicity and quotient invariant cohomology; a meaningful natural graph example, rather than an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
