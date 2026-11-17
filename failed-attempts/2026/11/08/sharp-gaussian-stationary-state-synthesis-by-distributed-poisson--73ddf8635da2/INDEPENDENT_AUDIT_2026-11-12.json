@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T17:15:21Z",
+  "axes": {
+    "correctness": {
+      "rationale": "RESULT.md blob 2edaead: stationarity gives unique signed source rho=p-r^-1 L*p; Gaussian differentiation yields c-a^T v-v^T Bv. Quadratic nonnegativity iff B>=0, a in ran B and r>=c+a^T B^+ a/4. Trace c=tr(B Sigma^-1)>=0 and Lyapunov uniqueness handle thermal B=0; Poisson resolvent handles arbitrary reset measures and all finite d. Independently computed noncommuting example r*=85/21 and indefinite obstruction det B=-17/16 using exact SymPy rational arithmetic. Finite examples only corroborate the universal algebra.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier theorem allows nonsymmetric stable A and arbitrary SPD D; candidate restricts to SPD symmetric K and scalar diffusion D0."
+        ],
+        "reasoning": "The earlier theorem dominates the candidate domain and includes threshold equality, singular B and unique source.",
+        "searches": [
+          "stationary Gaussian synthesis by Poisson resetting Ornstein Uhlenbeck prescribed covariance Lyapunov semidefinite minimal rate distributed resets",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-gaussian-stationary-state-engineering-by-non-gaussian-stoc--08050fc52754/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-gaussian-stationary-state-engineering-by-non-gaussian-stoc--08050fc52754/RESULT.md",
+        "https://arxiv.org/abs/2310.04840",
+        "stationary Gaussian synthesis by Poisson resetting Ornstein Uhlenbeck prescribed covariance Lyapunov semidefinite minimal rate distributed resets"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier density p[1+(v^TQv+h^Tv-tau)/r]; candidate p[r-c+a^Tv+v^TBv]/r."
+        ],
+        "reasoning": "Termwise equality shows the submitted conclusion follows directly from the prior theorem.",
+        "searches": [
+          "stationary Gaussian synthesis by Poisson resetting Ornstein Uhlenbeck prescribed covariance Lyapunov semidefinite minimal rate distributed resets",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-gaussian-stationary-state-engineering-by-non-gaussian-stoc--08050fc52754/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior Q=(AS+SA^T)/2-D, h=Am, tau=tr(S^-1 Q), rmin=tau+h^TQ^+h/4; candidate B=(K Sigma+Sigma K)/2-D0 I, a=Km, c=tr(B Sigma^-1)."
+        ],
+        "reasoning": "Substitution A=K, S=Sigma, D=D0 I gives Q=B, h=a, tau=c and identical density and feasibility condition.",
+        "searches": [
+          "stationary Gaussian synthesis by Poisson resetting Ornstein Uhlenbeck prescribed covariance Lyapunov semidefinite minimal rate distributed resets",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-gaussian-stationary-state-engineering-by-non-gaussian-stoc--08050fc52754/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier published Resultary finding has full generality, not only a numerical table."
+        ],
+        "reasoning": "An exact theorem provides prior coverage; no catalogue count is needed.",
+        "searches": [
+          "stationary Gaussian synthesis by Poisson resetting Ornstein Uhlenbeck prescribed covariance Lyapunov semidefinite minimal rate distributed resets",
+          "Resultary/2026 2026/11/2 Gaussian engineering full RESULT.md"
+        ]
+      },
+      "rationale": "The prior November 2 full-text theorem proves the exact same inverse-Gaussian feasibility and sharp-rate equation for ALL stable drift matrices A and ALL SPD diffusion matrices D. Specializing A=K=A^T>0 and D=D0 I yields every submitted claim, including density uniqueness, singular range, equality, no-go covariance and threshold. This is decisive prior coverage, notwithstanding different symbols and extra illustrative examples.",
+      "residual_risks": [
+        "Historical time-of-publication and independent proof priority are bounded by available public record; exact November 2 result establishes coverage irrespective of remaining literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISE COVERING",
+          "evidence": "Previous stronger theorem exactly states candidate PSD/range/rate/density criterion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-gaussian-stationary-state-engineering-by-non-gaussian-stoc--08050fc52754/RESULT.md",
+          "material_read": "Complete RESULT.md: theorem, assumptions, six proof sections, examples, references",
+          "method": "Read full raw GitHub source file",
+          "title": "Exact Gaussian stationary-state engineering by non-Gaussian stochastic resets",
+          "trigger": "Highest-relevance earlier Resultary hit on same reset-to-distribution inverse problem"
+        },
+        {
+          "assessment": "BACKGROUND ONLY",
+          "evidence": "Forward moments and master equation; stronger published same-model result is decisive.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.04840",
+          "material_read": "Abstract and candidate discussion; full primary not used to decide rejection",
+          "method": "arXiv abstract and candidate reference comparison",
+          "title": "Steady-state moments under resetting to a distribution",
+          "trigger": "Submitted reference for reset source and forward moments"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "Gaussian inverse-source synthesis is a meaningful problem, but the central claimed sharp semidefinite/rate classification is already proved in the more general November 2 theorem; the current specialization and example are routine consequences, not an independently new structural fact.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Symmetric K and scalar D only; finite exact example checks do not certify universal claims by themselves.",
+    "All correctness is conditional on standard Poisson renewal stationary solution; no independent Lean/expert proof."
+  ],
+  "schema_version": 1
+}
