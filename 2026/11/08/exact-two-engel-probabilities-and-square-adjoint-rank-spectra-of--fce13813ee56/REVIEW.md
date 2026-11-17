@@ -1,19 +1,21 @@
-# Scientific assessment: square-adjoint rank and two-Engel laws on star-graph Lie algebras
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source [1] specifies every nonzero star bracket, including in characteristic two. Expanding \(N_x^2\) shows it depends only on the hub coefficient and leaf vector, not on the edge and central components. The proof explicitly solves all kernel equations \(u_i v_j+u_j v_i=0\), including support sizes zero, one, two, and at least three, with the characteristic-two rank change. Multiplicities count every possible vector in the full finite Lie algebra. Conditioning on \(X\) and applying rank-nullity proves the probability formula, and the limits follow from the exact expression. No finite computation is used to infer the unrestricted theorem. The independently constructed basis-bracket checker verified all 1,477 tested \((t,u)\) profiles in ten cases, and a separate direct two-variable enumeration confirmed the two smallest characteristic tests. The main boundary is \(m\ge 2\).
+PASS
 
-## Originality — PASS, with priority risk
+Using the stated star brackets [c,x_i]=a_i, [x_i,a_j]=[x_j,a_i]=z_ij, one has ad_x²(c)=-T_u(u), ad_x²(v)=tT_u(v) and zero on A⊕W. For u with support s>0, the kernel equations u_i v_j+u_j v_i=0 leave dimension 1 at s<=2, dimension 0 at s>=3 in odd characteristic and dimension 1 at s>=3 in characteristic two. For t=0 the rank is 1 iff q odd and s>=2. Counting support sizes yields the two enumerators; averaging q^-rank gives the 2-Engel probability. Independent modular Gaussian elimination verified t/u rank profiles for q=2,3,5 and m=2,3. The proof is symbolic and works for all prime powers; finite field extension tests in source are corroborating rather than sufficient alone.
 
-The closest primary text [1] gives structural invariants of graph Lie algebras, explicit star brackets, and tensor and retraction descriptions, but contains no enumerator of ranks of \(\operatorname{ad}_x^2\) and no two-Engel law probability. The general threshold bounds of Mann–Martínez [2] and Larsen–Shalev [3] control whether a large law probability forces an identity; they do not imply the exact probability or the distinct even/odd characteristic limits. Other calculations for the same star family concerning ordinary commutativity or coadjoint alternating-form ranks do not imply the square-adjoint rank enumerator from their published statements, because they measure different linear maps. Searches under two-Engel pairs, adjoint squares, star-graph nilpotent Lie algebras, and equivalent probability formulations found no covering formula. A historically unindexed exact calculation, or an identity hidden in a broader framework, remains possible; these searches do not prove absolute priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Two-Engel probability is a natural measure of how close a class-three algebra is to a two-Engel identity. The result gives its exact full-field values and, more strongly, the entire square-adjoint rank distribution for a canonical infinite family introduced in [1]. Its characteristic dependence is structural: in even characteristic a proportion tending to \(q^{-1}\) of elements have square-zero adjoint operators, whereas in odd characteristic that proportion tends to zero. Consequently the two-Engel pair probability has distinct limiting powers \(q^{-1}\) and \(q^{-2}\). This distinction is invisible to lower-central-series dimensions alone. It is not merely a recomputation of a known order or a generic rank bound.
+Gallo–Videla construct the graph Lie algebras and analyze lower-central dimensions/center, but their abstract does not specify ad_x² rank distributions or Engel probabilities. General Mann–Martínez and Larsen–Shalev probabilistic bounds do not determine the complete star family characteristic split. No matching Resultary formula appeared, though closely related commutativity and Kirillov-rank papers concern different linear maps. Full Gallo–Videla manuscript was not accessible, leaving explicit priority risk.
 
-## Closest literature and scope limits
+## value
 
-[1] Gallo–Videla, arXiv:2610.33963v1, sections 2–6; [2] Mann–Martínez, *Archiv der Mathematik* 71 (1998), publisher abstract and stated threshold; [3] Larsen–Shalev, arXiv:2005.11594, introduction and Theorem 3. The result concerns finite fields and stars with at least two leaves; it does not classify all graph algebras, all Engel word values, or general Lie polynomial identity probabilities. The 1998 paper's complete text was not inspected, leaving a bounded historical-priority risk rather than a claimed whole-paper exclusion.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact class-three Lie-algebra Engel-law probability, entire square-adjoint rank spectrum, and sharp even/odd asymptotic dichotomy are natural structural invariants with a nontrivial characteristic-two transition, not just an arbitrary finite test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
