@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The adjacent-equal-arc rigidity lemma is proved for at least three distinct single-run letters, including the antipodal boundary; period reduction is exact and handles all integer exponents and block lengths. Counting homogeneous intervals gives the phase set, and primitivity gives the distinct-factor count. Independent exhaustive and seeded finite tests agree with the exact predicted phase sets and both counts, but the general statement rests on proof rather than on the experiments.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** Peltomäki--Whiteland's cyclic avoidance criterion and complementary-period existence lemma do not provide a full phase/count spectrum or distinct-factor formula for the distinct-run family. Fici--Mignosi--Shallit's Abelian-square-richness work addresses other families and statistics. Accessible related formulas for two-run binary Abelian powers and for Parikh complexity of distinct-run periodic factors were compared by implication; neither gives the three-or-more-letter consecutive-block equality classification. Mathematical-record searches using cyclic, Parikh-vector, distinct-run, exponent and phase aliases did not reveal a direct equivalent; full bibliographic exhaustiveness is not claimed.
+PASS
 
-**Value — PASS.** This is a natural complete infinite-family classification of local Abelian repetitions in cyclic strings. The essential all-exponent rigidity threshold differs sharply from the binary case, gives a closed all-period phase spectrum, and distinguishes occurrence multiplicity from distinct factors. The sharp exclusion of two-letter periods gives a meaningful structural boundary useful for cyclic Abelian-power avoidance and repetition-counting problems.
+For q>=3 distinct circular runs, two consecutive equal-length residual arcs of size t<=L/2 cannot have equal Parikh vectors unless both are in a single monochromatic run; iterating yields a monochromatic chain of length e*t. If p mod L=r>L/2 use complementary length L-r windows in reverse order. Thus N(p,e)=Σ_i max(0,a_i-e*min(r,L-r)+1) for nonzero r; r=0 yields L. If ep<L only monochromatic qualifying strings count, D=Σ_i1_(a_i>=ep), otherwise primitive phase words are distinct and D=N. Direct independent phase-string enumeration for q=3,4 with all run lengths<=4, residues 0..L-1 (representing r=0 by period L), e=2,3,4 reproduced both N and D and phase qualification for 320 run profiles.
 
-**Remaining limits.** Single-run-per-letter and at least three letters are essential. Only two cited relevant arXiv full texts were materially read; unindexed or indirect stronger results could exist. Independent validation was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The cyclic-avoidance paper has the complementary-period lemma but not this exact all-e, all-period phase and distinct-content census. Earlier published distinct-run Parikh spectra count single-window classes, not equality of consecutive windows. Best-of-knowledge original.
+
+## value
+
+PASS
+
+The exact occurrence set and distinct-factor count across all periods and exponents solve a natural Abelian-power frequency question beyond existence/avoidance; the phase classification is a structural rigidity result and the q=2 boundary is substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

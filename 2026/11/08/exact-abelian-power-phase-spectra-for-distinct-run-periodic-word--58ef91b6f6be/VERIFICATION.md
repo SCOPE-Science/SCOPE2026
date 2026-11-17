@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python3 verify.py` from the same directory as `RESULT.md`. The script requires only the Python standard library. It constructs a periodic host, compares the Parikh vectors of every block at every phase modulo the host length, collects distinct qualifying factor strings, and compares the observed phase set and two counts to the asserted formulas.
+## correctness
 
-Observed completed tests:
+PASS
 
-```
-PASS exhaustive: 74112
-PASS independent large randomized: 800
-PASS sharp two-letter exclusion
-```
+For q>=3 distinct circular runs, two consecutive equal-length residual arcs of size t<=L/2 cannot have equal Parikh vectors unless both are in a single monochromatic run; iterating yields a monochromatic chain of length e*t. If p mod L=r>L/2 use complementary length L-r windows in reverse order. Thus N(p,e)=Σ_i max(0,a_i-e*min(r,L-r)+1) for nonzero r; r=0 yields L. If ep<L only monochromatic qualifying strings count, D=Σ_i1_(a_i>=ep), otherwise primitive phase words are distinct and D=N. Direct independent phase-string enumeration for q=3,4 with all run lengths<=4, residues 0..L-1 (representing r=0 by period L), e=2,3,4 reproduced both N and D and phase qualification for 320 run profiles.
 
-The exhaustive configurations use three to five distinct symbols, all run lengths from one through four, every period from one through the full period length plus two, and exponents two through five. The additional reproducible cases use a fixed seed and up to eight distinct symbols, larger run lengths and longer periods. These finite checks are not an exhaustive proof for arbitrary parameters. The paper proof supplies the infinite argument; no external independent audit or formal prover certificate is claimed.
+## originality
+
+PASS
+
+The cyclic-avoidance paper has the complementary-period lemma but not this exact all-e, all-period phase and distinct-content census. Earlier published distinct-run Parikh spectra count single-window classes, not equality of consecutive windows. Best-of-knowledge original.
+
+## value
+
+PASS
+
+The exact occurrence set and distinct-factor count across all periods and exponents solve a natural Abelian-power frequency question beyond existence/avoidance; the phase classification is a structural rigidity result and the q=2 boundary is substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
