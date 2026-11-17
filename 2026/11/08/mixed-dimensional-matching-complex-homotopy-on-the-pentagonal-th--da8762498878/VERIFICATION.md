@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope of verification
+# Independent mathematical audit
 
-Run `python3 proof/verify_cylinder.py` from the directory containing the six documents. Python 3 and SymPy are required (SymPy 1.14.0 used). The complete recorded output is `proof/verification_output.txt`. The critical-face ordering and full signed 31-by-10 integer Morse boundary are serialized in `proof/morse_boundary_31x10.csv`; labels are 25-bit integer masks in the edge order defined in the source.
+## correctness
 
-The program reconstructs the graph without external input, branches over all admissible edge-inclusion choices, verifies the augmented f-vector \((1,25,240,1125,2710,3227,1645,240)\), constructs 4,586 disjoint pairs, and checks that all 9,213 vertices of the oriented Hasse diagram can be topologically sorted (42,405 incidences). After excluding the augmented empty-face pairing, its ordinary Morse CW model has one 0-cell, 31 four-cells and ten five-cells. Signed gradient recursion computes the exact 31-by-10 Morse differential; its nonzero Smith entries are seven ones, leaving ranks 24 and 3. Separately, uncompressed original simplicial boundaries over \(\mathbb F_2\) give reduced Betti ranks \((0,0,0,24,3,0)\) in dimensions one through six.
+PASS
 
-**Limits.** Finite-field homology alone would not establish torsion-free integral homology or the homotopy wedge; the exact signed Morse differential and connectivity argument are essential. The certificate is exhaustive for only the specified 25-edge graph. It does not assert values for other cycle lengths or independently validate the work beyond the stated review status.
+The actual 25-edge graph on 15 labelled vertices was independently reconstructed. Exhaustive matching recursion yielded 9,213 augmented faces of cardinalities (1,25,240,1125,2710,3227,1645,240). Edge-coordinate staged matching gives 4,586 disjoint acyclic pairs, verified by a topological sort of all 9,213 nodes/42,405 Hasse incidences. This leaves 31 critical 4-faces, ten 5-faces, and an ordinary vertex. Recomputed signed integral 31x10 gradient differential, exact Smith diagonal seven units, with no torsion. Since the Morse CW model has no 1-,2-,3-cells, it is 3-connected and the 5-cell maps are classified by pi4 of the wedge of S4; seven primitive cancellations leave 24 S4 and 3 S5. All claims are finite for the specified graph, with no extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge primary-source and published-record comparison: the full conjunction of the exact result and its required structural/integral statement is not implied by identified prior results; the specific partial overlaps and inaccessible-source risks are recorded.
+
+## value
+
+PASS
+
+Three-row periodic grids are natural modifications of heavily studied rectangular grid matching complexes. The first nontriangular odd-circumference cylinder provides a precise, mixed 4/5-dimensional integral homotopy benchmark with a nonzero yet primitive Morse differential; not an arbitrary induced subgraph or trivial sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
