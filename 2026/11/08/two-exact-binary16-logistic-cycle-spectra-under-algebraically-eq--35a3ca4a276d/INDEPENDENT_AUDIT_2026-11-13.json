@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T13:11:02Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The domain comprises precisely unsigned encodings 0x0000..0x3c00 (15361 states), each represented by exact integer 2^24 x. The nearest-even binary16 rounding rule is reconstructed from adjacent scaled integers and ties to even; signed 2x−1 can be squared by absolute value. Independently calculated all 15361 successors for both F and G using a separate exact-integer grid/rounding implementation, traversed each full functional graph, obtained cycles F [(1,15236),(1,8),(5,117)] with max 109 and G [(1,15048),(1,3),(8,310)] with max 70, and exactly 12513 different outgoing edges. SHA-256 of little-endian complete edge arrays F=262e0316d1e5e82c3b1c694ecde3dde9b8c6a8a24956d407f6b6b008c2d116af; G=e065cfc9bbb55cbf264c7517149dbf2a3a6dae7d7f89b00f2dc0502fc9b6dac0, both match frozen CENSUS.json. An exhaustive finite graph proof applies only to these exact finite maps, not real logistic chaos.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier same-day published complete three-evaluation theorem covers staged factored (period40), staged expanded (period4,17,25,30), and single-rounded (period5) maps. Another published paired census covers staged vs once-round, 2774 different edges."
+        ],
+        "reasoning": "These broader multi-evaluation *titles* do not subsume G: their explicitly defined arithmetic graphs are different, and none yields the G eight-cycle, 310-basin, 70-transient or F/G 12513-edge discrepancy.",
+        "searches": [
+          "IEEE 754 binary16 logistic map exact cycle period basin rounded 4x(1-x) 1-(2x-1)^2",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-incompatible-complete-cycle-spectra-for-half-precision-log--46d23de07c7c/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-rounding-placement-changes-the-complete-binary16-logistic-attrac--ec3a649c6929/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-incompatible-complete-cycle-spectra-for-half-precision-log--46d23de07c7c/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-rounding-placement-changes-the-complete-binary16-logistic-attrac--ec3a649c6929/RESULT.md",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10349059/",
+        "DOI:10.1109/TCSII.2021.3081604"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Independent new exact successor arrays for 15361 states have F SHA-256 262e0316...116af and G SHA-256 e065cfc9...6dac0. Published primary logistic low-precision paper treats order/precision effects but not explicit completed-square G graph."
+        ],
+        "reasoning": "Real equality 1−(2x−1)²=4x(1−x) does not imply equality after intermediate nearest-even binary16 operations. The earlier F table cannot derive G without a new complete arithmetic enumeration, which the assigned result supplies.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-incompatible-complete-cycle-spectra-for-half-precision-log--46d23de07c7c/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-rounding-placement-changes-the-complete-binary16-logistic-attrac--ec3a649c6929/RESULT.md",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC10349059/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The once-rounded map F(x)=rn_16(4x(1−x)) is identical to the H/U map in prior full cycle censuses; the completed-square map G(x)=rn_16(1−rn_16((rn_16(2x−1))²)) is a different finite-state map, despite real algebraic equality."
+        ],
+        "reasoning": "In floating-point dynamics expression trees, not real polynomial identities, define transitions. The common F five-cycle is covered; the new G graph is not equivalent by a rounding-preserving conjugacy supplied by prior works.",
+        "searches": [
+          "IEEE 754 binary16 logistic map exact cycle period basin rounded 4x(1-x) 1-(2x-1)^2",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-incompatible-complete-cycle-spectra-for-half-precision-log--46d23de07c7c/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-rounding-placement-changes-the-complete-binary16-logistic-attrac--ec3a649c6929/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published once-round F table contains basins 15236,8,117 and period5; the submitted CENSUS.json independently yields completed-square G basins 15048,3,310 period8 and 12513 changed edges."
+        ],
+        "reasoning": "Old F half is fully covered; new G finite invariant remains non-implied. Prior 2774 transition difference is for F vs staged factored, not 12513 for F vs rounded completed-square.",
+        "searches": [
+          "IEEE 754 binary16 logistic map exact cycle period basin rounded 4x(1-x) 1-(2x-1)^2",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-incompatible-complete-cycle-spectra-for-half-precision-log--46d23de07c7c/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-rounding-placement-changes-the-complete-binary16-logistic-attrac--ec3a649c6929/RESULT.md"
+        ]
+      },
+      "rationale": "Best of knowledge: the once-rounded F census is fully pre-existing and not claimed new. The completed-square staged rounding G eight-cycle and complete 310/15048/3 basins, together with the 12513-edge F/G comparison, are separate mathematically defined finite invariants not implied by the inspected previous exact tables.",
+      "residual_risks": [
+        "Published Resultary comparison results were dated the same day; no intra-day priority ordering claimed, only exact statement overlap/nonimplication.",
+        "An unindexed or unpublished identical completed-square binary16 census could alter priority.",
+        "These findings are specific to half precision, ties-to-even and exact marked rounding tree, not compiler-specific reassociation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Its once-rounded H equals submitted F, but its staged factored and expanded maps do NOT equal submitted rounded completed-square G.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-three-incompatible-complete-cycle-spectra-for-half-precision-log--46d23de07c7c/RESULT.md",
+          "material_read": "Complete RESULT.md: definitions of F,G,H stagewise evaluations, full periods/basin rows and exact integer certificate",
+          "method": "GitHub full file read",
+          "title": "Three incompatible complete cycle spectra for half-precision logistic dynamics",
+          "trigger": "Closest three-map exact IEEE binary16 census"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE",
+          "evidence": "Once-rounded F zero/fixed/five-cycle is identical; staged map differs from completed-square G.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-rounding-placement-changes-the-complete-binary16-logistic-attrac--ec3a649c6929/RESULT.md",
+          "material_read": "Complete RESULT.md, exact two-map F/staged successor semantics and full 15361-state census",
+          "method": "GitHub full file read",
+          "title": "Rounding placement changes the complete binary16 logistic attractor census",
+          "trigger": "Same exact once-round binary16 map and comparison"
+        },
+        {
+          "assessment": "ANTECEDENT",
+          "evidence": "Establishes qualitative and empirical low-precision periodicization, but does not state complete G rounding-tree basin/period table in inspected material.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10349059/",
+          "material_read": "Open-access full PMC HTML with logistic model, period and rounding discussion and results",
+          "method": "Web PMC HTML article inspection",
+          "title": "Periodic orbits in chaotic systems simulated at low precision",
+          "trigger": "Primary low-precision logistic dynamical systems paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite-precision chaotic maps depend sharply on arithmetic-expression evaluation. The completed-square binary16 functional graph is a natural reproducible exact invariant for numerical dynamics, with its eight-cycle and 310-state basin differing sharply from the already known five-cycle/117-basin once-rounded graph. This exact comparison is useful even without a precision-asymptotic theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exact finite IEEE binary16 logistic completed-square evaluation G has primitive cycles 1,1,8, basin sizes 15048,3,310 and max transient 70; compared with previously covered once-round F cycles 1,1,5, basins 15236,8,117 and max transient 109, exactly 12513/15361 transition edges differ.",
+  "limitations": [
+    "Uniform counting of 15361 encodings, not Lebesgue or the real logistic invariant measure.",
+    "Only binary16 nearest-even, fixed input range and two explicitly defined evaluation trees; floating-point compiler behavior not inferred."
+  ],
+  "schema_version": 1
+}
