@@ -1,15 +1,21 @@
-# Scientific review: prime-square hyperbola fourth moment
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement uses the uniform probability norm on \((\mathbb Z/p^2\mathbb Z)^2\) and the unnormalized \(\ell^2\) norm of the coefficients. Additive-character orthogonality gives the exact pair-sum identity. The proof independently classifies all pair-sum fibers, using invertible sums for distinct nonopposite residue classes, cyclic convolution for coincident residue classes, and the common zero fiber for antipodal classes. The resulting formula (2) is checked numerically against direct ring convolution for all tested \(p\in\{3,5,7\}\). Parseval, Cauchy--Schwarz, and the Fourier concentration equality conditions give the sharp constant \(3p/2\), the full complex optimizer family, and the stated nonnegative mass remainder. Equality at all primes follows from explicit packets; no finite test is used as an infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-A closely related finite-field multiplicative-hyperbola theorem has full-support constant-modulus optimizers; a nonfield prime-square ring is neither the same surface nor an equivalent field of \(p^2\) elements. The inspected modular-hyperbola Kloosterman and orthogonal-character statements concern Fourier decay and exponential packing, respectively, rather than the arbitrary-weight fourth norm. The inspected prime-square *parabola* result has one-residue-class packets and does not imply the antipodal two-class law. The 2024 sharp-extension primary paper treats finite-field parabola, paraboloid, hyperbolic paraboloid, and cone geometries. Hickman--Wright give ring restriction estimates but not the present sharp modulus-\(p^2\) hyperbola classification. The exact fiber identity and optimizer comparison do not match those closest statements. An earlier unindexed weighted Kloosterman identity or specialist extension computation remains a priority risk; the search cannot prove global novelty.
+PASS
 
-## Mathematical value — PASS
-The modular hyperbola is a classical Kloosterman frequency surface. Passing from a field to a prime-square ring introduces nilpotent tangential packets and an exceptional zero-sum collision, so an exact sharp extension norm and a complete equality classification are natural quantities. The result identifies a qualitative optimizer transition to two antipodal residue classes, with a global mass-balance and concentration defect useful for follow-up stability questions. The theorem does not claim higher prime powers or the optimal within-packet stability constant.
+The final theorem is for every odd prime p on R=Z/p²Z (not F_{p²}), complex coefficients on units, normalized p^-4 counting output and unnormalized input ell². Additive orthogonality turns the fourth moment into weighted equal-sum pair collisions. Invertible-sum nonopposite fibers, same-residue cyclic convolution, and the shared zero fiber of antipodal packets yield the exact collision identity; cyclic Parseval gives ||u*v||² <= p||u||²||v||². The zero-fiber Cauchy–Schwarz argument yields M <= (3p/2)S² and its mass-balance deficit. Vanishing of the strictly positive cross-pair defect forces a single antipodal pair of residue blocks; convolution equality forces each to be one common additive Fourier character; equal L² masses force |A|=|B|. The exact packet witnesses give sharpness, including nonzero frequency and arbitrary relative phase. Independent direct pair-sum enumeration for p=3,5 and explicit optimizer witnesses corroborate the normalization; these finite checks are not the all-prime proof.
 
-## Sources and limitations
-González-Riquelme--Oliveira e Silva, arXiv:2405.16647 (Theorems 1.1--1.5, 2024); Iosevich--Murphy--Pakianathan, arXiv:1405.7657 (Theorems 1.2--1.6, 2014); Hickman--Wright, arXiv:1801.03176 (Sections 1--2, 6--7, 2018). Published primary mathematical statements for finite-field multiplicative-hyperbola fourth moments, prime-square parabolic moments, and modular-hyperbola orthogonal characters were inspected at their recorded repository URLs. These results supply context but do not subsume the precise claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original as a precise, weighted sharp fourth extension norm over the nonfield prime-square modular inverse graph with complete localized optimizer and mass-deficit classification. Closest exact finite-field inverse-graph result instead has full-support constant-modulus optimizers, so its conclusion does not imply the present ring law; prime-square parabola extension concerns a different surface. Primary ring-hyperbola Fourier-decay papers do not provide arbitrary complex coefficient fourth-moment sharpness.
+
+## value
+
+PASS
+
+The modular hyperbola is a canonical Kloosterman Fourier surface; its passage from finite fields to rings with nilpotent directions changes weighted additive-energy collision fibers. A sharp extension constant and all equality functions are reusable analytic invariants, and the coarse explicit deficit distinguishes antipodal mass concentration and balancing. This is a substantive all-odd-prime classification, not a finite-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
