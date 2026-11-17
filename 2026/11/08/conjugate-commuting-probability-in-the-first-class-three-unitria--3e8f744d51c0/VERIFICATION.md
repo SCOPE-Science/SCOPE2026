@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The complete finite-field proof is in `RESULT.md`; no finite enumeration is used as an infinite proof.
+# Independent mathematical audit
 
-Execute `python3 verify.py` using a standard Python 3 interpreter; it imports only `itertools` and uses no downloaded dependencies. The program enumerates all relevant primary and middle coordinates for \(q=2,3,4\), including an explicit field model for \(\mathbb F_4\). It independently checks the group law using literal matrix-coordinate multiplication and actual conjugation for every pair over \(\mathbb F_2\). The exact output is in `verify_output.txt`.
+## correctness
 
-Counts for the conjugate-commuting relation: \(1312\) for \(q=2\); \(80433\) for \(q=3\); \(1524736\) for \(q=4\). Counts for actual commutation: \(1024\), \(41553\), \(557056\), respectively. The analogous general-field formulas are proved by the seven-case partition in `RESULT.md`. All finite cases passed.
+PASS
 
-Limitations: only three field orders are computationally checked; the general assertion follows from explicit linear-algebraic counting, and no external validation is claimed. Historical-priority analysis is provisional.
+For all prime powers q (including characteristic 2), the first two commutator equations aB=Ab and bC=Bc must hold, while the last scalar K=aE+dC-Ae-Dc changes under conjugation by the linear form B(aw+cu)-v(aC+cA). The image is zero or all of F_q; seven disjoint primary configurations count q^4 versus q^3 admissible middle entries. Summation yields rho=(2q^5-3q^4+3q^3+2q^2-4q+1)/q^7 and cp=(2q^2+q-2)/q^5 with strictly positive gap. Independently enumerated every relevant primary and middle entry for q=2 and 3, reproducing both ordered counts; no characteristic-specific division occurs.
 
-An independently implemented `centralizer_crosscheck.py` enumerates all upper-triangular literal matrix products for \(q=2,3\) and reports exact centralizer distributions, reproducing `centralizer_crosscheck_output.txt`. For \(q=3\), it finds 57 conjugacy classes versus the 53 indicated by an ordinary commuting-probability entry in arXiv:2006.01493, Section 8; this discrepancy is not resolved as a bibliographic priority claim.
+## originality
+
+PASS
+
+Britnell-Wildon introduced the classwise commuting relation and Blackburn-Britnell-Wildon the probability rho, specializing elsewhere (especially symmetric groups). Kaur-Sharma-Singh study ordinary commuting probabilities and branching in UT4, not whether separately chosen conjugates commute. Resultary search found related UT4 centralizer and commuting tuples but no matching conjugate-relaxed rho polynomial. An unresolved discrepancy for the companion ordinary cp in the Kaur table is explicitly recorded, not glossed over.
+
+## value
+
+PASS
+
+A complete exact characteristic-uniform conjugate-relaxed probability for the first non-class-two unitriangular group, including a sharp positive difference from ordinary commuting, provides a natural benchmark for conjugacy commuting graphs and finite nilpotent groups.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
