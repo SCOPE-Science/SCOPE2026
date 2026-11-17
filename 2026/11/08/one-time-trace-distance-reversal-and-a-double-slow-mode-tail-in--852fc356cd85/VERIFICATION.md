@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Reproducible checks
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3, NumPy and SciPy. This verifies an exact rational telescoping identity for all \(3\leq N\leq50\) and \(1\leq m<N\), samples the exact continuous-time Markov matrix exponential for seven sizes and 201 times each, checks monotonicity and the unique sampled crossing, tests leading asymptotic coefficient consistency at five sizes, and checks independent-emitter nonreversal for 18 sizes. The program was executed successfully and reported 2,745 passing deterministic checks. The checks are deterministic and finite; no global uniqueness or asymptotic theorem follows merely from their execution.
+## correctness
 
-## Analytical coverage and limits
+PASS
 
-All-size correctness instead follows from the holding-time representation, strict ordering of the endpoint and interior rates, log-concavity of exponential-convolution survival, and explicit Erlang/asymptotic convolution. The claim is for an ideal zero-temperature symmetric Dicke ladder and diagonal initial states. It establishes unique trace-distance crossing but only existence for the mean-excitation crossing. Independent publication-priority assessment has not been performed.
+For N>=3, Gamma>0, 1<=m<N and 0<b<1, the diagonal one-channel Dicke ladder is a pure-death chain with independent Exp(Gamma*k*(N-k+1)) holding times. Since lambda_1=lambda_N=Gamma*N while all 2<=k<N are faster, T_m has log-concave density and increasing positive hazard; E[S_m(t-V)/S_m(t)] with V=sum_{k=m+1}^N E_k is strictly increasing by the hazard difference and P(V>t)>0. S_N(0)/S_m(0)=1 and its ratio diverges, giving exactly one positive trace-distance crossing. The exponential moment product C_m=prod_{k=2}^m lambda_k/(lambda_k-Gamma*N)=m*(N-1)/(N-m) telescopes; the two equal endpoint slow exponentials give S_N(t)~Gamma*N*(N-1)^2*t*exp(-Gamma*N*t), S_m(t)~C_m*exp(-Gamma*N*t). Thus S_m/(b*S_N)~Q_m/(b*Q_N)~m/[b*Gamma*N*(N-1)*(N-m)]/t. Initial Q_m(0)>b*Q_N(0) implies at least one energy crossing, not uniqueness. The proof applies for fixed N in t->infinity; SciPy generator checks and exact rational telescopes are only finite corroboration.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct exact result after comparing named equivalent, broader and database formulations; known subclaims explicitly credited, with residual priority risks.
+
+## value
+
+PASS
+
+An all-size, uniquely timed trace-distance reversal in the ideal collective-emission Dicke cascade, together with the exact double-slowest-mode late-time coefficient, closes a meaningful gap between observed finite-size Mpemba crossings and unrestricted prediction, while correctly separating the weaker energy-crossing conclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
