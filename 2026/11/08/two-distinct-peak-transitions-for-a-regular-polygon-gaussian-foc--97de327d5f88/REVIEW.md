@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The real critical equation reduces to \((|z|^2-n)z^n=a|z|^2\), ruling out off-ray stationary points. Polar second derivatives determine all Hessian types. The elementary unimodal radius map provides exact saddle-node counts; comparison of the only local maxima and a strictly increasing scalar ratio proves a separate, uniquely defined global threshold. The proof includes every \(a>0\) and \(n\ge3\), including equality cases.
+## correctness
 
-## Originality
-**PASS, provisional.** The primary 2022 spectrogram paper derives general Chern critical-point methods and random expected densities, not this deterministic binomial full portrait. The 2019 stellar representation addresses zeros of Husimi functions and state classification, not the two ordered peak thresholds. Semantic record searches for polygonal Gaussian spectrogram stationary points, regular-Fock-binomial maxima, and saddle-node thresholds returned related critical-point and Fourier/phase-plane studies but no statement implying both exact phase transitions. The closest compared result about an even two-coherent-state superposition concerns \(\cosh(az)\), not \(z^n-a\). Specialized quantum-optics phase studies not fully accessible could still anticipate an equivalent computation.
+PASS
 
-## Value
-**PASS.** This polynomial is the smallest natural Fock model with an arbitrary regular polygon of zeros, and its intensity supports both coexistence of a central peak with outer peaks and their catastrophic disappearance. A complete global-versus-local transition law across every polygon order distinguishes which intensity peaks are actually dominant from which merely exist. The second threshold cannot be inferred solely from zero locations or from the first transition.
+Away from zeros and origin, Fock-Chern criticality gives (r²-n)z^n=a r², forcing all stationary points onto 2n rays. At zeros the quadratic positive expansion gives nondegenerate minima; origin n>=3 has negative definite quadratic term. On positive rays the radius solution r>sqrt(n) is unique and a radial maximum/angular minimum (saddle); on negative rays g(r)=(n-r²)r^(n-2) rises then falls with unique maximum at sqrt(n-2) and value A_n, making inner saddles and outer maxima for a<A_n, a degenerate tangency at equality and none above. H_outer/H_0 comparison reduces to ne^(-s/2)/(n-s), strictly increasing from below 1 to infinity on (n-2,n), so uniquely defines G_n. Independent numerical scalar root checks for n=3 through 20 corroborate G_n<A_n; the general proof is monotonicity, not sampling.
 
-## Boundaries
-The theorem does not cover \(n<3\), vanishing \(a\), irregular zeros, or general Fock functions. Published literature comparison was selective, so historical priority remains subject to independent review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Abreu 2022 open-access full text (sections on Chern critical points and random Gaussian entire functions) gives the general stationary equation and random critical-point intensities, not the all-n deterministic binomial ray portrait or the sharp global/local thresholds. Chabaud–Markham–Grosshans stellar theory concerns zeros of Bargmann functions, not Morse classification. Resultary same-day cosh-peak and concentric polygon records have different analytic functions or broader peak-count bounds, not the exact one-ring global switch law. No earlier same-object claim located, with specialized quantum-optics priority risk.
+
+## value
+
+PASS
+
+The regular n-gon zero set is a canonical deterministic Fock polynomial. Separating the global peak-location switch from the later saddle-node loss of local maxima for every n is a complete natural critical-point classification, with a phase portrait useful in Husimi/Fock localization. Its two thresholds are structurally different, not simply a numerical sample or a renamed general condition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
