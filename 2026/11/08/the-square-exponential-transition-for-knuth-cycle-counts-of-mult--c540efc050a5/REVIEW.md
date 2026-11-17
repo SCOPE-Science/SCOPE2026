@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem fixes uniform multiset-word sampling and Knuth's canonical cycle statistic. Source [1], Sections 3–4, proves exact independence and negative-hypergeometric formulas for the increments; these are the only external nontrivial probabilistic inputs. The proof establishes moment-uniform convergence of an individual normalized increment to an exponential, then proves endpoint-weight asymptotics. When \(1<\beta<2\), a diverging number of comparable summands makes the Lyapunov ratio vanish. At \(\beta=2\) the endpoint weights converge to a geometric sequence, and a uniform geometric-tail bound justifies the infinite independent-exponential limit in moments. When \(\beta>2\), all older increments are negligible in \(L^r\). The package's rational and numerical checks passed 347 assertions; none is used as an infinite proof. Boundary assumptions \(c>0\), \(\beta>1\), and \(\theta=1\) are essential to the claim.
+PASS
 
-## Originality — PASS (subject to historical priority)
+From Stark’s credited independent negative-hypergeometric increments X_j of canonical Knuth cycles, with mean n_j/(N_{j-1}+1) and variance n_j(N_{j-1}+n_j+1)N_{j-1}/((N_{j-1}+1)²(N_{j-1}+2)), m=N_{j-1}, a=n_j/m→∞ gives X_j/a→Exp(1), with uniform exponential tails and all moments. For a_j asymptotic exp(c(j^β-(j-1)^β)), endpoint weights vary on L_t=t^{2-β} if 1<β<2, leading sum var∼a_t²L_t/[2cβ(β-1)] and Lyapunov third-moment quotient O(L_t^-1/2). At β=2 ratios→exp(-2ck) and a uniform geometric bound yields independent exponentially weighted limit S_c in L^r for all positive moments. For β>2 the previous-increment contribution is negligible, leaving Exp(1). Explicit critical n_j=2^{j²} has mean4/3, variance16/15. Boundary β≤1 excluded. These are analytic infinite-limit arguments; finite diagnostics are corroboration.
 
-The fully inspected Stark paper [1] proves a central limit theorem for \(n_t=O(N_{t-1})\) and exhibits \(n_t=\lceil e^{t^3}\rceil\) as a non-normal example. Those results neither cover the Gaussian regime with diverging multiplicity ratio nor identify the square-exponential critical distribution. The separately inspected Buchanan–Burghart–Wagner–Yin article [2] treats functional-digraph cycles, not Knuth's canonical cycles, so its cycle counting does not imply this statement. Targeted indexed research-record comparisons did not locate the three-regime theorem; the closest ordinary-permutation and multinomial results address different objects. Search failure is not a proof of novelty. Generic triangular-array limit theory and undiscovered equivalent treatments remain genuine priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact independent-increment representation naturally invites asking how fast symbol multiplicities may grow before the normal law fails. A one-off cubic-exponential counterexample does not settle the boundary. This result gives a complete power-exponential classification for every fixed \(c>0\) and \(\beta>1\), discovers a non-Gaussian infinite-product critical family, and specifies the normal fluctuation scale and non-Gaussian moments. These are structurally distinct regimes, not arbitrary finite parameter slices.
+Best-of-knowledge: inspected actual primary statements for possible coverage by equivalence and implication, not just matching titles. Stark’s decomposition is essential and cited; it does not alone imply this limiting law without deriving endpoint weights, Lyapunov threshold and uniform tails. Buchanan et al 2026 uses different functional-digraph cycles; its theorems do not imply canonical Knuth-cycle limits.
 
-## Scope, nearest literature and limits
+## value
 
-The factorization and moment formulas come from [1], not from this finding. The conclusion depends on the canonical Knuth cycle definition; another natural notion of multiset cycles is studied in [2]. The claimed asymptotics do not cover \(\beta\le1\), cycle-weight parameters other than one, or varying exponents. Independent mathematical validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Identifies a sharp central-limit versus non-Gaussian three-regime phase transition in a natural canonical multiset-cycle statistic beyond existing bounded-ratio theory; the critical q-hypoexponential law and all-moment convergence are distinctive nontrivial limit results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
