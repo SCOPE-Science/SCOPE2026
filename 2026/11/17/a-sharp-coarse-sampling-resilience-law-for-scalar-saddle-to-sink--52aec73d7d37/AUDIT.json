@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "For any maximizer interior to (0,1), the variational identity gives f(Phi_h(x_h))=f(x_h). A centered half-orbit proves Delta_h tends to 1; the endpoints then give lambda*x_h asymptotic nu*(1-y_h). Comparing T(y_h)-T(x_h)=h using convergent C2 endpoint logarithmic renormalizations yields the exact kappa and C_f for all maximizers. The finite-h mu_h max formula follows from the previously published scalar barrier proposition. Logistic, cubic and a distinct fixed-slope family were separately checked with CHECK.py; these numerical calculations do not prove the general statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Yu and Wang, arXiv:2608.02933, Section 3.3 Proposition 3.12 and Section 6.1 Eq. (6.2), https://arxiv.org/abs/2608.02933",
+        "Meyer and McGehee, arXiv:2012.10786, available abstract; https://arxiv.org/abs/2012.10786"
+      ],
+      "reasoning": "Yu-Wang Theorem 3.1 gives broad small-h bounds and Prop.3.12 gives the exact scalar finite-h reduction; neither displayed result supplies the large-h general asymptotic. Meyer-McGehee concerns ODE-controlled reachability rather than coarse sampling. The cubic special case is known and not asserted as new.",
+      "searches": [
+        "scalar sampled attractor intensity large sampling time basin bound escape exact limit",
+        "sharp large h sampled attractor intensity for scalar flows bistable: exp(-lambda nu/(lambda+nu) h) stable unstable equilibrium rates universal",
+        "flow maps maximum displacement large time saddle sink asymptotic geometric mean exponents"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.02933: HTML manuscript relevant sections and equations",
+      "arXiv:2012.10786: abstract",
+      "https://www-users.cse.umn.edu/~mcgehee/publications/Meyer2022/index.html: author bibliographic summary",
+      "published-finding corpus semantic mathematical-record queries using large-h sampled intensity and saddle-sink aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Yu and Wang, arXiv:2608.02933, Section 3.3 Proposition 3.12 and Section 6.1 Eq. (6.2), https://arxiv.org/abs/2608.02933",
+        "Yu-Wang Proposition 3.12: mu_h=max_(x in [0,1])(Phi_h(x)-x); Eq.(6.2): cubic closed-form mu_h.",
+        "Meyer-McGehee 2022 DOI 10.1137/20M138689X gives the continuous-control intensity framework."
+      ],
+      "reasoning": "For all qualifying scalar f, the new proof uses the prior exact maximization but adds new asymptotic analysis: (i) optimizer approaches both endpoints; (ii) stationary equality f(y)=f(x); (iii) transit-time matching produces the universal exponent, explicit global prefactor and optimizer ratios. One concrete cubic specialization is already implied by the source; no novelty is claimed for that instance. None of the inspected general earlier conclusions specializes directly to the arbitrary-f coefficient.",
+      "searches": [
+        "From Flows to Maps Sampling Laws for Attractor Intensity and Bounded-Noise Escape Yu Wang section cubic 2026",
+        "max displacement sampled flow two hyperbolic fixed points exponential harmonic rate asymptotic prefactor",
+        "sharp large h sampled attractor intensity for scalar flows bistable: exp(-lambda nu/(lambda+nu) h) stable unstable equilibrium rates universal"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yu and Wang, arXiv:2608.02933, Section 3.3 Proposition 3.12 and Section 6.1 Eq. (6.2), https://arxiv.org/abs/2608.02933",
+        "Exact flow transport has invariant T(Phi_h(x))-T(x)=h; no equivalent large-h universal C_f statement in inspected Section 3.3 or 6.1."
+      ],
+      "reasoning": "A saddle-to-sink transition can be written as a transit-coordinate window optimization or as a maximizer of sampled displacement. The known scalar maximum identity covers finite h definition but not the universal large-h matched endpoint asymptotic and nonlinear prefactor.",
+      "searches": [
+        "max displacement sampled flow two hyperbolic fixed points exponential harmonic rate asymptotic prefactor",
+        "Yu Wang 2608.02933 scalar sampled intensity coarse sampling exact prefactor flow-coordinate transit time",
+        "max displacement time h scalar flow repeller sink harmonic mean exponential gap nonlinear shape"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact coarse-h universal formula was found in the semantic mathematical record searches; closest records concern other models including scalar Carleman truncation (2026/10/13/SCOPE-sharp-scalar-r-1-boundary-for-dissipative-carleman-truncation--b85d1ac20508) and sampled heat propagation (2026/11/1/SCOPE-optimal-heat-sampling-intervals-on-normalized-paths-a-bandwidth--4d44b2ae0221).",
+        "Yu and Wang, arXiv:2608.02933, Section 3.3 Proposition 3.12 and Section 6.1 Eq. (6.2), https://arxiv.org/abs/2608.02933"
+      ],
+      "reasoning": "Published records are not a proof of uniqueness; their described claims concern different objects. The explicit cubic benchmark is an exact table/formula already in the 2026 primary work, and our theorem explicitly credits it.",
+      "searches": [
+        "Yu Wang 2608.02933 scalar sampled intensity coarse sampling exact prefactor flow-coordinate transit time",
+        "sharp large h sampled attractor intensity for scalar flows bistable: exp(-lambda nu/(lambda+nu) h) stable unstable equilibrium rates universal",
+        "large sampling interval scalar attractor intensity mu_h converges basin width exponential harmonic mean unstable stable eigenvalues escape"
+      ]
+    },
+    "rationale": "The inspected source proves the exact maximum-displacement identity and gives the exact cubic sample but analyzes the small-sampling limit. The new theorem instead proves a universal large-sampling law for arbitrary smooth repeller-to-sink scalar flows, a transit-time-dependent coefficient and sharp optimizer endpoint locations. Searches for a dominating or equivalent older large-h general statement did not produce one; this is a best-knowledge originality finding, not certification of historical priority.",
+    "residual_risks": [
+      "A specialized preexisting long-time monotone-flow or reachability theorem might imply the large-h coefficient under a different name; semantic search cannot eliminate this.",
+      "The Meyer-McGehee full preprint was not materially inspected; only its abstracts and topic are compared.",
+      "The result is a consequence of elementary one-dimensional transit coordinates once the right coarse-time question is posed; future priority review should check older scalar monotone semigroup literature."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The exact scalar max identity and cubic example are prior. The full text examined does not state the universal large-h two-endpoint matched-asymptotic theorem or C_f.",
+        "evidence": [
+          "Proposition 3.12 (3.17): mu_h=max(F_h(x)-x)",
+          "Section 6.1 Eq. (6.2): explicit x-x^3 intensity",
+          "Section 3.3 Corollary 3.11 and Section 6.1: study h->0, not h->infinity"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.02933",
+        "material_read": "HTML manuscript: definitions in Section 2; the full Proposition 3.12 statement and proof in Section 3.3; Section 6.1 and Eq. (6.2); abstract, main results and results table",
+        "method": "Read arXiv HTML source text; compare exact maximum identity and scalar cubic to proposed arbitrary-C2 large-h law",
+        "title": "From Flows to Maps: Sampling Laws for Attractor Intensity and Bounded-Noise Escape",
+        "trigger": "Same exact sampled-flow intensity functional and one-sided basin geometry"
+      },
+      {
+        "assessment": "The accessible abstracts concern time-dependent/vector-field perturbations of ODEs; no direct sampled large-h theorem visible. Full-text comparison remains a residual risk.",
+        "evidence": [
+          "SIAM J. Appl. Dyn. Syst. 21 (2022), 960-981",
+          "Abstract states a metric approach to vector-field perturbations and controlled reachability"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2012.10786",
+        "material_read": "Public arXiv abstract and publisher abstract; full technical text not inspected",
+        "method": "Compare stated theorem scope and original continuous-control object",
+        "title": "Intensity—A Metric Approach to Quantifying Attractor Robustness in ODEs",
+        "trigger": "Foundational ODE intensity concept potentially dominating coarse-sampling claims"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "52aec73d-7d37-4172-8c67-0147a9dc275b",
+  "value": {
+    "rationale": "The recently introduced sampled intensity quantifies resistance to persistent bounded kicks. Existing sampling theory emphasizes h down to zero. The long-h regime is mathematically natural for coarse observations: tolerance saturates at the basin width with a nontrivial exponent coupling unstable and stable timescales and a computable global transit-time prefactor. The explicit family with identical endpoint eigenvalues but varying C_f demonstrates information beyond local linearization. The result applies uniformly to the natural infinite-dimensional class of all C2 scalar f satisfying the hypotheses, not an arbitrary isolated numeric example.",
+    "status": "PASS"
+  }
+}
