@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T05:00:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md ab4c122e2e814cbc795fe3c841cdf1c43577ef5d",
+        "CHECK.py 4f869ce3a28716cf48e01937aa3bb431eca92543",
+        "independently evaluated 105 finite Gram matrices"
+      ],
+      "rationale": "Real Fourier cosine/sine normalization yields a 4×3 analysis matrix whose normalized Gram blocks as scalar η and a 2×2 positive matrix with trace T=4+2(1+q²)(1+c), determinant 4(1−q)²(1+c). Thus positive eigenvalues iff −1<c<1. η decreases strictly, μ− increases strictly on [−1,1], giving a single crossing; the crossing quadratic has exactly one positive root cstar∈(1/2,1). Its Taylor expansion gives 1−cstar∼(1−q)²/6; unimodality gives exact two-neighbor finite-grid search. Independent construction of 105 different 4×3 matrices reproduced all three Gram eigenvalues. Finite tests not mistaken for proof across N,t.",
+      "residual_risks": [
+        "Optimizes lowest frame eigenvalue in raw unweighted sample norm, not mean-square error, noisy inverse or finite-time sampling design beyond two levels."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full demixed RESULT has A=(2/N)(1-max |cos(2πks/N)|), independent of heat times; raw result uses μ− competing with η.",
+          "Aldroubi et al. study general graph noisy dynamical sampling and sensor selection under different objective."
+        ],
+        "reasoning": "General sampling framework permits construction of the matrix but not a formula or optimal lower-singular-value placement; demixed result does not dominate.",
+        "searches": [
+          "cycle graph heat sampling two times two sensors first Fourier band smallest singular value optimal placement",
+          "Resultary:2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818",
+          "arXiv:2411.12670"
+        ]
+      },
+      "checked_sources": [
+        "frozen RESULT.md/CHECK.py",
+        "Resultary semantic query cycle graph heat sampling two times two sensors first Fourier band smallest singular value optimal placement",
+        "Resultary full finite-cycle demixed RESULT.md",
+        "arXiv:2609.25472 accessible abstract",
+        "arXiv:2411.12670 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The demixed theorem minimizes max-frequency cosine and has placement independent of q; the present raw-time optimum has cstar(q) changing from 1/2 to 1.",
+          "General graph Paley–Wiener results give singular value methods but no verified identical closed transition."
+        ],
+        "reasoning": "Known frame construction is not an implication for the sharp explicit root and migration law. Inaccessible full Bulai text retained as priority risk.",
+        "searches": [
+          "cycle graph heat sampling two times two sensors first Fourier band smallest singular value optimal placement",
+          "full demixed two-sensor Resultary RESULT.md",
+          "Bulai et al. arXiv:2609.25472 abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-time raw sampling is obtained by an invertible but nonisometric Vandermonde transform from demixed frequency blocks.",
+          "The raw Gram spectrum couples the constant and first-frequency components."
+        ],
+        "reasoning": "The frame lower bound is not invariant under nonunitary demixing; q-dependent optimizer is therefore a distinct exact design criterion.",
+        "searches": [
+          "cycle graph heat sampling two times two sensors first Fourier band smallest singular value optimal placement",
+          "arXiv:2609.25472",
+          "Resultary finite-cycle demixed frame theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A natural exact continuum parameter q and all integer N rather than isolated table entries.",
+          "No exact published table of raw-time lower-frame optimal offsets found; numeric path examples do not imply all-cycle formula."
+        ],
+        "reasoning": "Not a known-table recomputation; symbolic Gram crossing and finite-grid rule are the claims. Absence of hits is not novelty proof.",
+        "searches": [
+          "cycle graph heat sampling two times two sensors first Fourier band smallest singular value optimal placement",
+          "Resultary graph heat sampling search",
+          "finite-cycle CHECK.py"
+        ]
+      },
+      "rationale": "The explicit q-dependent optimal raw two-time observation spacing and eigenvalue crossing are not implied by the published spectrally demixed frame theorem, and the accessible general graph Paley–Wiener literature does not exhibit this finite-cycle sharp optimizer.",
+      "residual_risks": [
+        "Bulai–Cabrelli–Cordero–Molter–Saliani 2026 full paper inaccessible via attempted routes, so possible buried exact cycle calculation cannot be excluded.",
+        "General sensor-design literature incompletely indexed; best-knowledge judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING raw two-time norm and q-dependent optimal placement",
+          "evidence": [
+            "Demixed output splits eigenspaces orthogonally; raw observations couple them; prior explicitly disclaims optimization of original unweighted trajectories."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818",
+          "material_read": "Complete RESULT.md theorem, formulas, proof and explicit demixed-vs-raw limitation",
+          "method": "GitHub fetch_file and side-by-side Gram comparison",
+          "title": "Sharp spectral-demixed two-sensor frame bounds on finite cycles",
+          "trigger": "Closest prior graph and sensor result"
+        },
+        {
+          "assessment": "No defensible whole-document noncoverage conclusion; historical risk retained",
+          "evidence": [
+            "Available description develops graph PW frame matrices and path graph numerical sensor choice; precise cycle sharp formula not established from accessible material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.25472",
+          "material_read": "Abstract and bibliographic metadata only; full paper not accessible; authorized institutional retrieval returned vpn_disconnected",
+          "method": "arXiv and open-access searches, Oxford authorization result",
+          "title": "Dynamical Sampling in Graph Paley–Wiener Spaces",
+          "trigger": "Potential broad theorem with same graph signal object"
+        },
+        {
+          "assessment": "No strong implication demonstrated; not marked full-text NOT_COVERING",
+          "evidence": [
+            "General observability/noisy design rather than exact raw four-sample lower eigenvalue."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2411.12670",
+          "material_read": "Abstract and theorem descriptions from public indexing; complete full text not materially read",
+          "method": "Literature lookup",
+          "title": "Reconstructing Graph Signals from Noisy Dynamical Samples",
+          "trigger": "General observation and placement framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "raw Gram calculation",
+        "full demixed-cycle theorem"
+      ],
+      "rationale": "Sharp stable recovery in a natural three-mode graph signal space, with explicit tradeoff between time separation and spatial sensor placement, provides an exact operational design invariant distinct from frame injectivity or generic placement algorithms.",
+      "residual_risks": [
+        "Only 2 sensors, 2 times, first band, exact/noiseless Laplacian evolution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For N>=5, first 3 Fourier modes on cycle and four raw unweighted samples from 2 distinct vertices at times 0,t>0, exact Gram spectrum has η=2(1+q²)(1-c), μ±=(T±sqrt(T²−16(1−q)²(1+c)))/2; the sharp continuous-angle lower-frame optimum is at unique cstar(q)∈(1/2,1), q=e^(-tλ1), and every discrete optimal offset brackets cstar on the cycle cosine grid.",
+  "limitations": [
+    "No claim of optimal noise variance, arbitrary weights or higher-bandwidth design",
+    "Primary graph PW full text inaccessible, priority qualified."
+  ],
+  "schema_version": 1
+}

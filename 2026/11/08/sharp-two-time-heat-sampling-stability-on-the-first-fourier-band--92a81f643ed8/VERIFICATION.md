@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Install `numpy>=1.24` from `requirements.txt` and run `python CHECK.py` in the directory containing the embedded files. The program constructs orthonormal graph cosine/sine modes for cycles of orders 5 through 90 and the four raw measurements for every site separation and five damping ratios. It independently computes each Gram spectrum and compares all three eigenvalues to the analytic formula. It verifies the unique continuous root, evaluates the exact finite-grid bracketing rule, and tests representative short-time asymptotics. The saved checker reports `CYCLE_TWO_TIME_FRAME_CHECKS_PASSED 10968`.
+## correctness
 
-The proof's critical infinite steps are the exact orthogonal Gram decomposition, an analytic strict-monotonicity certificate for the smaller block eigenvalue, and the unique crossing with a decreasing scalar eigenvalue. Numerical tests do not establish those steps for arbitrary parameters. No symbolic-computation package or external certification is required by the proof.
+PASS
+
+Real Fourier cosine/sine normalization yields a 4×3 analysis matrix whose normalized Gram blocks as scalar η and a 2×2 positive matrix with trace T=4+2(1+q²)(1+c), determinant 4(1−q)²(1+c). Thus positive eigenvalues iff −1<c<1. η decreases strictly, μ− increases strictly on [−1,1], giving a single crossing; the crossing quadratic has exactly one positive root cstar∈(1/2,1). Its Taylor expansion gives 1−cstar∼(1−q)²/6; unimodality gives exact two-neighbor finite-grid search. Independent construction of 105 different 4×3 matrices reproduced all three Gram eigenvalues. Finite tests not mistaken for proof across N,t.
+
+## originality
+
+PASS
+
+The explicit q-dependent optimal raw two-time observation spacing and eigenvalue crossing are not implied by the published spectrally demixed frame theorem, and the accessible general graph Paley–Wiener literature does not exhibit this finite-cycle sharp optimizer.
+
+## value
+
+PASS
+
+Sharp stable recovery in a natural three-mode graph signal space, with explicit tradeoff between time separation and spatial sensor placement, provides an exact operational design invariant distinct from frame injectivity or generic placement algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
