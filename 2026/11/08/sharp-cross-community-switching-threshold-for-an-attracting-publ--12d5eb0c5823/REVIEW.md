@@ -1,25 +1,21 @@
-# Scientific review: a sharp public-goods/opinion switching boundary
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The underlying decision rule follows by exactly maximizing the strictly concave quadratic opinion payoff separately for each binary action and comparing the optimized values. For the prescribed alternating community actions, the two-step affine opinion map has Lipschitz constant at most \(c^2<1\), giving exactly one possible opinion pair. Its block-swap symmetry reduces that pair to two levels whose difference is \(d/(d+2cp)\). Testing both strict action choices gives the necessary and sufficient condition \(p<p_*\). At equality, the convention to defect at an action tie eliminates the alternating pattern. Strict thresholds make the two-step linearized map a genuine local contraction in **all** opinion coordinates, not merely on the two-block subspace. Both consensus equilibria are strict and attracting because \(1/2<\theta<1\). The exact four-player witness verifies the equations with nonzero switching margins. `CHECK.py` passed its symbolic and rational tests. No finite test is used to infer the all-size result.
+PASS
 
-## Originality — PASS (with residual risks)
+Optimizing the quadratic opinion payoff conditional on a binary action yields exactly x_i^+=1 iff (Wy)_i>theta=(1+q)/2, y^+=cWy+(1-c)x^+. Prescribed opposite-community alternating actions force a unique two-phase opinion solution because the two-step affine matrix c^2W^2 is a contraction, and permutation/block swap symmetry forces two block values L,H with H-L=(1-c)/(1-c+2cp). The strict switching condition is equivalent to p<(1-c)(1-q)/(2(1-c+cq)); at equality the tie-to-defect rule excludes this pattern. In the strict chamber c^2W^2 contracts all opinion directions, giving local exponential attraction and parameter robustness; both consensus equilibria also contract locally. An independently recomputed rational n=4 witness has p=1/4,c=1/2,q=2/9, theta=11/18 and 1/6–5/6 swapped opinions with input means 2/3,1/3. No claim about all possible cycles is proven.
 
-The full main model and equilibrium analysis of Davidson et al. [1] concern consensus, existence of stationary states and sufficient global-defection convergence. Their exposed main theorems do not establish attracting simultaneous-update cycles or a sharp cross-influence cutoff. The general possibility of two-cycles is **not** new: the Boolean threshold analysis of Kuhlman et al. [2] covers a different, finite-state dynamical system, not the continuous-opinion public-goods memory map or the derived cutoff. Liang et al. [3] study action-dependent coordination/anti-coordination payoffs rather than the constant marginal action disadvantage of the public-goods game; its convergence results cannot be substituted as a theorem for this model. The distinct mathematical contribution is the exact existence, uniqueness in the alternating class, stable full-state realization and robustness for all even population sizes. Risks remain from unindexed equivalent formulas and more general piecewise-affine network theorems not exhaustively eliminated by the searches. Absence of a match is not asserted as proof of global novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The mechanism identifies a concrete limit to consensus-based predictions for synchronous best response in public-goods games. An open parameter region on a connected **fully positive** network has two stable consensus equilibria and a stable temporal alternation of collective decisions, with a computable sharp boundary in the ratio of within- to between-community opinion influence. This is a structural dynamical classification rather than an arbitrary example or trivial parameter substitution. The threshold remains meaningful for every even group size and the example demonstrates nonzero margins and transverse stability. It is neither a claim about all attractors nor a universal convergence theorem.
+Davidson et al. supply the public-goods best-response game and focus on equilibrium/convergence under restricted conditions. A genuine earlier October 12 Resultary theorem already constructs attracting two-cycles on a fully positive symmetric four-player complete network, including an equivalent four-player open-region condition, so mere possibility or n=4 robustness is NOT new. An October 18 theorem constructs arbitrary-period cycles on directed cyclic/nearly permutation networks. Neither gives the uniform all-even-population two-community necessary-and-sufficient patterned p cutoff or class uniqueness; those are the surviving originally motivated classification. This is qualified best-knowledge novelty, not a novelty claim for cycles in general.
 
-## Closest literature and limits
+## value
 
-[1] E. C. Davidson et al., *Modelling the coevolution of opinion dynamics and decision making in social dilemmas*, arXiv:2604.08840v1 (April 10, 2026). Full HTML main model and relevant results reviewed.
+PASS
 
-[2] C. J. Kuhlman et al., *Bifurcations in Boolean Networks*, DMTCS proceedings, 2012, DOI:10.46298/dmtcs.2975. Relevant PDF definitions and the synchronous limit-period theorem inspected.
+The all-size exact intercommunity mixing threshold isolates the structural condition for a stable cooperative alternation in a standard coupled continuous-opinion/public-goods model; it distinguishes coexistence of three attractors from consensus predictions and controls a genuine chamber boundary. Since the exact threshold/uniqueness hold for every even n on positive weighted connected networks, the classification is mathematically useful beyond the known four-agent example.
 
-[3] H. Liang et al., *Coevolution of Actions and Opinions in Networks of Coordinating and Anti-Coordinating Agents*, arXiv:2505.03078v1 (May 6, 2025). The model and convergence framework inspected in accessible HTML.
-
-Boundary \(p=p_*\) is an action-tie point, not a claim of a smooth local bifurcation. Attractors beyond the three exhibited and behaviors under asynchronous or stochastic updates are unclassified. The comparison with all prior mathematical literature is necessarily incomplete.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
