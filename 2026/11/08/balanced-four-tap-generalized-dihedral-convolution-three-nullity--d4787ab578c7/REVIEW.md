@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two-coset right-convolution formulas yield \(N\) character blocks, each with squared singular values \((|r_\chi|\pm|t_\chi|)^2\); direct multiplication confirms this and all normalizations. Odd order excludes two-dimensional zero blocks. Equality of the two moduli is equivalent to the union of annihilator constraints on \(u-v\) and \(u+v\), proving the arbitrary-group nullity and full kernel. For vector spaces the three cases exhaust collinear and independent differences, and counting signed difference classes gives the full census. The strictly increasing adjacent cosine gaps give the exact least positive singular value; the four near-trivial root pairs give its multiplicity. The proof covers all stated primes and dimensions, including \(p=3\). Standalone direct-matrix checks corroborate multiple independent and dependent cases, but do not substitute for the proof.
+## correctness
 
-## Originality — PASS under bounded comparison
-Prior general finite-group Fourier decomposition and arbitrary Cayley adjacency characteristic-polynomial methods are not treated as new. The closest inspected published research supplies the block approach and studies cyclic or three-tap cases, but does not state the geometric balanced-four-tap nullity census or the exact least-positive singular value and sharp quadratic conditioning for independent differences in noncyclic elementary abelian groups. The published three-tap generalized-dihedral census covers a different number of taps and does not imply the four-tap optimized statements. Bounded claim/alias/parameter searches found no equivalent exact theorem. A broad unlocated special-case implication from Cayley spectral theory remains a genuine priority risk.
+PASS
 
-## Value — PASS
-Balanced two-plus-two supports are a canonical natural four-move convolution family on finite generalized-dihedral groups; nullity quantifies exactly which signals cannot be recovered. The theorem classifies *all* balanced supports into three geometrically meaningful kernel sizes and counts every support in each stratum. It also identifies the least-stable positive singular directions and the precise \(p^2\) noise-amplification law for the predominant independent-difference class. These are exact infinite-family invariants, not an arbitrary finite sample. Other support splits, even orders, weighted coefficients and stability in the dependent class are outside scope.
+Independently derive the two-coset right-translation character fiber B_chi=[[r,t],[conj(t),conj(r)]], r=chi(a)+chi(b), t=chi(c)+chi(d). B*B eigenvalues (|r|+|t|)^2 and (|r|-|t|)^2. Odd order excludes individual r/t zero and |1+chi(u)|=|1+chi(v)| iff chi(u-v)=1 or chi(u+v)=1; annihilator inclusion-exclusion gives exact nullity. In F_p^d the equal/opposite, dependent-nonopposite, and independent cases give N,N/p,2N/p-N/p^2; unoriented difference pair counting yields all census coefficients. Surjectivity of pair character values and monotone consecutive cosine gaps yield smallest positive difference 2(1-cos(pi/p)) and four root-pairs each with p^(d-2) preimages. Independent calculation verified nullities and gaps for p=3,5,7, including middle stratum p=5; supplied package checker inspected and uses true right-convolution matrices, not just saved logs.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The generic unitary representation decomposition and Cayley characteristic-polynomial factorization are prior tools, not new; the cited 2013 published paper was materially read. Earlier published three-tap elementary generalized-dihedral census concerns different support size, and same-date balanced four-tap dicyclic result concerns a different non-split central extension. No inspected earlier source states or implies the exact four-tap all-odd-abelian nullity, all-p,d census, and optimized independent-difference visible singular-value gap jointly; limited confidence against unindexed specialized Cayley spectra is disclosed.
+
+## value
+
+PASS
+
+The exact arithmetic obstruction to invertibility for natural smallest balanced nontrivial two-coset supports and the sharp visible-space conditioning quantify which information is recoverable and its sensitivity. The three geometric classes and exact complete census genuinely distinguish dependency structures; the quadratic-in-p sharp endpoint is a motivated natural invariant beyond simply writing a generic Fourier block matrix. A general downstream theorem is not required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
