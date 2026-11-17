@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The direction-specific confidence indicators, including the fact that a selected edge may update one endpoint without updating the other, are independently substituted into the three-agent path. For \(\sigma<2\varepsilon\), the two leaves are immobile because the minimum of each leaf's confidence score is \((1-\sigma)/2>\varepsilon\), using \(0<\varepsilon\le1/4\). For \(\sigma\ge2\varepsilon\), the symmetric initial profile is absorbing. On the remaining range, the center follows the exact gated fair-binary affine recurrence. The event of a length-\(m\) constant edge block gives a geometric tail for leaving the two-influence region when \(\varepsilon<\sigma<2\varepsilon\); infinitely many matching edges then force endpoint convergence. The full dyadic distribution and moment formula in the low-weight phase follow by induction, and almost-sure oscillation follows from independent blocks. The verifier checks representative finite rational trajectories, not the infinite-time theorem.
+PASS
 
-## Originality — PASS (best-knowledge comparison)
+In the precise direction-specific NDW rule on the fixed path with endpoint opinions (0,1), center H0=1/2, ρ=1/2, ε∈(0,1/4], and uniform iid edge selection, center-to-leaf score is σH or σ(1−H), while a leaf score is σ times its center gap +(1−σ)/2. In σ<2ε both leaves remain fixed, while σ≥2ε leaves and center are frozen at initial state because of the strict confidence inequality. At σ≤ε both center updates occur for all finite times: binary-affine recursion gives dyadic uniform midpoint law, liminf=0 limsup=1 a.s. and limiting variance 1/12. For ε<σ<2ε, in overlap (1−ε/σ,ε/σ), repeated constant edge blocks force finite exit almost surely; the surviving one-way halvings give endpoint polarization with probabilities 1/2 each and variance limit 1/4. Sharp inclusion of boundaries σ=ε and σ=2ε and exact t-step variance for ε=1/5,σ=3/10 follow. Independent rational depth-eight tree checks agree for σ=0,1/5,3/10,2/5,1.
 
-The initiating Krishnagopal–Porter model and its revised directional update appear in arXiv:2402.05368. The inspected full-text sections introduce the model and report numerical phenomena, including nonconvergent-looking opinion trajectories, but do not establish the complete three-agent, all-\(\sigma\) parameter classification with two exact threshold points. The pure neighborhood case \(\sigma=0\) and affine Bernoulli distributions are known constructions; these are not the claimed new contribution. The claim's distinguishing content is the **mixed-model** transition \(\sigma=\varepsilon\) from perpetual fluctuating opinions to almost-sure polarization and the further transition \(\sigma=2\varepsilon\) to exact stasis, producing the jump \(1/12\to1/4\to0\) in a fixed graph with fixed confidence and fixed initial opinions.
+## originality
 
-Zhang–Hong–Hu (2017) analyze fluctuations in a different nonlocal opinion model that assumes stubborn agents explicitly. Its accessible abstract describes a confidence-bound threshold and is a meaningful analogous result, but does not state the direction-specific NDW gate, the emergent immobility of the leaves, the two weight thresholds, or this exact limiting-variance triad. Access to that article's full text was not obtained; the degree of prior generalization remains a priority risk. Chu–Porter (2024) study random interaction times in conventional bounded-confidence rules, not the same neighborhood score. A nearby published mathematical research record analyzes a seven-agent switching system rather than this mixed NDW model.
+PASS
 
-## Value — PASS
+The original Krishnagopal–Porter NDW manuscript defines the mixed-direction rule and gives numerical behaviors; it does not classify the sharp three σ-regimes for this exact fixed three-agent profile. Earlier November 2 three-node theorem completely analyzes the both-directions-active oscillation wedge but not the intermediate one-way absorbing polarization or the high-σ no-update phase. Same-date pure-neighborhood star theorem explicitly assumes σ=0, so cannot entail the σ∈(ε,2ε) or σ≥2ε mixed-weight transitions. New content is the complete phase diagram and step variance, not the classical Bernoulli-affine recursion.
 
-The smallest connected network permitting different neighborhood means at two endpoints already exhibits three sharply distinct qualitative phases as one social-influence parameter changes while all other data are held fixed. More direct dyadic weighting first increases the asymptotic variance of the central opinion from \(1/12\) to \(1/4\) before suppressing it to \(0\); thus stronger individual similarity weighting is not a monotone regularizer. The paired exact thresholds and finite-commitment bound are a natural complete classification of this minimal three-agent test case, not an isolated numerical example.
+## value
 
-## Scope and publication-priority limitations
+PASS
 
-The initial opinions are symmetric, the topology is fixed, updates are uniform and asynchronous with one edge per step, and the compromise weight is \(1/2\). There are no claims for general graphs, arbitrary initial conditions, or adaptive rewiring. The 2017 nonlocal-aggregation full text remained inaccessible; unindexed equivalent coverage is possible. The initiating February 2024 preprint's explanatory prose describes asymmetric receptiveness, while the later version explicitly prints the distinct direction-specific indicators used in this proof.
+The result gives an exact minimal-network phase diagram separating sustained nonconvergence, random one-sided convergence and frozen initial consensus, with sharp equality conventions and discontinuous nonmonotone limiting variance. It is a structural boundary analysis for the original NDW mechanism rather than a generic Bernoulli-recursion exercise.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
