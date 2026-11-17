@@ -1,15 +1,21 @@
-# Scientific review: logarithmically rare opposite-colour reinforcement
+# Independent mathematical audit
 
-## Correctness — PASS
-The model is specified with positive initial populations, independently selected exogenous rules and nonnegative integer additions. For a fixed entire rule sequence, totals are deterministic and the exact one-step conditional mean has factor \(1-2b\xi_n/(T_{n-1}+a+b)\), which is positive under \(a\ge b\). Dividing by its cumulative product produces a genuine colour-draw martingale. Bounded increments and an \(n^{o(1)}\) reciprocal product give conditional square-summable increments. For the crucial half-logarithmic endpoint, the conditional total expansion contributes the \(\log\log n\) term with coefficient \(2b(a+b-c)\kappa^2/c^2\); all remaining weighted errors are almost surely summable. Conditional positive variance follows at a Pólya step. Exact finite recurrence tests passed 9,404 assertions. The tests supplement, not replace, the infinite argument.
+## correctness
 
-## Originality — PASS, provisional
-Alves–Rosales (arXiv:2502.16768) and Shi–Yin–Miao (arXiv:2605.26669) fix their mixture probability and give deterministic-limit and Gaussian results, respectively. The earlier balanced-total harmonic threshold does not supply the presently asserted unbalanced logarithmic rate or extra endpoint factor; that qualitative criterion is not claimed as new. Gangopadhyay–Maulik (arXiv:1709.00467) assumes an irreducible limiting mean replacement matrix and proves convergence in probability, unlike the reducible limiting Pólya matrix and explicit almost-sure random-amplitude rates here. Gao–Aguech's dynamic Friedman framework is another related but different opposite-reinforcement parameter regime. Searches for vanishing switching, log-power probabilities, and half-log endpoint factors revealed no directly covering statement. This search does not certify exhaustive global priority; an unlocated general stochastic-approximation theorem could potentially specialize to the result.
+PASS
 
-## Value — PASS
-The new object is the fluctuation amplitude of colour proportions when opposing reinforcement is progressively withdrawn. The exact deterministic factors distinguish a stretched-logarithmic almost-sure decay from the fixed-probability Gaussian scaling and identify a sharp endpoint where *unequal total additions* cause a secondary diverging correction. Ignoring this factor yields an asymptotically incorrect normalization in either direction depending on the sign of the total-increment difference. Conditional nondegeneracy establishes sharpness and distinguishes the phenomenon from a mere upper rate bound. These are mathematical observables of a natural, source-motivated probabilistic model rather than an arbitrary finite example.
+Conditioning on all exogenous rule choices fixes total T_n=T0+cn+delta sum xi and makes V_n/J_n a martingale with J_n=prod(1-2b xi_j/(T_(j-1)+a+b)) positive since a>=b>=1. Weighted centred Bernoulli sums converge almost surely by square-summable variance; Hoeffding bounds give T_j=cj+delta kappa j/log(j)^theta plus controlled error. Taking logarithms of J isolates 2b/c sum xi/j and -2b delta kappa/c² sum xi/[j(log j)^theta]; latter diverges as kappa log log n only when theta=1/2. The remainder multiplied by switches is summable for 3theta>1, resulting in J_n R_(n,theta)-> K(xi)>0. Martingale increments O(1/(nJ_n)) have square-summable conditional variances because J_n^-1=n^o(1). Pólya steps have positive draw variance, so the conditional limit is nondegenerate. Independently reproduced exact finite one-step drift for unequal totals in six rational parameter/state combinations. No claim for theta<1/2 or other replenishment dynamics.
 
-## Closest literature and limitations
-Primary comparisons: arXiv:2502.16768, arXiv:2605.26669, arXiv:1709.00467; Gao and Aguech, DOI 10.1017/S0269964822000535. The result does not assert a density or Gaussian law for the limit variable, does not treat adaptive switches, and does not extend the displayed formulas below the half-logarithmic boundary. Historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior published quenched harmonic criterion for balanced total c=a+b settles qualitative equalization when sum p_n/n diverges, not unbalanced sharp normalization and not the delta kappa² log-log term. Resultary October 18 logarithmic-time Dirichlet crossover uses balanced additions and triangular arrays with constant per-row p_N, not a single nonstationary urn. Another critical Ornstein-Uhlenbeck window is a balanced fixed-increment triangular array, and existing fixed positive probability Pólya-Friedman urn CLTs do not cover the regime. The nondegenerate a.s. amplitude and exact theta=1/2 correction survive these comparisons. General stochastic approximation coverage remains residual risk.
+
+## value
+
+PASS
+
+Slowly vanishing opposite-colour reinforcement interpolates between classical random Pólya limits and deterministic equalization. The sharp multiplicative normalization, half-logarithmic boundary and sign-sensitive unbalanced-total logarithmic correction quantify a natural martingale rate not supplied by a convergence-only criterion; exact nondegenerate amplitude helps distinguish pathwise from Gaussian regimes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

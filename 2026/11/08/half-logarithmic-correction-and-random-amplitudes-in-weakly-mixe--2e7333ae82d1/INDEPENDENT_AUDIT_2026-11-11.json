@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T15:52:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditioning on all exogenous rule choices fixes total T_n=T0+cn+delta sum xi and makes V_n/J_n a martingale with J_n=prod(1-2b xi_j/(T_(j-1)+a+b)) positive since a>=b>=1. Weighted centred Bernoulli sums converge almost surely by square-summable variance; Hoeffding bounds give T_j=cj+delta kappa j/log(j)^theta plus controlled error. Taking logarithms of J isolates 2b/c sum xi/j and -2b delta kappa/c² sum xi/[j(log j)^theta]; latter diverges as kappa log log n only when theta=1/2. The remainder multiplied by switches is summable for 3theta>1, resulting in J_n R_(n,theta)-> K(xi)>0. Martingale increments O(1/(nJ_n)) have square-summable conditional variances because J_n^-1=n^o(1). Pólya steps have positive draw variance, so the conditional limit is nondegenerate. Independently reproduced exact finite one-step drift for unequal totals in six rational parameter/state combinations. No claim for theta<1/2 or other replenishment dynamics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alves-Rosales and Shi-Yin-Miao treat fixed positive mixing probabilities.",
+          "The stronger-looking Resultary OU theorem covers equal-increment triangular rows p_N near positive critical p_*, not decaying within one urn p_n and unequal totals."
+        ],
+        "reasoning": "Neither fixed p nor triangular balanced mixture controls unbalanced total evolution and the logarithmic product term; no decisive stronger prior all-parameter normalization formula identified.",
+        "searches": [
+          "Friedman Polya mixed urn logarithmic decay random mixing p_n kappa log theta almost sure limit nondegenerate half-log correction unbalanced",
+          "arxiv:2502.16768 fixed mixing rate",
+          "arxiv:2605.26669 fixed mixing CLT",
+          "Resultary logarithmic Ornstein Uhlenbeck window b3770a893f1f"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md and check.py",
+        "Resultary f9652b484b0a complete RESULT.md",
+        "Resultary a851c23e380a complete RESULT.md",
+        "Resultary b3770a893f1f complete RESULT.md",
+        "Alves-Rosales arxiv:2502.16768",
+        "Shi-Yin-Miao arxiv:2605.26669"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Balanced quenched theorem: sum xi/n diverges -> Z_n->1/2 with no rate.",
+          "Triangular balanced theorem: p_N log N finite -> contracted Dirichlet, does not assign unbalanced single-process rate."
+        ],
+        "reasoning": "Qualitative convergence is implied at theta<=1 from earlier balanced formula, but it cannot imply this unbalanced model theorem by substitution because T_n is random and delta generates the critical second-order log-log term.",
+        "searches": [
+          "Resultary a851c23e380a full RESULT.md",
+          "Resultary f9652b484b0a full RESULT.md",
+          "Friedman Polya mixed urn logarithmic decay random mixing p_n kappa log theta almost sure limit nondegenerate half-log correction unbalanced"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The earlier quenched threshold has deterministic equal totals c=a+b and states convergence/nondegeneracy depending on sum xi/n.",
+          "The present theorem has c!=a+b and evaluates a nontrivial scaling J^-1 including delta-dependent correction."
+        ],
+        "reasoning": "Equivalent qualitative equalization is acknowledged for balanced model; the unbalanced quench and sharp scaled limit are not an equivalent renaming of that criterion.",
+        "searches": [
+          "Friedman Polya mixed urn logarithmic decay random mixing p_n kappa log theta almost sure limit nondegenerate half-log correction unbalanced",
+          "Resultary a quenched harmonic threshold for vanishing Friedman reinforcement (2026-11-08)",
+          "Resultary logarithmic-time Dirichlet crossover (2026-10-18)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Three closely related published record full RESULTS were read: f9652b484b0a, a851c23e380a and b3770a893f1f; none evaluates delta-dependent half-logarithmic multiplicative constant."
+        ],
+        "reasoning": "This is an all-time random-limit statement rather than a finite table; explicit nearby published formula inventories do not tabulate the same normalizer. Failure to find another record is not proof of historical priority.",
+        "searches": [
+          "Friedman Polya mixed urn logarithmic decay random mixing p_n kappa log theta almost sure limit nondegenerate half-log correction unbalanced",
+          "Resultary mixed urn vanishing reinforcement precise alpha log-log correction",
+          "urn random amplitudes exact table logarithmic Bernoulli mixing"
+        ]
+      },
+      "rationale": "Prior published quenched harmonic criterion for balanced total c=a+b settles qualitative equalization when sum p_n/n diverges, not unbalanced sharp normalization and not the delta kappa² log-log term. Resultary October 18 logarithmic-time Dirichlet crossover uses balanced additions and triangular arrays with constant per-row p_N, not a single nonstationary urn. Another critical Ornstein-Uhlenbeck window is a balanced fixed-increment triangular array, and existing fixed positive probability Pólya-Friedman urn CLTs do not cover the regime. The nondegenerate a.s. amplitude and exact theta=1/2 correction survive these comparisons. General stochastic approximation coverage remains residual risk.",
+      "residual_risks": [
+        "Broader stochastic-approximation random-replacement theorem could imply the special normalized limit but no matching evaluation found.",
+        "The theorem deliberately excludes theta<1/2 and non-exogenous switches."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_OVERLAP only; different total assumptions and no random amplitude rate",
+          "evidence": [
+            "Theorem requires total s=a+b in BOTH rules, unlike delta!=0; no multiplicative log correction."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-quenched-harmonic-threshold-for-vanishing-friedman-reinforceme--a851c23e380a",
+          "material_read": "Complete RESULT.md with martingale proof, harmonic criterion and limitations",
+          "method": "Read full theorem and proof, contrasted balanced total assumption c=a+b and lack of normalization",
+          "title": "A quenched harmonic threshold for vanishing Friedman reinforcement",
+          "trigger": "Exact same urn components and arbitrary time-dependent switch schedule"
+        },
+        {
+          "assessment": "DIFFERENT regimes and limit objects",
+          "evidence": [
+            "Balanced triangular row N with one fixed p_N within row; conclusion contracted Dirichlet process on logarithmic clock."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-logarithmic-time-dirichlet-crossover-in-vanishing-p-lya-friedman--f9652b484b0a",
+          "material_read": "Complete RESULT.md and finite-row martingale proof",
+          "method": "Direct comparison of row-dependent p_N, balanced c, and claimed joint limit with unbalanced single-process stochastic limit",
+          "title": "Logarithmic-time Dirichlet crossover in vanishing Pólya–Friedman urns",
+          "trigger": "Vanishing mixing and log time could cover scaling"
+        },
+        {
+          "assessment": "NO_SAME_CLAIM",
+          "evidence": [
+            "Generalized OU Gaussian log-window limit vs a.s. random amplitude at vanishing intensity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-logarithmic-ornstein-uhlenbeck-window-for-a-fixed-increment--b3770a893f1f",
+          "material_read": "Complete RESULT.md and proof including martingale FCLT",
+          "method": "Compare positive critical per-row p_N near p_* with vanishing p_n and unequal totals",
+          "title": "The logarithmic Ornstein–Uhlenbeck window for a fixed-increment Friedman–Pólya urn",
+          "trigger": "Broader possibility that critical logarithmic theorem subsumes result"
+        },
+        {
+          "assessment": "Background equalization, no identified unbalanced half-log rate",
+          "evidence": [
+            "Fixed p>0 law cannot directly specialize to p_n ->0."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2502.16768v1",
+          "material_read": "Primary available introduction/results and fixed-mixing setup; not full proof review",
+          "method": "Compare probability constant versus log n varying",
+          "title": "Friedman vs Pólya",
+          "trigger": "Original fixed p mixing urn dynamics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Slowly vanishing opposite-colour reinforcement interpolates between classical random Pólya limits and deterministic equalization. The sharp multiplicative normalization, half-logarithmic boundary and sign-sensitive unbalanced-total logarithmic correction quantify a natural martingale rate not supplied by a convergence-only criterion; exact nondegenerate amplitude helps distinguish pathwise from Gaussian regimes.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md and check.py",
+    "Resultary f9652b484b0a complete RESULT.md",
+    "Resultary a851c23e380a complete RESULT.md",
+    "Resultary b3770a893f1f complete RESULT.md",
+    "Alves-Rosales arxiv:2502.16768",
+    "Shi-Yin-Miao arxiv:2605.26669"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a two-colour Pólya/Friedman urn with unbalanced additions delta=a+b-c!=0 and p_n=kappa/log(n+n0)^theta, 1/2<=theta<=1, the explicitly stated R_(n,theta)(Z_n-1/2) converges a.s. to a conditionally nondegenerate random limit; at theta=1/2 a sharp log-log correction appears.",
+  "limitations": "No independent specialist priority certification; inaccessible sources named and not claimed read. Only submitted theorem domain; no GitHub or dispatcher writes. All existing scientific file bytes and external verification channels preserved.",
+  "residual_risks": [
+    "Broader stochastic-approximation random-replacement theorem could imply the special normalized limit but no matching evaluation found.",
+    "The theorem deliberately excludes theta<1/2 and non-exogenous switches."
+  ],
+  "schema_version": 1
+}
