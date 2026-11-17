@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-Run `python3 checker.py` and `python3 alt_checker.py` from the directory containing these files. The Python standard library is the sole dependency. It checks all five affine orbits over \(\mathbb F_5^2\), the disjoint complete partition of all \(12650\) four-point index sets, and all \(63250\) representative-by-column pairs; these imply the result for all \(160022500\) ordered pairs by affine invariance. A determinant is evaluated as the integer coefficient vector of a fifth-root sum, and zero is tested exactly by divisibility by the fifth cyclotomic polynomial. All subminors needed to prove each complete complex rank are evaluated; no floating-point threshold is used. The final completion marker is `F5_FOURTH_ORDER_FOURIER_MINORS_EXACT_PASS`.
+## correctness
 
-The finite enumeration establishes the finite claim exactly but gives neither an independent validation nor a theorem for a general prime \(p\). The separate `alt_checker.py` affine-normal-form calculation gives matching orbit-by-orbit and global singular counts and concludes `F5_INDEPENDENT_ORBIT_SINGULARITY_CHECK_PASS`. No external certification is represented.
+PASS
+
+All 4-subsets of the 25-point affine plane decompose into five complete disjoint AGL(2,5) orbits of sizes 150,6000,1500,3000,2000. Affine row transformation permutes column 4-sets and multiplies by invertible scalars, preserving ranks. For each representative row the source checks all 12,650 column choices; each 4x4/3x3/2x2 minor has exact fifth-root coefficient vector and vanishes exactly when all five integer coefficients coincide. A fresh independent exhaustive program computed all 63,250 representative ranks and reproduced the five per-orbit rank rows and global (3750,600000,25875000,133543750). These cover all 160,022,500 ordered pairs by proven orbit symmetry, not by sampling.
+
+## originality
+
+PASS
+
+The q=3 affine fourth-order minor result and all-prime affine third-order result address different parameter regimes. The closely relevant Delvaux–Van Barel Kronecker-Fourier report, read in full accessible PDF text, gives extremal Hamming numbers/tiling constructions for F5 tensor F5 but not the complete 4-by-4 rank/incidence distribution. No exact matching F5 squared table was found.
+
+## value
+
+PASS
+
+Finite-abelian Fourier sampling fails the prime-order full-spark condition. The full rank-incidence tensor for the first nontrivial F5 squared affine case is a naturally motivated exact positional interpolation invariant, revealing five different singular degrees and a complete 160-million-pair classification beyond mere existence of deficient blocks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

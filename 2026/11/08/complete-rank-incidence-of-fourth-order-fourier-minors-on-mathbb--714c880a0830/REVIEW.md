@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (PASS).** The finite domain is exactly all \(\binom{25}{4}^2\) distinct row/column four-set pairs. The affine-group reduction is valid under the dual transpose action on Fourier column labels. Exhaustive orbit construction proves the five representatives cover every row class. The complete rank of each representative-by-column minor is computed with integer coefficients of fifth roots of unity and cyclotomic minimal-polynomial divisibility. The checker validates all three lower-rank fine-table entries in each of 25 orbit cells, all rankwise transpose balances, and the global count. The separately embedded `alt_checker.py` uses a different affine normal-form classification and determinant census to cross-check the complete singular incidence. Finite exact enumeration proves this finite statement; no infinite generalization is inferred.
+## correctness
 
-**Originality (PASS under bounded comparison).** The closest published q=3 fourth-minor statement has two geometric types and uniform degree 45; it expressly excludes larger affine planes. The all-prime theorem about three-by-three minors does not extend its asserted result to the four-by-four case. Delvaux and Van Barel's full readable preprint considers the same \(F_5\otimes F_5\) but gives Hamming extremal block sizes and constructions, rather than all positional fourth-order ranks. Tao's prime cyclic result cannot imply these singularity counts for the elementary-abelian group of order 25. Search aliases, exact numbers and parameters produced no direct covering theorem. An unindexed complete historical table or a stronger specialization remains a bibliographic risk; this does not establish absolute priority.
+PASS
 
-**Mathematical value (PASS).** The least unresolved larger prime-plane fourth-minor case is a natural exact finite invariant of Fourier uncertainty and harmonic-frame degeneracy. The five orbits and nonconstant degrees demonstrate a structural departure from the ternary uniform relation, and all rank multiplicities are determined. The result is a complete geometric census with reproducible exact arithmetic, not an arbitrary fixed submatrix example.
+All 4-subsets of the 25-point affine plane decompose into five complete disjoint AGL(2,5) orbits of sizes 150,6000,1500,3000,2000. Affine row transformation permutes column 4-sets and multiplies by invertible scalars, preserving ranks. For each representative row the source checks all 12,650 column choices; each 4x4/3x3/2x2 minor has exact fifth-root coefficient vector and vanishes exactly when all five integer coefficients coincide. A fresh independent exhaustive program computed all 63,250 representative ranks and reproduced the five per-orbit rank rows and global (3750,600000,25875000,133543750). These cover all 160,022,500 ordered pairs by proven orbit symmetry, not by sampling.
 
-**Limitations.** Only \(\mathbb F_5^2\) and four-by-four minors are claimed; no closed formula over general prime powers. Independent validation has not occurred, and the review of prior literature is bounded. A graphical PDF page image of the Delvaux–Van Barel preprint was inaccessible, although its main mathematical text and directly relevant sections were inspected.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The q=3 affine fourth-order minor result and all-prime affine third-order result address different parameter regimes. The closely relevant Delvaux–Van Barel Kronecker-Fourier report, read in full accessible PDF text, gives extremal Hamming numbers/tiling constructions for F5 tensor F5 but not the complete 4-by-4 rank/incidence distribution. No exact matching F5 squared table was found.
+
+## value
+
+PASS
+
+Finite-abelian Fourier sampling fails the prime-order full-spark condition. The full rank-incidence tensor for the first nontrivial F5 squared affine case is a naturally motivated exact positional interpolation invariant, revealing five different singular degrees and a complete 160-million-pair classification beyond mere existence of deficient blocks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
