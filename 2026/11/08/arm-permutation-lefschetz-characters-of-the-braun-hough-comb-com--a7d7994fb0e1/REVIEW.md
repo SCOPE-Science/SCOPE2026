@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof explicitly identifies the group-fixed independent subsets with independent sets in the quotient comb and carefully accounts for the sign of the action on oriented faces and for the augmented empty face. Braun and Hough's proved parity-dependent Euler recurrence supplies the general ordinary input, while a one-arm cancellation and an exact two-row matching transfer independently reproduce the two sequences. The known sphere type at \(n=2\) turns the virtual trace into an actual integral sign action. The standalone exhaustive check verifies 498 individual arm permutations over 18 parameter pairs, rather than claiming finite enumeration proves the all-parameter result.
+PASS
 
-## Originality — PASS relative to inspected evidence
+Augmented simplicial trace: a nonempty invariant independent face consisting of r vertex-orbits and s vertices contributes (−1)^{r−1}, empty face contributes −1. Every arm-permutation vertex orbit is an independent set and quotient adjacency matches the comb with c(σ) arms; hence reduced Lefschetz L=−I(Δ_n^{c(σ)};−1). Braun–Hough published Euler recurrence for r≥2 makes F_n^{(r)} depend only on parity; direct one-arm cancellation yields O_n (0 odd n, (−1)^{n/2} even). Even branch E_n follows cited recurrence and also four-state signed matching transfer. Reconstructed exact small-n independent polynomials for m=1–4, matching E=(1,−2,1,2,−5,4,3,−12,...) and O=(1,0,−1,0,1,...); inspected verifier of 498 permutation traces across 18 cases. In the representation ring sign(σ)=(−1)^{m−c(σ)}, so virtual character is ((E+O)/2)triv+((-1)^m(E−O)/2)sgn. At n=2 prior homotopy sphere S^m implies genuine rank-one integral top homology with sign action. This is a uniform proof, finite checks only corroborative.
 
-The first-public 2016 Braun–Hough source derives non-equivariant Euler numbers and explicitly asks for the symmetric-group homology module. Matsushita's open-access 2018 manuscript proves a non-equivariant wedge-of-spheres homotopy classification; its main statement does not contain arm-permutation traces. Targeted comparison with mathematical-record results on windmills, generalized Mycielskian complexes and rectangular grid matching complexes found distinct objects, not a stronger theorem covering this exact group action. The proof uses prior nonequivariant facts and does not claim them as new. Residual risk: unindexed equivalent equivariant work may exist.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The uniform class function reveals that only the trivial and sign irreducibles survive in the alternating representation ring even though complicated graded homology may occur. It also pins down the genuine integral top-homology action on the natural sphere subfamily \(n=2\). These conclusions are new symmetry data for the specific family singled out in a published open research question, not a restatement of an Euler-number table. The full separately graded modules are not determined when \(n\ne2\).
+Braun–Hough 2016 supplies nonequivariant Euler recurrence and asks for the S_m-module, not its nonidentity character. Matsushita full preprint provides ordinary wedge-of-spheres nonequivariant classification, not arm-permutation action. Orbit quotient and signed traces add all conjugacy classes, plus actual integral sign lattice at n2; no checked prior result includes these statements.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The natural symmetric-group action on a graph family singled out for its open homological module structure gains a uniform conjugacy-class Lefschetz formula and an explicit virtual trivial/sign decomposition. The n2 genuine integral sign representation is nontrivial information invisible from the known ordinary sphere homotopy, and the result makes a meaningful partial contribution without claiming full graded S_m modules.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
