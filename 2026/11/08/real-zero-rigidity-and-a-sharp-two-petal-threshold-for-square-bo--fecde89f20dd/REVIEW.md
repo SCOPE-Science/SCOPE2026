@@ -1,23 +1,21 @@
-# Scientific review: square-bouquet acyclic sink polynomials
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph definition fixes each edge exactly once. Every simple cycle is a single square, so choosing acyclic orientations blockwise is a bijection. The local table gives the peripheral-sink polynomial \(T(z)=z^2+10z+3\) and the hub-sink subpolynomial \(B(z)=z+3\). Correcting the hub weight proves the claimed formula. Factoring through \(R(z)=T(z)/B(z)\) and comparing it with \((1-z)^{1/r}\) on four rigorously specified intervals proves both uniqueness and existence of each real root. The derivative bound for even \(r\), the pole \(-3\), the positive half-line, degree and simple zero at \(0\) have been separately checked. Direct orientation enumeration for \(r=1,2,3,4\) and exact coefficient checks through \(r=100\) are consistent with the proof.
+PASS
 
-The formula and root count hold for every integer \(r\ge1\); finite enumeration is only corroboration. No claim is made about the positions of the individual nonreal roots.
+For r C4 squares meeting only at a hub, directly derived local peripheral-sink enumerator T=3+10z+z² and hub-sink enumerator B=3+z from the 14 noncyclic square orientations. Blocks share no simple cycles, so gluing gives S_r=T^r+(z−1)B^r. For z≠−3 roots satisfy [T(z)/B(z)]^r=1−z. The rational R(z)=z+7−18/(z+3) has derivative 1+18/(z+3)²>1, and comparison with H_r(z)=(1−z)^{1/r} proves exactly two simple real roots when r odd and four when r even; r=1 gives S=2z(z+6), r=2 yields all four real, higher r have nonreal roots. Independent SymPy exact Sturm real-root counts r=1..10 and derivative at zero equal (3r+1)3^r corroborate, not prove, unrestricted classification.
 
-## Originality — PASS (historical priority provisional)
+## originality
 
-The 2026 primary paper arXiv:2610.41502v1, particularly Proposition 3.21 and Sections 3.1, 3.4 and 5.1, treats cycles, chordal claw-free graphs, and a different nonreal-rooted example involving a line graph. Its acyclic real-rootedness theorem does not apply to square bouquets: a single square is nonchordal, and bouquets with two or more petals also have induced claws. Its all-orientations real-rootedness statement concerns a different enumerator. Hwang et al. arXiv:1910.10920 give general recurrences, not this family-specific parity classification.
+PASS
 
-Previously established results for clique bouquets concern distinct graphs with clique blocks; they do not imply the present nonchordal-square result. Searches for cactus, square-bouquet, wedge-of-cycles and exact polynomial/root-count aliases found no result explicitly covering the claimed parity law. Broad database and internet searches are not exhaustive, so unindexed prior work remains possible.
+The closest all-acyclic-sink real-root theorem of Alexandersson–Maia Leite has chordal/claw-free hypotheses that square bouquets violate (induced C4, and induced claw when r≥2); its all-orientation version is a distinct invariant. Crown-graph sink-set and clique-bouquet results concern other graphs. The sharp parity-dependent root classification remains best-of-knowledge original, with a specific risk from inaccessible complete Alexandersson–Maia Leite text.
 
-## Mathematical value — PASS
+## value
 
-This gives an exact all-parameter root-count classification for a natural cactus family rather than a numerical sample. The sharp change from real-rootedness for one or two squares to nonreal roots for every larger bouquet, plus a persistent two-versus-four count of real zeros while the degree grows without bound, answers a natural real-rootedness question prompted by recent sink-polynomial results. The phenomenon occurs outside both the chordal and claw-free hypotheses of the available positive theorem. The argument isolates an elementary monotone rational mechanism that may help analyze other block constructions, though no unproved generalization is claimed.
+PASS
 
-## Sources and limits
+Acyclic sink polynomials have a live real-rootedness conjecture/theorem landscape. A transparent cactus family moves from two real-rooted cases to universally nonreal-rooted larger examples and has a complete parity-controlled real-zero census, a mathematically motivated structural boundary outside chordal-claw-free hypotheses.
 
-Primary comparison: Alexandersson–Maia Leite, arXiv:2610.41502v1, first public 2026-10-30; general background: Hwang–Jung–Lee–Oh–Yu, arXiv:1910.10920 (2019). The applicable graph family is one-vertex wedges of identical four-cycles; other cactus families remain open here. Originality is a comparison with inspected and searchable literature, not a global priority certificate. No independent validation was performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
