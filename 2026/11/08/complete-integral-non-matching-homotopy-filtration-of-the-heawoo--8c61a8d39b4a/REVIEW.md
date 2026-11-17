@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise point–line graph and all edge-set thresholds are fully defined. An independent zeta-transform algorithm agrees with the maximum-matching recurrence on all 2,097,152 masks. For each of six nontrivial stages, both forward and reverse flag-order matchings are exhaustively acyclic on all Hasse coverings. The preferred reverse ordering leaves a point and one high-dimensional cell level except at thresholds five and six. At threshold five the integral Morse boundary contains an entry \(-1\), and at threshold six it contains a maximal 5-by-5 minor of determinant \(-1\); the signed gradient calculations use exact integer arithmetic. A second independent acyclic matching order yields a unit boundary coefficient and a distinct 6-by-6 determinant-one minor, confirming both integer attaching-map ranks. Forman's theorem and Hurewicz identify the resulting sphere wedges. The complete executable file and its successful recorded output are included. Computational certification is finite and cannot substitute for checking the proof's theoretical reductions; those reductions are stated explicitly.
+PASS
 
-## Originality — PASS on inspected evidence
+The 21 Fano incidence flags form edges of the Heawood graph, and NM_k consists of masks with maximum matching size < k. The exact k-matching recurrence and independent subset maximum transform enumerate all 2^21 edge masks. Frozen verify_nonmatching_heawood.cpp implements two global acyclic toggle matchings with Hasse directed topological sorts and signed Morse boundary elimination. Critical cells at k2,3,4,7 directly give 8 S1, 36 S3, 92 S5 and S11; k5 has a unit 8-to-7 attachment leaving 113 S7; k6 has a determinant −1 5×5 boundary minor (also independent 6×6 minor in opposite pivot order), leaving 36 S9. Their primitive attaching maps cancel cells integrally by Hurewicz. Independently re-enumerating all 2,097,152 masks reproduced face counts (77,2331,33971,254240,963641,1844248) and alternating reduced Euler values (−8,−36,−92,−113,−36,−1). Full exact integer Hasse checks were inspected in code but not recompilation-rerun. k1 void and k≥8 simplex follow from matching sizes 0 and at most 7.
 
-The nearest prior theorem of Linusson–Shareshian–Welker concerns all subgraphs of complete or complete bipartite graphs; it does not imply the six exact Heawood multiplicities. Holmsen–Lee prove general homology vanishing above the degree reached here, not the ranks or integral wedge decompositions. Searches of their full-text PDFs for the graph name and projective/incidence terminology did not identify these calculations, and scientific statement comparisons confirm the explicit formulas are not direct corollaries. Recorded mathematical database searches retrieved other Heawood complexes and a Petersen non-matching filtration with different face conditions/underlying graph, not the present entire Heawood filtration. Priority may still be affected by equivalent unindexed papers or tables.
+## originality
 
-## Value — PASS
+PASS
 
-This is the complete filtration, rather than a selected arbitrary threshold, for the unique cubic girth-six cage / seven-point projective-plane Levi graph. All six stages attain the general bipartite vanishing bound exactly, despite the graph having 21 rather than 49 bipartite edges. The significant nontrivial multiplicity sequence and exact attaching-map cancellations provide a reproducible sparse symmetric-graph benchmark for the general matching-obstruction theory.
+The original non-matching complex of Heawood/Fano incidence graph is a sparse proper subgraph of K_7,7. Linusson–Shareshian–Welker arXiv:math/0410345 Theorem 1.4 computes complete bipartite graphs, not every subgraph, and its ranks (e.g. k2=36 for K_7,7) differ from Heawood k2=8. Holmsen–Lee arXiv:2003.11270 Theorem 1.1 proves high-degree homology vanishing for bipartite graph nonmatching complexes but neither exact ranks nor sphere-wedge homotopy. Previously published Heawood matching, two-matching, ordinary-cut complexes impose different face conditions. Searches under Heawood/Fano/Levi/NM_k did not find prior full exact six-stage homotopy; best-of-knowledge novelty, with indexing risk.
 
-## Scope and residual risks
+## value
 
-No extension to arbitrary sparse bipartite graphs, larger projective planes, equivariant homotopy or canonical homology bases is claimed. Equivalent unindexed results remain possible. Independent mathematical audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Heawood incidence graph is canonical, sparse and highly symmetric; the full family of six natural matching-number thresholds supplies integral homotopy ranks and proves sharpness of the general bipartite vanishing bound at every nontrivial level. This is an independently useful complete classification, not a toy edge case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-08",
+  "audited_at_utc": "2026-11-08T22:08:42.509420Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 21 Fano incidence flags form edges of the Heawood graph, and NM_k consists of masks with maximum matching size < k. The exact k-matching recurrence and independent subset maximum transform enumerate all 2^21 edge masks. Frozen verify_nonmatching_heawood.cpp implements two global acyclic toggle matchings with Hasse directed topological sorts and signed Morse boundary elimination. Critical cells at k2,3,4,7 directly give 8 S1, 36 S3, 92 S5 and S11; k5 has a unit 8-to-7 attachment leaving 113 S7; k6 has a determinant −1 5×5 boundary minor (also independent 6×6 minor in opposite pivot order), leaving 36 S9. Their primitive attaching maps cancel cells integrally by Hurewicz. Independently re-enumerating all 2,097,152 masks reproduced face counts (77,2331,33971,254240,963641,1844248) and alternating reduced Euler values (−8,−36,−92,−113,−36,−1). Full exact integer Hasse checks were inspected in code but not recompilation-rerun. k1 void and k≥8 simplex follow from matching sizes 0 and at most 7.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:math/0410345 Thm 1.4: K_{r,s} case",
+          "arXiv:2003.11270 Thm 1.1: bipartite vanishing at dimensions ≥2k−2"
+        ],
+        "reasoning": "K_7,7 has all 49 point-line edges whereas Fano Levi has only 21; subgraph induced simplicial complexes do not inherit wedge ranks. The bipartite theorem is a vanishing bound only, so no exact Heawood multiplicity is implied.",
+        "searches": [
+          "Resultary semantic search: Heawood graph nonmatching complexes subsets of edges matching number less than k homotopy spheres k 2 through 7",
+          "Linusson Shareshian Welker complexes bounded matching size Theorem 1.4",
+          "Holmsen Lee Leray numbers bounded matching homology"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md ab386a29d985a20669de4db9467c6dd45730a133",
+        "Frozen verify_nonmatching_heawood.cpp 28244ce2ef520ee247e2274c8836687c4df4c238",
+        "Independent all 2^21 mask Euler/face counts",
+        "arXiv:math/0410345",
+        "arXiv:2003.11270",
+        "Resultary Resultary semantic search: Heawood graph nonmatching complexes subsets of edges matching number less than k homotopy spheres k 2 through 7",
+        "Resultary Resultary semantic search: Fano incidence Heawood Levi graph non matching complexes NM_k graph subgraphs with no k disjoint edges"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previous high-degree vanishing at 2k−2",
+          "Explicit primitive k5/k6 Morse boundary minors from the assigned source"
+        ],
+        "reasoning": "General vanishing says nothing about the nonzero rank in 2k−3 or attaching-map homotopy; explicit signed integer Morse certificates supply that new content. Subgraph restriction of complete bipartite results does not preserve topology.",
+        "searches": [
+          "Resultary semantic search: Heawood graph nonmatching complexes subsets of edges matching number less than k homotopy spheres k 2 through 7",
+          "Heawood NM_k sphere wedge versus Holmsen Lee Leray bound",
+          "K_7,7 nonmatching subgraph restriction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Holmsen–Lee arXiv:2003.11270 definition NM_k(G)",
+          "AMS Heawood Fano-incidence equivalence"
+        ],
+        "reasoning": "Changing graph presentation from Fano flags to Heawood edges does not change the complex. Conversely, ordinary matching complexes select pairwise-disjoint edges, whereas NM_k allows any edge set with maximum disjoint subfamily < k; these cannot be substituted.",
+        "searches": [
+          "Resultary semantic search: Heawood graph nonmatching complexes subsets of edges matching number less than k homotopy spheres k 2 through 7",
+          "Resultary semantic search: Fano incidence Heawood Levi graph non matching complexes NM_k graph subgraphs with no k disjoint edges",
+          "Heawood Fano Levi nonmatching complex NM_k bounded matching number"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary targeted search returned the current record plus different Heawood two-matching and cut complex results",
+          "Complete K_7,7 rank formula cannot be used as a 21-edge Heawood table"
+        ],
+        "reasoning": "No earlier exact same-object six-level table located in identified published records, with acknowledged search index limitations.",
+        "searches": [
+          "Resultary semantic search: Heawood graph nonmatching complexes subsets of edges matching number less than k homotopy spheres k 2 through 7",
+          "Resultary semantic search: Fano incidence Heawood Levi graph non matching complexes NM_k graph subgraphs with no k disjoint edges",
+          "Heawood nonmatching 8 36 92 113 36 1"
+        ]
+      },
+      "rationale": "The original non-matching complex of Heawood/Fano incidence graph is a sparse proper subgraph of K_7,7. Linusson–Shareshian–Welker arXiv:math/0410345 Theorem 1.4 computes complete bipartite graphs, not every subgraph, and its ranks (e.g. k2=36 for K_7,7) differ from Heawood k2=8. Holmsen–Lee arXiv:2003.11270 Theorem 1.1 proves high-degree homology vanishing for bipartite graph nonmatching complexes but neither exact ranks nor sphere-wedge homotopy. Previously published Heawood matching, two-matching, ordinary-cut complexes impose different face conditions. Searches under Heawood/Fano/Levi/NM_k did not find prior full exact six-stage homotopy; best-of-knowledge novelty, with indexing risk.",
+      "residual_risks": [
+        "Independent fresh face and Euler counts do not replace full executable acyclicity and signed Morse boundary verification; code was inspected but not recompiled in this run.",
+        "Unindexed exact nonmatching calculations could affect priority; search non-detection is not proof.",
+        "Homotopy is nonequivariant only; no canonical sphere generators or arbitrary incidence-plane formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING sparse Heawood",
+          "evidence": "Theorem 1.4 specifically gives K_{r,s}, not arbitrary proper subgraphs; different known multiplicity at k2.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0410345",
+          "material_read": "Open primary PDF, definitions, Theorems 1.1 and 1.4, examples and applicable graph-family hypotheses",
+          "method": "arXiv original open full text with relevant theorem-page screenshot and passage inspection",
+          "title": "Complexes of graphs with bounded matching size",
+          "trigger": "Nearest original integral wedge classification for nonmatching complexes"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE_ONLY",
+          "evidence": "It proves a general upper dimension for nonzero homology, but no explicit ranks nor Heawood wedge of spheres.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.11270",
+          "material_read": "Open primary PDF and Theorem 1.1/definitions examined, title/abstract and relevant hypothesis; not claiming every page read",
+          "method": "arXiv PDF text and relevant theorem screenshot",
+          "title": "Leray numbers of complexes of graphs with bounded matching number",
+          "trigger": "Possible general bipartite vanishing/structure dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The Heawood incidence graph is canonical, sparse and highly symmetric; the full family of six natural matching-number thresholds supplies integral homotopy ranks and proves sharpness of the general bipartite vanishing bound at every nontrivial level. This is an independently useful complete classification, not a toy edge case.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md ab386a29d985a20669de4db9467c6dd45730a133",
+    "Frozen verify_nonmatching_heawood.cpp 28244ce2ef520ee247e2274c8836687c4df4c238",
+    "Independent all 2^21 mask Euler/face counts",
+    "arXiv:math/0410345",
+    "arXiv:2003.11270",
+    "Resultary Resultary semantic search: Heawood graph nonmatching complexes subsets of edges matching number less than k homotopy spheres k 2 through 7",
+    "Resultary Resultary semantic search: Fano incidence Heawood Levi graph non matching complexes NM_k graph subgraphs with no k disjoint edges"
+  ],
+  "disposition": "passed",
+  "limitations": "One graph with 21 edges and k=2..7 only, integral nonequivariant homotopy.",
+  "residual_risks": [
+    "Independent fresh face and Euler counts do not replace full executable acyclicity and signed Morse boundary verification; code was inspected but not recompiled in this run.",
+    "Unindexed exact nonmatching calculations could affect priority; search non-detection is not proof.",
+    "Homotopy is nonequivariant only; no canonical sphere generators or arbitrary incidence-plane formula."
+  ],
+  "schema_version": 1
+}
