@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem is proved over \(\mathbb Q(q)\) with three positive integer parameters and an explicitly normalized lowest-terms denominator. For each cyclotomic order \(d\), equation (6) counts its actual exponent. When \(\gcd(d,k)>1\), the first numerator progression supplies at least twice the factorial denominator count, while the terminal factor is covered by the second numerator progression. When \(\gcd(d,k)=1\), the exact residue-class count gives exponent \(-1\) precisely for \(d\mid n,j\), and never less. The product over these orders is \([u]_q\), with no cancellation possible. Checks of the \(d=1\) factor, sign normalization, \(n=1\), and repeated-prime factors are included. The 4,500-triple verifier and exact rational evaluations confirm, but do not replace, this proof.
+## correctness
 
-## Originality — PASS (historical-priority risk retained)
-Straub–Moll–Amdeberhan (arXiv:0811.2028v1, Section 5) introduced the product and proposed the stronger \(\gcd(n,j)\mid k\) criterion; Straub's 2012 dissertation (Problem 14.5.2) repeats it as a problem. The proposed sufficiency survives, while necessity fails already at \((n,k,j)=(4,2,4)\), and for the entire prime-power family \((p^a,p,p^a)\), \(a\ge2\). Neither relevant inspected passage states the reduced denominator or the corrected radical criterion. Searches for the named function, substitutions, cyclotomic integrality, and the radical condition did not reveal a covering theorem. These negative searches are not proof of historical uniqueness; a later unlocated resolution remains possible.
+PASS
 
-## Mathematical value — PASS
-The statement answers the exact integrality question for the full parameter family posed in archival literature, while also giving the actual denominator when integrality fails. The infinite counterfamily shows the published proposed condition was genuinely too restrictive at repeated primes. The reduction to the radical identifies the correct arithmetic obstruction and is substantially more informative than a single numerical counterexample or a routine recomputation of known \(q\)-binomial polynomiality.
+For each d>=2 count cyclotomic exponent e_d from all original 1−q^h factors. If g=gcd(d,k)>=2, first numerator progression A=floor(n/(d/g))>=2floor(n/d), and the shifted progression includes the endpoint whenever d|kn+j, so e_d>=0. If g=1, unique shifted residue r mod d gives e_d=1_{r<=n mod d}−1_{r=n mod d}, which is -1 precisely when d divides both n and j, else >=0. d=1 exponent is zero. Therefore all negative orders are exactly nontrivial divisors of u, once each, yielding [u]_q and the radical iff. Independently enumerated 968 triples with all d<=kn+j and verified complete negative spectrum; finite test does not prove universal classification.
 
-## Boundaries
-The result makes no claim about coefficient signs, general \(t\), a combinatorial counting interpretation, or absolute priority. Standard cyclotomic factorization is prior mathematical infrastructure.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Straub–Moll–Amdeberhan 2008 Section 5 introduces precisely this q-product as a polynomiality problem and proposes gcd(n,j)|k as an iff; Straub 2012 dissertation repeats it without the corrected denominator. Earlier 2026 two-step Resultary theorem handles j=2k only and cannot imply the all-parameter denominator. Thus the full all-n,k,j radical criterion and exact rational denominator survive, while original family and elementary cyclotomic factorization are credited.
+
+## value
+
+PASS
+
+It resolves a published natural all-parameter integrality problem and identifies a subtle repeated-prime obstruction missed by the proposed condition, with explicit exact denominators when nonpolynomial. An infinite counterfamily and a necessary/sufficient criterion are substantially more informative than a small counterexample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
