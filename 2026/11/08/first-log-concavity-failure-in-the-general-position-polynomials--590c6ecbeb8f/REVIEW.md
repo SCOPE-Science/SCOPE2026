@@ -1,9 +1,21 @@
-# Scientific review: first log-concavity failure for triangular general-position polynomials
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives an exact finite recurrence for the entire coefficient array by decomposing the selected edges of \(K_n\) into isolated original vertices, single edges, stars and triangles. A separate labeled exponential formula yields \(a_{n,n-d}=\frac{n!}{d!}[t^n]e^{t^3/6}(te^t-t^2/2)^d\). The accompanying standalone script checks the two exact methods for every order through \(30\), brute-forces all selected subsets for base orders \(3\) through \(6\), and exhausts all coefficient inequalities for \(3\le n\le29\). The exact positive defect at degree \(29\) of \(T_{30}\) proves non-log-concavity there. The claim is *finite*, not a theorem for all larger orders.
+## correctness
 
-**Originality — PASS, provisionally.** Iršič et al. (2024, arXiv:2401.05696) initiate study of the general-position polynomial and its unimodality, including Kneser rather than triangular graphs. Di Stefano et al. (2023, arXiv:2306.09965) give the lower general-position number and cite older structural work on maximal configurations in line graphs of complete graphs. Klavžar et al. (2022, arXiv:2209.12631) calculate the mobile general-position number of these line graphs. Their read statements do not supply the exact all-set coefficient inequality or the first log-concavity failure at \(n=30\). Existing component structure is acknowledged rather than presented as new. A differently indexed preexisting calculation remains a publication-priority risk.
+PASS
 
-**Mathematical value — PASS.** The specific open-ended issue is whether the coefficients of general-position polynomials have the stronger log-concavity property beyond families already known to be unimodal. This explicit first obstruction in a natural infinite family is sharper than a random counterexample: all smaller base orders were settled exactly, and a compact recurrence makes the verification reproducible. The result neither asserts a general threshold beyond thirty nor proves subsequent failures.
+PASS: For selected edge sets of K_n representing general-position sets of T_n=L(K_n), an induced three-vertex path in L(K_n) is a geodesic obstruction. Its absence forces each nonisolated original component to be a star or triangle; isolate/edge/star/triangle labeled components give c_1=1,c_2=z,c_3=3z^2+z^3,c_s=s z^(s-1) for s>=4. The distinguished-root recurrence and exponential formula exp(u e^(uz)-u^2 z/2+u^3 z^3/6) agree. Independently reconstructed integer recurrence to n=30: every log-concavity inequality holds for 3<=n<=29, while n=30 fails only at degree 29, with coefficient (a28,a29,a30)=(4575989857607826108600,73770312933671827650,1208883745669600000) and positive defect a28*a30-a29^2=89780688879179441682809722027255477500. This is an exact bounded cutoff, not a claim about n>30.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS (qualified): The October 13, 2026 fully published triangular-graph general-position polynomial EGF already determines **all coefficients**, and all of that source's component decomposition and recurrence are prior work. The surviving assessed claim is the new *log-concavity first-failure classification* across all 3<=n<=30, including the explicitly verified exact defect at n=30. Iršič et al. 2024 fully inspected primary paper concerns unimodality and Kneser rather than these triangular-graph log-concavity inequalities. Although the EGF enables deriving the result by finite computation, it does not itself state or directly imply the first n where the inequality changes without computing and proving the 27 earlier cases. Equivalence in an unindexed table remains possible.
+
+## value
+
+PASS
+
+PASS: Log-concavity is a standard, substantive strengthening of unimodality in enumerative combinatorics. A complete exact first counterexample inside the natural J(n,2) family is motivated by the earlier general-position polynomial program and resolves a sharp finite boundary, not a random parameter. It supplies a reproducible integer obstruction while expressly not claiming eventual behavior for n>30. The earlier closed coefficient EGF receives no novelty credit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
