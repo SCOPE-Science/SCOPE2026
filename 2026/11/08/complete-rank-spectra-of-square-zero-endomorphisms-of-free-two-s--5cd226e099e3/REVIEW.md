@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The unique degree-one/quadratic block form follows from the free algebra's multiplication. The composition-square equation is equivalent to \(T^2=0\) and the intertwiner equation. Explicit Jordan-module Hom dimensions, a surjective induced-map restriction, and independent Gaussian counting give every rank coefficient. Exhaustive original-algebra tests at \(m=2\) and finite linear-system dimension checks at \(m=2,3\) corroborate the formula. The proof is characteristic-free; field-dependent counts are for arbitrary finite fields.
+## correctness
 
-**Originality — PASS, subject to historical priority risk.** The strongest overlapping source inspected is Lipyanski's 2005 full-text treatment of symmetries of the endomorphism semigroup for the same nilpotent free algebra. Its Theorem B classifies automorphisms of the semigroup itself, not individual composition-square-zero endomorphisms or their linear ranks, so it does not imply the formula. The underlying-algebra classifications of de Graaf and the nilpotency-degree results of Lopatin–Shestakov similarly do not cover the parameter-counting claim. Primary literature and published mathematical-record searches revealed no decisive stronger coverage. A broader published endomorphism-monoid enumeration could still imply this formula, so independent priority confirmation is outstanding.
+PASS
 
-**Value — PASS.** This is an exact all-dimension and all-finite-field invariant of a canonical class of nilpotent associative algebras. The polynomial exposes a genuine obstruction to naïvely lifting square-zero linear maps: each quadratic correction is governed by a module-intertwiner relation, which creates nontrivial rank gaps. It refines the square-zero count by complete operator rank and distinguishes the endomorphism semigroup from unrestricted square-zero matrices.
+An endomorphism of N_m=V⊕(V⊗V) has unique degree-one block T and degree-two lift S, with quadratic block U=T⊗T. The composition-square condition reduces to T²=0 and ST+US=0. For rank r of T, the nilpotent two-block module structures yield H=m³−m²r−mr²+2r³ allowable S. The induced quotient map ker(T)/im(T)→ker(U)/im(U) is surjective with constant q^(H−ab) fibers; rank(Φ)=r(r+1)+s. Gaussian counts of T and rank-s quotient maps prove the stated polynomial for every finite field and attainable-rank union over any field. Independent arithmetic evaluation of m=2 q=2,3 agrees with counts 1+45z+258z² and 1+320z+6888z². Missing ranks 9–11 for m=6 follow exactly from the union r(r+1)+[0,m−2r].
 
-**Limitations.** Unitalizations, higher truncation lengths, higher nilpotency orders, automorphism-conjugacy orbits, and nonreduced equation schemes are not classified. Computational checks are finite; the stated theorem relies on the algebraic proof. Independently checked historical priority is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published Lipyanski 2005 addresses automorphisms OF the endomorphism semigroup of the same class, not the population of composition-square-zero maps within it. Nearby finite-field Gaussian rank-spectrum results concern different algebras or operators. The specialized polynomial and rank gaps were not found as a prior theorem. Generic module-Hom and square-zero matrix counts are prerequisites and are not claimed new.
+
+## value
+
+PASS
+
+The natural nilpotency-of-composition condition within an explicit free truncated algebra produces a uniform closed rank multiplicity polynomial, nontrivial intertwiner fibers, and genuine disjoint rank intervals (m=6). These statistics distinguish algebra endomorphisms from arbitrary square-zero matrices and provide exact finite-field enumeration relevant to semigroup structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
