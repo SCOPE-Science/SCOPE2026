@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T00:00:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "One-node SLQ outputs 2 log(m(1±r t)) with fair signs, so exact mean bias B(t)=log((1−r²t²)/(1−r²)) and variance U(t)^2/N. Derivative sign governed by H(t)=U/(rtB), strictly increasing from 2/B0 to infinity. This proves unique interior minimum only when N>2/B0, no interior maximum, worst endpoints switching at (logκ/B0)^2 with all equality cases; trace MSE is exact across every orientation, integer N and distinct SPD eigenvalues. Independently evaluated finite two-sign distribution, variance and endpoint inequalities; finite checks do not prove continuous result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original method and generic concentration bounds lack exact sharp orientation switches.",
+          "The three-dimensional spike expectation theorem lacks stochastic probe mean-square risk for arbitrary 2D SPD spectra."
+        ],
+        "reasoning": "No inspected broader theorem gives both critical N_best=2/B0 and N_worst=(log κ/B0)^2 with all equality cases; source access remains bounded.",
+        "searches": [
+          "doi:10.1137/16M1104974",
+          "arxiv:2005.10009",
+          "one node stochastic Lanczos logdet 3 by 3 rank one orientation minimizer transition"
+        ]
+      },
+      "checked_sources": [
+        "https://www.cs.cornell.edu/courses/cs6241/2020sp/readings/Ubaru-2017-fast.pdf",
+        "https://arxiv.org/pdf/2005.10009",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-orientation-bifurcation-for-one-node-stochastic-lanczos-lo--e04bd1997837"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original SLQ supplies a one-node estimator but not the derived exact risk extremization.",
+          "The companion 3x3 theorem optimizes mean, not mean-squared error of averaged 2D probes."
+        ],
+        "reasoning": "These prior results do not formally imply exact two-dimensional risk critical-budget locations; further Bernoulli-estimator literature could in principle cover an algebraically equivalent case.",
+        "searches": [
+          "doi:10.1137/16M1104974",
+          "arxiv:2005.10009",
+          "2026/11/8/SCOPE-sharp-orientation-bifurcation-for-one-node-stochastic-lanczos-lo--e04bd1997837"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After first Lanczos step, each 2D fair-sign probe output is 2 log(m(1±rt)); exact squared bias and variance determine risk.",
+          "The two extrema thresholds can be restated as tradeoffs of a binary Bernoulli log transform."
+        ],
+        "reasoning": "Searched SLQ, stochastic trace logdet and equivalent binary two-point risk formulations; distinguished fixed-norm Rademacher and random-direction Gaussian cases.",
+        "searches": [
+          "one node stochastic Lanczos quadrature log determinant rank one three dimension Rademacher orientation",
+          "mean squared risk Rademacher one node Lanczos logdet orientation threshold",
+          "doi:10.1137/16M1104974"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published SCOPE record found is the assigned claim; related one-node papers address different dimensions/probe models."
+        ],
+        "reasoning": "No natural static numerical database is expected for a continuous 2x2 orientation/MSE theorem; checked for a formula/table of its exact critical budgets instead, without matching independent antecedent.",
+        "searches": [
+          "mean squared risk Rademacher one node Lanczos logdet orientation threshold",
+          "2026/11/8/SCOPE-sharp-orientation-and-sampling-budget-transitions-in-one-node-st--9c172b7c0f19"
+        ]
+      },
+      "rationale": "Best-of-knowledge new exact MSE classification for fair-sign one-node SLQ in dimension two, with both global worst-orientation and best-orientation sampling thresholds; primary SLQ and trace literature supplies method/tail estimates, not exact two-point optimization; 3D expectation theorem differs in dimension and loss. Possible identical Bernoulli-model calculation in specialist literature remains a risk.",
+      "residual_risks": [
+        "2D one-node risk may have been solved under Bernoulli log-transform terminology not reached by semantic searches.",
+        "Orientation optimization assumes fixed known eigenvalues and only one-node quadrature; no cost-equivalent claim or general multivariate algorithm."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "METHOD_KNOWN_NOT_EXACT_EXTREMA",
+          "evidence": "The one-node Rayleigh-quotient estimator is established, but no exact 2x2 sign-probe joint MSE orientation minimizer and two budget thresholds is stated in inspected sections.",
+          "identifier_or_url": "https://www.cs.cornell.edu/courses/cs6241/2020sp/readings/Ubaru-2017-fast.pdf",
+          "material_read": "Full 25-page text, SLQ algorithm and logdet/error-bound sections",
+          "method": "Read publisher-author lawful OA PDF and inspected relevant pages",
+          "title": "Fast Estimation of tr(f(A)) via Stochastic Lanczos Quadrature",
+          "trigger": "Primary original SLQ construction and logdet use"
+        },
+        {
+          "assessment": "GENERAL_BOUNDS_NOT_SHARP_CLASSIFICATION",
+          "evidence": "Provides stochastic trace estimation and determinant-related tail bounds, rather than an explicit two-point Rademacher angular MSE and exact endpoint transitions.",
+          "identifier_or_url": "https://arxiv.org/pdf/2005.10009",
+          "material_read": "Original 28-page text, trace estimator assumptions and matrix-function tail/determinant discussion",
+          "method": "Read arXiv full text and inspected pages",
+          "title": "On randomized trace estimates for indefinite matrices with an application to determinants",
+          "trigger": "General trace-function error bounds could cover one-node risk"
+        },
+        {
+          "assessment": "DISTINCT_DIMENSION_LOSS",
+          "evidence": "That work optimizes expectation for a 3x3 rank-one spike, not MSE over all 2x2 SPD matrices with N probes; the claims do not imply one another.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-orientation-bifurcation-for-one-node-stochastic-lanczos-lo--e04bd1997837",
+          "material_read": "Complete RESULT.md of companion SCOPE work, including four-sign triple-dimensional expectation proof",
+          "method": "Read GitHub pinned source RESULT.md",
+          "title": "Sharp orientation bifurcation for one-node stochastic Lanczos log-determinants",
+          "trigger": "Very similar terminology and estimator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact sharp mean-squared risk thresholds in the one-node SLQ estimator isolate bias-vs-sampling tradeoffs and explain when additional independent sign probes change worst/best orientations. This is a genuinely motivated numerical linear algebra benchmark, not generic estimator normalization or a claim of large-scale optimal algorithm design.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.cs.cornell.edu/courses/cs6241/2020sp/readings/Ubaru-2017-fast.pdf",
+    "https://arxiv.org/pdf/2005.10009",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-orientation-bifurcation-for-one-node-stochastic-lanczos-lo--e04bd1997837",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-orientation-and-sampling-budget-transitions-in-one-node-st--9c172b7c0f19"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "2D one-node risk may have been solved under Bernoulli log-transform terminology not reached by semantic searches.",
+    "Orientation optimization assumes fixed known eigenvalues and only one-node quadrature; no cost-equivalent claim or general multivariate algorithm.",
+    "Publication transport not ready: operational provenance scope_run_id in public-facing AUDIT.json and METADATA.json (original bytes preserved; no sanitizing edits staged)."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 with only its standard library. The program enumerates all four equally likely sign vectors, and for probe budgets up to four explicitly enumerates each finite probe sequence. It compares their empirical finite-support means and MSEs against the independent analytic formula and tests both endpoint and minimizer predictions on parameter grids. It produces the recorded `verification_output.txt` of 80,540 checks. The output should state `PASS`.
+## correctness
 
-The *proof* of all real-parameter extrema, equality cases and phase thresholds is the derivative and monotonicity argument in `RESULT.md`. Grid checks are regression tests and do not establish universal assertions. The exact integer-probe distribution assumes independent probes; all logarithm arguments are positive because \(a>b>0\). No external independent review or certification has been conducted. An unrelated numerical or source-discovery failure would not be evidence that a universal mathematical claim is impossible.
+PASS
+
+One-node SLQ outputs 2 log(m(1±r t)) with fair signs, so exact mean bias B(t)=log((1−r²t²)/(1−r²)) and variance U(t)^2/N. Derivative sign governed by H(t)=U/(rtB), strictly increasing from 2/B0 to infinity. This proves unique interior minimum only when N>2/B0, no interior maximum, worst endpoints switching at (logκ/B0)^2 with all equality cases; trace MSE is exact across every orientation, integer N and distinct SPD eigenvalues. Independently evaluated finite two-sign distribution, variance and endpoint inequalities; finite checks do not prove continuous result.
+
+## originality
+
+PASS
+
+Best-of-knowledge new exact MSE classification for fair-sign one-node SLQ in dimension two, with both global worst-orientation and best-orientation sampling thresholds; primary SLQ and trace literature supplies method/tail estimates, not exact two-point optimization; 3D expectation theorem differs in dimension and loss. Possible identical Bernoulli-model calculation in specialist literature remains a risk.
+
+## value
+
+PASS
+
+Exact sharp mean-squared risk thresholds in the one-node SLQ estimator isolate bias-vs-sampling tradeoffs and explain when additional independent sign probes change worst/best orientations. This is a genuinely motivated numerical linear algebra benchmark, not generic estimator normalization or a claim of large-scale optimal algorithm design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
