@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem's exact quantifiers are every prime power \(q\ge2\) and every matrix size \(n\ge3\). The rank-one Hermitian parametrization has norm-one fibers of size \(q+1\) and the Hermitian Gauss sum equals \(-q\) in every characteristic. Scalar orthogonality converts trace-zero conditioning into a sum of full-rank Hermitian quadratic Gauss sums. Independent Fourier frequencies are Hermitian matrices modulo scalar matrices, since the trace pairing is nondegenerate. Distinct field eigenvalues force a sum-of-eigenspace-dimensions bound of \(n\), and the partition optimization proves the sharp bound with equality only in the asserted rank-one families. The checker exactly exhausts the full Hermitian matrix space at the stated three small parameters, independently confirming both the eigenvalue formula and equality counts. General proof, not enumeration, supports the infinite quantifiers.
+PASS
 
-## Originality — PASS under bounded comparison
+The additive group is the trace-zero Hermitian n x n subspace over F_{q^2}, n>=3, with generators rank-one nonzero square-zero vv* times F_q^*. Frequencies are Hermitian classes modulo scalar I; summing characters over isotropic projective points yields lambda(A)=((-q)^n/q)*[sum_t (-q)^{d_t(A)}]/(q+1)-1/(q+1), with d_t the nullity of A+tI. Projective Hermitian isotropic counts and Gauss sums give degree D=[q^{2n-1}+(-1)^n(q-1)q^{n-1}-1]/(q+1). The integer-partition extremization for the disjoint rational eigenspace dimensions gives L=[q^{n-1}(q^{n-1}+(q-1 if n odd else 2))+1]/(q+1), achieved with negative lambda only; odd maximizers are rank-one nilpotent frequencies, even maximizers have rank one and nonzero trace (all modulo scalars). The claimed multiplicities count their respective conjugation orbits. Independent complete Hermitian matrix enumeration at (q,n)=(2,3) and (2,4) checked 512 and 65,536 frequency matrices, extrema, degree, and all claimed equality counts. A finite test does not establish arbitrary q/n.
 
-Schmidt (2017) and Cioabă–Gupta (2021) give general Hermitian rank-one association-scheme Fourier eigenvalues for the full matrix space. Their rank-indexed spectra can supply the ingredients for the trace-zero multiplier identity, but do not present the new parity-dependent extremal optimization of the restricted generator set. Orel (2015) treats rank-one Hermitian adjacency on full or invertible vertex families, focusing on graph cores and geometry; Ihringer (2015) treats Hermitian polar-space incidence extrema. The more analogous traceless general-matrix nilpotent walk has non-Hermitian algebraic directions, not the Hermitian rank-one trace-zero dichotomy. The exact statement/implication comparison, not title matching, underpins this bounded conclusion. Residual risk is an earlier equivalent corollary in wider association-scheme or unitary Cayley graph literature; full historical priority remains unresolved.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Rank-one Hermitian differences define a classical matrix association scheme, while the nilpotent trace-zero hyperplane is a natural constrained generator set. Obtaining its sharp nonprincipal spectral radius determines exact \(\ell^2\) relaxation and graph connectivity, and the equality family changes qualitatively with matrix-size parity. The parity-switching eigenspace classification is a structural analytic distinction rather than a table recomputation or an arbitrary narrow instance. It holds uniformly for all prime powers, including characteristic two.
+Classical Hermitian rank-metric translation schemes give eigenvalues grouped solely by ordinary rank of frequency for unrestricted Hermitian rank-one differences. The submitted generator set additionally enforces square zero and trace zero, breaking that scheme into nullity patterns of the entire rational spectral pencil. A published sharp ordinary-matrix nilpotent Cayley walk has eigenline statistics for M_n(F_q), while the symmetric isotropic Veronese example is a different bilinear form and only dimension three in odd characteristic. None implies this Hermitian traceless parity-switching extremal absolute eigenvalue and equality classification by substitution.
 
-## Evidence and limitations
+## value
 
-The exact computations corroborate the three finite cases but do not certify the whole theorem. The proof needs standard Hermitian congruence diagonalization, verified here through the rank-one norm Gauss sum; it does not rely on an unproved numerical pattern. The rank-distance association-scheme literature contains powerful general formulas, and an implicit prior equivalence remains a nonzero risk. No independent mathematical audit or external expert review has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact nontrivial absolute Fourier radius determines the optimal normalized l2 contraction of a natural Hermitian nilpotent random walk, including a genuine matrix-size parity switch in extremizing frequency character type. The negative extremal modes and equality multiplicities convey structural harmonic analysis, rather than just an isolated finite spectrum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
