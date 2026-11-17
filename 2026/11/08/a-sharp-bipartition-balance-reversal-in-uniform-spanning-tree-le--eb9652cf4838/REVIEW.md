@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** For \(a\ge2,b\ge1\), the proof explicitly derives the weighted effective resistance by Kirchhoff's current equations, applies the exact one-edge tree-update identity, extracts each leaf probability from the degree-generating polynomial, and establishes the sign boundary with strict integer monotonicity. The difficult boundary cases are checked separately, including \((a,b)=(2,1)\). A self-contained exact-arithmetic implementation independently verifies weighted cofactors, exhaustive small-instance leaf expectations, and the finite sign grid. The checker does not certify the infinite claim; that is supplied by the symbolic proof.
+## correctness
 
-**Originality — PASS, with priority risk.** Klee–Stamps/Clark provide the unperturbed complete-multipartite weighted enumerator; this work does not claim that identity as new. Dong–Ge give forest-containing counts in the original bipartite graph, and Rapoport gives general finite-graph degree formulae. The inspected papers and targeted research-record searches did not identify the all-parameter, within-part-edge expected-leaf response or its exact sign reversal. The present theorem is not the same as an existing-edge conductance tilt, which leaves the graph's edge set unchanged. Broad enumerator tools permit derivation but do not state the evaluated result; an unlocated earlier specialization remains possible.
+PASS
 
-**Value — PASS.** Edge addition need not monotonically change the expected number of leaves in a uniform spanning tree. The answer has a natural full-dimensional classification for every bipartition shape, a sharp balance boundary and one exceptional equality, rather than an arbitrary finite sample or an isolated counterexample. This complements classical spanning-tree enumeration by resolving a concrete random-tree sensitivity invariant.
+Weighted K_{a,b} tree degree generating polynomial P X^(b-1)Y^(a-1) follows from the standard complete multipartite matrix-tree theorem. Supplying unit current between two a-side vertices gives R_eff=(1/x1+1/x2)/Y and edge-insertion determinant lemma gives Z1=P X^(b-1)Y^(a-2)(Y+x1+x2). Dividing and extracting degree-one coefficients yields pA=(1-1/a)^(b-1), endpoint pA*(b+1)/(b+2), and nonendpoint B-side pB'=(b+1)/(b+2)(1-1/b)^(a-2), so the displayed Δ follows by subtraction. For a>=3 the first term increases with b and second decreases; at b=a-1 sign is negative, at b=a positive; a=2,b=1 gives exact equality via 0^0=1. Checked source verifier parses real graph Laplacian cofactors and enumerates small trees, plus 120x120 exact signs; script inspected, not rerun. Full infinite proof algebraic.
 
-**Limits.** Only one added within-part edge and the expectation of the number of leaves are settled. No statement about stochastic domination or multi-edge perturbations is implied. Historical priority is not independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Klee-Stamps/Clark provides baseline enumerator, rank-one update is standard; no inspected primary work states the added within-side edge mean-leaf change or b=a sign threshold. General degree-correlation identities can in principle derive it but do not by themselves equal an already published full specialization.
+
+## value
+
+PASS
+
+A single added graph edge can *increase or decrease* a natural uniform-spanning-tree statistic, with a sharp bipartition balance boundary for every size. This quantifies a nonmonotone edge perturbation on an elementary natural graph family and can inform random tree sensitivity; despite standard determinant-lemma tools the evaluated sign reversal is not a routine standalone textbook identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

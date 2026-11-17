@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T01:45:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Weighted K_{a,b} tree degree generating polynomial P X^(b-1)Y^(a-1) follows from the standard complete multipartite matrix-tree theorem. Supplying unit current between two a-side vertices gives R_eff=(1/x1+1/x2)/Y and edge-insertion determinant lemma gives Z1=P X^(b-1)Y^(a-2)(Y+x1+x2). Dividing and extracting degree-one coefficients yields pA=(1-1/a)^(b-1), endpoint pA*(b+1)/(b+2), and nonendpoint B-side pB'=(b+1)/(b+2)(1-1/b)^(a-2), so the displayed Δ follows by subtraction. For a>=3 the first term increases with b and second decreases; at b=a-1 sign is negative, at b=a positive; a=2,b=1 gives exact equality via 0^0=1. Checked source verifier parses real graph Laplacian cofactors and enumerates small trees, plus 120x120 exact signs; script inspected, not rerun. Full infinite proof algebraic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rapoport arXiv:2312.14992 general finite-graph joint-degree formulas",
+          "Dong-Ge arXiv:2103.05294 Theorem4 treats forests of edges *already in* K_{a,b}"
+        ],
+        "reasoning": "General joint-degree formulas are an alternative method but no inspected statement dominates the all-(a,b) within-part edge-addition evaluation; previous within-K forest counting does not introduce the new edge.",
+        "searches": [
+          "complete bipartite graph one within part edge expected spanning tree leaf count sign a b",
+          "Rapoport 2023 Correlations in uniform spanning trees fermionic degree",
+          "Dong Ge 2021 K_{a,b} containing prescribed forest",
+          "Resultary spanning trees leaf change edge addition deletion"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md and verify.py",
+        "Klee-Stamps 2019 full PDF Section2/3 Theorem3",
+        "Dong-Ge 2021 cited Theorem4 statement",
+        "Rapoport 2023 abstract",
+        "Resultary q3 and targeted K_{a,b} leaf edge-addition search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "From Klee-Stamps Z0 and the determinant lemma one needs the *new* effective resistance evaluation and degree-one extraction",
+          "At b=a-1 the first base is smaller, at b=a first exponent lower, giving a novel global sign boundary"
+        ],
+        "reasoning": "The formula is derivable from standard ingredients, but a derivation using known machinery is not in itself prior coverage by a concrete stated result. No inspected theorem states its all-parameter sign trichotomy.",
+        "searches": [
+          "complete bipartite graph one within part edge expected spanning tree leaf count sign a b",
+          "Klee Stamps weighted matrix tree theorem complete multipartite",
+          "Rapoport 2023 leaf event spanning trees"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Klee-Stamps arXiv:1903.03575 Theorem3 Z0 for unperturbed complete multipartite graph",
+          "Current H_{a,b} is not complete bipartite/multipartite after insertion of within-side edge"
+        ],
+        "reasoning": "The baseline polynomial can be used as a premise; it does not include Z1 nor give Δ sign without a new rank-one update and leaf extraction.",
+        "searches": [
+          "complete bipartite graph one within part edge expected spanning tree leaf count sign a b",
+          "Klee Stamps 2019 weighted spanning tree complete multipartite Theorem 3",
+          "Rapoport 2023 spanning tree leaf degree joint events"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "pA/pB derived algebraically; exact rational verifier up to a,b<=120 is this package, not a historical published table",
+          "Resultary nearby result on deleting edges of Cayley-tree host has a different base graph"
+        ],
+        "reasoning": "No pre-existing table containing the exact H_{a,b} leaf response was found; an explicit ordinary K_{a,b} tree-count table alone cannot supply it.",
+        "searches": [
+          "complete bipartite graph one within part edge expected spanning tree leaf count sign a b",
+          "uniform spanning tree expected leaves complete bipartite plus edge a b exact table"
+        ]
+      },
+      "rationale": "Klee-Stamps/Clark provides baseline enumerator, rank-one update is standard; no inspected primary work states the added within-side edge mean-leaf change or b=a sign threshold. General degree-correlation identities can in principle derive it but do not by themselves equal an already published full specialization.",
+      "residual_risks": [
+        "An unindexed or unread primary specialization of degree-correlations might explicitly give this exact response.",
+        "No full PDF of Rapoport or Dong-Ge independently inspected this execution; partial-read limitation recorded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS Z0 BACKGROUND only; does not assert the inserted within-part edge expected leaf response",
+          "evidence": "Complete multipartite enumerator P X^(b-1)Y^(a-1) is an established starting point; H_{a,b} with intra-part edge is not in its stated family.",
+          "identifier_or_url": "arXiv:1903.03575v1",
+          "material_read": "Full 2019 arXiv paper; especially Section 2 Theorem 3 and determinant-lemma derivations",
+          "method": "Full PDF text plus page screenshots and theorem comparison",
+          "title": "Linear algebraic techniques for weighted spanning tree enumeration",
+          "trigger": "Exact weighted complete-bipartite tree enumerator and possible stronger edge perturbation"
+        },
+        {
+          "assessment": "DIFFERENT edge set: forests inside K_{a,b}, not an added within-part edge",
+          "evidence": "Counts fixed subforests from existing bipartite edges; cannot directly state new-edge perturbation sign.",
+          "identifier_or_url": "arXiv:2103.05294v1",
+          "material_read": "Abstract/claim/Theorem 4 statement as reported, no full independent download",
+          "method": "Search and source description",
+          "title": "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+          "trigger": "Potential exact forest/edge counts"
+        },
+        {
+          "assessment": "BROAD METHODS, full priority risk retained",
+          "evidence": "General correlation identities could yield the answer after specialization but no directly covering formula established.",
+          "identifier_or_url": "arXiv:2312.14992",
+          "material_read": "Accessible abstract and summary of degree-correlation results only",
+          "method": "Source-level statement search; no complete paper inspection",
+          "title": "Correlations in uniform spanning trees: a fermionic approach",
+          "trigger": "Broader leaf and degree statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A single added graph edge can *increase or decrease* a natural uniform-spanning-tree statistic, with a sharp bipartition balance boundary for every size. This quantifies a nonmonotone edge perturbation on an elementary natural graph family and can inform random tree sensitivity; despite standard determinant-lemma tools the evaluated sign reversal is not a routine standalone textbook identity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "pinned RESULT.md and verify.py",
+    "Klee-Stamps 2019 full PDF Section2/3 Theorem3",
+    "Dong-Ge 2021 cited Theorem4 statement",
+    "Rapoport 2023 abstract",
+    "Resultary q3 and targeted K_{a,b} leaf edge-addition search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a>=2,b>=1, adding one within-a-part edge to K_{a,b} changes expected total leaf number by 2/(b+2)[(1-1/b)^(a-2)-(1-1/a)^(b-1)], positive iff b>=a, zero only (a,b)=(2,1), negative otherwise.",
+  "limitations": [
+    "Uniform labeled spanning trees; one new edge within a fixed part; expected leaf count only, not distributional ordering or multiple additions."
+  ],
+  "residual_risks": [
+    "An unindexed or unread primary specialization of degree-correlations might explicitly give this exact response.",
+    "No full PDF of Rapoport or Dong-Ge independently inspected this execution; partial-read limitation recorded."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS Z0 BACKGROUND only; does not assert the inserted within-part edge expected leaf response",
+      "evidence": "Complete multipartite enumerator P X^(b-1)Y^(a-1) is an established starting point; H_{a,b} with intra-part edge is not in its stated family.",
+      "identifier_or_url": "arXiv:1903.03575v1",
+      "material_read": "Full 2019 arXiv paper; especially Section 2 Theorem 3 and determinant-lemma derivations",
+      "method": "Full PDF text plus page screenshots and theorem comparison",
+      "title": "Linear algebraic techniques for weighted spanning tree enumeration",
+      "trigger": "Exact weighted complete-bipartite tree enumerator and possible stronger edge perturbation"
+    },
+    {
+      "assessment": "DIFFERENT edge set: forests inside K_{a,b}, not an added within-part edge",
+      "evidence": "Counts fixed subforests from existing bipartite edges; cannot directly state new-edge perturbation sign.",
+      "identifier_or_url": "arXiv:2103.05294v1",
+      "material_read": "Abstract/claim/Theorem 4 statement as reported, no full independent download",
+      "method": "Search and source description",
+      "title": "Counting spanning trees in a complete bipartite graph which contain a given spanning forest",
+      "trigger": "Potential exact forest/edge counts"
+    },
+    {
+      "assessment": "BROAD METHODS, full priority risk retained",
+      "evidence": "General correlation identities could yield the answer after specialization but no directly covering formula established.",
+      "identifier_or_url": "arXiv:2312.14992",
+      "material_read": "Accessible abstract and summary of degree-correlation results only",
+      "method": "Source-level statement search; no complete paper inspection",
+      "title": "Correlations in uniform spanning trees: a fermionic approach",
+      "trigger": "Broader leaf and degree statistics"
+    }
+  ]
+}
