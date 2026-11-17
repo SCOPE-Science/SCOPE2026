@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T07:57:38.337959Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen 2026/11/08/reflection-complexity-of-the-triangular-marker-binary-word--06b665794dd0/RESULT.md",
+        "frozen 2026/11/08/reflection-complexity-of-the-triangular-marker-binary-word--06b665794dd0/verify.py"
+      ],
+      "rationale": "For the exact one-sided word 1 0^1 1 0^2 1... the all-zero factor is unique and the one-one words occur in every placement. Two-one factors have unique form 0^a 1 0^j 1 0^b with 0<=a<=j-1 and 0<=b<=j+1. Factors with at least three ones are uniquely indexed by initial zero count and first increasing internal gap; no such factor has its reverse in the language. Nonpalindromic reversal pair series are z²/((1-z)(1-z²)) for one one and z⁵/((1-z)(1-z²)(1-z³)) for two ones. Subtracting from P(z)=1+z(2-z-z²+z³)/((1-z)^3(1+z)) yields the claimed R(z) with denominator (1-z)^3(1+z)(1+z+z²), noncancelled roots of orders 2,3 and least quasipolynomial period 6, coefficients c=(1,2,2,4,5,7). P(n)=floor((n+1)^2/4)+1 and R/P→2/3. Own direct factor check at n<=45 corroborates but does not establish the all-length classification.",
+      "residual_risks": [
+        "Independent bounded checks are finite corroboration; infinite quantifiers depend on the reconstructed mathematical proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier square-indicator theorem applies gaps 1,3,5,... between marked positions, not consecutive triangular gaps 1,2,3,...; its formula is different though both asymptotic ratios equal 2/3."
+        ],
+        "reasoning": "The square-word proof is methodologically analogous, but neither its stated exact formula nor a simple reindexing determines the triangular indicator formula.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-reflection-complexity-of-the-perfect-square-indicator-word--fe330b1e5833/RESULT.md",
+          "arXiv:2406.09302",
+          "reflection complexity triangular numbers binary indicator increasing gaps length n generating function"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2406.09302",
+        "arXiv:2511.12358",
+        "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-reflection-complexity-of-the-perfect-square-indicator-word--fe330b1e5833/RESULT.md",
+        "OEIS:A076127",
+        "Resultary reflection-complexity semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General reflection-complexity bounds cannot fix each residue class. The full square-support theorem hinges on odd-increment gaps and has different coefficients."
+        ],
+        "reasoning": "The triangular word requires counting reversals at a different gap geometry, so no checked theorem mechanically implies the six formulas.",
+        "searches": [
+          "arXiv:2406.09302",
+          "arXiv:2511.12358",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-reflection-complexity-of-the-perfect-square-indicator-word--fe330b1e5833/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Allouche et al. define reflection complexity and general factor/reversal relationships but do not evaluate this specific increasing-gap word in inspected statements. Dvořáková–Pelantová study general limits and periodicity."
+        ],
+        "reasoning": "The general identity R=P-(number of reversed nonpalindromic pairs) is background; evaluating all two-one pairs and the period-six polynomial is additional combinatorics.",
+        "searches": [
+          "reflection complexity triangular numbers binary indicator increasing gaps length n generating function",
+          "arXiv:2406.09302",
+          "arXiv:2511.12358"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A076127 identifies a triangular-marker indicator, not its reversal-class factor complexity; the earlier square-indicator table is for a genuinely different binary language."
+        ],
+        "reasoning": "The exact period-six coefficients and generating function were not retrieved as known entries; this is a qualified search finding, not absolute novelty proof.",
+        "searches": [
+          "OEIS:A076127",
+          "reflection complexity triangular numbers binary indicator increasing gaps length n generating function",
+          "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-reflection-complexity-of-the-perfect-square-indicator-word--fe330b1e5833/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality after comparing statements, direct implications and inspected primary source material.",
+      "residual_risks": [
+        "An unindexed exact formula or a general increasing-gap classification may subsume the triangular specialization.",
+        "The symmetric 2/3 limiting ratio also occurs for square-supported words, so the ratio alone is not original; the exact period-six formula is the claimed novel part."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_NOT_EXACT_FORMULA",
+          "evidence": "Provides structural framework, but the sampled theorem statements do not give period-six triangular-marker formula.",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.09302",
+          "material_read": "Accessible full text and main definition and general results, including reflected-factor counting relations",
+          "method": "Open-access arXiv PDF text and screenshot",
+          "title": "The reflection complexity of sequences over finite alphabets",
+          "trigger": "Primary introduction of the invariant and potential general formula"
+        },
+        {
+          "assessment": "ANALOGOUS_NOT_IMPLICATION",
+          "evidence": "Its support gaps 1,3,5,... and formula 2+floor((floor(n/2)+1)^2/3)+(n mod 2) differ from triangular gaps and current R(6m+s).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/12/SCOPE-exact-reflection-complexity-of-the-perfect-square-indicator-word--fe330b1e5833/RESULT.md",
+          "material_read": "Entire published RESULT.md including proof and exact formula",
+          "method": "Full GitHub source text",
+          "title": "Exact reflection complexity of the perfect-square indicator word",
+          "trigger": "Most relevant published SCOPE sparse-support exact computation"
+        },
+        {
+          "assessment": "LIMITED_MATERIAL_NOT_A_WHOLE_DOCUMENT_NEGATIVE",
+          "evidence": "Describes periodicity/minimum-growth behavior, but unseen material might contain other special cases; residual risk retained.",
+          "identifier_or_url": "https://arxiv.org/pdf/2511.12358",
+          "material_read": "Introduction, abstract and stated thematic results accessible via open arXiv PDF",
+          "method": "Open-access PDF text and screenshot",
+          "title": "Reflection on the reflection complexity",
+          "trigger": "Broader general reflection complexity theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact factor decomposition and H(z) pairs, compared with square-indicator analogue."
+      ],
+      "rationale": "Reflection complexity is a natural extension of word-factor complexity to reversal classes. An exact full spectrum on the triangular-number indicator yields a nontrivial least-period-six quadratic quasipolynomial and a structural obstruction to reversible factors with >=3 ones, relevant to sparse nonrecurrent languages. It is neither a trivial sequence lookup nor a known-table coefficient extraction.",
+      "residual_risks": [
+        "An unindexed exact formula or a general increasing-gap classification may subsume the triangular specialization.",
+        "The symmetric 2/3 limiting ratio also occurs for square-supported words, so the ratio alone is not original; the exact period-six formula is the claimed novel part."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Specific one-sided triangular-marker word only, factors contiguous and each counted once; no arbitrary gaps or prefix-length threshold theorem.",
+  "schema_version": 1
+}

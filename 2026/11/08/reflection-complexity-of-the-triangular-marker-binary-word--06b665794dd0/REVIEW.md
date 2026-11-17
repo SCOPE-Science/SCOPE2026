@@ -1,22 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A complete proof partitions the factors into zero, one, two, and at least three ones. The two-one factors have exact surrounding-gap constraints, and factors with at least three ones have strictly increasing complete internal gaps. Only the former and one-one factors admit nonpalindromic reversal partners. Their pair-generating functions together with ordinary factor enumeration yield the claimed rational generating function and all six residue formulas. The standalone checker directly enumerated every factor for 124 selected lengths through 250. Remaining correctness risk: the computer tests are finite and independent proof review has not occurred.
+PASS
 
-## Originality — PASS (qualified)
+For the exact one-sided word 1 0^1 1 0^2 1... the all-zero factor is unique and the one-one words occur in every placement. Two-one factors have unique form 0^a 1 0^j 1 0^b with 0<=a<=j-1 and 0<=b<=j+1. Factors with at least three ones are uniquely indexed by initial zero count and first increasing internal gap; no such factor has its reverse in the language. Nonpalindromic reversal pair series are z²/((1-z)(1-z²)) for one one and z⁵/((1-z)(1-z²)(1-z³)) for two ones. Subtracting from P(z)=1+z(2-z-z²+z³)/((1-z)^3(1+z)) yields the claimed R(z) with denominator (1-z)^3(1+z)(1+z+z²), noncancelled roots of orders 2,3 and least quasipolynomial period 6, coefficients c=(1,2,2,4,5,7). P(n)=floor((n+1)^2/4)+1 and R/P→2/3. Own direct factor check at n<=45 corroborates but does not establish the all-length classification.
 
-The full-text source by Allouche et al. [1] introduces the invariant and gives general comparisons, not this explicit triangular-marker evaluation. The 2025 refinement [2] treats eventual-periodicity and minimum-growth classes; the 2026 generalization [3] treats groups of antimorphisms and other word families. The exact period-six formula is not implied by those statements: its proof requires a language-specific classification of reversal partners. Public sequence record [4] lists the underlying triangular-marker word but no such quotient-factor count. Searches of published records and nearby mathematical formulations found no direct equivalent. Residual risk: unindexed specialized literature may contain the result; lack of a retrieved match does not establish absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This gives a complete evaluation of a recently introduced factor-complexity invariant for a natural nonrecurrent sparse word. The nontrivial cancellation between quadratic ordinary complexity and the reversed pairs yields a sharp quadratic quasi-polynomial with least period six and asymptotic ratio \(2/3\), illustrating behavior different from reversal-closed and ultimately reflected-factor-free settings. The exact structural threshold—reversal partners can contain no more than two ones—is the mechanism, not an arbitrary numerical table. It does not attempt a general increasing-gap classification.
+Best-of-knowledge originality after comparing statements, direct implications and inspected primary source material.
 
-## Literature and limitations
+## value
 
-[1] Allouche, Campbell, Li, Shallit, Stipulanti, *The reflection complexity of sequences over finite alphabets*, arXiv:2406.09302.
-[2] Dvořáková, Pelantová, *Reflection on the reflection complexity*, arXiv:2511.12358.
-[3] Blažek, Dvořáková, Pelantová, *Generalized reflection complexity*, arXiv:2610.14637.
-[4] OEIS A076127, https://oeis.org/A076127.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Reflection complexity is a natural extension of word-factor complexity to reversal classes. An exact full spectrum on the triangular-number indicator yields a nontrivial least-period-six quadratic quasipolynomial and a structural obstruction to reversible factors with >=3 ones, relevant to sparse nonrecurrent languages. It is neither a trivial sequence lookup nor a known-table coefficient extraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
