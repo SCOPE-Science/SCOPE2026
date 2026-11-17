@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For \(D,r>0\) and \(|a|<1\), the stationary characteristic function is the convergent infinite product of independent centered Laplace factors; conditioning on exponentially distributed mixing variances gives \(Y_q=\sqrt{V_q}Z\) in distribution, with \(V_q=(1-q)\sum q^jE_j\), \(q=a^2\). Finite geometric-weight majorization, with a correctly normalized finite tail, proves convex ordering of \(V_q\) and, after independent Gaussian multiplication, of \(Y_q^2\). Direct integration gives the two sharp stop-loss endpoints, and strict Jensen gives the nonendpoint gaps at positive thresholds. Normal-tail differentiation and an explicit fourth-centered-moment estimate prove the uniform positive-threshold Gaussian correction. Boundary cases \(q=0\) and \(q\uparrow1\) are separately handled; the latter is a limiting law. The standalone checker passed 205 deterministic diagnostic assertions. It does not substitute for the analytical argument.
+PASS
 
-## Originality — PASS (with publication-priority qualification)
+From stationary characteristic equation (r+Dk²)φ(k)=rφ(ak), the product of independent Laplace factors yields Yq=√Vq Z with Vq=(1−q)Σ q^j Ej and q=a²; mean Vq=1, Var(Vq)=(1−q)/(1+q). For q1<q2, ordered geometric weights have every prefix 1−q^k greater, hence finite Schur-convexity and controlled truncation imply Vq2≤cx Vq1; independent multiplication by Z² preserves convex order. Direct Gaussian/Laplace normal and exponential integration gives the sharp endpoint stop-loss curves; positive-threshold strictness follows conditional Jensen. Uniform Taylor on t in positive compact sets with bounded third derivative, exact fourth-centered moment O((1−q)²), gives first correction t^{3/2}φ(√t)(1−q)/[2(1+q)] and O((1−q)^{3/2}). The Gaussian q↑1 endpoint is limiting only; t=0 has equal risk. Checked four kurtosis identities independently.
 
-Biroli–Feld–Hartmann–Majumdar–Schehr (arXiv:2406.08387v1) give the stationary distribution and first-passage results; they do not state the variance-normalized squared convex-order curve or its explicit Gaussian stop-loss correction. Pierce (arXiv:2204.07215v1) has stationary moments, density and Gaussian/Laplace crossover; the full text does not identify the sharp simultaneous threshold-risk envelopes or coefficient derived here. Di Bello et al. (arXiv:2305.13722) develop time-dependent and stationary partial-reset densities, not this fixed-variance optimization. Kolb–Wübker (DOI 10.1112/blms.70314) provide a Laplace-series stationary representation and analyze conditioning and convergence rates, not square-loss order. Weighted-average majorization and related peakedness are classical and are not asserted as innovations. The combination of the physically normalized family, the all-threshold exact bounds and the positive leading correction was not found in the inspected sources or the accessible claim catalogue. The classic Proschan paper was located by bibliographic record, not fully inspected; a broader result or unpublished treatment could subsume part of the claim. Search absence is not a proof of global priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Normalizing mean-square stationary displacement puts the partial-reset protocols on an equal-amplitude footing. The theorem compares **all** convex penalties for squared excursions at once, rather than selected low-order moments or plot-dependent density widths, identifies simultaneously sharp Gaussian and Laplace bounds, and quantifies how slowly the risk becomes Gaussian when resets barely contract the position. Excess-energy losses have a direct physical interpretation as stationary risk beyond a displacement budget; the explicit leading coefficient permits meaningful comparisons between near-Gaussian protocols. This is a motivated transport-risk property, not a selected arbitrary finite parameter slice.
+PASS best of knowledge: classical stationary Laplace series and Schur majorization are credited. Earlier randomized partial-reset theorem optimizes protocol DISTRIBUTION at FIXED mean-squared reset q; it does not imply convex ordering across deterministic q after separately standardizing variance, exact all-threshold envelopes, or first weak-reset correction. The main claim is a nontrivial physical risk comparison beyond shared ingredients.
 
-## Closest literature and limitations
+## value
 
-Sources: Biroli et al., https://arxiv.org/html/2406.08387v1; Pierce, https://arxiv.org/html/2204.07215v1; Di Bello et al., https://arxiv.org/abs/2305.13722; Kolb and Wübker, https://doi.org/10.1112/blms.70314; Proschan (1965), https://doi.org/10.1214/aoms/1177699798. The paper of Proschan is a source of a general peakedness/majorization tradition, not a source establishing this new physical risk comparison. The available bibliographic record does not support claiming it covers, or does not cover, every consequence of that tradition. Neither unnormalized pointwise tail order nor a first-passage theorem is proved. The Gaussian-rate estimate excludes thresholds moving with the weak-reset parameter.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Variance normalization creates a meaningful equal-energy comparison across different partial-reset strengths, controlling every convex penalty on squared stationary excursion simultaneously. Sharp normal/Laplace envelopes and a quantitative weak-reset correction are usable exact risk benchmarks; neither kurtosis alone nor raw stationary density guarantees these all-threshold conclusions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

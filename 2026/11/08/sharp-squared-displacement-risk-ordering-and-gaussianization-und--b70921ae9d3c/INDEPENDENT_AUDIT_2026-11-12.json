@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T22:41:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From stationary characteristic equation (r+Dk²)φ(k)=rφ(ak), the product of independent Laplace factors yields Yq=√Vq Z with Vq=(1−q)Σ q^j Ej and q=a²; mean Vq=1, Var(Vq)=(1−q)/(1+q). For q1<q2, ordered geometric weights have every prefix 1−q^k greater, hence finite Schur-convexity and controlled truncation imply Vq2≤cx Vq1; independent multiplication by Z² preserves convex order. Direct Gaussian/Laplace normal and exponential integration gives the sharp endpoint stop-loss curves; positive-threshold strictness follows conditional Jensen. Uniform Taylor on t in positive compact sets with bounded third derivative, exact fourth-centered moment O((1−q)²), gives first correction t^{3/2}φ(√t)(1−q)/[2(1+q)] and O((1−q)^{3/2}). The Gaussian q↑1 endpoint is limiting only; t=0 has equal risk. Checked four kurtosis identities independently.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biroli et al. derive stationary density and MFPT for fixed a; Proschan 1965 classical Schur-convexity is a proof ingredient"
+        ],
+        "reasoning": "Preexisting general principles enable proof but do not directly assert every model-specific normalized risk monotonicity or perturbation coefficient.",
+        "searches": [
+          "Brownian diffusion multiplicative partial resetting normalized squared displacement convex order Gaussian Laplace stop loss",
+          "arXiv:2406.08387"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-convex-order-bounds-for-brownian-motion-with-randomized-pa--7b0f19736f42/RESULT.md",
+        "https://arxiv.org/html/2406.08387v1",
+        "https://arxiv.org/abs/2204.07215",
+        "https://doi.org/10.1214/aoms/1177699798",
+        "https://doi.org/10.1112/blms.70314"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior normalizer fixed u; present q-dependent factor 1−q and rate coefficient t^(3/2)phi(sqrt t)/[2(1+q)]",
+          "Published result says deterministic A=√u uniquely minimizes within same u but does not compare A=√u1 to A=√u2"
+        ],
+        "reasoning": "No implication follows by direct substitution when u changes; independent majorization of normalized geometric weights is required.",
+        "searches": [
+          "Brownian diffusion multiplicative partial resetting normalized squared displacement convex order Gaussian Laplace stop loss",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-convex-order-bounds-for-brownian-motion-with-randomized-pa--7b0f19736f42/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier randomized reset theorem concerns convex order with same u=EA² and unchanged stationary variance; current theorem varies q and normalizes Xq² by 2D/[r(1−q)]"
+        ],
+        "reasoning": "Although both use convex order, their quantified families and normalizations differ; fixed-u theorem does not compare between u levels.",
+        "searches": [
+          "Brownian diffusion multiplicative partial resetting normalized squared displacement convex order Gaussian Laplace stop loss",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-convex-order-bounds-for-brownian-motion-with-randomized-pa--7b0f19736f42/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search returned prior same-model partial reset risk work; inspected its full published RESULT.md; no exact normalized q-variable stop-loss theorem found in it"
+        ],
+        "reasoning": "Model-specific exact comparison differs from known table of moments/kurtosis; lack of a hit is not a novelty certificate.",
+        "searches": [
+          "Brownian diffusion multiplicative partial resetting normalized squared displacement convex order Gaussian Laplace stop loss",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-convex-order-bounds-for-brownian-motion-with-randomized-pa--7b0f19736f42/RESULT.md"
+        ]
+      },
+      "rationale": "PASS best of knowledge: classical stationary Laplace series and Schur majorization are credited. Earlier randomized partial-reset theorem optimizes protocol DISTRIBUTION at FIXED mean-squared reset q; it does not imply convex ordering across deterministic q after separately standardizing variance, exact all-threshold envelopes, or first weak-reset correction. The main claim is a nontrivial physical risk comparison beyond shared ingredients.",
+      "residual_risks": [
+        "Full classic Proschan paper and specialist perpetuity convex-order generalities not independently read; a stronger abstract theorem might imply the result.",
+        "Pierce 2022 HTML unavailable in this tool during this run; no assertion of whole-document noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes stationary distribution and first-passage but not variance-normalized convex order across rescaling strengths or positive stop-loss correction",
+          "evidence": "arXiv:2406.08387v1, Sections II–III; r,D,a model, distribution and MFPT.",
+          "identifier_or_url": "https://arxiv.org/html/2406.08387v1",
+          "material_read": "Full accessible HTML: abstract, Introduction, stationary regime Section II, MFPT Section III and subsequent results; explicitly the stationary law, first passage, signed a handling",
+          "method": "Read arXiv HTML primary text, focusing on central theorems and model statements",
+          "title": "Resetting by rescaling: exact results for a diffusing particle in one-dimension",
+          "trigger": "Identical Brownian Poisson multiplicative rescaling model, stationary law and limit"
+        },
+        {
+          "assessment": "DIFFERENT comparison: varied law of multiplier at fixed u; does not compare deterministic u1<u2 with each variance renormalized",
+          "evidence": "Prior theorem fixes u=EA² and r,D, compares randomizing multiplier distribution; present claim varies u=q and scales stationary Yq by its OWN variance.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-sharp-convex-order-bounds-for-brownian-motion-with-randomized-pa--7b0f19736f42/RESULT.md",
+          "material_read": "Full published RESULT.md including perpetuity model, convex order at FIXED mean-square reset multiplier, unique extremal protocols, generator moments and limitations",
+          "method": "Fetched actual primary published mathematical proof through GitHub connector",
+          "title": "Sharp convex-order bounds for Brownian motion with randomized partial resetting",
+          "trigger": "Same Brownian model, same word convex order; stronger randomized-reset comparison possible"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Variance normalization creates a meaningful equal-energy comparison across different partial-reset strengths, controlling every convex penalty on squared stationary excursion simultaneously. Sharp normal/Laplace envelopes and a quantitative weak-reset correction are usable exact risk benchmarks; neither kurtosis alone nor raw stationary density guarantees these all-threshold conclusions.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only stationary one-time squared displacement, not raw tails, first passage or nonnormalized convex order.",
+    "Asymptotic uniformity for positive threshold compacta only; Gaussian endpoint is limit, not admissible at q=1.",
+    "Specialist convex-order generalizations could affect historical priority."
+  ],
+  "schema_version": 1
+}
