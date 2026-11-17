@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The implication between all nonempty, distinct open-neighborhood traces and forbidding pairs of omitted vertices at displacements two and four was reconstructed in both directions, including the non-twin triangle and the false-twin four-cycle. The parity-sensitive auxiliary graph decomposition is an explicit residue-class isomorphism. The cyclic gap count is derived by distinguished roots and compositions, with the factor \(m/k\) justified rather than assumed. All coefficient, support, minimum, and conjecture-boundary statements follow from that bijection. The independent verifier directly enumerates 262136 labelled subsets at lengths three through seventeen, checks a separate transfer representation, and tests the explicit thirteen-vertex counterexample. The unrestricted proof does not rely on finite tests.
+PASS
 
-## Originality — PASS, with publication-priority risk
+PASS. For OLD codes on ordinary labelled C_n, the definition demands all open neighborhoods have nonempty distinct traces, including code vertices. In C_n except n=4 these conditions are equivalent to omitting no pair at cyclic differences 2 or 4: distance 2 forbidden by domination; equal singleton traces from centers distance 2 iff their two nonshared neighbors distance 4 are omitted. C_3 is directly valid, C_4 has equal open twin neighborhoods regardless of set. The forbidden-pair auxiliary graph is C_n^2 when n odd (multiplication by 2 invertible) or two disjoint C_{n/2}^2 for even n≥6. For m-cycle squares every k-set has gaps at least 3 and count (m/k)*binom(m-2k-1,k-1), so polynomial A_m and P_n(z)=z^n A_n(z^-1) or z^n A_{n/2}(z^-1)^2 follows; all size supports follow by subsets of independent sets and the minimum is n-floor(n/3) for odd and n-2floor(n/6) for even. The example C13 complement of {0,5,6,12} is a valid nine-code and corrects the overly broad congruence-1-mod-3 conjecture. Independent direct neighborhood-code enumeration of every subset of C_3..C_14 (32760 masks) matched the polynomial. Proof, not finite testing, establishes all n.
 
-The nearest published cycle paper is Argiroffo–Bianchi–Lucarini–Wagler (2019), Lemma 2.3 and Table 2, which assert a scalar optimum, not a size-distribution polynomial or its exact coefficients; its concrete construction is questioned in Raza (2021), Section 2. Raza's full 2021 paper gives a different upper bound and Conjecture 1, predicting an additional unit for every order congruent to one modulo three. The exact modulo-six correction and all-set enumeration are not implied by either statement. The 2010 and 2014 foundational OLD papers cover general properties, and the circulant paper by Givens–Yu–Kincaid addresses different adjacency or mixed weights. Standard independence-polynomial formulas are acknowledged as existing tools, not independently novel results. Publication priority is not independently certified; an unindexed equivalent OLD enumeration remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result completely enumerates feasible sensor configurations on a canonical graph family, not just a numerical optimum. It gives exact multiplicities of minimum codes, shows a gap-free feasible size interval, explains the odd/even split from the underlying residue graph, and resolves a concrete published conjecture by the sharp parity distinction. The explicit thirteen-cycle witness illustrates the meaningful boundary missing from the conjectured rule.
+PASS, with residual risk of a conventional independence-polynomial specialization in graph-coding literature. Raza 2021 gives the cycle minimum conjectural extra unit for all lengths 1 mod 3, while the submitted complete labelled code-size polynomial refines and corrects it. Argiroffo et al. 2019 present a scalar OLD optimum assertion, not an all-coefficients polynomial. Standard cycle-square independence counting is preexisting but the all-vertex OLD trace equivalence and consequent parity factorization/nonexistence at C4 are specific, not identical to the locating-total or error-detecting variants returned in search.
 
-## Scope and evidence limits
+## value
 
-The counting is for ordinary open-neighborhood traces at all cycle vertices, not closed identification or locating-total domination of only outside vertices. All graph lengths are covered including the small nonexistence exception. Source comparisons used the mathematical claims and relevant sections of the 2010, 2014, 2019, 2021 and 2022 primary treatments. Code exhausts only finite orders; the proof supplies generality. Previously unlocated equivalence and absence of an independent audit remain residual risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. OLD sensor-code placement on basic cycle graphs is a natural invariant. The complete cardinality distribution, multiplicities of minima and the parity-dependent correction to a published conjecture provide an exact reusable classification, beyond merely copying the standard cyclic gap count. No general-graph classification is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
