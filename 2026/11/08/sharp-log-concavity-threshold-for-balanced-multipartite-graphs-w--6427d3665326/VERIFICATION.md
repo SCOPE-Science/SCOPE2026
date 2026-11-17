@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3; no third-party modules or data files are required. It checks each finite-degree polynomial identity symbolically over exact rational coefficients using only standard-library arithmetic. Each certificate is therefore an identity for arbitrary parameters, not a finite search. It also enumerates all vertex subsets and tests shortest-path triples for the two- and three-part graphs (orders ten and fifteen) to check the underlying general-position polynomial directly, and samples further integer parameters only as a sanity check.
+## correctness
 
-Observed output:
+PASS
 
-```text
-SYMBOLIC_ALL_PARAMETERS_POSITIVE_COEFFICIENT_CERTIFICATES_OK
-SHARP_FAILURES_AND_SAMPLE_PARAMETERS_OK
-INDEPENDENT_GEODESIC_ENUMERATION_OK 2 vertices 10 sets 88
-INDEPENDENT_GEODESIC_ENUMERATION_OK 3 vertices 15 sets 294
-VERIFY_OK
-```
+General-position vertex subsets must be within one multipartite part or select at most one from each part, giving the known exact coefficient formula. Independent symbolic SymPy expansion for every defect k=1..6 shows positive coefficients after the claimed t-4 or t-6 shifts; the tail k>=7 follows from strictly log-concave binomial coefficients. Explicit t=2 and 3 sequences have defects -50 and -240 at the stated indices, yet both are unimodal. The identities, not sampled t, cover all t>=4.
 
-The infinite claim uses the proved combinatorial classification, the exact symbolic coefficient identities, and strict log-concavity of the binomial sequence. No finite graph search alone proves an infinite-family claim. A separate independent mathematical audit has not been performed; literature priority remains provisional.
+## originality
+
+PASS
+
+Rather 2026 proves the formula and the strict log-concavity region for part sizes at most four and supplies the t=2 five-part-size failure. Its full primary PDF explicitly leaves finer part-size/part-count classification open. The source does not imply the complete t>=4 positive range or t=3 failure at a different index.
+
+## value
+
+PASS
+
+The result solves the first natural omitted equal-part-size line of a published multipartite general-position polynomial classification problem, with a sharp threshold and two qualitatively different exceptional indices. This is a meaningful exact infinite classification, not a gratuitous small instance or recomputation of the already-known coefficient formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
