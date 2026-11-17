@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The proof in RESULT.md establishes the all-dimensional theorem. Run `python verify.py` with Python 3 standard library from the same directory to replay exactly 690 counted rational checks, including discrete Lyapunov fixed-point identities, finite-time isotropic marginals for 30 rational two-dimensional projectors, and two-step algebraic recovery. The checks are finite illustrations, not exhaustive certificates for arbitrary SPD matrices. Population covariances and exact arithmetic are required. Independent audit has not been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Pinned RESULT.md proves exact Lyapunov sum C=2h(I-(I-hA)^2)^(-1) for stable symmetric SPD A, hence C^(-1)=A-hA^2/2. Range C>=2hI and all symmetric square roots K^2=I-2hC^(-1) are classified by orthogonal projectors on equal-eigenvalue spaces, yielding the complete Grassmannian fiber and uniqueness iff C=2hI. Scalar covariance for nonscalar A forces precisely two eigenvalues a<b with h=2/(a+b), also the unique spectral-radius optimal step; B^2=q^2 I gives every Gaussian one-time marginal from zero. Two distinct stable covariance inverses recover A by eliminating A^2. The proof excludes paths/joint laws and finite-sample inference. Exact independent diagonal rational checks confirmed C=4I/3 for A=diag(1,3), h=1/2 and recovery from h=1/5.
+
+## originality
+
+PASS
+
+The underlying Euler covariance recursion, scalar AR(1) sign ambiguity, and first-order thermodynamic inversion are prior knowledge. The complete higher-multiplicity symmetric inverse fiber, its continuous projector geometry, the necessary-and-sufficient optimal-step all-snapshot collapse, and two-known-step recovery form the surviving full claim. Resultary semantic queries returned related covariance/identifiability papers but no exact stronger discrete Euler-fiber theorem. This is best-of-knowledge rather than worldwide priority.
+
+## value
+
+PASS
+
+Thermodynamic inverse problems naturally need to know when exact discrete stationary covariance identifies SPD drift. Classifying the entire fiber, the worst obstruction at a numerically attractive step, and a simple two-step escape resolve a concrete identifiability issue rather than a renamed scalar identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-dimensional proof follows from the exact discrete Gaussian Lyapunov sum, the equivalence between stable symmetric drifts and symmetric roots of \(I-2hC^{-1}\), the spectral-projection parameterization, the minimax endpoint-step argument, and cancellation between two known step-size precision matrices. The finite-time statement follows from \((I-hA)^2=q^2I\) for two spectral bands at the minimax step. The supplied exact-rational program verifies 690 finite identities and exact recurrences, not the general theorem itself.
+PASS
 
-## Originality — PASS, qualified
+Pinned RESULT.md proves exact Lyapunov sum C=2h(I-(I-hA)^2)^(-1) for stable symmetric SPD A, hence C^(-1)=A-hA^2/2. Range C>=2hI and all symmetric square roots K^2=I-2hC^(-1) are classified by orthogonal projectors on equal-eigenvalue spaces, yielding the complete Grassmannian fiber and uniqueness iff C=2hI. Scalar covariance for nonscalar A forces precisely two eigenvalues a<b with h=2/(a+b), also the unique spectral-radius optimal step; B^2=q^2 I gives every Gaussian one-time marginal from zero. Two distinct stable covariance inverses recover A by eliminating A^2. The proof excludes paths/joint laws and finite-sample inference. Exact independent diagonal rational checks confirmed C=4I/3 for A=diag(1,3), h=1/2 and recovery from h=1/5.
 
-Kirsten et al. (arXiv:2608.09743, August 10, 2026) derive the Euler covariance recurrence and analyze a first-order gradient interpretation. That recurrence is prior evidence, not claimed as new. Their first-order covariance learning-rate optimum is \(1/(a+b)\), whereas the present blindness point \(2/(a+b)\) optimizes the exact Euler transition; the different rate criteria are not conflated. Aifer et al. (arXiv:2308.05660) solve the continuous-time thermodynamic inverse. Singh et al. (Phys. Rev. E 98, 012136) use full time-series observations; van Seeventer and Salehkaleybar (arXiv:2603.08311) treat continuous-time causal edge signs with unknown diffusion. Targeted searches of mathematical findings identified nearby sign-splitting and harmonic-equilibrium bias results but no covering theorem for the stated fixed-step SPD Euler inverse fibers or fastest-step full snapshot collapse. Scalar AR(1) sign ambiguity is standard. Full texts of some possible ancestors were not inspected, and historical priority is not independently settled.
+## originality
 
-## Value — PASS
+PASS
 
-A fastest-relaxing Euler discretization of a two-eigenvalue SPD matrix produces exactly the same isotropic Gaussian marginals from zero for a continuum of matrices with different eigenspaces. This can erase the very anisotropy sought in covariance-based inversion despite stable and rapid relaxation. The full inverse-fiber classification and two-step-size formula give exact theoretical tests for this failure and its remedy; neither high-dimensionality nor an arbitrary parameter slice is required for the issue to occur.
+The underlying Euler covariance recursion, scalar AR(1) sign ambiguity, and first-order thermodynamic inversion are prior knowledge. The complete higher-multiplicity symmetric inverse fiber, its continuous projector geometry, the necessary-and-sufficient optimal-step all-snapshot collapse, and two-known-step recovery form the surviving full claim. Resultary semantic queries returned related covariance/identifiability papers but no exact stronger discrete Euler-fiber theorem. This is best-of-knowledge rather than worldwide priority.
 
-## Scope and residual risks
+## value
 
-The result concerns known isotropic diffusion, stable SPD Euler drifts and population covariances. It does not determine joint trajectory equivalence or empirical estimator conditioning. The derivation uses known Lyapunov and spectral facts and does not assert that those facts themselves are original. Partial access to prior full texts leaves qualified literature-priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Thermodynamic inverse problems naturally need to know when exact discrete stationary covariance identifies SPD drift. Classifying the entire fiber, the worst obstruction at a numerically attractive step, and a simple two-step escape resolve a concrete identifiability issue rather than a renamed scalar identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
