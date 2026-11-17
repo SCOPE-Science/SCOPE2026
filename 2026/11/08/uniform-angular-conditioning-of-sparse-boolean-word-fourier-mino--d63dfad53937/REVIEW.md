@@ -1,11 +1,21 @@
-# Bounded mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The index set is the Boolean support ball, the matrix is unnormalized, and the modulus is an arbitrary integer at least three. The meet factorization gives the inverse without unverified auxiliary assertions. The forward perturbation counts intersecting index pairs; the inverse perturbation counts pairs by union support. Both estimates are uniform in modulus and have strictly lower asymptotic order than their rank-one leading pieces. Their product yields the stated condition number with fixed-radius error uniformity. The standalone numerical checker corroborates the exact algebraic identities, but finite tests are not the proof.
+## correctness
 
-**Originality — PASS, bounded.** The pre-existing meet-matrix literature covers determinant and inverse formulae, and a related earlier binary-ball result covers the order-two Fourier case. Neither is represented as new. The present claim is the sharp two-parameter spectral condition law in the distinct order-at-least-three Boolean-word sampling family, including the uniform error and unrestricted jointly growing modulus. The closest reviewed general Fourier sampling treatment, Osgood–Siripuram–Wu, includes a one-dimensional determinant-derived condition-number lower bound but not the sharp result here. Targeted scholarly searches and accessible earlier scientific claims revealed no equivalent or stronger statement for the current object. This search does not prove priority: a general spectral theorem for complex-valued meet matrices could imply the estimate.
+PASS
 
-**Mathematical value — PASS.** This is a sharp stability theorem for a canonical polynomial-dimensional family of multivariate Fourier interpolation systems, showing precisely how growing dimension and collapsing character-angle separation compound. The uniform joint-limit statement is not merely a new numeral: it specifies the asymptotically exact reconstruction instability for all relative growth rates of the two independent discretization parameters. The rank-one localization of the least-singular directions gives a structural interpretation. Standard algebraic meet-matrix inversion is used as an ingredient, not presented as a substantive new contribution.
+The entry identity (1+a)^|A cap B| = sum_{C subset A cap B} a^|C| with a=omega-1 gives F=Z D Z^T on the downward-closed Boolean support poset; unitriangular Z proves invertibility for m>=2 and produces the exact Möbius inverse indexed by A union B. F-J differs only on pairs with intersection: at most n b_(n,r)^2 such pairs and each error <=2, giving O_r(n^(r-1/2)) Frobenius error independent of m. F^-1 differs from its origin rank-one component by union-size >=1 entries, with squared Frobenius remainder O_r(|a|^(-2r)n^(2r-1)); the dominant entry is a^-r(n^r/r!+O_r(n^(r-1))) uniformly because |a|<=2. Multiplying yields the sharp uniformly relative n^-1/2 law; rank-one gap estimates yield extremal vector claims. Independently built F, Z D Z^T and explicit inverse, checked both products for (n,r,m)=(7,1,3),(8,1,13),(7,2,5),(9,2,31), with max residual below 10^-9. Exact asymptotic needs fixed r; finite cases are not its proof.
 
-**Scope and limitations.** The radius must be fixed; the result is specific to zero-one words rather than the full nonzero-letter Hamming ball. The entire singular spectrum and growing-radius regime remain unproved. General meet-matrix results covering the preliminary exact inverse and determinant are acknowledged; historical priority of the sharp spectral law is not externally certified. The available full-text and abstract inspections are identified in the structured report, including residual source-access risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General meet-matrix factorization/inversion and the m=2 Boolean-ball specialization are already known, and the published fixed-alphabet *full* Hamming-ball theorem has a different row/column index set when m>=3. The submitted angle-dependent sharp asymptotic is uniformly valid for arbitrary m_n, unlike fixed-q full Hamming balls. Fresh searches and a full-text neighboring theorem comparison did not identify a matching two-parameter statement.
+
+## value
+
+PASS
+
+This is a sharp reconstruction-stability law for a natural polynomial-size subset of the multivariate Fourier matrix, explaining the combined n^(2r) dimension amplification and angular blowup [2 sin(pi/m)]^-r with no relation required between n and m. The extremal singular-vector localization identifies which coordinates cause instability. A growing modulus changes the actual numerical difficulty; this is not merely applying fixed-q conditioning with a renamed parameter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
