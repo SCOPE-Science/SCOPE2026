@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T02:07:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a three-run word 0^a1^b0^c, direct string counting gives S=n+b min(a,c). For four runs 0^a1^b0^c1^d, the only nonconstant palindromic subsequences have three runs and S=n+b min(a,c)+c min(b,d). Four exhaustive parameter-order cases yield 2[b min(a,c)+c min(b,d)]≤(a+c)(b+d)≤n²/4, and integer witnesses (1,t,n−2t−1,t) with t maximizing t(n−2t) attain floor(n²/8) for every n≥4; n≥3 for three runs. Independent short-word exhaustive enumerations corroborate, not replace, the proof. The removed odd-run asymptotic is also mathematically correct but already published in greater generality.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 25 result is strictly broader in alphabet size and permits all hosts with at most 2k+1 runs; its extremizers already have exactly that many.",
+          "October 26 five-run exact polynomial implies four-run O(n²) but not the exact M4(n) formula."
+        ],
+        "reasoning": "The larger prior theorem directly dominates the removed asymptotic assertion but does not compute the all-n 4-run maximum.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-universal-run-bounded-asymptotics-and-rigidity-for-scattered-pal--24ceac73bbf9",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-scattered-palindrome-spectrum-and-sharp-cubic-growth-for-five-ru--4f4e17853929",
+          "https://arxiv.org/abs/2108.02729"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-universal-run-bounded-asymptotics-and-rigidity-for-scattered-pal--24ceac73bbf9",
+        "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-scattered-palindrome-spectrum-and-sharp-cubic-growth-for-five-ru--4f4e17853929",
+        "https://arxiv.org/abs/2108.02729",
+        "Git blob RESULT.md 78f95874944044d20f80c2493c3b503ddf4d0d34; verify.py 6a694e9fe03aac064c2e78f376ad66099c7c1858"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full Oct25 proof yields q-independent leading term n^(k+1)/[2^k(k+1)^(k+1)] and rigidity, so the original main general family cannot be credited as novel.",
+          "The repaired four-run bound follows from exact S(0^a1^b0^c1^d)=n+b min(a,c)+c min(b,d), four-case 2E≤(a+c)(b+d), and t(n−2t) integer optimization."
+        ],
+        "reasoning": "Exact equality of r=3 and r=4 for every admissible n is neither a corollary of the earlier leading coefficient with an O(n) term nor a special case of the published five-run spectrum.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-universal-run-bounded-asymptotics-and-rigidity-for-scattered-pal--24ceac73bbf9",
+          "https://arxiv.org/abs/2108.02729",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-scattered-palindrome-spectrum-and-sharp-cubic-growth-for-five-ru--4f4e17853929"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier theorem takes at most 2k+1 source runs and all q≥2, already gives precisely the odd-run asymptotic coefficient and extremal family.",
+          "The retained exact 3-/4-run equality is a finite-n combinatorial plateau, not a restatement of that asymptotic limit."
+        ],
+        "reasoning": "No originality for the original leading-coefficient theorem; only repaired exact low-run plateau survives as a different claim.",
+        "searches": [
+          "Resultary: universal run-bounded asymptotics rigidity scattered palindromes",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-universal-run-bounded-asymptotics-and-rigidity-for-scattered-pal--24ceac73bbf9",
+          "Resultary: four-run distinct scattered palindrome n floor n²/8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published five-run spectrum concerns five source runs; database search identified no prior exact M4(n)=n+floor(n²/8) all-n table."
+        ],
+        "reasoning": "A finite brute-force table for n≤12 cannot establish the unbounded plateau, which is proved by an explicit inequality and witness.",
+        "searches": [
+          "Resultary: exact scattered palindrome spectrum five-run binary words",
+          "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-scattered-palindrome-spectrum-and-sharp-cubic-growth-for-five-ru--4f4e17853929",
+          "run-constrained binary distinct palindrome lookup M4"
+        ]
+      },
+      "rationale": "Only the sharp, unexpectedly equal all-length three-/four-run maxima remain original and independently useful as a boundary between neighboring combinatorial complexity classes.",
+      "residual_risks": [
+        "Unindexed independent exact three-/four-run plateau may exist.",
+        "The 2026-10-25 result decisively invalidates originality of the removed general odd-run asymptotic, independent of search gaps."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_ORIGINAL_ASYMPTOTIC",
+          "evidence": "Explicit same AM–GM coefficient and full asymptotic rigidity for at-most-run class, with exactly-run maximizing witnesses.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-universal-run-bounded-asymptotics-and-rigidity-for-scattered-pal--24ceac73bbf9",
+          "material_read": "Full main finding, assumptions and Steps 1–rigidity of published RESULT.md",
+          "method": "Full primary published result via GitHub",
+          "title": "Universal run-bounded asymptotics and rigidity for scattered palindromes",
+          "trigger": "Same object and stronger alphabet/run quantifiers"
+        },
+        {
+          "assessment": "NOT_COVERING retained exact plateau",
+          "evidence": "Its r<=4 statement only yields O(n²), not n+floor(n²/8).",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/26/SCOPE-scattered-palindrome-spectrum-and-sharp-cubic-growth-for-five-ru--4f4e17853929",
+          "material_read": "Full RESULT.md including five-run exact polynomial and four-run boundary",
+          "method": "Published GitHub full scientific text",
+          "title": "Scattered palindrome spectrum and sharp cubic growth for five-run binary words",
+          "trigger": "Possible exact low-run classification"
+        },
+        {
+          "assessment": "RELATED_NOT_IMPLYING exact four-run plateau",
+          "evidence": "Fibonacci general bounds and alphabet-dependent families do not determine fixed four-run extremal formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2108.02729",
+          "material_read": "Primary PDF relevant general counting and alphabet-size extremal theorems",
+          "method": "Primary PDF inspected",
+          "title": "Counting scattered palindromes in a finite word",
+          "trigger": "Primary invariant same distinct palindromic subsequence strings"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The repaired exact equality M3(n)=M4(n)=n+floor(n²/8) for every admissible n provides a sharp non-obvious structural plateau in the natural number-of-runs hierarchy of distinct palindromic subsequences. The earlier general asymptotic is not counted as this contribution. Not a random small numeric slice: it resolves all lengths across the first genuinely alternating even-run case.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "limitations": [
+    "Unindexed independent exact three-/four-run plateau may exist.",
+    "The 2026-10-25 result decisively invalidates originality of the removed general odd-run asymptotic, independent of search gaps."
+  ],
+  "schema_version": 1
+}

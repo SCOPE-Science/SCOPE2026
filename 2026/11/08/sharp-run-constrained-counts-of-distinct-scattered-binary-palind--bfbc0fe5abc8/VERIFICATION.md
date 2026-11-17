@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope of finite checks
+# Independent mathematical audit
 
-Run `python3 verify.py` using a standard Python 3 interpreter, without third-party packages. Expected output is three PASS lines with totals 1,365, 3,807, and 32.
+## correctness
 
-The script exhaustively checks all positive three-/four-run compositions of lengths from 3 through 14 and confirms both exact closed forms and their maxima. It compares direct, set-based enumeration of distinct palindromic subsequences with an independently formulated interval dynamic program on 3,807 short binary words; for odd-run hosts it separately counts subsequence strings having the full host run count. It checks balanced paired-run examples for eight parameter values.
+PASS
 
-These checks establish only the specified finite instances. The theorem for arbitrarily long words follows from the run-count classification, the AM–GM argument, and the explicit achieving construction given in RESULT.md. No independent external audit has been performed.
+For a three-run word 0^a1^b0^c, direct string counting gives S=n+b min(a,c). For four runs 0^a1^b0^c1^d, the only nonconstant palindromic subsequences have three runs and S=n+b min(a,c)+c min(b,d). Four exhaustive parameter-order cases yield 2[b min(a,c)+c min(b,d)]≤(a+c)(b+d)≤n²/4, and integer witnesses (1,t,n−2t−1,t) with t maximizing t(n−2t) attain floor(n²/8) for every n≥4; n≥3 for three runs. Independent short-word exhaustive enumerations corroborate, not replace, the proof. The removed odd-run asymptotic is also mathematically correct but already published in greater generality.
+
+## originality
+
+PASS
+
+Only the sharp, unexpectedly equal all-length three-/four-run maxima remain original and independently useful as a boundary between neighboring combinatorial complexity classes.
+
+## value
+
+PASS
+
+The repaired exact equality M3(n)=M4(n)=n+floor(n²/8) for every admissible n provides a sharp non-obvious structural plateau in the natural number-of-runs hierarchy of distinct palindromic subsequences. The earlier general asymptotic is not counted as this contribution. Not a random small numeric slice: it resolves all lengths across the first genuinely alternating even-run case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
