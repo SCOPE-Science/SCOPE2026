@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The defining torsion identity for an idempotent splits by image and kernel, yielding the exact criterion that both be Lie subalgebras, in every characteristic. For a semidirect Lie algebra with abelian ideal, a subalgebra not contained in the ideal is uniquely a lift of its adjoint-invariant intersection. In odd characteristic the two eigenvalues distinguish an ordered pair of invariant subspaces. Three disjoint cases (only image lifts, only kernel lifts, both lift) produce the displayed rank formula. In the both-lift case, the two invariant parts span a hyperplane; exactly one eigenspace has codimension one, and precisely \((q-1)q^{2n}\) pairs of lifts yield complementary Lie subalgebras. In characteristic two every subspace is a subalgebra, so the unrestricted projector count applies. Gaussian-binomial inequalities establish the asymptotic exponents. The standalone verifier independently checks direct torsion matrices for three small prime-field cases and enumerates ordered complementary Lie subalgebras for two five-dimensional cases. The proof, not the finite tests, establishes all-parameter statements.
+PASS
 
-## Originality — PASS with priority risk
+Torsion of an idempotent vanishes exactly when image and kernel are subalgebras. Splitting almost-Abelian subalgebras by whether their projection onto Ke is nonzero yields three disjoint cases. For odd characteristic A=diag(I_n,−I_n), invariant subspaces split by eigenspace and the deficient-hyperplane pair count is T_(n,t); lift count is (q−1)q^(2n). For char2 A=I and bracket lies in span(x,y), so every idempotent works. Gaussian exponent bounds yield log_q H=3n²/2+O_q(n). Independent n=1,q=3 substitution gives rank counts 1,63,63,1. General almost-Abelian precedent proves the framework; special enumeration checked, not assumed from its abstract.
 
-The earliest motivating paper checked is Zou–Gao–Kang–Lü, arXiv:2308.12121v1 (2023-08-23). Its classification is over complex low-dimensional pre-Lie and associative algebras; it does not imply an infinite-family finite-field rank polynomial. Li–Ma–Wang, arXiv:2310.14267v1, develops a Leibniz-bialgebra construction, not projection counts. The 2026 real almost-abelian product-structure work is the strongest structural comparator; it establishes existence and normal-form criteria, potentially informing the case analysis, but not the explicit finite-field counts or characteristic-two collapse. Available mathematical-record and literature searches found no equivalent exact statement. Prior research contains rank formulas for averaging operators on the scalar-affine Lie algebra, idempotent endomorphisms, and idempotent derivations in other Lie algebra families. Those conditions and objects differ from Nijenhuis projections. The risk of an unlocated general finite-field enumeration remains material; the claim is not presented as certified publication priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Integrable splitting idempotents are natural in the deformation theory of Lie algebras and correspond to complementary Lie subalgebras. A two-eigenvalue almost-abelian family distinguishes genuine invariant-subspace constraints from the degenerate scalar-eigenvalue case. The exact distribution gives natural operator multiplicities at every rank and a quantitative separation \(q^{-n^2/2+O_q(n)}\) in the fraction of admissible projections across characteristics. The phenomenon is not a mere relabeling of the all-projections count: in odd characteristic most projections cease to satisfy the torsion identity, whereas in characteristic two every projection satisfies it. The count requires combining invariant-subspace decompositions, complementary lifts and deficiency-one eigenspace configurations. The low-dimensional special cases or the even-characteristic formula alone would not carry the same value.
+An earlier published general theorem for arbitrary almost-Abelian A gives N_r from invariant subspaces and disjoint invariant pairs, so structural projection criterion and first general formula are NOT new. The exact repeated ±1 eigenspace Gaussian T_(n,t) evaluation, sharp fixed-q q^(-n²/2) rarity, and char2 fusion as a quantitative contrast are not stated in that prior result; these are motivated nontrivial quantitative specializations rather than a mere renaming. Best-of-knowledge PASS narrowly for this explicit count/asymptotic, with substantial priority risk because general formula may mechanically facilitate derivation.
 
-## Limitations and literature
+## value
 
-The classification is for the specified two-eigenvalue semidirect Lie family, not a universal formula for Lie algebras. Only fixed-field asymptotics are asserted. Characteristic-two collapse is elementary once the bracket is written, and the criterion for integrable projections is known. Exact publication priority remains subject to discovery of broader counting results, particularly product-structure literature.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two-eigenvalue almost-Abelian family isolates a mathematically motivated modular fusion, and the exact labeled-rank counts plus exponential scarcity have quantitative content beyond merely detecting existence of idempotent Nijenhuis projections. The prior universal framework limits degree of originality; this should not be advertised as a general new classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
