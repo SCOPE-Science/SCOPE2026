@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The monomial weights are precisely those of the quartic family in the identified primary source. Fixed-locus partitions are exhaustive for all \(26\) nonidentity cyclic elements. The threefold is smooth for a verified parameter specialization, and the theorem is explicitly restricted to smooth parameters. Tangent weight triples are derived from the nonzero partial derivatives at coordinate vertices, and cyclic pseudo-reflections are removed before testing Reid–Tai ages. The singular-axis analysis covers all positive-dimensional stabilizer strata, while adjunction, ramification, Riemann–Hurwitz, and Burnside's formula supply the global invariants. Exact code independently checks critical finite identities but is not treated as an infinite proof.
+## correctness
 
-## Originality — PASS, subject to historical priority risk
-Zhu's *Automorphism groups of smooth quartic threefolds* (arXiv:2610.39627v1), especially its Theorem 1.2 and Example 3.2(20), gives the group and its representation, not the singular curve, full quotient basket, index, volume, or Euler number. Zheng's *On Abelian Automorphism Groups of Hypersurfaces* (arXiv:2004.09008) concerns automorphism-group restrictions rather than the specific quotient. The comparison covers different formulations of the same potential result (orbifold basket, Reid–Tai age, fixed-curve elliptic quotient, and log-Fano quotient), not just matching titles. No equivalent statement was found in inspected primary material; absence from search is not proof, and older cyclic-quotient classifications may still cover some or all of the package.
+PASS
 
-## Mathematical value — PASS
-Quotients by a large full automorphism group are natural geometric invariants of the new quartic family. The presence of a noncanonical isolated singularity alongside a smooth elliptic singular curve and a precise canonical index is structural information not supplied by the classification of the acting group. A complete local basket and explicit elliptic model give concrete inputs for quotient birational geometry.
+Each monomial of the displayed smooth quartic family is weight-invariant modulo 27 under diag(1,24,18,9,0). For 26 nonidentity group elements the projective eigenspace partitions are exactly 18 four-vertex fixed sets, six (plane curve C plus e1/e2), and two (quartic K3 surface S plus e1). At e1,e2,e3,e4 the tangent weights computed by deleting one coordinate using the nonzero partial derivative are respectively (17,8,26), (4,21,3), (10,6,18), (19,15,9). At e2..e4 quotienting an order-three pseudoreflection gives order-nine weights (4,7,1), (1,2,6), (1,5,3); the latter two represent equivalent germs. Independent residue-age calculation confirmed noncanonical min Reid-Tai age 1/3 at e1 and age one at the other three. The generic curve transverse action reduces to 1/3(1,2), giving A2; C/G is elliptic by Riemann-Hurwitz and has invariant function field z^2=(1+bu+au^2)^2-4u^3. The ramification identity q^*(-K_Y)=3H gives volume 3^3*4/27=4; Burnside fixed-locus Euler gives (-56+18*4+6*(-4+2)+2*(24+1))/27=2. Smoothness of at least one member follows exact affine Groebner plus infinity test in inspected certificate. All-member statement is explicitly conditional on X smooth; quotient index 9 from local stabilizers. No assertion of canonical quotient or a smooth resolution.
 
-## Remaining limitations
-Analytic quotient types and reduced singular support are classified; the singular scheme, resolutions and stringy invariants are not. Literature priority remains provisional; none of the checks constitutes independent assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact claim survives bounded search at best current knowledge, subject to explicit source inspections and residual risks. The quotient result is not a direct corollary of group order alone; however complete Zhu full text could not be read, and it might contain stronger quotient statements, so originality is qualified not absolutely certified.
+
+## value
+
+PASS
+
+An exact singularity basket, elliptic singular-stratum model, global Cartier index, anticanonical volume and Euler characteristic of a naturally distinguished full-automorphism quotient supplies concrete birational-geometric data not contained in a classification of its acting automorphism group. The coexistence of A2 singular curve with isolated noncanonical point matters for canonical/terminal geometry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
