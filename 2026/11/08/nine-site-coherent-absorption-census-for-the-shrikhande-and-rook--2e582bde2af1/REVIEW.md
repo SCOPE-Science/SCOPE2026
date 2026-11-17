@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The all-state eventual absorption criterion is equivalent to the vanishing of each adjacency eigenspace's kernel under restriction to the detector coordinates. The explicit \(6,2,-2\) spectral projectors reduce every nine-detector instance to two integral positive-semidefinite ranks. Two independent exhaustive algorithms, one using fraction-free integer elimination and the other a rigorously exact dual-prime Krylov computation, agree on the complete joint-rank census across all \(22{,}880\) instances. The multiplicity-nine eigenspace proves a sharp nine-site lower bound; successful configurations in each graph prove attainment. The proof treats all nonzero real hopping and all strictly positive individual detector strengths.
+## correctness
 
-**Originality — PASS on examined evidence; priority remains provisional.** Agliari–Mülken–Blumen (arXiv:0903.3288) gives trapping on rings, Gamble et al. (arXiv:1002.3003) and Rudinger et al. (arXiv:1207.4535) give quantum-walk comparisons on strongly regular graphs, and Godsil et al. (arXiv:1710.02181) treat two-vertex perturbations. Wananiyakul–Steuding–Tongsomporn (2022, DOI 10.3390/math10244802) distinguish this graph pair by generalized adjacency polynomials rather than absorber censuses; the indexed Section 4 was read, but full article retrieval was rate-limited. Their relevant primary sections were inspected; none supplies this joint nine-detector census. The known projection/observability criterion, general three-eigenvalue SRG algebra, and prior two-detector result are acknowledged as background, not claimed as original. Earlier unindexed star-complement or observability tables are a residual priority risk.
+PASS
 
-**Mathematical value — PASS.** Nine is the first detector size at which complete absorption is even possible, so classifying *all* nine-site subsets is a natural complete optimization boundary. The exact \(3936\) versus \(7200\) counts and full dark-dimension histograms quantify a real difference between the two smallest nonisomorphic graphs with common \((16,6,2,2)\) parameters, despite their identical original spectra. The matched-induced-pattern no-go prevents overinterpreting that difference as a distinction for arbitrary paired placements.
+SRG spectral decomposition yields projector formulas E6=J/16, E2=(A+2I)/4-J/8 and E-2=(2I-A)/4+J/16. A dark mode is precisely an adjacency eigenvector vanishing on detectors; no such mode iff the finite dissipative semigroup decays for every strictly positive loss assignment. Multiplicity nine of -2 eigenspace forces |T|>=9. Inspection of check_exact.cpp and check_krylov.cpp confirms exhaustive loops over all 11,440 subsets per graph and two different exact rank algorithms, not merely logs. Independent construction of each graph and direct 22,880 principal-matrix rank calculations reproduced every row: rook D=0,1,2 counts 3936/6736/768; Shrikhande 7200/4144/96. Matched induced patterns have identical restricted spectral Gram matrices; the isometry extends blockwise. Results only for uniform hopping, one particle and eventual absorption.
 
-**Scope and limits.** Exact finite one-particle no-jump dynamics; positive site losses and uniform adjacency hopping only. No finite-time rate bound, many-body extension, experimental error threshold or thermodynamic-limit claim. No independent scientific validation has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known SRG adjacency spectra, spectral star sets and local trapping explain the rank test; neither the matching-pattern argument nor a general spectral-method theorem determines the full different labelled nine-detector counts. Resultary searches found weighted rectangular rook absorbers and a different Heawood graph but not the same Shrikhande/rook census. Priority qualified because four primary full texts were not completely available.
+
+## value
+
+PASS
+
+This is a natural finite but substantial classification: the smallest two nonisomorphic (16,6,2,2) strongly regular graphs are a canonical cospectral benchmark, and the sharp minimum-detector placement distribution distinguishes their control/observability profiles. The 11,440-subset exact count and same-pattern obstruction are nontrivial and useful even without an infinite family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

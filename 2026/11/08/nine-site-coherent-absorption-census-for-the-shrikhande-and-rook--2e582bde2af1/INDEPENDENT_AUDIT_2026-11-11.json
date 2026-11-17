@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T21:58:10.050015Z",
+  "axes": {
+    "correctness": {
+      "rationale": "SRG spectral decomposition yields projector formulas E6=J/16, E2=(A+2I)/4-J/8 and E-2=(2I-A)/4+J/16. A dark mode is precisely an adjacency eigenvector vanishing on detectors; no such mode iff the finite dissipative semigroup decays for every strictly positive loss assignment. Multiplicity nine of -2 eigenspace forces |T|>=9. Inspection of check_exact.cpp and check_krylov.cpp confirms exhaustive loops over all 11,440 subsets per graph and two different exact rank algorithms, not merely logs. Independent construction of each graph and direct 22,880 principal-matrix rank calculations reproduced every row: rook D=0,1,2 counts 3936/6736/768; Shrikhande 7200/4144/96. Matched induced patterns have identical restricted spectral Gram matrices; the isometry extends blockwise. Results only for uniform hopping, one particle and eventual absorption.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rectangular rook-detector theorem restricts detector placement to rectangular Cartesian sets and does not enumerate arbitrary nine-element subsets; Heawood concerns a different 14-vertex graph."
+        ],
+        "reasoning": "Neither retrieved published statement supplies a strictly broader theorem implying both 16-vertex SRG distributions.",
+        "searches": [
+          "Resultary: rectangular detectors on weighted rook quantum networks exact resonance capture laws",
+          "Resultary: exact minimum absorber placement census on the Heawood quantum network"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/nine-site-coherent-absorption-census-for-the-shrikhande-and-rook--2e582bde2af1/RESULT.md",
+        "https://arxiv.org/abs/0903.3288",
+        "https://arxiv.org/abs/1002.3003",
+        "https://arxiv.org/abs/1207.4535",
+        "https://arxiv.org/abs/1710.02181",
+        "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-rectangular-detectors-on-weighted-rook-quantum-networks-exact-re--b4df55b6d4bf",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-minimum-absorber-placement-census-on-the-heawood-quantum-n--9a2a0929e53d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical SRG adjacency relation A^2=4I+2J gives spectral projectors but not ranks across all absorber subsets.",
+          "A weighted rectangular subfamily cannot determine both arbitrary-placement counts."
+        ],
+        "reasoning": "Prior formulas imply the necessary bound |T|>=9 and a rank procedure; a separate exact joint-rank census gives the nontrivial claimed distributions.",
+        "searches": [
+          "arXiv:0903.3288 trapping quantum walks",
+          "arXiv:1002.3003 two-particle strongly regular graph walk",
+          "Resultary: weighted rook detector rectangular"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eigenspace-coordinate observability and graph star-complement language are equivalent to full capture; the three Gram projectors and their ranks are explicit in assigned RESULT.md.",
+          "Gamble et al. discuss noninteracting spectral indistinguishability, not the nine-detector pattern census in the accessible abstract."
+        ],
+        "reasoning": "Observability/star-set language renames the rank criterion, not the 3936-versus-7200 labelled-subset distribution. Full primary text not accessible, so priority risk retained.",
+        "searches": [
+          "Resultary: Shrikhande rook graph coherent absorption nine detectors dark subspace 3936 7200",
+          "arXiv:1002.3003"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "11,440 nine-element subsets per graph and rank-pair joint counts 3936/7200 appear in the assigned exact-rank certificate; no distinct same-table publication was retrieved."
+        ],
+        "reasoning": "The graph family is tabulated and SRG parameters are classical; the precise dark-rank counts are not the ordinary strongly regular parameter table.",
+        "searches": [
+          "Resultary: Shrikhande rook graph coherent absorption nine detectors dark subspace 3936 7200",
+          "arXiv:1207.4535 quantum walk SRG comparison"
+        ]
+      },
+      "rationale": "Known SRG adjacency spectra, spectral star sets and local trapping explain the rank test; neither the matching-pattern argument nor a general spectral-method theorem determines the full different labelled nine-detector counts. Resultary searches found weighted rectangular rook absorbers and a different Heawood graph but not the same Shrikhande/rook census. Priority qualified because four primary full texts were not completely available.",
+      "residual_risks": [
+        "Prior comprehensive star-complement/observability tables for both SRGs could implicitly reproduce the exact labelled counts; primary full-text verification incomplete.",
+        "Independent numerical rank used floating-point SVD with 1e-7 tolerance for all 22,880 cases; original package separately includes exact rational and finite-field rank algorithms; not a proof of floating-point certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Correct finite statement; independent re-enumeration agrees.",
+          "evidence": "Gram projection rank equals bright subspace; double integer/matrix enumeration.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/nine-site-coherent-absorption-census-for-the-shrikhande-and-rook--2e582bde2af1/RESULT.md",
+          "material_read": "Complete RESULT.md: theorem, projectors, joint rank counts, proof, references; check_exact.cpp and check_krylov.cpp complete sources.",
+          "method": "pinned Git blobs",
+          "title": "Nine-site coherent-absorption census for the Shrikhande and rook networks",
+          "trigger": "assigned final claim"
+        },
+        {
+          "assessment": "Background single-particle SRG spectral limitations; full-text noncoverage NOT claimed.",
+          "evidence": "Gamble et al. 2010 abstract: interacting vs noninteracting particles on SRGs.",
+          "identifier_or_url": "https://arxiv.org/abs/1002.3003",
+          "material_read": "Original abstract and identifying bibliographic data; full paper not obtained after arXiv/open-source requests and Oxford authorization returned vpn_disconnected.",
+          "method": "arXiv indexed abstract; institutional access attempt",
+          "title": "Two-particle quantum walks applied to the graph isomorphism problem",
+          "trigger": "same two strongly regular graph parameters"
+        },
+        {
+          "assessment": "Rectangular detector family cannot by itself tabulate all nine-element subsets of both graphs; unresolved full-text priority risk.",
+          "evidence": "The retrieved result states a rectangular-pattern bright rank law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-rectangular-detectors-on-weighted-rook-quantum-networks-exact-re--b4df55b6d4bf",
+          "material_read": "Published Resultary title and result summary only; not full proof.",
+          "method": "semantic search",
+          "title": "Rectangular detectors on weighted rook quantum networks",
+          "trigger": "same rook object and local detectors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural finite but substantial classification: the smallest two nonisomorphic (16,6,2,2) strongly regular graphs are a canonical cospectral benchmark, and the sharp minimum-detector placement distribution distinguishes their control/observability profiles. The 11,440-subset exact count and same-pattern obstruction are nontrivial and useful even without an infinite family theorem.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/nine-site-coherent-absorption-census-for-the-shrikhande-and-rook--2e582bde2af1/RESULT.md",
+    "https://arxiv.org/abs/0903.3288",
+    "https://arxiv.org/abs/1002.3003",
+    "https://arxiv.org/abs/1207.4535",
+    "https://arxiv.org/abs/1710.02181",
+    "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-rectangular-detectors-on-weighted-rook-quantum-networks-exact-re--b4df55b6d4bf",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-minimum-absorber-placement-census-on-the-heawood-quantum-n--9a2a0929e53d"
+  ],
+  "disposition": "passed",
+  "final_claim": "Sharp nine-detector coherent absorption for the Shrikhande and 4-by-4 rook graphs with complete labelled dark-space census",
+  "limitations": [
+    "An independent second all-integer replay of the complete 22,880-case census was not executed; primary finite exact source contains it.",
+    "ArXiv/alternative lawful HTML inaccessible; Oxford institutional access returned vpn_disconnected for Gamble et al.; no bypass."
+  ],
+  "residual_risks": [
+    "Prior comprehensive star-complement/observability tables for both SRGs could implicitly reproduce the exact labelled counts; primary full-text verification incomplete.",
+    "Independent numerical rank used floating-point SVD with 1e-7 tolerance for all 22,880 cases; original package separately includes exact rational and finite-field rank algorithms; not a proof of floating-point certification."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The defining adjacency matrices were independently generated from coordinate rules and checked against \(A^2=4I+2\mathbf1\mathbf1^{\mathsf T}\). All \(22{,}880\) nine-absorber instances were exhaustively evaluated in two standalone implementations included with this package.
+# Independent mathematical audit
 
-`check_exact.cpp` uses exact integer fraction-free symmetric elimination on the two compressed spectral-projector matrices and asserts the five joint-rank classes for each graph. A successful local build and replay printed `EXACT_RANKS_OK`.
+## correctness
 
-`check_krylov.cpp` independently uses the physical bright-subspace columns \(\{e_t,Ae_t,A^2e_t:t\in T\}\) and dual-prime modular ranks. A Hadamard bound, \(|\det M|<10^{16}\) for every square minor, and the product of the two primes exceeding \(10^{18}\), proves that the maximum modular rank is exactly the rational rank. A successful local build and replay printed `KRYLOV_OK cases=22880 primes=1000000007,1000000009`.
+PASS
 
-Both codes are self-contained C++17 and require an ordinary C++ compiler. The physical implications use the exact spectral projectors and strict positivity of every detector rate; the code does not attempt to certify any claim about finite-time decay constants, experimental errors, or independently established novelty.
+SRG spectral decomposition yields projector formulas E6=J/16, E2=(A+2I)/4-J/8 and E-2=(2I-A)/4+J/16. A dark mode is precisely an adjacency eigenvector vanishing on detectors; no such mode iff the finite dissipative semigroup decays for every strictly positive loss assignment. Multiplicity nine of -2 eigenspace forces |T|>=9. Inspection of check_exact.cpp and check_krylov.cpp confirms exhaustive loops over all 11,440 subsets per graph and two different exact rank algorithms, not merely logs. Independent construction of each graph and direct 22,880 principal-matrix rank calculations reproduced every row: rook D=0,1,2 counts 3936/6736/768; Shrikhande 7200/4144/96. Matched induced patterns have identical restricted spectral Gram matrices; the isometry extends blockwise. Results only for uniform hopping, one particle and eventual absorption.
+
+## originality
+
+PASS
+
+Known SRG adjacency spectra, spectral star sets and local trapping explain the rank test; neither the matching-pattern argument nor a general spectral-method theorem determines the full different labelled nine-detector counts. Resultary searches found weighted rectangular rook absorbers and a different Heawood graph but not the same Shrikhande/rook census. Priority qualified because four primary full texts were not completely available.
+
+## value
+
+PASS
+
+This is a natural finite but substantial classification: the smallest two nonisomorphic (16,6,2,2) strongly regular graphs are a canonical cospectral benchmark, and the sharp minimum-detector placement distribution distinguishes their control/observability profiles. The 11,440-subset exact count and same-pattern obstruction are nontrivial and useful even without an infinite family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
