@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T07:52:53.832176Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For F(n)=binom(n,5), Vandermonde with h=2^(k+2) shows each difference binom(h,j) divisible by 2^k for 1<=j<=5; at n=1 a half-period h/2 has valuation k-1, giving least period P_k=2^(k+2). On each residue input branch n=r+8t, r=0..7, exact polynomial expansion has depth d_r=(3,1,2,1,3,1,2,1), odd normalized linear coefficient and all higher coefficients with at least one extra power of 2. Consequently normalized branch t->u_rt+2H_r(t) is an exact bijective 2-adic isometry and maps onto F(r)+2^d_r Z2. Summing eight Haar pushforwards gives w(y)=1/2+(1/2)1_{2|y}+2 1_{8|y}. Integration over y+2^k Z2 and multiplying by minimal-period length gives c_k(y)=2+2 1_{2|y}+8 1_{8|y}, k>=3, plus (6,2),(8,2,4,2) at k1,k2. Direct 2-adic branch comparisons of columns1–4 yield at most two density levels, with three first at column5. A new independent complete least-period enumeration corroborated c_k for k=1..9, with levels {2,4,12} at every k>=3; finite checking is not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun–Zhang stronger all-fixed-column qualitative surjectivity includes k=5 as a special case; that coverage is explicitly acknowledged.",
+          "Barat–Grabner broader two-index sampling is averaged over a different measure, not a dominating pointwise fifth-column law."
+        ],
+        "reasoning": "The broad image theorem proves every residue appears, but not whether it appears 2,4,12 times per least period; fixed-column vs triangular sampling measures must not be conflated.",
+        "searches": [
+          "https://www.researchgate.net/publication/23649373_Binomial_coefficients_and_the_ring_of_p-adic_integers",
+          "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-dyadic-residue-frequencies-of-the-cubic-binomial-column--2d5f4d6a8eb5/RESULT.md",
+          "https://oeis.org/A385557"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/23649373_Binomial_coefficients_and_the_ring_of_p-adic_integers",
+        "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+        "https://oeis.org/A385557",
+        "https://oeis.org/A349593",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-dyadic-residue-frequencies-of-the-cubic-binomial-column--2d5f4d6a8eb5/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Corollary1.2 of Sun–Zhang: every dyadic residue occurs at least once for any fixed lower binomial index.",
+          "Period OEIS fixes only how many positions are sampled, not target multiplicities.",
+          "Barat–Grabner asymptotics sum across 0<=k<=n with n<N, not fixed k=5."
+        ],
+        "reasoning": "The exact eight 2-adic isometric branch map is needed to determine output weights; none of the identified prior claims computes these three-density levels, although several provide inputs.",
+        "searches": [
+          "https://www.researchgate.net/publication/23649373_Binomial_coefficients_and_the_ring_of_p-adic_integers",
+          "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+          "https://oeis.org/A385557",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-dyadic-residue-frequencies-of-the-cubic-binomial-column--2d5f4d6a8eb5/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun–Zhang Corollary1.2 shows image of binom(n,k) dense in Z2 for all k but gives no fiber counts.",
+          "Barat–Grabner equations(1.1) and Sections3–4 use both n and k varying; cubic-column Resultary gives density 1/2+2*1_{4Z2} for lower index3."
+        ],
+        "reasoning": "Image-surjectivity, valuation strata and whole-Pascal-triangle distribution are different invariants; they do not imply the exact fifth-column pushforward weights.",
+        "searches": [
+          "https://www.researchgate.net/publication/23649373_Binomial_coefficients_and_the_ring_of_p-adic_integers",
+          "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-dyadic-residue-frequencies-of-the-cubic-binomial-column--2d5f4d6a8eb5/RESULT.md",
+          "Resultary semantic: fixed binomial polynomial n choose 5 mod powers 2 fiber multiplicities distribution Haar pushforward 2 adic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A385557 records minimal fifth-column period P_k=2^(k+2), a fully known component.",
+          "Cubic column previously has two-valued exact pushforward law; its exact counts are not fifth column values."
+        ],
+        "reasoning": "No same fifth-column 2/4/12 exact table was identified in targeted search; already-known period is not counted as an original contribution.",
+        "searches": [
+          "https://oeis.org/A385557",
+          "https://oeis.org/A349593",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-dyadic-residue-frequencies-of-the-cubic-binomial-column--2d5f4d6a8eb5/RESULT.md",
+          "Resultary semantic: exact three-level 2-adic fibers fifth binomial column"
+        ]
+      },
+      "rationale": "The least period 2^(k+2) is already in OEIS A349593/A385557 and fixed-column 2-adic surjectivity is Sun–Zhang Corollary 1.2; both credited. Barat–Grabner proves bivariate triangular-index asymptotic distribution rather than the exact vertical column n choose 5. The indexed cubic-column dyadic law has two rather than three levels. The exact three-level fifth-column multiplicities and Haar density were not covered by the inspected earlier results. Residual risk is a preexisting unindexed exact fifth-column distribution.",
+      "residual_risks": [
+        "Possible unindexed exact 2-adic fifth-binomial pushforward law, especially in congruence or integer-valued polynomial literature.",
+        "The full publisher-version text of Sun–Zhang was not independently available under current institutional access; accessible author manuscript sections containing its main theorem and Corollary 1.2 were read. Potential additional relevant sections remain a bibliographic access risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL",
+          "evidence": "Corollary1.2 explicitly says every power of two is k-universal, with no exact count of preimages in a least period.",
+          "identifier_or_url": "https://www.researchgate.net/publication/23649373_Binomial_coefficients_and_the_ring_of_p-adic_integers",
+          "material_read": "Author-uploaded full text view: Theorem1.1, Corollary1.2, beginning Section2 proof and contextual remarks",
+          "method": "Read accessible primary manuscript text on ResearchGate (not solely abstract)",
+          "title": "Binomial coefficients and the ring of p-adic integers",
+          "trigger": "Primary fixed-column image-surjectivity theorem directly includes k=5"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Counts joint row and lower-index varying pairs, asymptotically, rather than F(n)=C(n,5) fixed-index exact fibers.",
+          "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+          "material_read": "Full author-hosted 26-page PDF introduction equations(1.1), sections3–4 problem statement and representative Section4 proof arguments pp18-19",
+          "method": "Read primary PDF relevant sections, visually inspected p2 and p19",
+          "title": "Distribution of binomial coefficients and digital functions",
+          "trigger": "Primary binomial coefficient distribution paper could hide stronger coverage"
+        },
+        {
+          "assessment": "DIFFERENT_PARAMETER",
+          "evidence": "Two-level C(n,3) law does not logically determine the exact fifth-column three-level law; no entire-paper NOT_COVERING inference made.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-dyadic-residue-frequencies-of-the-cubic-binomial-column--2d5f4d6a8eb5/RESULT.md",
+          "material_read": "Published Resultary semantic theorem statement and equation for C(n,3); full proof not inspected",
+          "method": "Read indexed result summary (not a full-text negative claim)",
+          "title": "Exact dyadic residue frequencies of the cubic binomial column",
+          "trigger": "Adjacent-index possible dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sun–Zhang’s universal-image problem makes fixed binomial columns natural arithmetic objects. Exact count of each output residue through the true minimal period is a useful finer invariant not implied by coverage or period tables. The fifth column exhibits the first three-stratum 2-adic image density among initial lower indices, with a complete infinite-level structural branch proof and exact 2/4/12 multiplicities. This is a motivated local-distribution classification rather than an arbitrary small finite modulus table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exact fifth binomial-column 2-adic residue fibers, three-valued Haar density, and first three-stratum boundary",
+  "limitations": [
+    "Only F(n)=C(n,5) at powers of two; no odd primes or arbitrary lower indices.",
+    "Least periods and image-surjectivity are known components explicitly credited; the new claim is full fiber distribution.",
+    "Incomplete institutional authorization for one alternative primary download is an access/residual risk, not a scientific failure."
+  ],
+  "schema_version": 1
+}
