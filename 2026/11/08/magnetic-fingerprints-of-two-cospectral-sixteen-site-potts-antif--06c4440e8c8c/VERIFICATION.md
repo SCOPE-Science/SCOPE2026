@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The exact claim was checked by two different whole-space finite algorithms with no numerical approximations. Run `python verify.py` from the directory containing `verify.py`, `verify_subsets.cpp`, `verify_recursive.cpp` and `expected.tsv`, with a local C++20 compiler.
+# Independent mathematical audit
 
-`verify_subsets.cpp` precomputes all induced-subgraph edge counts over 65,536 vertex subsets and enumerates disjoint ordered color classes. `verify_recursive.cpp` adds one vertex at a time, counting edges to earlier assigned vertices. Each exhausts exactly 43,046,721 labeled configurations per graph. Both results exactly match the complete 17-sector table for each graph in `expected.tsv`. The subset checker also verifies the graphs' degree, common-neighbor counts and vertex counts. Both checks passed on the packaged source paths, including after staging the files for delivery.
+## correctness
 
-An independent structural proof gives the energy lower bound \(6J\) for both via the shared adjacency spectrum, sharp on Shrikhande through the displayed witness; disjoint rook-row and rook-column clique constraints strengthen the other bound to \(8J\), also attained. Every finite field interval and critical degeneracy follows by exact rational lower-envelope arithmetic on the complete sector table.
+PASS
 
-Limits: no assertion is made for larger graphs, more colors, nonuniform couplings or thermodynamic limits. No independent external audit, formal verification or historical uniqueness certificate is claimed.
+PASS: Both 16-vertex graphs have adjacency spectrum 6^1 2^6 (-2)^9 from A^2=4I+2J. For 3 color classes with sizes n_c, monochromatic edge count B>=sum n_c^2/4-16>=5.5, so integer B>=6. A Shrikhande coloring attains six; the rook row/column eight edge-disjoint K4 cliques force B>=8 and a witness attains eight. Independent C++ subset-partition enumeration visited exactly 3^16=43046721 labeled states for EACH graph, with all 17 favored-color occupancy minima and degeneracies reproduced exactly, including the zero-field totals 288 versus 90936. Convex hull of (k,m_{G,k}) gives field transitions rook (-2,0,4,6), Shrikhande (-5/2,0,1,7/2,9/2,6); collinear sectors included in critical degeneracies. This finite census is exhaustive, not sampling.
+
+## originality
+
+PASS
+
+Best-of-knowledge: exact published same-object claims and primary literature compared by statement/implication, with strong prior ingredients acknowledged and residual risks retained. The complete accepted contribution is not shown covered by the inspected sources.
+
+## value
+
+PASS
+
+PASS: A full finite exact magnetic staircase for the two canonical cospectral strongly regular 16-vertex graphs exhibits failure of spectral data to determine three-state frustration, magnetization and degeneracy. The 34 occupancy-sector table is a meaningful complete classification of a natural pair, not an arbitrary small graph slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

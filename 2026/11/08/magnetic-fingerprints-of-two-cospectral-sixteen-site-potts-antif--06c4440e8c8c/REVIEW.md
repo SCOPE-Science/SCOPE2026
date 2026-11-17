@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The explicit graph rules give the same strongly regular parameters and spectrum; the exact spectral lower bound is derived from the \(-2\) eigenspace, and two displayed 16-spin configurations attain the graph-specific zero-field bounds. Two independent, fully exhaustive exact-integer implementations computed every one of the 34 occupancy-sector minima and multiplicities, with 43,046,721 configurations per graph. Their complete output matches `expected.tsv`. Exact rational supporting lines establish every critical field, interval and critical degeneracy; these counts do not depend on numerical simulations or extrapolation.
+PASS
 
-## Originality — PASS on examined evidence, with residual risk
+PASS: Both 16-vertex graphs have adjacency spectrum 6^1 2^6 (-2)^9 from A^2=4I+2J. For 3 color classes with sizes n_c, monochromatic edge count B>=sum n_c^2/4-16>=5.5, so integer B>=6. A Shrikhande coloring attains six; the rook row/column eight edge-disjoint K4 cliques force B>=8 and a witness attains eight. Independent C++ subset-partition enumeration visited exactly 3^16=43046721 labeled states for EACH graph, with all 17 favored-color occupancy minima and degeneracies reproduced exactly, including the zero-field totals 288 versus 90936. Convex hull of (k,m_{G,k}) gives field transitions rook (-2,0,4,6), Shrikhande (-5/2,0,1,7/2,9/2,6); collinear sectors included in critical degeneracies. This finite census is exhaustive, not sampling.
 
-The nearest general Potts and field-polynomial papers are Shrock–Xu (arXiv:1009.1182v1) and Klazar–Loebl–Moffatt (arXiv:1311.4348v1). The first analyzes several path, star, tree and wheel families and graph-pair distinctions but not these two strongly regular graphs. The second shows that general bad-coloring polynomials encode finite Potts statistics, without evaluating the specified sixteen-vertex pair. Their general formulas supply methods but not the claimed graph-specific exact sector counts or field transitions. A published independence-complex comparison of the same graph pair addresses homotopy, not three-state antiferromagnetic energy. Previously recorded zero-field and field-resolved two-color Ising polynomial comparisons on the same graphs do not determine the three-color Potts statistics; a quantum-absorption comparison on the pair concerns a different Hamiltonian. The searched primary literature, published result records and accessible prior claims did not produce a dominating specialization. Unindexed chromatic or Potts tables remain a real priority risk; absence of a search hit is not proof of historical novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the classical nonisomorphic cospectral strongly regular pair. Its exact magnetic contrast provides a reproducible physical benchmark of a phenomenon that adjacency spectral data cannot determine. The distinction is substantive: different zero-field bond energies and degeneracies, different numbers and locations of field-induced level crossings, and spectral frustration-bound saturation in one member but not the other. A complete 17-sector classification answers the whole field problem rather than an arbitrary low-order slice. The contribution is a finite-cluster result; no bulk phase transition or universal extension is asserted.
+Best-of-knowledge: exact published same-object claims and primary literature compared by statement/implication, with strong prior ingredients acknowledged and residual risks retained. The complete accepted contribution is not shown covered by the inspected sources.
 
-## Scope and remaining risks
+## value
 
-The graph family is exactly the 16-site Shrikhande/rook pair; coupling is uniform positive and the field singles out one of three labeled colors. The result is sensitive to this normalization. The quoted general generating-polynomial framework could have been evaluated in a historical table not indexed in the inspected sources. Independent validation remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A full finite exact magnetic staircase for the two canonical cospectral strongly regular 16-vertex graphs exhibits failure of spectral data to determine three-state frustration, magnetization and degeneracy. The 34 occupancy-sector table is a meaningful complete classification of a natural pair, not an arbitrary small graph slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
