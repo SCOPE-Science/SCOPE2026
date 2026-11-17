@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Finite certificate and its limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using the Python standard library. The verifier enumerates all \(\binom{23}{4}=8855\) translated five-element sets of diameter at most \(23\), calculates each \(|3A|\) both via direct multisets of three indices and via bitset shifts, and checks the 22 sharp minima, the 22 explicit witnesses and the four maximal-cardinality extremizers. All arithmetic is integer-exact. The finite enumeration proves the minima: any shorter hypothetical realization would be one of the enumerated cases. The published theorem of Rajagopal supplies the *global* list of possible values of \(|3A|\), including the impossibility of \(14\); the verifier does not attempt to establish this infinite statement by finite testing.
+## correctness
 
-The executable file and expected table are embedded in the same package. The recorded status reflects only self-review. Independent audit has not been performed.
+PASS
+
+For every integer five-set, translation reduces to {0,a,b,c,D} with 1<=a<b<c<D. Enumerating all D=4..23 covers sum_D binomial(D−1,3)=binomial(23,4)=8855 sets, and each 3A has at most 35 unordered triples with repetitions. An independently written exact bitmask computation recovered the entire 22-entry m(s) table, the sole 35-at-D23 case and all four reported normalized extremizers. Each lower diameter is eliminated by this exhaustive finite domain, and every claimed optimum has a witness. Rajagopal Theorem 1.7, not finite enumeration, excludes s=14 globally, completing the universe of cardinalities.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the exact k=5, h=3 inverse-diameter profile: Nathanson poses the full N(h,k) problem without 22 minima; Rajagopal solves the cardinality range without optimum diameters; the adjacent complete six-point table cannot be specialized by point deletion. The self-contained exhaustive finite theorem supplies a natural unknown exact N(3,5)=24 and all normalized minimizers; older Sidon/B3 tables could contain individual numbers or even the full case.
+
+## value
+
+PASS
+
+PASS: the inverse diameter needed to realize a specified triple-sumset cardinality is an explicitly posed compression invariant. Exhaustive computation is mathematically complete over the finite universal witness domain, yields N(3,5)=24, all 22 minima, four extremizers, and answers a concrete natural finite case. No general h,k formula is required; previously known cardinality spectrum alone does not determine these minima.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
