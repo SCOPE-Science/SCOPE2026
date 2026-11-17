@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification details
-Run `python3 verify.py` with a standard Python 3 interpreter in the directory containing this document. The program needs no external packages. The full expected output is provided in `verify_output.txt`.
+# Independent mathematical audit
 
-The graph, exact face predicate, edge ordering, and boundary orientations are all generated in the verifier. Two independent enumerations find 272 perfect matchings. An exhaustive independent check of 41,025 graph matchings, using completion on unmatched vertices, agrees with the 30,561-face complex generated from the perfect matchings. The forward and reverse acyclic matchings are each checked by a complete directed topological sort of the Hasse graph, with 150,720 incidences.
+## correctness
 
-Forward matching: 15,173 matched pairs; 124 critical three-cells and 91 critical four-cells. Its exact integer Morse boundary is \(124\times91\), has 70 unit invariant factors, and no remaining nonzero block. Reverse matching: 15,154 matched pairs; 134 critical three-cells, 110 critical four-cells, nine critical five-cells, with exact boundary ranks 80 and nine and vanishing boundary composition. Full original simplicial mod-two boundaries are reduced independently to confirm Betti ranks \(54\) in dimension three and \(21\) in dimension four, with all other reduced ranks zero.
+PASS
 
-The completed topological claim uses discrete Morse theory and the fact that maps from \(S^3\) to a wedge of three-spheres are completely classified by their degree vectors. This supplies the homotopy conclusion from the unit Smith factors; mod-two checks by themselves would not prove torsion-freeness or the homotopy type.
+Enumerated independently the 272 perfect matchings of Q4; down-closure gives 30,561 augmented faces with f-vector (1,32,400,2496,7776,10560,6848,2176,272). An independent successive edge-toggle matching makes 15,173 pairs leaving precisely 124 critical 3-cells and 91 critical 4-cells. All 150,720 Hasse cover incidences pass acyclicity topological sorting; independent mod-two Morse differential has rank 70, producing Betti numbers 54 and 21. Inspected the assigned verify.py integer projection and full unit-pivot row/column reduction: it asserts the entire remainder zero after exactly 70 unit pivots; since the Morse CW model has no dimensions 1,2 or >4, integral primitive 4-to-3 attachments can be canceled by unimodular handle slides, giving the actual wedge rather than just homology. Non-shellability follows from pure dimension7 but homology in dimensions3 and4.
 
-Limits: Exhaustion is specific to the finite graph defined here. No argument about higher-dimensional hypercubes, an integral symmetry character, or an independent external audit is included.
+## originality
+
+PASS
+
+The October 18 exact same-object published theorem determines integral reduced homology and 2-connectivity but EXPLICITLY withholds the wedge-of-spheres homotopy splitting. The assigned acyclic Morse model concentrated in dimensions 3 and 4 and integral unit attaching matrix supplies precisely the missing higher homotopy information. Existing ordinary matching-complex, independence and honeycomb results concern different simplicial face conditions/graphs.
+
+## value
+
+PASS
+
+The perfect-matching complex is a canonical but nontrivial graph complex; whether the known 2-connected two-degree free-homology result actually splits as a wedge is a substantive attaching-map problem, explicitly left unresolved by the earlier same-object theorem. The exact primitive Morse differential resolves that motivated topological gap and shows non-shellability of a pure seven-dimensional complex, an independently useful natural finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
