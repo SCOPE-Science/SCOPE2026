@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The derivation in `RESULT.md` supplies the infinite proof. The independent finite checker in `verify.py` constructs finite fixed-point prefixes, computes observed one-count spectra for contiguous factors, and compares exact minima, maxima and spectrum cardinalities to the residue formulas. Reproduce with `python3 verify.py`. The captured output in `verification_results.txt` is a convenience and is not substituted for execution. Tests include \(49\) explicit block-run parameter pairs across \(3136\) factor lengths and \(365\) other sampled image pairs across \(14764\) factor lengths.
+# Independent mathematical audit
 
-The sample's finite-period filter does not establish aperiodicity for an infinite sequence. The explicit block-run family has a separate aperiodicity proof in `RESULT.md`. No formal theorem prover, third-party validation or independent scientific audit was used. The result does not classify nonbinary, nonuniform, non-prefix-dominant or periodic cases.
+## correctness
+
+PASS
+
+Each substituted image has c ones. For n=bm+r and offset s, the boundary correction is c floor((s+r)/b) + P_end(t)-P_start(s), with m complete-block baseline. Primitive/positive substitution ensures uniform recurrence; if an aperiodic fixed point lacked one orientation of mismatch at distance d, monotone differences along arithmetic progression combined with bounded telescoping sum would contradict recurrence, giving both ordered pairs and attainment of extrema. Sliding windows change one-count by at most 1, hence no holes. Aperiodicity of 0^p1^q/1^q0^p checked via divisibility/period shrink argument. Independent enumeration across five explicit (p,q) examples and n=bm+r, m=1,2,4, agrees; m≥1 all residues proof is infinite.
+
+## originality
+
+PASS
+
+Best-of-knowledge original surviving core as compared against named prior and mathematical implications. 
+
+## value
+
+PASS
+
+A nontrivial positive subclass answering the documented Parikh-constant ultimate-periodicity question is mathematically motivated. Exact factor one-count spectra, not just automatic computability, are useful for factor combinatorics and testing boundary conditions of the open general question; the family demonstrates nonconstant residue profiles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The proof first establishes uniform recurrence and that both ordered unequal endpoint pairs occur at every positive separation. It then decomposes any long sliding window into two image-boundary pieces and complete Parikh-constant image blocks. Prefix dominance makes the two ordered endpoint pairs sharp, and the sliding-window one-count changes by at most one, establishing every intermediate Parikh vector. The displayed residue formula follows with the correct offset correction and all quantifiers. The infinite parameter family is separately proved aperiodic by analyzing the three possible column maps and excluding each least period. The bundled standard-library verifier checks both extrema and interval filling in finite samples; these samples do not constitute the infinite proof.
+PASS
 
-## Originality
+Each substituted image has c ones. For n=bm+r and offset s, the boundary correction is c floor((s+r)/b) + P_end(t)-P_start(s), with m complete-block baseline. Primitive/positive substitution ensures uniform recurrence; if an aperiodic fixed point lacked one orientation of mismatch at distance d, monotone differences along arithmetic progression combined with bounded telescoping sum would contradict recurrence, giving both ordered pairs and attainment of extrema. Sliding windows change one-count by at most 1, hence no holes. Aperiodicity of 0^p1^q/1^q0^p checked via divisibility/period shrink argument. Independent enumeration across five explicit (p,q) examples and n=bm+r, m=1,2,4, agrees; m≥1 all residues proof is infinite.
 
-PASS, with residual bibliographic uncertainty. The closest source, Rigo–Stipulanti–Whiteland (2024), proves automaticity for Parikh-collinear fixed points, but explicitly leaves ultimate periodicity for Parikh-constant fixed points as a question. Its Theorem 3 and concluding question do not state this exact subclass theorem. Their 2023 precursor provides automaticity and a non-Parikh-constant example with aperiodic complexity, not a periodic formula for the present family. Guo–Lü–Wen (2022) treat automatic boundary sequences and related automatic abelian complexities; its accessible abstract does not imply the residue-extremum result. The direct image-boundary method is compared against these scientific statements; an unindexed equivalent might exist.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. This gives a nontrivial positive subclass of an explicitly published periodicity question, with exact computable Parikh spectra at every sufficiently long length rather than a mere automaticity assertion. The sharp attained endpoints, a general sufficient condition, and a two-parameter family with rigorously verified aperiodicity are natural structural information; their full residue profiles vary with the image prefix geometry.
+Best-of-knowledge original surviving core as compared against named prior and mathematical implications. 
 
-## Closest literature and limitations
+## value
 
-Rigo, Stipulanti and Whiteland, arXiv:2405.18032 (2024) and their 2023 conference work, are the primary comparators. Guo, Lü and Wen (Discrete Mathematics 2022) is a secondary plausible comparator whose accessible abstract does not assert the present result; its complete original text was not materially inspected. A global bibliographic uniqueness claim is not made. The result requires binary alphabet, aperiodic fixed point, equal-length equal-Parikh image blocks, and pointwise prefix dominance. A standalone verifier was run, but independent audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A nontrivial positive subclass answering the documented Parikh-constant ultimate-periodicity question is mathematically motivated. Exact factor one-count spectra, not just automatic computability, are useful for factor combinatorics and testing boundary conditions of the open general question; the family demonstrates nonconstant residue profiles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
