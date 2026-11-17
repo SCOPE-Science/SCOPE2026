@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The conjugated map is globally order preserving for every stated parameter, including the isolated derivative-zero case. A precise threshold argument proves the scaled orbit limit and its locally uniform convergence. The exact transformed Beta density has a good speed-indexed large-deviation principle with explicit endpoint exponential tightness. Exponential equivalence and contraction prove the full empirical-mean LDP, and the tilted-pressure formula follows from bounded Varadhan optimization. The attached checker passes 93 independent finite computational sanity checks, none used as a replacement for mathematical proof.
+
+**Originality — PASS, subject to historical-priority risk.** The 2018/2021 game-dynamics work proves common Cesàro means and writes the telescoping identity; the 2026 invariant-shifts work develops the same coboundary and hyperbolic-subsystem framework. The present theorem distinguishes an entire rare-event probability law and two initial-prior-controlled tilt transitions, neither of which follows as a stated conclusion of those prior works. General expanding-map large-deviation theory studies different dynamical hypotheses and does not specify this boundary-initialized attraction setting. Targeted title/alias/statement searches and mathematical-record comparisons revealed no matching result, which is evidence of nonoverlap rather than a guarantee of priority.
+
+**Value — PASS.** Rare macroscopic finite-horizon deviations persist even though every interior trajectory converges to the same point. The exact full rate function and pressure cusps quantify the transient reliability of deterministic evolutionary learning when the initial strategy is random, and isolate an explicit endpoint-prior dependence invisible to invariant measures. The parameter family is natural and not a cherry-picked numerical slice.
+
+**Limitations and residual risks.** The rate concerns probability over starting states, not random updates or noise; parameter range is \(0<a\le4\), \(0<b<1\), fixed positive Beta exponents. It does not classify the folding regime, prove finite-size prefactors, or imply global publication priority. Related older literature may contain an equivalent transient LDP under different language.
+
+Self-review: passed. Independent audit: not yet performed.
