@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The zero-diagonal assignment polytope is a face of the Birkhoff polytope, so the classical alternating-cycle criterion applies exactly. For a relative k-cycle, the two no-fixed-point constraints form an alternating forbidden 2k-cycle plus n-k isolated forbidden cells. The cyclic-rook matching count and inclusion-exclusion establish the complete integer edge-length spectrum and correctly divide ordered endpoint constructions by two. Direct pair enumeration checks n=3..7. For fixed deficit j, bounded-degree forbidden-board factorial moments give avoidance e^{-2}; a factorial tail bound allows summing over j. A separate uniform completion and factorial-moment argument proves the random vertex-pair Poisson law, and countable-state truncation proves total-variation convergence. No experimental extrapolation substitutes for these proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ito et al. 2019, Section 1.1 relates the alternating-cycle adjacency model to perfect-matching polytope graphs and studies shortest reconfiguration, not metric edge-length distributions.",
+        "Torres 2023 addresses matching-polytope H-representations and normality, with no Euclidean spectrum."
+      ],
+      "reasoning": "General adjacency criteria do not count the derangement-compatible endpoint pairs; unrestricted Birkhoff edge counts omit the doubly forbidden diagonal. The new count depends on a 2k-cycle rook polynomial and its asymptotics, so no inspected broader theorem directly implies the claimed formula without new computation.",
+      "searches": [
+        "Frobenius edge-length spectrum of Birkhoff polytope adjacency graph, random cycle distribution and Poisson limit",
+        "Frobenius metric Poisson distribution of edge lengths and independent vertex pair distances of derangement Birkhoff face",
+        "arxiv:1907.01700 Section 1.1",
+        "arxiv:2306.11910 Sections 2-4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1907.01700v1 (2019-07-03)",
+      "arxiv:1301.7356v1 (2013-01-30)",
+      "arxiv:2306.11910v1 (2023-06-20)",
+      "Accessible prior claim 4c471e2a-e98d-448a-82ae-7e758b4b79e7 (distance to derangement face)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical matching-polytope adjacency yields the support of the length spectrum (single cycle), not multiplicities.",
+        "Previously described Euclidean distances from Birkhoff vertices to the zero-diagonal face have different endpoints and optimization quantifiers.",
+        "Rook polynomial and fixed-deficit asymptotics are necessary independent derivations included in RESULT.md."
+      ],
+      "reasoning": "If a prior theorem gave the full derangement-polytope adjacency count by moved-point length, it would dominate the finite spectrum, but neither the inspected adjacency statements nor the nearby distance-to-face result does. The total-variation match between random edges and random pairs requires two different limit proofs, not just the adjacency criterion.",
+      "searches": [
+        "arxiv:1301.7356 Corollary 26",
+        "arxiv:1907.01700 Section 1.1",
+        "arxiv:2306.11910 Theorem 3.1 and Section 4",
+        "derangement face Birkhoff polytope edges length adjacency Poisson law"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Behrend 2013 Corollary 26: two bipartite matching-polytope vertices are adjacent iff their union has exactly one cycle.",
+        "The derangement matrix polytope equals the perfect-matching polytope of the crown graph, a zero-diagonal face of the Birkhoff polytope."
+      ],
+      "reasoning": "Translated between permutation matrices, perfect matchings of the crown graph, and alternating-cycle exchanges. The literature criterion is equivalent only to the graph adjacency premise, not the Euclidean length-multiplicity formula or probability-law equivalence.",
+      "searches": [
+        "derangement polytope convex hull derangement permutation matrices 2022 2023 2021 arxiv vertices facets",
+        "derangement polytope edges adjacency derangement permutations polytope cycle",
+        "Rook polynomial alternating cycle forbidden board two derangements related by a k-cycle",
+        "arxiv:1301.7356 Corollary 26"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct exact counts are 1,30,706,20770,835311 for orders 3 through 7; targeted exact-sequence web queries returned no identified matching table.",
+        "Related indexed research records addressed crown-graph spanning-tree completions, polytope circumballs and derangement traces, rather than these metric edge-length classes."
+      ],
+      "reasoning": "No exact length-class table or equivalent sequence was located. This search failure is evidence of limited discoverability only, not proof of uniqueness; a table under matching reconfiguration or rook-polynomial terminology could still exist.",
+      "searches": [
+        "\"1, 30, 706, 20770\" derangement polytope edges",
+        "\"835311\" \"derangements\" edges polytope",
+        "number edges of polytope of derangement matrices crown graph matching polytope formula",
+        "Exact Euclidean edge lengths and adjacency degree distribution of the derangement permutation matrix polytope, crown graph perfect matching polytope, cycle length rook polynomial"
+      ]
+    },
+    "rationale": "The close classical work characterizes adjacency, not the enumerated Euclidean edge-length multiplicities after forbidding a diagonal matching. The 2019 matching reconfiguration paper treats graph shortest paths and the 2013 polytope paper treats faces and adjacency; the 2023 normality paper treats lattice decompositions. These imply the single-cycle premise but do not give the forbidden-cycle rook evaluation or the exact edge-spectrum and pair-distance limit statements as presented. A previously accessible claim on distances from Birkhoff vertices to the zero-diagonal face is directionally distinct from distances between its vertices. Exact-sequence and synonym searches did not locate prior coverage. As always, nonidentification is not proof of priority: the risk is an unindexed prior crown-graph length-refined matching adjacency enumeration.",
+    "residual_risks": [
+      "A previously published exact crown-graph perfect-matching alternating-cycle count might yield the same finite edge-length spectrum.",
+      "A more general metric random-matching theorem might imply the Poisson distance comparison without using this terminology."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes adjacency premise and shortest paths, not Euclidean edge-length spectrum",
+        "evidence": [
+          "Section 1.1 identifies one alternating cycle with polytope adjacency, lines 124-134.",
+          "Contributions concern shortest reconfiguration paths, lines 155-169."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1907.01700",
+        "material_read": "Abstract, Introduction and Section 1.1 including discussion of matching polytopes, related work and main contributions, plus targeted length references",
+        "method": "Inspected PDF page 2 and textual section lines 103-169; searched Euclidean and length terminology",
+        "title": "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+        "trigger": "Closest explicit modern primary treatment of polytope adjacency by alternating cycles"
+      },
+      {
+        "assessment": "Strongly covers combinatorial adjacency, does not give the derived Euclidean metric census",
+        "evidence": [
+          "Corollary 26 states a single-cycle bipartite adjacency criterion; no Euclidean length theorem was found in reviewed sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1301.7356",
+        "material_read": "Abstract, detailed contents and introduction, Corollary 26 and its proof (page 31), and targeted Euclidean and length searches",
+        "method": "Inspected PDF title page and primary theorem section; searched metric language",
+        "title": "Fractional Perfect b-Matching Polytopes I: General Theory",
+        "trigger": "Potentially dominating exact face and edge characterization for all matching polytopes"
+      },
+      {
+        "assessment": "Provides a different structural property, not a metric edge enumeration",
+        "evidence": [
+          "Theorem 3.1 is an H-representation result, and Section 4 proves normality; no lengths appear in reviewed claims."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2306.11910",
+        "material_read": "Abstract, definitions in Section 2, Theorem 3.1 and discussion of Section 4 normality",
+        "method": "Inspected PDF pages 1-2, searched Euclidean and edge length, examined Theorem 3.1 and Section 4 text",
+        "title": "Normality of k-Matching Polytopes of Bipartite Graphs",
+        "trigger": "Natural modern polyhedral treatment of the bipartite matching and Birkhoff polytopes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "5eef45b9-fbeb-4088-ab03-6e16396f093f",
+  "value": {
+    "rationale": "A complete Euclidean edge-length spectrum for a canonical family of assignment polytopes is a natural metric invariant rather than a small arbitrary instance. The rook-polynomial constraints are nontrivial because two correlated derangement restrictions act on an alternating 2k-cycle. A meaningful structural conclusion is that uniform adjacency, with probability asymptotic to e/n, is invisible asymptotically to even the exact discrete Euclidean squared-distance deficit: the total-variation gap between edge and independent-pair distance profiles tends to zero. This connects matching-polytope geometry to random permutation limit laws.",
+    "status": "PASS"
+  }
+}

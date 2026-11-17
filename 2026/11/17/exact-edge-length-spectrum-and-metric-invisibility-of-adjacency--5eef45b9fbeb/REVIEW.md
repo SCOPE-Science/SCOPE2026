@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The Birkhoff face argument transfers the classical single-cycle criterion without introducing new edges, and each cycle exchanging \(k\) matched pairs gives squared Frobenius distance \(2k\). The two forbidden derangement conditions combine into a \(2k\)-cycle rook board and an outside matching, giving the exact formula with the obligatory factor \(1/2\). Exact direct enumeration through dimension seven and separate cyclic-rook enumeration agree. For each fixed length deficit, a bounded-degree forbidden board has asymptotic avoidance probability \(e^{-2}\); factorial moments and a factorial tail bound justify summation and the Poisson edge law. A separate factorial-moment calculation gives the matching Poisson vertex-pair law. Pointwise convergence with common limit on a countable state space yields total-variation convergence. Checks do not assume finite enumeration proves asymptotics.
+
+## Originality — PASS, provisional historical priority
+Relevant primary text was compared for mathematical implication, not only terminology. Behrend (2013) and Ito et al. (2019) establish single-cycle adjacency; Torres (2023) establishes matching-polytope descriptions and normality. None of the inspected relevant sections provides the crown-graph two-forbidden-diagonal cycle rook polynomial, the edge-length multiplicity spectrum, or the comparison with independent vertex-pair distances. Accessible prior mathematical findings on the same derangement face concern distance *to* the face, rather than its interior edge spectrum. Searches in published research records, mathematical literature and exact-sequence wording found no dominating statement. General adjacency theory does provide a critical known input. An unindexed earlier alternating-cycle enumeration could still anticipate the finite formula.
+
+## Mathematical value — PASS
+The theorem computes an entire canonical Euclidean one-skeleton spectrum in a natural infinite family of assignment polytopes. The substantive phenomenon is that an event of probability asymptotic to \(e/n\)—polytope adjacency—does not change the limiting discrete Euclidean distance distribution at the exact lattice-scale deficit, in total variation. The two forbidden perfect-matching constraints require the cyclic-rook evaluation, not a simple substitution in the unrestricted Birkhoff edge count. This is an intrinsic metric/combinatorial comparison, not a renamed adjacency criterion.
+
+## Scope and residual risks
+The statement does not compute per-vertex degree variation, generalize to arbitrary forbidden boards, or provide a rate of total-variation convergence. Exact finite checks run only through dimension seven; infinite results are proved with factorial moments. Primary papers do not offer an exhaustive historical-priority guarantee. Equivalently formulated work on crown graph alternating cycles and sequence databases is a residual risk.
+
+Self-review: passed. Independent audit: not yet performed.
