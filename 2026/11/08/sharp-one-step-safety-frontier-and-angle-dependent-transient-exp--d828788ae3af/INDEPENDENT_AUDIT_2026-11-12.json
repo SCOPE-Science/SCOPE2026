@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T17:55:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-one-step-safety-frontier-and-angle-dependent-transient-exp--d828788ae3af/RESULT.md",
+        "verify.py blob 2acddb67556f2c6f513c41d155e69c7f0848e7e8",
+        "https://arxiv.org/pdf/1407.0671"
+      ],
+      "rationale": "Reduce the full-space relaxed operator on each nontrivial principal-angle plane to B=[[1−omega*s²,0],[omega*c*s,1−omega]] (or transpose), with remaining scalar blocks. Compute I−BᵀB=omega[[s²(2−omega),−cs(1−omega)],[-cs(1−omega),2−omega]] and determinant omega² s²((2−omega)²−c²(1−omega)²). PSD for all blocks holds iff 0<=omega<=(2+c)/(1+c). Norm of the first column is sqrt(c²+(1−c²)(omega−1)²), so the unique minimizer of ||T−P|| is omega=1, min c. The known asymptotic spectral optimizer 2/(2−c²) crosses safety when c³+2c²−2 changes sign, giving one root 0.839286755... . Independent exact symbolic Gram identity and rational 2x2 tests corroborated the calculations; the all-angle proof is analytic.",
+      "residual_risks": "No assertion for degenerate c=0 or c=1, for varying relaxation, or other nonlinear projections.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/pdf/1407.0671",
+          "https://doi.org/10.1137/070698750"
+        ],
+        "reasoning": "The 2014 paper has broader dimension/angle spectral classification but not singular-norm frontier. The 2008 projected relaxation P_A(x+lambda(P_AP_Bx−x)) inserts an extra projector, hence operator/singular values differ.",
+        "searches": [
+          "Resultary: relaxed alternating projections one-step Euclidean nonexpansivity norm sharp angle threshold transient",
+          "Cegielski Suchocka Relaxed Alternating Projection Methods 2008 outer projection",
+          "nonexpansivity relaxed alternating projections spectral optimal parameter"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-one-step-safety-frontier-and-angle-dependent-transient-exp--d828788ae3af/RESULT.md",
+        "https://arxiv.org/pdf/1407.0671",
+        "https://doi.org/10.1137/070698750",
+        "Resultary: relaxed alternating projections one-step Euclidean nonexpansivity norm sharp angle threshold transient"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/pdf/1407.0671",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-one-step-safety-frontier-and-angle-dependent-transient-exp--d828788ae3af/RESULT.md"
+        ],
+        "reasoning": "The prior block formula is sufficient as a computational starting point, but extracting the sharp one-step bound requires calculating PSD of I−BᵀB rather than eigenvalues, plus a unique lower-bound witness from a column norm. Not a corollary of spectral radius alone.",
+        "searches": [
+          "Resultary: relaxed alternating projections one-step Euclidean nonexpansivity norm sharp angle threshold transient",
+          "arxiv 1407.0671 theorem 3.6 principal angle block formula 48"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/pdf/1407.0671",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-one-step-safety-frontier-and-angle-dependent-transient-exp--d828788ae3af/RESULT.md"
+        ],
+        "reasoning": "EXACT same relaxation and principal cosine. Prior theorem 3.6 characterizes spectral radius/linear asymptotic rate. A nonnormal 2x2 block can have singular norm>1 even when all eigenvalue moduli<1, so those assertions are not synonymous.",
+        "searches": [
+          "Resultary: relaxed alternating projections one-step Euclidean nonexpansivity norm sharp angle threshold transient",
+          "Bauschke Bello Cruz Nghia Phan Wang T_mu=(1-mu)I+mu P_U P_V Theorem 3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-one-step-safety-frontier-and-angle-dependent-transient-exp--d828788ae3af/RESULT.md",
+          "https://arxiv.org/pdf/1407.0671"
+        ],
+        "reasoning": "The existing 2014 parameter 2/(2−c²) is already a known spectral optimizer, not a table of operator-norm nonexpansive intervals. The 0.839286755… cubic frontier compares new singular-norm safety with the known spectral optimum.",
+        "searches": [
+          "Resultary: 2+c over 1+c nonexpansive relaxed alternating projections",
+          "Resultary: cubic c cubed plus two c squared minus 2 projection transient safety"
+        ]
+      },
+      "rationale": "Best-of-knowledge: primary Bauschke et al. (2014/2016) gives the identical T_omega=(1−omega)I+omega P_U P_V, principal-angle canonical block and asymptotically optimal parameter 2/(2−c²). Its theorem 3.6 compares spectral rates, not the exact full-space Euclidean norm for one step. The sharp nonexpansive interval 0<=omega<=(2+c)/(1+c), unique norm-minimizer omega=1, and cubic conflict frontier are distinct singular-value claims, not implied by spectral-rate optimality. Older Cegielski–Suchocka method includes an outer projector; full text inaccessible and remains risk.",
+      "residual_risks": [
+        "Because the principal block formula is in a 2014 source, the new inequality is a short but not entirely routine consequence; an overlooked finite-step estimate may already be known.",
+        "Full Cegielski–Suchocka article not inspected; limited operator comparison is based on its accessible abstract."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior same-model asymptotic spectral optimum and block decomposition; no claimed one-step singular-norm sharp bound in inspected statements.",
+          "evidence": [
+            "https://arxiv.org/pdf/1407.0671"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1407.0671",
+          "material_read": "Primary 32-page PDF principally Section 3: Proposition 3.4 block decomposition, Theorem 3.6 and proof, formulas 47–56, and spectral optimizer; relevant pages 12–17 visually checked with screenshots",
+          "method": "Web parsed primary PDF and page screenshot",
+          "title": "Optimal Rates of Linear Convergence of Relaxed Alternating Projections and Generalized Douglas–Rachford Methods for Two Subspaces",
+          "trigger": "Exactly same operator and cosine, strongest prior source"
+        },
+        {
+          "assessment": "Contains a different projected relaxation, so no direct comparison of one-step singular norms; priority risk for other claims.",
+          "evidence": [
+            "https://doi.org/10.1137/070698750"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/070698750",
+          "material_read": "Public abstract/bibliographic method definition only; full text not inspected",
+          "method": "Public indexed abstract",
+          "title": "Relaxed Alternating Projection Methods",
+          "trigger": "Similar nomenclature and possible stronger result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-one-step-safety-frontier-and-angle-dependent-transient-exp--d828788ae3af/RESULT.md",
+        "https://arxiv.org/pdf/1407.0671"
+      ],
+      "rationale": "The precise distinction between first-step Euclidean nonexpansivity and faster asymptotic spectral convergence is substantive for nonnormal alternating-projection dynamics. The optimal spectral relaxation can expand Euclidean error even when stable, with an exact geometric cubic threshold; this is not a textbook consequence of eigenvalue bounds alone.",
+      "residual_risks": "The norm lower bound concerns worst-case initial perturbations in the ambient space; particular initialization subspaces may behave better.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Only finite real Euclidean subspaces, Friedrichs cosine 0<c<1 and one full-space step with fixed relaxation.",
+  "schema_version": 1
+}

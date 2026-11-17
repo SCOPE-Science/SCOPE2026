@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The principal-angle canonical decomposition is a standard exact orthogonal block reduction. On each plane the directly multiplied \(I-B^\mathsf TB\) has diagonal entries \(\omega s^2(2-\omega)\), \(\omega(2-\omega)\) and determinant \(\omega^2s^2((2-\omega)^2-c^2(1-\omega)^2)\). The PSD criterion gives the sharp endpoint \((2+c)/(1+c)\), and the adjoint-column norm gives a strict \(\omega\ne1\) gap. The cubic comparison is algebraically exact and the unique root follows from strict monotonicity. Exact-rational tests performed directly from the delivered checker corroborate 5,064 identities and interval classifications. The proof treats all finite-dimensional subspaces with \(0<c<1\), not merely two lines.
+## correctness
 
-**Originality — PASS with acknowledged risk.** The fully inspected arXiv:1407.0671v1 and later author-hosted full article give the *same operator* and the already-known asymptotic optimum, as well as the necessary principal-angle block. They do not state the first-step Euclidean sharp interval, unique norm minimizer or cubic frontier. The central distinction is spectral-radius asymptotics versus singular-value one-step safety. Indexed results and accessible archived claims were compared against equivalent formulations, angle aliases and possible broader dominance; no source materially covering these conclusions was identified. Cegielski–Suchocka uses an additional outer projection and was available here only at the abstract level; exact equivalent unindexed work remains possible. Because the block matrix is known, the new algebra may be regarded as a short consequence rather than a wholly independent framework, but the precise sharp tradeoff itself was not located.
+PASS
 
-**Value — PASS.** In convex feasibility and subspace inverse problems the relaxed iteration can be stable asymptotically yet amplify a worst-case Euclidean error after its first iteration. The theorem gives the exact nonexpansive admissible relaxation and the sharp angular boundary beyond which fastest spectral tuning is incompatible with that safety requirement. This distinction is structural and parameter-independent, rather than a numerical example or a relabeled asymptotic-rate fact.
+Reduce the full-space relaxed operator on each nontrivial principal-angle plane to B=[[1−omega*s²,0],[omega*c*s,1−omega]] (or transpose), with remaining scalar blocks. Compute I−BᵀB=omega[[s²(2−omega),−cs(1−omega)],[-cs(1−omega),2−omega]] and determinant omega² s²((2−omega)²−c²(1−omega)²). PSD for all blocks holds iff 0<=omega<=(2+c)/(1+c). Norm of the first column is sqrt(c²+(1−c²)(omega−1)²), so the unique minimizer of ||T−P|| is omega=1, min c. The known asymptotic spectral optimizer 2/(2−c²) crosses safety when c³+2c²−2 changes sign, giving one root 0.839286755... . Independent exact symbolic Gram identity and rational 2x2 tests corroborated the calculations; the all-angle proof is analytic.
 
-**Limits.** Finite tests are not a substitute for the proof. The underlying spectral-optimality theorem is explicitly prior work; the novelty claim is restricted to the sharp Euclidean one-step/spectral conflict. No assertion is made about other algorithms or every initialization subspace. The accessible abstract of the earlier projected-relaxation paper does not permit full-text negative coverage claims.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: primary Bauschke et al. (2014/2016) gives the identical T_omega=(1−omega)I+omega P_U P_V, principal-angle canonical block and asymptotically optimal parameter 2/(2−c²). Its theorem 3.6 compares spectral rates, not the exact full-space Euclidean norm for one step. The sharp nonexpansive interval 0<=omega<=(2+c)/(1+c), unique norm-minimizer omega=1, and cubic conflict frontier are distinct singular-value claims, not implied by spectral-rate optimality. Older Cegielski–Suchocka method includes an outer projector; full text inaccessible and remains risk.
+
+## value
+
+PASS
+
+The precise distinction between first-step Euclidean nonexpansivity and faster asymptotic spectral convergence is substantive for nonnormal alternating-projection dynamics. The optimal spectral relaxation can expand Euclidean error even when stable, with an exact geometric cubic threshold; this is not a textbook consequence of eigenvalue bounds alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
