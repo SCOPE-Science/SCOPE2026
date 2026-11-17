@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated eigenvalues follow from two elementary invariants of each vertex orbit: its coordinate sum and squared norm. The complete vertex-orbit description and orbit sizes are explicitly established, including the merger at the boundary. Full permutation symmetry then determines the entire covariance spectrum. Factorial-tail domination justifies all moments of the limiting truncated-Poisson mixture. The polynomial moment algebra yields the displayed boundary and interior constants. Exact rational enumeration of all vertices for sizes 2–6 independently verifies both eigenspaces for three parameter pairs; the stand-alone checker also exercises asymptotic constants. There is no claim that finite checks prove an infinite-dimensional result.
+PASS
 
-## Originality — PASS (subject to historical-priority uncertainty)
+The actual source RESULT.md (blob 5075f5...) reconstructs the entire extreme-vertex set, including the only orbit coincidence v0=v1 at a=1, and n!/j! orbit multiplicities. Sampling a layer with probability proportional to 1/j! and then a uniform permutation is therefore exactly the uniform distinct-vertex measure. The orbit total S=T_n-D_j and squared norm Q=U_n-A_j yield by permutation invariance C=alpha I+beta 11^T; Var(S)/n and the trace recover the two displayed eigenvalues with correct normalization and multiplicities. Positive weights on distinct layer sums and on nonconstant permutations establish both strict positivities. Factorial tail domination justifies convergence of all needed moments to Poisson(1) or its conditioning J>=1; E[J(J-1)]=1, Var[J(J-1)]=6, and the conditional moment ratio produce the interior and boundary constants. U_n=b^2 n^3/3+O(n^2), T_n=b n^2/2+O(n), so lambda_perp=b^2 n^2/12+O(n), while lambda_parallel=V/n+o(1/n). The source correctly distinguishes fixed a>1 from a=1; no simultaneous parameter/dimension limit is asserted. Independently enumerated distinct vertex sets and exact rational covariance matrices for n=2..5 and parameter pairs (1,1),(2,1),(3,2): all 12 two-eigenvalue formulas matched. These bounded checks are corroboration, not the all-n proof.
 
-Hanada–Lentfer–Vindas-Meléndez (arXiv:2212.06885, Proposition 3.4 and 3.5) provide vertex classes and enumerations, which the proof openly uses. Their published work studies combinatorial geometry and volume, and the later broad polytope treatment by Bayer et al. (arXiv:2403.07387) concerns facets, polymatroids and face structure. Neither inspected full article states the uniform-vertex covariance eigenvalues or their dimension-dependent scales. Closest previously indexed exact-radius and enclosing-ellipsoid results concern shape optimization rather than second moments of vertex measures. Distinct other-polytopes covariance results do not imply these factorial-orbit formulas. Equivalence under an older random-parking-function or permutation-statistics name remains a risk, not a certified impossibility.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The complete covariance spectrum of a canonical generalized-permutahedral family is a natural metric statistic beyond face counts and volume. The large gap between longitudinal order \(n^{-1}\) and transverse order \(n^2\) gives a sharp cubic anisotropy law. The explicit jump under Hausdorff-continuous geometric degeneration highlights a substantive distinction between the uniform-vertex metric distribution and uniform-body measures. These are nontrivial structural facts for the full parameter family, not a single unmotivated numerical example.
+Known 2023/2024 and 2025 parking-polytope full papers establish the orbit structure and face/facet and volume theory; the source claim deliberately does not reassert their novelty. No covariance eigenvalue or asymptotic uniform-vertex anisotropy formula occurs in these inspected theorem statements. The rank-two S_n representation is a straightforward symmetry tool, but the exact factorial-mixture variance, Poisson-conditioned boundary and discontinuity are new conclusions rather than an immediate implication of a quoted covariance identity. Related covariance of distinct matching or wheel polytopes has different vertex measure spaces; extreme ellipsoid and width results are not second moments. This is best-knowledge, with residual equivalence risk.
 
-## Residual limitations
+## value
 
-Uniformly sampled vertices are not uniformly sampled interior points. Fixed positive parameters are required in all limits. At nonintegral parameters the family is understood as an explicit orbit convex hull. Broader priority, especially among probabilistic parking-function statistics, needs independent verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The eigenstructure of uniform vertices is a natural metric statistic for a canonical generalized permutahedral family whose face and volume enumerations are known. The sharp n^-1 versus n² spectral scales produce cubic anisotropy, and the discontinuity of the vertex measure under a continuous polytope deformation exposes nontrivial geometric/probabilistic behavior. The entire parameter family and asymptotic law supply mathematical content beyond a routine single finite calculation; neither exact enumeration nor novelty alone is the reason for passing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

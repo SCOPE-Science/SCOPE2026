@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T09:48:34Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "source RESULT.md at commit b0e95ae1, blob 5075f5b378cb70112102d24e953eea0b9c770030; direct orbit and moment proof",
+        "independent_math_checks.json: 12 exact small rational covariance cases, sample n=5 a=1 b=1 gives (lambda_parallel,lambda_perp)=(4076/10609,292/103)",
+        "Hanada–Lentfer–Vindas-Meléndez 2024, Proposition 3.4-3.5 supplies known vertices and orbit merger"
+      ],
+      "rationale": "The actual source RESULT.md (blob 5075f5...) reconstructs the entire extreme-vertex set, including the only orbit coincidence v0=v1 at a=1, and n!/j! orbit multiplicities. Sampling a layer with probability proportional to 1/j! and then a uniform permutation is therefore exactly the uniform distinct-vertex measure. The orbit total S=T_n-D_j and squared norm Q=U_n-A_j yield by permutation invariance C=alpha I+beta 11^T; Var(S)/n and the trace recover the two displayed eigenvalues with correct normalization and multiplicities. Positive weights on distinct layer sums and on nonconstant permutations establish both strict positivities. Factorial tail domination justifies convergence of all needed moments to Poisson(1) or its conditioning J>=1; E[J(J-1)]=1, Var[J(J-1)]=6, and the conditional moment ratio produce the interior and boundary constants. U_n=b^2 n^3/3+O(n^2), T_n=b n^2/2+O(n), so lambda_perp=b^2 n^2/12+O(n), while lambda_parallel=V/n+o(1/n). The source correctly distinguishes fixed a>1 from a=1; no simultaneous parameter/dimension limit is asserted. Independently enumerated distinct vertex sets and exact rational covariance matrices for n=2..5 and parameter pairs (1,1),(2,1),(3,2): all 12 two-eigenvalue formulas matched. These bounded checks are corroboration, not the all-n proof.",
+      "risks": [
+        "The extension to nonintegral a,b uses the explicit orbit-hull definition, not a preexisting combinatorial integer parking-function interpretation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bayer et al 2025 Theorem 2.3 covers arbitrary b-vectors and vertex structure, not moment spectra",
+          "Resultary 2026/10/11 SCOPE-golden-ratio-anisotropy-of-the-l-wner-ellipsoids-of-parking-func--31d8f1b4119a is an extremal enclosing ellipsoid statistic"
+        ],
+        "reasoning": "Broader base polytope family and enclosing-ellipsoid theory do not imply the specific uniform-vertex covariance eigenvalue limits. Distinguish Hausdorff shape and discrete vertex probability.",
+        "searches": [
+          "Resultary search parking function polytopes vertex covariance inertia anisotropy",
+          "published generalized parking-function polytopes polymatroid geometry b-vector 2025"
+        ]
+      },
+      "checked_sources": [
+        "Source RESULT.md and self-review at Git blob 5075f5b378cb70112102d24e953eea0b9c770030",
+        "https://link.springer.com/article/10.1007/s00026-023-00671-1",
+        "https://link.springer.com/article/10.1007/s00454-025-00770-1",
+        "Resultary searched related parking-polytope covariance records; no same-family covering theorem located"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Citations Hanada 2024 Prop.3.4–3.5; Bayer 2025 Theorem 2.3",
+          "Independent exact mixed-orbit covariance checks validate a distinct derived quantity"
+        ],
+        "reasoning": "Known orbit/facet results are essential premises, but not a theorem already implying numeric covariance limits without new weighted-moment analysis; the new claim is quantitatively stronger.",
+        "searches": [
+          "Direct comparison source RESULT formulas with Hanada Prop.3.4–3.5",
+          "Bayer Theorem 2.3 vertex/facet definitions versus quantitative second moment",
+          "Resultary parking centroid shape studies"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hanada et al., Annals of Combinatorics 28 (2024), Prop.3.4-3.5, establishes orbit counts n! sum 1/j! but not covariance",
+          "Bayer et al., DCG article published September 12 2025, Theorem 2.3 provides generalized vertices but no covariance text in the full article"
+        ],
+        "reasoning": "No previously stated equal uniform-vertex second-moment formula was found; orbit enumeration alone gives raw finite data, and the claimed Poisson asymptotic and discontinuity are not asserted or algebraically supplied in prior theorems.",
+        "searches": [
+          "Resultary semantic query generalized parking function polytope uniform distinct vertices covariance eigenvalues Poisson",
+          "web exact queries vertex covariance generalized parking function polytope",
+          "Full-text search Hanada–Lentfer–Vindas-Meléndez 2024 covariance",
+          "Full-text search Bayer et al 2025 covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hanada Prop.3.5 table gives cardinalities (and trivial counts by orbit), not covariance moments",
+          "Resultary other vertex-covariance spectra refer to wheel spanning-tree and partial-permutation polytopes"
+        ],
+        "reasoning": "Existing exact vertex enumerations can reproduce input weights but do not tabulate asserted eigenvalues, n^-1 versus n² scaling or boundary jump.",
+        "searches": [
+          "Resultary semantic search exact parking vertex covariance spectrum 2026",
+          "Search Hanada Prop.3.5 factorial vertex count and moment statistics"
+        ]
+      },
+      "rationale": "Known 2023/2024 and 2025 parking-polytope full papers establish the orbit structure and face/facet and volume theory; the source claim deliberately does not reassert their novelty. No covariance eigenvalue or asymptotic uniform-vertex anisotropy formula occurs in these inspected theorem statements. The rank-two S_n representation is a straightforward symmetry tool, but the exact factorial-mixture variance, Poisson-conditioned boundary and discontinuity are new conclusions rather than an immediate implication of a quoted covariance identity. Related covariance of distinct matching or wheel polytopes has different vertex measure spaces; extreme ellipsoid and width results are not second moments. This is best-knowledge, with residual equivalence risk.",
+      "residual_risks": [
+        "Historical priority cannot exclude re-expression as an older random-permutation-statistics covariance formula; comparison is bounded to indexed and inspected work.",
+        "Real nonintegral orbit hull differs from discrete parking-function definition but is explicitly declared."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STARTING PREMISE: vertices and merged orbit known, but no covariance eigenspectrum or limiting vertex law",
+          "evidence": "Prop. 3.4 orbits, Prop.3.5 factorial cardinalities; absence of a covariance claim in body search",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00026-023-00671-1",
+          "material_read": "Full open access HTML including §§2–3, Proposition 3.4–3.5, proof and face/volume themes",
+          "method": "Read full-text HTML and searched covariance, variance, moments",
+          "title": "Generalized Parking Function Polytopes",
+          "trigger": "Same two-parameter polytope and precisely matching vertex-orbit count"
+        },
+        {
+          "assessment": "STARTING PREMISE, NOT COVERING: general b-parking orbit families and facets, no probabilistic uniform-vertex metric statistics",
+          "evidence": "Theorem 2.3(b) generalized vertex set; no covariance match across article; published 2025-09-12",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00454-025-00770-1",
+          "material_read": "Complete OA HTML theorem introduction/vertex/facets/polymatroid discussion and full-text covariance term checks",
+          "method": "Read theorem 2.3, theorem discussion, count/geometry and sought covariance/eigenspectrum",
+          "title": "Combinatorics of Generalized Parking-Function Polytopes",
+          "trigger": "Broader vertex description potentially dominates two-parameter statements"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The eigenstructure of uniform vertices is a natural metric statistic for a canonical generalized permutahedral family whose face and volume enumerations are known. The sharp n^-1 versus n² spectral scales produce cubic anisotropy, and the discontinuity of the vertex measure under a continuous polytope deformation exposes nontrivial geometric/probabilistic behavior. The entire parameter family and asymptotic law supply mathematical content beyond a routine single finite calculation; neither exact enumeration nor novelty alone is the reason for passing.",
+      "risks": [
+        "This does not establish affine-invariant shape or an interior-volume covariance result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Source RESULT.md and self-review at Git blob 5075f5b378cb70112102d24e953eea0b9c770030",
+    "https://link.springer.com/article/10.1007/s00026-023-00671-1",
+    "https://link.springer.com/article/10.1007/s00454-025-00770-1",
+    "Resultary searched related parking-polytope covariance records; no same-family covering theorem located"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the uniform distribution on distinct vertices of the two-parameter parking-function orbit hull (n>=2, a>=1,b>0), the covariance has exactly the parallel and perpendicular eigenvalues derived from factorial-weighted orbit sums; n*lambda_parallel tends to an explicit positive (conditioned-)Poisson variance, lambda_perp/n^2 to b^2/12, and the ratio is cubic in n, with a strict coalescence jump at a=1.",
+  "limitations": [
+    "The measure is uniform over distinct vertices, not volume-uniform interior; limits fix a and b independently of n.",
+    "No claim for general b-vector or mixed n,a->1 regimes."
+  ],
+  "residual_risks": [
+    "Historical priority cannot exclude re-expression as an older random-permutation-statistics covariance formula; comparison is bounded to indexed and inspected work.",
+    "Real nonintegral orbit hull differs from discrete parking-function definition but is explicitly declared."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "STARTING PREMISE: vertices and merged orbit known, but no covariance eigenspectrum or limiting vertex law",
+      "evidence": "Prop. 3.4 orbits, Prop.3.5 factorial cardinalities; absence of a covariance claim in body search",
+      "identifier_or_url": "https://link.springer.com/article/10.1007/s00026-023-00671-1",
+      "material_read": "Full open access HTML including §§2–3, Proposition 3.4–3.5, proof and face/volume themes",
+      "method": "Read full-text HTML and searched covariance, variance, moments",
+      "title": "Generalized Parking Function Polytopes",
+      "trigger": "Same two-parameter polytope and precisely matching vertex-orbit count"
+    },
+    {
+      "assessment": "STARTING PREMISE, NOT COVERING: general b-parking orbit families and facets, no probabilistic uniform-vertex metric statistics",
+      "evidence": "Theorem 2.3(b) generalized vertex set; no covariance match across article; published 2025-09-12",
+      "identifier_or_url": "https://link.springer.com/article/10.1007/s00454-025-00770-1",
+      "material_read": "Complete OA HTML theorem introduction/vertex/facets/polymatroid discussion and full-text covariance term checks",
+      "method": "Read theorem 2.3, theorem discussion, count/geometry and sought covariance/eigenspectrum",
+      "title": "Combinatorics of Generalized Parking-Function Polytopes",
+      "trigger": "Broader vertex description potentially dominates two-parameter statements"
+    }
+  ]
+}
