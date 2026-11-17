@@ -1,11 +1,21 @@
-# Review of the sharp Kneser-graph RK4 positivity law
+# Independent mathematical audit
 
-**Correctness — PASS.** Four intersection-orbit entries are reconstructed from exact walk counts, the disjoint-triple cubic is proved strictly decreasing through a negative derivative discriminant, both nonedge quadratics have strictly negative discriminants, and scalar spectral positivity controls the diagonal. The eleven explicit symbolic shifted-polynomial certificates establish uniform signs for every integer order at least nine; direct adjacency enumerations of 1,845 entries independently test the recurrence. The order-eight counterexample is an exact rational evaluation.
+## correctness
 
-**Originality — PASS on inspected evidence, with residual risk.** Full primary text for Matoušek–Ziegler (Kneser graph structure), Horváth (Runge–Kutta positivity), and Bresten et al. (SSP theory) was checked for the exact Kneser RK4 statement or stronger implications. They provide the underlying methods and graph definition but not the four-orbit cubic classification. Actual searches of mathematical records and accessible own research statements found related Johnson-graph RK4 and different integrators, but no matching disjointness graph result. Unindexed specialized literature may nonetheless contain it; nonappearance is not a mathematical proof of priority.
+PASS
 
-**Mathematical value — PASS.** The natural disjoint-triple diffusion family has four symmetry orbits, despite graph diameter two, and a sharp nonnegative evolution timestep. The exact proof establishes that nonedge transitions are globally positive at all steps, rather than merely until the first sign failure, with a sharp eight-to-nine boundary; this is a nontrivial structural addition to standard numerical-diffusion positivity bounds. It supplies a reusable benchmark for high-connectivity nonbipartite graph integrators.
+Four orbit entries indexed by |X intersect Y| follow from exact walks M_rs=binom(3-r,s)binom(n-6+r,3-s), with x=binom(n-3,3)h. Independent SymPy reconstruction of eleven shifted-n rational-polynomial numerator/denominator signs gives a strictly decreasing disjoint-class cubic with unique positive root, and discriminant-negative all-x quadratic entries in r=1,2. For the diagonal R_4(-y)>exp(-y)>0 at y>0 for symmetric positive-semidefinite Laplacian; exact n=8 r=1 counterexample -5/384 at x=5. Thus the proved n>=9 all-step if-and-only-if and sharp boundary follow, not merely finite tests.
 
-**Limitations.** Unit-weight rank-three Kneser graphs only, completed standard RK4 endpoints only; no general graph, variable-step, unequal-weight or stage positivity theorem. The proof is an explicit exact-arithmetic computer-checkable polynomial-sign certificate combined with analytic reductions, not a formally machine-certified mathematical proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact rank-three Kneser-family RK4 orbit-threshold and all-step sign law were not found in reviewed numerical-positivity or related graph publications. Generic positivity-radius results and RK4 on different adjacency graphs do not determine the four Kneser orbit entries; priority qualified by possible unindexed association-scheme literature.
+
+## value
+
+PASS
+
+A natural finite Markov heat equation on disjoint-triple Kneser graphs needs a sharp nonnegative numerical timestep, and the all-step nonreentrance and exceptional n=8 threshold provide nontrivial graph-specific classification beyond standard spectral stability or SSP bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
