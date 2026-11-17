@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and boundaries
+# Independent mathematical audit
 
-The source embedding uses one standard orthonormal axis for every graph node and every graph edge, with the three vectors \(t_f\), \(a_{f,u}\), and \(a_{f,v}\) per edge as defined in `RESULT.md`. The theorem is proved without a computer: inner products take values \(-1,0,1\), diameter-pair count is a direct incidence sum, and two explicit inverse colour maps prove the correspondence. The four-clique argument is an exact Gram identity. The NP-completeness corollary uses the standard graph three-colouring hardness theorem and the explicit polynomial-size point list.
+## correctness
 
-Run `python3 verify.py` with Python 3, no external dependencies. The checker generates all 771 connected labelled simple graphs on two through five nodes, tests every vertex pair's integer squared Euclidean distance, checks that squared-distance-eight adjacency is exactly the sign-incidence characterization, verifies the exact edge-count identity, and checks absence of four-cliques. It additionally compares exhaustive backtracking counts of proper labelled three-colourings of the two graphs for all connected graphs on at most four source nodes. Successful execution prints `PASS: 2627773 assertions for 771 connected labeled graphs, 2 <= n <= 5.`
+PASS
 
-Exact finite checks do not prove the statement for unbounded graph order; the unrestricted proof appears in `RESULT.md`. There has been no independent mathematical validation. Originality searches do not guarantee global priority, and projective or nonorthogonal-coordinate realizations are outside scope.
+At standard orthonormal coordinates each source-edge triple consists of three norm-squared 3 points, pairwise dot −1; disjoint edges give dot 0, incident distinct triples give dot ±1 according to their unique common endpoint. Hence diametral pairs are precisely within each triple and opposite endpoint-sign pairs across incident triples, giving diameter sqrt8 and 3m+4sum_v binom(deg(v),2) edges. A four-clique would have four vectors of norm²3 and pairwise dot −1, so sum zero, contradicting aggregate coordinate sum 4. Each triple is K3, and its unique negative endpoint-sign point carries a consistent source-vertex color forced across incident triples; opposite endpoints differ. The inverse colors each triple from the two source endpoint colors. Polynomial construction and connected graph 3-color NP-hardness complete the claim. Independent exact K2/P3/K3/C4 enumeration reproduced diameter edges 3/10/21/28 and P_D(3)=P_G(3)=6/12/6/18.
+
+## originality
+
+PASS
+
+Relevant cosmological-polytope face and ordinary edge-graph works and the published fixed circumradius theorem were compared at the level of geometric invariants. None of the inspected results determines the Euclidean maximum-distance relation, exact 3-color bijection or K4-free NP-complete output class. Standard graph-coloring hardness is an input, not a novelty claim.
+
+## value
+
+PASS
+
+The maximum-Euclidean-distance graph of cosmological polytopes has a natural geometric and algorithmic meaning distinct from the 1-skeleton. Its explicit chromatic equivalence exhibits NP-completeness inside a K4-free geometrically structured graph family with an exact edge count; this is a substantive reduction and structural theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
