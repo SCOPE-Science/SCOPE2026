@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Pairwise Frobenius-orthogonal cyclic shifts yield a unique circulant nearest point for every doubly stochastic input. The exact squared vertex-distance \\(n-\\sum_k m_k^2/n\\) reduces the max to an integer minimum; modular displacement-sum obstruction excludes the all-one profile at even orders, and explicit permutations attain each sharp bound. A Hilbert-space variance identity and the fact that P-Q circulant forces both to be shifts if P,Q differ prove that no nonvertex farthest point exists. The second discrete level is bounded by the even parity of sum(m_k-1)^2 and achieved by explicit transpositions of construction permutations, with n=4 separately given. The bundled checker exhausts orders 2..8 and directly verifies \\(3\\le n\\le1000\\) constructions; 48 separate constrained optimization tests corroborate the projection formula. No finite test is used as the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2310.15375 gives a general optimal Frobenius structured-matrix projection; this covers the pointwise nearest-circulant formula but not the maximum over Birkhoff vertices or the parity-dependent extremal histograms.",
+        "arxiv:2310.14043 Theorem 5.1 and Corollary 5.4 identify the single-center Chebyshev radius, rather than a nearest point allowed to vary over a cyclic-shift simplex.",
+        "arxiv:2208.05771 derives nearest circulants for symmetric Toeplitz inputs."
+      ],
+      "reasoning": "The stronger prior orthogonal-projection operation is fully acknowledged. Optimizing its residual over all permutation matrices and classifying the sharp first discrete gap requires the displacement integrality and modular-obstruction argument, which is not provided by the general projection formulas.",
+      "searches": [
+        "arxiv:2310.15375 structured matrix approximation section II",
+        "arxiv:2208.05771 nearest circulant section 3",
+        "arxiv:2310.14043 geometry of the Birkhoff polytope sections 4-5",
+        "web search: \"Hausdorff\" \"circulant\" \"Birkhoff\" polytope"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2101.11288 (first posted 2021-01-27; accessed HTML text)",
+      "arxiv:1109.0191 (first posted 2011-09-01; HTML material read)",
+      "arxiv:2310.15375 (first posted 2023-10-23; HTML material read)",
+      "arxiv:2208.05771 (2022; HTML material read)",
+      "arxiv:2310.14043 (first posted 2023-10-21; HTML material read)",
+      "DOI:10.1002/jcd.21701 (2020; abstract only)",
+      "published-finding corpus semantic searches on cyclic-shift simplex Hausdorff and Frobenius nearest circulant; nearby entries compared by claims"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 Birkhoff paper explicitly depicts the circulant order-four simplex but does not give its distance from the full Birkhoff polytope.",
+        "The 2023 projection paper entails the formula for nearest circulant projection, but not the bounded permutation displacement-histogram minimization.",
+        "Goddyn-Halasz establishes existence of near transversals in group-based Latin squares, not their Euclidean residual classification."
+      ],
+      "reasoning": "Prior geometric structure and Latin-transversal results are premise-level inputs. Their combination with a new sharp integral second-moment argument yields a precise extremal pair-of-polytopes statement and first vertex gap; neither of these is the stated corollary or special case of an inspected stronger theorem. A trivial reformulation of the known projection alone would not be original; it is not the accepted claim.",
+      "searches": [
+        "arxiv:2101.11288 first public 2021-01-27, circulant simplex description and spectra",
+        "arxiv:2310.15375 general arbitrary-matrix nearest structured projection",
+        "arxiv:1109.0191 cyclic permutation polytopes",
+        "DOI 10.1002/jcd.21701 group Latin near transversals",
+        "published-finding corpus semantic search: orthogonal projection onto circulant permutation polytope closest permutation matrix parity exact Hausdorff"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2101.11288 IV.1-IV.2 studies circulant unistochastic sets and their spectral properties, not worst Frobenius distances to all bistochastic matrices.",
+        "arxiv:1109.0191 Sections 1-3 determine cyclic permutation polytope combinatorics and faces; its stated main conclusions concern dimension, degrees, facets.",
+        "published-finding corpus closest indexed publication 215ce1bc6a73, The diameter graph and sharp second-distance gap of permutation X-ray polytopes studies permutation X-ray images, not cyclic-shift approximation."
+      ],
+      "reasoning": "Cyclic Latin transversal terminology is equivalent to the all-distinct displacement condition, but the source results about existence are not statements of the two-polytope Hausdorff norm or the second shell. No source examined gives an equivalent full three-part claim.",
+      "searches": [
+        "arxiv:2101.11288 \"circulant unistochastic\" section IV.1-IV.2",
+        "arxiv:1109.0191 \"cyclic permutation polytopes\" dimension/vertex degree sections",
+        "web search: \"nearest circulant\" \"permutation matrix\" stochastic",
+        "published-finding corpus semantic search: Birkhoff polytope circulant subpolytope Euclidean Frobenius Hausdorff distance parity complete mappings orthomorphism cyclic Latin square"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The related published-finding corpus item indexed publication 215ce1bc6a73, The diameter graph and sharp second-distance gap of permutation X-ray polytopes gives a different metric: the diameter of a permutation X-ray image.",
+        "arxiv:1109.0191 catalogs combinatorial invariants of cyclic permutation polytopes; no Hausdorff table of the pair considered here was found in inspected theorem sections."
+      ],
+      "reasoning": "The exact small-order enumeration in the standalone checker reproduces n=3..8 but is not a preexisting table. No checked indexed entry provided this particular radius or the second-shell sequence. Absence from search cannot establish unique priority.",
+      "searches": [
+        "published-finding corpus semantic search: circulant stochastic subpolytope of Birkhoff Hausdorff distance Frobenius cyclic orthomorphisms complete mapping",
+        "published-finding corpus semantic search: Baumeister Haase Nill Paffenholz cyclic permutation polytope distance to full Birkhoff polytope",
+        "web search: \"distance\" \"circulant\" \"Birkhoff polytope\" Frobenius",
+        "arxiv:1109.0191 Section 2 dimension/degree tables"
+      ]
+    },
+    "rationale": "The exact Frobenius nearest-circulant projection is acknowledged prior work, as is cyclic transversal existence/obstruction. The inspected sources on Birkhoff geometry, cyclic permutation polytopes and structured matrix approximation do not state the sharp Hausdorff value between the full Birkhoff polytope and its circulant subpolytope, identify all farthest points, or provide the sharp second vertex-distance level. The distance is not the known Chebyshev radius at a fixed center: the nearest point varies with the permutation, and the even-order correction is positive. An unindexed prior synthesis is a residual priority risk.",
+    "residual_risks": [
+      "The full text of Goddyn-Halasz (2020) was not read; its abstract does not suggest a Frobenius Hausdorff theorem, but an older variant remains possible.",
+      "Older structured-matrix approximation and Latin transversal literature might contain a numerically equivalent extremal formula under alternative terminology; absence from indexed search is not proof of priority.",
+      "The pointwise projection and complete-mapping existence/obstruction are known, so only the full sharp geometric extremal classification plus first vertex-distance gap is proposed as the novel unit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly describes the cyclic-shift simplex and circulant unistochastic spectra but no Hausdorff approximation from the full Birkhoff polytope",
+        "evidence": "Abstract and IV.1-IV.2 focus on unistochastic sets, spectral hypocycloids and low-order properties.",
+        "identifier_or_url": "https://arxiv.org/abs/2101.11288",
+        "material_read": "Abstract, introduction, IV.1 discussion and Figure 4, IV.2 Lemma 18 and Theorem 20, concluding statements",
+        "method": "Accessible arXiv HTML textual sections and in-document term search",
+        "title": "Algebraic and geometric structures inside the Birkhoff polytope",
+        "trigger": "Lead 2021 source describing the circulant stochastic subpolytope"
+      },
+      {
+        "assessment": "Provides cyclic-permutation polytope structural background, not the Hausdorff distance from the Birkhoff polytope",
+        "evidence": "Theorems 1.7, 1.9 and Proposition 2.1 govern edges, products and dimensions.",
+        "identifier_or_url": "https://arxiv.org/abs/1109.0191",
+        "material_read": "Introduction, Section 1 notation and representation polytopes, Section 2 dimension/degree propositions and sections describing combinatorial decomposition",
+        "method": "Accessible arXiv HTML source, relevant sections and theorem inventory",
+        "title": "Permutation Polytopes of Cyclic Groups",
+        "trigger": "Exact same cyclic permutation subgroup polytope, possible earlier stronger coverage"
+      },
+      {
+        "assessment": "Covers general linear Frobenius nearest-structured projection, which is explicitly credited; does not address Birkhoff-to-circulant global Hausdorff extrema",
+        "evidence": "Section II gives optimal structured approximation by averaging entries of each structure class; no permutation or Hausdorff claim.",
+        "identifier_or_url": "https://arxiv.org/abs/2310.15375",
+        "material_read": "Abstract, introduction, Section II and structured-matrix projection theorem, in-document searches for Birkhoff, Hausdorff, permutation",
+        "method": "Accessible arXiv HTML text",
+        "title": "Optimal Structured Matrix Approximation for Robustness to Incomplete Biosequence Data",
+        "trigger": "Potentially dominating general nearest-circulant formula for arbitrary matrices"
+      },
+      {
+        "assessment": "Known special projection of symmetric Toeplitz matrices; unrelated worst permutation and parity equality cases",
+        "evidence": "Section 3 equation (15) gives nearest circulant coefficients for Toeplitz input.",
+        "identifier_or_url": "https://arxiv.org/abs/2208.05771",
+        "material_read": "Abstract, introduction, Section 3 minimization and formula for circulant coefficients, conclusion",
+        "method": "Accessible arXiv full HTML text",
+        "title": "Approximating real symmetric Toeplitz matrices using the nearest circulant",
+        "trigger": "Prior Frobenius-circulant projection formula"
+      },
+      {
+        "assessment": "Exact Chebyshev ball radius and centers, not nearest subset-to-polytope Hausdorff distance",
+        "evidence": "Corollary 5.4 gives fixed center J and radius (n-1)^(1/p).",
+        "identifier_or_url": "https://arxiv.org/html/2310.14043v1",
+        "material_read": "Abstract, sections 2.2-2.4, 4 and 5, Theorem 5.1, Corollary 5.4",
+        "method": "Accessible arXiv HTML full paper relevant theorem statements",
+        "title": "On the Geometry of the Birkhoff Polytope. II. The Schatten p-norms",
+        "trigger": "Possible covering polytope radius theorem"
+      },
+      {
+        "assessment": "Proves group-based near-transversal existence, not quantitative approximation geometry; residual full-text priority risk recorded",
+        "evidence": "Abstract states existence of near transversals for group-based Latin squares.",
+        "identifier_or_url": "https://doi.org/10.1002/jcd.21701",
+        "material_read": "Publisher abstract and bibliographic metadata only",
+        "method": "Web publisher abstract; full article not accessed",
+        "title": "All group-based latin squares possess near transversals",
+        "trigger": "Potential combinatorial coverage of even-order collision obstruction and construction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "ecbe8019-6b15-4152-8ab7-63353a7aa057",
+  "value": {
+    "rationale": "The inclusion of the cyclic-shift stochastic simplex in the full Birkhoff polytope is natural for translation-invariant Markov dynamics and permutation assignments. The exact Hausdorff loss, the parity obstruction, the full rigidity of worst inputs, and the sharp first discrete stability gap provide a complete infinite-family geometric invariant not supplied by the known pointwise projection. It is not an arbitrary numerical slice; the geometry is structurally tied to cyclic Latin transversals.",
+    "status": "PASS"
+  }
+}
