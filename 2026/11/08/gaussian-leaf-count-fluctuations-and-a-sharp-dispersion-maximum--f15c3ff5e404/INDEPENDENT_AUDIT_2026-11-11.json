@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T19:50:05.460790Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md 59e57604310605c7c11ccd517bb554272f9fac56",
+        "Frozen check_leafpa.py source",
+        "independent_checks.py symbolic V derivative and rational leaf-count recurrence",
+        "Hartle-Krapivsky original model arxiv:2511.04085"
+      ],
+      "rationale": "For trees n>=3, every leaf has leaf-degree zero, total leaf-neighbor weight is L_n, and the leaf count increments by one exactly when a nonleaf is selected. Hence P(delta L=1 | L_n)=1-a L_n/(a n+L_n). The unique drift fixed point r in (1/2,1), exact deviation recursion with contraction b_n=a^2/[(a+L_n/n)(a+r)], and L2/L4 estimates justify replacing it in L2 by linear contraction kappa=a²/(a+r)². Bounded-increment triangular martingale CLT yields V=r(1-r)/(1+2kappa) and moment convergence; derivative of V as function of r gives unique maximizing root of 6r³-15r²+16r-6 and threshold crossing 1/12. Independent rational finite-chain mass conservation, fixed-point algebra, and symbolic derivative checks passed. Finite enumeration does not prove the asymptotic normal law.",
+      "residual_risks": [
+        "The L4 contraction and asymptotic variance arguments are analytical and do not quantify finite-n convergence rates.",
+        "Fixed a>0 only, excluding simultaneous a,n limits."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Renlund arxiv:1102.4741 contains general stochastic-approximation limit theory.",
+          "Baldassarri-Bet arxiv:2102.07570 treats ordinary degree-based PA, not leaf-neighbor attractiveness."
+        ],
+        "reasoning": "Broad CLT machinery covers methodology, not the exact leaf-neighbor variance phase diagram without new drift-specific calculations.",
+        "searches": [
+          "leaf-degree preferential attachment total leaf count Gaussian CLT asymptotic variance sharp dispersion maximum Hartle Krapivsky",
+          "arxiv:1102.4741",
+          "arxiv:2102.07570"
+        ]
+      },
+      "checked_sources": [
+        "Hartle-Krapivsky DOI 10.1088/1742-5468/ae3a6a",
+        "arxiv:2511.04085",
+        "leaf-degree preferential attachment total leaf count Gaussian CLT asymptotic variance sharp dispersion maximum Hartle Krapivsky"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original article provides model and first-order r(a) as equation (7).",
+          "Current proof uses conditional Bernoulli noise and a precise drift derivative to get V=r(1-r)/(1+2kappa)."
+        ],
+        "reasoning": "First-order r(a) does not logically determine a Gaussian limit and covariance without the conditional noise and contraction analysis.",
+        "searches": [
+          "leaf-degree preferential attachment total leaf count Gaussian CLT asymptotic variance sharp dispersion maximum Hartle Krapivsky",
+          "Statistics of leaves in growing random trees 2026 section 4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact birth chain for L_n has drift F(x)=1-ax/(a+x), unlike ordinary affine-degree preferential attachment.",
+          "Hartle-Krapivsky original model uses attachment weight leaf_degree+a."
+        ],
+        "reasoning": "The scalar birth-chain representation permits known stochastic-approximation CLTs but the explicit V(a) and global extrema are additional model-specific computations.",
+        "searches": [
+          "leaf-degree preferential attachment total leaf count Gaussian CLT asymptotic variance sharp dispersion maximum Hartle Krapivsky",
+          "Hartle Krapivsky leaf degree L_n stochastic approximation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hartle-Krapivsky publisher material attributes N/12 variance to random recursive trees and gives r(a) for leaf-driven model.",
+          "No inspected model-specific table lists maximizing a* or V(a) for all a>0."
+        ],
+        "reasoning": "The earlier 1/12 table is a comparator for a different process, so it cannot be substituted as the current exact leaf-PA variance.",
+        "searches": [
+          "leaf-degree preferential attachment total leaf count Gaussian CLT asymptotic variance sharp dispersion maximum Hartle Krapivsky",
+          "Hartle Krapivsky 2026 total leaf count variance 1/12"
+        ]
+      },
+      "rationale": "Hartle and Krapivsky define the same leaf-neighbor-driven attachment mechanism and the fixed-point leaf fraction r(a), and already find the a=1 degree-tail transition. Their accessible paper content gives total leaf-count variance 1/12 for the distinct uniformly attaching random recursive tree. No inspected result supplies V(a), this fixed-a CLT, its sharp maximum or finite crossing for leaf-PA(a). The later ordinary-degree PA joint degree/leaf-degree paper uses a different selection rule. Priority is qualified because the entire 2026 original article could not be accessed despite OA and authorized attempts.",
+      "residual_risks": [
+        "The publisher full paper was inaccessible via the page interface and Oxford reported VPN disconnected; some material outside the available abstract/sections could overlap.",
+        "A general stochastic approximation CLT can imply the Gaussian component once the scalar drift is identified; no novelty is assigned to that abstract method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT MODEL PRIOR; full-paper noncoverage not claimed",
+          "evidence": "Original source gives r(a)=1/2-a+sqrt(a²+1/4), and N/12 variance in the RRT (distinct) section.",
+          "identifier_or_url": "https://doi.org/10.1088/1742-5468/ae3a6a",
+          "material_read": "Accessible indexed publisher material including introduction, section 3 total leaf count of RRT, section 4 PA model and displayed first-order leaf fraction equation (7); not the whole article",
+          "method": "Publisher indexed text/search excerpts; full page fetch blocked by robots; arXiv and OA attempted; Oxford authorized fetch returned vpn_disconnected",
+          "title": "Statistics of leaves in growing random trees",
+          "trigger": "Exactly same leaf-degree PA model; highest-priority primary comparison"
+        },
+        {
+          "assessment": "Different attachment rule",
+          "evidence": "Degree plus affine parameter, not number of leaf neighbors.",
+          "identifier_or_url": "https://arxiv.org/abs/2102.07570",
+          "material_read": "Title and accessible abstract/model summary",
+          "method": "Lawful abstract/semantic comparison",
+          "title": "Asymptotic normality of degree counts in a general preferential attachment model",
+          "trigger": "Plausible broader PA Gaussian theorem"
+        },
+        {
+          "assessment": "Different polynomial aggregation growth law",
+          "evidence": "Its limit variance as aggregation exponent varies cannot imply the leaf-neighbor PA(a) phase curve.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-functional-leaf-count-fluctuations-in-polynomial-aggregation-tre--6159d5756a10",
+          "material_read": "Title and Resultary semantic summary",
+          "method": "Resultary search",
+          "title": "Functional leaf-count fluctuations in polynomial aggregation trees",
+          "trigger": "Related Gaussian leaf law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hartle-Krapivsky original model",
+        "independent symbolic variance derivative"
+      ],
+      "rationale": "An exact dispersion curve and sharp unique maximizer for a natural recently introduced leaf-driven attachment model is a meaningful stochastic-growth classification. The maximum lies away from the known leaf-degree tail transition a=1, providing a non-obvious separation of two model features.",
+      "residual_risks": [
+        "Some model-specific fluctuation behavior might have been computed but not located in inaccessible primary full text."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The L4 contraction and asymptotic variance arguments are analytical and do not quantify finite-n convergence rates.",
+    "Fixed a>0 only, excluding simultaneous a,n limits.",
+    "The publisher full paper was inaccessible via the page interface and Oxford reported VPN disconnected; some material outside the available abstract/sections could overlap.",
+    "A general stochastic approximation CLT can imply the Gaussian component once the scalar drift is identified; no novelty is assigned to that abstract method.",
+    "Some model-specific fluctuation behavior might have been computed but not located in inaccessible primary full text."
+  ],
+  "schema_version": 1
+}

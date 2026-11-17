@@ -1,19 +1,21 @@
-# Scientific review of Gaussian leaf-count fluctuations in leaf-driven preferential attachment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof begins from an exact tree-level identity: for a tree with at least three vertices every leaf has leaf degree zero, while the total leaf degree across all vertices equals the number of leaves. This reduces the stochastic growth rule to a closed scalar Bernoulli increment with probability \(1-aL_n/(an+L_n)\). The deterministic equilibrium is unique, and the centered recurrence has a strictly contracting adaptive drift. An almost-supermartingale argument yields the almost-sure law of large numbers. Uniform second- and fourth-moment bounds justify replacing the nonlinear drift with its tangent. The resulting weighted martingale array has a verified predictable quadratic-variation limit and bounded Lindeberg increments, yielding the central limit theorem; the \(L^2\)-small linearization error also gives asymptotic variance. Algebraic differentiation gives one and only one dispersion maximum and one crossing of the random-recursive-tree variance. The attached Python checker independently enumerates full labelled-tree laws and the scalar recurrence at five positive rational parameters through eight vertices, and verifies the polynomial identities. Computation is not relied upon as proof of infinite claims.
+PASS
 
-## Originality — PASS, subject to historical-priority limitations
+For trees n>=3, every leaf has leaf-degree zero, total leaf-neighbor weight is L_n, and the leaf count increments by one exactly when a nonleaf is selected. Hence P(delta L=1 | L_n)=1-a L_n/(a n+L_n). The unique drift fixed point r in (1/2,1), exact deviation recursion with contraction b_n=a^2/[(a+L_n/n)(a+r)], and L2/L4 estimates justify replacing it in L2 by linear contraction kappa=a²/(a+r)². Bounded-increment triangular martingale CLT yields V=r(1-r)/(1+2kappa) and moment convergence; derivative of V as function of r gives unique maximizing root of 6r³-15r²+16r-6 and threshold crossing 1/12. Independent rational finite-chain mass conservation, fixed-point algebra, and symbolic derivative checks passed. Finite enumeration does not prove the asymptotic normal law.
 
-Hartle and Krapivsky's 2025 paper introduces the very same leaf-degree-driven tree and computes its first-order leaf density and leaf-degree tail transition, but its precise total-leaf-count fluctuation calculations concern the uniformly attaching random recursive tree instead. The present finding adds the model-specific Gaussian variance curve, its strict interior maximum, and the exact boundary relative to the uniform-tree value. Renlund's one-dimensional stochastic approximation theorem supplies a general Gaussian methodology that could reprove the CLT component after identifying this new model-specific scalar recursion; it does not calculate the optimal attachment parameter or the present leaf-driven dispersion curve. Baldassarri and Bet's degree-count fluctuation theorem assumes an ordinary-degree-based attachment kernel rather than a leaf-neighbor-based kernel. Published research searches and accessible prior claim comparisons did not identify a direct implication covering the *combined* sharp result. This is best-knowledge originality, not a proof of uniqueness in the literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Leaf counts are natural macroscopic statistics of sparsely growing random trees. The first-order leaf density cannot quantify sampling variability, and the model's leaf-degree tail exponent does not predict the fluctuation optimum. The exact dispersion formula shows that the largest global leaf-count fluctuations arise strictly within the power-law regime but away from its boundary, provides a nontrivial optimization problem with a unique exact cubic solution, and locates the separate crossing of the random-recursive-tree baseline. These results identify a genuine fluctuation phenomenon of the newly introduced attachment mechanism rather than merely re-enumerating a known uniform-tree statistic.
+Hartle and Krapivsky define the same leaf-neighbor-driven attachment mechanism and the fixed-point leaf fraction r(a), and already find the a=1 degree-tail transition. Their accessible paper content gives total leaf-count variance 1/12 for the distinct uniformly attaching random recursive tree. No inspected result supplies V(a), this fixed-a CLT, its sharp maximum or finite crossing for leaf-PA(a). The later ordinary-degree PA joint degree/leaf-degree paper uses a different selection rule. Priority is qualified because the entire 2026 original article could not be accessed despite OA and authorized attempts.
 
-## Closest literature and residual risks
+## value
 
-The most direct source is Hartle–Krapivsky, arXiv:2511.04085 (first posted November 6, 2025), especially its sections on global recursive-tree leaf counts and the novel leaf-based preferential attachment model. The closest general CLT mechanism is Renlund, arXiv:1102.4741. Baldassarri–Bet, arXiv:2102.07570, addresses a distinct ordinary-degree model. A broader model-independent theorem may imply Gaussian convergence after specialization; the asserted contribution therefore includes the independently derived exact model-dependent dispersion and sharp parameter phase diagram. The result does not cover parameter sequences, local limit laws, or fluctuations of individual leaf-degree classes. Independent proof and priority reviews remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact dispersion curve and sharp unique maximizer for a natural recently introduced leaf-driven attachment model is a meaningful stochastic-growth classification. The maximum lies away from the known leaf-degree tail transition a=1, providing a non-obvious separation of two model features.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
