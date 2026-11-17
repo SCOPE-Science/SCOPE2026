@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T15:05:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For isotropic M=σ[I_r 0], at every reached rank k with fresh Gaussian block b, residual X~χ²_{b(r-k)} and captured Y~χ²_{bk} are independent conditionally on full past. Therefore P(stop|reached k)=I_tau(b(r-k)/2,bk/2) and the finite stopping mass is p_j∏(1-p_i). True squared relative Frobenius error equals (r-k)/r. Chernoff entropy tail nD(u||tau), n=br/2, and uniform one-sided beta Laplace tail with u=tau+c sqrt(log r/r) produce exponent bc²/[4tau(1-tau)], with ~sqrt(r/logr) effectively competing k. This yields c*=sqrt(2tau(1-tau)/b) in probability and false tolerance acceptance tending 1. Independently checked integer beta/binomial identity and the r=2048 b=2 tau=1/4 false-stop probability 0.987911365509179. Fresh batches, fixed b, r multiple b, tau∈(0,1) essential; no claims for practical averaged-denominator HSS pipeline.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Do–Chen Sections 4.3-4.5 introduce the single-node ratio as given in the source package and practical averaging safeguards, not a universal flat-spectrum first passage theorem in the material independently available.",
+          "Earlier HSS single-step probabilistic stopping bounds do not determine the exact multi-look beta product."
+        ],
+        "reasoning": "No inspected stronger flat-spectrum sequential stopping theorem subsumes the first-pass probability and sharp scale; the uninspected full Do–Chen text leaves a priority risk.",
+        "searches": [
+          "Do Chen simultaneous matrix-free HSS adaptive ranks Gaussian Frobenius stopping",
+          "https://arxiv.org/abs/1810.04125",
+          "https://arxiv.org/abs/2607.06758"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.16913",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-false-pruning-law-and-gumbel-boundary-for-adjoint-free-gau--f45f200de90f",
+        "https://arxiv.org/abs/1810.04125",
+        "https://arxiv.org/abs/2607.06758"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Per-look conditional beta hazard is from rotational Gaussian geometry; first-passage tail is a product because each reached look uses fresh independent probes.",
+          "One-sided beta moderate deviations with r-k=(tau+c sqrt(log r/r))r have exponent bc²/(4tau(1-tau)), and there are effective O(sqrt(r/logr)) opportunities, giving threshold exponent 1/2."
+        ],
+        "reasoning": "Do–Chen per-look analysis by itself does not assert or determine the extreme first-stopping location without further multi-look probabilistic analysis; H analyzes different Gaussian variables. The new sharp scale and exact run-law survive.",
+        "searches": [
+          "https://arxiv.org/abs/2610.16913",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-false-pruning-law-and-gumbel-boundary-for-adjoint-free-gau--f45f200de90f",
+          "https://arxiv.org/abs/1810.04125"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For isotropic rank-r M, conditional residual/captured chi-squares have df b(r-k),bk, yielding I_tau beta first acceptance hazard.",
+          "H uses two-lookahead chi-square ROW pruning of an already recovered rank-b subspace as b grows, whereas current claim repeats a same-block Frobenius numerator/denominator as r grows and b fixed."
+        ],
+        "reasoning": "The finite first-passage product is not the conditional one-look probability. The asymptotic minimum over repeated independent fresh looks at changing k cannot be identified with the row-energy minimum in H.",
+        "searches": [
+          "Gaussian fresh look Frobenius stopping beta first passage sequential flat spectrum",
+          "https://arxiv.org/abs/2610.16913",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-false-pruning-law-and-gumbel-boundary-for-adjoint-free-gau--f45f200de90f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent calculation for r=2048,b=2,tau=1/4 reproduces approximately 0.987911365509179 from the beta-hazard product.",
+          "The finite example is not a known table claimed to be novel; the theorem gives a universal formula for all admissible r."
+        ],
+        "reasoning": "A table entry or numerical Monte Carlo is not the source of novelty; the analytic beta law and sharp asymptotic are.",
+        "searches": [
+          "Gaussian stopped rank exact beta product false acceptance r=2048 b=2",
+          "Gaussian QR flat spectrum false stop 0.987911"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for algorithm-specific exact entire FIRST-stopping-rank law and sharp sqrt(r log r) premature rank scale under fixed fresh batch b. A single Gaussian look beta ratio is classical and is in the antecedent Do–Chen algorithm; unrelated row-pruning chi-square minimum result is not the same process. No general algorithm guarantee is asserted.",
+      "residual_risks": [
+        "Uninspected complete Do–Chen 2026 full text could contain more severe sequential beta stopping conclusions.",
+        "Any broader triangular-array minima theorem may imply the asymptotic after specialization; no publication priority guarantee.",
+        "Model excludes denominator averaging, block pruning, correlated sketch reuse, hierarchical coupling and alternative spectra."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proof and constants reconstructed; not extrapolated from finite test",
+          "evidence": "Conditional chi-square split, product hazard and uniform moderate-deviation first-passage proof.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sequential-gaussian-frobenius-stopping-has-a-sharp-premature-ran--8c50fd5eebb7/RESULT.md",
+          "material_read": "Complete RESULT.md and verify.py",
+          "method": "Frozen GitHub read, direct independent beta and binomial checks",
+          "title": "Sequential Gaussian Frobenius stopping has a sharp premature-rank law",
+          "trigger": "Source proof and exact scope"
+        },
+        {
+          "assessment": "NOT COVERING: two-lookahead row pruning rather than repeated Frobenius stopping",
+          "evidence": "It conditions on first-basis construction, then minimum of b independent chi-square rows, b→∞.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-false-pruning-law-and-gumbel-boundary-for-adjoint-free-gau--f45f200de90f",
+          "material_read": "Complete published RESULT.md proof and algorithm definition",
+          "method": "GitHub Resultary full file read",
+          "title": "Exact false-pruning law and Gumbel boundary for adjoint-free Gaussian range finding",
+          "trigger": "Very close same-algorithm-family false tolerance claim"
+        },
+        {
+          "assessment": "Inaccessible entire independently verified primary text; retain coverage uncertainty",
+          "evidence": "Source directly attributes the per-look Gaussian stopping rule and safeguards to Do–Chen.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.16913",
+          "material_read": "Abstract and bibliographic/source-package quotations, NOT independently obtained whole sections",
+          "method": "Web search and original references",
+          "title": "Simultaneous Matrix-Free HSS Compression and Factorization with Adaptive Ranks",
+          "trigger": "Original underlying single-node stochastic rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A first-stopping-rank law and sharp order sqrt(r log r) premature acceptance explain a concrete failure mechanism in a natural adaptive Frobenius stopping rule. This is a meaningful accuracy limitation of a numerical algorithm rather than a single cherry-picked counterexample; the fixed-b, flat-spectrum scope is explicit. Standard beta identities are tools, not the valuable finding.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.16913",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-false-pruning-law-and-gumbel-boundary-for-adjoint-free-gau--f45f200de90f",
+    "https://arxiv.org/abs/1810.04125",
+    "https://arxiv.org/abs/2607.06758"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Uninspected complete Do–Chen 2026 full text could contain more severe sequential beta stopping conclusions.",
+    "Any broader triangular-array minima theorem may imply the asymptotic after specialization; no publication priority guarantee.",
+    "Model excludes denominator averaging, block pruning, correlated sketch reuse, hierarchical coupling and alternative spectra."
+  ],
+  "schema_version": 1
+}

@@ -1,21 +1,21 @@
-# Scientific review: a sharp sequential Gaussian rank-stopping law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The definition fixes the exact matrix, independent real Gaussian batches, retained subspace and same-batch relative stopping statistic. Conditional isotropy makes residual and captured squared Gaussian lengths independent chi-squares of the stated degrees of freedom, so their ratio is beta-distributed even though the basis is adapted. Conditional probabilities multiply to produce the exact full stopping-rank law. The one-look Chernoff exponent is the binary relative entropy with the orientation used in RESULT.md. A Stirling-density calculation and a one-sided Laplace estimate give the uniform beta moderate-deviation probability; a convexity/geometric-sum upper bound and a divergent conditional-hazard lower bound establish the sharp first-passage scale. The deterministic flat-spectrum projection-error identity turns that scale into false acceptance with probability tending to one. The packaged code passed 35,531 checks covering exact rational finite beta identities, first-passage arithmetic, actual adaptive QR samples and large-rank approximations. Those finite checks are not an infinite proof.
+PASS
 
-Boundary checks: the batch width is fixed as rank grows; ranks are multiples of the width; target squared tolerance is strictly between zero and one; at the first look acceptance is impossible and at full rank it is certain. The unitary invariance argument works after conditioning on the entire previous history. The factor in the sharp limit is \(\sqrt{2\tau(1-\tau)/b}\), not the one-look standard-deviation coefficient. Only the demonstrated single-node variant is covered.
+For isotropic M=σ[I_r 0], at every reached rank k with fresh Gaussian block b, residual X~χ²_{b(r-k)} and captured Y~χ²_{bk} are independent conditionally on full past. Therefore P(stop|reached k)=I_tau(b(r-k)/2,bk/2) and the finite stopping mass is p_j∏(1-p_i). True squared relative Frobenius error equals (r-k)/r. Chernoff entropy tail nD(u||tau), n=br/2, and uniform one-sided beta Laplace tail with u=tau+c sqrt(log r/r) produce exponent bc²/[4tau(1-tau)], with ~sqrt(r/logr) effectively competing k. This yields c*=sqrt(2tau(1-tau)/b) in probability and false tolerance acceptance tending 1. Independently checked integer beta/binomial identity and the r=2048 b=2 tau=1/4 false-stop probability 0.987911365509179. Fresh batches, fixed b, r multiple b, tau∈(0,1) essential; no claims for practical averaged-denominator HSS pipeline.
 
-## Originality
+## originality
 
-**PASS (same-model, priority risk acknowledged).** Do and Chen, arXiv:2610.16913v1, Sections 2.2, 4.3–4.5, gives the same-block residual/total stopping criterion and Gaussian independence, but no evaluated sequential first-stopping distribution or sharp \(\sqrt{r\log r}\) flat-spectrum rank deficit in the inspected material. The same paper explicitly averages its denominator in the practical implementation and adds other rules, so this review does not infer the same failure for the complete method. Gorman et al., arXiv:1810.04125, Section 2.5 and Appendix A, study Frobenius stopping using Gaussian concentration bounds, but not the conditional beta first-passage law for the current exact simplified rule. Smith, Do and Chen, arXiv:2607.06758, concern an adjoint-free QB/pruning mechanism rather than repeated same-block Frobenius tests. Penke and Herten, arXiv:2608.28941, Sections II--IV, use deterministic Frobenius residual bookkeeping for a blocked Householder QR range finder rather than the stated stochastic same-batch ratio. Classic beta-gamma identities, large-deviation and multiple-look methods are tools, not novel assertions. Searches for equivalent statements and broader sequential laws have not identified a theorem giving the exact specialization; prior-art completeness is not guaranteed.
+PASS
 
-## Mathematical value
+PASS best-of-knowledge for algorithm-specific exact entire FIRST-stopping-rank law and sharp sqrt(r log r) premature rank scale under fixed fresh batch b. A single Gaussian look beta ratio is classical and is in the antecedent Do–Chen algorithm; unrelated row-pruning chi-square minimum result is not the same process. No general algorithm guarantee is asserted.
 
-**PASS (self-review).** The motivation is a concrete ambiguity of repeated randomized tolerance tests: unbiasedness and high-probability control of a *single* fresh Frobenius sketch do not automatically control stopping across an increasing sequence of adaptively selected ranks. The theorem gives an exact finite-risk formula with an independently checkable law, and an asymptotically sharp rank-loss coefficient for the natural flat-spectrum test family. Its result discriminates fixed-batch testing from confidence-corrected, batch-averaged or hierarchy-wide procedures and informs safe calibration. It is not a generic objection to randomized range finding; limiting early acceptance occurs on the defined unmodified variant and does not prove corresponding behavior for practical implementations or all matrices.
+## value
 
-## Closest literature and residual limitations
+PASS
 
-Primary motivating source: https://arxiv.org/html/2610.16913v1 (first public 2026-10-12). Earlier primary methods: https://arxiv.org/abs/1810.04125 and https://arxiv.org/html/2607.06758v1 and https://arxiv.org/html/2608.28941v2. Material comparison is at the level of statements and algorithmic sampling rules, not merely similar titles. Possible priority overlap remains with a general extreme-value/triangular-array first-passage theorem not formulated as numerical low-rank sampling. Independent checking by another mathematician has not been performed. Finite tests and a single model's review do not establish independent validation.
+PASS: A first-stopping-rank law and sharp order sqrt(r log r) premature acceptance explain a concrete failure mechanism in a natural adaptive Frobenius stopping rule. This is a meaningful accuracy limitation of a numerical algorithm rather than a single cherry-picked counterexample; the fixed-b, flat-spectrum scope is explicit. Standard beta identities are tools, not the valuable finding.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
