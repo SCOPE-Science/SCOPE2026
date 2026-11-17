@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Each step response has middle-cell derivative nonnegative by the four Hermite corner polynomials, and adjacent extremal bumps ±4/27. Summing absolutely convergent jumps proves the exact general norm. Pairing even/odd inequalities over the whole line proves M≥2ab/(a²+b²) against all nonperiodic λ, attained by the explicit two-periodic weights. Actual checker.py exact identities and finite stress passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Beatson–Chacko describes exact L∞ and derived projector norms for finite interval methods (report §2, tables 3-8); its method G lies in the convex-secant interpolation family but those norms do not calculate or minimize continuous variation relative to nodal discrete variation.",
+        "2012 Nochetto–Salgado arXiv abstract concerns positivity/TV stability of a Q1 finite-element operator, not the interpolatory Hermite family.",
+        "Previously recorded nonlinear Steffen analysis uses data-dependent min/limiter slopes and reports a different two-input stability constant."
+      ],
+      "reasoning": "Results about distinct interpolation algorithms, pointwise operator norms and single-input TVD cannot imply the stated sharp design infimum with linear affine-reproducing secant blends.",
+      "searches": [
+        "published-finding corpus: nonuniform cubic convolution four-tap interpolation spline total variation sharp mesh independent 43/27",
+        "published-finding corpus: variation amplification optimal two-period cubic Hermite monotonicity linear affine reproduction mesh ratio",
+        "web: Which Cubic Spline Should One Use Beatson Chacko exact operator derived norms nonuniform"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:math/0504022v1 (full HTML sections)",
+      "doi:10.1137/0913059 (1990 report parsed text)",
+      "arxiv:1211.1069v1 (abstract)",
+      "splines.readthedocs.io/en/0.2.0/euclidean/catmull-rom-properties.html",
+      "Published two-periodic linear-spline L∞ orthoprojection result (semantic database summary)",
+      "Fixed uniform four-tap cubic-convolution BV result (accessible research-history claim)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The fixed uniform four-tap BV factor 35/27 corresponds to the a=b case with constant half-half slopes; the new all-weight nonperiodic lower bound and extremal contrast are absent there.",
+        "A published two-periodic L∞ orthogonal linear-spline projection result compares mesh contrast for a distinct L2 projector; neither implication direction exists for the Hermite BV infimum.",
+        "2012 TVD Q1 operator is different from the interpolatory cubic class; its bound of one does not supply this constrained optimum."
+      ],
+      "reasoning": "An interpolant-specific upper bound does not imply minimax optimality across coefficients. The new telescoping obstruction applies to every admissible nonperiodic λ and cannot be inferred from a fixed uniform kernel or a nonlinear limiter result.",
+      "searches": [
+        "published-finding corpus: nonuniform Catmull Rom symmetric derivatives low variation optimal mesh alternating",
+        "published-finding corpus: sharp two-input total variation Lipschitz norm nonlinear PCHIP Fritsch Butland harmonic mean cubic Hermite nonuniform mesh",
+        "web: total variation stability wavelet thresholding orthogonal projection Haar nonlinear BV paper arxiv 2012"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sablonnière 2005 HTML §§1-3 considers uniform C2 spline quasi-interpolation rather than data-interpolatory fixed convex secant blends.",
+        "Uniform four-tap cubic convolution is a fixed a=b instance only.",
+        "Beatson–Chacko 1990 report §§1.2,2.2,3 defines different local G/H methods and reports L∞ and derivative operator norms."
+      ],
+      "reasoning": "Neither uniform-grid fixed-interpolant constants nor other cubic-spline operator bounds give an infimum over every bi-infinite coefficient sequence on a two-periodic mesh. A generic nonuniform Catmull–Rom tangent rule need not equal the explicitly defined secant convex blend.",
+      "searches": [
+        "published-finding corpus: alternating mesh optimal secant blending cubic Hermite interpolation total variation design 16ab/(27(a²+b²))",
+        "web: nonuniform Catmull Rom cubic Hermite centered slopes secant finite variation stability operator norm",
+        "web: cubic Hermite central difference derivative total variation norm 35/27 mesh ratio"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest retrieved published two-periodic result concerns L∞ orthogonal projection onto linear splines, not a cubic Hermite data-interpolation design (published research record titled Exact two-periodic spline projection norms and a quadratic mesh-contrast law).",
+        "The fixed uniform Catmull–Rom range-defect result concerns maximum undershoot and not the variation-design infimum.",
+        "The 2005 spline QI article includes QI sup-norm tables, but no such interpolation coefficient-design table."
+      ],
+      "reasoning": "Parameter dependence on alternating a,b alone does not establish exact-table coverage: the operators, norms and optimized design parameters differ. No matching record or table was located in the inspected accessible material.",
+      "searches": [
+        "published-finding corpus: nonuniform centered-chord Catmull-Rom cubic Hermite interpolation variation norm total variation sharp 1+8/27 weighted neighboring cell lengths",
+        "published-finding corpus: alternating mesh optimal secant blending cubic Hermite interpolation total variation design 16ab/(27(a²+b²))",
+        "web: Catmull Rom nonuniform interpolation 41A15"
+      ]
+    },
+    "rationale": "Best-knowledge comparison finds the novel all-weight sharp variation design law on alternating meshes is not implied by published spline L∞ operator norms, by the fixed uniform four-tap value, by nonlinear Steffen stability or by finite-element TVD interpolation. Historical priority remains unconfirmed; an inaccessible older paper could pose residual risk.",
+    "residual_risks": [
+      "Historical priority against older unindexed papers, including inaccessible original general interpolatory curve monographs, cannot be ruled out.",
+      "The Beatson–Chacko PDF screenshot was unavailable; parsed full-document text was inspected but no visual page confirmation performed.",
+      "The 2012 Q1 TVD source was assessed from its abstract and explicit operator difference, not its full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "different C2 cubic quasi-interpolant with uniform partitions, exactness and sup-norm; does not establish BV minimax coefficient design for a C1 interpolant",
+        "evidence": [
+          "arXiv v1 submitted 2005-04-01 14:58:08 UTC; listed MSC 41A15 first",
+          "§3.2 reports cubic quasi-interpolant sup norm near 1.631, not total-variation derivative mass norm"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/math/0504022v1",
+        "material_read": "HTML abstract, sections 1-3.2, definitions, cubic quasi-interpolant coefficients and norm statements",
+        "method": "read full text HTML sections in arXiv page",
+        "title": "Univariate spline quasi-interpolants and applications to numerical analysis",
+        "trigger": "Day-verified archive lead with primary 41A15, local approximation and explicit norm computations"
+      },
+      {
+        "assessment": "No same BV norm or optimization; studied finite-interval local quadratic/cubic-derivative methods, including a convex-secant instance G, but L∞/derived-norm error estimates rather than the stated BV minimax over all convex weights",
+        "evidence": [
+          "Report dated 1990-11-30, original day of public circulation not verified",
+          "Sections 1.2 and 2.3 describe exact sup and derivative norms of listed methods; find for variation returned no match"
+        ],
+        "identifier_or_url": "https://files01.core.ac.uk/download/pdf/35472972.pdf",
+        "material_read": "Parsed text pp.1-4 (definitions of local G/H), pp.5-12 (operator and derivative norm tables), and pp.12 onward (proof-method text); image screenshot attempt was blocked by HTTP 403",
+        "method": "read web-extracted full-document text; PDF page screenshot unavailable",
+        "title": "Which cubic spline should one use?",
+        "trigger": "Closest archival paper explicitly comparing nonuniform cubic interpolation operator norms"
+      },
+      {
+        "assessment": "Q1 Cartesian finite elements, a different positive operator; no direct implication for the constrained cubic Hermite optimization",
+        "evidence": [
+          "arXiv v1 2012-11-05; title and abstract specify a TV-diminishing finite-element interpolation operator",
+          "Residual risk because paper not inspected beyond abstract, but object and construction are explicitly different"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1211.1069",
+        "material_read": "arXiv metadata and full abstract; not full paper",
+        "method": "read source abstract/MSC metadata",
+        "title": "A Total Variation Diminishing Interpolation Operator and Applications",
+        "trigger": "Potential stronger TVD interpolation theorem"
+      },
+      {
+        "assessment": "general nonuniform Catmull–Rom tangents differ from the fixed convex secant-blend derivative defined here; avoid equating names",
+        "evidence": [
+          "Page displays squared-knot-length tangent formula for genuinely nonuniform Catmull–Rom"
+        ],
+        "identifier_or_url": "https://splines.readthedocs.io/en/0.2.0/euclidean/catmull-rom-properties.html",
+        "material_read": "nonuniform and uniform tangent formulas on source page",
+        "method": "read open HTML",
+        "title": "Properties of Catmull–Rom Splines",
+        "trigger": "Check nonuniform tangent aliases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "69f46292-3543-4540-abf4-7ed6a6fa59e5",
+  "value": {
+    "rationale": "An exact interpolation stability-design problem is solved over all data-independent convex secant blends, including spatially nonperiodic choices: optimal BV growth approaches one under extreme alternating mesh contrast, although the uniform design has 35/27 amplification. The telescoping obstruction and explicit squared-length optimum are structural, motivated by sensitivity to sharp data jumps and mesh design. The result is limited to affine reproduction, not all possible interpolation schemes.",
+    "status": "PASS"
+  }
+}
