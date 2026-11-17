@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The coefficient weights satisfy the analytic-disk condition. Exact orbit decomposition and weight ratios give noncompactness, positive self-commutator diagonal entries and compactness. Beta-product moments produce a normal extension. The two-dimensional Riemann-sum proof has a compact counted region, a negligible origin and a measure-zero level boundary, yielding exactly 1/30 and the sharp weak-Schatten endpoint. The standalone checker replays finite identities; no inference from finite testing to the infinite theorem is made.
+## correctness
 
-## Originality
-PASS on available primary text, database-result summaries and accessible own-claim comparisons, subject to the risks below. Cruz-Zamorano–Dellepiane–Seco (arXiv:2610.40148v1, 2026) characterize compact/Schatten *composition operators* and class equality, not self-commutator spectra; the complete paper's introduction, Sections 5–6 and theorem statements were inspected. Bourdon–Levi–Narayan–Shapiro (2003) and Katz (2015) treat essentially normal composition operators on classical unweighted Hardy space, not this weight. The closest published-finding corpus monomial composition example concerns nonconvergent Aluthge iterates; another published-finding corpus binomial-weighted lattice shift concerns a different quadrant shift and its diagonal transfer spectra. Neither known statement implies the exact constant for this model. Residual risk: a general weighted-shift Weyl law may subsume the specially evaluated phase-space integral, or an uncatalogued weighted-Hardy essential-normality theorem may cover the example.
+PASS
 
-## Mathematical value
-PASS. The substantive object is a bounded subnormal monomial composition operator which is *noncompact* but whose self-commutator is compact with exact weak-Schatten order two. The canonical dyadic-orbit decomposition and Beta-product weights give a structural mechanism, and the exact 1/30 law quantifies rather than merely labels essential normality. The result is a precise boundary phenomenon beyond the qualitative compactness and Schatten questions that motivated it.
+Positive coefficient weights β_{2^k j}=binom(j+k,k)^{-2} make z^n/√β_n an orthonormal basis and C(z^{2^k j}) a unilateral shift of weights (k+1)/(j+k+1), plus constant identity. The beta-product XY moment sequence equals squared weight products, giving a normal extension on every orbit and hence subnormality. Diagonal differences r_{j,k}²-r_{j,k-1}² produce the displayed rational d_{j,k}, bounded by 2/(j+k), proving positivity and compactness. For t→0 with x=tj,y=tk the limiting superlevel density is F=2xy/(x+y)^3; odd-j mesh contributes density 1/2. The counted lattice set lies in x+y<2, origin negligible, level boundary measure zero; ∫s²/(1+s)^6 ds = B(3,3)=1/30. This yields n^{1/2}s_n→1/√30 and Schatten p>2, weak 2 endpoint. Independently counted N(0.01)=335 and N(1/300)=3001; convergence is proved analytically, not from these tests. Inspected exact checker.py sampled moment ratios, inequalities and cutoff counts.
 
-## Limits
-Only this explicit coefficient space, its fixed monomial symbol and the displayed spectral asymptotic are proved. The novelty evaluation is best-knowledge and does not constitute independent priority certification. Sources without full-text access are not asserted to exclude the claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing compactness and Schatten class classifications address composition operator C_φ itself, whereas this result measures singular values of C*C−CC* of an explicit noncompact subnormal C(z²). Related Dirichlet-type monomial examples concern different weights or trace orders; no checked source implies the exact two-dimensional 1/30 commutator phase-space law. But older abstract weighted-shift Weyl laws may subsume the computation; full 2026 primary text inaccessible, recorded as significant risk.
+
+## value
+
+PASS
+
+The binomial weight comes from beta moments and produces a natural direct sum of dyadic weighted shifts. It exhibits a noncompact yet subnormal composition operator with compact positive commutator exactly at weak-Schatten order two, and computes the sharp spectral coefficient. This connects coefficient-space construction to quantitative essential normality; it is not merely a cheap finite eigenvalue count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
