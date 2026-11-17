@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T00:58:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The unit-cell Gram matrix is (4I+S+S^{-1})/6; the cyclic Green row b_j=√3[(-q)^j+(-q)^(n-j)]/(1-(-q)^n), q=2-√3, solves the inverse equations for n≥3. Exact integral J(a,b) of the absolute linear nodal interpolation gives Λ_n=ΣJ, with strict-only-knot convexity via sign disagreement of adjacent kernel evaluations. The cardinal L1 norm is 2, and periodization yields strict 1<Λ_n<2. Two nearest translates dominate the defect; after centering x=m+s the tails contribute O(q^(2m)), leaving explicit piecewise-linear overlap integrals. Evaluation gives distinct positive C_even≈1.6830464193 and C_odd≈0.7011506234. Reconstructed all parameter boundaries, including n=3,4,5. Independent exact rational and float checks at n=3..5 and larger n agree and scaled deficits approach distinct coefficients. Finite checks are corroboration, not proof of asymptotic error.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Passenbrunner 2016 treats arbitrary periodic knots/orders with uniform boundedness, not refined q^floor(n/2) coefficient limits. Antonopoulos–Dougalis 2021 develops inverse circulant decay and Sobolev stability. Oct26 RESULT proves c q^m≤2-Λ_n≤4q^m, not existence/value of two normalized limits."
+        ],
+        "reasoning": "General setting and coarse two-sided bounds do not force both exact parity constants or the complete output norming set.",
+        "searches": [
+          "Resultary: exact norm periodic linear spline least squares projection even odd knots parity boundary layer 2-lambda inverse cyclic tridiagonal",
+          "arxiv:1608.06720",
+          "arxiv:2106.09060",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-finite-circle-stability-and-exponential-defect-for-linear--93171c0ccb28/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-finite-circle-stability-and-exponential-defect-for-linear--93171c0ccb28/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-endpoint-norms-of-uniform-periodic-linear-spline-orthoproj--9499aea3bfb2/RESULT.md",
+        "https://arxiv.org/pdf/2106.09060",
+        "https://arxiv.org/pdf/1608.06720",
+        "https://arxiv.org/abs/1103.1949"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Oct26 full proof explicitly says it does not determine parity-dependent leading constants or uniqueness of norming locations; Nov2 has only a finite exact sum and one-sided exponential error. Inverse-row estimates alone give no exact overlap integrals."
+        ],
+        "reasoning": "Earlier sharp geometric order plus exact finite formula permits later calculation of the coefficients, but does not contain, explicitly imply as a stated theorem, or mechanically resolve the required nontrivial signed-kernel overlap limit. New proof evaluates it and proves uniqueness.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-finite-circle-stability-and-exponential-defect-for-linear--93171c0ccb28/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-endpoint-norms-of-uniform-periodic-linear-spline-orthoproj--9499aea3bfb2/RESULT.md",
+          "arxiv:2106.09060"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "October 26 RESULT writes Λ_n=6ΣH(g_j,g_{j+1}); its g_j=b_j/6, so it is literally the same finite norm formula. November 2 writes Λ_n=ΣF(a_j,a_{j+1}) with a_j=b_j."
+        ],
+        "reasoning": "Identical operator, Gram row and normalization; the old formulas are mathematically equivalent to the submitted finite expression, so no originality is attributed to that part. The extra parity constants and strict norming uniqueness are separate assertions.",
+        "searches": [
+          "Resultary: exact norm periodic linear spline least squares projection even odd knots parity boundary layer 2-lambda inverse cyclic tridiagonal",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-finite-circle-stability-and-exponential-defect-for-linear--93171c0ccb28/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-endpoint-norms-of-uniform-periodic-linear-spline-orthoproj--9499aea3bfb2/RESULT.md",
+          "arxiv:2106.09060"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The same small fractions Λ3=16/9, Λ4=17/9, Λ5=257/132 occur in both earlier full RESULT texts."
+        ],
+        "reasoning": "This is an analytical continuum of n; small-n tables and the exact finite sum are covered. The two all-n asymptotic leading coefficients are not a table lookup.",
+        "searches": [
+          "Resultary: exact norm periodic linear spline least squares projection even odd knots parity boundary layer 2-lambda inverse cyclic tridiagonal",
+          "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-finite-circle-stability-and-exponential-defect-for-linear--93171c0ccb28/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-endpoint-norms-of-uniform-periodic-linear-spline-orthoproj--9499aea3bfb2/RESULT.md"
+        ]
+      },
+      "rationale": "The entire finite knot norm formula, strict finite bound and sharp exponential RATE are published already (October 26 and November 2). These portions are not original. Those full inspected proofs expressly do not determine the two distinct leading parity coefficients or uniqueness of ALL norming output locations. The present refined overlap asymptotics and norming-location classification are non-implied surviving results, subject to possible older uncatalogued equivalent formulas.",
+      "residual_risks": [
+        "Possible older equivalent spline kernel overlap or leading-coefficient calculation was not comprehensively ruled out.",
+        "Full identical finite norm formula and rate are definitively pre-existing; novelty must be restricted to parity constants and strict norming set."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT PRIOR OVERLAP for finite norm and exponential rate; DOES NOT COVER parity constants/unique norming",
+          "evidence": "Theorem Λ_n=6ΣH and defect c q^m≤δ≤4q^m; limitations explicitly exclude leading parity coefficients.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-finite-circle-stability-and-exponential-defect-for-linear--93171c0ccb28/RESULT.md",
+          "material_read": "Entire RESULT.md including steps 1-4, theorem, stated limitations and references",
+          "method": "Full text via pinned/public GitHub RESULT.md or original arXiv PDF; inspected theorem/proof/limitations relevant to the comparison",
+          "title": "Sharp finite-circle stability and exponential defect for linear spline projection",
+          "trigger": "Same operator, n, q and finite formula"
+        },
+        {
+          "assessment": "EXACT PRIOR OVERLAP for finite L_n, 1<L_n<2, finite negativity defect",
+          "evidence": "a_j=b_j and F=J; proof gives no two leading coefficients or unique interior norming exclusion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-endpoint-norms-of-uniform-periodic-linear-spline-orthoproj--9499aea3bfb2/RESULT.md",
+          "material_read": "Entire RESULT.md and full proof",
+          "method": "Full text via pinned/public GitHub RESULT.md or original arXiv PDF; inspected theorem/proof/limitations relevant to the comparison",
+          "title": "Exact endpoint norms of uniform periodic linear-spline orthoprojectors",
+          "trigger": "Same finite operator and nodal kernel"
+        },
+        {
+          "assessment": "NOT DIRECT COVERAGE of parity boundary coefficients in inspected material",
+          "evidence": "Theorems concern bounded stability/Sobolev norms and inverse-entry decay, not sharp uniform finite-n coefficient series.",
+          "identifier_or_url": "https://arxiv.org/pdf/2106.09060",
+          "material_read": "Full accessible PDF, introduction, matrix estimates in Sections 3-5 and theorem statements; screenshot of page 1",
+          "method": "Original arXiv PDF opened and page 1 visually inspected; sections and terminology searched",
+          "title": "On the stability of the L2 projection and the quasiinterpolant in smooth periodic splines",
+          "trigger": "Same spline space and cyclic inverse methods"
+        },
+        {
+          "assessment": "NOT DIRECT COVERAGE in inspected relevant theorem statements",
+          "evidence": "Broad L∞ boundedness is not an exact uniform-mesh parity asymptotic.",
+          "identifier_or_url": "https://arxiv.org/pdf/1608.06720",
+          "material_read": "Full accessible PDF; inspected main theorems and arbitrary-knot framework",
+          "method": "Original arXiv PDF main theorems and scope inspected",
+          "title": "Orthogonal projectors onto spaces of periodic splines",
+          "trigger": "General periodic spline stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp leading parity coefficient and strict norming-output classification resolve two natural gaps left explicitly open in already published exact finite-n periodic projection bounds: they quantify the size and sign geometry of the finite-size stability defect, a classical numerical-analysis invariant. This is substantially more than renaming the old norm formula; elementary finite fractions and generic exponential rates alone are not claimed as new.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/10/26/SCOPE-sharp-finite-circle-stability-and-exponential-defect-for-linear--93171c0ccb28/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-exact-endpoint-norms-of-uniform-periodic-linear-spline-orthoproj--9499aea3bfb2/RESULT.md",
+    "https://arxiv.org/pdf/2106.09060",
+    "https://arxiv.org/pdf/1608.06720",
+    "https://arxiv.org/abs/1103.1949"
+  ],
+  "disposition": "passed",
+  "final_claim": "Sharp parity boundary layers and unique knot norming for periodic linear-spline L2 orthoprojection",
+  "limitations": [
+    "n≥3, real L∞ inputs, L2 projection, uniform periodic linear spline degree one; coefficients asymptotic m→∞; earlier finite formula/rate are covered. Incomplete exhaustive historical priority."
+  ],
+  "residual_risks": [
+    "Possible older equivalent spline kernel overlap or leading-coefficient calculation was not comprehensively ruled out.",
+    "Full identical finite norm formula and rate are definitively pre-existing; novelty must be restricted to parity constants and strict norming set."
+  ],
+  "schema_version": 1
+}

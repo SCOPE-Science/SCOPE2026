@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Reproduction and limitations
+# Independent mathematical audit
 
-The proof is self-contained in `RESULT.md`. The Python standard-library checker is `checks/check_periodic_projection.py`. From the package root, run:
+## correctness
 
-```sh
-python3 checks/check_periodic_projection.py
-```
+PASS
 
-The checker uses exact `fractions.Fraction` Gauss–Jordan inversion of the cyclic hat-function Gram matrices for each \(n\) from \(3\) through \(21\); computes each knot evaluation kernel's \(L^1\) integral by exact rational formulas; compares those values with the explicit periodization expression using high-precision `decimal.Decimal`; and independently integrates the parity-overlap functions against the two convergent series formulas. The observed output is:
+The unit-cell Gram matrix is (4I+S+S^{-1})/6; the cyclic Green row b_j=√3[(-q)^j+(-q)^(n-j)]/(1-(-q)^n), q=2-√3, solves the inverse equations for n≥3. Exact integral J(a,b) of the absolute linear nodal interpolation gives Λ_n=ΣJ, with strict-only-knot convexity via sign disagreement of adjacent kernel evaluations. The cardinal L1 norm is 2, and periodization yields strict 1<Λ_n<2. Two nearest translates dominate the defect; after centering x=m+s the tails contribute O(q^(2m)), leaving explicit piecewise-linear overlap integrals. Evaluation gives distinct positive C_even≈1.6830464193 and C_odd≈0.7011506234. Reconstructed all parameter boundaries, including n=3,4,5. Independent exact rational and float checks at n=3..5 and larger n agree and scaled deficits approach distinct coefficients. Finite checks are corroboration, not proof of asymptotic error.
 
-```text
-EXACT_RATIONAL_GRAM_INVERSE_AND_INTEGRAL_OK 19
-PERIODIC_PARITY_ASYMPTOTIC_CONSISTENCY_OK
-INDEPENDENT_OVERLAP_INTEGRATION_OK
-LEADING_COEFFICIENTS 1.6830464193182701 0.7011506234329134
-ALL_PERIODIC_LINEAR_SPLINE_CHECKS_OK
-```
+## originality
 
-The proof that these coefficients control the infinite subsequences requires the geometric decay of the discarded translates and the explicit decomposition of the piecewise-linear overlap integrals; finite numerical or exact-rational checks do not establish that limit. The decimal approximations represent convergent-series coefficients and are not the formal definitions of the constants. No independent mathematical audit has been performed.
+PASS
+
+The entire finite knot norm formula, strict finite bound and sharp exponential RATE are published already (October 26 and November 2). These portions are not original. Those full inspected proofs expressly do not determine the two distinct leading parity coefficients or uniqueness of ALL norming output locations. The present refined overlap asymptotics and norming-location classification are non-implied surviving results, subject to possible older uncatalogued equivalent formulas.
+
+## value
+
+PASS
+
+A sharp leading parity coefficient and strict norming-output classification resolve two natural gaps left explicitly open in already published exact finite-n periodic projection bounds: they quantify the size and sign geometry of the finite-size stability defect, a classical numerical-analysis invariant. This is substantially more than renaming the old norm formula; elementary finite fractions and generic exponential rates alone are not claimed as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
