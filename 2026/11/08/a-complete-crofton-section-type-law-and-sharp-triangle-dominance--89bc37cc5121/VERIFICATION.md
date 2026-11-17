@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible numerical checks and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and its standard library only. The script evaluates the one-dimensional elementary integral by composite Simpson quadrature, separately on either side of its absolute-value kink; no external library is required.
+## correctness
 
-For each of five positive shape triples, it directly samples uniformly oriented normals and uses offsets uniformly drawn from a common sphere-bounding interval, rejecting all planes that miss the pyramid. The retained-plane distribution is proportional to the Euclidean-motion-invariant measure and contains the required directional width bias. Section vertices are counted independently as crossing edges of the five-vertex pyramid graph, rather than obtained from the formulas under test.
+PASS
 
-The completed deterministic test proposed 450,000 random orientations and retained 241,034 hit sections. It verified each of the three predicted probabilities to absolute tolerance 0.015, each mean count to tolerance 0.025, the derivative identity for the exact mean-width normalizer to numerical tolerance, all probability signs, triangle dominance, and both sharp expectation limits. Output ended with `RECTANGULAR_PYRAMID_CROFTON_LAW_OK accepted=241034`.
+The correct random-plane law weights normals by width: total hit measure D/pi via the classical polyhedral edge exterior-dihedral mean-width identity. Edge-crossing projected length integral totals 2(a+b+L), proving EN=2pi(a+b+L)/D. For a generic normal, five-edge cutting-offset length is (Z-|X-Y|)_+-(Z-X-Y)_+, integrated over the positive octant to J/pi using exact spherical angle integral. Division gives p5; 3-4-5 sided support plus normalization and expectation yields p3 and p4. Differentiation yields D’=(h/L)phi and EN’ positive because D-(a+b+L)phi is a sum of strictly positive angle brackets. Limits give 2+sqrt2<EN<4; p3-p5=4-EN>0. Degenerate cuts null measure; a,b,h>0. Independently checked quadrature against unbiased spherical directions and uniform ambient offset rejection for three geometries, including nonsquare shapes; these are not continuum proofs.
 
-These tests provide reproducibility diagnostics, not a finite exhaustive classification or independent mathematical proof. The universal claims require the exact edge/offset integrations and monotonicity argument in `RESULT.md`. No independent audit has been performed.
+## originality
+
+PASS
+
+PASS as best knowledge for an arbitrary right rectangle, all section probabilities, strict universal triangle dominance, and sharp height monotonicity. The 2026-10-18 exact Crofton law for RIGHT SQUARE pyramids is an acknowledged a=b special case and does not imply the a!=b formula/monotonicity; projected shadows and centroidal/Haar plane sections use different measures. The plausible 1995 stereology source could not be read beyond its abstract because the authorized institutional VPN is disconnected; this is a named historical priority risk, not automatic scientific failure.
+
+## value
+
+PASS
+
+A sharp complete stochastic section-type law for all right rectangular pyramids supplies exact geometric-probability observables for a natural two-shape-parameter polytope family. Strict triangle dominance and strict height monotonicity with sharp endpoint limits are useful shape-independent structural conclusions, not mechanically implied by the earlier square-only distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

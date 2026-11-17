@@ -1,15 +1,21 @@
-# Scientific review: Crofton sections of right rectangular pyramids
+# Independent mathematical audit
 
-## Correctness — PASS
-The random affine plane is sampled with motion-invariant measure before hit-conditioning, ensuring the directional width bias is included. Integrating edge crossings gives the first moment; the polyhedral mean-width identity gives the denominator. Exact offset inequalities produce the pentagonal-section integral, and the other two probabilities follow from an exact two-equation moment system. The derivative identity \(D'(h)=h\phi/L\) yields a strictly increasing expectation and the sharp global bounds. A separate edge-intersection Monte Carlo implementation agrees with the formulas at five different shapes; finite tests do not replace the symbolic proof.
+## correctness
 
-## Originality — PASS, with historical risk
-Kim–Yaskin–Zvavitch (2015) treat distributions of section areas, not section vertex counts. The published exact rectangular-pyramid five-vertex result is for planar **shadows** and cannot imply the stationary **affine-section** probabilities, which also have three-sided outcomes. Accessible existing section-type claims concern other bodies or central rather than translated sections. Ohser–Mücklich's 1995 stereology paper was inspectable only by abstract, so its full technical contents remain an explicit residual risk; originality is not independently certified.
+PASS
 
-## Value — PASS
-The complete law across the right rectangular-pyramid family and its shape-free structural consequences resolve a natural geometric-probability statistic beyond a special-case numerical example. Strict triangle dominance, a sharp expectation interval and strict height monotonicity give testable boundaries for future stereological studies.
+The correct random-plane law weights normals by width: total hit measure D/pi via the classical polyhedral edge exterior-dihedral mean-width identity. Edge-crossing projected length integral totals 2(a+b+L), proving EN=2pi(a+b+L)/D. For a generic normal, five-edge cutting-offset length is (Z-|X-Y|)_+-(Z-X-Y)_+, integrated over the positive octant to J/pi using exact spherical angle integral. Division gives p5; 3-4-5 sided support plus normalization and expectation yields p3 and p4. Differentiation yields D’=(h/L)phi and EN’ positive because D-(a+b+L)phi is a sum of strictly positive angle brackets. Limits give 2+sqrt2<EN<4; p3-p5=4-EN>0. Degenerate cuts null measure; a,b,h>0. Independently checked quadrature against unbiased spherical directions and uniform ambient offset rejection for three geometries, including nonsquare shapes; these are not continuum proofs.
 
-## Limits and closest literature
-The formulas require a rectangular base, centered apex and isotropic stationary planes, and provide an exact quadrature rather than an elementary primitive. The proof is self-contained modulo the classical polyhedral mean-width identity. Compare arXiv:1512.07289v1, Ohser–Mücklich (1995) DOI:10.2307/1427832, and the published rectangular-pyramid shadow result; prior work is not claimed absent beyond inspected sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS as best knowledge for an arbitrary right rectangle, all section probabilities, strict universal triangle dominance, and sharp height monotonicity. The 2026-10-18 exact Crofton law for RIGHT SQUARE pyramids is an acknowledged a=b special case and does not imply the a!=b formula/monotonicity; projected shadows and centroidal/Haar plane sections use different measures. The plausible 1995 stereology source could not be read beyond its abstract because the authorized institutional VPN is disconnected; this is a named historical priority risk, not automatic scientific failure.
+
+## value
+
+PASS
+
+A sharp complete stochastic section-type law for all right rectangular pyramids supplies exact geometric-probability observables for a natural two-shape-parameter polytope family. Strict triangle dominance and strict height monotonicity with sharp endpoint limits are useful shape-independent structural conclusions, not mechanically implied by the earlier square-only distribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
