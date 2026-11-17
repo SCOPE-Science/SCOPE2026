@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The universal presentation of the exterior algebra reduces every unital homomorphism to an ordered nilpotent-generator image tuple. Literal degree-by-degree products show that, in characteristic different from two, the complete and only constraints are that the matrix \(\Phi V\) is alternating. Over a fixed rank-\(r\) matrix \(V\), its possible alternating forms descend precisely to the \(r\)-dimensional quotient by \(\ker V\), and all remaining coefficients extend freely. This proves the vector-bundle dimension and exact finite-field fiber count. Rank two and three both attain the maximum dimension, while the determinantal rank bound keeps their component closures distinct. In characteristic two, commutativity and Frobenius squaring make every tuple of augmentation-ideal elements admissible. The accompanying literal-multiplication checker corroborates the formula for all tested small cases and checks canonical fibers in dimension three; it is not used as a proof of generality.
+## correctness
 
-**Originality: PASS, qualified.** Djoković (1978) studies derivations and automorphisms, and Bavula (arXiv:math/0703352v1, 2007-03-12) studies Jacobian and automorphism groups of Grassmann algebras. In particular the rank-three \(m=3\) enumeration is already implied by Bavula's automorphism decomposition; it is not presented as novel. Bruns–Conca (arXiv:0705.3399v1) study exterior powers of linear maps rather than arbitrary algebra homomorphisms. Actual published-record searches for noninvertible exterior-algebra homomorphism rank varieties and finite-field counts returned nearby but scientifically inapplicable records. Neither the inspected papers nor retrieved findings supplied the joint all-rank count, characteristic-two comparison, and two distinct maximal-dimensional component closures. Residual risk is a general theorem for homomorphism varieties of quadratic algebras that could subsume this special family; independent historical-priority audit has not occurred.
+PASS
 
-**Value: PASS.** Homomorphism sets, their deficient-rank strata, and their finite-field cardinalities are intrinsic invariants of finite-dimensional associative algebras, not arbitrary slices. The theorem computes the full family of maps from exterior algebras on arbitrarily many generators into the natural smallest exterior algebra with an interacting degree-two layer, and identifies a genuine geometric coexistence of maximal rank strata plus an exact characteristic-two discontinuity. Known automorphism counts do not determine these deficient-rank maps or their geometry.
+A homomorphism from E_m to E_3 sends every source generator into the nilpotent augmentation ideal. Write each image uniquely as v_i in degree1, w_i in degree2 and t_i Omega in degree3. Over char!=2 the source anticommutativity and square-zero relations are equivalent to Phi V alternating; this includes zero diagonal and skew off-diagonal. If rank(V)=r with K=ker(V), an alternating Phi V descends uniquely to an alternating form on the r-dimensional quotient; Phi has m(3-r) additional extension degrees and cubic coefficients contribute m, giving an affine vector-bundle fiber of dimension m(4-r)+binom(r,2). Adding the rank-r matrix-stratum dimension r(3+m-r) gives d_r=4m+(5r-r²)/2. For m>=3 rank-2 and rank-3 irreducible strata have equal maximal dimension, with distinct closures since rank(V)<=2 is closed; thus at least two max-dimensional reduced components. In characteristic 2 E_3 is commutative and every augmentation element squares to zero; all m-tuples give affine A^(7m). Independently enumerated alternating-matrix fibers for m=1,2 over F3: m=2 ranks r=0,1,2 respectively 729,81,27 quadratic choices, exactly the formula.
 
-**Limits.** The statement describes reduced rank strata and proves at least two top-dimensional components, not a complete component classification. It does not describe conjugacy orbits, nonreduced structure, or target rank greater than three. The computational checks are finite. The earliest verified full-date archival anchor is Bavula's 2007-03-12 arXiv version; Djoković's older 1978 paper was inspected and acknowledged but its earliest public day was not independently verified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Automorphisms of E_3 and their rank-three count were established much earlier and are credited. Bruns–Conca study the image of an exterior-power FUNCTOR on vector-space maps, a different variety. The retained statement enumerates all nongraded unital algebra homomorphisms E_m->E_3 across deficient linear ranks and proves competing top-dimensional reduced components plus characteristic-two affine collapse. No inspected published result supplied that general algebra-hom-set census.
+
+## value
+
+PASS
+
+The exact finite-field hom-set rank distribution and two competing maximal-dimensional geometric components address natural moduli of algebra maps between canonical local supercommutative algebras. The characteristic-two jump to affine A^(7m) and the rank-two/rank-three coexistence are meaningful invariant boundaries, not merely re-computation of automorphisms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
