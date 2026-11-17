@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T02:45:59Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/arbitrarily-long-attracting-opinion-cycles-with-three-agents-and--d303f3f58611/RESULT.md, blob b5151404a74619b9226b1a40410abc3dc8ca4fd6",
+        "SCOPE-Science/SCOPE2026@b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/arbitrarily-long-attracting-opinion-cycles-with-three-agents-and--d303f3f58611/verify.py, blob 43292b14b53b40bd42dd5d7eb32e125c96a6c6e"
+      ],
+      "rationale": "For Q=2^p-1, orbit points 2^k/Q (0<=k<p) are distinct. At x=1/Q only anchor 1 is trusted and maps to 2^(p-1)/Q; at all remaining orbit points anchor 0 is trusted and successive updates halve the numerator. The bounded open symmetric confidence set has one central and up to three mirrored positive bands (<=7 intervals). All included distances lie strictly in open bands; the forbidden odd integers lie outside by at least a positive gap, including p=2. Every local update has slope 1/2 and the p-return multiplier 2^-p. The strict gaps give an attracting neighborhood and robustness under small endpoint/anchor perturbations. A separate rational-integer checker verified selection and transitions for p=2..150 (11,324 orbit-state checks); no assertion of all-p truth rests on the finite checks. With fewer than three agents reciprocal two-agent averaging or single-anchor distance monotonicity forbids nonconstant cycles.",
+      "residual_risks": [
+        "Robustness local only, not global; one distinct confidence set is chosen for each p."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nov1 full theorem covers every p>=2 and exact <=7 bound; Oct18 covers arbitrary p and three agents but not constant component bound; 2024 paper treats one period-three example."
+        ],
+        "reasoning": "Earlier Nov1 theorem implies the entire new qualitative period-count conclusion and quantitative return multiplier with the same hypotheses up to harmless endpoint openness.",
+        "searches": [
+          "Resultary 2026/11/1 and 2026/10/18 full primary texts",
+          "Zabarianska Proskurnikov arXiv 2408.01753"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-arbitrarily-long-attracting-cycles-with-seven-confidence-interva--03f12edbe035/RESULT.md (complete published primary, blob 5b920d669eedd3f0f15dd7ca91cd69527d8ebb93)",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-arbitrarily-long-attracting-opinion-cycles-with-only-three-agent--0e81d27382bb/RESULT.md (complete primary, blob d5bab0f3e57f183b532b1d1c53665556cd352d96)",
+        "https://arxiv.org/abs/2408.01753",
+        "Resultary search: set-based confidence opinion dynamics two stubborn one regular arbitrarily long attracting cycles symmetric bands"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier intervals [center-c,center+c] enclose intended distances with c=1/(4Q), while all rejected distances differ by >=1/Q. Replacing [ ] with ( ) preserves all these tests and contraction neighborhoods."
+        ],
+        "reasoning": "The claimed stronger openness and endpoint perturbation robustness follow from the earlier strict inequalities; hence no distinct surviving improvement.",
+        "searches": [
+          "Nov1 strict inclusion/exclusion endpoint proof",
+          "current assigned Nov8 proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nov1 construction has the same dyadic orbit and slope 2^-p, two anchors at 0,1, single ordinary agent, <=7 intervals; strict confidence margins support open versions."
+        ],
+        "reasoning": "The open/closed endpoint choice is irrelevant on a finite orbit and its surrounding local basin. Both formulate unbounded least-period local attractors at constant agent/component complexity.",
+        "searches": [
+          "Resultary semantic search 2026/11/1 seven confidence intervals",
+          "full Nov1/2026 RESULT.md",
+          "full Oct18/2026 RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Nov1 paper gives exact center interval construction for each p, full orbit coordinates x0=1/Q and x_j=2^(p-j)/Q and fixed multiplier 2^-p."
+        ],
+        "reasoning": "This is a complete parametric construction, not a missing period in a numeric table.",
+        "searches": [
+          "published all-p 7-component opinion cycle November 1",
+          "published 3-agent all-p cycle October 18"
+        ]
+      },
+      "rationale": "The November 1 full published theorem proves three agents with two stubborn anchors, an at-most-seven-component symmetric confidence set, an exponentially attracting least-p cycle for every p>=2, minimal three-agent threshold, and return multiplier 2^-p. Its confidence intervals are closed rather than open, but all periodic distances have strictly positive separation from endpoints; opening those intervals changes neither the itinerary nor local attraction, so the current open-set variation is a routine boundary modification. The October 18 earlier published result already proves arbitrary p, local attraction and three-agent minimality, though with a growing component count.",
+      "residual_risks": [
+        "Earlier seven-interval proof has closed sets; equivalence relies on the explicit strict interior margins, not a literal identical set definition. No other surviving original mathematical claim found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS",
+          "evidence": "At most seven intervals, any p, strict margins, 2^-p attracting orbit already November 1",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-arbitrarily-long-attracting-cycles-with-seven-confidence-interva--03f12edbe035/RESULT.md",
+          "material_read": "Complete RESULT.md including construction, strict margin and p=2 case, return map, minimality, proof and prior work",
+          "method": "Read full GitHub published RESULT.md, blob 5b920d669eedd3f0f15dd7ca91cd69527d8ebb93",
+          "title": "Arbitrarily long attracting cycles with seven confidence intervals and three opinion agents",
+          "trigger": "Direct same constrained geometry and all-period theorem"
+        },
+        {
+          "assessment": "COVERS_PARTIALLY",
+          "evidence": "Arbitrary p, local attraction, 3 minimum, 2^-p earlier Oct18, but lacks <=7 uniform interval bound",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-arbitrarily-long-attracting-opinion-cycles-with-only-three-agent--0e81d27382bb/RESULT.md",
+          "material_read": "Complete RESULT.md with orbit, elementary check, local basin, minimality and limitations",
+          "method": "Read full GitHub RESULT.md, blob d5bab0f3e57f183b532b1d1c53665556cd352d96",
+          "title": "Arbitrarily long attracting opinion cycles with only three agents",
+          "trigger": "Earlier general all-period 3-agent prior result"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY",
+          "evidence": "2024 paper provides period-three instance, not decisive seven-interval all-period coverage",
+          "identifier_or_url": "https://arxiv.org/abs/2408.01753",
+          "material_read": "Model/Example 4 content described in assigned and earlier published full RESULTs; independent primary arXiv full text not inspected here",
+          "method": "Read scientific analyses within audited packages",
+          "title": "Opinion Dynamics with Set-Based Confidence: Convergence Criteria and Periodic Solutions",
+          "trigger": "Original paper defining SCOD"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/1/SCOPE-arbitrarily-long-attracting-cycles-with-seven-confidence-interva--03f12edbe035/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-arbitrarily-long-attracting-opinion-cycles-with-only-three-agent--0e81d27382bb/RESULT.md"
+      ],
+      "rationale": "The ability to realize unbounded least periods with fixed model and confidence-band complexity is a genuine dynamical phenomenon; however that exact phenomenon, minimal number of agents and contraction rate were proved by the preceding seven-component publication. Boundary openness and persistence from existing strict margins are routine, so the submitted final finding lacks a distinct valuable new theorem.",
+      "residual_risks": [
+        "This is scientific redundancy rather than a correctness failure."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Robustness local only, not global; one distinct confidence set is chosen for each p.",
+    "Earlier seven-interval proof has closed sets; equivalence relies on the explicit strict interior margins, not a literal identical set definition. No other surviving original mathematical claim found.",
+    "This is scientific redundancy rather than a correctness failure."
+  ],
+  "schema_version": 1
+}
