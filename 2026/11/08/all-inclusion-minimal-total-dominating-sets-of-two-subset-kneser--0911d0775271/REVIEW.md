@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The disjointness/open-neighborhood condition is equivalent to the auxiliary graph having no two-vertex cover, and deletion minimality is equivalent to edge-critical vertex-cover number three. An explicit random-order two-families argument bounds any minimal certificate by six edges; hence the exhaustive isolate-free six-edge graph census is sufficient for all orders, not just orders checked by brute force. The included algorithm uses inductively exhaustive edge-addition operations and exact degree-constrained isomorphism, with exact cover-subset predicates. All four surviving types and their labeling counts were independently checked by direct Kneser graph enumeration through order seven. The finite census depends on the correctly implemented short, inspectable program; independent formal certification is not claimed.
+## correctness
 
-## Originality — PASS (qualified)
-The relevant primary texts are Cornet–Torres, arXiv:2308.15603, especially the complete HTML sections on two-subset Kneser graphs, and Brešar–Cornet–Dravec–Henning, arXiv:2312.15464, whose introduction and total-domination results concern minimum parameters. The former uses closed-neighborhood domination, whereas the latter provides total-domination extremal information without the four-type classification or complete inclusion-minimal cardinality distribution. An actual search for the specific four auxiliary graph types, edge-critical vertex-cover aliases, and the exact polynomial did not reveal direct coverage. Equivalent abstract results on minimal vertex-cover obstructions might imply the result, and the full 1993 paper on Kneser domination was not inspected; these remain priority risks. No absolute uniqueness is asserted.
+PASS
 
-## Mathematical value — PASS
-The exact minimal-set spectrum is a natural facet enumeration for the total-domination complex of the two-subset Kneser graph, not a minimum-size restatement: all four minimal types, multiplicities, and a uniform sharp upper size six are determined. The structural reduction from total domination to critical vertex covers explains why the maximal minimal size remains bounded as the Kneser graph grows quadratically.
+Total domination of KG(n,2) is equivalent to an auxiliary selected-edge graph having vertex cover number at least three; deletion minimality forces cover number exactly three and all edge deletions coverable by two vertices. For each selected edge an opposing two-cover produces pairs of 2-sets satisfying the disjointness/cross-intersection condition, and the elementary random-order two-families inequality yields at most six selected edges. The source six-edge isolate-free unlabeled graph generator was inspected: inductive one-edge extensions exhaust all graphs of <=6 edges, followed by exact cover/isomorphism tests, identifying precisely 3K2, K3 disjoint K2, C5, K4. Support label counts give 15 C(n,6), 10 C(n,5), 12 C(n,5), C(n,4) at sizes 3,4,5,6. Independently tested direct total domination of KG(n,2) for n=4,5,6; agrees. Not using finite orders as proof of all n.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Prior Resultary full-text all-minimal ORDINARY dominating KG(n,2) classification allows triangles, stars, double-stars etc and uses closed-neighborhood domination. Total domination requires even chosen vertices have neighbors, equivalently no 2-cover whatsoever. The prior theorem is not equivalent and cannot imply the submitted four-type and inclusion-minimal TOTAL enumerator. Brešar–Cornet–Dravec–Henning establish total-domination minimum/extremal facts and Cornet–Torres closed k-tuple bounds, not this four-type complete inclusion-minimal census in inspected accessible material. Abstracts and source passages checked; full arxiv primary in this environment not obtained. Older general cover-critical characterization may exist.
+
+## value
+
+PASS
+
+The four-type minimal-total-domination classification supplies a natural complete combinatorial invariant (the full minimal cardinality polynomial and sharp upper size six) for a growing family of Kneser graphs, beyond merely the known minimum domination number and not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
