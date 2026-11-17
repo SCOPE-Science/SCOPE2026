@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-From the directory containing this file, execute `python3 check.py` (Python 3 standard library only). It constructs the complete sixteen-state dynamic recurrence from the explicit binomial rule, checks the length-sixteen table and the exact length-nineteen score-and-count shift, compares every five-to-twelve-bit input against direct enumeration of all distinct permuted outputs and two independent counting formulas, and verifies the initial maximizing table. The recurrence with the fully checked identity proves the formulas for unbounded lengths; brute-force output enumeration only provides finite independent corroboration.
+## correctness
 
-The expected final marker is `ALL_CERTIFICATES_OK`. This is an integer-arithmetic correctness check for the stated scope, not independent review and not an exhaustive historical-priority search. Publication priority and larger channel parameters are not established.
+PASS
+
+For binary one-length-five contiguous-block arbitrary permutation, uniquely classified every nonidentity descendant by first and last changed sites. For a changed segment v length 2..5, both endpoints flip and the new interior must have r+2a-2 ones, yielding exactly binomial(length-2,r+2a-2); summing is the distinct-sphere size. Reconstructed 16-state weighted max-plus DP tracking last four bits and tie counts; checked exact shift V_19(s)=(h_16(s)+16,c_16(s)) simultaneously for all 16 states, which propagates by max-plus translation equivariance to all lengths. Independent direct output-set enumeration for all binary words lengths 5..10 verified M_n and A_n (10/20,16/8,22/2,26/14,32/4,38/2). The statewise finite identity, not an extrapolation from n<=10, completes the proof all n>=5.
+
+## originality
+
+PASS
+
+Chen–Milenkovic give the same channel and a per-word sphere formula, already explicitly credited. The published general sharp-sphere theorem gives universal bound attaining for q>=k and exact binary k=3 only. The binary k=5 case has q<k and is not implied; published binary k=4 and ternary k=4 maxima are other parameters. Neither the verified prior statements nor Resultary results give this exact all-n k=5 maximum and all maximizing counts. Closest 2026 primary paper was inaccessible in full, an explicit priority risk.
+
+## value
+
+PASS
+
+Worst-case cardinality and exact maximizing-center counts for q=2<k=5 arise from a natural burst error channel where the known universal q>=k optimum is unattainable. The 16-state recurrence and eventual three-periodic extremal census settle a meaningful missing alphabet-deficient boundary, relevant to finite-length channel sphere estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

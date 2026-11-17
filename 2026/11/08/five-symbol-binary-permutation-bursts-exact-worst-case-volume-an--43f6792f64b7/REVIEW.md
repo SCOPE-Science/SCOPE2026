@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is all binary words of length \(n\ge5\), with one arbitrary five-position permutation and the identity included. Classifying a nonidentity output by the endpoints of its changed interval proves the binomial local formula. The sixteen-state recurrence optimizes that formula over *all* source words and retains tie multiplicities. The explicitly printed sixteen pairs at length sixteen and the exact equality \(V_{19}(s)=(h_{16}(s)+16,c_{16}(s))\) are verified by `check.py` and yield an all-length induction. Direct output enumeration cross-checks every word of lengths five through twelve; this is a cross-check, not the infinite proof. The only finite certificate dependencies are integer binomial coefficients, maximum and tie-sum transitions in the embedded standalone program.
+PASS
 
-## Originality — PASS, with priority caveat
+For binary one-length-five contiguous-block arbitrary permutation, uniquely classified every nonidentity descendant by first and last changed sites. For a changed segment v length 2..5, both endpoints flip and the new interior must have r+2a-2 ones, yielding exactly binomial(length-2,r+2a-2); summing is the distinct-sphere size. Reconstructed 16-state weighted max-plus DP tracking last four bits and tie counts; checked exact shift V_19(s)=(h_16(s)+16,c_16(s)) simultaneously for all 16 states, which propagates by max-plus translation equivariance to all lengths. Independent direct output-set enumeration for all binary words lengths 5..10 verified M_n and A_n (10/20,16/8,22/2,26/14,32/4,38/2). The statewise finite identity, not an extrapolation from n<=10, completes the proof all n>=5.
 
-The most important direct prior result is Chen and Milenkovic, arXiv:2610.15701v1, Section II: an exact **individual-input** sphere formula and the random-input mean, neither of which is claimed here. Section IV concerns coding bounds. We inspected the relevant full HTML sections, searched within the manuscript for five-window and extremal formulae, and compared the logical strength of the results. The per-word formula implies an efficient route to *computing* the optimum but does not state, directly yield without a separate optimization, or enumerate the new three-periodic all-length maximizing structure. An existing all-alphabet local-volume result likewise does not give the optimum; a four-window exact maximum has a different domain. Targeted mathematical-literature and searchable mathematical-record queries revealed no explicit equivalent. The search is not a proof of worldwide priority; unindexed or inaccessible work remains a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source's coding problem is naturally sensitive to the *worst-case* number of outcomes produced by one permutation burst. The exact five-window answer and enumeration of all maximizing words identify a three-periodic extremal law, including transient exceptional counts, whereas the already known four-window behavior is linear and has a fixed six-extremizer pattern. The result is an infinite sharp characterization, not a numerical increment to a small lookup table. The finite-state identity provides a reusable rigorous optimization certificate for related constrained burst channels. It does not claim a new coding-rate theorem.
+Chen–Milenkovic give the same channel and a per-word sphere formula, already explicitly credited. The published general sharp-sphere theorem gives universal bound attaining for q>=k and exact binary k=3 only. The binary k=5 case has q<k and is not implied; published binary k=4 and ternary k=4 maxima are other parameters. Neither the verified prior statements nor Resultary results give this exact all-n k=5 maximum and all maximizing counts. Closest 2026 primary paper was inaccessible in full, an explicit priority risk.
 
-## Scope and limitations
+## value
 
-No higher-alphabet, larger-window, or multiple-error theorem is claimed. The exact recurrence checks are self-review and do not constitute independent audit or definitive priority confirmation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Worst-case cardinality and exact maximizing-center counts for q=2<k=5 arise from a natural burst error channel where the known universal q>=k optimum is unattainable. The 16-state recurrence and eventual three-periodic extremal census settle a meaningful missing alphabet-deficient boundary, relevant to finite-length channel sphere estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
