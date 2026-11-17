@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T20:02:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact local Jacobian J=[[1,-5],[39/4,-40]] with D=diag(1/10,10) has modal trace -39-101ell/10 and determinant (ell-5/2)(ell-7/2). The hub-and-triples graph Laplacian decomposes into eigenvalues 0,n,1 (multiplicity k+r-1), and per triple (1,1), (1,3), (2,4), giving one unstable ell=3 iff an odd number of edges was added. Every added edge changes L by positive semidefinite rank-one matrix, so each ordered eigenvalue can enter/exit the open interval once at most. An independent matrix-eigenvalue implementation confirmed the alternating window for 45 graph snapshots k=1..3,r=0..2; finite checks do not prove n-uniform result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hata et al. 2014 full open text investigates three-species oscillatory network Turing patterns.",
+          "Mimar et al. 2019 describes topology-controlled two-species patterns in its accessible abstract."
+        ],
+        "reasoning": "Generic existence of topology-sensitive instability does not imply an all-n sequence of strict alternations or the O(n) upper bound; full Mimar text was not materially read.",
+        "searches": [
+          "Resultary query: monotone edge addition graph Laplacian multiple Turing stability switches linear number reversible stable unstable fixed two species corridor",
+          "https://doi.org/10.1038/srep03585",
+          "https://doi.org/10.1103/PhysRevE.99.062303"
+        ]
+      },
+      "checked_sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3882759/",
+        "https://doi.org/10.1098/rspa.2020.0753",
+        "https://arxiv.org/abs/1903.03845",
+        "Resultary semantic searches S0"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General eigenvalue monotonicity implies at most two crossings per eigenvalue, but does not construct graph sequences attaining linear lower bounds.",
+          "The assigned proof supplies a novel hub-plus-triplet invariant-subspace spectrum."
+        ],
+        "reasoning": "The prior modal criterion plus Courant–Fischer suffices for the upper bound, but not the explicit 2 floor((n-1)/3) lower bound and alternating construction.",
+        "searches": [
+          "Resultary query: monotone edge addition graph Laplacian multiple Turing stability switches linear number reversible stable unstable fixed two species corridor",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC3882759/",
+          "https://doi.org/10.1098/rspa.2020.0753"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hata–Nakao–Mikhailov 2014 uses Laplacian-modal decomposition, not a monotone chain of graph snapshots.",
+          "Van Gorder 2021 investigates temporal/evolving-network criteria, a different dynamic topology setting."
+        ],
+        "reasoning": "Network-mode Turing criteria are a common analytical mechanism, but none of these inspected statements identifies the exact arbitrary-length frozen-snapshot unweighted edge-addition chain.",
+        "searches": [
+          "Resultary query: monotone edge addition graph Laplacian multiple Turing stability switches linear number reversible stable unstable fixed two species corridor",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC3882759/",
+          "https://doi.org/10.1098/rspa.2020.0753"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table of nested edge-addition reversal sequences appeared in these queried findings; the full source explicitly computes the family from first principles."
+        ],
+        "reasoning": "There is no asserted natural finite database of all graphs or published table determining M_n; checking the related spectral-support result addresses the plausible tabular route, not a novelty certificate.",
+        "searches": [
+          "Resultary query: monotone edge addition graph Laplacian multiple Turing stability switches linear number reversible stable unstable fixed two species corridor",
+          "Resultary: Exact graph-Laplacian spectral support from binary ecological Turing-instability probes (2026-11-02)"
+        ]
+      },
+      "rationale": "The new contribution is a scalable all-unit-edge monotone-addition sequence with exact alternating statuses and linear upper/lower reversal bounds. Classical fixed-graph Turing modal criteria or demonstrations of one topology-triggered instability do not imply such a nested sequence; no prior stronger theorem was identified in targeted published-result searches and inspected primary network studies. Best-of-knowledge only.",
+      "residual_risks": [
+        "The full Mimar 2019 and Van Gorder 2021 mathematical texts were not materially read during this execution.",
+        "The demonstrated endpoints yield a Theta(n) bound, not an exact maximum M_n; no claims about time-varying nonlinear ecology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_NOT_COVERING_CONSTRUCTION",
+          "evidence": "The three-species oscillatory instability study derives modal growth but gives no arbitrary-length nested unit-edge succession.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3882759/",
+          "material_read": "Full open HTML main article including abstract, model, results and modal linear stability sections",
+          "method": "Direct web reading of complete primary HTML",
+          "title": "Dispersal-induced destabilization of metapopulations and oscillatory Turing patterns in ecological networks",
+          "trigger": "Same network Laplacian ecology and species coupling"
+        },
+        {
+          "assessment": "INCOMPLETE_MATERIAL_PRIORITY_RISK",
+          "evidence": "Temporal-network criteria may include related monotone changes, but cannot rule out full-text equivalence.",
+          "identifier_or_url": "https://doi.org/10.1098/rspa.2020.0753",
+          "material_read": "Publisher abstract and available indexed text only; full publisher article inaccessible in current browser",
+          "method": "Web search and publisher landing attempt",
+          "title": "A theory of pattern formation for reaction-diffusion systems on temporal networks",
+          "trigger": "Repeated instability under changing connections"
+        },
+        {
+          "assessment": "INCOMPLETE_MATERIAL_PRIORITY_RISK",
+          "evidence": "No claim of whole-document NOT_COVERING; retain priority risk.",
+          "identifier_or_url": "https://arxiv.org/abs/1903.03845",
+          "material_read": "Indexed abstract and supplied source quotations only; arXiv full download unavailable",
+          "method": "Web search and attempted arXiv PDF",
+          "title": "Turing patterns mediated by network topology in homogeneous active systems",
+          "trigger": "Topology-driven two-species patterns"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It identifies a sharp qualitative nonmonotonicity mechanism for a natural connectivity intervention: PSD Laplacian growth may induce linearly many opposed strict stability changes. A matching order-of-growth upper bound supports mathematical significance beyond a single constructed example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For n>=4, the specified fixed two-species kinetics admit nested connected n-vertex simple graphs with 2 floor((n-1)/3) alternating strict Turing-stability reversals under distinct unit edge additions; every such fixed-window system has at most 2(n-1) reversals.",
+  "limitations": [
+    "The full Mimar 2019 and Van Gorder 2021 mathematical texts were not materially read during this execution.",
+    "The demonstrated endpoints yield a Theta(n) bound, not an exact maximum M_n; no claims about time-varying nonlinear ecology."
+  ],
+  "schema_version": 1
+}

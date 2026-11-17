@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact modal trace is strictly negative for all nonnegative Laplacian eigenvalues, and the determinant factors as \((\ell-5/2)(\ell-7/2)\); hence the unstable spectral interval is precise. An invariant-subspace decomposition gives the full Laplacian spectrum of the hub-and-triples construction, not merely numerical eigenvalues. Each successive edge toggles exactly one internal eigenvalue into and out of the unstable interval. Courant–Fischer monotonicity gives the stated \(2(n-1)\) upper bound. The standalone checker independently verifies 72 exact spectra and 24 full-Jacobian statuses. Limits: linearized snapshots only, not nonlinear or time-varying dynamics.
+PASS
 
-## Originality — PASS within inspected evidence, with risks
+The exact local Jacobian J=[[1,-5],[39/4,-40]] with D=diag(1/10,10) has modal trace -39-101ell/10 and determinant (ell-5/2)(ell-7/2). The hub-and-triples graph Laplacian decomposes into eigenvalues 0,n,1 (multiplicity k+r-1), and per triple (1,1), (1,3), (2,4), giving one unstable ell=3 iff an odd number of edges was added. Every added edge changes L by positive semidefinite rank-one matrix, so each ordered eigenvalue can enter/exit the open interval once at most. An independent matrix-eigenvalue implementation confirmed the alternating window for 45 graph snapshots k=1..3,r=0..2; finite checks do not prove n-uniform result.
 
-Hata et al. (2014) prove the ecological network-dispersion framework and explore oscillatory patterns. Mimar et al. (2019) show that modifying topology can trigger two-species patterns. Van Gorder (2021) provides temporal-network criteria and explicitly shows transient topology-driven instabilities. The inspected sources do not state a fixed-kinetics construction on connected, unweighted graphs with **monotone addition of distinct links** yielding \(\Theta(n)\) consecutive whole-system strict stability reversals, nor this linear two-sided reversal-count result. These earlier general criteria supply background machinery but not the exact constructive existence claim without a separate nontrivial graph-spectrum construction. The full 2019 paper could not be inspected, leaving residual historical-priority uncertainty; searches and title comparisons alone are not treated as novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The claim answers a motivated robustness question in network ecology: whether continuously expanding a dispersal network must eventually make linear equilibrium stability monotone. The exact answer is no—even with identical reaction laws, fixed positive mobilities, equal link weights, and connected graphs throughout, an unbounded linear number of reversals is possible. The matching-order upper bound makes the result structural rather than a lone numerical counterexample. It gives a mathematical corridor-planning benchmark without asserting empirical ecological benefit.
+The new contribution is a scalable all-unit-edge monotone-addition sequence with exact alternating statuses and linear upper/lower reversal bounds. Classical fixed-graph Turing modal criteria or demonstrations of one topology-triggered instability do not imply such a nested sequence; no prior stronger theorem was identified in targeted published-result searches and inspected primary network studies. Best-of-knowledge only.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+It identifies a sharp qualitative nonmonotonicity mechanism for a natural connectivity intervention: PSD Laplacian growth may induce linearly many opposed strict stability changes. A matching order-of-growth upper bound supports mathematical significance beyond a single constructed example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
