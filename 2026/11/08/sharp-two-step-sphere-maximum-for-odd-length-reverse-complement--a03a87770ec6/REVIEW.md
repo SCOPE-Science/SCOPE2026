@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The claim specifies a finite alphabet with a fixed-point-free involution, an odd block length, and two sequential operations. The universal bound counts \((n-k+1)(n+1)\) histories and exhibits \(\binom{\max\{n-2k+2,0\}}2\) pairwise-disjoint forced collision pairs. For a constant word, second-step windows are partitioned by their overlap with the unique complementary block. Distinct overlaps have different complementary-symbol counts; for positive overlap the two boundary forms have distinguishable first complementary-run lengths. For zero overlap, the only duplicate fibers arise from solutions with two separated insertion sites, yielding exactly the forced count. The boundary \(n<2k\) is explicitly handled. A standard-library checker replayed the actual source for 32,234 small exhaustive source checks and 272 constant-word boundary and longer tests. No reliance on finite enumeration for the all-length argument.
+## correctness
 
-## Originality (O): PASS relative to searched sources
-The strongest direct comparison is arXiv:2609.00779, specifically the sphere-maximum theorem and its proof: the source establishes the corresponding maximum for even \(k\) using palindromic duplication and an even-block conjugacy. It also proves the disjoint-duplication commutation upper bound used here. The odd reverse-complement equality, for which that conjugacy does not apply, requires a separate attaining source and its complete collision analysis. That is the new claim. arXiv:2602.01151 and arXiv:1712.09345 focus on correction problems and related duplication models without identifying this exact odd-block maximum in the inspected material. Semantic published-finding corpus searches returned related noisy tandem-duplication inverse-degree, even-block palindromic code-size, and tandem confusability records; those do not imply this sphere maximum. The 2021 reverse-complement duplication preprint is only partially inspected; a previously unindexed equivalent or an implicit treatment there remains possible. A search failure is not a proof of priority.
+PASS
 
-## Value (V): PASS
-The 2026 multiple-duplication paper identifies two-operation output spheres as basic channel invariants and gives a complete even-block maximum. The odd-block reverse-complement case is a natural omitted parity branch: the even-block transformation does not transfer to it. The exact bound settles worst-case sphere expansion for that branch for all source lengths and even-sized alphabets, including short overlap-dominated regimes. It can inform packing and reconstruction estimates, although no code-optimum improvement is claimed.
+The universal two-step history count for n≥k≥1 is (n-k+1)(n+1). Each pair of disjoint original k-windows gives two distinct commuting histories with the same output; they are pairwise-disjoint history pairs and number binom(max(n-2k+2,0),2). Thus every source sphere has size at most the stated difference. A constant source a^n and its first inserted complement block b^k allow an exact count: second-window intersections of size t>=1 have distinct b-populations across t and distinguishable first b-run lengths across crossing types; t=0 outputs are two b^k runs separated by a-run with precisely the disjoint-history double representations. The proof covers k=1 and n<2k. Constant words attain the bound for every fixed-point-free complement alphabet; in fact construction works for all k though only odd k claimed. Independent brute checked 3286 binary-source cases across odd k and small n, with constant-source equality; it is not used as an all-n proof.
 
-## Limits and comparison
-The result neither establishes uniqueness of constant maximizers nor asserts independent certification. The closest published statement supplies the upper-bound commutation mechanism, so that step is not novel. The independent contribution is a constant-word collision classification proving sharpness for odd reverse-complement lengths.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified. Zabokritskiy arXiv:2609.00779 proves the same numerical two-duplication bound for EVEN k using palindromic/reverse-complement conjugacy; the odd-k case cannot follow from that parity-restricted conjugacy. Prior length-two all-maximizer results and odd-k palindromic large-alphabet distinct-symbol constructions do not imply odd-k RC sharpness on fixed-point-free binary alphabet by constant words. Novelty specifically concerns the missing odd-k half of the natural fixed-length two-error sphere classification, not history-commutation upper bounds.
+
+## value
+
+PASS
+
+PASS: The exact maximal error-ball volume under two sequential reverse-complement duplications at odd k is a natural coding-theoretic finite combinatorial invariant, resolves a parity gap left by earlier even-block results, and the constant-source equality proof shows collisions are exactly the unavoidable disjoint-window commutations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T02:53:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/sharp-two-step-sphere-maximum-for-odd-length-reverse-complement--a03a87770ec6/RESULT.md",
+        "2026/11/08/sharp-two-step-sphere-maximum-for-odd-length-reverse-complement--a03a87770ec6/verify_rc_odd.py"
+      ],
+      "rationale": "The universal two-step history count for n≥k≥1 is (n-k+1)(n+1). Each pair of disjoint original k-windows gives two distinct commuting histories with the same output; they are pairwise-disjoint history pairs and number binom(max(n-2k+2,0),2). Thus every source sphere has size at most the stated difference. A constant source a^n and its first inserted complement block b^k allow an exact count: second-window intersections of size t>=1 have distinct b-populations across t and distinguishable first b-run lengths across crossing types; t=0 outputs are two b^k runs separated by a-run with precisely the disjoint-history double representations. The proof covers k=1 and n<2k. Constant words attain the bound for every fixed-point-free complement alphabet; in fact construction works for all k though only odd k claimed. Independent brute checked 3286 binary-source cases across odd k and small n, with constant-source equality; it is not used as an all-n proof.",
+      "residual_risks": [
+        "Full 2021 reverse-complement duplication paper remains incompletely inspected; priority qualified.",
+        "Finite independent runs cover small k,n; the arbitrary-n assertion rests on the explicit all-history classification and disjoint-collision bijection."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full https://arxiv.org/abs/2609.00779 Theorem 5.1 even-k only. Resultary odd-k palindromic theorem applies to distinct-letter words with alphabet size >=n, not arbitrary fixed-point-free RC alphabets."
+        ],
+        "reasoning": "Neither previously surveyed theorem gives a universal bound plus equality over every fixed-point-free complement alphabet for odd k.",
+        "searches": [
+          "https://arxiv.org/abs/2609.00779",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-sharp-exact-two-palindromic-duplication-spheres-for-odd-block-le--c4b4c103f5f1"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.00779",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-all-maximizers-of-two-step-length-two-palindromic-duplication-sp--b6dda3c39b4f/RESULT.md",
+        "https://arxiv.org/abs/2112.11811"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even k theorem 5.1 proves H-P for the even range; the new odd range uses a constant source whose unique b-run induces exactly P collisions. An even-only theorem cannot be specialized to odd integers."
+        ],
+        "reasoning": "The shared disjoint-window upper-bound mechanism is prior, but the odd-k attainment for all complement alphabets requires a separate argument, not a routine substitution.",
+        "searches": [
+          "https://arxiv.org/abs/2609.00779",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-all-maximizers-of-two-step-length-two-palindromic-duplication-sp--b6dda3c39b4f/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zabokritskiy Theorem 5.1 at https://arxiv.org/abs/2609.00779 gives the analogous number for even k; old https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-all-maximizers-of-two-step-length-two-palindromic-duplication-sp--b6dda3c39b4f/RESULT.md concerns k=2 and classifies all maximizers via an even-length conjugacy."
+        ],
+        "reasoning": "Same numerical expression does not mean logical coverage: old hypotheses require even k; odd k on a fixed-point-free alphabet lacks their palindromic conjugacy. The new constant-word proof is independent of that parity restriction.",
+        "searches": [
+          "Resultary semantic: odd reverse complement duplication two steps output sphere maximum constant word n k",
+          "https://arxiv.org/abs/2609.00779",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-all-maximizers-of-two-step-length-two-palindromic-duplication-sp--b6dda3c39b4f/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Available exact two-step PAL / RC sphere tables are for even k or limited alphabet and do not list the odd-k all-n general expression proved here."
+        ],
+        "reasoning": "A known finite-output data table is not the stated all-n theorem. Finite corroboration and older coding tables are not assumed to be exhaustive literature priority.",
+        "searches": [
+          "Resultary: odd length reverse complement two-step descendant sphere",
+          "2021 reverse complement string duplication systems"
+        ]
+      },
+      "rationale": "PASS, qualified. Zabokritskiy arXiv:2609.00779 proves the same numerical two-duplication bound for EVEN k using palindromic/reverse-complement conjugacy; the odd-k case cannot follow from that parity-restricted conjugacy. Prior length-two all-maximizer results and odd-k palindromic large-alphabet distinct-symbol constructions do not imply odd-k RC sharpness on fixed-point-free binary alphabet by constant words. Novelty specifically concerns the missing odd-k half of the natural fixed-length two-error sphere classification, not history-commutation upper bounds.",
+      "residual_risks": [
+        "Full 2021 reverse-complement duplication paper remains incompletely inspected; priority qualified.",
+        "Finite independent runs cover small k,n; the arbitrary-n assertion rests on the explicit all-history classification and disjoint-collision bijection."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL PRIOR; DOES NOT COVER ODD k",
+          "evidence": "Theorem 5.1 explicitly restricts even duplication length k>=2; new theorem odd k>=1.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.00779",
+          "material_read": "Full accessible arXiv HTML text, definition of sequential duplication, even-block conjugacy (Theorem 4.1), Theorem 5.1 and proof of even-k maximal spheres",
+          "method": "Primary full-text HTML inspection",
+          "title": "Coding for Multiple Reverse-Complement and Palindromic Duplications",
+          "trigger": "Direct apparent identical two-step sphere formula"
+        },
+        {
+          "assessment": "NOT COVERING",
+          "evidence": "Only length-two case; its conjugacy and source characterization cannot be generalized across odd k without a new proof.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-all-maximizers-of-two-step-length-two-palindromic-duplication-sp--b6dda3c39b4f/RESULT.md",
+          "material_read": "Complete Resultary proof including reverse-complement even-length transfer and iff classifications",
+          "method": "Full GitHub RESULT.md read",
+          "title": "All maximizers of two-step length-two palindromic duplication spheres",
+          "trigger": "Possible stronger equality theorem"
+        },
+        {
+          "assessment": "UNRESOLVED PRIORITY RISK",
+          "evidence": "A full older source might cover odd-k two-step descendants under different notation; not asserted to be absent.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.11811",
+          "material_read": "Only accessible abstract/context, not a complete relevant theorem scan",
+          "method": "ArXiv metadata and available snippets",
+          "title": "On the Reverse-Complement String-Duplication System",
+          "trigger": "Older plausible general RC duplication literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.00779",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-all-maximizers-of-two-step-length-two-palindromic-duplication-sp--b6dda3c39b4f/RESULT.md",
+        "https://arxiv.org/abs/2112.11811"
+      ],
+      "rationale": "PASS: The exact maximal error-ball volume under two sequential reverse-complement duplications at odd k is a natural coding-theoretic finite combinatorial invariant, resolves a parity gap left by earlier even-block results, and the constant-source equality proof shows collisions are exactly the unavoidable disjoint-window commutations.",
+      "residual_risks": [
+        "Full 2021 reverse-complement duplication paper remains incompletely inspected; priority qualified.",
+        "Finite independent runs cover small k,n; the arbitrary-n assertion rests on the explicit all-history classification and disjoint-collision bijection."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full 2021 reverse-complement duplication paper remains incompletely inspected; priority qualified.",
+    "Finite independent runs cover small k,n; the arbitrary-n assertion rests on the explicit all-history classification and disjoint-collision bijection."
+  ],
+  "schema_version": 1
+}

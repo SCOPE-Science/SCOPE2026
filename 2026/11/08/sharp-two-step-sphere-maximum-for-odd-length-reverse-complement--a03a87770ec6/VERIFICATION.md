@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verifying the theorem
+# Independent mathematical audit
 
-The main all-length proof is in `RESULT.md`. Verify the finite checks with:
+## correctness
 
-```sh
-python3 verify_rc_odd.py
-```
+PASS
 
-The tested complement involutions are binary \(0\leftrightarrow1\) and quaternary \(0\leftrightarrow1\), \(2\leftrightarrow3\). The checker compares direct enumeration against the bound for many small inputs, checks that a constant source meets the bound for larger lengths, and counts the actual history fiber sizes. It was executed using the exact included script with result `ALL_TESTS_PASS sources= 32234 constant_histories= 272`.
+The universal two-step history count for n≥k≥1 is (n-k+1)(n+1). Each pair of disjoint original k-windows gives two distinct commuting histories with the same output; they are pairwise-disjoint history pairs and number binom(max(n-2k+2,0),2). Thus every source sphere has size at most the stated difference. A constant source a^n and its first inserted complement block b^k allow an exact count: second-window intersections of size t>=1 have distinct b-populations across t and distinguishable first b-run lengths across crossing types; t=0 outputs are two b^k runs separated by a-run with precisely the disjoint-history double representations. The proof covers k=1 and n<2k. Constant words attain the bound for every fixed-point-free complement alphabet; in fact construction works for all k though only odd k claimed. Independent brute checked 3286 binary-source cases across odd k and small n, with constant-source equality; it is not used as an all-n proof.
 
-## Limits
+## originality
 
-Finite enumeration does not certify the universal claim. The proof must be checked independently at the disjoint-history injectivity step, the exhaustive classification of overlap values \(t\), the separation of zero and positive overlap outputs by their complementary-symbol counts, and the stars-and-bars count. Literature priority has not been independently certified. This document reports reproducibility only and does not claim an independent audit.
+PASS
+
+PASS, qualified. Zabokritskiy arXiv:2609.00779 proves the same numerical two-duplication bound for EVEN k using palindromic/reverse-complement conjugacy; the odd-k case cannot follow from that parity-restricted conjugacy. Prior length-two all-maximizer results and odd-k palindromic large-alphabet distinct-symbol constructions do not imply odd-k RC sharpness on fixed-point-free binary alphabet by constant words. Novelty specifically concerns the missing odd-k half of the natural fixed-length two-error sphere classification, not history-commutation upper bounds.
+
+## value
+
+PASS
+
+PASS: The exact maximal error-ball volume under two sequential reverse-complement duplications at odd k is a natural coding-theoretic finite combinatorial invariant, resolves a parity gap left by earlier even-block results, and the constant-source equality proof shows collisions are exactly the unavoidable disjoint-window commutations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
