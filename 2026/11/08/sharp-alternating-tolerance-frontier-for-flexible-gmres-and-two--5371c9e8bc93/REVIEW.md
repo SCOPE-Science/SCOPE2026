@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A direct projection proof reconstructs the flexible residual-angle recurrence and telescoping determinant bound; all finite Jacobi sections are positive definite iff the alternating row-sum edge a+b is at most one, with first nonpositive continuant causing an explicit admissible nonzero-residual breakdown otherwise. An invertible rank-one update realizes every finite sharp prefix for A=I. The exact quadratic even-subsequence recurrence establishes all displayed limits, and the two-step case yields both restart branches. The standalone checker returned VERIFY_OK 395 rational identities and 45 sharp FGMRES residual comparisons, including failure examples. All-index claims are proved symbolically; experiments alone are not their justification.
+PASS
 
-## Originality — PASS, with explicit qualification
+For exact-arithmetic Euclidean FGMRES with 0<a,b<1, the established flexible residual projection identity yields R_j <= mu_j/sqrt(1-R_{j-1}^2). The continuant D_j=D_{j-1}-mu_j^2D_{j-2}, D_-1=D_0=1 gives gamma_j^2=mu_j^2 D_{j-2}/D_{j-1}. For the tridiagonal zero-diagonal offdiagonal a,b matrix, Perron strict finite-row bound ensures all D_j>0 when a+b<=1, and Rayleigh quotients establish a first failing minor when a+b>1. The explicit A=I invertible rank-one flexible preconditioners attain the bound at any finite nonterminal index and cause nonzero-residual breakdown at the first failing index. Elimination gives even-continuant recurrence and exact boundary closed form. Two-step restart gives sharp per-cycle factor ab/sqrt(1-a^2) for a^2+b^2<1 and a otherwise, always <1. Independent rational 2-periodic determinant tests verified selected choices. These are worst-case and exact-arithmetic claims only.
 
-The named original arXiv paper supplies the flexible Brown identity and variable-error recurrence and fixed-parameter sharpness. These are explicitly excluded from the claimed novelty. The new content is a necessary-and-sufficient periodic safety triangle, periodic explicit profile and sharp restarted versus unrestarted contrast. Targeted published-finding corpus and literature searches disclosed no covering result; older full-text inaccessibility is a genuine priority risk and not treated as proof of absence.
+## originality
 
-The strongest antecedent is Güttel and Nyman, *Flexible GMRES converges in two phases* (arXiv:2604.27971). The original Eq. (3.3), Theorems 3.6 and 4.1 are stronger predecessors in their stated domains and must not be misrepresented as new. Exact comparison identifies their constant tolerance as a diagonal specialization, while the alternating triangle, exact period-two profile and two-step restart guarantee are not supplied there. The older Saad and Simoncini--Szyld papers were only accessible at abstract level. The distinct published-finding corpus two-periodic recurrence record concerns a scalar bilateral inverse norm, not the FGMRES minimal residual. Consequently this originality assessment is qualified, and priority still benefits from full historical review.
+PASS
 
-## Mathematical value — PASS
+PASS best-of-knowledge: Güttel and Nyman 2026 Propositions 3.1-3.2 already give the flexible per-iteration residual identity and general recursive inequality with variable inner residuals and a sharp constant-tolerance specialization. The current contribution is NOT that recurrence. The inspected primary paper does not give the two-periodic necessary-and-sufficient frontier a+b<=1, explicit Chebyshev/repeated-root profile, invertible-adversarial sharpness for all finite m, or distinct two-step restart wedge and sharp Phi. Resultary query found same finding and adjacent but non-dominating GMRES phenomena, no stronger prior coverage. Older Saad/Simoncini-Szyld full texts remain a priority risk.
 
-The phase diagram answers an operationally meaningful tolerance-scheduling question with a sharp inequality \(a+b\le1\), strictly more informative than simply forcing both inner solves below one-half. The restart-rescue wedge \(a+b>1\) and \(a^2+b^2<1\) distinguishes two provable worst-case algorithmic behaviors, and the exact cycle factor provides a quantitative design rule. This classification is neither a mere renaming nor a finite unmotivated exercise.
+## value
 
-## Limitations and citations
+PASS
 
-The theorem concerns arbitrary variable invertible preconditioners in exact arithmetic, including adversarial choices. No typical-case, finite-precision or work-complexity result follows. Finite numerical checks are not certification of the universal proof. Main source: arXiv:2604.27971 (2026-04-30), pp. 5--13; related historical sources: doi:10.1137/0914028, doi:10.1137/S0036142902401074.
+PASS: choosing alternate inner solve tolerance levels is a natural practical cost/accuracy pattern. The sharp global triangle and restart-rescue wedge are mathematically motivated structural boundaries: they separate a dimension-independent guarantee from explicit admissible nonconvergent Arnoldi cases. The two-stage restart classification is an independent worst-case tradeoff unavailable from fixed-tolerance estimates alone, useful for future preconditioning analysis without claiming solver runtime improvement.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

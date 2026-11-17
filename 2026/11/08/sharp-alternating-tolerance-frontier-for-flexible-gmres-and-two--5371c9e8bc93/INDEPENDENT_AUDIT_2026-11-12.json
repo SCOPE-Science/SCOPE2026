@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T09:58:03.520860Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/sharp-alternating-tolerance-frontier-for-flexible-gmres-and-two--5371c9e8bc93/RESULT.md",
+        "2026/11/08/sharp-alternating-tolerance-frontier-for-flexible-gmres-and-two--5371c9e8bc93/verify.py"
+      ],
+      "rationale": "For exact-arithmetic Euclidean FGMRES with 0<a,b<1, the established flexible residual projection identity yields R_j <= mu_j/sqrt(1-R_{j-1}^2). The continuant D_j=D_{j-1}-mu_j^2D_{j-2}, D_-1=D_0=1 gives gamma_j^2=mu_j^2 D_{j-2}/D_{j-1}. For the tridiagonal zero-diagonal offdiagonal a,b matrix, Perron strict finite-row bound ensures all D_j>0 when a+b<=1, and Rayleigh quotients establish a first failing minor when a+b>1. The explicit A=I invertible rank-one flexible preconditioners attain the bound at any finite nonterminal index and cause nonzero-residual breakdown at the first failing index. Elimination gives even-continuant recurrence and exact boundary closed form. Two-step restart gives sharp per-cycle factor ab/sqrt(1-a^2) for a^2+b^2<1 and a otherwise, always <1. Independent rational 2-periodic determinant tests verified selected choices. These are worst-case and exact-arithmetic claims only.",
+      "residual_risks": [
+        "Variable invertible preconditioners may be adversarial, exact Euclidean orthogonalization, N sufficiently large for any fixed index; no finite precision, typical solver or cost claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Güttel-Nyman establishes constant-tolerance Chebyshev bounds and failure behavior, not exact alternating two-parameter frontier or restart contrast."
+        ],
+        "reasoning": "General recurrence covers every variable sequence as an inequality but does not by itself state the sharp universal periodic classification, constructions and restart factor. Substantive theorem-level work survives.",
+        "searches": [
+          "https://arxiv.org/pdf/2604.27971",
+          "Resultary semantic: flexible GMRES alternating inner tolerance a b exact sharp residual bound restart two-step triangle"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2604.27971",
+        "https://doi.org/10.1137/0914028",
+        "https://doi.org/10.1137/S0036142902401074",
+        "Resultary: flexible GMRES exact sharp per iteration preconditioner residual periodic two tolerance restart rescue"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier flexible residual identity permits deriving part of the bound. Constant-tolerance sharpness alone does not imply the alternating triangle or two-step restart sharpness."
+        ],
+        "reasoning": "Positivity of a finite periodic Jacobi tridiagonal family and constructed invertible preconditioner extremizers supply the separate implication steps missing from the inspected theorem.",
+        "searches": [
+          "https://arxiv.org/pdf/2604.27971",
+          "doi:10.1137/0914028",
+          "doi:10.1137/S0036142902401074"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Güttel-Nyman Proposition 3.1-3.2 gives the general one-step flexible orthogonal residual inequality for arbitrary tolerances."
+        ],
+        "reasoning": "The general residual recursion is identical antecedent in different notation; the accepted claim requires its global sharp 2-periodic solution, not a relabeling of the one-step identity.",
+        "searches": [
+          "https://arxiv.org/pdf/2604.27971",
+          "flexible GMRES varying inner residual tolerance continuant residual bound periodic a+b"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected prior table gives the D_{2k} closed form with alternating (a,b) or exact sharp restart Phi(a,b)."
+        ],
+        "reasoning": "The object is an all-dimension inequality theorem rather than a finite parameter table; evaluated closed exact profiles were compared to source formulas.",
+        "searches": [
+          "https://arxiv.org/pdf/2604.27971",
+          "Resultary search flexible GMRES first-step residual-error reversal, restart"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Güttel and Nyman 2026 Propositions 3.1-3.2 already give the flexible per-iteration residual identity and general recursive inequality with variable inner residuals and a sharp constant-tolerance specialization. The current contribution is NOT that recurrence. The inspected primary paper does not give the two-periodic necessary-and-sufficient frontier a+b<=1, explicit Chebyshev/repeated-root profile, invertible-adversarial sharpness for all finite m, or distinct two-step restart wedge and sharp Phi. Resultary query found same finding and adjacent but non-dominating GMRES phenomena, no stronger prior coverage. Older Saad/Simoncini-Szyld full texts remain a priority risk.",
+      "residual_risks": [
+        "Earlier general Güttel-Nyman residual inequality reduces much of the proof to continuant analysis; independent novelty should be attributed to its sharp periodic classification and restart adversary, not the recursion.",
+        "Saad 1993 and Simoncini-Szyld 2003 complete full texts were not inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_STRONG_ANTECEDENT_NOT_FULLY_COVERING",
+          "evidence": "General residual recursion and constant-mu bounds are explicitly prior; neither period-two sharp triangle nor two-step restart Phi appears in inspected principal theorems.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.27971",
+          "material_read": "Primary full PDF examined, relevant Propositions 3.1-3.2, main sharp constant-tolerance theorem and proof parts on residual geometry and failure",
+          "method": "Full primary PDF text and page render inspection",
+          "title": "Flexible GMRES converges in two phases",
+          "trigger": "Same right-preconditioned flexible GMRES inner-residual inequality"
+        },
+        {
+          "assessment": "PRIORITY_RISK_UNREAD_BODY",
+          "evidence": "Introduces FGMRES but exact two-period tolerance spectral boundary not established from inspected abstract.",
+          "identifier_or_url": "https://doi.org/10.1137/0914028",
+          "material_read": "Accessible abstract/bibliographic description only, full body unavailable",
+          "method": "Abstract comparison, no full-body exclusion",
+          "title": "A Flexible Inner-Outer Preconditioned GMRES Algorithm",
+          "trigger": "Original flexible inner-outer GMRES foundational work"
+        },
+        {
+          "assessment": "PRIORITY_RISK_UNREAD_BODY",
+          "evidence": "General flexible Krylov behavior is relevant; exact specialized periodic frontier remains unverified against full historical source.",
+          "identifier_or_url": "https://doi.org/10.1137/S0036142902401074",
+          "material_read": "Bibliography and available abstract only",
+          "method": "Abstract-only; no full-text noncoverage assertion",
+          "title": "Flexible Inner-Outer Krylov Subspace Methods",
+          "trigger": "Older flexible residual convergence analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2604.27971",
+        "Resultary flexible GMRES semantic comparisons"
+      ],
+      "rationale": "PASS: choosing alternate inner solve tolerance levels is a natural practical cost/accuracy pattern. The sharp global triangle and restart-rescue wedge are mathematically motivated structural boundaries: they separate a dimension-independent guarantee from explicit admissible nonconvergent Arnoldi cases. The two-stage restart classification is an independent worst-case tradeoff unavailable from fixed-tolerance estimates alone, useful for future preconditioning analysis without claiming solver runtime improvement.",
+      "residual_risks": [
+        "Variable invertible preconditioners may be adversarial, exact Euclidean orthogonalization, N sufficiently large for any fixed index; no finite precision, typical solver or cost claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality; positive prior coverage for rejected result and specific residual risks for accepted ones.",
+    "Variable invertible preconditioners may be adversarial, exact Euclidean orthogonalization, N sufficiently large for any fixed index; no finite precision, typical solver or cost claim.",
+    "Public metadata includes operational provenance; publication is withheld without verified sanitization."
+  ],
+  "schema_version": 1
+}
