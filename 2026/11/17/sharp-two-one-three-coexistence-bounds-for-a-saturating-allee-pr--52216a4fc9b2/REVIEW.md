@@ -1,0 +1,12 @@
+# Mathematical review
+
+## Correctness
+PASS. The equilibrium reduction follows by dividing the two nonzero population balances, and the positive domains are single intervals selected by the relative positions of the numerator zero and denominator pole. For positive cooperation, the prey nullcline's single maximum and the decreasing convex predator nullcline allow at most two crossings. Under inhibition the difference has a strictly negative third derivative, forbidding four crossings by Rolle's theorem. At the neutral boundary the predator growth condition fixes one prey coordinate. Exact rational sign changes certify two, one, and three attainable cases. For three simple inhibitory roots, the Jacobian determinant sign alternation forces the middle root to be a saddle. Exact interval certificates yield source, saddle, and focus for the explicit example. Limits: no global or delay-system dynamics are proved.
+
+## Originality
+PASS within the inspected evidence. Gao–Ta Theorem 2.4 (arXiv:2601.10739v1, Section 2) gives at most two coexistence equilibria only under stated extra conditions, while Section 3 provides conditional local-stability tests; neither gives the cooperative/inhibitory trichotomy or a rational three-state case. The related 2021/2022 predator-Allee study by Sen et al. puts the Allee mechanism in the predator's numerical response, unlike the present prey-Allee equation. Du–Niu–Wei and Umrao–Srivastava were compared by abstracts for relevant terminology and employ different model structures. Similar published three-equilibrium phenomena in harvesting, spatial dispersal, and other ecological equations do not entail this exact rational function and sign-boundary theorem. Residual risk: unidentified general results on cubic–hyperbola intersections could imply the bounds, and some related articles were not fully accessible.
+
+## Mathematical value
+PASS. This is a sharp, natural complete equilibrium-count classification across the physical sign of the density-dependent hunting response, within a full positive-parameter family and without an arbitrary slice. The result both strengthens the count for genuinely positive cooperative hunting beyond the source's sufficient hypotheses and isolates a structural increase in equilibrium multiplicity in the inhibitory mathematical continuation. Hyperbolic three-state persistence makes the phenomenon robust rather than a single algebraic coincidence.
+
+Self-review: passed. Independent audit: not yet performed.
