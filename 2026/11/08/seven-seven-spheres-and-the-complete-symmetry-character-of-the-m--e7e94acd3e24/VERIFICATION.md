@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-Running `python verify.py` using the Python 3 standard library generates every face of the specified sixteen-vertex graph's dominance complex, first by the forbidden-closed-neighborhood test and independently by testing its complementary dominating set. Both predicates agree on all 65,536 subsets.
+## correctness
 
-The code repeats the exact sixteen-stage coordinate-toggle matching and checks disjointness, completeness, residual critical masks and a directed acyclic graph containing all 32,390 nonempty faces and 218,672 cover arrows. All directed vertices are exhausted by a topological sort. The unmatched nonempty faces are precisely one critical vertex and seven critical dimension-seven simplices. This acyclic matching is an integral homotopy certificate by Forman's theorem, not an approximate numerical measurement.
+PASS
 
-A separately coded reduction of every mod-two augmented simplicial boundary matrix gives reduced Betti number seven only in degree seven, corroborating rather than establishing the integral homotopy result. The verifier next enumerates all 96 graph automorphisms by adjacency-preserving backtracking, verifies group closure/inverses and all adjacencies, partitions conjugacy classes, and computes all 96 signed Lefschetz traces. It checks both character inner product and fixed-subspace dimension exactly.
+PASS: GP(8,3) has the precise four-forbidden-neighborhood face test. Independent reconstruction yielded 32,391 faces, 16,191 matched pairs, one critical vertex plus seven critical dimension-seven faces and a full directed Hasse topological sort. The integral CW model is wedge seven S^7. Independent GraphMatcher enumeration found exactly 96 adjacency-preserving automorphisms. Signed invariant-face traces gave 7 twice, 3 twelve times, 1 twenty-eight times, -1 forty-two times, and -3 twelve times; total character sum 0 and sum of squares 384. Hence invariant dimension 0 and self-inner product 384/96=4. Dimension 7 odd excludes two copies of one irreducible, giving four distinct nontrivial constituents. The full 13 class values in RESULT.md are consistent with these totals; only rational character is asserted.
 
-`verification-output.txt` records a complete successful execution, including class representatives. Only those two local files are needed to reproduce all claimed checks; neither external graph databases nor network access are required.
+## originality
 
-The finite exhaustive certificate establishes this graph only. It does not prove novelty against unseen literature, nor provide an equivariant homotopy decomposition or an integral irreducible lattice classification. Independent mathematical review has not been performed.
+PASS
+
+PASS (qualified): Previously published 2026-10-18 exact dominance homotopy and cyclic C8 character are explicitly pre-existing and not counted as new. The final contribution adds all 96 automorphism actions, 13-class character, 0 full invariants and multiplicity-free decomposition. The C8 restriction cannot determine character values on automorphisms outside C8; full-group information is not implied by either ordinary wedge type or smaller subgroup. Searches found no earlier full Aut(GP(8,3)) dominance character; equivalent unindexed work remains possible.
+
+## value
+
+PASS
+
+PASS: The Möbius–Kantor graph is a canonical symmetric cubic graph, its dominance complex a natural forbidden-closed-neighborhood invariant; the full automorphism-group rational homology representation distinguishes actions invisible to homotopy and C8 restriction. Exact class values and the vanishing invariant subspace are intrinsically useful finite structural information, not an arbitrary table or unmotivated slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
