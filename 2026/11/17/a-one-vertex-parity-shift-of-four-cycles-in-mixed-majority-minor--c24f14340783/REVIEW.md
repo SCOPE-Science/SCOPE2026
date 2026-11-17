@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The exact microscopic update is reduced separately for even and odd graph order using neighbor-one count equal to total ones minus the current bit. In the even case the entire central layer either creates balanced two-cycles or maps off-central; in the odd case both tie layers reduce to frozen contrarian words or macro states. Counting the central layers and their one-step images yields every orbit and entrance-time formula. The proof includes small parameter boundaries and a separate immediate-predecessor argument establishing the isolation assertion. A standalone vertexwise implementation independently enumerated all 104 parameter pairs through 15 vertices and matched all orbit and entry-time counts. The mathematical proof, not the enumeration, covers all graph orders.
+
+## Originality — PASS with residual priority risk
+The exact published equal-population complete-graph result covers only the even balanced slice; it expressly excludes arbitrary group proportions and odd-order tie behavior. Haslegrave and Cannings (2016) establish or credit period restrictions and the strict-majority 4-cycle condition, not the full binomial class and basin enumeration. Cao and Yang (2014, Theorem 5) already give the matching complete-graph criterion for **fixed-point existence**, which is not claimed as a novelty; they do not count all fixed states, temporal cycles or first-entry times. Cao et al. (2013) study the same tie-retaining game with results on other graph families. Searching related published mathematical records and accessible literature did not reveal the all-parameter tie-retaining theorem. Cannings (2009) explicitly studies complete graphs, and its full text could not be accessed; it remains a material risk for historical priority, not evidence of known implication.
+
+## Mathematical value — PASS
+The complete all-parameter census reveals a structural bifurcation in finite discrete dynamics: at even order the 4-cycle occurs at exact equality, but at odd order one additional contrarian produces it. The odd-order contrarian-majority regime has \(2\binom{k}{(N-1)/2}\) equilibria, each inaccessible from other states, whereas the neighboring regimes support macro oscillations. The sharp two-step transient ceiling and exact basin-entry populations complete a natural dynamical invariant rather than a single isolated example.
+
+## Closest literature and limitations
+Cannings (2009), DOI:10.1109/GAMENETS.2009.5137464; Haslegrave–Cannings (2016), arXiv:1606.05496; Cao et al. (2013), DOI:10.2139/ssrn.2260025; Cao and Yang (2014), DOI:10.1016/j.tcs.2014.05.009, Theorem 5; and the published balanced complete-graph census at https://github.com/published-finding corpus/2026/blob/main/2026/11/1/SCOPE-exact-oscillatory-basins-for-a-balanced-complete-graph-majority--6d2b4fc7152d/RESULT.md. The full Cannings paper could not be inspected. Independent literature and proof audit remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
