@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The key finite-difference congruence gives \(D(k)\mid k+1\). The published prime-primary criterion then identifies all positive prime supports. The proof bounds every higher-power exception by a power-saving estimate and performs a two-term uniform prime sum expansion for every fixed real exponent \(s>0\). The constant term is \(\zeta(s+1)/(s+1)\) and the next logarithmic term involves \(-\zeta'(s+1)\). Checks include exact brute-force binomial GCDs at small indices and one million factorization tests. Residual risk: no independent proof review, and uniformity as \(s\downarrow0\) is not established.
+## correctness
 
-**Originality — PASS, qualified.** Guo et al. (arXiv:2606.22997, June 2026) prove the prime-support criterion for these exact GCDs. Their accessible full paper was inspected including the primary criterion and conclusions; it does not give mean moments. Hong (2016) treats a distinct indexed family. Relevant literature and published-finding corpus searches found no covering two-term moment law. The previous pointwise classification is expressly credited. Residual risk: earlier unindexed analytic derivations cannot be ruled out, and Hong's full article was not read.
+PASS
 
-**Mathematical value — PASS.** Complete positive-real moments and their second logarithmic coefficients give a coherent statistical description of the recently studied sequence, showing that large-prime rows control averages even though unit rows are plentiful. This is a motivated global invariant and involves more than substituting a fixed parameter or recomputing an existing table.
+Finite-difference Newton interpolation at x=0 yields D(k)|k+1. Combined with Guo et al. local prime support, only one exact prime-power component can contribute; for n=pm and p>m it has exponent one and D(n-1)=p. Repeated prime powers contribute O_s(X^(s+1-delta_s)log X), with delta_s=min(s,1)/2; the bounded unit rows are negligible for fixed s>0. Weighted PNT followed by summation over m yields zeta(s+1) and -zeta_prime(s+1), with uniform truncation and O_s(X^(s+1)/log^3 X) remainder. Independently computed direct binomial GCD for k=2..31 and checked exact prime-power valuation formula; finite checks do not justify the asymptotic.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Guo et al full lawful open text gives the zero-versus-positive prime criterion (and its exact local support), not moments. The 2026-10-12 published exact prime-power valuation theorem computes D(k) for every k but does not provide weighted mean or logarithmic correction, nor an asymptotic theorem dominating it. Summing over primes and extracting the zeta derivative is an additional analytic distribution result, not identical to pointwise computation.
+
+## value
+
+PASS
+
+The first two moments of a natural OEIS binomial-row GCD statistic, especially the zeta-derivative secondary constant across all fixed real positive exponents, quantify nontrivial mass carried by rare large-prime rows; this is a motivated distribution result beyond reproducing a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

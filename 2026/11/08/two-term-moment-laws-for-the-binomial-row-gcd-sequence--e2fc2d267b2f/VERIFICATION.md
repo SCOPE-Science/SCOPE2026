@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3. The program directly computes GCDs of selected binomial coefficients for all `k=2..40`, cross-checks a separate exact prime-factor valuation implementation, and enumerates all `n` through `1,000,001` to check the large-prime versus prime-power-exception decomposition and to report finite first-moment values. The exact output is embedded in `verify_output.txt`. No external packages are needed.
+## correctness
 
-Finite enumeration does not prove the unconditional analytic asymptotic: the infinite-domain proof uses the published prime-support criterion, Newton interpolation, power-saving exception counting, and the weighted prime number theorem. No independent mathematical audit was performed.
+PASS
+
+Finite-difference Newton interpolation at x=0 yields D(k)|k+1. Combined with Guo et al. local prime support, only one exact prime-power component can contribute; for n=pm and p>m it has exponent one and D(n-1)=p. Repeated prime powers contribute O_s(X^(s+1-delta_s)log X), with delta_s=min(s,1)/2; the bounded unit rows are negligible for fixed s>0. Weighted PNT followed by summation over m yields zeta(s+1) and -zeta_prime(s+1), with uniform truncation and O_s(X^(s+1)/log^3 X) remainder. Independently computed direct binomial GCD for k=2..31 and checked exact prime-power valuation formula; finite checks do not justify the asymptotic.
+
+## originality
+
+PASS
+
+Guo et al full lawful open text gives the zero-versus-positive prime criterion (and its exact local support), not moments. The 2026-10-12 published exact prime-power valuation theorem computes D(k) for every k but does not provide weighted mean or logarithmic correction, nor an asymptotic theorem dominating it. Summing over primes and extracting the zeta derivative is an additional analytic distribution result, not identical to pointwise computation.
+
+## value
+
+PASS
+
+The first two moments of a natural OEIS binomial-row GCD statistic, especially the zeta-derivative secondary constant across all fixed real positive exponents, quantify nontrivial mass carried by rare large-prime rows; this is a motivated distribution result beyond reproducing a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
