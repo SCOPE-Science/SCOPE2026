@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The mathematical assertion is the combined weighted-census and edge-spectrum theorem for all positive integers \(m,n\) and finite reflexive chains. The proof establishes (1) equivalence between confluence quantifiers and antitone minimum profiles, (2) a non-overlapping partition of admissible matrices by compulsory and optional cells, (3) explicit edge-by-edge realizations of every intermediate cardinality, and (4) universal entropy bounds.
+# Independent mathematical audit
 
-Reproduction: run `python checker.py` using Python 3. The script contains independent direct checks of the two confluence quantifiers, direct brute enumeration of every matrix shape with both dimensions at most four, coefficient-by-coefficient comparison to the weighted formula, and construction checks of the edge-size realization chain. Output: `FULL_CHECKS_OK`. No external dependencies.
+## correctness
 
-This finite replay is a consistency check, not an exhaustive proof in unbounded sizes. In particular, the entropy bounds and exact spectrum are proved symbolically. Originality comparisons are limited by absence of the full text of three closest indexed published records. No independent audit has been performed.
+PASS
+
+Nonempty row minima alpha_i and column minima beta_j are antitone exactly when both stated confluence conditions hold. Every relation with these profiles lies uniquely between compulsory U and allowed D, giving t^|U|(1+t)^|D-U|. One-edge extension reaches the full rectangle from any monotone surjection and proves every cardinality max(m,n)..mn. Direct independent Boolean-matrix enumeration agrees for 2x3 (counts 2,4,3,1 by sizes 3..6) and 3x3 (total 58). Bounds give log2 E(n,n)=n^2-2n+O(log n).
+
+## originality
+
+PASS
+
+PASS on the distinct reflexive bi-total two-chain normal form and weighted edge spectrum. Prior strict-order theorem has strict endpoints and max m(n-m+1); prior one-chain birelational theorem uses nondecreasing maxima and count 118 at n=3, versus 58 here; neither entails this exact family. Primary modal paper provides general confluence notions, not an observed two-chain weight distribution.
+
+## value
+
+PASS
+
+The exact edge-size polynomial of fully-covered confluent correspondences between finite chains, sharp minimum and full interval spectrum, and entropy scarcity give natural structural information for modal model morphisms, rather than an arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
