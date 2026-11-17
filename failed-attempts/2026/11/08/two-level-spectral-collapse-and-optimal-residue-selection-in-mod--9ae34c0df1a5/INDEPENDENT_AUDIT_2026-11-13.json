@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T20:01:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-level-spectral-collapse-and-optimal-residue-selection-in-mod--9ae34c0df1a5/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-level-spectral-collapse-and-optimal-residue-selection-in-mod--9ae34c0df1a5/VERIFICATION.md"
+      ],
+      "rationale": "The 3rd-root binomial filter gives |S|=(M+t_k)/3, coordinate means b=u_k/M and pair means c=-t_k/M, so Gram=[[a,b 1^T],[b1,(a-c)I+c11^T]]. For regular residues |t_k|=|u_k|=1, this is scalar plus one rank-one correction, with eigenvalues (M+4t)/(3M) multiplicity n and (M+(1-3n)t)/(3M) multiplicity one. Exceptional residues b=0 yield a, a-c, and a+(n-1)c. Direct parity-specific cross-multiplication establishes positivity and strict regular-versus-exceptional condition ratios for n>=5; square-root expansion yields 1+3(n+1)/2^(n+1)+O(n²4^-n). Independent full cube enumeration of all masks and Gram entries n=5,6,7,8 confirms exact spectra and two-residue optimizer ties. General claim follows from the algebra, not four sample dimensions.",
+      "residual_risks": [
+        "The condition number is sqrt of Gram squared-ratio, not Gram ratio itself.",
+        "n=4 excluded since an exceptional residue is singular; full-cube normalization scales all eigenvalues."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier full H_<=2 Gram theorem handles all same mod-three masks including H_1, with explicit Fourier moments.",
+          "Rao single-slice work is not directly needed once the stronger same-mask theorem is available."
+        ],
+        "reasoning": "The larger-band exact Gram identity strictly dominates the submitted first-degree Gram entries despite different normalizations; the finite optimization inequality follows from these entries.",
+        "searches": [
+          "Hamming weight modulo three Fourier Walsh degree one Gram eigenvalues optimal residue sampling",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-quadratic-walsh-sampling-on-hamming-weight-classes-modulo-three--d33872f5d626",
+          "https://arxiv.org/abs/2111.03213"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-quadratic-walsh-sampling-on-hamming-weight-classes-modulo-three--d33872f5d626",
+        "https://arxiv.org/abs/2111.03213",
+        "https://arxiv.org/abs/2112.14682"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier m1=2sqrt(3)sin(theta)/D, m2=-6cos(theta)/D, D=M+2cos(theta), theta=(n-2r)pi/3.",
+          "Under inherited full-cube scaling these give b=2sqrt(3)sin(theta)/(3M) and c=-2cos(theta)/M; the six residue cases are exactly u_k and -t_k."
+        ],
+        "reasoning": "Taking the H1 principal block and diagonalizing its rank-one part yields both regular/exceptional eigenvalue levels; comparing their rational ratios gives the claimed best-residue conclusion. This is a strong prior mathematical implication.",
+        "searches": [
+          "Hamming weight modulo three Fourier Walsh degree one Gram eigenvalues optimal residue sampling",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-quadratic-walsh-sampling-on-hamming-weight-classes-modulo-three--d33872f5d626",
+          "https://arxiv.org/abs/2112.14682"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published quadratic-band theorem has G[I,J]=m_|I△J| for |I|,|J|<=2 with spatial conditional probability.",
+          "Converting its degree-zero/one block by density D/(3M) gives exactly submitted a=(M+t)/(3M), b=u/M, c=-t/M."
+        ],
+        "reasoning": "This is an exact principal-submatrix identity, not merely a similar title or parameter; both spectrum and optimizer reduce to known moments plus elementary rank-one algebra.",
+        "searches": [
+          "Hamming weight modulo three Fourier Walsh degree one Gram eigenvalues optimal residue sampling",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-quadratic-walsh-sampling-on-hamming-weight-classes-modulo-three--d33872f5d626"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior source gives closed-form m1,m2 for every n,r and full Gram matrix.",
+          "Submitted eigenvalues come from scalar plus rank-one block and a 1+n split, computable directly from those known moments."
+        ],
+        "reasoning": "No new unknown table invariant survives: the complete submitted data are contained algebraically in the earlier exact moment formula.",
+        "searches": [
+          "Hamming weight modulo three Fourier Walsh degree one Gram eigenvalues optimal residue sampling",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-quadratic-walsh-sampling-on-hamming-weight-classes-modulo-three--d33872f5d626"
+        ]
+      },
+      "rationale": "A published same-mask **degree-at-most-two** Walsh theorem gives exact Fourier moments m_j and the full coefficient Gram matrix G[I,J]=m_|I△J| for every |I|,|J|<=2, covering all constant and degree-one indices. Its exact n,r moments imply the present entries after multiplying by |S|/2^n: a=D/(3M), b=a*m1=u_k/M, c=a*m2=-t_k/M. Thus the entire present first-band Gram is a principal submatrix of the prior fully known matrix. The rank-one diagonalization and finite residue-choice inequality are routine consequences of those entries, not an independently original new spectral invariant or substantive classification. Strict finite optimizer is not stated verbatim in earlier quadratic theorem, but follows from its more general explicit moment law and elementary arithmetic; failing to quote the same numbers is not enough for novelty.",
+      "residual_risks": [
+        "The published degree-two theorem is dated the same calendar day; this is a present published-coverage judgment rather than a verified within-day historical priority ordering.",
+        "Its conditional probability normalization must be converted by |S|/2^n; comparison accounts for this."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers first-band Gram as explicit principal submatrix; nearest dominating prior result",
+          "evidence": "m_j=2*3^(j/2)cos(theta-j*pi/2)/D; G[I,J]=m_|I△J| through degree two.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-quadratic-walsh-sampling-on-hamming-weight-classes-modulo-three--d33872f5d626",
+          "material_read": "Complete RESULT.md including exact Fourier moments, full Gram formula and spectral proof",
+          "method": "GitHub full text read, algebraically mapped two normalizations",
+          "title": "Quadratic Walsh sampling on Hamming-weight classes modulo three: exact spectrum and injectivity threshold",
+          "trigger": "Same mask, a strictly larger Walsh band"
+        },
+        {
+          "assessment": "Single shell not a full weight-mod3 union, but background not needed for rejection",
+          "evidence": "Object differs from complete mod3 masks.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.03213",
+          "material_read": "ArXiv paper principal restriction setup and slice transform statements",
+          "method": "PDF screenshot and targeted text",
+          "title": "The Fourier Transform of Restrictions of Functions on the Slice",
+          "trigger": "Potential single-Hamming-shell antecedent"
+        },
+        {
+          "assessment": "Query-complexity result rather than sampling Gram spectra",
+          "evidence": "Weight-mod3 function occurs but analysis concerns query complexity.",
+          "identifier_or_url": "https://arxiv.org/abs/2112.14682",
+          "material_read": "ArXiv main theorem and problem setup",
+          "method": "PDF screenshot and text",
+          "title": "Exact quantum query complexity of computing Hamming weight modulo powers of two and three",
+          "trigger": "Same residue function potential broader source"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-quadratic-walsh-sampling-on-hamming-weight-classes-modulo-three--d33872f5d626",
+        "https://arxiv.org/abs/2111.03213",
+        "https://arxiv.org/abs/2112.14682"
+      ],
+      "rationale": "The proposed conditioning numbers are mathematically meaningful deterministic sampling diagnostics, but the degree-one instance is a straightforward specialization of the published larger-band exact Gram-moment theorem and a rank-one matrix calculation. With its complete math already entailed by known formulas, the submitted theorem does not constitute a distinct valuable unknown invariant under the originality/value bar.",
+      "residual_risks": [
+        "A separate all-mask optimization question outside the three fixed residue classes could be valuable, but is not proved in this package."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "final_claim": "For n>=5 the first Walsh band sampled on any Hamming-weight residue mod3 has explicit Gram eigenvalues, regular residues yield only two levels and tie for strict best squared condition ratio, exceptional residue has three levels.",
+  "limitations": [
+    "First-degree Walsh band only, n>=5, complete residue masks; mathematical conclusion previously implied by stronger same-mask Gram theorem."
+  ],
+  "schema_version": 1
+}
