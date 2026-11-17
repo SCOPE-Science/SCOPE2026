@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The event of reciprocal selection on an edge has probability \(d^{-2}\); two events sharing a vertex are incompatible, while events on disjoint edges are independent. This establishes the matching-based generating function. Independent triples in the regular line graph have the explicit inclusion-exclusion count shown in the proof; its triangles are exactly vertex-centered edge triples plus graph triangles. The first three factorial moments yield the asserted ordinary cumulants. Positive degree makes the variance-to-mean ratio invertible, and the triangle-incidence bound proves the complete degree-dependent sign classification. The exact-rational checker independently compares complete outcome enumeration with matching coefficients for 16 hosts (301 assertions). Risk: the checks cover only finite examples, but the all-parameter argument is algebraic and combinatorial.
+PASS
 
-## Originality (O): PASS, with explicit priority uncertainty
+Each mutual-edge indicator has mean 1/d², overlapping edge-events are incompatible, and disjoint event families factor; hence E z^X=sum_r M_r((z-1)/d²)^r. The line graph has m=nd/2 vertices, h=m(d-1) edges and n*C(d,3)+t triangles. Inclusion-exclusion gives M1,M2,M3; conversion of the factorial moments produces mu=n/(2d), variance=n(d-1)²/(2d³), kappa3=n(d-1)²(d-2)²/(2d^5)-6t/d^6. Independently substituted the M1/2/3 formulas into SymPy and factored every difference with claimed moments to identically zero; boundary d=1,2,3 and t≤n*C(d,2)/3 establish the sign conditions. The variance/mean ratio ((d-1)/d)² uniquely determines positive integer d, then mu yields n and kappa3 yields t. Exhaustive 16-graph verifier source read, not substituted for universal algebra.
 
-The closest mathematical coverage is the matching partition function in Davies–Jenssen–Perkins (arXiv:2004.06695), whose third-order cluster terms already involve triangles. This is a powerful pre-existing source of the **combinatorial ingredients** but it does not state the one-neighbor reciprocity model, its exact third cumulant, inverse recovery from three population cumulants, or the sign classification. Leckey–Wormald (arXiv:1803.02667) study orbit lengths in a different constrained random mapping model; Wang–Resnick (arXiv:2103.07424) study reciprocal links in preferential attachment, a different sampling mechanism. Exact search phrases covered independent neighbor choices, reciprocal pairs, three cumulants, matching polynomials, and triangle recovery. A historically earlier formulation may exist under random mapping or cluster expansion terminology; novelty here is a model-level inverse theorem, not a new matching identity.
+## originality
 
-## Value (V): PASS
+PASS
 
-Reciprocity is an interpretable network statistic of a natural independent-choice directed graph. The first two cumulants deliberately cannot distinguish regular hosts with the same order and degree, but the third extracts precisely their triangle total. As an explicit boundary, \(K_{3,3}\) and the triangular prism have identical mean and variance but different third cumulants. Complete sign information identifies the role of short cycles in fluctuations, beyond the existing mean/variance benchmark. This is a natural inverse identification law rather than a numerical curiosity or arbitrary parameter slice.
+A natural matching-polynomial reformulation supplies the combinatorics, but the exact inverse identification of graph parameters from reciprocal-neighbor population cumulants and degree/triangle sign boundaries is distinct from known matching extremal inequalities.
 
-## Closest sources and limitations
+## value
 
-- Leckey and Wormald, arXiv:1803.02667, 2018: functional graph model with prescribed indegrees, not this local neighbor-choice law.
-- Davies, Jenssen and Perkins, arXiv:2004.06695, 2020: low-order matching coefficients and triangle contributions; closest mathematical mechanism and main residual priority risk.
-- Wang and Resnick, arXiv:2103.07424, 2021: global and pairwise reciprocity in growing directed networks, not a fixed regular host.
+PASS
 
-Sampling independence and regularity are essential. No statistical estimation guarantee or graph-isomorphism reconstruction is claimed. The reported novelty remains provisional until independent mathematical and historical review.
+The first three observable cumulants of a simple natural local-interaction experiment recover three intrinsic graph parameters, with a complete sharp sign stratification. This is useful as an exact model-identifiability/motif statistic; the matching-polynomial reduction is classical but the inverse and signs for this model are independently motivated.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
