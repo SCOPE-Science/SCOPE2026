@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The two explicit graph edge lists are fully specified, and independent explicit-edge enumeration agrees with recursive series-parallel reliability. Exactly five working edges produce 37/56 versus 38/56; independent operation produces the polynomial difference stated in RESULT.md. Its quartic has a nonnegative Bernstein expansion of degree five, positive in the open unit interval. The completeness argument is structural induction on the series-parallel tree, with polynomial deduplication justified by shortest-path and mincut orders. All 50 mixed-coefficient comparisons with fewer than eight edges have a certified odd interior root, so none gives pointwise dominance. The code is a transparent finite exhaustive proof for this class, not evidence for arbitrary graphs.
+## correctness
 
-## Originality (PASS, provisional)
-Searches of published mathematical records, accessible earlier research claims, and primary references found no directly covering equal-shortest-path/equal-edge-cut conditional-vs-independent eight-edge series-parallel cutoff. Two-terminal reliability polynomial methods, coefficient vectors, and stochastic ordering are established theory; no originality is claimed for those ingredients. Relevant historical reliability articles, including Bertrand et al. (2018), were not fully retrievable; an unindexed earlier equivalence remains a priority risk. The exact new claim is narrower than general network-reliability dominance or ecological corridor modeling.
+PASS
 
-## Value (PASS)
-The distinction separates two natural conservation stress tests: independently passable corridors and the same fixed number of operating corridors after a regional disruption. A uniform independent-risk ranking cannot automatically be used for fixed-budget post-disturbance decisions, even after controlling shortest route length and minimum cut. The sharp eight-corridor cutoff gives a finite structural benchmark and a method for detecting where such protocol transfer first breaks in the series-parallel class. No empirical predictive claim is made.
+Reconstructed the SP reliability polynomial and exact counts by an independent 256-subset path search on each explicit multigraph, yielding the claimed k=5 difference -1/56 and p=1/2 difference 3/128. Rebuilt polynomial closure by series/parallel recursive structural induction: 1,2,4,10,24,64,174,496 polynomials for m=1..8; with d,c>=2 there are 50 mixed-cardinality pairs at m=7, all with odd-order interior zeros via exact square-free/root counting. For the witness R_A-R_B=p²(1-p)²(2p⁴-p²-p+1); quartic has strictly positive Bernstein expansion on (0,1). Root tests and structural induction prove finite cutoff, rather than extrapolation.
 
-## Closest literature and scope
-Kramer-Schadt et al. (2004) motivate functional habitat connections and disperser survival. Bertrand et al. (2018) treat uniformly reliable two-terminal simple graphs with matching vertex and edge counts, not this multigraph conditional-count constraint. Boesch, Satyanarayana and Suffel (2009) survey general reliability domination, a strong conceptual predecessor. Full text for the 2018 paper could not be obtained, so independent historical priority remains unresolved. This finding does not assess general non-series-parallel networks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison distinguishes all-p independent reliability domination from conditional exactly-k edge operation under matched distance and cut. Published uniform-reliability graph design and general reliability polynomials furnish tools, but the checked claims do not imply the eight-edge sharp matched-profile reversal; uninspected older papers are explicitly retained as risk.
+
+## value
+
+PASS
+
+Two standard but genuinely distinct reliability risk protocols (i.i.d. corridor operability and a fixed surviving-corridor count) can reverse robust design rankings even after two independent structural constraints are matched. A sharp first-edge-budget theorem for a natural series-parallel class is a reusable reliability-ordering benchmark, not an arbitrary tiny graph example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

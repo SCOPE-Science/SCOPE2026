@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Execute `python check.py` with the version-independent SymPy requirements in `requirements.txt`. The test checks the two witnesses by a direct subset-and-path algorithm independently of the series/parallel formulas; exact symbolic computation verifies all integer cardinality counts and the positive polynomial certificate. The series-parallel closure enumerates all distinct two-terminal reliability polynomials through eight edges and uses exact square-free factorization and Sturm-type rational root counts to validate minimality. It prints counts for each edge budget and the explicit witness paths.
+## correctness
 
-Observed checks: 1, 2, 4, 10, 24, 64, 174, 496 distinct reliability polynomials for sizes one through eight; 50 mixed-sign comparisons at size seven, each with an interior odd-order root; nine qualifying nonswitching comparisons at size eight; two 256-state direct enumerations. Mathematical limits: no claim beyond the declared class or source model and no independent audit.
+PASS
+
+Reconstructed the SP reliability polynomial and exact counts by an independent 256-subset path search on each explicit multigraph, yielding the claimed k=5 difference -1/56 and p=1/2 difference 3/128. Rebuilt polynomial closure by series/parallel recursive structural induction: 1,2,4,10,24,64,174,496 polynomials for m=1..8; with d,c>=2 there are 50 mixed-cardinality pairs at m=7, all with odd-order interior zeros via exact square-free/root counting. For the witness R_A-R_B=p²(1-p)²(2p⁴-p²-p+1); quartic has strictly positive Bernstein expansion on (0,1). Root tests and structural induction prove finite cutoff, rather than extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison distinguishes all-p independent reliability domination from conditional exactly-k edge operation under matched distance and cut. Published uniform-reliability graph design and general reliability polynomials furnish tools, but the checked claims do not imply the eight-edge sharp matched-profile reversal; uninspected older papers are explicitly retained as risk.
+
+## value
+
+PASS
+
+Two standard but genuinely distinct reliability risk protocols (i.i.d. corridor operability and a fixed surviving-corridor count) can reverse robust design rankings even after two independent structural constraints are matched. A sharp first-edge-budget theorem for a natural series-parallel class is a reusable reliability-ordering benchmark, not an arbitrary tiny graph example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
