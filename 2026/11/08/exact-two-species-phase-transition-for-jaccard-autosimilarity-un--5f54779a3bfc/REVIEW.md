@@ -1,20 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proposed theorem is about two independent fixed-size iid samples with replacement, two strictly positive categorical probabilities, and expected incidence Jaccard similarity. Conditioning on the three possible nonempty observed-species sets gives its exact expectation. Subtracting adjacent sample-size expectations yields a quadratic phase threshold in the abundance product. A two-regime argument proves that the normalized increment has at most one sign crossing after the second sample size: termwise positivity in the moderate-dominance region, and a strictly increasing normalized increment in the high-dominance region. The latter uses a factored positive polynomial, not numerical root sampling. The limit of the expectation is one, while the high-dominance intermediate sequence approaches three quarters. Extension to arbitrarily many species follows from continuity of each finite-sample expectation and four strict inequalities from a rational two-species witness. An exact independent draw-sequence checker passed 512 checks. No finite experiment is used as a proof of the all-parameter classification.
+## correctness
 
-## Originality — PASS within inspected evidence, historically provisional
-Wolda (1981) examines replicate-sample similarity and dependence on sampling size and richness using log-series faunas; this is a directly related conceptual predecessor, not a source of the derived exact phase threshold. Cao, Williams and Larsen (2002) use average Jaccard autosimilarity as an ecological standardization measure; only its accessible abstract and bibliographic record could be inspected, and unseen full text is a material remaining priority risk. Chao et al. (2005) explicitly discuss incidence-Jaccard sample-size bias and propose different corrected indices, with accessible primary PDF sections inspected. Chase et al. (2011) analyze expected similarity under equally likely species conditional on richness, not the heterogeneous two-species iid-draw sample-size curve. Accessible prior research on missing mass and sample richness concerns distinct observables and has no logical implication establishing the exact Jaccard formula, the threshold, or the unique-turning-region theorem. Non-discovery of an exact match is not a proof of historical uniqueness.
+PASS
 
-## Value — PASS
-Average replicate Jaccard similarity is used to standardize ecological sampling effort and representativeness. The finding proves that additional sampling can make the expected similarity of two surveys *decrease*, even though both survey the same unchanged community and each records more species. It supplies the complete high-dominance parameter threshold, proves the number and orientation of subsequent reversals, and shows the effect can approach a quarter-point drop. By continuity, the behavior persists in strictly positive abundance vectors with arbitrarily many species. This gives a substantive caution for treating autosimilarity as a monotonically increasing proxy for effort; it does not demonstrate empirical failure of any particular published estimator.
+PASS: Exact two observed-species sets have probabilities p^n, q^n, 1-p^n-q^n for singleton1, singleton2, both. Enumerating six unordered outcome categories yields J_n=1-p^n-q^n+p^{2n}+q^{2n}, not ratio of expectations. Delta1=2(pq)^2>0; Delta2=pq(-2(pq)^2+7pq-1), whose critical pq=(7-sqrt41)/4 gives stated p*. For dominant p beyond root rho of p³+p²=1, normalized H_n=Delta_n/(q p^n) strictly increases for all n>=2, by the factorized lower bound (1+p)p^4-(2p-1)=(p²+p-1)(p³+p-1)>0, and H_n→1, proving single trough. For smaller p each term in Delta_n positive. p→1 with n(p)=floor(log(1/2)/log p) yields J_n→3/4 while J2→1, sharp limiting drop 1/4. Polynomial continuity gives only stated finite multi-species inequalities for sufficiently small positive extra masses. Independent rational enumeration of 24 joint sample-set cases and exact sign/factor checks corroborates.
 
-## Closest literature and residual limitations
-- Wolda (1981), https://doi.org/10.1007/BF00344966 : Monte Carlo sample-size effects for community similarity; no found exact two-species transition law in the inspected relevant material.
-- Cao, Williams and Larsen (2002), https://doi.org/10.1890/0012-9615(2002)072[0041:COECTP]2.0.CO;2 : same Jaccard-autosimilarity motivation, but full text could not be read. Possible uninspected coverage is the primary novelty risk.
-- Chao et al. (2005), https://doi.org/10.1111/j.1461-0248.2004.00707.x : incidence similarity bias and different corrected indices.
-- Chase et al. (2011), https://doi.org/10.1890/ES10-00117.1 : richness-conditioned uniform-pool null model, not the skewed-abundance model.
+## originality
 
-The complete phase classification is limited to exactly two species and independent with-replacement sampling; the multi-species extension proves existence of a two-reversal sign pattern only. A full independent literature-priority and scientific validation audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The explicit iid-incidence expected Jaccard and sharp all-effort threshold/single-trough theorem were not found in inspected primary evidence; inaccessible highly relevant Cao 2002 full paper is a substantive, recorded priority risk and not alone grounds for rejection.
+
+## value
+
+PASS
+
+Expected Jaccard similarity of repeat communities is a standard ecological sampling-quality observable. Its strict sampling-effort monotonicity can fail even in the smallest nontrivial heterogeneous community; the sharp mass threshold, unique dip, and asymptotically 1/4 decline quantify a tangible bias not implied by pointwise observed richness. Multi-species continuity witness is appropriately limited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
