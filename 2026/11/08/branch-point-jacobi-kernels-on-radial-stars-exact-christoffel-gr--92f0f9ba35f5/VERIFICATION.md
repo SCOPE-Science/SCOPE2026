@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the Jacobi-star kernel finding
+# Independent mathematical audit
 
-The analytical derivation in `RESULT.md` checks the cyclic projection, Beta normalization, endpoint Jacobi norms, Gamma telescoping, and locally uniform hard-edge Riemann sums. No external mathematical review or independent validation has been performed.
+## correctness
 
-`check_star.py` requires Python 3 and `mpmath`. Run `python check_star.py` in a directory containing that file. Its observed output is:
+PASS
 
-```
-JACOBI_STAR_KERNEL_CHECK_PASS moment_and_center=8 hard_edge=6 normalized_universality=3 total=17
-```
+Root-of-unity invariance orthogonally decomposes the degree<=n polynomial space into z^m Q_m(z^q), m=0..q-1; substituting u=r^q produces q Jacobi L2 weights u^(A_m-1)(1-u)^alpha/B(A0,alpha+1). Standard exact Jacobi norms h_{j,m}, with the j=0 Beta case kept separate, give the stated two-variable finite kernel. At the origin only m=0 remains and endpoint values telescope to the Gamma quotient, including n<q. Gamma ratios yield growth n^[2(beta+1)/q] with q factor. Compact-uniform Mehler-Heine/hypergeometric majorants bound each block and make the first j<epsilon N slice vanish as epsilon^[2A_m], while the rest Riemann-sums to the displayed Bessel integral. Since 2A_m-4m/q=2A0, every cyclic block survives. K(0,0) asymptotic cancels B(A0,alpha+1) and proves exact outer-alpha independence of the normalized locally uniform limit, value one at origin. Independent exact rational Gram checks for q=3 alpha=beta=0 corroborated finite block identities; finite tests do not prove the limit.
 
-Eight finite checks compare independent Gram-matrix evaluation with the Jacobi kernel and the closed center value. Six further finite checks compare the scaled kernel at fixed complex arguments with the integral-defined limiting kernel at two increasing degrees for each of three ray counts. Three additional checks compare the centered limits at two distinct outer Jacobi exponents and compare the corresponding finite-degree centered kernels at two shell degrees. The finite convergence tests are not an infinite proof; the locally uniform estimates are proved in the mathematical argument.
+## originality
 
-The proof does not depend on downloaded datasets, random seeds, or another finding's code. The general theorem is restricted to \(q\ge2\), \(\alpha,\beta>-1\), and identical equally spaced rays. The checker depends on `mpmath` for special functions and numerical integration.
+PASS
+
+A 2026-11-02 result already establishes the complete unweighted arclength q-star multi-Bessel kernel and center exponent q>=3; neither its unweighted central formula nor its q-channel scaling is new here in that specialization. The assessed surviving generalization is the two-parameter family r^beta(1-r^q)^alpha for all alpha,beta>-1 (including q=2), with locally uniform full complex two-point scaling and the exact alpha-independent origin-normalized limit. The 2018 Leurs–Van Assche paper studies the same weighted r-star but its type-I multiple orthogonal polynomials and zero asymptotics, not the positive scalar L2 polynomial projection kernel. Stronger uninspected weighted-junction results remain a risk.
+
+## value
+
+PASS
+
+A natural weighted branch-junction spectral object exhibits a nonobvious universality: despite the outer weight affecting every finite kernel and central normalization, the complete complex two-point microscopic limit loses alpha while all q sectors remain. The exact weighted classification is useful independent of a general perturbation theorem and is not just the previously known unweighted case; the scalar Gamma quotient is openly recognized as a Jacobi ingredient, not independently novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

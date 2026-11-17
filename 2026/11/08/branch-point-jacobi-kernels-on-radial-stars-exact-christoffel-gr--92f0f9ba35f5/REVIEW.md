@@ -1,15 +1,21 @@
-# Review of the Jacobi-star kernel finding
+# Independent mathematical audit
 
-## Correctness — PASS
-The weighted scalar polynomial kernel is the orthogonal direct sum of \(q\) Jacobi blocks, not a multiple-orthogonal polynomial system. Root-of-unity averaging and \(u=r^q\) give the precise Beta normalization. The endpoint Gamma formula follows by an exact telescoping identity. The locally uniform scaling limit follows from the classical Jacobi hypergeometric expansion, compact-uniform majorants, and an integrable Riemann-sum bound at \(t=0\). The checker independently compares the block kernel with the monomial Gram inverse and verifies the central and asymptotic formulas in specified finite cases. The center-normalized limit follows by dividing by the center Gamma quotient, removing the outer-Jacobi parameter. Those checks do not certify an infinite theorem.
+## correctness
 
-## Originality — PASS, provisionally
-The most relevant source is Marinescu–Vu, arXiv:2210.11031 (2022), which establishes polynomial Bergman/Christoffel growth bounds for wide classes of singular totally real supports but not an exact radial-star Gamma quotient or a full hard-edge kernel. Leurs–Van Assche, arXiv:1804.07512 (2018), study the same star and weighted rays using a different multiple-orthogonality problem. Danka–Totik, arXiv:1504.03968 (2015), prove precise Christoffel constants at locally smooth interiors and endpoints; these hypotheses do not include a transverse multi-ray junction. The classical Jacobi Mehler–Heine asymptotic used here is acknowledged, including Van Assche, arXiv:1408.6140. The scalar center exponent and Gamma factor can also be recovered by standard Jacobi endpoint orthogonality after the elementary symmetry reduction; they are not independently claimed as novel. The proposed increment is the full joint \(q\)-channel complex scaling limit and its **outer-weight parameter universality after normalizing by the center kernel**. Searches for scalar star kernels, equivalent Bessel limits, and broader singular-junction universality did not identify a dominating statement, but missing historical sources remain a substantive risk.
+PASS
 
-## Mathematical value — PASS
-The full two-variable limit identifies the distinct cyclic harmonics surviving at the local vertex scale; remarkably the normalized limit loses the outer boundary exponent \(\alpha\). This produces a concrete, exact universality law for a transverse polynomial-kernel singularity, beyond scalar Jacobi endpoint growth. This is a motivated, complete model of a singular support in polynomial Christoffel theory, not an arbitrary finite computation.
+Root-of-unity invariance orthogonally decomposes the degree<=n polynomial space into z^m Q_m(z^q), m=0..q-1; substituting u=r^q produces q Jacobi L2 weights u^(A_m-1)(1-u)^alpha/B(A0,alpha+1). Standard exact Jacobi norms h_{j,m}, with the j=0 Beta case kept separate, give the stated two-variable finite kernel. At the origin only m=0 remains and endpoint values telescope to the Gamma quotient, including n<q. Gamma ratios yield growth n^[2(beta+1)/q] with q factor. Compact-uniform Mehler-Heine/hypergeometric majorants bound each block and make the first j<epsilon N slice vanish as epsilon^[2A_m], while the rest Riemann-sums to the displayed Bessel integral. Since 2A_m-4m/q=2A0, every cyclic block survives. K(0,0) asymptotic cancels B(A0,alpha+1) and proves exact outer-alpha independence of the normalized locally uniform limit, value one at origin. Independent exact rational Gram checks for q=3 alpha=beta=0 corroborated finite block identities; finite tests do not prove the limit.
 
-## Boundaries
-The result requires equal ray lengths and angles, equal positive power-type densities on each ray, and fixed weight parameters. It supplies no effective convergence rate, extension to unequal rays, or general junction theorem. The literature comparison is provisional, not an independent certification or exhaustive priority determination.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A 2026-11-02 result already establishes the complete unweighted arclength q-star multi-Bessel kernel and center exponent q>=3; neither its unweighted central formula nor its q-channel scaling is new here in that specialization. The assessed surviving generalization is the two-parameter family r^beta(1-r^q)^alpha for all alpha,beta>-1 (including q=2), with locally uniform full complex two-point scaling and the exact alpha-independent origin-normalized limit. The 2018 Leurs–Van Assche paper studies the same weighted r-star but its type-I multiple orthogonal polynomials and zero asymptotics, not the positive scalar L2 polynomial projection kernel. Stronger uninspected weighted-junction results remain a risk.
+
+## value
+
+PASS
+
+A natural weighted branch-junction spectral object exhibits a nonobvious universality: despite the outer weight affecting every finite kernel and central normalization, the complete complex two-point microscopic limit loses alpha while all q sectors remain. The exact weighted classification is useful independent of a general perturbation theorem and is not just the previously known unweighted case; the scalar Gamma quotient is openly recognized as a Jacobi ingredient, not independently novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
