@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The associated `verify_group_reset.py` runs with Python 3, NumPy and mpmath. It requires no downloads or external data. Execute `python verify_group_reset.py` from the folder containing the program. On the examined execution it printed:
+## correctness
 
-```
-PASS 52 checks; n=2 r=250 samples=6000; sample_mean=16.2272927 exact_mean=16.2116725; sample_variance=1.3863857 exact_variance=1.4162424; normal_limit_variance=1.4166667
-```
+PASS
 
-The code checks the exact Gaussian-order-statistic values at \(N=2\), \(N=3\), and further numerical integrals at \(N=5\); exact beta-function identities at five frequencies; limiting mean and variance ratios; and seeded direct iteration of the Poisson-interval Gaussian-maximum map. The simulation checks are loose-tolerance finite diagnostics. They are not an exhaustive computation or an independent proof of convergence. Analytical verification is in the exact affine kernel, finite-rate moment identities, fourth-moment bounds, predictable quadratic-variation limit, Lindeberg check and exponentially controlled perpetuity tail in `RESULT.md`.
+Reconstructed exact independent Poisson-age OU maximum kernel R_{j+1}=exp(-kE/r)R_j+sqrt((D/k)(1-exp(-2kE/r)))M_N, with stationary contractive perpetuity. Beta-integral first and second moment equations give m_r=c_N sqrt(r)+O(r^-1/2) and v_r->(D/k)(nu_N-pi mu_N^2/4). Centered innovations have L2 limit H=sqrt(2DE)M_N-kc_NE; calculate variance 2D(nu_N-pi mu_N^2/4). Martingale triangular-array predictable variance and fourth moments yield Gaussian law, tail controlled; ordinary-time all-coordinate difference O_P(r^-1/2). Independent exact N=2 evaluation at D=1.7,k=.9,r=250: m=16.2116725068, variance=1.41624243337 versus limit 1.41666666667. Finite test is corroboration only.
 
-The variance coefficient requires retaining the correlation of the exponential inter-reset time and Gaussian maximum: the innovation is \(\sqrt{2DE}\,M_N-kc_NE\), not an independent Brownian-noise increment with fixed excursion length. This is independently checked via the finite-rate variance identity.
+## originality
 
-Independently performed validation: none. No external certification is claimed.
+PASS
+
+Primary full HTML Lee–Yang–Park–Lizana gives renewal group reset, approximate large-N Gumbel kernel and sqrt(r) mean scaling; neither exact fixed-N maximum law nor complete high-frequency Gaussian variance coefficient with independent clock contribution is stated in the inspected results/appendix. Resultary also finds non-Gaussian stationary reset design and fixed-origin Brownian gas, which differ in the selected reset location. Standard random-affine/martingale CLTs alone do not provide this evaluated coefficient.
+
+## value
+
+PASS
+
+Stationary high-rate distribution of collectively rightmost-reset OU groups is a natural stochastic invariant. Exact fixed-N shared Gaussian fluctuation, variance decomposition into maximum and clock terms, and explicit quantiles improve large-N mean/Gumbel approximations and clarify a model used in group avoidance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

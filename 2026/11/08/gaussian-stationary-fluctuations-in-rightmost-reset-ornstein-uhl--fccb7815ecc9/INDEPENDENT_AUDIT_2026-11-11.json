@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T22:00:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed exact independent Poisson-age OU maximum kernel R_{j+1}=exp(-kE/r)R_j+sqrt((D/k)(1-exp(-2kE/r)))M_N, with stationary contractive perpetuity. Beta-integral first and second moment equations give m_r=c_N sqrt(r)+O(r^-1/2) and v_r->(D/k)(nu_N-pi mu_N^2/4). Centered innovations have L2 limit H=sqrt(2DE)M_N-kc_NE; calculate variance 2D(nu_N-pi mu_N^2/4). Martingale triangular-array predictable variance and fourth moments yield Gaussian law, tail controlled; ordinary-time all-coordinate difference O_P(r^-1/2). Independent exact N=2 evaluation at D=1.7,k=.9,r=250: m=16.2116725068, variance=1.41624243337 versus limit 1.41666666667. Finite test is corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/2412.02524v3: §III Eq.(7) large-rate scaling, Appendix C squared coefficient variation based on b_n,a_n Gumbel coefficients.",
+          "https://arxiv.org/abs/2604.24406: Title and model description distinguish absorption from stationary full-line dynamics."
+        ],
+        "reasoning": "Lee et al. use Gaussian extreme-value Gumbel approximation when group size is large; their Eq.7 sqrt(r) scaling and Appendix C SCV do not give the exact fixed-N CLT or variance coefficient. A generic martingale CLT needs the specific finite-N variance computation.",
+        "searches": [
+          "Resultary: group resetting to rightmost position Ornstein Uhlenbeck stationary Gaussian high frequency",
+          "arXiv:2412.02524v3 full HTML and Appendix C",
+          "arXiv:2604.24406 first-passage group resetting"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2412.02524v3",
+        "https://arxiv.org/abs/2604.24406",
+        "Resultary semantic query: Resultary: group resetting to rightmost position Ornstein Uhlenbeck stationary Gaussian high frequency"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/2412.02524v3: §III Eq.(7) large-rate scaling, Appendix C squared coefficient variation based on b_n,a_n Gumbel coefficients.",
+          "https://arxiv.org/abs/2604.24406: Title and model description distinguish absorption from stationary full-line dynamics."
+        ],
+        "reasoning": "Earlier renewal framework supplies the group dynamic and scaling intuition, but exact centered variance, Poisson-time contribution and limit law constitute a mathematically stronger distributional conclusion for fixed N.",
+        "searches": [
+          "Resultary: group resetting to rightmost position Ornstein Uhlenbeck stationary Gaussian high frequency",
+          "arXiv:2412.02524v3 full HTML and Appendix C",
+          "arXiv:2604.24406 first-passage group resetting"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/2412.02524v3: §III Eq.(7) large-rate scaling, Appendix C squared coefficient variation based on b_n,a_n Gumbel coefficients.",
+          "https://arxiv.org/abs/2604.24406: Title and model description distinguish absorption from stationary full-line dynamics."
+        ],
+        "reasoning": "A group reset to its current rightmost *member* is not independent resets to a fixed origin nor resetting one walker to its historical max. The stationary reset-epoch perpetuity differs from ordinary-time center-of-mass diffusion.",
+        "searches": [
+          "Resultary: group resetting to rightmost position Ornstein Uhlenbeck stationary Gaussian high frequency",
+          "arXiv:2412.02524v3 full HTML and Appendix C",
+          "arXiv:2604.24406 first-passage group resetting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/html/2412.02524v3: §III Eq.(7) large-rate scaling, Appendix C squared coefficient variation based on b_n,a_n Gumbel coefficients.",
+          "https://arxiv.org/abs/2604.24406: Title and model description distinguish absorption from stationary full-line dynamics."
+        ],
+        "reasoning": "Finite N=2 closed moments are exact consequences of the new perpetuity; no known-table recalculation supplies the full all-N high-rate Gaussian law. Resultary search found no earlier same-result theorem.",
+        "searches": [
+          "Resultary: group resetting to rightmost position Ornstein Uhlenbeck stationary Gaussian high frequency",
+          "arXiv:2412.02524v3 full HTML and Appendix C",
+          "arXiv:2604.24406 first-passage group resetting"
+        ]
+      },
+      "rationale": "Primary full HTML Lee–Yang–Park–Lizana gives renewal group reset, approximate large-N Gumbel kernel and sqrt(r) mean scaling; neither exact fixed-N maximum law nor complete high-frequency Gaussian variance coefficient with independent clock contribution is stated in the inspected results/appendix. Resultary also finds non-Gaussian stationary reset design and fixed-origin Brownian gas, which differ in the selected reset location. Standard random-affine/martingale CLTs alone do not provide this evaluated coefficient.",
+      "residual_risks": [
+        "An unindexed earlier random-affine-recursion specialization might yield the same CLT/variance.",
+        "The theorem does not establish fixed-boundary rare-event probabilities or simultaneous N,r->infinity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides group renewal kernel and high-rate sqrt(r) mean via Gumbel large-group approximation, not the exact fixed-N Gaussian law/variance coefficient in the inspected mathematical results.",
+          "evidence": "§III Eq.(7) large-rate scaling, Appendix C squared coefficient variation based on b_n,a_n Gumbel coefficients.",
+          "identifier_or_url": "https://arxiv.org/html/2412.02524v3",
+          "material_read": "Accessible full HTML model §II, results §III including equations 3-7 and Appendix A/C variance approximation",
+          "method": "Primary full-text arXiv HTML, relevant mathematical sections and appendices",
+          "title": "General Theory for Group Resetting with Application to Avoidance",
+          "trigger": "Same rightmost collective reset in harmonic confinement"
+        },
+        {
+          "assessment": "Absorbing-boundary first passage is not the stationary no-killing law under review.",
+          "evidence": "Title and model description distinguish absorption from stationary full-line dynamics.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.24406",
+          "material_read": "Bibliographic and cited model comparison only; full text not obtained",
+          "method": "arXiv bibliographic crosscheck",
+          "title": "Beyond average: heterogeneous first-passage dynamics in many-particle systems with resetting",
+          "trigger": "Same group model but with first-passage/absorption"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Stationary high-rate distribution of collectively rightmost-reset OU groups is a natural stochastic invariant. Exact fixed-N shared Gaussian fluctuation, variance decomposition into maximum and clock terms, and explicit quantiles improve large-N mean/Gumbel approximations and clarify a model used in group avoidance.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2412.02524v3",
+    "https://arxiv.org/abs/2604.24406",
+    "Resultary semantic query: Resultary: group resetting to rightmost position Ornstein Uhlenbeck stationary Gaussian high frequency"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An unindexed earlier random-affine-recursion specialization might yield the same CLT/variance.",
+    "The theorem does not establish fixed-boundary rare-event probabilities or simultaneous N,r->infinity."
+  ],
+  "schema_version": 1
+}
