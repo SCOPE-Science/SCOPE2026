@@ -1,19 +1,21 @@
-# Scientific review: two-term Magnus positivity on reverse pure-birth cascades
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Markov row-generator and chronological right-action conventions are stated. Direct commutator multiplication yields the displayed upper triangular four-state Magnus logarithm. Its first three columns follow from the nilpotent part of a repeated-eigenvalue block, while row-sum conservation forces the final column. All entries except one are manifestly nonnegative; the remaining entry has derivative \(e^{-h}h^2(h^2-8)/8\), giving a unique strictly positive root, exact global sign classification, and sharp minimum. The higher-dimensional \(-a_1a_2a_3h^3/3\) coefficient is checked by direct path counting in the power-series exponential; the lower-order coefficient vanishes. Independently coded exact-rational and high-precision tests passed 674 assertions. No numerical enumeration is used to prove the universal statements.
+PASS
 
-## Originality — PASS, with residual literature risk
+For the fixed right-acting row-Markov reverse chronological pulse convention, the two-term Magnus logarithm is hΣG_i+(h²/2)Σ[G_{i+1},G_i]. Its 4x4 upper-triangular matrix has diag (−h,−h,−h,0), first superdiagonal h+h²/2,h+h²/2,h and second superdiagonal −h²/2 twice. The first three exponential columns follow from a nilpotent 3x3 block and row conservation fixes the fourth column. The sole possibly negative entry is P14=1−e^(−h)(1+h+h²/2+h³/2+h⁴/8), whose derivative is e^(−h)h²(h²−8)/8: decreases below sqrt8, increases above, has exactly one positive zero ~5.2022837279. For arbitrary positive rates and n>=4, direct order-h³ coefficient of exp(hA+h²B) at (1,4) is −a1a2a3/3. Independently checked the commutator signs, matrix formula, derivative and cubic coefficient in exact SymPy. n=2,3 positivity follows explicit entries. This proves only endpoint positivity of Magnus exponential, not approximation accuracy.
 
-Iserles–Macnamara (arXiv:1701.02522, Section 4.5) already state the general non-preservation of positivity by truncated Magnus expansions and the non-Markov character of commutators. Blanes–Iserles–Macnamara (arXiv:2102.08242, Sections 3.3/3.5) cover the same broad obstruction and alternative positive integrators; Jasuja–Atzberger (arXiv:2212.08978) address a different stochastic-structure setting. None of these inspected discussions establishes the specific four-state recovery interval, exact extremal negative probability, or dimension-uniform cubic reverse-cascade obstruction. Earlier general negativity is not rebranded as new. Other specialized Markov, chronological exponential, or Magnus literature may contain equivalent results and remains a genuine publication-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Mass preservation alone is insufficient for probability interpretation. This natural smallest equal-rate reverse-cascade witness identifies the complete set of pulse masses where the two-term Magnus approximation can be interpreted as a Markov transition matrix, including a counterintuitive recovery of positivity at large pulse mass where approximation error is pronounced. Its exact cubic rate law quantifies why reducing pulse magnitudes does not repair positivity across longer cascades. These are reproducible structural benchmarks for geometric integration and positivity safeguards, not an arbitrary slice or an unproved claim of practical accuracy.
+The Markov Magnus literature already establishes that commutators need not preserve positivity; that qualitative phenomenon is credited as prior. The precise four-state iff recovery threshold, complete single-negative-entry classification, least equal-rate reverse-cascade dimension and universal weighted cubic coefficient are a narrower concrete classification. Resultary returned other Padé/RK4/Radau/Stiff integrator positivity horizons, each a different one-step map, and no prior same Magnus two-term reverse-pulse formula. Best of knowledge PASS subject to inaccessible full primary article text.
 
-## Scope and reservations
+## value
 
-The if-and-only-if positive interval is specific to four equal-rate reverse-ordered pure-birth pulses. Higher-dimensional results concern sufficiently small positive total rates only. Pulse supports must be disjoint and in the prescribed order; the rate shapes may be smooth. Publication priority is provisional pending broader specialized search. No external or independent audit is represented.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Nonnegativity of numerical Markov propagators is essential and not guaranteed by mass conservation. The four-state reverse-cascade is a natural smallest exact counterexample, and the unexpected reentrant interval identifies precisely where a fixed two-term Magnus exponential regains the Markov property despite gross inaccuracy in the true transition. It supplies a concrete analysis tool for positivity-preserving methods and shows why small step does not guarantee positivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

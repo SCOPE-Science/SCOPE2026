@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The included `verify_magnus.py` is executable with a standard Python 3 interpreter and no third-party dependencies. An execution of the actual embedded script completed with `VERIFICATION_PASS 674 assertions`; it checked exact rational generator commutators, exact cubic Taylor coefficients in sizes four through nine with several unequal positive rational rate patterns, the unique-root bracket, and independent high-precision four-by-four matrix exponentials across ten representative positive rates.
+# Independent mathematical audit
 
-The proof of all-rate positivity recovery, uniqueness of the transition, and the all-dimensional cubic coefficient is analytic and supplied in `RESULT.md`. Finite calculations do not establish those universal claims without the stated proof. The comparison to prior publications is limited to materially inspected sources, and independent mathematical audit has not been performed.
+## correctness
+
+PASS
+
+For the fixed right-acting row-Markov reverse chronological pulse convention, the two-term Magnus logarithm is hΣG_i+(h²/2)Σ[G_{i+1},G_i]. Its 4x4 upper-triangular matrix has diag (−h,−h,−h,0), first superdiagonal h+h²/2,h+h²/2,h and second superdiagonal −h²/2 twice. The first three exponential columns follow from a nilpotent 3x3 block and row conservation fixes the fourth column. The sole possibly negative entry is P14=1−e^(−h)(1+h+h²/2+h³/2+h⁴/8), whose derivative is e^(−h)h²(h²−8)/8: decreases below sqrt8, increases above, has exactly one positive zero ~5.2022837279. For arbitrary positive rates and n>=4, direct order-h³ coefficient of exp(hA+h²B) at (1,4) is −a1a2a3/3. Independently checked the commutator signs, matrix formula, derivative and cubic coefficient in exact SymPy. n=2,3 positivity follows explicit entries. This proves only endpoint positivity of Magnus exponential, not approximation accuracy.
+
+## originality
+
+PASS
+
+The Markov Magnus literature already establishes that commutators need not preserve positivity; that qualitative phenomenon is credited as prior. The precise four-state iff recovery threshold, complete single-negative-entry classification, least equal-rate reverse-cascade dimension and universal weighted cubic coefficient are a narrower concrete classification. Resultary returned other Padé/RK4/Radau/Stiff integrator positivity horizons, each a different one-step map, and no prior same Magnus two-term reverse-pulse formula. Best of knowledge PASS subject to inaccessible full primary article text.
+
+## value
+
+PASS
+
+Nonnegativity of numerical Markov propagators is essential and not guaranteed by mass conservation. The four-state reverse-cascade is a natural smallest exact counterexample, and the unexpected reentrant interval identifies precisely where a fixed two-term Magnus exponential regains the Markov property despite gross inaccuracy in the true transition. It supplies a concrete analysis tool for positivity-preserving methods and shows why small step does not guarantee positivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
