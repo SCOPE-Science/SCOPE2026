@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T22:53:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The random cyclic anchor makes all circular spacings Dirichlet(1,...,1). Conditioning on a clockwise r-gap partial sum Beta(r,n-r) and reweighting the disjoint opposing gap produces a Beta(r,n-r+1) order-statistic integral; a centered binomial absolute-moment identity gives Delta_n=1/4−2^(−n−1)binom(n,(n−1)/2) for odd n. Uniform deletion from even n preserves iid uniform remaining locations and adds an independent omitted agent with conditional mean distance 1/4, yielding Delta_(n−1). The empirical circle cost process H_n(t)=sqrt(n)(average d(X_i,t)−1/4) has bounded fourth increments and finite-dimensional Gaussian limit in C(T), covariance 1/48−h²/2+2h³/3. Its exact antipodal symmetry implies sup G=−inf G>0 almost surely. The PCD/EPCD opposing-gap selection measures converge weakly to Haar uniformly in continuous test functions; tightness of H_n upgrades their integrals to o_P(1). Therefore all conditional selected costs equal n/4+o_P(sqrt(n)), while optimum equals n/4+sqrt(n)min H_n, giving the common joint 4 sup G limit and non-Gaussian positive law. Independent exact rational identity checks reproduced Delta_3=1/16, Delta_5=3/32, Delta_7=29/256, Delta_9=65/512. Numerical Monte Carlo in the checker is not used as an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rogowski–Dziubiński (2025) obtains 7/4 worst-case for odd n mixing; Chan–Lin–Wang (2026) obtains 3/2 worst-case all n.",
+          "Results for uniform agents on a real line with two facilities in Resultary concern a different input space and mechanism."
+        ],
+        "reasoning": "A profile-wise worst-case factor does not supply a sharp additive expected difference or distributional limit under a random population. General Gaussian approximation also lacks explicit opposing-gap average.",
+        "searches": [
+          "Rogowski Dziubinski Improved Approximation Ratio Strategyproof Facility Location Cycle 2025",
+          "Chan Lin Wang A Randomized 3/2 Approximation for Strategic Facility Location on a Circle 2026",
+          "Resultary: typical case facility location Gaussian fluctuations circle uniform"
+        ]
+      },
+      "checked_sources": [
+        "Meir, arXiv:1902.08070 (2019)",
+        "Rogowski and Dziubiński, arXiv:2505.12943 (2025)",
+        "Chan, Lin and Wang, arXiv:2609.12792 (2026-09-11)",
+        "Resultary 2026/11/2 exact-four-agent-mixing-law-for-circle-distance-facility-mechani--c1a0cb20fbea",
+        "SCOPE pinned RESULT.md and check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior worst-case 3/2, 7/4 strategic bounds do not determine a binomial mean identity for iid Haar inputs.",
+          "The empirical cost process limit is generic, yet the PCD/EPCD selection measures require a separate Dirichlet/Riemann-sum argument."
+        ],
+        "reasoning": "The combined exact finite-n gain and common non-Gaussian first correction are not consequences of the cited bounds; source text of the 2026 mechanism paper beyond accessible abstract remains a material comparison limitation.",
+        "searches": [
+          "Meir arXiv:1902.08070 PCD definition and worst case",
+          "Rogowski Dziubiński arXiv:2505.12943 worst-case mix",
+          "Chan Lin Wang arXiv:2609.12792 abstract and main theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "PCD selects proportional to opposite gaps for odd n; even EPCD is a uniform random-deletion extension, equivalent to two adjacent opposite-gap weights.",
+          "Prior mechanism source names and parity formulas match the definitions in the assigned proof."
+        ],
+        "reasoning": "Comparing equivalent gap-weight/deletion forms avoids treating EPCD as a new mechanism. The newly claimed statistics are iid-sample unconditional cost gain and a joint conditional-ratio limit, not the prior strategyproofness definition.",
+        "searches": [
+          "Resultary: proportional circle distance random dictator random deletion expected cost uniform agents Gaussian process approximation ratio",
+          "arXiv:2609.12792 EPCD definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact finite-n PCD expected-cost table matching Delta_n among inspected published claims; current submission itself is indexed but not prior novelty evidence."
+        ],
+        "reasoning": "Exact average-case tabulations could displace the gain component even if the CLT survives, but none were identified from actual reviewed sources; failed search does not certify absence.",
+        "searches": [
+          "Resultary: exact average case PCD EPCD random dictator uniform circle central binomial advantage",
+          "Web: uniform iid agents on circle expected proportional circle distance cost"
+        ]
+      },
+      "rationale": "Meir 2019, Rogowski–Dziubiński 2025 and Chan–Lin–Wang 2026 introduce PCD, RD mixtures and EPCD and analyze strategic worst-case approximation guarantees. They do not assert in their inspected central statements the iid Haar average conditional cost exact gain or joint Gaussian-supremum fluctuation. Generic empirical-process weak convergence proves only one analytic step, not the mechanism-specific Dirichlet cost identity or opposing-gap selection weak limit. Best-of-knowledge positive but specialized older average-case and inaccessible sections of the latest primary paper remain risks.",
+      "residual_risks": [
+        "The full Chan–Lin–Wang (2026) primary text was not obtained; a relevant appendix could contain average-case results.",
+        "Older stochastic-facility or empirical circular-median literature might contain a special-case Gaussian supremum law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Worst-case 7/4 ratio rather than iid circle exact mean or Gaussian typical law.",
+          "evidence": [
+            "Central results concern worst-case approximation bounds over agent profiles; no matched iid Haar Dirichlet mean law in inspected sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.12943",
+          "material_read": "Accessible primary full HTML sections describing mixture, proofs of worst-case factor and concluding discussion",
+          "method": "Lawful open HTML reading, targeted sections and theorem comparisons",
+          "title": "Improved Approximation Ratio for Strategyproof Facility Location on a Cycle",
+          "trigger": "Closest odd-n RD/PCD mixture source"
+        },
+        {
+          "assessment": "Cannot make whole-document exclusion; abstract gives 3/2 worst-case and lower bound 11/10, not exact iid-sample distribution.",
+          "evidence": [
+            "2026-09-11 primary abstract explicitly describes even uniform-deletion EPCD and n>=3 strategyproof 3/2 guarantee."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.12792",
+          "material_read": "Primary arXiv abstract and main theorem summary accessible; full PDF/HTML blocked in this session",
+          "method": "Lawful arXiv abstract, OA lookup for full text",
+          "title": "A Randomized 3/2-Approximation for Strategic Facility Location on a Circle",
+          "trigger": "Same parity-dependent RD/PCD/EPCD mechanisms"
+        },
+        {
+          "assessment": "Three-agent/worst-case strategic guarantee is not a closed average across every iid uniform population size.",
+          "evidence": [
+            "PCD opposing-gap mechanism is prior art and is explicitly credited."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1902.08070",
+          "material_read": "Primary paper mechanism definition and original worst-case statements (relevant sections); not a claim of every appendix read",
+          "method": "Prior lawful open paper review and targeted mathematical comparison",
+          "title": "Strategyproof Facility Location for Three Agents on a Circle",
+          "trigger": "Origin of PCD mechanism"
+        },
+        {
+          "assessment": "Worst-case n=4 mixing parameter factor (5+lambda)/4, not average iid Haar or joint CLT.",
+          "evidence": [
+            "Four-agent extrema are worst-case profiles."
+          ],
+          "identifier_or_url": "2026/11/2/SCOPE-exact-four-agent-mixing-law-for-circle-distance-facility-mechani--c1a0cb20fbea",
+          "material_read": "Indexed full theorem summary, not full proof",
+          "method": "Resultary indexed result",
+          "title": "Exact four-agent mixing law for circle-distance facility mechanisms",
+          "trigger": "Resultary published nearby exact cost-law record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact finite-population expected gain is a natural performance metric under a homogeneous input distribution and distinguishes lotteries whose worst-case guarantees differ. The non-Gaussian Gaussian-supremum law quantifies the first stochastic order of approximation inefficiency and shows three mechanism ratios share a fluctuation limit despite distinct unconditional costs. This is a motivated concrete mechanism-specific comparison, not merely a general empirical-process exercise.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Meir, arXiv:1902.08070 (2019)",
+    "Rogowski and Dziubiński, arXiv:2505.12943 (2025)",
+    "Chan, Lin and Wang, arXiv:2609.12792 (2026-09-11)",
+    "Resultary 2026/11/2 exact-four-agent-mixing-law-for-circle-distance-facility-mechani--c1a0cb20fbea",
+    "SCOPE pinned RESULT.md and check.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For n>=3 Haar-uniform independent circle agents, Random Dictator minus Proportional Circle Distance/Even PCD expected social cost equals 1/4−binom(s,(s−1)/2)/2^(s+1), s=n if odd and n−1 if even; the equal mixture has half gain. Their conditional expected-cost approximation ratios share the joint non-Gaussian limit sqrt(n)(R_n^M−1) -> 4 sup G, with explicit covariance 1/48−h²/2+2h³/3.",
+  "limitations": [
+    "Only iid uniform circle positions; conditional-on-sample expected lottery cost, not realized draw or exact expectation of random ratio.",
+    "Limit law specified as Gaussian supremum, not elementary CDF."
+  ],
+  "residual_risks": [
+    "The full Chan–Lin–Wang (2026) primary text was not obtained; a relevant appendix could contain average-case results.",
+    "Older stochastic-facility or empirical circular-median literature might contain a special-case Gaussian supremum law."
+  ],
+  "schema_version": 1
+}
