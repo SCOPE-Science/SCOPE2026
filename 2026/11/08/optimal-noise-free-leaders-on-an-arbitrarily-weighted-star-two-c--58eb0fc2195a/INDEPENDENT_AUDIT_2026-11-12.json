@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T07:05:06.716701Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any m>=2 positive weighted star, grounding a center leader leaves diagonal follower block with cost sum_{unselected leaves}1/w_i; optimum selects k-1 weakest spokes. With center follower, Schur complement is W=sum leader conductances and trace is sum_{unselected}1/w_i+(m-k+1)/W. For any leaf-only set selecting b>a while smaller a is unselected, either center substitution strictly lowers cost if sum selected <(m-k+1)b or swapping b to a strictly lowers cost otherwise; this proves one of two candidates is globally optimal. Comparing costs yields A_k-B_k=1/w_k-(m-k+1)/P_k and the advertised sharp threshold for 1<=k<=m, with k=m+1 cost zero. For w=(1 five times,100 three times), exact Fraction exhaustive checks give k=5 cost83/100, k=6 cost3/100, k=7 cost81/4100 and every optimizer of these budgets excludes/includes/excludes center respectively (k=7 has three tied optimal sets, not a unique set). Finite enumeration supplements the all-weights dominance proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weighted path/ring leader algorithms do not treat an arbitrary-degree center. Tripod result has fixed degree three; generic SDP approximation and joint-centrality objectives provide costs but no stated star all-budget classification."
+        ],
+        "reasoning": "A fully general-tree exact optimization may imply polynomial solvability of stars, but does not directly imply this explicit choice/threshold or reentrant example without specialization.",
+        "searches": [
+          "https://arxiv.org/abs/1302.0450",
+          "https://arxiv.org/abs/1412.6595",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-polynomial-time-leader-placement-on-arbitrarily-weighted-t--3478ceea658e/RESULT.md",
+          "https://arxiv.org/abs/1407.1569"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1302.0450",
+        "https://arxiv.org/abs/1412.6595",
+        "https://arxiv.org/abs/1407.1569",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-polynomial-time-leader-placement-on-arbitrarily-weighted-t--3478ceea658e/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arrowhead Schur complement gives exact trace for a fixed subset; strict mixed center-or-swap dominance establishes the optimal subset among exponentially many choices."
+        ],
+        "reasoning": "The core dominance mechanism is new relative to the compared fixed-set formulas. General algorithms alone do not state this exact sign comparison.",
+        "searches": [
+          "https://arxiv.org/abs/1302.0450",
+          "https://arxiv.org/abs/1407.1569",
+          "https://arxiv.org/abs/1412.6595",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-polynomial-time-leader-placement-on-arbitrarily-weighted-t--3478ceea658e/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Prior grounded inverse-trace coherence objective is the same, not a new normalization. Earlier general optimization procedures and tripod decomposition are distinct formulations."
+        ],
+        "reasoning": "The cost functional is known, but exact sorted two-candidate optimizer and threshold for all weighted stars are not a mere reparameterization of a fixed-set trace formula.",
+        "searches": [
+          "https://arxiv.org/abs/1302.0450",
+          "https://arxiv.org/abs/1412.6595",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-polynomial-time-leader-placement-on-arbitrarily-weighted-t--3478ceea658e/RESULT.md",
+          "Resultary: weighted star all budget grounded inverse trace noise free leaders"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected exact table listing all positive weights and k was found; source exact rational enumeration is regression only."
+        ],
+        "reasoning": "The result concerns an entire continuum of conductance vectors and every integer budget, not an arbitrary finite known table.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-polynomial-time-leader-placement-on-arbitrarily-weighted-t--3478ceea658e/RESULT.md",
+          "Resultary: star weighted leader placement grounded Laplacian two candidate k"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: standard grounded-Laplacian leader selection and resistance-based evaluation are prior. A related general weighted tripod dynamic-programming theorem has only three arms and no closed two-candidate all-budget star formula for arbitrarily many spokes, nor the reentrant hub threshold. No inspected earlier general theorem proves this sharp star rule; wider tree algorithms may implicitly specialize and remain a priority risk.",
+      "residual_risks": [
+        "A full original tree-coherence or leader-selection text may contain an implicit specialized star theorem not detected by abstract/index reading.",
+        "Tie weights allow multiple optimizer sets; only their center-inclusion status is forced in strict examples."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING explicit arbitrary-degree star all-budget two-candidate theorem",
+          "evidence": "The tripod has exactly three arms; its algorithm enumerates first leaders, not the formula with arbitrary m.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-polynomial-time-leader-placement-on-arbitrarily-weighted-t--3478ceea658e/RESULT.md",
+          "material_read": "Complete RESULT.md including decomposition, polynomial algorithm, example and limitations",
+          "method": "GitHub published full scientific result",
+          "title": "Exact polynomial-time leader placement on arbitrarily weighted tripod networks",
+          "trigger": "closest related exact tree leader optimization"
+        },
+        {
+          "assessment": "MATERIAL_INCOMPLETE; priority risk retained, no unsupported full-document exclusion",
+          "evidence": "Generic graph SDP/approximation methodology identified; no verified exact weighted-star sign threshold.",
+          "identifier_or_url": "https://arxiv.org/abs/1302.0450",
+          "material_read": "Accessible abstract and repository-cited mathematical objective; full article was not retrieved in this execution",
+          "method": "arXiv indexed literature and source references",
+          "title": "Algorithms for Leader Selection in Stochastically Forced Consensus Networks",
+          "trigger": "seminal same grounded inverse trace leader optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: leader placement on a star is a natural basic stochastic-consensus design problem, and the sharp all-budget optimizer over arbitrarily many heterogeneous positive weights is structurally stronger than evaluating one fixed set. The nonmonotone center-inclusion example invalidates a plausible nestedness heuristic.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1302.0450",
+    "https://arxiv.org/abs/1412.6595",
+    "https://arxiv.org/abs/1407.1569",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-exact-polynomial-time-leader-placement-on-arbitrarily-weighted-t--3478ceea658e/RESULT.md"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A full original tree-coherence or leader-selection text may contain an implicit specialized star theorem not detected by abstract/index reading.",
+    "Tie weights allow multiple optimizer sets; only their center-inclusion status is forced in strict examples."
+  ],
+  "schema_version": 1
+}

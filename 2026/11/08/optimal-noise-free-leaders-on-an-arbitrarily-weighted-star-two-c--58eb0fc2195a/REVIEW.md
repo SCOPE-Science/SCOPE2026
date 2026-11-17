@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness (PASS)
-The exact weighted-star grounded inverse diagonal follows by a Schur complement. Center-selected and center-follower costs are exhaustive. The key comparison uses **both** permitted changes of a non-prefix leaf-only set: replacing a high-conductance selected leaf by the center when its weight dominates the selected sum, or swapping it for a lower-conductance unselected leaf otherwise. The inequalities are strict for unequal leaf weights and \(k\ge2\). The one-leader and all-leaders boundaries are handled separately. An independent fraction-valued matrix inverter and exhaustive finite enumeration replay the formulas without being substituted for the general proof.
+## correctness
 
-## Originality (PASS, qualified)
-The closest inspected primary literature establishes general grounded-Laplacian formulations, joint-centrality / resistance evaluations and exact methods for paths/rings or special trees. It does **not** state an arbitrary-positive-weight, all-budget star classification with exactly two candidate sets and a nonmonotone center-inclusion example. Related earlier results on weighted three-arm tripods cannot imply the arbitrary number of star arms. The broad generic expression for a fixed leader set does not imply the dominance lemma without an additional comparison. Search coverage is incomplete, especially for unindexed engineering literature; publication priority remains uncertain.
+PASS
 
-## Mathematical value (PASS)
-The model is the standard grounded-Laplacian variance criterion used in leader-follower consensus. The result replaces an exponential subset search by a single sort plus linear scan for **every** budget and all positive star conductances, and gives a transparent strict re-entrant leader-status phenomenon even on a depth-one tree. This is a substantive exact structural classification rather than merely testing a few small graphs.
+For any m>=2 positive weighted star, grounding a center leader leaves diagonal follower block with cost sum_{unselected leaves}1/w_i; optimum selects k-1 weakest spokes. With center follower, Schur complement is W=sum leader conductances and trace is sum_{unselected}1/w_i+(m-k+1)/W. For any leaf-only set selecting b>a while smaller a is unselected, either center substitution strictly lowers cost if sum selected <(m-k+1)b or swapping b to a strictly lowers cost otherwise; this proves one of two candidates is globally optimal. Comparing costs yields A_k-B_k=1/w_k-(m-k+1)/P_k and the advertised sharp threshold for 1<=k<=m, with k=m+1 cost zero. For w=(1 five times,100 three times), exact Fraction exhaustive checks give k=5 cost83/100, k=6 cost3/100, k=7 cost81/4100 and every optimizer of these budgets excludes/includes/excludes center respectively (k=7 has three tied optimal sets, not a unique set). Finite enumeration supplements the all-weights dominance proof.
 
-## Limits and closest literature
-Closest directly inspected works: Lin–Fardad–Jovanovic (2013, arXiv:1302.0450); Fitch–Leonard (2014, arXiv:1407.1569); Patterson–McGlohon–Dyagilev (2014, arXiv:1412.6595); and Patterson–Yi–Zhang (2017, arXiv:1708.06873). The theorem excludes general trees, nonpositive conductances and noisy leaders. The algebraic-operation bound is not a claim of bounded rational bit complexity.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: standard grounded-Laplacian leader selection and resistance-based evaluation are prior. A related general weighted tripod dynamic-programming theorem has only three arms and no closed two-candidate all-budget star formula for arbitrarily many spokes, nor the reentrant hub threshold. No inspected earlier general theorem proves this sharp star rule; wider tree algorithms may implicitly specialize and remain a priority risk.
+
+## value
+
+PASS
+
+PASS: leader placement on a star is a natural basic stochastic-consensus design problem, and the sharp all-budget optimizer over arbitrarily many heterogeneous positive weights is structurally stronger than evaluating one fixed set. The nonmonotone center-inclusion example invalidates a plausible nestedness heuristic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
