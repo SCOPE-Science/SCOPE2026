@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+Laurent (1996, §4.3) establishes that the five-point metric polytope has exactly sixteen cut and sixteen nonintegral vertices. Each nonintegral vertex is verified in the explicit switching class of \(\tfrac23\mathbf1\). The maximum cut size of \(K_5\) is six, and the average of its ten maximum cuts is \(\tfrac35\mathbf1\). Hölder's inequality gives the lower bound in every coordinate \(\ell_p\) norm and this barycenter meets it. Switching yields the exact nearest point at all nonintegral vertices, and convex combinations give the global upper bound. Strict convexity for \(1<p<\infty\), with a separate opposite-sign argument for \(p=1\), gives the finite-exponent farthest-point set. Support-function duality and Hölder equality classify all finite-exponent maximizing cost vectors. The exact checker confirms feasibility, full active rank, rational barycentric identities, and the Euclidean square \(2/45\). The all-exponent result is analytical; floating-point vertex census is corroborative, not the proof of completeness.
+
+## Originality — PASS, priority provisional
+The vertex classification and switching technique are known from Laurent's complete text (1996); the combinatorial cut-polytope framework is known from Deza–Dutour Sikirić (2017). Deza–Laurent–Poljak (1992) is especially close because it studies the cut polytope's geometry inside the metric polytope. In the inspected materials, the exact \(\ell_p\) Hausdorff distance, simultaneous all-norm nearest points and primal/dual equality sets are not stated or implied by a covering stronger theorem. A normalized support-function gap is mathematically equivalent to the Hausdorff assertion, so it is expressly checked as an alias rather than counted as separate novelty. Relevant literature is extensive; an overlooked older exact gap computation is a residual risk. No claim of established absolute historical priority is made.
+
+## Mathematical value — PASS
+This is the first complete-graph order where the simplest linear metric relaxation differs from the cut polytope. The theorem quantifies the exact worst metric approximation error for every norm exponent, and equivalently the worst normalized max-cut LP objective error. Sharp equality characterizes both primal fractional obstructions and the sixteen extremal signed objective functions. It is a natural global geometric invariant rather than a recomputation of vertex counts or an arbitrary numerical slice; the existing vertex enumeration is an input rather than the claimed result.
+
+## Limitations and closest literature
+The calculation concerns one natural ten-dimensional polytope pair, not the general \(n\)-point problem. Other older work on cut-metric approximations could express an equivalent support-gap bound under different normalization, and completeness relies on Laurent's established vertex theorem. No equality classification is claimed for infinite-exponent farthest points or cost directions. There has been no independent mathematical validation.
+
+Self-review: passed. Independent audit: not yet performed.

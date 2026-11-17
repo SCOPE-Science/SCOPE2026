@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "All ten-coordinate definitions and p endpoint conventions are explicit. Laurent 1996 §4.3 supplies the complete 32-vertex classification. Exact combinatorial averaging of maximum cuts, Hölder inequality, switching invariance, convexity and strictness of residual mixing prove the all-p distance and the finite-p farthest set. Support duality and equality characterize the 16 norming costs. The standalone exact-rational checker confirms 40 inequalities, full vertex rank, barycenters and squared Euclidean radius 2/45.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deza–Dutour Sikirić arXiv:1706.02516, §§1–2: METP(G)=CUTP(G) iff no K5 minor.",
+        "Laurent 1996 §4.3: n<=4 equality; n=5 32 vertices."
+      ],
+      "reasoning": "The K5-minor equality theorem is an exact yes/no characterization of coincidence, not quantitative norm distance once the polytopes differ. Laurent covers vertices for n<=6 but does not bound their metric distance to the cut convex hull. No stronger quantitative covering theorem was located in inspected texts.",
+      "searches": [
+        "exact Hausdorff distance between cut polytope and metric polytope Euclidean",
+        "Exact l_p Hausdorff separation between five-vertex metric polytope and cut polytope; all p formula 10^(1/p)/15, sixteen anticuts are unique farthest points, all signed maximum cut costs",
+        "arxiv:1706.02516 cut metric polytope K5 minor"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1706.02516",
+      "Laurent-Discrete-Mathematics-151-1996-131-153",
+      "Deza-Laurent-Poljak-Graphs-Combinatorics-8-1992-125-142",
+      "arxiv:2604.16735"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Deza–Laurent–Poljak (1992), full accessible article: geometric relative-position/triangle facet properties, not displayed Hausdorff formula.",
+        "Laurent 1996 §4.3: fractional metric vertices, switching classes.",
+        "Deza–Dutour Sikirić (2017): graph-specific cut/metric polytope framework and K5-minor criterion."
+      ],
+      "reasoning": "The point (2/3)1 and maximum-cut barycenter (3/5)1 provide a sharp primal/dual quantitative gap not contained in the cited prior statements. The proof makes nontrivial use of known vertex exhaustion to lift a local certificate to a global Hausdorff theorem; no implication comparison found an earlier assertion already at least as strong.",
+      "searches": [
+        "In the five-point metric polytope METP(K5), Euclidean Hausdorff distance to cut polytope CUTP(K5) equals sqrt(2/45); precisely 16 fractional anti-cut vertices maximize; unique closest cuts projection is all-edge vector 3/5 after switching; first K5 relaxation gap",
+        "MET5 fractional anticut metric-to-cut l1 l2 linfty distance projection max-cut integrality gap",
+        "The cut cone III On the role of triangle facets 1992"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Laurent, Graphic vertices of the metric polytope (1996), §4.3: cuts and one-third-integral vertices; https://pure.uvt.nl/ws/portalfiles/portal/1215595/Metric.pdf",
+        "Deza, Laurent, Poljak, The Cut Cone III (1992), DOI 10.1007/BF02350631"
+      ],
+      "reasoning": "The all-p Hausdorff assertion is equivalent by support-function duality to the largest normalized maximum-cut triangle-LP objective gap. It is not a novel second finding. Existing vertex classifications and geometric facet results give inputs but do not themselves state the maximized norm-dependent approximation errors or equality sets.",
+      "searches": [
+        "exact Hausdorff distance between cut polytope and metric polytope Euclidean",
+        "fractional vertices MET5 distance cut polytope five vertex metric polytope",
+        "MET5 CUT5 maximum cut triangle relaxation normalized support gap exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Laurent 1996, §4.3, page 152: complete 16+16 vertex count.",
+        "Source checker check_metric5.py verifies exact cut barycenter and 2/45 squared Euclidean gap."
+      ],
+      "reasoning": "The known 32-vertex table is expressly reused. Vertex coordinates and facet incidences alone do not list nearest cut-polytope distances or their norm-dependent dual gap; the sharp value and all-norm certificates are established here. Numerical census did not serve as novelty evidence.",
+      "searches": [
+        "MET5 CUT5 32 vertices 16 fractional cut polytope Euclidean distance table",
+        "Euclidean nearest cut matrix to pentagonal metric polytope fractional vertex"
+      ]
+    },
+    "rationale": "Laurent 1996 §4.3 provides the complete 32-vertex classification but neither the all-p distance nor its exact farthest/dual extremal classes. Deza–Laurent–Poljak 1992 studies triangle-facet position, and Deza–Dutour Sikirić 2017 the metric/cut framework and K5-minor equality, not the present exact norm-dependent separation. Literature and mathematical-record searches checked equivalent support-function gaps; no covering theorem was identified. Older relaxation-gap literature remains a priority risk.",
+    "residual_risks": [
+      "An older exact all-norm maximum-cut triangle-LP integrality-gap calculation may use terminology not found by the checked queries.",
+      "The quantitative assertion depends on the established exhaustive 1996 vertex classification rather than a fresh formal independent proof.",
+      "Independent mathematical audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_EXHAUSTIVE_VERTICES_NOT_QUANTITATIVE_HAUSDORFF",
+        "evidence": [
+          "Laurent 1996 p.152 §4.3 explicitly states 32 MET5 vertices: 16 cuts, 16 graphic fractional vertices in two switching classes.",
+          "1996 paper discusses triangle relaxation for max-cut, but no exact ten-edge norm separation or objective equality set identified."
+        ],
+        "identifier_or_url": "https://pure.uvt.nl/ws/portalfiles/portal/1215595/Metric.pdf",
+        "material_read": "Full paper especially definitions, switching §2 and full n=5 vertex statement in §4.3 (page 152), as well as max-cut motivation.",
+        "method": "Read full-text PDF and visually inspect page 152.",
+        "title": "Graphic vertices of the metric polytope",
+        "trigger": "Exact same polytope and fractional vertices; could subsume distance."
+      },
+      {
+        "assessment": "CLOSEST_GEOMETRIC_BACKGROUND_NO_EQUIVALENT_FORMULA_IDENTIFIED",
+        "evidence": [
+          "The article studies triangle facets and geometrical relation of cut vs metric polytope; no all-p Hausdorff distance, simultaneous projections or extremal objective direction classification identified.",
+          "Its facet-distance quantities are not the point-to-convex-body Hausdorff distance."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/BF02350631",
+        "material_read": "Accessible complete text and abstract; introductory positioning, triangle facets, relative geometric statements and conclusions.",
+        "method": "Compare full text supplied via lawful accessible publisher-associated material with proposed formula.",
+        "title": "The Cut Cone III: On the Role of Triangle Facets",
+        "trigger": "1992 article explicitly considers position of cut polytope inside metric polytope."
+      },
+      {
+        "assessment": "DEFINITIONS_AND_OBSTRUCTION_ONLY",
+        "evidence": [
+          "arXiv original posted 2017-06-08; defines CUTP(G), METP(G) as specified.",
+          "Seymour criterion determines non-coincidence at K5 but not how far the polytopes separate in ℓp."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1706.02516",
+        "material_read": "Full open article sections 1 and 2, including graph projection definitions, switching, K5-minor criterion and facet tabulations.",
+        "method": "Read full HTML and publicly available text; checked date from first submission record.",
+        "title": "Generalized cut and metric polytopes of graphs and simplicial complexes",
+        "trigger": "Lead 2017 source defining the exact two polytopes and smallest K5 obstruction."
+      },
+      {
+        "assessment": "VOLUME_NOT_HAUSDORFF",
+        "evidence": [
+          "The paper compares volumes; its occurrence of 2/45 is not the squared five-point Euclidean Hausdorff distance.",
+          "Volume ratios do not imply the sharp all-p support-function gap or optimizer classification."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.16735",
+        "material_read": "Full HTML manuscript, volume comparisons and exact small-n values.",
+        "method": "Read full HTML and compare statement types and numerical coincidences.",
+        "title": "On the volumes of the elliptope, metric polytope, and cut polytope",
+        "trigger": "Contemporary work compares same convex bodies using a geometric invariant and could dominate."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "dd3e7df5-121e-4cd0-96c8-87051dc6d2e3",
+  "value": {
+    "rationale": "K5 is the first nontrivial metric-vs-cut relaxation. The theorem quantifies the sharp worst-case ℓp approximation error for every p and its dual maximum-cut LP objective gap, determining complete primal and finite-p dual equality configurations. This is a natural global invariant and useful LP-normalization benchmark, not a restatement of the known 32-vertex enumeration.",
+    "status": "PASS"
+  }
+}
