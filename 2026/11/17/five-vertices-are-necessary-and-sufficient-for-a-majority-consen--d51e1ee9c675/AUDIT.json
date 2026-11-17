@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The statement is finite and exhaustive. The complete labelled-graph enumeration covers all 2^{n choose 2} edge masks for each 2<=n<=5, checks connectivity before and after every deleted edge, and computes exact 2^n-state consensus basins by backwards reachability from the unanimous fixed states. The independent pure-Python implementation checks every initial state by forward trajectory and separately canonicalizes all marked graphs with all 5! relabellings. Both give no qualifying pairs at order <=4, exactly 240 labelled qualifying pairs at order five and exactly two graph-and-edge types of 120 pairs each. Explicit trajectories independently witness lost and gained members for each type. Logs and complete source are included. No claim is made about all larger graphs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Benjamini et al., arXiv:1405.2486v1, pp. 2–5, restate Goles–Olivos eventual period at most two and prove random-graph/unimodular claims; no marked-edge basin comparison follows.",
+        "Fountoulakis–Kang–Makai, DOI:10.1002/rsa.20970, 2020, prove density-dependent random-graph unanimity, not exact sharp order-five graph classification.",
+        "Mustafa–Pekeč (2000), full-text §2 monotonicity remark and §5 weak democratic consensus definitions; no implication gives both strict total-basin gain and pointwise loss at one deletion.",
+        "Published one-edge complete-bipartite result has no triangles; both present positive types include triangles."
+      ],
+      "reasoning": "General eventual-period-two results do not determine consensus-basin membership or its perturbation; random-graph theorems are statistical and asymptotic; one-edge bipartite formulas do not cover nonbipartite diamond-leaf and house cases. The nonmonotonicity of initial-majority-correctness is already known and is not claimed new. No inspected broader result implies the exact sharp minimal classification.",
+      "searches": [
+        "published-finding corpus: minimal graph with one edge deletion consensus basin increases but some states cease converging consensus",
+        "Web: \"majority dynamics\" \"edge deletion\" \"consensus\" paradox",
+        "Web: binary majority dynamics edge deletion increase consensus basin but individual state loses convergence",
+        "arxiv:1405.2486v1 (Introduction, the finite-graph period-two theorem, random-graph unanimity results)",
+        "BRICS:RS-00-8 (Sections 2, 5–6)",
+        "published-finding corpus:4c37e2b972d1 (complete RESULT.md)"
+      ]
+    },
+    "checked_sources": [
+      "Mustafa–Pekeč (May 2000), BRICS RS-00-8, relevant full-text sections",
+      "Benjamini–Chan–O’Donnell–Tamuz–Tan (2014-05-11), arxiv:1405.2486v1 primary PDF",
+      "Fountoulakis–Kang–Makai (2020-10-13), DOI:10.1002/rsa.20970 open full-text sections",
+      "Published mathematical result 4c37e2b972d1, complete public RESULT.md",
+      "Accessible earlier related records e9162fa8-7a03-4aa1-b9b0-56821a82c01f and d7b12431-30fc-42ae-8f13-cc47b1a4175e, claim fields only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The BRICS paper establishes nonmonotonicity of network *democratic correctness*, not the two simultaneous basin comparisons on a fixed labelled state space.",
+        "The bipartite defect theorem counts aggregate periodic-orbit/equilibrium basins for an entirely different graph family.",
+        "The cited finite majority theorem only bounds eventual temporal periods, and cannot imply the values 26,30 or 22,24 without an additional calculation.",
+        "Earlier own available claims on Heawood two deletions and Robertson single-edge perturbations apply to different fixed graphs, with no minimality statement over graphs of all smaller orders."
+      ],
+      "reasoning": "The exact prior-to-new implication test requires both inequalities for a connected graph and connected one-edge deletion, absence at every order below five, and exactly two isomorphism classes at the minimum. None of the inspected prior statements entails this conjunction; each lacks either the basin-set criterion or graph-order coverage. The new finite exhaustive certificate supplies the missing classification.",
+      "searches": [
+        "published-finding corpus: consensus basin nonmonotonicity under single edge removal majority dynamics smallest graph",
+        "published-finding corpus: five-vertex house graph majority dynamics consensus basins edge deletion statewise lost gained 22 24",
+        "BRICS:RS-00-8 Lemma 2.4 and following remark",
+        "published-finding corpus:4c37e2b972d1 exact defect theorem",
+        "arxiv:1405.2486v1 Theorem 1.1 / Theorems 2–3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mustafa–Pekeč BRICS RS-00-8 full-text remark after Lemma 2.4 states nonmonotonicity for *democratic consensus computers*; that means correctness with respect to initial global majority, not the set of all states eventually reaching either consensus.",
+        "published-finding corpus closest 4c37e2b972d1 treats exact one-edge \\(K_{a,b}\\) defects with all \\(a,b\\ge2\\); its theorem and graph hypotheses differ.",
+        "published-finding corpus 1ccea1e6441f treats stochastic persistent random ties on the house among other five-vertex graphs, not deterministic incumbent-tie basin gain–loss."
+      ],
+      "reasoning": "Equivalences were tested between gain/loss of the set of states eventually reaching unanimity, variation of the set computing the initial majority, and consensus-basin cardinality alone. These are not equivalent: correctness of initial majority is stricter, while cardinality changes alone cannot establish lost individual states. The searched prior results lack the exact conjunctive event and sharp minimum.",
+      "searches": [
+        "published-finding corpus: minimal graph number vertices where deletion of one edge destroys consensus attraction of a binary opinion profile synchronous majority tie retention",
+        "published-finding corpus: consensus basin nonmonotonicity under single edge removal majority dynamics smallest graph",
+        "Web: \"synchronous majority\" \"deleting an edge\" \"consensus\" basin",
+        "Web: \"house graph\" \"majority dynamics\" \"edge deletion\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published published-finding corpus 4c37e2b972d1 supplies \\(K_{a,b}\\) formulas, not a catalogue of the two marked graphs.",
+        "The 2000 full text characterizes democratic consensus computer properties, but has no table of the two order-five marked-edge gain–loss cases.",
+        "The independent direct enumeration produces exactly two canonical marked graph types, with 120 labelled pairs per type and exact old/new/lost/gained populations; it is primary new computation rather than a known table."
+      ],
+      "reasoning": "Exact graph names, basin counts, edge deletions, and equivalent marked-graph formulations were searched. No matching pre-existing database/table was identified in the retrieved sources. This does not exclude undiscovered archival tables.",
+      "searches": [
+        "published-finding corpus: five-vertex house graph majority dynamics consensus basins edge deletion statewise lost gained 22 24",
+        "published-finding corpus: diamond graph with pendant vertex majority update equilibrium consensus basin 26 30",
+        "Web: \"house graph\" \"majority dynamics\" \"edge deletion\"",
+        "Web: \"consensus basin\" \"edge deletion\" \"majority\" graph"
+      ]
+    },
+    "rationale": "The precise statement is the sharp minimum order five and its two marked-isomorphism classes for *simultaneous* strict increase in the unconditional consensus basin and loss of some previously attracted states. The prior 2000 nonmonotonic democratic-correctness theorem differs in the event being measured and supplies neither the joint inequality nor this minimum. The complete-bipartite one-edge formula applies to graphs without triangles, whereas both five-vertex representatives have triangles. The Robertson and Heawood recorded graph-census claims concern other graphs and/or two-edge losses, not this minimum. Searches found no statement implying all parts of the classification. Absolute bibliographic priority is not proven.",
+    "residual_risks": [
+      "An unindexed historical small-graph table or graph-edge counterexample might imply the same classification.",
+      "Some primary articles were read in relevant sections rather than line-by-line in entirety; full bibliographic priority cannot be certified.",
+      "The 2000 predecessor has month-only date evidence; the specified first-public-date uses the earliest source with an exact verified calendar date (2014-05-11), not a fabricated day for the older source."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different event: computing the initial majority, not preservation/size of the union of the two unconditional consensus basins",
+        "evidence": "Section 2, Lemma 2.4 and remark; Section 5 weak democratic consensus discussion. May 2000 is month-only public date evidence.",
+        "identifier_or_url": "BRICS RS-00-8; https://paperzz.com/doc/7886945/democratic-consensus-and-the-local-majority-rule",
+        "material_read": "Full-text HTML access; examined introduction, model and finite-graph definitions, Lemma 2.4 and following nonmonotonicity remark, and weak democratic consensus discussion in Section 5.",
+        "method": "read relevant primary text sections in HTML",
+        "title": "Democratic Consensus and the Local Majority Rule",
+        "trigger": "Old study with explicit graph-edge nonmonotonicity claim"
+      },
+      {
+        "assessment": "Proves or credits eventual periods, stochastic graph unanimity; no exact one-edge five-vertex basin comparison",
+        "evidence": "arXiv v1 header dated 2014-05-11; PDF pp. 2–5, finite Goles–Olivos theorem and random-graph results.",
+        "identifier_or_url": "arxiv:1405.2486v1; https://arxiv.org/pdf/1405.2486",
+        "material_read": "Read PDF abstract and introduction, including the precise tie handling, Theorem 1.1 and statements of random-graph Theorems 2–3; visually inspected relevant PDF pages 2 and 4.",
+        "method": "primary arXiv v1 PDF text and page screenshots",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Same synchronous incumbent-tie graph dynamics and prior finite period-two fact"
+      },
+      {
+        "assessment": "Dense Erdős–Rényi graph probability and convergence-time result, no graph-pair exact census",
+        "evidence": "First published 2020-10-13; abstract and Section 1.",
+        "identifier_or_url": "DOI:10.1002/rsa.20970; https://onlinelibrary.wiley.com/doi/10.1002/rsa.20970",
+        "material_read": "Read open full-text HTML introduction, theorem summary and organization; checked whether edge-deletion comparison was asserted.",
+        "method": "publisher open-access HTML relevant sections",
+        "title": "Resolution of a conjecture on majority dynamics: Rapid stabilization in dense random graphs",
+        "trigger": "Same tie-retaining binary update and consensus event"
+      },
+      {
+        "assessment": "All cases require a deleted edge from complete bipartite \\(K_{a,b}\\); both positive minimal representatives contain triangles and are outside its coverage.",
+        "evidence": "Finding and Assumptions sections state \\(a,b\\ge2\\) and bipartite structure; Proof enumerates side classes and computes different quantities.",
+        "identifier_or_url": "published-finding corpus:4c37e2b972d1; https://github.com/published-finding corpus/2026/blob/main/2026/11/1/SCOPE-a-one-edge-majority-defect-has-three-exact-basin-responses--4c37e2b972d1/RESULT.md",
+        "material_read": "Read full publicly available RESULT.md, including theorem, hypotheses, symbolic class census, proof and limitations.",
+        "method": "public repository file fetch",
+        "title": "A one-edge majority defect has three exact basin responses",
+        "trigger": "Closest one-edge majority perturbation result; possibility of stronger formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "d51e1ee9-c675-46e4-9852-b5c4ef191e09",
+  "value": {
+    "rationale": "The first order at which a redundant edge deletion improves aggregate eventual-unanimity frequency while destroying consensus for specific old starts is a natural sharp robustness boundary for deterministic opinion dynamics. The two complete minimum-order graph/marked-edge types and their exact lost/gained counts distinguish aggregate performance from statewise stability. The computation addresses a motivated minimum-classification question, not an arbitrary single-graph slice; no asymptotic theorem or larger-order classification is required for this exact invariant.",
+    "status": "PASS"
+  }
+}
