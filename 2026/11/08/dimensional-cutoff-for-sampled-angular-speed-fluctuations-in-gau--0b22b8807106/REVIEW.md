@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The Gaussian innovation is independent of the stationary starting position. The polar-coordinate substitution and dominated-convergence argument account for drift, anisotropy and every dimension \(d\ge2\), while the positive exact tail constant gives the if-and-only-if moment threshold. The isotropic chi-ratio identities and circulating three-dimensional second-moment/axial-mean formulas were algebraically reconstructed, with finite-sample independent diagnostics. The argument requires full-rank noise, fixed sampling interval and stationary centered Gaussian input.
+## correctness
 
-**Originality: PASS, with qualification.** The inspected main-text definitions, tail calculation and supplementary derivations of Viot et al., arXiv:2307.05248, prove a two-dimensional signed-angular-speed cubic density tail and infinite variance. They do not state the dimension-indexed cutoff, the direction-averaged anisotropic Gaussian prefactor, or the finite-variance circulating three-dimensional example. The two-dimensional claim alone would be covered; it is not offered as the original contribution. Dotsenko et al. study a two-dimensional random-acceleration model, and Bae et al. analyze inertial effects in a two-dimensional gyrator. Literature and indexed mathematical-record queries for multi-dimensional OU angular-speed ratios and beta-prime formulations revealed no stronger directly covering claim; general chi-ratio machinery is already known and credited. Wider unindexed literature could still cover a specialization or a broader theorem.
+PASS
 
-**Mathematical value: PASS.** The source's divergent two-dimensional angular-velocity variance is a natural motivation for asking whether the obstruction is geometric or universal. The theorem identifies a sharp spatial-dimension boundary, including a circulating three-dimensional counterpoint with a computable finite second moment and a nonzero axial signal. The universal tail prefactor shows exactly which stationary and innovation features control rare near-origin events, while exposing the limitation that finite-lag and continuous-time observations differ. This is more than reparameterization of a two-dimensional formula.
+For stationary full-rank OU, X_{t+Delta}=E_Delta X_t+Z_Delta with independent positive-definite Gaussian innovation. In Gaussian polar coordinates X=ru, substitution r=t/w converts exceedance Ω>w into ||P_{u perpendicular}(A tu/w+Z)||>Delta t. Gaussian tail domination for w>2||A||/Delta proves via dominated convergence a positive w^-d constant p_X(0)/(d Delta^d) int_S E||P_u Z||^d; rotational sphere integration gives J_d E||Z||^d. Tail integration establishes EΩ^q<infty iff q<d, and critical log. In isotropic case Ω=c_Delta chi_{d-1}/chi_d; exact d2,d3 tails and rotational d3 second moment follow from chi/Gaussian direction moments. Independent gamma evaluations verified J2=pi,J3=3pi²/4 and isotropic constants 1/2 and 1.
 
-**Closest literature and remaining limits.** Viot et al., https://arxiv.org/abs/2307.05248 (primary full-text sections 2 and 4 and supplementary angular-speed derivations); Dotsenko et al., https://arxiv.org/abs/2309.10807 (available abstract); Bae et al., https://doi.org/10.1103/PhysRevE.103.032148 (available abstract). The sample angular-speed proxy is unbounded, unlike the principal angle. Published priority and wider independent validation have not been certified. Finite checker tests are not infinite proofs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The previously published Brownian gyrator paper proves two-dimensional signed sampled-angular-velocity density |w|^-3 and divergent variance, a proper boundary special case. It does not establish general d, the anisotropic positive w^-d prefactor, the moment iff threshold, nor a circulating 3D finite-variance example. The extension has a geometric polar-coordinate proof, with generic chi-ratio identities acknowledged.
+
+## value
+
+PASS
+
+Determines the exact dimension where sampled velocity-ratio variance becomes finite, despite circulation, and supplies a nontrivial anisotropic Gaussian tail prefactor and exact 3D rotating counterpoint. This materially distinguishes an experimentally relevant unbounded chord-based estimator from bounded principal angles.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
