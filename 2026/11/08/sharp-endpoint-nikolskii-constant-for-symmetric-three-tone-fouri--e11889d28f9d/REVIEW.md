@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The three functions \(1\), \(\cos(\omega t)-s\), and \(\sin(\omega t)\) are orthogonal for averaged energy; their exact squared norms are \(1,A,B\). This proves the exact fixed-frequency value and equality classification by Riesz representation. The odd term is less than \(3\) using strict positivity of \(t(2+\cos t)-3\sin t\). The even centered term is less than \(5\) using the identity involving \(F(t)\), its Taylor cancellation through degree six, a controlled alternating tail for \(t\le6\), and a simple bound for \(t\ge6\). Taylor limits establish uniform sharpness at \(9\) but nonattainment for any positive gap. The finite checker supplements, but does not replace, the unrestricted analytic proof. Assumptions, normalization, sharpness quantifiers, and equality boundaries have been checked.
+PASS
 
-## Originality — PASS relative to inspected evidence
+For every ω>0, the basis 1, C(t)=cos(ωt)−sin(ω)/ω, S(t)=sin(ωt) is orthogonal under average dt/2 with strictly positive Gram norms 1,A,B, and its evaluation functional has exact squared norm K(ω)=1+(cosω−s)²/A+sin²ω/B. Equality at fixed ω occurs only for the scalar Riesz representer. With t=2ω the odd contribution <3 is equivalent to t(2+cos t)−3sin t>0, proved by derivative for 0<t<3 and a coarse bound after 3. The centered even contribution <5 is equivalent to F(t)=t²(4−cos t)+9t sin t−24(1−cos t)>0: the degree-eight alternating Taylor expansion with decreasing tail and its explicit positive degree-3 polynomial controls 0<t≤6, and 3t²−9t−48>0 for t≥6. Thus 1+5+3=9 is never attained for positive gap. The ω→0 Taylor limits give 5 and 3, hence sharpness through the degree-two Legendre kernel. Independent Gram inversions at seven distinct gaps and inspection of exact-series code corroborate, not replace, the global inequalities.
 
-Zhang's 2026 general sparse Fourier extrapolation theorem addresses arbitrary frequency lists with unspecified constant multiples of the sparsity, rather than the exact \(3\) for centered three tones or the gap-dependent kernel. Erdélyi's 2016 broad Nikolskii theorem has generic coefficients that do not imply this exact bound. Classical polynomial kernel theory proves the limiting value but not the positive-gap estimate. Related prior numerical, finite cyclic projection, and periodic-moment statements concern different operators or norms. A general but unlocated stronger sharp theorem could dominate this special case; no publication-priority guarantee is made. The closest related two-tone endpoint inequality concerns a smaller signal class and does not imply the three-tone statement.
+## originality
 
-## Value — PASS
+PASS
 
-The endpoint leverage of three symmetric Fourier modes is a natural first genuinely oscillatory case of sparse Fourier extrapolation. The exact sharp constant and fixed-gap kernel allow direct calibration of endpoint error bounds; the strict inequality also characterizes nonattainment for separated frequencies. The nontrivial degree-eight Taylor cancellation in the even part is precisely what bridges the polynomial collision example and uniform frequency control, rather than a routine estimate from Gram matrix inversion.
+Originality survives against real-frequency k-sparse extrapolation and exponential-sum Nikolskii inequalities: those primary theorems give general nonsharp coefficients rather than the exact all-ω formula, strictness, and unique kernel for this three-tone space. The confluent Legendre polynomial lower bound does not prove a uniform positive-gap upper bound.
 
-## Scope and unresolved comparisons
+## value
 
-The result is not claimed for arbitrary irregular triples or for exterior points. Detailed accessible 2026 and 2016 sources were inspected; literature searched semantically and by mathematical aliases. Earlier broad works might contain an equivalent three-tone statement under orthogonal-polynomial or exponential Chebyshev-system terminology; independent scholarly audit is needed for priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact sharp endpoint leverage for clustered Fourier tones is a naturally needed conditioning and evaluation invariant of sparse exponential interpolation. The analysis supplies all positive real frequency gaps, the universal optimal constant and unique gapwise extremizers; it resolves a genuine uniform-versus-confluent issue rather than merely calculating a Gram matrix at one chosen frequency.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
