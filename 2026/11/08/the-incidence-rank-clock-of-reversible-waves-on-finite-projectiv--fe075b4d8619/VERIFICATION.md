@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Execute `python3 check_matrix.py` using an ordinary Python 3 interpreter. The program independently constructs point–line incidence matrices for the Desarguesian planes of orders \(2,3,4,5,8\), performs exact binary Gaussian elimination, and compares the resulting wave fixed-space dimensions for times \(1,2,3,4,6,12\) with the theorem. It checks that the temporal matrix returns to the identity at the asserted global period and not at any smaller positive iterate.
+## correctness
 
-Execute `python3 check_orbits.py`. It computes updates vertex by vertex from an independently constructed incidence structure and checks \(54{,}204\) reproducible states for orders \(2,3,5\) against the claimed primitive-period sets and maximal period. Expected exact text output is included in `check_matrix_output.txt` and `check_orbits_output.txt`.
+PASS
 
-These checks were executed using the files provided and passed. The computations cover finitely many Desarguesian plane instances only and do not test every plane, every extension field, or every possible state. The full general result rests on the proof in RESULT.md, including the adjacency Jordan decomposition and temporal-block argument. No independent mathematical audit or certification has taken place.
+Finite-plane identity BB^T=B^TB=(s mod 2)I+J and odd v split point/line coordinates into constants and sum-zero sectors. Odd s gives two J1(0) adjacency blocks and (v-1) J2(1); even s gives J2(1), 2(rho-1) J2(0) and residual J1(0). Reversible transfer (u,w)->(Au+w,u) maps these to temporal (X+1)^2, p(X)^2 and (X+1)^4 modules; polynomial gcd with X^t-1 yields E(t), Mobius inversion and sharp order. Independent Fano matrix computation checked rho=4, fixed dims [6,12,8,24,16,28] for t=[1,2,3,4,6,12], T^12=I. Extension-field module assertion remains valid although p may split over F_Q.
+
+## originality
+
+PASS
+
+Published October 26 projective-plane incidence theorem fully describes FIRST-ORDER neighbor XOR F=A, its transient/period-two image and incidence rank. Reversible TWO-ROW dynamics T=[[A,I],[I,0]] is a different invertible evolution with period 6 or 12 and primitive orbit census, not derivable by simply reinterpreting the first-order extinction counts. Classical binary incidence ranks and general second-order reversibility are explicitly credited.
+
+## value
+
+PASS
+
+The complete dynamical zeta/fixed-space census of a natural projective-plane incidence graph recovers the binary code rank, tying algebraic finite-geometry differences to measurable temporal statistics; both parity clock and individual periods are structural and uniform across non-Desarguesian planes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
