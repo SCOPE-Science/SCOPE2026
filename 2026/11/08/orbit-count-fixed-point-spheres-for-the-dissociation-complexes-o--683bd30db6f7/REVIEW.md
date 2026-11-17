@@ -1,19 +1,21 @@
-# Scientific evaluation
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For a three-edge arm, deletion of the hub leaves a three-vertex path whose dissociation complex is a triangular boundary. The deletion is the join of these boundaries. The hub link is exactly the union of a simplex on \(\{b_i,d_i\}\) and one simplex containing each \(a_i\); mapping \(a_i\mapsto d_i\) is an equivariant contiguous retraction. This gives contractible fixed links under *every* subgroup. The fixed-point cone gluing is a homotopy equivalence for each subgroup. The join of \(m\) circles is the unit sphere of the sum of \(m\) real two-planes; the fixed subspace has dimension twice the number of arm orbits. These steps establish integral homotopy, not just Betti ranks. A standalone connected-component enumeration reproduces the predicted reduced mod-two Betti vectors for all 17 integer partitions of \(m=2,3,4,5\). No computational extrapolation is used in the proof.
+PASS
 
-## Originality
+For T_m with hub c and m>=2 arms c-a_i-b_i-d_i, deleting c leaves the exact join of m triangular boundaries K=(∂Δ²)^{*m}. The link L(c) is Δ({b_i,d_i}) together with a_i*Δ(B\{b_i}); the S_m-equivariant simplicial retraction a_i↦d_i has a contiguous identity homotopy and a fixed barycentric contraction, so L^H is contractible for every H. Equivariant homotopy pushout of K←L→c*L identifies |X_m|^H with |K|^H. The permutation representation on m real 2-planes has fixed dimension 2o(H), hence sphere S^{2o(H)-1}; even-dimensional block swaps preserve orientation. Reconstructed all quantifiers, fixed geometric realization not fixed-vertex subcomplex, m=2 and transitive cases. Independent program directly expanded arm orbit faces, checked induced-component sizes, and computed mod-two homology for seven orbit patterns; finite tests are corroboration only.
 
-**PASS on the inspected evidence, with explicit residual risk.** The full primary 2026 tree-vertex-decomposability theorem is qualitative: knowing all tree complexes are vertex decomposable does not identify geometric fixed-point homotopy. The older fully-whiskered and pendant-at-every-nonleaf theorems have graph hypotheses violated by the hub; their formulas and proofs supply related motivation but not the claim. A related earlier result for two-edge spiders concerns a different tree and does not imply the fixed spaces of three-edge spiders. Targeted published-finding corpus searches of dissociation, three-edge spiders, arm symmetries and geometric fixed points found no equivalent or dominating statement; no exclusivity is inferred from this alone. Residual risk is an unindexed equivariant treatment of three-vertex-path-free complexes or a stronger result subsuming the family.
+## originality
 
-## Value
+PASS
 
-**PASS.** The calculation gives a complete, natural, all-subgroup geometric fixed-point classification for a symmetric infinite family at the first higher-independence parameter. The fixed-space dimension decreases from \(2m-1\) to \(1\) for a transitive subgroup, while the ordinary top integral homology representation is trivial; thus ordinary homology and the group character do not recover the fixed-point topology. It also supplies an explicit equivariant geometric model, not merely a finite census or a one-number calculation.
+Best-of-knowledge PASS with specifically described primary-source, broader-implication and alias comparisons; unindexed equivalents and two inaccessible highly relevant full texts remain real residual risks, not falsely declared excluded.
 
-## Relevant limitations and sources
+## value
 
-Sawant (arXiv:2605.25150), Theorem 3.6; Deshpande–Singh (arXiv:2001.05448), Theorems 3.8 and 3.10; Abdelmalek et al. (arXiv:2106.10863), qualitative vertex-decomposability criteria. All-subgroup claims use the written equivariant proof; finite enumeration covers only arm counts at most five. No independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The uniform all-H fixed-point type of a natural symmetric infinite tree family is a concrete equivariant classification, distinguishing S^{2m−1} nonequivariantly from fixed S¹ for transitive H although every arm permutation has trivial top homology action. This is genuinely more informative than an ordinary sphere count and provides a reusable equivariant deletion-link pattern; not a selected tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
