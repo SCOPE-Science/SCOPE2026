@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The combinatorial proof constructs the geometric fixed space as an exact orbit complex and exhaustively divides the symmetries into order at least three rotations, the antipodal half-turn, and odd/even reflection axes. The face-size bound eliminates all higher fixed-orbit faces, and the two-edge matching criterion determines every orbit edge. The extracted verifier independently checked all cases with \(3\le n\le35\) but is not used as an infinite proof.
+## correctness
 
-**Originality — PASS, with residual uncertainty.** The published 2026 cycle sphere theorem gives only the nonequivariant \(S^3\) homotopy type; the closely related orientation-character and bipartite Euler-character calculations give only homological traces, even when their numerical implications predict Euler-zero fixed spaces. No inspected source gives PL-homeomorphic cycle fixed sets for every reflection and rotation with the explicit axis-dependent polygon lengths. Searches can miss terminology variants, and another equivariant-topological result may still subsume the classification.
+PASS
 
-**Mathematical value — PASS.** Geometric fixed spaces of a natural dihedral action are strictly more informative than action on ambient homology; the complete infinite-family result identifies their fundamental group, connectedness and exact canonical subdivision and exhibits a circle-fixed phenomenon inside an ambient homotopy three-sphere. This provides concrete equivariant topology for a recently studied graph complex; it does not require or assert a general subgroup-fixed classification.
+Geometric fixed points are exactly orbit-barycenters when supports are unions of vertex orbits: exact PL identification, not vertexwise fixed subcomplex. For n>=6 every face has at most four original vertices because five vertices force an independent triple; admissible 4-subsets have a two-edge perfect matching. Rotation order>=3 supports no orbit; order2 halfturn gives cycle C_{n/2}. Odd reflections have singleton plus paired orbits yielding C_{(n+1)/2}; even vertex-axis C_{n/2+1}, edge-axis C_{n/2}. n=3..5 K is a full simplex, so all element fixed sets contractible. I independently enumerated all orbit-face complexes for n=3..14 and all dihedral elements; they matched the exact f-vectors and classes. Inspected source verify_dihedral_fixed.py checks n<=35. Unlimited claim rests on orbit/matching proof, not the samples.
 
-**Closest literature and boundaries.** Filakovský (arXiv:2602.11365) treats grid-like graph families and definitions. Carnero Bravo (arXiv:2602.21427) gives the nonequivariant cycle sphere. Published dihedral orientation and general bipartite alternating-character calculations determine traces, not PL fixed-space topology. The present finding is limited to individual dihedral elements at robust parameter three. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The same complex has known ordinary S3 homotopy and dihedral homology orientation, but neither implies PL geometric fixed circles. Explicit subgroup-element geometric circle shapes and polygon cardinalities were compared with prior work, including broader bipartite k3 result; found no coverage in material read, not a guarantee against unindexed geometry sources.
+
+## value
+
+PASS
+
+The natural three-robust clique sphere on cycles has published homology characters, but geometric PL fixed sets can differ despite identical Lefschetz data. Explicit polygon fixed triangulations and axis-dependent sizes for all cyclic lengths are a meaningful and potentially reusable exact structural classification beyond low-cost orientation traces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
