@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T09:55:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For w=n+1/2 and f(theta)=sqrt(1+sin^2(theta/2))-sin(theta/2)-1, the defining sine-transform difference has f(0)=0, f(0)=1/4, f^(4)(0)=-7/16; odd derivatives at pi vanish by evenness near pi and cos(pi w)=0. Repeated exact integration by parts therefore gives D(n)=-1/(4pi w^3)-7/(16pi w^5)+O(w^-7), with exact reflection D(-n-1)=-D(n). Nonzero cubic coefficient gives weighted l1 convergence iff alpha<2 and two-sided omitted-tail l1~1/(4pi R^2). Convolution endpoint operator norms on l1 and l∞ equal the l1 kernel sum, with general lp upper bound by Young. Independently integrated the source Fourier formula at n=10,20,40; relative two-term expansion ratios 1.000688,1.00004378,1.00000283. All boundary normalizations are fixed at half-integer positions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Petrov’s l1 result follows already from its O(n^-2) bound but weighted alpha<2 threshold and exact sharp tail do not.",
+          "Ciaurri et al. concerns semi-discrete Laplacian harmonic extensions with different kernel."
+        ],
+        "reasoning": "Neither the older order estimate nor general endpoint Young inequality determines the nonzero D coefficient or critical weighted exponent; these require the new endpoint derivative calculation.",
+        "searches": [
+          "arXiv:2510.16494 main full text and Lemma 4.2",
+          "Ciaurri et al. Harmonic analysis associated with a discrete Laplacian (2017)",
+          "Resultary: power weighted Hahn convolution; cyclic Hilbert kernel"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md/CHECK.py/REVIEW.md and canonical Git tree",
+        "Full primary arXiv:2510.16494 HTML Section 4.2 and Lemma 4.2",
+        "Resultary semantic searches on Petrov discrete Hilbert cubic tail and related cyclic operators"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Petrov gives |D(n)|=O(n^-2) and unweighted summability; alpha<2 requires actual |D(n)| asymptotic to n^-3 with nonzero leading constant and conversely divergence at alpha=2."
+        ],
+        "reasoning": "A big-O n^-2 bound cannot infer a sharp n^-3 coefficient, second coefficient, necessary weighted threshold or exact sharp tail constant. The new result is not covered.",
+        "searches": [
+          "arXiv:2510.16494 §4.2",
+          "Ciaurri et al. 2017 semi-discrete kernel literature",
+          "Resultary: exact endpoint norm cyclic Hilbert"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Petrov original has same boundary kernel normalization and integral for D(n) but only O(n^-2) remainder; cyclic Hilbert kernels are periodic finite sums."
+        ],
+        "reasoning": "This is a strict asymptotic refinement for precisely Petrov’s transform; it does not just rename the older upper bound.",
+        "searches": [
+          "arXiv:2510.16494 Section 4.2 Lemma 4.2",
+          "Resultary: discrete Hilbert Petrov cubic tail 1/4 pi kernel",
+          "related cyclic Hilbert transforms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching two-term D(n) asymptotic or alpha=2 cutoff occurs in inspected primary source or nearby records."
+        ],
+        "reasoning": "This is continuous analytic asymptotics, not a finite table result. The unsuccessful search is not treated as a proof of priority.",
+        "searches": [
+          "Resultary: sharp cubic correction and weighted cutoff fully discrete Hilbert kernel",
+          "Petrov Fourier boundary kernel asymptotic expansion",
+          "arXiv:2510.16494 full text"
+        ]
+      },
+      "rationale": "The full primary Petrov 2025 preprint, Sect. 4.2 Lemma 4.2, studies the *identical* fully discrete Hilbert kernel and its Riesz–Titchmarsh difference but gives only O(n^-2) and ordinary l1 summability. It does not give the two nonzero coefficients, exact alpha=2 weighted cutoff, or sharp 1/(4pi R^2) finite-stencil endpoint norm. Nearby published Hilbert results concern cyclic or semi-discrete transforms with different kernels. The improvement is a valid strict refinement of the primary theorem, with residual historical risk from older oscillatory Fourier analysis.",
+      "residual_risks": [
+        "Analytic tail applies to specified one-dimensional fully discrete kernel and exact sine-transform convention; no general higher-dimensional assertion.",
+        "No sharp intermediate l^p norm or exact finite-index values are claimed.",
+        "An unlocated equivalent endpoint asymptotic in older Fourier kernel literature could affect historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR_NOT_COVERING",
+          "evidence": "Source states K_d(n)=1/[pi(n+1/2)]+O(n^-2) and correction in l1; no cubic or quintic constants or weighted cutoff",
+          "identifier_or_url": "https://arxiv.org/abs/2510.16494",
+          "material_read": "Complete publicly available arXiv full HTML, especially definitions, 1D Fourier kernel and Section 4.2 Lemma 4.2 including proof and references",
+          "method": "Full primary lawful arXiv HTML math reading",
+          "title": "Harmonic Extensions on Z×N and a Discrete Hilbert Transform",
+          "trigger": "Exact source operator and normalization"
+        },
+        {
+          "assessment": "DIFFERENT_KERNEL",
+          "evidence": "Semi-discrete fractional-Laplacian construction rather than Petrov fully discrete Z×N correction",
+          "identifier_or_url": "https://doi.org/10.1007/s11854-017-0005-3",
+          "material_read": "Original-paper bibliographic identification and related semi-discrete operator definitions; no assertion full source read",
+          "method": "Mathematical contextual comparison only",
+          "title": "Harmonic analysis associated with a discrete Laplacian",
+          "trigger": "Earlier discrete Riesz–Titchmarsh transforms cited by Petrov"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The discrepancy D is a natural operator-level error between Petrov’s fully discrete boundary Hilbert transform and a canonical half-grid singular transform. The exact cubic tail reveals an unexpectedly better truncation rate, exact error constant and maximal polynomially weighted convolution space. These are directly useful to finite-stencil approximation and weighted operator estimates, unlike an arbitrary coefficient exercise.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md/CHECK.py/REVIEW.md and canonical Git tree",
+    "Full primary arXiv:2510.16494 HTML Section 4.2 and Lemma 4.2",
+    "Resultary semantic searches on Petrov discrete Hilbert cubic tail and related cyclic operators"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Asymptotic for integer n->infinity; opposite indices by reflection.",
+    "Endpoint convolution norms sharp only for l1 and l∞, with lp upper bound otherwise.",
+    "Science assessment complete; publication not_ready is a separate privacy/transport decision, not an unresolved scientific verdict."
+  ],
+  "residual_risks": [
+    "Analytic tail applies to specified one-dimensional fully discrete kernel and exact sine-transform convention; no general higher-dimensional assertion.",
+    "No sharp intermediate l^p norm or exact finite-index values are claimed.",
+    "An unlocated equivalent endpoint asymptotic in older Fourier kernel literature could affect historical priority."
+  ],
+  "schema_version": 1
+}

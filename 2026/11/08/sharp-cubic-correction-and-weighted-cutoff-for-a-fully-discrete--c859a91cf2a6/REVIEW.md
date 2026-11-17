@@ -1,19 +1,21 @@
-# Review: sharp cubic correction for the fully discrete Hilbert kernel
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS (self-review).** The defining Fourier integral and kernel normalization match the accessible primary source. The proof derives endpoint derivatives and reflection, controls the seventh-order remainder, obtains a sharp two-sided asymptotic, and uses the nonzero leading coefficient for both summability and divergence. The endpoint convolution norm identities are exact. The finite reproducibility script is supplementary, not a proof.
+PASS
 
-## Originality
+For w=n+1/2 and f(theta)=sqrt(1+sin^2(theta/2))-sin(theta/2)-1, the defining sine-transform difference has f(0)=0, f(0)=1/4, f^(4)(0)=-7/16; odd derivatives at pi vanish by evenness near pi and cos(pi w)=0. Repeated exact integration by parts therefore gives D(n)=-1/(4pi w^3)-7/(16pi w^5)+O(w^-7), with exact reflection D(-n-1)=-D(n). Nonzero cubic coefficient gives weighted l1 convergence iff alpha<2 and two-sided omitted-tail l1~1/(4pi R^2). Convolution endpoint operator norms on l1 and l∞ equal the l1 kernel sum, with general lp upper bound by Young. Independently integrated the source Fourier formula at n=10,20,40; relative two-term expansion ratios 1.000688,1.00004378,1.00000283. All boundary normalizations are fixed at half-integer positions.
 
-**PASS relative to inspected evidence.** Petrov's original Section 4.2 proves only the quadratic-order upper estimate and unweighted summability; this result computes two nonzero sharp coefficients, the precise weighted threshold, and the endpoint truncation constant. The nearest mathematical-record results concern finite cyclic Hilbert kernels, which are different operators. Equivalent results in older Fourier-kernel asymptotic literature remain a possibility and independent priority has not been established.
+## originality
 
-## Value
+PASS
 
-**PASS.** The correction is the exact operator-level discrepancy between a new discrete boundary Hilbert transform and its classical half-shift counterpart. Its sharp tail replaces a non-sharp first-order truncation rate by a second-order one and identifies the exact weighted moment cutoff needed for local weighted convolution estimates. The problem is intrinsically tied to approximating this natural kernel, not an arbitrary numeric instance.
+The full primary Petrov 2025 preprint, Sect. 4.2 Lemma 4.2, studies the *identical* fully discrete Hilbert kernel and its Riesz–Titchmarsh difference but gives only O(n^-2) and ordinary l1 summability. It does not give the two nonzero coefficients, exact alpha=2 weighted cutoff, or sharp 1/(4pi R^2) finite-stencil endpoint norm. Nearby published Hilbert results concern cyclic or semi-discrete transforms with different kernels. The improvement is a valid strict refinement of the primary theorem, with residual historical risk from older oscillatory Fourier analysis.
 
-## Limits and literature
+## value
 
-The theorem is one-dimensional, does not give sharp intermediate \(\ell^p\) truncation norms, and does not automatically transfer to other transforms. Closest source: Petrov (2025 preprint / 2026 journal), Section 4.2, Lemma 4.2; earlier semi-discrete context: Ciaurri and collaborators (2017). Independent mathematical and priority audits remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The discrepancy D is a natural operator-level error between Petrov’s fully discrete boundary Hilbert transform and a canonical half-grid singular transform. The exact cubic tail reveals an unexpectedly better truncation rate, exact error constant and maximal polynomially weighted convolution space. These are directly useful to finite-stencil approximation and weighted operator estimates, unlike an arbitrary coefficient exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
