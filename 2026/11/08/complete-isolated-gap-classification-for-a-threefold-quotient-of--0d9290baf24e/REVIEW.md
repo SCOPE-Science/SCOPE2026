@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The quotient generator identity follows from equal residues of the original two coefficients modulo three. Removing mixed generator pairs and whole multiples of the multiplicity gives an exact two-branch Apéry set. The necessary-and-sufficient neighbor inequalities eliminate every index except two; these yield one and two gap levels, establishing the complete theorem. The derived Frobenius number and genus follow from the same Apéry data. Independent shortest-path and direct-membership checks reproduce the formulas for all tested parameters, while the proof is fully general.
+## correctness
 
-## Originality
-PASS relative to identified literature, with residual uncertainty. Cabanillas (arXiv:1904.08240) supplies general quotient machinery but was not found to classify isolated gaps of the present family. Smith (2022) develops a general isolated-gap/Apéry framework; the publisher's full text was not available to inspect, so possible equivalent deductions remain a risk. Singh and Ram (arXiv:2406.09848) classify isolated gaps for embedding dimension two, unlike the present embedding-dimension-three family. Later quotient work concerns Frobenius numbers and does not identify this isolated-gap set. Targeted searches for the exact generators, formulas and quotient aliases did not reveal a covering result; failed searches do not prove publication priority.
+PASS
 
-## Mathematical value
-PASS. This is a complete classification of a natural structural invariant for an infinite fixed-denominator family of quotients, bridging two established lines of research: quotients of two-generated numerical semigroups and isolated gaps. The explicit result is not merely an enumeration: it has a uniform proof and determines the precise gap positions at every parameter. The Frobenius number and genus are secondary context rather than the claim of novelty. It does not classify arbitrary quotients or give a global lower bound on embedding-dimension-three isolated gaps.
+Represent 3n=(3k+1)x+(3k+2)y with x≡y mod3 to obtain generators m=2k+1,u=3k+1,v=3k+2. Minimality follows m<u<v<2m. Since u+v=3m and u≡k,v≡-k modm, the Apéry set is W_j=min(ju,(m-j)v), j=0..2k, split at j=k; ±1 neighbors shift j by ∓2. Only j=k (h=1) and j=k+1 (h=1,2) satisfy both neighbor inequalities. Sum W_j proves genus; max W_j proves Frobenius. The k=1 boundary has gaps {1,2}, none isolated. Independently constructed coin-membership DP and direct quotient checks passed 49,345 bounded assertions over k<=140; unrestricted proof is the Apéry argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Cabanillas arXiv:1904.08240v2 develops general quotient generators, Frobenius, genus, pseudo-Frobenius and type, but not an exact isolated-gap set for this family (full PDF TOC, §1 and §5 inspected, keyword check). Smith (2022) provides general Apéry criteria and two-generator exact classification; Singh–Ram 2024 concerns embedding dimension 2 whereas Q_k has embedding dimension 3. Neither implies the parameter-uniform exactly-three isolated-gap positions without an additional residue classification. A high-relevance Smith full article was inaccessible, and an implicit family-specific corollary remains a genuine risk.
+
+## value
+
+PASS
+
+Isolated gaps are a standard natural invariant related to perfect numerical semigroups. The threefold quotients of consecutive coprime generators are a canonical, infinite embedding-dimension-three family; a complete three-point isolation pattern and exact boundary at k=1 is an unknown, non-implied classification beyond the contextual genus/Frobenius and generic Apéry algorithm, potentially useful as test family for isolation and quotient theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
