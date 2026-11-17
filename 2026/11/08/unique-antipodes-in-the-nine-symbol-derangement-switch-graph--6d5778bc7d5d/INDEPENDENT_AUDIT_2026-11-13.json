@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T19:14:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/unique-antipodes-in-the-nine-symbol-derangement-switch-graph--6d5778bc7d5d/RESULT.md",
+        "frozen verify_crown_switch.cpp SHA 6852a1f406dfa99f8193a618af38454f77e673ea",
+        "frozen verify_crown_switch_independent.py SHA 79de20a8b4c54e7ceacba9237a64dfdf2f7b28e4"
+      ],
+      "rationale": "The 9! labelled permutations were exhaustively filtered into 133496 derangements, legal swaps examined at all 36 pairs of positions, and shortest-path BFS recomputed for eight representatives of all conjugacy classes. Independently written C++ produced graph degree sum 3671136, all eight eccentricities (9,8,9,8,10,9,8,8), and one inverse antipode at distance ten in the (3,3,3) class, no others. Conjugation equivariance proves class exhaustiveness; 2240 such derangements yield 1120 unordered inverse pairs. The BFS certifies only n=9, not an unbounded diameter theorem.",
+      "residual_risks": [
+        "Finite exact graph proof requires exhaustive BFS code, a complete cycle-type orbit argument and correct legal-move predicate; no implication for n>9."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General k theorem gives d(sigma_k,sigma_k^-1)=2k+2ceil(k/2), yielding 10 at k=3; Dyer et al chordal-bipartite diameter theorem does not cover nine-crown with induced 6-cycles."
+        ],
+        "reasoning": "Earlier stronger-in-k *particular-pair* distance does not dominate entire nine-symbol graph eccentricity/antipode assertions.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-exact-linear-derangement-swap-detour-between-inverse-triangle--a01ace1f3db3/RESULT.md",
+          "https://arxiv.org/abs/1501.07725"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/unique-antipodes-in-the-nine-symbol-derangement-switch-graph--6d5778bc7d5d/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-exact-linear-derangement-swap-detour-between-inverse-triangle--a01ace1f3db3/RESULT.md",
+        "https://arxiv.org/html/1501.07725v3",
+        "https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements",
+        "2026 journal bibliographic listing, Moshtagh and Shaveisi, Algebraic Structures and their Applications 13(2), 121-129"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior formula k=3 proves one inverse-three-cycle geodesic has length 10; candidate adds all-vertex diameter upper bound and uniqueness via exhaustive eight-class BFS."
+        ],
+        "reasoning": "The specific-pair prior theorem implies a lower bound on diameter, not that all other pairs are closer or that all inverse-three-cycle pairs are the only antipodes.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-exact-linear-derangement-swap-detour-between-inverse-triangle--a01ace1f3db3/RESULT.md",
+          "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/unique-antipodes-in-the-nine-symbol-derangement-switch-graph--6d5778bc7d5d/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Legal entry transpositions equal alternating four-cycle switches of perfect matchings in K9,9 minus diagonal; the earlier inverse-triangle product theorem gives distance 10 only for particular pairs."
+        ],
+        "reasoning": "The candidate uses precisely the same derangement transposition graph; its full antipode and eccentricity classification is not just a change of vocabulary for the specific geodesic theorem.",
+        "searches": [
+          "derangements n=9 transposition swap graph 133496 diameter 10 inverse antipodes cycle type (3,3,3) exact eccentricity",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-exact-linear-derangement-swap-detour-between-inverse-triangle--a01ace1f3db3/RESULT.md",
+          "Jain Transpositions in Derangements 2021"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A000166 supplies |D9|=133496, not BFS eccentricities; no accessed table supplied the 8-class distance distribution."
+        ],
+        "reasoning": "Explicit census matters; 2026 ambiguously titled paper was available only bibliographically and may conceal preexisting computation.",
+        "searches": [
+          "derangements n=9 transposition swap graph 133496 diameter 10 inverse antipodes cycle type (3,3,3) exact eccentricity",
+          "https://oeis.org/A000166",
+          "Some Results on the Graph of Derangements 2026"
+        ]
+      },
+      "rationale": "Earlier inverse-three-cycle theorem already establishes the particular k=3 inverse-pair distance ten but does not prove global diameter, the uniqueness of all diametral pairs, the full eccentricity table, or the count 1120. Dyer–Jerrum–Müller address switch mixing/graph families; Jain handles degree/connectivity. The new exact metric census therefore survives on best-of-knowledge comparison.",
+      "residual_risks": [
+        "Potential 2026 derangement-graph journal paper unavailable in full text; an unindexed equivalent diameter census could exist.",
+        "Jain full text not completely accessible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIALLY_COVERING",
+          "evidence": "Theorem 2k+2ceil(k/2) at k=3 yields 10; explicitly disclaims all graph diameters/eccentricities.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-exact-linear-derangement-swap-detour-between-inverse-triangle--a01ace1f3db3/RESULT.md",
+          "material_read": "Full RESULT.md including proof, scope, finite certificates and limitations",
+          "method": "Full primary theorem read through frozen published Git file",
+          "title": "An exact linear derangement-swap detour between inverse triangle products",
+          "trigger": "Exact same switch graph, inverse-three-cycle distance n=9"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Their structural graph-class bounds do not extend to crown graph with induced hexagons.",
+          "identifier_or_url": "https://arxiv.org/html/1501.07725v3",
+          "material_read": "Accessible arXiv HTML primary paper, including statement of chordal-bipartite bound",
+          "method": "Full-text/selected theorem comparison",
+          "title": "On the switch Markov chain for perfect matchings",
+          "trigger": "Same 4-cycle perfect-matching switch operation"
+        },
+        {
+          "assessment": "NOT_FOUND_IN_READ_MATERIAL",
+          "evidence": "Connectivity, degree/extremal local properties distinct from full nine-vertex graph metric; full-text gap disclosed.",
+          "identifier_or_url": "https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements",
+          "material_read": "Accessible abstract and selected available discussion; not all pages reliably retrieved",
+          "method": "Primary partial-text reading",
+          "title": "Transpositions in Derangements",
+          "trigger": "Same derangement transposition graph"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE",
+          "evidence": "No claim of complete document noncoverage: priority risk remains.",
+          "identifier_or_url": "2026 journal bibliographic listing, Moshtagh and Shaveisi, Algebraic Structures and their Applications 13(2), 121-129",
+          "material_read": "Title, journal, date and bibliographic metadata only",
+          "method": "Bibliographic search after OA/preprint attempts",
+          "title": "Some Results on the Graph of Derangements",
+          "trigger": "Potential exact same graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/unique-antipodes-in-the-nine-symbol-derangement-switch-graph--6d5778bc7d5d/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-an-exact-linear-derangement-swap-detour-between-inverse-triangle--a01ace1f3db3/RESULT.md",
+        "https://arxiv.org/html/1501.07725v3",
+        "https://www.researchgate.net/publication/354533290_Transpositions_in_Derangements",
+        "2026 journal bibliographic listing, Moshtagh and Shaveisi, Algebraic Structures and their Applications 13(2), 121-129"
+      ],
+      "rationale": "First complete exact eccentricity distribution and rigidity of diametral pairs for an intrinsically natural 133496-state perfect-matching switch graph, with meaningful optimal geodesic constraints and checkable finite certificate beyond textbook degree/inclusion-exclusion.",
+      "residual_risks": [
+        "Exact n=9 fact is deliberately finite, not a general diameter law; future use as benchmark and boundary witness rather than universal asymptotic theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite exact graph proof requires exhaustive BFS code, a complete cycle-type orbit argument and correct legal-move predicate; no implication for n>9.",
+    "Potential 2026 derangement-graph journal paper unavailable in full text; an unindexed equivalent diameter census could exist.",
+    "Jain full text not completely accessible.",
+    "Exact n=9 fact is deliberately finite, not a general diameter law; future use as benchmark and boundary witness rather than universal asymptotic theorem."
+  ],
+  "schema_version": 1
+}

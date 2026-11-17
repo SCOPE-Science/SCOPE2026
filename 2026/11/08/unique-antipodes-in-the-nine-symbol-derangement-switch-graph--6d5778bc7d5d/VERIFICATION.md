@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Exact verification procedure
+# Independent mathematical audit
 
-The certificate uses exhaustive breadth-first search from one representative of each conjugacy class; the conjugacy reduction is proved in `RESULT.md`. Both checks are standalone and require no data download.
+## correctness
 
-Compile and execute the first implementation:
+PASS
 
-```sh
-c++ -O3 -std=c++17 verify_crown_switch.cpp -o verify_crown_switch
-./verify_crown_switch
-```
+The 9! labelled permutations were exhaustively filtered into 133496 derangements, legal swaps examined at all 36 pairs of positions, and shortest-path BFS recomputed for eight representatives of all conjugacy classes. Independently written C++ produced graph degree sum 3671136, all eight eccentricities (9,8,9,8,10,9,8,8), and one inverse antipode at distance ten in the (3,3,3) class, no others. Conjugation equivariance proves class exhaustiveness; 2240 such derangements yield 1120 unordered inverse pairs. The BFS certifies only n=9, not an unbounded diameter theorem.
 
-Execute the independently structured second implementation:
+## originality
 
-```sh
-python3 verify_crown_switch_independent.py
-```
+PASS
 
-Both programs check 133496 derangements, 8 cycle-type representatives, radius 8, diameter 10, and the unique inverse antipode for the 2240 vertices of cycle type (3,3,3), implying 1120 unordered extremal pairs. The C++ program also asserts the exact edge count, degree distribution and reverse adjacency. The Python program uses a different state generator and direct on-the-fly legal switch expansion, checks that each traversal visits precisely its independently generated full state set, and agrees on all type-specific distance shells.
+Earlier inverse-three-cycle theorem already establishes the particular k=3 inverse-pair distance ten but does not prove global diameter, the uniqueness of all diametral pairs, the full eccentricity table, or the count 1120. Dyer–Jerrum–Müller address switch mixing/graph families; Jain handles degree/connectivity. The new exact metric census therefore survives on best-of-knowledge comparison.
 
-Actual executions from the packaged source content terminated successfully and printed `all_checks_passed` and `independent_checks_passed`, respectively. The programs prove the specified finite facts by exhaustive traversal; their output does not assert results for other orders. Independent scholarly audit remains unperformed.
+## value
+
+PASS
+
+First complete exact eccentricity distribution and rigidity of diametral pairs for an intrinsically natural 133496-state perfect-matching switch graph, with meaningful optimal geodesic constraints and checkable finite certificate beyond textbook degree/inclusion-exclusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
