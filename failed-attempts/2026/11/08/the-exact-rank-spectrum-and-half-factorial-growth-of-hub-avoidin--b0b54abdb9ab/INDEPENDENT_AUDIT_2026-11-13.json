@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T08:18:42Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md and verify.py at frozen snapshot",
+        "Resultary 2026-11-02 finite-rank hub-correction full RESULT.md",
+        "Fernandes arXiv:2307.16257 relevant full-text sections",
+        "Fernandes and Paulista arXiv:2205.02196 cited metric distinction"
+      ],
+      "rationale": "For n>=4 the wheel metric on rim vertices has distance 1 exactly on adjacent pairs, 2 otherwise, hence induced-cycle graph isomorphisms are the correct maps. Given k<n and r cyclic runs, the count of A of component type m_j is n(r-1)! binom(n-k-1,r-1)/prod m_j!; each ordered pair has prod m_j! times 2^{sum_{j>=2}m_j} isomorphisms. The multinomial generating function x(1+x)/(1-x) gives the claimed rank coefficients. At k=n dihedral maps are 2n, at k=0 one empty map. For s=floor(n/2), s! <=T_n<=4^n 2^s s!+2n yields 1/2 log scale; 2n<=E_n<=2n 2^n then gives -1/2 for the log fraction. Independent type-count calculation matches every rank for n=4..9 and totals 97,286,955,3396,12753,50482; finite checks do not establish the limits.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier R_n(z)=(1+z)Q_n(z)+2nz+5n²z²+2n²(n-1)z³+2n²z⁴ for all n>=5, with complete formula for Q_n.",
+          "Earlier work covers all wheel partial isometries, not just the hub-avoiding submonoid."
+        ],
+        "reasoning": "Taking the rim-only component Q_n from the broader full-wheel result yields candidate ranks directly; n=4 elementary and covered by direct formulas.",
+        "searches": [
+          "Resultary 2026-11-02 A finite-rank hub correction for wheel partial-isometry monoids",
+          "arXiv:2307.16257 wheel monoid"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and verify.py at frozen snapshot",
+        "Resultary 2026-11-02 finite-rank hub-correction full RESULT.md",
+        "Fernandes arXiv:2307.16257 relevant full-text sections",
+        "Fernandes and Paulista arXiv:2205.02196 cited metric distinction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier B_{n,lambda}=n(t-1)!/prod m_j! times binom(n-k-1,t-1), A_lambda=2^{t-m1}prod m_j!, Q_n=1+2nz^n+sum_{lambda}B²A z^k.",
+          "Submitted c_{n,k} is obtained by grouping earlier lambda summands at fixed r and applying weighted generating function."
+        ],
+        "reasoning": "Entire exact spectrum is logically contained in earlier formula. Growth exponents are routine corollaries from independent sets and dihedral restriction bound, not a surviving new classification.",
+        "searches": [
+          "Resultary 2026-11-02 hub correction RESULT.md full proof",
+          "Fernandes and Paulista 2205.02196 cycle geodesic partial isometries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier Q_n(z) counts precisely the same rim-to-rim induced-subgraph graph isomorphisms; the wheel metric reduction is common to both.",
+          "Earlier Q_n coefficient sum over path-multiset partitions B_{n,lambda}² A_lambda has the same factors as submitted r,m_j formula."
+        ],
+        "reasoning": "Component-multiset sum and coefficient extraction are identical after applying the multinomial theorem to x(1+x)/(1-x), not distinct enumerated objects.",
+        "searches": [
+          "Resultary finite-rank hub correction for wheel partial-isometry monoids",
+          "Fernandes 2307.16257 wheel partial isometry hub avoiding",
+          "count partial automorphisms cycle induced path-run isomorphisms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Earlier full-wheel RESULT.md displays an explicit symbolic coefficient formula for every k and n>=5, not merely a small-value table.",
+          "Candidate finite totals agree with that enumerator."
+        ],
+        "reasoning": "An exact prior closed formula covers all desired numbers, unlike an isolated numerical database; this is decisive mathematical coverage.",
+        "searches": [
+          "published wheel partial isometry Q_n rank polynomial exact element count",
+          "cycle partial automorphism rank by rank tables"
+        ]
+      },
+      "rationale": "Published November 2 finite-rank hub-correction theorem already explicitly gives the same rim induced-subgraph rank polynomial Q_n(z) via identical component multiset B_{n,lambda} and automorphism count A_lambda, for all n>=5. The submitted coefficient extraction is exactly a multinomial resummation. Both logarithmic exponents follow from the classical factorial sandwich and at most 2n 2^n dihedral restrictions. The isolated n=4 endpoint has no independently useful new contribution.",
+      "residual_risks": [
+        "Logarithmic growth claim uses coarse bounds only and is not a sharp multiplicative asymptotic.",
+        "Cannot establish independent complete tree SHA via available GitHub file-level connector; supplied source-tree guard remains frozen assignment identity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONGER_COVERING",
+          "evidence": "Exact all-rim rank counts n>=5 and additional hub-moving maps",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-a-finite-rank-hub-correction-for-wheel-partial-isometry-monoids--d147c97c6256/RESULT.md",
+          "material_read": "Entire RESULT.md including displayed Q_n partition sum, B/A definitions, proof and correction polynomial",
+          "method": "Read full repository file and algebraically identify termwise matching path types",
+          "title": "A finite-rank hub correction for wheel partial-isometry monoids",
+          "trigger": "Prior broad wheel theorem with explicit rim Q_n"
+        },
+        {
+          "assessment": "BACKGROUND",
+          "evidence": "The historical work studies structural and generator counts, whereas Resultary 2026-11-02 already enumerates candidate rank distribution",
+          "identifier_or_url": "https://arxiv.org/abs/2307.16257",
+          "material_read": "Accessible PDF introduction, monoid definitions, path-run and Green-class material plus main generating-set rank statements",
+          "method": "Read directly from primary PDF, compare element rank vs generator rank",
+          "title": "On the monoid of partial isometries of a wheel graph",
+          "trigger": "Original definition of hub-avoiding wheel monoid and Green class types"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT",
+          "evidence": "Geodesic metric cycle isometry restrictions form a smaller class than induced-subgraph maps",
+          "identifier_or_url": "https://arxiv.org/abs/2205.02196",
+          "material_read": "Candidate and prior reference descriptions of the cycle-metric setting; complete original full text not obtained this run",
+          "method": "Compare clearly distinct metric definition; do not claim full-text exclusion",
+          "title": "On the monoid of partial isometries of a cycle graph",
+          "trigger": "Potential alternate count using geodesic cycle metric"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md and verify.py at frozen snapshot",
+        "Resultary 2026-11-02 finite-rank hub-correction full RESULT.md",
+        "Fernandes arXiv:2307.16257 relevant full-text sections",
+        "Fernandes and Paulista arXiv:2205.02196 cited metric distinction"
+      ],
+      "rationale": "The natural wheel-rim enumeration is useful, but exact all-rank enumeration was previously published in a stronger full-wheel theorem. The addition of elementary logarithmic exponent deductions and a tiny omitted boundary does not justify another original scientific result.",
+      "residual_risks": [],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Candidate is only rim-avoiding wheel submonoid with identity on rim.",
+    "Original exact enumerator already occurs in a stronger previous publication; no science repair is permissible by an audit disclaimer."
+  ],
+  "schema_version": 1
+}
