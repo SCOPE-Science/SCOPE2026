@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-15.md",
+      "INDEPENDENT_AUDIT_2026-11-15.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and scope
 
-In a directory containing `verify_exhaustive.py`, `verify_independent.cpp`, and `isomorphism_certificate.json`, run:
+# Independent mathematical audit
 
-```
-python3 verify_exhaustive.py
-c++ -std=c++17 -O2 verify_independent.cpp -o check
-./check
-```
+## correctness
 
-The first command tests all 512 candidate subsets of \(C_3\square C_3\) and all 4,096 candidate subsets of \(C_3\square C_4\) by cardinality, then enumerates all minimum-code jumps/slides and checks the 120-coordinate certificate. The second command independently recomputes minimum size, counts, move edges and component shape by integer-neighborhood bitmasks. The expected outputs are provided verbatim in `verify_exhaustive.log` and `verify_independent.log`. Both were executed from these source paths. No assertion is made for larger cyclic orders or independent third-party audit.
+PASS
+
+Tested all 2^9=512 and 2^12=4096 labeled subsets for nonzero open-neighborhood signatures at every vertex and distinct signatures on all nonselected vertices. Minimum sizes 4,5 and numbers 81,120 are exhaustive. Direct one-exchange jump/slide graphs yield n=3 slide 198 edges connected and n=4 slide 192 edges with ten components: six cycles of order eight and four 18-vertex 4-regular graphs isomorphic to C3□C6; n=4 jump 468 edges connected. The full 120-state source isomorphism certificate was inspected and separate exhaustive graph construction corroborates structural counts and isomorphism; no n>=5 assertion.
+
+## originality
+
+PASS
+
+The known 2014 minimum locating-total domination values are not novel. The claimed novelty is the complete labeled minimum-optimum mobility graph at first two parameters, especially exact 10-component slide decomposition and jump/slide contrast; inspected primary result establishes only cardinality/constructions.
+
+## value
+
+PASS
+
+Smallest toroidal members show a sharp connectivity obstruction when swaps must traverse actual edges; it differentiates physical monitor relocation from arbitrary replacement. Explicit graph isomorphism types are a structural classification, not a raw tiny test; the first-family boundary is mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
