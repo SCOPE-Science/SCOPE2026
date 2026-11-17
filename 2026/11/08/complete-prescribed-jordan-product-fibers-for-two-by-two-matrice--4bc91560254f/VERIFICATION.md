@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-`verify_prime_fields.py` independently enumerates every ordered pair over \(\mathbb F_3\) and \(\mathbb F_5\) by explicit 2x2 matrix multiplication and compares all target fiber counts with the theorem. Recorded results in `prime_output.txt`: 6561 and 390625 total pairs, respectively, zero-fiber counts 417 and 4705, and seven distinct fiber values in each case.
+## correctness
 
-`verify_extension.py` separately constructs \(\mathbb F_9=\mathbb F_3[a]/(a^2+1)\), builds the four-dimensional Sylvester map from its action on elementary matrices, and uses exact finite-field Gaussian elimination to count preimages of 22 specified or reproducibly sampled targets, considering all 6561 possible first factors per target. Recorded output in `extension_output.txt` confirms equality for all selected targets.
+PASS
 
-Run `python verify_prime_fields.py` and `python verify_extension.py` from the directory holding these files. They require only Python 3. Exact displayed results are in the two companion text files. These experiments corroborate but do not prove the general statement; the unrestricted argument is in RESULT.md.
+For fixed A in M2(Fq), the linear map B↦AB+BA has rank 0 for A=0, 2 for nonzero trace-zero A, 3 for singular nonzero-trace A, and 4 for invertible nonzero-trace A. A=t(I−P) reduces rank-three image membership to tr(PC)=0; counting rank-one projections by their image line yields M(C)=q+1−e(C)+qz(C). Adding the four disjoint contributions proves each scalar and nonscalar fiber formula; standard similarity centralizer sizes give five nonzero nonscalar populations. Independently enumerated all 3^8 and 5^8 ordered pairs and every target, reproducing seven distinct values and total mass q^8.
+
+## originality
+
+PASS
+
+The previously studied zero-target anticommuting pair count is excluded; Bourgeois provides Sylvester-map solvability/determinants and Kaylor–Offner similarity populations, neither supplies the prescribed nonzero Jordan-product fiber distribution or its rational eigenline dependence.
+
+## value
+
+PASS
+
+The natural anticommutator product map on the smallest noncommutative full matrix algebra has five distinct nonscalar output strata and an explicit complete targetwise distribution, a useful extension beyond mere zero-fiber count or Sylvester invertibility. The exact rational-eigenline statistic is mathematically motivated and not known to follow from aggregate counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
