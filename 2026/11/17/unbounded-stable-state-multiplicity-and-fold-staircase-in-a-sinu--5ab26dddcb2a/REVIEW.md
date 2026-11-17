@@ -1,0 +1,19 @@
+# Scientific review: unbounded sink multiplicity in sinusoidal feedback
+
+## Correctness — PASS
+
+The equilibrium elimination is bijective: the two linear-algebraic equilibrium equations uniquely determine the other coordinates from each root of the scalar cubic-plus-sine equation. On positive-sine lobes beyond the cubic turning point, strict concavity proves an exact zero/one/two root split, including the nondegenerate contact. Uniform compact convergence controls all low-coordinate roots; the turning-point comparison counts the growing number of active lobes. Symbolic recomputation of the full Jacobian characteristic polynomial confirms the determinant sign and Hurwitz conditions. A uniform negative cosine margin on every interior fraction of active lobes implies two hyperbolic sinks per lobe after reflection; the ascending branches cannot be sinks by the determinant sign. The matching upper bound gives the sharp cube-root constant. The scalar fold expansion follows by solving the minimizer equation near sine maxima. All limits take the feedback amplitude to infinity with other parameters fixed. Numerical tests are corroborative only.
+
+## Originality — PASS within inspected evidence
+
+Johansyah et al. 2026 provide precisely this flow, demonstrate three equilibria at one parameter set and show finite-range parameter bifurcation and multistability diagrams. Their accessible complete article contains neither a sequence of fold amplitudes nor a theorem counting arbitrary numbers of hyperbolic sinks. The earlier Nahar et al. 2025 supply-chain model has a different jerk/absolute-value vector field; a September 2026 sequel is four-dimensional and its accessible abstract concerns unstable equilibria. The published finite fixed-parameter census for a sine-controlled multiscroll flow concerns a different dynamical system. A well-known scalar sine/cubic root-count mechanism is acknowledged and not itself asserted as novel. The added statement concerns simultaneous stable equilibria in the coupled 3D model, with exact leading constant. Direct literature and mathematical-research searches were negative for this precise or stronger implication, but absence of results is not proof of priority. The September 2026 sequel could not be inspected in full; its different dimension and abstract substantially reduce, but do not eliminate, residual risk.
+
+## Mathematical value — PASS
+
+The motivating study's two stable equilibria do not reveal whether the number of stable stationary regimes remains bounded when sinusoidal feedback is strengthened. The theorem settles that natural model-parameter question with a sharp asymptotic constant and identifies an infinite ordered sequence of parameter folds. Crucially, a scalar-root count would not establish coexistence of stable operating regimes; a separate 3D Hurwitz analysis is essential, and the newly appearing roots need not be stable immediately at their folds. This distinction is relevant for interpreting multistable stationary branches alongside the model's periodic and chaotic attractors. The asymptotic feedback range is mathematical rather than a calibrated physical forecast.
+
+## Sources, limits, and outstanding checks
+
+The governing equations, eigenvalue calculation, parameter scans, multistability section, and conclusion of the motivating article were inspected directly in open-access HTML. The related 2025 three-tier paper's dynamical equations were compared. The related 2026 four-dimensional article's abstract and metadata were accessible but its complete text was not. Symbolic and finite numerical checks were run from the included checker; these cannot replace the analytical root-count and stability arguments. No claim is made about global basins, the exact finite-amplitude sink count, or any universal economic interpretation. Historical priority and independent validation remain open.
+
+Self-review: passed. Independent audit: not yet performed.
