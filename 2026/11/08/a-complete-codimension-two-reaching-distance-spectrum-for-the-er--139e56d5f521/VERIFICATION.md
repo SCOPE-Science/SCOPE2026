@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 artifacts/verify_reaching.py` from the package root. The checker uses standard-library Python only. It separately implements all image-subset transitions and breadth-first distances for each \(3\le n\le15\), tests every target with exactly two missing states, constructs and replays an optimal normal-form word for every pair, and checks every predicted multiplicity. A separate sweep through \(3\le n\le140\) checks the all-letter 1-Lipschitz potential inequalities for every rank-relevant subset.
+## correctness
 
-The recorded execution in `artifacts/verification_output.txt` reports `BFS_PASS`, `POTENTIAL_TRANSITION_PASS` and `VERIFY_OK`. The finite tests are not a substitute for the universal proof in `RESULT.md`. The proof handles arbitrary nondecreasing sequences of missing sets and therefore permits all words (not only those containing exactly two merging letters). Nothing beyond the stated labeled automata or codimension-two targets is asserted.
+PASS
 
-Independent scientific audit: not performed.
+With Q={0,...,n-1}, collapse a and rotation b, the two-effective-merge witnesses a b^k a b^t, 2<=k<=n-1, reach every pair of missing states with the asserted lengths. For singleton hole h, F=1+[h+1]_n; for two holes F=the min of admissible orientation witness costs. Direct case analysis under a (add/shift hole) and b (rotate) proves F(new)<=F(old)+1 on every intermediate image with at most two holes. Rank cannot increase, so a path ending with exactly two holes can never leave this domain; potential is universal lower bound and normal witnesses attain it. Simplifying orientation costs yields four cases and complete histogram; n=3 and pairs touching n-1 are included. No finite enumeration is substituted for this all-n proof.
+
+## originality
+
+PASS
+
+PASS, with explicit close duplicate chronology: an exact mathematical match on all n>=4 and every omitted pair was found and read, but source imported at 2026-11-08 20:56:50Z, AFTER assigned target source at 20:54:12Z. The target additionally proves n=3; even without it, the later copy is not prior at target public time. Older two-defect length <=2n, maximum/unique pair, and minimal deficiency results do not imply the full target-indexed distance function or its complete histogram.
+
+## value
+
+PASS
+
+The exact target-indexed reaching distance for every codimension-two subset and the complete multiplicity polynomial form a natural complete layer of the Černý automaton inverse-control problem; sharper than known extrema or existence bounds. Adjacent-hole penalties and the attained potential may be reused to understand reachability geometry. The target chronologically predates its close published duplicate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
