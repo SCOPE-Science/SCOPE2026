@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 check_commutator.py` with a standard Python 3 installation; it uses only the standard library. Its checks include exhaustive centralizer-rank enumeration on \(M_3(\mathbb F_2)\) and \(M_3(\mathbb F_3)\), direct character-sum comparisons for several explicit frequencies in dimensions two and three, and exact rational-coefficient expansion of the all-dimensional centralizer generating function for three matrix sizes at field orders two, three, and four. The expected completion markers are `ALL_COMMUTATOR_GRAPH_CHECKS_OK` and `ALL_EULER_PRODUCT_CHECKS_OK`.
+## correctness
 
-The raw character sums are compared with a numerical tolerance because complex roots of unity are evaluated in floating point. The centralizer and formal-series tests use exact arithmetic, including integer divisibility checks. The symbolic Fourier support theorem and general Euler product are proved in RESULT.md and are not certified by finite experiments. Independent mathematical audit has not been performed.
+PASS
+
+Nondegenerate trace pairing and character orthogonality in Y give q^(n²) times the affine fiber {X:ad_C X=-B}. The trace adjoint of ad_C is -ad_C, so a second character sum is nonzero precisely for A,B both in im ad_C and has modulus q^(n²+c(C)). Primary decomposition by invariant factors gives centralizer dimension sum_r r sum(lambda_i'²) and automorphism unit counts, hence the rational-canonical Euler product multiplicities. Scalar C yields c=n² and cyclic C yields c=n, proving sharp positive condition number q^(n²-n). All nonscalar noncyclic 3x3 matrices are rank-one nilpotent perturbations of scalars or split (2,1)-eigenspace type; independent enumeration of all 512 M3(F2) verifies centralizer counts c=3:412,c=5:98,c=9:2 and convolution rank 1712642. All q,n conclusions come from algebraic proof, not this finite check.
+
+## originality
+
+PASS
+
+The exact commutator-graph Fourier-support criterion and all-dimensional positive singular multiplicities are a natural new combined statement, despite classical ingredients. Britnell-Wildon classifies centralizer types, Feit-Fine counts commuting matrix pairs, and general bilinear Fourier orthogonality gives only first reduction; no inspected prior theorem directly tabulates this graph spectrum. This is a best-knowledge originality acceptance with substantial general-theorem risk.
+
+## value
+
+PASS
+
+For the canonical noncommutative bilinear map (X,Y)->[X,Y], the exact support, every positive singular-value multiplicity, finite q3 census and sharp condition number are intrinsic useful quantitative harmonic invariants. A closed all-dimensional Euler product goes beyond an unmotivated substitution into the trace orthogonality identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

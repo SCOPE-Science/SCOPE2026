@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every finite field, the trace pairing on full square matrices is nondegenerate. Orthogonality in the variable \(Y\), and again over the affine solution fibre in \(X\), proves the exact Fourier-zero criterion and nonzero phase. The trace adjoint of the inner derivation is its negative, so both frequency matrices must lie in its image. Rational-canonical primary decomposition and the unit counts of finite endomorphism rings justify the coefficient-extraction product, without assuming distinct eigenvalues or a restricted characteristic. Cyclic and scalar matrices attain the extreme centralizer dimensions. In degree three, the two noncyclic nonscalar families are disjoint, exhaust all such matrices, and have exactly the stated counts. The included checker verifies the raw sums on finite test cases, the full characteristic-two and characteristic-three centralizer distributions, and formal-series coefficients by rational arithmetic. No finite check is substituted for the proof.
+## correctness
 
-## Originality — PASS under bounded review
-The mathematical object and exact claim were compared with accessible historical claims, published mathematical search results, and the material of the relevant primary texts. Britnell--Wildon's full available manuscript classifies commuting types and centralizers, but does not state a Fourier spectrum for \((X,Y,XY-YX)\), and its searchable text contains neither the Fourier transform nor a commutator-graph treatment. Feichtinger--Kozek--Luef's full HTML paper treats finite-abelian time-frequency and Gabor operator frames, not this commutator graph. Feit--Fine's earlier commuting-pair enumeration is a different centralizer moment; its reported scalar count is not itself the claimed inverse-weighted moment. A broad bilinear-map Fourier identity, along with a complete class-type catalogue, could still imply the result. Searches did not prove uniqueness or exclude an unlocated stronger theorem, and Feit--Fine's full original text was not inspected.
+PASS
 
-## Mathematical value — PASS
-The matrix commutator is a canonical bilinear operation, and its graph is a natural translation-invariant convolution kernel on an additive matrix space. Determining where its Fourier multiplier vanishes is equivalent to identifying all recoverable Fourier modes. The new organization gives a complete spectrum and exact spectral conditioning in every dimension via a usable formal Euler product, and a nontrivial sharp three-level closed census in dimension three with every multiplicity and nullity. This is a motivated spectral classification; it is not an arbitrary slice of a numerical table. The constituent orthogonality and rational-canonical techniques are classical and are not themselves claimed as new.
+Nondegenerate trace pairing and character orthogonality in Y give q^(n²) times the affine fiber {X:ad_C X=-B}. The trace adjoint of ad_C is -ad_C, so a second character sum is nonzero precisely for A,B both in im ad_C and has modulus q^(n²+c(C)). Primary decomposition by invariant factors gives centralizer dimension sum_r r sum(lambda_i'²) and automorphism unit counts, hence the rational-canonical Euler product multiplicities. Scalar C yields c=n² and cyclic C yields c=n, proving sharp positive condition number q^(n²-n). All nonscalar noncyclic 3x3 matrices are rank-one nilpotent perturbations of scalars or split (2,1)-eigenspace type; independent enumeration of all 512 M3(F2) verifies centralizer counts c=3:412,c=5:98,c=9:2 and convolution rank 1712642. All q,n conclusions come from algebraic proof, not this finite check.
 
-## Closest literature and limitations
-Britnell--Wildon, arXiv:1001.0811, supplies conjugacy and centralizer background. Feichtinger--Kozek--Luef, arXiv:math/0703228, provides finite harmonic analysis context. Feit--Fine, Duke Math. J. (1960), counts commuting matrix pairs. The most significant originality risk is an unlocated general Fourier theorem for bilinear graphs plus an explicit centralizer type enumeration; such a theorem could subsume this work upon specialization. Direct computation has only been performed for finite test sizes, and independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact commutator-graph Fourier-support criterion and all-dimensional positive singular multiplicities are a natural new combined statement, despite classical ingredients. Britnell-Wildon classifies centralizer types, Feit-Fine counts commuting matrix pairs, and general bilinear Fourier orthogonality gives only first reduction; no inspected prior theorem directly tabulates this graph spectrum. This is a best-knowledge originality acceptance with substantial general-theorem risk.
+
+## value
+
+PASS
+
+For the canonical noncommutative bilinear map (X,Y)->[X,Y], the exact support, every positive singular-value multiplicity, finite q3 census and sharp condition number are intrinsic useful quantitative harmonic invariants. A closed all-dimensional Euler product goes beyond an unmotivated substitution into the trace orthogonality identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
