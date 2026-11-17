@@ -1,19 +1,21 @@
-# Review of the three-plant pollination-reliability theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The event that all three plants retain at least one pollinator is evaluated by three-event inclusion–exclusion. With the union constrained to \(3d-2s\), the excess-incidence identity \(2t+\sum b_{ij}=2s\) is exact. For fixed triple intersection \(t\), strict convexity of exponential pair terms forces overlap concentration; strict convexity of the resulting one-variable envelope forces one of two endpoint designs. Both endpoints exist for \(d\ge2s\), and subtraction gives \(q^{2d-2s}(1-q^s)(1-2q^s)\). All equality cases are covered. The standard-library checker additionally enumerates 93,354 admissible labeled neighborhood triples across three finite parameter choices and passes 87 exact assertions. Numerical or finite enumeration evidence is corroborative and is not used to justify the infinite-parameter proof.
+PASS
 
-## Originality — PASS within the inspected evidence, with residual risk
+Union multiplicity identity 2t+b12+b13+b23=2s is exact. Inclusion-exclusion writes R=1-3q^d+sum_{pairs}q^{2d-|Ai intersection Aj|}-q^m. Strict convexity of r^x with r=1/q>1 concentrates pair-only overlaps into one pair, reducing the upper bound to f(t)=r^(2s-t)+2r^t. Its strict convexity in t places its maximum exclusively at 0 or s; both endpoint set systems are feasible because d>=2s and equality cases are unique up to guild relabeling. Factoring endpoint gap gives a single crossing, with no endpoint error q in (0,1). Independent exhaustive 4-pollinator failure-state enumeration gave (225/256,219/256) at q=1/4 and (49/256,67/256) at q=3/4 for paired/common; script and limited all-set enumeration inspected, finite evidence only.
 
-Bascompte et al. (2003) study observed mutualistic nestedness rather than optimizing Bernoulli all-plant joint persistence over fixed-degree incidences. Memmott et al. (2004) introduce the relevant last-pollinator-loss ecological criterion and evaluate extinction sequences empirically; the inspected full paper does not state a sharp structural optimization for three identical plant degrees. Bane et al. (2018) study extinction-order robustness measures on empirical networks, not this joint endpoint. Fishburn et al. (1986) study a related biased-set event under pairwise-intersection family constraints, but the accessible abstract neither states nor implies the fixed-union three-set extremum with a disjoint module; full-text comparison remains a risk because the source was inaccessible. No matching direct statement appeared in searched literature or mathematical-result records. Absence of a match is not proof of novelty, and broader reliability/set-family coverage may remain.
+## originality
 
-## Value — PASS
+PASS
 
-Degree and pollinator-count controls leave every plant's support probability, expected supported species count, and probability of any support unchanged. Yet optimal joint persistence undergoes a unique, analytically sharp transition between disconnected paired modules and a connected common core. This isolates a high-order network effect of ecological relevance that ordinary species-richness summaries conceal. The theorem supplies a complete global optimizer classification for every \(d\ge2s\ge2\), not merely two hand-picked graphs. Its scope is a simplified instantaneous independent-loss model; connectivity or ecological dynamical constraints may alter the result.
+Memmott et al. supply empirical binary coextinction and removal-tolerance model, not optimizing this exact fixed-degree incidence family. Related capacity-one matching or two-survivor quorum results have different survival events, and no implication to one-surviving-neighbor event was found. Potential general biased-set-intersection inequalities and a Bane et al. model review are not fully excluded; priority qualified.
 
-## Residual limitations
+## value
 
-The novelty assessment is provisional, especially for unavailable full-text extremal set-system literature. No independent theorem review has occurred. The paired-module solution is disconnected, the biological failure model is static and homogeneous, and the result is not a field recommendation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An analytically sharp structure switch in a natural fixed-connectance robustness problem is substantive: individual support means and union-presence probabilities are constant across all eligible incidence networks, whereas simultaneous plant support is sensitive to incidence architecture. It also demonstrates a disconnected optimal topology under allowed assumptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
