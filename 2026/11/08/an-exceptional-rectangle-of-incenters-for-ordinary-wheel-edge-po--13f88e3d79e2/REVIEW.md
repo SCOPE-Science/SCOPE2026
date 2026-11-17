@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ambient metric is handled explicitly through the inverse Gram matrix \(G^{-1}=I-J/(m+1)\). The full wheel-edge-polytope halfspace description is proved, not inferred from a drawing: the exact rim-edge weight decomposition follows by LP duality and a direct classification of extreme fractional vertex covers of a cycle. The radius reduction is valid because dihedral averaging preserves Euclidean balls. The exceptional four-rim phase arises from a different active lower-total bound. Equality of the active margins proves both the full incenter rectangle and uniqueness in every other dimension. An independently optimized Chebyshev LP corroborates the formulas for \(3\le m\le16\), but this finite check is not used as the infinite proof.
+PASS
 
-## Originality — PASS, priority provisional
+Reconstructed the exact rim-coordinate model Q_m=conv(e_i,e_i+e_(i+1)) and its inequalities y_i>=0, 1<=sum y<=2 and sum_(i in S)y_i<=1 for independent cycle sets. Dual capacity packing uses fractional vertex-cover vertices (integral covers, plus all-half for odd cycles), proving sufficiency. The metric Gram matrix in rim coordinates is I+J, inverse I-J/(m+1); hence dual norm for j coordinates is sqrt(j(m+1-j)/(m+1)). Group averaging yields a symmetric optimal center. Crossing coordinate and maximal-independent-set margins gives r=1/(ku+v), except m=4 where lower-total versus independent-pair margins give r=1/(u+2v). Equality propagation forces uniqueness except m=4, where both opposite-pair sums are fixed and each member bounded below, producing exactly a rectangle. Facet dimension and contacts were checked against the connected bipartite support-graph rank conditions; m=3 also has upper-total contacts. Independently solved halfspace Chebyshev LP for m=3..11 with agreement; finite LP is not the proof.
 
-Tran and Ziegler, *Extremal edge polytopes* (2014), give the standard unsigned incidence construction and cite Ohsugi–Hibi's general facet theory; the inspected definitions, facet discussion and statements do not supply the present wheel-specific metric theorem. Ohsugi and Tsuchiya, *PQ-type adjacency polytopes of join graphs* (arXiv:2103.15045, 2021), treat different PQ-type adjacency polytopes and their combinatorial volumes; the wheel section is not an inball result. Relevant published results for symmetric wheel edge-root polytopes deal with centrally symmetric objects and are not metric consequences for unsigned incidence polytopes. Explicit research-index queries and the accessible earlier claims showed no coincident ordinary-edge claim. Residual risk: an unindexed formula or a stronger older graph-polytope/Chebyshev theorem could imply this, so historical priority is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-An ordinary wheel graph is a canonical small extension of a cycle, and its edge polytope is a natural subpolytope of the second hypersimplex. The exact intrinsic inradius and all maximum-ball centers are geometrically motivated invariants. The four-rim case breaks the otherwise unique-center law with a two-dimensional rectangle, reflecting a genuine switch of limiting facets; the theorem also gives sharp parity-dependent contact counts for all higher rims. This is a complete family-level classification rather than a parameter substitution or a finite table calculation.
+Best-of-knowledge PASS: checked the same wheel graph under ordinary (unsigned) incidence, symmetric edge-root and PQ adjacency constructions, which are inequivalent. The primary PQ wheel theorem concerns h-star and normalized volume, not the intrinsic Euclidean inradius. Indexed earlier symmetric wheel inradius laws concern conv ±(e_i−e_j), not conv(e_i+e_j). No earlier covering ordinary-wheel Chebyshev-center classification established by inspected full text; the exceptional rectangle is not a corollary of these other polytopes.
 
-## Scientific limits
+## value
 
-The theorem uses only the natural incidence-vector metric, not arbitrary affine realizations. Comparison with remote literature cannot certify absolute global priority. Solver checks are finite. External independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ordinary wheel edge polytope is a canonical graph polytope in the second hypersimplex. Euclidean inradius, all Chebyshev centers and active-facet incidence are natural intrinsic invariants, and the m=4 nonunique two-dimensional locus versus unique centers at all other m is a structural family-wide transition, not a tiny numerical optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
