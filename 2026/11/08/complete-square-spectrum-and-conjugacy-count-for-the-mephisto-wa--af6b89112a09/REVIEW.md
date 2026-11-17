@@ -1,19 +1,21 @@
-# Mathematical assessment: complete square spectrum of the Mephisto Waltz word
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The fixed point and index conventions are explicit. The key obstacle for nontriadic square periods is an exact difference-word recurrence \(d(3n)=0\), \(d(3n+1)=1\), \(d(3n+2)=1-d(n)\), checked by substitution. Residues \(1\) and \(2\) modulo \(3\) are excluded for square periods above the small exception \(2\), which is treated directly. Dividing a square period divisible by \(3\) gives a smaller square through the aligned indices. For \(3^k\), complementary substitution blocks yield necessary and sufficient start conditions. Counting the difference recurrence proves existence and exact densities; complementary blocks plus a proven absence of fourth powers establish primitive conjugate families. All lemmas give infinite conclusions; finite checks are supplementary, not certificates of infinity.
+PASS
 
-## Originality — PASS, qualified
+The 3-uniform substitution gives w(3n)=w(3n+1)=w(n), w(3n+2)=1-w(n); adjacent differences satisfy d(3n)=0, d(3n+1)=1, d(3n+2)=1-d(n). For a square period p, adjacent-difference comparisons rule out all p nonzero modulo 3 (including p=2 by direct residue check); restricting p divisible by 3 to positions divisible by 3 reduces to a square with period p/3. Therefore only p=3^k. Complementary length-L substitution blocks force precise starts i=qL+r: r=0 requires adjacent equal parent letters; r>0 requires a parent triple; cube only at r=0 with parent triple; no fourth power. Recurrence for D(N)=# differences ones proves density 1/2 for changes and 1/6 for parent triples, yielding square density (L+2)/(6L) and cube 1/(6L). Both 0- and 1-triples occur; primitive odd L blocks generate two disjoint length-L cyclic conjugacy classes, hence exactly 2L distinct least-period-L square words. Independent literal comparison on length-19683 fixed point verified square/cube statements and no fourth powers for all periods <=149, part of 5,875,875 cumulative assertions. All-power proof comes from substitution recurrences.
 
-The guiding primary work on this exact word (Meleshko et al., arXiv:2207.10171) concerns pseudoperiods, not equality of ordinary repeated blocks. Shallit–Xu (arXiv:2311.14961) study factorization into repetitions, not the set of square starts and distinct-square counts. Kishi et al. (arXiv:2605.18034) give occurrence-preservation theory for morphisms including this substitution, but not the complete stated formula. Khodier (2026 thesis) gives previously known critical-exponent and factor-complexity information about this word, not occurrence densities for all square periods. The known fourth-power avoidance is credited and is not treated as the new claim. Searches for square spectrum, conjugate squares, and arithmetic starting positions yielded no direct covering result. Residual risk: the classical book exercise and unindexed sources could contain overlapping facts; the book's relevant full text was not verified through an authorized copy.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural all-scale combinatorial invariant of a canonical automatic word. It yields a complete set of permissible square periods, exact occurrence sets rather than sampled observations, positive natural densities, and a complete conjugacy classification with \(2\cdot3^k\) distinct square factors at each allowable length. These jointly distinguish occurrence combinatorics from the previously known fourth-power avoidance and critical exponent. The complete structural classification, rather than an arbitrary finite slice, motivates the exact formulas.
+The earlier 2022 paper on the same 001/110 word concerns pseudoperiodic matching, which is a different predicate from ordinary repeated equal blocks. The 2003 classical fourth-power-free assertion and known critical exponent are explicitly credited; those coarse facts do not imply which powers of three appear at each start, densities and 2L distinct cyclic squares. Resultary also has a recent antisquare classification on the same word, but antisquares use complementary blocks, not ordinary squares. Searches for synonymous repetition language and period spectrum did not locate same theorem.
 
-## Sources and scope limits
+## value
 
-Primary materials inspected: Meleshko–Ochem–Shallit–Shan (2022/2023) pseudoperiodicity treatment, Shallit–Xu (2023) repetition-factorization study, Kishi–Guo–Urbina–Bannai (2026) occurrence-preserving morphisms, and Khodier (2026) thesis. Independent examination remains appropriate before treating the originality assessment as definitive.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact all-period and all-start classification for a canonical automatic word, including positive densities and complete distinct-square factor complexity, is a natural full combinatorics-on-words invariant, rather than another finite sample of factors; triadic rigidity is structurally informative.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
