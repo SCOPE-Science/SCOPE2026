@@ -1,11 +1,21 @@
-# Scientific review — cyclic induced-edge concepts
+# Independent mathematical audit
 
-**Correctness (PASS).** The image of the vertex-to-edge AND map is characterized by forbidding cyclic \(101\). A support is shattered precisely when it forbids cyclic \(111\), using an explicit endpoint-selection witness for every labeling and a three-edge obstruction for necessity. Marked zeros give the all-degree enumerator and residue-class maximal-support counts. The online upper bound follows from subadditivity of Littlestone dimension across disjoint coordinate blocks, each three-edge projection lacking one of eight binary patterns. In the residue class \(n\equiv1\pmod3\), the root query has both branches containing independent realizations of \(2q\) edge labels, proving the matching online lower bound. The checker independently tests small values; it is corroboration, not an infinite proof.
+## correctness
 
-**Originality (PASS, qualified).** The 2021 zero-set dimension theorem of Guingona et al. concerns linear-combination zero sets and yields equality of the two dimensions, not these edge-incidence Boolean concepts. Ghazi et al.'s 2021 closure estimates concern broad aggregations and do not yield this exact dimension split. Cyclic no-\(111\) counting is closely related to classical dissociation-set enumerations, so the coefficient formula is not claimed as a novel sequence in isolation. The additional sharp infinite-family adaptive gap, its two-branch construction, and the formal edge-concept interpretation were not covered by any inspected closest statement or published-finding corpus match. A broader online-dimension theorem under symbolic-dynamics terminology remains a residual priority risk.
+PASS
 
-**Mathematical value (PASS).** Exact static supports and their coefficientwise counts supply a complete learning-theoretic classification for a local Boolean transformation, while the proven one-unit adaptive gap for infinitely many cycles shows that highly structured finite graph concept classes can distinguish VC from Littlestone complexity. This is not merely a finite numerical gain or an arbitrary parameter slice: the modulus-three threshold is forced by the local three-edge obstruction and the construction uses all orders in a natural residue class.
+For n>=3 and edge labels b_i=a_i*a_(i+1), image consists exactly of cyclic 101-free words: two neighboring positive edges force their middle edge. Shattered supports are cyclic 111-free because every connected component of queried edges is a vertex-disjoint path with 1 or 2 edges, permitting arbitrary endpoint selection. Marked-zero run vectors give s_k=n/(n-k)[t^k](1+t+t^2)^(n-k); VC=floor(2n/3). Partition indices into length-three blocks (at most seven possible patterns, Ldim<=2 each) gives upper 2q for n=3q and 2q+1 for n=3q+1. For n=3q+1 the root e0=0/1 both admit 2q independently selectable edge labels, yielding online depth 2q+1. No all-order Ldim for n≡2 mod3 is asserted. Independent exhaustive cycle C7 traces and online dynamic recursion gave VC4 and Ldim5; source checker inspected.
 
-**Limitations.** The online value for \(n\equiv2\pmod3\) is not proved. The support counting sequence is a familiar forbidden-pattern count, and exhaustive priority checking is not possible. The included checker handles support counts only through ten edges and exact adaptive ranks through nine edges; no independent mathematical validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical cyclic 111-avoiding enumeration is not novel in isolation. The edge-AND image, exact shattering-complex identification and especially infinite n≡1 mod3 Littlestone separation were not obtained from inspected broad closure/zero-set results.
+
+## value
+
+PASS
+
+A natural graph-induced Boolean concept class has a complete static support criterion, exact labeled support spectrum and a sharp unbounded-order periodic adaptive/static gap. The residue is forced by local 3-edge obstruction rather than arbitrarily selected instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

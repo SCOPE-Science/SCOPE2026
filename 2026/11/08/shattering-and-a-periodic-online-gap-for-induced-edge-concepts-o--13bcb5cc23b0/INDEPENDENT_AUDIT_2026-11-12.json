@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T23:56:20Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=3 and edge labels b_i=a_i*a_(i+1), image consists exactly of cyclic 101-free words: two neighboring positive edges force their middle edge. Shattered supports are cyclic 111-free because every connected component of queried edges is a vertex-disjoint path with 1 or 2 edges, permitting arbitrary endpoint selection. Marked-zero run vectors give s_k=n/(n-k)[t^k](1+t+t^2)^(n-k); VC=floor(2n/3). Partition indices into length-three blocks (at most seven possible patterns, Ldim<=2 each) gives upper 2q for n=3q and 2q+1 for n=3q+1. For n=3q+1 the root e0=0/1 both admit 2q independently selectable edge labels, yielding online depth 2q+1. No all-order Ldim for n≡2 mod3 is asserted. Independent exhaustive cycle C7 traces and online dynamic recursion gave VC4 and Ldim5; source checker inspected.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+          "https://arxiv.org/abs/2109.04805"
+        ],
+        "reasoning": "Ghazi et al provide general closure growth bounds for Littlestone dimension but no sharp congruence-specific root-tree construction. Guingona et al focus on families of zero sets of linear combinations, whose hypotheses do not include this local AND image.",
+        "searches": [
+          "Induced edge concepts cycle C_n vertex subset 101 no 111 VC Littlestone periodic gap"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md at tree 5f3de6ae3d387ece0763bbcb74fc84e07c618d51; checker.py blob 0fe74cb7b76179d46cc2051f1030fd0fb583f424",
+        "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+        "https://arxiv.org/abs/2109.04805",
+        "Resultary semantic query: Induced edge concepts cycle C_n vertex subset 101 no 111 VC Littlestone periodic gap"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf"
+        ],
+        "reasoning": "The earlier general Boolean-closure result cannot specialize to equality Ldim=2q+1 (or the contrasting 3q case) without the submitted explicit cyclic 0/1 branch trees. Different graph VC classes yield neither this support spectrum nor online statement.",
+        "searches": [
+          "Induced edge concepts cycle C_n vertex subset 101 no 111 VC Littlestone periodic gap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+          "https://arxiv.org/abs/2109.04805"
+        ],
+        "reasoning": "The class is the image of cyclic vertex indicators under adjacent Boolean AND, equivalent to a finite 101-avoiding shift. General shift counting of 111-free supports is recognized; the exact Littlestone dimension of this edge-AND class does not follow from the inspected cited zero-set or Boolean aggregation theorems.",
+        "searches": [
+          "Induced edge concepts cycle C_n vertex subset 101 no 111 VC Littlestone periodic gap"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf"
+        ],
+        "reasoning": "Classical run-limited cyclic word enumerations may duplicate coefficients; the novelty and value decision does not rest on the familiar coefficient sequence. No inspected exact database covers the separate online lower-bound tree.",
+        "searches": [
+          "Induced edge concepts cycle C_n vertex subset 101 no 111 VC Littlestone periodic gap"
+        ]
+      },
+      "rationale": "Classical cyclic 111-avoiding enumeration is not novel in isolation. The edge-AND image, exact shattering-complex identification and especially infinite n≡1 mod3 Littlestone separation were not obtained from inspected broad closure/zero-set results.",
+      "residual_risks": [
+        "Littlestone dimension in residue n≡2 (mod 3) is not proved for all n and must not be included in accepted claim.",
+        "Earlier symbolic-dynamics or dissociation-set online-shattering work may cover an equivalent cycle transformation; sources were not exhaustively inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "General dimension growth bounds for compositions, not the exact mod-3 cycle AND dimension or two-branch tree.",
+          "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+          "material_read": "11-page primary PMLR full-text PDF, introduction, main general closure statements and relevant propositions about Boolean aggregation.",
+          "method": "Read lawful open full-text source and examined the stated sections/proof claims",
+          "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+          "trigger": "Boolean aggregation and adaptive complexity might dominate the local edge-AND class"
+        },
+        {
+          "assessment": "LIMITED_COMPARISON",
+          "evidence": "The publicly described hypotheses concern zero sets of linear combinations, not the cyclic incident-edge class; uninspected details remain a residual risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.04805",
+          "material_read": "Title, abstract and bibliographic/main-theorem description available; whole preprint not read in this run.",
+          "method": "Public bibliographic/abstract inspection, not asserted full text",
+          "title": "Littlestone and VC-dimension of families of zero sets",
+          "trigger": "Cited exact VC/Littlestone relation for another concept class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural graph-induced Boolean concept class has a complete static support criterion, exact labeled support spectrum and a sharp unbounded-order periodic adaptive/static gap. The residue is forced by local 3-edge obstruction rather than arbitrarily selected instances.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Littlestone dimension in residue n≡2 (mod 3) is not proved for all n and must not be included in accepted claim.",
+    "Earlier symbolic-dynamics or dissociation-set online-shattering work may cover an equivalent cycle transformation; sources were not exhaustively inspected."
+  ],
+  "schema_version": 1
+}
