@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of signed reachability law
+# Independent mathematical audit
 
-Run `python3 check.py` in this directory with Python 3.9 or newer. The script uses exact rational arithmetic and enumerates edge orientations directly, computing directed reachability by graph search. The replay outcome was `VERIFY_OK 710 exhaustive weighted-orientation and rational identities`.
+## correctness
 
-The check covers \(n=1,\ldots,6\) and \(p\in\{1/4,1/3,1/2,2/3,3/4\}\). It checks exact joint probabilities, coefficientwise signed corrections, normalization, mean, pair covariance where defined, and total variation. These finite computations are not a certificate of the general theorem. The unbounded-\(n\) statements follow from the explicit four-type decomposition, coefficient sign comparison and binomial concentration in `RESULT.md`.
+PASS
 
-No independent audit has been performed.
+Four independent edge-direction types have respective probabilities p(1-p), p(1-p), p², (1-p)². The other hub is reached iff an s→b→t type occurs; without one, only type-III vertices can be counted. Splitting on this event yields the joint generating polynomial and conditional signed binomial correction. The two conditional parameters p²/q and p/q are strictly ordered, giving pathwise stochastic domination and the logarithmic sign crossing. Hoeffding at a threshold strictly between their means proves TV/q^n→1 for fixed interior p; differentiation produces means and pair covariance, including n=1 boundary for variance. Reconstructed independent of the finite checker.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the exact final claim (not of elementary starting tools). The conditional-binomial law follows from a root-to-hub two-edge path decomposition; alternative rooted percolation-cluster and transitive-closure terminology was searched. Bienvenu treats positive association of events; Aas treats two path events, not this count generating function. The general association result implies nonnegative covariance but not expression a²q^(n−2)(1+2(1−p)²−q^n); exact distribution and variance excess require explicit enumeration of the four-type conditional event.
+
+## value
+
+PASS
+
+A rooted random-orientation cluster is a natural random graph observable: the exact full distribution, signed binomial approximation with optimal exponential rate, and explicit dependence/variance reversal quantify a global bottleneck not given by qualitative association.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

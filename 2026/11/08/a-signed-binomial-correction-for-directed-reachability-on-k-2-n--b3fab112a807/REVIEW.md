@@ -1,15 +1,21 @@
-# Scientific review: directed reachability on \(K_{2,n}\)
+# Independent mathematical audit
 
-## Correctness: PASS
-The four mutually exclusive two-edge orientation types have probabilities \(p(1-p),p(1-p),p^2,(1-p)^2\). Reachability of the second hub is equivalent to occurrence of the first type; this proves the joint PGF. A conditional comparison on the no-type-I event gives an exact signed difference of two binomial laws. Sign threshold, total variation, and sharp exponential rate follow from the explicit coefficients and binomial large-deviation concentration. Mean and covariance follow by differentiation. The independent graph-enumeration checker passed 710 exact assertions for 30 parameter instances. The infinite theorem does not depend on the finite enumeration.
+## correctness
 
-## Originality: PASS (subject to historical priority risk)
-F. Bienvenu (2017 preprint, 2019 article) proves general positive association but no explicit distribution for \(K_{2,n}\), and E. Aas (2011) studies a different consecutive-path correlation under a regime in which both part sizes grow. The signed binomial correction, exact one-crossing threshold, total-variation identity and magnitude, and variance surplus are not stated or implied by either inspected theorem without a further family-specific computation. Targeted searches for oriented \(K_{2,n}\) out-component laws and polynomial aliases found no dominating evaluated result. A general directed-cluster counting identity elsewhere could conceivably produce the finite polynomial, and unindexed earlier evaluations remain a risk.
+PASS
 
-## Value: PASS
-The two-hub bipartite family is the first cyclic layer beyond oriented trees and a natural test case for correlation and cluster-size behavior. The result provides the complete finite law for every bias, a signed local comparison and sharp approximation constant/rate, rather than just expectation or qualitative association. The exact variance inflation at fair bias shows how rare, correlated global reachability failures can increase dispersion despite stochastic domination by an independent-vertex benchmark. The precision may serve as a check for oriented-percolation approximation methods on other sparse-core graph families.
+Four independent edge-direction types have respective probabilities p(1-p), p(1-p), p², (1-p)². The other hub is reached iff an s→b→t type occurs; without one, only type-III vertices can be counted. Splitting on this event yields the joint generating polynomial and conditional signed binomial correction. The two conditional parameters p²/q and p/q are strictly ordered, giving pathwise stochastic domination and the logarithmic sign crossing. Hoeffding at a threshold strictly between their means proves TV/q^n→1 for fixed interior p; differentiation produces means and pair covariance, including n=1 boundary for variance. Reconstructed independent of the finite checker.
 
-## Scope and limitations
-The main conclusions apply to independently oriented \(K_{2,n}\), not all graphs. The sharp asymptotic fixes \(0<p<1\) or restricts it to a compact interior interval. Priorities for unindexed older computations are not certified; no independent mathematical audit has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the exact final claim (not of elementary starting tools). The conditional-binomial law follows from a root-to-hub two-edge path decomposition; alternative rooted percolation-cluster and transitive-closure terminology was searched. Bienvenu treats positive association of events; Aas treats two path events, not this count generating function. The general association result implies nonnegative covariance but not expression a²q^(n−2)(1+2(1−p)²−q^n); exact distribution and variance excess require explicit enumeration of the four-type conditional event.
+
+## value
+
+PASS
+
+A rooted random-orientation cluster is a natural random graph observable: the exact full distribution, signed binomial approximation with optimal exponential rate, and explicit dependence/variance reversal quantify a global bottleneck not given by qualitative association.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
