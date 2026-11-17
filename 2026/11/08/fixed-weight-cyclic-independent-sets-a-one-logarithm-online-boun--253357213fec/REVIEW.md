@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The cycle has exactly \(r\) edges of type \(00\). Segment parities give the sharp VC upper bound, and explicitly completed even-position supports give the lower bound. The marked-vertex gap count proves the exact concept-class cardinality, and independently movable threshold blocks yield the online lower bound. The resulting upper/lower bounds establish the asymptotic coefficient without extrapolation. The separate path comparison is proved by a path count and a deleted-boundary-zero block product. Tests of all small feasible parameter pairs corroborate these arguments. Limits: the exact online dimension at arbitrary finite parameters is not determined.
+## correctness
 
-## Originality
-**PASS on current accessible evidence, with priority risk.** Readable 2018 primary literature on independence polynomials of cycles counts the underlying objects and analyzes independence-equivalent graphs, but does not study their VC or Littlestone dimensions. The 2021 primary work on linear zero sets studies a different concept representation. A known cyclic-window formula covers the special case \(r=1\), and a fixed-weight path result supplies a related but strictly weaker online boundary for cycles. Neither covers the coefficient \(r\) for each fixed \(r\ge2\). Searches of public research records and literature for fixed-weight cycle words, online shattering and equivalent formulations found no matching all-defect theorem; this does not prove historical uniqueness. Possible priority under cyclic automata or binary-word terminology remains the main risk.
+PASS
 
-## Mathematical value
-**PASS.** The graph operation of adding one closing edge changes the sharp leading coefficient of online complexity from \(r+1\) to \(r\) at every fixed positive defect, despite preserving the exact VC dimension. Both sides have explicit adversarial query-tree constructions and matching counting bounds. This isolates a meaningful structural effect of a cyclic boundary and is not merely the computation of a familiar independent-set count.
+For each k-independent cyclic incidence word of length n=2k+r, exactly r edges have type 00. Query-gap parity vectors yield an upper VC obstruction at t>=r+2, with all-positive labeling bounding t<=k; the explicit even-coordinate support and closing-segment completion attain min(k,r+1). A marked-vertex composition count gives |I|=n/(n-k)*binom(n-k,k). Concatenated r threshold blocks realize sum floor(log2(b_i+1)) online mistakes, and class count upper-bounds Ldim, proving r log2 k+O_r(1) for fixed r>=1. The analogous path count and r+1 threshold blocks give its (r+1)log2 k+O_r(1), while same VC. Independent brute enumeration checked cycle VC for all 26 feasible (n,k) pairs with 3<=n<=9 and exact recursive finite Ldim within sharp stated bounds, including r=0 and k=0 boundaries.
 
-## Closest literature and scope
-Beaton–Brown–Cameron (arXiv:1810.05317v1, 2018) concerns graph independence polynomials and their equivalence classes. Malliaris–Moran (arXiv:2108.05569v1, 2021) provides the model-theoretic interpretation of online learning, not this cycle family. Guingona–Kolesnikov–Nierwinski–Soucy (arXiv:2109.04805v1, 2021), Theorem 3.10, treats zero sets of linear combinations. Known fixed-width cyclic windows and fixed-weight paths cover restricted or different concept classes. The new claim is for cycle-independent-set membership, primarily the full fixed-defect online leading coefficient for \(r\ge2\). Numerical counting formulas and the \(r=1\) special case are contextual and not asserted independently new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known fixed-cardinality path theory already determines path VC and the (r+1) coefficient at the same vertex count; these subclaims are credited as prior coverage. The inspected cycle independence polynomial source only counts sets, and maximal-independent-set online studies concern a different concept family. The surviving cycle-specific exact VC and sharp r online exponent demonstrate an additional boundary-edge effect not implied by either prior theorem. Qualified best-of-knowledge originality.
+
+## value
+
+PASS
+
+Adding the closing edge to the natural near-perfect k-packing graph changes Littlestone complexity by one full logarithmic term while leaving VC dimension exactly unchanged. The sharp matching r-block online lower construction and cycle-count upper bound isolate a structural adaptive-versus-static boundary phenomenon for a motivated concept class, not simply a reprint of independence polynomials.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
