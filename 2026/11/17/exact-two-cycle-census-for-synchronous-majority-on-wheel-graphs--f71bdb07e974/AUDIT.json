@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "Exact local AND/OR update conditioned on the hub and strict hub-majority thresholds yield an iff description of every hub-flipping two-cycle; stationary hub cases force the two step-two components to be full/empty, giving exactly two additional even-rim cycles. Labelled run counts are derived by compositions with a marked run, and exceptional n=3,4 cases are handled. Independent direct graph simulation covers 524272 states on rim lengths 3..17; an integer combinatorial checker confirms polynomial coefficients for component sizes 2..13 and values n3..60. Finite checks are corroborative; proof covers all n>=3.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goles and Olivos (1980), DOI:10.1016/0012-365X(80)90121-1, abstract specifies eventual periods 1 or 2 but no count. Full text was not obtained.",
+        "Benjamini et al., arXiv:1405.2486, states the general finite-graph period-two theorem and analyzes infinite unimodular/random graphs.",
+        "Turau, arXiv:2202.01580, gives characterizations for trees; a wheel contains cycles.",
+        "Aledo et al., DOI:10.1155/2020/9708347, applies to maxterm/minterm Boolean networks, whereas majority of 3 inputs is neither a maxterm nor a minterm."
+      ],
+      "reasoning": "The general period-two theorem determines which lengths may occur, not how many. The structural hypotheses of the remaining broader-looking papers exclude the target wheel with its synchronous, simultaneous nonlinear majority update.",
+      "searches": [
+        "Web: Goles Olivos 1980 periodic behaviour generalized threshold functions pdf",
+        "Web: synchronous majority wheel graph fixed two cycles census",
+        "arXiv:1405.2486 introduction and Theorem 1.1",
+        "arXiv:2202.01580 introduction, main results and tree scope",
+        "DOI:10.1155/2020/9708347 full open-access article introduction and operator definitions"
+      ]
+    },
+    "checked_sources": [
+      "https://u.cs.biu.ac.il/~tomi/Postscripts/majority.pdf",
+      "https://arxiv.org/abs/1405.2486",
+      "https://arxiv.org/abs/2202.01580",
+      "https://arxiv.org/abs/2205.08972",
+      "https://doi.org/10.1155/2020/9708347",
+      "https://doi.org/10.1016/0012-365X(80)90121-1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Agur–Fraenkel–Klein treats self-inclusive local majority of a cyclic string and explicitly notes general graph counts as an extension; the wheel has a globally coupled updating hub.",
+        "Nakar–Ron, arXiv:2205.08972, assumes translation-invariant fixed-radius neighborhoods, not a universal hub.",
+        "Accessible historical claims on the wheel concern three-color cyclic excitation and binary XOR; accessible majority studies concern prism and Möbius ladder graphs, not wheel majority."
+      ],
+      "reasoning": "The local AND/OR rule conditioned on a *changing* hub is a different dynamical map from the existing wheel cyclic/XOR rules and prism/ladders majority. Prior results cannot be specialized by a graph relabeling or parameter substitution to obtain the two strict hub inequalities and their wheel-run coefficient count.",
+      "searches": [
+        "Agur–Fraenkel–Klein 1988, PDF pp. 295–302, section 1 and section 2",
+        "arXiv:2205.08972 introduction, rule definition and configuration result",
+        "Prior-claim comparison by subject: wheel cyclic excitation; wheel XOR; prism and Möbius ladder majority",
+        "Published-results search: two-cycle census majority dynamics on wheels with tie retain, odd even circumference"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Indexed published record “A mod-four orbit census for parity automata on distance-two Boolean cubes” deals with XOR on a distance-two Boolean cube, not majority on a wheel.",
+        "Agur–Fraenkel–Klein 1988, https://u.cs.biu.ac.il/~tomi/Postscripts/majority.pdf, pp. 295–302, studies a self-inclusive cyclic-neighbor majority map without a hub, unlike the hub-coupled rule here."
+      ],
+      "reasoning": "Wheel majority is equally described as threshold voting on the cone over a cycle. The nonlocal hub flip depends on global population; local one-dimensional majority fixed-point or XOR orbit counts do not imply its primitive orbit census.",
+      "searches": [
+        "Published-results search: binary synchronous majority on a wheel K1 join Cn: primitive period-two configurations distinguished by flipping versus stationary hub; exact count",
+        "Published-results search: periodic points of wheel majority rule: hub alternating AND OR and no isolated ones in distance-two cycle",
+        "Web: wheel graph majority dynamics 2 cycle orbit enumerations synchronous majority",
+        "Web: wheel graph majority dynamics cycles synchronous"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Agur–Fraenkel–Klein 1988 Table 1 gives fixed-point values for a different cycle-only operator; for example their length-4 fixed count is 6, while wheel rim-length-4 has exactly 2 fixed configurations.",
+        "The searched integer sequence 3,2,5,11,21,34,66,77,220 did not appear as a wheel-majority orbit table in returned search results; OEIS direct query was inaccessible."
+      ],
+      "reasoning": "Known cyclic majority string tables count a different configuration invariant. There is no identified matching wheel-majority table. Direct sequence-database access limits make this a qualified search, not a proof of uniqueness.",
+      "searches": [
+        "Web: OEIS wheel graph majority 2 cycles 3 2 5 11 21 34 66 77 220",
+        "Web: 21 34 66 77 220 oscillations wheel",
+        "Web: Agur Fraenkel Klein number of fixed points majority rule 1988 cyclic word full text",
+        "Published-results search: majority voting rule on cycle with central universal vertex: exact nontrivial two-cycle census and run-count polynomial"
+      ]
+    },
+    "rationale": "The wheel-specific two-cycle count, including a strict hub-flip coefficient region and the two stationary-hub cycles at even rim lengths, is not implied by the period-two theorem, the published one-dimensional cyclic fixed-point formula, tree-only classifications, or the cited MAX/MIN counts. Exact source comparisons and residual full-text priority limits are recorded.",
+    "residual_risks": [
+      "The 1980 Goles–Olivos original article was not accessible in full; an exact specialized formula therein was not checked, though its available abstract addresses a general period bound rather than a wheel census.",
+      "Search-index and sequence-database omissions could hide an equivalent wheel enumeration; non-coverage is assessed under available evidence, not certified globally."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_COVER wheel-majority result: only cyclic self-inclusive local majority and fixed-point counts; no universal hub or global threshold",
+        "evidence": [
+          "pp. 295–296 define local three-site rule with the current bit, and identify an alternating two-cycle; pp. 299–301 give fixed-point cyclic-word counts and explicitly describe its graph as a simple closed path."
+        ],
+        "identifier_or_url": "https://u.cs.biu.ac.il/~tomi/Postscripts/majority.pdf",
+        "material_read": "Full eight-page PDF, including definitions, proof, table, and closing discussion; page images 295–296 inspected",
+        "method": "Full PDF text extraction via source reader plus page screenshots",
+        "title": "The number of fixed points of the majority rule",
+        "trigger": "Closest classical cyclic-word majority enumeration"
+      },
+      {
+        "assessment": "DOES_NOT_COVER exact wheel counts; supplies only generic eventual-period-two framework and probabilistic results on other graph ensembles",
+        "evidence": [
+          "Theorem 1.1 asserts eventual period at most two on every finite graph; the article analyzes random and unimodular graphs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+        "material_read": "Full-text HTML introduction, formal definition, Theorem 1.1 and theorem statements on random/unimodular graphs",
+        "method": "Accessible arXiv full-text HTML reading",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Archived day-specific 2014 source and general period-two theorem"
+      },
+      {
+        "assessment": "DOES_NOT_COVER wheels: results explicitly restricted to trees",
+        "evidence": [
+          "Theorems characterize fixed and two-cycles through edge subsets and tree block decomposition. Wheels are not trees."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.01580",
+        "material_read": "Full-text HTML abstract, introduction, contributions, Section 2 and model definitions",
+        "method": "Accessible arXiv full-text HTML reading",
+        "title": "Fixed Points and 2-Cycles of Synchronous Dynamic Coloring Processes on Trees",
+        "trigger": "Nearest graph-specific majority/2-cycle characterization"
+      },
+      {
+        "assessment": "DOES_NOT_COVER wheel-majority orbit enumeration: uniform radius-r cyclic-neighborhood map has no global hub",
+        "evidence": [
+          "Definition of majority on a cyclic string with uniform fixed radius and spatial periodicity theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.08972",
+        "material_read": "Full-text HTML abstract, introduction, rule definitions, main result statements",
+        "method": "Accessible arXiv full-text HTML reading",
+        "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata",
+        "trigger": "Possible equivalence via cyclic spatial pattern constraints"
+      },
+      {
+        "assessment": "DOES_NOT_COVER nonlinear majority: studied MAX/MIN operators, and the title alone would not distinguish this",
+        "evidence": [
+          "Introduction defines maxterm/minterm operators; majority of three variables is not either class."
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2020/9708347",
+        "material_read": "Open-access full-text HTML abstract, introduction, operator definitions, scope of stated results",
+        "method": "Publisher HTML reading",
+        "title": "Counting Periodic Points in Parallel Graph Dynamical Systems",
+        "trigger": "Broad-sounding periodic-point counting theorem"
+      },
+      {
+        "assessment": "UNRESOLVED_FULL_TEXT_PRIORITY_RISK, not asserted not covering; available abstract establishes period-at-most-two result only",
+        "evidence": [
+          "1980 abstract states eventual fixed point or a two-cycle for symmetric threshold functions; no wheel table in accessible material."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "Bibliographic and abstract record only; arXiv and lawful OA full text not located; publisher full text unavailable",
+        "method": "Publisher/institutional metadata and abstract search",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Original classical general period theorem; potential strongest prior coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "f71bdb07-e974-493f-893f-56f5626d529d",
+  "value": {
+    "rationale": "This gives a complete exact primitive two-cycle census for a natural planar wheel family, separating stationary and alternating hub mechanisms. The globally thresholded hub couples local AND/OR updates into a nontrivial weighted run-count cutoff not provided by classical period-length bounds, and implies provably exponentially rare periodic states alongside exponentially many temporal cycles on infinite subsequences.",
+    "status": "PASS"
+  }
+}
