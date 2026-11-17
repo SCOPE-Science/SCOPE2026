@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T22:13:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For two nonnegative unit-demand bidders and two goods with pivot VCG (no reserves), total seller revenue equals max(a,b)+max(c,d)−max(a+d,b+c), or min(|S|,|T|) if ST>0 and 0 otherwise, S=a−b,T=c−d. A positive shock to d takes T→T−t. For iid item-exchangeable bidder vectors with atomless gaps, quadrant symmetry gives P(R'_0+=−1)=P(+1)=1/8 and P(0)=3/4, without independence inside each row. Symmetric unimodal gap density guarantees nondecreasing expected revenue by comparing translated window probabilities; the explicit two-peak continuous gap distribution violates the conclusion without unimodality. In the four-independent-Uniform(0,1) model, difference gaps have triangular density, yielding the stated exact finite-shock decline, positive-loss and mean-shift polynomials with joins at t=1,2. I independently verified SymPy gain/loss derivative identities and the mean at t=1 (7/120); independent package checker source confirms externality enumeration implementation but was not run unmodified. These analytic identities cover all t≥0; finite checks are only corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hartline full note establishes revenue can fall after increasing a valuation in this market and links to minimum equilibrium prices.",
+          "General Walrasian price and buyer-entry monotonicity discussions have different hypotheses and no statistical one-coordinate shock law in the inspected material."
+        ],
+        "reasoning": "Deterministic existence of a revenue drop does not determine its 1/8 prevalence, or conditions ensuring monotone expectation across a random market. Neither a broader mechanism-class existence theorem nor equilibrium-price characterization entails the named exact marginal distributions.",
+        "searches": [
+          "VCG two bidders two items revenue sensitivity derivative distribution free 1/8 valuation shock uniform polynomial",
+          "https://arxiv.org/html/2602.20439",
+          "Gul Stacchetti 1999 Walrasian Equilibrium with Gross Substitutes",
+          "Rastegari Condon Leyton Brown revenue monotonicity combinatorial auctions"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query VCG two bidders two items revenue sensitivity derivative distribution free 1/8 valuation shock uniform polynomial",
+        "https://arxiv.org/html/2602.20439 full text",
+        "Gul–Stacchetti JET 87 (1999) abstract",
+        "Rastegari–Condon–Leyton-Brown abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hartline's deterministic valuation profiles give a counterexample to pointwise monotonicity; they do not specify a random distribution or its atomlessness/exchangeability.",
+          "The new mean-monotonicity proof uses symmetric unimodal density and the inequality f(t+z)≤f(|t−z|), not a generic Walrasian price argument."
+        ],
+        "reasoning": "The prior known phenomenon motivates but does not imply the measure of failure or shape-restricted expected response. The counterexample to unconditional mean monotonicity supplies an independent motivated boundary beyond a single deterministic drop.",
+        "searches": [
+          "https://arxiv.org/html/2602.20439",
+          "VCG two bidders two items revenue sensitivity derivative distribution free 1/8 valuation shock uniform polynomial",
+          "doi:10.1006/jeth.1999.2531"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source Hartline problem is the same 2-bidder, 2-item pivot VCG assignment: deterministic change of one value may reduce total revenue.",
+          "Our S=a−b,T=c−d gap identity exposes a probability distribution over independent item-exchangeable bidder rows, a different quantified object from a single deterministic example."
+        ],
+        "reasoning": "The two descriptions share the exact same mechanism, not just a title. Rewriting revenue as the minimum of same-sign gap magnitudes is a legitimate equivalence; no inspected deterministic prior result supplies the distributional derivative or all-shock laws.",
+        "searches": [
+          "VCG two bidders two items revenue sensitivity derivative distribution free 1/8 valuation shock uniform polynomial",
+          "arXiv:2602.20439",
+          "VCG minimum Walrasian prices 2x2 matching valuation increases distribution of preference differences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent triangular-gap symbolic integration matches P(R_t<R_0)=(t⁴−6t²+8t+3)/24 for 0<t≤1.",
+          "Hartline full 2026 source contains no corresponding all-t probability/expected-loss polynomial or unimodal-gap expectation theorem."
+        ],
+        "reasoning": "The discontinuous t↓0 decline probability and 1/4 large-shock level are exact natural ex-post risk statistics rather than arbitrary catalog values. No earlier same table was identified; this remains bounded rather than conclusive bibliographic evidence.",
+        "searches": [
+          "VCG two bidders two items revenue sensitivity derivative distribution free 1/8 valuation shock uniform polynomial",
+          "VCG 2x2 iid uniform valuations exact decline probability 1/8 one-quarter shock"
+        ]
+      },
+      "rationale": "Hartline 2026 directly treats VCG revenue nonmonotonicity in the SAME two-bidder, two-good market, but demonstrates deterministic decreasing examples and the minimum Walrasian price mechanism, not an iid exchangeable distribution-free one-eighth local incidence, a symmetric-unimodal stochastic-order sufficient condition with atomless counterexample, or complete four-uniform-value shock laws. General gross-substitutes and bidder-entry revenue literature does not logically subsume these coordinate-shock statistical comparisons. Possible auction-risk literature with the same statistics remains a priority risk; search nonhits are not claimed proof of novelty.",
+      "residual_risks": [
+        "Related general auction probability and comparative statics full texts were not all materially read; same quantitative results might exist under a different terminology.",
+        "Distribution-free results require iid exchangeable bidder vectors and atomless gap law; finite uniform-shock polynomials additionally require independent uniform entries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_PRIOR_EXISTENCE_ONLY: neither stochastic incidence nor exact shock curves stated",
+          "evidence": "Explicit 2×2 matching examples establish possible revenue drops but no distributional law or unimodality condition.",
+          "identifier_or_url": "https://arxiv.org/html/2602.20439",
+          "material_read": "Full accessible arXiv HTML (model, example valuations, proof of nonmonotonicity and minimum Walrasian price discussion)",
+          "method": "Read complete accessible HTML note",
+          "title": "Revenue Non-monotonicity in Matching Markets — Hartline",
+          "trigger": "Exactly same small assignment market; potential stronger coverage"
+        },
+        {
+          "assessment": "FRAMEWORK_BACKGROUND; full text priority risk",
+          "evidence": "The accessible abstract describes Walrasian existence and gross substitutes, not the particular 2×2 stochastic shock laws.",
+          "identifier_or_url": "https://doi.org/10.1006/jeth.1999.2531",
+          "material_read": "Abstract/bibliographic material only; 1999 full text not read",
+          "method": "Scholar abstract lookup",
+          "title": "Walrasian Equilibrium with Gross Substitutes — Gul and Stacchetti",
+          "trigger": "Potential general equilibrium implication"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_PERTURBATION; full text not read",
+          "evidence": "Bidder-population entry/removal comparisons are not the same as a single fixed bidder valuation coordinate increasing.",
+          "identifier_or_url": "https://eprints.soton.ac.uk/426396/",
+          "material_read": "Accessible bibliographic abstract only",
+          "method": "OA repository abstract/record lookup",
+          "title": "Revenue monotonicity in combinatorial auctions — Rastegari et al.",
+          "trigger": "Potential broader auction monotonicity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The prevalence and expected-cost size of the smallest VCG revenue-monotonicity anomaly are natural mechanism-design quantities. A distribution-free exact 1/8 incidence, a sufficient shape criterion for mean monotonicity, an atomless counterexample at its boundary, and entire finite-shock risk curves provide practically interpretable structural information distinct from the familiar deterministic example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Two bidders/two goods, nonnegative valuations, no reserves and fixed true valuation shocks; not strategic misreporting.",
+    "Unimodality is sufficient not necessary; full-shock polynomials only for four independent Uniform(0,1) entries.",
+    "Some broader auction literature material inaccessible; originality remains best-of-knowledge."
+  ],
+  "schema_version": 1
+}
