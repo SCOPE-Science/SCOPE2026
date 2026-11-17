@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The mean-zero energy identity and the cycle Laplacian spectral gap rule out nonconstant equilibria at or above the sharp boundary, including equality. Below it, the energy has a negative direction in the odd-reflection subspace, ensuring a nonzero minimizer. Invariance of the full energy under reflection makes this minimizer a genuine full stationary state. Taking absolute values of its free coordinates does not increase energy, while the discrete maximum principle makes every free coordinate strictly positive and bounds the solution inside the bistable interval. Its zero and sign pattern proves least period exactly \(n\). The standalone checker tests cases but does not certify the infinite quantifier.
+PASS
 
-## Originality — PASS within inspected evidence
+PASS: The mean-subtracted stationary identity has a strictly positive cubic remainder; Poincaré gap 4 sin²(pi/n) excludes all nonconstant states for d≥1/(16 sin²(pi/n)), including equality. Below it, a negative-energy first Fourier sine test in the odd-reflection space yields a nonzero coercive minimizer; symmetry criticality, absolute-value monotonicity, the discrete strong maximum principle, |v|<1/2, and unique zero-set/sign geometry establish a full stationary primitive-period-n solution. Reviewed actual RESULT.md, checker.py, metadata and verified 15 bounded numerical profiles n=5,6,7,9,11 below threshold; these samples do not prove the all-n statement.
 
-The 2026 Hesoun–Stehlík–Volek source treats symbolic stationary patterns in the small-diffusion regime, not an explicit all-diffusion primitive-period boundary in its accessible abstract and introduction. The 2019 multichromatic study records the three-site symmetric cutoff \(1/12\) and numerical branch behavior for three/four sites; **the three-site fact is recognized as prior art**. The 2020 existence-region article discusses primitive words, parameter regions and numerical boundaries but does not state the all-\(n\ge5\) spectral criterion in inspected relevant sections. Targeted independent search and mathematical-record similarity searches yielded no covering theorem. However, uninspected portions of the recent manuscript and possible general graph Allen–Cahn results leave a residual historical-priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-An exact necessary-and-sufficient diffusion boundary for all primitive spatial periods \(n\ge5\) is a natural model-scale threshold beyond perturbative small-diffusion existence. The proof supplies a constructive sign-definite half-cycle representative and controls the critical equality case. The theorem does not purport to count all branches, establish stability or claim novelty for previously known three-site thresholds.
+PASS best-of-knowledge: Earlier work covers n=3 or small-d structured existence, but no inspected theorem implies an exact all-diffusion primitive-period cutoff for every n≥5. Full access to one 2026 related source failed and is a documented priority risk.
 
-## Remaining limitations
+## value
 
-The symmetric cubic, cycle geometry and pure nearest-neighbor diffusion are essential. Full access to every portion of the recent primary paper was unavailable, and no independent proof audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Exact primitive spatial period n for a natural bistable lattice has a sharp diffusion existence threshold, including endpoint and prescribed spatial symmetry. This is a useful all-n bifurcation/existence delimiter beyond routine small-n computation and despite elementary constituent energy and spectral tools.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
