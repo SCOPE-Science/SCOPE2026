@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The four forbidden factors are obtained by an exact binary local-condition truth table. A run-end argument proves both directions of the cyclic-run classification for every positive period. The explicit eight-state transfer presentation is bijective on periodic points, including lengths one and two. Complementation splits the nonconstant six-state block into two listed three-state matrices; their checked characteristic polynomials produce the displayed zeta and cubic recurrences. Möbius inversion gives primitive orbits; Perron–Frobenius theory on the primitive six-state component proves plastic-constant entropy and the claimed asymptotics. `verify.py` exhaustively compares 262,142 labeled circular binary words and tests 100 periods. Finite calculations are corroboration, not a proof of infinite cases.
+## correctness
 
-**Originality — PASS, qualified by remaining literature risk.** The full 2023 primary treatment of pseudoperiodicity (first posted July 20, 2022) gives definitions, Proposition 4 for \((1,2)\), and general theory, but not the fixed-\((1,3)\) run/period/entropy classification as compared in its statements. Generic finite-type graph methods and zeta formulas in symbolic-dynamics literature cover the method, not the explicit instance without doing the new computation. Topically close published-record searches did not expose a logically covering fixed-\((1,3)\) result; matching keywords alone are not novelty evidence. A published equivalent under forbidden-factor or symbolic-dynamics terminology remains an unexcluded risk. The statement does not claim any new general-purpose transfer-matrix technique.
+PASS
 
-**Value — PASS.** The pair \((1,3)\) is the first small positive-shift separation beyond the rigid binary \((1,2)\) case studied in the guiding paper. Here the infinite periodic family is completely characterized by run lengths, its exact number of phase-indexed circular words and primitive necklaces is available at every length, and the associated full two-sided subshift has explicit positive entropy \(\log\rho\) for the plastic constant \(\rho\). These facts characterize a natural first nonrigid case and make the combinatorial transition measurable, rather than merely listing examples.
+For every phase-indexed periodic binary word (including n=1,2,3), local x_i=x_{i+1} or x_i=x_{i+3} excludes exactly 0101,0111,1000,1010. At each run ending, the next run must have length <=2 and two neighboring singleton runs cannot occur; the converse checks each run end. The 8-state order-three transfer graph has trace A^n=N_n, and removing the two constant fixed cycles splits its six-state component into complementary 3x3 blocks with characteristic polynomials lambda^3-lambda-1 and lambda^3+lambda-1. Log-det produces the exact stated dynamical zeta and recurrences. The strongly connected component has coprime cycle lengths 3,4, yielding entropy log plastic constant; Mobius inversion gives primitive orbit census. Independently enumerated all 16,382 phase-indexed words lengths 1..13 and independently computed trace counts 2,2,8,6,2,8,16,6,8,32,24,12,54. No enumeration proves the all-n transfer identity.
 
-**Closest literature and limitations.** J. Meleshko, P. Ochem, J. Shallit, S. L. Shan, *Pseudoperiodic Words and a Question of Shevelev*, arXiv:2207.10171 (2022), DMTCS (2023), DOI 10.46298/dmtcs.9919. D. Lind and B. Marcus, *An Introduction to Symbolic Dynamics and Coding* (1995), general finite-type tools. The mathematical claims are restricted to two-sided binary fixed \((1,3)\); independent review and exhaustive historical novelty assessment remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original evaluated claim after statement/implication comparison with cited literature; see four checks and residual risks. No negative search is taken as priority proof.
+
+## value
+
+PASS
+
+The fixed shifts (1,3) define a natural small pseudoperiodicity class; the complete cyclic-run restriction, exact every-n orbit data, entropy and zeta constitute a coherent exact classification, not an unmotivated tiny numerical table. Standard SFT methods are used transparently, while the non-obvious explicit polynomial factorization and cyclic rule are the concrete mathematical information a researcher can reuse.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
