@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The equality of the three root orders with Frobenius orbit lengths is proved in `RESULT.md`. The characteristic-sensitive incidence corrections follow from the exact identity \(BD=-A\), with the characteristic-two collapse described in the proof. The finite-field checker `verify_tangent_union.py` independently constructs polynomial-basis finite fields and counts projective rational zeros of the explicit defining polynomial.
+## correctness
 
-Command: `python3 verify_tangent_union.py`.
+PASS
 
-Observed final line: `VERIFY_HYPERFLEX_TANGENT_MOTIVE_OK`.
+With d=q-1 prime-to-characteristic, the d roots of each Kummer polynomial are étale. The first three tangent-direction coefficients and Vandermonde determinant eliminate full-torus maximal contacts; coordinate points give three pencils of d lines. BD=-A forbids triple cross-pencil concurrence in odd characteristic and forces it in characteristic two, yielding 3d^2 nodes versus d^2 ordinary triple points, plus three d-fold vertices. Normalization scissors subtracts the actual finite-étale branch preimages, not d rational copies. Frobenius theta^q=v theta gives orbit lengths ord(v) and the rational zeta factors. Independent GF(p^2) projective direct counts for all 42 tested coefficient cases p=5,7 agree. Completeness over every q,n rests on proof, not finite cases.
 
-Verified cases: every admissible ordered coefficient triple for \(q=5,7,8,9\) and \(n=2\); twelve sample triples for \(q=11,13\) and \(n=2\); every admissible triple for \(q=7\) and \(n=3\); and every triple over the base fields \(q=5,7,8,9\). The code uses exact operations, not floating point. Finite tests corroborate but do not establish the general statement, which rests on the explicit proof. The arithmetic-priority risk and the lack of independent mathematical audit remain.
+## originality
+
+PASS
+
+Best-of-knowledge originality qualified: Sziklai-optimal hyperflex tangent finite étale zeta. Compared full Resultary prior theorem(s), source normalization, equivalent invariant and relevant primary bibliographic material; existing ingredients and covered special cases are explicitly excluded from novelty. Residual historical coverage cannot be categorically excluded.
+
+## value
+
+PASS
+
+The complete union of maximal-contact tangents is a canonical arithmetic divisor attached to Sziklai-extremal smooth curves. Its finite-étale motivic class, exact characteristic-two singularity transition and all-extension zeta describe information absent from geometric line counts, and could be used for arithmetic complement/divisor investigations. It is not merely renaming the Fermat line arrangement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

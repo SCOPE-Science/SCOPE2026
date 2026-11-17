@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
-For \(q\ge5\), the characteristic does not divide \(d=q-1\), so all three Kummer root schemes are étale. The proof classifies the maximal-contact tangents by the first three Hasse/binomial terms, not by a possibly vanishing characteristic-two Hessian. The crucial incidence sign is \(BD=-A\): it gives three *disjoint* sets of nodes in odd characteristic and a common set of triple points in characteristic two. The normalization-scissors identity subtracts actual finite étale preimages, including the nontrivially twisted fibers over the rational vertices. Frobenius acts by multiplying each root by its coefficient ratio, with order dividing \(d\), giving the all-extension point counts and zeta function. A standalone finite-field construction and exhaustive checks in several small fields corroborate the proof. No finite sample is used as a proof of uniformity.
+## correctness
 
-## Originality (O) — PASS with explicit priority risk
-The complex geometric arrangement is explicitly known: Dimca–Ilardi–Pokora–Sticlaru, Theorem 1.7, supplies all \(3d\) inflectional tangent lines and a free-divisor construction. Ferreira–Speziali give the Sziklai-optimal normal forms. Moe–Toft further analyze Fermat inflection-tangent intersections over the complex numbers. Björner–Ekedahl give a general subspace-arrangement zeta framework for ground-field-defined component arrangements; here individual geometric components are not ground-field-defined. The additional arithmetic datum is a complete coefficient-dependent Frobenius action, distinguished characteristic-dependent finite étale singularity schemes, and a specific Grothendieck-ring identity that yields a closed zeta function for all finite extensions. A direct formula with this triple ratio-order specialization was not found in the inspected material or the searched mathematical records. An existing specialization of the general arrangement machinery, or an older arithmetic treatment of a twisted Fermat arrangement, remains a genuine priority risk. Mere absence from search is not regarded as proof of novelty.
+PASS
 
-## Mathematical value (V) — PASS
-The invariant is the motivic class and zeta function of a **canonical complete tangent-line divisor** attached to every smooth Sziklai-optimal degree-\(q-1\) plane curve, not an arbitrary numerical slice. It exactly distinguishes rational geometric components from rational singular points, including the universal three-point base-field locus with no individually rational components. The characteristic-two node-to-triple transition changes the global motivic correction. The result is useful for arithmetic investigations of flex-tangent additions and their complements, without requiring a downstream theorem.
+With d=q-1 prime-to-characteristic, the d roots of each Kummer polynomial are étale. The first three tangent-direction coefficients and Vandermonde determinant eliminate full-torus maximal contacts; coordinate points give three pencils of d lines. BD=-A forbids triple cross-pencil concurrence in odd characteristic and forces it in characteristic two, yielding 3d^2 nodes versus d^2 ordinary triple points, plus three d-fold vertices. Normalization scissors subtracts the actual finite-étale branch preimages, not d rational copies. Frobenius theta^q=v theta gives orbit lengths ord(v) and the rational zeta factors. Independent GF(p^2) projective direct counts for all 42 tested coefficient cases p=5,7 agree. Completeness over every q,n rests on proof, not finite cases.
 
-## Closest sources and limits
-The normal form and geometric Fermat arrangement are prior work, not the result being claimed; the general arrangement-zeta program may dominate the computation after the explicit arithmetic incidence data are supplied. The proof concerns the union of maximal-contact tangent lines only. No independent mathematical audit or full historical-priority guarantee has been obtained.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality qualified: Sziklai-optimal hyperflex tangent finite étale zeta. Compared full Resultary prior theorem(s), source normalization, equivalent invariant and relevant primary bibliographic material; existing ingredients and covered special cases are explicitly excluded from novelty. Residual historical coverage cannot be categorically excluded.
+
+## value
+
+PASS
+
+The complete union of maximal-contact tangents is a canonical arithmetic divisor attached to Sziklai-extremal smooth curves. Its finite-étale motivic class, exact characteristic-two singularity transition and all-extension zeta describe information absent from geometric line counts, and could be used for arithmetic complement/divisor investigations. It is not merely renaming the Fermat line arrangement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
