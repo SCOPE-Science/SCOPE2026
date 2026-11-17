@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T11:53:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The length-2 scattered-subsequence signature of a binary half is exactly (K,I) with K the one-count and I its 01 scattered-pair count. The coefficient squared sum of Gaussian binomials is exact. For |k-n/2|<=n^(2/3), Canfield–Janson–Zeilberger Theorem 4.5 supplies the uniform local limit for multiset inversions (the multiplicities are proportional to n, satisfying its uniformity hypotheses). Its Gaussian L2 integral yields (2 sqrt(3)/sqrt(pi))n^(-3/2); Vandermonde and concentration give binomial collision ~1/sqrt(pi n). Multiplication gives S_n/4^n~2 sqrt(3)/(pi n^2). Chebyshev bounds the conditional squared-density tails, binomial Chernoff bounds the k tails. Independent direct 2-deck enumeration agrees n=1..12, including S12=122570. Finite checks do not establish the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Canfield–Janson–Zeilberger Theorem 4.5 gives a uniform local CLT for Mahonian inversion statistics conditional on symbol counts; it does not perform the independent binomial count mixture."
+        ],
+        "reasoning": "A conditional distribution approximation is a genuine necessary premise but does not state or immediately supply the unconditional squared class-mass constant without the additional collision summation.",
+        "searches": [
+          "binary 2-binomial squares scattered subword equivalence collision asymptotic density 2 sqrt3 pi n squared Gaussian binomial inversion",
+          "https://arxiv.org/pdf/0908.2089"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/0908.2089",
+        "https://arxiv.org/abs/1310.4743",
+        "https://arxiv.org/abs/2510.07159",
+        "Resultary semantic search: binary 2-binomial squares scattered subword equivalence collision asymptotic density 2 sqrt3 pi n squared Gaussian binomial inversion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "CJZ local CLT plus the independent Vandermonde summation proves the submitted constant; Rao avoidance result does not imply the full asymptotic without this new summation."
+        ],
+        "reasoning": "The theorem is derivable from a known strong probabilistic ingredient combined with additional original analysis, not already stated as a corollary of the inspected source.",
+        "searches": [
+          "https://arxiv.org/pdf/0908.2089",
+          "https://arxiv.org/abs/1310.4743"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rao–Rigo–Salimov treats avoidance of 2-binomial squares; the submitted theorem counts all indexed 2-binomial squares with a sharp limiting density."
+        ],
+        "reasoning": "The same 2-binomial-equivalence definition is used, but avoidance of squares in infinite words does not give the aggregate finite random-word collision probability.",
+        "searches": [
+          "binary 2-binomial squares scattered subword equivalence collision asymptotic density 2 sqrt3 pi n squared Gaussian binomial inversion",
+          "https://arxiv.org/abs/1310.4743"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Gaussian-binomial coefficients enumerate finite individual classes, and the source reports exact small S_n values; no located class table states the aggregate sharp constant."
+        ],
+        "reasoning": "The limit is asymptotic over unbounded n; a finite exact table would not by itself cover it. No exact table or database giving this aggregate asymptotic was found.",
+        "searches": [
+          "binary 2-binomial squares scattered subword equivalence collision asymptotic density 2 sqrt3 pi n squared Gaussian binomial inversion",
+          "https://arxiv.org/abs/2510.07159"
+        ]
+      },
+      "rationale": "The main asymptotic aggregate collision probability and constant were not established by located prior sources. It genuinely combines a published multiset inversion local CLT with a second count-mixture collision, rather than merely renaming the CLT. Rao–Rigo–Salimov study existence and avoidance of 2-binomial squares; Richomme studies finite equivalence classes. Historical novelty is best-of-knowledge, not exhaustive.",
+      "residual_risks": [
+        "A prior unindexed enumeration or stronger all-class collision theorem could imply the same constant.",
+        "The Rao and Richomme works were not independently read cover to cover; this is a best-of-knowledge priority judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers conditional inversion local law, not whole 2-binomial square density",
+          "evidence": "Theorem 4.5 with N_*=min(k,n-k) provides uniform conditional lattice mass estimates.",
+          "identifier_or_url": "https://arxiv.org/pdf/0908.2089",
+          "material_read": "Theorem 4.5, hypotheses for balanced word-multiplicity regimes, mean and variance expressions",
+          "method": "Read PDF primary theorem, compared its uniform error conditions",
+          "title": "The Mahonian probability distribution on words is asymptotically normal",
+          "trigger": "Exact inversion local theorem is the critical nonstandard premise"
+        },
+        {
+          "assessment": "Avoidance/construction rather than population counting; full-text priority caveat",
+          "evidence": "Source 2013 addresses avoidance and morphic words, not demonstrated asymptotic coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/1310.4743",
+          "material_read": "Public abstract and available work description; full preprint not independently exhaustively reviewed",
+          "method": "Preprint metadata and supplied primary discussion",
+          "title": "Avoiding 2-binomial squares and cubes",
+          "trigger": "Same 2-binomial square object, possible direct precedence"
+        },
+        {
+          "assessment": "Potential class-description prior; no demonstrated sharp aggregate density theorem",
+          "evidence": "Source concerns geometrical/partition structure of individual coefficients.",
+          "identifier_or_url": "https://arxiv.org/abs/2510.07159",
+          "material_read": "Public abstract/metadata and related theorem references, not exhaustive full text",
+          "method": "Literature search and source citations",
+          "title": "On some 2-binomial coefficients of binary words",
+          "trigger": "Alternative representation via binary partition classes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The probability of a randomly sampled length-2n binary word being a 2-binomial square is a natural quantitative invariant of scattered-subsequence equivalence; the sharp n^-2 law and explicit constant answer a distinct question from construction/avoidance of such words, and require two asymptotic collision scales.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "No numerical rate in n, alphabet>2, or 3-binomial extension; priority conditional on current source inspection; finite calculations cannot prove n->infinity.",
+  "schema_version": 1
+}

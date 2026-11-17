@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The standalone Python 3 script `verify.py` uses the built-in `collections` and `math` modules. Running `python3 verify.py` reproduces Gaussian-binomial polynomials and their squared coefficient sums for every half-length from 1 through 100. For lengths 1 through 12, it independently computes the full pair \((K,I)\) for all binary words and verifies the collision count; it also checks selected exact integers and scaled ratios approaching the theorem's constant. Successful output begins `VERIFY_OK`.
+## correctness
 
-The proof's unbounded step is the published uniform local limit theorem of Canfield, Janson and Zeilberger, Theorem 4.5 of arXiv:0908.2089. The exact distribution's variance is \(k(n-k)(n+1)/12\), and the only application is for \(|k-n/2|\le n^{2/3}\), where both multiplicities tend to infinity proportionally to \(n\). The tail of the outer mixture is handled independently by binomial concentration. Finite tests are supplementary and do not certify the asymptotic theorem by extrapolation.
+PASS
+
+The length-2 scattered-subsequence signature of a binary half is exactly (K,I) with K the one-count and I its 01 scattered-pair count. The coefficient squared sum of Gaussian binomials is exact. For |k-n/2|<=n^(2/3), Canfield–Janson–Zeilberger Theorem 4.5 supplies the uniform local limit for multiset inversions (the multiplicities are proportional to n, satisfying its uniformity hypotheses). Its Gaussian L2 integral yields (2 sqrt(3)/sqrt(pi))n^(-3/2); Vandermonde and concentration give binomial collision ~1/sqrt(pi n). Multiplication gives S_n/4^n~2 sqrt(3)/(pi n^2). Chebyshev bounds the conditional squared-density tails, binomial Chernoff bounds the k tails. Independent direct 2-deck enumeration agrees n=1..12, including S12=122570. Finite checks do not establish the limit.
+
+## originality
+
+PASS
+
+The main asymptotic aggregate collision probability and constant were not established by located prior sources. It genuinely combines a published multiset inversion local CLT with a second count-mixture collision, rather than merely renaming the CLT. Rao–Rigo–Salimov study existence and avoidance of 2-binomial squares; Richomme studies finite equivalence classes. Historical novelty is best-of-knowledge, not exhaustive.
+
+## value
+
+PASS
+
+The probability of a randomly sampled length-2n binary word being a 2-binomial square is a natural quantitative invariant of scattered-subsequence equivalence; the sharp n^-2 law and explicit constant answer a distinct question from construction/avoidance of such words, and require two asymptotic collision scales.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
