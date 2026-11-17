@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python verify_wheel_h1.py` with Python 3 and SymPy. The code independently solves the distributional Kirchhoff equation \(-g''=\delta_x-ds/(2m)\) after inserting each test point as a vertex, taking the constant source on every edge segment into account. Exact rational integration then enforces mean zero and reads off the evaluation diagonal \(g(x)\). These values are compared to the analytically derived spoke and rim quadratics.
+## correctness
 
-A successful run produces:
+PASS
 
-```
-EXACT_CENTERED_KIRCHHOFF_POISSON_CHECKS_PASSED 99
-EXACT_RIM_SPOKE_GAP_AND_EXTREMIZER_CHECKS_PASSED 9
-ALL_METRIC_WHEEL_SOBOLEV_CHECKS_PASSED
-```
+For unweighted metric wheel W_m (m>=3), real arclength-mean-zero first-order H1 energy, vertex-linear interpolation plus edge Dirichlet Green functions yields exact edge quadratic profile q_ab(t)=(1−t)H_a+tH_b+(1−1/(2m)−R_ab)t(1−t)+1/(24m). Rim Fourier eigenvalues 3−2cos(2πj/m) give cyclic Green diagonal u_m=(1+ρ^m)/(sqrt5(1−ρ^m)), ρ=(3−sqrt5)/2, vertex constants Hhub=9/(16m), Hrim=u_m−15/(16m), edge resistances spoke=u_m, rim=1−u_m. Strictly concave edge profiles show rim midpoints uniquely globally max for m>=4 via explicit F(u,1/m)>37/5184; at m=3 K4 all six edge midpoints tie. Sharp K_m=5u_m/4−49/(48m). Independent exact Laplacian inversion m=3..8 matched closed form, cases m=3,4,5; universal proof from resolvent and sign argument.
 
-The 99 exact checks cover \(m=3,\ldots,11\), both edge types, endpoints, several interior points, and each spoke stationary point. Symbolic rational identities of the finitely checked graphs are consistency checks, not a substitute for the explicit all-\(m\) resolvent and strict polynomial comparison proved in RESULT.md. The proof also covers the tetrahedral boundary \(m=3\) and the limit as \(m\to\infty\).
+## originality
+
+PASS
+
+Originality PASS (best-of-knowledge) for the explicitly evaluated all-m wheel formula, complete continuous-point maximizer set and strict rim/spoke gap. Bapat–Gupta publishes wheel vertex resistances, not arclength H1 point evaluation. The general metric graph envelope theorem provides a finite algorithm valid here but does NOT itself state or imply without nontrivial cyclic Fourier resolvent and strict sign check the closed all-m symbolic answer, quantitative gap and K4 exception. This fine distinction remains a priority risk and is made explicit.
+
+## value
+
+PASS
+
+Exact analytic evaluation and rigidity on an entire nontrivial family of 2m-edge graphs is a natural functional-analytic invariant. The wheel-specific resolvent and uniform strict edge-orbit comparison give a reusable quantitative classification beyond merely restating an arbitrary-graph algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

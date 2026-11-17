@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed sharp constant concerns the *unnormalized* energy of real continuous edgewise-\(H^1\) functions subject to zero arclength integral. Decomposing functions into vertex interpolants and edge-Dirichlet bridges is energy-orthogonal, and the Dirichlet kernel provides an exact evaluation-diagonal formula. Wheel spectral decomposition gives the scalar cyclic resolvent \(u_m\), the hub and rim diagonal energies, and the two edge effective resistances. Both edgewise evaluation profiles are strictly concave. The comparison between their maxima reduces to \(F_m>37/5184\) for \(m\ge4\), justified by explicit derivative signs on an enclosing rectangle. At \(\(m=3\)\), wheel edge transitivity produces the separate equality case. Cauchy--Schwarz in the energy space supplies the precise equality functions. The asymptotic is an exact consequence of \(\rho^m\to0\). The standalone rational Kirchhoff-Poisson checker independently verifies 99 selected values but is not used as an infinite proof.
+PASS
 
-## Originality — PASS (bibliographic qualification)
+For unweighted metric wheel W_m (m>=3), real arclength-mean-zero first-order H1 energy, vertex-linear interpolation plus edge Dirichlet Green functions yields exact edge quadratic profile q_ab(t)=(1−t)H_a+tH_b+(1−1/(2m)−R_ab)t(1−t)+1/(24m). Rim Fourier eigenvalues 3−2cos(2πj/m) give cyclic Green diagonal u_m=(1+ρ^m)/(sqrt5(1−ρ^m)), ρ=(3−sqrt5)/2, vertex constants Hhub=9/(16m), Hrim=u_m−15/(16m), edge resistances spoke=u_m, rim=1−u_m. Strictly concave edge profiles show rim midpoints uniquely globally max for m>=4 via explicit F(u,1/m)>37/5184; at m=3 K4 all six edge midpoints tie. Sharp K_m=5u_m/4−49/(48m). Independent exact Laplacian inversion m=3..8 matched closed form, cases m=3,4,5; universal proof from resolvent and sign argument.
 
-Baker–Faber's full metrized-graph paper develops the underlying Laplacian, electrical and Green-function framework. Cinkir's full paper computes the canonical-measure tau constant from a discrete pseudoinverse, not an unnormalized-arclength centered \(L^\infty\) evaluation optimum. Bapat–Gupta's accessible complete article proves exact **vertex** wheel effective-resistance formulas (Theorem 5, Corollary 6), which are explicitly reused as antecedents; their statement and proof do not optimize the energy evaluation norm over *all metric edge points*. Targeted mathematical-record searches for wheel Sobolev evaluation, rim/spoke Green diagonals and the exact rational correction yielded no covering claim. A related earlier wheel claim concerns finite-vertex Lipschitz spread, and a previous wheel semigroup result concerns heat-flow Lipschitz contraction, neither of which implies the present first-order continuous variational formula. Residual risk: differently named or unindexed metric-graph embedding work may contain equivalent results; no absolute priority certification is asserted.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The metric wheel is a natural infinite family of connected graphs with two inequivalent edge orbits. The exact all-point Sobolev constant, its exceptional tetrahedral boundary, the complete equality classification, and a *uniform positive rim/spoke separation* resolve a geometric localization question that is not answered by a vertex-resistance table. The finite-size correction identifies a nontrivial bounded limiting sharp constant as the edge count grows. These features give structural meaning beyond routine substitution into a general network identity.
+Originality PASS (best-of-knowledge) for the explicitly evaluated all-m wheel formula, complete continuous-point maximizer set and strict rim/spoke gap. Bapat–Gupta publishes wheel vertex resistances, not arclength H1 point evaluation. The general metric graph envelope theorem provides a finite algorithm valid here but does NOT itself state or imply without nontrivial cyclic Fourier resolvent and strict sign check the closed all-m symbolic answer, quantitative gap and K4 exception. This fine distinction remains a priority risk and is made explicit.
 
-## Limits and closest work
+## value
 
-The result assumes equal unit lengths and arclength measure, real functions, standard Kirchhoff continuity, and first derivative energy. It makes no claim for unequal spokes, higher-order energies, or arbitrary graph families. Closest sources: Baker–Faber (arXiv:math/0407428, 2004, Sections 3–6); Cinkir (arXiv:0902.3401, 2009, Sections 2–4); Bapat–Gupta (DOI:10.1007/s13226-010-0004-2, 2010, Theorem 5 and Corollary 6). Prior wheel effective resistances are not claimed as discoveries.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact analytic evaluation and rigidity on an entire nontrivial family of 2m-edge graphs is a natural functional-analytic invariant. The wheel-specific resolvent and uniform strict edge-orbit comparison give a reusable quantitative classification beyond merely restating an arbitrary-graph algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
