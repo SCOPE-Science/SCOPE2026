@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T22:15:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The determinant-one companion matrix makes every finite state purely periodic. Independently enumerated all 4096 states modulo 16 into primitive cycles: 32 zero-free cycles of length 16, 24 zero-free cycles of length 32 and 72 zero-containing cycles of length 32. Every zero-containing primitive cycle has a zero first coordinate with second coordinate nonzero modulo 4. Independent integer matrix multiplication verified T^16 and (T^16-I)/8 mod4. The matrix lifting induction T^(2^k)=I+2^(k-1)B_k, B_k mod4 constant, flips the next zero-coordinate bit by a shift T^(2^(k+1)) if the second coordinate is odd, otherwise T^(2^k) if 2 modulo4; lower bits and the mod4 seed persist. Hence precisely 1280*8^(r-4) primitive avoiders, plus imprimitive valuation decomposition and small bases P1=1,P2=8,P3=128, gives N_r formula. Bounded direct higher-power enumeration only corroborates the infinite lift.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://dml.cz/bitstream/handle/10338.dmlcz/140627/MathBohem_133-2008-4_5.pdf",
+          "https://arxiv.org/abs/2210.16959"
+        ],
+        "reasoning": "Any theorem covering all arbitrary initial triples would need the mod16 incidence seed and the lifting for every primitive orbit. The inspected primary period and p-adic single-sequence results do not state those quantified conclusions.",
+        "searches": [
+          "Resultary semantic search: Tribonacci recurrence arbitrary triples modulo 2^r zero avoidance modulo 16 1280"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/zero-avoidance-of-tribonacci-recurrences-is-decided-modulo-sixte--1848a2571bf4/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/zero-avoidance-of-tribonacci-recurrences-is-decided-modulo-sixte--1848a2571bf4/check.py",
+        "https://arxiv.org/abs/2210.16959",
+        "https://dml.cz/bitstream/handle/10338.dmlcz/140627/MathBohem_133-2008-4_5.pdf",
+        "https://oeis.org/A106285"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://dml.cz/bitstream/handle/10338.dmlcz/140627/MathBohem_133-2008-4_5.pdf",
+          "https://arxiv.org/abs/2210.16959"
+        ],
+        "reasoning": "T^(2^k) congruence and period classification alone cannot yield N_r: cycles of the same length can either intersect or avoid the first-coordinate hyperplane. The 72-cycle liftable-zero certificate is new information required for the claimed criterion.",
+        "searches": [
+          "Resultary semantic search: Tribonacci recurrence arbitrary triples modulo 2^r zero avoidance modulo 16 1280"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://dml.cz/bitstream/handle/10338.dmlcz/140627/MathBohem_133-2008-4_5.pdf",
+          "https://arxiv.org/abs/2210.16959"
+        ],
+        "reasoning": "Klaška matrix congruences are an ingredient, but period lengths alone do not determine which orbits meet the first-coordinate-zero hyperplane. Bilu-Luca-Nieuwveld-Ouaknine-Worrell track fixed initial Tribonacci numbers instead of all states.",
+        "searches": [
+          "Resultary semantic search: Tribonacci recurrence arbitrary triples modulo 2^r zero avoidance modulo 16 1280"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://oeis.org/A106285",
+          "https://dml.cz/bitstream/handle/10338.dmlcz/140627/MathBohem_133-2008-4_5.pdf"
+        ],
+        "reasoning": "OEIS A106285 records cycle counts, not the 32/24 avoiding and 72 hitting primitive cycle split, their mod4 seeds, or all-moduli zero-free count N_r.",
+        "searches": [
+          "Resultary semantic search: Tribonacci recurrence arbitrary triples modulo 2^r zero avoidance modulo 16 1280"
+        ]
+      },
+      "rationale": "Klaška proves fundamental modular period and matrix congruence results, but the actual zero-coordinate incidence class for all arbitrary initial triples and universal 1280/3584 mod16 criterion does not appear in the relevant primary theorem and examples examined. Bilu et al study p-adic zeros of a distinguished Tribonacci sequence, not the uniform state-space property quantified over all triples. A recurrence-orbit count database tabulates different statistics; exact orbit zero-hit classification appears distinct. Best-of-knowledge with possible disguised period-incidence table risk.",
+      "residual_risks": [
+        "A specialist Tribonacci modular orbit-incidence classification could contain the 72-class exact zero test under a non-obvious alias.",
+        "The proof is conditional on the exact exhaustive mod16 base certificate, which was independently recomputed; no claim of a computer-formalized infinite proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Found the congruence ingredients, not the full zero-coordinate orbit-incidence and avoidance-density theorem",
+          "evidence": "Period congruences preserve the matrix structure but do not identify the 72 zero-containing primitive cycles.",
+          "identifier_or_url": "https://dml.cz/bitstream/handle/10338.dmlcz/140627/MathBohem_133-2008-4_5.pdf",
+          "material_read": "Relevant Lemma 2.2 matrix congruence, period classification and adjacent theorem statements in the primary full-text PDF; page image inspected",
+          "method": "Primary full-text PDF passage and theorem comparison",
+          "title": "Tribonacci modulo 2^t and 11^t — Jiří Klaška (2008)",
+          "trigger": "Exactly the same companion matrix and arbitrary initial triples over dyadic moduli"
+        },
+        {
+          "assessment": "Studies canonical Tribonacci sequence rather than every initial triple, so cannot directly imply all-state count",
+          "evidence": "Canonical initial conditions do not quantify over all 8^r state triples.",
+          "identifier_or_url": "https://arxiv.org/abs/2210.16959",
+          "material_read": "First PDF page, abstract and identified distinguished sequence normalization; targeted passages",
+          "method": "Primary arXiv PDF and page-image inspection",
+          "title": "On the p-adic zeros of the Tribonacci sequence",
+          "trigger": "Potentially stronger p-adic zero theorem"
+        },
+        {
+          "assessment": "Counts cycles rather than zero-avoidance; no matched 1280 or N_r invariant established",
+          "evidence": "Cycle counts alone omit first-coordinate-zero incidence.",
+          "identifier_or_url": "https://oeis.org/A106285",
+          "material_read": "Sequence description for number of modular recurrence orbits",
+          "method": "Database heading and description comparison",
+          "title": "OEIS A106285",
+          "trigger": "Potential exact finite orbit table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Global zero avoidance of a natural reversible three-term recurrence over all dyadic moduli is a substantive p-adic recurrence invariant. The finite cutoff mod16 uniformly deciding infinite higher-power avoidance, and the exact 5/14 density, bridge exhaustive finite dynamics to a genuinely quantified infinite lifting theorem, beyond routine orbit counting.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A specialist Tribonacci modular orbit-incidence classification could contain the 72-class exact zero test under a non-obvious alias.",
+    "The proof is conditional on the exact exhaustive mod16 base certificate, which was independently recomputed; no claim of a computer-formalized infinite proof.",
+    "No GitHub publication was attempted. Existing Lean verification and expert attestation channels remain untouched."
+  ],
+  "schema_version": 1
+}
