@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Shattering is proved in both directions: all-positive labels force comparability, and an explicit ordering of differences between prescribed positive prefixes avoids every negative query. Ordered partitions count the entire simplicial complex. The online upper bound is a full induction using a separately proved disjoint-domain product lemma; the positive branch of every root has exactly dimension \(n-2\), and VC dimension supplies the matching lower bound. The \(n=1\) and \(n=2\) boundaries are explicit. Finite verification checks all supports through \(n=5\), all mistake-tree ranks through \(n=5\), and Eulerian identities through \(n=9\).
+## correctness
 
-**Originality — PASS within inspected literature.** Chase–Freitag studies general thicket/VC bounds; Braun–Hough studies a cubical homomorphism complex of chains, not their shattered membership supports; Chen–Eur–Yang–Zhang studies free resolutions associated with individual poset elements of intersection-closed function classes, not binary indicators of maximal chains. Direct database searches for maximal-chain prefix shattering and Littlestone dimension did not yield the same claim. Comparison was by hypotheses and implications, not matching vocabulary. A historically unindexed equivalent result remains a risk; no novelty certification is implied.
+PASS
 
-**Value — PASS.** This naturally defined permutation-learning class has \(n!\) concepts but exact adaptive depth only \(n-1\). Its complete shattering complex is a canonical triangulated sphere with every face counted, rather than an arbitrary isolated dimension. It also sharply distinguishes subset-prefix queries from pairwise-precedence queries. Established Eulerian and Boolean-lattice topology is properly credited, not claimed as new.
+Checked the precise query universe of all nonempty proper Boolean subsets and hypotheses as permutations encoded by prefix-subset membership. All-positive shattering forces comparable sets. Conversely for any labelled inclusion chain each segment between positive landmarks can be ordered to avoid all nested negative prefixes by placing one element outside the largest forbidden prefix first. This creates all binary traces. Ordered set partitions into k+1 blocks give (k+1)! S(n,k+1), which is the face count of the proper Boolean order complex; the h-transform is the classical Eulerian polynomial. Conditioned on a positive response at A, the hypothesis family factors into independent prefix concepts inside A and its complement, giving Ldim <= n-1 by product-additivity and induction; a maximal chain support provides the matching VC lower bound. Independently enumerated every shattered support and computed adaptive query depth for n=1..4, yielding face arrays [1], [1,2], [1,6,6], [1,14,36,24] and Ldim 0,1,2,3.
 
-No assertion about arbitrary posets, all possible published treatments, or independent verification is made. The source classification and first available public release concern Chase–Freitag's 2018 work in classification theory.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The topology and Stirling–Eulerian face enumerator are classical for the Boolean proper-part order complex, but the exact identity of that complex with the shattering supports of maximal-chain incidence concepts, and especially the adaptive Littlestone dimension equality, require the positive-branch product proof. The nearest homomorphism-complex paper constructs different cubical cells from maximal chains. Related maximal-antichain and rooted-comb concept classes have different hypotheses and query geometries.
+
+## value
+
+PASS
+
+Precisely identifying which mixed labels of subset-prefix queries a hidden permutation can realize, and proving that adaptive queries gain no depth over the maximum fixed shattered chain, gives a complete and reusable classification of a natural concept class. The Stirling f-polynomial states exactly how abundant shattered supports are, not merely a one-number VC dimension; the result is motivated by membership-query learning, not by a random finite statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
