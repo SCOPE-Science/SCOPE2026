@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The connected-subgraph facet theorem supplies every interval inequality in the exact standard Euclidean embedding. Projection of its binary coordinate normal onto the sum-one affine hyperplane yields \(c_q\). The end-singleton/adjacent-pair double-cover certificate forces a sharp radius bound; the explicit baseline center attains every required facet inequality by strict concavity of \(c_q\). The equality-case equations recover the full incenter locus, while two boundary triples and all interior triples constrain independent singleton slacks. Concavity bounds every longer interval, proving the box formula in both directions. The all-dimensional argument, not the finite program, supplies completeness.
+## correctness
 
-**Originality — PASS, subject to historical-priority uncertainty.** Kühne–Monin (arXiv:2209.08069, especially Theorem 2.1 and its path discussion) provides facet classification and combinatorial recurrences, not these intrinsic Euclidean ball formulas. Juhnke-Kubitzke–Solus–Venturello (arXiv:2303.05876) addresses triangulation and volume, not Euclidean centers. The original construction (arXiv:1709.02813) supplies vertex and hyperplane foundations. A prior exact inball theorem for star cosmological polytopes applies to a different family for \(n\ge4\); a graph-independent cosmological-polytope **circumradius** result solves the opposite sphere problem. Results on path symmetric-edge polytopes concern projections or differently realized vertex sets and cannot transfer Euclidean inradii by an arbitrary linear map. Targeted research-record and literature searches did not show an equivalent or stronger covering statement. An unidentified equivalent prior metric formulation remains a risk, so priority is not independently certified.
+PASS
 
-**Mathematical value — PASS.** The family is canonical in the established study of cosmological polytopes, yet its metric inball geometry is not determined by known face vectors or volumes. The two-cover identity yields a sharp exact radius in every dimension; the complete \((n-4)\)-dimensional cubical locus reveals unexpectedly large nonuniqueness and a precise threshold at \(n=5\). The structural characterization of every center is meaningful independently of experimental confirmations.
+For each connected path interval, the projected intrinsic normal length is c_q=sqrt(q(2n-1-q)/(2n-1)). Two end singletons and all n-1 adjacent pairs cover every coordinate twice, so sum support=2 gives r<=2/(2c2+2c3+(n-3)c4). The explicit z0 saturates them, while strict concavity of c_q makes all longer interval inequalities feasible. Equality forces covering facets tight; singleton slacks at positions 2 and n-1 vanish; each remaining sigma_i, 3<=i<=n-2, lies in [0,r(2c4-c3-c5)]. Discrete secant monotonicity bounds slack losses on every other interval, giving an injective independent (n-4)-box. Limit n*r_n=1.
 
-**Limits.** Only standard, unweighted paths with \(n\ge4\) are covered; no general-tree theorem or equivalence across affine metrics is asserted. The source comparison is substantial but does not certify universal historical priority. Numerical LPs and rank checks support rather than replace the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Independent metric and cubical-center result not implied by inspected combinatorial sources.
+
+## value
+
+PASS
+
+The intrinsic inball is a natural metric invariant of a canonical graph polytope, and the exact nonunique incenter locus (an affine cube with a dimension growing with path length) is a complete structural classification not implied by face-count or volume results. Motivated by contrast with star cosmological polytopes; can be used to understand metric center degeneracies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

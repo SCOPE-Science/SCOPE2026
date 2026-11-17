@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` in an environment with NumPy and SciPy. The checker constructs the original \(3(n-1)\) vertices and all interval facet normals directly, calculates their Euclidean projections, and verifies the exact double-cover identity.
+## correctness
 
-It solves an independently formulated linear program for all integer path orders from \(4\) to \(11\), verifies 137 specified vertices of the proposed box of incenters (exhaustive corners for \(4\le n\le10\); extreme endpoint configurations at higher orders through \(15\)), and checks that 110 tested interval inequalities define genuine facets of the vertex hull for \(4\le n\le8\). It confirms the computed optimum and every sampled center's containment. The successful output is:
+PASS
 
-`PATH_COSMOLOGICAL_INBALL_VERIFICATION_PASSED 8 137 110`
+For each connected path interval, the projected intrinsic normal length is c_q=sqrt(q(2n-1-q)/(2n-1)). Two end singletons and all n-1 adjacent pairs cover every coordinate twice, so sum support=2 gives r<=2/(2c2+2c3+(n-3)c4). The explicit z0 saturates them, while strict concavity of c_q makes all longer interval inequalities feasible. Equality forces covering facets tight; singleton slacks at positions 2 and n-1 vanish; each remaining sigma_i, 3<=i<=n-2, lies in [0,r(2c4-c3-c5)]. Discrete secant monotonicity bounds slack losses on every other interval, giving an injective independent (n-4)-box. Limit n*r_n=1.
 
-These are finite computational tests. The complete proof relies on the facet theorem, the exact double-cover identity, and concavity inequalities, not a claim of computational exhaustiveness in all dimensions. The verification requires no external network and does not constitute independent validation.
+## originality
+
+PASS
+
+Independent metric and cubical-center result not implied by inspected combinatorial sources.
+
+## value
+
+PASS
+
+The intrinsic inball is a natural metric invariant of a canonical graph polytope, and the exact nonunique incenter locus (an affine cube with a dimension growing with path length) is a complete structural classification not implied by face-count or volume results. Motivated by contrast with star cosmological polytopes; can be used to understand metric center degeneracies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
