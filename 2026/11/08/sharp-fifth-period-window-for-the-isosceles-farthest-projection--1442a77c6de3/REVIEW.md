@@ -1,12 +1,21 @@
-# Review of the fifth-period isosceles farthest-projection classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement concerns the farthest-perpendicular-projection map on **three complete supporting lines**, with ties fixed, and every positive real height. Any primitive five-cycle has a cyclic line word with adjacent labels unequal; the complete word list has six rotation classes. Compositions of five orthogonal projections along such a word have a strictly contracting one-dimensional return, hence at most one candidate per word. The two words of type I fail a strictly negative branch gap for every height. For type II, one branch gap forces \(0<h<1\), where another gap is strictly negative. The two mirrored type-III words have exact branch gaps whose five simultaneous strict inequalities reduce to \(\alpha<h^2<\beta\). The sign proof uses Descartes' rule, positive-root isolation, positivity of the remaining polynomials, and explicit factorization. All endpoints have ties and hence are not five-cycles. The strict projection inequalities persist locally; the exact return multiplier has modulus smaller than one. These arguments establish a complete infinite-parameter claim without relying on sampled heights. The attached symbolic checker reconstructs the projections and verifies the stated identities and sample censuses.
+## correctness
 
-## Originality — PASS within inspected evidence
-Samuel Everett's originating paper, *A Piecewise Contractive Map on Triangles*, defines this map, proves qualitative convergence, and discusses geometric bifurcations, including isosceles cases. Sections 2–4 of the accessible full manuscript do not give a complete primitive-five-cycle census or the two explicit endpoint polynomials. Exact previously recorded third- and fourth-period classifications use different iterate lengths and do not imply the new five-period claim. The indexed published result *Exact two-orientation classification of primitive three-cycles for the farthest-projection triangle map* also concerns period three. Searches targeted the same map, isosceles geometry, fifth-period aliases, polynomial thresholds, and potential stronger or tabulated periodic-point results; none yielded a demonstrably covering statement. A published precursor on iterated maps of the **space of triangles** has a different phase space and dynamics. Search incompleteness, alternative conjugacies, and unindexed complete five-period calculations remain residual priority risks. An indexed summary of a potentially related article was not treated as proof of its full-text noncoverage.
+PASS
 
-## Mathematical value — PASS
-The primitive-period-five count is a natural dynamical invariant in a family whose attracting cycles and bifurcations are central in the originating literature. The result identifies a **single sharp bounded parameter chamber**, two reflected attracting cycles, and two genuinely different tie collisions at its endpoints, rather than just producing isolated numerical examples. Eliminating every other five-step itinerary and proving both thresholds algebraically provides a complete, reproducible slice of the period-bifurcation picture that known period-three/four results do not determine. Its limits are clear: it does not classify higher periods or global basins and has no claim to a general universal law beyond this isosceles complete-line family.
+All moving prime-five cycles have one of precisely six 5-letter line itineraries (neighboring line labels distinct). Their affine orthogonal-projection returns strictly contract, giving one candidate per itinerary. The two type-I words have a negative choice-gap factor for every h>0; type-II words require h<1 but then a later gap is strictly negative. Type III has five exact positive-gap inequalities equivalent to alpha<h²<beta: alpha and beta are the unique positive roots of P(u)=u^5-12u^4-10u^3-20u²-15u-8 and R(u)=u^6-22u^5-u^4-52u³-17u²-22u-15, respectively. Exact root brackets are 12<alpha<13 and 22<beta<23; endpoint ties are stationary under the stated convention. Both mirrored cycles have multiplier -(u-1)^3/(u+1)^4 of absolute value below one. Independently enumerated six word candidates at 11 rational heights. The universal theorem follows from the exact sign argument, not the finite checks.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: the published period-three and period-four isosceles classifications concern different return itineraries, whereas a right-triangle all-odd-period result uses different geometry. Everett's original map paper was sought from arXiv and lawful OA but full text remained inaccessible; the publisher route returned VPN disconnected. Therefore its abstract cannot establish whole-document NOT_COVERING, and potential hidden fifth-period coverage is an explicit priority risk. No accessible independent statement implies the precise two fifth-cycles and polynomial boundaries.
+
+## value
+
+PASS
+
+Complete primitive-five census is a natural next structural classification of a piecewise contractive geometric map with documented multistability. The two sharp algebraic bifurcation endpoints and tie-excluded boundary cases are nonroutine and potentially useful to later global period and basin studies, without purporting to solve those studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
