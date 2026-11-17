@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A complete symmetric 19-vertex adjacency list is fixed and checked to be quartic, triangle- and square-free, with 38 edges and the 54 pentagons in Robertson's original source. Two independent implementations exhaust every one of the 524,288 spin configurations, reconstruct all 20 sector-optimum cut sizes and their exact multiplicities, and agree entry by entry. Comparing all affine sector energies at interval endpoints and checking their slopes proves the lower envelope for the full real field axis. Exact rational comparisons verify the only positive interior crossing at \(h/J=2\) and saturation crossing at \(h/J=4\). The proof does not extrapolate from samples.
+PASS
 
-## Originality — PASS on inspected evidence, with explicit priority risk
+The graph has 19 vertices, 38 edges, degree 4, girth 5. For each spin-up subset S with k vertices, exact energy/J=38-2cut(S)-(h/J)(2k-19). Exhaustive independent vectorized enumeration of every 2^19=524,288 subset, using the original inspected adjacency list but a separately implemented edge-count method, reproduced all twenty maximal cut sizes B_k=(0,4,8,12,16,20,24,28,30,30,30,30,28,24,20,16,12,8,4,0) and multiplicities N_k=(1,19,133,437,703,516,137,4,2,6,6,2,4,137,516,703,437,133,19,1). Comparing all twenty affine energy lines at endpoints 0,2,4 and their slopes proves the all-real-field lower envelope; exact boundary sector ties give h=0:16, 2J:6, 4J:1950. Spin reversal covers negative h. The finite exhaustiveness is a complete proof for this fixed 19-site system, not a thermodynamic-limit assertion.
 
-The original Robertson article identifies the underlying graph, not the antiferromagnetic field response. The full 2023 Cambie–Jooken paper reports the 1,950 independent sets of that same graph (Theorem 4.6), and this known count completely covers the claimed saturation degeneracy. It does *not* give the 20-sector maximum-cut histogram or the lower two magnetization plateaus and their degeneracies, which cannot be inferred from an independence polynomial alone. Relevant existing finite-graph Ising field results on other graphs do not imply these particular values. Semantic record searches and accessible own claims showed no matching Robertson-cage field diagram. Additional unindexed prior computations remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Robertson graph is the unique minimal quartic graph of girth five, a natural sparse frustrated finite system. Exact magnetization is a canonical physical invariant of this cage. The result exhibits a nonzero weak-field magnetization \(3\), an intermediate magnetization \(5\), and a macroscopic-in-this-cluster jump of \(14\) units at saturation, despite the 19 sites and many missing phases. Its exact degeneracies give reproducible finite-size benchmarks for frustrated-spin calculations. The value resides in the **complete field-response classification**, not the previously known number of independent sets.
+The 1950 independent-set count and hence critical saturation-field degeneracy were published by Cambie–Jooken; this part is expressly covered. Their independence-polynomial and hard-core occupancy work does not give the exact frustrated AF Ising maximum-cut spectrum B_k for non-saturated states, the h/J=2 crossover, or all internal plateau multiplicities. These constitute the surviving distinct full-field classification.
 
-## Scope and risks
+## value
 
-This is a finite, classical, uniform-coupling calculation only. The word “transition” denotes an exact finite-cluster ground-state crossing, not thermodynamic singularity. The original 1964 source is year-dated rather than day-dated; the 2008-09-29 survey record supplies the earliest verified date-resolved archival source used for eligibility. No independent scientific audit or priority certification has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Robertson’s 19-site unique quartic girth-5 cage is a canonical frustrated finite antiferromagnet. The exact magnetic lower envelope and competing maximum-cut sectors are natural invariants necessary to analyze its field response, not an arbitrary graph slice; all-field completion and exact plateau multiplicities offer a self-contained useful fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

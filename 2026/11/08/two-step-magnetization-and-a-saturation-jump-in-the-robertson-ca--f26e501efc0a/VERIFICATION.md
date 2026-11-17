@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Run `python3 verify.py`. Standard Python 3 is sufficient; the implementation does not require Sage, Mathematica, network access, or external packages. The script checks graph parameters and all 20 microcanonical sector maxima and counts with two independent exhaustive algorithms. It verifies the exact lower envelope by rational comparisons on every field interval, and all degeneracies at zero and critical fields. The printed terminal result `VERIFIED` means only that those in-package finite and algebraic assertions succeeded, not that publication priority or independent validation has been established.
+# Independent mathematical audit
 
-The proof is finite and exact for the stated graph; it is not a finite simulation used to assert an infinite statement. In particular, the independent-set count 1,950 is a known value used as a consistency cross-check (Cambie and Jooken, 2023), not an independently novel finding.
+## correctness
+
+PASS
+
+The graph has 19 vertices, 38 edges, degree 4, girth 5. For each spin-up subset S with k vertices, exact energy/J=38-2cut(S)-(h/J)(2k-19). Exhaustive independent vectorized enumeration of every 2^19=524,288 subset, using the original inspected adjacency list but a separately implemented edge-count method, reproduced all twenty maximal cut sizes B_k=(0,4,8,12,16,20,24,28,30,30,30,30,28,24,20,16,12,8,4,0) and multiplicities N_k=(1,19,133,437,703,516,137,4,2,6,6,2,4,137,516,703,437,133,19,1). Comparing all twenty affine energy lines at endpoints 0,2,4 and their slopes proves the all-real-field lower envelope; exact boundary sector ties give h=0:16, 2J:6, 4J:1950. Spin reversal covers negative h. The finite exhaustiveness is a complete proof for this fixed 19-site system, not a thermodynamic-limit assertion.
+
+## originality
+
+PASS
+
+The 1950 independent-set count and hence critical saturation-field degeneracy were published by Cambie–Jooken; this part is expressly covered. Their independence-polynomial and hard-core occupancy work does not give the exact frustrated AF Ising maximum-cut spectrum B_k for non-saturated states, the h/J=2 crossover, or all internal plateau multiplicities. These constitute the surviving distinct full-field classification.
+
+## value
+
+PASS
+
+Robertson’s 19-site unique quartic girth-5 cage is a canonical frustrated finite antiferromagnet. The exact magnetic lower envelope and competing maximum-cut sectors are natural invariants necessary to analyze its field response, not an arbitrary graph slice; all-field completion and exact plateau multiplicities offer a self-contained useful fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
