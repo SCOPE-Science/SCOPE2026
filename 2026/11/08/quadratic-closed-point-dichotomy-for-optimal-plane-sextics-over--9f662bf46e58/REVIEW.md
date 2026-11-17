@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Both diagonal sextics are geometrically smooth in characteristic seven and have genus ten. Homma's coefficient-orbit result together with the full optimality classification in Ferreira--Speziali exhaust the two projective types. The independently replayed exact Euclidean-gcd computations certify the unique affine sixth-power pair, and an unrelated field-element census agrees with all four affine/infinity subtotals. The degree-two closed-point identity is exact.
+## correctness
 
-## Originality
-PASS, subject to recorded priority limits. Homma already proved that the two projective classes exist and that their \(\mathbb F_7\) point counts are \(36\), while Ferreira--Speziali proved converse optimality. Neither provides the two explicit \(\mathbb F_{49}\)-point totals. Targeted checks for extension-count aliases, published numbers, broader character-sum coverage, and matching previously recorded claims did not find the pair. Old tables or specialist evaluations might still contain an equivalent numerical statement.
+PASS
 
-## Mathematical value
-PASS. The first field supporting two non-equivalent Sziklai-optimal sextics supplies a natural complete finite classification of their degree-two closed points. The distinction between zero and three such points is not visible in the known ground-field point count or the orbit-number theorem and is useful as an initial zeta-function constraint. No downstream theorem or arbitrary large-field extrapolation is claimed.
+Homma and Ferreira–Speziali exhaust the two F7 classes. Both diagonal equations are smooth genus ten. In F49, sixth powers form the subgroup of order 8; the two exact polynomial gcd identities are T−1, giving 36 affine points each, with 6 versus 0 at infinity, hence 42 versus 36. Degree-two closed points (N2−N1)/2 equal 3 versus 0. Independent exact polynomial gcd checks corroborated; enumeration is not used as a proof beyond finite field.
 
-## Limits
-The proof is finite and exact over \(\mathbb F_{49}\); it does not determine higher-degree places, full zeta functions, or analogues for all finite fields. Independent mathematical validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two-class optimal sextic theorem and F7=36 counts are known and credited. Their F49 point totals and exact degree-two splitting distinction were not found in the full text inspected or related indexed records. Jacobi-sum algorithms could compute such numbers but do not themselves state these two values.
+
+## value
+
+PASS
+
+Complete natural two-class arithmetic refinement in the smallest field with two optimal projective sextic classes. Exact degree-two place spectrum is an initial zeta constraint and distinguishes curves invisible to F7 maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

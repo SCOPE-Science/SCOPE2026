@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact Euclidean algorithm in `verify_gcd.py` checked both finite polynomial identities and returned `VERIFY_GCD_OK`. `verify_projective.py` independently constructed \(\mathbb F_{49}\) as \(\mathbb F_7[\iota]/(\iota^2+1)\), enumerated the affine chart and projective line at infinity for both sextics, and returned the point totals \(42\) and \(36\) with `VERIFY_PROJECTIVE_OK`. Both scripts are Python-standard-library only, and were run from the exact files supplied with this finding. They are exhaustive computations over a finite field, not evidence about any higher extension. The classification theorem and point-to-closed-point relation are given in `RESULT.md`. External independent audit has not been performed.
+## correctness
+
+PASS
+
+Homma and Ferreira–Speziali exhaust the two F7 classes. Both diagonal equations are smooth genus ten. In F49, sixth powers form the subgroup of order 8; the two exact polynomial gcd identities are T−1, giving 36 affine points each, with 6 versus 0 at infinity, hence 42 versus 36. Degree-two closed points (N2−N1)/2 equal 3 versus 0. Independent exact polynomial gcd checks corroborated; enumeration is not used as a proof beyond finite field.
+
+## originality
+
+PASS
+
+The two-class optimal sextic theorem and F7=36 counts are known and credited. Their F49 point totals and exact degree-two splitting distinction were not found in the full text inspected or related indexed records. Jacobi-sum algorithms could compute such numbers but do not themselves state these two values.
+
+## value
+
+PASS
+
+Complete natural two-class arithmetic refinement in the smallest field with two optimal projective sextic classes. Exact degree-two place spectrum is an initial zeta constraint and distinguishes curves invisible to F7 maximum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
