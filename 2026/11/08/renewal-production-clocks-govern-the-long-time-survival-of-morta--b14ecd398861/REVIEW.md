@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a logarithmic asymptotic for an initially empty renewal-birth system with independent defective single-searcher completion times. The identity for conditional survival is an exact product, the two-sided bounds compare to thinned renewal counts, and an explicit exponential change of measure at the first overshooting renewal gives quantitative two-sided bounds for the latter. Continuity of the root proves that all conditional successful-delay laws yield the same decay exponent. Convex ordering, the Poisson probability-generating functional, and the Pareto no-birth lower bound complete the claim. The Brownian success probability follows from a standard boundary-value problem. The tests support selected cases and do not replace these proofs.
+PASS
 
-## Originality — PASS (qualified)
+With iid renewal gaps 0<w_-<=W<=w_+ and iid independent defective hit delays U, Q(t)=E product_{S_i<=t}(1-G(t-S_i)). The sandwich g_(1-p)(t)<=Q(t)<=g_(1-G(K))(t-K) is correct since ignored births contribute factors <=1. With cE exp(theta W)=1, tilting on first overshooting gap gives g_c(t)=c^-1 E_tilde exp(-theta S_(N_t+1)), bounded between c^-1 exp[-theta(t+w_+)] and c^-1 exp(-theta t). Continuous theta_c squeeze as G(K) to p yields exact log rate. Strict convex-order monotonicity/Jensen yields fixed-mean constant-gap optimizer; Poisson survival exp[-b integral G] gives bp, and Pareto first waiting time gives zero exponent but a.s. reaction by infinitely many geometric successes. Independent computed roots for p=.1,.4,.8 in deterministic and two-point clocks and checked ordering; finite tests do not certify the asymptotic; single-particle Brownian p=exp(-L sqrt(d/D)) follows killed harmonic ODE. Scope excludes general unbounded light-tailed renewal law and finite-time survival ordering.
 
-Full available text of the February 2026 initial stochastic synthesis–degradation paper, the January 2026 dynamic-redundancy paper, and the November 2026 synthesis–degradation extension was compared for actual assumptions and conclusions; the November treatment keeps exponentially distributed times between production events, even with compound Poisson bursts. The 2025 time-dependent injection paper treats finite \(N\) and deterministic or independent injection times, not renewal-correlated, indefinitely repeated production. Classical Bernoulli thinning establishes that the zero-delay counting reduction is mathematically familiar; it is credited, not claimed novel. The proposed distinct claim is the complete physically motivated delayed-search exponent plus sharp convex-order production-clock optimization and the heavy-tail boundary. Prior indexed comparisons found no stronger directly dominating statement. Residual risk: a general marked-renewal theorem could imply the exponent and a specialized clock comparison may exist in dispersed literature.
+## originality
 
-## Value — PASS
+PASS
 
-The current stochastic synthesis–degradation model assumes constant production intensity, whereas real cellular production can be regular, bursty, or strongly intermittent. The result quantifies a sharp and operationally meaningful effect: with the same average cost per production opportunity and the same single-searcher motion, deterministic timing uniquely yields the fastest *tail* suppression, and arbitrarily long Pareto gaps abolish the exponential kinetic timescale even though every particle can independently succeed. The zero-versus-positive exponential-rate distinction and the Pareto mean-time threshold give nonroutine model-selection consequences, beyond a small numerical improvement.
+Best-of-knowledge PASS for bounded-renewal/delayed-success exponent plus strict fixed-mean clock ordering. Classical Bernoulli renewal thinning and Lundberg adjustment coefficient explain the zero-delay tilt, and Poisson-search literature covers bp, not the joint delayed-success statement with general bounded-renewal clock convex-order optimum. An inaccessible plausible November 2026 same-model article remains a priority risk, not a claim of exhaustive literature search.
 
-## Limits and relevant literature
+## value
 
-Scope: bounded positive renewal gaps for the general root, separate exact Poisson and Pareto benchmarks, independent searcher delays and births, no universal finite-time ordering. Closest sources: arXiv:2602.11095; arXiv:2611.04843; arXiv:2601.07096; arXiv:2503.19105; Chandramohan–Liang (1985). The 1985 abstract was accessible but full text was not materially inspected; no priority assertion follows from an unavailable text. The 2025 article's PDF text was inspected for its injection assumptions, but its page-image rendering failed. Independent mathematical assessment has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Renewal timing is a natural experimental control in mortal search and synthesis; the exact long-time reaction rate depends only on hit probability despite arbitrary success delays, while deterministic clock is unique robust optimal fixed-mean choice. Extends physical Poisson-birth analysis with a mathematically meaningful convex-variability comparison. Jensen/renewal tilting are classical tools, not themselves claimed novel.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
