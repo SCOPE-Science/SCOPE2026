@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof reduces the section shape to the spectrum of a two-dimensional quadratic form. The exactly circular sections occur at four unit normals. In local tangent-plane coordinates the eigenvalue gap has invertible first variation, giving four shrinking disks and the exact quartic probability coefficient. A separate algebraic perfect-square certificate proves the global coefficient inequality, and an explicit involution proves exact inverse multiplicity.
+# Independent mathematical audit
 
-The independent numerical script `verify.py` uses Python 3, NumPy and SciPy. It checks 4,500 alternative plane-basis eigenvalue calculations against the invariant trace formula, eight zero-eccentricity evaluations across two triaxial examples, the exact rational two-shape inverse ambiguity, 1,048,576 low-discrepancy uniformly distributed normals, and six checks against explicit spheroidal CDF values. It printed:
+## correctness
 
-`VERIFY_OK alternative_plane_bases=4500 circular_normals=8 sobol_normals=1048576 exact_ambiguity=1 axisymmetric_CDF_cases=6 quartic_coeff=0.5`
+PASS
 
-These finite diagnostics do not constitute a proof of an infinite limit. The limit is derived by the local nondegenerate Jacobian and spherical area measure, and global uniqueness of the circular planes is established algebraically. There was no independent audit or formal certification.
+PASS: The restricted quadratic form in a central plane has eccentricity squared equal to its eigenvalue gap divided by the larger restricted eigenvalue. There are exactly four oriented circular-section normals at (±sqrt((β-α)/(γ-α)),0,±sqrt((γ-β)/(γ-α))); linearizing the gap in two tangent coordinates yields radial slope 2sqrt((β-α)(γ-β))/β. Four disks of radius (β/[2sqrt((β-α)(γ-β))])ε² give Cε⁴. Min–max gives M=1-α/γ; explicit perfect-square identity yields the sharp bound and involution β→αγβ/((α+γ)β-αγ). Exact rational check of (1,2,4) vs (1,4/3,4) gives M=3/4,C=1/2; spheroid formulas follow from uniform directional cosine. Fixed triaxial shape only; no uniform gap-merger claim.
+
+## originality
+
+PASS
+
+PASS, best knowledge: Classical circular planes, full cross-section aspect-ratio histograms, and spheroidal distributions are acknowledged; inspected material did not supply the exact quartic fixed-triaxial near-circular probability, coefficient or full two-statistic inverse nonuniqueness. This is distinct from a random affine offset section. Residual risk from older stereology literature, including not fully accessible Hayes/Landrø technical details.
+
+## value
+
+PASS
+
+PASS: Recovering three-dimensional shape from random two-dimensional sections is a natural inverse-stereology problem. A sharp quartic rare-event coefficient and its exact two-to-one ambiguity with maximal eccentricity show precise information loss; this matters for statistical identifiability and distinguishes triaxial from rotationally symmetric cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
