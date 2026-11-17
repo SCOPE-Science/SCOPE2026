@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem states all quantifiers, field assumptions, and both multiplications. The splitting proof uses the value of a derivation at the ordinary group-ring identity, subtracts the corresponding multiplication derivation, and proves the remainder is an ordinary derivation commuting with both scalar automorphisms. The truncated logarithm diagonalizes both actions and produces the exact two basis families; the commutator identities give the complete Lie bracket. All coefficients are defined in characteristic \(p\); no infinite claim depends on a finite enumeration. Direct exact Gaussian elimination verifies the predicted dimension for all permitted and control parameters at primes 3, 5, 7 and 11; direct generators and brackets are also checked.
+## correctness
 
-**Originality — qualified PASS.** The 2021 derivation paper gives coefficient equations and characteristic-zero dihedral results plus small positive-characteristic examples; it does not state the present uniform classification for non-dihedral scalar quandles. The October 2026 group-ring transport is known, and the use of that transport is fully credited. Other prior work already classifies the dihedral defining-characteristic case; that case is EXCLUDED from the claim. Earlier nonmodular Fourier derivation results require the coefficient characteristic to be coprime to the quandle order and hence do not imply the modular result. Existing modular idempotent counts and Peirce results solve different equations. Actual searches across the mathematical record service, primary texts and accessible earlier claim summaries yielded no formula with the claimed full non-dihedral parameter dependence and Lie brackets. Residual risk: an older general derivation theorem may specialize to this classification in less explicit language.
+PASS
 
-**Value — PASS.** Derivation Lie algebras encode infinitesimal algebra symmetries of the quandle linearization. The complete semidirect-product structure and its exact finite-field count describe the entire invariant across an infinite family, and at one fixed quandle order \(p=7\), the derivation dimension distinguishes parameters \(a=2,3,4\) by the values \(2,3,4\). The interaction of the arithmetic resonance set with a truncated Witt-type algebra is not a routine renaming of the known idempotent classification or the characteristic-zero rigidity result.
+The basis map e_x↦X^x transports the nonassociative quandle product to α(u)β(v) in the associative group ring, α(X)=X^a, β(X)=X^b. For δ, h=δ(1) obeys h=αh+βh; multiplication M_h is indeed a star derivation and δ−M_h kills 1, commutes with α,β, and is an ordinary ring derivation by surjectivity of both automorphisms. In K[X]/(X^p−1) the truncated logarithm T=log X is an invertible coordinate change modulo (X−1)^p and α(T)=aT, β(T)=bT. Thus multiplication eigenmonomials are precisely d in D, and associative derivation vector fields f(T)∂ commute iff f has exponents 1+jL (L divides p−1). The [M_h,M_g], [f∂,M_h], and [f∂,g∂] commutators yield the full displayed bracket table; no assumption K=F_p is needed. Independent modular linear elimination of original quandle Leibniz equations for p=5,7 reproduced dimensions p=5:(2,2), p=7:(2,3,4,3) across admissible a, including the p=7 stated 2,3,4.
 
-**Limitations and comparison.** The contribution excludes the dihedral parameter, assumes a prime-order scalar action and defining characteristic, and does not claim automorphism-group classification. The small characteristic-three dihedral example was known, and neither general group-ring transport nor older semisimple-dihedral results are claimed as discoveries. Historical priority remains qualified and independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The general coefficient equations in Elhamdadi et al. (2021) and known group-ring transport in Zhang (2026) are antecedents. Prior modular derivation Lie decompositions in the indexed corpus involve dihedral a=−1; nonmodular Fourier diagonal classification excludes char(K)=p. None of those sources implies the explicit all-nondihedral eigenvalue index set D, dimension formula and Lie brackets without a nontrivial new simultaneous diagonalization and centralizer argument.
+
+## value
+
+PASS
+
+A complete defining-characteristic Lie algebra classification for every non-dihedral prime Latin Alexander quandle, with arithmetic jumps and brackets (not just low-dimensional examples), addresses a mathematically natural modular/nonmodular boundary and is a usable structural theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
