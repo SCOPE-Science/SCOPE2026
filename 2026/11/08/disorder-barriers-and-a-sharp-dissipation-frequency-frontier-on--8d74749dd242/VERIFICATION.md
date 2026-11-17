@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The exact symbolic characteristic-polynomial identity and exceptional-point rank calculations were checked by the standalone `checks/verify.py` using SymPy. The same checker tests an extensive finite grid of rational edge-activity triples and admissible biases against the entropy Jensen inequality and spectral formulas, and tests inverse entropy-budget calculations by bisection.
+## correctness
 
-Command from extracted package root: `python checks/verify.py`.
+PASS
 
-Observed result: `PASS: 2274 deterministic assertions; 3x3 symbolic identity and Jordan tests verified.`
+Direct characteristic polynomial of the full row generator is z[z²+2Gz+3(H+j²)], hence λ±=−G±sqrt(Δ²−3j²). An equal-eigenvalue restriction is semisimple only at g uniform and j=0; otherwise it is an exceptional point. The allowed |j|<min(g) yields sharp feasibility Δ²<3m². For stationary π_i=1/3, σ=(2j/3)Σ log[(g_i+j)/(g_i−j)]. Strict convexity of f_j(x) and Jensen give σ≥2|j|log[(G+3|j|)/(G−3|j|)] with equality only uniform g, and the latter function strictly increases to ∞, proving the attained bound and unique equality. Independently checked symbolic spectrum and 375 rational triples with three j ratios.
 
-**Limits:** Finite numerical tests do not prove the universal assertions or originality. Those assertions rely on the explicit analytical determinant, eigenvector argument, convexity and monotonicity proof in `RESULT.md`. No independent audit or external formal certificate has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge: surveyed earlier cycle thermodynamic spectral bounds are expressed through maximum mixing/geometric rates or affinity, not the sharp fixed-total-activity and fixed-entropy-budget optimizer together with the exact disorder-forbidden region. Full Xu–Meng primary remains a material comparison risk.
+
+## value
+
+PASS
+
+A sharp, attained dissipation–frequency tradeoff under a natural fixed-total-rate resource constraint is a motivated stochastic-thermodynamic optimization; strict activity disorder can categorically forbid oscillations even as irreversibility diverges. The exact feasibility boundary, exceptional point classification, and unique maximizing design are specific useful structural facts, not a recomputation of a generic inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
