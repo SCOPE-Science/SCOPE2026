@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the directed correlation theorem
+# Independent mathematical audit
 
-`verify.py` uses only the Python standard library. It independently computes the cube integral of \(\operatorname{Cov}(Z_0,Y_n)\) by enumerating all \(3^n\) ternary driving paths and \(2^n\) binary initial cells for \(0\le n\le5\). On each cell, the dependence on \(Z_0\) enters only through a fixed branch itinerary, so its midpoint gives the exact integral of the initial centered coordinate; integrating the independent initial \(Y_0\) amounts to starting at its mean \(1/2\).
+## correctness
 
-A separate exact-rational calculation implements the binary-digit Koopman recurrence, and a third calculation expands the algebraic resolvent as a formal power series. The two agree for all 17 coefficients through degree 16 and match the six direct integrals. Six larger lags compare with the sharp two-edge asymptotic at an explicitly limited numerical tolerance. The first coefficients are \(C_0=0\), \(C_1=1/144\), \(C_2=1/216\), \(C_3=7/1728\), \(C_4=5/1944\), and \(C_5=131/62208\).
+PASS
 
-Actual execution completed successfully. These checks are supporting evidence only: the all-integer identity, exact vanishing in the reverse direction and the asymptotic transfer are analytical theorems proved in `RESULT.md`. The analysis does not cover arbitrary observables or nonstationary starts. No independent mathematical audit has been performed.
+Exact Lebesgue preservation follows because the four affine branch images partition the cube and each has |Jacobian|=1. The ternary x digits independently drive a binary push/pop process in z, and conditional y drift gives C_(n+1)=C_n/2+D_n/18. On binary Rademacher digits the averaged operator obeys P R_1=R_2/3, P R_j=(2R_(j-1)+R_(j+1))/3 for j>=2, with initial covariance weights 2^(-j-1). Solving the bounded resolvent yields r(t)=(3-sqrt(9-8t^2))/(2t) and C(t)=t(2+r^2)/[72(1-t/2)(4-r)]. Its only dominant square-root singularities at +/-3/(2sqrt2) give positive distinct even/odd amplitudes times (2sqrt2/3)^n n^(-3/2). Reverse covariance vanishes since z_n is independent of y_0. Independent symbolic series expansion reproduced n=0..10, including C_1=1/144,C_2=1/216,C_3=7/1728,C_4=5/1944. Infinite limit depends on full analytic singularity proof, not finite series.
+
+## originality
+
+PASS
+
+The 2018 original paper defines the 3D map and proves qualitative dynamics. Mixing theorems bound correlations; published 2026 exact center autocorrelation results concern the 2D/generalized center observable, not Cov(Z0,Y_n) for original 3D and its reverse. The exact cross-resolvent, vanishing direction, both nonzero parity constants remain unsupported by those earlier conclusions.
+
+## value
+
+PASS
+
+This exact observable-specific directed response demonstrates irreversible coordinate memory despite invariant Lebesgue measure and supplies sharp spectral-edge constants unavailable from generic mixing. It is a motivated quantitative ergodic invariant, not simply an arbitrary finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

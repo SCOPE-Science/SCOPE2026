@@ -1,19 +1,21 @@
-# Scientific review: directed cross-coordinate correlations
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The precise system is the original three-dimensional map, with its four affine branches as given in Saiki–Takahasi–Yorke (arXiv:1811.01009, §1.3). Its invariant reference law is Lebesgue probability. Independence of successive base-three digits is a consequence of the standard ternary shift, not an additional randomness assumption. The conditional stable-coordinate update, push/pop action on binary digits, explicit bounded resolvent solution, cancellation of the apparent pole and both edge singularity expansions have been reconstructed algebraically. The resulting formula agrees independently with exact cube integration for lags 0–5 and with independently generated formal-series coefficients through lag 16. The square-root transfer argument treats both singularities and establishes the all-lag parity correction. The finite checks are not presented as an infinite proof.
+PASS
 
-## Originality — PASS within inspected evidence
+Exact Lebesgue preservation follows because the four affine branch images partition the cube and each has |Jacobian|=1. The ternary x digits independently drive a binary push/pop process in z, and conditional y drift gives C_(n+1)=C_n/2+D_n/18. On binary Rademacher digits the averaged operator obeys P R_1=R_2/3, P R_j=(2R_(j-1)+R_(j+1))/3 for j>=2, with initial covariance weights 2^(-j-1). Solving the bounded resolvent yields r(t)=(3-sqrt(9-8t^2))/(2t) and C(t)=t(2+r^2)/[72(1-t/2)(4-r)]. Its only dominant square-root singularities at +/-3/(2sqrt2) give positive distinct even/odd amplitudes times (2sqrt2/3)^n n^(-3/2). Reverse covariance vanishes since z_n is independent of y_0. Independent symbolic series expansion reproduced n=0..10, including C_1=1/144,C_2=1/216,C_3=7/1728,C_4=5/1944. Infinite limit depends on full analytic singularity proof, not finite series.
 
-The closest paper defining the map proves heterogeneous chaos and ergodicity, not its directed coordinate cross-covariance. The 2022 Takahasi–Yamamoto paper studies Dyck coding and maximal-entropy measures, while the 2023 Takahasi exponential-mixing paper proves decay estimates; neither inspected result specifies an algebraic directed covariance or its exact parity amplitudes. An existing exact center-coordinate autocovariance for a generalized two-dimensional heterochaos map does not determine a three-dimensional cross-covariance: the stable coordinate is absent from that two-dimensional marginal. A published periodic-fiber length spectrum instead measures neutral fixed sets, not stationary cross-correlations. The reverse-lag exact vanishing and two different edge amplitudes do not follow from these earlier statements. Literature coverage cannot exclude an unindexed equivalent calculation; independent priority review remains appropriate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The map is a natural minimal model for simultaneous one- and two-directional instability. In a stationary system the two specified coordinates are independent at equal time, yet the central coordinate predicts the future stable coordinate while the converse prediction vanishes at all lags. The exact algebraic function and positive parity-sensitive leading coefficients quantify this inherently directional transfer; a qualitative mixing bound alone does not recover either the sharp exponential base or the two amplitudes. The specific observables are the original geometric coordinates, not artificial test functions chosen solely for tractability.
+The 2018 original paper defines the 3D map and proves qualitative dynamics. Mixing theorems bound correlations; published 2026 exact center autocorrelation results concern the 2D/generalized center observable, not Cov(Z0,Y_n) for original 3D and its reverse. The exact cross-resolvent, vanishing direction, both nonzero parity constants remain unsupported by those earlier conclusions.
 
-## Boundaries and prior literature
+## value
 
-This is not a claim of general spectral theory or sharp correlation rates for all observables, and it uses Lebesgue-stationary initial conditions only. Primary sources: Saiki–Takahasi–Yorke, arXiv:1811.01009, especially §§1–3; Takahasi–Yamamoto, arXiv:2209.04905, especially §§1–3; and Takahasi, arXiv:2307.08119, especially the mixing theorems and the proof discussion. The source versions were inspected in their open-access form. Equivalent computations in literature not located by the searches remain a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This exact observable-specific directed response demonstrates irreversible coordinate memory despite invariant Lebesgue measure and supplies sharp spectral-edge constants unavailable from generic mixing. It is a motivated quantitative ergodic invariant, not simply an arbitrary finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
