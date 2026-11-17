@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The proof directly identifies every feasible vertex with a binary suffix-state sequence and every ordered vertex pair with a 4-state path. Matrix entries are computed from the 16 allowed transitions and their exact 0/1 coordinate discrepancies; summing gives all coefficients. Strict convexity excludes nonvertex diameter endpoints. Applying suffix bounds to a point and its complement gives the necessary-and-sufficient pair-block conditions, the precise profile count, and the antipodal-pair count. A package-local exact Python checker independently exhausts 2046 profiles and 19,684,660 ordered pairs for n=2..11; these checks corroborate, not replace, the complete symbolic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eur et al., arXiv:2209.06752, Section 2.3, treat Schubert delta-matroid polytopes and their generalized permutohedral geometry, while their main statements give volume/lattice-point/toric invariants rather than pairwise metric spectra.",
+        "The related published mathematical finding “The complete diametral graph of the symmetric Stanley–Cayley lift” concerns a one-hot Cayley lift, not native type-C feasible-set zero-one vectors."
+      ],
+      "reasoning": "A stronger general theorem computing ambient Euclidean Hamming enumerators for all delta-matroid polytopes would imply this work; the inspected relevant primary works do not give one. Structural theories of the same abstract polytope without its native Euclidean coordinates, and lift metrics in distinct embeddings, are not dominating metric results.",
+      "searches": [
+        "Euclidean diametral pairs of lattice-path delta-matroid feasible polytopes",
+        "lattice-path delta matroid feasible polytope Euclidean diameter antipodal complement pairs",
+        "\"Signed permutohedra, delta-matroids, and beyond\" 2022 arxiv",
+        "\"Triangulations, Order Polytopes, and Generalized Snake Posets\" arxiv 2022"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2311.15441, first public version 2023-11-26, source of the linked type-C toric interval model",
+      "arxiv:2209.06752, first public version 2022-09-14, broader delta-matroid polytopes",
+      "arxiv:2102.11306, first public version 2021-02-22, generalized snake-poset order polytopes"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chen et al. prove \\(S\\subseteq[n-1],T=S\\cup\\{n\\}\\) characterizes linked toric snake intervals and provide suffix coordinate inequalities; these are explicitly credited as premises.",
+        "Eur et al. obtain Schubert interval descriptions and type-B volume/lattice-count results, without the fixed native Euclidean vertex-pair polynomial.",
+        "Von Bell et al. provide order-polytopal combinatorics and volume bounds rather than a native feasible-polytope Hamming enumerator."
+      ],
+      "reasoning": "The present metric formula follows only after constructing a binary-suffix state bijection for two simultaneous vertices and tracking their relative coordinate increments in a four-state polynomial automaton. Its sharp top-degree criterion then requires both a vertex and its complement to satisfy every suffix bound, yielding pair-block rigidity and counts. The consulted prior theorems provide the setting but not these claims as stated or as explicit corollaries; an equivalent independent discovery remains possible.",
+      "searches": [
+        "arxiv:2311.15441 Section 4 Theorem A and Section 5 Proposition 5.3 triangulations volume",
+        "arxiv:2209.06752 Section 2.3 Schubert delta-matroids",
+        "arxiv:2102.11306 Sections 2–5 generalized snake order polytope volume flips"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen et al., arXiv:2311.15441, Sections 4 and 5: the canonical objects are the suffix-constrained zero-one polytopes, but the stated results concern faces, volume and triangulations.",
+        "von Bell et al., arXiv:2102.11306, Sections 2–5: order-polytope vertices and flips/volumes; not the finite-difference native Euclidean metric."
+      ],
+      "reasoning": "We checked the natural aliases (Gale interval, linked toric/snake interval, feasible-set Hamming distance, antipodal pair) and the affine order-polytope representation. The latter changes Euclidean quadratic form, so an ordinary order-polytope metric result is not equivalent without a separate calculation.",
+      "searches": [
+        "\"lattice path delta matroid\" \"diameter\" polytope",
+        "\"symmetric snake path\" \"maximal\" distance complement",
+        "antipodal pairs Hamming diameter of linked type-C Gale intervals and snake-path delta-matroid polytopes",
+        "4x4 transfer matrix squared Euclidean distance enumerator of type C snake polytopes"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chen et al., arXiv:2311.15441, Proposition 5.3 and Corollary 1.3 specify the polytope family and an ascent-set volume enumerator, not a table of Euclidean vertex distances.",
+        "von Bell et al., arXiv:2102.11306, Theorems in Sections 3–5 count normalized volumes, circuits and flips, not the claimed all-pairs distance polynomial."
+      ],
+      "reasoning": "No checked exact-distance table or profile database contains the same universal polynomial or extremal profile census. The full polynomial can be computed from the new formula for any profile; finite experimental instances do not constitute an unseen prior table. Search incompleteness remains a risk.",
+      "searches": [
+        "\"lattice path delta matroid\" \"metric\" \"diameter\"",
+        "\"Gale intervals\" \"distance enumerator\" polytopes",
+        "\"zigzag order polytope\" \"Hamming distance\" enumerator",
+        "linked symmetric snake path delta matroid subset Gale interval polytope Hamming spectrum"
+      ]
+    },
+    "rationale": "The Chen–Sanchez–Veliz–Ying construction and suffix description were used as established inputs; the complete native-metric two-vertex distance polynomial, four-state representation, and exact characterization and enumeration of all full-cube-diameter snake profiles and antipodes were not found in checked primary works or related mathematical records. Neither a general order-polytope transfer by an affine map nor a result on volumes, triangulations, or graph distances implies these Euclidean statements. Priority is provisional, not independently certified.",
+    "residual_risks": [
+      "An unindexed paper, thesis or alternate combinatorial formulation may already encode the same distance polynomial.",
+      "A generic dynamic-programming template could be applied to this family, but the evaluated searches did not identify an explicit statement of the four-state matrices, extremal profile classification or pair counts.",
+      "Priority comparisons are limited to accessible source sections and published search results, not a mathematically exhaustive bibliography."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the suffix model and linked toric snake interval classification, plus volumes and triangulations; no complete Euclidean distance spectrum, antipodal block criterion or pair census located in examined relevant statements.",
+        "evidence": [
+          "arxiv:2311.15441, Lemma 2.2, Theorem A (Section 4.1), Proposition 5.3 (Section 5.1), Theorem B and Corollary 1.3; source text search for “diameter”."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.15441",
+        "material_read": "Author full-text HTML sections 1, 2.1, 4.1–4.3, 5.1, 5.2 and 6.1, especially Theorem A, Proposition 5.3, Theorem B, Theorem C; bibliographic first-post date.",
+        "method": "Full-text browser reading of accessible arXiv-rendered source with searches for diameter and distance.",
+        "title": "Lattice Path Delta Matroids",
+        "trigger": "Same type-C Gale interval feasible polytopes, exact linked toric snake family and primary lead source."
+      },
+      {
+        "assessment": "Provides broader generalized permutohedral, Schubert and polytope-algebra context, but relevant claims concern volume/lattice points rather than native Euclidean pairwise distances.",
+        "evidence": [
+          "arxiv:2209.06752, Sections 1.1 and 2.3; no occurrence of “diameter” in full-text search."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.06752",
+        "material_read": "Author arXiv full-text rendered sections 1 and 2.1–2.4, including Definition 1.2, Proposition-Definition 2.6 and Lemma 2.7; text search for diameter.",
+        "method": "Read accessible full-text sections and use direct phrase search.",
+        "title": "Signed permutohedra, delta-matroids, and beyond",
+        "trigger": "Broader theory of type-B delta matroid polytopes and Schubert intervals that might dominate a snake special case."
+      },
+      {
+        "assessment": "Studies related but not identically embedded order polytopes; volume and triangulation results do not give Euclidean distances after the non-isometric finite-difference map.",
+        "evidence": [
+          "arxiv:2102.11306v2, Sections 1, 2.2, 3 and summaries of Sections 4–5."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2102.11306v2",
+        "material_read": "Open-access author HTML full-text introduction, order-polytope definitions (Section 2.2), snake-poset volume recursion (Section 3), and descriptions of circuits, flips and triangulations in Sections 4–5.",
+        "method": "Read accessible arXiv HTML full text and compare geometric realization, vertex sets and enumerated quantities.",
+        "title": "Triangulations, order polytopes, and generalized snake posets",
+        "trigger": "Plausibly equivalent snake-poset polytope construction and possible prior enumeration of vertex pairs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "0acaa0ef-9409-4117-a533-5a67fd4dea12",
+  "value": {
+    "rationale": "Linked type-C snake intervals are a mathematically designated full-dimensional toric family whose known results describe triangulations and volumes. The complete Euclidean pairwise metric polynomial is an independent intrinsic question for the canonical embedding. The theorem compresses potentially exponentially many ordered pairs into four fixed states, gives an exact polynomial-arithmetic method, and yields a nontrivial blockwise rigidity classification and exponentially rare full-cube-diameter profiles with complete antipodal counts. It is not a finite recomputation, not a generic cube-diameter bound alone, and has clear use in further metric/size comparisons for the type-C feasible polytopes.",
+    "status": "PASS"
+  }
+}

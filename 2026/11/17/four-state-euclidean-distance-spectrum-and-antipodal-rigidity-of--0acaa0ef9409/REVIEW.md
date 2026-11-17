@@ -1,0 +1,19 @@
+# Scientific review
+
+## Correctness — PASS
+
+The full-dimensional linked type-C toric intervals and native zero-one feasible vertices are defined by suffix inequalities. For every vertex, subtracting the fixed lower suffix counts gives a binary state sequence, with locally monotone adjacent states and terminal state zero. For a pair of vertices, the four possible paired states yield the displayed exact polynomial transition matrices, with exponents equal to the corresponding squared coordinate differences. Multiplication gives the entire ordered vertex-pair distance polynomial without missing paths or extra states. Strict convexity in each endpoint rules out any nonvertex diametral pair. The full-diameter condition forces coordinate complementation; applying the two allowed suffix counts to both a vector and its complement gives alternating odd-suffix constraints, precisely the pair-block condition. Even-suffix constraints give the exact antipodal pair count. The accompanying independently implemented exhaustive binary enumeration and transfer computation agree at all 2,046 profiles for dimensions 2 through 11 and 19,684,660 ordered vertex pairs. The infinite-dimensional conclusions rest on the written proof, not on these finite checks.
+
+## Originality — PASS (provisional priority)
+
+Chen–Sanchez–Veliz–Ying, *Lattice Path Delta Matroids* (arXiv:2311.15441), provide the defining feasible polytopes, the suffix inequalities, linked toric-interval classification, and volume/triangulation results. They do not state the ambient squared-distance polynomial or the classification/count of full-diameter snake profiles. Eur–Fink–Larson–Spink (arXiv:2209.06752) cover the wider theory of delta-matroid polytopes, particularly Schubert lower intervals, toric geometry, volumes and lattice points; these facts do not imply the four-state ordered-pair polynomial. Von Bell and collaborators (arXiv:2102.11306) treat generalized snake-poset order polytopes, a related but different object, and study circuits, volumes and flips rather than distances in the native feasible-polytope coordinates. Targeted searches for alternative nomenclature, Hamming enumerators, antipodal feasible sets and stronger diameter statements found no dominating result. The residual historical-priority risk is unindexed or differently described prior work; the search does not establish global uniqueness.
+
+## Mathematical value — PASS
+
+Linked toric intervals are a canonical full-dimensional, volume-enumerated subfamily of type-C lattice-path delta matroid polytopes. A complete all-pairs Euclidean metric polynomial previously not supplied by their triangulation formula is a natural geometric invariant; the four-state reduction computes it with polynomially many arithmetic operations despite an exponentially growing vertex set. The exact pairwise-balance characterization identifies precisely which toric snake profiles remain cube-diametral, counts these profiles, proves their proportion exponentially small, and classifies and counts every antipodal pair. This is a motivated infinite-family extremal classification rather than a numerical table or a merely reworded Boolean-cube bound.
+
+## Limitations and comparison risk
+
+The theorem concerns linked type-C toric snake intervals in unscaled zero-one coordinates. It is not a formula for every lattice-path delta matroid, nor for the intrinsic graph shortest-path metric or an arbitrary Euclidean affine realization. The strongest available related works are the three primary arXiv papers listed in RESULT.md. Their inspected relevant sections do not supply the stated metric invariant. An equivalent result not discoverable by the queries remains possible. The code's finite dimension range is corroborative; independent mathematical validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
