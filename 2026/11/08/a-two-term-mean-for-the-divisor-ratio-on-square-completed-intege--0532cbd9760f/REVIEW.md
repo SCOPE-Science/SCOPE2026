@@ -1,19 +1,21 @@
-# Scientific review: two-term square-completion divisor-ratio mean
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed \(X\sqrt{\log X}\) leading order and \(X/\sqrt{\log X}\) second term follow from a complete local Euler-factor computation, a convergent regularizing product, the classical two-term Selberg--Delange expansion at exponent \(3/2\), and exact square-block summation. The crucial local coefficient is \(f(p)=3/2\), not \(2\) or \(1\); hence the correct zeta exponent is \(3/2\). The first derivative coefficient accounts for the Euler constant, the factor \(1/s\) in Perron inversion, and the derivative of the regular Euler product. The weighted partial summation adds precisely one quarter of the first coefficient in the \(\log T\) variable. Explicit differentiation of the Euler product shows every local contribution to \(-H'(1)/H(1)\) is positive, and the primes \(2\) and \(3\) alone force \(K_1<0\). All square endpoints, non-square cutoffs, and the value at \(1\) are treated. Exact independent computational checks supplement but do not substitute for the infinite proof.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+For f(m)=tau(m²)/2^omega(m²), the p-power factor is (1-u/2+u²/2)/(1-u)². Thus F(s)=zeta(s)^(3/2)H(s) with H analytic via 1+5u²/8+O(u³). Two-term Selberg–Delange gives A=H(1)/Gamma(3/2), B=[Hprime(1)+(3gamma/2-1)H(1)]/Gamma(1/2). Weighting square blocks (2m-1) and substituting m=sqrt(X) gives K0=sqrt(2/pi)H and K1=sqrt(2/pi)[Hprime+(3gamma-1)H/2]. The two-prime lower bound -Hprime/H>(log2)/2+3log3/16>1/2>(3gamma-1)/2 establishes K1<0. Independent rational checks matched square-block sums at X=1,10,100,500,1000. Finite checks do not establish Selberg–Delange.
 
-The February 2026 primary preprint studies the identical shifted function, but its stated expansion uses \(X\log X\) with an Euler product having a non-summable first-order prime term. That formula does not cover this positive two-term \(X\sqrt{\log X}\) asymptotic. The standard Selberg--Delange theorem is a background tool, not claimed as original. Relevant unshifted divisor-ratio averages, unnormalized square-divisor means, and arithmetic functions based on divisibility by square powers were compared: none of the inspected statements gives these coefficients for the least-square-completion average. The strongest residual risk is an equivalent treatment in earlier unindexed literature, or an unpublished correction to the primary preprint.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact average has a recent, specifically claimed asymptotic formula of the wrong logarithmic order. Determining its actual positive leading constant and second term settles the natural quantitative mean for the same arithmetic observable, not an arbitrary parameter slice. The exponent changes the scale of the average, and both new constants are computable from an absolutely convergent Euler product and its derivative. This is a targeted substantive clarification of an active analytic-number-theory question rather than a computational example or an unmotivated new function.
+The paper with exactly the same observable claims X log X with C1=prod_p(1-1/(2p)+1/(2p²)); its local product diverges to zero, so it cannot supply the proposed positive X sqrt(log X) leading term or the signed second term. The Selberg–Delange framework is established and not novel, but its verified application/correction of this exact average and K1 sign are not contained in that earlier statement.
 
-## Scope and limitations
+## value
 
-The analytic proof uses the established Selberg--Delange theorem. The stated error is logarithmic, and stronger power-saving estimates or more general distributional laws are not established. Approximate constants printed by the verifier are non-rigorous Euler-product truncations. Originality comparisons are not a certification of historical uniqueness.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact arithmetic function and square-completion average are posed in a February 2026 paper whose leading logarithmic formula uses a non-absolutely convergent Euler product. Establishing the correct sqrt(log X) growth, second coefficient and its strict sign is a meaningful correction to a concrete open/error-prone asymptotic, beyond mechanical substitution of a general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
