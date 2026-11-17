@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3. The checker uses only standard-library `fractions`, `math` and `itertools`; it tests five positive exponential means and polynomial paths of every degree from zero through four, for 19,525 exact-rational cases. It calculates both risks in two independent ways: factorial moments of the pathwise estimator errors and algebraic integration of their covariance kernels. It verifies vanishing error for constant curvature, sharp equality for affine curvature, zero mean error for the endpoint estimator, and nonnegative risk. No randomness or floating-point tolerances are used in these checks.
+## correctness
 
-The infinite-dimensional and non-polynomial cases are proved analytically in RESULT.md, not certified by the finite checker. Strict risk nonordering follows from the sign of the explicit kernel difference on two disjoint support regions. No stochastic-oracle errors, full-optimizer convergence experiments, or external independent validation are included.
+PASS
+
+Fundamental theorem of calculus, conditional exponential memorylessness, and covariance of uniform indicators establish the two Hilbert-valued integral kernels. Integrating their nonnegative scalar kernels gives sharp common 2L²η⁴ attained by affine h. Smooth nonnegative derivative bumps on opposite sides of η give strict sign reversal; test-function uniqueness forces a(S)=η and b(S)=S−η. Proof handles constant paths and general η>0, and absolute-integrability follows bounded derivative.
+
+## originality
+
+PASS
+
+RanSOM provides exponential Stein identity and single endpoint correction, One Sample Stochastic Frank-Wolfe random interior Hessian evaluation, and Better SGD Using Second-Order Momentum endpoint corrections. The specific all-h-unbiased, constant-path-exact two-endpoint rule and pair of competing sharp error kernels were not located. Full RanSOM manuscript could not be inspected, so positive judgement is expressly best-of-knowledge.
+
+## value
+
+PASS
+
+Sharp pathwise MSE and uniqueness for a natural exponential-step curvature transport control variate answer a concrete estimator-design problem; exact nonordering prevents unqualified method rankings, and oracle cost is explicitly different. This is substantive despite no optimizer convergence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
