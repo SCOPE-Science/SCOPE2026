@@ -1,19 +1,21 @@
-# Scientific review: exact universality distribution of adjacency-distinct palindromes
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement uses a labeled alphabet of size at least two; odd total lengths, half-length marker and exact index are distinguished throughout. The proof starts from the known palindrome midpoint-index theorem, independently explains its two-sided greedy-arch obstruction, and derives the complete-arch and incomplete-remainder series by state-dependent letter-choice counts. The equality \((q-1)q!=q(q-1)(q-1)!\) collapses the two cases to the stated rational generating function. The minimal-length and multiplicity results are independently obtained by forcing all arches to be length-\(q\) permutations and the terminal incomplete segment to use \(q-1\) distinct symbols. A standard-library verifier exhaustively checked 65,414 palindromes over small alphabets against direct subsequence testing, and checked the rational recurrence and sharp extremal formulas over larger bounded parameter ranges. The proof, rather than the verifier, establishes general validity.
+## correctness
 
-## Originality — PASS, subject to bibliographic uncertainty
-Barker et al. (arXiv:2003.04629v1, Definition 6 and Proposition 15) establish the general midpoint property of palindromic universality indices; that property is expressly attributed and not claimed as new. Adamson (arXiv:2304.04583v1) counts arbitrary universal words algorithmically, while Adamson et al. (arXiv:2311.10658v1) count within regular languages by automata. The palindrome language is nonregular and none of the inspected source sections gives a full half-length/index distribution for adjacency-distinct palindromes or the exact all-parameter shortest-witness counts. The independent incomplete-rest-size enumeration is the necessary additional step. Searches for aliases and complete enumeration found no exact equivalent. This is not a proof of bibliographic uniqueness: overlooked specialized enumerations are possible.
+PASS
 
-## Mathematical value — PASS
-The all-alphabet bivariate generating function counts a natural language defined by simultaneous reversal symmetry, a local adjacency restriction, and scattered-subsequence coverage. It replaces general automaton-based counting with an explicit rational formula even though the palindrome language is not regular. It yields complete numerical distributions (for example a compact ternary rational function) and a sharp parity-dependent minimum-length penalty and count of every extremizer. These are structural whole-family statements, not arbitrary finite slices or numerical micro-improvements.
+For each q>=2, an adjacency-distinct palindrome has unique form v c reverse(v) with c distinct from v final symbol. The palindrome midpoint lemma (Barker et al. Proposition 15, previously known) gives index 2a or 2a+1 according as the final incomplete arch plus c completes the full alphabet. The generating functions B_{q,s} count levels of the discovered-letter automaton with s-1 old-letter choices and q-s new-letter choices; arch weight alpha_q z^q/D_q with alpha_q=(q-1)(q-1)!. The centered correction multiplies exactly the q-1-letter residual by (u-1); checking initial vs subsequent arch weights yields F_q=q[1+(q-1)sum_s B_{q,s}+(u-1)B_{q,q-1}]/(1-u^2 alpha_q z^q/D_q). Exact minimal lengths follow by making every full arch a permutation and the terminal deficient remainder distinct-letter. q=2, empty halves, h=0, zero index and q-1 symbol residual all addressed. Finite brute coefficient checks independently match.
 
-## Closest literature and limits
-- Barker et al., *Scattered Factor-Universality of Words* (2020), especially Proposition 15, is the decisive overlapping midpoint theorem; it is explicitly used, not replicated as a novelty claim.
-- Adamson, *Ranking and Unranking k-subsequence Universal Words* (2023), addresses unconstrained words and generic counting/ranking methods.
-- Adamson et al., *k-Universality of Regular Languages* (2023), gives automaton counting algorithms but no closed form for the nonregular constrained palindrome family.
+## originality
 
-Finite verification does not cover arbitrary alphabet sizes or lengths. The novelty assessment is based on the accessible primary literature and targeted bibliographic searches, not an independent exhaustive search.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The midpoint lemma and greedy arch factorization are known. Comparing actual statements shows no inspected primary or published related record determines the full labelled all-q exact-index distribution for palindromes ALSO required to be adjacency-distinct and its counts of shortest witnesses. Earlier counts of adjacency-distinct unrestricted words and all palindromes separately do not mechanically yield the intersection without the final-symbol restriction and residual-alphabet refinement. PASS is best-of-knowledge, not an exhaustive priority certification.
+
+## value
+
+PASS
+
+The simultaneous palindrome and forbidden-equal-neighbor constraints define a natural nonregular restricted language, and the precise distribution of subsequence universality and sharp shortest witnesses are natural invariants. The all-alphabet formula and extremal multiplicities answer a complete enumeration problem not implied by the known midpoint lemma alone; this is more than parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

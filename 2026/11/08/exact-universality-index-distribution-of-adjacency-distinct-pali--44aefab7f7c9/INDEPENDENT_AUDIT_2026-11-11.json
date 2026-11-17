@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T09:50:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual pinned RESULT.md source tree and exact available package verifier data",
+        "Exact universality-index distribution of adjacency-distinct palindromes"
+      ],
+      "rationale": "For each q>=2, an adjacency-distinct palindrome has unique form v c reverse(v) with c distinct from v final symbol. The palindrome midpoint lemma (Barker et al. Proposition 15, previously known) gives index 2a or 2a+1 according as the final incomplete arch plus c completes the full alphabet. The generating functions B_{q,s} count levels of the discovered-letter automaton with s-1 old-letter choices and q-s new-letter choices; arch weight alpha_q z^q/D_q with alpha_q=(q-1)(q-1)!. The centered correction multiplies exactly the q-1-letter residual by (u-1); checking initial vs subsequent arch weights yields F_q=q[1+(q-1)sum_s B_{q,s}+(u-1)B_{q,q-1}]/(1-u^2 alpha_q z^q/D_q). Exact minimal lengths follow by making every full arch a permutation and the terminal deficient remainder distinct-letter. q=2, empty halves, h=0, zero index and q-1 symbol residual all addressed. Finite brute coefficient checks independently match.",
+      "residual_risks": [
+        "Finite independent computations corroborate but do not prove the arbitrary-parameter theorem unless the stated finite universe was exhaustively enumerated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Related Resultary record counts general adjacency-distinct words by index, without the palindrome fixed-point constraint; Adamson et al. 2023 provide algorithms for regular language universality, not this palindromic nonregular fixed-point class."
+        ],
+        "reasoning": "A more general input language is not a dominating theorem about its symmetry-restricted sublanguage distribution; individual half-word final-letter interactions require a separate enumeration.",
+        "searches": [
+          "Resultary: adjacency distinct palindrome subsequence universality shortest words distribution",
+          "Resultary 2026-11-08: Subsequence universality in adjacency-distinct words: exact enumeration and renewal laws",
+          "arXiv:2311.10658 Section 4"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2003.04629 (midpoint Proposition 15)",
+        "arXiv:2304.04583",
+        "arXiv:2311.10658",
+        "Resultary: subsequence universality in adjacency-distinct words, 2026-11-08",
+        "Resultary: unrestricted palindrome distribution, 2026-11-08"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Barker et al. supplies the structural center lemma; the submitted additional exact residual s-state counts and short-witness multiplicities are separately derived."
+        ],
+        "reasoning": "Only the midpoint criterion is a corollary of prior work. The closed rational series and exact extremal multiplicities require new restricted enumerative calculation; highly specialized equivalent literature may exist.",
+        "searches": [
+          "Resultary: adjacency distinct palindrome subsequence universality shortest words distribution",
+          "arXiv:2003.04629",
+          "arXiv:2311.10658"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Barker et al. 2020: palindrome midpoint index 2a+delta via residual alphabet; submitted formula further imposes c!=last(v) and adjacency-distinct half, with exact transfer factors (s-1) and q-s."
+        ],
+        "reasoning": "The same index lemma is prior but the resulting restricted rational distribution is not stated by that lemma. The adjacent-distinct constraint cannot be handled by substituting a different alphabet size into an ordinary-palindrome formula.",
+        "searches": [
+          "Resultary: palindromic adjacency-distinct words distribution exact subsequence universality index greedy arches shortest witnesses generating function",
+          "Resultary: adjacency distinct palindrome subsequence universality shortest words distribution",
+          "arXiv:2003.04629 Proposition 15"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected exact table of the joint (half-length, full alphabet universality index) for adjacency-distinct palindromes; n=0 and q=2 specializations agree with direct enumeration."
+        ],
+        "reasoning": "Finite coefficient tables of unrestricted words or palindromes do not determine this intersection, and lack of a database hit is not a proof of historical novelty.",
+        "searches": [
+          "Resultary: palindromic adjacency-distinct words distribution exact subsequence universality index greedy arches shortest witnesses generating function",
+          "Resultary 2026-11-08 ordinary-palindrome index distributions",
+          "arXiv:2304.04583"
+        ]
+      },
+      "rationale": "The midpoint lemma and greedy arch factorization are known. Comparing actual statements shows no inspected primary or published related record determines the full labelled all-q exact-index distribution for palindromes ALSO required to be adjacency-distinct and its counts of shortest witnesses. Earlier counts of adjacency-distinct unrestricted words and all palindromes separately do not mechanically yield the intersection without the final-symbol restriction and residual-alphabet refinement. PASS is best-of-knowledge, not an exhaustive priority certification.",
+      "residual_risks": [
+        "An unindexed direct enumeration for adjacency-distinct palindromes with fixed full alphabet may predate this formula.",
+        "The center-index lemma and greedy arch methods are known and are not credited as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the midpoint lemma; does not itself give the restricted series",
+          "evidence": "Proposition 15 indexes a palindrome by the arches of one half plus its center.",
+          "identifier_or_url": "https://arxiv.org/abs/2003.04629",
+          "material_read": "Read Proposition 15 and associated definitions and arch discussion, PDF pages around 10-11",
+          "method": "Lawful arXiv PDF text and page inspection",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Midpoint lemma is precisely used in proof"
+        },
+        {
+          "assessment": "RELATED counting unrestricted universal words; no matched intersection enumeration in inspected material",
+          "evidence": "Uses greedy arch counting and universality ranks for arbitrary words.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+          "material_read": "Read abstract, introduction and counting method in Sections 2-3; inspected PDF page 3",
+          "method": "Lawful arXiv PDF text/page inspection",
+          "title": "Ranking and Unranking k-subsequence Universal Words",
+          "trigger": "General arch-counting predecessor"
+        },
+        {
+          "assessment": "NOT a direct formula for nonregular palindromic intersection",
+          "evidence": "General regular-language automata do not directly encode palindromes across arbitrary lengths.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.10658",
+          "material_read": "Read abstract/definitions and Section 4 counting of regular-language constraints",
+          "method": "Lawful arXiv PDF sections/page inspection",
+          "title": "k-Universality of Regular Languages",
+          "trigger": "Could an algorithm cover adjacency-distinct-palindromic intersection"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2003.04629 (midpoint Proposition 15)",
+        "arXiv:2304.04583",
+        "arXiv:2311.10658",
+        "Resultary: subsequence universality in adjacency-distinct words, 2026-11-08",
+        "Resultary: unrestricted palindrome distribution, 2026-11-08"
+      ],
+      "rationale": "The simultaneous palindrome and forbidden-equal-neighbor constraints define a natural nonregular restricted language, and the precise distribution of subsequence universality and sharp shortest witnesses are natural invariants. The all-alphabet formula and extremal multiplicities answer a complete enumeration problem not implied by the known midpoint lemma alone; this is more than parameter substitution.",
+      "residual_risks": [
+        "An unindexed direct enumeration for adjacency-distinct palindromes with fixed full alphabet may predate this formula.",
+        "The center-index lemma and greedy arch methods are known and are not credited as novel."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed direct enumeration for adjacency-distinct palindromes with fixed full alphabet may predate this formula.",
+    "The center-index lemma and greedy arch methods are known and are not credited as novel."
+  ],
+  "schema_version": 1
+}

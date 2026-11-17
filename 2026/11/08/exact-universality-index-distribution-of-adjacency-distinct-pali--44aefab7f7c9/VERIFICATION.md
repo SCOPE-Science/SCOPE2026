@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 verify.py` using a standard Python 3 interpreter. No third-party dependencies, external datasets, or network calls are needed.
+## correctness
 
-The program constructs the claimed bivariate formal-series coefficients exactly over the integers from the rational expression, generates adjacency-distinct palindromes independently, and tests universality by subsequence matching against every word over the fixed alphabet through the largest possible index. It compares all distribution cells for half-lengths through 9, 8, 7, 6, and 5 when the alphabet sizes are 2, 3, 4, 5, and 6 respectively. For alphabet sizes 2 through 8 it also tests the coefficient recurrence, conservation of the total number of valid palindromes through half-length 56, and the sharp minima through universality level 7. It compares the ternary closed-form binomial coefficients through half-length 50.
+PASS
 
-Actual execution:
+For each q>=2, an adjacency-distinct palindrome has unique form v c reverse(v) with c distinct from v final symbol. The palindrome midpoint lemma (Barker et al. Proposition 15, previously known) gives index 2a or 2a+1 according as the final incomplete arch plus c completes the full alphabet. The generating functions B_{q,s} count levels of the discovered-letter automaton with s-1 old-letter choices and q-s new-letter choices; arch weight alpha_q z^q/D_q with alpha_q=(q-1)(q-1)!. The centered correction multiplies exactly the q-1-letter residual by (u-1); checking initial vs subsequent arch weights yields F_q=q[1+(q-1)sum_s B_{q,s}+(u-1)B_{q,q-1}]/(1-u^2 alpha_q z^q/D_q). Exact minimal lengths follow by making every full arch a permutation and the terminal deficient remainder distinct-letter. q=2, empty halves, h=0, zero index and q-1 symbol residual all addressed. Finite brute coefficient checks independently match.
 
-`VERIFY_OK q=2..8 half_length<=56 brute_palindromes=65414 extremal_checks=49 ternary_coefficients=0..50`
+## originality
 
-The proof in RESULT.md establishes the complete infinite statement. The finite checks do not claim to certify an unbounded parameter range by enumeration. No independent scientific audit has been performed.
+PASS
+
+The midpoint lemma and greedy arch factorization are known. Comparing actual statements shows no inspected primary or published related record determines the full labelled all-q exact-index distribution for palindromes ALSO required to be adjacency-distinct and its counts of shortest witnesses. Earlier counts of adjacency-distinct unrestricted words and all palindromes separately do not mechanically yield the intersection without the final-symbol restriction and residual-alphabet refinement. PASS is best-of-knowledge, not an exhaustive priority certification.
+
+## value
+
+PASS
+
+The simultaneous palindrome and forbidden-equal-neighbor constraints define a natural nonregular restricted language, and the precise distribution of subsequence universality and sharp shortest witnesses are natural invariants. The all-alphabet formula and extremal multiplicities answer a complete enumeration problem not implied by the known midpoint lemma alone; this is more than parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
