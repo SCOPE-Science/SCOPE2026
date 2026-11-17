@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T06:54:22.595262Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The prior exact resolvent expression P_n(eta)=B(eta)+C_n(eta) is explicitly credited to Riberi arXiv:2605.08056v4 Eq.15. Integrand C_n-C_{n+1}=(2eta/pi)int_0^1 q^{2n-2}(1-q²)^2/(1+eta²q²)dq>0 gives strict spatial decrease. In t=log eta, B=(1/pi)int sin(k)/(cosh(t)+sin(k))dk has its unique maximum t=0 and B_tt(0)=-2/(3pi), independently confirmed by quadrature. Derivative C_n wrt eta is positive through eta<=1, forcing all finite maximizers >1. For n>=2, endpoint values vanish and an interior maximizer exists; for n=1, the C1 substitution proves probability tends to 1 at eta=infinity. Uniform O(n^-2) bounds on C_n and its first two t derivatives plus strict bulk maximum yield eventual unique global maximizer. Its slope C_n,t(0)=1/(2pi n³)+O(n^-4), reproduced numerically at n=12,24,48,96, gives t*=3/(4n³)+O(n^-4), eta*=1+3/(4n³)+O(n^-4). Finite quadrature only corroborates these analytic integral and beta arguments.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Riberi analyzes bulk symmetry eta<->1/eta and qualitative approach of optimal eta to 1; does not determine all n>=2 maximizers lie >1 nor coefficient 3/4 for n^-3.",
+          "Resultary full-line trap theorem obtains a different limiting nonunity optimum, reflecting different geometry."
+        ],
+        "reasoning": "General resolvent and sink formulas are tools from which new rigorous spatial and rate-optimization comparisons are derived, not prior statements that dominate them.",
+        "searches": [
+          "continuous time half-line quantum walk lossy boundary Lindblad sink optimal absorption rate starting site cubic n^-3",
+          "https://arxiv.org/pdf/2605.08056v4"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2605.08056v4",
+        "https://arxiv.org/html/2605.08056v4",
+        "https://doi.org/10.3390/e23010085"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source qualitatively says optimal loss approaches hopping from far away, i.e. eta_n->1; this alone does not imply eta_n>1 for every n>=2, uniqueness eventually, nor eta_n-1~3/(4n³).",
+          "Differentiating the Riberi integral and using uniform concavity supply the missing quantified theorem."
+        ],
+        "reasoning": "The new sign, existence, phase split and cubic leading constant are additional deductions, not an immediate specialization of a published stronger theorem.",
+        "searches": [
+          "continuous time half-line quantum walk lossy boundary Lindblad sink optimal absorption rate starting site cubic n^-3",
+          "https://arxiv.org/pdf/2605.08056v4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Riberi Eq.15 gives identical P_n=B+C_n and Appendix D2 analyzes far-field duality; it does not supply the maximizer coefficient.",
+          "Finite quantum-path sink calculations minimize expected capture time, a different functional that cannot be equated to eventual absorption probability."
+        ],
+        "reasoning": "Same model precursor integral is acknowledged, but the new optimizer theorem is not merely a change in notation or parameter.",
+        "searches": [
+          "continuous time half-line quantum walk lossy boundary Lindblad sink optimal absorption rate starting site cubic n^-3",
+          "https://arxiv.org/html/2605.08056v4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published formula is exact data for every n but no inspected exact optimizer-by-site table or cubic coefficient appears in Eq15/Appendix D2.",
+          "Submitted coefficient is determined by B_tt(0)=-2/(3pi) and C_n,t(0)=1/(2pi n³), not copied from a known source table."
+        ],
+        "reasoning": "No same quantity exact optimizer table found in inspected primary literature; unlike a mere numerical tabulation, the result is a uniform large-n proof.",
+        "searches": [
+          "continuous time half-line quantum walk lossy boundary Lindblad sink optimal absorption rate starting site cubic n^-3",
+          "https://arxiv.org/pdf/2605.08056v4"
+        ]
+      },
+      "rationale": "Exact half-line eventual absorption integral, leading bulk duality and O(n^-2) correction belong to Riberi; the inspected published Eq.15/Appendix D2 does not state strict all-site ordering, the sink-site versus all-other-sites finite optimizer split, nor explicit globally unique far-site optimum 1+3/(4n³)+O(n^-4). Other nearest published exact sink optimizers concern mean absorption time on finite paths or the full-line trap, not this half-line eventual probability.",
+      "residual_risks": [
+        "The proof relies on the prior exact half-line resolvent formula; its stated normalization and sink convention must be preserved.",
+        "Global uniqueness at every finite n>=2 is not proved; only sufficiently large n.",
+        "A nonindexed optimization appendix might contain the same 3/4 coefficient despite inspected source version."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_PRECURSOR_NOT_OPTIMIZER",
+          "evidence": "Contains the P_n=B+C_n integral and matching asymptotics, but not the strict all-site optimizer transition or the 3/4 cubic shift.",
+          "identifier_or_url": "https://arxiv.org/pdf/2605.08056v4",
+          "material_read": "Original full arXiv v4 PDF, Eq.15, absorption asymptotics and Appendix D.2",
+          "method": "Read primary PDF with page image check for formula and sections",
+          "title": "Boundary-localized non-Hermitian modes in an absorbing quantum walk",
+          "trigger": "Same infinite half-line Lindblad sink and exact P_n model"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLE",
+          "evidence": "Mean first absorption time on finite chain is distinct from eventual probability on a half-line.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-absorption-time-gramian-and-optimal-sink-strength-on-a-fin--76980aefd4f5",
+          "material_read": "Search-result statement inspected; full source not claimed read",
+          "method": "Resultary semantic match and mathematical comparison of observable",
+          "title": "Exact absorption-time Gramian and optimal sink strength on a finite quantum path",
+          "trigger": "Potential competing exact sink optimizer"
+        },
+        {
+          "assessment": "DIFFERENT_GEOMETRY",
+          "evidence": "Interior trap in full line has optimum eta/J~1.2257, not boundary sink optimum tending 1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-unique-optimal-absorption-strength-for-a-full-line-quantum-trap--545aa66b5933",
+          "material_read": "Search-result exact theorem summary; complete original file not claimed read",
+          "method": "Resultary theorem summary comparison",
+          "title": "Unique optimal absorption strength for a full-line quantum trap",
+          "trigger": "Same type eventual absorption but different geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For a physically natural exact infinite half-line sink model, specifying the best capture probability from each site is a meaningful parameter-selection question. The distinction between boundary-site strong-sink limit, finite interior optimal sinks strictly above matching, and a rigorously quantified cubic approach to bulk matching is a precise structural sensitivity law, not merely a tiny unmotivated numeric improvement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Eventual absorption only; no conclusion for finite-time hitting probabilities or mean capture times.",
+    "All n>=2 have a finite optimizer >1; global uniqueness is only established for sufficiently large n.",
+    "The 3/(4n³) coefficient uses the prior Riberi exact integral as an explicit premise and is independently derived here.",
+    "No external expert/Lean attestation is manufactured; no GitHub write or dispatcher closeout occurred."
+  ],
+  "schema_version": 1
+}
