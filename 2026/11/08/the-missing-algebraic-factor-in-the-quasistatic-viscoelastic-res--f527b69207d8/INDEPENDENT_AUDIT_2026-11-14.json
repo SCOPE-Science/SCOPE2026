@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T12:14:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/the-missing-algebraic-factor-in-the-quasistatic-viscoelastic-res--f527b69207d8/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/the-missing-algebraic-factor-in-the-quasistatic-viscoelastic-res--f527b69207d8/verify_tail.py",
+        "https://arxiv.org/html/2603.17027v1",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-finite-memory-exponential-tail-obstruction-for-a-partially-reset--7d57b733f684"
+      ],
+      "rationale": "For every fixed r>0 and |x|→∞ *in the specified strong-memory quasistatic mixture*, substitute u=e^{-t}. Variance polynomial v(u)=S-Au+B u² has maximum S=(2r+1)/r at u=0 and strictly negative derivative throughout 0<u<1; the endpoint variance defect is linear, so Watson lemma with exponent u^(r-1) yields the exact C|x|^(-2r) Gaussian correction, not a pure Gaussian equivalent. Expansion 1/(2v)-1/(2S)=cu+du² with c=A/(2S²), d=A²/(2S³)-B/(2S²) and amplitude correction A/(2S) gives relative coefficient −(2r+1)^3/[2(r+1)] at x^(-2). Tail integration yields 2CS x^(-(2r+1))exp(−x²/(2S)), and iid extreme value scaling yields Gumbel with squared centering log N−(r+1/2)log log N+log B. Independently checked the symbolic coefficient and mpmath endpoint integrals for r=0.5,1,2 at x=40; ratios 1.0000102,1.0000321,1.0001817 to two-term asymptotic. Original verification source inspected. Domain excludes any claim about finite bath-memory tails, uniformity in r, or dependent sampled trajectories.",
+      "residual_risks": [
+        "Noncommuting memory and rare-tail limits: no extension to finite friction systems.",
+        "Error constants depend on fixed r and samples are independent."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "OU partial-reset variance-edge theorem also gives Gaussian times a power but for a different SDE and reset mechanism.",
+          "Finite-memory viscoelastic-reset lower-tail theorem concerns exponential rather than quasistatic Gaussian tails."
+        ],
+        "reasoning": "Neither broader model result supplies the exact constant and first correction for the Santra–Das quasistatic v(u); method similarity does not imply specific asymptotic law with this coefficient.",
+        "searches": [
+          "viscoelastic resetting quasistatic stationary distribution Gaussian mixture tail algebraic prefactor Santra Das",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-variance-edge-law-and-gaussian-tail-prefactor-under-partia--d6209e19bacd",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-finite-memory-exponential-tail-obstruction-for-a-partially-reset--7d57b733f684"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2603.17027v1",
+        "https://doi.org/10.1088/1367-2630/ae868c",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-finite-memory-exponential-tail-obstruction-for-a-partially-reset--7d57b733f684",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-variance-edge-law-and-gaussian-tail-prefactor-under-partia--d6209e19bacd"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original source supplies integral, from which Watson analysis can derive the factor, but does not state the correct power law; its Eq(29) is missing it.",
+          "Other Gaussian mixture endpoint theorem treats different stationary variance laws."
+        ],
+        "reasoning": "The mixture formula alone is a computational starting point and not a published correct sharp tail statement; the submitted correction and iid centering have independent mathematical content under the same model.",
+        "searches": [
+          "https://arxiv.org/html/2603.17027v1",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-variance-edge-law-and-gaussian-tail-prefactor-under-partia--d6209e19bacd",
+          "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-finite-memory-exponential-tail-obstruction-for-a-partially-reset--7d57b733f684"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Santra–Das arXiv v1 Eq(28) gives exactly the integral mixture, Eq(29) states the Gaussian-only far-tail.",
+          "Candidate computes actual asymptotic equivalence with multiplicative power and fixed-r coefficient."
+        ],
+        "reasoning": "Same integrand and limit: the leading exponential rate agrees with original, but a |x|^{-2r} factor tends to zero for every r>0, so the pure Gaussian expression is not an asymptotic equivalent.",
+        "searches": [
+          "viscoelastic resetting quasistatic stationary distribution Gaussian mixture tail algebraic prefactor Santra Das",
+          "https://arxiv.org/html/2603.17027v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No older exact table for this specific mixture-tail coefficient surfaced in retrieved record search; original article publishes the mixture itself and claims only Gaussian far tail."
+        ],
+        "reasoning": "This is continuous-model endpoint asymptotic correction, not a finite computed database entry; failure to locate another exact derivation is not priority proof.",
+        "searches": [
+          "viscoelastic resetting quasistatic stationary distribution Gaussian mixture tail algebraic prefactor Santra Das",
+          "Santra Das quasistatic v(t) algebraic x power tail"
+        ]
+      },
+      "rationale": "Source Santra–Das derives the quasistatic mixture and writes a Gaussian-only far-tail expression; the reviewed exact endpoint asymptotic identifies a missing nonconstant polynomial factor, explicit first correction and changed iid maximum loglog centering. Generic Watson/Gumbel tools are known methods and not credited as new.",
+      "residual_risks": [
+        "The correction is an application of classical Watson lemma; a prior unpublished or unindexed calculation for this same integral remains possible.",
+        "Finite-memory physics is explicitly a different asymptotic order and cannot inherit the result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE gives integral and leading exponent but omits algebraic factor",
+          "evidence": "Eq(28) is r integral e^{-rt}/sqrt(2pi V(t)) exp(−x²/2V(t)); Eq(29) treats Gaussian far tail alone.",
+          "identifier_or_url": "https://arxiv.org/html/2603.17027v1",
+          "material_read": "Full publicly available arXiv HTML, quasistatic strong-memory derivation, equations 28–29 and prose on asymptotic tail; journal DOI 10.1088/1367-2630/ae868c",
+          "method": "Open HTML original version with equations",
+          "title": "Santra and Das, Resetting in a viscoelastic bath: the bath remembers",
+          "trigger": "Same exact probability density and purported Gaussian tail"
+        },
+        {
+          "assessment": "Different finite-memory rare-tail order of limits",
+          "evidence": "At any fixed finite memory, exponential lower bound contradicts uniform quasistatic Gaussian tail; does not invalidate fixed quasistatic integral.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-finite-memory-exponential-tail-obstruction-for-a-partially-reset--7d57b733f684",
+          "material_read": "Resultary published abstract/summary, NOT full original paper",
+          "method": "Semantic result retrieval and claim comparison",
+          "title": "Finite-memory exponential-tail obstruction for a partially reset viscoelastic probe",
+          "trigger": "Same physical context, different limit could dominate"
+        },
+        {
+          "assessment": "Similar endpoint technique, different reset OU model",
+          "evidence": "Power exponent r/gamma for OU invariant variance differs from −2r for the specified mixture.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-variance-edge-law-and-gaussian-tail-prefactor-under-partia--d6209e19bacd",
+          "material_read": "Resultary search record title and result summary; NOT full text",
+          "method": "Semantic search source inspection only",
+          "title": "Exact variance-edge law and Gaussian-tail prefactor under partial Ornstein–Uhlenbeck resetting",
+          "trigger": "Potential known Gaussian-power prefactor formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2603.17027v1"
+      ],
+      "rationale": "A sharp correction to a stated asymptotic equivalent for a physical stationary model matters quantitatively for rare-event probabilities and changes the loglog centering of independent extremes by r loglog N. The mathematical work identifies a nonuniform endpoint mechanism and a concrete error in a current published expression, not merely a generic theorem rephrasing.",
+      "residual_risks": [
+        "Relevance restricted to quasistatic approximation and iid maxima."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The correction is an application of classical Watson lemma; a prior unpublished or unindexed calculation for this same integral remains possible.",
+    "Finite-memory physics is explicitly a different asymptotic order and cannot inherit the result.",
+    "Noncommuting memory and rare-tail limits: no extension to finite friction systems.",
+    "Error constants depend on fixed r and samples are independent.",
+    "Relevance restricted to quasistatic approximation and iid maxima."
+  ],
+  "schema_version": 1
+}

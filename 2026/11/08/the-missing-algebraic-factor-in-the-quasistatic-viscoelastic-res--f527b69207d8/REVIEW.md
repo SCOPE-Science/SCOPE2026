@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The fixed-\(r\) quasistatic density is defined by the exact Gaussian mixture in the motivating article. The variance has a strictly decreasing quadratic expression in \(u=e^{-t}\), giving a unique, nondegenerate endpoint maximum. Endpoint scaling \(u\asymp x^{-2}\) with dominated remainder proves the density constant, power and next correction. Tail integration and a standard triangular maximum scaling prove the iid Gumbel limit. The numerical checker covers representative rates but is not the universal proof.
+## correctness
 
-**Originality (PASS, subject to priority risk).** The source gives the Gaussian exponential and its constant without the necessary vanishing factor. The corrected multiplicative equivalent and its explicit \(r\)-dependent exponent are not stated there, and yield a different asymptotic for rare excursions and maxima. The related same-model finite-friction logarithmic exponential-tail result concerns the opposite order of limits, not a stronger claim about this mixture. Indexed search did not identify the same specialization. General Watson/Laplace and Gumbel theorems are acknowledged as methods; they do not supply the model-specific physical interpretation without evaluating the source integral. An unindexed prior specialization remains possible.
+PASS
 
-**Value (PASS).** Far-tail normalization rather than merely quadratic log-rate controls how uncommon excursions scale, particularly the \((r+1/2)\log\log N\) extreme-value centering. This is a motivated correction to the published quantitative far-tail formula, not an arbitrary parameter variation or normalization check. It clarifies where the strong-memory prediction differs from finite-memory exponential log tails.
+For every fixed r>0 and |x|→∞ *in the specified strong-memory quasistatic mixture*, substitute u=e^{-t}. Variance polynomial v(u)=S-Au+B u² has maximum S=(2r+1)/r at u=0 and strictly negative derivative throughout 0<u<1; the endpoint variance defect is linear, so Watson lemma with exponent u^(r-1) yields the exact C|x|^(-2r) Gaussian correction, not a pure Gaussian equivalent. Expansion 1/(2v)-1/(2S)=cu+du² with c=A/(2S²), d=A²/(2S³)-B/(2S²) and amplitude correction A/(2S) gives relative coefficient −(2r+1)^3/[2(r+1)] at x^(-2). Tail integration yields 2CS x^(-(2r+1))exp(−x²/(2S)), and iid extreme value scaling yields Gumbel with squared centering log N−(r+1/2)log log N+log B. Independently checked the symbolic coefficient and mpmath endpoint integrals for r=0.5,1,2 at x=40; ratios 1.0000102,1.0000321,1.0001817 to two-term asymptotic. Original verification source inspected. Domain excludes any claim about finite bath-memory tails, uniformity in r, or dependent sampled trajectories.
 
-**Closest literature and limitations.** Santra--Das (2026) supplies the integral and Gaussian-only expression, both inspected in full-text sections. Classical endpoint asymptotics is used, not claimed new. All claims concern a strong-memory quasistatic mixture with fixed positive \(r\); no finite-friction uniform limit or trajectory extreme-value theorem is established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Source Santra–Das derives the quasistatic mixture and writes a Gaussian-only far-tail expression; the reviewed exact endpoint asymptotic identifies a missing nonconstant polynomial factor, explicit first correction and changed iid maximum loglog centering. Generic Watson/Gumbel tools are known methods and not credited as new.
+
+## value
+
+PASS
+
+A sharp correction to a stated asymptotic equivalent for a physical stationary model matters quantitatively for rare-event probabilities and changes the loglog centering of independent extremes by r loglog N. The mathematical work identifies a nonuniform endpoint mechanism and a concrete error in a current published expression, not merely a generic theorem rephrasing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
