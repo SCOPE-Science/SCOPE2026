@@ -1,15 +1,21 @@
-# Scientific review: Fano extremality at minimum fair support
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim specifies a simple 3-uniform, 3-regular, seven-block system on seven points with uniform independent draws. Inclusion-exclusion converts each complete-coverage survival probability into a finite signed sum over all 127 nonempty point subsets. The degrees force no avoidance-count larger than four. Two genuinely distinct exact enumeration traversals produced the same exhaustive eight-profile histogram (11,205 families), and an explicit orbit calculation shows that the 30 families with maximal profile are precisely the Fano relabelings. Exact rational arithmetic gives mean \(163/30\), second-best \(16/3\). The proof reduces the infinite family of tail inequalities to three closed differences and verifies their strict positivity for every integer \(t\ge3\). The finite tests support the full finite classification and are not substituted for the symbolic time-uniform proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The 2026 Barak-Pelleg–Berend paper supplies the motivating generalized fair collector, the Fano example, its known mean and its comparison with full uniform triple sampling; these are not presented as new. Its inspected statements do not supply the complete classification of all simple seven-block 3-regular designs or Fano dominance over them at every integer time. Grunbaum–Yaakobi's 2025 recovery-set formula is general, but a formula without the constrained eight-profile extremal comparison does not imply that Fano is uniquely slowest at minimal support. Searches of related research-index entries and the accessible historical claims did not identify a stronger covering claim. This is a best-knowledge originality assessment, not proof of historical uniqueness; an unlocated hypergraph-extremality theorem could contain the result.
+PASS
 
-## Value — PASS
-The recent Fano counterexample challenges an overly broad hypothesis about which fair batch mechanism is slowest. The smallest allowable support is fixed naturally by the incidence equation \(3b=7r\), so the seven-block class is an intrinsic boundary of the same optimization problem rather than a freely selected numerical slice. The result gives an exact stochastic, not just mean, optimizer with strictness, an exhaustive spectrum of all eight possible tail laws, and a sharp second-best gap. It does not settle the unrestricted 14-to-35-block extremal question.
+Read entire frozen RESULT.md and verify.py. The inclusion-exclusion identity for uncovered coupons gives 7^-t Σ_{k=1}^4 c_k k^t for t>=1, with signed avoidance coefficients from all 127 nonempty vertex subsets. Independently reimplemented the finite combinatorial census via monotone 7-block incidence recursion over the 35 triples: exactly 11,205 admissible labeled families and exactly the eight specified coefficient profiles with multiplicities 30,630,1680,3780,3360,360,1260,105. Independently verified the 30 Fano maximizers form exactly its full vertex-permutation orbit, and recomputed rational means 163/30 and 16/3 and strict tail differences for t=3..99. The proof reduces all integer t>=3 to exact symbolic formulas b(3^t-3·2^t+3), 4^t+3·3^t-15·2^t+17, and 2(2^t-2)(2^t-4), each strictly positive; finite times alone would not suffice. The seven-block degree-three requirement and sampling with replacement were honored.
 
-## Primary sources and limits
-Barak-Pelleg–Berend, arXiv:2606.28216v1 (June 26, 2026), is the closest motivating paper. Grunbaum–Yaakobi, arXiv:2510.25305v1 (October 29, 2025), provides general coverage identities. Fano and unrestricted full triple models should not be conflated with the set of all minimally supported fair triple designs. No independent mathematical audit or definitive comprehensive priority review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct claim after actual primary-source and published-record comparisons. The strict ordering of Fano against the complete 35-triple scheme is not a monotonicity statement over arbitrary seven-edge fair hypergraphs, so it does not imply unique minimal-support optimum.
+
+## value
+
+PASS
+
+A complete sharp stochastic-order classification in the smallest-support fair triple-draw coupon model is naturally motivated by the question of worst fair coverage delay. It classifies all 11,205 labeled admissible mechanisms, identifies the unique extremal isomorphism type, and separates mean and distributional optimality, not merely one constructed Fano-versus-uniform comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

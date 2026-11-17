@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The independent-review channel has not been assessed. The finite exhaustive certificate is `verify.py`, which can be executed using Python 3 (standard library only) with `python verify.py` or `python verify.py --full`. The first traversal prunes impossible partial degree vectors, retaining exactly 11,205 eligible seven-triple designs. The second traversal visits all 6,724,520 subsets of seven of the 35 available triples and independently obtains the same histogram of eight coefficient profiles. All 30 maximizers were verified to be one Fano-plane relabeling orbit.
+# Independent mathematical audit
 
-The probability formula follows from inclusion-exclusion; the exact rational expectation follows from summing its geometric tails. To prove inequalities for *all* integer times, the three symbolic tail-difference identities and their strict positivity beyond time two are established in the proof, rather than extrapolating from bounded computation. This theorem is limited to simple, uniform-selection, seven-block, 3-regular triple systems on seven points.
+## correctness
+
+PASS
+
+Read entire frozen RESULT.md and verify.py. The inclusion-exclusion identity for uncovered coupons gives 7^-t Σ_{k=1}^4 c_k k^t for t>=1, with signed avoidance coefficients from all 127 nonempty vertex subsets. Independently reimplemented the finite combinatorial census via monotone 7-block incidence recursion over the 35 triples: exactly 11,205 admissible labeled families and exactly the eight specified coefficient profiles with multiplicities 30,630,1680,3780,3360,360,1260,105. Independently verified the 30 Fano maximizers form exactly its full vertex-permutation orbit, and recomputed rational means 163/30 and 16/3 and strict tail differences for t=3..99. The proof reduces all integer t>=3 to exact symbolic formulas b(3^t-3·2^t+3), 4^t+3·3^t-15·2^t+17, and 2(2^t-2)(2^t-4), each strictly positive; finite times alone would not suffice. The seven-block degree-three requirement and sampling with replacement were honored.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct claim after actual primary-source and published-record comparisons. The strict ordering of Fano against the complete 35-triple scheme is not a monotonicity statement over arbitrary seven-edge fair hypergraphs, so it does not imply unique minimal-support optimum.
+
+## value
+
+PASS
+
+A complete sharp stochastic-order classification in the smallest-support fair triple-draw coupon model is naturally motivated by the question of worst fair coverage delay. It classifies all 11,205 labeled admissible mechanisms, identifies the unique extremal isomorphism type, and separates mean and distributional optimality, not merely one constructed Fano-versus-uniform comparison.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
