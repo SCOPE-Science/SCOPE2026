@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T22:11:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nondecreasing measurable f:[0,1]->[0,1] and one sampled X~p with estimator f(X)/p(X)+h(X), E[p h]=0, the proposed density p*=1/(2sqrt((x-1/2)^2+c)), c=(4sinh²1)^(-1), normalizes and h*=1-x-sqrt((x-1/2)^2+c) is centered. For each step f_theta, 2h*+1/p*=2(1-x) makes variance identically V*=(coth1-1)/4. Every bounded monotone f is a convex mixture of unit steps (including endpoint constants), so no f has larger risk. For the adversarial step law with F=1/2+(x-1/2)p*, endpoint atoms and interior density, F(1-F)=c p*². The complete-square prior average and Cauchy–Schwarz lower bound force risk>=V* for every admissible (p,h), with equality iff p=p* and h=h* a.e. This proves global minimax and uniqueness within the explicitly stated estimator class. Independent midpoint integration with 30,000 panels gave V* within 6.49e-11.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Basak et al provide a uniform unbiased benchmark and discuss broader algorithm classes; no inspected theorem says an arbitrary nonlinear estimator's minimax risk equals V*.",
+          "Novak surveys information complexity, not a sharp p,h saddle on this cone."
+        ],
+        "reasoning": "No demonstrated broader result logically implies this precise constrained minimax optimum and unique density.",
+        "searches": [
+          "optimal unbiased one evaluation Monte Carlo quadrature bounded monotone functions importance sampling control variate minimax coth",
+          "https://arxiv.org/abs/2203.00423",
+          "https://arxiv.org/abs/2307.06787"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2203.00423",
+        "https://arxiv.org/abs/2307.06787"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Basak et al Section 3 uniform one-sample centered ramp control has worst variance 1/12.",
+          "Submitted p* is nonuniform and attains strictly smaller worst variance, precluding derivation of its minimax theorem merely from prior uniform optimality."
+        ],
+        "reasoning": "The strict numerical improvement and unique density demonstrate non-equivalence; no general algorithm-wide optimality is claimed.",
+        "searches": [
+          "optimal unbiased one evaluation Monte Carlo quadrature bounded monotone functions importance sampling control variate minimax coth",
+          "https://arxiv.org/abs/2203.00423",
+          "https://arxiv.org/abs/2307.06787"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Basak et al use nonsequential unbiased quadrature and uniform sample with centered linear control f(U)-U+1/2.",
+          "Submitted allows arbitrary positive a.e. importance density p with centered additive h, and fixes f(X)/p(X) coefficient for unbiasedness."
+        ],
+        "reasoning": "Uniform sampling is a strict subclass; the full variational minimax over density and control is not a renaming of the prior uniform rule.",
+        "searches": [
+          "optimal unbiased one evaluation Monte Carlo quadrature bounded monotone functions importance sampling control variate minimax coth",
+          "https://arxiv.org/abs/2203.00423"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact V*=(coth 1-1)/4=0.07825882137483287 versus prior uniform 1/12=0.0833333333333.",
+          "The optimal density, control, and adversarial law are analytic formulas; there is no relevant external finite numerical table to look up."
+        ],
+        "reasoning": "A numerical decimal coincidence is not the claim; the new sharp saddle law and uniqueness are the comparison target.",
+        "searches": [
+          "optimal unbiased one evaluation Monte Carlo quadrature bounded monotone functions importance sampling control variate minimax coth",
+          "https://arxiv.org/abs/2203.00423"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Basak–Bect–Vazquez proved uniform one-evaluation ramp-control variance 1/12 and discussed the open wider nonsequential question; their inspected paper does not provide simultaneous importance-density/control saddle V*. Novak reviews broad integration complexity without this exact restricted one-evaluation saddle. Resultary returned same current result plus separate stratified and antithetic settings, not a stronger one-sample importance-control minimax theorem. The current estimator class is deliberately narrower than all unbiased nonlinear single-query procedures; novelty is asserted only within this class.",
+      "residual_risks": [
+        "Another variational optimal-design paper outside these identified references could independently contain the same one-point saddle.",
+        "No general single-evaluation algorithm optimality, singular sampling optimality, or two-sample result is inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL OVERLAP, NOT DOMINATING",
+          "evidence": "Uniform one-point controlled rule risk 1/12; no matching nonuniform density minimax V* in inspected material.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.00423",
+          "material_read": "Full arXiv PDF accessed; examined estimator class, Section 3 one-point uniform control result, and stated open directions.",
+          "method": "PDF full-text access, relevant theorem and examples read",
+          "title": "Integration of bounded monotone functions: Revisiting the nonsequential case, with a focus on unbiased Monte Carlo methods",
+          "trigger": "Primary direct predecessor on one-sample monotone integration"
+        },
+        {
+          "assessment": "GENERAL BACKGROUND / RESIDUAL RISK",
+          "evidence": "General integration complexity does not by a cited theorem furnish the explicit importance-control saddle.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.06787",
+          "material_read": "Relevant abstract/general overview and citation; complete PDF material inspection not established.",
+          "method": "Bibliographic and theorem-scope comparison",
+          "title": "Optimal Algorithms for Numerical Integration: Recent Results and Open Problems",
+          "trigger": "Potential stronger one-query minimax framework"
+        },
+        {
+          "assessment": "CORRECT, NONTRIVIAL SHARP SADDLE",
+          "evidence": "Identity 2h+1/p=2(1-x) and F(1-F)=cp² checked; 30k-panel integration matched V*.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/sharp-one-evaluation-importance-control-quadrature-for-bounded-m--e26a5ce9195c",
+          "material_read": "Complete RESULT.md and check.py, audit and metadata source.",
+          "method": "GitHub frozen file read and independent midpoint quadrature",
+          "title": "Sharp one-evaluation importance-control quadrature for bounded monotone functions",
+          "trigger": "Frozen final statement, lower/upper proof, checker"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: exact one-query minimax risk with a unique explicit nonuniform sampling density, equalizing control, and a least-favorable step-function distribution solves a natural optimal experimental design problem. It strictly reduces the established uniform-control worst-case variance 1/12 by ~6.09%, which is a motivated sharp improvement with a useful variational characterization rather than an arbitrary constant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All nondecreasing measurable f in [0,1], but only absolutely continuous positive-a.e. p and fixed centered deterministic h with estimator f(X)/p(X)+h(X.",
+    "Another variational optimal-design paper outside these identified references could independently contain the same one-point saddle.",
+    "No general single-evaluation algorithm optimality, singular sampling optimality, or two-sample result is inferred."
+  ],
+  "schema_version": 1
+}
