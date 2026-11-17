@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T12:09:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For λ>0, δ≥0 set a=λδ², A=1+a, D=λ+a. Scaled Euler second moments evolve by symmetric nonnegative T=[[α²,2ha],[2ha,β²]] and forcing 2h(1,λ); offdiagonal multiplier αβ−2ha obeys |·|≤ρ(T). The first Perron crossing rho(T)=1 occurs at h*=(A+D−sqrt((A−D)²+4a²))/(AD), including a=0 boundary. For 0<h<h*, a contractive affine random recursion has unique finite-variance invariant law; its covariance is diag(u_h,v_h), with u_h,v_h from exact 2x2 inversion and both >1 from target defect h²(A²,D²). Above threshold Perron projection forces moments from zero to diverge, forbidding any finite-variance stationary law. Strong δ→∞ h*~(1+λ)/(λ²δ⁴); at a=1, λ→0, h*→(3−sqrt5)/2. Independent rational case λ=1/4,a=1,h=1/10: u=91/71,v=464/355, rho≈0.912444. Not a statement about almost-sure instability or stationary Gaussianity.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier general systems mean-square Euler stability analyzes matrix transfer operators; 2019 reversible Langevin paper concerns continuous convergence and selected Euler simulations."
+        ],
+        "reasoning": "Broad matrix criteria may imply the threshold algorithmically, but no verified earlier explicit formula for this SDE and target covariance was found. Older complete text inaccessible; risk stated, no false whole-document negative.",
+        "searches": [
+          "Resultary: Euler-Maruyama Gaussian reversible Stratonovich exact mean square stability invariant covariance numerical sampling anisotropic",
+          "https://doi.org/10.1137/090771843",
+          "https://arxiv.org/abs/1903.03024"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.03191",
+        "https://arxiv.org/abs/1903.03024",
+        "https://arxiv.org/abs/0912.1968",
+        "https://doi.org/10.1137/090771843"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "det(I−T)=h²[AD(2−Ah)(2−Dh)−4a²], fixed covariance (I−T)^{-1} 2h(1,lambda), target defect h²(A²,D²)."
+        ],
+        "reasoning": "The exact radical and strict positive covariance bias follow from applying generic transfer plus a nontrivial model-specific matrix calculation; continuous-time gap claims do not give them by implication. Strong unexamined generic literature remains a risk.",
+        "searches": [
+          "Resultary: Euler-Maruyama Gaussian reversible Stratonovich exact mean square stability invariant covariance numerical sampling anisotropic",
+          "https://arxiv.org/abs/2610.03191",
+          "https://doi.org/10.1137/090771843"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For scaled Y covariance, T=[[ (1−hA)^2, 2ha],[2ha,(1−hD)^2 ]]; rho(T)<1 iff finite stationary second moments; offdiag multiplier bounded by rho(T)."
+        ],
+        "reasoning": "This equivalent 2x2 mean-square transfer is a standard matrix spectral criterion. Originality is limited to exact model-specific h*, covariance inflation and singular scalings, not the generic method.",
+        "searches": [
+          "Resultary: Euler-Maruyama Gaussian reversible Stratonovich exact mean square stability invariant covariance numerical sampling anisotropic",
+          "https://arxiv.org/abs/0912.1968"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Numerical experiments at small Euler steps are not the exact all-(lambda,delta,h) radical h* or covariance(u,v) table."
+        ],
+        "reasoning": "A finite parameter stability plot cannot replace exact dichotomy; no equivalent exact parameter catalogue identified. Lack of search hits does not prove priority.",
+        "searches": [
+          "Resultary: Euler-Maruyama Gaussian reversible Stratonovich exact mean square stability invariant covariance numerical sampling anisotropic",
+          "https://arxiv.org/abs/2610.03191"
+        ]
+      },
+      "rationale": "The known SDE and generic second-moment transfer criterion are credited; the sharp explicit stability radical, invariant covariance Loewner inflation and fourth-power amplitude scaling are a plausible original focused numerical-SDE classification, with inaccessible 2026 primary and older systems literature identified as risks.",
+      "residual_risks": [
+        "Complete original Louis–Pavliotis–Vilmart 2026 full text unavailable; institutional route returned vpn_disconnected and no unqualified full-text noncoverage is asserted.",
+        "Buckwar–Kelly 2010 systems stability article not inspected in full; general criteria may specialize to some or all claimed formulas.",
+        "Exact invariant law is not asserted Gaussian; only finite second moments and W2 attraction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Primary conceptual setup and continuous-time spectral-gap results acknowledged; inability to read full article prevents a whole-paper noncoverage judgment about the Euler bound",
+          "evidence": "Current model is the Itô Euler discretization, exact Perron stability h* and stationary covariance. Existing section 6 experiments and section 7 open-problem framing were cited but not independently page-verified.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.03191",
+          "material_read": "Available original abstract, bibliographic record and explicit equation/section citations in assigned proof; complete original PDF not accessible",
+          "method": "Attempted arXiv/preprint, lawful OA, then institutional route; authorized response vpn_disconnected",
+          "title": "Reversible Stratonovich perturbations for accelerating convergence to equilibrium of Langevin dynamics",
+          "trigger": "Exact same continuous-time stochastic SDE and numerical Euler experiments"
+        },
+        {
+          "assessment": "General scalar transfer methods are prior art; matrix Perron criterion and 2x2 application are model-specific",
+          "evidence": "The original proof explicitly gives 2x2 noncommuting coupling and Loewner covariance bias.",
+          "identifier_or_url": "https://arxiv.org/abs/0912.1968",
+          "material_read": "Abstract and bibliographic identification; complete primary text not inspected",
+          "method": "Primary-source research search",
+          "title": "A comparative linear mean-square stability analysis of Maruyama- and Milstein-type methods",
+          "trigger": "Generic linear multiplicative-noise mean-square stability may imply matrix-transfer method"
+        },
+        {
+          "assessment": "Potential dominating general stability criterion, but not evidence of explicit radical, covariance or thresholds; risk preserved",
+          "evidence": "Not justified to conclude full-paper NOT_COVERING from abstract.",
+          "identifier_or_url": "https://doi.org/10.1137/090771843",
+          "material_read": "Bibliographic abstract only; publisher full text not inspected",
+          "method": "Primary metadata search",
+          "title": "Towards a systematic linear stability analysis of numerical methods for systems of stochastic differential equations",
+          "trigger": "Generic matrix-valued SDE stability likely closest broad prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An explicit admissible numerical step and covariance inflation under a reversible-noise acceleration proposal are directly useful for Gaussian sampler design; the δ⁻⁴ numerical cost is a genuine modeling stability boundary, not just textbook transfer-matrix nomenclature.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.03191",
+    "https://arxiv.org/abs/1903.03024",
+    "https://arxiv.org/abs/0912.1968",
+    "https://doi.org/10.1137/090771843"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No convergence result for nonlinear Langevin targets, higher dimensions, almost-sure Lyapunov exponents or computational-cost advantage.",
+    "Authoritative original stochastic calculus paper could not be checked in full."
+  ],
+  "residual_risks": [
+    "Complete original Louis–Pavliotis–Vilmart 2026 full text unavailable; institutional route returned vpn_disconnected and no unqualified full-text noncoverage is asserted.",
+    "Buckwar–Kelly 2010 systems stability article not inspected in full; general criteria may specialize to some or all claimed formulas.",
+    "Exact invariant law is not asserted Gaussian; only finite second moments and W2 attraction."
+  ],
+  "schema_version": 1
+}

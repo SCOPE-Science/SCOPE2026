@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and scope
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and the standard library. The verifier checks rational coefficient and covariance identities, direct spectral-radius classification on both sides of several thresholds, and representative asymptotic regimes. The proof in `RESULT.md`, rather than sampling or numerical tests, establishes all real-parameter conclusions. The numerical scheme is Euler–Maruyama for the **Itô version** of the stated reversible-noise SDE. The target covariance is the covariance of the continuous-time diffusion, not that of the numerical invariant law.
+## correctness
 
-Directly examined literature: arXiv:2610.03191 §§3.1/6.1/7; arXiv:1903.03024 §§1–3; arXiv:0912.1968 §§2–4. Only the abstract and bibliographic record were accessible for DOI:10.1137/090771843. The exact-model historical priority may therefore require an additional literature assessment. No independent audit or universal computer certification is claimed.
+PASS
+
+For λ>0, δ≥0 set a=λδ², A=1+a, D=λ+a. Scaled Euler second moments evolve by symmetric nonnegative T=[[α²,2ha],[2ha,β²]] and forcing 2h(1,λ); offdiagonal multiplier αβ−2ha obeys |·|≤ρ(T). The first Perron crossing rho(T)=1 occurs at h*=(A+D−sqrt((A−D)²+4a²))/(AD), including a=0 boundary. For 0<h<h*, a contractive affine random recursion has unique finite-variance invariant law; its covariance is diag(u_h,v_h), with u_h,v_h from exact 2x2 inversion and both >1 from target defect h²(A²,D²). Above threshold Perron projection forces moments from zero to diverge, forbidding any finite-variance stationary law. Strong δ→∞ h*~(1+λ)/(λ²δ⁴); at a=1, λ→0, h*→(3−sqrt5)/2. Independent rational case λ=1/4,a=1,h=1/10: u=91/71,v=464/355, rho≈0.912444. Not a statement about almost-sure instability or stationary Gaussianity.
+
+## originality
+
+PASS
+
+The known SDE and generic second-moment transfer criterion are credited; the sharp explicit stability radical, invariant covariance Loewner inflation and fourth-power amplitude scaling are a plausible original focused numerical-SDE classification, with inaccessible 2026 primary and older systems literature identified as risks.
+
+## value
+
+PASS
+
+An explicit admissible numerical step and covariance inflation under a reversible-noise acceleration proposal are directly useful for Gaussian sampler design; the δ⁻⁴ numerical cost is a genuine modeling stability boundary, not just textbook transfer-matrix nomenclature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
