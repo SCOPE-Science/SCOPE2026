@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The continuous-time SIR process is stated with explicit independent exponential recovery and contact clocks. The proof uses uniqueness of the residual path from a seed to another susceptible vertex, counts all connected pairs in a random vertex-deleted cycle, proves strictly positive coefficients, and derives the boundary and asymptotic limits by finite binomial identities and dominated convergence. A separate exact rational CTMC recursion was executed on the embedded checker for all immune counts at population sizes \(4\)–\(8\), for two rate pairs; \(30\) checks and \(30\) boundary-identity checks passed. Simulations are not substituted for the proof. The result excludes one remaining susceptible, only one immune individual, and nonpositive rates from its strict statement.
+## correctness
 
-## Originality — PASS (qualified)
-Closest covering *qualitative* prior work is Ferrari et al. (2006), Hiraoka et al. (2023/2025), and Ueki et al. (2026), all explicitly recognizing that localized infection-induced immunity can protect less than spread-out immunity. That sign phenomenon is **not** claimed as original. Inspection of relevant primary methods, results, and discussions found no all-size conditional cycle-SIR formula, no positive-coefficient finite polynomial, and no combination of the fixed-count, proportional-count and near-perfect-transmission crossover limits. Broad network frailty/percolation results do not by themselves imply the quantitative formula without a separate specialized count. Published research-record searches returned epidemic/vaccination studies of different mechanisms, not a covering calculation. Residual risk: unindexed one-dimensional epidemic/percolation literature or inaccessible supplementary material could contain an equivalent formula. Such risk prevents a guarantee of uniqueness, not this qualified best-evidence assessment.
+PASS
 
-## Mathematical value — PASS
-The cycle is the canonical spatial network with uniform degree, removing degree heterogeneity as an explanation for weaker natural immunity. Conditioning on **every possible immune count** isolates precisely the geometry of immune localization. The theorem gives an exact, strict quantitative protection difference, a sharp finite ceiling, and a large-population distinction between a fixed number and a positive fraction of immunized individuals. The high-transmissibility crossover makes the difference order-of-limits issue explicit; these are motivated epidemic-network observables rather than a digit-census or arbitrary graph slice.
+PASS: First CTMC outbreak infects a connected cyclic interval when size<n, and its conditional location is uniform by rotational symmetry; residual susceptible vertices form a path. Along a unique path of length d, d independent source-vertex races transmit with probability p^d (no false assumption that two edges out of the same infected vertex are independent). Averaging over all susceptible new seeds and vertex targets yields 1+2/L Σ_d (ℓ−d)p^d per path component. For random immunes exactly n*C(n−d−1,k)/C(n,k) oriented d-edge segments survive; each unique residual path pair is counted exactly once. Coefficients are strictly positive by ∏_{j=1}^d(1−(k−1)/(n−j))<1. Hockey-stick summation at p↑1 gives (k−1)(L−1)/(k+1); dominated convergence and k=2 Riemann sum yield the three limiting regimes, with all boundary restrictions explicit. Independent exact Fraction enumeration of every k-immune subset and every susceptible index on cycles n=4..11 at p=1/3,1/2,3/4 reproduced the polynomial. The packaged CTMC first-step recursion was separately inspected but its logged results are not used as the proof.
 
-## Limits and closest work
-The result does not alter established qualitative conclusions, imply anything about real vaccine efficacy, or extend beyond the static homogeneous cycle and memoryless SIR rules. The original preprint's metapopulation framework contains one-individual-per-subpopulation CTMC as a special case, but the cycle calculations and exact scalings require separate arguments. Supplementary information in one earlier paper could not be fully inspected; the principal results and methods were compared. No independent scientific audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualifying well-established qualitative phenomenon: Ueki–Thompson–Banaji (Jan20 2026) and Hiraoka et al. already analyze differences in infection-acquired versus random immunity and topological localization. The reviewed materials do not give the identical conditional fixed-k finite homogeneous-cycle CTMC formula, coefficientwise strict inequality, exact saturated bound, or two scaling regimes and k2 crossover. Another 2026 cycle study concerns two high-contact independent percolation edges, and 2026 vaccination study independently seeds many vertices; neither implies the fixed-k conditional SIR law. Literature priority of possible one-dimensional percolation formulations remains a risk.
+
+## value
+
+PASS
+
+PASS: Quantifying protection differences at the same immune count isolates topology from prevalence, a natural network-epidemic comparison. The full finite-n positive-coefficient polynomial and exact fixed-k versus proportional-k and near-perfect transmission crossover capture distinct population regimes. The statement is an exact model theorem with clear scope, not an empirical clinical forecast or a generic statement that clusters are different.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

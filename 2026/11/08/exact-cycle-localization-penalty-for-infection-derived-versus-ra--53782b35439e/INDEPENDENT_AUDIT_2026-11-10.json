@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T18:00:28.603079Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: First CTMC outbreak infects a connected cyclic interval when size<n, and its conditional location is uniform by rotational symmetry; residual susceptible vertices form a path. Along a unique path of length d, d independent source-vertex races transmit with probability p^d (no false assumption that two edges out of the same infected vertex are independent). Averaging over all susceptible new seeds and vertex targets yields 1+2/L Σ_d (ℓ−d)p^d per path component. For random immunes exactly n*C(n−d−1,k)/C(n,k) oriented d-edge segments survive; each unique residual path pair is counted exactly once. Coefficients are strictly positive by ∏_{j=1}^d(1−(k−1)/(n−j))<1. Hockey-stick summation at p↑1 gives (k−1)(L−1)/(k+1); dominated convergence and k=2 Riemann sum yield the three limiting regimes, with all boundary restrictions explicit. Independent exact Fraction enumeration of every k-immune subset and every susceptible index on cycles n=4..11 at p=1/3,1/2,3/4 reproduced the polynomial. The packaged CTMC first-step recursion was separately inspected but its logged results are not used as the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hiraoka et al. https://arxiv.org/html/2307.04700v4: general network localization result, not a homogeneous finite C_n exact conditioned immune-size law.",
+          "Cycle bond arrangement https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-clustering-high-transmission-contacts-increases-mean-outbreak-si--01a6964699b8/RESULT.md: independent bond-retention with heterogeneous edge rates, not infection-derived immune-block CTMC.",
+          "Vaccination placement https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-finite-gap-optimal-vaccination-on-cycles-with-independent-epidem--93166b63810d/RESULT.md: exactly two vaccinees and independent multiple seeds; no conditioned primary outbreak."
+        ],
+        "reasoning": "Greater graph generality in qualitative work does not imply a particular exact conditional coefficient formula. Percolation results concern a distinct probability law and seeding objective.",
+        "searches": [
+          "Resultary: Cycle graph SIR infection-induced immunity versus random immune locations second epidemic exact conditional outbreak size",
+          "https://arxiv.org/abs/2601.13730",
+          "https://arxiv.org/html/2307.04700v4",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-clustering-high-transmission-contacts-increases-mean-outbreak-si--01a6964699b8/RESULT.md",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-finite-gap-optimal-vaccination-on-cycles-with-independent-epidem--93166b63810d/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2601.13730",
+        "https://arxiv.org/html/2307.04700v4",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-clustering-high-transmission-contacts-increases-mean-outbreak-si--01a6964699b8/RESULT.md",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-finite-gap-optimal-vaccination-on-cycles-with-independent-epidem--93166b63810d/RESULT.md",
+        "https://doi.org/10.1098/rspb.2006.3636"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ueki https://arxiv.org/abs/2601.13730 already establishes that natural immunity can be less protective than random immunity in certain networked models.",
+          "Current stronger restricted conclusion: for every 2<=k<=n−2, all β,γ>0 on C_n, every coefficient of E_nat−E_rand is strictly positive and limit equals (k−1)(L−1)/(k+1)."
+        ],
+        "reasoning": "Qualitative sign results cannot imply strict coefficient-by-coefficient positivity, the exact size-conditional gap, or k2 scaling. The independent-bond experiment cannot be equated with correlated same-source SIR transmissions on branching graphs, but unique cycle residual paths make current proof valid.",
+        "searches": [
+          "Resultary: Cycle graph SIR infection-induced immunity versus random immune locations second epidemic exact conditional outbreak size",
+          "https://arxiv.org/abs/2601.13730",
+          "https://arxiv.org/html/2307.04700v4",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-clustering-high-transmission-contacts-increases-mean-outbreak-si--01a6964699b8/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ueki–Thompson–Banaji https://arxiv.org/abs/2601.13730 compares immunity distributions on networked populations and says random protection may exceed infection-acquired protection.",
+          "Current exact conditional cycle formula uses k fixed immune vertices with a single new seed and source clocks, while Ueki model includes networked subpopulations and parameter ensembles."
+        ],
+        "reasoning": "The likely equivalent representation is a one-dimensional susceptible path-forest two-point connectivity sum. The relevant prior gives qualitative/approximate consequences but not this all-n all-k exact conditional polynomial or scaling.",
+        "searches": [
+          "Resultary: Cycle graph SIR infection-induced immunity versus random immune locations second epidemic exact conditional outbreak size",
+          "https://arxiv.org/abs/2601.13730",
+          "https://arxiv.org/html/2307.04700v4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Original Ueki study reports simulations and analytic approximations, not the n*C(n−d−1,k)/C(n,k) surviving-pair coefficient table for every n,k.",
+          "No indexed prior exact all-(n,k) table found among targeted Resultary hits."
+        ],
+        "reasoning": "The candidate is an explicit all-parameter rational-binomial polynomial, and an unindexed reliability table could in principle imply it; failure to locate such table is not proof of priority.",
+        "searches": [
+          "Resultary: Cycle graph SIR infection-induced immunity versus random immune locations second epidemic exact conditional outbreak size",
+          "https://arxiv.org/abs/2601.13730"
+        ]
+      },
+      "rationale": "PASS, qualifying well-established qualitative phenomenon: Ueki–Thompson–Banaji (Jan20 2026) and Hiraoka et al. already analyze differences in infection-acquired versus random immunity and topological localization. The reviewed materials do not give the identical conditional fixed-k finite homogeneous-cycle CTMC formula, coefficientwise strict inequality, exact saturated bound, or two scaling regimes and k2 crossover. Another 2026 cycle study concerns two high-contact independent percolation edges, and 2026 vaccination study independently seeds many vertices; neither implies the fixed-k conditional SIR law. Literature priority of possible one-dimensional percolation formulations remains a risk.",
+      "residual_risks": [
+        "The qualitative localization disadvantage is prior art and not novel; a one-dimensional exact network reliability/percolation formula in an unindexed appendix could subsume some coefficients.",
+        "The claim does not apply to arbitrary networks or unequal source recovery dependencies, nor infer clinical recommendations.",
+        "The original first primary outcome includes conditional cluster shape only, not conditioned path-seed distribution across heterogeneous individuals."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUALITATIVE_PRIOR",
+          "evidence": "Contains random-versus-acquired immunity comparisons and analytical/experimental network examples, not exact conditioned k-block simple-cycle polynomial.",
+          "identifier_or_url": "https://arxiv.org/abs/2601.13730",
+          "material_read": "Public arXiv full textual manuscript, abstract, §§1–3 model and network-vulnerability comparisons, related conclusions",
+          "method": "Primary full scientific text via public repository or arXiv HTML; relevant theorem and proof checked",
+          "title": "Outbreak dynamics and population vulnerability in stochastic epidemic models on networks",
+          "trigger": "closest direct natural-vs-random immunity paper"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Two unequal independent edge retention probabilities and uniform seed; not immune-subset randomization or conditional first SIR outbreak.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/8/SCOPE-clustering-high-transmission-contacts-increases-mean-outbreak-si--01a6964699b8/RESULT.md",
+          "material_read": "Full RESULT.md finding, assumptions, proof description and comparisons",
+          "method": "Primary full scientific text via public repository or arXiv HTML; relevant theorem and proof checked",
+          "title": "Clustering high-transmission contacts increases mean outbreak size on every cycle, while variance can reverse",
+          "trigger": "same cycle family and percolation-style infectivity"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Optimizes two vaccines under independent multi-seed bond percolation; different treatment and objective.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/26/SCOPE-finite-gap-optimal-vaccination-on-cycles-with-independent-epidem--93166b63810d/RESULT.md",
+          "material_read": "Full RESULT.md finding, model, conditional expectation structure and references",
+          "method": "Primary full scientific text via public repository or arXiv HTML; relevant theorem and proof checked",
+          "title": "Finite-gap optimal vaccination on cycles with independent epidemic seeds",
+          "trigger": "same cycle with predetermined protected vertices"
+        },
+        {
+          "assessment": "QUALITATIVE_PRIOR",
+          "evidence": "Topological strength and weakness of disease-induced protection already established; exact finite homogeneous cycle conditional n,k expression not shown in inspected relevant passages.",
+          "identifier_or_url": "https://arxiv.org/html/2307.04700v4",
+          "material_read": "Public arXiv HTML abstract and relevant model/result sections",
+          "method": "Primary full scientific text via public repository or arXiv HTML; relevant theorem and proof checked",
+          "title": "Strength and weakness of disease-induced herd immunity in networks",
+          "trigger": "primary qualitative localization mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Quantifying protection differences at the same immune count isolates topology from prevalence, a natural network-epidemic comparison. The full finite-n positive-coefficient polynomial and exact fixed-k versus proportional-k and near-perfect transmission crossover capture distinct population regimes. The statement is an exact model theorem with clear scope, not an empirical clinical forecast or a generic statement that clusters are different.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For CTMC SIR on simple cycle C_n, n>=4, condition first outbreak on exactly k infections, 2<=k<=n−2, and compare its contiguous immune block with uniformly random k immunes: for fresh uniform susceptible seed and p=β/(β+γ), exact positive-coefficient gap is 2/(n−k) Σ_{d=1}^{n−k−1}[(n−k−d)−n C(n−d−1,k)/C(n,k)]p^d, with exact p→1, fixed-k, proportional-k, and k=2 critical scaling laws.",
+  "limitations": [
+    "Simple homogeneous CTMC cycle, exactly k prior infections, uniform new seed, permanent immunity, positive β and γ; no arbitrary graphs or biological calibration.",
+    "Finite checks prove no unrestricted statement; proof's pair counting/clock races/dominated convergence carry generality."
+  ],
+  "schema_version": 1
+}
