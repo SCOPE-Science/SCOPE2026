@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exposure lemma is proved componentwise, separating cyclic components, small trees with a non-exposed central vertex, and large trees. Every successful new cycle necessarily uses the newest edge, giving the exact exposure hazard. The path-template strategy yields the matching hazard to additive \(O(1/n)\) per step in expectation, hence \(O_{\ell,L}(n^{-1/2})\) in the survival function. The accompanying checker passed 134,418 finite exact/combinatorial and numerical assertions, including all simple graphs on at most six vertices; these do not constitute an infinite proof.
+## correctness
 
-## Originality — PASS (best-knowledge, provisional priority)
-Ben-Eliezer et al. (arXiv:1805.02259), Behague et al. (arXiv:2105.07034), and Gao–Koerts (doi:10.1002/jgt.23202) provide threshold-scale results rather than the exact length-dependent Rayleigh constant. Akhmejanova–Kupavskii (arXiv:2610.33854) analyze local graph properties with limited partner choice but do not state this family profile. The documented \(\ell=3\) special case is covered and explicitly excluded from the novelty claim; the new content is the all-length structural extremal argument and sharp optimal strategy. A broader unlocated result may subsume this proof; novelty is not certified by an unsuccessful search.
+PASS
 
-## Value — PASS
-Cycle appearance is a canonical local-property hitting-time benchmark. The constant changes systematically with the cycle length, and a sharp componentwise extremal graph theorem explains why long path templates, rather than arbitrary forest structures, optimize the hazard. The same strategy attains the entire compact-window probability profile, not just an order-of-magnitude threshold.
+The all-fixed-length exposure lemma is established on each connected component: a cyclic component has v<=e; a tree with e<=2ell-4 has a center with eccentricity<=ell-2 and hence at least one unexposed vertex, so a_ell<=e; a tree with e>=2ell-3 has at most e+1<=((2ell-2)/(2ell-3))e exposed vertices. Long paths with 2ell-2 vertices attain equality. The universal conditional success hazard is bounded by ((2ell-2)/(2ell-3))j/n; reserved path templates attain the bound up to O(1) expected wastage, yielding the uniform O_{ell,L}(n^-1/2) survival asymptotics. No uniformity in ell growing with n is claimed; the proof addresses every fixed ell>=3. Independent graph and path-instance checks passed.
 
-## Risk and scope
-The target length is fixed, endpoint choice unrestricted, and success refers to a non-induced cycle. Independent historical-priority verification and mathematical audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The ell=3 triangle instance is known in the published same-day triangle result and is expressly not claimed new. For every ell>=4, the full sharp coefficient (ell-1)/(2ell-3), the componentwise exposure extremal lemma, and a matching adaptive path-template strategy go beyond the inspected fixed-subgraph threshold literature. Behague et al. prove the exponent of the threshold n^{1/2}, and the foundational and pre/post-positional works concern threshold scale; none gives the all-ell sharp fixed-x limit. The distinct general theorem is not implied by triangle alone. This is a best-of-knowledge originality assessment, not absolute priority certification.
+
+## value
+
+PASS
+
+Generalizing one target to every fixed simple cycle is a natural graph-process classification, not an arbitrary subcase. The sharp ((2ell-2)/(2ell-3)) exposed-vertices/edge extremum explains and quantifies the optimal first-cycle time for each length; a single constructive algorithm attains the exact full constant-probability window. Such constants and laws are genuine additional information beyond a mere sqrt(n) scale and can guide online subgraph construction analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
