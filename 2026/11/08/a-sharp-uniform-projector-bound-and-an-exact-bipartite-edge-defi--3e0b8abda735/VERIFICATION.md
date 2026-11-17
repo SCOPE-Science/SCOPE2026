@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The accompanying `verify_graph_projection.py` executes with Python 3 and standard-library rational arithmetic only. From the package directory run `python verify_graph_projection.py`. The completed execution returned:
+## correctness
 
-```
-RATIONAL_CONNECTED_GRAPH_PROFILES_OK 560 bipartite 263
-GEOMETRIC_PATH_SHARPNESS_CHECKS_OK 9 3
-SINGLE_EDGE_EXACT_PROFILE_OK 5/3
-POSITIVE_VERTEX_ATOM_DEFICIT_OK
-ALL_GRAPH_SPLINE_PROJECTION_CHECKS_OK
-```
+PASS
 
-The checker independently builds the consistent finite-element mass matrix, inverts it by exact rational elimination and evaluates the signed affine edge kernels. It checks the exact bipartite atom/edge deficit for each sampled bipartite connected graph, the strict universal upper bound on every sample, and the geometric-path endpoint limits. It also verifies the one-edge norm \(5/3\) exactly.
+Gram M=diag(alpha)+(2D+W)/6 is positive definite. Convexity of integrated nodal evaluation kernels reduces the L-infinity projector norm to vertices. The comparison resolvent B=diag(alpha)+(2D-W)/6 has positive inverse, |M^{-1}|<=B^{-1}, q=3B1-2alpha and gives norm<=3 with strictness from atoms, odd cycles, or bipartite edge sign cancellation. For bipartite G, SM S=B, so exact row value Lambda_v=3-2sum(alpha_i a_vi)-sum_e w_e a_vi a_vj/(a_vi+a_vj). The graded path recurrence yields endpoint limit 3-2^(4-n)/3 for fixed n, hence unattained sharp 3. Independently inverted rational weighted 3-vertex example with atoms, verifying all exact row deficits, but no finite sample replaces analytic proof.
 
-The analytical proof, not these finite tests, establishes all positive edge masses, all finite graph orders, all positive edge lengths, and arbitrarily large path asymptotics. Independently audited verification has not been performed. Full-text access to one relevant weighted finite-element article was unavailable; the stated literature comparison is correspondingly qualified.
+## originality
+
+PASS
+
+PASS for the **combined extended claim**, not for its already-known universal constant. The Nov 2 published metric-graph result already proves ||P||<3 for simple graphs without atoms and sharp 3 by hypercubes, so these pieces are expressly prior coverage. This submission additionally includes nonnegative vertex atoms, multigraph edges, an exact positive bipartite atom-and-edge deficit and extremizer classification, and fixed-order geometrically graded path limit; these parameter-specific formulas are not stated or implied as complete equalities by the prior bound alone. They survive as motivated mathematically exact quantities.
+
+## value
+
+PASS
+
+PASS: The full bipartite deficit is a directly usable exact stability invariant for nodal finite-element projections with edge mass and endpoint atoms, including norming vertices and all sharp kernel sign inputs. Atom-driven sign cancellation and graded-path asymptotics are natural structural refinements even though the bare constant 3 was known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
