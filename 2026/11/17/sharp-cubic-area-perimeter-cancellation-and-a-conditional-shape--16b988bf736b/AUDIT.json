@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Exact chord and shoelace identities give D_P=(sin a/4)sum(delta_i^2)+(cos a/24)sum(delta_i^3)+O(||delta||^4) and R=-(sin^2 a/12)sum(delta_i^3)+O(||delta||^4). Jensen localizes all near-maximal configurations. Lagrange multipliers give max absolute cubic moment (m-2)/sqrt(m(m-1)), proving the sharp coefficient with one-versus-all extremizers. The Dirichlet simplex has constant density, so after scaling the near-regular region converges to a Euclidean ball in symmetric-difference volume and hence total variation. An exact spherical sixth-moment identity yields the conditional residual variance. The standalone symbolic and numerical checker passed; finite checks supplement rather than prove the limits.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Indrei–Nurbekyan (2014), https://arxiv.org/abs/1402.4460, stability inequalities are quadratic general-polygon bounds, not a signed cubic stability law for fixed circumradius.",
+        "Published continuous-circle extrapolation with growing vertices, https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-sharp-area-perimeter-regression-and-fourth-order-decorrelation-f--c0156d4b4464, has many-vertex Gaussian limits, not fixed m conditioning on a small endpoint deficit."
+      ],
+      "reasoning": "Known broad polygonal stability controls the quadratic isoperimetric defect, but does not give the signed cancellation remainder with its sharp coefficient and full conditional law. A continuous-circle n→∞ result cannot imply a fixed-m epsilon→0 limit by relabeling parameters; the two limits and normalizations differ.",
+      "searches": [
+        "fixed m random inscribed cyclic polygon perimeter deficit and area deficit near regular maximum; cubic leading mismatch after subtraction twice cosine pi/m; conditional uniform ball limit",
+        "sharp deterministic inequality |(Amax-A)-2 cos(pi/m)(Pmax-P)| <= C (Pmax-P)^(3/2) for near regular inscribed polygon, optimal constant",
+        "random inscribed polygon joint area perimeter near maximum, conditional shape Fourier Hessian"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1301.1360",
+      "https://arxiv.org/abs/1402.4460",
+      "https://ictp.acad.ro/jnaat/journal/article/view/1360/1463",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-area-perimeter-cancellation-and-joint-gaussian-fluctuation--ef9cba8b7391",
+      "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-sharp-area-perimeter-regression-and-fourth-order-decorrelation-f--c0156d4b4464"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Koroleva–Nikitin (2013), https://arxiv.org/abs/1301.1360, proof uses second-order localization for scalar perimeter/area tails; the mixed third-order coefficient is not evaluated.",
+        "The full published thinning result https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-area-perimeter-cancellation-and-joint-gaussian-fluctuation--ef9cba8b7391 assumes n→∞ and a fixed positive fraction of regular-grid vertices, and its cancellation residual has fifth-order gap scale; this does not subsume a fixed m continuum model."
+      ],
+      "reasoning": "The scalar perimeter tail determines only the radial volume of the quadratic near-regular defect, and the scalar area tail has the same Hessian. Even knowing both tails does not determine their signed difference, which depends on third-order gap skewness. Explicit third-derivative and odd polynomial extrema are needed. Neither the broad stability inequality nor the large-n Gaussian theorem has matching limiting quantifiers or implication strength.",
+      "searches": [
+        "fixed m random inscribed cyclic polygon perimeter deficit and area deficit near regular maximum; cubic leading mismatch after subtraction twice cosine pi/m; conditional uniform ball limit",
+        "random cyclic m-gon near maximal perimeter rare event conditional cubic area deficit given perimeter deficit Dirichlet uniform Euclidean ball third moment",
+        "fixed number m independent uniform circle points near regular polygon maximum perimeter conditional area-perimeter cubic residual sharp L^(3/2) inequality limiting ball"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Koroleva–Nikitin (2013), https://arxiv.org/abs/1301.1360, Lemmas 2.1 and 2.3: separate scalar endpoint tails for area/perimeter; no joint signed cubic statistic.",
+        "Wang–Li–Xu (2023), https://ictp.acad.ro/jnaat/journal/article/view/1360/1463: asymptotic extrapolation with growing vertex number rather than the fixed-order rare event."
+      ],
+      "reasoning": "The claim may be formulated either as a sharp local third-order stability ratio for cyclic m-gons, or as a Dirichlet angular-gap ball-conditioned cubic polynomial law. Both require the explicit mixed area–perimeter third derivative and its global maximization on the sum-zero unit sphere. Neither scalar endpoint tail nor second-order isoperimetric stability specifies this odd signed cubic polynomial or its distribution.",
+      "searches": [
+        "joint asymptotic distribution of area and perimeter deficits of an almost regular cyclic polygon with independent uniform circle vertices; Hessian Fourier modes conditional on nearly maximal area, spectral Rayleigh quotient",
+        "fixed m random inscribed cyclic polygon perimeter deficit and area deficit near regular maximum; cubic leading mismatch after subtraction twice cosine pi/m; conditional uniform ball limit",
+        "random cyclic m-gon near maximal perimeter rare event conditional cubic area deficit given perimeter deficit Dirichlet uniform Euclidean ball third moment"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "https://arxiv.org/abs/1301.1360 contains the leading scalar small-perimeter endpoint coefficient, which is reproduced only as a consistency check.",
+        "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-area-perimeter-cancellation-and-joint-gaussian-fluctuation--ef9cba8b7391 contains large-grid thinning covariance formulas and a different signed cancellation combination, not the fixed-m cubic-ball variance."
+      ],
+      "reasoning": "The requested output is a full signed limit distribution with explicit sharp support, not only one existing scalar probability constant or table entry. The exact variance depends on a sixth moment of a cubic polynomial on a constrained ball, absent from the inspected scalar endpoint expressions.",
+      "searches": [
+        "random cyclic m-gon near maximal perimeter rare event conditional cubic area deficit given perimeter deficit Dirichlet uniform Euclidean ball third moment",
+        "fixed number m independent uniform circle points near regular polygon maximum perimeter conditional area-perimeter cubic residual sharp L^(3/2) inequality limiting ball",
+        "third moment sum of cubed circular angular gap deviations under near-maximal random inscribed polygon area/perimeter, explicit variance"
+      ]
+    },
+    "rationale": "The signed third-order cancellation is a new comparison beyond separately known scalar endpoint powers: the sharp ratio, ball-conditioned cubic shape distribution, support, and closed-form conditional variance are not implications of the inspected scalar endpoint results. Full relevant mathematical statements were compared to the new claim, including the growing-side-count cancellation regime. The conclusion is provisional against unindexed historical sources.",
+    "residual_risks": [
+      "Historical priority remains provisional: classical or hard-to-index work on higher-order regular-polygon perturbations could contain an equivalent third-order statement.",
+      "The 2021 published continuous-circle extrapolation paper was not inspected in full, and is not claimed to be entirely non-covering.",
+      "No independent mathematical review has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Scalar endpoint probabilities and quadratic ellipsoid localization, with higher-order Taylor terms not used to evaluate a signed joint cubic statistic.",
+        "evidence": "Lemma 2.1 provides maximum-perimeter endpoint probability; Lemma 2.3 gives the area analogue. Neither states the cancellation coefficient, cubic extremizers or conditional cubic law.",
+        "identifier_or_url": "https://arxiv.org/abs/1301.1360",
+        "material_read": "Open-access 19-page preprint, especially Section 2, Lemmas 2.1 and 2.3, and their proofs of localization and endpoint laws.",
+        "method": "Read arXiv preprint text and checked representative PDF page image.",
+        "title": "U-max-Statistics and Limit Theorems for Perimeters and Areas of Random Polygons",
+        "trigger": "Exactly same circle-vertex random polygon and individual rare near-maximal perimeter/area events."
+      },
+      {
+        "assessment": "General polygonal quadratic isoperimetric stability, not the specific fixed-circumradius signed cubic remainder and conditional probability law.",
+        "evidence": "Quadratic deficit framework lacks the odd cubic comparison and its Dirichlet-conditioned mark.",
+        "identifier_or_url": "https://arxiv.org/abs/1402.4460",
+        "material_read": "Open-access preprint main stability theorem, definitions of polygonal deficit and proof framework, and representative PDF page image.",
+        "method": "Read arXiv preprint theorem statements and relevant proof text.",
+        "title": "On the Stability of the Polygonal Isoperimetric Inequality",
+        "trigger": "Potential stronger geometric stability inequalities that might subsume the sharp near-regular bound."
+      },
+      {
+        "assessment": "Many-vertex nonlinear estimators and normal approximations; no fixed-order near-maximal conditional cubic distribution.",
+        "evidence": "The theorems study increasing vertex count and extrapolation of pi using Dirichlet distributions, with distinct scales.",
+        "identifier_or_url": "https://ictp.acad.ro/jnaat/journal/article/view/1360/1463",
+        "material_read": "Full HTML article, introduction, main theorem statements, and extrapolation framework.",
+        "method": "Read open-access article and searched within text for conditional/cubic terminology.",
+        "title": "Nonlinear random extrapolation estimates of pi under Dirichlet distributions",
+        "trigger": "Dirichlet gaps and possibly joint cancellation in circle-inscribed random polygons."
+      },
+      {
+        "assessment": "The entire result uses m=⌊alpha n⌋ vertices selected without replacement from an n-vertex grid, followed by n→∞; different geometry and no fixed m epsilon→0 cubic-ball limit.",
+        "evidence": "Its theorem features a fifth-order gap cancellation residual and Gaussian fluctuations, not the third-order signed residual under rare regularity conditioning.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/8/SCOPE-sharp-area-perimeter-cancellation-and-joint-gaussian-fluctuation--ef9cba8b7391",
+        "material_read": "Full published RESULT.md including exact model, assumptions, two-scale theorem, proof and limitations.",
+        "method": "Read public result text from its repository.",
+        "title": "Sharp area–perimeter cancellation and joint Gaussian fluctuations for uniformly thinned regular polygons",
+        "trigger": "Strong title and terminology overlap: signed area–perimeter cancellation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "16b988bf-736b-4821-aeba-dbabd2c754ee",
+  "value": {
+    "rationale": "Area and perimeter endpoint deviations are naturally highly dependent because they share exactly the same quadratic gap energy. Their first nonproportional information is an odd cubic skewness, and the sharp upper bound identifies the maximally asymmetric near-regular geometry. The conditional law determines the full marked asymmetry distribution and a closed-form invariant for every fixed polygon order. This is not an arbitrary numerical coefficient or a marginal endpoint expansion.",
+    "status": "PASS"
+  }
+}
