@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-`verify.py` uses only Python's standard library and exact integer arithmetic. Run `python verify.py`.
+# Independent mathematical audit
 
-The theorem reduces every possible input to one of 19 truncated triples for each ordered nonzero-symbol pair, a total of 57 templates for the two representative symbol types. Every fiber size is obtained by stars and bars, a polynomial in length of degree at most two. The program compares all 57 complete nonzero-three-mer vectors and checks the proposed fiber-size patterns at three consecutive lengths, enough to establish the polynomial identities for all lengths in scope. It also verifies these identities for additional lengths and directly enumerates 15,120 actual words over alphabet sizes two through five at lengths eight through fifteen.
+## correctness
 
-Expected output: `VERIFY_OK templates=57 direct_words=15120 alphabet_sizes=4 n=8..15`.
+PASS
 
-The finite comparison is exhaustive only because of the proved truncation reduction. The direct input enumeration by itself would not justify a universal statement. Neither independent review nor tests of noisy or cyclic read models are claimed.
+Every word with exactly two nonzero positions is uniquely 0^L a 0^G b 0^R. Its non-000 length-three factor multiset depends only on clipped gaps (min(L,2),min(G,2),min(R,2)), while 000 count is total n-2 minus nonzero-factor counts. For n≥8, exactly 19 truncated templates with ≥one coordinate2 are realized and all lifts are counted by stars-and-bars binomial of degree≤2 in n. Exhaustive signature comparison gives exactly 18 classes per repeated symbol and 37 per unordered distinct pair; exactly one collision for each family. The all-(2,2,2) template is unrealizable at n=7 giving 17/36. Independently recomputed full direct word fibers for q=2..5, n=7..15 and symbolic polynomial per-signature lift counts, confirming full displayed class-size distribution and unique-word counts including n8 exception. The result concerns contiguous multiplicity triples (not scattered decks) and uniqueness only within the restricted shell.
+
+## originality
+
+PASS
+
+Exact stabilized two-marker contiguous 3-mer multiplicity fiber distribution is not given by published general k-Abelian/short-factor theories, weight-three binary tri-gram spectra, or global possible-spectrum counts. The finite class counts and polynomial multiplicity spectrum appear distinct under same-model comparisons; unindexed equivalent earlier fixed-composition census is a residual risk.
+
+## value
+
+PASS
+
+Contiguous k-mer reconstruction is a natural combinatorics-on-words and sequence-assembly invariant. Determining every ambiguity-fiber size, exact n=8 stabilization threshold, and unique recoverability counts for the first nontrivial sparse two-marker shell provides a reproducible classification beyond merely counting attainable signatures; the integer polynomial lift reduction has explanatory structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
