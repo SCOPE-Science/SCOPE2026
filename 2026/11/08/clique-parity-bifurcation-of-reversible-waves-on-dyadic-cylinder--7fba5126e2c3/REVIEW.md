@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The cycle multiplication operator is explicitly \(y^2/(1+y)\) on a truncated polynomial algebra, and its kernels of every power give exactly two blocks of size \(2^{r-1}\). Clique adjacency has the stated parity-dependent idempotent or square-zero structure. In the even case the change of variables \(c=a+b\) is an exact isomorphism because the block length is a power of two; it forces a uniform Jordan length, not just an eigenvalue count. The temporal characteristic relation eliminates the nilpotent parameter and establishes the claimed cyclic modules. GCD degrees with \(X^t-1\) then yield every fixed space, including fields that contain cube roots of unity. Positivity of all primitive counts and the exact permutation orders follow algebraically. The 438 independent binary matrix comparisons and separate direct-state checks are supporting evidence only.
+PASS
 
-## Originality
+For r>=3,m>=3,F_{2^f}, the cycle shift S has B=S+S^{-1} acting as y^2/(1+y) on F[y]/y^{2^r}, giving exactly two size-L nilpotent Jordan blocks, L=2^{r-1}. The clique adjacency C=I+E is idempotent with eigenvalues 0 (1 copy) and 1 (m−1 copies) when m odd, whereas when m even it has one J2(1) plus m−2 scalar blocks. The Kronecker sum J_L(0)+J2(0) splits into two J_L blocks because L is a power of two, proven by c=a+b in F[a,b]/(a^L,b^2). A single adjacency J_L(beta) under two-row T has cyclic module F[X]/(X²+beta X+1)^L via a=X^{-1}(X²+beta X+1). GCD with X^t−1 gives the fixed-space exponents, and Möbius inversion gives exact least-period counts. Prime-factor checks show global orders 3*2^r versus 3*2^{r−1}. Independent exact GF(2) matrices and rank computations for r=3,m=3,4,5,6 reproduced orders 24/12 and all queried fixed-space ranks. These checks corroborate the unrestricted symbolic module proof, not replace it.
 
-PASS with residual historical-priority risk. The nearest fully inspected primary works by Tadaki (1994), Macfarlane (2004), and Vlasov (2013) establish first-order dyadic rule-90 nilpotence, general second-order matrix formulations, and reversible constructions, but do not treat finite labelled clique-cylinder global orbit counts. A later Kronecker-sum reversibility study concerns first-order updates and eigenvalue invertibility, not second-order temporal Jordan lengths. Related known pure dyadic-torus and mixed-Hamming reversible-wave results have different graph factors; the four-cycle overlap \(C_4=K_2\square K_2\) is deliberately outside the claim. Direct web searches and mathematical-record queries found no covering claim, although database coverage cannot prove uniqueness. Jen (1988) provides a relevant older cylindrical counting approach, but its full text was not inspected and its exact public release day was not verified.
+## originality
 
-## Value
+PASS
 
-PASS. The exact orbit census is a natural invariant of a reversible graph dynamical system on an infinite family of graph cylinders. The parity of the clique side controls the disappearance of the unipotent clock and changes the maximum temporal order by a sharp factor two. The theorem resolves not just the order but the entire fixed-population function and the full support and multiplicity of primitive cycles for arbitrary dyadic circumference and characteristic-two finite fields. It is not a small numerical improvement or a rephrasing of generic reversibility.
+The full labelled finite-field orbital module for C_{2^r} square K_m, including clique-parity fixed counts and primitive periods, was not found as a corollary of the inspected first-order dyadic cycle, general reversible-wave, nilpotent prism, mixed Hamming, or hypertorus results. Common algebraic techniques are prior art; claim only the particular family module and census. Historical Macfarlane full-text gap and possible 11/8 same-date overlap remain explicit risks.
 
-## Limits
+## value
 
-The theorem does not address non-power-of-two circumferences, odd characteristic, or nonlinear rules. The earliest exactly day-verified public source anchor, for the relevant first-order dyadic-cycle adjacency method, is 1994-12-15; the separately inspected second-order source is dated 2004-10-28. The earlier Jen publication has only a month-resolved date in the consulted sources. Unindexed work and inaccessible complete text remain priority risks. Scientific claims have undergone a self-review but no independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact parameter-uniform parity jump in temporal period and the complete orbit census for a natural Cartesian product family are meaningful structural invariants of finite linear dynamics, with the distinction persisting across all characteristic-two finite fields. This is richer than a numerical order for a chosen graph and allows exact period-resolved state counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

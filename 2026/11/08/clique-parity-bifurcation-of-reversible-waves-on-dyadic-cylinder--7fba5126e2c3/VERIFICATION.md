@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The algebraic proof is given in `RESULT.md`, Steps 1–5. The programs in this package provide finite checks and do not constitute an infinite proof.
+# Independent mathematical audit
 
-Run `python3 verify_algebra.py` and `python3 verify_direct.py`. Captured standard output is provided respectively in `verify_algebra.out` and `verify_direct.out`.
+## correctness
 
-`verify_algebra.py` constructs exact binary adjacency and two-row wave matrices independently of the symbolic decomposition. It checks the predicted adjacency annihilating polynomial, exact global order by testing the two prime factors of the proposed order, and 438 exact fixed-space nullities for \(r=3,4,5\), \(m=3,4,5\).
+PASS
 
-`verify_direct.py` updates states by iterating graph neighbors instead of using matrix powers. It exactly enumerates the 65,536 paired states of an eight-vertex boundary graph, then checks 60,000 deterministic pseudorandom states on four in-scope graphs. These finite checks do not cover every parameter or state. The proof covers all integers \(r\geq3\), \(m\geq3\), every finite \(q=2^f\), and every positive integer time.
+For r>=3,m>=3,F_{2^f}, the cycle shift S has B=S+S^{-1} acting as y^2/(1+y) on F[y]/y^{2^r}, giving exactly two size-L nilpotent Jordan blocks, L=2^{r-1}. The clique adjacency C=I+E is idempotent with eigenvalues 0 (1 copy) and 1 (m−1 copies) when m odd, whereas when m even it has one J2(1) plus m−2 scalar blocks. The Kronecker sum J_L(0)+J2(0) splits into two J_L blocks because L is a power of two, proven by c=a+b in F[a,b]/(a^L,b^2). A single adjacency J_L(beta) under two-row T has cyclic module F[X]/(X²+beta X+1)^L via a=X^{-1}(X²+beta X+1). GCD with X^t−1 gives the fixed-space exponents, and Möbius inversion gives exact least-period counts. Prime-factor checks show global orders 3*2^r versus 3*2^{r−1}. Independent exact GF(2) matrices and rank computations for r=3,m=3,4,5,6 reproduced orders 24/12 and all queried fixed-space ranks. These checks corroborate the unrestricted symbolic module proof, not replace it.
 
-The rational cyclic-module description remains valid even when \(X^2+X+1\) splits over the larger characteristic-two field. No test is described as independent expert validation.
+## originality
+
+PASS
+
+The full labelled finite-field orbital module for C_{2^r} square K_m, including clique-parity fixed counts and primitive periods, was not found as a corollary of the inspected first-order dyadic cycle, general reversible-wave, nilpotent prism, mixed Hamming, or hypertorus results. Common algebraic techniques are prior art; claim only the particular family module and census. Historical Macfarlane full-text gap and possible 11/8 same-date overlap remain explicit risks.
+
+## value
+
+PASS
+
+An exact parameter-uniform parity jump in temporal period and the complete orbit census for a natural Cartesian product family are meaningful structural invariants of finite linear dynamics, with the distinction persisting across all characteristic-two finite fields. This is richer than a numerical order for a chosen graph and allows exact period-resolved state counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
