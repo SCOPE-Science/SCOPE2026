@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T23:43:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/all-power-distance-optimization-for-fixed-volume-solid-circular--36beb7fda3e1/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/all-power-distance-optimization-for-fixed-volume-solid-circular--36beb7fda3e1/verify.py"
+      ],
+      "rationale": "From the actual RESULT.md at pinned commit, independent disk and uniform-height coordinates give M_p(q)=q^{-p/3} E[(T²+q²U²)^{p/2}]. For p>0 the pointwise log-sum-exp in s=log q is strictly convex and coercive, hence unique global q_p. Independent differentiation of M4 gives 4q^4+5q²−50=0 and M2 gives q²=3. Near T=2,U=1, density exponents 3/2 and 1 yield Laplace p^{-9/2} with prefactor √(2/π)(4+q²)^{9/2}/q^4. Its log-gradient at q=√2 is −√2/2 and leading log-Lp curvature is 2/9, giving q_p=√2+9√2/(4p)+O(p^{-2}). Differentiated uniform boundary remainders are asserted with a plausible endpoint-neighborhood and exponential-tail dominated expansion; numerical values do not prove it.",
+      "residual_risks": [
+        "Laplace expansion needs locally uniform first derivative; supported by smooth local expansions but not formal computer proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hammersley abstracts describe general distance-function integration of right circular cylinders; complete texts inaccessible; no actually inspected result establishes shape optimizer q_p or its 1/p correction.",
+          "General even-moment identity formulas could subsume low-order algebra but do not by themselves imply a positive-noninteger-p optimizer classification."
+        ],
+        "reasoning": "A general integral representation would cover distance moments as a calculational method; whether its full text includes the higher-order optimization is a substantive unverified risk, not inferred from the abstract. All-real-power global optimizer uniqueness and sharp high-p shape correction were not shown to follow from inspected literature.",
+        "searches": [
+          "J.M. Hammersley 1951 DOI:10.1098/rspa.1951.0233 general cylinder distance integrals",
+          "J.M. Hammersley 1952 DOI:10.1002/sapm1952311139 distance integration coefficients right cylinders",
+          "R. García-Pelayo 2011 DOI:10.1063/1.3559719 general distance moments"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/all-power-distance-optimization-for-fixed-volume-solid-circular--36beb7fda3e1/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/all-power-distance-optimization-for-fixed-volume-solid-circular--36beb7fda3e1/verify.py",
+        "https://doi.org/10.1098/rspa.1951.0233",
+        "https://doi.org/10.1002/sapm1952311139",
+        "https://arxiv.org/abs/math-ph/0201046"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hammersley permits potentially computing E[D^p] at fixed q, but optimizing over q and deriving strict convexity and the explicit 9√2/(4p) correction requires new analysis not found in material actually inspected.",
+          "Lateral surface geodesic q2 and high-p limits differ because sample space and metric differ."
+        ],
+        "reasoning": "Neither inspected spherical-distance formulas nor other Resultary records imply all three main clauses. Priority remains provisional until original cylinder papers can be read; inaccessible literature alone not a scientific failure.",
+        "searches": [
+          "Resultary solid-cylinder versus geodesic cylinder titles",
+          "Tu-Fischbach 2002 full text relevant disk/sphere section",
+          "Hammersley 1951/1952 citation/abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A fixed-volume right circular solid-cylinder objective is q^{-p/3} E[(T^2+q^2U^2)^{p/2}]; geodesic flat-cylinder work samples sidewalls, a different measure and metric.",
+          "Tu-Fischbach supplies planar/disk separation distributions, not full fixed-volume variable-shape optimization."
+        ],
+        "reasoning": "Disk-distance formulas and lateral-cylinder analogues are ingredients or different problems, not equivalent to all-real-p unique optimal solid-cylinder aspect ratios and the high-power shift.",
+        "searches": [
+          "Resultary semantic search: fixed-volume solid circular cylinder optimal aspect ratio all positive powers distance moments two random interior points large p shift sqrt2",
+          "Tu-Fischbach arXiv:math-ph/0201046, section on disk distance density"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the present solid-cylinder record and distinct lateral-surface/inverse-problem records, not a matching optimization table.",
+          "Published distance tables for balls, disks and cubes involve fixed shapes."
+        ],
+        "reasoning": "The claim concerns a continuous optimization problem indexed by every positive real p rather than a finite lookup table. Existing moment tabulations do not alone classify the minimizing shape.",
+        "searches": [
+          "Resultary semantic fixed-volume cylinder all-positive-power optimum",
+          "Hammersley 1951/1952 cylinder integration literature",
+          "Mathai-Moschopoulos-Pederzoli 1999 random distances in cubes"
+        ]
+      },
+      "rationale": "No inspected antecedent demonstrated fixed-volume all-positive-power shape optimization with strict uniqueness and the sharp 1/p correction. Hammersley original full mathematical texts are highly relevant but inaccessible; this is a qualified best-of-knowledge originality PASS with material residual risk, not a claim of definitive priority.",
+      "residual_risks": [
+        "Hammersley 1951 and 1952 full texts could not be inspected because institutional VPN disconnected; their integral formulas could mask older optimization.",
+        "Uniform differentiated O(p^-1) Laplace expansion is explained but not formalized to all remainder orders."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT; not claimed NOT_COVERING",
+          "evidence": "General distance-function integration; no shape-minimization theorem visible in abstract; Oxford access disconnected.",
+          "identifier_or_url": "https://doi.org/10.1098/rspa.1951.0233",
+          "material_read": "Public abstract and bibliographic description only; full 1951 paper not retrieved",
+          "method": "Open-access/arXiv search, publisher metadata, authorized Oxford request (VPN disconnected)",
+          "title": "On a certain type of integral associated with circular cylinders",
+          "trigger": "Same solid-cylinder random-distance integration, highly plausible stronger antecedent"
+        },
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT; priority risk",
+          "evidence": "Relevant original 1952 treatment may contain strong moment formulas; not enough material to rule out optimal-shape results.",
+          "identifier_or_url": "https://doi.org/10.1002/sapm1952311139",
+          "material_read": "Bibliographic summary only; no full mathematical text",
+          "method": "Open-access/arXiv search, authorized Oxford request (VPN disconnected)",
+          "title": "Lagrangian integration coefficients for distance functions taken over right circular cylinders",
+          "trigger": "Same solid cylinder/distance moment objects"
+        },
+        {
+          "assessment": "NOT_COVERING shape optimization",
+          "evidence": "Analytic distribution for fixed disks and balls, not minimizers over aspect ratio of solid cylinders.",
+          "identifier_or_url": "https://arxiv.org/abs/math-ph/0201046",
+          "material_read": "Full accessible paper, portions including introductory distribution theory and disk/ball geometry",
+          "method": "Lawful open-access arXiv PDF visual inspection and extracted text",
+          "title": "Random Distance Distribution for Spherical Objects: General Theory and Applications to n-Dimensional Physics",
+          "trigger": "Exact disk-separation distribution used in cylinder integral"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/all-power-distance-optimization-for-fixed-volume-solid-circular--36beb7fda3e1/RESULT.md",
+        "https://doi.org/10.1098/rspa.1951.0233"
+      ],
+      "rationale": "A natural continuous family of fixed-volume geometric shape optimizations with distinct moment-optimal aspect ratios and a nontrivial boundary-Laplace correction to the diameter optimum; neither routine tabulation nor arbitrary slice.",
+      "residual_risks": [
+        "No global significance beyond cylinder family claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Original 1951/1952 Hammersley cylinder paper texts inaccessible, no definitive priority certification.",
+    "Asymptotic O(p^-2) relies on uniformly differentiable Laplace remainders."
+  ],
+  "schema_version": 1
+}

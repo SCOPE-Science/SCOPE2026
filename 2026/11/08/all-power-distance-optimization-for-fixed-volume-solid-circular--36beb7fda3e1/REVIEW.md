@@ -1,11 +1,21 @@
-# Scientific review: fixed-volume solid-cylinder distance moments
+# Independent mathematical audit
 
-**Correctness — PASS.** The fixed-volume normalization is explicit: \(R=(V/(\pi q))^{1/3}\). The radial disk and vertical interval difference laws are independently derived and normalized. Strict log-convexity in \(s=\log q\), with divergence at both ends, proves a unique global minimizer for **every** \(p>0\). The exact polynomial moments produce \(q_2=\sqrt3\) and \(q_4=\sqrt{5(\sqrt{33}-1)/8}\). Boundary Laplace analysis gives the uniform \(p^{-9/2}\) asymptotics, whose derivative establishes the \(9\sqrt2/(4p)\) shift. Numerical tests are corroborative rather than substituted for these arguments. The differentiable uniform Laplace expansion is the key analytic proof obligation, addressed via endpoint expansions and exponential tail splitting.
+## correctness
 
-**Originality — PASS (historical priority provisional).** Hammersley (1951, 1952) already develops exact cylinder distance integrals for arbitrary kernels, and those integrals are explicitly credited. His available abstract states no fixed-volume all-positive-power optimization, optimizer uniqueness, or first high-power correction. Complete original papers were unavailable despite public-access searches and an authorized access attempt; coverage remains an explicit residual risk, not a purported complete negative inspection. The full Tu--Fischbach arXiv text was examined at the disk-density derivation and moment section, and its spherical-object results do not imply the cylinder shape optimization. The 1999 cube moments and 2011 general even-moment identities likewise do not state all-positive-power optimization. Related work on intrinsic lateral-cylinder distances has a different sampling measure and metric.
+PASS
 
-**Value — PASS.** A fixed-volume cylindrical body has an intrinsic design freedom (height versus cross-section). The theorem identifies the unique optimizer of the entire positive distance-moment spectrum, not only an elementary inertial coefficient; the distinction between two exact low even powers and the sharp \(p^{-1}\) high-power boundary correction exhibit how extreme-pair geometry changes the optimal shape. The precise coefficient depends on the codimension and order of vanishing of the pair-separation density at the diameter. It supplies a reproducible benchmark for random-distance energies on product bodies. No claim is made that this optimizes over arbitrary solids.
+From the actual RESULT.md at pinned commit, independent disk and uniform-height coordinates give M_p(q)=q^{-p/3} E[(T²+q²U²)^{p/2}]. For p>0 the pointwise log-sum-exp in s=log q is strictly convex and coercive, hence unique global q_p. Independent differentiation of M4 gives 4q^4+5q²−50=0 and M2 gives q²=3. Near T=2,U=1, density exponents 3/2 and 1 yield Laplace p^{-9/2} with prefactor √(2/π)(4+q²)^{9/2}/q^4. Its log-gradient at q=√2 is −√2/2 and leading log-Lp curvature is 2/9, giving q_p=√2+9√2/(4p)+O(p^{-2}). Differentiated uniform boundary remainders are asserted with a plausible endpoint-neighborhood and exponential-tail dominated expansion; numerical values do not prove it.
 
-**Closest sources and risks.** Hammersley 1951 (10.1098/rspa.1951.0233) and 1952 (10.1002/sapm1952311139) are closest and were bibliographically inspected, but full texts were inaccessible. Tu--Fischbach (arXiv:math-ph/0201046) was read in HTML §§II,V.1. Mathai--Moschopoulos--Pederzoli (10.6092/issn.1973-2201/1104) was examined at the accessible article abstract. An independently executed numerical checker supports, but does not certify, the mathematical statements. The claim is a self-review, not an independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected antecedent demonstrated fixed-volume all-positive-power shape optimization with strict uniqueness and the sharp 1/p correction. Hammersley original full mathematical texts are highly relevant but inaccessible; this is a qualified best-of-knowledge originality PASS with material residual risk, not a claim of definitive priority.
+
+## value
+
+PASS
+
+A natural continuous family of fixed-volume geometric shape optimizations with distinct moment-optimal aspect ratios and a nontrivial boundary-Laplace correction to the diameter optimum; neither routine tabulation nor arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
