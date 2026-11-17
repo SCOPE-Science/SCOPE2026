@@ -1,15 +1,21 @@
-# Review: two lattice phases in cubic Boolean projection constants
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement specifies real coefficients, the uniform Boolean cube and the absolute Banach-space projection constant. Translation averaging and injectivity give the canonical Walsh kernel exactly. The proof reduces the cubic kernel to the explicit polynomial of the Rademacher sum, applies a local symmetric-binomial expansion with exponentially negligible tails, evaluates the Gaussian correction, and accounts for *all three* absolute-value cusps by the shifted-lattice Euler--Maclaurin term. Boundary conventions at zeros are harmless because their contribution vanishes. The even and odd second-order ranges and the strict gap follow from the exact range of the Bernoulli polynomial and the phase-density subsequences. The accompanying checker cross-verifies exact and high-precision cases; it is not used as an infinite proof. Remaining mathematical risk: the stated lattice and Stirling error estimates require their usual uniform estimates; the proof records the necessary cutoffs and decay explicitly.
+## correctness
 
-## Originality — PASS, qualified
-The projection-constant expectation itself and the leading \(c\,n^{3/2}\) asymptotic are prior art: Defant--Galicer--Mansilla--Mastyło--Muro, arXiv:2208.06467, Theorems 8.1.1 and 8.2.5 and the explicit degree-three example. The new claim is precisely the order-\(\sqrt n\) lattice correction and the strictly separated parity limit intervals. The closest published mathematical record about a second-chaos lattice phase covers degree two and therefore does not imply the cubic correction or the three-cusp phase interaction. Harrow--Kolla--Schulman, arXiv:1209.4148, and Kirshner--Samorodnitsky, arXiv:1909.11929, supply background Krawtchouk techniques but not this specific expansion. Targeted searches and a review of the primary source's relevant full-text sections did not identify an equivalent second-order statement. Risk: a more general unindexed local-limit/Edgeworth result could imply the same correction without matching the stated terminology, and the related degree-two record was inspected only at summary level.
+PASS
 
-## Mathematical value — PASS
-The spectral projection constant is a standard invariant of the degree-three Boolean polynomial space, and its leading term was already known. The new correction is not a routine substitution: the cubic Hermite kernel has three nonsmooth roots, and the correction involves the interplay of a central parity-locked cusp with a moving noncentral cusp pair. The complete subsequential ranges expose a strict parity gap of order \(\sqrt n\) that the leading asymptotic cannot detect. This provides concrete finite-dimension stability information and a sharp obstruction to replacing the oscillatory second-order term by one universal constant.
+Averaging a projection over sign translations forces the cubic Fourier projector. Its Krawtchouk kernel is (S_n^3-(3n-2)S_n)/6. Uniform local binomial Stirling/Edgeworth expansion through n^-1, Hoeffding tail truncation, and derivative jumps phi(0), 2phi(sqrt(3)) at three absolute-value cusps produce the stated n^-1 correction. Gaussian integral evaluation and shifted Euler–Maclaurin B_2 phases give the precise coefficient. Every fixed-parity phase is approximated by nearest integers of that parity to (2k+2theta+eps)^2/3, obtaining the stated interval endpoints and strict gap. Independent numerical comparisons of exact binomial expectation against phase asymptotics at n=100,101,400,401,1000,1001 showed decaying normalized discrepancies, not proof of the asymptotic.
 
-## Verification and limitations
-Exact boundary-binomial identities were checked in 148 dimensions; independent signed-character enumeration was performed for eight dimensions; six larger dimensions were checked at high precision. The theorem applies only to the real uniform Boolean cube and degree-three homogeneous Walsh spectrum, with an asymptotic \(o(\sqrt n)\) remainder, and does not assert a finite-size certified remainder bound. Primary literature comparisons concern statements and their implications, not merely article titles. Independent mathematical audit has not been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact projection norm and leading Hermite coefficient are Defant et al. prior art. The novel claimed object is the moving order-sqrt(n) Bernoulli correction and parity gap; the inspected Defant chapter only proves leading asymptotics and the 2026 degree-two lattice-phase theorem concerns a different Hermite cusp pattern. Same-day cubic plateau classification gives exact consecutive-dimension equality but not this order-sqrt(n) expansion. No reviewed source was shown to imply both second-order intervals.
+
+## value
+
+PASS
+
+The degree-three Walsh projection constant is a natural Banach-space invariant whose leading asymptotic is known; computing an oscillatory sharp second-order term and two disjoint parity bands rules out a single finite-size correction. Three cusp contributions and moving irrational-scale phase are mathematically nontrivial beyond the known first order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

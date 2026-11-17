@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T20:01:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-lattice-phases-and-a-strict-parity-gap-in-cubic-boolean-proj--42034a3637a6/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/two-lattice-phases-and-a-strict-parity-gap-in-cubic-boolean-proj--42034a3637a6/VERIFICATION.md"
+      ],
+      "rationale": "Averaging a projection over sign translations forces the cubic Fourier projector. Its Krawtchouk kernel is (S_n^3-(3n-2)S_n)/6. Uniform local binomial Stirling/Edgeworth expansion through n^-1, Hoeffding tail truncation, and derivative jumps phi(0), 2phi(sqrt(3)) at three absolute-value cusps produce the stated n^-1 correction. Gaussian integral evaluation and shifted Euler–Maclaurin B_2 phases give the precise coefficient. Every fixed-parity phase is approximated by nearest integers of that parity to (2k+2theta+eps)^2/3, obtaining the stated interval endpoints and strict gap. Independent numerical comparisons of exact binomial expectation against phase asymptotics at n=100,101,400,401,1000,1001 showed decaying normalized discrepancies, not proof of the asymptotic.",
+      "residual_risks": [
+        "Uniformity of the local Stirling expansion and cusp-summation O(h^3) remainder must hold on the stated truncated lattice; proof provides cutoffs but no explicit uniform constants.",
+        "Only real homogeneous degree three, uniform cube, n->infinity; finite diagnostics do not establish the limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Defant Theorem 8.2.5 covers all fixed Walsh degrees at leading Hermite order.",
+          "The cubic plateau theorem computes when consecutive dimension norms coincide but makes no quantitative second-order Gaussian phase expansion."
+        ],
+        "reasoning": "Neither a first-order all-degree theorem nor equality-plateau classification implies the new displayed complete limit intervals.",
+        "searches": [
+          "degree three Boolean Walsh homogeneous cubic projection constant second order asymptotic parity Bernoulli lattice phase",
+          "https://arxiv.org/abs/2208.06467",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-infinite-dimension-plateaus-for-the-cubic-walsh-fourier-projecti--9446d18c2d3c"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2208.06467",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-lattice-phase-second-term-for-second-chaos-projection-constant--ec79809353f9",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-infinite-dimension-plateaus-for-the-cubic-walsh-fourier-projecti--9446d18c2d3c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known c n^(3/2) is excluded from the novelty claim.",
+          "Disjoint intervals depend on derivative jumps of |H_3| at 0 and +-sqrt(3)."
+        ],
+        "reasoning": "A single leading coefficient and a second-chaos formula lack the necessary third-Hermite cusp arithmetic; no direct implication identified.",
+        "searches": [
+          "degree three Boolean Walsh homogeneous cubic projection constant second order asymptotic parity Bernoulli lattice phase",
+          "https://arxiv.org/abs/2208.06467",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-lattice-phase-second-term-for-second-chaos-projection-constant--ec79809353f9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Walsh L1 kernel norm equals the absolute projection constant; Defant Theorem 8.1.1 identifies this exact formulation.",
+          "The returned theorem additionally fixes an n^(-1) Gaussian-normalized correction with two Bernoulli phases."
+        ],
+        "reasoning": "Equivalence of the exact norm is acknowledged; prior first-order norm identity does not fix the order-sqrt(n) oscillation.",
+        "searches": [
+          "degree three Boolean Walsh homogeneous cubic projection constant second order asymptotic parity Bernoulli lattice phase",
+          "https://arxiv.org/abs/2208.06467"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The degree-two published lattice phase correction is order one, unlike cubic order sqrt(n).",
+          "Exact finite projection expectations can be evaluated but no found published table supplies the parity bands."
+        ],
+        "reasoning": "The correction is an infinite-dimensional asymptotic phase classification, not an isolated lookup entry; search silence remains uncertain.",
+        "searches": [
+          "degree three Boolean Walsh homogeneous cubic projection constant second order asymptotic parity Bernoulli lattice phase",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-lattice-phase-second-term-for-second-chaos-projection-constant--ec79809353f9"
+        ]
+      },
+      "rationale": "The exact projection norm and leading Hermite coefficient are Defant et al. prior art. The novel claimed object is the moving order-sqrt(n) Bernoulli correction and parity gap; the inspected Defant chapter only proves leading asymptotics and the 2026 degree-two lattice-phase theorem concerns a different Hermite cusp pattern. Same-day cubic plateau classification gives exact consecutive-dimension equality but not this order-sqrt(n) expansion. No reviewed source was shown to imply both second-order intervals.",
+      "residual_risks": [
+        "An unindexed general lattice-Edgeworth theorem may imply the cubic second term without using the projection-constant terminology.",
+        "The degree-two published article is materially distinguished by polynomial degree and number of cusps; check any later generalization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers exact expectation and first-order Gaussian limit; no stated root-n parity correction",
+          "evidence": "Theorem 8.1.1 and 8.2.5; displayed degree-three Hermite coefficient.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.06467",
+          "material_read": "Chapter 8 Theorems 8.1.1 and 8.2.5, degree-three example and surrounding displayed equations",
+          "method": "Opened arXiv PDF, used page-level screenshot and text search",
+          "title": "Projection constants for spaces of multivariate polynomials",
+          "trigger": "Exact norm and leading-coefficient prior"
+        },
+        {
+          "assessment": "Exact plateau-index law rather than asymptotic second-order phase",
+          "evidence": "Provides L_(n+1)-L_n expectation of (|E2|-|E3|)_+ and its zero-index classification.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-infinite-dimension-plateaus-for-the-cubic-walsh-fourier-projecti--9446d18c2d3c",
+          "material_read": "Full RESULT.md proof and theorem",
+          "method": "GitHub file read",
+          "title": "Infinite dimension plateaus for the cubic Walsh Fourier projection",
+          "trigger": "Same cubic projection object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2208.06467",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-lattice-phase-second-term-for-second-chaos-projection-constant--ec79809353f9",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-infinite-dimension-plateaus-for-the-cubic-walsh-fourier-projecti--9446d18c2d3c"
+      ],
+      "rationale": "The degree-three Walsh projection constant is a natural Banach-space invariant whose leading asymptotic is known; computing an oscillatory sharp second-order term and two disjoint parity bands rules out a single finite-size correction. Three cusp contributions and moving irrational-scale phase are mathematically nontrivial beyond the known first order.",
+      "residual_risks": [
+        "No third-order uniform error constant or extension to higher Walsh degree is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For real degree-three Walsh projection constants lambda_n, an explicit order-sqrt(n) Edgeworth plus Bernoulli cusp-lattice correction yields disjoint, completely attained even/odd subsequential limit intervals; the leading c n^(3/2) is not claimed as new.",
+  "limitations": [
+    "Real degree-three only; asymptotic remainder o(sqrt(n)) and no explicit uniform finite-size constant."
+  ],
+  "schema_version": 1
+}

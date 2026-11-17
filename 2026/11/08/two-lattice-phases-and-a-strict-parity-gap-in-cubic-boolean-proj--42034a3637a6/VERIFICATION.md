@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
-The exact finite identity is checked against independent binomial and character-enumeration implementations in `verify_cubic_projection.py`. Run from a directory containing the file using `python3 verify_cubic_projection.py`, with Python 3.10+ and the freely available `mpmath` library installed for high-precision asymptotic diagnostics. Its exact-rational tests use only the Python standard library.
+# Independent mathematical audit
 
-The run completed with these diagnostics:
+## correctness
 
-```
-EXACT_BINOMIAL_BOUNDARY_IDENTITIES_PASSED 148 dimensions
-INDEPENDENT_WALSH_CHARACTER_ENUMERATION_PASSED 8 dimensions
-HIGH_PRECISION_LATTICE_PHASE_DIAGNOSTICS_PASSED 6 dimensions
-ALL_CUBIC_WALSH_PROJECTION_CHECKS_PASSED
-```
+PASS
 
-For all \(3\le n\le150\), exact rational arithmetic compares two distinct finite expressions for the degree-three Walsh projection constant. Directly summing all cubic Walsh characters checks dimensions \(3\le n\le10\). For \(n=1000,1001,3000,3001,5000,5001\), the normalized remainder agrees with the claimed phase function within the stated diagnostic tolerance. Finite checks do not verify all dimensions; the proof in `RESULT.md` establishes the asymptotic by local expansions and cusp-summation estimates. No independent audit or third-party certification is claimed.
+Averaging a projection over sign translations forces the cubic Fourier projector. Its Krawtchouk kernel is (S_n^3-(3n-2)S_n)/6. Uniform local binomial Stirling/Edgeworth expansion through n^-1, Hoeffding tail truncation, and derivative jumps phi(0), 2phi(sqrt(3)) at three absolute-value cusps produce the stated n^-1 correction. Gaussian integral evaluation and shifted Euler–Maclaurin B_2 phases give the precise coefficient. Every fixed-parity phase is approximated by nearest integers of that parity to (2k+2theta+eps)^2/3, obtaining the stated interval endpoints and strict gap. Independent numerical comparisons of exact binomial expectation against phase asymptotics at n=100,101,400,401,1000,1001 showed decaying normalized discrepancies, not proof of the asymptotic.
+
+## originality
+
+PASS
+
+The exact projection norm and leading Hermite coefficient are Defant et al. prior art. The novel claimed object is the moving order-sqrt(n) Bernoulli correction and parity gap; the inspected Defant chapter only proves leading asymptotics and the 2026 degree-two lattice-phase theorem concerns a different Hermite cusp pattern. Same-day cubic plateau classification gives exact consecutive-dimension equality but not this order-sqrt(n) expansion. No reviewed source was shown to imply both second-order intervals.
+
+## value
+
+PASS
+
+The degree-three Walsh projection constant is a natural Banach-space invariant whose leading asymptotic is known; computing an oscillatory sharp second-order term and two disjoint parity bands rules out a single finite-size correction. Three cusp contributions and moving irrational-scale phase are mathematically nontrivial beyond the known first order.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
