@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "The cardinal formula follows directly from Chebyshev root identities and the standard Hermite cardinal construction. Positivity and partition of unity establish 0<F_m<1 between nodes. Step decomposition proves that the BV seminorm equals the largest step-response variation, with equality attainable. Derivative zero counting (n knot zeros plus n-2 extra zeros in same-label gaps, matching degree 2n-2) proves exactly one bump in each such gap and no hidden oscillations. The angular csc^2 identity splits into a direct term contributing at most pi^-2 log n per side plus a reflected term with bounded summed contribution. The central step midpoint bound gives the matching lower bound. The finite checker passed, but the analytical proof, not enumeration, establishes the all-n asymptotic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The inspected 1990 paper bounds local pointwise error for BV functions and records the 1983 Bojanic–Cheng theorem; it does not bound total variation of the output over the whole domain.",
+        "The 2012 Gautschi survey describes positive/uniformly convergent Hermite–Fejér interpolation rather than BV-to-BV operator norms.",
+        "Known Lebesgue function one for ordinary Chebyshev nodes controls L-infinity norm; it does not bound the variation seminorm."
+      ],
+      "reasoning": "Pointwise or uniform approximation, even for all continuous inputs, does not imply a sharp derivative/variation norm; the positive operator can be uniformly contractive but logarithmically unbounded in variation. An uninspected earlier general theorem could still imply the coefficient, and is recorded as a residual risk.",
+      "searches": [
+        "\"Hermite-Fejér\" \"bounded variation\" operator norms logarithmic growth",
+        "\"Hermite-Fejer\" \"variation\" \"log n\" Chebyshev",
+        "turn573232view2 section 4.3",
+        "turn573232view1 theorems 1–2"
+      ]
+    },
+    "checked_sources": [
+      "https://revistas.unal.edu.co/index.php/recolma/article/download/33206/33203/123112",
+      "https://revistas.unal.edu.co/index.php/recolma/article/view/33206",
+      "https://link.springer.com/chapter/10.1007/978-3-030-39647-3_50",
+      "https://doi.org/10.1017/S0004972700020773",
+      "https://seminariomatematico.polito.it/rendiconti/70-4/347.pdf",
+      "Bojanic–Cheng–Ditzian, CMS Conference Proceedings 3 (1983), 5–17 (quoted and bibliographic only)",
+      "2026/10/18/SCOPE-single-erasure-boundary-layers-for-chebyshev-lobatto-interpolati--a3c5beff381f",
+      "2026/10/18/SCOPE-a-sharp-logarithmic-amplification-law-for-a-missing-block-in-ber--3b76689ee8c7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "1990 pointwise BV approximation-rate inequalities do not imply an exact leading coefficient for Var(H_nf)/Var(f).",
+        "Berrut interpolation is rational with alternating barycentric weights, and its cited logarithmic constant concerns sup-norm Lebesgue amplification under erasures; no implication to zero-derivative Hermite–Fejér BV norm.",
+        "Smith (2002) concerns endpoint-extended nodes and the L-infinity Lebesgue function, not first-kind zero nodes with output BV seminorm."
+      ],
+      "reasoning": "Checked whether a stronger bound, corollary or dual reformulation already subsumes the precise claim. Inspected statements and their hypotheses do not cover it; the 1983 full text remains unresolved and prevents exhaustive historical certification, but no concrete stronger covering theorem was identified.",
+      "searches": [
+        "\"Hermite-Fejér\" \"total variation\" \"norm\" Chebyshev",
+        "\"Hermite Fejer\" \"bounded variation\" operator norms logarithmic growth",
+        "\"Estimates for the rate of approximation of functions of bounded variation by Hermite-Fejer polynomials\" pdf",
+        "turn638108view0 article sections 1–3",
+        "turn573232view1 section 2 and theorem 1",
+        "2026/10/18/SCOPE-a-sharp-logarithmic-amplification-law-for-a-missing-block-in-ber--3b76689ee8c7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new claim is equivalent to growth of the discrete-sample-step-to-polynomial-variation operator norm; the exact step reduction is proved in RESULT.md.",
+        "Al-Jarrah–Rababah (1990), formulas (1.1)–(1.3), defines the same Jacobi-root Hermite–Fejér process but establishes pointwise approximation error, not variation of the output polynomial.",
+        "Xiang–He (2020), eqs. (3)–(11), treats uniform convergence and smooth-function error rates."
+      ],
+      "reasoning": "Checked standard aliases Fejér–Hermite, first-kind Chebyshev/Hermite interpolation, positive interpolant, operator variation and BV seminorm, including its step-response equivalent. No exact corresponding norm or coefficient was identified.",
+      "searches": [
+        "Hermite Fejer interpolation Chebyshev nodes total variation amplification positive operator shape preservation sharp BV norm",
+        "sharp total variation seminorm Hermite-Fejer interpolation at first-kind Chebyshev zeros grows (4/pi^2) log n",
+        "Chebyshev Hermite Fejer interpolant nonuniform bounded variation operator norm logarithmic blowup step functions",
+        "\"Hermite-Fejér\" \"total variation\" Chebyshev node polynomial",
+        "turn638108view0 pp. 51–54; turn573232view1 §1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The highest ranked published-finding corpus results concern missing-node Chebyshev–Lobatto interpolation and rational Berrut interpolation Lebesgue constants, not Hermite–Fejér zero-derivative interpolation or output total variation.",
+        "Accessible owned historical items include 41A10 cubic Chebyshev spectral projection d84ecd4d-8834-4fc5-911b-502e5b7ed5b0 and 41A15 splines, different maps and conclusions.",
+        "Final published-finding corpus comparison returned Chebyshev affine restriction, Lebesgue erasure bounds, and Jacobi semigroup mode selection, none involving Hermite–Fejér BV-to-BV norm."
+      ],
+      "reasoning": "Neither an exact BV-norm table nor an indexed equivalent theorem was found. A database partition or absence of matching keywords does not prove mathematical novelty.",
+      "searches": [
+        "sharp total variation seminorm Hermite-Fejer interpolation at first-kind Chebyshev zeros grows (4/pi^2) log n",
+        "Chebyshev Hermite Fejer interpolant nonuniform bounded variation operator norm logarithmic blowup step functions",
+        "Fejer Hermite first kind polynomial interpolation variation gain log n optimal sharp coefficient",
+        "turn0 published-finding corpus search analogues",
+        "2026/10/18/SCOPE-single-erasure-boundary-layers-for-chebyshev-lobatto-interpolati--a3c5beff381f",
+        "2026/10/18/SCOPE-a-sharp-logarithmic-amplification-law-for-a-missing-block-in-ber--3b76689ee8c7",
+        "For Hermite Fejer interpolation at roots of Chebyshev T_n, output total variation operator seminorm K_n equals (4/pi^2) log n plus O(1), with middle jump extremal up to O(1)"
+      ]
+    },
+    "rationale": "The inspected foundational Hermite–Fejér papers address Chebyshev/Jacobi interpolation definitions, positivity and pointwise convergence/error bounds. None states or implies the exact leading 4/pi^2 coefficient for the BV-to-BV seminorm. The strongest near matches in the indexed literature address different operators or norms; residual priority risk persists for inaccessible older sources.",
+    "residual_risks": [
+      "The original 1983 Bojanic–Cheng–Ditzian conference paper was not obtained in full text; its full conclusions are not excluded by a quoted theorem alone.",
+      "The complete 2002 Smith article was not inspected, although its abstract studies a different, endpoint-extended scheme and L-infinity Lebesgue function.",
+      "Unindexed historical results or an unrecognized stronger theorem in approximation theory may contain the coefficient.",
+      "Database search and mathematical-source inspection are not independent certification of priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the precise BV-to-BV output-variation logarithmic norm: theorems bound pointwise approximation error at continuity points",
+        "evidence": [
+          "Theorem 1, printed p.53: local BV expression bounds |H_n(f,x)-f(x)|.",
+          "Printed pp. 51–52 describe first-kind Chebyshev Bojanic–Cheng pointwise result; pp.62–64 prove the error estimate and list sources."
+        ],
+        "identifier_or_url": "https://revistas.unal.edu.co/index.php/recolma/article/download/33206/33203/123112",
+        "material_read": "Full 14-page text, particularly pp. 51–54, formulas (1.1)–(1.6), and pp. 60–64 proofs/references; page images inspected",
+        "method": "Open-access PDF text and page images",
+        "title": "On the rate of convergence of Hermite-Fejér polynomials to functions of bounded variation on the zeros of certain Jacobi polynomials",
+        "trigger": "Same classical operator family, BV inputs, cited earlier Chebyshev first-kind result"
+      },
+      {
+        "assessment": "NOT_COVERING: it addresses uniform approximation and regularity-based error rates; its derivative-data formulation is broader in input but not an output-BV stability result",
+        "evidence": [
+          "Eqs. (3)–(4) define the exact first-kind Chebyshev zeros and zero-derivative Hermite–Fejér process.",
+          "Theorems on convergence use Peano kernels and smooth-function norms, not total variation of output polynomials."
+        ],
+        "identifier_or_url": "https://link.springer.com/chapter/10.1007/978-3-030-39647-3_50",
+        "material_read": "Open-access full HTML, introduction eqs (1)–(11), convergence-rate results and proof method",
+        "method": "Publisher open-access full HTML",
+        "title": "On the Convergence Rate of Hermite-Fejér Interpolation",
+        "trigger": "Same Chebyshev zeros and Hermite–Fejér cardinal functions"
+      },
+      {
+        "assessment": "NOT_COVERING: historical survey reports positivity/convergence context and lacks exact BV-to-BV logarithmic coefficient",
+        "evidence": [
+          "Section 4.3 attributes ordinary first-kind Chebyshev Hermite–Fejér uniform convergence to Fejér (1916)."
+        ],
+        "identifier_or_url": "https://seminariomatematico.polito.it/rendiconti/70-4/347.pdf",
+        "material_read": "Section 4.3 of accessible full-text mirror, including Chebyshev nodes, Fejér result and summary of later Hermite–Fejér families",
+        "method": "Full-text HTML transcription of article",
+        "title": "Interpolation before and after Lagrange",
+        "trigger": "Historical survey of original Fejér operator and convergence history"
+      },
+      {
+        "assessment": "ACCESS_LIMITED: its ordinary-node Lebesgue constant is one, which does not imply the present BV result; full text not inspected",
+        "evidence": [
+          "Abstract contrasts ordinary Chebyshev nodes (Lebesgue function one) with endpoint-extended nodes and asymptotic extended-node Lebesgue function."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0004972700020773",
+        "material_read": "Publisher abstract, statement of different extended-node Lebesgue function; no complete text",
+        "method": "Abstract and bibliographic comparison",
+        "title": "The Lebesgue function for Hermite-Fejér interpolation on the extended Chebyshev nodes",
+        "trigger": "Same name and explicit operator norms, but extended nodes"
+      },
+      {
+        "assessment": "ACCESS_LIMITED: title and quoted result concern pointwise convergence; cannot assert original whole document lacks a variation-norm theorem",
+        "evidence": [
+          "Al-Jarrah–Rababah (1990), printed p.52, quotes a pointwise bound for the first-kind Chebyshev interpolation error."
+        ],
+        "identifier_or_url": "Bojanic–Cheng–Ditzian, CMS Conference Proceedings 3 (1983), 5–17",
+        "material_read": "Its theorem as quoted in the 1990 full-text paper and its bibliographic details; original full text not accessible",
+        "method": "Open-access bibliographic and secondary primary-paper quotation; original OA search unsuccessful",
+        "title": "Estimates for the rate of approximation of functions of bounded variation by Hermite-Fejér polynomials",
+        "trigger": "Original first-kind Chebyshev BV approximation result cited in 1990 paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "38b24444-e2ab-4d74-8397-f3483b564934",
+  "value": {
+    "rationale": "For classical Fejér interpolation the exact L-infinity norm is one at all degrees, yet the sharp output-variation norm grows unboundedly. A matched all-degree leading constant 4/pi^2 and an explicit central-step extremizing sequence answer a natural stability question for discontinuous data and quantitatively separate positivity from variation diminishing. The theorem is not an arbitrary low-degree computation, routine restatement of uniform convergence or known-tabulated value.",
+    "status": "PASS"
+  }
+}
