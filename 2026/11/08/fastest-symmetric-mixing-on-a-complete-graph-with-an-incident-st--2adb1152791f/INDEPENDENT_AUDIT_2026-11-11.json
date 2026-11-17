@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T11:02:05.254644Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Averaging over S_a×S_b is valid for the operator-norm objective over the full unrestricted convex feasible set. Internal block-zero-sum eigenvalues can be eliminated by choosing y,z as prescribed. The 3×3 normalized quotient has nontrivial Laplacian trace (a+1)x+(a+b)w and product Na xw. The universal e_v bound proves phase I; fixed-w 2×2 trace balancing and boundary feasibility give phase II; concavity of its lowest Laplacian eigenvalue plus the universal Rayleigh witness proves phase III. Independent exact-rational feasibility and quotient-trace/product checks on 1190 (a,b) pairs corroborate, but do not replace, the full symbolic three-regime proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2004 SDP formulation optimizes every fixed finite graph but does not state a closed family-wide formula.",
+          "The 2009 automorphism averages explain quotient reduction, not these specific parameter phase transitions."
+        ],
+        "reasoning": "An algorithm that can solve a fixed SDP is not automatically a previously stated exact all-a,b classification with proved sharp boundaries.",
+        "searches": [
+          "Resultary semantic query: fastest symmetric mixing complete graph with incident star edges deleted optimal SLEM",
+          "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf"
+        ]
+      },
+      "checked_sources": [
+        "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+        "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+        "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/fastest-mixing-on-a-clique-with-one-pendant-vertex-a-complete-op--30d4b04d1192/RESULT.md",
+        "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/fastest-symmetric-mixing-on-a-complete-graph-with-an-incident-st--2adb1152791f/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact quotient eigenvalues obey sum (a+1)x+(a+b)w and product Na xw.",
+          "The third regime only occurs for a=1,2,3 while the first two occur over unbounded a,b."
+        ],
+        "reasoning": "The known SDP and a=1 overlap do not logically yield the optimization over both x,w for all a,b or the two independent thresholds b=a² and H=0; neither named prior source gives such a theorem.",
+        "searches": [
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/fastest-mixing-on-a-clique-with-one-pendant-vertex-a-complete-op--30d4b04d1192/RESULT.md",
+          "Resultary semantic query: fastest symmetric mixing complete graph with incident star edges deleted optimal SLEM"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph equals a complete graph minus a star at one vertex.",
+          "The a=1 case is a clique with one attached leaf, discussed separately.",
+          "The earlier complete graph minus matching bound covers b=1, excluded here."
+        ],
+        "reasoning": "The a=1 specialization overlaps the pendant-clique optimization, but the three-phase result for arbitrary a and b includes further thresholds that do not follow by relabeling a pendant graph.",
+        "searches": [
+          "Resultary semantic query: fastest symmetric mixing complete graph with incident star edges deleted optimal SLEM",
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/fastest-mixing-on-a-clique-with-one-pendant-vertex-a-complete-op--30d4b04d1192/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Small graph/one missing edge examples have partial overlap but the submitted domain has b≥2."
+        ],
+        "reasoning": "There is no finite table or database containing a verified all-integer two-parameter three-regime formula in the inspected references; instance tables do not dominate this symbolic family theorem.",
+        "searches": [
+          "Resultary semantic query: fastest symmetric mixing complete graph with incident star edges deleted optimal SLEM",
+          "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf"
+        ]
+      },
+      "rationale": "The known convex SDP method and b=1 matching-complement special case do not supply the evaluated three-regime all-a,b formula. A related same-day pendant-clique theorem covers only the a=1 slice; the general two-transition family with a>1 survives.",
+      "residual_risks": [
+        "A niche prior theorem specializing complete-graph minus an incident star may exist outside examined indices.",
+        "The two same-day related papers were not chronologically ordered within November 8."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines optimization framework but does not state the family result.",
+          "evidence": [
+            "Convexity, SLEM, graph-support constraints are prior machinery."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fmmc.pdf",
+          "material_read": "General convex SDP proof and tabulated graph examples including pendant variants.",
+          "method": "Public author PDF, relevant full text inspected",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Original globally unrestricted symmetric SLEM framework and small graph benchmarks"
+        },
+        {
+          "assessment": "General quotient methodology, no matching incident-star-deletion three-phase theorem found in the inspected sections.",
+          "evidence": [
+            "Symmetry reduction is credited; specific two-variable minimax is new candidate."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/fast_mix_symm.pdf",
+          "material_read": "Automorphism averaging, graph orbit quotient methods and concrete family sections.",
+          "method": "Author-hosted public PDF relevant sections",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+          "trigger": "Symmetrization may imply an exact family result"
+        },
+        {
+          "assessment": "Covers a=1 but not arbitrary a≥2.",
+          "evidence": [
+            "The a=1 graph is a K_{b+1} with one extra leaf."
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/SCOPE-Science/SCOPE2026/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/fastest-mixing-on-a-clique-with-one-pendant-vertex-a-complete-op--30d4b04d1192/RESULT.md",
+          "material_read": "Full theorem, definitions and dual-vector proof.",
+          "method": "Frozen assigned Git source, full RESULT.md",
+          "title": "Fastest mixing on a clique with one pendant vertex: a complete optimizer face",
+          "trigger": "Special-case overlap for a=1"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A two-parameter complete-graph edge-deletion family is a natural benchmark for robustness of fastest Markov mixing; the exact optimizer kernel and phase transitions distinguish distinct spectral obstructions and provide an all-size classification, not a tabulated small-graph exercise.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exact unrestricted symmetric fastest-mixing SLEM and one optimizer on a complete graph with b≥2 edges deleted at a distinguished vertex, for every a≥1, with sharp b=a² and H=0 phases.",
+  "limitations": [
+    "The theorem proves existence of an unrestricted global optimizer, not uniqueness of all optimal stochastic matrices.",
+    "Does not cover nonreversible or nonuniform stationary designs."
+  ],
+  "schema_version": 1
+}

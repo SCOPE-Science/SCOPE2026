@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no third-party packages. The exact-rational checker prints `EXACT_VERIFY_OK` and regime counts for 1,462 parameter instances if all checks succeed. Its complete test range is \(1\le a\le12\), \(2\le b\le120\), together with selected much larger \(a,b\) pairs, including squared thresholds and high-imbalance tails.
+## correctness
 
-It checks transition probabilities, row sums, symmetry, no forbidden transitions, zero internal eigenvalues, the quotient characteristic coefficients, exact candidate spectral norms (squared in radical regimes), and the sign of each threshold. The verifier does not exhaust infinitely many graphs or conduct numerical approximations as proof.
+PASS
 
-# Mathematical verification
+Averaging over S_a×S_b is valid for the operator-norm objective over the full unrestricted convex feasible set. Internal block-zero-sum eigenvalues can be eliminated by choosing y,z as prescribed. The 3×3 normalized quotient has nontrivial Laplacian trace (a+1)x+(a+b)w and product Na xw. The universal e_v bound proves phase I; fixed-w 2×2 trace balancing and boundary feasibility give phase II; concavity of its lowest Laplacian eigenvalue plus the universal Rayleigh witness proves phase III. Independent exact-rational feasibility and quotient-trace/product checks on 1190 (a,b) pairs corroborate, but do not replace, the full symbolic three-regime proof.
 
-The proof reduces the unrestricted convex optimization to two block-constant spectral dimensions. The critical identities are \(\lambda_-+\lambda_+=(a+1)x+(a+b)w\), \(\lambda_-\lambda_+=Na xw\), and the sharp test-vector bound \(\lambda_-\le aN(x+bw)/D\). For \(b\le a^2\), the missing-column norm lower bound is attained; for \(b>a^2\), minimizing the norm at each fixed \(w\) locates the capacity boundary and the concavity argument distinguishes the remaining regimes. All boundaries and nonnegativity constraints are stated and proved in `RESULT.md`.
+## originality
 
-# Limits
+PASS
 
-Finite checks cannot replace the analytic infinite-parameter proof. The constructed optimum need not be unique. No independent audit was performed.
+The known convex SDP method and b=1 matching-complement special case do not supply the evaluated three-regime all-a,b formula. A related same-day pendant-clique theorem covers only the a=1 slice; the general two-transition family with a>1 survives.
+
+## value
+
+PASS
+
+A two-parameter complete-graph edge-deletion family is a natural benchmark for robustness of fastest Markov mixing; the exact optimizer kernel and phase transitions distinguish distinct spectral obstructions and provide an all-size classification, not a tabulated small-graph exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
