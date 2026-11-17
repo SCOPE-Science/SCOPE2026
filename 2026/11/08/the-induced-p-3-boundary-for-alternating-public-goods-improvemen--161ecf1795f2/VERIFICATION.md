@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` with the Python standard library. The checker enumerates **every** simple graph with one through six labeled vertices, obtains connected components and induced three-vertex paths, and applies the exactly defined alternating open-neighbor best response. For any graph containing an induced path it checks each of the four improving moves and the return state. For each cluster graph and each binary profile it checks the legal-move set, parity-component potential change, terminal-state characterization and exact equilibrium count.
+## correctness
 
-Actual execution output:
+PASS
 
-```text
-graphs=33867 cluster_graphs=278 noncluster_graphs=33589
-cluster_state_checks=14946 cluster_improvement_edges=43685
-four_step_witness_moves=134356
-VERIFY_OK
-```
+The equilibrium equations (I+A)s=1 have a solution over F2 because for z in the nullspace of the symmetric matrix I+A, zᵀ(I+A)z=1ᵀz=0 (A alternating/zero-diagonal), so 1 is orthogonal to the kernel. In clique components, odd active parity is precisely best response for all; even parity makes all dissatisfied, and one improvement changes parity to odd. Thus every maximal path length is exactly the number of initially even components. Any non-cluster graph has induced P3 a−b−d; fixing d=1, other external vertices zero and flipping a,b in four legal steps yields 4-cycle. Parity forbids odd cycles; two-step reversal of a fixed bit without neighbor change is impossible. This covers all finite simple undirected graphs and unilateral strict improvements.
 
-The complete proof for arbitrary finite graph order is given in `RESULT.md`. In particular, exhaustive verification through six vertices is **not** represented as proof of the all-size theorem. The finite-instance checker does not by itself test the linear-algebraic consistency lemma; that lemma has the separate exact argument in `RESULT.md`. No external, independent audit has been performed.
+## originality
+
+PASS
+
+The prior multi-action conformist/rebel FIP criterion concerns m≥3 and edges joining opposite types with unused stubborn colors, not alternating binary parity best-response across open neighborhoods. Known 2021 parity equilibrium linear algebra covers part 1 but not all-schedules clique dichotomy. No decisive covering prior found.
+
+## value
+
+PASS
+
+A sharp graph-theoretic forbidden induced subgraph criterion for convergence with an always-present equilibrium, and the exact minimal cycle and path lengths, distinguish equilibrium existence from robust improvement dynamics in a natural public-goods model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
