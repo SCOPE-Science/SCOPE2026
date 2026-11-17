@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-An exact finite algorithm constructs all 28 face-cover arrows, enumerates 12,820 acyclic partial matchings, and evaluates the oriented simplicial trace of all 24 permutations of the vertices of the tetrahedron. An independent orbit-union enumeration gives the same five class Lefschetz numbers \((100,2,0,1,0)\); a separate full boundary-rank calculation over \(\mathbb F_2\) gives Betti vector \((1,0,0,0,99,0,0)\). The published integral homology concentration in Scoville's Theorem 20 supplies the rational-homology premise, and the displayed character-table inner products are exact. The conclusion is restricted to rational homology, not integral lattice isomorphisms.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest inspected primary source, Scoville (2026), proves the 99-dimensional fourth homology and the nonequivariant wedge type but gives no complete \(S_4\) homology character. Lin–Scoville (2019/2021) determines the automorphism group, not the representation on homology. A related pure-boundary tetrahedral Morse complex has a different homology degree and does not imply the current character. Exact-phrase, alias, representation, and database searches disclosed no mathematically dominating result. Unindexed calculations and unpublished notes could overlap.
+PASS
 
-## Value — PASS
-The full tetrahedron is the first nontrivial three-dimensional simplex test case in the recent study of spaces of discrete-Morse matchings. The natural label-symmetry action has five distinct rational constituents; its four invariant and four alternating classes are invisible in the known rank 99, furnishing a concrete equivariant benchmark for comparisons of pure and non-pure matching spaces. This is a natural complete finite invariant, not a claim of an infinite family or an equivariant homotopy classification.
+Full tetrahedron nonempty-face Hasse diagram has 15 nodes and 28 cover arrows. I independently enumerated every disjoint acyclic arrow matching (12,820 nonempty simplices), confirming f-vector (28,300,1544,3932,4632,2128,256) and all S4 signed chain Lefschetz values (100,2,0,1,0) for class representatives. Scoville Theorem 20/Table 2 puts reduced rational homology only in degree 4 with rank 99, whence subtract H0=1 to obtain (99,1,-1,0,-1). Character inner products with S4 irreducibles and class sizes (1,6,3,8,6) yield multiplicities (4,13,8,12,4), total dimension 99. The oriented-simplex signs were included. No larger n or integral representation statement.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge comparison of precise scientific statements supports originality of the new refinement; all described known premises are credited. The stated unexamined-primary and unindexed-coverage risks remain real.
+
+## value
+
+PASS
+
+Provides the complete S4 module, including four invariant and four sign dimensions, for the first nontrivial tetrahedral discrete-Morse matching complex, refining the established rank 99. Distinguishes different possible symmetry actions on the same sphere-wedge homology and is a natural exact finite benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
