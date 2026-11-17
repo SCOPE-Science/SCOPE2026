@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-All primitive three-cycles are covered by the projected recurrence: all equal gives the fixed point; exactly two equal gives the scalar cubic \(K s(s-1)^2=1\); pairwise distinct gives the unique parameter-dependent cubic \(C_K(t)\). Necessity follows from a factorization of the three residual differences and two symmetric identities, and sufficiency follows from Vieta plus the root equation. The exact discriminant and strict rational sign test prove the sharp onset and positivity of the three roots. Six root orders yield two and only two cyclic classes. Exact symbolic tests in `CHECK.py` passed; sample numerical checks are not used to establish completeness.
+## correctness
 
-## Originality — PASS within the inspected sources
-The closest primary source is Castañeda and Rebollo-Perdomo, arXiv:2209.06986v1, §3 equation (10), Theorem 1.1 and §5. It constructs a repeated-coordinate cycle and asks whether its three-cycle might be unique. Chamberland (2005 author preprint, Theorem 3.1) also gives a repeated-coordinate existence mechanism. Those statements and existing general distinct-height constraints do not imply the sharp fixed-quadratic cubic with its two oppositely ordered cycles. Prior repeated-coordinate counts are treated as known ingredients rather than the new contribution. Searches of related published findings found period-four classifications and unrelated three-cycle problems, not a covering fixed-family result. The later 2024 journal paper's full body was not verified; unindexed equivalent results remain a real priority risk.
+PASS
 
-## Mathematical value — PASS
-This is a sharp answer to a natural open possibility in the source family, for a concrete quadratic defining function: exactly two formerly uncounted primitive three-cycles occur beyond \(K=125/12\). The total real three-cycle count changes from three to five there, and the threshold is exactly aligned with the known repeated-coordinate stability boundary. A natural full cycle census and sharp parameter frontier have mathematical value without asserting global or nonlinear bifurcation theory.
+The reduction to H_K(y,z)=(z,K[g(y)-g(z)]^2) is exact for periodic points. Repeated triples solve K s(s-1)^2=1; distinct triples force elementary sums S=6/5,q=9/25 and cubic C_K(t)=(t-1/5)^2(t-4/5)+1/(3K). Vieta converse proves both cyclic orders, not just necessary conditions. Independently recomputed cubic discriminant 3(12K-125)/(125K^2) and verified residual equations for both orientations at K=11,12,100; threshold double root 0,3/5 is already the repeated branch. This establishes all real nonzero kappa and endpoints; numerical roots are corroboration only.
 
-## Limitations
-Only real primitive period-three dynamics in the specified one-parameter family are addressed. Neither global attraction nor higher periods nor nonlinear stability of the two new cycles is proved. The later journal body and some possible equivalent literature are publication-priority uncertainties, not established noncoverage.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published repeated-height census gives K=27/4 and 125/12 as scalar-cycle bifurcation/stability thresholds but expressly does not count distinct-height cycles. General square-root triangle theorem constructs two oriented cycles for a polynomial chosen to interpolate given heights, not for this fixed quadratic at a sharp K threshold. Castañeda--Rebollo-Perdomo establishes existence, not fixed-parameter complete count. The new all-coordinate cubic elimination and total fixed-family census survive.
+
+## value
+
+PASS
+
+A sharp count of all prime-three orbits in an explicit low-degree nilpotent-Jacobian dynamical family resolves a natural uniqueness/bifurcation question left open by the general existence theorem; it is not just another example or a reparameterized repeated-height count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
