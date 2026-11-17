@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T12:50:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every graph and anchor set A, v_x=1+sqrt(2)d(x,A)>0 and every normalized anchor/edge measurement has squared inner product with v at most one. Thus Rayleigh yields λ_min M≤1/S. A breadth-first rooted forest supplies positive subtree masses H_x and probabilities p_a=H_a/S, p_edge=sqrt(2)H_x/S, normalized because each node contributes v_x(1+sqrt(2)d_x)=v_x² to the sum. Direct balance gives Mv=v/S. Since M has nonpositive off diagonal entries, D(M−S^(-1)I)D is a weighted graph Laplacian when D=diag(v), hence positive semidefinite. Equality in Rayleigh removes all same-distance edges, and eigenvector equations are exactly the nonnegative downhill layer flow balances and anchor formulas; all solutions are valid and normalize automatically. A vertex with two closer neighbors gives two distinct BFS forest choices with positive weights, while unique predecessor fixes every balance; this proves iff uniqueness. Independent numerical eigenchecks on path4, C4, K3, K4 with multiple anchors verified λ_min=1/S and the uniqueness criterion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parity-forced-omission-and-a-complete-optimizer-face-for-kaczmar--e3e0e6dbd3bf/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995/RESULT.md"
+        ],
+        "reasoning": "Prior path two-endpoint and square inverse-positive SPD cases are narrower than arbitrary connected graph, arbitrary multiple anchors and edge redundancy; neither dominates the all-graph flow face.",
+        "searches": [
+          "Resultary: optimal Kaczmarz graph anchor difference row sampling max min eigenvalue distance flows E-optimal design",
+          "Web: randomized Kaczmarz E-optimal design graph anchors edge difference rows optimal sampling eigenvalue"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parity-forced-omission-and-a-complete-optimizer-face-for-kaczmar--e3e0e6dbd3bf/RESULT.md",
+        "https://arxiv.org/abs/1506.03296",
+        "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parity-forced-omission-and-a-complete-optimizer-face-for-kaczmar--e3e0e6dbd3bf/RESULT.md",
+          "https://arxiv.org/abs/1506.03296"
+        ],
+        "reasoning": "The earlier parity-dependent path optimizer is reproduced when distances from two endpoints make a tent. On graphs with cycles/multiple predecessors, nonuniqueness is governed by flow splitting; this is not supplied by the earlier path theorem or the general matrix-SDP formulation.",
+        "searches": [
+          "Resultary: optimal Kaczmarz graph anchor difference row sampling max min eigenvalue distance flows E-optimal design",
+          "Web: randomized Kaczmarz E-optimal design graph anchors edge difference rows optimal sampling eigenvalue"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parity-forced-omission-and-a-complete-optimizer-face-for-kaczmar--e3e0e6dbd3bf/RESULT.md",
+          "https://arxiv.org/abs/1506.03296"
+        ],
+        "reasoning": "The general one-step Kaczmarz problem is E-optimal row design, but the generic SDP optimality condition lacks this graph distance formula; the 2026 path theorem is its 1D special case.",
+        "searches": [
+          "Resultary: optimal Kaczmarz graph anchor difference row sampling max min eigenvalue distance flows E-optimal design"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parity-forced-omission-and-a-complete-optimizer-face-for-kaczmar--e3e0e6dbd3bf/RESULT.md"
+        ],
+        "reasoning": "The exact earlier path formulas match on that graph, and the indexed results show no all-graph exact optimizer table; this is limited search evidence, not automatic proof of novelty.",
+        "searches": [
+          "Resultary: optimal Kaczmarz graph anchor difference row sampling max min eigenvalue distance flows E-optimal design"
+        ]
+      },
+      "rationale": "Earlier exact path-endpoint optimizer theorem is a strict instance of the all-graph potential and flow law; 2015 Gower–Richtárik supplies abstract randomized Kaczmarz/SDP machinery but not universal explicit graph distance potential, complete face and graph predecessor uniqueness. Previously indexed inverse-positive SPD coordinate designs apply to square systems, whereas this includes redundant cycles and multiple anchors. The new all-graph classification is not obtained by relabeling those settings.",
+      "residual_risks": [
+        "Equivalent arbitrary-graph E-optimality may exist in older unindexed optimal design or electrical-network literature.",
+        "Only fixed iid, consistent, unit-norm rows and one-step expected squared Euclidean error, not multi-step exact exponent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strict special case; does not classify cycles or general finite connected graphs",
+          "evidence": "v_i=1+sqrt2 min(i-1,n-i); optimizer unique even order and a segment odd order",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-parity-forced-omission-and-a-complete-optimizer-face-for-kaczmar--e3e0e6dbd3bf/RESULT.md",
+          "material_read": "Complete published 2026-11-08 RESULT.md with proof, optimizer face and even/odd formulas",
+          "method": "GitHub Resultary complete scientific proof file",
+          "title": "Parity-forced omission and a complete optimizer face for Kaczmarz sampling on endpoint-anchored paths",
+          "trigger": "Exact same normalized measurement rows on a two-anchor path"
+        },
+        {
+          "assessment": "Framework prior, no directly observed exact graph distance-flow formula",
+          "evidence": "Generic randomized Kaczmarz optimization over sampling laws",
+          "identifier_or_url": "https://arxiv.org/abs/1506.03296",
+          "material_read": "2015 journal and abstract, including sketch-and-project and convergence theorem; full text not inspected",
+          "method": "SIAM publication metadata and arXiv abstract search",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "Generic randomized Kaczmarz convergence/optimal design theory"
+        },
+        {
+          "assessment": "Applies to square inverse-positive SPD matrices; cyclic/multi-anchor incidence rows here are rectangular",
+          "evidence": "Square setup has invertible row Gram; redundant edge sets here yield singular Gram",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995/RESULT.md",
+          "material_read": "Indexed claim and comparison in package; standalone full text not inspected",
+          "method": "Published record semantic search",
+          "title": "Closed-form optimal coordinate sampling for inverse-positive SPD quadratics",
+          "trigger": "Closest exact inverse-positive optimum result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Complete exact characterization of the entire optimizer face over any connected graph, a closed graph-distance formula for the best Kaczmarz one-step contraction and a linear-time BFS construction solve a natural algorithmic design problem; flow nonuniqueness on graphs with cycles is a motivated structural phenomenon, not a narrow numerical slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No adaptive, priced, finite-horizon or inconsistent-system optimality.",
+    "Special path case previously covered and credited."
+  ],
+  "schema_version": 1
+}

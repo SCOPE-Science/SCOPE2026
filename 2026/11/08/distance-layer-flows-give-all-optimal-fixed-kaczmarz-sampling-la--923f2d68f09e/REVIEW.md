@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A positive distance potential supplies a universal Rayleigh bound. A shortest-path forest realizes equality, and a positive-ground-state sum-of-squares argument proves the matching eigenvalue is the least one even with disconnected support. Equality in both bounds gives exactly the descending flow balance, from which all optima and their uniqueness criterion follow. Independent exact-arithmetic tests on 23,169 graph-and-anchor instances verify construction identities, not universal quantifiers.
+## correctness
 
-## Originality — PASS on inspected evidence, with residual publication risk
-The fixed-row graph-wide E-optimal theorem is not claimed to invent randomized Kaczmarz, E-optimal design, or the inverse-positive SPD sampling theorem. The latter already implies special square, single-root instances; an earlier result on endpoint-anchored paths is a special case. Those are not the proposed novelty. The present theorem deals with arbitrary connected graphs, redundant rectangular normalized graph-difference rows and arbitrary nonempty anchor sets, and characterizes every optimal sampling law by a shortest-layer flow polytope, including a complete if-and-only-if uniqueness condition. The source inspections found no published result asserting this combination. Unindexed equivalent design results remain possible.
+PASS
 
-## Value — PASS
-A general semidefinite row-sampling design is solved by one multi-source BFS and subtree aggregation. The result explains when an optimizer must be unique and when it has a genuine continuum, and shows that even a complete graph may optimally discard nearly all its available relative measurements. These are structural, algorithmic and design consequences not obtained simply by restating a generic convergence estimate.
+For every graph and anchor set A, v_x=1+sqrt(2)d(x,A)>0 and every normalized anchor/edge measurement has squared inner product with v at most one. Thus Rayleigh yields λ_min M≤1/S. A breadth-first rooted forest supplies positive subtree masses H_x and probabilities p_a=H_a/S, p_edge=sqrt(2)H_x/S, normalized because each node contributes v_x(1+sqrt(2)d_x)=v_x² to the sum. Direct balance gives Mv=v/S. Since M has nonpositive off diagonal entries, D(M−S^(-1)I)D is a weighted graph Laplacian when D=diag(v), hence positive semidefinite. Equality in Rayleigh removes all same-distance edges, and eigenvector equations are exactly the nonnegative downhill layer flow balances and anchor formulas; all solutions are valid and normalize automatically. A vertex with two closer neighbors gives two distinct BFS forest choices with positive weights, while unique predecessor fixes every balance; this proves iff uniqueness. Independent numerical eigenchecks on path4, C4, K3, K4 with multiple anchors verified λ_min=1/S and the uniqueness criterion.
 
-## Scope and limitations
-Only independent fixed unit-row Kaczmarz sampling and a sharp worst-direction one-step Euclidean squared-error reduction are covered. No finite-horizon or adaptive optimality is claimed. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier exact path-endpoint optimizer theorem is a strict instance of the all-graph potential and flow law; 2015 Gower–Richtárik supplies abstract randomized Kaczmarz/SDP machinery but not universal explicit graph distance potential, complete face and graph predecessor uniqueness. Previously indexed inverse-positive SPD coordinate designs apply to square systems, whereas this includes redundant cycles and multiple anchors. The new all-graph classification is not obtained by relabeling those settings.
+
+## value
+
+PASS
+
+Complete exact characterization of the entire optimizer face over any connected graph, a closed graph-distance formula for the best Kaczmarz one-step contraction and a linear-time BFS construction solve a natural algorithmic design problem; flow nonuniqueness on graphs with cycles is a motivated structural phenomenon, not a narrow numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
