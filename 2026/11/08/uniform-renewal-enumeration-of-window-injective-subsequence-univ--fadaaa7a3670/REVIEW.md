@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The exact domain is the class of labeled \(q\)-letter words in which all windows of length \(d+1\) are injective, for integers \(q>d\ge2\). The greedy arch criterion is established, then the last-\(d\)-seen invariant produces the exact repeat/new transition counts \(s-d\) and \(q-s\) and the formal-series renewal identity. The extremal count is independently proved from permutation blocks; the stochastic statement uses an explicitly identified i.i.d. sum of geometric waiting times. The finite script compares two exact coefficient methods and literal enumeration, but the all-parameter assertion rests on the proof, not these tests.
+PASS
 
-## Originality (O): PASS, qualified
+The standard greedy-arch criterion makes the number of fully scanned alphabet-covering arches equal to the scattered-subsequence universality index. At initial or restart stage d, forced fresh colors have r=q−d choices each; once s≥d letters seen, of r available next colors, s−d repeat and q−s are fresh. Geometric residence series give B_r and H_r and restart equation G=H_r+uB_r(P_{r,d}+(rz)^d G). Initial falling-factorial prefix yields the displayed exact bivariate GF. Each complete permutation arch costs q letters, and after first arch the next d letters have r choices each before r! tail orders, giving q!(r^d r!)^(k−1). For r=1 word periodic; for r≥2 incomplete cycling among d+1<q letters permits every n≥qk. Under the uniform extension process complete-arch waiting times are independent shifted geometrics L=d+Σ_{j=1}^r Geo(j/r), with μ=d+rH_r and variance r²H_r^(2)−r; classical renewal SLLN and CLT yield index rate 1/μ and variance coefficient σ²/μ³. Independent literal enumeration at (q,d)=(3,2),(4,2),(4,3),(5,2) small lengths exactly matches rational generating coefficients and shortest-word multiplicities.
 
-Barker et al. (2020) supply the arch framework; Adamson (2023) addresses unrestricted counting; Adamson et al. (2023) cover general DFA counting without this evaluated all-radius expression. The existing radius-one enumeration covers the strictly weaker distance-one constraint and does not determine the radius-two-and-higher coefficients. Search comparisons considered alternative formulations as distance-\(d\) proper colorings, sliding-window injectivity and refractory coupon collection, and did not locate an equivalent formula or a stronger all-parameter theorem. The risk of an unindexed or differently named equivalent remains; generic regular-language counting gives algorithmic computability but not the specified closed form and renewal law.
+## originality
 
-## Value (V): PASS
+PASS
 
-This resolves a natural joint problem connecting proper colorings of powers of paths and subsequence-universality enumeration. The same exact formula works for every pair \(q>d\ge2\), not a one-step fixed-parameter increment, while the rigidity-to-Gaussian transition and exact optimal-word multiplicity identify structural consequences useful for constrained universal sequence design. No claim of a paper-sized or optimal algorithmic improvement is needed.
+The greedy-arch criterion and generic regular-language subsequence-universality algorithms are established, but the full inspected Adamson et al. paper (arXiv:2311.10658) provides general automaton-based counts, not the evaluated two-parameter radius-d generating function, independent geometric renewal clock, sharp minimum-word multiplicity, and fixed-parameter Gaussian variance. Resultary radius-one adjacency-distinct theorem is outside the claimed d≥2 parameter domain; binary run caps/composition constraints are different languages. The explicit family-wide rational formula and stochastic limit are accepted as best-of-knowledge original.
 
-## Verification and limits
+## value
 
-The standalone script passed all documented finite checks; these are not exhaustive for unbounded parameters. Primary full-text sections were inspected for stronger covering statements, and none identified. Independent review and complete bibliographic exclusion are not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Subsequence universality under sliding-window injectivity is a natural regular-language constrained counting problem. The symbolic two-parameter joint law, exact shortest universal counts, deterministic/attainability boundary, and renewal Gaussian limit give interoperable enumerative and probabilistic invariants beyond a single finite table. The scalar reduction is the motivating mechanism, and the law can be used by researchers analyzing constrained universal words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
