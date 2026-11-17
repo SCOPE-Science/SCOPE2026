@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,15 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-The standalone file `check_nilpotent_graph.py` requires only Python 3 standard-library modules. Running `python check_nilpotent_graph.py` enumerates the connection set via all nonzero pairs \((u,v)\) with \(v^Tu=0\), eliminates duplicate rank-one matrices, enumerates all characters modulo scalar frequency shifts, and compares their complex Fourier sums with the integer eigenline formula. The tested pairs are \((n,q)=(2,2),(2,3),(2,5),(3,2)\).
+# Independent mathematical audit
 
-The verified output includes the complete spectra:
+## correctness
 
-- \((2,2)\): \(3^1,1^3,(-1)^3,(-3)^1\).
-- \((2,3)\): \(8^1,2^{12},(-1)^8,(-4)^6\).
-- \((2,5)\): \(24^1,4^{60},(-1)^{24},(-6)^{40}\).
-- \((3,2)\): \(21^1,9^{28},5^{21},1^{84},(-3)^{98},(-7)^{24}\).
+PASS
 
-The program terminates with `NILPOTENT_CAYLEY_FOURIER_CHECKS_OK`. These checks test all finite Fourier coefficients for the specified cases, but do not exhaust all dimensions or nonprime fields. The general theorem is established in RESULT.md by exact character orthogonality, projective-eigenline inequalities, conjugacy counts, and a uniform Ramanujan comparison. Independent mathematical audit has not been performed.
+The submitted rank-one factorization X=uv^T with v^Tu=0 is (q-1)-to-one; Fourier orthogonality on u-perpendicular hyperplanes gives lambda(B)=q^(n-1)e(B)-(q^n-1)/(q-1), where B labels characters of sl_n modulo scalar matrices. The projective eigenspace count bounds the nonprincipal maximum by (q^(n-1)-1)^2/(q-1), attained only by split semisimple (n-1,1) types; irreducible B gives lambda_min=-(q^n-1)/(q-1). The n=2 Jordan/split/irreducible class enumeration supplies all multiplicities. The n=3 threshold and monotone ratio prove the Ramanujan iff n=2 boundary, retaining -k as trivial at q=2,n=2. Direct independent character-sum enumeration of every frequency for (n,q)=(2,2),(2,3),(2,5),(3,2) reproduced the complete spectra and extrema; finite prime-field tests do not prove extension-field cases or the general theorem.
+
+## originality
+
+PASS
+
+PASS, qualified: the spectral eigenline multiplier is expressly prior mathematics in an independently located later additive nilpotent-walk treatment, whereas the actual surviving new claim is the exact nonprincipal extrema and equality characters, full n=2 spectral multiplicities, and Ramanujan iff n=2 classification. Bilinear-forms adjacency uses all rank-one differences on M_n, not only nilpotent rank-one steps on sl_n. A stronger unindexed nilpotent-orbit spectrum may still exist.
+
+## value
+
+PASS
+
+The rank-one nilpotent generators form a canonical minimal conjugacy orbit in the traceless additive Lie algebra. Classifying its spectral extremizers and all prime-power Ramanujan instances is a substantive exact, parameter-uniform graph-theoretic classification useful for expanders and random walks. The already known eigenline formula alone is not claimed as value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
