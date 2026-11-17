@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction of exact finite-state checks
+# Independent mathematical audit
 
-Run `python3 verify.py` in the same directory. It uses only the Python standard library.
+## correctness
 
-The verifier constructs the sixteen-state reverse maps directly from the local Boolean polynomial, computes the four eight-element image sets, and checks each of the eight restricted bijections. It independently verifies the specified root-loop permutations and their orders; an exhaustive permutation-closure search constructs all \(40320\) distinct permutations of eight indices. It checks the two coprime lifted-cycle lengths \(6\) and \(35\).
+PASS
 
-For each length \(2\le N\le13\), the program enumerates all \(2^N\) input words, forms an output histogram by applying the *forward* rule, and compares every target's direct fiber size to the fixed-point count from the reverse-map permutation extension. This supplies exactly \(\sum_{N=2}^{13}2^N=16380\) independent target comparisons. It also verifies that seven-predecessor targets are absent throughout and checks the nine integer rencontres counts.
+The exact five-bit Boolean rule defines all cyclic F_N for N>=2, including colliding indices at short periods. From y_i the four-state reverse map R_e(a,b,c,d)=(e+c+a(1+b)d,a,b,c) is algebraically immediate. The four computed 8-element image sheets S_(a,b)=R_a R_b(F_2^4) admit bijective transitions S_(a,b)->S_(e,a). The two explicit root loops give rank permutations alpha=(0,4,1,5,6,2,3,7), beta=(1,0,3,6,4,5,7,2) generating all 40320 elements of S8; root lifted loops have coprime lengths 6 and 35, so the 4*40320-state skew graph is irreducible and aperiodic. Perron-Frobenius gives exponential equidistribution of monodromy; fixed points produce the exact nine rencontres numerators (14833,14832,7420,2464,630,112,28,0,1). Independent reconstruction of reverse maps, closure, and forward cyclic fiber histograms for N=2..11 corroborated the graph correspondence. The analytic primitive-matrix argument, not finite examples, gives all-N asymptotics. No exactly seven fixed points is a combinatorial impossibility for S8.
 
-Expected output:
+## originality
 
-`VERIFY_OK group_order=40320 lifted_cycle_lengths=6,35 cyclic_targets=16380 limit_numerators=14833,14832,7420,2464,630,112,28,0,1`
+PASS
 
-The verified finite enumerations establish the quoted exact graph and group certificates; the all-size conclusion uses the mathematical proof of strong connectivity, coprime cycle lengths and Perron–Frobenius convergence. The calculation neither proves an optimal spectral gap nor constitutes an independent external audit.
+The exact claim survives bounded search at best current knowledge, subject to explicit source inspections and residual risks. Neither implies uniform S8 permutation law, exponential convergence and 7-fiber exclusion; conversely the limit does not give exact homogeneous-target all-N counts.
+
+## value
+
+PASS
+
+The natural finite-periodic image and inverse-fiber distribution of a newly studied nonlinear, non-bipermutive eight-to-one cellular automaton was not determined by its established bi-infinite preimage degree. The full S8 monodromy gives an informative exact universal-looking law, exact image density 25487/40320, exponential mixing, and a forbidden finite multiplicity; these support later study of periodic surjectivity and finite-ring ensembles. It is not presented as a theorem for arbitrary automata.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
