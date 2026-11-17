@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a joint-limit theorem rather than a claim about finite-rate simulations. The proof fixes independent Brownian first-passage and exponential resetting clocks and the exact convention that the \(n\)-th alarm exhausts the budget. Its one-attempt Laplace transform is derived by a survival integral; differentiating gives the exact failure-conditioned mean and variance. Under \(e^{-z}=e^{-c}/n\), the geometric success index yields an exponential limit. Stopped-martingale orthogonality shows total scaled time differs negligibly from the number of attempted cycles. On exhaustion, the attempt clocks are conditionally independent, with bounded third moments and variance tending to one, so Lyapunov's theorem supplies the Gaussian edge. The discontinuity of the geometric-index mapping lies at a point of zero limiting probability. The narrow-deadline limit follows by splitting success and failure events and controlling successes that terminate near the budget endpoint. The packaged standard-library checker evaluates independently the critical formulas and reports 76 passing diagnostics; it is not an infinite-proof certificate.
+PASS
 
-## Originality — PASS (qualified)
+PASS. For each independent Brownian attempt H from a>0 with diffusivity D and Exp(r_n) alarm E, the hit-before-alarm probability is p=e^{-a sqrt(r_n/D)}=lambda/n under the stated rate r_n=(D/a^2)(log n+c)^2. The unnormalized failure-conditioned transform of Y=r_n min(H,E) is f_z(s)=(1-e^{-z sqrt(1+s)})/(1+s), with z=log n+c; differentiating gives mean 1-zp/[2(1-p)] and variance tending to 1, with uniformly bounded conditional third moments. The geometric success-index scaling gives J_n/n => Exp(lambda) and failure probability (1-lambda/n)^n=>e^{-lambda}. A stopped martingale L2 estimate makes normalized stopped clock agree with min(J_n/n,1) in probability; a conditional triangular-array Lyapunov CLT proves Gaussian (r_n T_n-n)/sqrt n on exhaustion, and partition into success/failure proves the narrow-deadline profile. The exact normalizing convention is last unsuccessful n-th alarm; no return time costs. Independent recalculation for n=100,1000,10000 with c=0.4 confirms exact failure probability convergence and conditional moment limit, not the infinite theorem.
 
-**Closest prior sources.** Bressloff (arXiv:2310.20502, Sec. V) already developed the truncation framework and exact finite-reset splitting probabilities and conditional first-passage means. Linn–Lawley (arXiv:2302.05409, main frequent-reset limit) already established an exponential clock law without finite budget. Sunil et al. (arXiv:2304.09348, joint time/reset-count transform) already contains exact renewal/count information. The present assertion is specifically a *joint large-budget/high-rate regime* and its associated two-scale time law, not any of those existing exact formulas. Primary sections, relevant research-record matches, and multiple literal/alias searches did not reveal explicit coverage of the coupled Gumbel-to-Gaussian boundary layer. The mathematical conclusion is not established as uniquely unpublished: a general renewal or triangular-array theorem, or an unindexed finite-budget analysis, might imply it without matching vocabulary. This is a residual publication-priority risk rather than a proof of absolute uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The finite resetting count is a physically motivated resource cap in the source's model. The result gives the critical rate scale at which the particle has a nontrivial chance of exhausting the resource; the full termination-time law on the resource timescale; and an additional Gaussian layer that resolves the atom into a practical narrow-deadline success/failure profile. The conditional Gaussian width supplies the narrow-deadline information not determined by an already known conditional mean or an unbounded-reset exponential approximation. The cutoff classification is complete in the specified critical window and combines different limiting mechanisms, rather than arbitrarily evaluating a single parameter value.
+Best-of-knowledge distinct two-scale limit theorem for a natural finite-reset Brownian search cap. Earlier Bressloff develops exact finite-budget splitting laws and conditional means, Linn–Lawley treats frequent resetting without a cap, and Sunil et al. gives a general joint reset-count/time transform. None of the inspected primary material or targeted search results states the simultaneous n->infinity, p=lambda/n joint truncated exponential clock plus Gaussian exhaustion layer and finite-deadline mixture. The conclusion follows from nontrivial uniform triangular-array control rather than direct parameter substitution into an explicit published asymptotic. Historical priority remains qualified, especially general renewal-limit formulations.
 
-## Limitations and research priority
+## value
 
-The theorem is restricted to one-dimensional Brownian absorption, fixed-distance instantaneous Poisson resets, and \(r_n=(D/a^2)(\log n+c)^2\) for fixed \(c\). No uniform quantitative rates, higher-dimensional extensions, alternative restart laws, or independent validation are claimed. Existing finite-budget moment identities are entirely attributed to Bressloff; the novelty assessment is for the simultaneous critical-window and clock-layer conclusion only. The accessible research record is not a complete literature census.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A finite reset budget is a motivated physical search-resource restriction, and this theorem identifies its nontrivial logarithmic-rate crossover with exact Gumbel exhaustion probability, a macroscopic terminated-clock law, and a microscopic conditional Gaussian terminal layer. The finite-deadline profile supplies a reusable precise result for search-performance modeling. Its sharp two-scale assertion is not merely a one-number asymptotic or recitation of the classical Brownian Laplace transform; the renewal and martingale derivation is substantive, despite standard component tools.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

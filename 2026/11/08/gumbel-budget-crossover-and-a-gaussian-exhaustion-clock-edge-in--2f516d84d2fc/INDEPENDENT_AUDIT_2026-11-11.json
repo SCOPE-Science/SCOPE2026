@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T17:50:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For each independent Brownian attempt H from a>0 with diffusivity D and Exp(r_n) alarm E, the hit-before-alarm probability is p=e^{-a sqrt(r_n/D)}=lambda/n under the stated rate r_n=(D/a^2)(log n+c)^2. The unnormalized failure-conditioned transform of Y=r_n min(H,E) is f_z(s)=(1-e^{-z sqrt(1+s)})/(1+s), with z=log n+c; differentiating gives mean 1-zp/[2(1-p)] and variance tending to 1, with uniformly bounded conditional third moments. The geometric success-index scaling gives J_n/n => Exp(lambda) and failure probability (1-lambda/n)^n=>e^{-lambda}. A stopped martingale L2 estimate makes normalized stopped clock agree with min(J_n/n,1) in probability; a conditional triangular-array Lyapunov CLT proves Gaussian (r_n T_n-n)/sqrt n on exhaustion, and partition into success/failure proves the narrow-deadline profile. The exact normalizing convention is last unsuccessful n-th alarm; no return time costs. Independent recalculation for n=100,1000,10000 with c=0.4 confirms exact failure probability convergence and conditional moment limit, not the infinite theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unrestricted-reset first-passage limit lacks exhaustion atom; fixed-budget exact formulas do not directly assert large-budget Gaussian layer."
+        ],
+        "reasoning": "A sufficiently general joint renewal process theorem might imply the result, but no accessible matching theorem was verified. Do not claim absolute novelty merely from the lack of matching keywords.",
+        "searches": [
+          "Brownian stochastic resetting finite reset budget Gumbel crossover Gaussian exhaustion conditional termination",
+          "Brownian finite budget reset counts asymptotic Gumbel clock gaussian truncation",
+          "https://arxiv.org/abs/2302.05409",
+          "https://arxiv.org/abs/2304.09348"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1103/PhysRevE.109.024103",
+        "https://arxiv.org/abs/2302.05409",
+        "https://arxiv.org/abs/2304.09348",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-gumbel-budget-crossover-and-a-gaussian-exhaustion-clock-edge-in--2f516d84d2fc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact p=e^{-a sqrt(r/D)} known; earlier conditioned means known. Present proof additionally uses stopped-martingale L2, conditional triangular-array Lyapunov and separating successful/exhausted narrow deadlines."
+        ],
+        "reasoning": "The older finite identities can underlie a new asymptotic theorem, but the precise joint macroscopic/conditional microscopic limit is not an immediate stated corollary of the primary works as inspected; residual risk of a general implied theorem remains.",
+        "searches": [
+          "https://doi.org/10.1103/PhysRevE.109.024103",
+          "https://arxiv.org/abs/2302.05409",
+          "https://arxiv.org/abs/2304.09348",
+          "Brownian finite budget reset counts asymptotic Gumbel clock gaussian truncation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bressloff 2024 finite-reset conditional moment and splitting formulas; Linn–Lawley 2023 first-passage exponential scaling without finite cap; Sunil 2023 joint transform at finite parameters."
+        ],
+        "reasoning": "A fixed-budget exact split probability (1-p)^n is NOT the combined distributional limit for stopped time, exhaustion indicator and conditional sqrt(n) clock. The latter requires a distinct scaling n p->lambda and conditional CLT; literature comparisons did not identify its exact statement.",
+        "searches": [
+          "Brownian stochastic resetting finite reset budget Gumbel crossover Gaussian exhaustion conditional termination",
+          "Brownian finite budget reset counts asymptotic Gumbel clock gaussian truncation",
+          "https://doi.org/10.1103/PhysRevE.109.024103",
+          "https://arxiv.org/abs/2302.05409",
+          "https://arxiv.org/abs/2304.09348"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table or database covering the coupled n-dependent rate and conditional deadline edge was identified; Bressloff has closed finite-n splitting probabilities and conditional mean."
+        ],
+        "reasoning": "This is a sharp limiting law rather than a finite numeric table; earlier exact inputs are credited, not rebranded as new.",
+        "searches": [
+          "Brownian stochastic resetting finite reset budget Gumbel crossover Gaussian exhaustion conditional termination",
+          "https://doi.org/10.1103/PhysRevE.109.024103",
+          "https://arxiv.org/abs/2304.09348"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct two-scale limit theorem for a natural finite-reset Brownian search cap. Earlier Bressloff develops exact finite-budget splitting laws and conditional means, Linn–Lawley treats frequent resetting without a cap, and Sunil et al. gives a general joint reset-count/time transform. None of the inspected primary material or targeted search results states the simultaneous n->infinity, p=lambda/n joint truncated exponential clock plus Gaussian exhaustion layer and finite-deadline mixture. The conclusion follows from nontrivial uniform triangular-array control rather than direct parameter substitution into an explicit published asymptotic. Historical priority remains qualified, especially general renewal-limit formulations.",
+      "residual_risks": [
+        "Not all general renewal-limit papers or full text of Linn–Lawley/Sunil could be inspected in this bounded pass; stronger unindexed theorem could subsume it.",
+        "Finite numerical convergence checks cannot prove a triangular-array CLT."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_EXACT_FINITE_INPUTS_NOT_IDENTIFIED_AS_FULL_LIMIT",
+          "evidence": "Finite reset budgets and conditional moments covered; no coupled Gumbel and conditional Gaussian edge theorem in inspected text.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.109.024103",
+          "material_read": "Lawfully accessible full 13-page published PDF, with focus on model, resetting-budget calculations and conditional first-passage moments in relevant mathematical sections",
+          "method": "Read web-rendered PDF text and page screenshot; inspected finite-reset formulas and searched for Gumbel",
+          "title": "Truncated stochastically switching processes",
+          "trigger": "Same finite-budget Brownian search and exact splitting laws"
+        },
+        {
+          "assessment": "UNRESTRICTED_RESET_CONTEXT; FULL_TEXT_PRIORITY_RISK",
+          "evidence": "Frequent resets exponential first-passage limit without finite budget in identified abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.05409",
+          "material_read": "Abstract and discoverable summary, not full body",
+          "method": "arXiv/publication discovery and comparison of advertised theorem scope",
+          "title": "First passage times under frequent stochastic resetting",
+          "trigger": "Potential stronger high-rate first-passage limit"
+        },
+        {
+          "assessment": "EXACT_TRANSFORM_CONTEXT; UNINSPECTED_BODY_RISK",
+          "evidence": "Joint transform for cost/count/time, but no verified specific finite-cap simultaneous asymptotic statement.",
+          "identifier_or_url": "https://arxiv.org/abs/2304.09348",
+          "material_read": "Abstract and discoverable descriptions, not full proof",
+          "method": "arXiv abstract and bibliographic search",
+          "title": "The cost of stochastic resetting",
+          "trigger": "Joint time/reset-count transform could dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A finite reset budget is a motivated physical search-resource restriction, and this theorem identifies its nontrivial logarithmic-rate crossover with exact Gumbel exhaustion probability, a macroscopic terminated-clock law, and a microscopic conditional Gaussian terminal layer. The finite-deadline profile supplies a reusable precise result for search-performance modeling. Its sharp two-scale assertion is not merely a one-number asymptotic or recitation of the classical Brownian Laplace transform; the renewal and martingale derivation is substantive, despite standard component tools.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only independent one-dimensional Brownian absorption, instantaneous fixed-origin Poisson resets, fixed c, n-th failed alarm termination. Not a uniform-in-c rate, policy optimum, or broader renewal model. Could be a corollary of uninspected general renewal-limit literature."
+  ],
+  "schema_version": 1
+}
