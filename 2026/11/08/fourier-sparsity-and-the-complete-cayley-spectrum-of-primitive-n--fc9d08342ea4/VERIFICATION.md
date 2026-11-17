@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The pointwise formula and eigenvalue multiplicities are proved for every odd prime and every depth at least two in RESULT.md. Independently run `python3 verify.py` from the directory containing this file. The checker builds the nilpotent orbit using independent projective line generators, enumerates additive character sums without invoking the root-count proof, and checks exact histogram formulas and both Fourier normalization identities. It evaluates all frequency characters for the prime-power levels `(3,2), (3,3), (5,2)` using the formula, and independently computes all complex sums for `(3,2)` and fixed-seed samples for `(5,2), (3,3), (3,4), (5,3)`. The success marker is `PRIMITIVE_NILPOTENT_LOCAL_SPECTRUM_PASS`.
+# Independent mathematical audit
 
-These finite computations are consistency checks, not an infinite-proof substitute. The independent mathematical audit remains unperformed. The serious residual comparison is with existing continuous p-adic nilpotent orbital Fourier transforms; the present result is a finite additive Cayley operator with exact spectral multiplicities, and a general implication from continuous theory has not been ruled out.
+## correctness
+
+PASS
+
+For odd p and k≥2, primitive square-zero 2×2 matrices over R=Z/p^k form the GL2(R) orbit of E12, parametrized by a projective line and a unit, giving degree (p²−1)p^{2k−2}. Trace pairing against a frequency produces a primitive binary quadratic form q_A=cx²+(d−a)xy−by². Unit Ramanujan sums reduce the Fourier eigenvalue to p^k(Z_k−Z_{k−1}) for projective roots. After dividing content p^t, quadratic discriminant and Hensel square-root lifting give all even/odd m=k−t eigenvalue strata. Smooth lifting of the discriminant among primitive forms with zero reduced discriminant gives uniform H_m=(p²−1)p^{2m−2} multiplicity, and p^k free scalar frequency shifts yield exact spectrum/rank. In particular rank p^7 at k=2 and asymptotic nonzero fraction Θ_p(p^{−k}). Independent exact projective character-Ramanujan checks for all 729 primitive quadratic coefficient triples at p=3,k=2 gave no discrepancies and the zero/nonzero histogram agrees after multiplying scalar-frequency multiplicity.
+
+## originality
+
+PASS
+
+Earlier prime-square cone and field nilpotent orbit spectra cover nearby special cases, not every primitive nilpotent orbit over odd rings at arbitrary length k with pointwise discriminant eigenvalues and all multiplicities. Continuous p-adic nilpotent orbital Fourier integrals are a strong conceptual antecedent and priority risk.
+
+## value
+
+PASS
+
+The complete arithmetic spectral multiset of a canonical primitive nilpotent conjugacy class over all odd finite local chain rings is a natural Cayley-graph invariant. The exact p-adic valuation parity strata and exponentially sparse supported frequencies at growing depth are structural phenomena, not a routine restatement of finite-field bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

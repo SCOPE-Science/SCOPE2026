@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The all-level proof independently identifies the nilpotent orbit as primitive square-zero matrices, uses exact projective-line parametrization, evaluates the unit Ramanujan sums, and reduces each frequency to the difference of adjacent quadratic projective-root counts. The square-root lifting formulas include all singular-discriminant boundary cases and separate even and odd effective depths. Discriminant values are uniformly distributed in the primitive double-root cone because one derivative is a unit; the resulting multiplicities count every frequency, including scalar frequencies and eigenvalue collisions. The exact rank formula follows by counting nonzero frequency sectors rather than extrapolating from tests. The standalone checker exhaustively matches the full multiplicity table at three nontrivial prime powers and compares the actual complex exponential sums at further depths. Residual scientific risk: the proof has not been independently audited.
+PASS
 
-## Originality — PASS, bounded comparison
+For odd p and k≥2, primitive square-zero 2×2 matrices over R=Z/p^k form the GL2(R) orbit of E12, parametrized by a projective line and a unit, giving degree (p²−1)p^{2k−2}. Trace pairing against a frequency produces a primitive binary quadratic form q_A=cx²+(d−a)xy−by². Unit Ramanujan sums reduce the Fourier eigenvalue to p^k(Z_k−Z_{k−1}) for projective roots. After dividing content p^t, quadratic discriminant and Hensel square-root lifting give all even/odd m=k−t eigenvalue strata. Smooth lifting of the discriminant among primitive forms with zero reduced discriminant gives uniform H_m=(p²−1)p^{2m−2} multiplicity, and p^k free scalar frequency shifts yield exact spectrum/rank. In particular rank p^7 at k=2 and asymptotic nonzero fraction Θ_p(p^{−k}). Independent exact projective character-Ramanujan checks for all 729 primitive quadratic coefficient triples at p=3,k=2 gave no discrepancies and the zero/nonzero histogram agrees after multiplying scalar-frequency multiplicity.
 
-The closest inspected earlier material is the local-field nilpotent orbital-Fourier theory of DeBacker–Sally and the contextual presentation by Spice (2010), alongside the general ring cyclotomic-scheme framework of Evdokimov–Ponomarenko (2006), Li–Hu's finite-field matrix-group Gauss sums (2011), and Harris's continuous real orbit transforms (2012). These theories have related harmonic objects but no inspected theorem states this exact finite-ring regular-nilpotent Cayley spectrum, including its p-adic discriminant stratum multiplicities and rank collapse. The continuous local-field calculations are a serious potential source of a stronger implication after finite-shell specialization; neither an equivalence nor complete historical priority has been established. Comparing objects and quantifiers, rather than matching titles, currently leaves the claim distinct under bounded accessible evidence. An earlier finite-field compressed nilpotent Fourier-matrix result concerns a different restricted operator and does not resolve the local-ring additive convolution.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The unipotent Jordan conjugacy orbit is a canonical test case in harmonic analysis on matrix rings. Its complete all-prime/all-depth character decomposition is a structural finite-ring classification; the pronounced rank collapse at depth two and exponentially decreasing nonzero Fourier fraction at subsequent depths make the exact spectrum a useful invariant for singular convolution, additive random walks, and nilpotent-orbit harmonic analysis. The value lies in a natural family and a complete distribution, not a routine field restatement or one small table. Weighted extension norms, odd/even residue characteristic uniformity, and larger matrix sizes remain open.
+Earlier prime-square cone and field nilpotent orbit spectra cover nearby special cases, not every primitive nilpotent orbit over odd rings at arbitrary length k with pointwise discriminant eigenvalues and all multiplicities. Continuous p-adic nilpotent orbital Fourier integrals are a strong conceptual antecedent and priority risk.
 
-## Evidence and limitations
+## value
 
-Primary manuscripts inspected: S. Evdokimov–I. Ponomarenko, arXiv:math/0608469v1 (Introduction and Theorems 1.1–1.7); L. Spice, arXiv:1008.1592v1 (Introduction and discussion of preceding nilpotent orbital Fourier theory); Y. Li–S. Hu, arXiv:1105.4513v1 (Introduction, definitions, theorems concerning field matrix groups); B. Harris, arXiv:1209.4122v1 (Theorem 1.1 and continuous real-orbit setup); S. DeBacker–P. Sally, public manuscript *Germs, characters, and the Fourier transforms of nilpotent orbits*, Appendix A (including pp. 16, 18–19) dealing with continuous p-adic distributions. The old local-field results are not treated as absent or disproved; their potential finite-quotient implications remain an explicit originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete arithmetic spectral multiset of a canonical primitive nilpotent conjugacy class over all odd finite local chain rings is a natural Cayley-graph invariant. The exact p-adic valuation parity strata and exponentially sparse supported frequencies at growing depth are structural phenomena, not a routine restatement of finite-field bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
