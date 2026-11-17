@@ -1,19 +1,21 @@
-# Scientific review of the reverse-complement dinucleotide cycle census
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The ten reverse-complement dinucleotide orbits force length at least ten; the displayed example achieves it. At equality each orbit appears exactly once. There are precisely six independent two-choice orbits, so all candidates reduce to sixty-four distinct directed edge sets, of which twenty-four are balanced and connected. The matrix–tree/BEST evaluation gives eight each of 36, 12 and 20 Euler tours, totaling 544. The direct census independently checks all 1,048,576 rooted ten-letter words and all symmetry orbits. The explicit distinction between cyclic and linear words is essential and is maintained throughout.
+PASS
 
-## Originality — PASS, qualified
+The 16 dinucleotides form four self-reverse-complement fixed orbits AT,TA,CG,GC plus six nonfixed pairs. Ten windows are necessary, and the exhibited length-ten cycle meets the bound. Equality entails one edge per orbit, so exactly 2^6=64 oriented edge choices. Degree balance leaves 24 edge sets, all with positive directed tree cofactor. The directed BEST and matrix-tree factors group as eight each of 36,12,20 cyclic tours, totaling 544. Complement flips all six chosen nonfixed edges, so has no fixed rotation class; the order-16 symmetry action has Burnside fixed values 544,24,24 only, yielding 37, with orbit sizes 31x16+6x8. Independent brute-force enumerated all 4^10=1048576 rooted strings and obtained 5440 accepted rooted strings, 544 rotations, 272 RC orbits, 37 total symmetry classes. Circle/linear boundary remains explicit.
 
-Orenstein and Shamir's 2013 article gives shortest sequence constructions and the length ten at order two, and explicitly lists enumeration of all optimal RC-complete sequences among its open questions. Sections on the optimization, numerical tables and the conclusions were read. Schmidt and Alanko's 2023 article addresses optimal representations of sets of k-mers and proves algorithms for constructing representations, rather than counting the minimum single cycles of this exact instance. Database and targeted published-literature searches found no prior evaluation of 544, 272, or the 37-class symmetry partition. Since absence from search results is not proof of novelty, unindexed historical finite computations remain a stated priority risk. The known minimum length and standard Eulerian counting theorems are not presented as contributions.
+## originality
 
-## Value — PASS
+PASS
 
-The original 2013 research expressly motivates counting distinct optimal reverse-complement-complete sequences. For the first even window length, the finding determines the full number of shortest alternative circular probe designs, shows how identifying DNA strands changes the count, and classifies the remaining nucleotide-symmetry types. The 544-cycle catalog is a complete reproducible design space, not an arbitrary numerical slice; it provides a concrete baseline for studying further constraints and longer windows.
+Primary Orenstein–Shamir (2013) establishes optimal length and expressly raises counting different optimal RC-complete sequences in its Discussion; its model of linear double-stranded probes and minimum k-mer covers does not determine the number of single circular length-ten cycles or the two symmetry quotients. Schmidt–Alanko (2023) constructs minimum k-mer representations but does not enumerate this restricted Euler-tour population. Resultary search found no earlier complete 544/272/37 census. This is a qualified best-of-knowledge priority conclusion, not an absence-of-search proof.
 
-## Scope, evidence and residual risks
+## value
 
-Reproducibility consists of `RESULT.md`, `verify_graph.cpp`, `verify_direct.py`, and `catalog.txt`; the two verifiers were executed on the embedded artifact versions. The claim is not an all-order theorem or a claim about linear DNA probes. Independent historical-priority verification remains unperformed. The full related articles were inspected using their openly accessible HTML text, not inferred from search snippets.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first nontrivial even window problem for Watson–Crick reverse-complement covering has a literature-motivated enumeration question and a natural complete finite design space. The complete 544-cycle catalogue and two physically relevant symmetry quotients distinguish designs and support subsequent probe-constraint optimization. The exact fact is not an arbitrary slice; the minimum length and all competing optima are both resolved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

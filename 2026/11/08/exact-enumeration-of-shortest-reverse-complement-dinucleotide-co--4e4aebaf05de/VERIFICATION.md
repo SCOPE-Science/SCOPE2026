@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-The final embedded versions of `verify_direct.py`, `verify_graph.cpp`, and `catalog.txt` were executed or consumed directly, independently of any earlier temporary output.
+## correctness
 
-```sh
-python3 verify_direct.py
-# DIRECT_VERIFY_OK rooted=5440 necklaces=544 physical=272 classes=37
-g++ -std=c++17 -O2 -Wall -Wextra -pedantic verify_graph.cpp -o verify_graph
-./verify_graph
-# GRAPH_VERIFY_OK balanced=24 connected=24 total=544 groups=8x12+8x20+8x36
-```
+PASS
 
-`verify_direct.py` exhausts all rooted DNA words of exactly ten letters, tests the ten reverse-complement dinucleotide classes including the wraparound window, and checks catalog completeness, Burnside fixed points, and symmetry-orbit sizes. `verify_graph.cpp` independently exhausts all sixty-four fixed-edge selections, checks balance and directed spanning-tree cofactors, and computes all Euler-circuit multiplicities. The equality of both totals is an explicit cross-check, not an assumption.
+The 16 dinucleotides form four self-reverse-complement fixed orbits AT,TA,CG,GC plus six nonfixed pairs. Ten windows are necessary, and the exhibited length-ten cycle meets the bound. Equality entails one edge per orbit, so exactly 2^6=64 oriented edge choices. Degree balance leaves 24 edge sets, all with positive directed tree cofactor. The directed BEST and matrix-tree factors group as eight each of 36,12,20 cyclic tours, totaling 544. Complement flips all six chosen nonfixed edges, so has no fixed rotation class; the order-16 symmetry action has Burnside fixed values 544,24,24 only, yielding 37, with orbit sizes 31x16+6x8. Independent brute-force enumerated all 4^10=1048576 rooted strings and obtained 5440 accepted rooted strings, 544 rotations, 272 RC orbits, 37 total symmetry classes. Circle/linear boundary remains explicit.
 
-The infinite-length version of the problem, all longer k-mer orders, linearized probe coverage, and independent historical priority have not been verified and are not claimed.
+## originality
+
+PASS
+
+Primary Orenstein–Shamir (2013) establishes optimal length and expressly raises counting different optimal RC-complete sequences in its Discussion; its model of linear double-stranded probes and minimum k-mer covers does not determine the number of single circular length-ten cycles or the two symmetry quotients. Schmidt–Alanko (2023) constructs minimum k-mer representations but does not enumerate this restricted Euler-tour population. Resultary search found no earlier complete 544/272/37 census. This is a qualified best-of-knowledge priority conclusion, not an absence-of-search proof.
+
+## value
+
+PASS
+
+The first nontrivial even window problem for Watson–Crick reverse-complement covering has a literature-motivated enumeration question and a natural complete finite design space. The complete 544-cycle catalogue and two physically relevant symmetry quotients distinguish designs and support subsequent probe-constraint optimization. The exact fact is not an arbitrary slice; the minimum length and all competing optima are both resolved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T17:57:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The 16 dinucleotides form four self-reverse-complement fixed orbits AT,TA,CG,GC plus six nonfixed pairs. Ten windows are necessary, and the exhibited length-ten cycle meets the bound. Equality entails one edge per orbit, so exactly 2^6=64 oriented edge choices. Degree balance leaves 24 edge sets, all with positive directed tree cofactor. The directed BEST and matrix-tree factors group as eight each of 36,12,20 cyclic tours, totaling 544. Complement flips all six chosen nonfixed edges, so has no fixed rotation class; the order-16 symmetry action has Burnside fixed values 544,24,24 only, yielding 37, with orbit sizes 31x16+6x8. Independent brute-force enumerated all 4^10=1048576 rooted strings and obtained 5440 accepted rooted strings, 544 rotations, 272 RC orbits, 37 total symmetry classes. Circle/linear boundary remains explicit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Orenstein–Shamir give algorithms for covering all k-mer reverse-complement classes at minimum length and explicitly discuss enumeration as an open question.",
+          "Schmidt–Alanko Eulertigs finds minimum plain-text representations of k-mer sets; the output may be a collection of strings, not a census of single optimal cyclic words."
+        ],
+        "reasoning": "Stronger in allowed k but weaker in counting all rotation classes; neither theorem implies 544 or 37.",
+        "searches": [
+          "shortest reverse complement complete double stranded DNA dinucleotide circular sequences number optimal cycles Euler tours 544",
+          "doi:10.1093/bioinformatics/btt230",
+          "doi:10.1186/s13015-023-00227-1"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1093/bioinformatics/btt230",
+        "doi:10.1186/s13015-023-00227-1",
+        "Resultary search shortest reverse complement complete double stranded DNA dinucleotide circular sequences number optimal cycles Euler tours 544",
+        "assigned RESULT.md, catalog.txt, verify_direct.py and verify_graph.cpp"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2013 asks how many optimal RC-complete sequences exist, providing existence and optimal length, not their number.",
+          "The BEST/matrix-tree theorems are classical but require evaluating 64 orientations and their fixed-point quotients, which the inspected earlier sources do not supply."
+        ],
+        "reasoning": "The prior minimum-length statement bounds length but cannot imply an exact count of shortest circular traversals; the submitted 64-case calculation and Burnside classification add nontrivial evaluated information.",
+        "searches": [
+          "shortest reverse complement complete double stranded DNA dinucleotide circular sequences number optimal cycles Euler tours 544",
+          "Orenstein and Shamir (2013) Discussion",
+          "Schmidt Alanko (2023) Eulertigs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2013 defines reverse-complement orbit-covering for k-mers, including the ten order-two classes; earlier length-ten lower bound is known.",
+          "A length-ten circular cycle must select one representative of each reverse-complement dinucleotide class and form one Eulerian circuit on four nucleotide vertices."
+        ],
+        "reasoning": "The bidirected de Bruijn edge-cover model is equivalent for the circular order-two case, but previously inspected construction results do not enumerate all tours and symmetry orbits.",
+        "searches": [
+          "shortest reverse complement complete double stranded DNA dinucleotide circular sequences number optimal cycles Euler tours 544",
+          "Orenstein Shamir btt230 optimal reverse complement DNA k mer count sequence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published minimum-length table yields length 10 for DNA dimers but no population count.",
+          "Assigned catalog contains 544 canonical words; independently exhaustive generation reproduced 544 without using catalog."
+        ],
+        "reasoning": "No exact published table of 544,272,37 was found in the actual inspected sources; catalog and generated census are compared as new mathematical evidence, with remaining priority risk.",
+        "searches": [
+          "shortest reverse complement complete double stranded DNA dinucleotide circular sequences number optimal cycles Euler tours 544",
+          "Bioinformatics 2013 Table 1 dinucleotide reverse complement",
+          "Resultary semantic search reverse complement dinucleotide cycles count"
+        ]
+      },
+      "rationale": "Primary Orenstein–Shamir (2013) establishes optimal length and expressly raises counting different optimal RC-complete sequences in its Discussion; its model of linear double-stranded probes and minimum k-mer covers does not determine the number of single circular length-ten cycles or the two symmetry quotients. Schmidt–Alanko (2023) constructs minimum k-mer representations but does not enumerate this restricted Euler-tour population. Resultary search found no earlier complete 544/272/37 census. This is a qualified best-of-knowledge priority conclusion, not an absence-of-search proof.",
+      "residual_risks": [
+        "Possible unindexed exact small-instance RC dinucleotide Euler-circuit enumeration; unsuccessful search does not certify novelty.",
+        "Published 2013 optimization primarily treats linear strings; comparison here explicitly restricts to circular words and their different boundary convention."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_NOT_COVERING",
+          "evidence": "Minimum length ten known; original authors explicitly propose optimal-sequence census, no exact count 544/272/37.",
+          "identifier_or_url": "doi:10.1093/bioinformatics/btt230",
+          "material_read": "Primary full HTML including problem/model, the optimum-length construction, Table 1 and Discussion asking for the number of distinct optimum sequences.",
+          "method": "Open full article HTML; content and section anchors inspected",
+          "title": "Design of shortest double-stranded DNA sequences covering all k-mers with applications to protein-binding microarrays and synthetic enhancers",
+          "trigger": "Same reverse-complement k-mer-covering object, order-two example"
+        },
+        {
+          "assessment": "DIFFERENT_PROBLEM",
+          "evidence": "Minimal representation algorithm, not exact number of shortest single circular DNA words under RC equivalence.",
+          "identifier_or_url": "doi:10.1186/s13015-023-00227-1",
+          "material_read": "Title, abstract and algorithmic problem description plus relevant published sections; no full mathematical classification of the enumerative order-two model was established.",
+          "method": "Lawful open HTML and bibliographic text",
+          "title": "Eulertigs: minimum plain text representation of k-mer sets without repetitions in linear time",
+          "trigger": "Bidirected de Bruijn minimum-string representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first nontrivial even window problem for Watson–Crick reverse-complement covering has a literature-motivated enumeration question and a natural complete finite design space. The complete 544-cycle catalogue and two physically relevant symmetry quotients distinguish designs and support subsequent probe-constraint optimization. The exact fact is not an arbitrary slice; the minimum length and all competing optima are both resolved.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1093/bioinformatics/btt230",
+    "doi:10.1186/s13015-023-00227-1",
+    "Resultary search shortest reverse complement complete double stranded DNA dinucleotide circular sequences number optimal cycles Euler tours 544",
+    "assigned RESULT.md, catalog.txt, verify_direct.py and verify_graph.cpp"
+  ],
+  "disposition": "passed",
+  "final_claim": "Exactly 544 length-ten cyclic DNA words modulo rotation cover each of the ten reverse-complement dinucleotide orbits once, giving 272 up to whole-word reverse complement and 37 up to the eight complement-preserving nucleotide relabelings.",
+  "limitations": "Exactly length-ten circular words on labeled DNA alphabet only; no general all-k optimum enumeration, biological efficacy, or linear-probe design claim.",
+  "residual_risks": [
+    "Possible unindexed exact small-instance RC dinucleotide Euler-circuit enumeration; unsuccessful search does not certify novelty.",
+    "Published 2013 optimization primarily treats linear strings; comparison here explicitly restricts to circular words and their different boundary convention."
+  ],
+  "schema_version": 1
+}
