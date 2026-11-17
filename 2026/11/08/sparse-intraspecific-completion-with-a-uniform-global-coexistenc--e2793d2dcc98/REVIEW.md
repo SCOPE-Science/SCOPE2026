@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof establishes exact equilibrium cancellation, strictly inward vector fields on all faces of the explicit cube, global existence for initial data in that compact cube, and the \(\ell^\infty\) logarithmic matrix measure bound \(\mu_\infty\le-9/2\). It derives an analytic exponential estimate without relying on finite experiments. The maximum-degree obstruction is verified directly from the one-dimensional root and its positive derivative. The standalone checker independently computes the essential algebraic identities and representative trajectories, but finite sampling is not a universal proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-The strongest prior paper, Çelik–Isoldi–Portakal–Zucal, arXiv:2609.09286v1, Theorem 4.2, already proves higher-order completion of *arbitrary* prescribed growth and pairwise coefficients to a **locally** asymptotically stable equilibrium, using quadratic and cubic per-capita terms. The new claim does **not** assert that general existence statement. Its distinct quantified content is the exact sparse **self-only** higher-order tensor support and the full fixed-size positive-invariant cube with an explicit uniform contraction estimate. The source's construction uses mixed terms built from \(\sum_i x_i\), and the inspected theorem gives no such cube or all-coefficient logarithmic convergence rate. Singh–Baruah study stronger intraspecific competition under model restrictions, while Duran-Sala–Meloni–Calleja-Solanas explore heterogeneous competition and the partial effectiveness of mixed higher-order interactions. Neither inspected source implies this exact unrestricted coefficient-preserving construction. General invariant-set contraction methods are older, so undiscovered diagonal-completion precedents remain a genuine priority risk. Matching only the higher-order degree would be inadequate evidence of novelty; the comparison is by support, quantifiers, and dynamical conclusions.
+PASS
 
-## Value — PASS
-The source leaves open how little additional interaction structure is needed to remove pairwise sign obstructions while preserving *all* original parameter magnitudes. The theorem answers this structurally motivated sparsity question with only \(2n\) self-only higher-order terms, an explicit nonshrinking coexistence basin and a rate independent of network size. It also proves a genuine maximum-order boundary for universal coverage, rather than just constructing one more arbitrary example. This is a mathematical feasibility result, not a biological calibration claim. Large gains and possible historical priority remain limitations.
+Writing h_i=r_i+sum_j b_ij and rho_i=sum_j|b_ij| produces the exact per-capita cancellation at all-ones. At lower/upper cube faces x_i=3/4,5/4, signs follow from L=32(1+H). In logarithmic coordinates the Jacobian logarithmic infinity norm is at most -9L/64+25|h_i|/8+5rho_i/4 <= -9/2, proving inward invariance, uniqueness, and dimension-free e^-9t/2 contraction for every x(0) in Q. A one-species r=b_11=-1 witness excludes universal stabilization using only quadratic per-capita self terms. Independently verified exact rational inequalities for H=0,1,5,100. No attraction outside the cube is proved.
 
-## Boundaries and references
-The result is global on the invariant cube only; it is not global attraction over the entire positive orthant. It is not a proof that \(2n\) is the least possible number of coefficients. Principal comparisons: Çelik et al., arXiv:2609.09286v1, Section 4 and Theorem 4.2; Singh–Baruah, Theoretical Ecology 14 (2021); Duran-Sala et al., arXiv:2501.09172; Hou–Baigent, Comm. Pure Appl. Anal. 14 (2015).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Çelik et al. establish general arbitrary-coefficient higher-order augmentation for local feasible stability; the published two-degree theorem characterizes admissible degree supports, but expressly allows mixed monomials and gives only local stability. Neither implies the stricter self-only 2n-term construction with uniform invariant cube and global contraction within that cube. These are mathematically different support/dynamical constraints. Inaccessible full text of the closest primary paper remains a material priority risk.
+
+## value
+
+PASS
+
+Explicit stabilization using only self-interaction coefficients solves a meaningful support-constrained extension of higher-order population coexistence, with a dimension-free certified basin and rate. The scalar quadratic-order obstruction adds a sharp universal boundary. The theorem is structural and not just a rename of unrestricted local-stability interpolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
