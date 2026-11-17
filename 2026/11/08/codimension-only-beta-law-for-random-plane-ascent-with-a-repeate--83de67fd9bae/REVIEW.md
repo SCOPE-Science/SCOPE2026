@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact maximization over an orthonormal two-plane gives the smaller eigenvalue of an explicit symmetric \(2\times2\) compression of the bottom-eigenspace projector. Rationalization avoids a singular zero-error substitution. An invariant Gaussian coupling produces a chi-square ratio, proving the beta weak limit and all bounded nonnegative moments. The conditional error kernel depends only on the current scalar error and converges uniformly near zero, yielding finite-horizon independent products by induction. `verify.py` reproduces the exact spectral relation and 1,851 numerical and formula checks. It does not certify the infinite-dimensional or infinite-time generalization, neither of which is claimed.
+## correctness
 
-**Originality — PASS, with priority risk.** The primary October 30, 2026 source establishes an expected rate with a simple leading eigenvalue and works out a rank-one top-eigenspace two-level example. The present repeated-top case, exact beta multiplier distribution, and joint finite-horizon product law are not consequences of that simple-eigenvalue bound. The two earlier inspected original works address the underlying algorithm and eigenspace multiplicity without deriving the stated distributional classification. Semantic searches of mathematical records found related spectral filtering, random subspace descent and eigenvalue certification, but not this claim. Unindexed equivalent Gaussian-projection calculations remain possible; the search does not prove mathematical priority.
+PASS
 
-**Value — PASS.** In a natural exactly solvable spectral clustering problem, the largest eigenvalue is degenerate, so a standard positive-gap rate bound cannot describe the algorithm. This theorem gives a full one-step reliability distribution and all fixed-horizon error moments, with a sharp codimension-only factor. It distinguishes eigenspace dimension effects from the ambient dimension and supplies a precise numerical benchmark.
+Rayleigh–Ritz plane minimization of Q has symmetric compression [[e,√e c],[√e c,D]], so new error is its smaller eigenvalue and normalized multiplier has rationalized form 2(D−c²)/(e+D+sqrt((D−e)²+4ec²)). Coupled Gaussian tangent at e→0 gives (Z₂²+⋯+Z_m²)/(Z₁²+⋯+Z_m²), Beta((m−1)/2,1/2). Multipliers are bounded in [0,1]; O(r)×O(m) symmetry makes conditional kernels functions of e only. Since e_{j+1}≤e_j, uniform small-e convergence and induction yield k independent beta limits at each fixed horizon and the gamma-moment formula. Independent Gaussian calculations checked mean and second moments in three codimensions (20,000 samples each), not a substitute for the limit proof.
 
-**Scope and risks.** The model is real, two-level, and exact-arithmetic; the result is local and for fixed horizons. No global rate, complex analogue, or eigenvalue-cluster perturbation law is asserted. Historical-priority uncertainty is separate from mathematical correctness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: Bresch–Melnyk global linear convergence with a positive top spectral gap treats a simple leading eigenvalue, not a rank-r≥2 repeated leading eigenspace. Earlier random-plane algorithm and generalized Rayleigh quotient papers give method and general rates but no identified local beta multiplier law or fixed-k independent product. Similar beta errors in Gaussian Krylov/linear-system algorithms arise under different projection kernels and do not prove this Rayleigh–Ritz claim. Full inaccessible relevant primary text remains a residual priority risk.
+
+## value
+
+PASS
+
+Exact local beta multiplier law is a natural stochastic refinement of mean convergence for random-plane eigenvalue ascent when the top eigenvalue is degenerate, beyond existing simple-top spectral-gap analysis. Rank-independent beta shape, all moments and fixed-horizon iid product supply precise, reusable error-distribution information; motivated structural theorem, not a chosen finite test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
