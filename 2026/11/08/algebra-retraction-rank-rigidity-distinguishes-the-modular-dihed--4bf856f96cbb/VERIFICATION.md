@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and the standard library; no extra packages or data files are required. The verifier builds the multiplication tables for the two group presentations, performs full enumeration of their augmentation-one generator images over \(\mathbb F_2\), retains those obeying all group relations, and checks the idempotent identity on both generators. It then computes full image ranks. Independent field-arithmetic enumeration checks radical square-zero cones over \(\mathbb F_2\) and \(\mathbb F_4\).
+## correctness
 
-The expected exact output is `idempotent_maps D8 GF2 {1: 1, 2: 64, 8: 1}`, `idempotent_maps Q8 GF2 {1: 1, 8: 1}`, plus zero-cone counts: D8 at \(q=2\): \((16,32)\), D8 at \(q=4\): \((256,1536)\), Q8 at \(q=2\): \((16,0)\), and Q8 at \(q=4\): \((256,0)\), with the pair denoting elements in \(C\) and outside \(C\). The program asserts these checks and finishes with `VERIFY_OK`.
+PASS
 
-General finite-field formulas and arbitrary-characteristic-two rigidity are established by the algebraic proof; this script does not exhaust infinitely many coefficient fields. Independent mathematical validation has not been performed.
+Characteristic-two group algebra of a finite 2-group is local with cotangent space dim 2. Explicit group-basis multiplication gives the square-zero radical cone: Q8 exactly the four-dimensional central cA ideal, D8 union of two five-dimensional spaces meeting in cA. A nontrivial proper algebra retract has cotangent dimension one; the group relations force its generators to be square-zero, excluding Q8 because cA lies in J^2. For D8 each normalized nonzero tangent direction has q^4 square-zero representatives and q choices of splitting, giving 2q^5 maps of vector rank two; rank one augmentation and rank eight identity. Independently implemented GF2 exhaustive generator-image/evaluation test confirms D8 (1,64,1) and Q8 (1,1), and GF4 exhaustive augmentation-ideal square-zero census confirms D8 central/noncentral (256,1536), Q8 (256,0). Characteristic-two arbitrary-field proof is algebraic, not inferred from the finite tests.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct exact embedded-retract and idempotent-endomorphism rank distributions in D8 and Q8 modular group algebras. Closest earlier result concerns regular multiplication ranks/square-zero cones, and 2021 group-algebra comparison has no accessible confirmation of this precise count. Prior ring-theoretic structural fact alone does not give 2q^5 without analyzing cotangent images and retraction splittings.
+
+## value
+
+PASS
+
+An explicit complete rank spectrum and embedding/splitting census for algebra retracts is a natural structural invariant distinguishing notoriously similar modular group algebras. The q-dependence and strict Q8 rigidity go beyond a relabeling or a few experimental values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

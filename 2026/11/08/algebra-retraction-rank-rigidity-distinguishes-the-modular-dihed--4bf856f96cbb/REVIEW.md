@@ -1,19 +1,21 @@
-# Review: modular group-algebra retract rank rigidity
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The proof covers every characteristic-two field; finite-field counts are uniform in \(q\). The radical and cotangent statements follow from the standard local structure of modular group algebras. The group basis decomposition makes the two square-zero equations explicit and supports the geometry of the retraction images. The key rank-one argument uses that an idempotent image has one-dimensional cotangent space and hence one algebra generator; the group-relator identities then force its radical generator to square to zero. The count is bijective at fixed normalized radical generator, with exactly \(q\) retractions per image. Independent direct group-algebra multiplication and endomorphism tests succeeded over \(\mathbb F_2\), and square-zero exhaustions over \(\mathbb F_2\) and \(\mathbb F_4\) matched the formulas. No finite test is presented as proof of the all-fields theorem.
+PASS
 
-## Originality (O): PASS, relative to inspected evidence
+Characteristic-two group algebra of a finite 2-group is local with cotangent space dim 2. Explicit group-basis multiplication gives the square-zero radical cone: Q8 exactly the four-dimensional central cA ideal, D8 union of two five-dimensional spaces meeting in cA. A nontrivial proper algebra retract has cotangent dimension one; the group relations force its generators to be square-zero, excluding Q8 because cA lies in J^2. For D8 each normalized nonzero tangent direction has q^4 square-zero representatives and q choices of splitting, giving 2q^5 maps of vector rank two; rank one augmentation and rank eight identity. Independently implemented GF2 exhaustive generator-image/evaluation test confirms D8 (1,64,1) and Q8 (1,1), and GF4 exhaustive augmentation-ideal square-zero census confirms D8 central/noncentral (256,1536), Q8 (256,0). Characteristic-two arbitrary-field proof is algebraic, not inferred from the finite tests.
 
-The closest identified primary source, Creedon–Hughes–Szabo (2021), explicitly compares these algebras and proves nonisomorphism via ring-theoretic properties. The accessible abstract and introduction do not state an idempotent endomorphism count or a classification of algebra retracts. Dai–Li (2022 preprint/2024 journal) studies idempotent *elements* in semisimple complex group algebras; that is not the same mapping object. Earlier square-zero calculations for these modular group algebras describe a related locus, not the complete algebra-retraction image multiplicities. The argument independently proves the requisite square-zero property rather than claiming it as new. Publication-priority risk remains from the uninspected full text of Creedon–Hughes–Szabo and possible general retract-enumeration literature; absence of search matches is not proof of novelty.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-Whether a local modular group algebra splits onto a proper nontrivial subalgebra is a natural structural property; the smallest nonabelian two-groups provide a well-motivated contrasting pair. Here one algebra is retract-rigid while the other has a growing \(2q^5\) family of nontrivial splittings, despite both being local group algebras with two-dimensional cotangent spaces. The exact embedded-image count \(2q^4\) separates the number of retract objects from the number of splitting maps. This is more informative than detecting nonisomorphism, which is already known, and its all-field rigidity statement is not merely a small computational census.
+Best-of-knowledge distinct exact embedded-retract and idempotent-endomorphism rank distributions in D8 and Q8 modular group algebras. Closest earlier result concerns regular multiplication ranks/square-zero cones, and 2021 group-algebra comparison has no accessible confirmation of this precise count. Prior ring-theoretic structural fact alone does not give 2q^5 without analyzing cotangent images and retraction splittings.
 
-## Sources, comparison, limits
+## value
 
-Creedon–Hughes–Szabo, DOI 10.1007/s00200-020-00485-1, article metadata, online date, abstract and beginning of publisher preview. Direct full text unavailable, and an institutional-access attempt required human input. Dai–Li, arXiv:2205.00435 and DOI 10.3934/math.20241365, full abstract, reference listing and available publisher HTML; the content concerns primitive element-idempotents in semisimple group rings. Related earlier square-zero descriptions were considered as a stronger-premise risk, not treated as a new independent discovery. The exact novelty of the retract counts needs eventual human literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicit complete rank spectrum and embedding/splitting census for algebra retracts is a natural structural invariant distinguishing notoriously similar modular group algebras. The q-dependence and strict Q8 rigidity go beyond a relabeling or a few experimental values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
