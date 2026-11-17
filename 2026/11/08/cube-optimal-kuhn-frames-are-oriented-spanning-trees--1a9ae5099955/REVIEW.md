@@ -1,15 +1,21 @@
-# Scientific review of the cube-optimal Kuhn-frame classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The fixed-frame radius is exactly half the maximum of the positive and negative coordinate-row sums, by the coordinate-range formula for box fitting and an all-permutation contiguous-block argument. Integer row totals reduce equality at the known radius \(1/2\) to precisely the reduced oriented incidence rows. Reduced-incidence rank is full precisely for a spanning tree; leaf expansion yields determinant \(\pm1\), and Prüfer coding establishes the exact labeled count. The full proof handles every integer dimension \(d\ge1\), all frames including possible proper sublattices, and the distinction between ordered and unordered frames. Exact integer checks for \(d\le4\) and a complete row-span test through \(d=5\) agree with the theorem. This verification is same-model and not independent.
+## correctness
 
-## Originality — PASS, with historical limitations
-Xue's arXiv:2610.39034v1, §3.1, equation (3.2), already gives the optimal radius for coordinate cubes, and his §2 establishes minimizer existence and general covering comparisons. Lian–Xue arXiv:2606.14584v3, introduction and §6, provides Kuhn-family covering criteria for given bases, and Grozev–Nikolov arXiv:2610.21572v1, Lemma 5, provides parallelotope simplex containment. The cited results do not state the rowwise equality classification, the spanning-tree parametrization of **all** cube minimizers, basis rigidity, or the exact all-dimensional count. Searches for the description in terms of permutation simplices, signed incidence matrices, complete-graph spanning trees, and coordinate-prefix ranges did not uncover an equivalent statement. The general incidence-matrix and Prüfer ingredients are classical. Remaining risk: an older equivalent characterization may be buried in lattice triangulation or totally unimodular matrix literature; absence of a matching search result does not certify historical novelty.
+PASS
 
-## Mathematical value — PASS
-The recently defined common-frame fitting invariant admits multiple optimal frames even in the elementary cube benchmark. The result determines the **entire optimizer locus** across all dimensions, not merely its known optimum value. Its unexpected bijection with oriented labeled trees, exact superexponential count, and automatic unimodularity give a structural benchmark for studying equality and optimizer nonuniqueness under changes of convex body or lattice. This natural complete classification is meaningful independently of any downstream extension; it is not a parameter renaming or recomputation of the existing radius.
+For any fixed lattice frame, the minimal cube translate radius for a simplex is half its maximum coordinate prefix range. Over all permutations that range equals max(P_i,N_i), the positive/negative integer row sums. Invertibility forces every row nonzero. Radius 1/2 iff each row is a signed coordinate row or difference of two coordinate rows; incidence with d+1 labeled vertices gives exactly a connected d-edge graph, hence a tree. Leaf expansion shows determinant +/-1; Prüfer coding, orientations and row labels yield precisely 2^d(d+1)^(d-1) unordered frames. Independent enumeration found 2,12,128 minimizers for d=1,2,3; all-dimensional conclusion is the incidence proof.
 
-## Scope and unresolved issues
-No claim is made about arbitrary convex bodies, unmatched lattices, or optimizers modulo cube symmetries. Finite checks do not prove the infinite classification; the combinatorial argument does. Priority could be affected by unrecognized equivalent older formulations. No independent review or external mathematical certification has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The previously established numerical cube κ minimum is credited; neither the full optimizer equivalence with oriented tree-incidence matrices nor the exact unordered optimizer count is supplied by the inspected primary mathematical statements. This acceptance is best-of-knowledge, conditional on historical mathematical equivalences.
+
+## value
+
+PASS
+
+The theorem classifies every optimizer for a previously defined lattice covering problem and proves all optimizers unimodular. A spanning-tree bijection gives an exact enumerator across all dimensions; optimization rigidity and the tree count are natural mathematical outputs, not arbitrary numerical improvements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

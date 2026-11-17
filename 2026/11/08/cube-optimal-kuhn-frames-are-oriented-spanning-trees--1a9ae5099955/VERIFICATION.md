@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and mathematical verification
+# Independent mathematical audit
 
-Run `python verify.py` from the same directory using Python 3; it needs no third-party dependencies. The script enumerates exactly all integer matrices whose rows can satisfy the optimal fitting threshold for dimensions \(1\) through \(4\), calculates determinants exactly by integer recursion, and confirms the predicted count and the fact that all nonsingular candidates are unimodular. It also computes the actual prefix-sum range for every permutation of each row in \(\{-2,-1,0,1,2\}^d\), for \(1\le d\le5\), and compares it to the formula based on positive and negative row sums. Expected terminal line: `CUBE_PACKET_EXACT_CHECKS_OK 165671`.
+## correctness
 
-The universal proof is the coordinate range identity, the edge-incidence rank equivalence, a leaf-expansion determinant argument, and Prüfer coding, all in `RESULT.md`. The finite program checks these conclusions at small dimensions but is not evidence of exhaustive classification for all dimensions. The comparison to Xue, Lian–Xue, and Grozev–Nikolov is bibliographic and same-model, not independently audited. Historical novelty is subject to the stated risks.
+PASS
+
+For any fixed lattice frame, the minimal cube translate radius for a simplex is half its maximum coordinate prefix range. Over all permutations that range equals max(P_i,N_i), the positive/negative integer row sums. Invertibility forces every row nonzero. Radius 1/2 iff each row is a signed coordinate row or difference of two coordinate rows; incidence with d+1 labeled vertices gives exactly a connected d-edge graph, hence a tree. Leaf expansion shows determinant +/-1; Prüfer coding, orientations and row labels yield precisely 2^d(d+1)^(d-1) unordered frames. Independent enumeration found 2,12,128 minimizers for d=1,2,3; all-dimensional conclusion is the incidence proof.
+
+## originality
+
+PASS
+
+The previously established numerical cube κ minimum is credited; neither the full optimizer equivalence with oriented tree-incidence matrices nor the exact unordered optimizer count is supplied by the inspected primary mathematical statements. This acceptance is best-of-knowledge, conditional on historical mathematical equivalences.
+
+## value
+
+PASS
+
+The theorem classifies every optimizer for a previously defined lattice covering problem and proves all optimizers unimodular. A spanning-tree bijection gives an exact enumerator across all dimensions; optimization rigidity and the tree count are natural mathematical outputs, not arbitrary numerical improvements.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
