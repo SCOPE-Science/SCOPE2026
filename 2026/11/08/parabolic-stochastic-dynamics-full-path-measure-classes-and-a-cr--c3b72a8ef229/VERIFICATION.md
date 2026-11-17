@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility and proof limits
+# Independent mathematical audit
 
-The standalone `checker.py` was run from its packaged directory using the standard Python interpreter; execution terminated successfully with:
+## correctness
 
-```
-PARABOLIC_EXACT_ITERATE_RATIONAL_OK
-FINITE_DEFECT_COUPLING_BOUND_OK
-LIKELIHOOD_SECOND_MOMENT_BOUND_OK
-TRIANGULAR_CRITICAL_WINDOW_MEAN_VARIANCE_OK
-PARABOLIC_MARKOV_PATH_CHECK_OK
-```
+PASS
 
-The checker verifies exact rational iterations at \(\gamma=1\) and numerical spot checks for the mean-value coupling bound, the conditional likelihood second-moment identity, and crossover means/variances. Each check is finite. The independent-coordinate equivalence, almost-sure eventual coupling, singularity classification and limit theorems are mathematical conclusions of the proof in `RESULT.md`, not automated certifications.
+PASS: h_gamma^{-gamma}(s)=s^{-gamma}+1 gives exact iterates. Shared uniforms give mismatch probability at most alpha(a_i-1)(n+1)^(-1-alpha), summable; conditional likelihood chi-square increments are O(n^(-2-alpha)), proving both directions of absolute continuity via L2 uniform integrability, not merely coupling. Count LLN distinguishes divergent exponents; summable regime has positive point mass on every finite-one path. Independent Bernoulli Lindeberg/Kronecker arguments and uniform triangular defect bounds prove the critical gamma_N=1+u/log N Gaussian limit. Checked positive seeds/full support, gamma=1 boundary and strict nonzero probabilities. Independent numeric finite chi-square sums for gamma 0.7,1,2: 0.0887,0.1775,0.6510 (10k terms); experiments are not infinite proof.
 
-The identity between the nonlinear operator and transition matrices follows the explicit row construction in Souissi–Mukhamedov (2024), Section 3. The comparison with existing sufficient summability conditions uses Jamilov et al. (2024), Section 4. The full paper texts were inspected; a general search cannot eliminate every unpublished or unindexed equivalent theorem. The item has not received independent mathematical validation.
+## originality
+
+PASS
+
+PASS best-of-knowledge: the classical Hellinger and Bernoulli criteria are prior, but the concrete nonlinear-operator parabolic family, all-exponent path-law phase classification, eventual exact-coordinate coupling and logarithmic critical crossover were not found stated in the inspected original sources or Resultary comparisons.
+
+## value
+
+PASS
+
+PASS: distinguishes deterministic convergence from path-measure equivalence in a model identified by source literature, explicitly answers its nonsummable-equivalence question with distinct positive seeds, and quantifies the rare-visit transition; not merely a routine restatement of Kakutani.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
