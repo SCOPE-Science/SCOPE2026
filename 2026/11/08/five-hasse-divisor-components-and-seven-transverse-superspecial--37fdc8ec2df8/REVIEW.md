@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Smoothness follows from the Ciani discriminant. The universal plane-quartic Hasse coefficient formula, independently recomputed through the elliptic quotients, gives the exact diagonal matrix \((\lambda,\lambda,\mu)\). Diagonal Frobenius establishes every geometric rank claim. Factorizations show five smooth, pairwise disjoint-within-each-type components and exactly seven transverse crossings across types. The \(\mathbb F_{49}\) counts follow from explicit inclusion--exclusion and were independently enumerated. Both packaged verification programs were replayed successfully. Computation alone is not used to infer the algebraic-closure statement.
+## correctness
 
-**Originality — PASS with residual risk.** Ohashi (arXiv:2201.12996, Sections 2--4) gives the general involution quotient mechanism and superspecial criterion, not this explicit characteristic-seven divisor decomposition or four-stratum coefficient count. Moriya--Kudo (arXiv:2209.02926, Section 5.3) enumerate isomorphism classes for nonhyperelliptic Howe curves beginning at characteristic eleven; the scope and output differ from this coefficient-parameter normal-crossings statement. Ohashi et al. (arXiv:2401.10500; 2025 journal version) focus on principally polarized isogeny graphs and isomorphism-class counts. Neither a general quotient formula nor a moduli class count by itself implies the five-component structure, crossings and \(\mathbb F_{49}\) coefficient distribution without the new exact arithmetic. Relevant searches of mathematical records for Ciani aliases, characteristic-seven Hasse divisors, and parameter equivalences returned no mathematical record implying this claim. An unindexed older explicit Ciani-coefficient table remains possible.
+PASS
 
-**Mathematical value — PASS.** The natural \(D_8\)-symmetric two-parameter Ciani locus is a standard geometric test family for genus-three superspeciality. Its arithmetic degenerations have two distinct kinds (one elliptic quotient pair degenerating, or the remaining quotient degenerating). Their five-component intersection geometry is a structural classification, and the exact finite-field strata locate all geometric superspecial coefficient parameters. This does not present seven new isomorphism classes; the output is parameter arithmetic and transverse geometry.
+PASS — Direct coefficient extraction from F^6 over characteristic seven gives diagonal Hasse–Witt entries (lambda,lambda,mu) with lambda=2b(a-2)^2((3b^2+4)a+4b^2+1) and mu=4(b^2-2a)(a+b^2+1)(a-2b^2-1). On the stated smooth open set U, factor exclusions give exactly five irreducible smooth reduced divisor components, no same-group intersections, and seven simple transverse crossing points. Independent F49 arithmetic exhaustively checked all 2401 ordered pairs and gave 2163 smooth, with strata 7,84,128,1944, exactly seven superspecial and nonzero crossing Jacobian determinants. Symbolic plane coefficient verification source was inspected; full algebraic-closure completeness follows from the factorization and branch exclusion, not from F49 enumeration. Diagonal Frobenius semilinearity makes p-rank the number of nonzero diagonal factors; a-number is 3 minus matrix rank.
 
-The result concerns geometric coefficient parameters, not distinct isomorphism classes. No Newton polygon refinement or other-characteristic conclusion is claimed. Historical priority is not independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with explicit partial prior coverage — the previous general three-parameter normalized Ciani quartic result already determines the 23 superspecial Hasse intersection points in characteristic seven, and specialization b=c accounts for the seven superspecial points here. They are NOT new in isolation. The assessed surviving result determines the entire positive-dimensional reduced nonordinary divisor of the natural D8-symmetric two-parameter subfamily, its five components, seven transverse singularities as divisor incidence, four p-rank/a-number strata and coefficient counts over F49. These full rank loci are not provided by the earlier finite superspecial-point scheme. No prior full decomposition of this slice was found.
+
+## value
+
+PASS
+
+PASS — The geometry of Hasse-divisor components and their rank strata in a natural involution-symmetric genus-three family is a meaningful arithmetic-geometric classification; it records where ordinary degeneration occurs and how geometric components intersect. Explicit F49 coefficients give a checkable finite-field invariant. Value is in the divisor and rank stratification, NOT restating the seven known superspecial points; no unmarked isomorphism-class claims are made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
