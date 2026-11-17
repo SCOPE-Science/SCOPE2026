@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T12:52:38Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite connected simple bipartite unweighted graph under p>q≥2 side degree caps, C(s)=2(I+sL)^{-1}−I, and the inverse M-matrix is strictly positive off diagonal. The sole obstruction is a resolvent diagonal below 1/2. Lifting nonnegative closed-walk weights to the universal cover gives a lower bound; adding missing branches to form the (p,q)-biregular tree increases the Laplacian in Loewner order, further lowers its root resolvent. The two-type cavity functions a=1/[t+p−(p−1)b], b=1/[t+q−(q−1)a] with t=1/s retain parent degrees correctly. Their physical root has 0<a<b<1 and the p-side diagonal is the smaller, monotone return. Substituting R_p=1/2 gives b=1−t/p, a=p/[p+(2p−1)t] and D+B t−(2p−1)t²=0 (B=2p²−2pq−2p+q,D=p(2pq−p−q)>0), with exactly one positive root t<p. σ=1/t therefore guarantees positivity for all s≤σ; finite radius balls with ordinary internal-edge Laplacians converge to the limiting tree return, giving a finite negative diagonal for every s>σ. Completing the q-side less than p also proves strict gain over σ_p=(2p−1)/(2p(p−1)). Half-step s=h/2, s=0, caps not exact degrees, and absence of finite extremal equality are handled. Independently checked cavity/quadratic algebra and representative finite graph inverses; proof supplies all graphs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The November 1 source proves σ_p=(2p−1)/(2p(p−1)) for every degree-p graph, using p-regular trees.",
+          "For p>q the claimed σ_(p,q)>σ_p, therefore the earlier sufficient bound does not reach the new upper endpoint."
+        ],
+        "reasoning": "The earlier universal all-graph theorem contains this graph class but has a weaker threshold. Set inclusion alone does not imply the strictly larger safe interval for the restricted class.",
+        "searches": [
+          "Crank Nicolson positivity entrywise bipartite graph degree bounds biregular tree Laplacian sharp timestep Green resolvent",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-maximum-degree-crank-nicolson-positivity-via-regular-tree--01f56608d0de/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "Resultary November 1 maximum-degree regular-tree Crank–Nicolson full RESULT.md",
+        "Faragó and Horváth 2006 doi:10.1137/050627241 (accessible abstract/framework)",
+        "Mondal et al 2025 arxiv:2507.20886 (biregular Green functions)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Faragó–Horváth supplies positivity/maximum-principle conditions on discretizations, while the earlier maximum-degree sharp theorem gives the p-only bound.",
+          "A further two-type universal-cover completion and Schur elimination argument is required to establish the enhanced p,q boundary."
+        ],
+        "reasoning": "The prior criterion does not imply the new explicit greatest permitted step for the restricted asymmetric bipartite family merely by changing a parameter.",
+        "searches": [
+          "Crank Nicolson positivity entrywise bipartite graph degree bounds biregular tree Laplacian sharp timestep Green resolvent",
+          "Faragó Horváth 2006 discrete maximum principle adequate discretizations linear parabolic problems",
+          "https://doi.org/10.1137/050627241"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The equivalence C(s)=2R(s)−I and positive off diagonals identifies a diagonal Green-function return threshold, a known general positivity criterion."
+        ],
+        "reasoning": "This reformulation is standard; the claimed new result is the exact worst-case return for asymmetric side-capped finite graphs, not the elementary equivalence.",
+        "searches": [
+          "Crank Nicolson positivity entrywise bipartite graph degree bounds biregular tree Laplacian sharp timestep Green resolvent",
+          "Crank Nicolson positivity diagonal resolvent returning random walk Green function bipartite tree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Two-type tree resolvent formulae appear in biregular-tree spectral literature, but a tree Green function by itself does not prove finite graph class extremality or the Crank–Nicolson cutoff."
+        ],
+        "reasoning": "A spectral table for (p,q)-trees may yield the root value by substitution, but the all-finite-graphs sharp positivity frontier is not an already supplied table entry in inspected sources.",
+        "searches": [
+          "Crank Nicolson positivity entrywise bipartite graph degree bounds biregular tree Laplacian sharp timestep Green resolvent",
+          "biregular tree Green function root return sharp trapezoidal time step positivity",
+          "https://arxiv.org/abs/2507.20886"
+        ]
+      },
+      "rationale": "The general maximum-degree p-only regular-tree threshold is already a published theorem and is fully acknowledged; its guarantee σ_p is strictly lower and does not imply the two-side sharp σ_(p,q). Related Green functions on biregular trees compute constituent quantities but not the uniform finite bipartite graph Crank–Nicolson positivity threshold, nor its finite tree-ball sharpness. Faragó–Horváth generic positivity criteria also do not state the class-specific two-cap algebraic frontier in accessible material. Novelty is the sharp structurally informed threshold; specialized prior numerical analysis remains a residual risk.",
+      "residual_risks": [
+        "Unindexed specialist graph parabolic time stepping literature may contain the same sharp two-cap bound.",
+        "Some primary numerical-scheme literature was accessible only to abstract or descriptions, not complete text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior p-only sharp guarantee does not give the larger two-cap bound",
+          "evidence": "σ_p=(2p−1)/(2p(p−1)), explicitly less than σ_(p,q).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-sharp-maximum-degree-crank-nicolson-positivity-via-regular-tree--01f56608d0de/RESULT.md",
+          "material_read": "Entire published mathematical RESULT.md, including cover-tree proof and sharp regular-tree return",
+          "method": "Read primary full result",
+          "title": "Sharp maximum-degree Crank–Nicolson positivity via regular-tree returns",
+          "trigger": "Same numerical method and stronger family of graphs"
+        },
+        {
+          "assessment": "Provides general matrix positivity scheme conditions, not demonstrated exact two-cap cutoff; cannot make whole-text NOT_COVERING claim",
+          "evidence": "Paper concerns discrete maximum-principle criteria for parabolic discretizations.",
+          "identifier_or_url": "https://doi.org/10.1137/050627241",
+          "material_read": "Publisher theorem description/abstract and source-paper references; complete independent page-by-page inspection not established here",
+          "method": "Academic source search and substantive comparison to theorem framework",
+          "title": "Discrete Maximum Principle and Adequate Discretizations of Linear Parabolic Problems (Faragó, Horváth, 2006)",
+          "trigger": "Primary general numerical positivity theory"
+        },
+        {
+          "assessment": "Underlying two-type resolvent not claimed new; no verified CN threshold statement",
+          "evidence": "Biregular spectral/propagator study has a different principal observable.",
+          "identifier_or_url": "https://arxiv.org/abs/2507.20886",
+          "material_read": "Abstract and model/spectral subject description; full independent text not confirmed",
+          "method": "ArXiv search",
+          "title": "Holography on Biregular Trees (Mondal et al, 2025)",
+          "trigger": "Same biregular-tree Green-function geometry"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Separate degree ceilings for the two parts of bipartite diffusion/transport graphs are meaningful structural information. The sharp two-parameter algebraic step improves on the best p-only bound without eigensolving individual graphs; its finite-ball extremizers prove that the improvement is genuinely optimal over all finite topologies. A sharp uniform frontier over an infinite natural family, even with modest numeric gain, is a structural mathematical contribution.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Unnormalized, unit-conductance, simple undirected connected bipartite finite graphs, p>q≥2, half-step s=h/2 only; no variable conductances, directed graphs or error/convergence assertions.",
+  "schema_version": 1
+}

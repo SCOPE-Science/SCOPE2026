@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The statement fixes the unnormalized unit-weight graph Laplacian, the half-step normalization, separate bipartite degree caps and every-positive-step quantifiers. The identity \(C=2R-I\) leaves only diagonal return probabilities to check. A nonnegative Neumann-walk expansion compares the finite graph to its universal cover; a quadratic-form ordering compares the cover to its completion as the biregular tree. The tree cavity Schur equations are reconstructed with the parent-edge contribution retained on the diagonal; their physical solution and the two root types are distinguished. The explicit quadratic has exactly one positive root, and bounded finite balls converge in resolvent to the tree, proving sharpness rather than relying on finite tests. Supplementary checks: `python3 verify.py` passed 45 algebraic parameter identities, 45 two-type threshold cases and 223 rational graph inversions. Risk: numerical checks are not an independent proof, and the result does not address nonunit edge weights.
+PASS
 
-## Originality — PASS, with specified residual risk
+For finite connected simple bipartite unweighted graph under p>q≥2 side degree caps, C(s)=2(I+sL)^{-1}−I, and the inverse M-matrix is strictly positive off diagonal. The sole obstruction is a resolvent diagonal below 1/2. Lifting nonnegative closed-walk weights to the universal cover gives a lower bound; adding missing branches to form the (p,q)-biregular tree increases the Laplacian in Loewner order, further lowers its root resolvent. The two-type cavity functions a=1/[t+p−(p−1)b], b=1/[t+q−(q−1)a] with t=1/s retain parent degrees correctly. Their physical root has 0<a<b<1 and the p-side diagonal is the smaller, monotone return. Substituting R_p=1/2 gives b=1−t/p, a=p/[p+(2p−1)t] and D+B t−(2p−1)t²=0 (B=2p²−2pq−2p+q,D=p(2pq−p−q)>0), with exactly one positive root t<p. σ=1/t therefore guarantees positivity for all s≤σ; finite radius balls with ordinary internal-edge Laplacians converge to the limiting tree return, giving a finite negative diagonal for every s>σ. Completing the q-side less than p also proves strict gain over σ_p=(2p−1)/(2p(p−1)). Half-step s=h/2, s=0, caps not exact degrees, and absence of finite extremal equality are handled. Independently checked cavity/quadratic algebra and representative finite graph inverses; proof supplies all graphs.
 
-The closest same-scope earlier finding is the maximum-degree-only \(p\)-regular-tree law (claim identifier `01f56608-d0de-4d06-b1f7-31c6d6b77541`), which yields the strictly smaller \((2p-1)/(2p(p-1))\) but **does not imply** the larger \((p,q)\) threshold when \(p>q\). The regular limit \(p=q\) is not presented as new. Faragó–Horváth [1], inspected in its accessible author text through its general-positivity, finite-difference and finite-element sections, contains conditions on standard meshes but no pair-of-degree-caps sharp theorem. Chung–Yau [2], inspected in the accessible full PDF, studies coverings and regular-tree heat kernels but not this positivity boundary. The 2025 biregular-tree Green-function treatment [3] has the same underlying tree Laplacian but studies propagators, not finite-graph Crank–Nicolson positivity. A published general resolvent-return result already gives the positivity criterion; the new material is the tree extremality with the explicit two-cap optimization. Specialist priority beyond inspected material remains possible, and one relevant public general-result description was accessible only as a summary.
+## originality
 
-## Value — PASS
+PASS
 
-Separate degree caps on the two sides of a bipartite transport or diffusion network are natural structural information, and ignoring them forces the strictly smaller best possible one-cap positivity step. The new exact two-parameter frontier holds uniformly over every finite graph size and topology in the class, has sharp finite witnesses and gives an algebraic timestep rule without eigensolving the actual graph. The gain is small in some regimes but is mathematically structural and sharp, not an arbitrary small-graph table or a parameter relabeling.
+The general maximum-degree p-only regular-tree threshold is already a published theorem and is fully acknowledged; its guarantee σ_p is strictly lower and does not imply the two-side sharp σ_(p,q). Related Green functions on biregular trees compute constituent quantities but not the uniform finite bipartite graph Crank–Nicolson positivity threshold, nor its finite tree-ball sharpness. Faragó–Horváth generic positivity criteria also do not state the class-specific two-cap algebraic frontier in accessible material. Novelty is the sharp structurally informed threshold; specialized prior numerical analysis remains a residual risk.
 
-## Unproved scope and independent status
+## value
 
-Publication-level priority in all graph-diffusion and Green-function literature remains open to independent checking. The theorem is not a result about nonbipartite graphs, variable conductances or higher-order methods.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Separate degree ceilings for the two parts of bipartite diffusion/transport graphs are meaningful structural information. The sharp two-parameter algebraic step improves on the best p-only bound without eigensolving individual graphs; its finite-ball extremizers prove that the improvement is genuinely optimal over all finite topologies. A sharp uniform frontier over an infinite natural family, even with modest numeric gain, is a structural mathematical contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
