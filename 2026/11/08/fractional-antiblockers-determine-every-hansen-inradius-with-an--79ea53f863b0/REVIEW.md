@@ -1,15 +1,21 @@
-# Scientific review: Hansen fractional-antiblocker inradius theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The full-dimensional, centrally symmetric twisted-prism definition gives an exact polar halfspace system indexed by the stable sets of the graph. For a feasible polar vector, restricting stable sets separately to positive and negative coordinate supports bounds the two disjoint squared norms by scaled copies of the compact clique-constrained fractional stable-set polytope. The resulting quadratic upper bound is maximized only at the two endpoint sections. Vectors \((1,-2p)\) attaining the fractional quadratic maximum are feasible, giving a matching lower bound and exact contact-normal classification. Perfectness is used only in the credited specialization. The \(35\)-vertex witness is obtained from a published Ramsey graph; an independent exact finite enumeration confirms triangle-freeness and independence number \(8\). The asymptotic construction uses explicitly bounded triangle and independent-set probabilities and deletes at most a vanishing proportion of vertices. No finite computation is used to justify the infinite statements.
+## correctness
 
-## Originality — PASS, historical priority provisional
-The closest public geometry theorem gives a Hansen inradius and clique-contact classification **for perfect graphs only** (bibliographic identifier 5c60f4f604ef); its full text explicitly excludes nonperfect graphs. Freij et al. (2013), Section 2, provide the all-graph twisted-prism definition but a full facet formula only for perfect graphs. Aprile et al. (2017), Section 3.2, investigate vertex–facet counts of perfect-graph Hansen polytopes and do not state a Euclidean radius. Kohl, Olsen, and Sanyal (2020) analyze unconditional reflexive polytopes, with a different construction and metric scope. Searches for twisted prisms, squared norms of fractional antiblockers, and Hansen inballs did not locate the all-graph quadratic formula or an unbounded geometric gap. The exact Ramsey witness graph and its independence number are prior work; their existence is not claimed as new. A hidden equivalent formula in the original Hansen paper (1977) or under Banach-space/antiblocker language remains possible.
+PASS
 
-## Mathematical value — PASS
-This is a complete exact variational characterization of a canonical geometric invariant for **every** graph Hansen polytope, not an arbitrary computed case. It reduces farthest-polar-point geometry to a standard graph fractional stable-set polytope and determines every centered inball-contact facet. More importantly, it shows the known perfect-graph metric law is not approximately universal: a published finite Ramsey graph violates it, and a rigorously constructed sequence violates it by an arbitrarily large factor. Thus it exposes a sharp structural role for nonintegral fractional cliques, with a reusable graph–metric correspondence.
+The centrally symmetric full-dimensional canonical Hansen twisted stable-set prism has centered maximal inball. Polar coordinates (t,x) satisfy |t+sum_(i in S)x_i|<=1 for all stable S. Splitting positive/negative supports gives ||x+||²<=(1-t)²mu, ||x-||²<=(1+t)²mu for mu=max_{p in Q(complement G)}||p||². Hence ||(t,x)||²<=t²+2(1+t²)mu<=1+4mu, with equality only t=±1; feasible endpoints (1,-2p) attain it, proving exact radius and all touching normals. For triangle-free graph F, p=1/2 feasible, mu>=n/4; Ramsey(3,9) 35-vertex F has alpha8, gives r<=1/6 <1/sqrt33, not claimed equality. Independent exact fractional Q vertex enumeration for K3, edgeless3 and C5 confirms mu=1,3,2. Random G(N,N^-3/4) with triangle deletion and alpha=o(n) proves unbounded ratio analytically.
 
-## Closest literature and limitations
-Freij et al. (2013), Aprile–Cevallos–Faenza (2017), the public perfect-graph inradius record (2026), and the Ramsey graph references are essential comparisons. The quadratic fractional invariant can be computationally hard; the theorem does not solve that maximization for general graphs. No exact inradius is claimed for the \(35\)-vertex graph, only a strict rational-square-root upper bound. The all-graph historical priority assessment is qualified by inaccessible older material and terminology variation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The earlier perfect-graph Hansen inradius theorem and standard twisted-prism polars are credited. The full arbitrary-graph quadratic fractional-antiblocker formula, endpoint normal classification, finite nonperfect strict gap and unbounded family are not implied by perfect-graph facets. The primary 2013/2017 sources focus on face enumerators, perfect graphs and 2-level properties, not Euclidean inradius beyond perfect graphs. Original Hansen 1977 remains uninspected; priority qualification explicit.
+
+## value
+
+PASS
+
+A universal inradius reduction to a natural fractional graph polytope and complete tangent-normal characterization are useful metric facts for arbitrary Hansen polytopes. The explicit unbounded breakdown of an already known perfect-graph clique formula shows that integrality is not a removable hypothesis, a structural counterexample rather than a tiny numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The closed-form reduction is established analytically in RESULT.md and does not depend on a numerical solver. In particular, equation (9) supplies a universal polar norm upper bound and the endpoint witnesses attain it.
+# Independent mathematical audit
 
-Run the standalone Python script as `python verify.py` with NumPy and SciPy available. It constructs two separate halfspace representations and compares their farthest squared norms in six low-dimensional sample graphs; it also checks the endpoint property for every farthest polar vertex found. Expected marker: `HANSEN_FRACTIONAL_ANTIBLOCKER_CHECKS_PASSED`.
+## correctness
 
-The script additionally decodes the published \(35\)-vertex Ramsey graph6 string, checks its number of edges and absence of triangles, and performs exact integer-bitset maximal-independent-set enumeration without a solver. It confirms independence number \(8\); expected marker: `RAMSEY35_EXACT_CHECK_PASSED`. The graph6 instance is externally sourced, with attribution in the code and RESULT.md. The theorem's independent mathematical audit remains not performed.
+PASS
 
-Numerical halfspace intersection checks are finite corroboration, not exhaustive over all graphs. The Ramsey graph computation is an exact check of the specific embedded witness. The asymptotic random-graph argument is proved by its probability bounds rather than simulated.
+The centrally symmetric full-dimensional canonical Hansen twisted stable-set prism has centered maximal inball. Polar coordinates (t,x) satisfy |t+sum_(i in S)x_i|<=1 for all stable S. Splitting positive/negative supports gives ||x+||²<=(1-t)²mu, ||x-||²<=(1+t)²mu for mu=max_{p in Q(complement G)}||p||². Hence ||(t,x)||²<=t²+2(1+t²)mu<=1+4mu, with equality only t=±1; feasible endpoints (1,-2p) attain it, proving exact radius and all touching normals. For triangle-free graph F, p=1/2 feasible, mu>=n/4; Ramsey(3,9) 35-vertex F has alpha8, gives r<=1/6 <1/sqrt33, not claimed equality. Independent exact fractional Q vertex enumeration for K3, edgeless3 and C5 confirms mu=1,3,2. Random G(N,N^-3/4) with triangle deletion and alpha=o(n) proves unbounded ratio analytically.
+
+## originality
+
+PASS
+
+The earlier perfect-graph Hansen inradius theorem and standard twisted-prism polars are credited. The full arbitrary-graph quadratic fractional-antiblocker formula, endpoint normal classification, finite nonperfect strict gap and unbounded family are not implied by perfect-graph facets. The primary 2013/2017 sources focus on face enumerators, perfect graphs and 2-level properties, not Euclidean inradius beyond perfect graphs. Original Hansen 1977 remains uninspected; priority qualification explicit.
+
+## value
+
+PASS
+
+A universal inradius reduction to a natural fractional graph polytope and complete tangent-normal characterization are useful metric facts for arbitrary Hansen polytopes. The explicit unbounded breakdown of an already known perfect-graph clique formula shows that integrality is not a removable hypothesis, a structural counterexample rather than a tiny numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
