@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness
+**PASS.** Every Alexander-dual face is a subset with no disconnected induced triple, equivalently a graph whose missing edges have maximum degree one. Intersecting the cyclic radius neighborhoods shows that a missing edge has a common-neighbor *clique*, forbidding two missing edges in the same face. The resulting face partition justifies the explicit descending-cardinality elementary collapses; the remaining clique complex is the nerve of short circle arcs, and the far edges contribute free loops. Integral combinatorial Alexander duality then gives the claimed single nonzero homology group. Full direct face enumeration and explicit free-face checks corroborate six in-range finite cases. Boundary \(n=4p+1\), parity, and integral coefficients were checked. Residual proof risk: the cyclic-arc Helly argument and the indexing of collapse pairs should be examined independently.
+
+## Originality
+**PASS, with residual uncertainty.** The complete first-public 2026 arXiv paper by Chauhan–Shukla gives the original cut complex's stronger shellability only for \(n\ge6p-3\); its result is credited on that overlap. The present dual elementary collapse and all-power integral homology throughout \(4p+1\le n<6p-3\) (nonempty for \(p\ge5\)) are neither stated nor implied by its restricted theorem. Published finite \(p=3,4\) specializations and earlier \(p=2\) work are credited. Bravo's total-cut paper treats another complex, and Adamaszek's clique-complex theorem supplies a known ingredient. Searches of cycle-power three-cuts, dual collapses, parameter ranges and related nomenclature in published research records did not identify an all-\(p\) covering statement. Risk: an equivalent all-parameter argument may exist in unindexed or inaccessible literature; database nonappearance is not uniqueness.
+
+## Mathematical value
+**PASS.** The sharp lower boundary \(4p+1\) is singled out in the motivating paper's shellability question, and a separate published obstruction occurs at \(n=4p\). A uniform constructive *simple-homotopy* reduction explains the topological mechanism and extends exact torsion-free integral homology into a growing, previously unaddressed range for \(p\ge5\). The result is mathematically structural rather than a finite parameter recomputation. It intentionally does not resolve the stronger open shellability conjecture.
+
+Self-review: passed. Independent audit: not yet performed.
