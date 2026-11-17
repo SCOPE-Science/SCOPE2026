@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T01:55:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/11/08/an-exact-triangular-stationary-law-recursion-for-noisy-voters-on--30693f2b8577/RESULT.md@109dbb67dbbcf5362911bb5ca73922a2c0f6820c",
+        "2026/11/08/an-exact-triangular-stationary-law-recursion-for-noisy-voters-on--30693f2b8577/verify_noisy_star.py@7d9138a024c6272af5f70c70e20132c0dce4ba71"
+      ],
+      "rationale": "The reduced CTMC rates (k-m)(alpha*h+eta/2), m[alpha(1-h)+eta/2], and hub flip eta/2+beta m/k or eta/2+beta(k-m)/k follow from independent clocks. Applying the generator to r distinct leaf products closes F_r and H-products G_r. Eliminating F_{r+1} gives the displayed positive denominator r(alpha+eta)+eta+beta[1-(k-r)alpha/(k(alpha+eta))]>0; at r=k its unwanted F_{k+1} coefficient is zero. Polynomial expansion E[s^M]=sum_r binom(k,r)F_r(s-1)^r gives the exact binomial inversion and full law, with no asymptotic approximation. Strict eta>0 ensures unique stationary state. Independent rational 8-state generator solved for k=3, alpha=beta=eta=1 and matched full marginals (17,27,27,17)/88 and F=(1,1/2,13/44,17/88), G=(1/2,15/44,21/88,15/88). Beta-limit moment argument fixes the fixed-rate limiting law, but is not the novel part.",
+      "residual_risks": [
+        "Exact tests cover finite instances only; full quantifiers rely on audited analytic proof; no formal checker or external expert attestation inferred."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General noisy voter duality can represent correlation functions; Cox–Peres–Steif lumps the hub/count chain for mixing."
+        ],
+        "reasoning": "General duality might entail a recurrence after derivation but available literature does not supply the exact positive-denominator triangular inversion; uninspected duality work remains residual risk.",
+        "searches": [
+          "exact finite-k stationary joint distribution hub and number of opinion-one leaves noisy voter star graph factorial moments binomial inversion",
+          "Granovsky and Madras noisy voter model duality",
+          "Cox Peres Steif star noisy voter lumping"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md blob 109dbb67dbbcf5362911bb5ca73922a2c0f6820c",
+        "assigned verify_noisy_star.py blob 7d9138a024c6272af5f70c70e20132c0dce4ba71",
+        "Resultary 2026/11/8/SCOPE-a-non-self-averaging-beta-limit-and-a-persistent-density-gap-for--2e437c797ab7",
+        "Resultary 2026/11/8/SCOPE-an-affine-beta-law-for-noisy-voter-polarization-on-growing-star--aed923698d2a",
+        "Cox–Peres–Steif arXiv:1408.5122",
+        "Granovsky–Madras 1995 DOI:10.1016/0304-4149(94)00035-R"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known finite variance is a two-moment projection of the submitted full law; the reverse implication fails."
+        ],
+        "reasoning": "The assigned all-order finite theorem implies published lower-order formulas under rate specialization; the published main claims do not by themselves reconstruct all finite joint probabilities.",
+        "searches": [
+          "exact finite-k stationary joint distribution hub and number of opinion-one leaves noisy voter star graph factorial moments binomial inversion",
+          "Resultary 2026/11/8/SCOPE-a-non-self-averaging-beta-limit-and-a-persistent-density-gap-for--2e437c797ab7",
+          "Resultary 2026/11/8/SCOPE-an-affine-beta-law-for-noisy-voter-polarization-on-growing-star--aed923698d2a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Other star models coincide under rate changes for the beta limit but do not exhibit full finite-k joint factorial inversion."
+        ],
+        "reasoning": "Same star chain has known first/second-moment and limiting beta presentations, but equivalence at the full joint distribution level was not found in materially read results.",
+        "searches": [
+          "exact finite-k stationary joint distribution hub and number of opinion-one leaves noisy voter star graph factorial moments binomial inversion",
+          "Resultary 2026/11/8/SCOPE-a-non-self-averaging-beta-limit-and-a-persistent-density-gap-for--2e437c797ab7",
+          "2026/11/8/SCOPE-an-affine-beta-law-for-noisy-voter-polarization-on-growing-star--aed923698d2a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary same-model sources give finite variance formulas and beta limit, not all k-order joint probabilities."
+        ],
+        "reasoning": "This is an all-k rational recurrence not a fixed-k table entry; a stationary-probability data table would not imply the symbolic recurrence.",
+        "searches": [
+          "exact finite-k stationary joint distribution hub and number of opinion-one leaves noisy voter star graph factorial moments binomial inversion",
+          "Resultary noisy voter star stationary beta limit exact finite size"
+        ]
+      },
+      "rationale": "PASS on the distinct exact O(k) triangular all-order finite-size stationary joint law; existing exact stationary variance and beta-limit papers cover only second moments or the scaling limit. General noisy voter duality remains a real uninspected-article priority risk.",
+      "residual_risks": [
+        "Uninspected complete 1995 general duality article may contain an equivalent finite-star all-order specialization.",
+        "Rational arithmetic operation counts exclude bit complexity; no claim for heterogeneous stars or rate scaling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the beta stationary large-degree limit and second moments but not all-order finite-k hub/count joint stationary reconstruction",
+          "evidence": "RESULT.md derives limiting beta hub-conditional law, finite leaf-leaf covariance and variance; no full finite joint generating-function inversion.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-a-non-self-averaging-beta-limit-and-a-persistent-density-gap-for--2e437c797ab7",
+          "material_read": "Full published RESULT.md, including theorem, assumptions, proof, limitations and references",
+          "method": "Read GitHub source blob at exact recorded SHA",
+          "title": "A non-self-averaging Beta limit and a persistent density gap for the noisy voter model on stars",
+          "trigger": "Identical noisy voter on a star (alpha=beta=1, positive reset noise)"
+        },
+        {
+          "assessment": "Covers stationary beta limit and exact variance after rate reparameterization; does not provide all finite-size joint probabilities",
+          "evidence": "RESULT.md generator-to-PDMP proof and finite variance formula; no factorial moment triangular complete joint law.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-an-affine-beta-law-for-noisy-voter-polarization-on-growing-star--aed923698d2a",
+          "material_read": "Full published RESULT.md, including theorem, assumptions, proof, limitations and references",
+          "method": "Read GitHub source blob at exact recorded SHA",
+          "title": "An affine beta law for noisy-voter polarization on growing star networks",
+          "trigger": "Equivalent positive hub/leaf copying and spontaneous flips"
+        },
+        {
+          "assessment": "Full text inaccessible; cannot exclude implicit equivalent factorial recursion",
+          "evidence": "Authorized Oxford attempt reported vpn_disconnected (job e0927bad91fbaf2dbec6a89ce1232c75); no text beyond bibliographic description verified.",
+          "identifier_or_url": "https://doi.org/10.1016/0304-4149(94)00035-R",
+          "material_read": "Title, abstract/bibliographic description or discussion in assigned paper; complete primary text not obtained independently",
+          "method": "Bibliographic/source comparison; full-text priority not certified",
+          "title": "The noisy voter model",
+          "trigger": "Classical duality potentially implying all-order finite moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "assigned RESULT.md blob 109dbb67dbbcf5362911bb5ca73922a2c0f6820c",
+        "assigned verify_noisy_star.py blob 7d9138a024c6272af5f70c70e20132c0dce4ba71",
+        "Resultary 2026/11/8/SCOPE-a-non-self-averaging-beta-limit-and-a-persistent-density-gap-for--2e437c797ab7",
+        "Resultary 2026/11/8/SCOPE-an-affine-beta-law-for-noisy-voter-polarization-on-growing-star--aed923698d2a",
+        "Cox–Peres–Steif arXiv:1408.5122",
+        "Granovsky–Madras 1995 DOI:10.1016/0304-4149(94)00035-R"
+      ],
+      "rationale": "Natural finite-star stationary probabilities and hub/count correlations are not determined by variance or limiting beta density. Exact positive-denominator O(k) moment recursion and O(k^2) inversion furnish a reusable all-k benchmark of the full finite stationary measure, rather than a normalization exercise.",
+      "residual_risks": [
+        "Uninspected complete 1995 general duality article may contain an equivalent finite-star all-order specialization.",
+        "Rational arithmetic operation counts exclude bit complexity; no claim for heterogeneous stars or rate scaling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uninspected complete 1995 general duality article may contain an equivalent finite-star all-order specialization.",
+    "Rational arithmetic operation counts exclude bit complexity; no claim for heterogeneous stars or rate scaling."
+  ],
+  "schema_version": 1
+}
