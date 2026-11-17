@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Exact verification
-Run `python3 verify.py` in the same directory as this report. The script uses only the standard library and does not access the network.
+# Independent mathematical audit
 
-The proof of the universal statement is analytic (the three attained local lower bounds and equality-preserving interpolation). The checker uses two distinct 12-spin constructions, testing all 4096 binary configurations in the truncated-tetrahedral case. It also exhausts the 4096-state triangle expansion of \(K_4\) and the 262144-state expansions of \(K_{3,3}\) and the triangular prism, comparing exact ground energies at multiple field and coupling values. It additionally computes both critical-state single-flip graphs and verifies their sizes, degree distributions, edge counts, and component counts.
+## correctness
 
-Expected terminating output includes `UNIVERSAL_EXAMPLE_OK tetrahedron_K4`, `UNIVERSAL_EXAMPLE_OK bipartite_K33`, `UNIVERSAL_EXAMPLE_OK triangular_prism`, `TETRAHEDRON_EXACT_OK critical_114_163 flip_components_1_1`, and `ALL_EXACT_CHECKS_OK`. Each printed claim follows executable assertions. No claim of infinite computational certification or independent external scientific review is made.
+PASS
+
+For cubic G with a perfect matching, the complement is spanning disjoint cycles, which can be oriented to attain every triangle and external-link lower bound simultaneously. Local Ising inequalities at h=0,K,K+2J, together with affine interpolation, classify open regimes and equality cases. The plateau magnetization n is one-third of 3n spins. For G=K4, an independent 4096-spin enumeration verifies the critical counts 114 and 163 and their connected one-flip graphs of 216 and 444 edges. Only the general analytic proof covers arbitrary finite G; negative h follows by spin reversal.
+
+## originality
+
+PASS
+
+The twelve-spin truncated-tetrahedral one-third plateau and the complete 114/163 critical-state census were published November 2 and are not new. The surviving result is the universal all-field classification for every finite simple cubic base with a perfect matching, including graph-independent energy/magnetizations and bijections with orientations, nonreciprocal port choices and independent sets. This generality is not implied by the known K4 computation. Additionally, the exact connectedness and 216/444 one-spin-flip transition-edge counts of the two K4 critical manifolds were not stated in the inspected earlier finite result, and may be a small original dynamic-accessibility invariant; the infinite-family theorem is the primary surviving contribution.
+
+## value
+
+PASS
+
+A perfect-matching cubic graph is a natural infinite family of frustrated triangle-decorated spin networks. The universal ratio-independent plateau and exact equality-state bijections constitute a motivated graph-uniform structural boundary, beyond the already-covered K4 finite example. The previous K4 counts receive no originality credit. The new critical-state one-spin-flip connectivity and edge census also quantify zero-energy accessibility on the canonical 12-site model, independently of the already-known degeneracy counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

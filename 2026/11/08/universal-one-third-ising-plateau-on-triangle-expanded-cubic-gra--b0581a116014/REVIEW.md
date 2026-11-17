@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The infinite-family statement has an explicit proof by local lower bounds at three field values and convex interpolation. A perfect matching guarantees a cycle orientation achieving all three regimes, rather than assuming endpoint bounds are attained. The proof includes equality conditions, the full zero-field and critical manifolds, strict-regime magnetizations, negative fields, and the precise \(J,K>0\) domain. The independent 12-site graph labeling and full \(2^{12}\) enumeration verify each truncated-tetrahedral critical sector. Three expanded cubic-base examples additionally verify the general energy law for multiple coupling pairs. The 12-vertex critical transition graphs were enumerated in full; this is not extrapolated to arbitrary size. Residual correctness risk lies in human transcription of proof or graph equivalences; the standalone checker and explicit local identities mitigate it.
+## correctness
 
-## Originality: PASS, with historical priority reservations
-The relevant 1992 truncated-tetrahedron source addresses continuous classical and Heisenberg spins, not a discrete Ising exact field/multiplicity theorem. The 2015 Yu source studies zero-field Archimedean Ising systems, including the infinite triangle-dodecagon/star lattice, so the zero-field frustration motif is expressly credited. Earlier regular-Ising-polyhedra work concerns Platonic graphs, while this model is a truncated tetrahedron and a topology-independent perfect-matching cubic family. Searches also considered Fisher decoration, truncated tetrahedral Ising enumerators, one-third plateaux, independent-set endpoints and orientations; published records surfaced topology and homotopy of the same graph rather than this magnetic-field result. The closest search results are scientifically compared below in the structured report. A historical calculation using another name or an unpublished table remains possible; the available evidence does not prove absolute priority.
+PASS
 
-## Mathematical value: PASS
-The exact two-coupling, every-field, every-graph theorem determines an infinite family of frustrated spin ground states with an emergent one-third plateau, field-critical combinatorial interpretations and attainable thresholds independent of topology. It is more than a recomputation of a finite cut number or a local spin inequality: the global matching hypothesis, simultaneous attainability and universal transition structure are essential. The canonical 12-site example supplies nontrivial full critical-state multiplicities and the connectedness of the allowed ground-state flip networks, which are useful for ground-state entropy and zero-cost kinetic-response questions. No finite-temperature or quantum response is inferred.
+For cubic G with a perfect matching, the complement is spanning disjoint cycles, which can be oriented to attain every triangle and external-link lower bound simultaneously. Local Ising inequalities at h=0,K,K+2J, together with affine interpolation, classify open regimes and equality cases. The plateau magnetization n is one-third of 3n spins. For G=K4, an independent 4096-spin enumeration verifies the critical counts 114 and 163 and their connected one-flip graphs of 216 and 444 edges. Only the general analytic proof covers arbitrary finite G; negative h follows by spin reversal.
 
-## Sources and limitations
-Coffey–Trugman (1992), https://arxiv.org/abs/cond-mat/9206011 ; Yu (2015), https://doi.org/10.1103/PhysRevE.91.062121 ; Strečka–Karľová–Madaras (2015), https://arxiv.org/abs/1502.04449 . These comparisons address models and logical implications, not only title matches. A stronger but unlocated result in decorated-lattice statistical mechanics could subsume this statement and would require reevaluation. The exact checker covers finite bases only; the infinite claim rests on the written proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The twelve-spin truncated-tetrahedral one-third plateau and the complete 114/163 critical-state census were published November 2 and are not new. The surviving result is the universal all-field classification for every finite simple cubic base with a perfect matching, including graph-independent energy/magnetizations and bijections with orientations, nonreciprocal port choices and independent sets. This generality is not implied by the known K4 computation. Additionally, the exact connectedness and 216/444 one-spin-flip transition-edge counts of the two K4 critical manifolds were not stated in the inspected earlier finite result, and may be a small original dynamic-accessibility invariant; the infinite-family theorem is the primary surviving contribution.
+
+## value
+
+PASS
+
+A perfect-matching cubic graph is a natural infinite family of frustrated triangle-decorated spin networks. The universal ratio-independent plateau and exact equality-state bijections constitute a motivated graph-uniform structural boundary, beyond the already-covered K4 finite example. The previous K4 counts receive no originality credit. The new critical-state one-spin-flip connectivity and edge census also quantify zero-energy accessibility on the canonical 12-site model, independently of the already-known degeneracy counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
