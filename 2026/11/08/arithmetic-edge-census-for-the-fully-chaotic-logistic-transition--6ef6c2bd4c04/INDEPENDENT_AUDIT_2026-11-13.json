@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T05:41:49.746873Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Grid alignment is exact: at boundary j, mF(j/m)=4j(m−j)/m is integer iff m|4j², equivalently q=m/gcd(m,4) divides j² iff R=∏p p^ceil(v_p(q)/2) divides j. Monotone half-sweep counts one hit per target bin plus one for each nonaligned source boundary; for even m two sweeps yield E=3m−m/R. For odd m the central cell straddles the maximum but hits only the highest bin, and each remaining sweep gives E=3m−1−m/R. q|R² yields m/R≤2sqrt(m), equality at m=4k². The arcsine invariant ergodic law follows from conjugacy to circle doubling, so every positive-measure edge is visited infinitely often simultaneously over countably many m. Independently recomputed exact integer interval overlaps for every 2≤m≤255 and further square-family m=256,400,484,576; all match theorem, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kyriakopoulos--Thurner published broad interval-transition construction and near-3 mean degree.",
+          "Balaji et al. arXiv:2608.20956 abstract and accompanying Zenodo MATLAB code construct transition networks using amplitude grids."
+        ],
+        "reasoning": "No inspected accessible full-text source implies the exact all-m correction; a general graph construction and empirical mean degree do not determine m/R or sharp square deficit. Balaji full text was inaccessible and is expressly a residual priority risk, not claimed absent.",
+        "searches": [
+          "fully chaotic logistic map 4x(1-x) amplitude bin transition network exact edges gcd square free 3m",
+          "logistic map amplitude-bin transition graph positive measure directed exact edge count 3m arithmetic gcd square resolutions",
+          "Balaji Tandon Marwan Kurths identifying structure dynamical transitions logistic map 2608.20956"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/220856161_Directed_Network_Representation_of_Discrete_Dynamical_Maps",
+        "https://arxiv.org/abs/2608.20956",
+        "https://zenodo.org/records/22114165",
+        "Original RESULT.md Git blob 5bb68a4dce49b43137955daa68638cdce2665359"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2007 mean degree approx 3 lacks the exact correction and counts endpoint-only touches.",
+          "2026 source is plausible and its unavailable complete body cannot justify a blanket NOT_COVERING."
+        ],
+        "reasoning": "Neither approximation nor prior graph formulation is a stronger theorem implying exact 3m−m/R−(m mod2). Because the most plausible 2026 article is inaccessible, claim is passed only with prominently recorded priority uncertainty.",
+        "searches": [
+          "fully chaotic logistic map 4x(1-x) amplitude bin transition network exact edges gcd square free 3m",
+          "logistic map amplitude-bin transition graph positive measure directed exact edge count 3m arithmetic gcd square resolutions",
+          "Kyriakopoulos Thurner 2007 mean degree three logistic map"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kyriakopoulos--Thurner, Directed Network Representation of Discrete Dynamical Maps (ICCS 2007), accessible Methods/Results/Discussion: four-bin endpoint-touch inclusive adjacency has 10 edges while strictly positive-measure definition has 8.",
+          "Conjugacy to doubling under x=sin²(πt) is known but does not preserve uniform amplitude grid as a uniform t-grid."
+        ],
+        "reasoning": "Endpoint-inclusive transitions are mathematically inequivalent to positive-measure support. Coordinate-conjugated uniform phase bins are nonuniform in amplitude, so a simple uniform grid formula is not the same invariant.",
+        "searches": [
+          "fully chaotic logistic map 4x(1-x) amplitude bin transition network exact edges gcd square free 3m",
+          "logistic map amplitude-bin transition graph positive measure directed exact edge count 3m arithmetic gcd square resolutions",
+          "Kyriakopoulos Thurner directed network logistic map transition adjacency 4 bins"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Balaji code uses a 2000-bin sampled adjacency, not an examined all-integer census.",
+          "Independent exact integer enumeration m=2..255 and selected 4k² agrees with arithmetic formula."
+        ],
+        "reasoning": "A fixed sample adjacency or finite table cannot imply the arithmetic formula over every integer m; the formula uses a proof of all boundary alignment divisibilities.",
+        "searches": [
+          "fully chaotic logistic map 4x(1-x) amplitude bin transition network exact edges gcd square free 3m",
+          "logistic map amplitude-bin transition graph positive measure directed exact edge count 3m arithmetic gcd square resolutions",
+          "zenodo 22114165 global_measures.m 2000 bins"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the precise gcd/square-divisibility arithmetic edge count and sharp square-resolution deficit with positive-measure endpoint convention. Kyriakopoulos--Thurner 2007 explicitly includes zero-length endpoint-touch contacts in a four-bin example (10 vs 8 positive-measure edges) and reports approximate mean degree near 3; cannot yield the exact correction with the same convention. Published relevant current Resultary searches found no stronger same-object arithmetic all-resolution theorem. Balaji et al. 2026 same amplitude-bin methodology is a real material priority risk: its full paper could not be accessed by arXiv/OA alternatives, and authorized Oxford source reports disconnected VPN. We read accessible abstract and code references only, not claim full-paper noncoverage.",
+      "residual_risks": [
+        "Balaji et al. arXiv:2608.20956 full text could not be inspected; Oxford institutional endpoint returned vpn_disconnected; no bypass or repeat was attempted. A proof in that unread text could reverse priority judgment.",
+        "No claim about finite precision/sampled graph or m-dependent weighted probabilities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior construction and approximate density; DIFFERENT endpoint-touch convention and no all-m correction",
+          "evidence": "Four-cell adjacency includes isolated contacts: 10 edges instead of positive-measure 8; mean near 3",
+          "identifier_or_url": "https://www.researchgate.net/publication/220856161_Directed_Network_Representation_of_Discrete_Dynamical_Maps",
+          "material_read": "Accessible primary full text including Method, Logistic Map results and Discussion and displayed four-cell adjacency",
+          "method": "Read text and compared explicit adjacency criterion and m=4 boundary case",
+          "title": "Directed Network Representation of Discrete Dynamical Maps",
+          "trigger": "Early directed interval-transition logistic map, mentions mean degree three and four-bin adjacency"
+        },
+        {
+          "assessment": "INACCESSIBLE PLAUSIBLE competing full paper; cannot conclude noncoverage of entire source",
+          "evidence": "arXiv:2608.20956 abstract and Zenodo: https://zenodo.org/records/22114165; full text not acquired",
+          "identifier_or_url": "https://arxiv.org/abs/2608.20956",
+          "material_read": "Accessible abstract/bibliography and accompanying Zenodo code description, NOT full paper",
+          "method": "Tried arXiv PDF/HTML and lawful OA alternatives; authorized Oxford download returned vpn_disconnected, so did not read full text",
+          "title": "Identifying the structure of dynamical transitions in logistic map",
+          "trigger": "Same logistic map amplitude-bin directed transition network and recent 2026 paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For the canonical chaotic logistic map the continuum positive-measure support of equal-amplitude one-step transitions has natural graph size and edge density. The exact arithmetic fluctuation, universal sharp O(sqrt m) deficit and extremal square family resolve a meaningful finite-resolution effect hidden by the established approximate mean-degree law, independently of limited sample itineraries.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.researchgate.net/publication/220856161_Directed_Network_Representation_of_Discrete_Dynamical_Maps",
+    "https://arxiv.org/abs/2608.20956",
+    "https://zenodo.org/records/22114165",
+    "Original RESULT.md Git blob 5bb68a4dce49b43137955daa68638cdce2665359"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Parameter exactly 4; positive-measure uniform amplitude-grid edges, not endpoint contacts or finite samples.",
+    "Typical orbit statement is almost sure under arcsine measure, not uniform in all initial x."
+  ],
+  "residual_risks": [
+    "Balaji et al. arXiv:2608.20956 full text could not be inspected; Oxford institutional endpoint returned vpn_disconnected; no bypass or repeat was attempted. A proof in that unread text could reverse priority judgment.",
+    "No claim about finite precision/sampled graph or m-dependent weighted probabilities."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Prior construction and approximate density; DIFFERENT endpoint-touch convention and no all-m correction",
+      "evidence": "Four-cell adjacency includes isolated contacts: 10 edges instead of positive-measure 8; mean near 3",
+      "identifier_or_url": "https://www.researchgate.net/publication/220856161_Directed_Network_Representation_of_Discrete_Dynamical_Maps",
+      "material_read": "Accessible primary full text including Method, Logistic Map results and Discussion and displayed four-cell adjacency",
+      "method": "Read text and compared explicit adjacency criterion and m=4 boundary case",
+      "title": "Directed Network Representation of Discrete Dynamical Maps",
+      "trigger": "Early directed interval-transition logistic map, mentions mean degree three and four-bin adjacency"
+    },
+    {
+      "assessment": "INACCESSIBLE PLAUSIBLE competing full paper; cannot conclude noncoverage of entire source",
+      "evidence": "arXiv:2608.20956 abstract and Zenodo: https://zenodo.org/records/22114165; full text not acquired",
+      "identifier_or_url": "https://arxiv.org/abs/2608.20956",
+      "material_read": "Accessible abstract/bibliography and accompanying Zenodo code description, NOT full paper",
+      "method": "Tried arXiv PDF/HTML and lawful OA alternatives; authorized Oxford download returned vpn_disconnected, so did not read full text",
+      "title": "Identifying the structure of dynamical transitions in logistic map",
+      "trigger": "Same logistic map amplitude-bin directed transition network and recent 2026 paper"
+    }
+  ]
+}
