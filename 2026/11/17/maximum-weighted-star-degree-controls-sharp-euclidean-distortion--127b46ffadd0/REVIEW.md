@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The target's convex inequality description follows directly by eliminating the maxima from the height-two inverse. Every local Jacobian decomposes into weighted stars, whose two nontrivial squared singular values solve one explicitly derived quadratic. Convex-domain line segmentation proves global upper bounds, while a strict-interior point at a maximum-weight vertex and a singular-vector perturbation attain both sharp constants. This handles isolated elements, zero interpolation weights, and continuous intermediate parameters. An independent script supplies finite cross-checks, not a substitute for the proof.
+
+**Originality — PASS (provisional historical priority).** Fang–Fourier–Litza–Pegel, *A continuous family of marked poset polytopes* (arXiv:1712.01037, full-text Section 2), constructs the parametrized maps and inverse but does not state the optimal Euclidean Lipschitz constants. Pegel–Sanyal, *On piecewise-linear homeomorphisms between distributive and anti-blocking polyhedra* (arXiv:1911.12090, Sections 1–3), develops broader PL maps rather than the sharp graph-theoretic constant here. Existing two-level marked-poset minimum-sphere computations concern image geometry, not the two-sided operator norm of the transfer. A possible earlier equivalent singular-value characterization remains a bibliographic risk.
+
+**Value — PASS.** The answer is a complete, non-asymptotic sharp stability invariant for a natural interpolation family rather than merely a reformulation of the transfer definition: all bipartite incidence structure and all independent interpolation parameters collapse to one weighted degree maximum. It supplies optimal forward and inverse perturbation bounds, identifies their interior extremizers, and quantifies the asymptotically square-root growth for a large star; these are relevant to conditioning of the standard geometric bijections between Ehrhart-related polytopes.
+
+**Limitations.** The result applies only to height-at-most-two posets, their standard coordinate realizations, and the specified real parameter interval. Historical priority awaits independent review; the computation is finite and numerical.
+
+Self-review: passed. Independent audit: not yet performed.
