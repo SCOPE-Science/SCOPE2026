@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The matrix-span/Weyl-ambiguity equivalence is proved by character orthogonality; all shift/modulation cases are explicitly counted, with normalization fixed by the unnormalized indicator window. A one-support Walsh transform is rigorously equivalent to an affine Boolean function, so the equality characterization follows from the algebraic normal form. The cubic polar-rank calculation gives the exact rank difference. The package's integer checker completed 292 independently calculated test cases; finite checks are corroborative only.
+## correctness
 
-**Originality — PASS (bounded source review).** Canteaut–Daum–Dobbertin–Leander provides the bent construction with arbitrary perturbation, not an intensity-lifting rank formula. Bojarovska–Flinth gives the general ambiguity-based finite Gabor frame criterion, but not the differential-support rank correction or the equality classification. Existing quadratic-graph computations concern only degree-at-most-two perturbations and do not imply the strictly higher ranks of nonquadratic derivatives. A broader unseen equivalence in bent-function or Gabor literature remains a historical-priority risk.
+PASS
 
-**Mathematical value — PASS.** Every function in this natural bent family has equally flat ordinary Walsh spectrum, yet the operator-space information content of its graph-indicator Gabor measurements varies. The exact formula quantifies that variation for all dimensions and perturbations, identifies precisely the extremizers, and provides an explicit cubic separation. It distinguishes phase-space matrix rank from bentness, rather than merely recomputing a small example.
+Weyl conjugation diagonalizes the complete complex-linear projector orbit, so rank equals support cardinality of ambiguity coefficients. For shifts (u,v,b), direct Boolean overlap gives D+1 at zero, D/2+2 per (u!=0,v=0,b), and D/2+1+s_v per (v!=0,u,b). Their sum yields D^2+4D-3+2L sum_{v!=0}(s_v-1). Every derivative has singleton Walsh support iff affine, equivalent to deg(h)<=2. Cubic h=y1y2y3 has seven nonzero projected derivative directions, each support size four. Independently enumerated all ambiguity coefficients for m=1,2,3 base h=0 and m=3 cubic: 29,317,4349,4685, all matching formulas. Finite checks corroborate, not prove, the general theorem.
 
-**Scope and evidence.** The result concerns unnormalized binary graph-indicator windows, complex-linear matrix lifting and no general pure-state injectivity. Independent mathematical validation has not been performed. Relevant full-text material inspected: Maiorana–McFarland definition and bentness in Canteaut et al.; Gabor ambiguity frame statements in Bojarovska–Flinth. The specialized historical comparison is bounded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: standard Maiorana–McFarland bentness and Weyl-ambiguity diagonalization are known, and the related scalar-quadratic graph spectrum is the degree<=2 special case. The new all-Boolean-h rank correction and if-and-only-if degree rigidity are not implied by the quadratic subclass alone or by the pure-phase-retrieval criterion.
+
+## value
+
+PASS
+
+PASS: for an entire natural bent family with flat Fourier spectra, rank of a matrix-lifting operator detects Boolean derivative nonlinearities. The explicit cubic-vs-quadratic separation and exact all-h formula are meaningful structural diagnostics rather than recomputation of one small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
