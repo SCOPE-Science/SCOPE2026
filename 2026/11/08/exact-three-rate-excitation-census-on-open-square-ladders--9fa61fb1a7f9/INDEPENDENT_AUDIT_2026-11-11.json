@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T14:02:59.834757Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On open L_n each simple cycle is the boundary of k consecutive squares, length 2(k+1). Exact signed CCA face charges c_i in {-1,0,1} have winding 3 sum c_i. The 2018 Gravner–Lyu–Sivakoff Theorem 3 (full PDF page 3328 inspected) gives mean activity as max signed cycle integral/length; the CCA-GHM edge-form difference is a coboundary after factoring 3. Thus CCA=3 GHM, with activity 1 iff adjacent equal nonzero face charges, 3/4 iff at least one nonzero charge but no adjacent equal nonzero charges, else0. A 3-state transfer and 9-state forbidden-adjacency transfer give Z_n and Q_n rational GF respectively 3(3-2z)/(1-7z+4z^2), 3(3+z^2)/(1-9z+z^2-3z^3). Direct independently written brute-force face-charge enumeration of every initial coloring for n=2..5 reproduced (57,24,0),(363,360,6),(2313,4140,108),(14739,42858,1452). All-n uses matrix identities and cycle structure, not extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gravner et al 2018, Theorem3 gives rate=max signed cycle mean for all finite graphs but does not enumerate frequency of rates on ladder initial colorings. Cactus sources have edge-disjoint cycle blocks whereas adjacent ladder squares share edges."
+        ],
+        "reasoning": "General analytic characterization is an input; exact all-size 9^n initial-coloring enumeration still needs a nontrivial transfer count.",
+        "searches": [
+          "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+          "https://arxiv.org/abs/1610.07320",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-primitive-three-wave-census-on-open-ladders--c343292238f3",
+          "arithmetic saturation clocks three-color excitable cactus exact face winding transfer"
+        ]
+      },
+      "checked_sources": [
+        "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+        "https://arxiv.org/abs/1610.07320",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-primitive-three-wave-census-on-open-ladders--c343292238f3",
+        "Resultary semantic search: ladder CCA GHM final activity rate initial coloring count transfer generating function"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For example at n=3 a majority of 729 configurations have eventual rate 3/4 (360), and six have rate1; primitive-three periodicity distinguishes different temporal dynamics. The 2018 theorem alone says alpha=max_C integral/|C|, not distribution of charges for uniform initial coloring."
+        ],
+        "reasoning": "No exact probabilistic population law follows automatically from the broad max-cycle-mean theorem or prior primitive-period-three table; this is new ladder-specific transfer analysis.",
+        "searches": [
+          "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-primitive-three-wave-census-on-open-ladders--c343292238f3",
+          "ladder CCA GHM final activity rate initial coloring count transfer generating function"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same initial coloring has CCA cycle integrals three times GHM integrals, so CCA and GHM rate counts are equivalent modulo a factor of 3 and are assessed together. The earlier ladder primitive-period-three states are only initially recurrent states, not all starting colorings."
+        ],
+        "reasoning": "Equivalent change of excitation normalization is acknowledged; the distinct initial-state vs eventual-rate statistic prevents mistaken coverage.",
+        "searches": [
+          "ladder CCA GHM final activity rate initial coloring count transfer generating function",
+          "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-primitive-three-wave-census-on-open-ladders--c343292238f3",
+          "CCA GHM open two-row ladder eventual excitation rate population GF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Prior ladder primitive-three-wave recurrence has a different generating function, 6/(1-4z+z^2+2z^3), counting initially primitive 3-periodic waves, not long-term activity classes."
+        ],
+        "reasoning": "No known full ladder activity-count table was identified; finite experimental checks n<=5 are not substitutes for exact rational generating functions.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-primitive-three-wave-census-on-open-ladders--c343292238f3",
+          "Resultary three color ladder eventual mean activity exact populations Z_n Q_n GF"
+        ]
+      },
+      "rationale": "The exact finite-graph max-cycle-mean theorem is prior and properly credited. A Resultary record gives a primitive period-three *initial-state* census on the same open ladder, but that is not the distribution of *eventual rates of all initial states*, including transients. No checked primary source states the two population rational GFs or zero/three-quarter/one trichotomy in this ladder setting.",
+      "residual_risks": [
+        "A transfer-matrix enumeration in older excitable-strip literature may encode identical rate populations under different variable names; incomplete global source coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_PREMISE_NOT_POPULATION_CENSUS",
+          "evidence": "Theorem 3 gives alpha=max_C integral/length over closed directed cycles; no ladder-specific count in inspected material.",
+          "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+          "material_read": "Original 2018 journal PDF introduction, Section 2 edge forms, Lemma1, Theorem3 and page 3328 image",
+          "method": "Full PDF parsed text plus page screenshot",
+          "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+          "trigger": "Same CCA and GHM dynamics, exact general mean-cycle theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural complete classification of eventual excitation rates and exact populations on all finite open 2-row ladders, capturing three distinct activity regimes and an exponentially dominant maximal-rate phase. The rational transfer enumerators quantify information absent from broad cycle-mean theory; structurally meaningful infinite family.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+    "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-exact-primitive-three-wave-census-on-open-ladders--c343292238f3",
+    "Resultary related winding and cactus activity records"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Initial-coloring distribution of eventual mean rate only; not entry-time law or primitive temporal orbit census. Finite n<=5 test does not prove all n."
+  ],
+  "residual_risks": [
+    "A transfer-matrix enumeration in older excitable-strip literature may encode identical rate populations under different variable names; incomplete global source coverage."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "GENERAL_PREMISE_NOT_POPULATION_CENSUS",
+      "evidence": "Theorem 3 gives alpha=max_C integral/length over closed directed cycles; no ladder-specific count in inspected material.",
+      "identifier_or_url": "https://www.math.ucdavis.edu/~gravner/hidden/clanki/AAP_2018.pdf",
+      "material_read": "Original 2018 journal PDF introduction, Section 2 edge forms, Lemma1, Theorem3 and page 3328 image",
+      "method": "Full PDF parsed text plus page screenshot",
+      "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+      "trigger": "Same CCA and GHM dynamics, exact general mean-cycle theorem"
+    }
+  ]
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and precise limits
+# Independent mathematical audit
 
-Execute `python verify_transfer.py`, `python verify_dynamics.py`, and `python verify_symbolic.py` in a directory containing these standalone programs. Python 3.10+ is sufficient for the first two; the symbolic program needs SymPy 1.12+.
+## correctness
 
-`verify_symbolic.py` constructs the exact three \(3\times3\) integer transfer matrices and \(9\times9\) exclusion matrix directly from signed color increments; exact rational inversion verifies both all-size generating functions. `verify_transfer.py` independently counts labelled colorings for rung lengths 2–6 and uses integer transfer up to length 30. `verify_dynamics.py` independently evolves the actual synchronous CCA and GHM maps to their recurrent cycles and measures every vertex's rate for all initial colorings through length 5. Captured outputs accompanying these scripts are from runs of the included versions.
+PASS
 
-Tests do not prove the external arbitrary-graph activity theorem, which is explicitly invoked as [1, Theorem 3] in `RESULT.md`. They also do not constitute independent expert validation or resolve historical priority. No claimed classification of entry times, primitive cycle counts or general random initial conditions beyond the uniform-product case is made.
+On open L_n each simple cycle is the boundary of k consecutive squares, length 2(k+1). Exact signed CCA face charges c_i in {-1,0,1} have winding 3 sum c_i. The 2018 Gravner–Lyu–Sivakoff Theorem 3 (full PDF page 3328 inspected) gives mean activity as max signed cycle integral/length; the CCA-GHM edge-form difference is a coboundary after factoring 3. Thus CCA=3 GHM, with activity 1 iff adjacent equal nonzero face charges, 3/4 iff at least one nonzero charge but no adjacent equal nonzero charges, else0. A 3-state transfer and 9-state forbidden-adjacency transfer give Z_n and Q_n rational GF respectively 3(3-2z)/(1-7z+4z^2), 3(3+z^2)/(1-9z+z^2-3z^3). Direct independently written brute-force face-charge enumeration of every initial coloring for n=2..5 reproduced (57,24,0),(363,360,6),(2313,4140,108),(14739,42858,1452). All-n uses matrix identities and cycle structure, not extrapolation.
+
+## originality
+
+PASS
+
+The exact finite-graph max-cycle-mean theorem is prior and properly credited. A Resultary record gives a primitive period-three *initial-state* census on the same open ladder, but that is not the distribution of *eventual rates of all initial states*, including transients. No checked primary source states the two population rational GFs or zero/three-quarter/one trichotomy in this ladder setting.
+
+## value
+
+PASS
+
+A natural complete classification of eventual excitation rates and exact populations on all finite open 2-row ladders, capturing three distinct activity regimes and an exponentially dominant maximal-rate phase. The rational transfer enumerators quantify information absent from broad cycle-mean theory; structurally meaningful infinite family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
