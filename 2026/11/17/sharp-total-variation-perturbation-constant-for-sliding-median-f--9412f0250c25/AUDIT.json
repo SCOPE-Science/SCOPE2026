@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Monotone translation-equivariant medians place output increments between input perturbation extrema on each window; on adjacent windows the oscillation bound sums over 2r+1 edges, counting each input edge 2r+1 times. Explicit interleaved ranks create alternating changes across a jump; a reflected second interface on any n≥8r cycle attains equality with epsilon<1. An exact standard-library checker was executed on 96 sharp instances and 2,400 sampled upper checks; finite checks are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Restrepo–Chacón 1994 abstract: TV diminution for individual finite/infinite signals",
+        "Arias-Castro–Donoho, arXiv:math/0612422v1: statistical edge preservation and denoising"
+      ],
+      "reasoning": "Classical single-signal TV smoothing, pointwise order monotonicity and statistical denoising estimates do not imply a global bound on variation of differences of two outputs. In particular, an \\ell^\\infty perturbation bound gives no control of the number of alternating output jumps.",
+      "searches": [
+        "A smoothing property of the median filter Restrepo Chacon 1994 total variation pdf",
+        "Lipschitz stability running median operator total variation difference sharp bound",
+        "median filters locally nonexpansive total variation of one signal but perturbation total variation Lipschitz factor 2r+1"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1109/78.286974 (abstract and citation only)",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC3191861/ (§4(d), Appendix A)",
+      "arXiv:math/0612422v1 (abstract, introduction, selected manuscript sections)",
+      "COMPSTAT 2004 robust-filtering chapter (selected accessible text)",
+      "Published results: All-order sharp three-point smoothest averages; Monotone data attain the conjectured path-graph variational constant"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Little–Jones 2011 Appendix A proves TV(M_1f)≤TV(f) for one signal",
+        "Restrepo–Chacón 1994 abstract treats one-signal variation",
+        "Arias-Castro–Donoho 2006 v1 treats asymptotic statistical edge risks"
+      ],
+      "reasoning": "The new lower witness has TV(M_rf-M_rg)=(2r+1)TV(f-g), contradicting any hypothetical inference from one-input TVD to two-input nonexpansivity. In the cited works no theorem inspected simultaneously bounds the variation of a difference of filtered signals, proves exact 2r+1 dependence for all r, and attains it for all n≥8r. The 1994 source was not read in full, hence priority risk remains.",
+      "searches": [
+        "median filter sharp total variation difference seminorm 2r+1 stability operator Lipschitz cyclic sequences",
+        "median filters locally nonexpansive total variation of one signal but perturbation total variation Lipschitz factor 2r+1",
+        "Restrepo Chacon 1994 median filter total variation smoothing Lipschitz stability",
+        "Arias-Castro Donoho edge filtering 2006 perturbation variation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Restrepo and Chacón, DOI 10.1109/78.286974: one-signal variation diminishing",
+        "Little and Jones, DOI 10.1098/rspa.2010.0671 §4(d), Appendix A: variation of a single three-point-median output"
+      ],
+      "reasoning": "The exact searched quantity is the operator Lipschitz seminorm of the two-input map: TV(M_rf-M_rg)/TV(f-g). The earlier TV(M_rf)≤TV(f) inequality is different because M_r(f-g) != M_rf-M_rg in general. Nonlinearity blocks this reduction. The explicit witness demonstrates amplification greater than one.",
+      "searches": [
+        "median filter sharp total variation difference seminorm 2r+1 stability operator Lipschitz cyclic sequences",
+        "sliding order statistic filter exact Lipschitz constant in BV seminorm or Wiener variation",
+        "sliding median filter Lipschitz norm as nonlinear map on discrete Lipschitz functions, window radius, extremizers"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published result: All-order sharp three-point smoothest averages (linear averaging kernel; not median difference stability)",
+        "Published result: Monotone data attain the conjectured path-graph variational constant (Hardy–Littlewood maximal function on path; not median map)",
+        "Published result: Variance-gamma median large-noise phase transitions (distribution medians, not sliding-order-statistic operators)"
+      ],
+      "reasoning": "Published record search did not return a table or stronger theorem evaluating this two-input BV condition number. Similar terms in search hits designate different operators and norms. A database miss is not proof of novelty.",
+      "searches": [
+        "median filter sharp total variation difference seminorm 2r+1 stability operator Lipschitz cyclic sequences",
+        "running median variation diminishing vs perturbation variation amplification 3 sharp",
+        "sliding order statistic filter exact Lipschitz constant in BV seminorm or Wiener variation",
+        "median filters locally nonexpansive total variation of one signal but perturbation total variation Lipschitz factor 2r+1"
+      ]
+    },
+    "rationale": "Compared the two-input total-variation Lipschitz modulus with original one-input variation diminution theorems, local supremum perturbation bounds and edge-risk theory. None inspected supplies or implies the exact 2r+1 two-input seminorm bound and attaining family. Published finding searches by the actual listed aliases found no covering result; this is not a uniqueness certificate. Residual historical risk is disclosed.",
+    "residual_risks": [
+      "The 1994 Restrepo–Chacón original full text was not substantively inspected: it could contain an unabstracted stronger two-input result.",
+      "Older stack-filter / order-statistics perturbation-stability literature may have an equivalent unindexed bound or representation.",
+      "The result applies to cyclic domains with n≥8r; the smaller-cycle sharp value is not proved."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Single-signal TV diminution is stated. No claim of two-input difference stability appears in material actually read. Not a whole-paper NOT_COVERING verdict.",
+        "evidence": [
+          "ResearchGate public abstract explicitly says median filter does not increase variation of a signal",
+          "IEEE TSP 42(6), 1553-1555 (1994)"
+        ],
+        "identifier_or_url": "doi:10.1109/78.286974",
+        "material_read": "Abstract and public bibliographic record, not complete full article",
+        "method": "Publisher and author-provided abstract text; attempted full-text search; accessible public copy was not substantively inspected",
+        "title": "A smoothing property of the median filter",
+        "trigger": "Closest classical single-signal total-variation theorem; plausible hidden two-input statements"
+      },
+      {
+        "assessment": "Proves one-input TV(Mf)≤TV(f), not TV(Mf-Mg)≤c TV(f-g); differs by the nonlinear difference.",
+        "evidence": [
+          "§4(d) formula 4.11 and following TV inequality",
+          "Appendix A opening adjacent-median proof"
+        ],
+        "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3191861/",
+        "material_read": "Section 4(d) and Appendix A, especially TV inequality and adjacent-window combinatorial proof",
+        "method": "Full open-access HTML sections and appendix",
+        "title": "Generalized methods and solvers for noise removal from piecewise constant signals. I. Background theory",
+        "trigger": "Full-text article explicitly proves 3-point median variation reduction"
+      },
+      {
+        "assessment": "Considers edge recovery and statistical risk, not exact BV-seminorm perturbation stability for two inputs.",
+        "evidence": [
+          "arXiv v1 submitted 2006-12-14 22:25:34 UTC",
+          "Discussion of iterated median filtering and statistical asymptotics"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0612422",
+        "material_read": "Abstract, introductory problem formulation and methods for median statistical performance; public PDF pages sampled",
+        "method": "ArXiv manuscript v1 date, read selected full-text portions and initial PDF pages",
+        "title": "Does median filtering truly preserve edges better than linear filtering?",
+        "trigger": "Foundational 2006 preprint on median filtering and sharp performance comparison"
+      },
+      {
+        "assessment": "Describes local estimator and order-statistic robustness, rather than claimed sharp total-variation difference norm.",
+        "evidence": [
+          "Moving-median discussion near COMPSTAT 2004 proceedings pp. ~3766ff",
+          "Local order-statistic Lipschitz discussion later in chapter"
+        ],
+        "identifier_or_url": "https://iris.unimore.it/retrieve/handle/11380/465827/82402/Proceedings-COMPSTAT-2004.pdf",
+        "material_read": "Relevant chapter prose on moving median and perturbations in COMPSTAT 2004 proceedings",
+        "method": "Accessible extracted PDF text at relevant chapter lines; full proceedings not exhaustively read",
+        "title": "Methods and algorithms for robust filtering",
+        "trigger": "General robust filtering and classical norm perturbation properties"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "9412f025-0c25-4e9d-bca6-00286832252c",
+  "value": {
+    "rationale": "Exact nonlinear total-variation perturbation conditioning of a basic robust signal filter is a motivated functional-analytic invariant. For every window radius it has a sharp formula, nontrivial attaining examples and an increasing factor 2r+1 despite classical one-signal TV smoothing. It quantifies an operationally important distinction that cannot be recovered from input-wise TV diminution or sup-norm nonexpansivity.",
+    "status": "PASS"
+  }
+}
