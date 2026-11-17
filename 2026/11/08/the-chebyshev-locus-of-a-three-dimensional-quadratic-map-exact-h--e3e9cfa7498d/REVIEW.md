@@ -1,19 +1,21 @@
-# Review of the Chebyshev-locus theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The nondegenerate scalar quadratic has unique affine logistic normalization. Matching the constant term produces exactly the boxed polynomial relation, without dividing by \(b_1\), so the boundary \(b_1=0\) is included. A directly checked three-coordinate affine conjugacy holds on the full box, not merely along typical orbits. The product full-tent system is exact, has full-volume arcsine physical measure and entropy \(3\log2\) for its third iterate, yielding equal exponents \(\frac{\log 2}{3}\) for the original clock. Direct residue-class reductions show \(2^n\) fixed points for all \(n\), and all periodic multipliers exceed one in modulus. The analytical arguments cover the infinite claims; the reproducible finite checker is a consistency test.
+PASS
 
-## Originality
+Writing k=b2c, A=a3 k^2, B0=-k(a2+2a3b1), C0=a2b1+a3b1^2 gives the third-step scalar psi(X)=AX^2+B0 X+C0. The forced affine normalization s=-4/A and t=(4-B0)/(2A) makes psi(t+sv)=t+4s v(1-v) precisely on the boxed equation (the constant identity is 4AC0-B0^2+2B0+8=0). Direct substitution into Phi(u,v,w)=(t+su,b1-k(t+sv),c(t+sw)) yields F Phi=Phi(g(v),w,u). This full-cube conjugacy proves invariant box and measure via tent conjugacy, ergodic exactness of its cube, entropy and Lyapunov exponents. The residue classes n mod 3 reduce fixed points to g^n and give 2^n; DG^{3n} diagonal gives the periodic repelling bound. Boundary b1=0 and n=1 included. All claims are box-relative; uniqueness restricted to absolutely continuous measures; finite tests alone are not universal proofs.
 
-**PASS within accessible primary evidence.** Ren, Zhou and Liu (2017) introduced and analyzed the map in the context of chaos control and low periods; Muni (2024, arXiv:2406.08317v1) numerically investigated three-positive-exponent chaos and repelling periodic points in the same family. The inspected relevant full-text sections do not give the explicit if-and-only-if Chebyshev locus, its invariant box, physical density or exact all-period zeta. Known tent/logistic ergodic results imply downstream conclusions **once the new embedding is known**; their classical content is not claimed as a new dynamical theorem. Database searches for aliases, parameter identities and cyclic logistic systems did not return this embedded-locus statement; closest results concern distinct systems. The relevant 2024 torus-doubling paper was only available as an abstract/publisher preview, so its unseen text remains a publication-priority risk, as do unindexed equivalent constructions. Search absence is not proof of global uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The source family has been used to investigate rigorous-vs-numerical distinctions in three-positive-Lyapunov-exponent hyperchaos. An exact four-dimensional coefficient locus, rather than an arbitrary isolated numeric choice, provides an analytic full-dimensional benchmark for invariant distributions and orbit counts in that model. Equal exponents, unique absolutely continuous invariant probability, full-box support and uniform periodic repulsion distinguish mathematical behavior that finite Lyapunov plots cannot prove. The theorem is deliberately limited to an algebraically special subfamily; a product of logistic maps as an abstract object is standard and is not represented as novel.
+Best-of-knowledge original component after comparison of exact mathematical implications and source scope. Known constituent techniques and narrower special cases are credited. Full inaccessible relevant texts remain expressly flagged rather than declared not covering.
 
-## Boundaries and evidence
+## value
 
-The invariant box need not be an attractor from outside. No parameter robustness beyond the exact locus or uniqueness of singular invariant measures is claimed. The checker verifies selected symbolic and rational identities and finite periods, not arbitrary iterates. The referenced full primary texts and partially accessible same-model torus study are specified in `RESULT.md` and `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Within the established 3D quadratic family an exact nondegenerate codimension-two parameter locus gives a full-volume rigorous hyperchaotic benchmark, with invariant physical distribution and exact every-period census replacing numerical Lyapunov plots. The known logistic product is not claimed novel; the new embedding and specific parameter identification motivate the exact result, despite no assertion of off-locus robustness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
