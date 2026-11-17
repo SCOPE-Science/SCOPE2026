@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducible scientific checks
+# Independent mathematical audit
 
-From this package directory run `python verify_sixth_s3.py` with Python 3 and SymPy installed. The checker expands the Dirichlet(1/2,1/2,1/2,1/2) sixth moment of a trace-zero quadratic form, verifies every exact coefficient of the resulting three-variable homogeneous sextic, and compares it to the determinant-and-cubic-trace identity. It also checks the two exact remainder identities, the balanced and one-versus-three endpoint values, 342 nonzero small integer trace-zero spectral tests, and all nine basis-matrix quaternion identifications by exact trace pairing.
+## correctness
 
-The verification run produced:
+PASS
 
-```text
-FULL_DIRICHLET_SIXTH_MOMENT_POLYNOMIAL_IDENTITY_OK 28
-ENDPOINTS_AND_342_RATIONAL_SPECTRAL_TESTS_OK 27/7 15
-EXACT_TWO_SIDED_SPECTRAL_DEFICIT_IDENTITIES_OK
-SO3_QUATERNION_NINE_DIMENSIONAL_ISOMETRY_OK 9
-ROTATION_MATRIX_COEFFICIENT_EQUALITY_MODES_OK
-ALL_S3_SIXTH_MOMENT_CHECKS_OK
-```
+PASS: For real symmetric trace-zero 4x4 B and probability measure on S^3, checked the Gaussian quadratic cumulant expansion, chi-square radial 12th moment, tr B^4 = S^2/2 - 4det B and tr B^6 = S^3/4 -3(det B)S+T^2/3. This yields K=(9/14)(15-144D/S^2+16T^2/S^3). The separate sharp determinant bounds [-1/48,1/16] and |T|^2/S^3 <=1/3 have the simultaneous endpoint spectra described. The Lagrange-multiplier two-level argument rules out other extrema. Quaternionic double cover S^3 -> SO(3) gives the complete 9-dimensional coefficient isometry, including rank-one and scaled-orthogonal equality modes. Independently recomputed the Dirichlet-degree-six invariant polynomial exactly (not just by numerical samples). This does not claim a dimension-free theorem or distance-to-orbit control.
 
-The finite rational tests cannot prove an inequality for all real eigenvalues. Universality and equality classification are established by the AM–GM and constrained-extremum arguments in `RESULT.md`. All computations use the scripts embedded alongside this document; no external certificate is assumed.
+## originality
+
+PASS
+
+PASS best-of-knowledge: the real degree-two S^3 exact sixth-power lower/upper constants and two-sided determinant/skewness stability identities were not covered by the fully read published degree-two L4 result or by the S^2 all-even-moment theorem. Classical density and asymptotic reverse Hölder work supply methods, not the same simultaneous S^3 sixth-moment sharp optimization. The archival Resultary copy has exactly the reviewed RESULT.md Git blob SHA and is the same finding, not independent prior art.
+
+## value
+
+PASS
+
+PASS: This determines the full nine-dimensional quadratic-harmonic norm geometry on S^3, its two inequivalent sharp eigenvalue strata, and two exact positive spectral defects, with an equivalent SO(3) matrix-coefficient interpretation. The sixth-exponent problem is a natural next nonlinear norm invariant beyond known L4 results; this is neither a renamed known theorem nor a tabulated moment alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
