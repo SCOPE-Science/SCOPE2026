@@ -1,15 +1,21 @@
-# Review of the exact three-dimensional Gram jet profile
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The domain and six coefficient equations are explicit. The published threshold bound applies to all positive lengths and yields the integer upper bound. For every length, a split-form isotropic chart supplies an algebraic family of that dimension; when the length is odd, setting two of three residual constants to zero removes exactly two degrees of freedom while forcing all residual pairwise products to vanish. Recovery by dual pairings proves that the parameter count equals the dimension of the image, not merely of a potentially many-to-one parameterization. Characteristic-zero normalization and the length-one boundary are covered. Exact code replays polynomial identities for fifteen finite lengths but is not used as an infinite proof.
+## correctness
 
-## Originality
-**PASS, best-knowledge priority.** The motivating primary work proves a log-canonical-threshold upper bound and equality at even length, expressly leaving odd lengths in odd ambient dimension as a further question. Its different odd-length example shows the upper bound can be strict, so the present odd-length equality does not follow merely by rounding the upper bound. The closest preexisting orthogonal-frame/Lovász–Saks–Schrijver literature primarily determines static components, ideals, and singularity properties. Literature searches and scientific comparisons found no matching all-length formula, with no claim that negative searches prove uniqueness. Casabella–Sammartano's full text was not accessible for an exhaustive comparison; a disguised earlier calculation remains a priority risk.
+PASS
 
-## Mathematical value
-**PASS.** This is the entire infinite jet-dimension sequence of a natural zero fiber explicitly included in the 2026 threshold analysis, in the first nontrivial odd-dimensional example where the threshold is half-integral. It resolves a concrete special case of the stated odd-length question, distinguishes sharpness from documented strictness in another example, and supplies a reusable residual-axis lower-bound construction. It is more than a finite check, while making no claim to solve the general parameter problem.
+Xie Theorem 1.2 gives lct I_(3,4)=11/2 and (5.1) gives dim J_L≤floor(13L/2). In the split quadratic space, choose a unit-parameter isotropic vector A and orthogonal transverse z with B(z,z)=1. Set v_1=A and v_j=A Y_j+t^a z W_j, a=floor(L/2). For even L, no W-constraints; for odd L impose W_3(0)=W_4(0)=0, W_2(0)≠0, making each pairwise residual product vanish modulo t^L. Count 5L+3a (even) or 5L+3(a+1)-2 (odd), giving floor(13L/2). The dual pairings with b,z recover Y and the truncated W coefficients, proving no fiber-dimension collapse. The L=1 case correctly gives dimension 6. Independently checked the parameter counts and first nonzero coefficient products for L=1..18.
 
-## Limits
-The formula is established for characteristic-zero complex quadratic space of dimension three and four vectors only. It is not a classification of all jet components or an independent derivation of the literature's log-canonical-threshold bound. Historical priority and external validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Xie Corollary 7.1 establishes jet equality when M or L is even; here M=3, so odd L is excluded. Its odd M=1,h=4,L=3 counterexample shows that rounding the lct bound alone does not imply equality. The new odd-L residual-axis chart supplies a nontrivial equality proof at M=3,h=4. The Casabella–Sammartano orthogonal-frame paper was not full-read; historical-priority risk preserved.
+
+## value
+
+PASS
+
+The all-length jet-dimension function is a natural invariant of a specific off-diagonal Gram zero fiber highlighted in Xie’s odd-ambient open direction. The explicit odd-length lower-bound chart resolves a nonautomatic equality case at every odd L, not merely a finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
