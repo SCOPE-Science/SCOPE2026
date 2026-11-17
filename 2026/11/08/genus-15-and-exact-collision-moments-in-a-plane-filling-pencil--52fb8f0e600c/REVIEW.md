@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The defining equality of parameter-map values factors into the diagonal and the original irreducible degree-nine collision curve. The change of variables \(y=sx\) is birational to the displayed degree-seven Kummer cover. Its exact branch divisor has valuations \(1,1,-3,-1,-1,-1,4\); outside characteristics \(2,3,7\) these yield genus \(15\) by Riemann--Hurwitz. When exponentiation to the seventh power is a bijection on \(\mathbb F_q^	imes\), each rational point of the base has one rational preimage. The admissible nonzero non-diagonal parameter ratios give the displayed factorial moment. Both package scripts replayed successfully. Finite tests do not constitute the infinite-field proof; the valuation and counting arguments do.
+PASS
 
-## Originality (PASS, priority risk retained)
+The source pencil maps t to parameter kappa(t)=t^-3-t^4, giving the known collision polynomial after factoring kappa(x)-kappa(y) by y-x. Substituting y=sx shows B birational to t^7=-(s²+s+1)/(s³(s+1)(s²+1)). At characteristics away from 2,3,7, the rational function has seven distinct branch places with valuations (1,1,-3,-1,-1,-1,4); gcd(valuation,7)=1, so the degree-seven geometric Kummer extension is connected and totally ramified at seven places. Riemann–Hurwitz gives g=15. Degree-nine plane arithmetic genus28 yields delta sum13 and Weil plus delta bounds gives #B(Fq)>=q+1-30sqrt(q)-13. For gcd(7,q-1)=1, seventh powering permutes Fq^×, giving exactly one H point over every rational s, including ramified rational fibers; #H=q+1. Ordered distinct collision pair ratios s cannot have s³=1 or s⁴=1; inclusion–exclusion gives q-gcd(3,q-1)-gcd(4,q-1). Independent polynomial factorization/algebra and brute-force prime q=5,11,13,17,19,23,31,37,41 corroborate only finite cases.
 
-Asgarli--Ghioca, arXiv:2307.03072v1, Section 2, defines the same collision plane curve and proves geometric irreducibility. The source's existence argument and its original point-count bound are not claimed as new. The new results determine **its normalization genus, an explicit Kummer model, and exact pair moments**. Source full text, published-literature searches and previous mathematical statements were compared for direct implication, dual reductions and stronger coverage. Earlier own results classify singular rational points and their tangent types but do not entail the exact second factorial moment without a further two-point incidence calculation. Unindexed equivalent work remains a genuine priority risk.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-The source collision curve controls the bad/singular rational parameters of a natural plane-filling pencil. Exact genus \(15\) improves knowledge of the curve used in the main argument and improves the explicit Weil-type lower bound for the original plane collision curve to \(q+1-30\sqrt q-13\), versus an error coefficient \(56\) from the plane-degree genus estimate. Its exceptional \(q+1\) point-count law and exact factorial moment characterize the amount of collision between rational singularities across infinitely many fields. The invariant is a natural obstruction/correlation statistic, not a table recomputation. No result is asserted for the geometric smoothness conjecture, and no independent priority or mathematical audit has occurred.
+Asgarli–Ghioca previously defined this exact collision curve and established geometric irreducibility and a weaker Hasse–Weil estimate using the plane arithmetic genus. It also established the source N_k root criterion. These are expressly prior work. The surviving theorem evaluates its normalization genus15 and Kummer model, improves error to 30sqrt(q)+13, and computes an exact second factorial moment for an arithmetic regime; the inspected independent published singularity-classification result gives only the first moment and node-splitting classification, not these collision-pair counts. Original 2023 primary full Section 2 unavailable (arxiv/open access and authorized institutional blocked), so historical priority is qualified not fabricated.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The degree-nine collision curve is an established controlling object for rational smoothness questions; its exact normalization genus and second singularity moment are natural invariants needed for refined point-count and incidence estimates. The improved Weil coefficient and exact collision moment provide specific arithmetic information beyond existence bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
