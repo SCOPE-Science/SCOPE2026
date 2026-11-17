@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The class of admissible top simplices is proved to consist of precisely two directed cycles with one arrow removed. Their two oriented simplex-boundary cycles form a primitive basis of the entire integral top homology, not just independent rational classes. The published connectivity and full integral homology theorems make the lower-degree basis spherical by Hurewicz, including the congruence-zero connectivity upgrade. The resulting map from the claimed wedge is a homology equivalence of simply connected CW complexes, hence a homotopy equivalence. Finite graph enumeration and boundary-matrix checks corroborate the proof. Remaining dependency: the two cited 2026 theorems are taken as published inputs.
+## correctness
 
-**Originality — PASS, with residual literature risk.** The 2026 full text explicitly states the wedge question is open, despite proving the homology and connectivity; it does not exhibit the two primitive top spherical generators as a homotopy-splitting mechanism. The 2024 paper's Section 4.2 expressly treats one-orientation polygons instead. Searches of published literature, semantic mathematical records, and accessible related claims found no theorem implying this all-length homotopy classification. Previously available individual finite polygon calculations do not imply the uniform statement. Unindexed work and later papers may pose overlap risks.
+PASS
 
-**Value — PASS.** The result resolves the infinite stable range of an explicitly posed homotopy problem. It goes beyond homology ranks by removing potential higher homotopy attaching-map obstructions via a geometric basis of top classes. The method is structural and applies uniformly, without a length-by-length computation.
+For n≥6 the underlying cycle has n+1 vertices. A maximal n-arrow multipath is a coherent directed Hamilton path because any opposite-arrow pair makes a directed 2-cycle and a spanning path has uniform orientation. Thus the only top (n−1)-simplices are n+1 clockwise and n+1 anticlockwise faces; the disjoint top-chain boundary kernels are primitive Z-cycles of the two embedded boundaries ∂Δ^n. CCS Theorems 2.8,2.10 (read) yield ν=floor((n−1)/2)−1 connectivity and exactly H~_q=Z^r and H~_(n−1)=Z², where q=floor((n−1)/2)+[4|n], r=3 iff n≡3(mod4). If 4|n, H~_(ν+1)=0 and simply connected Hurewicz upgrades π_(ν+1)=0, giving (q−1)-connectivity. Hurewicz represents an integral basis of H_q by q-spheres, together with the two geometrically included top spheres; the resulting homology isomorphism of simply connected CW complexes is a homotopy equivalence by homological Whitehead. n=6 finite direct enumeration independently found 477 faces incl empty, mod2 H~_2 rank1 and H~_5 rank2. This finite check is corroboration, not the unbounded proof.
 
-The result does not assert equivariant splitting or independently reprove the cited 2026 connectivity/homology theorems. The finite verifier supplies only corroboration.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: the published integral groups and connectivity are inputs, not new. The two primitive top spherical classes and Hurewicz–Whitehead map establish the homotopy type that CCS Section 3 raises as an open question. The earlier published dihedral rational character uses these same top cycles but does not establish the integral wedge homotopy equivalence.
+
+## value
+
+PASS
+
+A complete integral infinite-family homotopy type resolves an explicit open wedge question for the natural bidirected polygon multipath complexes. It is strictly more useful than Betti ranks because it determines higher homotopy information and realizes the top generators as actual embedded spheres; no equivariant splitting is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
