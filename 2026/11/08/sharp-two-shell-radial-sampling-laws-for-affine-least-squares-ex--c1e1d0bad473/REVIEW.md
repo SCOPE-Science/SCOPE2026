@@ -1,19 +1,21 @@
-# Scientific review: radial affine extrapolation
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Rotation-invariant covariance gives the affine kernel exactly, without a smooth-density assumption. A direct density calculation establishes the derivative formulas for the spherical absolute-value kernel. The unique root is proved by the sign of the derivative of the tangency function. The resulting convex-to-concave envelope is an exact sharp concave majorant; Jensen's equality cases force each radial optimizer. The disk phase partition and dimension-three case follow algebraically. Finite computation checks representative envelopes and direct angular integrals, but the proof does not rely on finite search.
+PASS
 
-## Originality
+For rotation-invariant probability measures on B_d with E R²=s∈(0,1], d≥2, the affine Gram matrix is diag(1,s/d,...), giving exact evaluation kernel 1+(d/s)x·y and sharp norm E Psi_d((d/s)R), reached on ∂B_d by sign-valued data. The density of Theta1 gives Psi_d prime and double prime; H(a)=aPsi_d'(a)-2(Psi_d(a)-1) has derivative sign(d-a²), positive on (1,sqrt(d)) and ultimately negative, so unique a_d>sqrt(d). For g(t)=Psi_d((d/s)sqrt(t)), g switches strictly convex to concave, and the smallest concave majorant is the chord from (0,1) to tau=min(1,(s a_d/d)²) followed by g; Jensen yields exact bound and strict contact/equality uniqueness. Planar Psi_2 gives a_2=2.5365589892306 and transitions 4/a_2², 2/a_2; d=3 a_3=3 and every optimal law is R²=s. Independent numeric root/integration and finitely discretized two-radius searches corroborated d=2..5 with several s, not the continuum proof.
 
-**PASS, with literature risk.** The cited Piñar–Xu paper studies unit-ball orthogonal polynomial equations, Xu derives radial-weight reproducing kernels, and Figueroa proves weighted Sobolev approximation bounds. Those techniques provide antecedents for the kernel, not the moment-constrained optimization over arbitrary radial Borel laws. The closest general uniform-body affine projection norms and uniform-simplex norms do not imply a two-shell classification at fixed radial second moment. Searches also covered synonymous terms such as Lebesgue constants, least-squares radial design, affine extrapolation, fixed covariance and concave-envelope moment optimization. Equivalent unindexed optimal-design literature is a genuine unresolved possibility.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** Projection stability depends on how sampling weight is distributed in radius, not solely on covariance. Fixing covariance makes the comparison mathematically nonvacuous. The theorem solves the resulting global distributional optimization, proves unique extremizers and exhibits two sharp, explicitly computable design changes in the disk. The full-ball output norm is essential for extrapolation beyond observed sampling shells.
+PASS, qualified. Published sharp affine projection norms for uniformly sampled annuli/spherical shells fix the sampling law and do not maximize over arbitrary singular radial Borel measures at prescribed second moment. Standard ball orthogonal polynomial papers fix radial weights and projection kernels. Their kernel identity is conventional; the unique global two-shell optimizer, tangency a_d, and planar two-transition phase diagram are not implied by inspected prior results.
 
-## Limits
+## value
 
-The measure must be rotation invariant, the fitted space affine, and the output measured uniformly over the entire ball. The literature comparison is not an independent audit and does not certify uniqueness of publication.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Optimal worst-case stability at a fixed radial budget is a natural experimental-design and approximation-theory question; exact distinct singleton/two-shell extremizers and strict uniqueness across two disk transitions are mathematically motivated and could guide endpoint extrapolation design. Not just a specialization of a known uniform-annulus endpoint norm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
