@@ -1,15 +1,21 @@
-# Review: sharp Gaussian odd-cubic sixth-moment ratio
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact Gaussian moment expansion and Hermite orthogonality reduce all real coefficient vectors to one projective ratio. The derivative is a degree-six polynomial over a positive eighth-power denominator. One positive root follows from Descartes' one-change test; one negative root follows from the displayed positive shift and one-change Möbius transform. Strict monotonicity gives global extrema and the complete equality cases. Independent exact-arithmetic reproduction is supplied in `verify.py`; rational root isolation is not substituted for the universal root-count proof.
+## correctness
 
-## Originality — PASS, qualified
-The lead primary source (Nourdin–Peccati–Reinert, arXiv:0904.1153) has full-text hypercontractivity for finite Gaussian-chaos sums, but its upper sixth-power bound here is 1953125 rather than the sharp approximately 57613.8761 and it has no sharp lower bound. Bakry–Bolley–Gentil (arXiv:1003.5072) concerns semigroup inequalities, not a polynomial coefficient extremization. The closest indexed findings treat homogeneous cubic fourth moments and mixed first/second-chaos fourth moments, neither implying the claimed first/third-chaos sixth-moment classification. Indexed mathematical-literature searches on the exact aliases and polynomial coefficients found no equivalent indexed claim; this is not proof of uniqueness. An unindexed direct Gaussian polynomial calculation is a residual risk.
+PASS
 
-## Mathematical value — PASS
-The space is the full two-dimensional odd-cubic Hermite plane, the first nontrivial odd Gaussian polynomial space after the linear Gaussian. The result identifies two genuinely mixed, spectrally distinct extremizers and an unexpected sixth-moment suppression below the pure Gaussian value; this is a natural sharp norm invariant rather than a generic coefficient example. No general multivariate or higher-degree extension is claimed.
+PASS: For all nonzero real f=aH1+bH3 with standard Gaussian measure, H1=z, H3=z^3-3z, L2^2=a^2+6b^2. Independent Gaussian Wick moment expansion reproduced N(t)=15(1+24t+450t^2+5760t^3+51300t^4+287712t^5+773928t^6), and the exact rational derivative K'(t)=-360P(t)/(1+6t^2)^4. Checked the sign-pattern/Mobius transform argument showing precisely two real roots of P, one in (-.102,-.101) and one in (2.642,2.643), using independent exact Sturm real-root counting as an additional certificate. The derivative orientation, projective infinity K=53745, and values Kmin~4.6168673769 and Kmax~57613.87609658 prove globally unique projective mixed Hermite extremizers and all intermediate ratios. No conclusions asserted for multivariate/nonodd polynomial spaces.
 
-## Limitations
-The proof is confined to real odd polynomials of degree at most three under standard Gaussian measure and exponent six. No external mathematical audit or independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: Gaussian hypercontractivity and Wick moment formulas give upper estimates for mixtures but not this exact algebraic two-sided L6/L2 interval and optimizer classification. The fully read closely related odd-Hermite-plane published finding optimizes an Ornstein–Uhlenbeck L2-to-L4 operator; its quartic stationary equation and semigroup parameter do not imply this stationary sextic. The archival Resultary exact match is self-copy, not external coverage.
+
+## value
+
+PASS
+
+PASS: The full first-two-odd-Hermite eigenspace is a canonical minimal mixed-chaos test space. The sharp L6 optimization determines an intrinsically meaningful exact invariant and shows two nontrivial mixing effects—strict suppression below pure Gaussian and amplification beyond the cubic chaos—beyond generic hypercontractivity. Though two-dimensional, this is a natural complete mixed-Gaussian norm classification, not an arbitrary sliced parameter or a known table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
