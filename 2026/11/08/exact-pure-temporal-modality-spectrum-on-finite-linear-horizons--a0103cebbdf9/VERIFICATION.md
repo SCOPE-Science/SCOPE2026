@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-The accompanying `finite_tense_check.py` computes, for each 2<=n<=12, the closure of the strict-past and strict-future Boolean relation matrices under composition and separately generates the proposed canonical normal-form relations. All eleven classifications agree with the stated formula and have cardinalities 6,20,42,72,110,156,210,272,342,420,506. For n<=6 the code additionally exhausts all Boolean valuations and shows that the meet operators of distinct relation normal forms are distinct. The general result is established by the explicit five-step proof in RESULT.md, not by the finite checks. Inputs at each time are unrestricted in a common nontrivial complete lattice; the paper's actual models with restricted local lattices can produce fewer realizable distinctions. The independent audit has not been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Let p,q be strict lower/upper order relations. The correspondence H_R(f)(i)=meet_{j:iRj} f(j) is injective for a nontrivial complete lattice using a single zero-valued coordinate, and satisfies H_R H_S=H_{R∘S}. Pure p^a,q^a are strict-distance staircases; p^(n-1),q^(n-1) give two extreme rectangles. Every first direction change gives a nonempty proper prefix/suffix rectangle or empty; right multiplication preserves that form. All 4(n−1)^2 orientation/size rectangles are explicitly realized, disjoint from 2(n−2) nonrectangular pure powers, empty and identity. Hence 2(n−1)(2n−1). Independent Boolean relation closure n=2..8 reproduces 6,20,42,72,110,156,210; unrestricted proof is algebraic, not finite extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge original all-n two-generator strict-order relation semigroup normal form and exact meet-transformer count; inaccessible literature is a recorded risk, not an automatic failure.
+
+## value
+
+PASS
+
+The exact size and depth bound of the pure past/future necessity operator monoid on a natural finite linear horizon quantify an expressive-composition invariant; this all-n structural normal form is more than naming modal operations or a tiny finite case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

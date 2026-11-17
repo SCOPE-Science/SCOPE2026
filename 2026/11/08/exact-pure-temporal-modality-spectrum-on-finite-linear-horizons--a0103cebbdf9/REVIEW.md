@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses a faithful relation-to-meet-operator embedding for every nontrivial complete lattice, classifies pure powers and all mixed words, constructs all four rectangular orientations, and counts them without overlap. A direct finite closure computation for \(2\leq n\leq12\) matched all normal forms; binary truth-table separation was also checked through \(n=6\). The infinite statement rests on the proof, not computational sampling.
+## correctness
 
-**Originality — PASS within inspected evidence.** The October 29, 2026 Martins–Rodrigues preprint defines the infimum-based strict temporal operators but does not give this fixed-horizon composition monoid. Adsul–Gastin–Kulkarni (2025) gives language-recognition characterizations for strict past/future fragments, not this exact per-horizon unary modal-word enumeration. A related published-finding corpus five-element modal-translation monoid concerns different operators and logics. Broad older binary-relation semigroup papers and unread manuscripts are a priority risk, not a basis for claiming certified uniqueness.
+PASS
 
-**Mathematical value — PASS.** A complete normal form and exact formula for every finite horizon quantify the expressivity of the pure temporal fragment and give a universal modal nesting cutoff. The invariant is natural to temporal database reasoning; it is not an incidental finite table.
+Let p,q be strict lower/upper order relations. The correspondence H_R(f)(i)=meet_{j:iRj} f(j) is injective for a nontrivial complete lattice using a single zero-valued coordinate, and satisfies H_R H_S=H_{R∘S}. Pure p^a,q^a are strict-distance staircases; p^(n-1),q^(n-1) give two extreme rectangles. Every first direction change gives a nonempty proper prefix/suffix rectangle or empty; right multiplication preserves that form. All 4(n−1)^2 orientation/size rectangles are explicitly realized, disjoint from 2(n−2) nonrectangular pure powers, empty and identity. Hence 2(n−1)(2n−1). Independent Boolean relation closure n=2..8 reproduces 6,20,42,72,110,156,210; unrestricted proof is algebraic, not finite extrapolation.
 
-**Limitations.** Nontrivial common lattice, fixed strict linear order, and unary words only. Other connectives, arbitrary partial/infinite orders, and valuation-restricted models are not classified. Independent validation and historical-priority review have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original all-n two-generator strict-order relation semigroup normal form and exact meet-transformer count; inaccessible literature is a recorded risk, not an automatic failure.
+
+## value
+
+PASS
+
+The exact size and depth bound of the pure past/future necessity operator monoid on a natural finite linear horizon quantify an expressive-composition invariant; this all-n structural normal form is more than naming modal operations or a tiny finite case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
