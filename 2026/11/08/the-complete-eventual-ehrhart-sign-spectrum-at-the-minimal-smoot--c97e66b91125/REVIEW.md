@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The slice-counting identity and the smoothness/facet statement are Proposition 5.1 of [1]. Expanding the binomial numerator gives exactly two leading twist powers, and the Faulhaber formula gives nonzero even Bernoulli coefficients at every intermediate Ehrhart degree. Odd Bernoulli cancellation at the top twist power is recovered at the next power, so there is no omitted coefficient class. Top and constant degrees are handled separately. For each fixed dimension, the finitely many nonzero coefficient-leading terms establish one simultaneous eventual threshold. Reconstructed symbolic identities agree with 518 exact arithmetic checks performed by the included verifier, but the proof, not enumeration, establishes the infinite range.
+PASS
 
-## Originality — PASS (historical priority provisional)
+PASS: The lattice slice at height j in t Q_{r,c} has binom(t+cj+r,r) points for r>=4, c>=0, t>=0, so the exact sum j=0..t is a degree-(r+1) Ehrhart polynomial. Its top twist coefficients are c^r S_r(t)/r! and c^(r-1)(t+(r+1)/2)S_(r-1)(t)/(r-1)!. Bernoulli B_{2h}!=0 gives first-tier e_{r+1-2h} coefficient binom(r+1,2h)B_{2h}/(r!(r+1)), and the odd Bernoulli cancellation yields second-tier e_{r-2h} coefficient (r+1)binom(r,2h)B_{2h}/[2r(r-1)!]. Top two degrees and constant are positive; alternating even Bernoulli signs make precisely r+1-4j and r-4j (j>=1) negative when those degrees >=1. Each coefficient is polynomial in c with nonzero leading term, so simultaneous eventual c0(r) exists. Independent exact slice/polynomial checks in bounded r corroborated rather than replaced this uniform proof.
 
-The exact same polytope family occurs in [1], but its Theorem 5.2 establishes only negativity of the coefficient in degree \(d-4\), not the complete sign vector or the separate, canceled \(c^{r-1}\) tier. The stronger all-middle-negative construction of [2] has much higher facet counts and does not imply the facet-minimal full classification. The h*-shape questions in [3] are mathematically different. Searches across the mathematical literature and accessible research records found no claim implying the presented all-degree statement. Residual priority risks include an independently derived equivalent Faulhaber classification under an unexpected name. No independent novelty certification is claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The minimal facet count is a sharp geometric constraint, already established in [1]; determining every Ehrhart coefficient's eventual sign under this constraint is a natural structural question. A single-sign counterexample does not answer it. The two-tier Bernoulli cancellation reveals an alternating paired-sign structure and shows that the number of simultaneous negative coefficients increases without bound even at the geometric minimum. This is an all-dimensional classification, not an arbitrary isolated computation. It does not claim to optimize the number of negative coefficients among every minimal-facet polytope.
+PASS (best knowledge): Liu–Tang–Tao–Zhang introduced the exact smooth simplex-fiber family, its minimal-facet characterization and one eventual negative coefficient (degree r-3), all credited. The complete sign vector including the c^(r-1) Bernoulli cancellation tier and unbounded exact count of negative coefficients was not identified in available primary description or full relevant distinct Resultary comparisons. Original full paper inaccessible with VPN disconnected, so a plausible implicit stronger theorem remains residual risk, not novelty proof.
 
-## Scope and remaining risks
+## value
 
-The onset twist is not optimized. Numerical tests cover finitely many dimensions. Historical completeness is uncertain, especially for implicit equivalences of simplex bundles and generalized Hirzebruch polytopes; independent external review remains appropriate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A full infinite-dimensional eventual coefficient-sign classification at the sharp minimal smooth facet threshold is a natural structural completion of known Ehrhart-positivity counterexamples. It identifies simultaneous negative coefficients and the second twist-order cancellation effect rather than merely reproducing a known single negative coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

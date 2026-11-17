@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T04:11:19.733004Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The lattice slice at height j in t Q_{r,c} has binom(t+cj+r,r) points for r>=4, c>=0, t>=0, so the exact sum j=0..t is a degree-(r+1) Ehrhart polynomial. Its top twist coefficients are c^r S_r(t)/r! and c^(r-1)(t+(r+1)/2)S_(r-1)(t)/(r-1)!. Bernoulli B_{2h}!=0 gives first-tier e_{r+1-2h} coefficient binom(r+1,2h)B_{2h}/(r!(r+1)), and the odd Bernoulli cancellation yields second-tier e_{r-2h} coefficient (r+1)binom(r,2h)B_{2h}/[2r(r-1)!]. Top two degrees and constant are positive; alternating even Bernoulli signs make precisely r+1-4j and r-4j (j>=1) negative when those degrees >=1. Each coefficient is polynomial in c with nonzero leading term, so simultaneous eventual c0(r) exists. Independent exact slice/polynomial checks in bounded r corroborated rather than replaced this uniform proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liu et al. abstract establishes minimum facets and negativity examples; Castillo et al. construct many negative coefficients for other smooth examples; neither available statement supplies the whole fixed-family vector."
+        ],
+        "reasoning": "Existence of arbitrarily many negative Ehrhart coefficients in general does not dominate an exact sequence for a specific sharp facet-minimal family. Access limitations prevent a whole-text negative-coverage assertion for Liu et al.",
+        "searches": [
+          "Resultary: smooth lattice polytope simplex bundle Ehrhart Bernoulli coefficient sign",
+          "https://arxiv.org/abs/2610.27819",
+          "https://arxiv.org/abs/1704.05532"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/the-complete-eventual-ehrhart-sign-spectrum-at-the-minimal-smoot--c97e66b91125/RESULT.md",
+        "https://arxiv.org/abs/2610.27819",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-ehrhart-root-and-coefficient-transitions-in-smooth-four-di--7f5f9bc91987/RESULT.md",
+        "https://arxiv.org/abs/1704.05532"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior specified coefficient e_{r-3} corresponds to r+1-4 with B4<0, a direct special case. The submitted formula also has e_{r-4} negative where positive by the canceled tier and further periodic degrees."
+        ],
+        "reasoning": "The complete sign criterion is strictly stronger than single-coefficient negativity; no accessible prior general theorem whose hypotheses yield both Bernoulli tiers was found. Full original text remains a named risk.",
+        "searches": [
+          "https://arxiv.org/abs/2610.27819",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-ehrhart-root-and-coefficient-transitions-in-smooth-four-di--7f5f9bc91987/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The fixed family Q_{r,c} has t-slice sum Σ_{j=0}^t binom(t+cj+r,r) and is the facet-minimal simplex bundle from Liu et al.; the claimed monomial-basis signs differ from h-star positivity."
+        ],
+        "reasoning": "Same family and monomial basis are necessary comparison; known isolated coefficient e_{r-3}<0 corresponds to h=2 first Bernoulli tier, but does not establish all degrees or second tier.",
+        "searches": [
+          "Resultary: Ehrhart polynomial smooth polytopes with d+2 facets twisted simplex prism Bernoulli complete negative coefficient sign vectors",
+          "https://arxiv.org/abs/2610.27819"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published smooth four-dimensional Cayley R_{2,c} theorem gives thresholds c=10,12,13 and h-star root classification, not Q_{r,c} for r>=4."
+        ],
+        "reasoning": "Finite threshold or d4 tables do not imply uniform-in-dimension eventual negative-degree sequence; no indexed complete fixed-family table found (nonexhaustive search).",
+        "searches": [
+          "Resultary: complete eventual Ehrhart sign spectrum at minimal smooth facet threshold",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-ehrhart-root-and-coefficient-transitions-in-smooth-four-di--7f5f9bc91987/RESULT.md",
+          "https://arxiv.org/abs/2610.27819"
+        ]
+      },
+      "rationale": "PASS (best knowledge): Liu–Tang–Tao–Zhang introduced the exact smooth simplex-fiber family, its minimal-facet characterization and one eventual negative coefficient (degree r-3), all credited. The complete sign vector including the c^(r-1) Bernoulli cancellation tier and unbounded exact count of negative coefficients was not identified in available primary description or full relevant distinct Resultary comparisons. Original full paper inaccessible with VPN disconnected, so a plausible implicit stronger theorem remains residual risk, not novelty proof.",
+      "residual_risks": [
+        "Primary Liu et al. full text inaccessible after arXiv/OA attempt and institutional VPN disconnection; it may contain more of the Bernoulli profile than the available abstract indicates.",
+        "No uniform effective c0(r) is established; this is an eventual classification only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INCOMPLETE_PLAUSIBLE_SOURCE",
+          "evidence": "Abstract proves minimal facet threshold; source RESULT attributes slice identity and single coefficient to Proposition 5.1 and Theorem 5.2; whole text not independently read.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.27819",
+          "material_read": "Author abstract identifying dimension-dependent facet threshold; source paper not available in full",
+          "method": "ArXiv/OA full-text attempts followed by authorized institutional request; returned vpn_disconnected",
+          "title": "Ehrhart positivity of smooth polytopes with few facets",
+          "trigger": "Identical Q_{r,c} family and minimal smooth facet threshold"
+        },
+        {
+          "assessment": "DIFFERENT_FAMILY",
+          "evidence": "Family R_{2,c} is four-dimensional with extra segment coordinate, not Q_{r,c} with r>=4.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-ehrhart-root-and-coefficient-transitions-in-smooth-four-di--7f5f9bc91987/RESULT.md",
+          "material_read": "Entire RESULT.md including exact factorization, coefficient thresholds and h-star discriminant",
+          "method": "Full published Git blob read",
+          "title": "Sharp Ehrhart root and coefficient transitions in smooth four-dimensional Cayley polytopes",
+          "trigger": "Potential stronger family-specific classification"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_FULLY_INSPECTED",
+          "evidence": "Different smooth constructions; abstract-level evidence only, not whole-document exclusion.",
+          "identifier_or_url": "https://arxiv.org/abs/1704.05532",
+          "material_read": "Abstract and citation available, not full paper",
+          "method": "Lawful article search, contextual comparison",
+          "title": "Smooth polytopes with negative Ehrhart coefficients",
+          "trigger": "Known broad existence of many negative coefficients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: A full infinite-dimensional eventual coefficient-sign classification at the sharp minimal smooth facet threshold is a natural structural completion of known Ehrhart-positivity counterexamples. It identifies simultaneous negative coefficients and the second twist-order cancellation effect rather than merely reproducing a known single negative coefficient.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/the-complete-eventual-ehrhart-sign-spectrum-at-the-minimal-smoot--c97e66b91125/RESULT.md",
+    "https://arxiv.org/abs/2610.27819",
+    "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-ehrhart-root-and-coefficient-transitions-in-smooth-four-di--7f5f9bc91987/RESULT.md",
+    "https://arxiv.org/abs/1704.05532"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Each fixed r has an eventual threshold, no explicit least threshold; the verification is finite in r and c.",
+    "Literature inspection does not certify historical priority."
+  ],
+  "residual_risks": [
+    "Primary Liu et al. full text inaccessible after arXiv/OA attempt and institutional VPN disconnection; it may contain more of the Bernoulli profile than the available abstract indicates.",
+    "No uniform effective c0(r) is established; this is an eventual classification only."
+  ],
+  "schema_version": 1
+}
