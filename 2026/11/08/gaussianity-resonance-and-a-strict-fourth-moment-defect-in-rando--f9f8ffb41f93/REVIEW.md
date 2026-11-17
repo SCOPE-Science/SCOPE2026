@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof establishes the random batch as a scaled orthogonal projector, derives the permutation-averaged squared update, obtains the necessary-and-sufficient second-moment stability interval and invariant covariance, and uses a conditional Gaussian mixture to derive both the unique reflection resonance and the strictly positive fourth-moment defect. Exact rational partition enumeration checks small cases without substituting finite experiments for the proof.
+PASS
 
-## Originality — PASS, qualified
+The random partition matrix is A=a I-kappa*h*c P_B, where P_B is a rank N-N/p orthoprojector and E[P_B]=(m/c)(I-J). Hence E[A^2]=a^2 J+rho(I-J) and rho=1-2(alpha+kappa m)h+D h^2; the mean-square boundary rho<1 gives exactly h<h_max and the covariance uJ+v(I-J). At h*=2/(2alpha+kappa c), b=-a, so every A is a scalar orthogonal reflection and the conditional stationary Gaussian covariance is deterministic uI. Away from h*, conditioning on the latest partition gives a random contrast variance with pair-cobatching probability (p-1)/(N-1) and Var(||Pw||^2)=4(p-1)(N-p)/(p^2(N-1)^2); conditional Gaussian-mixture Jensen yields the stated strictly positive lower bound. This is valid also if the fourth moment diverges (extended excess). The stationary perpetuity and finite-second-moment uniqueness follow from L2 contraction. Independently enumerated all exact rational equipartitions for (N,p)=(4,2),(6,2),(6,3),(8,2),(8,4), checking projector mean and contrast variance; finite checks do not establish unrestricted N,p.
 
-Jin–Li–Liu (2018), Jin–Li–Ye–Zhou (2022), and Ye–Zhou (2022) study the random-batch algorithm and long-time approximation behavior. Xu–Zhao–Zhou (2024) analyze force-covariance variance reduction. The inspected primary material does not contain the full all-size Gaussianity resonance and fourth-defect theorem. Equivalent results elsewhere in random-affine-recursion theory remain a publication-precedence risk; the general Gaussian-mixture lemma itself is not claimed as new.
+## originality
 
-## Value — PASS
+PASS
 
-The exact distributional-shape frontier isolates a real issue in particle sampling that cannot be diagnosed from covariance or error-rate bounds alone. The invariant law has an explicit covariance at every stable step, but is Gaussian only at a single reflection step. A universal positive fourth-defect lower bound gives a substantive, parameter-explicit certificate. The resonant Gaussian is not claimed to equal the interacting Gibbs target.
+Best-of-knowledge PASS: the inspected time-discrete random-batch error theorems prove strong/Wasserstein convergence and long-time approximation, not a sharp iff Gaussian invariant law or fourth cumulant. Related random-linear samplers and general conditional Gaussian mixtures share techniques but not the parameter-specific global resonance result for uniform repartitioned harmonic dynamics.
 
-## Reproducibility and limitations
+## value
 
-Run `python3 verify_random_batch.py` from the same directory. The checker uses only Python's standard library and exact rational arithmetic. The theorem is restricted to independent uniform equal-size batches, a linear attractive interaction, independent full-rank Gaussian forcing and the fully discrete Euler update; fourth moments may be infinite outside a uniformly contractive subregime.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact reflection step is an unexpected isolated distributional Gaussianity point within an entire mean-square-stable family of Gaussian-driven discretizations, and the contrast fourth-moment defect supplies a quantitative finite-batch diagnostic. This addresses genuine invariant-measure fidelity questions and is not merely a textbook covariance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

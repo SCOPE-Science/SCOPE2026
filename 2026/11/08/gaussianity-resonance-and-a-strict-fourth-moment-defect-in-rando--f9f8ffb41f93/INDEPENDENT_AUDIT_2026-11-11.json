@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T16:50:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md @ 1db8b45b941258e446b5e433c2d0765a599948c3",
+        "pinned verifier @ da7759a5a391b7444e9627d224681565aa24fa91"
+      ],
+      "rationale": "The random partition matrix is A=a I-kappa*h*c P_B, where P_B is a rank N-N/p orthoprojector and E[P_B]=(m/c)(I-J). Hence E[A^2]=a^2 J+rho(I-J) and rho=1-2(alpha+kappa m)h+D h^2; the mean-square boundary rho<1 gives exactly h<h_max and the covariance uJ+v(I-J). At h*=2/(2alpha+kappa c), b=-a, so every A is a scalar orthogonal reflection and the conditional stationary Gaussian covariance is deterministic uI. Away from h*, conditioning on the latest partition gives a random contrast variance with pair-cobatching probability (p-1)/(N-1) and Var(||Pw||^2)=4(p-1)(N-p)/(p^2(N-1)^2); conditional Gaussian-mixture Jensen yields the stated strictly positive lower bound. This is valid also if the fourth moment diverges (extended excess). The stationary perpetuity and finite-second-moment uniqueness follow from L2 contraction. Independently enumerated all exact rational equipartitions for (N,p)=(4,2),(6,2),(6,3),(8,2),(8,4), checking projector mean and contrast variance; finite checks do not establish unrestricted N,p.",
+      "residual_risks": [
+        "Finite computational checks corroborate but do not prove the unrestricted claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary discrete RBM analysis provides Wasserstein and strong-error estimates without a distributional sharp Gaussianity classification.",
+          "Other stochastic discretization findings use nonuniform random operators and do not dominate the exact batch-partition parameter domain."
+        ],
+        "reasoning": "A more general ergodicity or small-step error theorem does not imply isolated exact Gaussianity at a nonzero stable stepsize or this sharp lower bound for pair-contrast fourth excess.",
+        "searches": [
+          "arXiv:1812.10575 random batch interacting systems",
+          "arXiv:2202.04952 random batch ergodicity",
+          "arXiv:2206.02166 time-discrete RBM",
+          "Resultary: spectral minimax calibration random-order Langevin"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2206.02166",
+        "https://arxiv.org/abs/1812.10575",
+        "https://arxiv.org/abs/2202.04952",
+        "https://arxiv.org/abs/2411.01762",
+        "Resultary related random Gaussian sampler findings (search IDs in comparisons)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Time-discrete RBM provides convergence/error estimates, not stationarity covariance eigenvalue u,v and a global iff Gaussianity step.",
+          "Variance compensation changes the modeled noise and is not a theorem for this unmodified Euler chain."
+        ],
+        "reasoning": "The prior mathematical conclusions do not imply the theorem without the projector identity, mean-square stability boundary and conditional-variance argument newly supplied in the package.",
+        "searches": [
+          "arXiv:2206.02166 section 3 and introduction",
+          "arXiv:2202.04952 ergodicity and Wasserstein",
+          "arXiv:2411.01762 variance compensation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same phenomenon can be written as A_B=a(I-2P_B) at b=-a, and stationary conditional covariance is deterministic exactly when each switching matrix is scalar orthogonal.",
+          "The random-batch paper studies discrete Euler RBM convergence rather than the iff reflection resonance."
+        ],
+        "reasoning": "An abstract Gaussian-mixture principle gives a criterion but requires computing the concrete uniform-equipartition projector spectrum and showing strict fourth-variance variation; neither is a formal statement of the cited numerical error bounds.",
+        "searches": [
+          "Resultary: random batch Euler harmonic Gaussian invariant law reflection step fourth moment excess stable covariance random projectors",
+          "arXiv:2206.02166"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest published matches concern random-order Langevin splittings, random-coordinate or Kaczmarz sampling, harmonic ULMC, and mean-square randomized integrators rather than the present uniform equipartition model."
+        ],
+        "reasoning": "No table of N,p-dependent exact Gaussian resonance or fourth excess was identified; this search result alone cannot prove priority.",
+        "searches": [
+          "Resultary: random batch Euler harmonic Gaussian invariant law reflection step fourth moment excess stable covariance random projectors",
+          "Resultary: random-batch harmonic linear Euler stationary Gaussian iff stepsize reflection invariant covariance exchangeable fourth cumulant"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: the inspected time-discrete random-batch error theorems prove strong/Wasserstein convergence and long-time approximation, not a sharp iff Gaussian invariant law or fourth cumulant. Related random-linear samplers and general conditional Gaussian mixtures share techniques but not the parameter-specific global resonance result for uniform repartitioned harmonic dynamics.",
+      "residual_risks": [
+        "Unindexed general switching-affine Gaussian invariant theorem may already specialize to this family.",
+        "Related literature on exact harmonic batch samplers and fourth cumulants was not exhaustively searched.",
+        "Second-moment stability does not guarantee a finite fourth moment; the claim explicitly permits an infinite excess."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong error and Wasserstein bounds for discrete RBM; not an all-step Gaussian/non-Gaussian classification",
+          "evidence": [
+            "Theorem 3.1 and section 3 provide quantitative approximation bounds; no iff reflection criterion or fourth cumulant."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2206.02166",
+          "material_read": "PDF first page, introduction/method, Theorems 3.1, 3.3 and 3.6 and relevant section 3 discussion",
+          "method": "Read available PDF passages and inspected first-page PDF image; compared exact theorem hypotheses and outputs",
+          "title": "Error Analysis of Time-Discrete Random Batch Method for Interacting Particle Systems and Associated Mean-Field Limits",
+          "trigger": "Most relevant same numerical method and invariant-law accuracy"
+        },
+        {
+          "assessment": "Internally coherent proof for finite-second-moment invariant laws; finite tests corroborate the nonstandard projector factor",
+          "evidence": [
+            "Section 1 E[P]=qH; section 3 b=-a reflection; section 4 Gaussian-mixture variance lower bound."
+          ],
+          "identifier_or_url": "2026/11/08/gaussianity-resonance-and-a-strict-fourth-moment-defect-in-rando--f9f8ffb41f93/RESULT.md",
+          "material_read": "Entire result, assumptions, projector proof, moment calculation, limitations and references",
+          "method": "Fetched pinned exact RESULT blob and independently reconstructed the projector/moment steps",
+          "title": "Gaussianity resonance and a strict fourth-moment defect in random-batch harmonic sampling",
+          "trigger": "Assigned final mathematical theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2206.02166",
+        "https://arxiv.org/abs/1812.10575",
+        "https://arxiv.org/abs/2202.04952",
+        "https://arxiv.org/abs/2411.01762",
+        "Resultary related random Gaussian sampler findings (search IDs in comparisons)"
+      ],
+      "rationale": "The exact reflection step is an unexpected isolated distributional Gaussianity point within an entire mean-square-stable family of Gaussian-driven discretizations, and the contrast fourth-moment defect supplies a quantitative finite-batch diagnostic. This addresses genuine invariant-measure fidelity questions and is not merely a textbook covariance calculation.",
+      "residual_risks": [
+        "Unindexed general switching-affine Gaussian invariant theorem may already specialize to this family.",
+        "Related literature on exact harmonic batch samplers and fourth cumulants was not exhaustively searched.",
+        "Second-moment stability does not guarantee a finite fourth moment; the claim explicitly permits an infinite excess."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed general switching-affine Gaussian invariant theorem may already specialize to this family.",
+    "Related literature on exact harmonic batch samplers and fourth cumulants was not exhaustively searched.",
+    "Second-moment stability does not guarantee a finite fourth moment; the claim explicitly permits an infinite excess."
+  ],
+  "schema_version": 1
+}
