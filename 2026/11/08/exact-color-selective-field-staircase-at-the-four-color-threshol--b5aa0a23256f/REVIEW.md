@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Hamiltonian and all labels are explicit. Exact, independent recursive and geometric two-bit exhaustive enumerators separately cover all \(16,777,216\) spin configurations and agree on every constrained minimizer and multiplicity. The rational lower-envelope comparison gives all fields without numerical tolerance. No infinite-system conclusion is drawn.
+## correctness
 
-**Originality — PASS on examined evidence, provisional.** Three-state Potts behavior on the same graph does not imply the chromatic-threshold four-state degeneracies; in particular, three-state ground states have unavoidable frustrated edges whereas four named colors admit exactly \(240\) zero-penalty configurations. The examined Heisenberg icosahedron literature has different spins and Hamiltonians. The triangular-lattice Potts literature has a different graph. Indexed semantic searches did not exhibit an exact four-state favored-color field census; nonindexed graph-polynomial tables remain a genuine residual priority risk.
+PASS
 
-**Mathematical value — PASS.** Four is the natural chromatic threshold of the icosahedral graph, not an arbitrary alphabet adjustment: precisely there the zero-field frustration vanishes. The complete field response nevertheless skips several occupancies on open plateaux, with exactly calculable large coexistence entropies; this is a reproducible benchmark separating colorability from field-driven order.
+For a fixed twelve-vertex five-regular icosahedral graph and four named spins, every one of 4^12=16,777,216 labeled spin configurations is included in an exact integer census. Independently built a geometric 30-edge two-pentagon graph and verified its degree and triangle structure; exact C++ enumeration reproduced all sector minima (3,2,1,0,1,3,5,8,11,15,20,25,30) and multiplicities (120,720,1080,240,1080,7560,6840,8640,1620,540,324,36,1). Inspected the supplied separate recursive and packed integer enumerators and checked their loop coverage. Exact lower envelope of thirteen integer affine functions gives six plateaux and five transition fields, with counts 1320,15480,17100,2160,901, including intermediate f=5,7,10,11 only at crossings. For this finite graph, full exhaustive enumeration is a mathematical certificate, not extrapolation to infinite graphs.
 
-**Closest literature and limits.** Park (1993) treats three-state Potts on a triangular lattice; Konstantinidis (2005, 2014) treats Heisenberg spins on the icosahedron. There is no claim of finite-temperature criticality or historical uniqueness beyond examined evidence.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Searched the published corpus and relevant physics/combinatorics literature for icosahedral graph Potts four-color, symmetry-reduced chromatic field polynomials, and one-color marked occupancy. The highly relevant same-graph published three-state model is not a q-general polynomial: with only three states every zero-field assignment incurs at least three frustrated bonds, whereas four states have 240 proper zero-penalty configurations and a distinct exact thirteen-sector response. No observed theorem or database gives the q=4 favored-color field envelope or all labeled degeneracies. This is best-of-knowledge only, with risk of a previously tabulated icosahedral weighted chromatic polynomial.
+
+## value
+
+PASS
+
+The icosahedron is a natural smallest 5-regular triangulated four-chromatic test graph, and four Potts states are exactly its proper-colorability threshold; moving from three to four removes frustration but leads to a nontrivial five-crossing field-response staircase. The exact sector-resolved ground energy and coexistence degeneracies are useful finite-cluster benchmarks and solve a motivated natural finite classification. No demand for an infinite thermodynamic transition or downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

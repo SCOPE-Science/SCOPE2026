@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Compile and execute the two embedded independent C++17 programs (`ico_q4_check_a.cpp`, `ico_q4_check_b.cpp`) with `g++ -O3 -std=c++17`. Both are self-contained and assert all thirteen constrained minimizing penalties and counts. The first visits every spin vector recursively using thirty explicitly listed edges; the second enumerates all two-bit packed configurations using a geometric two-pentagon graph description. Both report PASS on all \(16,777,216\) assignments. These programs were compiled and executed against the actual package-source bytes before embedding.
+## correctness
 
-The graph descriptions were independently checked to be isomorphic. Finite exhaustive enumeration is exhaustive here because there are exactly \(4^{12}\) labeled states; it is not a proof about any other graph order. Intersections of the thirteen lines were checked with exact rational arithmetic; numerical approximation is not used.
+PASS
+
+For a fixed twelve-vertex five-regular icosahedral graph and four named spins, every one of 4^12=16,777,216 labeled spin configurations is included in an exact integer census. Independently built a geometric 30-edge two-pentagon graph and verified its degree and triangle structure; exact C++ enumeration reproduced all sector minima (3,2,1,0,1,3,5,8,11,15,20,25,30) and multiplicities (120,720,1080,240,1080,7560,6840,8640,1620,540,324,36,1). Inspected the supplied separate recursive and packed integer enumerators and checked their loop coverage. Exact lower envelope of thirteen integer affine functions gives six plateaux and five transition fields, with counts 1320,15480,17100,2160,901, including intermediate f=5,7,10,11 only at crossings. For this finite graph, full exhaustive enumeration is a mathematical certificate, not extrapolation to infinite graphs.
+
+## originality
+
+PASS
+
+Searched the published corpus and relevant physics/combinatorics literature for icosahedral graph Potts four-color, symmetry-reduced chromatic field polynomials, and one-color marked occupancy. The highly relevant same-graph published three-state model is not a q-general polynomial: with only three states every zero-field assignment incurs at least three frustrated bonds, whereas four states have 240 proper zero-penalty configurations and a distinct exact thirteen-sector response. No observed theorem or database gives the q=4 favored-color field envelope or all labeled degeneracies. This is best-of-knowledge only, with risk of a previously tabulated icosahedral weighted chromatic polynomial.
+
+## value
+
+PASS
+
+The icosahedron is a natural smallest 5-regular triangulated four-chromatic test graph, and four Potts states are exactly its proper-colorability threshold; moving from three to four removes frustration but leads to a nontrivial five-crossing field-response staircase. The exact sector-resolved ground energy and coexistence degeneracies are useful finite-cluster benchmarks and solve a motivated natural finite classification. No demand for an infinite thermodynamic transition or downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
