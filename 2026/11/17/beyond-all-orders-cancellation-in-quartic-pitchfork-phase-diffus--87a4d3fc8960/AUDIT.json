@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "The rescaled confining reversible diffusion admits an explicit Poisson-solution derivative obtained from an exact complementary error function integral. The stationary martingale decomposition rigorously gives the long-time variance coefficient. The partition-function and barrier-Laplace expansions have exactly identical general coefficients (4k)!/(16^k(2k)!k!), with controlled remainder for each fixed order. Gaussian-tail bounds show off-barrier contributions are beyond every algebraic order, forcing the complete cancellation. The standalone extracted Python checker corroborates coefficients and finite quadratures only; it is not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kalmykov–Coffey–Titov (2007), full-text equations (17),(21),(23), treats exact finite-parameter correlation times for quartic potentials",
+        "arXiv:2207.11667 sections IV.3.1–IV.3.2 treats critical coefficient and Kramers telegraph limit"
+      ],
+      "reasoning": "The 2007 source is mathematically broader in finite-parameter evaluability, but its displayed high-barrier asymptotics give finite-order information for the normalized correlation time, not an all-orders cancellation theorem. The new argument proves a specific high-barrier identity to arbitrary order; consequently the existing integral formula is substantial implicit coverage, noted as risk, while not itself supplying the claimed new expansion.",
+      "searches": [
+        "stochastic quartic double well stationary additive functional exact diffusivity 1D Poisson equation cross over",
+        "Kalmykov Coffey Titov 2007 integral relaxation time all-order asymptotic cancellation quartic variance",
+        "Kalmykov Coffey Titov 2007 overdamped double well integral relaxation time asymptotic Kramers expansion correlation quartic"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2306.09524",
+      "https://arxiv.org/abs/2207.11667",
+      "https://doi.org/10.1016/j.physa.2006.11.067"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2306.09524 Eq (16), phase diffusivity scaling and numerical integral",
+        "Physica A 377 (2007) Eq (21) exact integral and Eq (23) normalized time asymptotics",
+        "This theorem: a_k=(4k)!/(16^k(2k)!k!) for *both* the saddle and well expansions"
+      ],
+      "reasoning": "The source equation (21) implies the full observable, but a generic exact integral does not establish coefficient cancellation without asymptotic analysis. The older first-order nonzero coefficient belongs to a *normalized correlation time*; dividing/multiplying by stationary variance changes that coefficient. The new claim is the quantified all-integer-N cancellation for the phase-variance rate, and we explicitly disavow novelty of the exact integral, critical constant, and leading Kramers law.",
+      "searches": [
+        "Coalescence of limit cycles in presence of noise Shmakov Littlewood 2023 exact phase diffusion Green-Kubo quartic pitchfork crossover",
+        "Kalmykov Coffey Titov 2007 integral relaxation time all-order asymptotic cancellation quartic variance",
+        "\"no algebraic corrections\" \"quartic\" double well diffusion correlation"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2306.09524 equations (12),(16): the phase diffusivity equals integrated position correlation",
+        "Physica A 377 (2007) equations (17),(21): exact integral correlation time for quartic potential, requiring stationary-variance normalization"
+      ],
+      "reasoning": "The old integral-relaxation-time quantity times the known stationary position variance is equivalent to the full phase-variance rate, so the exact integral itself is not original. The target statement is not the integral but the vanishing of its entire algebraic asymptotic series after Kramers-scale normalization. No inspected source states this termwise cancellation, and the cancellation requires comparing two nontrivial expansions at separate saddles.",
+      "searches": [
+        "Coalescence of limit cycles in presence of noise Shmakov Littlewood 2023 exact phase diffusion Green-Kubo quartic pitchfork crossover",
+        "Weis Fruchart Hanai nonlinear exceptional point noisy pitchfork phase diffusion exact quadrature Eyring-Kramers",
+        "\"no algebraic corrections\" \"quartic\" double well diffusion correlation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted semantic research-record search: nearest noisy-pitchfork findings concern saddle-threshold first passage and stationary-moment identification, not the all-order phase diffusivity",
+        "Targeted quartic double-well literature search found the exact 2007 integral relaxation-time formula, not a tabulated complete cancellation"
+      ],
+      "reasoning": "No exact table or database record of the all-orders cancellation was identified. This is a negative search result, not a proof of uniqueness; an unindexed calculation or mathematical equivalence could remain.",
+      "searches": [
+        "all-orders cancellation quartic noisy pitchfork double well phase diffusion coefficient eyring kramers prefactor integrated autocorrelation",
+        "super-algebraic accuracy scaled phase diffusion double-well quartic stochastic pitchfork Green-Kubo",
+        "Shmakov Littlewood quartic stochastic pitchfork phase diffusion high barrier no algebraic corrections",
+        "\"exponentially accurate\" Kramers \"quartic\" correlation time"
+      ]
+    },
+    "rationale": "The origin 2023 paper identifies phase diffusion as integrated pitchfork correlation but does not give a beyond-all-orders expansion; the 2022 source provides the critical coefficient and Kramers interpretation. The 2007 quartic position-correlation paper has an exact integral formula for the same observable and a first asymptotic correction for the *normalized* correlation time. This exact formula implicitly determines the quantity for all parameters and must not be claimed new; the distinct theorem assessed here is the full asymptotic-series coefficient identity leading to cancellation of every algebraic correction for the unnormalized phase variance. The authors do not visibly state or prove this full cancellation in the inspected material; no same-statement result emerged from targeted prior-record and literature queries. The fact that it is derivable from an old exact expression is an explicit priority risk, not ignored.",
+    "residual_risks": [
+      "An unindexed earlier derivation of the all-orders coefficient cancellation could exist.",
+      "The exact 2007 correlation-time formula is a stronger finite-parameter representation and mathematically implies the stated asymptotic after nontrivial further analysis; priority of that analysis has not been independently established.",
+      "The author-uploaded 2007 transcription contains garbled mathematical typography; relevant formula and asymptotics were recoverable, but finer printed details may merit independent manual confirmation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Motivates the model and universal scaling; integrates correlation numerically in cited section; no all-orders high-barrier cancellation stated",
+        "evidence": [
+          "Section II coupling to noisy pitchfork; Section IV.3 Eq (16) and numerical integration Figure 5"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2306.09524",
+        "material_read": "Full HTML transcription, sections II–IV.3, equations (1)–(16), especially Eq (12), Eq (16), and Figure 5 description",
+        "method": "Read arXiv public HTML full paper",
+        "title": "Coalescence of limit cycles in the presence of noise",
+        "trigger": "Exact source dynamics and phase-diffusivity observable; first submitted 2023-06-15"
+      },
+      {
+        "assessment": "Critical variance coefficient 0.97499 and telegraph asymptotics known; all-orders asymptotic cancellation not stated",
+        "evidence": [
+          "Section IV.3.1 Eq (28), section IV.3.2 Kramers approximation"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2207.11667",
+        "material_read": "Public HTML full paper, physical consequences section IV.3, Eq (28), telegraph/Kramers section, and reported Appendix VI result",
+        "method": "Read arXiv public HTML full paper",
+        "title": "Exceptional points in nonlinear and stochastic dynamics",
+        "trigger": "Earlier paper of same pitchfork and noise-induced phase diffusion"
+      },
+      {
+        "assessment": "Direct exact formula for the same integrated position correlation after normalization, and finite-order Kramers expansion, is prior art. No demonstrated full all-orders cancellation in inspected paper. Strong implicit-coverage priority caveat remains.",
+        "evidence": [
+          "Physica A 377 (2007) 412–420, equations (17), (21), (23)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.physa.2006.11.067",
+        "material_read": "Author-uploaded full-text HTML transcription of article, sections 1–5 and equations (15)–(23), particularly entire integral formula (21) and expansion (23)",
+        "method": "Read openly displayed author-uploaded paper text, checked section surrounding the relevant integral and expansions; typography partially garbled",
+        "title": "On the Brownian motion in a double-well potential in the overdamped limit",
+        "trigger": "Potentially dominating exact integral-relaxation-time treatment of same quartic diffusion"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "87a4d3fc-8960-465b-90c2-3f313a4f12b5",
+  "value": {
+    "rationale": "The physically natural phase-noise observable is substantially more accurately approximated by the leading Kramers exponential than either its equilibrium normalization or barrier integral separately. The precise cancellation to arbitrarily high algebraic order is a structural asymptotic statement useful for benchmarking stochastic pitchfork and coalescing-limit-cycle calculations; it is neither a new symbol for the old integral nor a mere first-order Taylor expansion. Scope and implicit prior exact-formula coverage are explicitly bounded.",
+    "status": "PASS"
+  }
+}
