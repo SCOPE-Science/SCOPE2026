@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T00:58:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/optimal-calibrated-stochastic-rounding-a-halved-absorption-time--e4a233b2c5a2/RESULT.md (blob 1d4d3a9052bdd7bd62ecfb91242854f603fc4b89)",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/optimal-calibrated-stochastic-rounding-a-halved-absorption-time--e4a233b2c5a2/verify.py (blob 00b2e79c2e7c1301c5503ea19230a77b56cd8e8b)",
+        "independent exact rational calibration budget check M=100,B=1/2"
+      ],
+      "rationale": "The pure-death transition chain has independent Geom(p_k) holding times and mean Σ1/p_k, variance Σ(1-p_k)/p_k². Under Σ(p_k-k/M)<=B, strict convexity of Σ1/p_k and KKT derivative -1/p_k² yield unique clipped water-filling p_k=max(k/M,c); budget function is continuous and increasing, with upper cap c<1. Writing K≈Mc yields K~sqrt(2BM), c~sqrt(2B/M), leading mean M[1/2 log M +1 -1/2 log(2B)+o(1)], and variance two equal leading tail contributions totaling sqrt(2/B) M^(3/2). Geometric third absolute moments sum O_B(M²), yielding Lyapunov CLT on scale M^(3/4). Independently checked exact rational M=100,B=1/2 threshold c=21/200 and budget, and strict local convex comparison; source verifier was inspected but was not taken as an all-M proof.",
+      "residual_risks": [
+        "Aggregate statewise TV budget is not a per-step numerical error guarantee; p_M=1 fixed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General rounding-convergence theory covers wider objective classes but under different conditions; KKT theory applies generally to convex separable reciprocal-hazard costs."
+        ],
+        "reasoning": "The general optimization method is known, and the broad convergence results do not mathematically imply this exact finite pure-death optimal policy plus its fixed-B fluctuation law. Potential wider controlled-birth/death theorems remain a risk.",
+        "searches": [
+          "https://arxiv.org/pdf/2202.12276",
+          "https://arxiv.org/abs/2301.09511",
+          "Resultary: optimal resource allocation coupon collector accelerate pure death chain minimize sum reciprocal probabilities with fixed sum of transition rates Gaussian"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2202.12276",
+        "https://arxiv.org/abs/2301.09511",
+        "Resultary controlled coupon-collector and resource-allocation searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known unbiased coupon collector yields order-M Gumbel fluctuations and mean M log M, while current calibrated fixed-B optimum yields mean asymptotic half M log M and order M^(3/4) Gaussian."
+        ],
+        "reasoning": "These limit claims concern different transition kernels; one cannot transfer the classical Gumbel law to the calibrated triangular array. The standard KKT lemma supplies an ingredient but not the derived CLT.",
+        "searches": [
+          "https://arxiv.org/pdf/2202.12276",
+          "Resultary: optimal resource allocation coupon collector accelerate pure death chain minimize sum reciprocal probabilities with fixed sum of transition rates Gaussian"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xia–Massei–Hochstenbach–Koren 2022 investigates biased stochastic roundoff and descent rates; coupon-collector baseline has p_k=k/M and mean M H_M."
+        ],
+        "reasoning": "The finite-state dynamics also form a controlled pure-death coupon collector, an important alias. Neither inspected source establishes the specific sum-of-TV-budget optimal p_k and M^(3/4) CLT.",
+        "searches": [
+          "Resultary: stochastic rounding calibration pure-death chain optimal absorption time water filling coupon collector Gaussian limit",
+          "Resultary: optimal resource allocation coupon collector accelerate pure death chain minimize sum reciprocal probabilities with fixed sum of transition rates Gaussian",
+          "https://arxiv.org/pdf/2202.12276"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source finite policy M=100,B=1/2 gives exact c=21/200 and mean ~321.079; prior coupon-collector mean is 100 H_100."
+        ],
+        "reasoning": "A finite numerical optimum or standard coupon-collector table does not cover the all-M unique allocation and fixed-budget asymptotic central limit law; no matching exact controlled-hazard table was identified.",
+        "searches": [
+          "Resultary: stochastic rounding calibration pure-death chain optimal absorption time water filling coupon collector Gaussian limit",
+          "Xia et al arxiv:2202.12276 bias fixed-point gradient descent"
+        ]
+      },
+      "rationale": "Classical unbiased coupon-collector waiting times, convex water filling, and stochastic rounding bias theory are prior facts. The complete optimal calibration law with a fixed statewise TV budget and its unusual halved logarithmic mean and Gaussian M^(3/4) transition remain distinct best-of-knowledge claims.",
+      "residual_risks": [
+        "Specialist controlled pure-death chains or generalized coupon-collector acceleration may already give a technically equivalent clipped-hazard optimizer.",
+        "Rounding model is deliberately idealized scalar fixed-grid calibration; cannot be presented as a general floating-point implementation guarantee."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_NOT_SAME_CALIBRATION_THEOREM",
+          "evidence": [
+            "Bias affects convergence of gradient descent; the inspected theorem concerns convergence bounds, not a statewise TV-budget reciprocal-hazard optimum or absorption-time CLT"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2202.12276",
+          "material_read": "Relevant pages containing model definitions, stochastic-rounding bias and convergence theorem, inspected in the public PDF",
+          "method": "PDF extraction and selected page screenshots",
+          "title": "On the influence of stochastic roundoff errors and their bias on the convergence of the gradient descent method with low-precision floating-point computation",
+          "trigger": "Direct same optimization and biased-rounding context"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2202.12276"
+      ],
+      "rationale": "Optimizing a finite aggregate budget of signed rounding bias is a natural exact resource-allocation question. Its unique policy produces a nontrivial change both to the leading absorption-time scale and the limit distribution, offering a precise benchmark for quantized-descent models beyond a routine KKT calculation.",
+      "residual_risks": [
+        "Practical low-precision hardware bias is not equivalent to the modelled transition probabilities."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Fixed positive B, statewise total-variation budget, scalar integer quadratic only.",
+    "The Gaussian limit does not extend automatically to B approaching 0 with M."
+  ],
+  "schema_version": 1
+}
