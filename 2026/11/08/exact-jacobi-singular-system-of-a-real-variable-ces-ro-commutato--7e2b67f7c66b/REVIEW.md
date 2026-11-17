@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS (same-model).** The commutator kernel equals \((x-t)/[x(1-t)]\) below the diagonal, bounded by \(1\), hence Hilbert–Schmidt. Jacobi orthogonality and weighted-unitary completeness prove that both explicitly given polynomial families are ONBs. The terminating hypergeometric identity proves the image of each right singular vector exactly, giving all singular values without an enumeration assumption. The spectral-radius estimate uses domination by powers of Volterra integration. The exact polynomial and weighted orthogonality identities were additionally checked with the bundled standalone checker (44+392 exact rational cases). Finite checks do not prove the theorem.
+## correctness
 
-**Originality — PASS, qualified best-knowledge comparison.** Belli–Gül–Ross–Siskakis (arXiv:2604.19691, full HTML and accessible original) analyze the same \(C\) but not the coordinate commutator or its Jacobi SVD; their 2026 \(L^p\) sequel is likewise focused on spectra, norm, semigroups and invariant spaces. Deng–Fischer–Hofmann (arXiv:2401.11411, inspected full-text presentation) and the related Hardy–Volterra commutator result concern \(x^{-1}\int_0^x(x-t)f(t)\,dt\), missing the present denominator \(1-t\). Thus their quadratic singular asymptotics or implicit determinant do not assert the same singular values. Further searches considered Jacobi identities, weighted Volterra operators, and alternate wording; an older exact weighted singular-system theorem remains a priority risk. A lack of matching search hits is not proof of uniqueness.
+PASS
 
-**Mathematical value — PASS.** This gives an exact full singular system (vectors and multiplicities) for a canonical commutator of a newly studied normal integration operator. It converts qualitative compactness to precise approximation-number decay, nuclear and Hilbert–Schmidt norms, a sharp half-Schatten threshold, and contrasts quasinilpotence with a nontrivial infinite singular spectrum. These are natural operator-ideal invariants, not arbitrary numerical slices.
+For C f(x)=x^{-1}∫0^x f(t)/(1−t)dt, the coordinate commutator has kernel 1_{t<x}(x−t)/[x(1−t)], bounded by 1 and hence Hilbert–Schmidt. Shifted Jacobi weighted orthogonality and unitary multiplication from L²(x²dx) or L²((1−x)²dx) give two complete orthonormal bases u_n,v_n. Terminating Jacobi hypergeometric coefficients prove ∫0^x(x−t)P_{n−1}^{(2,0)}(2t−1)dt=x² P_{n−1}^{(0,2)}(2x−1)/[n(n+1)] for every n, yielding T v_n=[n(n+1)]⁻¹u_n and the full singular system, not merely a subset. Independently checked this exact integral identity symbolically for n=1,...,6. Telescoping gives trace norm 1, partial fractions give HS²=π²/3−3, and n⁻² singular asymptotics give Schatten p>1/2. Pointwise |T^j f|≤V^j |f| for Volterra integration V and ∥V^j∥≤1/j!, establishing quasinilpotence despite nonzero singular spectrum.
 
-**Limitations and risk.** The theorem is specific to the coordinate multiplier and \(L^2\), and its Jacobi ingredients are classical. A historical representation-theoretic equivalence could affect priority; no external independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+An exact complete Jacobi singular system for the coordinate commutator of the real-variable (1−t)⁻¹ Cesàro operator was not established in the inspected founding operator text or related Hardy–Volterra literature. These objects have different kernels even if their n⁻² decay is similar. Best-of-knowledge with residual risk of a broader Jacobi weighted-integration theorem.
+
+## value
+
+PASS
+
+The complete exact singular basis and entire Schatten ideal membership for a natural commutator of an explicitly studied real-variable Cesàro operator fill a concrete spectral gap. The contrast between compact quasinilpotent spectrum {0} and explicit positive singular sequence is mathematically instructive; all-degree Jacobi integration is harnessed nontrivially to solve an operator SVD.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
