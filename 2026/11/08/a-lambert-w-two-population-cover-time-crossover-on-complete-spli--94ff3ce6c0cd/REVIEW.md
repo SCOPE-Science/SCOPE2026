@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The exact substochastic two-state avoidance matrix follows by deleting any fixed \(k\) clique and \(\ell\) independent-set vertices. Its characteristic polynomial and first derivatives at the zero-deletion point give the two class-specific rare-hit rates, and the second-eigenvalue term is exponentially negligible. Exact mixed falling-factorial moments converge to those of two independent Poisson counts. The multivariate method of moments and discrete tightness yield total-variation convergence, and the coverage CDF is the joint zero-count event. The Lambert-W specialization is checked algebraically. The standalone checker replayed 1,087 finite algebraic/exact numerical assertions. These finite checks are not an asymptotic proof.
+## correctness
 
-**Originality (O): PASS, with residual historical risk.** Cooper–Frieze–Pegden (2018, arXiv:1810.04772) derive asymptotic expected cover times for dense graphs; this does not imply centered joint class-count total-variation convergence. Maier–Brockmann (2017) and Dong et al. (2022) study heterogeneous cover laws using first-passage approximations, not an exact two-class dependent-walk limit. Doumas–Papanicolaou (2017) analyze independent coupon sampling with multiple groups, a different sampling mechanism with other asymptotic constraints. Zlatanov–Kocarev (2009) provide general exact inclusion-exclusion formulas but do not evaluate this triangular scaling or its Lambert balance. Related random-walk and coupon-collector results may contain equivalent statements missed by searches; this uncertainty is not a proof of priority.
+PASS
 
-**Value (V): PASS.** Graph cover times on dense nonregular families depend on more than the highest single stationary hitting rate. The theorem identifies a critical class-size scale where two distinct populations simultaneously survive at cover time, with an explicit two-Poisson limit and a shifted Gumbel law. It distinguishes genuinely Markov-dependent visits from iid coupon sampling; an expected-cover-time asymptotic would not recover the class-resolved limit.
+For a>=2 and b/a->0, b->infty, finite eta, the killed-chain matrix Q has characteristic polynomial z²-uz-vw. Independent symbolic algebra gives 1-u-vw=(ak+aℓ+bk-kℓ)/(a(a+b-1)) and derivatives ∂k λ+=-(1+b/a)/(a+2b-1), ∂ℓ λ+=-1/(a+2b-1). For fixed factorial moment orders, spectral gap stays bounded, t=O(a log a), and accumulated O(a^-2) error vanishes; the subdominant eigenvalue O(b/a) dies. Starting-class exclusions in the exact falling-factorial identity give mixed Poisson moments, moment determinacy and discrete tightness give total variation, and zero unvisited vertices gives CDF. Lambert identity w exp w=log a gives eta=w²/log a->0. No inference from finite checks to infinite limit.
 
-**Scope and risks.** Only \(a\to\infty\), \(b\to\infty\), \(b/a\to0\) with finite logarithmic balance and fixed centered time are covered. No quantitative finite-size total-variation rate is supplied. Historical priority is not independently established, and slow convergence of the canonical Lambert scaling limits numerical interpretation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The stated distinct full final claim survives comparisons, with explicitly bounded residual risks.
+
+## value
+
+PASS
+
+Sharp two-population extreme-value crossover for a natural nonregular dense graph and a nontrivial dependent Markov sampler; identifies the critical Lambert scale and joint last-unvisited distribution, beyond expected cover time.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
