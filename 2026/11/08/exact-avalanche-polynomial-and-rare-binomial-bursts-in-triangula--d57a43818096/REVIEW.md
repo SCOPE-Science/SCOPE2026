@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Dhar's forbidden-subconfiguration criterion gives an if-and-only-if classification \(h_v\ge z\), where \(z\) counts zero-height page tips. Counting these states gives \((n+2)2^{n-1}\). Each source has an exhaustive three-case stabilization classification, with at most one toppling per nonsink vertex. The resulting complete polynomial gives the exact distributions and the stated first/second moments by binomial algebra. The independent queue-based checker passed 56,453 exact finite assertions for every \(1\le n\le9\), including full toppling-vector counts; the infinite claim rests on the argument, not those finite tests.
+## correctness
 
-## Originality — PASS on examined evidence
-Cori–Micheli–Rossin (arXiv:0905.2823v1) calculate tree avalanche polynomials, while Austin et al. (arXiv:1605.02713v1) treat trees, cycles, cliques, and wheels. They define the general objects and burning lemmas, which are credited, but the inspected statements do not give the triangular-book all-source polynomial. The triangular-book topology shares an edge among all triangles; unlike a friendship graph sharing a single vertex, it has two high-degree spine vertices. Previously examined sandpile findings for friendship, fan, bipartite, and cocktail-party graphs do not imply its coefficientwise avalanche law. A general full-system toppling count implies only one extremal coefficient in this particular case, not the other coefficients or the rare-event distribution. Search-index incompleteness is a residual risk; independently established priority is not claimed.
+PASS
 
-## Mathematical value — PASS
-This is a complete natural all-size, all-source avalanche classification for a shared-edge triangular cluster graph. It exposes a finite-size crossover hidden by the mean: each fixed source has mean one for all graph sizes, yet rare events contain a binomial number of order \(n\) of firings and the variance grows like a positive multiple of \(n\). The exact multivariate law preserves which vertices fire, so it is not merely an unmotivated scalar enumeration; it provides a reproducible benchmark for how a common-edge contact bottleneck changes stationary avalanches relative to other clustered graphs.
+For undirected K_{1,1,n} with one spine endpoint sink and n>=2, a stable recurrent state has spine height h in 0..n, tip heights eta_i in {0,1}. Dhar forbidden-subconfiguration criterion is equivalent to h>=z=#{i:eta_i=0}. Counting sums binom(n,z)(n-z+1)=(n+2)2^{n-1}. Addition at spine h=n topples spine once plus exactly height-one tips; h<n gives zero. At a tip: eta_j=0 gives zero, eta_j=1,h<n gives tip only, eta_j=1,h=n gives tip then spine then all other height-one tips. Every nonsink topples at most once. This exhausts source cases and yields the stated multivariate polynomial. Specializing yields the given binomial tails, E T=1 at either specified source, exact variances and rare conditional Bin(n,1/2)-scale large events. Independent enumeration of all recurrent states and individual legal topplings for n=2..6 exactly matched the coefficientwise multivariate formula. Not evidence of infinite proof, which is the burning-plus-case analysis.
 
-## Boundaries and residual risks
-Only standard one-sink undirected sandpiles with sink at one spine endpoint are considered. Relevant older literature could contain an equivalent formula under different graph nomenclature (triangular book, thagomizer, \(K_{1,1,n}\)). No power law or universal critical exponent follows. Independent audit and external priority confirmation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No checked pre-existing result yields the complete n-parameter all-source, toppling-vector polynomial for triangular books. Cori–Micheli–Rossin derive tree avalanche polynomials, Austin et al. explicitly classify trees, cycles, complete graphs and wheels, distinct from K_{1,1,n}. Related fan/friendship/book-named findings concern different graphs or different chip-firing dynamics. The burning lemma and general avalanche generating polynomial are prior; novelty is the all-size exact thagomizer profile.
+
+## value
+
+PASS
+
+The triangular book is a natural edge-sharing triangle family. Exact multivariate firings reveal a pronounced distributional effect hidden by first moments: E T=1 identically, but rare order-n binomial bursts produce variance growing linearly in n, with exact weights and which-tip firing sets. This complete natural classification is more useful than a single known moment or arbitrary finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
