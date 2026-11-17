@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The exact support-recurrence and temporal-coefficient table can be checked by running `python3 code/verify_signatures.py` from the package root. This enumerates all 147 nonempty signatures, verifies the core-rainbow criterion for oscillation, and compares all ten counting formulas with surjection-weighted counts for 132 graph-parameter pairs.
+# Independent mathematical audit
 
-Run `python3 code/verify_direct.py` for a separate graph-adjacency implementation. It evolved all 392,040 labelled initial states across 20 graph sizes, compared first-entry times and least periods with the formulas, and checked the five-entry profile **separately for each primitive three-cycle**. Both programs are standalone and use only Python's standard library. The recorded output is `checks/verification_output.txt`.
+## correctness
 
-The finite computations verify an exact 147-case classification; the proof that this classification covers every graph size follows from the identical-input support quotient and surjection counting, not from fitting finite numerical data. No independent expert audit or external formal certification has been performed. The publication-priority comparison is necessarily bounded by discoverable and accessible sources.
+PASS
+
+For labelled pineapple K_{r+1} with s pendant leaves at one hub (r≥2,s≥1), identical inputs to same-color nonhub clique vertices and leaves induce an exact deterministic transition on 3×7×7=147 support signatures (h,A,B). I independently enumerated every signature, its ultimate period and first entry time and reproduced all six-by-five extinction coefficients, as well as full direct labelled evolution at (r,s)=(2,1),(2,2),(3,1); all match the ten formulas. The separate hub-phase forced-leaf table produces individual three-cycle basin profile B=(3,2^s−1,3^s−1,3^s−1,3^s−2^s). Surjection weights W_r(a) lift the complete finite support classification to arbitrary sizes. Thus first-entry times are 0..4, only least periods 1 or 3 occur, Q=3^r−2^(r+1)+1 primitive 3-cycles exist, and F^7=F^4 with sharp T=4 for all parameters. Finite-state exhaustion is complete for the exact quotient, not an extrapolation of bounded graph tests.
+
+## originality
+
+PASS
+
+Gravner–Lyu–Sivakoff's 2016 arbitrary-graph Greenberg–Hastings theory already separates eventual quiescence and sustained excitation using circulation; that qualitative partition is prior mathematics. The asserted contribution is strictly finer and complete clock-resolved entry populations plus identical five-layer basins for EACH primitive orbit on clique-with-pendants graphs. Semantic search of other complete split/tripartite/friendship graph censuses found different adjacency models or majority rules, with no reduction giving this particular per-orbit profile. A possible unindexed exact census remains a qualified residual risk.
+
+## value
+
+PASS
+
+The exact entrance-time and period distribution is a natural invariant of a canonical excitable network, including a sharp universal four-step transient and a nontrivial per-primitive-cycle basin law independent of clique size. These are motivated propagation-time quantities, not an arbitrary tiny graph count, and supply concrete input for future deterministic excitation and basin studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
