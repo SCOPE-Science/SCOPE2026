@@ -1,9 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** Fourier diagonalization gives an orthogonal direct sum of normalized two-by-two heat-alias matrices. Their Gram trace and determinant are computed exactly. Both eigenvalue branches increase with the absolute alias frequency because the trace and determinant have equal positive derivatives and the two eigenvalues lie strictly on opposite sides of one. The lowest and highest alias frequencies therefore give the sharp closed-form frame endpoints for every even cycle; the zero-frequency alias explains the exact divisibility-by-four obstruction. Compact-uniform expansion around the smallest nonzero alias gives the \(N^{-2}\) lower-frame scaling. An explicit uniform Rayleigh envelope excludes optimizing delays tending to zero or infinity. The limiting objective has one global maximizer, providing the universal delay and exact coefficient. Direct 105-case matrix verification and six additional asymptotic checks corroborate the proof; they are not used to infer an infinite theorem. The prescribed Laplacian and frame-normalization factors are explicit in the statement and proof.
+## correctness
 
-**Originality — PASS, provisional.** The closest general finite-dimensional dynamical-sampling theorem by Cabrelli, Molter, Paternostro and Philipp supplies normal-operator frame existence conditions but no closed finite-cycle time-optimized spectral bounds. Christensen, Hasannasab and Stoeva focus on iterated-operator frame representations, not sharp two-snapshot observation on even cycles. Aldroubi and collaborators analyze a continuous bandlimited Fourier flow, including blind spots and stability, but the specific discrete modulo-four obstruction, all-\(N\) extremal Gram eigenvalues, and unique limiting optimal heat delay are not stated consequences of their estimates. Relevant randomized graph heat sampling treats bandlimited states and statistical sampling, not the full-band deterministic system. Search comparisons also covered published records on two-sensor low-pass cycle frames, arithmetic-spectrum observation horizons, and half-cycle Fourier concentration; their observation geometries or objective functions differ. A specialist calculation with different normalizations or terminology remains a priority risk; database nonmatches alone are not proof of novelty.
+PASS
 
-**Value — PASS.** This solves a natural sharp observability and experimental-design problem: a fixed half-density graph sensor array is either permanently blind or fully reconstructing according to cycle arithmetic, and when reconstructing its best time separation has a universal limit and exact vanishing worst-case signal-energy constant. The joint parity law and optimal-delay asymptotic are structural, rather than a finite table or a renaming of operator-theoretic existence criteria. The result does not optimize arbitrary sensor placements or multiple snapshots.
+Unitary Fourier analysis pairs k and k+N/2 under alternate-vertex restriction, giving orthogonal blocks Q_δ=1/sqrt2[[1,1],[e^{-(2-δ)t},e^{-(2+δ)t}]], δ=2|cos(2πk/N)|; no hidden normalization factor appears for counting-measure norms. The Gram trace and determinant for sqrt2 Q are T=2+2q cosh(2δt), D=2q(cosh(2δt)-1), q=e^{-4t}, and T′=D′>0. Their eigenvalues straddle 1, so both branches grow with δ; min δ=0 iff 4|N, otherwise 2sin(π/N), while max δ=2. The resulting exact A_N and B_N follow by quadratic roots. A_N/d_N²→h(t)=t²/(1+e^{4t}) compact-uniformly, and Rayleigh upper envelope A_N/d_N²<=t²e^{-2t} excludes maximizers at t→0 or infinity. The unique positive maximizer solves 2τ=1+e^{-4τ}, and N d_N→2π gives the constant. Independently rebuilt full complex cycle heat matrices for N=4..20 (even) and five t values, verifying 45 exact Gram extrema within 2e-12. Universal and limit assertions rely on proof not tests.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Operator-frame existence and bandlimited-flow observability sources give general criteria and Fourier blind spots but do not state the exact finite even-cycle half-sensor two-time Gram extrema, the modulo-four obstruction, or best-delay limit. A published Resultary result on the infinite integer lattice optimizes a spectral-notch two-time frame and has different domain and scaling; another on a cycle uses two sensors and only the first three Fourier modes. Those do not imply the full-spectrum half-sensor bound by specialization. Specific literature with other normalizations may be overlooked; best-of-knowledge only.
+
+## value
+
+PASS
+
+Sharp recovery stability for fixed sparse sensors is a mathematically motivated experimental-design invariant. The exact parity phase boundary, upper/lower sharp bounds, and a universal time-optimal scaling resolve the full finite-cycle family with nontrivial Fourier alias analysis and a controlled optimizing limit, not a table or a routine frame-existence restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
