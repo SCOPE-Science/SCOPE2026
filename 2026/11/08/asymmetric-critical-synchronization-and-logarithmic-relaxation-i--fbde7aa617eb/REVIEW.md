@@ -1,12 +1,21 @@
-# Scientific review: asymmetric critical synchronization and logarithmic relaxation
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is the positive quadrant with fixed unequal \(0<\alpha,\beta<1\) and intrinsic growth \(2\). Global convergence relies on Theorem 3.4 of Baigent et al. (2023); direct sign-of-invasion arguments eliminate all noncoexistence fixed points as limits of positive trajectories. The exact logarithmic ratio formula gives exponential transverse contraction and the exact resonance \(1-2\alpha-2\beta+3\alpha\beta=0\) for supergeometric synchronization. A local inverse-shadowing lemma transfers the scalar critical two-step normal form to every planar orbit with exponentially small error. The computed normal-form coefficients yield inverse-square increments \(8/3+64/(15Z)+O(Z^{-3/2})\), and summable remainder terms give the shared \(8/5\) logarithmic coefficient and finite constant. Exact symbolic and 3 high-precision asymmetric tests ran successfully. The finite checks do not replace the proof.
+## correctness
 
-## Originality — PASS, within inspected evidence
-The published Baigent et al. convergence theorem does not establish the clock or the exact transverse contraction, and its stronger basin classification explicitly assumes strict growth parameters below \(2\). A pre-existing result for the equal-coupling subfamily has an analogous clock; it does not assert the unequal-coupling theorem and cannot be applied by exchanging the species because the unequal map has distinct equilibrium populations and lacks the swap symmetry. The new contribution is the full fixed two-parameter asymmetric domain, the exact non-symmetric logarithmic ratio identity, and the fact that *both* normalized species share even the constant term of the critical inverse-square expansion. The reported Floquet-spectrum result for row-regular Ricker cycles concerns linear stability of synchronous periodic motions and does not by itself establish this orbitwise global rate. The 2024 carrying-simplex work concerns strict subcritical intrinsic growth; the 2026 global-stability extension treats parameter regimes outside the 2023 convergence range. Unindexed equivalent proofs, and full texts not inspected where noted, remain risks.
+PASS
 
-## Mathematical value — PASS
-At a unit-modulus flip multiplier the global convergence theorem does not quantify the slow approach, and strong asymmetric competition can change transverse stability. The exact synchronization formula identifies the entire weak-competition asymmetric region where one species-normalized phase survives and demonstrates complete robustness of both the leading and logarithmic critical coefficients under symmetry breaking. This separates exponentially fast interspecies synchronization from algebraically slow relaxation to coexistence, a meaningful structural phenomenon rather than a parameter substitution in the symmetric map. The theorem does not classify exceptional exponentially convergent states or extend to unequal growth thresholds.
+PASS. For 0<alpha,beta<1, alpha≠beta, r=s=2, Baigent et al. Theorem 3.4 (2023) guarantees every orbit converges to a fixed point; positivity and invasion ratios rule out origin and both axial points, forcing E=(u,v). For P=log(x/u), Q=log(y/v), d'=d-c(e^P-e^Q) gives exact multiplier tending to 1-c with c=2(1-alpha)(1-beta)/(1-alpha beta)∈(0,2), so exponential synchronization, and on c=1 supergeometric. The scalar normalized map g(t)=t exp(2(1-t)) admits two-step F(w)=w-4w³/3+8w⁵/15+4w⁶/9+O(w⁷). The source proves exponentially accurate inverse-shadowing of every asymptotically small perturbed F orbit; thus either exponential decay or inverse-square increment 8/3+64/(15Z)+O(Z^-3/2), yielding Z_m=(8/3)m+(8/5)log m+C+o(1). Exponentially close normalized species share the same C. Fresh exact Sympy expansions recovered F and reciprocal drift. Finite computations do not prove global convergence or the clock; published theorem and analytic contraction do.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS, best of inspected knowledge. Baigent et al. 2023 full text Theorem 3.4 proves inclusive-boundary global convergence but contains no pairwise logarithmic synchronization or sharp critical two-term clock; its stronger fixed-point global asymptotic stability theorem is formulated for r,s<2. A November 1 2026 published SCOPE theorem establishes an analogous scalar clock only for the symmetric coupling alpha=beta; it does not imply the unequal-coupling invariant normalized diagonal, exact transverse eigenvalue c, shared C, or asymmetric resonance c=1. A nontrivial off-diagonal contraction/shadowing argument is necessary. Historical unindexed asymmetric rate results remain possible.
+
+## value
+
+PASS
+
+PASS. The boundary r=s=2 is nonhyperbolic, and the universal inverse-square drift/log correction for *unequal* competition parameters plus exactly synchronized orbit constants is a natural dynamical classification rather than a routine parameter substitution. Its exact c=1 resonance distinguishes supergeometric interspecies synchronization while both populations may decay algebraically.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
