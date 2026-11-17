@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T21:56:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md, verify.py and exact gcd partitions",
+        "P. Pongsriiam, Relatively Prime Sets, Divisor Sums, and Partial Sums, JIS 16 (2013) Article 13.9.1, original Question 3.3",
+        "Independent gcd recurrence and rational inequality /mnt/data/independent_math_check_2146.py"
+      ],
+      "rationale": "Every nonempty subset of [n] with gcd g is g times a gcd-one subset of [floor(n/g)], so count f(floor(n/g)). The complement deficits also include the empty subset, yielding A=1+sum_{g>=2,g not dividing n} f(floor(n/g)) and B=1+sum_{g>=2,gcd(g,n)>1} f(floor(n/g)). The smallest admissible gcd is a(n) in A and least prime p(n) in B. Subsets containing 1 give 2^(m-1)<=f(m)<=2^m-1, so the first term controls each sum below and at most n+1 such terms control above; dividing the positive bounds proves exact factor 2(n+1) sandwich. For even n, p=2,a>=3 so h<=floor(n/3)-n/2; for odd n a=2,p>=3 so h>=floor(n/2)-floor(n/3). Exponential gaps dominate the factor n. Independently computed f by the gcd decomposition recurrence, then A,B and both rational inequalities for all 4<=n<=150 in exact integers. The infinite argument is analytic/combinatorial, not finite enumeration.",
+      "residual_risks": [
+        "Only a factor-polynomial sandwich, not a constant-relative asymptotic; other partial-sum questions are untreated."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 9 of the later work proves parity sign order D(2m)>Phi(2m) and its reverse for odd n, but does not give rate of the separate two deficits 2^n-D and 2^n-Phi.",
+          "OEIS lists D(n) as a sequence, not a theorem for the quotient and least inadmissible gcd parameters."
+        ],
+        "reasoning": "Ordering D and Phi or separately counting f(n) does not imply exponential behavior of the quotient of their deficits; that requires the excluded gcd partitions and leading-admissible index analysis.",
+        "searches": [
+          "Resultary: Pongsriiam relatively prime subsets D(n) Phi(n) complement deficit ratio limsup liminf",
+          "Pongsriiam 2013 JIS 16 Question 3.3",
+          "Pongsriiam Local Behaviors of Number of Relatively Prime Sets 2016 Theorem 9",
+          "OEIS A224840"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1306.4891",
+        "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL16/Pongsriiam/pong2.pdf",
+        "https://doi.org/10.1142/S1793042116500962",
+        "Resultary: Pongsriiam relatively prime subsets D(n) Phi(n) complement deficit ratio limsup liminf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2013 full paper specifically leaves liminf/limsup of R(n) unresolved; its Section 4 contains the question.",
+          "The later sign statement fixes whether numerator is greater or smaller than denominator, but provides no unbounded logarithmic gap h(n) growing linearly with parity."
+        ],
+        "reasoning": "The current theorem implies the older parity comparison and resolves the stated outstanding limit question, but the converse fails: signs allow ratios tending to any positive constants or infinity at varied rates. New proof uses minimum forbidden gcds.",
+        "searches": [
+          "Pongsriiam 2013 full paper Question 3.3",
+          "Pongsriiam 2016 Theorem 9 sign statement",
+          "Resultary: Pongsriiam relatively prime subsets D(n) Phi(n) complement deficit ratio limsup liminf"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2013 original Question 3.3 asks for exactly these two limits of the quotient of complementary counts.",
+          "The known gcd-class reinterpretation gives deficits as excluded gcd-class sums, with smallest excluded gcd a(n) and least noncoprime gcd p(n)."
+        ],
+        "reasoning": "The searched aliases are the same quotient and its logarithmic scale, not the more familiar D-Phi sign. Existing combinatorial counting identities are used as premises but do not themselves state the uniform quotient estimate.",
+        "searches": [
+          "Resultary: Pongsriiam relatively prime subsets D(n) Phi(n) complement deficit ratio limsup liminf",
+          "Pongsriiam Question 3.3 liminf limsup (2^n-D(n))/(2^n-Phi(n))",
+          "gcd-divides n and gcd-coprime n subset counting"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Numerical D(n) and Phi(n) tables determine finite ratio examples only; the submitted inequality covers every n>=4 with variable arithmetic exponents.",
+          "The earlier Question 3.3 is posed rather than solved in the original article."
+        ],
+        "reasoning": "No exact database table with finitely many entries implies the two all-integers asymptotic limits; the new uniform arithmetic estimate is genuinely quantified.",
+        "searches": [
+          "Resultary: Pongsriiam relatively prime subsets D(n) Phi(n) complement deficit ratio limsup liminf",
+          "Pongsriiam 2013 JIS original exact definitions and question",
+          "OEIS A224840 sequence for D",
+          "Exact n=4..150 independent ratios"
+        ]
+      },
+      "rationale": "The 2013 primary paper explicitly poses this complementary-deficit quotient's limiting lower and upper behavior as Question 3.3. The later Pongsriiam parity sign theorem compares D and Phi and is weaker/different for their deficits from 2^n. A new uniform exponential sandwich determined by least nondivisor and least prime factor answers the specific limits; an exhaustive novelty guarantee is not claimed because the proof uses elementary known gcd partitions.",
+      "residual_risks": [
+        "An independent elementary solution to Pongsriiam's question published after 2013 might have escaped indexing; originality remains bounded.",
+        "The known 2015/2016 sign theorem is not treated as novel. Full later-paper content was not verified in this audit beyond identified statement and bibliographic material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OPEN_QUESTION_NOT_SOLVED",
+          "evidence": "Explicitly asks the lower and upper limits of precisely (2^n-D(n))/(2^n-Phi(n)); the submitted bound answers them.",
+          "identifier_or_url": "https://www.maths.tcd.ie/EMIS/journals/JIS/VOL16/Pongsriiam/pong2.pdf",
+          "material_read": "Full primary 2013 paper, including counting definitions, Section 4's Question 3.3 and neighboring related questions",
+          "method": "Original open-access PDF text and screenshot of Question 3.3",
+          "title": "Relatively Prime Sets, Divisor Sums, and Partial Sums",
+          "trigger": "Same functions and explicit Question 3.3"
+        },
+        {
+          "assessment": "LIMITED_ACCESS_PRIORITY_RISK",
+          "evidence": "Known sign theorem is distinct from a quantitative quotient-growth bound, but a hidden later full-text theorem cannot be excluded solely from summaries.",
+          "identifier_or_url": "https://doi.org/10.1142/S1793042116500962",
+          "material_read": "Theorem 9 statement and bibliographic summaries of alternating D-Phi sign; complete full text not obtained in this audit",
+          "method": "Secondary references, metadata and cited theorem summaries, not a full-paper negative exclusion",
+          "title": "Local Behaviors of the Number of Relatively Prime Sets",
+          "trigger": "Later primary study with parity sign comparison potentially covering the question"
+        },
+        {
+          "assessment": "SUBMITTED_CLAIM_VERIFIED",
+          "evidence": "The exact gcd partitions and first-admissible gcds give the displayed two-sided bound for all n>=4.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/uniform-arithmetic-growth-law-for-complementary-relatively-prime--e3e2e0e56cb2/RESULT.md",
+          "material_read": "Entire frozen RESULT.md and independently read verify.py, including gcd partitions, sandwich and parity limits",
+          "method": "Complete frozen GitHub blob read",
+          "title": "Uniform arithmetic growth law for complementary relatively-prime subset counts",
+          "trigger": "Inspect submitted mathematical final statement and proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pongsriiam JIS 2013 original Question 3.3",
+        "Independent exact ratio examples and complete gcd-partition proof"
+      ],
+      "rationale": "The paper introducing D and Phi explicitly raised these two extremal complementary-deficit limits. Resolving a precise published open quantitative question and giving a uniform pointwise arithmetic exponent h(n) is a motivated and potentially reusable invariant, beyond an elementary parity sign. Its proof is short but the result is genuinely a sharp qualitative even/odd separation and not merely a recomputation of known D(n) tables.",
+      "residual_risks": [
+        "The multiplicative factor 2(n+1) prevents claiming exact asymptotic constants; historical priority bounded by inspected sources."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For n>=4, with D(n)=sum_{d|n} f(d), Phi(n) counting nonempty subsets of [n] whose gcd is coprime to n, a(n)=least g>=2 not dividing n, p(n)=smallest prime factor and h(n)=floor(n/a(n))-floor(n/p(n)), the deficit quotient (2^n-D(n))/(2^n-Phi(n)) lies between 2^h/[2(n+1)] and 2(n+1)2^h. It tends to zero along even n and diverges along odd n, resolving Pongsriiam 2013 Question 3.3.",
+  "limitations": [
+    "Only a factor-polynomial sandwich, not a constant-relative asymptotic; other partial-sum questions are untreated.",
+    "An independent elementary solution to Pongsriiam's question published after 2013 might have escaped indexing; originality remains bounded.",
+    "The known 2015/2016 sign theorem is not treated as novel. Full later-paper content was not verified in this audit beyond identified statement and bibliographic material.",
+    "The multiplicative factor 2(n+1) prevents claiming exact asymptotic constants; historical priority bounded by inspected sources."
+  ],
+  "schema_version": 1
+}
