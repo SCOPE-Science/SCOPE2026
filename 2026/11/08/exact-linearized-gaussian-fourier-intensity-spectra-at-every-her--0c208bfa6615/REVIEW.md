@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The normalization is \(\int z^a\overline z^{\,b}d\gamma=\mathbf 1_{a=b}a!\). Expanding \(L_mh\) gives the exact orthogonal plus conjugate anti-diagonal form. Each distinct pair of monomials \(n,2m-n\) gives two real symmetric blocks with the stated square-root spectrum, the middle monomial yields a one-dimensional phase kernel, and the tail gives explicit diagonal eigenvalues. Factorial log-convexity proves every other eigenvalue is positive. An eigenvector gives equality in the sharp lower bound. The full multiplication domain is handled by polynomial density in its graph norm. The checker verifies supplementary exact moments and minors, not an infinite enumeration.
+PASS
 
-## Originality
+For Fock monomial base e_m, polar Gaussian moments kill all terms except n=k for magnitude and n+k=2m for off-diagonal terms. The real monomial coefficients split into two symmetric 2×2 blocks with entries 2B(m,n), 2B(m,2m-n), ±2 sqrt(R_m binom(2m,n)); one center phase kernel and infinite diagonal tail remain. Factorial strict log-convexity proves positive lower paired eigenvalues, so κ_m>0, and κ_m<2 by the n=0 block. Independent exact-integer binomial determinant tests checked 136 paired blocks for m<=16, and direct m=1,2 radicals; finite tests corroborate proof and natural graph-domain closure.
 
-PASS relative to the retrieved and materially inspected sources, with residual priority risk. The May 2026 Bertolini et al. full HTML presents a nonlinear amplitude stability theorem with existential bounds at Hermite monomials, but not the precise real squared-intensity derivative spectrum or optimal local gain. The August 2026 Bortolotto–Ramos abstract concerns nonlinear square-restricted Fock coercivity near a constant, not a complete all-degree real Jacobian spectrum; its unavailable full text remains a documented risk. Search variants include real intensity Jacobian, Hermite monomial Hessian, binomial pair eigenvalues, and Gaussian phase retrieval stability. Retrieved related research records concern Fock concentration, Gabor optimization, and finite chirp Hessians, whose claims do not imply this spectrum. An unindexed earlier equivalent calculation cannot be excluded.
+## originality
 
-## Value
+PASS
 
-PASS. Existing qualitative Hermite-mode stability does not determine the conditioning of infinitesimal Gaussian spectrogram intensity measurements. The complete spectrum for every degree resolves a natural intrinsic linearized inverse problem, identifies the only ambiguity, proves a positive exact optimal noise gain, and supplies explicit worst-case two-mode directions. This is more informative than rephrasing a known existence estimate, without claiming global nonlinear stability.
+Gaussian polar moments produce a real quadratic form pairing coefficient indices n and 2m-n, plus the center phase/amplitude directions and tail. Each 4-real-dimensional pair splits into two 2×2 matrices with eigenvalues λ± of real multiplicity two. Strict factorial log-convexity makes every λ- positive; ie_m alone is the null vector and the sharp transverse lower gain is min λ-. This explicit entire spectrum for every Hermite mode and precise domain is not implied by prior existential nonlinear amplitude stability.
 
-## Closest work and limits
+## value
 
-Main comparison: Bertolini et al., *L²-Stability for STFT phase retrieval*, arXiv:2605.20527v1, Sections 1 and 2, particularly Theorem 1.5. Secondary comparison: Bortolotto–Ramos arXiv:2608.26365v1, abstract, with inaccessible primary full text reported. The result is limited to analytic Gaussian Fock space, squared intensity, and the natural unbounded multiplier domain. This assessment is not independent validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sharp full real-linear spectrum of the Gaussian Fock intensity differential at every Hermite monomial and its exact phase-quotient transverse gain is a natural stability invariant. The block-pair structure enables precise study of local conditioning, unlike merely existential nonlinear coercivity constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

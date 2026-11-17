@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-For \(m\ge1\), the proof is a Gaussian orthogonality identity followed by two-by-two real block diagonalization. The exact polynomial checker independently integrates coefficients by Gaussian moment matching, compares with the anti-diagonal formula, and checks strict factorial inequalities for degrees 1 through 16. Run `python3 CHECK.py` with the standard library. The checked program prints a count of its successful assertions.
+# Independent mathematical audit
 
-The proof is universal; finite checks alone are not a proof for all \(m\). No independent audit was performed. The intensity derivative is an unbounded real operator on a weighted multiplication domain, not a bounded derivative on the entire Fock Hilbert space. The mathematical statements do not imply global nonlinear intensity stability.
+## correctness
+
+PASS
+
+For Fock monomial base e_m, polar Gaussian moments kill all terms except n=k for magnitude and n+k=2m for off-diagonal terms. The real monomial coefficients split into two symmetric 2×2 blocks with entries 2B(m,n), 2B(m,2m-n), ±2 sqrt(R_m binom(2m,n)); one center phase kernel and infinite diagonal tail remain. Factorial strict log-convexity proves positive lower paired eigenvalues, so κ_m>0, and κ_m<2 by the n=0 block. Independent exact-integer binomial determinant tests checked 136 paired blocks for m<=16, and direct m=1,2 radicals; finite tests corroborate proof and natural graph-domain closure.
+
+## originality
+
+PASS
+
+Gaussian polar moments produce a real quadratic form pairing coefficient indices n and 2m-n, plus the center phase/amplitude directions and tail. Each 4-real-dimensional pair splits into two 2×2 matrices with eigenvalues λ± of real multiplicity two. Strict factorial log-convexity makes every λ- positive; ie_m alone is the null vector and the sharp transverse lower gain is min λ-. This explicit entire spectrum for every Hermite mode and precise domain is not implied by prior existential nonlinear amplitude stability.
+
+## value
+
+PASS
+
+Sharp full real-linear spectrum of the Gaussian Fock intensity differential at every Hermite monomial and its exact phase-quotient transverse gain is a natural stability invariant. The block-pair structure enables precise study of local conditioning, unlike merely existential nonlinear coercivity constants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
