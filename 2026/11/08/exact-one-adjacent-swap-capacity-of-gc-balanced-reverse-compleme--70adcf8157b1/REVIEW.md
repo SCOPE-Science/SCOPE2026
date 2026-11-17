@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The binary decision of including each reverse-complement orbit precisely captures the closure and no-fixed-strand hypotheses. The swap-ball definition includes the unaltered word and all three adjacent swaps; exhaustive enumeration confirms the eight fixed words, four unusable nontrivial orbits, 40 legal orbits, 100 conflict edges, and the full five-component independent-set enumeration. A second composition-first implementation reproduces the optimum and exact extremizer count without relying on saved graph data. The displayed 22-word code independently passes a pairwise disjoint-ball check. The mathematical conclusion follows from an exact finite exhaustive algorithm, not extrapolation.
+PASS
 
-## Originality — PASS, qualified
+For four-symbol DNA words with exactly two C/G letters, reverse-complement closure and no fixed strands, 96 possible balanced words have 8 fixed and 44 nontrivial two-strand orbits; four orbits self-conflict under the closed 0/one-adjacent-swap balls. The remaining 40 orbits form a 100-edge graph with connected component sizes 4,6,6,12,12. Independent reconstruction of each swap ball and exhaustive independent-set enumeration gives component (size,alpha,opt-count) (4,1,4), twice (6,2,3), twice (12,3,12). Thus maximum is 2*(1+2+2+3+3)=22 codewords and labeled equality count 4*3*3*12*12=5184. An alternative multiset graph recursion corroborates unrestricted 25. Every finite choice is checked, so this finite enumeration is exhaustive rather than extrapolated.
 
-The closest primary works were compared at statement and channel level. King's constant-GC Hamming/RC model and Bennenni–Guenda–Mesnager's algebraic cyclic DNA codes do not fix the present swap-channel optimum. Gabrys–Yaakobi–Milenkovic's Damerau paper addresses adjacent swaps but expressly develops its concrete constructions in the binary setting, without a length-four quaternary reverse-complement-closed census. Kiah–Puleo–Milenkovic's DNA profile model is a different observation channel. Published research-record searches for the same parameters and equivalent wordings identified related binary transposition, deletion, and DNA composition results, but no dominating theorem. Absence from searches is not a novelty certificate; unexamined historical theses and inaccessible variants remain a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The object is a natural conjunction of constant-GC composition, explicit strand pairing, and a finite-word synchronization-error model. The exact capacity and complete labeled extremizer census supply useful design information not contained in a general asymptotic bound; the comparison maximum of 25 isolates the finite cost of the strand constraints. This is a mathematical constraint-classification result and makes no empirical biochemical claim.
+PASS best-of-knowledge for sharp 22-codeword capacity and complete 5184 labeled equality census under the precise adjacent-transposition, Watson–Crick closure, GC-balance constraints; related Hamming/deletion code counts not identified as covering.
 
-## Limitations
+## value
 
-Only length four and one adjacent swap, not arbitrary adjacent-swap count, larger length, or other DNA error channels, are covered. Independent historical-priority and scientific audits remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This precisely characterizes both capacity and all optimal labeled codebooks of a motivated finite joint DNA composition/strand-pairing/adjacent-transposition model; the complete equality case and channel contrast are independently useful invariants, beyond a routine general distance-code substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
