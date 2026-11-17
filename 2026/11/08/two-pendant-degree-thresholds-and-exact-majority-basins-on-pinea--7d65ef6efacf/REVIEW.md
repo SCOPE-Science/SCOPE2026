@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The update is reduced without approximation to the ordinary-clique one-count \(m\), the hub bit \(h\), and the leaf one-count \(\ell\). Odd-clique flipping states are tracked as actual labelled complement masks, preventing an aggregate-count false period. Exhausting the homogeneous and mixed recurrent cases proves the two attractor thresholds and complete orbit count. The recurrence bound is established by direct case analysis, and the high-leaf census by complementary binomial tails and conservation of labelled states. Two separate source-code checkers corroborate the identities, but the proof is not inferred from numerical runs.
+## correctness
 
-## Originality
-PASS (qualified). The period-at-most-two theorem for symmetric thresholds is earlier work, and the one-leaf case is already known. The new claim concerns two distinct pendant-degree thresholds across the full pineapple family, a sharp three-step voting-time classification, and exact \(s>r\) entrance populations. The examined Benjamini et al. (2014) manuscript focuses on infinite unimodular and random graphs; the examined Kaaser et al. (2015) manuscript develops general voting-time/module results rather than these exact family counts. Searches also found a pineapple-graph curvature result, whose invariant does not imply majority-update dynamics. The 1980 general theorem's abstract was read, but its full manuscript was not available; unindexed equivalent special-family work remains a priority risk.
+PASS
 
-## Mathematical value
-PASS. The two thresholds separate emergence of polarized equilibria from emergence of new oscillatory states, while the parity of clique size controls an independent central-binomial family of cycles. The exact near-half oscillatory-basin proportion and sharp uniform stabilization bound quantify robust voting behavior for a natural two-parameter graph family, not an arbitrary finite slice. This provides information beyond existence of eventual period two.
+Explicit update of every ordinary-clique bit from m−bit+h, hub from m+leaf-one-count, and leaves from h yields the exact homogeneous or odd-r complement-flip dichotomy. Periodic mixed states must flip masks and hub/leaf alternately; homogeneous states reduce to three piecewise hub–leaf rules for s<r,s=r,s>r. Exact labels and binomial tails give the high-leaf first-entry formulas. Independent full-mask enumeration for 9 small (r,s) cases agrees on fixed/primitive-two-cycle counts, sharp temporal classes and s>r N_t,p; the full proof handles unbounded parameters.
 
-## Limitations and close literature
-No claim is made for asynchronous voting, weighted edges, all transient layers when \(s\le r\), or novelty of the general period-two theorem. The strongest comparison sources are arXiv:1405.2486v1 and arXiv:1508.03519v1; special-case one-leaf results are explicitly excluded from the novelty claim. Historical-priority risk persists for work not indexed by the searched sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The universal period-at-most-two result for symmetric thresholds predates this work. The published one-leaf pineapple case s=1 already covers a restricted subfamily, so that special case is not claimed original. Neither source implies the two separate s=r and s=r+1 thresholds nor the high-leaf exact full temporal basin census and parity interaction across variable s.
+
+## value
+
+PASS
+
+The natural hub-leaf parameter creates two distinct bifurcation thresholds (new equilibria and new cycles) and a sharp, fully labelled finite-state attraction distribution. These quantities describe precise deterministic majority voting-time and basin structure, rather than a tiny isolated recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

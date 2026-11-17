@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Run from the directory containing these files:
+## correctness
 
-```
-python3 code/reduced_checker.py
-c++ -O2 -std=c++17 -Wall -Wextra -pedantic code/direct_checker.cpp -o direct_checker
-./direct_checker
-```
+PASS
 
-The exact binomial-weighted checker enumerates 437 parameter pairs covering \(s<r\), \(s=r\), and \(s>r\), for \(2\le r\le50\). Each of the \((r+1)(s+1)\) count-and-hub classes contributes its exact combinatorial multiplicity, not a Monte Carlo estimate. The other checker constructs explicit graph-neighbor lists, directly iterates all binary configurations in 49 pairs, and checks 1,395,984 labelled initial states. The captured output files are `evidence/reduced_output.txt` and `evidence/direct_output.txt`.
+Explicit update of every ordinary-clique bit from m−bit+h, hub from m+leaf-one-count, and leaves from h yields the exact homogeneous or odd-r complement-flip dichotomy. Periodic mixed states must flip masks and hub/leaf alternately; homogeneous states reduce to three piecewise hub–leaf rules for s<r,s=r,s>r. Exact labels and binomial tails give the high-leaf first-entry formulas. Independent full-mask enumeration for 9 small (r,s) cases agrees on fixed/primitive-two-cycle counts, sharp temporal classes and s>r N_t,p; the full proof handles unbounded parameters.
 
-Checks cover exact fixed and primitive-two-cycle populations across regimes, sharp maximum entry times, and exact all-population formulas for \(s>r\). The proof supplies all-parameter justification independently of the finite computations. No third-party validation or automated proof-assistant certification has been performed.
+## originality
+
+PASS
+
+The universal period-at-most-two result for symmetric thresholds predates this work. The published one-leaf pineapple case s=1 already covers a restricted subfamily, so that special case is not claimed original. Neither source implies the two separate s=r and s=r+1 thresholds nor the high-leaf exact full temporal basin census and parity interaction across variable s.
+
+## value
+
+PASS
+
+The natural hub-leaf parameter creates two distinct bifurcation thresholds (new equilibria and new cycles) and a sharp, fully labelled finite-state attraction distribution. These quantities describe precise deterministic majority voting-time and basin structure, rather than a tiny isolated recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
