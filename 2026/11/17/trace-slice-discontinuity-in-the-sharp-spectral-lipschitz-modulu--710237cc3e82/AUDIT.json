@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Every Hermitian two-by-two matrix of fixed trace \\(t\\) is \\(tI/2+v\\cdot\\sigma\\). Spectral calculus yields an exact inside/outside radial formula; the outside derivative in radial/tangential directions has norm \\(\\sqrt{1+(t/(2r))^2}\\), and the inside derivative has norm one. Integration gives the global upper bound, a boundary-limit directional witness proves sharpness at each nonzero trace, and strict derivative bounds away from finitely many boundary crossings yield nonattainment. At zero trace the modulus is scalar and the reverse triangle inequality gives sharp one. The included checker tests 16,000 pairs and numerical boundary witnesses but does not replace the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bhatia (2010), Modulus of continuity of the matrix absolute value, doi:10.1007/s13226-010-0014-0",
+        "Aleksandrov–Peller (2009), Operator Hölder–Zygmund functions, arxiv:0907.3049",
+        "Bhatia Theorem 4.2 provides a general \\(O(\\log n)\\) bound, without an identified exact constant on same-trace Hermitian 2-by-2 matrices; Aleksandrov–Peller Section 8 gives a failure of uniform operator Lipschitzness for |s| in unrestricted operator settings."
+      ],
+      "reasoning": "The general bounds do not imply the sharp coefficient as a function of the trace. Generic Frobenius-to-spectral norm comparison can yield an upper bound but not the strict nonattainment, exact local profile, or the discontinuous trace-zero case. Unrestricted non-Lipschitz results concern increasing or infinite dimension and are consistent with the finite-dimensional formula.",
+      "searches": [
+        "Modulus of continuity of the matrix absolute value Bhatia 2010 full text Section 1 Theorem 4.2",
+        "Operator Hölder--Zygmund functions arxiv 0907.3049 section 8 absolute value operator Lipschitz",
+        "operator Lipschitz matrix positive part 2 by 2 exact spectral norm"
+      ]
+    },
+    "checked_sources": [
+      "Bhatia (2010), Modulus of continuity of the matrix absolute value, doi:10.1007/s13226-010-0014-0",
+      "Aleksandrov–Peller (2009), Operator Hölder–Zygmund functions, arxiv:0907.3049",
+      "Sharp independent-entry Lipschitz constants for 2×2 semidefinite projection, published 2026-10-18, https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-independent-entry-lipschitz-constants-for-2-times2-semidef--3b499f2228aa",
+      "Sharp diagonal and off-diagonal amplification in two-by-two semidefinite projection, published 2026-11-02, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-diagonal-and-off-diagonal-amplification-in-two-by-two-semi--e19c93a79149"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bhatia (2010), Modulus of continuity of the matrix absolute value, doi:10.1007/s13226-010-0014-0",
+        "Sharp independent-entry Lipschitz constants for 2×2 semidefinite projection, published 2026-10-18, https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-independent-entry-lipschitz-constants-for-2-times2-semidef--3b499f2228aa",
+        "Sharp diagonal and off-diagonal amplification in two-by-two semidefinite projection, published 2026-11-02, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-diagonal-and-off-diagonal-amplification-in-two-by-two-semi--e19c93a79149",
+        "The spectral positive-part operation obeys \\(A_+=(A+|A|)/2\\), but entrywise \\(\\ell^\\infty\\) bounds on \\(A_+\\) do not entail a sharp spectral norm bound for \\(|A|\\) on trace-fixed affine slices."
+      ],
+      "reasoning": "The exact dichotomy is not a corollary of the general O(log n) estimate. The existing semidefinite-projection computations cannot be converted into the proposed claim without changing both norm and map, and the available summaries do not provide the needed equality or sharpness information. Priority is qualified by incomplete access to all unindexed special-case literature.",
+      "searches": [
+        "matrix absolute value two dimensional spectral Lipschitz norm sqrt2 Kato",
+        "trace-fixed qubit absolute value spectral norm Lipschitz jump trace zero vs nonzero",
+        "sharp independent-entry Lipschitz constants for 2x2 semidefinite projection published-finding corpus"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bhatia (2010), Modulus of continuity of the matrix absolute value, doi:10.1007/s13226-010-0014-0",
+        "Aleksandrov–Peller (2009), Operator Hölder–Zygmund functions, arxiv:0907.3049",
+        "For Hermitian inputs the spectral absolute value is the positive functional calculus for the scalar map |s|; on a fixed-trace two-level slice it becomes a radial map on the Pauli/Bloch vector."
+      ],
+      "reasoning": "The scalar map and radial Pauli representation are equivalent formulations of this same research question. Neither full primary text supplies the exact fixed-trace dichotomy, local norm formula, or distinct-pair nonattainment. The equivalence is used in the new proof, not counted as independent novelty.",
+      "searches": [
+        "sharp matrix operator Lipschitz constant absolute value function on 2x2 real symmetric matrices spectral norm",
+        "fixed trace self adjoint 2x2 matrix absolute value Lipschitz sqrt two",
+        "trace-fixed qubit absolute value spectral norm Lipschitz jump trace zero vs nonzero"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Sharp independent-entry Lipschitz constants for 2×2 semidefinite projection, published 2026-10-18, https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-independent-entry-lipschitz-constants-for-2-times2-semidef--3b499f2228aa",
+        "Sharp diagonal and off-diagonal amplification in two-by-two semidefinite projection, published 2026-11-02, https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-diagonal-and-off-diagonal-amplification-in-two-by-two-semi--e19c93a79149",
+        "The related published cases concern circular-cone projection, Gini and edge-variation stability, and small-matrix positive-spectrum clipping; none identifies the exact same-trace spectral absolute-value modulus."
+      ],
+      "reasoning": "The closest indexed small-matrix constants concern semidefinite projection in entrywise norms, a different norm and an affine combination of the matrix modulus and input. They are not a table for the present spectral-norm coefficient, and the summary does not supply its equality or sharpness conditions.",
+      "searches": [
+        "published-finding corpus search: sharp trace-slice spectral norm Lipschitz modulus Hermitian absolute value sqrt2",
+        "published-finding corpus search: 2x2 traceless self-adjoint absolute value Lipschitz phase transition",
+        "published-finding corpus search: matrix absolute value Lipschitz constant two by two self adjoint Schatten infinity sharp sqrt 2"
+      ]
+    },
+    "rationale": "The claim is a sharp trace-fixed two-level spectral operator-norm statement, including the nonattainment theorem and the exact local radial profile. Bhatia analyzes general matrix-absolute-value bounds and order-dependent logarithmic growth, and Aleksandrov–Peller the unrestricted operator-Lipschitz obstruction, not this trace-slice invariant. Two published 2-by-2 semidefinite-projection calculations use entrywise input/output norms and different maps. Exact records and published scientific comparisons did not give a covering implication; historical priority remains provisional.",
+    "residual_risks": [
+      "Historical priority not independently established; unindexed or undownloadable two-by-two perturbation papers may contain an equivalent sharp result.",
+      "Full original text of the indexed two-by-two PSD projection results could not be obtained, though their reported norms and map differ materially."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_BOUND_NOT_COVERING_SHARP_TRACE_SLICE",
+        "evidence": "Section 1 states an n-dependent best-order estimate; Theorem 4.2 yields \\(C\\log n\\), with no fixed-trace two-by-two classification. Its Frobenius statement is distinct from the requested spectral norm.",
+        "identifier_or_url": "https://www.researchgate.net/publication/226865952_Modulus_of_continuity_of_the_matrix_absolute_value",
+        "material_read": "Primary full-text article accessible; inspected introduction (pp. 99–102), matrix-truncation and Schur-multiplier portions of Sections 2–4, Theorem 4.2 and Remarks 4.3–4.5, plus searches for two-dimensional exact constants.",
+        "method": "Full rendered text read and searched for small-order and exact constants",
+        "title": "Modulus of continuity of the matrix absolute value",
+        "trigger": "Same spectral absolute-value map with matrix spectral-norm perturbation bounds"
+      },
+      {
+        "assessment": "GENERAL_OPERATOR_MODULUS_NOT_COVERING_FIXED_TRACE",
+        "evidence": "Section 8 notes that the scalar absolute-value function is not uniformly operator Lipschitz; no two-level trace-fixed sharp spectral constant or nonattainment formula is stated.",
+        "identifier_or_url": "https://arxiv.org/abs/0907.3049",
+        "material_read": "Primary full HTML accessible; inspected abstract, introduction, selected operator-estimate sections and Section 8, including the example of the scalar absolute-value functional calculus.",
+        "method": "Primary text section inspection and searched explicit absolute-value example",
+        "title": "Operator Hölder–Zygmund functions",
+        "trigger": "First dated public lead on general operator modulus and absolute-value obstruction"
+      },
+      {
+        "assessment": "DIFFERENT_MAP_AND_NORM_NO_DECISIVE_COVERAGE",
+        "evidence": "Published constants concern nearest PSD projection with independent-entry \\(\\ell^1,\\ell^2,\\ell^\\infty\\) norms, not the matrix spectral norm on an equal-trace domain.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/18/SCOPE-sharp-independent-entry-lipschitz-constants-for-2-times2-semidef--3b499f2228aa",
+        "material_read": "Indexed title and full scientific abstract/summary; repository full text could not be retrieved.",
+        "method": "Statement-level implication comparison using indexed summary",
+        "title": "Sharp independent-entry Lipschitz constants for 2×2 semidefinite projection",
+        "trigger": "Same dimension and positive-spectrum clipping, potentially implying a modulus bound"
+      },
+      {
+        "assessment": "DIFFERENT_METRIC_AND_UNRESOLVED_FULL_TEXT",
+        "evidence": "The indexed claim controls entrywise maximum norm and individual output entries, unlike the fixed-trace spectral operator-norm perturbation ratio.",
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/11/2/SCOPE-sharp-diagonal-and-off-diagonal-amplification-in-two-by-two-semi--e19c93a79149",
+        "material_read": "Indexed title and scientific summary; direct full-text retrieval failed.",
+        "method": "Mathematical map and metric comparison of accessible statement",
+        "title": "Sharp diagonal and off-diagonal amplification in two-by-two semidefinite projection",
+        "trigger": "Closest 2×2 PSD spectral-clipping map with a sharp coefficient"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "710237cc-3e82-41d7-85ec-d8d9af5e0b51",
+  "value": {
+    "rationale": "The precise same-trace two-level modulus is a natural first noncommutative test case for operator absolute-value sensitivity, especially trace-conserving perturbations. The sharp discontinuity between trace-zero and every nonzero slice, exact spectral-gap-dependent local gain, and nonattainment at the rank-one boundary pinpoint a structural instability that neither a generic norm-comparison estimate nor unrestricted failure of operator Lipschitzness resolves. The quantifier is all complex Hermitian two-by-two matrices with equal trace.",
+    "status": "PASS"
+  }
+}
