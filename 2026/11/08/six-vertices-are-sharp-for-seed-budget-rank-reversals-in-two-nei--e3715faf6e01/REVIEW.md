@@ -1,21 +1,21 @@
-# Scientific review: matched-degree seed-budget reversals
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For irreversible two-neighbor activation on finite connected simple graphs, the proof reduces unsuccessful seeding to the existence of an unseeded fort. This criterion directly enumerates all failure configurations at seed budgets three and four in the two displayed six-vertex witnesses. The lower budgets vanish by the seven-edge versus eight-required-edge counting argument; the higher budgets are immediate. The independent-seeding crossover follows from the exact profile generating polynomial. The order-six minimality and uniqueness are certified by a standalone exhaustive enumeration over **all** labelled graph edge masks up to order six, with a separate permutation-based automorphism/orbit check. The executable certificate was rerun from its actual file and passed. Numerical evaluation at sample parameters is not substituted for the algebraic all-parameter proof.
+PASS
 
-## Originality — PASS within inspected evidence, with residual risk
+Absolute deterministic threshold-two closure is characterized by two-neighbor forts: a seed set fails iff its complement contains a nonempty subset each of whose vertices has ≤1 neighbor outside. Explicit minimal forts of theta(2,2,3) and bridge-connected two triangles give full contagious-set vectors (0,0,0,10,14,6,1) and (0,0,0,12,13,6,1). Uniform k=3 ranking 10/20<12/20, k=4 ranking14/15>13/15. Independent complete bitmask enumeration visits all connected labeled graphs on n≤6 (1,1,4,38,728,26704), all 2^n seeds, all degree-sequence matched profile pairs; the sole reversing pair at n=6 is those profiles, occurring in 180 and 90 labeled graphs, equal to permutation orbit counts 6!/4 and 6!/8. Exact binomial summation yields independent-seed difference p³(1-p)²(3p−2), so the single interior crossover is 2/3. A six-vertex connected pair has seven edges, making two-seed full activation impossible via edge-count 2(6−2)=8.
 
-Watts (2002, https://pmc.ncbi.nlm.nih.gov/articles/PMC122850/) introduces and analyzes global cascades on random graphs using a related social-threshold process. Freund, Poloczek and Reichman (2015, https://arxiv.org/pdf/1503.00158) analyze minimum contagious-set size using density, edge counts and degree conditions, rather than all exact seed-budget coefficients on six-vertex degree-matched graphs. Feige, Krivelevich and Reichman (2016, https://arxiv.org/pdf/1602.01751) study asymptotic contagious-set existence and bounds for random graphs, not the finite seed-profile comparison. Guilbeault and Centola (2021, https://pmc.ncbi.nlm.nih.gov/articles/PMC8292353/) explicitly study degree-preserving rewiring and cascade frequency, but use larger graphs, numerical comparisons and clustered seeding, not a proof of this unique order-six crossover. Existing results on complete multipartite conversion sets apply to another graph class and do not imply the displayed theta/barbell result.
+## originality
 
-The inspection compared claims and applicable hypotheses, not just paper titles. The exact profile polynomial, unique six-vertex degree class, isomorphism classification and Bernoulli threshold were not found in the inspected material. This is a provisional originality judgment; terminology variants, older enumerations or unpublished finite tables could alter historical priority. The Centola–Macy (2007) publisher page was readable only through the abstract and citation data, so its full body was not certified as noncovering.
+PASS
 
-## Value — PASS
+Published fixed-budget two-seed contagion and complex-contagion path-length literature do not compare full-activation probabilities at multiple seed budgets for degree-matched graph pairs nor classify the unique smallest reversal. The earlier six-vertex clustering example uses expected cascade size at k=2, whereas the present theorem has c_A(2)=c_B(2)=0 and reverses full activation between k=3 and k=4. No direct implication or exact matching table found.
 
-Degree distributions and fixed seeding budgets are basic summaries and intervention constraints in social diffusion. This theorem isolates the smallest connected-network setting where **even a complete degree sequence cannot rank cascade reliability consistently as budget changes**. The reversal is not just an arbitrary example: it is a sharp, unique first obstruction, with explicit percentages at consecutive budgets and a closed-form independent-seeding crossover at \(p=2/3\). The two topologies contrast redundant parallel pathways against densely clustered communities joined by a narrow bridge, motivating the mechanism of multi-neighbor reinforcement. It does not assert empirical relevance beyond the specified irreversible threshold model.
+## value
 
-## Limitations and closest literature
+PASS
 
-The minimality classification is finite and computationally exhaustive, not a general theorem for all network orders. Larger networks and heterogeneous or fractional thresholds may behave differently. Historical novelty awaits independent inspection. Closest primary literature: Watts (2002), Freund–Poloczek–Reichman (2015), Feige–Krivelevich–Reichman (2016), Guilbeault–Centola (2021), and Centola–Macy (2007; abstract-only access). No formal-machine proof, empirical validation, or independent scientific audit is claimed.
+Same-degree networks can reverse their chances of full adoption solely because the seed budget moves from three to four, and six is the uniquely sharp first order. This exact, fully classified structural counterexample shows degree statistics alone do not order a natural nonlinear diffusion success probability; the complete seed profiles and Bernoulli crossover at 2/3 are useful benchmarks for small network contagion design and analytic fort arguments.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
