@@ -1,0 +1,89 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T10:48:01.220396Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The morphism mu_m(a)=0(a+1 mod m) gives P_m(n)=nu_2(n+1) mod m. After reading e least-significant bits, every residual is either constant or the unique nonconstant G_(ceil((c+1)/2^e), e mod m). Strictly decreasing transient shifts for e<ceil(log2(c+1)), then m cyclic phases plus m constants, give exactly ceil(log2(c+1))+2m reachable pairwise distinct states. Padding zeros and empty input are accounted for; arithmetic distinguishability by arguments n=2^H-q is valid. Independent Moore minimization and value checks for 2<=m<=10, 0<=c<=255 corroborated the infinite structural proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "October 25 theorem proves all bases b>=2, all moduli m>=2 and all shifts c>=0 with N_{b,m}(c)=L_b(c)+2m; full residual classification.",
+          "Taking b=2 reduces L_b(c) to ceil(log2(c+1)), exactly the submitted formula."
+        ],
+        "reasoning": "Earlier full base-b result strictly dominates the complete binary case, including cardinality and transition graph.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-least-significant-first-state-complexity-of-shifted-modula--06a7b1626d8d",
+          "all shifts valuation word base b modulus m kernel states 2m ceil log"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-least-significant-first-state-complexity-of-shifted-modula--06a7b1626d8d",
+        "arXiv:2511.20881",
+        "arXiv:2603.18858"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior recurrence of residuals V_(s,p) under next digit, constant classes, distinguishability and state count all specialize at b=2 to submitted G_(q,epsilon) automaton.",
+          "Binary shifted period-doubling is the arithmetic valuation-residue word by direct induction."
+        ],
+        "reasoning": "A strict special case, not merely closely related: every submitted theorem and corollary follows from the earlier arbitrary-base result.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-least-significant-first-state-complexity-of-shifted-modula--06a7b1626d8d",
+          "prior RESULT.md residual theorem and Section 3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier theorem considers f_c(n)=nu_b(n+c+1) mod m and exactly the same LSD-first all-digit-string DFAO conventions.",
+          "The morphism-derived P_m(n+c)=nu_2(n+c+1) mod m makes submitted sequence f_c with base b=2."
+        ],
+        "reasoning": "Substitution representation does not change the evaluated function or minimal automaton: the two are identical at b=2.",
+        "searches": [
+          "all shifts valuation word base b modulus m kernel states 2m ceil log",
+          "generalized period doubling valuation nu2(n+1) shifted 2 kernel size automaton c shift",
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-least-significant-first-state-complexity-of-shifted-modula--06a7b1626d8d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published earlier all-parameter state formula and minimal automaton are exact, not a numerical table.",
+          "Its binary corollary is explicitly stated, c=0 gives four states when m=2 and c>=1 gives 5+floor(log2 c)."
+        ],
+        "reasoning": "Exact table or database is superfluous because an earlier theorem already covers the entire infinite family.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-least-significant-first-state-complexity-of-shifted-modula--06a7b1626d8d",
+          "Resultary all shifts valuation word base b modulus m kernel states 2m ceil log"
+        ]
+      },
+      "rationale": "FAIL decisive: Resultary published October 25, 2026 a theorem giving N_{b,m}(c)=min{ell:b^ell>=c+1}+2m for the valuation word nu_b(n+c+1) mod m in every base b>=2 with the same LSD-first complete DFA convention, including the same transient chain, m-cycle and m constants. Specializing b=2 gives *all* submitted formulas and automaton residuals. Generalized period-doubling morphism is the elementary valuation representation, not a separate novel result.",
+      "residual_risks": [
+        "Even with a separate period-doubling substitution presentation, all claimed complexity results reduce to the earlier binary specialization.",
+        "No novelty inferred from different notation or finite implementation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING via strict base b=2 specialization",
+          "evidence": "Finding N_{b,m}(c)=L_b(c)+2m; residual section 1-3",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-exact-least-significant-first-state-complexity-of-shifted-modula--06a7b1626d8d",
+          "material_read": "Complete RESULT.md with exact theorem b,m,c, all-digit convention, residual construction/indistinguishability, binary special case, and limitations",
+          "method": "GitHub published RESULT.md read at main, blob 3233e4e02486ca64c64175b16b7d73bf4c838b46",
+          "title": "Exact least-significant-first state complexity of shifted modular valuation words",
+          "trigger": "Resultary returned broader exact theorem October 25, 2026"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL: The exact entire shifted 2-kernel and minimal DFAO law and matching state graph were already proved within a strictly more general base-b theorem. Rebranding as a substitution sequence and running further finite checks are not a motivated independent contribution.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Only LSD-first binary DFAO of n->nu2(n+c+1) mod m, all strings; no MSB theorem.",
+    "General result covers every asserted shift and m>=2."
+  ],
+  "schema_version": 1
+}
