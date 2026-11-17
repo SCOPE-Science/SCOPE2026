@@ -1,15 +1,21 @@
-# Review of the two-row king-graph two-fair enumeration
+# Independent mathematical audit
 
-## Correctness
-PASS. Each column has two vertices, and any omitted vertex sees precisely the selections from its own and adjacent columns. The local rule is both necessary and sufficient. The two disjoint feasible word types are exhaustively derived from the left boundary and adjacency equations. Zero/two words have only empty or double-zero interior gaps and at most one zero on each boundary; the binary gap locations give the claimed binomial coefficients. The single alternating one-word exists only at lengths congruent to two modulo three, with independent row choices. The minimum and residue counts follow from the exact length equation. All graph-defined polynomial coefficients were directly checked for orders up to eighteen vertices (nine columns), and a separate ternary-word census was checked through twelve columns.
+## correctness
 
-## Originality
-PASS with a historical-search limitation. The 2025 source explicitly states only the minimum two-fair dominating cardinality for two-row rectangular supergrids, not a complete all-set polynomial or a count of optimal sets. The relevant 2026 follow-up likewise gives the cardinality (Lemma 14), noting its structural placement, without the classification of all feasible sets. The graph-dominating-set table for king graphs counts ordinary dominating sets rather than exact two-neighbor-fair dominating sets; the graph and parameter match does not imply equality of enumerators. Literature and previously published-claim searches for the strong-product graph, two-fair polynomial, optimum counts, parity and aliases did not reveal a covering result. Historical priority is provisional, particularly for literature not indexed by searches.
+PASS
 
-## Mathematical value
-PASS. The natural open counting refinement of a known extremal two-fair parameter is completely resolved for an infinite standard graph family, including all coefficients rather than just a numerical minimum. The exact tiling-language structure identifies a previously unseen parity constraint and an exponential optimum multiplicity jump on one residue class, which distinguish configurations that all have the same known optimum size. The fully characterized family gives explicit test cases for broader enumeration methods on rectangular supergrid graphs, where general higher-row two-fair behavior remains difficult.
+For every omitted vertex, its selected neighbors are exactly selected vertices in the same or adjacent columns because P2⊠Pn has complete adjacency across neighboring columns. The exact local rule s_j<2 => s_{j-1}+s_j+s_{j+1}=2 (s0=s_{n+1}=0) forces either only 0/2 columns with internal gaps 0 or 00 and boundary gaps <=1, or the unique 11(011)^m column-count word when n=3m+2. Row orientations of all one-columns contribute 2^(2m+2). The binomial gap count and minimum multiplicities follow. Independently enumerated every labelled vertex subset for n=1..9; complete polynomials matched, including n=2 coefficient 6z^2+z^4 and n=5 coefficient 18z^4+3z^6+2z^8+z^10. Infinite n conclusion rests on combinatorial bijection.
 
-## Limits
-The result concerns exact two-fairness on the two-row *king* graph and is not a claim about ordinary ladders or unrestricted rectangular strips. No independent audit has occurred. The supporting 2025 document publicly displays a March 2025 internal submission stamp; the dated October 2025 conference proceedings are used for a conservative, verified public-source date rather than treating the stamp as an earlier publication date.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hung 2025/2026 primary work proves the MINIMUM size 2ceil(n/3) for this same two-row rectangular king graph, not an all-subset generating polynomial or optimum multiplicity. Ordinary king-graph domination polynomials count a different condition. The Resultary semantic query found no earlier explicit complete exact-two-neighbor fair enumerator of this graph. Historical unindexed results remain a stated risk.
+
+## value
+
+PASS
+
+This is a natural complete enumeration refining the known extremal fairness invariant of a standard graph family. Its even support and sharp exponential multiplicity jump at n≡2 (mod 3) provide structural information absent from the known cardinality formula and a useful benchmark for exact fair-domination algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
