@@ -1,75 +1,60 @@
-# Square-zero Heisenberg derivations: exact rank census and kernel symplectic conservation
+# Kernel-bracket conservation and rank-stratum geometry for square-zero Heisenberg derivations
 
 ## Finding
 
-Let \(k\) be any field and \(n\geq1\). On the Heisenberg Lie algebra \(H_n=V\oplus kz\), with \(\dim_kV=2n\) and a nondegenerate alternating bilinear form \(\omega\), put \([u,v]=\omega(u,v)z\). Every ordinary derivation \(D\) with \(D^2=0\) is uniquely determined by an isotropic subspace \(W\subseteq V\) of dimension \(r\leq n\), a nondegenerate symmetric bilinear form on \(W^*\) (equivalently, a symmetric isomorphism \(W^*\to W\)), and a covector \(f\in V^*\) annihilating \(W\). The zero-\(W\) case includes all central derivations.
+Let \(k\) be any field, \(n\ge1\), and \(H_n=V\oplus kz\) the \((2n+1)\)-dimensional Heisenberg Lie algebra, where \(\omega:V\times V\to k\) is a nondegenerate alternating form and \([v,w]=\omega(v,w)z\). Let \(\mathscr D_d\) denote the locus of **ordinary** derivations \(D\) with \(D^2=0\) and \(\operatorname{rank}_kD=d\).
 
-The ranks of such derivations are exactly \(0,1,\ldots,n\). Write \(K_D=\ker(D)/kz\), with its alternating bracket form \(\omega_D\). Then every square-zero derivation obeys the conservation identity
+**Theorem (kernel conservation and two rank mechanisms).** For any such derivation, \(kz\subseteq\ker D\), and the induced bracket form \(\omega_D\) on \(\ker D/kz\) satisfies
 \[
-\operatorname{rank}\omega_D+2\operatorname{rank}D=2n.
+\boxed{\operatorname{rank}\omega_D+2\operatorname{rank}D=2n.}
 \]
-
-For every prime power \(q\), define \(I_{n,r}(q)\) to be the number of totally isotropic \(r\)-subspaces of a \(2n\)-dimensional symplectic space and \(S_r(q)\) the number of nonsingular symmetric \(r\)-by-\(r\) matrices, with \(I_{n,0}=S_0=1\). Explicitly,
+For each \(1\le d\le n\), \(\mathscr D_d\) has a canonical disjoint partition into **two nonempty smooth, geometrically irreducible locally closed strata**:
 \[
-I_{n,r}(q)=\frac{\prod_{i=0}^{r-1}(q^{2n-i}-q^i)}{\prod_{i=0}^{r-1}(q^r-q^i)},\qquad
-S_r(q)=q^{r(r+1)/2}\prod_{\substack{1\le j\le r\\j\text{ odd}}}(1-q^{-j}).
+\mathscr D_d^{\mathrm{in}}=\{D:\operatorname{rank}(D\bmod kz)=d\},\qquad
+\mathscr D_d^{\mathrm{out}}=\{D:\operatorname{rank}(D\bmod kz)=d-1\}.
 \]
-The complete labeled rank polynomial is
+Their respective dimensions over \(k\) are
 \[
-\boxed{\mathcal P_{n,q}(t)=1+\sum_{d=1}^{n}\left[I_{n,d}(q)S_d(q)q^d+I_{n,d-1}(q)S_{d-1}(q)(q^{2n-d+1}-q^{d-1})\right]t^d.}
+\boxed{d(2n-d+2),\qquad d(2n-d+2)-1.}
 \]
-Each rank-\(d\) locus, for \(1\le d\le n\), has an explicit disjoint decomposition into **two nonempty smooth geometrically irreducible locally closed strata**. Their dimensions are \(d(2n-d+2)\) and \(d(2n-d+2)-1\), respectively. No assertion is made that these are irreducible components of the entire rank locus.
+Here \(D\bmod kz\) denotes the induced linear map \(V\to V\); the two strata are not claimed to be irreducible components of the whole rank locus or of any nonreduced defining scheme. Rank zero consists only of the zero derivation, and no ranks above \(n\) occur.
 
-## Assumptions and scope
-
-All fields and all \(n\ge1\) are allowed in the structural theorem, including characteristic two. The finite-field formula counts distinct labeled ordinary derivations, not orbits, and no restricted-Lie-derivation condition is imposed. A symplectic form is alternating also in characteristic two. All rank notions are ordinary vector-space ranks. The bracket form on \(K_D\) is well-defined because \(z\) is central and belongs to \(\ker D\).
+This theorem makes no novelty claim for the already published exact finite-field rank polynomial or the isotropic-image/symmetric-form parametrization; those are recalled as ingredients below. The new statements concern the induced bracket on each kernel and the geometric decomposition of a *fixed full derivation rank*.
 
 ## Proof
 
-**Step 1: Derivation equations.** Since \(z\) spans the derived algebra, any derivation has unique blocks
+**1. Block equations, in every characteristic.** As \(kz=[H_n,H_n]\), a derivation has blocks \(D(z)=az\), \(D(v)=Tv+f(v)z\), with \(T\in\operatorname{End}(V)\), \(f\in V^*\), and
 \[
-D(z)=az,\qquad D(v)=Tv+f(v)z
+\omega(Tu,v)+\omega(u,Tv)=a\omega(u,v).
 \]
-with \(T\in\operatorname{End}(V)\), \(f\in V^*\), and
+The condition \(D^2=0\) forces \(a=0\) over a field, followed by \(T^2=0\) and \(fT=0\). Conversely these conditions suffice for an ordinary square-zero derivation. In particular \(z\in\ker D\), and the quotient \(\ker D/kz\) identifies with the subspace \(\{v\in V:Tv=0,\ f(v)=0\}\). These statements remain valid in characteristic two.
+
+**2. The established isotropic-image parametrization.** Set \(W=\operatorname{im}T\), \(r=\dim W\), and \(U=\ker T\). The symplectic skew-adjointness identity yields \(U=W^\perp\). Because \(T^2=0\), \(W\subseteq U\), so \(W\) is isotropic and \(0\le r\le n\). The map induced by \(T\) on \(V/U\cong W^*\) is a nonsingular symmetric linear isomorphism \(B:W^*\to W\). Conversely such a pair \((W,B)\) uniquely determines \(T\), and the allowed central functionals form \(\operatorname{Ann}(W)\). This familiar classification and its finite-field counting consequences are established in the earlier *Exact rank spectra of square-zero derivations of finite Heisenberg Lie algebras* (2026-10-18); the present theorem uses, but does not reclaim, them.
+
+**3. Conservation law.** The subspace \(U=W^\perp\) has radical \(W\) for the restricted alternating form, and \(U/W\) is a nondegenerate symplectic space of dimension \(2(n-r)\). If \(f|_U=0\), then the full derivation has rank \(d=r\), its kernel quotient is \(U\), and the restricted bracket rank is \(2(n-r)=2(n-d)\).
+
+If \(f|_U\ne0\), then \(f(W)=0\) implies \(f\) descends to a nonzero covector on the symplectic quotient \(U/W\). The full rank is \(d=r+1\), and \(\ker D/kz=U\cap\ker f\) maps to a hyperplane in \(U/W\). In a nondegenerate alternating space of dimension \(2s\ge2\), any hyperplane has a one-dimensional radical, so its alternating restriction has rank \(2s-2\). Thus the rank here is \(2(n-r)-2=2(n-d)\). (If \(r=n\), the quotient is zero and this case cannot occur.) Both possibilities prove the claimed conservation law for every field, including characteristic two.
+
+**4. Smooth geometrically irreducible strata and dimensions.** Let \(\mathrm{IGr}(r,2n)\) be the isotropic Grassmannian. It is smooth and geometrically irreducible, of dimension
 \[
-\omega(Tu,v)+\omega(u,Tv)=a\omega(u,v)\quad\text{for all }u,v\in V.
+ r(2n-r)-\frac{r(r-1)}2.
 \]
-The square-zero condition on \(z\) gives \(a^2=0\), hence \(a=0\) over a field. Squaring on \(V\) then gives precisely \(T^2=0\) and \(f\circ T=0\). Thus \(T\) belongs to the symplectic Lie algebra, in the infinitesimal sense, and is square-zero.
-
-**Step 2: Isotropic-image parametrization.** Put \(W=\operatorname{im}T\) and \(r=\dim W\). For all \(u,v\),
+Over this base, the nonsingular symmetric maps \(B:W^*\to W\) form an open subbundle of the symmetric-vector-bundle of rank \(r(r+1)/2\). The choice of \(f\in\operatorname{Ann}(W)\) is a vector bundle of rank \(2n-r\); the condition \(f|_{U}=0\) cuts out a vector subbundle \(\operatorname{Ann}(U)\) of rank \(r\). All these descriptions are algebraic and apply after extension to an algebraic closure. Hence the inside locus, \(r=d\) and \(f\in\operatorname{Ann}(U)\), is smooth and geometrically irreducible of dimension
 \[
-\omega(Tu,Tv)=-\omega(u,T^2v)=0,
+\left[r(2n-r)-\frac{r(r-1)}2\right]+\frac{r(r+1)}2+r=d(2n-d+2).
 \]
-so \(W\) is isotropic and \(r\le n\). The infinitesimal symplectic identity also gives \(\ker T=W^\perp\). The pairing identifies \(V/W^\perp\) with \(W^*\), via \(p(v)(w)=\omega(v,w)\). Accordingly, \(T=B\circ p\), where \(B:W^*\to W\) is invertible. The infinitesimal symplectic identity is equivalent to symmetry of the bilinear form \((\alpha,\beta)\mapsto\alpha(B\beta)\). Conversely, every isotropic \(W\) and every such symmetric isomorphism \(B\) yields a square-zero symplectic \(T\). Finally, \(fT=0\) is equivalent to \(f\in\operatorname{Ann}(W)\), a vector space of dimension \(2n-r\). These conditions are necessary and sufficient, and the representation is unique.
-
-**Step 3: Ranks and kernel bracket.** Set \(U=W^\perp=\ker T\). The row space \(\operatorname{Ann}(U)\) has dimension \(r\) and lies in \(\operatorname{Ann}(W)\). If \(f\in\operatorname{Ann}(U)\), the central part is determined by the image under \(T\), so \(\operatorname{rank}D=r\) and \(K_D=U\). Because the radical of \(\omega|_U\) is \(W\), its rank is \(2(n-r)\).
-
-If \(f\notin\operatorname{Ann}(U)\), then \(\operatorname{rank}D=r+1\) and \(K_D=U\cap\ker f\). Since \(f(W)=0\), this induces a hyperplane \(K_D/W\) in the symplectic quotient \(U/W\) of dimension \(2(n-r)\). A hyperplane in a nonzero symplectic space has restricted alternating form of rank two less than that of the whole space. Thus \(\operatorname{rank}\omega_D=2(n-r-1)\). The claimed conservation identity follows in both cases. For \(r=n\), the second case is impossible. For \(r=0\), the first case is the zero map and the second consists of the nonzero central derivations. This proves exactly the possible ranks.
-
-**Step 4: Finite-field counting.** Ordered bases \(w_1,\ldots,w_r\) of an isotropic subspace can be selected successively in \(q^{2n-i}-q^i\) ways when \(i\) basis vectors have been chosen. Dividing by \(|\mathrm{GL}_r(q)|\) gives \(I_{n,r}(q)\). The number \(S_r(q)\) of nonsingular symmetric matrices satisfies the independently justified kernel-subspace recurrence
+The outside locus has \(r=d-1\), with \(f\) in the complement of \(\operatorname{Ann}(U)\) inside \(\operatorname{Ann}(W)\). This is a nonempty open subbundle exactly when \(r<n\), and is smooth and geometrically irreducible of dimension
 \[
-q^{r(r+1)/2}=\sum_{j=0}^r{r\brack j}_q S_{r-j}(q).
+ r(2n-r+1)+(2n-r)=d(2n-d+2)-1.
 \]
-Indeed, every symmetric form has a unique radical of dimension \(j\), and descends to a nonsingular symmetric form on the quotient. With \(S_0=1\), this recurrence determines all \(S_r\); the displayed product is its classical solution (equivalently obtained by the finite Gaussian-binomial identity). For each \(W\) and \(B\), exactly \(q^r\) covectors annihilate \(U\), while exactly \(q^{2n-r}-q^r\) annihilate \(W\) but not \(U\). Summing the first contributions at \(r=d\) and the second at \(r=d-1\) yields the coefficient in \(\mathcal P_{n,q}\). There is exactly one rank-zero map.
+In particular, both loci exist for \(1\le d\le n\). The rank-zero case has \(r=0\) and \(f=0\), i.e. the zero derivation; the rank bounds follow from \(r\le n\) and exclusion of the outside case at \(r=n\).
 
-**Step 5: Geometric strata.** The isotropic Grassmannian of \(r\)-spaces has dimension \(r(2n-r)-r(r-1)/2\), and is smooth and geometrically irreducible. Over it, the invertible symmetric isomorphisms form an open subbundle of a rank-\(r(r+1)/2\) vector bundle. The allowable \(f\)'s form a rank-\((2n-r)\) vector bundle, inside which \(\operatorname{Ann}(U)\) is a rank-\(r\) subbundle. The inside and outside loci are smooth geometrically irreducible, the outside being nonempty exactly for \(r<n\). For rank \(d\), the inside locus has \(r=d\) and dimension \(d(2n-d+2)\); the outside has \(r=d-1\) and dimension one less. The two constructions are disjoint by \(\operatorname{rank}T\).
+## Scope, verification and limitations
 
-## Verification
+The assertions describe ordinary square-zero derivations of standard nondegenerate Heisenberg Lie algebras over **arbitrary fields**, including characteristic two. They concern the induced kernel-bracket form and two locally closed *set-theoretic geometric strata*. They do not classify arbitrary nilpotent derivations, conjugacy orbits, restricted derivations, or irreducible components of the full possibly nonreduced rank scheme. The formula for the total rank polynomial is prior work and is deliberately not restated as a new theorem. The existing `checker.py` independently checks the original derivation equations and kernel-bracket ranks in the finite cases \((n,q)=(1,2),(1,3),(1,4),(2,2)\). Such bounded checks corroborate the conservation identity but do not prove the all-field statements or the geometric irreducibility; those follow from the block and bundle arguments above.
 
-The accompanying standalone `checker.py` directly enumerates all linear blocks \(T\) satisfying the original symplectic derivation identity over \(\mathbb F_2\), \(\mathbb F_3\), and the genuine extension field \(\mathbb F_4\) in dimension three, and over \(\mathbb F_2\) in dimension five. It then tests \(T^2=0\), all permissible \(f\), the original basis Leibniz equations, the square-zero equations, the full map rank, and the induced kernel alternating-form rank. These finite independent checks reproduce all coefficients.
+## Mathematical context and priority boundary
 
-For \(n=1\), the complete rank polynomials at field orders \(2,3,4\) are \(1+9t\), \(1+32t\), and \(1+75t\). For \(n=2\) over \(\mathbb F_2\), it is \(1+45t+330t^2\). The exact direct enumeration output is in `verification_output.txt`; it records the marker `DIRECT_HEISENBERG_SQUARE_ZERO_DERIVATION_AND_KERNEL_FORM_OK`. The arbitrary-field proof is independent of these finite tests.
+The published 2026-10-18 *Exact rank spectra of square-zero derivations of finite Heisenberg Lie algebras* already gives the full isotropic-image parametrization and the **complete** all-prime-power rank polynomial. The same-day 2026-11-08 *Exact rank counts and a discrete corank limit for square-zero derivations of finite Heisenberg Lie algebras* gives that same rank distribution and an additional asymptotic law. Neither inspected proof states the kernel-bracket conservation identity or the two smooth geometrically irreducible fixed-full-rank strata, although their parametrization is a substantial prerequisite. These two geometric properties are the precise surviving claims; a broader general theorem on symplectic nilpotent orbit strata remains a priority risk.
 
-## Relationship to prior work
-
-Feldvoss, Siciliano and Weigel (first submitted February 13, 2011) prove **existence** of square-zero outer restricted derivations of nilpotent restricted Lie algebras, with an exceptional three-dimensional characteristic-two Heisenberg case. They neither classify ordinary square-zero derivations nor count them by rank. The restricted condition matters and is deliberately not imposed here. Brouwer, Gow and Sheekey (2014) count nilpotent symplectic-Lie-algebra matrices in aggregate and study symmetric nilpotent matrices. Their work supplies the relevant broader nilpotent-matrix setting, but their results inspected here do not state the present two-layer rank census, kernel-form conservation law, or geometric strata for derivations of Heisenberg extensions. Classical fixed-rank nilpotent-matrix and orbit methods (including Lusztig 1976) remain relevant and may simplify some underlying counts; a universal priority claim is not made.
-
-## Limitations
-
-This result concerns ordinary square-zero derivations, not all nilpotent derivations, restricted derivations, conjugacy orbits, or scheme-theoretic nonreduced structures. It concerns only the standard finite-dimensional Heisenberg Lie algebras, not general two-step nilpotent algebras. The smoothness statement concerns the specified locally closed strata, not the global scheme cut out by the original equations. Exact independent literature-priority validation has not been performed.
-
-## References
-
-1. J. Feldvoss, S. Siciliano, and T. Weigel, *Outer restricted derivations of nilpotent restricted Lie algebras*, arXiv:1102.2629v1 (February 13, 2011), later *Proceedings of the American Mathematical Society* **141** (2013), 171–179. https://arxiv.org/abs/1102.2629
-2. A. E. Brouwer, R. Gow, and J. Sheekey, *Counting Symmetric Nilpotent Matrices*, *Electronic Journal of Combinatorics* **21** (2014), P2.4. https://doi.org/10.37236/3810
-3. G. Lusztig, *A Note on Counting Nilpotent Matrices of Fixed Rank*, *Bulletin of the London Mathematical Society* **8** (1976), 77–80. https://doi.org/10.1112/blms/8.1.77
+For related background, see J. Feldvoss, S. Siciliano and T. Weigel, *Outer restricted derivations of nilpotent restricted Lie algebras*, arXiv:1102.2629; and A. E. Brouwer, R. Gow and J. Sheekey, *Counting Symmetric Nilpotent Matrices*, *Electronic Journal of Combinatorics* **21** (2014), P2.4, https://doi.org/10.37236/3810. These do not establish an identical ordinary-derivation kernel-bracket theorem in the inspected material.
