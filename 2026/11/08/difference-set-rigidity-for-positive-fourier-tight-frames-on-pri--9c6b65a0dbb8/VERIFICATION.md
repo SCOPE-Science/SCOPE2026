@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification status and reproducibility
+# Independent mathematical audit
 
-The mathematical proof invokes exact prime-order Fourier-minor nonsingularity (Chebotarev), convex Carathéodory compression, Cauchy–Davenport and Vosper. Each nonstandard input is named with its needed quantifiers in `RESULT.md`. Critical steps were checked: off-diagonal moment normalization, lower cardinality through a square subminor, upper cardinality through conjugate-symmetric real moments, full affine independence, and the saturated and small-prime cases. The sharp result is analytical and is not inferred from finite experiments.
+## correctness
 
-The accompanying `CHECK.py` uses NumPy and SciPy to construct positive Fourier rules by linear programming and check their Gram matrices. It ran successfully with `CHECK_OK prime_sizes=[2,3,5,7,11,13,17,19] configurations= 436`. All nonempty spatial sets were tested at prime orders \(2,3,5,7\); systematic and sampled configurations were checked at the larger listed primes. Numerical tolerance is \(2\times10^{-8}\), so the numerical tests are not a symbolic or universal certificate. The published exact prime Fourier-minor and convexity theorems, not the solver, furnish the universal proof.
+PASS
 
-No independent mathematical audit was performed. The literature comparison is explicitly limited to inspected sources and recorded residual priority risks. The classification does not supply noise-condition bounds or rule out earlier equivalent results under different terminology.
+A positive Parseval rule is precisely a probability measure annihilating nonzero differences A-A. At p prime every square Fourier minor is nonsingular (Chebotarev), forcing at least |A-A| nodes; Caratheodory compresses the complete uniform measure to at most that many. The same nonsingularity gives unique weights and a simplex-origin positivity test. Cauchy-Davenport and its Vosper equality case classify fixed-cardinality minima, while cyclotomic irreducibility forces all p nodes for equal weights. The composite-six counterexample shows prime necessity; singleton and p=2 are handled explicitly.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge: the earlier three-consecutive-site positive sampling theorem is an exact k=3 arithmetic-progression specialization, but cannot imply the all-spatial-subset law. Prime-power unweighted frame sizes and block-equivalent finite Gabor-frame results have different admissible weights/operators. Exact general positive quadrature equivalence in older cubature literature remains a plausible unverified risk.
+
+## value
+
+PASS
+
+PASS: the exact minimal positive Fourier design budget for arbitrary spatial apertures is a natural sampling invariant, and the optimal spatial geometry and weight uniqueness characterize all minimal designs. Although derived from classical theorems, their combined interpretation solves a motivated all-support optimization not furnished by any inspected table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

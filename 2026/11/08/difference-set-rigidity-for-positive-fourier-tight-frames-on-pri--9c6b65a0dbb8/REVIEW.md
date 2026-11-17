@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The normalized restricted Fourier Gram matrix is the matrix of Fourier moments on \(A-A\). At an attempted support of at most \(|A-A|-1\), the zero equations contain a square prime Fourier minor on the unknown weights, forcing them all to zero by Chebotarev's theorem; this contradicts their unit sum. For the upper bound the uniform frequency rule has zero nontrivial moments, and Carathéodory compression of its real moment vectors supplies at most \(|A-A|\) strictly positive nodes. The lower bound forces equality. Chebotarev gives uniqueness on each optimal support and affine independence of the moment simplex; its strict-interior test is necessary and sufficient. Cauchy–Davenport, the precise \(\le p-2\) hypothesis in Vosper's theorem, and the cyclotomic minimal polynomial prove the claimed sharp spatial and equal-weight classifications. The small prime \(p=2\), singleton, and saturated-difference-set cases are addressed separately. The order-six example confirms the prime hypothesis is essential. The supplementary code was executed and checked both the moment system and full complex frame matrix for 436 selected configurations; it is not an infinite proof.
+## correctness
 
-## Originality — PASS relative to inspected sources, with residual risk
-The full-text 2026 Asipchuk–De Carli–Rodriguez paper studies block and diagonal equivalence for finite Gabor systems, not the exact positive-frequency count for every spatial subset of a prime cycle. The complete published three-site positive-frequency theorem deals with \(A=\{0,1,2\}\) and separately determines composite-order regimes; its prime-order five-node conclusion is implied by the current all-support result, not conversely. The published prime-power minimal tight-frame theorem fixes all weights equal; its conclusion \(p\) in prime order is consistent with, not a stronger covering statement than, the different positive-weighted law. Tao's prime uncertainty theorem and Chebotarev's minors, convex Carathéodory, Cauchy–Davenport and Vosper are all credited as pre-existing ingredients, rather than asserted as novel. Searches found no whole-object prior statement including the arbitrary-support exact bound, optimizer simplex condition and fixed-cardinality spatial equality structure. The combination is short, and an unindexed equivalent reformulation might exist; priority is not asserted absolutely.
+PASS
 
-## Value — PASS
-The object is the exact acquisition budget for a Parseval frame on an arbitrary finite sampling aperture. Its optimum is a natural additive-combinatorial invariant \(|A-A|\), not a selected numerical instance or a renaming of one small case. It supplies both exact optimal sampling cost and a necessary-and-sufficient positivity test for every candidate optimal support. It also determines which spatial sets require the least measurements at fixed cardinality, and exhibits arbitrarily large savings versus constant-weight Fourier sampling. These constitute usable structural design information even though the proof synthesizes classical tools rather than proving a new uncertainty theorem.
+A positive Parseval rule is precisely a probability measure annihilating nonzero differences A-A. At p prime every square Fourier minor is nonsingular (Chebotarev), forcing at least |A-A| nodes; Caratheodory compresses the complete uniform measure to at most that many. The same nonsingularity gives unique weights and a simplex-origin positivity test. Cauchy-Davenport and its Vosper equality case classify fixed-cardinality minima, while cyclotomic irreducibility forces all p nodes for equal weights. The composite-six counterexample shows prime necessity; singleton and p=2 are handled explicitly.
 
-## Scope and remaining risks
-The geometric equivalence relies on nonvanishing of all prime-order Fourier minors and cannot be transferred to composite order. Optimal positive weights may be highly unbalanced; no noise amplification or robust conditioning is controlled. Positive cubature and scalable harmonic frame literatures are extensive; a semantically equivalent priority reference might not be indexed. The available mathematical comparison does not constitute independent external audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: the earlier three-consecutive-site positive sampling theorem is an exact k=3 arithmetic-progression specialization, but cannot imply the all-spatial-subset law. Prime-power unweighted frame sizes and block-equivalent finite Gabor-frame results have different admissible weights/operators. Exact general positive quadrature equivalence in older cubature literature remains a plausible unverified risk.
+
+## value
+
+PASS
+
+PASS: the exact minimal positive Fourier design budget for arbitrary spatial apertures is a natural sampling invariant, and the optimal spatial geometry and weight uniqueness characterize all minimal designs. Although derived from classical theorems, their combined interpretation solves a motivated all-support optimization not furnished by any inspected table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
