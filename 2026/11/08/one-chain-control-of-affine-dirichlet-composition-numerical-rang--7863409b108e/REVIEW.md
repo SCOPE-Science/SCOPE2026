@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact coefficient action and unique integer-power orbit decomposition are straightforward to reproduce. The critical step is the signed Jacobi comparison: for negative quadratic multiplier, the completion-of-square ceiling and monotone Schur pivots yield an implication of positive definiteness on every finite truncation, then a norm limit. All directions of the shell support function follow from spectral Rayleigh principles. The included standard-library checker passed 22575 exact-rational assertions; it is finite diagnostic evidence, not an infinite-dimensional proof.
+## correctness
 
-**Originality — PASS, qualified.** The directly inspected 2026 Dirichlet-series paper's Proposition 5.2 gives only isometric exact geometry and a broad positive-translation inclusion, and explicitly poses the affine shell shape as Question 5.4. The new theorem reduces every supporting direction of the positive-translation closed convexified shell to a single multiplicative orbit. The 2004 numerical-range paper's complete text was unavailable, so its possible implications for the planar subclaim remain a priority risk. A general weighted-shift shell theorem with the all-sign domination property could also subsume the Jacobi lemma. Actual published-finding corpus comparisons are recorded in AUDIT.json.
+PASS
 
-**Mathematical value — PASS.** It provides an exact, computable convexified-shell invariant and exact numerical range for a natural nonnormal affine family singled out in recent work. The super-exponential error makes its infinite Jacobi formula practical. The full nonconvex shell is not claimed.
+Recomputed C e_n=n^{-b}e_{n^m} and unique n=r^(m^k) orbit decomposition into a fixed scalar plus compact forward shifts. Positive chain-2 weights dominate every r>2. Nonstandard negative-tau spectral dominance follows from completing the square (ceiling 1/(4u)) and strictly positive backward Schur pivots d_k=lambda+w_k^2(u-1/(4d_{k+1})); on 0<d<=lambda<1/(4u), the recurrence is increasing in the incoming pivot and decreasing in each weight squared. The finite top eigenvalue order passes by operator-norm limits. Positive tau follows Rayleigh/Perron comparison. Every support functional equals the top spectral value of Re(e^-iθ C)+tau C*C. The first-omitted-weight perturbation proves the explicit error. Rechecked exact rational Schur-pivot identities and monotonicity; these finite checks only corroborate the analytic proof.
 
-**Limitations.** Positive real translation and integer dilation at least two only. No independent audit or exhaustive priority certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: searched equivalent affine symbols, dominant weighted-shift reductions, all-sign Jacobi support, and prior composition-operator numerical ranges. The directly relevant Lahiri et al. 2026 Dirichlet study deals in the accessible description with isometric and general weighted/composition numerical-range geometry rather than providing this exact positive-translation all-direction support; the 2004 Finet–Queffélec paper may overlap the planar numerical-range component but not shown to contain all-sign convexified Davis–Wielandt support. No dominating statement was identified in indexed results, and the proof contains an explicit nontrivial signed-shift domination lemma. Full texts of these two plausible sources were NOT read; significant documented priority risk, not a claim of exhaustive novelty.
+
+## value
+
+PASS
+
+Computes an entire family of convexified 3-dimensional numerical-range/shell geometries exactly using a single natural multiplicative orbit; all-real-tau Schur comparison is structural rather than a routine direct-sum identity. Error bound makes the infinite compact Jacobi expression certified and usable; the nonconvex shell is deliberately not classified.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
