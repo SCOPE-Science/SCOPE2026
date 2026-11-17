@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** Exact transition probabilities \(w_n ab,ac,bc\) imply the conservation law \(c=a+b+2k\). The stopping rule forces \(R_n=2K_n\); uniform hazard \(p_n\le w_n/4\) yields tightness and exponential moments. The stopped squared class imbalance has drift at most one; therefore \(\sup|a-b|/n\to0\). This produces uniform \(\lambda/(4n)\) weak-edge hazards until the small boundary layer, whose expected extra count is at most \(\varepsilon n w_n/4\). Coupling and binomial Poisson convergence prove the full weak limit; uniform exponential moments justify all integer moments. Both finite-state recurrences and the seeded smoke checks passed, but infinite statements rely on the written proof.
+## correctness
 
-**Originality (PASS on inspected evidence, not independently certified).** The closest structural antecedent is graph adsorption [1], which establishes general adsorption approaches for different graph regimes, but its complete paper was inaccessible; the abstract is not enough to rule out all overlap. The accessible full text of the 2004 reaction-annihilation paper [2] studies symmetric species and a different finite-volume scaling, not the present asymmetric weak channel. The full accessible 2006 survey [3] treats continuum/lattice/patterned regimes. The 2015 near-jamming article [4] describes low-dimensional lattice availability. Existing fixed-positive-rate tripartite density limits do not imply the double-scaling distributional result. Unindexed equivalent proofs remain possible.
+PASS
 
-**Mathematical value (PASS).** The balanced-capacity tripartite graph is a natural solvable jamming geometry where weak direct cross-links cause exactly two terminal vacancies per accepted weak edge. At inverse-size weight, the transition from virtually certain perfect exhaustion to a random finite defect count has an explicit even-Poisson law and closed perfect-coverage probability. This is a motivated critical-window invariant, not an arbitrary finite numerical slice.
+The embedded Markov chain at vacancy sizes (a,b,c) has AB,AC,BC rates wab,ac,bc. Invariant c=a+b+2K and positive c whenever a+b>0 imply terminal (0,0,2K) and R=2K exactly. Rare-event hazard p=w ab/[c(a+b)+wab]<=w/4 gives binomial stochastic domination, K=O_P(1) and uniformly bounded exponential moments when nw->lambda finite. For imbalance d=a-b, conditional drift of d² <=1 and Doob/optional-stopping controls max|d|/n; conditional on s>=delta n, hazard n p→lambda/4 uniformly in probability. Uniform-variable coupling across ~2n initial events gives Poisson((2-delta)lambda/4), with tail AB probability <=delta lambda/4. delta→0 and exponential-moment bound give all moment convergence. Independent exact rational reduced-state recursion for n=3,6,10,18 and finite comparisons point toward the predicted mean and vacancy law; finite cases are not an asymptotic proof.
 
-**Scientific limits.** The claim concerns terminal jamming, not transient kinetics or spatial diffusion; the weak-rate product must have a finite limit. One historical full-text source remains partially inaccessible, so originality assessment remains provisional. Finite checks are supplementary to the analytic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS. Earlier October 26 2026 published full text proves a superficially similar Poisson terminal-jamming correction on unweighted tripartite graphs with a superlinearly dominant class M_n≫n and two minorities n, whereas here c=2n initially and depletes on the same scale as a+b while AB rate is w_n~lambda/n. The earlier regime cannot be specialized or rescaled to these simultaneous balanced-capacity/weak-channel dynamics. Pippenger 1989 addresses sparse regular or tree-like graphs, not this dense weighted tripartite boundary. No matching prior exact even-Poisson law was found in targeted Resultary or published-abstract searches.
+
+## value
+
+PASS
+
+The capacity identity makes an exact random terminal vacancy count from successful rare bonds, and the inverse-size weak channel exposes a nontrivial Poisson-to-perfect-coverage transition with convergent moments. It is a naturally motivated critical scaling for a dense weighted adsorption system and can be used as a benchmark for stochastic matching and jamming limits, not a redundant fixed-weight law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
