@@ -1,15 +1,21 @@
-# Scientific review: quartic four-cap coverage onset
+# Independent mathematical audit
 
-## Correctness — PASS
-The support-function and tetrahedral Euler-inequality reductions identify the exact sharp covering radius \(w_0=\arccos(1/3)\). The proof independently derives the facet-distance linear and quadratic terms, localizes all successful configurations to the two labelled regular-tetrahedron rotation orbits, computes the five-dimensional limiting feasible volume, and includes the normalized three-dimensional rotation volume. The geometric-face checker evaluates actual facets, derivative coefficients, metric determinant, and decreasing-excess cubature ratios. The analytic compactness and dominated-convergence steps, not the finite tests, prove the limiting formula.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Finch's 2015 study treats the same four-random-cap probability and reports no exact below-hemisphere law or positive lower bounds near the tetrahedral threshold. Bürgisser–Cucker–Lotz obtain exact results for hemispherical-or-larger caps and bounds below. Milne supplies deterministic tetrahedral rigidity only. The present exact onset exponent and coefficient are not entailed by those inspected claims. Available prior claim records were compared for the equivalent convex-hull inradius tail and simplex-centred cap overlaps. Gilbert's classic 1965 full text was not available, and unindexed equivalences remain a historical risk.
+PASS
 
-## Mathematical value — PASS
-The random four-cap model is the minimal spherical coverage problem. Its probability switches on at the regular tetrahedron, and a sharp coefficient resolves an otherwise quantitatively inaccessible boundary regime. The proof detects the non-Morse anisotropic structure (three linear and two quadratic deformation modes) behind the exponent four; this is a structural local integral-geometric result rather than a table recomputation.
+PASS: Four caps cover iff the convex hull of their unit centers contains a centered ball of radius cos(w). Tetrahedral Euler inequality and inradius/circumradius rigidity give threshold cos(w0)=1/3, equality only at two oriented labeled regular tetrahedron SO(3)-orbits. In the trace-free symmetric deformation chart, three off-diagonals enter linearly and two diagonals quadratically; the feasible five-volume equals 19683sqrt(3)π/512 δ⁴, and the eight-dimensional Jacobian is 2048/243. Multiplying two orbit volumes 8π² and dividing by (4π)^4 yields 81sqrt(3)/(4π)δ⁴ and 16sqrt(3)/π ε⁴. Independent differentiation and full Gram determinant corroborated constants; analyticity, local stability, compactness, and dominated convergence prove the limit.
 
-## Scope and limitations
-The four cap centers are independent and uniform on \(S^2\); angular radius excess is in radians. This proves only the leading one-sided asymptotic, not a global formula or a uniform error constant. Numerical checks support but do not independently certify the analytic proof. Historical priority remains provisional; an independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best knowledge: Finch studies the identical four-random-cap probability but provides bounds away from the optimal tetrahedral threshold and does not give the exact quartic onset constant. Bürgisser–Cucker–Lotz give general sphere covering bounds and hemisphere-plus exact formulas; older deterministic tetrahedral cap multiplicities hold for fixed centers, not random near-optimal configurations. The five-dimensional anisotropic local-volume coefficient is not a known corollary of these inspected results.
+
+## value
+
+PASS
+
+PASS: Four equal caps are the minimal finite random sphere-coverage setting, with a rigid unique tetrahedral threshold. The exact probability exponent and prefactor quantify a nontrivial mixed linear/quadratic rare-event geometry and provide a sharp benchmark for spherical random covering asymptotics; it is neither a mere deterministic covering radius nor a generic dimension count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
