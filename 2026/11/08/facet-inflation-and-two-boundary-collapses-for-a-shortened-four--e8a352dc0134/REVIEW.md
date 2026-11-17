@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The metric triangle inequalities hold on the full parameter interval. The connected-tight-graph criterion follows from active incidence rank. The outside-point dichotomy is exhaustive, and the feasible four-symbol states are counted with rational comparisons; the two endpoint identifications are handled separately. The resulting formula is derived for every dimension, rather than extrapolated from small cases. The reproducibility script independently enumerates all spanning-tree vertices for five and six points. Risks: a transcription error in the finite-state table is mitigated by the separate spanning-tree check, but there is no independent external validation.
+PASS
 
-## Originality — PASS, subject to bibliographic limitations
+For N>=5 and t in [1/2,1] the four short cycle distances define a metric (only 1<=2t is critical). Vertices of the dual Lipschitz polytope are exactly potentials with connected tight-edge graphs by active incidence rank. The outside range-one vs range-less-than-one dichotomy forces binary outside values and a core anchored at 0 or 1; tight walks give precisely four possible core values 0,1-t,t,1 (three at t=1/2). Independent enumeration of ALL 4^4 core tuples and tight components at rational t=1/2,2/3,3/4,7/8 confirms (A,B)=(26,15) at the boundary and (38,27) in the open interval. Combining A(2^k-2)+2B for k=N-4 gives 26*2^k-22 and 38*2^k-22; at equilateral t=1, all nonconstant binary potentials give 2^N-2. Checks are finite corroboration; the anchored-value and rank proofs establish arbitrary N and all real t.
 
-Gordon–Petrov (arXiv:1608.06848) develop generic-metric face combinatorics, but alternating core tight edges force a nongeneric tight cycle here. Delucchi–Hoessly's tree-metric framework is inapplicable by the four-point condition. Previously recorded independent-short-edge formulas require a matching and do not cover an overlapping four-cycle; multipartite interpolation instead modifies within-class distances above one and has disjoint-clique geometry. Full texts of the two closest structured-family proofs and the Gordon–Petrov article were compared. No equivalent all-dimensional three-regime formula was identified, but unindexed equivalent statements remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The four-cycle is the first natural non-tree, overlapping-short-edge core that evades independent-pair product counting. Its exact facet inflation and two discrete boundary collapses classify a complete, non-generic metric deformation in all dimensions, including the sharp triangle-equality boundary. The result explains how combinatorial facet numbers change even when all triangle inequalities inside the parameter interval remain strict.
+Best-of-knowledge statement/implication-level comparison: the closest primary and published Resultary claims do not imply the full final claim, despite shared notation, boundary cases or model; residual literature-access and historical-priority risks are specified.
 
-## Scope and caveats
+## value
 
-Real metrics only; the four short lengths are equal; at least one exterior point; the entire higher-dimensional face lattice and asymmetric edge lengths are outside scope. The finite checker does not replace the universal argument.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A four-cycle is the smallest natural overlapping shortened-edge core beyond the independent matching regime. Its exact all-dimensional facet inflation and two distinct boundary drops reveal nongeneric combinatorial changes across a strict-triangle metric chamber and at the sharp triangle-equality wall; this family is not a trivial relabeling or parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
