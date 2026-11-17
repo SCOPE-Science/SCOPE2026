@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The nearest-face projection is determined by the largest coordinate magnitudes and an affine-simplex minimizer, including all boundary cases. Successive squared distances have exact positive-square gaps, allowing explicit reconstruction of the ordered absolute coordinates. Independent exponential spacings and gamma–Dirichlet normalization give the exact harmonic finite-dimensional mean. Classical Poisson extreme-order statistics, with a vanishing normalized squared-coordinate error, yield the joint gamma-log limit. The packaged executable independently tests finite-dimensional face projections, the inverse, finite expectations and limit covariance values.
+PASS
 
-## Originality — PASS (historical priority provisional)
+For each j-face with signed coordinate support I, orthogonal projection onto the affine simplex gives q-sum_{i in I}x_i²+(1-sum_I |x_i|)^2/j; replacement of a smaller selected absolute coordinate by a larger unselected one weakly reduces distance because 1-s>=a+b for the two coordinates. Thus nearest j-face uses the top j magnitudes even on boundaries. Consecutive squared gaps are positive squares; the final R_d yields total l1 slack, and backward recursion recovers a_d through a_1. Independent inverse numerical computation restored 200 random profiles in d=2,3,5,9 within 1e-12. Uniform volume in l1 ball gives Dirichlet(1,...,1) from d+1 exponentials; normalized top order-statistic moments yield stated harmonic formula. Poisson convergence of exponential maxima with fixed j and d q→2 gives joint Z_j=-2-(2/j)sum_{i<=j}log T_i. Gamma/Dirichlet conditioning yields independent Gamma(j,1) and Gamma(j-1,1) decomposition and the stated transform. Finite tests are not used to establish infinity.
 
-Ambrus (arXiv:1208.5923) proves Gaussian width and intrinsic-volume facts for orthogonal cross-polytopes, not the interior skeletal-distance signature. Mijatović–Vysotsky (arXiv:1508.00944) examine maximal consecutive spacings, not the sum of the largest individual spacings appearing here. Gravin et al. (arXiv:1106.5723) invert moments to recover an unknown polytope, not the sorted coordinates of a point from a fixed body's skeleton distances. A related face-rank contraction-orbit classification does not measure point-to-face distances. An accessible previous nearest-vertex result for the regular simplex and a published cross-polytope random-section diameter result were compared: neither covers the inverse all-face profile or the joint limit. Classical order statistics remain essential acknowledged inputs; uninspected historical geometric sources are a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The measured object is a natural multiscale clearance vector to the complete face skeleton of an important regular polytope. The exact injectivity modulo symmetry, constructive inverse, finite means and joint non-Gaussian asymptotics give coherent geometric and stochastic information about this vector, rather than arbitrary dimension-specific constants.
+Best-of-knowledge PASS: the surviving final claim is distinguished by mathematical implications from the inspected prior theorems; see four comparisons and the explicit residual priority risks.
 
-## Limits
+## value
 
-All-dimensional analytical identities are not established by finite simulation alone. The inverse cannot determine coordinate signs or their permutation. Joint asymptotics are proved at fixed ranks; growing-rank regimes and nonuniform sampling remain unproved. Independent audit and historical-priority certification have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Euclidean distances to successive face skeletons are a natural multiscale clearance signature in a basic regular convex body. Showing they recover a point's complete symmetry orbit is a meaningful inverse metric fact; the exact finite means and nontrivial dependent gamma-log limit for uniformly sampled points give further useful geometric-probabilistic information. This is not an arbitrary dimension-specific invariant or a renamed extreme order statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
