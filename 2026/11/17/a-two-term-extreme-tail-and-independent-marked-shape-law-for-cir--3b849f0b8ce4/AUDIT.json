@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "Strict sine concavity gives the unique global equilateral maximum T=2 sqrt(3). Compact localization and the maximum-gap cusp yield |delta|=O(t). The exact wedge identity T=4 sin(pi/3-r/4) cos(3ru/4), jacobian 3r/2, and uniform implicit radial expansion imply CDF=9t^2/pi^2-18 sqrt(3)t^3/pi^2+O(t^4). Normalized wedge densities converge in L1 to a product of Uniform(3 labels), Beta(2,1), and Uniform[-1,1], proving total variation. The perimeter limit follows by quadratic Taylor expansion. Exact small-threshold quadratures, independent simplex-grid integration and iid-circle simulation from the included path verify numerical implications, not infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Nikitin-Simarova arXiv:2010.04460 Assumptions A5/A6 require C3 smoothness and a nondegenerate Hessian at the maximizing configuration.",
+        "Koroleva-Nikitin arXiv:1301.1360 treats full perimeter with local quadratic deficit.",
+        "Aldous-Steele DOI:10.1007/BF01194923 concerns n-growing Euclidean trees in a volume-uniform domain."
+      ],
+      "reasoning": "The strongest examined general theorem does not apply because the MST max-edge selection produces a nonsmooth cone at the optimum. Large-n Euclidean MST asymptotics are for different parameters and cannot imply a fixed-three-point circle extreme-tail formula.",
+      "searches": [
+        "conditional near longest minimal spanning tree cyclic gaps Marked Beta triangular gap simplex maximum among three uniform circle points",
+        "\"maximal\" \"minimum spanning tree\" \"inscribed\" triangle",
+        "\"minimum spanning tree\" \"triangle\" \"circumference\" distribution",
+        "Generalized Limit Theorems For $U$-max Statistics arxiv 2010.04460 smooth kernel Hessian conditions"
+      ]
+    },
+    "checked_sources": [
+      "Lao and Mayer 2007/2008 arXiv:0704.1379 / DOI:10.1016/j.jmva.2008.02.001 (relevant Section 6 text)",
+      "Koroleva and Nikitin 2013 arXiv:1301.1360 (HTML Section 2.1, proof)",
+      "Nikitin and Simarova 2020 arXiv:2010.04460 (HTML Sections 3-4)",
+      "Aldous and Steele 1992 DOI:10.1007/BF01194923 (abstract only)",
+      "Cooper et al. 2015 DOI:10.1017/S0963548315000024 (abstract only)",
+      "Public minimum-width circle-triangle record (search summary only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The perimeter alone is not the MST: T=P-max(side), requiring the selected maximum side and its cusp.",
+        "Smooth perimeter losses are quadratic in angular deviations, whereas the MST loss is linear in the maximum zero-sum deviation.",
+        "The new second coefficient requires retaining the quadratic correction in the moving wedge boundary and cannot be read from the full-perimeter marginal."
+      ],
+      "reasoning": "Neither the smooth-perimeter result nor the minimum-width result dominates the MST marked law as a special case. The exact near-max MST probability is obtained by separately solving its nonsmooth angular wedge geometry. A generic maximum-statistic theorem that assumes a smooth kernel is inapplicable.",
+      "searches": [
+        "three independent uniform points on a circle Euclidean minimum spanning tree total length close to maximum equilateral rare event tail probability t squared conditional angle gaps triangular polytope",
+        "\"three\" \"circle\" \"minimum spanning tree\" \"length\" probability",
+        "Lao Mayer 2008 U-max-statistics pdf random triangle perimeter formula",
+        "random inscribed triangle minimum spanning tree perimeter length distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In a three-vertex complete Euclidean graph, MST length equals chord perimeter minus the longest chord; the longest edge is nondifferentiable as a function of the three gaps at equilateral points.",
+        "Lao and Mayer 2007/2008, Section 6, treats smooth full perimeter with a different linear tail, not the MST truncated sum."
+      ],
+      "reasoning": "Equivalent expressions as sum of two shortest chords, perimeter minus maximum chord, or minimum over three two-edge trees were checked. None of the inspected perimeter identities provides the new max-gap cone coefficient, cubic correction, or independent conditional-mark limit.",
+      "searches": [
+        "three independent uniform points on a circle Euclidean minimum spanning tree total length close to maximum equilateral rare event tail probability t squared conditional angle gaps triangular polytope",
+        "circle three random vertices Euclidean minimum spanning tree total length two shortest chord lengths Weibull upper endpoint tail asymptotic 9/pi squared",
+        "three points circle shortest connection sum two smaller chord lengths probability density",
+        "\"random triangles\" \"minimum spanning tree\" circle uniform"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The identified public circle-triangle minimum-width record concerns width, not the MST; its near-equilateral coefficient is different.",
+        "Searches returned independent-edge MST and full-perimeter works but no exact fixed-three-vertex MST tail table."
+      ],
+      "reasoning": "No exact-data/table record with the same two-shortest-chord statistic and rare-event parameters was identified. Searches and the inspected source set support a best-knowledge novelty conclusion, not exhaustive uniqueness.",
+      "searches": [
+        "geometric graph spanning tree on unit circle 3 vertices MST length distribution near regular triangle",
+        "Euclidean minimum spanning tree length of three points uniformly sampled unit circle distribution",
+        "probability distribution of length of minimal spanning tree for three random points on circle or circumference",
+        "three random points on circle minimum spanning tree length distribution 2015"
+      ]
+    },
+    "rationale": "The closest full primary texts give smooth perimeter/area tails, generic Hessian-based smooth-kernel limit laws, or large-sample independent-edge MST results. The MST sum-of-two-shortest-chords has a nonsmooth regular-triangle maximum excluded by their hypotheses. Multiple exact, alias and broader-kernel literature searches found no stronger coverage. Priority remains provisional.",
+    "residual_risks": [
+      "Unindexed or differently titled historical work on the exact three-vertex MST distribution could contain the same tail; search does not establish uniqueness.",
+      "MST-specific and minimum-width sources with only abstract or summary access cannot be certified as wholly noncovering.",
+      "Independent historical examination of all possible equivalents has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source proves a linear perimeter tail; a minimum-spanning-tree length is not defined or evaluated there. The perimeter kernel is smooth at equilateral configurations, unlike the sum of the two shortest chords.",
+        "evidence": [
+          "Section 6 states the maximal perimeter statistic and Lemma 6.2 supplies its one-point tail (4/(3 pi)) times the perimeter deficit."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jmva.2008.02.001",
+        "material_read": "Publisher HTML text, including the introduction, Section 6 Largest perimeter, Theorem 6.1 and Lemma 6.2",
+        "method": "Read displayed source text and compare the defined kernel and asymptotic normalizations",
+        "title": "U-max-Statistics",
+        "trigger": "Direct prior use of three iid circle vertices and near-maximum triangle perimeter"
+      },
+      {
+        "assessment": "Perimeters and areas of inscribed/circumscribed polygons are analyzed, not the two-shortest-edge MST. Their quadratic extremum cannot directly imply the linear-cone marked law.",
+        "evidence": [
+          "Lemma 2.1 has a tail exponent (m-1)/2 for a smooth perimeter in an m-gon; Section 2.1 develops a quadratic form around the regular polygon.",
+          "No occurrence of the term spanning in accessible HTML."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1301.1360",
+        "material_read": "Accessible full-text HTML, introduction and Section 2.1, including Lemma 2.1 and the proof by quadratic symmetrization; text search for spanning",
+        "method": "Read mathematical statements/derivations and search the entire accessible HTML for spanning-tree terminology",
+        "title": "U-max-Statistics and Limit Theorems for Perimeters and Areas of Random Polygons",
+        "trigger": "Closest identical circle sampling model with maximal geometric functional"
+      },
+      {
+        "assessment": "Condition A5 requires C3 smoothness at the maximum, and A6 a nondegenerate Hessian. The MST kernel at the regular triangle has a nondifferentiable max-edge corner, so the general theorem cannot provide this probability or marked limit.",
+        "evidence": [
+          "The source explicitly imposes three derivatives in a neighborhood of each maximum and nondegenerate Hessian.",
+          "The current MST expansion begins with one-half the maximum of three zero-sum gap deviations, which is not differentiable at the origin."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.04460",
+        "material_read": "Accessible full-text HTML, introduction and Sections 3-4: conditions A1-A6 and Theorem 4.1",
+        "method": "Check differentiability and Hessian assumptions against the exact nonsmooth MST functional",
+        "title": "Generalized Limit Theorems For U-max Statistics",
+        "trigger": "Possibly dominating general limit theorem for random-circle geometric kernels"
+      },
+      {
+        "assessment": "The abstract concerns n growing and uniform volume sampling in a cube; no supported assertion about full-text coverage beyond that.",
+        "evidence": [
+          "Abstract identifies a large-n Euclidean MST limit via a Poisson forest, unlike a fixed three-point circle extreme tail."
+        ],
+        "identifier_or_url": "https://escholarship.org/uc/item/68r8t9th",
+        "material_read": "Accessible publisher/repository abstract only",
+        "method": "Compare sampling measure, number of points, and limiting regime",
+        "title": "Asymptotics for Euclidean minimal spanning trees on random points",
+        "trigger": "Potential spanning-tree-specific prior theorem"
+      },
+      {
+        "assessment": "Minimum width and MST length are distinct invariants; the accessible claim does not imply the MST coefficients. Full-document noncoverage is not asserted.",
+        "evidence": [
+          "Published summary reports a 12/pi^2 upper-tail coefficient for width, compared with 9/pi^2 for the MST tail derived here."
+        ],
+        "identifier_or_url": "https://github.com/published-finding corpus/2026/tree/main/2026/10/25/SCOPE-exact-minimum-width-law-for-a-circle-inscribed-random-triangle--afb0212f53fa",
+        "material_read": "Public search-result title and summary, not full article",
+        "method": "Compare claimed geometric functional and tail constants",
+        "title": "The exact minimum-width law for a circle-inscribed random triangle",
+        "trigger": "Identical three-point sampling and the same equilateral maximizer"
+      },
+      {
+        "assessment": "Independent uniform complete-graph edge weights, not correlated Euclidean circle chords; the abstract does not claim the fixed-three-point near-maximum shape result.",
+        "evidence": [
+          "Article studies K_n with independent edge weights and large-n expansion around zeta(3)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1017/S0963548315000024",
+        "material_read": "Accessible journal abstract and source metadata",
+        "method": "Compare edge-weight model and asymptotic question",
+        "title": "On the Length of a Random Minimum Spanning Tree",
+        "trigger": "Potential exact random-MST length literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "3b849f0b-8ce4-4da3-a666-7c8038b2be27",
+  "value": {
+    "rationale": "A Euclidean MST is a canonical shortest connection network. The nonsmooth deletion of the largest chord produces an exact quadratic rare-event probability instead of the smooth perimeter linear law; the explicit second term and independent marked shape reveal which spanning topology dominates and how angular and perimeter fluctuations separate into linear versus quadratic scales. These are motivated geometric stability and rare-network shape results, not a renamed perimeter calculation.",
+    "status": "PASS"
+  }
+}
