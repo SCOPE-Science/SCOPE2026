@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The source file `verification/check_pq_star.py` uses Python 3 and only its standard library. From this directory run:
+# Independent mathematical audit
 
-```
-python verification/check_pq_star.py
-```
+## correctness
 
-The observed result is `PQ_STAR_LOEWNER_EXACT_CHECKS_PASSED sizes=9 vertices=144 positive_contacts=138`.
+PASS
 
-For each integer \(1\le m\le9\), the checker constructs the full vertex set directly from the star PQ construction, verifies the nonnegative rational vertex weights, calculates the full covariance matrix independently from weighted centered vertices, checks every entry against the proposed analytic projection decomposition, and evaluates the three Mahalanobis squared distances exactly. It distinguishes the zero-weight but boundary-contact hub vertex at \(m=4\) from the strictly interior hub at \(m\ge5\). It also checks covariance eigenvalue positivity and the continuity of parameter formulas at the transition.
+Source RESULT.md steps 1–5 explicitly construct all 3m+1 vertices in affine chart; give positive contact weights w and covariance with eigenvalues g=3w-8mw², B=3w, w; verify all orbit quadratic norms Q_axis=Q_pair=2m, Q_origin=2m for m<=4 and 8 for m>=4. For any competing ellipsoid, averaging contact inequalities gives trace(S^-1 C)<=1 and determinant AM-GM yields det S>=d^d det C with equality only at center c, S=dC; this is global uniqueness, not symmetry-only. Intrinsic metric multiplies constant modes by m+1 and has chart-volume Jacobian m+1. Independent exact symbolic checks of both branches and finite rational construction (source verification/check_pq_star.py) support algebra.
 
-The general result for every integer \(m\ge1\) is justified by the symbolic covariance and vertex-orbit identities and the determinant optimality argument in `RESULT.md`. The nine tests are a reproducibility check, not an exhaustive or independent proof for all parameters. Verification uses the actual embedded checker file; no outside computation certificate is required. No independent mathematical audit was performed.
+## originality
+
+PASS
+
+No prior located that mathematically covers the exact star PQ Löwner ellipsoid/contact transition. The balanced PQ all-contact result is a different family; classical John/Löwner covariance criterion is credited. Full relevant earlier PQ geometry paper studies normalized lattice volume not intrinsic metric. Best-of-knowledge rather than proof of absolute priority.
+
+## value
+
+PASS
+
+Smallest complete bipartite star family inside a natural PQ graph-polytope construction; gives exact unique enclosing ellipsoid, intrinsic axes/volume and a sharp finite-to-infinite contact orbit threshold m=4. This benchmark has independent relevance to convex approximation and optimal design, not a generic algebraic substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

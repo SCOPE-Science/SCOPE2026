@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T09:56:38.381510Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md 2068d261cdbde522848226f70674d6e8e918f909",
+        "verification/check_pq_star.py 203e98d32476c576e8cc2996654bed957c90ac65"
+      ],
+      "rationale": "Source RESULT.md steps 1–5 explicitly construct all 3m+1 vertices in affine chart; give positive contact weights w and covariance with eigenvalues g=3w-8mw², B=3w, w; verify all orbit quadratic norms Q_axis=Q_pair=2m, Q_origin=2m for m<=4 and 8 for m>=4. For any competing ellipsoid, averaging contact inequalities gives trace(S^-1 C)<=1 and determinant AM-GM yields det S>=d^d det C with equality only at center c, S=dC; this is global uniqueness, not symmetry-only. Intrinsic metric multiplies constant modes by m+1 and has chart-volume Jacobian m+1. Independent exact symbolic checks of both branches and finite rational construction (source verification/check_pq_star.py) support algebra.",
+      "residual_risks": [
+        "Finite m=1..9 tests do not establish all-m; all-m identities and determinant argument were read. Metric-specific geometry not affine-invariant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Balanced K_{r,r}, r>=2, theorem has all vertices contacting; star K_{1,m} has side one and transition at m=5."
+        ],
+        "reasoning": "Earlier theorem is not stronger in the relevant family and cannot imply the unbalanced contact-loss branch. Generic covariance optimality criterion has no explicit star data.",
+        "searches": [
+          "Löwner ellipsoid star graph PQ-type adjacency polytope minimum volume contact transition unbalanced complete bipartite",
+          "D optimal design minimum volume enclosing ellipsoid Cartesian free sum unit squares star adjacency vertices origin all leaf pairs",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-of-balanced-complete-bipartite-pq-typ--eed12b121d5b/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2103.15045v1 / https://arxiv.org/abs/2103.15045",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-of-balanced-complete-bipartite-pq-typ--eed12b121d5b/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ohsugi–Tsuchiya give Ehrhart invariants; balanced prior assumes r=r>=2, current K_{1,m}."
+        ],
+        "reasoning": "No implication from cited normalized volume or balanced contact certificate to metric ellipsoid of asymmetric star; standard optimality inequality is reused but explicit optimal contact measure is new.",
+        "searches": [
+          "Löwner ellipsoid star graph PQ-type adjacency polytope minimum volume contact transition unbalanced complete bipartite",
+          "D optimal design minimum volume enclosing ellipsoid Cartesian free sum unit squares star adjacency vertices origin all leaf pairs",
+          "arXiv:2103.15045v1",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-of-balanced-complete-bipartite-pq-typ--eed12b121d5b/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Graph PQ polytope also described by bipartite root polytopes, but unimodular equivalence need not be Euclidean isometry."
+        ],
+        "reasoning": "Compared canonical Euclidean embedding, not only graph labels or lattice-equivalence classes; a root-polytope lattice formula is not a Euclidean ellipsoid formula.",
+        "searches": [
+          "Löwner ellipsoid star graph PQ-type adjacency polytope minimum volume contact transition unbalanced complete bipartite",
+          "D optimal design minimum volume enclosing ellipsoid Cartesian free sum unit squares star adjacency vertices origin all leaf pairs",
+          "arXiv:2103.15045v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact prior PQ lattice h* and normalized volume tabulated/computed, but not the four intrinsic semiaxis eigenvalues or star contact orbit counts."
+        ],
+        "reasoning": "Not merely recomputing a known star ellipsoid table: formula applies for all m and gives a nontrivial contact phase change.",
+        "searches": [
+          "Löwner ellipsoid star graph PQ-type adjacency polytope minimum volume contact transition unbalanced complete bipartite",
+          "D optimal design minimum volume enclosing ellipsoid Cartesian free sum unit squares star adjacency vertices origin all leaf pairs",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-of-balanced-complete-bipartite-pq-typ--eed12b121d5b/RESULT.md"
+        ]
+      },
+      "rationale": "No prior located that mathematically covers the exact star PQ Löwner ellipsoid/contact transition. The balanced PQ all-contact result is a different family; classical John/Löwner covariance criterion is credited. Full relevant earlier PQ geometry paper studies normalized lattice volume not intrinsic metric. Best-of-knowledge rather than proof of absolute priority.",
+      "residual_risks": [
+        "Unindexed D-optimal design/free sum of squares theorem might give the star as an unnamed corollary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers lattice/combinatorial PQ invariants, not Euclidean enclosing ellipsoid or star contact threshold",
+          "evidence": "Constructs P_G=conv{(e_i,e_j):i=j or {i,j} edge}; paper focuses Ehrhart h* and normalized lattice volume, not intrinsic Löwner semiaxes.",
+          "identifier_or_url": "arXiv:2103.15045v1 / https://arxiv.org/abs/2103.15045",
+          "material_read": "Full available arXiv PDF, definitions in Introduction and section 4 on Ehrhart/normalized volumes",
+          "method": "Read relevant pages and formulas from primary PDF",
+          "title": "PQ-type adjacency polytopes of join graphs",
+          "trigger": "Identical PQ-type graph adjacency polytope construction and star join graph"
+        },
+        {
+          "assessment": "Balanced K_{m,m}, m>=2, all vertices contact; cannot directly specialize to K_{1,m} m>=2 or imply hub contact loss",
+          "evidence": "Earlier theorem requires both bipartition sizes m>=2 equal and gives all (n+2m^2) vertices contacting; current asymmetric stars have 3m+1 vertices with origin noncontact at m>=5.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-of-balanced-complete-bipartite-pq-typ--eed12b121d5b/RESULT.md",
+          "material_read": "Complete GitHub RESULT.md: Finding, assumptions, covariance/contact proof, limitations",
+          "method": "Read full prior published proof text",
+          "title": "The exact Löwner ellipsoid of balanced complete-bipartite PQ-type adjacency polytopes",
+          "trigger": "Exact same PQ polytope invariant but bipartite parameter family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2103.15045v1 / https://arxiv.org/abs/2103.15045",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-of-balanced-complete-bipartite-pq-typ--eed12b121d5b/RESULT.md"
+      ],
+      "rationale": "Smallest complete bipartite star family inside a natural PQ graph-polytope construction; gives exact unique enclosing ellipsoid, intrinsic axes/volume and a sharp finite-to-infinite contact orbit threshold m=4. This benchmark has independent relevance to convex approximation and optimal design, not a generic algebraic substitution.",
+      "residual_risks": [
+        "Value is limited to canonical embedding and star subfamily; no arbitrary graph assertion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim for general unbalanced K_{p,q} or affine-distorted intrinsic metric.",
+    "Prior free-sum optimal design literature not exhausted."
+  ],
+  "schema_version": 1
+}
