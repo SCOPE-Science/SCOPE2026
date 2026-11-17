@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify_k34.py` using a standard Python 3 interpreter. No packages beyond the standard library, external data, network services or files other than the checker are needed. The reproduced output is:
+## correctness
 
-```
-PASS: full independent 15-state exact-generator derivative matching, term spectra, mean values, polynomial identities; checks= 89
-```
+PASS
 
-The checker independently constructs the actual seven-vertex SI process for each of four allocations with three monitored vertices, enumerates the fifteen nonempty subsets of the four unmonitored vertices, and derives their exact rational generator. It checks all fifteen Taylor derivatives of each displayed survival expression, as well as exponential spectral multiplicities. These finite algebraic identities and the characteristic-polynomial uniqueness theorem establish the closed forms for every nonnegative time. Polynomial factorizations, the discriminant and mean-delay exact fractions are checked separately. The proof in `RESULT.md` supplies the strict inequality and uniqueness arguments for all positive deadlines; a finite checker alone would not establish these global inequalities. Numerical critical time is a noncertifying decimal approximation to an exactly specified unique root.
+A finite transient CTMC indexed by unobserved infected counts i,j has absorption-inclusive diagonal -[j(3-i)+i(4-j)], and transition rates j(3-a-i), i(1+a-j). Its exact four survival exponential-polynomial formulas follow from triangular linear ODEs. Independent 15-state individual-subset generator matches 20 Taylor derivatives for each placement, and Cayley-Hamilton makes this an exact identity check rather than numerical fitting. S2-S3 positive by a cubic sign bound, S1-S3 positive using -log x>=1-x and positive-discriminant-free quadratic, and S0-S3=x^3(1-x)R(x)/280 with R strictly concave and a unique zero. Direct exponential integration gives ET3=4/(21lambda), ET0=139/(630lambda). No claim for nonuniform seeds, recovery, or heterogeneous hazards.
 
-Independent external mathematical validation has not been performed.
+## originality
+
+PASS
+
+PASS best knowledge for the exact finite-network K3,4 three-sentinel reversal, unique polynomial threshold and exclusion of both mixed allocations. The general SI hitting-time Markov-chain framework can evaluate each placement but does not supply this strict global comparison and phase diagram; matched Resultary entry is the same finding, not independent earlier coverage.
+
+## value
+
+PASS
+
+A mathematically motivated counterexample to the rule that highest-degree sentinels or mean-time optimizers are always best: the risk objective changes the unique placement at a computable deadline with two rigorously excluded mixed alternatives. Small graph size does not invalidate the sharp decision boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
