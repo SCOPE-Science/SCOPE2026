@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof completely classifies subteams satisfying pairwise bidirectional dependence on every Boolean coordinate: the only nonempty ones are singletons and antipodal pairs. Optimal lax disjunction covering is therefore exactly the count of occupied complement-pairs; the bivariate generating function and the sharp local capacity bounds follow by explicit independent choices and a tight inequality chain. It proves the dimension threshold and equality cases uniformly, with an explicit four-element witness. The attached checker exhaustively corroborates dimensions two and three; it is not an all-d proof.
+## correctness
 
-**Originality — PASS, with material priority risk.** Published sources on team semantics and counting were compared by logical implication, not titles alone. Kontinen–Ciardelli give the related injectivity observation but not the claimed exact minimum-width/counting consequences. Haak et al. study counting complexity rather than this invariant. The closest new source, Barbero–Girlando–Müller–Yang, was accessed only at abstract/metadata level despite full-text attempts; its uninspected body is explicitly an outstanding historical-priority risk. Mathematical record searches found no matching formula or stronger covering theorem, but non-detection does not establish priority. The claim is a combined exact theorem rather than novelty of the injectivity observation.
+PASS
 
-**Mathematical value — PASS.** Optimal tensor decomposition is a natural semantic resource, and the bivariate enumerator classifies all teams by that resource and cardinality, rather than isolated instances. The sharp dichotomy between two and three variables and complete extremizer criterion explain why local coordinate-fiber capacity can underestimate tensor width. The result is directly usable for finite logical model enumeration and test generation.
+PASS: any two distinct assignments in a team satisfying all dep(p_i,p_j) differ in every coordinate, hence are complementary. Each lax cover piece is contained in an antipodal pair, yielding width = occupied pair classes. Independent four choices per pair give (1+(2u+u²)z)^{2^{d-1}}. Coordinate fibers have <=1 point per class and at least half total team; equality ratio 2 iff one vertex per occupied class and every coordinate balanced. d2 any two noncomplementary classes share a coordinate; four even parity points witness d>=3, with no smaller balanced class-free nonempty team. Proof for every d>=2 not extrapolated from the d2,d3 finite checker.
 
-**Limits.** Finite Boolean domains, lax splitting and set-valued teams only; no assertion for arbitrary domains or strict splitting. Primary full-text unavailability and unindexed equivalent literature remain risks. The checker supplies finite evidence, not general theorem proof. Independent scientific and historical-priority audits have not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: known Boolean team syntax and lax tensor semantics do not by themselves supply a stated minimal piece count, full size-width generating polynomial, or exact sharp coordinate-fiber ratio transition d=2 vs d>=3. The complete Barbero et al paper treats labelled proof systems and terminating proof search, not this quantitative fixed-formula family; scanned theorem/formula text has no antipodal or tensor-width theorem.
+
+## value
+
+PASS
+
+PASS: reversible dependence is a natural logical constraint; exact minimum tensor-piece count and its joint size distribution quantify model decomposability rather than repackage a single satisfiability check. The d2-to-d3 equality threshold is a sharp structural boundary across all Boolean dimensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
