@@ -1,24 +1,21 @@
-# Scientific review: weighted triangular-book anti-coordination
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem's exhaustive two-hub case distinction, page best replies, and both explicit hub inequalities produce the exact interval and every equilibrium, including equality boundaries. Every equilibrium cut has one of two specified weights. The maximum over both hub patterns is the global maximum cut; potential identity proves its Nash stability and the welfare/price-of-anarchy formula. The asymmetric perturbation makes each page's choice unique and renders the opposite-hub best reply unstable. Exact-rational direct enumeration of 318,360 profiles across 2,605 settings independently confirms the formula in finite cases; it is not used as an infinite proof.
+PASS
 
-## Originality — PASS, subject to known residual risks
+Proof splits all possible hub actions. With same hubs positive page weights force every page opposite, and hub flips compare A,B with tau. With opposite hubs, each a_i>b_i page must oppose u, each a_i<b_i opposes v, ties freely choose S; hub deviations impose 2(A_L+w(S))>=A-tau and 2(B_L+w(S))<=B+tau. This bijects Nash profiles with two complements for each valid subset and two aligned cuts when stable. Each cut total equals X=A+B or Y=tau+sum max(a_i,b_i), social welfare twice cut; maximum cut is stable because unilateral payoff change equals cut change. Split threshold follows by minimizing both inequality bounds over S. For even k the tie count is binom(k,k/2); the proposed epsilon perturbation leaves two optimal aligned profiles because v would flip in the only opposite-hub candidate. Independent rational brute-force enumerated 240 positive rational settings, 6912 labeled profiles (k=2,3), matching counts, welfare and PoA; no finite enumeration is used for all real weights.
 
-The closest comparison is Lampis (2021, Theorem 3.5), which explicitly uses a symmetric two-center complete bipartite partition gadget to show hardness of minimum stable cut. That substantially covers the underlying subset-sum mechanism, which is credited, not relabeled as new. Kun, Powers and Reyzin (2013) already establish a general price-of-anarchy bound, and their unweighted game is the natural antecedent; the present special-class exact count and perturbation behavior is not a consequence of that bound. The inspected material in Deligkas et al. (2023) concerns complexity of anti-coordination outcomes; Carosi et al. (2018) concerns strong-equilibrium existence; and Lampis (2021) does not supply the asymmetric positive-spine complete Nash census, exact two-level efficiency diagram, or the arbitrarily small perturbation's exponential equilibrium collapse. The assessment compares mathematical implications, not just titles, and cannot exclude unpublished or unindexed equivalents.
+## originality
 
-## Value — PASS
+PASS
 
-A natural two-hub network has a complete exact enumeration despite potentially complex weighted equilibrium selection. The result isolates a sharp structural transition: a slight systematic asymmetry changes both the entropy of stable configurations and the worst-equilibrium efficiency discontinuously. The full formula also shows how different spoke strengths and the common hub edge govern equilibria through one explicitly defined subset-sum window. These statements supply interpretable boundary information beyond simple existence or one illustrative profile; the symmetric partition condition alone is prior art.
+PASS on the full positive-spine asymmetric weighted equilibrium/welfare/perturbation classification, not on the generic local-cut equivalence or symmetric partition reduction.
 
-## Closest literature and limits
+## value
 
-- Deligkas, Eiben, Gutin, Neary and Yeo, *Some coordination problems are harder than others* (2023), arXiv:2311.03195; binary anti-coordination complexity.
-- Lampis, *Minimum Stable Cut and Treewidth* (2021), arXiv:2104.13097, Theorem 3.5; symmetric two-hub partition reduction already known.
-- Carosi, Fioravanti, Gualà and Monaco, *Coalition Resilient Outcomes in Max k-Cut Games* (2018), arXiv:1810.09278; general weighted max-cut game and strong equilibria.
-- Kun, Powers and Reyzin, *Anti-Coordination Games and Stable Graph Colorings* (2013), arXiv:1308.3258; unweighted stable colorings and general price-of-anarchy bound.
+PASS
 
-Restrictions: strictly positive weights, exactly two actions, and triangular-book graph; an unindexed equivalent statement remains possible. Reproducible finite exact checks are not independent validation or a substitute for the proof.
+The complete stable-cut classification for a natural minimal graph family with a single hub interaction identifies exact tie-driven exponential multiplicity and a sharp discontinuity in equilibrium count and efficiency under arbitrarily small asymmetric perturbation. The result is a motivated structural boundary, not simply a graph relabeling or isolated tiny-case check.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T21:45:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Proof splits all possible hub actions. With same hubs positive page weights force every page opposite, and hub flips compare A,B with tau. With opposite hubs, each a_i>b_i page must oppose u, each a_i<b_i opposes v, ties freely choose S; hub deviations impose 2(A_L+w(S))>=A-tau and 2(B_L+w(S))<=B+tau. This bijects Nash profiles with two complements for each valid subset and two aligned cuts when stable. Each cut total equals X=A+B or Y=tau+sum max(a_i,b_i), social welfare twice cut; maximum cut is stable because unilateral payoff change equals cut change. Split threshold follows by minimizing both inequality bounds over S. For even k the tie count is binom(k,k/2); the proposed epsilon perturbation leaves two optimal aligned profiles because v would flip in the only opposite-hub candidate. Independent rational brute-force enumerated 240 positive rational settings, 6912 labeled profiles (k=2,3), matching counts, welfare and PoA; no finite enumeration is used for all real weights.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary other balanced-biclique, wheel and matching-deleted settings have different graph edge sets.",
+          "Lampis proof treats weighted symmetric two-center edges for complexity, not all positive asymmetric spoke weights, exact H(tau) and the singular perturbation."
+        ],
+        "reasoning": "No inspected dominating general theorem supplies the precise two-hub constrained subset count for every positive weighted book; priority risk remains because reductions closely use same skeleton.",
+        "searches": [
+          "Resultary: weighted triangular-book anti coordination two-center K1,1,k weighted maximal stable cut equilibria Nash count tie perturbation",
+          "Resultary: sharp deletion threshold stable cut matching-deleted bicliques",
+          "Lampis 2021 Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Lampis, Minimum Stable Cut and Treewidth, arXiv:2104.13097, Section 3 Theorem 3 (full text read)",
+        "Kun, Powers, Reyzin, Anti-Coordination Games and Stable Graph Colorings, arXiv:1308.3258 (bibliographic/result context)",
+        "Resultary semantic search weighted-book, wheel, biclique and stable-cut records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Potential equivalence and PoS=1 follow standard locally maximal-cut reasoning; prior unweighted game yields general PoA upper bound 2.",
+          "Symmetric zero-spine balanced-partition construction is a limiting special case; no prior exact sharp positive-spine threshold or perturbed exponentially large Nash count was established in inspected primary text."
+        ],
+        "reasoning": "The new statement strictly refines the known reduction by giving positive spine, heterogeneous spoke inequalities and exact equilibrium multiplicities; those facts are not logical consequences of general existence or complexity results.",
+        "searches": [
+          "Resultary: weighted triangular-book anti coordination two-center K1,1,k weighted maximal stable cut equilibria Nash count tie perturbation",
+          "Lampis DMTCS full PDF section 3 Theorem 3",
+          "Kun Powers Reyzin arXiv:1308.3258"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Weighted binary anti-coordination equilibria coincide with locally stable weighted cuts; the cut potential makes global optimum Nash.",
+          "Lampis constructs two-center weighted bipartite PARTITION reductions, a closely related symmetric limiting case."
+        ],
+        "reasoning": "The prior stable-cut terminology and positive-weight action convention are equivalent; equivalence of the model does not imply the complete asymmetric-positive-spine census.",
+        "searches": [
+          "Resultary: weighted triangular-book anti coordination two-center K1,1,k weighted maximal stable cut equilibria Nash count tie perturbation",
+          "Lampis Minimum Stable Cut and Treewidth arXiv:2104.13097 Theorem 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independently precomputed complete finite census/table found beyond the assigned 2026 finding; Lampis studies computational hardness rather than a tabulation."
+        ],
+        "reasoning": "A subset-sum count for infinitely many arbitrary real edge weights is not a finite catalog entry, and the bounded independent enumerations are consistency tests.",
+        "searches": [
+          "Resultary: weighted triangular-book anti coordination two-center K1,1,k weighted maximal stable cut equilibria Nash count tie perturbation",
+          "Resultary: weighted triangular-book equilibrium census"
+        ]
+      },
+      "rationale": "PASS on the full positive-spine asymmetric weighted equilibrium/welfare/perturbation classification, not on the generic local-cut equivalence or symmetric partition reduction.",
+      "residual_risks": [
+        "Weighted two-center PARTITION reductions are extremely close; unlocated equivalent asymmetric generalization may exist.",
+        "The subset-sum H(tau) can require exponentially many subsets, not a polynomial-time counting algorithm.",
+        "Only positive weights, 2 actions, pure unilateral Nash, finite graph; experiments do not prove all real cases."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CLOSE BUT NOT COVERING the complete weighted positive-spine theorem",
+          "evidence": "A two-center symmetric-bipartite reduction proves complexity of stable cuts, whereas submitted theorem counts all equilibria for arbitrary positive asymmetric book weights.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.13097",
+          "material_read": "Full lawful OA article PDF; particularly Section 3 and Theorem 3",
+          "method": "Direct primary PDF reading with page inspection",
+          "title": "Minimum Stable Cut and Treewidth",
+          "trigger": "Same weighted max-cut game, two-center PARTITION construction"
+        },
+        {
+          "assessment": "Proof checked anew, not used as novelty evidence",
+          "evidence": "Hub inequalities, two welfare levels and perturbation claim were reconstructed; independent enumeration corroborated small cases.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026",
+          "material_read": "Complete pinned RESULT.md proof and verify.py",
+          "method": "Git blob reading at verified recursive tree",
+          "title": "Weighted triangular-book anti-coordination: exact equilibrium census and a singular tie transition",
+          "trigger": "Exact assigned claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The complete stable-cut classification for a natural minimal graph family with a single hub interaction identifies exact tie-driven exponential multiplicity and a sharp discontinuity in equilibrium count and efficiency under arbitrarily small asymmetric perturbation. The result is a motivated structural boundary, not simply a graph relabeling or isolated tiny-case check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "k>=2, strictly positive a_i,b_i,tau; tie equilibrium counts include complements.",
+    "No mixed Nash, more than two actions or coalitional stability claims.",
+    "Literal subset-sum formula not claimed computationally polynomial; bounded enumeration not proof."
+  ],
+  "schema_version": 1
+}
