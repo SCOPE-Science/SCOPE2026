@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The factor-to-two-aligned-block decomposition is exact for all zero-based starts. Every residue phase pair is realized by a constructive binary integer, and dyadic prefix differences satisfy the displayed minimum/maximum recurrences. The Fourier identity makes their coefficients six-periodic; the base levels and explicit level-2 to level-8 comparison establish the six-step induction for all levels. Every intermediate integer is attained because individual prefix differences change by at most one and the anchored intervals connect. `verify.py` replays the finite tables and independent direct-factor tests. Finite checks are supplementary, not the infinite proof.
+## correctness
 
-## Originality
-**PASS, qualified.** The most relevant prior work is Chen–Wen–Wu, arXiv:1802.03610, which proves the additive-complexity and pair-difference extrema for the same length-two ternary morphism; it does not assert the single-symbol frequency spectrum. Popoli–Shallit–Stipulanti, arXiv:2410.02409, restate that additive result without giving this one-coordinate projection. Chen–Wen, arXiv:1809.06554, address a distinct length-equals-alphabet substitution family. Actual title/claim/equivalence and research-index searches found no corresponding claim, although an unindexed equivalent remains possible.
+PASS
 
-## Value
-**PASS.** The theorem is a sharp, all-dyadic-length, three-letter counting invariant of a classical automatic word. It answers which frequencies of a fixed symbol are possible, rather than just their numerical letter-weighted sums. This is directly useful for bounds on the full Parikh spectrum and abelian complexity; the precise integer interval and its exact sharp logarithmic width are not obtained merely by renaming or substituting parameters into the additive result. It makes no claim about the full abelian spectrum.
+For t(n)=s_2(n) mod 3, any length-2^k factor splits across aligned dyadic blocks in every realizable ordered pair of phases. Its fixed-symbol count is C_{k,a}+P_{k,b}(r)-P_{k,a}(r). The 9 prefix extrema obey the stated exact min/max substitution recurrence, with C_{k+6,a}=C_{k,a}+21*2^k and off-diagonal m_{k+6}=m_k-3, M_{k+6}=M_k+3 proved by six base levels and induction. This gives the precise parity-dependent L_k,U_k. Prefix steps change counts at most one, and the three aligned counts are consecutive, so every integer from L to U occurs. Independently enumerated every phase and prefix for k=0..16 and checked exactly k+2 attained values, including k=0,1 and formulas.
 
-## Scope and limitations
-All three axes refer to the same one-coordinate frequency claim. The whole two-coordinate Parikh set and nondyadic lengths remain unproved. Independent scientific validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge survival of precise final claim after source-by-source implication comparison, with listed risks; no worldwide priority certification. Knowing the additive linear functional |w|_1+2|w|_2, even its full range, or the pairwise extreme gaps does not determine the attainable range of each |w|_j in the same factor; the independent 9-phase prefix recurrence supplies that missing information.
+
+## value
+
+PASS
+
+Natural sharp fixed-letter discrepancy and complete spectrum in a canonical nonperiodic automatic word, all dyadic scales, stronger than scalar additive complexity or an asymptotic discrepancy bound; useful for frequency-resolved combinatorics on words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

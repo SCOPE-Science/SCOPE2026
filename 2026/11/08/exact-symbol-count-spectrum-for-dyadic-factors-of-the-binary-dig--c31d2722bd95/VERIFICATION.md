@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Use `python3 verify.py`. The Python program has no third-party dependencies and checks the literal recurrence initialization, prefix extrema, six-step relations, and all predicted bounds through level 120. It also enumerates all phase-pair prefixes for 13 levels and literal sliding factor windows at 11 levels. Successful execution prints `VERIFIED` with the exact categories and base rows. The phase-enumeration check covers all nine boundary phases; direct sliding-window checks provide independent tests of real factor occurrences.
+# Independent mathematical audit
 
-The mathematical proof is in RESULT.md. Finite execution is not used as proof for all levels. No formal kernel or independent scientific audit is asserted; scientific scope is confined to fixed-symbol counts at dyadic factor lengths.
+## correctness
+
+PASS
+
+For t(n)=s_2(n) mod 3, any length-2^k factor splits across aligned dyadic blocks in every realizable ordered pair of phases. Its fixed-symbol count is C_{k,a}+P_{k,b}(r)-P_{k,a}(r). The 9 prefix extrema obey the stated exact min/max substitution recurrence, with C_{k+6,a}=C_{k,a}+21*2^k and off-diagonal m_{k+6}=m_k-3, M_{k+6}=M_k+3 proved by six base levels and induction. This gives the precise parity-dependent L_k,U_k. Prefix steps change counts at most one, and the three aligned counts are consecutive, so every integer from L to U occurs. Independently enumerated every phase and prefix for k=0..16 and checked exactly k+2 attained values, including k=0,1 and formulas.
+
+## originality
+
+PASS
+
+Best-of-knowledge survival of precise final claim after source-by-source implication comparison, with listed risks; no worldwide priority certification. Knowing the additive linear functional |w|_1+2|w|_2, even its full range, or the pairwise extreme gaps does not determine the attainable range of each |w|_j in the same factor; the independent 9-phase prefix recurrence supplies that missing information.
+
+## value
+
+PASS
+
+Natural sharp fixed-letter discrepancy and complete spectrum in a canonical nonperiodic automatic word, all dyadic scales, stronger than scalar additive complexity or an asymptotic discrepancy bound; useful for frequency-resolved combinatorics on words.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
