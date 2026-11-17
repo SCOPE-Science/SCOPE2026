@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The output markers are exactly cyclic \(01\) transitions. Transition placements factor over zero gaps. The output stabilizer acts by cyclically permuting repeated primitive-gap choices, so Burnside gives the stated necklace polynomial. Integer-break comparisons isolate gaps of sizes four and five, while a normalized defect-ratio comparison explains the divisible-by-five exception. The finite verifier independently agrees through ring length fourteen and verifies the global-max formula by partition enumeration through length twenty-five. The finite census is corroboration, not an infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** Jen (1989), *Enumeration of Preimages in Cellular Automata*, gives general one-step preimage formulas and explicitly Rule 12's linear-block product case. The present finding does not claim that product precursor. The essential additional result is the quotient by spatial rotations and exact all-length maximum, where periodic output stabilizers sharply alter labeled multiplicities. Fukś (2003/2013) studies iteration-depth preimage counts rather than this necklace maximum. Relevant published research records on other elementary rules' necklace inverse degrees (notably Rule 90 and Rule 150) have non-equivalent local maps and formulas. Residual risk: unindexed earlier cyclic Rule 12 results or direct deductions of the maximum could affect historical priority.
+PASS
 
-**Value — PASS.** The precise maximum inverse branching over cyclic configurations is a natural ambiguity invariant. It is not the labeled integer-break problem: infinite families of optimal labeled outputs are periodic and fail to maximize after quotienting. The complete orbit formula and periodic penalty have direct use for distinguishing marked transition histories in cyclic information systems.
+Rule 12 outputs exactly the cyclic 01 transitions in the input. Nonzero feasible outputs have gaps d_i>=2; between consecutive output markers a predecessor has exactly one 10 transition and d_i−1 choices, independent between gaps. Repeated primitive gap pattern with repetition h has A choices per block; quotienting by the stabilizer cyclic group order h gives δ=(1/h)Σ_j A^gcd(h,j). For nonuniform gap multisets consecutive grouping yields primitive gap words, so the unquotiented product is attained. Integer-break local replacements force sizes 4 or 5; normalized ratios ρ_d=(d−1)/4^(d/5) bound any defect. A uniform all-5 output pays a strict necklace symmetry penalty, hence n multiple 5 improves by five 4-gaps for large n. Finite n<=20 checked in package, and independent brute-force ring enumeration n=5,8 returned maximal degrees 4 and 8. General proof not inferred from finite enumeration.
 
-**Scope.** This addresses one-step cyclic binary Rule 12, not higher time depths or noncyclic boundaries. Finite checks have been replayed; no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Jen (1989) explicitly calculates finite-linear Rule 12 preimage factorization; the result credits this known precursor. Fukś (2003) studies iterated preimages. The new object is one-step preimage orbits modulo cyclic spatial rotation, stabilizer-dependent degrees and sharp global maximum with period-five exceptions, which the examined linear-block treatment does not state. Resultary nearest matches for Rules 90, 110, 150 and other local rules are different maps.
+
+## value
+
+PASS
+
+Maximum inverse ambiguity of finite cyclic Rule 12 is a natural dynamic invariant, and quotienting rotations creates genuine symmetry-driven changes to an otherwise classical integer-break optimization. The exact all-output Burnside formula and sharp period-five maximum are useful outside a small finite census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
