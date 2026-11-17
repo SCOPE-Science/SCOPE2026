@@ -1,11 +1,21 @@
-# Review of the central-subset classification
+# Independent mathematical audit
 
-**Correctness — PASS.** Multiplication by a matrix-unit singleton forces every nonzero central element onto a diagonal. All diagonal fibers then agree and must be invariant under group conjugation. Conversely, the listed diagonal subsets commute with all singletons; the different zero-appearance rules for one and multiple indices are explicit. Every central idempotent comes from a normal subgroup because finite multiplicatively closed group subsets are subgroups. The arithmetic formulas follow without an unproved classification step. Exact finite tables corroborate the proof, not replace it.
+## correctness
 
-**Originality — PASS with historical priority risk.** The closest 2026 power-semigroup article studies reconstruction of singletons under isomorphism (arXiv:2610.29525v1, §§1, 4–5); it does not classify the center or its multiplication. Earlier work on group power semigroup rigidity (arXiv:2606.01917) concerns a different implication. Related classifications of the center of power semigroups on partial permutations use rank-support profiles, not the diagonal group-conjugacy fibers proved here, and do not imply this result. Searches of the literature and published research records disclosed no covering statement. Equivalent older terminology remains a risk.
+PASS
 
-**Mathematical value — PASS.** This is a complete intrinsic-center classification for every finite Brandt group and all matrix index sizes, not a selected parameter computation. It explicitly detects two group invariants—the number of conjugacy classes and the number of normal subgroups—and proves a structural discontinuity between one-index and many-index cases not visible in cardinality alone. The result gives interpretable finite invariants of inverse-semigroup power constructions currently studied via rigidity questions.
+Singleton multiplication excludes all off-diagonal members of any central subset; matching left/right matrix-unit products forces equal conjugation-invariant diagonal fibers. Converse centrality holds by gH=Hg. Multiplication includes forced zero for n>=2. Finite nonempty H with H^2=H is a subgroup, normal iff invariant; hence cardinal 2^(k(G)+1)-1 and center idempotents 1+2 nu(G) when n=1 or 1+nu(G) otherwise. Independent exhaustive raw multiplication verified n=2,G=C2 center cardinal7.
 
-**Scientific limitations.** The group/index are finite; the empty power subset is excluded. No group-isomorphism or automorphism result follows from the center counts alone. A self-review cannot certify historical novelty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known inverse power-semigroup rigidity theorems address isomorphisms/singletons, not explicit central sets. The Resultary Brandt nilpotency census counts a different invariant depending only on |G|. No earlier full center multiplication/classification found in relevant semantic and primary abstract searches; closest Liu–Tringali complete text not obtained, noted risk.
+
+## value
+
+PASS
+
+Exact center multiplication and count recover group conjugacy-class and normal-subgroup invariants from a canonical semigroup construction, with a sharp n=1 versus n>1 multiplicative bifurcation and full classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
