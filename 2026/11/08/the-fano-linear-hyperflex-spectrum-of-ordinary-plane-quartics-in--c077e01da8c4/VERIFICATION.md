@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Exact checks and scope
+# Independent mathematical audit
 
-Run `python3 verify_hyperflex.py` to reproduce the included `verification_output.txt`. The script enumerates the \(512\) Fano-normalized triples \((d,e,f)\) over the exact finite field \(\mathbb F_8\), checks the seven contact equations against rank, verifies expected rank distribution \((1,49,294,168)\), and locates one smooth representative of each of the four ranks using the exact seven gradient exclusions. It checks concurrency for a three-line hyperflex set. The mathematical proof of classification over every algebraically closed characteristic-two field is in RESULT.md, independent of sampling.
+## correctness
 
-No exact checks of nonordinary quartics, characteristic-zero limits, or historical priority are asserted. Independent audit has not been performed.
+PASS
+
+In the universal normal form Q²=xyz(x+y+z), exactly seven bitangents arise as square restrictions. The cross term of each restricted binary quadratic vanishes precisely for contact 4P; the seven coefficients are e,f,d,e+f,d+f,d+e,d+e+f. They form all nonzero F2-linear forms on (d,e,f), so hyperflex count is 2^(3-r)-1 and a dimension-two kernel forms a Fano pencil. Smoothness is the explicit seven nonvanishing gradient exclusions; over infinite algebraic closure each span-rank choice admits parameters a,b,c off finitely many proper hypersurfaces. Independent GF8 enumeration confirms 512 triples and rank histogram 1,49,294,168; finite checks not the proof of existence for all algebraically closed k.
+
+## originality
+
+PASS
+
+The original Wall/Nart–Ritzenthaler normal form and the seven bitangents are known; Nart–Ritzenthaler full text inspected does not state the 4-fold-contact spectrum. Contact-rank refinement and concurrency are separately proved here. Wall 1995 full text could not be obtained; its direct topical relevance is an explicit priority risk, not declared not covering.
+
+## value
+
+PASS
+
+A complete nonempty contact-order stratification of the ordinary genus-three quartic locus and strong forbidden hyperflex counts 2,4,5,6 are natural moduli/incidence facts, not mere restatement of the normal form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

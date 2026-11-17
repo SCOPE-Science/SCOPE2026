@@ -1,15 +1,21 @@
-# Review of the Fano-linear hyperflex classification
+# Independent mathematical audit
 
-## Correctness
-PASS. The full proof identifies all seven bitangents independently via restriction of \(H=xyz(x+y+z)\), proves the smoothness conditions from gradients, and computes exact contact multiplicity using mixed coefficients of binary quadratics. The seven conditions form the nonzero linear forms of a three-dimensional \(\mathbb F_2\)-space, giving the four possible ranks and concurrency. Smooth witnesses for all four cases and full \(\mathbb F_8\)-parameter enumeration are replayable in the bundled verifier. Assumptions: algebraically closed characteristic \(2\), smooth ordinary quartic. Nonordinary curves are not claimed.
+## correctness
 
-## Originality
-PASS with a bounded historical-priority risk. Nart--Ritzenthaler (arXiv:math/0312366v2, Section 1) give the full normal form and seven bitangents but do not state the hyperflex incidence spectrum. The new contact calculation is not an immediate claim of their classification; it identifies a further moduli stratification by multiplicity-four tangent support and its Fano incidence. Pacini--Testa (arXiv:1301.1865) explicitly exclude characteristic \(2\). Duursma (arXiv:math/0302154) examines Klein twists rather than the general ordinary stratum. Wall (1995) is the closest uninspected primary source; equivalent statements there remain a priority risk.
+PASS
 
-## Value
-PASS. This classifies the possible hyperflex contact patterns on the complete ordinary genus-three locus in characteristic \(2\), rather than enumerating examples. The surprising restriction to \(0,1,3,7\) (never \(2,4,5,6\)) and obligatory concurrency in the three-line case are projectively invariant geometric constraints. Each stratum is nonempty. The precise contact-order refinement is motivated by the universal Fano configuration of bitangents and distinctions between ordinary bitangents and hyperflexes.
+In the universal normal form Q²=xyz(x+y+z), exactly seven bitangents arise as square restrictions. The cross term of each restricted binary quadratic vanishes precisely for contact 4P; the seven coefficients are e,f,d,e+f,d+f,d+e,d+e+f. They form all nonzero F2-linear forms on (d,e,f), so hyperflex count is 2^(3-r)-1 and a dimension-two kernel forms a Fano pencil. Smoothness is the explicit seven nonvanishing gradient exclusions; over infinite algebraic closure each span-rank choice admits parameters a,b,c off finitely many proper hypersurfaces. Independent GF8 enumeration confirms 512 triples and rank histogram 1,49,294,168; finite checks not the proof of existence for all algebraically closed k.
 
-## Limits
-Only a self-review was performed. The first complete accessible normal-form reference is [1]; Wall's older full text was not accessible without additional authorization. Explicit formula derivation builds on standard characteristic-two normal forms, so a latent older hyperflex account remains possible. Characteristic-zero and nonordinary characteristic-two quartics are out of scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Wall/Nart–Ritzenthaler normal form and the seven bitangents are known; Nart–Ritzenthaler full text inspected does not state the 4-fold-contact spectrum. Contact-rank refinement and concurrency are separately proved here. Wall 1995 full text could not be obtained; its direct topical relevance is an explicit priority risk, not declared not covering.
+
+## value
+
+PASS
+
+A complete nonempty contact-order stratification of the ordinary genus-three quartic locus and strong forbidden hyperflex counts 2,4,5,6 are natural moduli/incidence facts, not mere restatement of the normal form.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
