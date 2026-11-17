@@ -1,17 +1,21 @@
-# Scientific review: two-visit ecological detection
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact two-time occupancy probabilities follow from the two-state continuous-time Markov transition kernel. Inclusion-exclusion for conditionally independent imperfect observations gives the stated objective, and its derivative in the later observation time is strictly positive. Holding that observation at the terminal deadline reduces the remaining optimization to a strictly concave function of an exponential time coordinate. Its one stationary point crosses the admissible boundary exactly at \(H_c\), proving global optimality, uniqueness, the equality case, and the squared improvement formula for all parameter values in the theorem. The independent transition-matrix checker passed 30,800 exact-rational and finite-grid diagnostic assertions; the proof, rather than enumeration, establishes the unrestricted statements. No unverified nonstandard lemma is needed.
+PASS
 
-## Originality — PASS within inspected evidence, with residual priority risk
+From the CTMC transition matrix derived P=da[2-x-xy-d(1-x)(a+(1-a)y)] with x=exp(-gt1), y=exp(-g(t2-t1)); it agrees when tests coincide because errors, not occupancies, are independent. ∂P/∂t2=dag y[x+d(1-x)(1-a)]>0 forces t2=H. Setting h=exp(-gH), the x objective is a constant minus (1-da)x - d(1-a)h/x, strictly concave. Its interior x=sqrt(rh) is feasible exactly when H>=H_c; otherwise boundary t1=H. The completed-square gap equals da(1-da)(max(0,sqrt(r)-sqrt h))². All parameters and d=1 boundary reviewed. Inspected the standard-library checker and performed separate numerical transition-matrix/grid and gain checks; only calculus establishes continuum optimum.
 
-A public scientific record search included timing, two-state colonization–extinction, imperfect detection, simultaneous tests, and alternative optimal-surveillance terminology. The nearest records concern two-visit N-mixture identification, stationary renewal-process two-time identification, and first detection in a different physical process. Available prior scholarly material was compared by assumptions and conclusion, not by title. MacKenzie and Royle (2005) consider independent repeat visits and optimize *precision of occupancy estimation* under time-constant occupancy; Pagendam and Pollett (2009) optimize *Fisher information for rate estimation* in an interacting multi-patch birth–death model; Guillera-Arroita et al. (2014) optimize a static-survey cost policy. None of those inspected results states or entails the exact two-snapshot finite-deadline switching law as formulated.
+## originality
 
-Important limits: the full text of the 1981 general multistate survivor-search theory could not be accessed, so its potentially broader necessary-and-sufficient optimality conditions were not definitively compared. MacKenzie et al. (2003) and Kendall et al. (2013) were inspected only at the abstract/metadata level. This is a provisional literature-based finding, not proof of global historical priority or independent validation.
+PASS
 
-## Value — PASS
+Best-of-knowledge: the proved unique two-attempt deadline threshold is not shown to follow from inspected ecological monitoring, Fisher-information design, or accessible multistate-search statements. A highly relevant older full paper was inaccessible, so its potential implications are explicitly an originality risk rather than automatically a failure.
 
-The result resolves the complete temporal design for an ecologically interpretable, reversible, imperfect-detection process. It identifies a sharp dimensionless separation threshold, a surprising short-horizon optimum with simultaneous independent surveys, a rigorous uniqueness classification, and the exact penalty for ignoring temporal staggering. The question follows naturally from the tradeoff between occupancy building up after known initial absence and repeat-detection redundancy; the result is not merely a special numerical case or a routine parameter substitution. It does not claim that a two-visit design should be used operationally under field heterogeneity or cost constraints.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact switch between clustering independent detections at a deadline and separating them clarifies a real survey-design tradeoff under recolonization/extinction, with explicit sensitivity/rate dependence and strict uniqueness. It optimizes an interpretable objective that differs from generic estimation precision; this is more than a routine CTMC transition calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

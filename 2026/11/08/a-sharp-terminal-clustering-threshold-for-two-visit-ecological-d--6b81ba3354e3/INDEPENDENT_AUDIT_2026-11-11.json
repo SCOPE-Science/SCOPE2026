@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T22:45:10.917737Z",
+  "axes": {
+    "correctness": {
+      "rationale": "From the CTMC transition matrix derived P=da[2-x-xy-d(1-x)(a+(1-a)y)] with x=exp(-gt1), y=exp(-g(t2-t1)); it agrees when tests coincide because errors, not occupancies, are independent. ∂P/∂t2=dag y[x+d(1-x)(1-a)]>0 forces t2=H. Setting h=exp(-gH), the x objective is a constant minus (1-da)x - d(1-a)h/x, strictly concave. Its interior x=sqrt(rh) is feasible exactly when H>=H_c; otherwise boundary t1=H. The completed-square gap equals da(1-da)(max(0,sqrt(r)-sqrt h))². All parameters and d=1 boundary reviewed. Inspected the standard-library checker and performed separate numerical transition-matrix/grid and gain checks; only calculus establishes continuum optimum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "MacKenzie et al. gives occupancy/colonization/detection model; Pagendam-Pollett optimizes Fisher information; Discenza-Stone abstract broad multistate search"
+        ],
+        "reasoning": "No inspected general theorem was found with hypotheses implying this two-attempt finite-horizon global maximizer; general search could subsume it, but no decisive implication was verifiable.",
+        "searches": [
+          "dynamic site occupancy colonization extinction detection scheduling two inspections maximize at least one detection terminal time",
+          "https://mssanz.org.au/modsim09/F2/pagendam.pdf",
+          "https://doi.org/10.1287/opre.29.2.309",
+          "https://doi.org/10.1890/02-3090"
+        ]
+      },
+      "checked_sources": [
+        "https://mssanz.org.au/modsim09/F2/pagendam.pdf",
+        "https://doi.org/10.1287/opre.29.2.309",
+        "https://doi.org/10.1111/j.1365-2664.2005.01098.x",
+        "https://doi.org/10.1890/02-3090",
+        "https://doi.org/10.1002/ece3.1056",
+        "https://github.com/Resultary/2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Derivative ∂P/∂t2 > 0 and strict one-variable concavity give a unique boundary-interior switch"
+        ],
+        "reasoning": "A general experimental design statement about optimal observation times does not imply this precise objective-dependent two-test threshold. Abstract-only multistate search overlap remains unresolved as a residual risk, not claimed noncoverage.",
+        "searches": [
+          "dynamic site occupancy colonization extinction detection scheduling two inspections maximize at least one detection terminal time",
+          "https://mssanz.org.au/modsim09/F2/pagendam.pdf",
+          "https://doi.org/10.1287/opre.29.2.309",
+          "https://doi.org/10.1002/ece3.1056"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known-start two-state continuous-time chain, two conditionally independent imperfect tests, objective P(any detection)"
+        ],
+        "reasoning": "Occupancy-inference and optimal-information formulations alter the objective. Multistate survivor search is a possible alias, but accessible abstract does not establish equivalence of the exact two-test terminal-clustering optimization.",
+        "searches": [
+          "dynamic site occupancy colonization extinction detection scheduling two inspections maximize at least one detection terminal time",
+          "https://mssanz.org.au/modsim09/F2/pagendam.pdf",
+          "https://doi.org/10.1111/j.1365-2664.2005.01098.x",
+          "https://doi.org/10.1287/opre.29.2.309"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "There are standard CTMC transition tables but no identified table for H_c=(c+e)^{-1} log((1-da)/(d(1-a)))"
+        ],
+        "reasoning": "Transition matrices determine P but not by themselves identify the unique optimal calendar and positive-part gain. Checked works do not tabulate this threshold.",
+        "searches": [
+          "dynamic site occupancy colonization extinction detection scheduling two inspections maximize at least one detection terminal time",
+          "https://mssanz.org.au/modsim09/F2/pagendam.pdf",
+          "https://doi.org/10.1111/j.1365-2664.2005.01098.x"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the proved unique two-attempt deadline threshold is not shown to follow from inspected ecological monitoring, Fisher-information design, or accessible multistate-search statements. A highly relevant older full paper was inaccessible, so its potential implications are explicitly an originality risk rather than automatically a failure.",
+      "residual_risks": [
+        "Discenza and Stone (1981) full paper could contain a dominating two-snapshot special case; only abstract was available, and Oxford institutional tool reported vpn_disconnected (no bypass).",
+        "Related ecological methods papers not all read in full; historical priority remains best-of-knowledge only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_OBJECTIVE",
+          "evidence": [
+            "Maximizes parameter-estimation Fisher information on metapopulation dynamics; not unconditional probability of one imperfect detection in a known empty site"
+          ],
+          "identifier_or_url": "https://mssanz.org.au/modsim09/F2/pagendam.pdf",
+          "material_read": "Complete seven-page MODSIM 2009 proceedings text, model, information criterion, optimization and conclusions",
+          "method": "primary full text",
+          "title": "Robust Optimal Observation of a Metapopulation",
+          "trigger": "Fully optimized observation schedules of stochastic colonization processes"
+        },
+        {
+          "assessment": "POSSIBLE_PRIOR_IMPLICATION_NOT_EXCLUDED",
+          "evidence": [
+            "Abstract frames multistate search but does not state a formula for two independent imperfect instantaneous tests, terminal clustering or the unique fixed-horizon threshold",
+            "Residual risk of an uninspected full-text corollary must remain explicit"
+          ],
+          "identifier_or_url": "https://doi.org/10.1287/opre.29.2.309",
+          "material_read": "Accessible publisher abstract/description only; full article inaccessible; authorized institution request returned VPN-disconnected and was not bypassed",
+          "method": "publisher abstract and authorized access attempt",
+          "title": "Optimal Survivor Search with Multiple States",
+          "trigger": "General multistate search theory could dominate specialized two-test Markov detection"
+        },
+        {
+          "assessment": "DIFFERENT_ESTIMAND",
+          "evidence": [
+            "Optimizes occupancy parameter inference under closure assumptions, rather than a fixed-horizon two-visit probability of at least one observation"
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/j.1365-2664.2005.01098.x",
+          "material_read": "Accessible abstract, stated sampling effort/estimation-precision problem; no claim of complete full-text reading",
+          "method": "abstract and accessible bibliographic description",
+          "title": "Designing occupancy studies: general advice and allocating survey effort",
+          "trigger": "Detection effort design with independent repeated visits"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact switch between clustering independent detections at a deadline and separating them clarifies a real survey-design tradeoff under recolonization/extinction, with explicit sensitivity/rate dependence and strict uniqueness. It optimizes an interpretable objective that differs from generic estimation precision; this is more than a routine CTMC transition calculation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://mssanz.org.au/modsim09/F2/pagendam.pdf",
+    "https://doi.org/10.1287/opre.29.2.309",
+    "https://doi.org/10.1111/j.1365-2664.2005.01098.x",
+    "https://doi.org/10.1890/02-3090",
+    "https://doi.org/10.1002/ece3.1056",
+    "https://github.com/Resultary/2026"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full primary 1981 multistate-search theory inaccessible; best-of-knowledge originality does not establish priority.",
+    "Assumes known rates, initial vacancy, exactly two tests, perfect specificity and permission for simultaneous independent tests."
+  ],
+  "residual_risks": [
+    "Discenza and Stone (1981) full paper could contain a dominating two-snapshot special case; only abstract was available, and Oxford institutional tool reported vpn_disconnected (no bypass).",
+    "Related ecological methods papers not all read in full; historical priority remains best-of-knowledge only."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DIFFERENT_OBJECTIVE",
+      "evidence": [
+        "Maximizes parameter-estimation Fisher information on metapopulation dynamics; not unconditional probability of one imperfect detection in a known empty site"
+      ],
+      "identifier_or_url": "https://mssanz.org.au/modsim09/F2/pagendam.pdf",
+      "material_read": "Complete seven-page MODSIM 2009 proceedings text, model, information criterion, optimization and conclusions",
+      "method": "primary full text",
+      "title": "Robust Optimal Observation of a Metapopulation",
+      "trigger": "Fully optimized observation schedules of stochastic colonization processes"
+    },
+    {
+      "assessment": "POSSIBLE_PRIOR_IMPLICATION_NOT_EXCLUDED",
+      "evidence": [
+        "Abstract frames multistate search but does not state a formula for two independent imperfect instantaneous tests, terminal clustering or the unique fixed-horizon threshold",
+        "Residual risk of an uninspected full-text corollary must remain explicit"
+      ],
+      "identifier_or_url": "https://doi.org/10.1287/opre.29.2.309",
+      "material_read": "Accessible publisher abstract/description only; full article inaccessible; authorized institution request returned VPN-disconnected and was not bypassed",
+      "method": "publisher abstract and authorized access attempt",
+      "title": "Optimal Survivor Search with Multiple States",
+      "trigger": "General multistate search theory could dominate specialized two-test Markov detection"
+    },
+    {
+      "assessment": "DIFFERENT_ESTIMAND",
+      "evidence": [
+        "Optimizes occupancy parameter inference under closure assumptions, rather than a fixed-horizon two-visit probability of at least one observation"
+      ],
+      "identifier_or_url": "https://doi.org/10.1111/j.1365-2664.2005.01098.x",
+      "material_read": "Accessible abstract, stated sampling effort/estimation-precision problem; no claim of complete full-text reading",
+      "method": "abstract and accessible bibliographic description",
+      "title": "Designing occupancy studies: general advice and allocating survey effort",
+      "trigger": "Detection effort design with independent repeated visits"
+    }
+  ]
+}

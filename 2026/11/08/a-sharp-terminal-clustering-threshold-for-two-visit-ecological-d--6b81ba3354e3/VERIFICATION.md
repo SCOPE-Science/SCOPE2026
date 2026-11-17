@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-Run `python3 checker.py` with Python 3 and no third-party dependencies. It produced:
+## correctness
 
-```
-exact_and_numeric_checks_passed 30800
-example_Hc_t1_Poptimal_Pterminal_gain (0.5493061443340549, 1.2746530721670275, 0.4047648693805451, 0.36813163541672467, 0.036633233963820455)
-```
+PASS
 
-The checker independently propagates a two-state occupancy probability vector through both survey times, multiplying occupied-state mass by the nondetection factor at each survey. It compares this probability against the inclusion-exclusion formula for 2,500 rational parameter quadruples, checks interval bounds, tests 100 continuous-parameter designs against every admissible pair in a 21-point time grid, and checks the exact optimal gain at each design.
+From the CTMC transition matrix derived P=da[2-x-xy-d(1-x)(a+(1-a)y)] with x=exp(-gt1), y=exp(-g(t2-t1)); it agrees when tests coincide because errors, not occupancies, are independent. ∂P/∂t2=dag y[x+d(1-x)(1-a)]>0 forces t2=H. Setting h=exp(-gH), the x objective is a constant minus (1-da)x - d(1-a)h/x, strictly concave. Its interior x=sqrt(rh) is feasible exactly when H>=H_c; otherwise boundary t1=H. The completed-square gap equals da(1-da)(max(0,sqrt(r)-sqrt h))². All parameters and d=1 boundary reviewed. Inspected the standard-library checker and performed separate numerical transition-matrix/grid and gain checks; only calculus establishes continuum optimum.
 
-Exact rational assertions are exact only for the selected finite test cases. The time-grid tests are numerical diagnostics, not proofs of a continuum optimum. The proof for all positive rates and every allowable detection probability is the transition-law, monotonicity, and strict-concavity argument in `RESULT.md`. Independent mathematical validation has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge: the proved unique two-attempt deadline threshold is not shown to follow from inspected ecological monitoring, Fisher-information design, or accessible multistate-search statements. A highly relevant older full paper was inaccessible, so its potential implications are explicitly an originality risk rather than automatically a failure.
+
+## value
+
+PASS
+
+The exact switch between clustering independent detections at a deadline and separating them clarifies a real survey-design tradeoff under recolonization/extinction, with explicit sensitivity/rate dependence and strict uniqueness. It optimizes an interpretable objective that differs from generic estimation precision; this is more than a routine CTMC transition calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
