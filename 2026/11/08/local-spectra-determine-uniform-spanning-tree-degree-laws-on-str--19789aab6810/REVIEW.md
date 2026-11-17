@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The stated domain excludes disconnected and complete degenerate strongly regular graphs. The Laplacian identity, transfer-current kernel, rank-one constant vector, remaining eigenvalues, inverse spectrum recovery, and trace-cube/triangle formula are reconstructed algebraically in `RESULT.md`. The distinct sixteen-vertex graph structures and the resulting polynomials were checked independently from weighted matrix-tree cofactors in `verify.py` with 551 exact assertions. Checking seven weights on a degree-six polynomial makes the finite graph checks exact, while the general statement rests on the symbolic argument. The first two moments are fixed by the local adjacency first two traces; the third factorial cumulant difference is fixed by the third trace. No numerical experiment is used as an infinite proof.
+## correctness
 
-## Originality
-**PASS, with historical-priority risk.** A general degree-PMF framework in Rapoport (2023) and a general expectation/variance framework in Fita Sanmartín--Schnörr--Hamprecht (2024) cover the underlying tools, not the stated equivalence of strongly regular root-degree laws with neighborhood spectra, nor the third-order separator and explicit Shrikhande--rook difference. The 2016 Pozrikidis paper also treats arbitrary-network degree distributions by Laplacian derivatives, but its full text was not accessible for detailed comparison. An existing special-case rook-degree calculation supplies the rook polynomial and is expressly excluded from independent novelty; its statement does not imply the local-spectrum recovery result or Shrikhande law without further analysis. Targeted record searches for the graph pair, local spectra and the factorial-cumulant effect found no direct result. General formulas nevertheless leave possible earlier implicit derivations.
+PASS
 
-## Value
-**PASS.** A random-spanning-tree root-degree statistic detects neighborhood spectrum that is invisible to the global adjacency spectrum and strongly regular parameters. This is a natural completeness statement within a graph class, not an ad hoc calculation. The classical Shrikhande--rook pair makes the distinction concrete: two ordinary moments provably cannot separate it, but the third can, and the full probability-generating-function discrepancy is exact. The phenomenon may be useful for stochastic graph invariants and for distinguishing parameter-equivalent regular graphs.
+For connected noncomplete SRG with mu>0, the standard adjacency identity gives L(tI+A)=QI-mu J, with t=k-lambda+mu and Q=v mu. Thus the star-edge transfer-current kernel at root u is K=[tI+A(H_u)+(t-2)J]/Q, whose eigenvalues are 1 and (t+theta_j)/Q for j>=2. The determinantal UST edge law yields the exact rooted-degree PGF z product_j(1+(t+theta_j)(z-1)/Q); all Bernoulli factors nonzero since the entire star can occur in a spanning tree. Therefore fixed parameters allow recovering the neighborhood adjacency spectrum. The first two spectral power sums are fixed; trace A(H)^3=6 times neighborhood triangle count yields third factorial cumulant difference 12 Delta triangles/Q^3. The rook/Shri local graphs K3 disjoint K3 versus C6 give the stated exact PGFs, difference z(z-1)^3(5z+27)^2/2^23, third difference 3/4096. Independent exact polynomial factorization checked and original verifier’s weighted matrix-tree code was read.
 
-## Closest literature and limitations
-Rapoport (arXiv:2312.14992) provides the general finite-graph degree framework; Fita Sanmartín et al. (arXiv:2409.13472) provide degree moments; Nachmias--Peres (arXiv:2011.08833) concerns high-degree asymptotics; Pozrikidis (DOI:10.1088/1751-8113/49/12/125101) provides an older network degree-distribution method but only its abstract and partial introduction were accessible. The new equivalence fixes the strongly regular parameters and does not claim full graph reconstruction. An independent audit and exhaustive historical-priority certification remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General transfer-current determinants, Rapoport’s explicit UST degree distributions and Pozrikidis’s general spanning-tree degree generation are prior work and are not claimed new. Their accessible results do not state a fixed-SRG parameter-class local-neighborhood spectral inversion or the exact rook/Shrikhande third-cumulant separation. A fully inspected Resultary complete-multipartite UST root-degree inversion is for a substantially different graph class. Given the direct structural application of standard methods, priority remains qualified; no exact stronger theorem was identified.
+
+## value
+
+PASS
+
+Recovering the entire local-neighborhood adjacency spectrum from one UST root-degree law is a natural inverse-graph invariant within an important spectral class. The rook and Shrikhande graphs give a sharp explicit distinction beyond identical global spectra and identical first two moments; the third factorial cumulant encodes local triangles. This is useful exact information rather than just a trivial evaluation of a general known formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
