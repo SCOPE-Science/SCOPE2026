@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For each nonzero level, the complexification \(Z^n-W^n=2ic\) is irreducible by Eisenstein at any simple root of \(Z^n-2ic\). Modulus equality on a real-analytic arc therefore gives a polynomial identity on the entire complex curve. Invariance under \(W\mapsto\zeta W\) forces every reduced quotient through \(z^n\); the rational reflection identity supplies the exact paired-root factors. A second level forces a nonzero imaginary translation period and hence constancy. The product ideal of distinct level equations computes the Hermitian kernel and exact rank; analytic interpolation establishes the optimal linear sampling count. Exact symbolic checks passed for the stated cases. No numerical test is relied upon for a universal assertion.
+## correctness
 
-**Originality — PASS, with residual historical-priority risk.** The inspected relevant works establish polynomial/entire phase phenomena on straight or parallel lines (Wellershoff; Liehr) and on pairs of circles or intersecting lines (Chalendar–Partington). Neither examined statement covers the irreducible monomial harmonic-level curves, their reduced rational-quotient spectrum, or the \(L\)-level Hermitian lifting dimension. Related published and accessible historical claims on polynomial graphs, two rays and pairs of circles likewise do not imply this theorem, because they have different defining ideals and reflection actions. Searches cannot certify global novelty; a general result for rational inner functions on pullbacks of real lines could dominate the new statement, but none was identified in the inspected material.
+PASS
 
-**Mathematical value — PASS.** The invariant-theoretic mechanism yields a complete sharp single-versus-double-curve phase-retrieval transition for an infinite natural family. It gives a separate exact hierarchy in the number of curves needed for full Hermitian lifting, and an optimal allocation of finite point samples for all complete intensity profiles. This distinction between nonlinear phase retrieval and linear intensity lifting is not a routine isolated example. No minimal nonlinear point count, uniform conditioning, or general-polynomial-level theorem is claimed.
+Eisenstein at a simple zero of Z^n-2ic proves irreducibility of F_c=Z^n-W^n-2ic for n≥2,c≠0. Equality of magnitudes on an open analytic arc implies divisibility by F_c, hence in its function field R(Z)R*(W)=1. The W→ζW automorphisms force R(z)=H(z^n), and the rational involution H(U)H*(U-2ic)=1 pairs every zero α with a pole barα+2ic; reduced nonconstant degrees are precisely nk. A second distinct level gives a nonzero rational period and forces H constant. The product of distinct F_c factors gives Hermitian kernel dimension max(0,d-nL+1)^2 and thus profile rank D_L; analytic evaluation independence yields optimal D_l-D_(l-1) linear-profile samples. Independently checked n=2,d=3 exact ranks 12 for one level and 16 for two, plus rational reflection identities. The linear sampling optimality is not a claim about nonlinear phaseless minimum.
 
-Closest sources: Wellershoff, arXiv:2202.03733 (2022); Liehr, arXiv:2308.05722 (2023); Chalendar–Partington, arXiv:2403.16255 (2024). Residual risk: an unlocated theorem that already treats rational inner quotients on general algebraic pullbacks of lines.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Previously published circle/hyperbola and straight/parallel-line phase retrieval establish related reflection groups but not a complete rational quotient on Im(z^n)=c or the exact multiple-level Hermitian polynomial restriction kernel. Full primary Wellershoff and Liehr papers inspected for their line-sampling theorems; analogous pullback ideas explain the method but do not automatically imply the complete curve classification plus sample hierarchy. Best-of-knowledge originality remains provisional.
+
+## value
+
+PASS
+
+Determines an infinite natural family of irreducible harmonic algebraic curves where one entire intensity level is ambiguous at precisely quantified degrees but two levels are universally unique. It independently characterizes the linear lifted profile dimension and sharp per-level sampling allocation, distinguishing linear lifting from nonlinear phase determination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

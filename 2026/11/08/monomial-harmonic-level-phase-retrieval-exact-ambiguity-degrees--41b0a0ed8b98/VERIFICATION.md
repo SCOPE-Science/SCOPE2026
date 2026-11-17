@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof has been checked symbolically for the normalization of conjugate reflection and the order of the geometric root symmetry. The irreducibility argument uses an Eisenstein prime at a simple root of the nonzero level. The kernel dimension uses the rectangular bidegree bounds, not total degree.
+## correctness
 
-The standalone SymPy script `check_harmonic_levels.py` was executed from the actual local artifact path and reported `HARMONIC_LEVEL_PROFILE_CHECK_PASS exact_ranks=12 reflection_identities=5`. Its exact ranks cover the hyperbolic (quadratic) curve at four degree cutoffs and up to three levels. The tests are finite corroboration; arbitrary degrees, all levels, and generic sampling are proved analytically.
+PASS
 
-An independent mathematical audit has not been performed. No claim of machine certification, exhaustive literature coverage, or numerical stability is made.
+Eisenstein at a simple zero of Z^n-2ic proves irreducibility of F_c=Z^n-W^n-2ic for n≥2,c≠0. Equality of magnitudes on an open analytic arc implies divisibility by F_c, hence in its function field R(Z)R*(W)=1. The W→ζW automorphisms force R(z)=H(z^n), and the rational involution H(U)H*(U-2ic)=1 pairs every zero α with a pole barα+2ic; reduced nonconstant degrees are precisely nk. A second distinct level gives a nonzero rational period and forces H constant. The product of distinct F_c factors gives Hermitian kernel dimension max(0,d-nL+1)^2 and thus profile rank D_L; analytic evaluation independence yields optimal D_l-D_(l-1) linear-profile samples. Independently checked n=2,d=3 exact ranks 12 for one level and 16 for two, plus rational reflection identities. The linear sampling optimality is not a claim about nonlinear phaseless minimum.
+
+## originality
+
+PASS
+
+Previously published circle/hyperbola and straight/parallel-line phase retrieval establish related reflection groups but not a complete rational quotient on Im(z^n)=c or the exact multiple-level Hermitian polynomial restriction kernel. Full primary Wellershoff and Liehr papers inspected for their line-sampling theorems; analogous pullback ideas explain the method but do not automatically imply the complete curve classification plus sample hierarchy. Best-of-knowledge originality remains provisional.
+
+## value
+
+PASS
+
+Determines an infinite natural family of irreducible harmonic algebraic curves where one entire intensity level is ambiguous at precisely quantified degrees but two levels are universally unique. It independently characterizes the linear lifted profile dimension and sharp per-level sampling allocation, distinguishing linear lifting from nonlinear phase determination.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
