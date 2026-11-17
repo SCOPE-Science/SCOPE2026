@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using standard Python 3. It constructs all \(n\)-world alternating-partition models for \(1\le n\le100\) and checks the S5 properties (reflexivity, symmetry, transitivity) of each of the two initial relations. It then evaluates the fixed formula from the current relation at every stage, checks that exactly the rightmost active target disappears per round, and confirms first stabilization at exactly stage \(n\). The terminal model has no arrows and is fixed.
+## correctness
 
-The checker also tests a distinct one-agent construction for \(0\le r\le4\) atoms and \(1\le n\le30\) worlds. It instantiates the complete Boolean valuation types, a universal initial S5 relation, and the disjunctive next-type announcement formula and asserts first stabilization after exactly \(\min\{n,2^r\}\) rounds.
+PASS
 
-These are finite sanity checks, not a substitute for the induction arguments in RESULT.md. The all-n claims rely on the common-target recurrence, alternate-pair induction, and the per-class valuation-type argument. The program has no dependencies beyond Python's standard library.
+Definition 5 arrow-to-target update is used, not world-deletion. With alternating size-two S5 equivalence blocks, the remaining active targets after k rounds are exactly {0,...,n-k-1}; the unique relevant opposite-p witness of each active j<n-1 is j+1, while n-1 has none. Hence exactly n strict updates. In any one-agent S5 block, all worlds of one valuation type share all modal truths; a strict round removes at least one type, and a quiescent block never restarts. At most min(n,2^r) global rounds; the universal-block chain of m distinct Boolean types and formula OR(q_j AND diamond q_{j+1}) attains m. No claim about world-deleting PAL or continued S5 after arrow deletions.
 
-Independent mathematical and priority audits: not performed.
+## originality
+
+PASS
+
+Best-of-knowledge new sharp resource restriction: the general n bound and directed one-agent sharpness are published, but this explicit one-letter depth-one TWO initially-S5-agents realization with classes of size ≤2 and single-agent exact contrast is not implied by the inspected prior constructions.
+
+## value
+
+PASS
+
+The number of agents, one-bit formula complexity, and initial S5 equivalence-class size are genuine structural resources in repeated epistemic updates. Attaining the global n-state lifetime with two classes of size at most two while proving an exact one-agent ceiling is a sharp, reusable boundary, not a relabeling of a nonreflexive cycle.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
