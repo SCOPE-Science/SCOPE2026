@@ -1,15 +1,21 @@
-# Review: Distinct endpoint slopes for eventual and eternal leadership
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns two separate one-sided limits as retention \(p\uparrow1\). The proof checks the exact conditionally exchangeable two-table Pólya process, distinguishes eventual strictly greater limiting share from at-least-once strict takeover, and derives the Beta-integral weights \(2^{-r}\) and \(2^{-r}+r\int_0^{1/2}x^r/(1-x)\,dx\). The finite-birth expansion is justified because two fixed birth events have joint probability at most \((1-p)^2\). Crucially, an explicit exponentially small tail bound handles histories without early new tables, while a finite-state continuity lemma handles histories with early births. Positive-sum evaluation gives slopes \(1\) and \(3/2\). The finite rational checker passed; its results are not substituted for the infinite-time argument. For the one-time limit, a finite-family squeeze avoids relying on interchange of an infinite maximum and an infinite-time limit.
+## correctness
 
-## Originality — PASS (provisional)
-The closest source, Zheng, arXiv:2606.01881 (2026), establishes the two root-leadership probabilities, their positivity and their qualitative monotonicity/continuity, with an exponential challenger estimate. The exact, unequal one-sided derivatives and leading transient-leadership gap are not implications of those qualitative theorems. Baur, arXiv:1407.2508, analyzes a different joint regime in which the retention probability varies with the tree size. Targeted mathematical-record searches and accessible published descriptions did not identify the same endpoint coefficients. The closest 2026 full text could not be inspected; exact historical priority remains provisional and should be independently checked.
+PASS
 
-## Mathematical value — PASS
-The distinction between being the ultimate largest component and never losing leadership is the central dynamic versus static issue in recursive-tree percolation. The sharp constants show that temporary losses account for exactly one-third of the first-order eternal-leadership failure coefficient, even as percolation becomes deterministic. The two-event comparison is a natural structural quantity and requires control of infinitely many potential challengers, not merely a finite-state calculation.
+Given a new table born when root table occupancy is r, later two-table choices form classical Polya urn (r,1); eventual challenger victory probability h_r=Pr(Beta(1,r)>1/2)=2^-r. Ever strict takeover integrates biased gambler ruin over Beta to g_r=2^-r+r int_0^(1/2) x^r/(1-x)dx, bounded by 2^(1-r). Birth at fixed time j has probability epsilon=1-p and R_(j-1)->j-1 as p->1; two fixed births contribute at most epsilon^2. Need control infinite late-birth union: on no-early-birth history root starts J and couples below by independent Bernoulli J/(2n), giving E 2^-R_n<=2^-J(J/n)^(J/4) and exponential J tail; histories with early births have probability O_J(epsilon) and their conditional late-challenger risk ->0 by finite-state convergence to positive-root-share Polya at p=1. Thus exchanging first-order limit with infinite union is justified. A finite-family squeeze avoids interchanging max over infinitely many tables with n-limit for theta. Summing h_r=1 and sum (g_r-h_r)=1/2 proves slopes. Independent direct series yields g_1=ln2, g_2=0.386294361..., sum g=1.5; not a replacement for late-birth lemma. First-time ties favor root, so strict takeover is correct failure event.
 
-## Closest literature and limitations
-Y. Zheng, *Can the root cluster remain largest forever in random recursive tree percolation?*, arXiv:2606.01881 (first submitted 2026-06-01). E. Baur, *Percolation on random recursive trees*, arXiv:1407.2508. The theorem provides only the first one-sided derivative at \(p=1\), not a global formula for either leadership probability or a coupled finite-size scaling theorem. Full-text noncoverage and independent mathematical validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zheng arXiv:2606.01881 studies the identical root-leadership model and proves positivity, monotonicity, continuity and existence of theta, so these facts are prior; available primary abstract and detailed external descriptions do not report endpoint derivatives. Baur arXiv:1407.2508 treats joint n->infinity, p(n)->1 large-cluster asymptotics and is not the requested iterated slope. Complete Zheng primary PDF was inaccessible via arXiv/OA and authorized institutional access returned vpn_disconnected, so its full theorem set could contain stronger overlap; this is an explicit serious residual risk, NOT invented NOT_COVERING. Bounded best-knowledge novelty of exact unequal slopes remains.
+
+## value
+
+PASS
+
+Eventual leadership and eternal leadership are two canonical non-equivalent events in random recursive tree percolation. Their sharp unequal first-order constants quantitatively isolate temporary defeat and recovery, requiring subtle tail control of infinitely many challenger births; this is a motivated probabilistic invariant and not a finite toy calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
