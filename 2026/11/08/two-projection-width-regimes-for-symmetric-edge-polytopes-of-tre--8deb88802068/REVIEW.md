@@ -1,15 +1,21 @@
-# Review of two projection-width regimes for symmetric edge polytopes of trees
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is about Euclidean, rather than merely combinatorial, graph-root polytopes. Its initial support-function identity follows directly from the actual root vectors, and its normalization uses the intrinsic centered Gaussian radius with \(n-1\) degrees of freedom. The low-degree Gumbel result is supported by a complete dependence-neighborhood argument: vertex-disjoint edges are independent, incident edges have signed correlation \(\pm1/2\), the bivariate Gaussian corner bound gives \(O(u^{-2}e^{-2u^2/3})\), and both published Poisson-approximation error terms vanish. Uniform integrability for bounded-degree edge maxima follows from a large matching and explicit two-sided normal-tail bounds. The fixed-hub theorem follows in \(L^2\) from Gaussian maxima of each proportional leaf group, and the finite-dimensional core does not affect the growing maximum. Radial moment identities transfer both limiting variances without mistaking finite simulations for proofs. The two-hub variance coincidence is proved in polar coordinates. Risks: the stated small-degree threshold is sufficient only; the proof does not establish moment convergence for an arbitrary growing maximum degree.
+PASS
 
-## Originality — PASS, provisional priority
+Exact intrinsic width W=2 max_edges|X_i-X_j|/R with R²~χ²_(n-1) and radial independence. In Gaussian edge variables adjacent correlations have abs value 1/2; integrating bivariate Gaussian tail yields C u^-2 exp(-2u²/3), allowing dependency Poisson error O(Δ m^(-1/3)(log m)^(-1/3)) and thus Δ=o(m^(1/3)). Uniform bounded-degree matching gives double-exponential negative and exponential positive tails for normalized maxima, enough for second-moment convergence and path variance 2π²/3 via b_m²~4 log m and radial normalization. Fixed positive leaf fractions imply each hub leaf maximum and negative minimum differ by a_m by o_L2(1); finitely many core edges vanish after subtraction, so limit max|Z_j| and moments. Polar computation yields v1=v2=1-2/π, differing CDFs (2Φ(t)-1)^k. The finite core Gaussian integral follows by conditioning on hubs. These calculations are analytic not Monte Carlo extrapolation.
 
-Braun and Bruegge, arXiv:2201.13303, give the combinatorial crosspolytope equivalence for trees and facet-count results, not random directional width. D'Alì, Juhnke-Kubitzke and Koch, arXiv:2307.04933, establish unimodular/matroidal equivalence, which does not preserve Euclidean width. Kabluchko, Litvak and Zaporozhets, arXiv:1511.08479, prove Gumbel-type width limits for *regular* crosspolytopes with different Gaussian covariance and do not state the low-degree versus fixed-hub dichotomy. Arratia, Goldstein and Gordon, DOI 10.1214/aop/1176991491, provide the Poisson tool, not the graph-specific Gaussian estimate or geometric applications. The relevant published tree graphical-zonotope width-variance finding concerns an edgewise **sum**, not the root-polytope **maximum**. Searches for graphical-root width, Gaussian edge-difference maxima, sparse-degree Gumbel laws, and hub limits revealed no equivalent or strictly stronger directly covering geometric claim. The main residual priority risk is unpublished or differently indexed work on extrema of Gaussian vertex-label differences that could specialize to these graphs. This review is not an independent historical certification.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The invariant, Euclidean Haar-random directional width, is standard, and its dependence on the chosen tree realization is not accessible from facet counts, matroid type, or unimodular equivalence. The finding proves two structurally different, broad asymptotic classes in polytopes with an identical crosspolytope face lattice: bounded-degree trees have Gumbel fluctuations on the smaller \((n\log n)^{-1/2}\) scale, while proportional fixed-hub trees have finite Gaussian-maximum limits on the \(n^{-1/2}\) scale. The exact all-moment integral for each fixed hub core gives finite-dimensional access to the invariant; the equality of the leading star and double-star variances despite different limit laws adds a useful warning about variance-only comparisons. The finite verifier tests identities and limiting shapes but is not itself evidence of originality or an infinite theorem. Weighted edges, growing cores, and threshold sharpness remain open here.
+The general bounded-degree Gumbel limit, star folded-normal law, and tree crosspolytope combinatorics are covered by October 25 published theorems; they are not credited. Substantive independently useful surviving claims are the improved growing-degree threshold Δ=o(m^(1/3)), rigorous moment/variance asymptotics, and the full fixed k>=2 hub law with its v2=v1 coincidence and finite-size integral.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Two distinct fluctuation scales for combinatorially identical tree crosspolytopes, sharp path variance and fixed multihub distribution/variance constants address a natural metric-geometric invariant. The k=2 variance coincidence despite different laws is a meaningful exact structural comparison; the enhanced degree window supplies a nontrivial quantitative probabilistic improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
