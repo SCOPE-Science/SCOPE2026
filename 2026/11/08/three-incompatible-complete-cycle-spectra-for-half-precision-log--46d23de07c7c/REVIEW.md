@@ -1,15 +1,21 @@
-# Scientific review
+# Mathematical assessment of the corrected expanded-evaluation claim
 
 ## Correctness — PASS
-The domain and rounding semantics are fully specified (including subnormals, tie breaking, and the single-round reference). The conversion from each binary16 code to an exact integer scaled by \(2^{24}\), the rational nearest-even routine, and the finite functional-graph traversal provide a complete proof for every state. The standalone `verify.py` recomputes all \(46,083\) arrows, cycle lengths, basin sums, maximal entry times and edge-array digests. A separate NumPy half-precision implementation agreed on every arrow in each of the three maps. The certificate is exhaustive rather than an extrapolation from trajectories. The claims do not apply to other arithmetic semantics or to continuum dynamics.
 
-## Originality — PASS within inspected sources
-The relevant pre-existing half-precision forty-cycle and its \(10,267\)-point basin are explicitly credited to Corless, *Floats for Philosophers* (2024), slide 60. Klöwer et al. (2023) study floating-point logistic cycles and sample random initial states but do not state this three-graph complete basin classification. Krulikovskyi et al. (2024) compare arithmetic orderings in double precision, rather than exhaustive binary16 staging and single-round basins. Research-record searches for full graph and expanded and correctly rounded aliases found no equivalent statement; closest indexed entries concern different logistic smoothing or quantized affine contractions. The original novelty claim is the combined complete comparison, especially the explicit expanded and once-rounded graph spectra and basin sizes, not the generic fact that floating-point logistic orbits are eventually periodic. Unindexed numerical results remain a publication-priority risk.
+On the domain of exactly 15,361 nonnegative IEEE binary16 numbers, the staged expanded evaluation has the complete cycle table stated in RESULT.md. Exact integer-scaled encoding, nearest-even rational comparisons, and complete functional-graph successor traversal jointly yield an exhaustive certificate; the independent reconstruction matched all expanded successor indices, cycle basin totals, transient extrema and the supplied SHA-256 edge-array digest. This only certifies the specified finite evaluation graph, not all real logistic orbits.
 
-## Value — PASS
-Binary16 is a standard practical format, and the fully chaotic parameter \(4\) is the standard logistic benchmark. The observed catastrophic dependence on a *small choice of algebraically equivalent evaluation graphs* matters for reproducibility and exact finite dynamical classification. In particular, the single-round reference captures only \(117\) states in a nonfixed cycle, versus \(8,657\) in the expanded graph; this is not a routine perturbation or a chosen arbitrary slice of the parameter space. Enumerating **all** initial encodings and basins resolves the mathematical question missed by sampling. The result remains finite-precision and is not a hardware guarantee for reassociating compilers.
+## Originality — PASS, qualified to the expanded graph
 
-## Closest literature and limitations
-Corless (August 2024), slide 60, covers the factored forty-cycle. Klöwer et al. (Scientific Reports 2023) supply low-precision dynamical motivation and Monte Carlo methodology; Krulikovskyi et al. (SISIOT 2024) show formula-order sensitivity in double precision. The three complete graphs are reproducible from exact rational arithmetic with a finite certificate, but no independently audited implementation is claimed. Further variants of arithmetic graphs and other precisions remain outside the claim.
+The original three-map presentation overstated the new reference census: *Rounding placement changes the complete binary16 logistic attractor census* (2026) already computes the exact complete staged-factored and once-rounded reference graphs, with their same basin sizes, digests and transients. *Two exact binary16 logistic cycle spectra under algebraically equivalent evaluation* (2026) independently includes the once-rounded reference but compares it with a completed-square arithmetic tree. Neither inspected publication covers the **staged expanded** polynomial arithmetic tree `R(R(4x)-R(4R(x²)))` or its 4-, 17-, 25- and 30-cycle basin partition. The corrected finding asserts originality solely for that exact graph and comparison, not for prior data, arithmetic nonassociativity or the standard cycle-traversal method. Unindexed prior expanded-graph tables remain possible.
 
-Self-review: passed. Independent audit: not yet performed.
+## Mathematical value — PASS
+
+This is a natural finite complete invariant for a standard floating-point format and the canonical parameter-four logistic benchmark, with a different but algebraically equivalent expression producing four nonfixed periodic orbits and 8,657 nonfixed-basin states. Enumerating every representable input, instead of a selection of starting points, gives a reproducible exact test case for precision-dependent finite dynamics. It is independent of any claim about arbitrary compilers or continuum invariant measures.
+
+## Scope and prior references
+
+The final claim is exclusively the expanded evaluation's complete cycle spectrum, basin sizes, edge hash and entry-time statistics; published factored and once-rounded graphs are credited comparison inputs. Primary 2023 low-precision dynamics work supplies motivation and partial numerical context. No formal external certification is asserted.
+
+- https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-rounding-placement-changes-the-complete-binary16-logistic-attrac--ec3a649c6929
+- https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-exact-binary16-logistic-cycle-spectra-under-algebraically-eq--35a3ca4a276d
+- https://doi.org/10.1038/s41598-023-37004-4
