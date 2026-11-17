@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-14.md",
+      "INDEPENDENT_AUDIT_2026-11-14.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python3 checker.py` in a directory containing the included file. It uses only the Python 3 standard library, and constructs the zero-divisor graph from finite-field multiplication values rather than from the claimed disjoint-union formula. Compare exact output with `checker_output.txt`.
+## correctness
 
-Twelve nondegenerate bilinear-form cases (all binary form types over fields with 2, 4, and 8 elements; both odd-characteristic types over fields with 3, 5, and 7 elements) were checked by complete graph construction and component enumeration, totaling 2,146 graph vertices. It checks the exact vertex counts, edge counts, degree multiplicities and clique/biclique components. Separate direct truncated-polynomial ring multiplication checks handle the mixed-characteristic rings `(Z/p^2Z)[t]/(t^2)` with p = 2, 3. Direct proper-color backtracking on all two-element-field graph types confirms the chromatic polynomial at color counts from 1 to 5. Four further exact-integer adjacency characteristic-polynomial checks (the two form types at field orders two and three) agree with the spectral factorization. The recorded last line is `VERIFY_COMPLETE_OK`.
+PASS
 
-The general graph decomposition, automorphism groups, spectral factorization, and arbitrary finite-field classification are established by proof; the finite checks cannot establish the infinite claims or historical originality. No independent audit has been performed.
+Soc R=m² is one-dimensional over F_q; multiplication induces nondegenerate symmetric B on m/m². Each projective line has q(q−1) nonzero lift vertices; perpendicularity is an involution on P¹: isotropic fixed lines give full cliques, nonisotropic two-cycles give K_(s,s); socle nonzero vertices form universal K_(q−1). Binary symmetric form types yield t=0 or 2 (odd characteristic), t=1 or q+1 (even). The graph decomposition gives exact degree, edge, clique/chromatic, chromatic polynomial, automorphism-wreath and equitable-block spectral formulas. Representative direct multiplication graphs for q2 and q3, both types, independently matched predicted degrees, edges and t; prior package script contains additional finite checks. These checks are not proof for all finite fields. Mixed-characteristic ring (Z/p²)[t]/t² indeed has the split B and different characteristic from F_p[x,y]/(x²,y²).
+
+## originality
+
+PASS
+
+Kadu 2021 Proposition 3.6 ALREADY proves the exact bilinear orthogonality/Gorenstein equivalence; no originality of this key premise. His published work focuses compressed clique numbers and does not derive this full ordinary graph type or its chromatic, automorphism, and spectral formulas. The published same-date Witt-type theorem is dimension >=3 (not 2), while degree-sequence rigidity treats split equicharacteristic rings and the degree statistic, not the full ordinary graph or mixed-characteristic examples. The present complete graph classification is a useful consequence of known orthogonality plus additional projective-line combinatorics, with a residual risk of older implicit polarity graph classification.
+
+## value
+
+PASS
+
+Natural full graph-isomorphism classification of short rank-two Gorenstein rings, exact whole-family colorings, automorphism groups and adjacency spectra, plus a precise information-loss example across ring characteristics. The value is the structural classification and applications, not the known multiplication lemma; elementary derivability alone is not textbook repetition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
