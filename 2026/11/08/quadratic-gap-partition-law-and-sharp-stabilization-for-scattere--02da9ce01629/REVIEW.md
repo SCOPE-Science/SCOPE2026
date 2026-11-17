@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim applies to *scattered* `010` occurrences in indexed binary words. Formula (6) follows by assigning each occurrence to its central one in a unique zero-gap decomposition; the two exterior gaps are unconstrained, giving a direct bijection behind the formal generating function. For fixed positive frequency \(k\), the minimum interior-gap weight \(t-1\) bounds the number of zeros by \(k+1\), making the coefficient polynomial finite. The crucial global length inequality \(t+\sum g_j\leq k+2\) is proved algebraically and its equality cases are enumerated exactly, yielding the three highest-degree contributions (one when \(k=1\)) and the sharp stabilization boundary. Two independently written finite algorithms passed all stated tests; these are checks, not substitutes for the all-parameter proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+The k-positive 010 frequency enumerator equals a finite product-coefficient Q_k(z)/(1-z)^2; each internal gap contributes j(t-j) per one and the exterior two gaps are free. The largest possible core length is k+2, with top coefficient one for k=1 and three for k>=2. Saturated sums give exact linearity at n>=k+1 and the nonzero correction at n=k. Independently counted every binary word for n=3..10 and frequencies 1..10 against the gap recursion. The infinite statement follows from the full bijection, not the finite sample.
 
-The motivating June 30, 2026 preprint by Bruda proves *eventual* polynomiality and a degree criterion for every binary scattered pattern with at least two runs. Its direct implication for `010` is only eventual degree one; it does not specify the full polynomials, the quadratic-weight partition series, or the sharp starting length. Menon–Singh (2023) handles frequencies through four and proves the zero-frequency enumeration, so none of those earlier cases is claimed independently. Tian (2025) supplies occurrence and primitive-word construction algorithms, but does not state the explicit all-frequency result or the universal transition. Searches for equivalent formulas, partition-weight presentations, exact tables, and the polynomial boundary did not reveal a dominating statement; absence from search indexes is not a novelty proof. An unindexed equivalent specialization remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The smallest nonmonotone three-letter scattered pattern is a canonical test case for quantitative subsequence-frequency enumeration. Rather than only establishing eventual polynomial degree, the finding determines the entire joint length/frequency distribution via finite, computable quadratic-weight partitions for each fixed positive frequency. It gives all leading coefficients by a locally finite infinite product-series, identifies a *sharp* linearity transition at \(n=k+1\), and computes its exact boundary defect. These are structural all-parameter assertions that cannot be read off from the previously known eventual-degree theorem; their coefficients show irregular arithmetic behavior, not merely a substituted binomial count.
+A sharp all-frequency threshold and explicit quadratic-partition coefficients survive Bruda Theorem 1.4, which gives eventual degree one for pattern 010 but no all-length Q_k or sharp universal n=k+1. Prior k<=4 cases are credited; all-length broad theorem comparison is substantive.
 
-## Closest literature and limitations
+## value
 
-- G. Bruda, *Enumerating binary words restricted by subsequence frequency*, arXiv:2607.02578 (2026-06-30), especially Theorem 1.4, proof in §2, and §4.
-- K. Menon and A. Singh, *Subsequence frequency in binary words*, arXiv:2306.07870 (2023-06-13), especially §3. Earlier frequencies \(k\leq4\) and the avoidance count are not asserted to be new.
-- R. Tian, *Counting occurrences of a pattern in a binary word*, arXiv:2507.03205 (2025-07-03), especially §§4–5 on occurrence enumeration and primitive words.
+PASS
 
-The formula is specialized to `010`/`101`. No explicit elementary asymptotic of its slope sequence is claimed. The proof is symbolic; checks are finite; historical priority and independent validation remain open.
+The formula supplies a previously unrecorded exact distribution and sharp stabilization boundary for a natural scattered-pattern occurrence count; it is mathematically meaningful beyond the already known eventual degree bound.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

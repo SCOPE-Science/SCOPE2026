@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Verification instructions and limits
+# Independent mathematical audit
 
-Use Python 3 with the standard library and execute the two embedded standalone programs:
+## correctness
 
-```sh
-python3 verify_gap.py
-python3 verify_stream.py
-```
+PASS
 
-Both programs raise an exception if a tested identity fails and print `PASS` statements upon completion.
+The k-positive 010 frequency enumerator equals a finite product-coefficient Q_k(z)/(1-z)^2; each internal gap contributes j(t-j) per one and the exterior two gaps are free. The largest possible core length is k+2, with top coefficient one for k=1 and three for k>=2. Saturated sums give exact linearity at n>=k+1 and the nonzero correction at n=k. Independently counted every binary word for n=3..10 and frequencies 1..10 against the gap recursion. The infinite statement follows from the full bijection, not the finite sample.
 
-`verify_gap.py` independently enumerates every one of the \(2^n\) binary words at each length \(0\leq n\leq14\), counting `010` occurrences with a one-pass subsequence dynamic update. It compares the resulting frequencies \(1\leq k\leq40\) to the coefficients of independently enumerated quadratic-weight gap polynomials. It checks predicted polynomial degree, top multiplicity, sharp boundary defect, and the first twelve slope/intercept pairs for \(1\leq k\leq40\).
+## originality
 
-`verify_stream.py` uses a separate finite-state count-by-appending recurrence on the numbers of zeros, `01` subsequences and `010` subsequences. It compares the exact counts to a second implementation of the gap-weight recurrence for every \(0\leq n,k\leq30\), including the zero-frequency boundary.
+PASS
 
-These computations verify the implementation and small instances. The proof for arbitrary \(k,n\) is the symbolic zero-gap bijection, coefficient identity and extremal-length argument in `RESULT.md`. Neither script purports to search all word lengths or to replace that proof. This verification was performed without an independent external mathematical audit.
+A sharp all-frequency threshold and explicit quadratic-partition coefficients survive Bruda Theorem 1.4, which gives eventual degree one for pattern 010 but no all-length Q_k or sharp universal n=k+1. Prior k<=4 cases are credited; all-length broad theorem comparison is substantive.
+
+## value
+
+PASS
+
+The formula supplies a previously unrecorded exact distribution and sharp stabilization boundary for a natural scattered-pattern occurrence count; it is mathematically meaningful beyond the already known eventual degree bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
