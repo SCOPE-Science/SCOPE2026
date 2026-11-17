@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The reset-history Volterra equation gives a unique regular Kummer coherence multiplier. The equatorial antipodal pair has exact trace distance equal to its modulus. Four strict inequalities are reconstructed by pure exact-rational series arithmetic with a rigorous tail bound. They imply two disjoint increases and a BLP lower bound greater than \(83/1000\). Positive-divisible maps cannot exhibit either increase. The conclusion is an existence result; it does not rely on a finite-time scan to exclude other behaviour.
+## correctness
 
-**Originality: PASS (qualified).** The exact coherence solution and logarithmic long-time oscillations are established in de Mauro–Kulkarni–Majumdar (arXiv:2608.02297v1). Neither their qubit discussion nor the different fixed-reference discrete-time protocol of Carollo–Wald (arXiv:2601.13367v1) gives the two certified positive-rate uniform-history backflow episodes or this operational lower bound. Accessible published findings and relevant indexed claims were compared for the same observable, reset law and rate. A general unpublished modulus inequality, or the fact that the hypergeometric formula contains all evaluations implicitly, remains a priority risk.
+PASS
 
-**Value: PASS.** Positive time-memory resetting does not automatically guarantee trace-distance information backflow. The minimal qubit yields a concrete testable positive-versus-nonpositive divisibility distinction: two separate positive backflow episodes with a nonzero quantitative lower bound. Exact rational certificates separate genuine recovery of distinguishability from polarization sign oscillations or numerical plots.
+From Volterra f'(t)=-(r+i)f(t)+(r/t)∫_0^t f(u)du and f(0)=1, regular solution f={}_1F_1(i/(r+i);1;-(r+i)t). For equatorial antipodes D=|f|. At r=1/3 the series parameters a=(9+3i)/10 and z=-(1/3+i)t give rational Gaussian-rational 80-term approximants. Independent non-opaque exact-fraction reconstruction (separate script) verified four squared-value inequalities using geometric factorial tail bounds, yielding D(7.5)<.038,D(10)>.111,D(14)<.035,D(16)>.045; errors at four times were bounded by approximately 2.3e-48,2.3e-38,1.1e-26,4.9e-22. Thus disjoint positive variations add to >.083, and distance growth rules out positive trace-preserving propagators. Fixed-time inequalities do not locate all local extrema or determine full BLP supremum.
 
-The claim applies at one explicit physical rate and a nearby open rate interval, not all rates. The exact hypergeometric formula is credited as prior work. No independent validation has been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge claim is two disjoint certified revival intervals at one positive reset rate, not the previously known existence of one revival or an exact Kummer formula. The full Oct 26 result certifies only an 8-to-10 revival (and entanglement rebirth). The Nov 2 full theorem establishes for each rate in [1/5,1/2] that at least one of five fixed pairs revives; it does NOT assert two at any same rate. Its complete 786-row exact coverage CSV was inspected: the two intervals covering 1/3 choose (8,10), not (14,16). Thus the latter published continuum certificate does not logically imply both displayed episodes. The new exact 14-to-16 sign pattern and combined >83/1000 lower bound survive.
+
+## value
+
+PASS
+
+A rigorously certified SECOND disjoint information-backflow episode in a fixed, constant-positive-reset-rate memory channel is a substantive qualitative distinction from the previously certified single revival. Exact rational computation is mathematically motivated by distinguishing nonmonotone state information return from an oscillating complex phase; the >.083 BLP floor is nontrivial and directly operational, although not a complete phase diagram.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
