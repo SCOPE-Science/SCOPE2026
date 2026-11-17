@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T03:16:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at blob 0d5bfeb7245aa51601c587562bf44a1f8fec895c",
+        "Assigned checks/check_power_norms.py at blob a6773eda508e288c681b8d7e3f226cb8a0766d58",
+        "Arnold arXiv:2606.14323, Section 6.1 Bernoulli benchmark"
+      ],
+      "rationale": "The Hardy multiplier identity reduces the operator norm exactly to max_circle |P|^n |1-P|^k. Positivity plus p0>0 identifies every peripheral root as a gcd-root with P=1 and uniform strict contraction outside finitely many small arcs, so no off-root maximum is neglected. Cumulant expansion log|P|=-v theta^2/2+kappa4 theta^4/24+O(theta^6) and direct moment expansion of log|1-P| to theta^2 yield the first corrected Gaussian profile at x=sqrt(n)|theta|. The leading k log x-vx^2/2 has a unique, nondegenerate maximizer sqrt(k/v), and its O(1/n) displacement affects the log maximum only O(n^-2), giving k^2B. The independent Fraction calculations exactly reproduced B=-1/4, -5/16, and 145661/1401856 for the three specified distributions. The finite identities corroborate rather than replace the analytic localization and stationary-point theorem.",
+      "residual_risks": [
+        "Remainder constant depends on fixed P and k, no uniformity as v->0 or k grows.",
+        "General local-limit asymptotic theorems might imply the calculation; mathematical conclusion remains directly proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dungey 2008 provides O(n^-1/2) time-regularity conditions; Katznelson–Tzafriri ensures asymptotic decay under a spectral hypothesis.",
+          "Arnold studies resolvent-based decay rates and a special scalar extremizer, not the complete coefficient B for finite-support positive distributions."
+        ],
+        "reasoning": "General rate theorems bound decay orders but do not determine the exact k-specific normalized leading coefficient and signed relative correction.",
+        "searches": [
+          "Dungey On time regularity power bounded operators n^-1/2",
+          "Katznelson Tzafriri power bounded operators peripheral spectrum",
+          "Arnold 2026 Rates of Decay alpha beta Ritt Kreiss operators"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.14323",
+        "https://doi.org/10.1112/plms/pdm058",
+        "https://doi.org/10.1016/0022-1236(86)90101-1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arnold Section 6.1 explicitly optimizes the equal-weight Bernoulli, so the special case and the n^-k/2 leading behavior are credited.",
+          "The displayed kappa4, m2 and m3 coefficient may change sign across distributions; a universal O(n^-k/2) inequality cannot supply that information."
+        ],
+        "reasoning": "The general conjectured implication from qualitative Ritt decay to precise cumulant coefficient is mathematically invalid absent a local Fourier analysis of P.",
+        "searches": [
+          "https://arxiv.org/abs/2606.14323",
+          "https://doi.org/10.1112/plms/pdm058",
+          "https://doi.org/10.1016/0022-1236(86)90101-1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "H2 multiplier norm is identical to a trigonometric-polynomial convolution-power Fourier multiplier sup norm.",
+          "Arnold Section 6.1 treats the equal-weight binomial P=(1+z)/2 benchmark but not arbitrary cumulants of integer-valued laws."
+        ],
+        "reasoning": "The two-point benchmark is contained in the claim; the general four-moment correction and its sign variation require nonbinary distributions.",
+        "searches": [
+          "Resultary: finite support probability convex unilateral shift power regularity two term norm asymptotic variance cumulant",
+          "arxiv:2606.14323 Ritt Kreiss scalar optimizer cos sin"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The binary {0,h} class is explicitly computable and yields B=-1/4, a covered special case of broader statement.",
+          "No numerical table of isolated finite n calculations supplies the all-n two-term expansion for any arbitrary finite support P."
+        ],
+        "reasoning": "The exact correction is a symbolic theorem across a continuum of coefficient simplices; an enumerated table or one Bernoulli formula cannot entail it.",
+        "searches": [
+          "Resultary: finite support probability convex unilateral shift power regularity two term norm asymptotic variance cumulant",
+          "Arnold Ritt Kreiss binomial extremizer explicit formula"
+        ]
+      },
+      "rationale": "Arnold 2026 Section 6.1 already gives an exact equal-weight Bernoulli scalar optimizer, and earlier Katznelson–Tzafriri/Dungey works prove qualitative or rate bounds. The surviving contribution is the full arbitrary finite positive polynomial with a four-moment 1/n coefficient, including sign reversal. No inspected earlier theorem covers that exact two-term formula; this is a qualified best-knowledge finding.",
+      "residual_risks": [
+        "Full Dungey article unavailable; an implicit general asymptotic in earlier work cannot be absolutely excluded.",
+        "The equal-weight two-point optimizer and qualitative time regularity are prior; no novel claim for those isolated ingredients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS Bernoulli benchmark, NOT complete 4-moment coefficient",
+          "evidence": "Scalar Bernoulli extremal factor in Section 6.1 is a special case; no generalized finite-support coefficient B appeared in inspected rate derivations.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.14323",
+          "material_read": "Accessible HTML mathematical statements, Section 6.1 optimizer and relevant rate results",
+          "method": "Read open primary sections and compared exact formula",
+          "title": "Rates of Decay for (alpha,beta)-Ritt-Kreiss Operators",
+          "trigger": "Direct exact scalar P=(1+z)/2 benchmark and general power-regularity theory"
+        },
+        {
+          "assessment": "PLAUSIBLE BUT NOT FULLY INSPECTED",
+          "evidence": "The accessible results concern order of decay, not an explicit arbitrary-P four-cumulant asymptotic; full text remains a priority uncertainty.",
+          "identifier_or_url": "https://doi.org/10.1112/plms/pdm058",
+          "material_read": "Published theorem/abstract and bibliographic description; full article inaccessible",
+          "method": "Read accessible mathematical summary; no whole-document noncoverage asserted",
+          "title": "On time regularity and related conditions for power-bounded operators",
+          "trigger": "General O(n^-1/2) regularity may dominate"
+        },
+        {
+          "assessment": "NOT_COVERING exact 1/n correction",
+          "evidence": "Katznelson–Tzafriri yields norm convergence to zero, not the sharp Gaussian prefactor and fourth-cumulant term.",
+          "identifier_or_url": "https://doi.org/10.1016/0022-1236(86)90101-1",
+          "material_read": "Classical theorem statement and its decay implication",
+          "method": "Compared theorem conclusion against coefficient claim",
+          "title": "On power bounded operators",
+          "trigger": "Classical peripheral-spectrum decay theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "Arnold 2026 rate estimates and Bernoulli exact example",
+        "Dungey 2008 qualitative regularity"
+      ],
+      "rationale": "A natural positive polynomial averaging operator has a sharp quantitative time-regularity profile whose first two coefficients are explicit in the law’s moments. The signed second-order correction distinguishes different convex averages even when leading scaling is the same, providing a precise usable finite-n rate classification beyond qualitative Ritt decay.",
+      "residual_risks": [
+        "No general class of arbitrary Banach operators, moving k, or uniform small-variance asymptotics is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any fixed finite probability polynomial P with p0>0 and positive variance, T=P(S) on Hardy H2 and fixed integer k>=1, ||T^n(I-T)^k|| equals mu^k(k/(evn))^(k/2) times 1+k^2 B/n+O_(P,k)(n^-2), where B=kappa4/(24v^2)+m2^2/(8mu^2v)-m3/(6mu v); B varies in sign and equals -1/4 for every nondegenerate {0,h} law.",
+  "limitations": "Fixed k, fixed nondegenerate finite-support probability law containing zero; earlier exact Bernoulli optimization credited; residual possibility of equivalent asymptotic in broader literature.",
+  "schema_version": 1
+}
