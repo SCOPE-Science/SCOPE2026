@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T10:02:24Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The strict improvement event under a fully candidate-exchangeable ballot is contained in the unique-maximum event among floor(k/t)+1 disjoint equal-size blocks, hence has probability <=b_{k,t}. Integer arithmetic gives minimal gap 1/[k(k+1)] at t=1. Total variation controls average event probability for heterogeneous voters, and Jensen plus Chernoff yields the claimed finite n bound; the all-committees statement is a finite union bound. A biased one-approval law on m=k+1 ballots reaches the equality threshold, with binomial CLT limiting failure 1/2 for k>=2 (certain failure k=1); above it failure tends to one. The unbiased binomial large deviation sandwich yields D(1/k || 1/(k+1)). Independently checked all exchangeable fixed-cardinality ballot orbits for 2<=m<=6, every k,W,T; no violation. These checks do not establish voter-correlated concentration; independence across voters is required.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Becker–Greger–Peters arXiv:2609.11912 states every election has at least one core committee; Peters arXiv:2501.18304 proves existence for k<=8/m<=15."
+        ],
+        "reasoning": "Existence for one carefully selected committee does not entail all binom(m,k) committees simultaneously core-stable with high probability.",
+        "searches": [
+          "Patrick Becker, Matthias Greger, Dominik Peters, Existence of the Core in Approval-Based Committee Elections, arXiv:2609.11912",
+          "Dominik Peters, The Core of Approval-Based Committee Elections with Few Candidates, arXiv:2501.18304v1"
+        ]
+      },
+      "checked_sources": [
+        "Dominik Peters, The Core of Approval-Based Committee Elections with Few Candidates, arXiv:2501.18304v1",
+        "Patrick Becker, Matthias Greger, Dominik Peters, Existence of the Core in Approval-Based Committee Elections, arXiv:2609.11912",
+        "Resultary search: approval voting Hare core candidate exchangeable random approval distribution all committees symmetry tolerance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Peters arXiv HTML lines 45–64 gives exact blocking inequality and an existential selection rule; Becker abstract/main theorem is existential."
+        ],
+        "reasoning": "The submitted theorem is compatible but not a corollary; probabilistic symmetry gives every committee while general existence alone is silent about frequency.",
+        "searches": [
+          "Peters 2025 core definition |A_i cap T| > |A_i cap W|",
+          "Becker Greger Peters 2026 harmonic entropy existence"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary returned the assigned finding plus deterministic core and distinct random representation properties; no equivalent every-committee TV threshold."
+        ],
+        "reasoning": "Candidate exchangeability over ballot subsets is not identical to independent approvals of each candidate or average justified representation.",
+        "searches": [
+          "Resultary search: approval voting Hare core candidate exchangeable random approval distribution all committees symmetry tolerance",
+          "Web random approval voting core all committees symmetry exchangeable probability Hare core"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked exact probability table for the biased one-hot model that states the sharp epsilon*=1/[k(k+1)] universal all-committee threshold."
+        ],
+        "reasoning": "The multinomial failure event and KL tail rate are additional probabilistic facts absent from identified deterministic catalogs.",
+        "searches": [
+          "Resultary search approval core stability candidate symmetry TV threshold"
+        ]
+      },
+      "rationale": "The 2025 Peters and September 2026 Becker–Greger–Peters results establish deterministic existence of a core committee, not stochastic stability of every committee. No equivalent random candidate-symmetry sharp TV threshold identified in Resultary or primary searches. Best-of-knowledge PASS with inaccessible-literature risk.",
+      "residual_risks": [
+        "Full text of some 2026 random voting papers was not accessed; no exhaustive priority guarantee.",
+        "The bound is a sharp uniform sufficient tolerance but not a necessary threshold for every individual approval law; growing m,k require checking the union bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Correct core normalization, but existential deterministic guarantees not all-committees stochastic TV threshold.",
+          "evidence": "Core inequality at lines 49–52, theorems for k<=8 and m<=15 at lines 61–65.",
+          "identifier_or_url": "https://arxiv.org/html/2501.18304v1",
+          "material_read": "Accessible full HTML text; introduction, formal core inequality and main existence/proof sections inspected.",
+          "method": "Web full HTML with theorem definitions",
+          "title": "The Core of Approval-Based Committee Elections with Few Candidates",
+          "trigger": "Exact core notion and strongest earlier existence scope"
+        },
+        {
+          "assessment": "Provides core+ existence, not universal simultaneous membership; whole-document noncoverage not asserted.",
+          "evidence": "Abstract claims existence of at least one core committee for every election.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.11912",
+          "material_read": "Abstract, main theorem summary and availability metadata; full primary proof not read.",
+          "method": "arXiv/author-index metadata plus external public abstract",
+          "title": "Existence of the Core in Approval-Based Committee Elections",
+          "trigger": "Newer general deterministic result potentially dominating stochastic finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The universal all-committee property under approximate symmetry is a substantially stronger and differently motivated statistical guarantee than existence; a sharp TV contamination threshold with explicit large-deviation rate is a useful robustness limit.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Dominik Peters, The Core of Approval-Based Committee Elections with Few Candidates, arXiv:2501.18304v1",
+    "Patrick Becker, Matthias Greger, Dominik Peters, Existence of the Core in Approval-Based Committee Elections, arXiv:2609.11912",
+    "Resultary search: approval voting Hare core candidate exchangeable random approval distribution all committees symmetry tolerance"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Independent verification is best-of-knowledge; no formal proof/expert attestation asserted.",
+    "No public publication authorized: Public-bound METADATA.json retains the operational scope_run_id (seen directly in pinned Git blobs), and package-wide sanitization plus complete verified guarded replacements for every affected public file were not finished. Do not publish or treat status as import-ready."
+  ],
+  "residual_risks": [
+    "Full text of some 2026 random voting papers was not accessed; no exhaustive priority guarantee.",
+    "The bound is a sharp uniform sufficient tolerance but not a necessary threshold for every individual approval law; growing m,k require checking the union bound."
+  ],
+  "schema_version": 1
+}

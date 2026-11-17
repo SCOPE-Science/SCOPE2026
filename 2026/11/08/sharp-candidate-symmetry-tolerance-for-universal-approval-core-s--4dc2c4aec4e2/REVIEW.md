@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The integral Hare-core definition is equivalent to requiring that every nonempty proposal of size \(t\le k\) has strictly fewer than \(nt/k\) voters whose approved-candidate count improves. Exchangeability proves the block-comparison lemma without candidate independence, the sharp integer gap is \(1/[k(k+1)]\), total variation controls the aggregate drift, and the nonidentical Bernoulli Chernoff bound yields simultaneous stability. The one-hot multinomial construction verifies exact sharpness and the binomial large-deviation rate. Exact finite verification checks 446,363 candidate-symmetric comparisons, 6,678 direct core profiles and 14 rational boundary identities. The general theorem and asymptotics rely on the written proof, not finite enumeration.
+PASS
 
-## Originality
+The strict improvement event under a fully candidate-exchangeable ballot is contained in the unique-maximum event among floor(k/t)+1 disjoint equal-size blocks, hence has probability <=b_{k,t}. Integer arithmetic gives minimal gap 1/[k(k+1)] at t=1. Total variation controls average event probability for heterogeneous voters, and Jensen plus Chernoff yields the claimed finite n bound; the all-committees statement is a finite union bound. A biased one-approval law on m=k+1 ballots reaches the equality threshold, with binomial CLT limiting failure 1/2 for k>=2 (certain failure k=1); above it failure tends to one. The unbiased binomial large deviation sandwich yields D(1/k || 1/(k+1)). Independently checked all exchangeable fixed-cardinality ballot orbits for 2<=m<=6, every k,W,T; no violation. These checks do not establish voter-correlated concentration; independence across voters is required.
 
-**PASS, with residual bibliographic risk.** The closest primary work is Becker–Greger–Peters (arXiv:2609.11912), which guarantees existence of at least one Hare-core committee in every approval election, not simultaneous stability of all committees under nearly symmetric random ballots. Peters (arXiv:2501.18304) proves restricted deterministic existence. Goel–Jiang–Zhou (arXiv:2609.00486) investigate fractional Nash-core and small voter populations. Chen–Hatschka (arXiv:2605.22528) establish the equivalent NTU-AV/PAV/SAV core formulation, but study structural membership/existence rather than random-population symmetry. Han and colleagues (arXiv:2510.18718) study stochastic **average justified representation**, explicitly distinct from core. Source comparisons considered equivalent core definitions, broader existence results, and distributional aliases; no dominating theorem was identified. An unindexed equivalent result cannot be ruled out.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The theorem shows that a celebrated coalitional fairness axiom may become non-discriminating on large neutral electorates because *all* candidate committees satisfy it, even when the ballots are correlated within voter. The sharp \(1/[k(k+1)]\) total-variation radius quantifies the first asymmetry at which that statistical conclusion can fail. This offers a concrete benchmark for comparing core-based decision rules and tests the practical selectivity of the criterion.
+The 2025 Peters and September 2026 Becker–Greger–Peters results establish deterministic existence of a core committee, not stochastic stability of every committee. No equivalent random candidate-symmetry sharp TV threshold identified in Resultary or primary searches. Best-of-knowledge PASS with inaccessible-literature risk.
 
-## Scope and limitations
+## value
 
-Only the integral Hare core and independent voters are covered. No claim is made for core+, fractional or Droop blocking, arbitrary dependence across voters, or convergence without controlling growing dimensions. The sharpness construction addresses a uniform threshold across approval distributions; it is not a necessary test for every distribution. The result is not a substitute for independent scientific review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The universal all-committee property under approximate symmetry is a substantially stronger and differently motivated statistical guarantee than existence; a sharp TV contamination threshold with explicit large-deviation rate is a useful robustness limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

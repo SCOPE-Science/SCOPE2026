@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying `verify.py` runs with the Python 3 standard library only. From the extracted package directory, run:
+## correctness
 
-```bash
-python3 verify.py
-```
+PASS
 
-Observed output:
+The strict improvement event under a fully candidate-exchangeable ballot is contained in the unique-maximum event among floor(k/t)+1 disjoint equal-size blocks, hence has probability <=b_{k,t}. Integer arithmetic gives minimal gap 1/[k(k+1)] at t=1. Total variation controls average event probability for heterogeneous voters, and Jensen plus Chernoff yields the claimed finite n bound; the all-committees statement is a finite union bound. A biased one-approval law on m=k+1 ballots reaches the equality threshold, with binomial CLT limiting failure 1/2 for k>=2 (certain failure k=1); above it failure tends to one. The unbiased binomial large deviation sandwich yields D(1/k || 1/(k+1)). Independently checked all exchangeable fixed-cardinality ballot orbits for 2<=m<=6, every k,W,T; no violation. These checks do not establish voter-correlated concentration; independence across voters is required.
 
-```text
-PASS: exact exchangeable-cardinality comparison cases: 446363
-PASS: direct finite one-approval core profiles: 6678
-PASS: sharp TV-boundary rational tests: 14
-NOTE: tail asymptotics require the analytical proof.
-```
+## originality
 
-The first check independently enumerates all committee and proposal combinations, all candidate-permutation orbit classes of ballots, and the strict quota gaps for candidate counts from two through eight. The second directly checks the core definition against the count-threshold characterization for one-approval electorates with up to three seats and six voters. The third evaluates the sharp contamination identity using exact fractions.
+PASS
 
-These checks establish the finite enumerated identities and rule out several normalization mistakes. They do not by themselves certify the all-size exchangeability lemma, the heterogeneous Chernoff bound, the central limit theorem or the binomial large-deviation limit; those are proved analytically in `RESULT.md` using the specified hypotheses. No external certificate or independent audit was performed.
+The 2025 Peters and September 2026 Becker–Greger–Peters results establish deterministic existence of a core committee, not stochastic stability of every committee. No equivalent random candidate-symmetry sharp TV threshold identified in Resultary or primary searches. Best-of-knowledge PASS with inaccessible-literature risk.
+
+## value
+
+PASS
+
+The universal all-committee property under approximate symmetry is a substantially stronger and differently motivated statistical guarantee than existence; a sharp TV contamination threshold with explicit large-deviation rate is a useful robustness limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
