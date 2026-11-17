@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The de Bruijn transfer matrices enumerate indexed cyclic predecessors without quotienting periodic configurations. Direct multiplication yields the exact two-state gap reduction, and the nonnegative matrix inequality \(EF\le F\) bounds all adjacent-one outputs strictly below the Lucas optimum. The equality classification follows from maximal independent sets of even and odd cycles. The standard-library verification script independently counted all output fibers through length 17 and reproduced the predicted optimizers; it is supporting evidence, not a substitute for the proof. The only short-length exceptions were explicitly isolated.
+PASS
 
-## Originality
+The Wolfram Rule 28 local outputs 1 exactly on 010,011,100; de Bruijn Z/O matrices enumerate closed indexed cyclic paths, including n=1 and n=2. Z³=Z² and tr Z=tr Z²=2 give zero-output fiber count. Restricting OZ^r to the nonzero two-state block gives E (zero gap) and F (positive gap), so every output fiber has the displayed trace product. With all positive gaps, trace(F^k)=Lucas L_k and k≤floor(n/2). Zero gaps either create E²=0 or permit pairing EF=diag(1,0)≤F entrywise; nonnegative trace-product monotonicity yields strict suboptimality, including the lone odd-ring boundary via Fibonacci F_m<L_m. Hence exactly the two alternating even winners or n rotations of the unique length-two zero-gap odd winner, with short n≤3 direct cases. Independent exhaustive direct-map counts through n=12 corroborated every output fiber; the matrix proof handles all n.
 
-**PASS, qualified.** The nearest substantive source is Jen's 1989 full-text preimage enumeration and its Section 5.4 maximal-probability analysis. It establishes alternating optimizers for another elementary rule and gives finite-string constructions, but not the sharp cyclic Rule 28 Lucas count and equality list. Fukś's 2003 analysis uses iteration depth instead of growing ring length; Voorhees's predecessor study is for compositional rules; asynchronous Rule 28 dynamics is governed by a different update scheme. Related published results on cellular-automaton reversibility or inverse counts for other channels and rules do not imply the present statement. The main priority risk is older per-rule enumeration tables, unpublished formulae or reducibility to Jen's general machinery; search failure alone is not proof of novelty. The precise new contribution is the cyclic optimum **and all maximizing indexed output words**, not the classical transfer-matrix method.
+## originality
 
-## Value
+PASS
 
-**PASS.** Single-step inverse branching is an intrinsic uncertainty measure for finite cellular-automaton dynamics and finite-state reconstruction. A sharp all-length growth law, a complete optimizer classification, and an exact formula for every cyclic output are mathematically motivated structural information, not just a finite computation or a renamed classical identity. The periodic boundary condition changes both the value and optimizer classification relative to known linear-string analyses.
+Classical de Bruijn predecessor enumeration, Jen 1989 and fixed-block t-step preimage literature precede this work. The inspected Jen treatment describes finite-linear preimage patterns and notes alternating extremizers for Rule 76, but does not give the all-length indexed *cyclic* Rule 28 Lucas maximum, exact every-fiber gap product and complete winner classification. Published-record searches closest to Rule 18, Rule 22, Rule 126 and Rule 184 concern different local rules and not implication-equivalent truth tables. Originality is best-of-knowledge subject to older per-rule tables.
 
-## Scientific limits and closest literature
+## value
 
-This is a complete result for a single synchronous elementary rule. It does not classify other rules or multi-step dynamics. Jen (1989), Fukś (2003), and Voorhees (1996) were inspected in primary full text, and the asynchronous Rule 28 paper was compared at its Rule 28 section. The possibility of historical priority through unindexed tables or supplements remains open. Finite verification reached length 17 exhaustively; the proof covers all lengths. Independent mathematical validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural exact all-length inverse-fiber invariant for a standard elementary cellular automaton, including every fiber and a complete optimizer/equality set, quantifies the worst one-step information loss under periodic boundary conditions. The two-matrix reduction and even/odd optimizer split are substantive structural properties rather than a sample of finite automata.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
