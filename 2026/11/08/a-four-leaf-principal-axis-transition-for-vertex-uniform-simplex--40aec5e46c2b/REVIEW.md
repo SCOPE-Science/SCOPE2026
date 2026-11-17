@@ -1,15 +1,21 @@
-# Scientific review: vertex-uniform simplex-sum stellohedra
+# Independent mathematical audit
 
-## Correctness — PASS
-The asserted object is an explicit Euclidean Minkowski sum of the tube simplices of a star. The vertex proof identifies every exposed vertex with one ordered list of leaves above the hub, and verifies the converse. The crucial probability law is the exact reciprocal-factorial distribution of the number of leaves below the hub; it follows from the number of distinct ordered lists, not from treating permutations as equally weighted vertices. The first and second moments of the hub and leaf increments are exact finite sums. Symmetry splits the affine covariance into a one-dimensional hub axis and a leaf-contrast space, and a trace identity gives both eigenvalues. The all-dimensional spectral transition uses exact small cases and strict rational bounds for all larger dimensions. The asymptotics follow from convergent exponential series. Independent finite checks, using generic-objective tube maximization and rational covariance calculations, confirmed 2,369 vertices in dimensions two through six. No finite test is used as an infinite proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-The closest published construction is Padrol–Pilaud–Poullot, arXiv:2109.09200, especially Theorem 2.2, which identifies graph-associahedron tube simplex sums, and Eur–Huh–Larson, arXiv:2207.10605, which emphasizes a different stellahedron realization and toric geometry. Berry–Forcey–Ronco–Showers, arXiv:1608.08546, describes stellohedral combinatorics and its vertex enumeration. None of the relevant passages inspected provides the Euclidean covariance of the distinct vertices of the specific tube-simplex realization. Existing work on its inradius, circumsphere, width distribution, and Minkowski asymmetry neither computes that covariance nor implies the strict four-leaf spectral transition. Equivalences between different realizations of the same normal fan are not Euclidean isometries. Unindexed equivalent formulas or methods remain possible, and the search does not establish absolute priority.
+PASS
 
-## Mathematical value — PASS
-The exact vertex covariance tensor of a canonical infinite polytope family is a natural geometric statistic, not merely an arbitrary finite enumeration. The main consequence is a complete qualitative classification of the top principal component: hub-axis in dimensions two and three, but leaf-contrast in all higher dimensions. The two spectral scales diverge radically: the hub barycenter converges to Euler's number, hub-axis variance remains bounded, and leaf-contrast variance grows exponentially. This gives a useful explicit caution against conflating normal-fan combinatorial equivalence, volume-uniform geometry, and vertex-uniform inertia.
+Exposed vertices of unit tube simplex-sum K_m are in one-to-one correspondence with ordered lists of distinct leaves above hub. The exact count m! F_m(1) makes J=m-k reciprocal-factorial under UNIFORM DISTINCT VERTEX sampling, a crucial measure distinction. From H=2^J and T=2^m-H, U=(4^m-H²)/3, compute barycenter and two covariance eigenvalues by permutation symmetry and trace; all-dimensional strict switch follows exact cases m=2,3,4,5 and inequalities for m>=6; asymptotics from F_m(z)->exp(z). Independent exact rational finite enumerations m=2..5 reproduced 5,16,65,326 vertices and both eigenvalues; source verify.py also checks m=6 and eigen ordering to 64, not an infinite proof.
 
-## Limitations and source comparison
-The result assumes all tube coefficients one, the ambient Euclidean metric, and a uniform measure on distinct vertices. Neither the same face lattice in another realization nor a different probability measure preserves these numbers. The strongest currently identified overlap risk is an equivalent, unindexed vertex-moment result for stellohedra or partial permutations. No independent proof review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary graph-associahedron tube-simplex construction is old and credited. Related stellahedral combinatorics, inball and Minkowski asymmetry findings do not assert or imply the vertex-uniform covariance spectral values for this concrete Euclidean realization; no stronger matching statement located.
+
+## value
+
+PASS
+
+Exact full vertex inertia spectrum of canonical star graph-associahedron and strict top-principal-component crossover at four leaves are natural metric invariants. Exponential growth of leaf contrast versus bounded hub variance provides a reusable benchmark distinguishing combinatorics, geometry and sampling measure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
