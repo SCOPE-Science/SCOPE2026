@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs the discrete heat kernel as a product of one-dimensional Bessel kernels, proves strict monotonic ordering of the logarithmic time scores by a Riccati argument, and shows uniqueness of the first-neighbor derivative sign change using a split Laplace transform with disjoint ordered spectral supports. The sum-zero identity then gives both exact endpoint norms for the maximal one-negative-site interval; strict dimension ordering and the three-term threshold expansion follow from explicit series. The standalone finite checker supplies consistency tests only, not an infinite proof.
+PASS
 
-## Originality — PASS within the inspected record
+For the unit-rate nearest-neighbor generator on infinite Z^d, d≥2 and all t>0, P_{d,t}(x)=e^{-2dt}∏_j I_|x_j|(2t) and q=PΣ_j s_|x_j|. The identity r_m′(z)=1−r_m(z)^2−(2m+1)r_m(z)/z and its first-zero derivative argument give r_m′>0; hence s_m strictly increases with |m| and the smallest off-origin score occurs only at the 2d neighbors. The Fourier identity P′_{d,t}(e1)=∫λ(λ/(2d)−1)e^{−λt}dρ splits positive λ>2d from negative λ<2d: the positive/negative Laplace-transform ratio is strictly decreasing from >1 to 0, proving a unique crossing. The origin remains strictly negative; before/at the crossing all other sites are positive/zero at neighbors. The zero-mass kernel then has total variation −2q(0)=4d e^{−2dt}I0(2t)^{d−1}(I0−I1), the exact ℓ1 and ℓ∞ convolution norms; immediately and permanently afterward negative neighbors make it strictly larger. Since s0<0 the crossing decreases in d. The correct small-t ratio R=t−t^3/2+t^5/3+O(t^7), with the root derivative of order −4d², gives τ_d=1/(2d)+1/(4d²)+1/(8d³)+O(d^−4). No unproved infinite inference is made from finite diagnostics.
 
-Dowker's heat kernel (arXiv:1207.2096) is a baseline identity, and Baricz's Bessel inequalities (arXiv:1202.4853) are auxiliary. Neither derives a dimension-indexed sign transition for the derivative kernel or a maximal exact endpoint-norm interval. Abadias–de León-Contreras (arXiv:2107.06778) works with derivative estimates for a one-dimensional discrete kernel rather than the present sharp multidimensional sign classification. The one-dimensional case and classical ratio monotonicity are expressly excluded from novelty. A historical stronger lattice-unimodality theorem could cover the new statement; this is a residual bibliographic risk, not evidence of a covering source.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first loss of the one-negative-site shape is a natural, sharply defined stability boundary: before it, the semigroup derivative has an explicit norm in both endpoint Banach spaces; after it, that formula provably ceases to be exact. The threshold is uniquely characterized at all dimensions, strictly moves with dimension, and has a quantitative three-term large-dimensional scale. The result is an all-dimensional structural cutoff rather than an isolated Bessel computation or a fixed numerical parameter slice.
+Best-of-knowledge original as a combined d>=2 theorem: the existing Bessel kernel identity, ratio estimates, and one-dimensional derivative bounds supply ingredients but not the unique first off-origin derivative sign crossing, the exact maximal endpoint-operator-norm interval, dimensional ordering, and the three-term threshold scaling. A separate, genuinely relevant manifold spatial-monotonicity theorem concerns a different quantifier and geometry. Residual priority risks are explicit.
 
-## Limits and closest literature
+## value
 
-The work does not determine later sign regimes or the global time-optimized analytic norm. The proof is complete under the stated unit-rate normalization, but equivalent historical formulations have not been excluded exhaustively. Reference details and reproducible finite checks are in the main result and accompanying checker.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first instant at which discrete heat flux reverses sign outside the source is an intrinsically motivated crossover in a canonical infinite graph semigroup. Its location governs the maximal interval of an exact endpoint ℓ1/ℓ∞ operator norm equality, not merely a numerical special-function root. A uniform all-dimensional uniqueness, strict dimension monotonicity and controlled high-dimensional asymptotics would be useful for sharp endpoint semigroup estimates and comparative lattice heat flow. Neither the 1D kernel identity nor elementary normalization by itself gives this exact boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
