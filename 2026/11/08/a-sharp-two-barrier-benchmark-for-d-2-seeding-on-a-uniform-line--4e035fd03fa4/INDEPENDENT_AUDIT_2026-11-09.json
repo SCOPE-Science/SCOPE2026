@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T21:04:36.747043Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For equal-weight regular grids Dn⊂[0,1], ordinary k-means++ chooses X uniform and second point with D² weights; there are precisely two seeds, no Lloyd update, optimal comparison centers may be real. The continuum conditional density is (y−x)²/V(x), V=x²−x+1/3≥1/12. Splitting the Voronoi integral at (x+y)/2 and independently integrating exact polynomials reproduces Q(x)=(-66x^6+198x^5−135x^4−60x³+105x²−42x+7)/360 and E C=−3/400+11√3 π/1215. The continuum optimal two-mean cost is 1/48 at 1/4,3/4; uniform Riemann-sum convergence of both expected sampling objective (denominator bounded below) and compact minimization justifies limit from grids. Hence exact ratio 176√3 π/405−9/25≈2.0046569489>2. Independent symbolic integral and Q polynomial differences checked to zero. Does NOT claim a worst-case data set optimizer, finite-n formula or post-refinement cost.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Arthur Vassilvitskii O(log k) guarantee, Bamas Nagarajan Svensson D^α-seeding guarantees, specialized 2D worst-case constructions",
+          "Uniform-line k=2 exact expected cost is not a formal special case of a generic bound with known equality; no stronger closed-form coverage identified.",
+          "Source RESULT.md blob 0c4592b0ef8841e889cdcfe0b24db5e09587e7c4 and actual primary-source statement comparison."
+        ],
+        "reasoning": "Uniform-line k=2 exact expected cost is not a formal special case of a generic bound with known equality; no stronger closed-form coverage identified.",
+        "searches": [
+          "RESULTARY: uniform interval one dimensional kmeans++ two seed D squared sampling exact expected squared error approximation ratio 2.0046569",
+          "https://theory.stanford.edu/~sergei/papers/kMeansPP-soda.pdf",
+          "https://arxiv.org/abs/2310.13474"
+        ]
+      },
+      "checked_sources": [
+        "Frozen assigned RESULT.md: 2026/11/08/a-sharp-two-barrier-benchmark-for-d-2-seeding-on-a-uniform-line--4e035fd03fa4 tree 31aeff97b2a841c86ad74a17664c809f73f43e02",
+        "RESULTARY: uniform interval one dimensional kmeans++ two seed D squared sampling exact expected squared error approximation ratio 2.0046569",
+        "https://theory.stanford.edu/~sergei/papers/kMeansPP-soda.pdf",
+        "https://arxiv.org/abs/2310.13474",
+        "https://doi.org/10.1016/j.tcs.2016.04.012"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Arthur-Vassilvitskii algorithm and Bamas–Nagarajan–Svensson performance theorems",
+          "The sources fix the algorithm/broad inequalities; the candidate analytically computes a natural input-specific limit and proves a strict factor-2 separation not implied by generic bounds.",
+          "Source RESULT.md blob 0c4592b0ef8841e889cdcfe0b24db5e09587e7c4 and actual primary-source statement comparison."
+        ],
+        "reasoning": "The sources fix the algorithm/broad inequalities; the candidate analytically computes a natural input-specific limit and proves a strict factor-2 separation not implied by generic bounds.",
+        "searches": [
+          "RESULTARY: uniform interval one dimensional kmeans++ two seed D squared sampling exact expected squared error approximation ratio 2.0046569",
+          "https://theory.stanford.edu/~sergei/papers/kMeansPP-soda.pdf",
+          "https://arxiv.org/abs/2310.13474"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "uniform [0,1] quantization, continuum k-means++ sampling, two independent ordered centers with D² weighting",
+          "Exact integral over X and conditional Y produces constant involving π√3, whereas generic kmeans++ bounds supply inequalities not this integral.",
+          "Source RESULT.md blob 0c4592b0ef8841e889cdcfe0b24db5e09587e7c4 and actual primary-source statement comparison."
+        ],
+        "reasoning": "Exact integral over X and conditional Y produces constant involving π√3, whereas generic kmeans++ bounds supply inequalities not this integral.",
+        "searches": [
+          "RESULTARY: uniform interval one dimensional kmeans++ two seed D squared sampling exact expected squared error approximation ratio 2.0046569",
+          "https://theory.stanford.edu/~sergei/papers/kMeansPP-soda.pdf",
+          "https://arxiv.org/abs/2310.13474"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact 2.0046569489 and one-dimensional uniform kmeans++ queries; nearby uniform two-facility lottery papers",
+          "No actual exact-value table for THIS D² mechanism found; facility-location proportional-distance lottery is a different distribution.",
+          "Source RESULT.md blob 0c4592b0ef8841e889cdcfe0b24db5e09587e7c4 and actual primary-source statement comparison."
+        ],
+        "reasoning": "No actual exact-value table for THIS D² mechanism found; facility-location proportional-distance lottery is a different distribution.",
+        "searches": [
+          "RESULTARY: uniform interval one dimensional kmeans++ two seed D squared sampling exact expected squared error approximation ratio 2.0046569",
+          "https://theory.stanford.edu/~sergei/papers/kMeansPP-soda.pdf",
+          "https://arxiv.org/abs/2310.13474"
+        ]
+      },
+      "rationale": "Arthur–Vassilvitskii defines D² seeding; Bamas–Nagarajan–Svensson analyzes global D^α approximation guarantees; neither inspected result supplies this canonical uniform-line k=2 exact integral, and the two-dimensional worst-case construction cannot by itself imply the one-dimensional closed constant. Resultary exact-constant search returned only the candidate; other two-facility lotteries use different sample rules. A failed search does not establish historical priority.",
+      "residual_risks": [
+        "An older specialized two-seed exact expected-cost computation could exist under quantization, seeding or clustering terminology, despite searches.",
+        "The >2 excess is about 0.00466, not a large empirical effect, and the theorem does not concern Lloyd refinement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sampling rule prior; original bound does not give exact two-center uniform-interval expectation −3/400+11√3π/1215 or ratio 2.0046569.",
+          "evidence": "Classical approximation guarantee is general; candidate evaluates exact x,y integral for uniform 1D distribution.",
+          "identifier_or_url": "https://theory.stanford.edu/~sergei/papers/kMeansPP-soda.pdf",
+          "material_read": "Accessible complete original paper, including algorithm and general approximation theorem sections",
+          "method": "Read primary PDF and compare algorithm, performance metric and domain",
+          "title": "Arthur and Vassilvitskii, k-means++: The Advantages of Careful Seeding",
+          "trigger": "Original D²-seeding algorithm and baseline mean-square approximation claims"
+        },
+        {
+          "assessment": "General guarantees and α-dependent theory do not state the k=2 exact uniform-grid limit under squared-distance seeding.",
+          "evidence": "The candidate arctangent term comes from integrating a particular conditional Voronoi cost; not specified in general bound.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.13474",
+          "material_read": "Accessible primary paper main algorithm and theoretical results and relevant appendix calculations",
+          "method": "Read primary preprint PDF sections and compare theorem quantifiers and exact constants",
+          "title": "Bamas, Nagarajan and Svensson, An Analysis of D-alpha seeding for k-means",
+          "trigger": "General D^α seeding theory could imply exact k=2 uniform benchmark"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Two-seed k-means++ on the uniform interval is a canonical, geometry-minimal test of a widely used random initializer. Its exact expectation and strict >2 limiting ratio show that even this noise-free regular input defeats a putative factor-two bound. The excess is small and no practical algorithmic improvement claimed; the exact natural baseline is still a meaningful mathematical invariant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen assigned RESULT.md: 2026/11/08/a-sharp-two-barrier-benchmark-for-d-2-seeding-on-a-uniform-line--4e035fd03fa4 tree 31aeff97b2a841c86ad74a17664c809f73f43e02",
+    "RESULTARY: uniform interval one dimensional kmeans++ two seed D squared sampling exact expected squared error approximation ratio 2.0046569",
+    "https://theory.stanford.edu/~sergei/papers/kMeansPP-soda.pdf",
+    "https://arxiv.org/abs/2310.13474",
+    "https://doi.org/10.1016/j.tcs.2016.04.012"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An older specialized two-seed exact expected-cost computation could exist under quantization, seeding or clustering terminology, despite searches.",
+    "The >2 excess is about 0.00466, not a large empirical effect, and the theorem does not concern Lloyd refinement."
+  ],
+  "residual_risks": [
+    "An older specialized two-seed exact expected-cost computation could exist under quantization, seeding or clustering terminology, despite searches.",
+    "The >2 excess is about 0.00466, not a large empirical effect, and the theorem does not concern Lloyd refinement."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Sampling rule prior; original bound does not give exact two-center uniform-interval expectation −3/400+11√3π/1215 or ratio 2.0046569.",
+      "evidence": "Classical approximation guarantee is general; candidate evaluates exact x,y integral for uniform 1D distribution.",
+      "identifier_or_url": "https://theory.stanford.edu/~sergei/papers/kMeansPP-soda.pdf",
+      "material_read": "Accessible complete original paper, including algorithm and general approximation theorem sections",
+      "method": "Read primary PDF and compare algorithm, performance metric and domain",
+      "title": "Arthur and Vassilvitskii, k-means++: The Advantages of Careful Seeding",
+      "trigger": "Original D²-seeding algorithm and baseline mean-square approximation claims"
+    },
+    {
+      "assessment": "General guarantees and α-dependent theory do not state the k=2 exact uniform-grid limit under squared-distance seeding.",
+      "evidence": "The candidate arctangent term comes from integrating a particular conditional Voronoi cost; not specified in general bound.",
+      "identifier_or_url": "https://arxiv.org/abs/2310.13474",
+      "material_read": "Accessible primary paper main algorithm and theoretical results and relevant appendix calculations",
+      "method": "Read primary preprint PDF sections and compare theorem quantifiers and exact constants",
+      "title": "Bamas, Nagarajan and Svensson, An Analysis of D-alpha seeding for k-means",
+      "trigger": "General D^α seeding theory could imply exact k=2 uniform benchmark"
+    }
+  ]
+}
