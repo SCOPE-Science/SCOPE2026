@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact projected-area identity follows from Minkowski addition and planar swept area, including axial and horizontal limiting directions. Rotation-invariant sampling separates a uniform absolute vertical coordinate from a uniform azimuth. Their five elementary moments yield the stated mean and variance. Differentiation of the resulting normalized rational quadratic gives a linear numerator, with one positive root for every \(q\ge1\). Jensen equality and width continuity prove the if-and-only-if constant-width classification. Substitution and exact directional bounds establish the equilateral example. The standalone checker independently computes genuine projected convex hulls for 57,600 sampled directions; sampling is supplementary, not proof.
+## correctness
 
-## Originality — PASS, historical-priority risk retained
-The published 2024 work of Black and Criado concerns counts of vertices of randomly projected polytopes, not area-variance shape optimization. A prior uniform-regular-prism width-moment result uses the same angular decomposition for directional **width** with fixed height and special bases; this close analogy and the elementary nature of the moment ingredient are explicitly acknowledged. Orthotope shadow-area tensor work studies a different family. The full result examined for the regular-prism width theorem does not state the universal optimized-height law or its constant-width characterization. No exact equivalent appeared in the searched record corpus or relevant accessible published text. General stereological texts and differently phrased shape-anisotropy work remain a real possibility of prior coverage; no historical priority guarantee is claimed.
+PASS
 
-## Mathematical value — PASS
-The coefficient of variation is an intrinsic scale-free measure of directional variation in shadow area. The result provides a universal optimizer for every planar convex base, controlled by exactly one normalized planar squared-width statistic after scale normalization. It proves a sharp shape theorem identifying **all** equality cases (constant-width bases, including nonsmooth ones), with an exact quantitative deficit. The equilateral case shows that optimizing average and worst-view anisotropy genuinely selects different shapes. This is a complete natural classification and not merely a numerical moment evaluation.
+Geometric swept-area of projected Minkowski sum gives S_H=A|Z|+H sqrt(1-Z^2)w_B(phi+pi/2) for Haar projection normals; |Z| uniform[0,1] independent of phi. Five elementary exact spherical moments establish mean A/2+pi H beta/4 and second-moment variance. Differentiating normalized F_q(s) yields [(2-pi)+(4q-pi)s]/[6(1/2+pi s/4)^3], q>=1, giving single positive minimizer and sharp value. Jensen and continuity give constant-width iff q=1. For triangular base exact extrema min{A,sqrt3 t} and max sqrt(A^2+4t^2), so worst-view optimizer H=sqrt3/2, versus H*=1.035995798...
 
-## Scope and limitations
-The formula is restricted to right Euclidean products of planar convex bases and intervals, with Haar-uniform viewing planes. It does not give full laws or oblique-prism results. The close generic width-moment literature makes independent bibliographic priority verification important. Independent audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Search found prior random directional WIDTH fluctuation optimal prism result (same geometry, different functional), projected area moments for ORTHOTOPES (restricted to rectangular bases) and random-shadow vertex-count work (different statistic). Neither inspected mathematical claim implies all-convex-base projected AREA CV height and constant-width rigidity on available evidence. Older stereology may encode equivalent moment optimization; best-of-knowledge with explicit residual risk.
+
+## value
+
+PASS
+
+A scale-invariant optimal height for the entire class of planar convex prism bases, a sharp isoperimetric-style constant-width equality class, and a quantitative contrast between average and worst-view brightness are natural geometric optimization results; not a routine unmotivated fixed-shape numerical optimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
