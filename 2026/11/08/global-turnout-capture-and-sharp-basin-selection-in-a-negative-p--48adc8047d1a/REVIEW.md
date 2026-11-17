@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The domain is the entire closed electoral simplex, with the zero state separated from nonzero initial turnout. The proof first gives finite capture of the full-turnout edge using the uniform inequality \(s_{t+1}\ge2s_t\) on every under-mobilized step. It then derives a one-dimensional *exact* amplitude map from the individual's surplus-maximization rule, including saturation whenever the formal equality cut leaves the ideological interval. Strict concavity of \(H\) gives a unique interior amplitude threshold and excludes all extra periodic orbits. An expansion inequality gives finite polarization capture and a bounded-distortion argument gives the logarithmic escape-time asymptotic. The relative-share contraction identity gives a uniform small-turnout parity basin; the two states with 80:20 committed composition have rigorously opposite outcomes. The radical example is an exact factorization, not an inference from decimals. The standard-library checker independently reconstructs the microscopic rule by quadrature and verifies representative identities. Numerical tests are supporting diagnostics only, not proofs of the universal statements.
+PASS
 
-## Originality — PASS, with specified uncertainty
+Within 1/2<lambda<1, 2<gamma<1+(1/lambda)2^(1-1/lambda), the finite-mobilization update yields s_next>=2 s^lambda>=2s for s in (0,1), implying finite first full turnout and the ceiling(log2(1/s0)) bound. On the full-turnout edge, the clipped individual-surplus choice yields signed alternation with absolute z_next=H^{-1}(min((gamma-1)z,1)), H(z)=((1+z)/2)^a-((1-z)/2)^a, a=1/lambda. H strictly concave, H(z)/z decreases from a2^(1-a) to 1, so exactly one unstable z* and only balanced/threshold/saturated amplitudes; each above z* reaches exact amplitude 1 in finite time. Uniform contraction of the relative committed imbalance while turnout is partial proves all small positive total turnout ends balanced; expansion L=(gamma-1)/H'(z*)>1 yields escape time log(1/(z-z*))/log L+O(1). Independent computation confirmed radical example z*≈0.479891135132 and different full vs half-turnout outcomes. Clipping convention is explicit and essential: original implicit cut otherwise may not be defined globally.
 
-Fontanari's first-public October 2026 model and its November 2026 version already identify the coexistence wedge and an implicit nonsaturated period-two orbit (arXiv:2610.25210v2, Sec. 3.2, Eq. 19). These facts are not claimed original. The primary full text provides stability classifications and selected basin pictures, but not a proof that *all* nonzero initial states enter full turnout by a uniform finite-time bound, nor a global threshold classification for every state in this wedge, nor a finite-time saturated absorption law and logarithmic threshold-escape time. The separate Krueger–Szwabiński–Weron 2017 q-voter model uses a double-clique update mechanism and does not cover the present ideological-threshold map. Searches for direct equivalents and stronger results returned no covering statement; standard concave-map arguments are acknowledged as methodological background. Unindexed equivalents and analyses not located remain residual risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Local bistability alone does not determine which polling initial conditions converge to parity and which alternate between unanimous extremes. An exact complete basin theorem answers that natural dynamical question, including the positive-abstention interior rather than just the one-dimensional full-turnout edge. It identifies the pre-existing unstable cycle as the *global* threshold, supplies a finite activation guarantee and finite-time polarized absorption, quantifies critical slowing near the boundary, and exhibits an exact turnout-induced reversal at fixed committed composition. The endpoint issue matters because un-clipped indifference roots cease to exist for sufficiently asymmetric drives when \(\gamma>2\). The result does not assert empirical voting predictions, an outcome for asymmetric parameters, or novelty of classical one-dimensional comparison techniques.
+The 2026 Fontanari v2 preprint contains bistable wedge, threshold and unstable two-cycle qualitatively; the submitted theorem adds exact all-simplex finite activation, global first-full-edge basin decision, clipped endpoint rule, uniform low-turnout balanced access and exact log escape coefficient. The 2017 q-voter model is mathematically different. Resultary semantic search found no dominating earlier exact theorem for this specified deterministic map; existing partial local bifurcation facts are credited.
 
-## Scope and independent review
+## value
 
-The proof applies only to the symmetric, deterministic, uniformly distributed ideological-threshold mechanism under the explicitly stated endpoint-saturated choice rule and the strict parameter wedge. No finite-electorate stochastic, noisy, or data-fitting claim is made. Prior equivalences outside the inspected literature remain possible.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The global basin map resolves a meaningful uncertainty of how abstention changes an already understood full-turnout bistability picture; a sharp finite-time capture and escape-clock law and concrete same-ratio turnout reversal are motivated dynamical facts. The exact result is conditional on a precisely specified individual-level endpoint convention, rather than a universal political prediction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
