@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph and cut-complex definitions are explicit and two independent exhaustive face predicates agree on all 4096 possible masks. The final package's standard-library verifier builds all 20940 Hasse incidences and independently checks acyclicity of two 1834-pair matchings by complete directed topological sorts; it leaves one ordinary critical vertex and six critical six-cells. The integral wedge homotopy type follows directly from Forman's theorem. The full symmetry character is an orientation-signed, reduced fixed-simplex trace, compared against the sign-twisted tetrahedral edge permutation character and the complete rational character table. These are actual all-face computations, not extrapolations or probabilistic evidence.
+## correctness
 
-## Originality — PASS (with bibliographic limitation)
-The foundational total-cut paper (arXiv:2209.13503) addresses other graph classes and its chordal/simplicial-vertex theorem is inapplicable; the truncated tetrahedron is nonchordal and lacks simplicial vertices. The grid sequel (arXiv:2408.07646), the 2026 robust-clique square-sequence theorem (arXiv:2602.11365), and the cycle-power and product calculations (arXiv:2602.21427) do not cover the specified graph. The published ordinary three-cut construction allows disconnected but nonindependent triples and thus does not imply this total-cut calculation. A related hexagonal-prism total-three-cut classification concerns a different graph and group. Searches and material-read comparisons found no stronger implication; undiscovered equivalent literature remains possible.
+PASS
 
-## Value — PASS
-A canonical Archimedean solid's graph has a natural non-shellable pure total-cut complex with complete integral homotopy classification. The six-dimensional rational homology has an exact geometric representation model: an orientation/sign twist of the six edges of the underlying tetrahedron, and in particular no rational fixed class. The calculation thus gives a symmetry-sensitive topological invariant rather than only a face count. A complete natural finite classification and representation are valuable despite the absence of an infinite-family theorem.
+For the 12 ordered-pair vertices (i,j), adjacent when same first coordinate or reverse, there are exactly 18 edges and 72 independent triples. Independently generated all 3674 total-three-cut faces via complements of independent triples; face dimensions -1 through 8 match (1,12,66,220,495,792,918,744,354,72). A lexicographic vertex-toggling matching pairs 1834 augmented faces and leaves precisely six dimension-six cells; directed Hasse check has 3673 ordinary nodes and 20928 ordinary cover arrows, is acyclic. Removing the empty pair gives a critical vertex and six 6-cells, so the integral homotopy is wedge^6 S6. Independent signed fixed-simplex Lefschetz enumeration over S4 yields traces by cycle type (6,-2,2,0,0); this is sign tensor the six K4-edge permutation module, with no trivial constituent. Since pure facet dimension 8 but H6 nonzero, it is nonshellable. Only rational character, no equivariant homotopy asserted.
 
-## Limits
-Only one finite graph is covered. The homotopy equivalence is nonequivariant and the character result is rational; no integral lattice decomposition or equivariant wedge splitting is claimed. No independent external validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: total k-cut (complements of INDEPENDENT triples) is not ordinary cut (complements of disconnected triples). The published 2024–25 general total-cut results treat chordal, cyclic, bipartite, prism and grids, none containing this specific nonchordal tetrahedral truncation with S4 rational homology character. An earlier ordinary cut theorem for the same graph gives a different complex and rank. No covering total-three-cut statement was identified.
+
+## value
+
+PASS
+
+PASS: A complete integral homotopy and full rational automorphism character for a canonical highly symmetric 12-vertex nonchordal cubic graph is a motivated exact invariant; the six sub-top-dimensional spheres and nontrivial orientation twist provide a natural contrast with total-cut chordal shellability. Although finite, the graph is geometrically canonical and the computation not a table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
