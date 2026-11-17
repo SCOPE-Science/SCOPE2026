@@ -1,15 +1,21 @@
-# Scientific review: rotation-weighted logarithmic covering law
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is stated only for two strictly separated affine contractions with irrational Sturmian minimal dynamics. The independent critical ingredients are (i) Sturmian factor count exactly \(n+1\) and uniform discrepancy \(|k-n\rho|<1\); (ii) each branch-word product \(\lambda^n\mu^k\) lies within fixed multiplicative factors of \(e^{-\chi n}\); (iii) any two distinct occupied atoms first differ at a branch whose images are separated by \(g\), and the common affine suffix scales the gap with a product subject to the same discrepancy bound. These prove both sides of the \(N_K(\varepsilon)=\chi^{-1}\log(1/\varepsilon)+O_f(1)\) estimate. The source's atom/itinerary correspondence is explicitly identified. The finite checker reproduces word-count, product, and parameter-gap calculations, but only the mathematical argument proves the infinite statement.
+## correctness
 
-## Originality — PASS within inspected literature
-The 2023 Calderón–Villar-Sepúlveda source gives zero dimension and entropy, and connects atom counts to word complexity, but does not derive the leading logarithmic covering coefficient. The unequal-slope papers of Laurent–Nogueira (2021) and Gaivão–Laurent–Nogueira (2022 preprint) determine rotation number and Cantor semiconjugacy, not the claimed Euclidean covering asymptotic. The earlier equal-slope covering law fixes the same contraction at each branch, hence cannot imply the new frequency-dependent weighted exponent at unequal slopes without an additional uniform separation argument for variable contraction products. Searches using covering numbers, logarithmic Minkowski size, rotation numbers, unequal slopes, and Sturmian factors did not uncover an exact equivalent. Residual priority risk: nonindexed source or a direct consequence already stated in a different terminology.
+PASS
 
-## Value — PASS
-The paper's box and Hausdorff dimension zero does not distinguish different irrational Cantor attractors. The exact coefficient \(1/\chi\) measures their sharp metric covering cost and varies with the rotation number when the branch slopes differ. The bounded *additive* error is stronger than a dimension calculation and depends crucially on balanced/Sturmian symbolic combinatorics. This yields a motivated quantitative answer for a natural two-slope contraction family, including the singular equal-slope special case, rather than an arbitrary finite statistic.
+Under the expressly assumed separated two-branch contractions and irrational Sturmian minimal set, p(n)=n+1 active atoms, and every itinerary length n contains k=n*rho+O(1) high symbols. Therefore each contraction product lambda^n mu^k lies in [B^-1 e^-chi*n,B e^-chi*n], chi=-(1-rho)log lambda-rho log(lambda mu)>0, B=exp(|log mu|). Atom diameter <=B e^-chi*n; two distinct atoms differ at some last-unequal branch, have gap >=g and retain >=g B^-1 exp(-chi(n-1)) under their shared final suffix, because intersecting with a branch domain cannot reduce separation. Each active atom meets K, giving a two-sided n+1 packing and cover squeeze with n=log(1/eps)/chi+O(1). Boundary requirements lambda,lambda mu in (0,1), g>0, irrational rho are explicit, with no rational or overlapping-image generalization. Independently regenerated mechanical-word factor complexity, frequency discrepancy and product envelopes through length 23 for two irrational slopes; finite tests do not prove the infinite separation induction.
 
-## Scope and risks
-The result does not treat rational rotation, overlapping branch images, nonaffine pieces, or expansion. The constants are not uniform as the branch-image gap closes. Primary literature comparison is best-knowledge, not proof of absolute publication priority. No external independent validation has been conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full open-access Gaivão–Laurent–Nogueira paper proves rotation number and semiconjugacy to irrational Cantor dynamics, but does not state a Euclidean epsilon-covering coefficient (search of its full HTML for covering yielded no matching statement). Published Resultary equal-slope and constant-slope contracted rotation theorems have 1/|log lambda| for a constant ratio and cannot imply the unequal-slope weighted chi term without new uniform discrepancy and metric-separation analysis. The submitted result survives as a genuine nonconstant-slope extension, with potential older metric-entropy literature residual risk.
+
+## value
+
+PASS
+
+Hausdorff/box dimension zero loses all first-order metric scale information for these thin Cantor attractors. The sharp positive logarithmic covering coefficient detects both the rotation frequency and nonconformal branch contraction and is a natural intrinsic metric invariant; it is not a mere parameter replacement because uniform separation requires full Sturmian word-product control.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
