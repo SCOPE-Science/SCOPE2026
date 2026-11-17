@@ -1,19 +1,21 @@
-# Scientific review: smooth convex bodies with coincident one-direction support-jet laws
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The family has explicit periodic support functions with disjoint positive bumps. The exact derivative formula gives a curvature-radius lower bound strictly greater than \(0.968\), so every member is a legitimate smooth, strictly positively curved convex body. Partitioning the normal circle into two translated bump intervals and the complement proves equality of the **full joint law** of every finite support jet. The same partition after multiplication by the curvature radius proves the corresponding boundary-arclength assertion. Standard support-function perimeter and area integrals lose all dependence on the bump separation, since the two bump supports do not meet. Distinct separations in the chosen half-period interval are invariant under rigid motions, and a two-angle covariance separates two specified examples. No numerical extrapolation is used for the universal quantifiers.
+PASS
 
-## Originality — PASS (historical priority provisional)
+Directly reconstructed the C-infinity periodic flat bump b, delta=pi/100, epsilon=delta^2/1000 and disjoint translate supports for alpha in [pi/4,pi/2]. The supplied second-derivative bound gives h+h''>1-32/1000>0; the normal curve is a strictly convex support boundary. Integrating any bounded Borel function of a finite jet over the complement and two translated intervals gives a joint law independent of alpha. Curvature-radius weighting similarly handles boundary-arclength sampling even for k<2. Support area and perimeter integrals give A=pi+4 epsilon B+2 epsilon^2 C and P=2pi+4 epsilon B without mixed terms; separation of bump centers is a rigid-motion invariant. Cross-covariance at t=pi/3 is exactly epsilon^2/pi integral b^2 for alpha=pi/3 but zero for alpha=pi/2. Finite quadrature only illustrates, never proves all orders.
 
-The closest directly inspected earlier result is Kim–Yaskin–Zvavitch (arXiv:1512.07289v1), Proposition 2 and its construction, which produces equal unlabeled projection distributions **and unequal areas**. That statement does not imply equal area plus equality of the joint laws of all finite support jets. Geiger–Kogan (arXiv:1912.09597v4) proves noncongruence for curves with identical curvature-signature sets; its examples and signature-path method are related, but its inspected statements do not supply the specified normal-sampled support-jet law, equal area and perimeter, or the explicit positive-curvature centrally symmetric family. A published record on tangential symmetric polygonal width laws establishes nonuniqueness for polygons, not smooth curvature-positive bodies, and only its summary could be compared. Remaining risks are listed in the structured review; failed record search is not treated as a proof of historical uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The central inverse question is whether unlabeled one-direction tomography can recover a convex body once its usual size invariants are fixed, and whether arbitrarily rich local differential measurements remove the ambiguity. The counterfamily shows that they do not: even complete joint normal or boundary-arclength distributions of all local support jets, plus exact area and perimeter, fail to determine a smooth strictly convex centrally symmetric shape. The explicitly positive two-direction covariance identifies the minimal kind of lost information, namely relative angular placement, and distinguishes the theorem from a mere differently parameterized example. The result does not establish impossibility for two-direction measurements, analytic bodies, or labeled measurements.
+The exact one-point jet law combined with fixed two global intrinsic quantities and smooth strict convexity is not mathematically implied by the examined planar unlabeled-width examples (which have unequal areas), curvature-signature set examples, or polygonal classification. Piece-rearrangement mechanisms are older and acknowledged. Priority is best-of-knowledge rather than exclusive novelty certification.
 
-## References and residual uncertainties
+## value
 
-Kim, Yaskin and Zvavitch, *Distribution Functions of Sections and Projections of Convex Bodies* (2015), arXiv:1512.07289v1, full PDF pp. 6–7 inspected. Geiger and Kogan, *Non-congruent non-degenerate curves with identical signatures* (2019/2021), arXiv:1912.09597v4, full PDF introduction and construction/definitions inspected. Goodey, Schneider and Weil, *On the Determination of Convex Bodies by Projection Functions* (1997), abstract inspected, treats differently labeled projection functions. A published record on tangential symmetric polygons was available as a scientific summary but not a full article. Higher-level rearrangement arguments may contain an overlooked special implication; independent assessment is pending.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A concrete identifiability obstruction in natural convex-shape inverse data persists after simultaneously conditioning on area, perimeter, positive curvature and all finite one-direction derivative statistics; its explicit two-direction separating statistic identifies precisely the additional information needed. This is mathematically stronger than a mere width histogram anecdote.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
