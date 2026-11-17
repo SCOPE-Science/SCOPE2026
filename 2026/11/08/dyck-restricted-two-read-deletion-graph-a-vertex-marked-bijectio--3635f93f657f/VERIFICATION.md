@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Finite verification and reproducibility
 
-Run `python3 verify.py` using Python 3 without third-party dependencies. The code enumerates all Dyck words through semilength 10, recomputes the alternating-interval edges, and checks the theorem's edge total and maximum degree. At semilengths 1–8 it also builds complete sets of one-deletion descendants, accumulates overlap counts and verifies equality of the resulting graphs rather than merely equal counts. All positive-height marked vertices are separately enumerated through semilength 10. Expected stdout begins with `VERIFY_OK`.
+# Independent mathematical audit
 
-The generated edge totals for semilengths 1–10 are 0, 1, 6, 27, 111, 441, 1728, 6733, 26181, and 101763. The exact number sequence is already available as OEIS A371965 in a different enumerative interpretation; matching the table is a cross-check rather than novel evidence. The proof of the universal statements is mathematical and invokes the previously published Type-A intersection theorem. An independent mathematical audit has not been performed.
+## correctness
+
+PASS
+
+Using the Cai–Kiah–Nguyen–Yaakobi alternating-interval theorem for two distinct common one-deletion descendants, two equal-count Dyck parents differ on a unique even alternating interval of length 2k. Removing it leaves a Dyck word with a splice vertex at positive height; conversely both alternating phases can be inserted precisely at positive-height vertices. This gives an edge bijection without orientation ambiguity. Counting positive vertices H_m=(2m+1)C_m-C_{m+1} yields the edge sum. Every admissible even alternating interior interval yields one neighbor; there are at most (n-1)^2 such intervals, all realized by 1(10)^{n-1}0; for n>=3 alternating length-two intervals and positivity give uniqueness (for n=2 both maximize). Reversed Catalan-tail asymptotics yield |E|~(2/3)n C_n. Independent cross-enumeration checked 625 Dyck words, edge counts and short deletion intersection profiles; the theorem is not inferred from finite checks.
+
+## originality
+
+PASS
+
+The numerical edge sequence is NOT original: Baril et al 2024 Catalan-word peak enumeration, Corollary 5.4, and OEIS A371965 already give it and its asymptotic. Previously published unrestricted binary/q-ary deletion-confusability graph formulas and whole-binary degree laws do not determine the Dyck-induced graph. The new statement is the canonical positive-height vertex ↔ edge interpretation and unique sharp Dyck degree extremizer, qualified by possible older restricted-language work.
+
+## value
+
+PASS
+
+This gives a natural exact structural bridge from Dyck path positive vertices to restricted deletion reconstruction graphs, and a sharp maximum degree with unique extremizer relevant to combinatorial and reconstruction coding properties. Value survives known scalar sequence; no code-optimum claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

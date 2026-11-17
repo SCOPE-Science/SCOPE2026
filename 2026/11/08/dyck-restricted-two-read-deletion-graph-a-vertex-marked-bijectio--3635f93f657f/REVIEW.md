@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-An edge has a unique first-to-last differing alternating interval by the published Type-A one-deletion theorem; equality of symbol counts makes its length even. Removing that interval yields a positive-height marked Dyck vertex, and the inverse insertion recovers the unordered pair without multiplicity. Ground-height marks are in bijection with ordered pairs of Dyck paths, giving \(H_m=(2m+1)C_m-C_{m+1}\). The bound of \((n-1)^2\) counts all even intervals strictly inside the boundary steps, and the explicit interior-alternating word attains it; phase analysis proves uniqueness for \(n\ge3\). The standard Catalan asymptotic proves the edge-density statement. The packaged checker replays direct deletion overlaps and structural enumeration. The only non-elementary input is the cited Type-A theorem; finite checks do not substitute for it.
+## correctness
 
-## Originality — PASS (qualified)
-The precise integer edge-count sequence, including the asymptotic, **is not novel**: it coincides with OEIS A371965 and Baril et al.'s 2024 Catalan-peaks total. That exact numerical coincidence was identified and compared. The proposed new content is an edge-to-marked-positive-vertex bijection in the Dyck-restricted deletion reconstruction graph plus its sharp, uniquely attained maximum-degree theorem. Cai et al. characterize confusable pairs but do not enumerate this restricted induced graph; the unrestricted graph edge-count theorem does not imply induced counts by substitution. Frandsen et al. give Dyck language algorithms but no such graph theorem. The inspected Catalan-peaks paper counts a different statistic. Existing unindexed equivalents remain a risk, especially if the new graph statistic is hidden under an alternate name.
+PASS
 
-## Value — PASS
-The induced graph models two-read deletion reconstruction when every transmitted source is a balanced-parentheses word. A canonical description of all ambiguous pairs gives the exact forbidden-pair burden and a sharp worst-case local burden, separating typical linear degree from quadratic worst-case degree. This is a structural reconstruction result, not a claim that a known integer sequence has been evaluated for the first time; it can support graph-aware constrained-code design and further investigation of restricted independent sets without asserting such results now.
+Using the Cai–Kiah–Nguyen–Yaakobi alternating-interval theorem for two distinct common one-deletion descendants, two equal-count Dyck parents differ on a unique even alternating interval of length 2k. Removing it leaves a Dyck word with a splice vertex at positive height; conversely both alternating phases can be inserted precisely at positive-height vertices. This gives an edge bijection without orientation ambiguity. Counting positive vertices H_m=(2m+1)C_m-C_{m+1} yields the edge sum. Every admissible even alternating interior interval yields one neighbor; there are at most (n-1)^2 such intervals, all realized by 1(10)^{n-1}0; for n>=3 alternating length-two intervals and positivity give uniqueness (for n=2 both maximize). Reversed Catalan-tail asymptotics yield |E|~(2/3)n C_n. Independent cross-enumeration checked 625 Dyck words, edge counts and short deletion intersection profiles; the theorem is not inferred from finite checks.
 
-## Closest work and limitations
-Cai–Kiah–Nguyen–Yaakobi (arXiv:2001.01376), the unrestricted edge-enumeration record, Frandsen et al. (1995), and Baril et al. (arXiv:2404.05672, Corollary 5.4) are the closest inspected sources. OEIS A371965 exactly covers the numerical sequence; no independent check of literature exhaustiveness or mathematics has occurred. The proof relies on the published Type-A lemma and does not solve code capacity.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The numerical edge sequence is NOT original: Baril et al 2024 Catalan-word peak enumeration, Corollary 5.4, and OEIS A371965 already give it and its asymptotic. Previously published unrestricted binary/q-ary deletion-confusability graph formulas and whole-binary degree laws do not determine the Dyck-induced graph. The new statement is the canonical positive-height vertex ↔ edge interpretation and unique sharp Dyck degree extremizer, qualified by possible older restricted-language work.
+
+## value
+
+PASS
+
+This gives a natural exact structural bridge from Dyck path positive vertices to restricted deletion reconstruction graphs, and a sharp maximum degree with unique extremizer relevant to combinatorial and reconstruction coding properties. Value survives known scalar sequence; no code-optimum claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
