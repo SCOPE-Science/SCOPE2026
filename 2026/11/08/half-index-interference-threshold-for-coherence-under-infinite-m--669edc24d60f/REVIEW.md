@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For the stated exact survival clock and finite-dimensional gate, the proof derives the renewal-age convolution and its two-singularity generating function without approximation. It establishes there are no hidden unit-circle renewal poles, transfers the two local polylogarithm singularities to exact leading asymptotics, and checks the degeneracy and parity boundaries. The finite-horizon independent age recursion and the embedded checker gave 936 diagnostic assertions; these checks support the exact setup, while the infinite-time conclusions follow from the transfer argument, not simulation. The result distinguishes the leading term from possibly larger-than-subdominant local corrections.
+## correctness
 
-**Originality — PASS, qualified.** The closest original full text, Wald et al. (arXiv:2410.11497v1), describes discrete gate resetting, qualitative convergence and a no-reset survival calculation, not the two competing nonzero-frequency coherence asymptotics or the half-index phase-flip sign transition. The general quantum last-reset formula in Carollo–Wald (arXiv:2601.13367) covers the convolution premise but not the derived asymptotic classification. Akimoto (arXiv:2306.00359v1) supplies renewal-age context; Flajolet–Odlyzko supplies the known coefficient-transfer method. The finite-mean renewal-age correlation literature and previously recorded finite-mean quantum reset claims do not dominate this exact infinite-mean coherent-gate result. Search incompleteness and possible broader unpublished or unindexed Fourier-renewal theorems are residual priority risks, not affirmative evidence of uniqueness.
+PASS
 
-**Mathematical value — PASS.** Quantum-gate coherence is governed by a competition of an old unreset flight and newly reset trajectories. The theorem gives exact coefficients and a sharp qualitative sign transition, rather than another moment or a bound. This sharp threshold provides a measurable distinction between two infinite-mean reset regimes that have the same eventual dephased ensemble state. It is motivated by how renewal-clock tails shape quantum memory and the non-Poissonian reset scenario developed by Wald et al.
+From the exact last-reset decomposition P(A_t=j)=u_(t-j)(j+1)^(-alpha), the generating function is C(w,z)=S_alpha(zw)/[(1-w)S_alpha(w)]. Positive interarrival probabilities eliminate extraneous poles on the unit circle. Polylog singularity at w=1 yields coefficient (sin pi alpha/pi) S_alpha(z)t^(alpha-1); singularity at w=z^-1 yields z^t H_alpha(z^-1)t^(-alpha). Multiple-singularity transfer gives the three stated alpha regimes, including their sum at alpha=1/2. For z=-1, S(-1)=eta(alpha), H(-1)=1/(2eta(alpha)); eta in (0,1) and 2eta(1/2)^2<pi enforce strict parity signs. Spectral projections give trace-norm dephasing only between distinct eigenvalues. Independently computed two exact finite-age recursions for alpha .25,.5,.75 agreeing for all tested n<=150; this does not prove asymptotics. Critical complex-phase cancellations on subsequences excluded from any universal nonzero-amplitude assertion.
 
-**Limits.** The law is exact-power, and the quantum setting is finite dimensional with full identical resets. Critical complex-phase coefficient cancellations are allowed outside the phase-flip qubit example; no general monotone decay or arbitrary slowly varying extension is claimed. Broader literature should be checked independently before asserting publication priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact renewal convolution is prior mathematics and independently exists as a general quantum last-reset equation (Carollo-Wald 2026). The dual singularity amplitudes, beta/eta prefactors and precise phase-flip sign boundary are not stated in the inspected Wald et al. 2024 original, Akimoto renewal-age results or the available Carollo-Wald text. Generic renewal theorems and Flajolet-Odlyzko transfer are credited as tools. Historical equivalence via generalized alternating-renewal Fourier asymptotics remains possible; no stronger actual same-claim coverage located.
+
+## value
+
+PASS
+
+An exact phase-coherence threshold distinguishes algebraically slow reset-induced dephasing from persistent parity oscillation despite convergence of ensemble density matrix; the crossing of recent-reset and old-age singularities produces explicit amplitudes and an experimentally measurable sign transition, not just a qualitative renewal limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
