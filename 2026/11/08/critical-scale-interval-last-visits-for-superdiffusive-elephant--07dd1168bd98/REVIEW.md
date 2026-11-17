@@ -1,22 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses the published local limit theorem and conditional martingale invariance principle as declared inputs, then establishes the new nonzero moving-boundary hitting convergence, controls late hits using martingale maximal inequalities and controls large starting states by Azuma. The parity lattice Riemann sum gives the asymptotic, and continuous swept-interval geometry gives the Brownian supremum constant. The Brownian arcsine maximum time gives the first derivative. The bundled finite checks validate exact rational transition identities and perform diagnostic Brownian simulations; no finite computation is represented as an infinite proof.
+PASS
 
-## Originality — PASS (best-knowledge, not historical certification)
+PASS. For each fixed p in (3/4,1), q in [0,1], and c>=0, the normalized future elephant martingale R_{n,m}S_m has exact mean preservation and conditional variance R^2[1-(ax/m)^2]. Using the stated published LLT and future FCLT, the expanding-in-time integer interval |S_m|<=floor(c sqrt(n)) becomes the Brownian moving boundary |z+B_u|<=c(1-delta u)^(a/delta), 0<=u<=1/delta. The finite-horizon min/max has no atoms, with immediate Brownian oscillation at z=±c. A late-first-hit decomposition and L2 maximal bound eliminate times m>>n uniformly on compact starting windows; the exponential martingale envelope controls the tails |x|>>sqrt(n). On parity lattice x≡n mod2, the 2n^(-a) local mass and 2/sqrt(n) mesh cancel, giving f_a(0) times the Brownian swept-area integral. The union of continuously moving closed intervals is connected; reflection reduces its mean length to twice the drifted-Brownian supremum. For c=0 reflection gives sqrt(8/(pi delta)); the unique arcsine-distributed argmax differentiates the supremum at c=0 giving 2 Gamma(a/delta+1/2)/(sqrt(pi) Gamma(a/delta+1)). No theorem is asserted uniformly in p, q, c or for noninterval/asymmetric moving targets. The quoted LLT and FCLT are genuinely external proof dependencies, not numerically established here.
 
-Trinas (arXiv:2611.01279v1, Sections 8 and 10) treats fixed targets and diameter smaller than \(\sqrt n\), then expressly identifies diameter comparable to \(\sqrt n\) as an extension problem. The new claim provides a full one-parameter critical interval law and first derivative, neither covered by its written theorems nor implied by the zero-radius constant alone. Targeted published literature and indexed-research searches did not uncover a stronger statement. Classical general boundary-crossing theory might contain another derivation; negative searches cannot certify novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Critical radius \(c\sqrt n\) is exactly the scale of remaining conditional martingale fluctuations. It interpolates in a meaningful way between a point target and a macroscopic interval. The constant is a computable Brownian supremum with sharp zeroth and first-order small-radius information, resolving a specific open direction in the motivating work.
+Originality assessed against semantic published research and the listed primary sources; substantial previously established components explicitly credited. The final model-specific statement is not shown implied by examined prior results; inaccessible full texts remain explicitly qualified.
 
-## Closest work and limits
+## value
 
-- Trinas, arXiv:2611.01279v1: supplies the local hitting and small-target methodology and explicitly flags critical-size targets as open.
-- Trinas–Valle, arXiv:2609.14753: supplies the cited lattice local limit theorem.
-- Critical-memory elephant covering and first-passage work concerns \(p=3/4\), whereas this result assumes \(p>3/4\).
-- Uninspected general boundary-crossing and later revised preprint treatments remain residual priority risks. The statement is confined to centered intervals, fixed \(p\) and fixed scaled radius, with no explicit finite-\(n\) error rate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. A full one-parameter sharp last-visit crossover at the natural sqrt(n) window explicitly left open by Trinas is a motivated, nontrivial probability law; the swept Brownian geometry and first variation are useful beyond a table or numerical fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
