@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification
-Run `python verify.py` with Python 3, no external dependencies. The checker iterates all 512 linear maps of a 3-space over the two-element field and all 19683 linear maps over the three-element field. For each map and each input vector, it compares its value with the images given by the entire explicitly enumerated group of ordinary Lie automorphisms. This independently checks the local-condition equivalence, including the unique rigidity case. Expected output is in `verification_output.txt`.
+# Independent mathematical audit
 
-For twelve parameter pairs (four integer field orders, three symplectic ranks), it evaluates both standard classical-group order products and checks their quotient against the claimed index. An independent enumeration of all 65536 binary 4-by-4 matrices yields exactly 20160 invertible matrices and 720 symplectic matrices, a quotient of 28. No extension-field arithmetic is emulated in the separate order-product check, but the integer formula is exact for all prime powers. The universal theorem rests on the group-theoretic argument in RESULT.md, not on exhaustive finite dimensions. The 2024/2025 Heisenberg classification could not be fully inspected, so computational reproducibility does not resolve its historical coverage.
+## correctness
+
+PASS
+
+Ordinary Heisenberg automorphisms have upper block A in GSp_{2m}(q) and local linear automorphisms allow every A in GL_{2m}(q), arbitrary central f and nonzero lambda; transitivity of Sp on nonzero quotient vectors supplies each witness over any field. Quotient of standard group orders gives index and unique equality q=2,m=1.
+
+## originality
+
+PASS
+
+GSp vs GL quotient and q=2,m=1 exceptional rigidity follow from actual local-point orbit proof; they are not implied by distinct two-local counts. A plausible inaccessible earlier stronger source remains risk.
+
+## value
+
+PASS
+
+The only finite-field Heisenberg rigidity point and exact all-rank defect index are natural structural invariants distinguishing characteristic two from characteristic-zero genericity; possible 2025 prior coverage remains a limitation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
