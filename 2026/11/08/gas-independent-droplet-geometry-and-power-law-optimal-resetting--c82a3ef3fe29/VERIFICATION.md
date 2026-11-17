@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The stationary-equation proof is analytic. The critical conditions are positivity of \(F_\ell'\) and \(F_g'\), unboundedness of the dense flux, the logarithmic divergence of the dilute inverse-coordinate integral at zero, and the interface/source flux matching.
+## correctness
 
-Run the included executable with `python check_flux_core.py` using Python 3.10+ and SciPy. It gives 570 passed deterministic scalar assertions for density exponents \(1/2,3/4,1\), twelve reset-scale choices, a linear and a distinct rational dilute flux, core and gas coordinate inversions, exact mass identities and the sharp optimizer. The checker is supportive and does not constitute a proof for all functions or infinitely many scales.
+PASS
 
-The principal source arXiv:2610.26149, first publicly released 19 October 2026, was read through its accessible full HTML, including Sections 2–5 and Appendices A–B. Related 2011 and 2021 sources were examined at abstract level. These limits remain relevant to scientific priority; the separate review records them.
+Summing/differencing the stationary directional equations gives Sprime=-r*rho and Rprime=-(r+alpha)*sigma. Decay at infinity and continuity of transport flux at the interface imply conserved S²-(r/(r+alpha))R²=0 in both phases; outward sign yields sigma=sqrt(r/(r+alpha))*rho and inverse-flux ODE Fprime(rho)*rhoprime=-Gamma*rho. Strict increasing unbounded liquid flux fixes center and dense width, and F_gprime(0)>0 makes gas spatial tail infinite. Source current jump at x=0 and exact phase masses follow integration; gas mass 2F*/Gamma is independent of gas constitutive shape under fixed contact flux. Power-law F_l=c*rho^p yields b proportional (t^(-1/p)-t^(-1))/(p-1) or log(t)/t; differentiation shows unique maximizing t=p^(p/(p-1)) or e. Independently differentiated p=1/2 giving t=2. These are existence/uniqueness only within the imposed symmetric single-core phase arrangement.
 
-No external independent validation has been performed.
+## originality
+
+PASS
+
+Grange 2026 derives the original flux first integral and linear-core (constant-speed, p=1) optimal t=e; these are not new. Changing dense liquid constitutive flux to c*rho^p gives a genuinely nonuniversal optimized ratio and an explicit gas-law independence classification. The related two-rate and concentration findings use other parameters with original linear-core flux. Full original source not personally obtained in this run, so possibility of already stated general nonlinear-flux formulas remains a residual priority risk.
+
+## value
+
+PASS
+
+A matched-flux invariance that fixes dense mass/width while the gas motility changes is a motivated phase-separation structural property, and the p-dependent optimum describes the effect of core slowdown on optimal local resetting. The p=1/2 optimum 2 instead of e is a sharp model-discriminating statement, not only a numerical fit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
