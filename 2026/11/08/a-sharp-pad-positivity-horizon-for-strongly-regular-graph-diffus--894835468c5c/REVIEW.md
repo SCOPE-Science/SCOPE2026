@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The claim is an exact end-step theorem for unweighted connected noncomplete strongly regular Laplacians. Every graph has three real Laplacian spectral values, and the two orthogonal nonconstant projectors satisfy an exactly solvable pair of entrywise equations. Substituting the Gauss–Legendre rational function yields strictly positive nonedge and diagonal entries and an edge-entry numerator whose sign is controlled by a quadratic with one positive root precisely when the parameter sum is below the vertex count. Algebraic identities and boundary signs were reconstructed directly; a standalone rational-matrix program independently verified 8,172 off-diagonal instances on seven specific graphs. This is a universal analytic proof supported by finite checks rather than an extrapolation from them.
+PASS
 
-## Originality: PASS on inspected evidence, with priority uncertainty
+The actual rational stability function is F(z)=(z²-6z+12)/(z²+6z+12). Since the SRG adjacency algebra is span(I,A,J), its Laplacian has eigenvalues 0,alpha,beta with alpha+beta=s, alpha beta=N mu. Exact spectral projector algebra gives nonedge entry 12alpha beta h²(6+sh)/(N D_alpha D_beta)>0 and edge entry 12h[12+6p h/N+p(s-N)h²/N]/(D_alpha D_beta). The diagonal is positive from F(h alpha), F(h beta)>0. The sign quadratic has a single positive root iff s<N; row/column sums equal one. I independently inverted the 10x10 Petersen rational matrix at h=4: diagonal 1783/4123, nonedge 408/4123, edge -36/4123, row sum 1. At h=0 offdiagonals vanish as required.
 
-The closest method-level literature is Lóczi–Ketcheson (arXiv:1303.6651), which studies absolute monotonicity, and Zappavigna–Colaneri–Kirkland–Shorten's publicly readable Padé-positive-systems manuscript, which gives general sufficient conditions and directed counterexamples. Lin–Weng (arXiv:1411.6532) provides spectral facts about strongly regular graphs but no method-specific positivity horizon. The published eight-state [2/2] Padé Markov positivity result was inspected in full; it proves a minimal directed pure-birth counterexample for arbitrarily small steps, which does not imply the sharp all-step symmetric strongly regular graph law here. Closest other specific results concern classical explicit RK4 on the same graph class and the same Padé filter on particular Hamming/complete-multipartite/windmill graph families; their mathematical statements do not imply the full stated strongly regular classification. Rook and some complete-multipartite cases are already covered and are presented only as illustrations, not separate novelties. Residual risks include unindexed literature on association schemes and earlier exact matrix-function positivity results.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The result gives a natural, complete all-step classification for an infinite and structurally important regular-graph class. The simple sharp boundary \(N=2k-\lambda+\mu\), exact cutoff, universal location of sign failure on edges, and contrasting infinite Paley versus triangular families make the result useful for selecting positivity-safe diffusion time steps and understanding how fourth-order rational approximation interacts with graph geometry. The precise threshold is a property of the graph parameters, not an arbitrary selected numerical instance.
+The exact same SRG classification was subsequently published as “Sharp Gauss–Legendre heat-step positivity on strongly regular graphs”; its Resultary commit is timestamped 2026-11-09T01:09:49Z while the assigned source package was imported 2026-11-08T22:34:30Z. This establishes mathematical equivalence and a later *observed publication commit*; it is not proof of research priority or independence. The older 2010 Padé positivity literature gives method-level conditions and directed counterexamples but not the full SRG adjacency/nonedge criterion. This PASS is chronology-qualified and requires human priority reconciliation if external publication dates emerge.
 
-## Scientific limitations
+## value
 
-Only the specified unweighted undirected graph family and the completed Gauss–Legendre endpoint matrix are covered; neither internal-stage positivity nor arbitrary weighted graphs is proved. Historical and public literature searches are not a formal proof of publication priority, and independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The all-SRG, all-timestep positivity frontier is a natural exact spectral-integration property with an explicit sharp graph-parameter dichotomy and informative examples (Paley, Petersen, triangular graphs). It separates componentwise monotonicity from positive spectral stability; not merely routine application of absolute-monotonicity radius.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
