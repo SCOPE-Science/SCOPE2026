@@ -1,0 +1,111 @@
+{
+  "correctness": {
+    "rationale": "Strong convexity and KKT give a continuous piecewise-affine proximal map. Every row subset is realized with strict complementarity because D is surjective. Constant-preserving local Jacobians yield exact single-cut BV induced norms. An exhaustive fraction-arithmetic enumeration checks every face and cut at n=2..8; n=4 has an explicit finite primal-dual witness. The global lower bound and asymptotic liminf follow analytically from the affine projector slope formula. No extrapolation from finite code is needed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2014 primary paper establishes spline representation, asymptotic statistical rates and active-set descriptions.",
+        "Nearby published-finding corpus findings evaluate convex-cone l-infinity sensitivity or quadratic Whittaker range preservation, both different maps/properties."
+      ],
+      "reasoning": "Neither ℓ2 proximal nonexpansivity nor results for convex-sequence projection imply nonexpansivity or sharpness for first-difference BV after ℓ1 second-difference trend filtering. A broader theorem under this exact seminorm was not found; search cannot prove uniqueness.",
+      "searches": [
+        "ℓ1 trend filtering proximal map path total variation amplification 6/5 4/3 7/5 28/19",
+        "strong nonexpansivity stability in total variation of second order trend filtering proximal map",
+        "2026/11/1/SCOPE-five-point-nonlocal-instability-and-a-persistent-lower-bound-for--45dce1453393",
+        "2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6"
+      ]
+    },
+    "checked_sources": [
+      "https://web.stanford.edu/~boyd/papers/pdf/l1_trend_filter.pdf",
+      "https://www.stat.cmu.edu/~ryantibs/papers/trendfilter-aos.pdf",
+      "https://doi.org/10.1137/070690274",
+      "https://doi.org/10.1214/13-AOS1189",
+      "2026/11/1/SCOPE-five-point-nonlocal-instability-and-a-persistent-lower-bound-for--45dce1453393",
+      "2026/10/4/SCOPE-only-first-difference-whittaker-henderson-smoothing-is-universal--b1f399ec57e6",
+      "2026/10/26/SCOPE-sharp-bv-perturbation-threshold-for-cyclic-three-point-medians--59530ef626eb"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2009 paper formulation and optimality discussion inspected, including sections 3, 5 and conclusion.",
+        "2014 full text sections 1.1 and 1.2 separately describes active-set representation and statistical analysis."
+      ],
+      "reasoning": "Prior active-set formulas permit but do not state or evaluate the non-Hilbert BV perturbation operator norm; establishing all face realizations, the step-cut reduction and exact enumeration is additional work. Quadratic smoothing and convex regression results do not give this nonlinear ℓ1 prox coefficient.",
+      "searches": [
+        "l1 trend filtering second order differences sharp 4 observations adjacent total variation two input stability 6/5",
+        "ℓ1 trend filtering proximal map path total variation amplification 6/5 4/3 7/5 28/19",
+        "trend filtering finite sample BV seminorm sensitivity active set projection step cut",
+        "l1 trend filtering total variation nonexpansive Lipschitz"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kim et al. sections 3 and 5 give primal and dual l1 second-difference formulation.",
+        "Tibshirani 2014 section 1.1 identifies the generalized-lasso active-set representation; no adjacent-variation norm stated."
+      ],
+      "reasoning": "Generalized-lasso local affine faces are equivalent descriptions of this same proximal map, but the global induced BV operator norm is a distinct quantitative invariant, not a renaming of degrees of freedom or the fitted function.",
+      "searches": [
+        "l1 trend filtering second order differences sharp 4 observations adjacent total variation two input stability 6/5",
+        "trend filtering finite sample BV seminorm sensitivity active set projection step cut",
+        "Kim Koh Boyd Gorinevsky l1 trend filtering PDF; Tibshirani 2014 full paper"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published-finding corpus hits concern unrelated median or variation filters; no published exact table of this proximal map appears.",
+        "Relevant published exact tables identified in the searches concern other operators, not the present trend-filter BV coefficients."
+      ],
+      "reasoning": "Numerical values that coincide for other operators do not imply this table. Here exact values are obtained by exhaustive rational face/cut enumeration, not by reading an existing known table.",
+      "searches": [
+        "l1 trend filtering second order differences sharp 4 observations adjacent total variation two input stability 6/5",
+        "ℓ1 trend filtering proximal map path total variation amplification 6/5 4/3 7/5 28/19",
+        "total variation two input Lipschitz instability of l1 trend filtering second difference regularization sharp four point",
+        "2026/10/26/SCOPE-sharp-bv-perturbation-threshold-for-cyclic-three-point-medians--59530ef626eb"
+      ]
+    },
+    "rationale": "The 2009 defining paper and 2014 full-text treatment give the estimator and active-set/spline framework but do not give the global two-input first-variation norm, four-site threshold or the sharp finite table. Published research comparisons found adjacent but non-implying results for quadratic smoothing, convex projection and nonlinear medians; no covering statement was located. Historical priority remains provisional.",
+    "residual_risks": [
+      "No semantic retrieval index guarantees exhaustive coverage of unindexed or poorly titled historical numerical analysis papers.",
+      "The full finite all-dimensional optimization remains unevaluated beyond eight sites; no closed formula is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Direct estimator definition, dual geometry and piecewise linearity; no two-input adjacent-variation stability theorem identified",
+        "evidence": [
+          "DOI 10.1137/070690274",
+          "Published electronically 2009-05-04",
+          "PDF sections 3 and 5"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/l1_trend_filter.pdf",
+        "material_read": "Abstract, introduction, equations (1)–(5), sections 3 and 5, extensions, and references",
+        "method": "Full open PDF text and page images",
+        "title": "ℓ1 Trend Filtering",
+        "trigger": "Exact same estimator and penalty"
+      },
+      {
+        "assessment": "Active-set formula already known; paper addresses spline equivalence, rates and lasso comparisons, not exact BV two-input constants",
+        "evidence": [
+          "DOI 10.1214/13-AOS1189",
+          "Section 1.1 mentions active set and signs as prior properties"
+        ],
+        "identifier_or_url": "https://www.stat.cmu.edu/~ryantibs/papers/trendfilter-aos.pdf",
+        "material_read": "Abstract, introduction, Sections 1.1–1.3, equations defining estimator, and discussion of known active sets",
+        "method": "Full open PDF text and page image",
+        "title": "Adaptive Piecewise Polynomial Estimation via Trend Filtering",
+        "trigger": "Same estimator and plausible stronger generalized-lasso stability theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "same_model_review",
+  "same_model_review_status": "passed",
+  "schema_version": 1,
+  "scope_run_id": "14a24ab9-5f1f-4b62-9b9e-d85b3cebcd8a",
+  "value": {
+    "rationale": "A standard robust trend filter has Euclidean proximal nonexpansivity but its two-input path-variation sensitivity was not quantified in the closest papers. The exact first instability size, tuning invariance, complete small-sample constants, and persistent all-length lower bound give a natural stability boundary relevant to BV-noise control and distinguish the ℓ1 penalty from quadratic smoothing.",
+    "status": "PASS"
+  }
+}
