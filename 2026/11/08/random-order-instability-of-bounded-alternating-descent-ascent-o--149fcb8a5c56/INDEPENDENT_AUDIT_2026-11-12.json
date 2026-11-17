@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T04:51:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The x-then-y and y-then-x complete-sweep matrices A=[[1,-t],[t,1-t²]] and B=[[1-t²,-t],[t,1]] have determinant 1, elliptic trace 2-t² for 0<t<2, and distinct positive quadratic invariants W with ±t/2 cross terms, proving each fixed order is power bounded. Exact average (AᵀA+BᵀB)/2=(1+t⁴/2)I gives all-n balanced mean-square growth. For mixed p∈(0,1), the 3D covariance map has det(I−L_p)=−8p(1−p)t⁶<0, hence spectral radius r>1. A positive resolvent provides a nonzero PSD adjoint eigenmatrix; a rank-one eigenmatrix would force a real invariant line of elliptic Aᵀ, impossible, so it is PD. Comparing min/max eigenvalues gives E||z_n||²≥c r^n||z0||² for every deterministic nonzero start. Independently checked the matrix and determinant symbolic identities. The endpoints p=0,1 and t=2 excluded appropriately.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang–Yu (2020) full alternating GDA fixed-order results give bounded cycles but not iid random order.",
+          "Paired symplectic-Euler published generalizes the FAIR two-step coupling, not biased one-step marginals."
+        ],
+        "reasoning": "Generic random-matrix positive-exponent theory may imply some instability, but it does not give the inspected determinant sign polynomial and all-initial mean-square rate without further hypotheses; no inspected source dominates the all-bias statement.",
+        "searches": [
+          "alternating gradient descent ascent random Gauss Seidel order bilinear game mean square exponential instability",
+          "random products elliptic matrices symplectic Euler all bias mean square",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-energy-growth-coupling-reversals-and-a-resonance-for-paire--2e4edb0ffe14/RESULT.md",
+          "https://arxiv.org/abs/1908.05699"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1908.05699",
+        "https://arxiv.org/abs/2102.09468",
+        "https://arxiv.org/abs/2111.13162",
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-energy-growth-coupling-reversals-and-a-resonance-for-paire--2e4edb0ffe14/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Setting r=1/4 in the earlier paired-Euler block gives g=(1+t⁴/2)^2, so the current fair p=1/2 formula is a square-root consequence combined with the one-step Gram identity.",
+          "Old fair-marginal theorem imposes P(A)=P(B)=1/2 per step; the current claim permits p≠1/2 and proves PD Perron eigenmatrix."
+        ],
+        "reasoning": "Mark fair factor as covered; accept only the all-p strict mean-square instability and pointwise-for-all-nonzero initial proof as additional mathematics. Changing from minimax to oscillator notation is not by itself an original result.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-energy-growth-coupling-reversals-and-a-resonance-for-paire--2e4edb0ffe14/RESULT.md",
+          "https://arxiv.org/abs/1908.05699",
+          "https://arxiv.org/abs/2111.13162",
+          "alternating gradient descent ascent random Gauss Seidel order bilinear game mean square exponential instability"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sign-changing y maps the game’s two sweep matrices to first-order drift–kick/kick–drift symplectic Euler for one oscillator.",
+          "Published paired-Euler result has g_r(t)=1+2t^6+r t⁴(t⁴−8t²+4), with fair marginals; at independent order r=1/4 this is (1+t⁴/2)^2."
+        ],
+        "reasoning": "Fair even-step mean energy is mathematically covered, and the one-step fair law follows by direct Gram identity. However the old paired coupling restricts each step marginal to 1/2 and does not decide all p∈(0,1), or a uniform lower bound for every deterministic starting vector.",
+        "searches": [
+          "alternating gradient descent ascent random Gauss Seidel order bilinear game mean square exponential instability",
+          "randomized symplectic Euler drift kick and kick drift energy paired mixing",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-energy-growth-coupling-reversals-and-a-resonance-for-paire--2e4edb0ffe14/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier exact paired-Euler coupling formula gives the fair multiplier only and a resonance for correlated pairings; no all-bias p/t interval classification.",
+          "The complete new covariance sign identity is −8p(1−p)t^6."
+        ],
+        "reasoning": "The fair scalar value is already known under an equivalent oscillator model and is excluded as independent novelty. The all-bias sign law and universal-initial-state guarantee survive the checked exact formula comparisons.",
+        "searches": [
+          "alternating gradient descent ascent random Gauss Seidel order bilinear game mean square exponential instability",
+          "bilinear game two player Gauss Seidel random order full sweep covariance exact spectral radius",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-energy-growth-coupling-reversals-and-a-resonance-for-paire--2e4edb0ffe14/RESULT.md"
+        ]
+      },
+      "rationale": "Zhang–Yu and related alternating-gradient papers handle fixed order or different player sampling. Crucial implication correction: the November 2 published paired symplectic-Euler paper concerns matrices conjugate by a sign flip to these Gauss–Seidel maps, and its exact fair-marginal two-step block multiplier with independent orientations r=1/4 gives (1+t⁴/2)^2. Thus the highlighted fair energy factor is not a separate new result. The surviving exact every-interior-bias sign certificate plus positive-definite eigenmatrix proving growth for every nonzero deterministic start are not supplied by that fair-marginal paired theorem, nor by the inspected fixed-order optimization literature. This narrow but meaningful remainder is the originality basis; equivalent specialist all-bias results remain a risk.",
+      "residual_risks": [
+        "Fair all-n energy law overlaps an earlier mathematically equivalent symplectic-Euler result, not novel independently.",
+        "General theory for products of two elliptic matrices or specialized all-bias symplectic Euler switching may already imply remaining theorem.",
+        "Does not establish typical-path Lyapunov exponent, nonlinear games, unequal steps or correlated orientations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FIXED_ORDER_ONLY",
+          "evidence": "The fixed Gauss–Seidel map exhibits cyclic boundedness; no independent iid full-sweep orientation law.",
+          "identifier_or_url": "https://arxiv.org/html/1908.05699v4",
+          "material_read": "Full-text theorem on alternating GD bounded cycles and update-map assumptions",
+          "method": "primary arXiv HTML, main theorem and update sections",
+          "title": "Convergence of Gradient Methods on Bilinear Zero-Sum Games",
+          "trigger": "fixed-order comparator"
+        },
+        {
+          "assessment": "FAIR_FACTOR_COVERED, ALL_BIAS_NOT_COVERED",
+          "evidence": "At r=1/4, g_r=(1+t⁴/2)^2; fair marginals preclude varying p away from 1/2.",
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-energy-growth-coupling-reversals-and-a-resonance-for-paire--2e4edb0ffe14/RESULT.md",
+          "material_read": "Full RESULT.md: definitions, joint fair two-step coupling probabilities, exact Gram multipliers, proof and limits",
+          "method": "published primary scientific text via GitHub",
+          "title": "Exact energy growth, coupling reversals, and a resonance for paired symplectic Euler",
+          "trigger": "equivalent exact linear map under sign flip"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The practically motivated question is whether random full-sweep player order preserves the power boundedness of either deterministic alternating method. The all-bias theorem answers sharply for every normalized elliptic step and every initial vector, establishing no safe interior mixing law. Despite previously known fair energy inflation, the uniform all-bias classification and its explicit covariance sign certificate are a meaningful structural obstruction, not solely a renaming or easy tiny gain.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1908.05699",
+    "https://arxiv.org/abs/2102.09468",
+    "https://arxiv.org/abs/2111.13162",
+    "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-exact-energy-growth-coupling-reversals-and-a-resonance-for-paire--2e4edb0ffe14/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All bias theorem is mean square for fixed iid complete sweeps, not almost-sure trajectory divergence.",
+    "Primary exact fair identity is mathematically covered; acceptance hinges on all-bias all-initial extension."
+  ],
+  "residual_risks": [
+    "Fair all-n energy law overlaps an earlier mathematically equivalent symplectic-Euler result, not novel independently.",
+    "General theory for products of two elliptic matrices or specialized all-bias symplectic Euler switching may already imply remaining theorem.",
+    "Does not establish typical-path Lyapunov exponent, nonlinear games, unequal steps or correlated orientations."
+  ],
+  "schema_version": 1
+}

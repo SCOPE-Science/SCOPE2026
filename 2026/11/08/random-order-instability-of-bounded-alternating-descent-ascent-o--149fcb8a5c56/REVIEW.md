@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The two update matrices follow from the stated sequential gradient semantics. Their positive quadratic invariants prove power boundedness for the two nonrandom orders when \(0<t<2\). Exact multiplication proves balanced conditional Euclidean energy growth. The symmetric second-moment transfer has \(\det(I-L_p)=-8p(1-p)t^6\), so its spectral radius exceeds one for every interior bias. A positive-definite Perron matrix of the adjoint transfer, obtained via the resolvent and the absence of a common real invariant line, produces the quantitative lower bound for **every** nonzero deterministic initial vector. The symbolic and rational checker verifies the critical algebra. This is a mean-square, not almost-sure, statement.
+PASS
 
-## Originality (PASS, with residual risk)
+The x-then-y and y-then-x complete-sweep matrices A=[[1,-t],[t,1-t²]] and B=[[1-t²,-t],[t,1]] have determinant 1, elliptic trace 2-t² for 0<t<2, and distinct positive quadratic invariants W with ±t/2 cross terms, proving each fixed order is power bounded. Exact average (AᵀA+BᵀB)/2=(1+t⁴/2)I gives all-n balanced mean-square growth. For mixed p∈(0,1), the 3D covariance map has det(I−L_p)=−8p(1−p)t⁶<0, hence spectral radius r>1. A positive resolvent provides a nonzero PSD adjoint eigenmatrix; a rank-one eigenmatrix would force a real invariant line of elliptic Aᵀ, impossible, so it is PD. Comparing min/max eigenvalues gives E||z_n||²≥c r^n||z0||² for every deterministic nonzero start. Independently checked the matrix and determinant symbolic identities. The endpoints p=0,1 and t=2 excluded appropriately.
 
-Fixed-order alternating Gauss--Seidel descent--ascent results in Zhang and Yu (2019/2020) and Zhang et al. (2021) do not state any mean-square analysis of randomized full-sweep order. Sebbouh et al. (2021) randomize whether to execute **one** of the two player updates, not the orientation of a full two-player sweep. Nan et al. (2025/2026) investigate deterministic alternating schedules and ergodic guarantees. The finite-dimensional exact all-bias classification and exact fair quadratic growth law are not implied by those statements. General matrix-product instability is classical, and an unknown specialist result on random symplectic Euler compositions remains possible; this review does not certify absolute novelty.
+## originality
 
-## Value (PASS)
+PASS
 
-The concrete methodological gap is whether randomly rotating the order of two individually stable gradient substeps preserves long-time boundedness. The answer is sharply negative for **every nontrivial mixing bias** at **every elliptically stable normalized step**, with an exact fair-mixing growth rate. This identifies a practically interpretable order-randomization risk for saddle-point algorithms and a self-contained test case for proposed randomized symplectic/alternating integrators. The result is not merely the known statement that simultaneous descent--ascent diverges: every realized sweep here is one of two individually power-bounded alternations.
+Zhang–Yu and related alternating-gradient papers handle fixed order or different player sampling. Crucial implication correction: the November 2 published paired symplectic-Euler paper concerns matrices conjugate by a sign flip to these Gauss–Seidel maps, and its exact fair-marginal two-step block multiplier with independent orientations r=1/4 gives (1+t⁴/2)^2. Thus the highlighted fair energy factor is not a separate new result. The surviving exact every-interior-bias sign certificate plus positive-definite eigenmatrix proving growth for every nonzero deterministic start are not supplied by that fair-marginal paired theorem, nor by the inspected fixed-order optimization literature. This narrow but meaningful remainder is the originality basis; equivalent specialist all-bias results remain a risk.
 
-## Scientific limitations
+## value
 
-The result is confined to the two-dimensional bilinear game and fixed independent full-sweep ordering, and does not imply almost-sure divergence or divergence in regularized games. Specialist overlap is still possible. External validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The practically motivated question is whether random full-sweep player order preserves the power boundedness of either deterministic alternating method. The all-bias theorem answers sharply for every normalized elliptic step and every initial vector, establishing no safe interior mixing law. Despite previously known fair energy inflation, the uniform all-bias classification and its explicit covariance sign certificate are a meaningful structural obstruction, not solely a renaming or easy tiny gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
