@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T15:55:22.492081Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the exact arrival updates and centering F_n=E_n-L_n(P_n/n)-n/4, W_n=L_n-n/2. The conditional mean includes the nonzero correction in E(C_{n+1}|T_n); checked predictable martingale innovations xi and depth-dispersion Welford update. Uniform recursive-tree depth exponential moments imply height O(log n) moments, Q_n/log n→1 in L2, leaf fraction→1/2 and conditional xi variance/log n→1/4. Weighted predictable variance 1/12 and fourth-moment Lindeberg yield F_n/sqrt(n log n)⇒N(0,1/12); ratio by L_n/n→1/2 doubles variance to 1/3. Independent exact rational checks over all recursive parent choices n=2..7 confirm the local innovation variance identity; they are not an infinite CLT proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grübel–Kabluchko 2015 §5.5.2 studies internal path-length martingale tail and separately binary search tree external null nodes; weighted recursive-tree path-length fluctuation work lacks leaf-depth ratio."
+        ],
+        "reasoning": "Related broad CLTs apply to different variables; the current innovation couples leaf-status and depth, producing variance 1/3 not implicit from internal path-length martingale alone.",
+        "searches": [
+          "arxiv:1410.0469",
+          "arxiv:2610.00614",
+          "leaf-depth vs vertex-depth uniform recursive tree CLT variance 1/3 sqrt n/log n"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.4230/LIPIcs.AofA.2026.2",
+        "https://arxiv.org/abs/1410.0469"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lundblad–Wagner Theorem 6 shows gap→1/2 and raw second moments→1/4; Grübel–Kabluchko internal-path martingale CLT has a different conditioning and limiting variance."
+        ],
+        "reasoning": "Vanishing variance in earlier result is consistent with many rates and non-Gaussian laws; neither original theorem implies the submitted sqrt(n/log n), variance 1/3 without additional joint leaf-depth martingale analysis.",
+        "searches": [
+          "doi:10.4230/LIPIcs.AofA.2026.2 Theorem 6 Lemma 14",
+          "arxiv:1410.0469"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lundblad–Wagner Theorem6 uses exact same actual-leaf mean depth minus vertex mean depth, proving convergence to 1/2 and two moment limits."
+        ],
+        "reasoning": "This is a strict second-order refinement, not a new name for a different statistic. Their first two asymptotic raw moments do not fix rate/normality.",
+        "searches": [
+          "recursive trees leaf external path length minus mean vertex depth central limit log n/n variance",
+          "doi:10.4230/LIPIcs.AofA.2026.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published recursive-tree exact leaf/path covariance and zero-leaf-degree variance records concern distinct statistics and do not list the sharp variance of mean-leaf-minus-mean-vertex depth gap."
+        ],
+        "reasoning": "The claimed variance is an infinite asymptotic coefficient and not a small-n table entry; existing first-order moments are not a precision table determining it.",
+        "searches": [
+          "recursive trees leaf external path length minus mean vertex depth central limit log n/n variance",
+          "recursive tree leaf path length covariance Resultary"
+        ]
+      },
+      "rationale": "Lundblad–Wagner (2026) Theorem 6 for uniform recursive trees gives the *same mean leaf-depth minus mean vertex-depth statistic* tending to 1/2, with first two moment limits, but no sqrt(n/log n) Gaussian statement; its Lemma14 only provides dominant moments. Grübel–Kabluchko (2015) have a Gaussian martingale-tail result for internal total path length and a separate binary-search-tree external-node statistic, neither matching the coupled actual-leaf/vertex-depth ratio. The submitted Gaussian variance 1/3 is not mechanically implied by these prior statements.",
+      "residual_risks": [
+        "A previously unnoticed joint external/internal path-length CLT might imply this specific ratio, despite the inspected Theorem 6 being first-order only; novelty remains best-of-knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS first-order gap→1/2, does not establish second-order Gaussian limit",
+          "evidence": "Theorem 6 alpha=0 first two raw moments; Lemma14 only leading n²/n⁴ terms.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.AofA.2026.2",
+          "material_read": "Open-access full conference paper available; Theorem 6, Lemma 14 and random recursive tree discussion and their proofs",
+          "method": "primary PDF opened and page screenshot inspected",
+          "title": "Path Length and External Path Length in Random Trees",
+          "trigger": "Exact same leaf/vertex mean depth gap"
+        },
+        {
+          "assessment": "Different path-length martingale and external null nodes; no direct joint actual-leaf depth ratio",
+          "evidence": "Theorem tail law centers P_n martingale, not E_n/L_n-P_n/n.",
+          "identifier_or_url": "https://arxiv.org/abs/1410.0469",
+          "material_read": "Original abstract plus identified recursive-tree internal path-length martingale section 5.5.2",
+          "method": "arXiv HTML and prior primary PDF theorem comparison",
+          "title": "A functional central limit theorem for branching random walks, almost sure weak convergence, and applications to random trees",
+          "trigger": "Potential general recursive-tree CLT"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp second-order law for a naturally motivated statistic already investigated in recent primary literature; identifies nontrivial cancellation of global path fluctuations, the exact residual variance 1/3 and correct sqrt(log n/n) scale.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For a uniformly grown recursive tree with actual zero-child leaves, sqrt(n/log n)(E_n/L_n-P_n/n-1/2) converges weakly to N(0,1/3), where E_n sums leaf depths, L_n is leaf count, P_n all-vertex depth sum.",
+  "limitations": "Uniform one-parent recursive trees and actual leaves only; no moving weights, conditioning or functional limit. Source recorded no Lean/expert proof, and finite tests certify local identities only.",
+  "schema_version": 1
+}

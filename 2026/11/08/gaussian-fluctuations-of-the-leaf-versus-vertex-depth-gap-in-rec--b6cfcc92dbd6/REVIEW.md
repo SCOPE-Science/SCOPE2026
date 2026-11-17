@@ -1,9 +1,21 @@
-# Review: Gaussian fluctuations of the leaf-versus-vertex depth gap
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact update and centered martingale recursion, including the nonzero \(2W_n/[n(n+1)]\) finite-size drift correction, were reconstructed. The proof establishes depth-dispersion concentration \(Q_n/\log n\to1\), controls leaf fluctuations, computes the predictable variance \(1/12\) and verifies a fourth-moment Lindeberg condition. Conversion to the ratio gives \(1/3\). Complete exact-rational transition checks through eight vertices cover the local formulas but do not prove infinite asymptotics.
+## correctness
 
-**Originality — PASS, provisional.** Lundblad and Wagner (2026, DOI 10.4230/LIPIcs.AofA.2026.2) prove the same depth gap tends to \(1/2\) and identify two leading moments, not its Gaussian fluctuations or their rate. Grübel and Kabluchko (2015, arXiv:1410.0469) prove an \(\sqrt{n/\log n}\) Gaussian tail approximation for the *internal path-length martingale* rather than the coupled leaf/vertex ratio. The root-attachment path-length/leaf covariance records and total-path-length weight models likewise fail to directly imply the exact claim. A broader uncatalogued theorem remains possible; the originality assessment is not a definitive priority certificate.
+PASS
 
-**Mathematical value — PASS.** The result gives the first sharp fluctuation scale and constant for a natural statistic explicitly addressed in the 2026 primary literature. The cancellation of order-one normalized global path-length effects and survival of local \(\sqrt{\log n/n}\) noise is nontrivial. The result does not claim a generalized growth model, functional limit or rate of convergence to normality.
+Reconstructed the exact arrival updates and centering F_n=E_n-L_n(P_n/n)-n/4, W_n=L_n-n/2. The conditional mean includes the nonzero correction in E(C_{n+1}|T_n); checked predictable martingale innovations xi and depth-dispersion Welford update. Uniform recursive-tree depth exponential moments imply height O(log n) moments, Q_n/log n→1 in L2, leaf fraction→1/2 and conditional xi variance/log n→1/4. Weighted predictable variance 1/12 and fourth-moment Lindeberg yield F_n/sqrt(n log n)⇒N(0,1/12); ratio by L_n/n→1/2 doubles variance to 1/3. Independent exact rational checks over all recursive parent choices n=2..7 confirm the local innovation variance identity; they are not an infinite CLT proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Lundblad–Wagner (2026) Theorem 6 for uniform recursive trees gives the *same mean leaf-depth minus mean vertex-depth statistic* tending to 1/2, with first two moment limits, but no sqrt(n/log n) Gaussian statement; its Lemma14 only provides dominant moments. Grübel–Kabluchko (2015) have a Gaussian martingale-tail result for internal total path length and a separate binary-search-tree external-node statistic, neither matching the coupled actual-leaf/vertex-depth ratio. The submitted Gaussian variance 1/3 is not mechanically implied by these prior statements.
+
+## value
+
+PASS
+
+Sharp second-order law for a naturally motivated statistic already investigated in recent primary literature; identifies nontrivial cancellation of global path fluctuations, the exact residual variance 1/3 and correct sqrt(log n/n) scale.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
