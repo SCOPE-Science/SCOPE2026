@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T03:51:32.984350Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "pinned RESULT.md 33c42543db0d89033d463e43a272265a119cdca8",
+        "pinned CHECKER.py 40c3ac80cf21dae0b3c1a1d303cfc55c76e65bd4",
+        "independent_checks.log RESET"
+      ],
+      "rationale": "Complete reset regeneration makes the stationary backward reset age Exp(r), independent of the newly sampled holding time W; a non-atomic jump law ensures X=0 iff no spatial jump after latest reset. Thus m=r*mu_r. Partitioning whether a new reset occurred during lag t gives E[I0 It]=m²+(1-m)r integral_t∞ e^-ru Psi(u)du, hence R(t)=tail/mu_r. Differentiation gives r=-mR'(0+) and Psi(t)=e^{rt}R'(t)/R'(0+). Tonelli and gamma-integral asymptotics yield all five Lomax regimes with the stated constants. Independent exponential and Lomax integral calculations checked 18 covariance and 15 survival reconstruction cases. No assumption of finite unreset waiting-time mean is needed.",
+      "residual_risks": [
+        "Inference uses exact population derivatives/correlation; non-atomic jumps, full renewal-clock resetting, complete stationary observations are essential. Simulation alone is not an inverse-identification theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Brownian-gas theorem identifies renewal resetting law through spatial covariance under synchronous renewal resets, a different observation/model.",
+          "Partial Brownian-resetting result recovers refractory-time distribution from position covariance, not full-clock CTRW origin indicator under Poisson resetting."
+        ],
+        "reasoning": "General regenerative techniques recover special cases after a new model-specific calculation, but inspected theorems do not imply the displayed identity for every continuous Psi.",
+        "searches": [
+          "Resultary 2026/10/27 temporal spectroscopy synchronously reset Brownian gas",
+          "Resultary 2026/11/08 partial Brownian resetting refractory clock autocovariance",
+          "arXiv:1812.08489 complete vs incomplete resetting"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.13595v1 full HTML",
+        "arXiv:1812.08489",
+        "arXiv:2001.01350",
+        "Resultary 2026/10/27 dfa7ae68742e",
+        "Resultary 2026/11/08 106358940ac7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowing m=1-hat psi(r) is one scalar constraint; infinitely many (r,Psi) share such a value. R(t) derivative encodes the full tilted survival and fixes r from m."
+        ],
+        "reasoning": "Prior stationary one-time laws cannot imply the nonparametric identifiability claim without new two-time information. Related temporal covariance theorems are based on other observables or reset mechanisms.",
+        "searches": [
+          "Vilk 2026 complete arXiv HTML sections main and supplement S1",
+          "Resultary related reset-correlations results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vilk S1 equations S1-S6: one-time mass 1-hat psi(r), where hat psi is waiting-time Laplace transform. Since 1-hat psi(r)=r mu_r this agrees with m but not R(t)."
+        ],
+        "reasoning": "Compared atom, zero-jump persistence, renewal-residual-life survival and two-time autocorrelation formulations; identical one-point mass alone cannot determine full Psi and r.",
+        "searches": [
+          "arXiv:2601.13595v1 independent reset supplement S1",
+          "Resultary query Poisson resetting CTRW stationary origin occupation autocorrelation two time"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Vilk supplementary equations contain one-time localization fractions and exponential integral for stationary density, not gamma-ratio lag R(t) or second-moment decorrelation boundary."
+        ],
+        "reasoning": "No exact prior table of five decorrelation regimes for this observable found; numerical examples are not a database proof of novelty.",
+        "searches": [
+          "arXiv:2601.13595v1 S1.1 Lomax; S1.2 exponential",
+          "Resultary search stationary origin indicator R(t) Lomax five weak-reset regimes"
+        ]
+      },
+      "rationale": "The cited same-process 2026 article computes the stationary one-point localization atom and spatial law; its full independent-resetting supplement does not supply this stationary two-time origin indicator, joint inverse reconstruction of r and Psi, or the exact five-regime integrated correlation time. Generic renewal identities are old tools but their inversion with the observable atom has independent content.",
+      "residual_risks": [
+        "General renewal/telegraph-process identifiability formulae outside searched terminology may subsume some derivations.",
+        "Full population correlation may be statistically ill-conditioned to differentiate; this is a practical limitation, not a correctness flaw."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Stationary spatial C(x) with delta mass 1-hat psi(r); no stationary lag indicator formula or inverse m,R reconstruction.",
+          "identifier_or_url": "https://arxiv.org/html/2601.13595v1",
+          "material_read": "Full accessible HTML main argument and independent reset Supplement S1, especially S1-S6 and power-law/exponential waiting examples",
+          "method": "lawful arXiv full HTML",
+          "title": "Macroscopic localization and collective memory in Poisson renewal resetting",
+          "trigger": "Same independent Poisson renewal resetting of CTRW"
+        },
+        {
+          "assessment": "SUBMITTED_CLAIM",
+          "evidence": "Equation E[I0It]=m²+(1-m)B(t) and differentiation to reconstruct r,Psi.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026",
+          "material_read": "Entire pinned RESULT.md and local CHECKER.py",
+          "method": "pinned Git blob full text",
+          "title": "Exact localization autocorrelation and renewal-clock reconstruction under Poisson resetting",
+          "trigger": "Assigned final claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2601.13595v1 independent reset S1",
+        "independent exponential/Lomax checks"
+      ],
+      "rationale": "A natural observable—stationary residence at the resetting state—proves identifiable not merely in mass but in its full renewal clock and reset hazard. The explicit two-time covariance and sharp heavy-tail decorrelation phase boundaries provide exact temporal diagnostics even when the unreset waiting mean diverges. This is not a substitution in a known one-time marginal.",
+      "residual_risks": [
+        "No finite-sample estimator or robustness guarantee is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent numerical/finite checks are not formal proofs; unrestricted statements rely on reconstructed analytical arguments.",
+    "Best-of-knowledge historical originality and precise residual risks recorded in originality axis.",
+    "Publication withheld: public-file privacy-safe replacements not completed and verified."
+  ],
+  "schema_version": 1
+}
