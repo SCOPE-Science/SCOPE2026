@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** In a Coxeter direct product, projections of a reduced palindrome outside the central factor would be nonempty even palindromes, which cannot be reduced. Every language word is therefore an odd alternating word supported on one factor. An explicit total DFA implements precisely that language, including one shared terminal accepting class for all finite factors. A complete Myhill--Nerode separation argument compares each reachable residual by parity, orientation, largest possible continuation length, and factor alphabet. Separate partition minimization agrees for 2,913 parameter tuples; finite testing is supplemental.
+## correctness
 
-**Originality — PASS subject to historical risk.** Bapat (arXiv:2609.29022, complete 13-page author PDF inspected in its relevant passages) proves regularity and the union property but does not provide this exact minimal state formula. The finite/infinite dihedral reflection description of Biagioli--Hohlweg--Sasso (arXiv:2602.16361, Example 3.3 inspected) does not assert minimal quotient counts. Bapat's printed four-state graph for one infinite-dihedral factor accepts a nonreduced word, while the present six-state lower bound and construction correct the state-count issue without disputing regularity. Semantic searches found no exact all-exponent classification, but this does not prove worldwide priority.
+PASS
 
-**Value — PASS.** The 2026 classification identifies which Coxeter systems have regular palindrome languages but leaves an exact recognizer-size problem. This theorem gives a sharp all-parameter descriptional-complexity invariant for the natural infinite family of products of rank-two Coxeter factors. It identifies both parity plateaus and shared terminal quotients, and provides a complete correct minimal recognizer, not only a necessary condition or isolated negative test.
+PASS: Coxeter length in a direct product is additive in factor projections. If a literal palindrome draws letters outside its central factor, one projection is a nonempty even palindrome and has equal adjacent middle letters, hence is nonreduced. Therefore the language is exactly the union of odd alternating single-factor words, bounded by M_i for finite factors. A total DFA has one start and one rejecting sink, four orientation/parity continuation states per infinite factor, 2(M_i−1) proper-prefix states per finite factor and one shared finite terminal accepting state. Myhill–Nerode distinguishes all remaining right contexts by maximum accepted suffix length, next generator, parity, and factor alphabet, giving matching lower bound. Fresh independent residual-state calculations corroborated seven finite parameter configurations and the six-state infinite dihedral case. Infinite/all-parameter proof is not inferred from finite tests.
 
-**Limitations.** Standard generators only, direct products of dihedral factors only, complete deterministic automata only; no independent validation or exhaustive global priority check.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: Bapat 2026 proves regularity and a direct-product language union lemma, and depicts a four-state automaton for the infinite rank-two case, but the diagram as displayed accepts the nonreduced word stt; a complete six-state minimal recognizer is required. The relevant published material does not state a sharp complete Myhill–Nerode complexity for all finite/infinite rank-two factors with a shared finite terminal quotient. Biagioli–Hohlweg–Sasso concerns reflection-related prefix automata, a different language and complexity. Same-object literature risk recorded.
+
+## value
+
+PASS
+
+PASS: Exact deterministic state complexity is a natural invariant of a regular Coxeter reduced-word language; the formula captures a nontrivial parity jump at even/odd finite exponents, four-state marginal cost of each infinite factor, and cross-factor terminal-state sharing. It corrects a misleading minimality interpretation of an existing displayed recognizer and gives a complete family classification rather than a routine renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

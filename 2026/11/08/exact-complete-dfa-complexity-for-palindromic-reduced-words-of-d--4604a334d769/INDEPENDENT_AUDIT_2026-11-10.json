@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-11-10",
+  "audited_at_utc": "2026-11-10T20:50:49Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Coxeter length in a direct product is additive in factor projections. If a literal palindrome draws letters outside its central factor, one projection is a nonempty even palindrome and has equal adjacent middle letters, hence is nonreduced. Therefore the language is exactly the union of odd alternating single-factor words, bounded by M_i for finite factors. A total DFA has one start and one rejecting sink, four orientation/parity continuation states per infinite factor, 2(M_i−1) proper-prefix states per finite factor and one shared finite terminal accepting state. Myhill–Nerode distinguishes all remaining right contexts by maximum accepted suffix length, next generator, parity, and factor alphabet, giving matching lower bound. Fresh independent residual-state calculations corroborated seven finite parameter configurations and the six-state infinite dihedral case. Infinite/all-parameter proof is not inferred from finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bapat general Coxeter regularity criterion covers a broader group family but does not determine complete DFA counts; a direct-product union is not an automatic state-minimization formula.",
+          "Biagioli–Hohlweg–Sasso studies reflection elements and prefixes rather than literal palindromic reduced word complete DFA."
+        ],
+        "reasoning": "Neither broader group-level regularity nor a reflection automaton implies the submitted numeric state complexity without a new right-language classification.",
+        "searches": [
+          "Bapat On language of palindromic reduced words in Coxeter group Proposition 4.1 Lemma 5.8",
+          "Biagioli Hohlweg Sasso generating functions automata associated reflections Coxeter systems"
+        ]
+      },
+      "checked_sources": [
+        "Frozen source d39c317697e7bed927dd30419911e78a5699f07f, RESULT.md and checker.py",
+        "Full Bapat author PDF arXiv:2609.29022",
+        "Biagioli–Hohlweg–Sasso arXiv:2602.16361 accessible abstract/Example 3.3",
+        "Resultary semantic same-object and state-complexity searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bapat establishes regularity and direct-product decomposition, but not a Myhill–Nerode lower bound; the pictured four-state machine fails the stt reduced-word test.",
+          "The claimed finite terminal sharing and infinite factor four residual contexts are separately established by the submitted proof."
+        ],
+        "reasoning": "Earlier theorems identify language but do not directly entail the new quantitative minimal-state formula; bounded originality PASS, priority risk remains.",
+        "searches": [
+          "Full Bapat author PDF https://asilatabapat.org/assets/papers/2026-palindromic.pdf, Proposition 4.1 Lemma 5.8",
+          "Biagioli–Hohlweg–Sasso Example 3.3 arXiv:2602.16361"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bapat regularity theorem says language is regular; Lemma 5.8 says palindromic reduced-word language of direct product is disjoint union of factor languages.",
+          "Complete-DFA state complexity demands distinct right residual languages with one initial and one dead state, not just existence of some automaton."
+        ],
+        "reasoning": "Language equality alone is weaker than minimization; the present all-product Myhill–Nerode index is a precise additional invariant.",
+        "searches": [
+          "Resultary semantic: minimal complete deterministic finite automaton palindromic reduced words products dihedral Coxeter groups I2(m) state complexity",
+          "Bapat arxiv:2609.29022 palindromic reduced words Coxeter regular language",
+          "Biagioli Hohlweg Sasso arxiv:2602.16361 automata reflections Coxeter dihedral"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bapat Proposition 4.1 contains a four-state diagram that accepts stt via q0→q1→q0→q2 although stt is not reduced; it is not a valid complete DFA for this language.",
+          "No all-exponent finite/infinite factor minimal-state table in inspected sources."
+        ],
+        "reasoning": "Existing small automaton picture is not the exact minimal complete-state database. Calculated minimal states 6 for one infinite dihedral and 2M+1 for one finite factor.",
+        "searches": [
+          "Resultary palindromic reduced Coxeter complete DFA states",
+          "arxiv:2609.29022 one infinite dihedral four-state diagram"
+        ]
+      },
+      "rationale": "PASS, qualified: Bapat 2026 proves regularity and a direct-product language union lemma, and depicts a four-state automaton for the infinite rank-two case, but the diagram as displayed accepts the nonreduced word stt; a complete six-state minimal recognizer is required. The relevant published material does not state a sharp complete Myhill–Nerode complexity for all finite/infinite rank-two factors with a shared finite terminal quotient. Biagioli–Hohlweg–Sasso concerns reflection-related prefix automata, a different language and complexity. Same-object literature risk recorded.",
+      "residual_risks": [
+        "An unindexed automata-theoretic treatment of minimal palindromic Coxeter word languages may exist.",
+        "The claim concerns complete DFA only; a partial DFA or promise of reduced input changes counts.",
+        "Independent finite residual enumeration covers representative parameters only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING sharp minimal complete-DFA count; related general regularity and direct product decomposition are prior",
+          "evidence": "Prop 4.1 diagram q0–s→q1–t→q0–t→q2; its accepted stt is not reduced. Lemma 5.8 gives language union, no minimal count.",
+          "identifier_or_url": "https://asilatabapat.org/assets/papers/2026-palindromic.pdf",
+          "material_read": "Full 13-page author PDF available and examined with focus on Proposition 4.1 automaton diagram (page 5) and Lemma 5.8 product decomposition",
+          "method": "PDF text and page image inspection; verified diagram transitions and stt acceptance",
+          "title": "On the language of palindromic reduced words in a Coxeter group (Asilata Bapat)",
+          "trigger": "direct exact same-language formal regularity and dihedral product lemma"
+        },
+        {
+          "assessment": "DIFFERENT LANGUAGE: reflection prefixes, not all nonempty literally palindromic reduced expressions with complete DFA minimization.",
+          "evidence": "Example 3.3 deals with dihedral reflection words and prefixes.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.16361",
+          "material_read": "Accessible abstract and specifically indexed Example 3.3 reflection-word statement; complete main text not verified",
+          "method": "arXiv indexed abstract/section description",
+          "title": "On generating functions and automata associated to reflections in Coxeter systems (Biagioli–Hohlweg–Sasso)",
+          "trigger": "nearby dihedral reflection automata"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact deterministic state complexity is a natural invariant of a regular Coxeter reduced-word language; the formula captures a nontrivial parity jump at even/odd finite exponents, four-state marginal cost of each infinite factor, and cross-factor terminal-state sharing. It corrects a misleading minimality interpretation of an existing displayed recognizer and gives a complete family classification rather than a routine renaming.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only direct products of standard rank-two dihedral Coxeter systems; higher irreducible factors not covered.",
+    "The empty palindrome is excluded; sink included.",
+    "Public metadata provenance requires sanitization before publication."
+  ],
+  "schema_version": 1
+}
