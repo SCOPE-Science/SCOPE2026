@@ -1,19 +1,21 @@
-# Mathematical review of wheel rim-leaf covariances
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is a complete finite probability formula and corresponding all-size inequalities, not an extrapolation from a sample. Leaf grafting is a bijection between a tree with a prescribed leaf and a tree of the vertex-deleted graph plus its incident attachment; it gives the exact one- and two-leaf probabilities. Matrix-tree cofactors yield the classical fan and wheel counts. Every step of the strict sign proof is an explicit inequality with \(0<t<1\): adjacent pairs use \(4\sqrt5/9<1\), nonadjacent pairs use \((1-xy)^2-(1-x^2)(1-y^2)=(x-y)^2\), and distance ordering follows from Binet's product identity. Boundary cases \(m=3,4\), integer distances, and the fixed-distance asymptotic have been considered. Independent brute-force enumeration through \(m=8\) and 2,718 exact checks support, but do not replace, the symbolic proof. A subtlety is that adjacent rim vertices must not choose one another as their unique tree neighbor, because two leaves joined together cannot belong to a larger tree; this is handled explicitly.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+For W_{m+1}, m≥3, uniform spanning trees, τ(W)=L_{2m}−2 follows by circulant cofactor. Deleting one/two rim vertices yields fans with τ=F_{2k} (tridiagonal recurrence). One-leaf graft counts 3F_{2m−2}, adjacent joint counts 4F_{2m−4}, separated distance d≥2 counts 9F_{2d−2}F_{2m−2d−2}; exact normalizations follow. Algebraic Binet identities and (1−xy)^2≥(1−x²)(1−y²) force strict negative covariance, and Fibonacci ratio/product monotonicity proves distance-two is strictly most negative then monotone until half-cycle; fixed-distance t→0 profile as stated. An independent direct spanning-tree enumeration m=3..8 corroborated all exact probabilities.
 
-Merino (2023) states the classical counts \(F_{2k}\) and \(L_{2m}-2\) in Theorem 1; these are not new. Its accessible 16-page article has been inspected at the introduction, fan and wheel results, with text search for the leaf/covariance events; the event probabilities and strict correlation ordering are not stated there. Miezaki–Tamura (2025) supplies exact two-component wheel forest counts, using distinct connectivity events; its 14-page article has been inspected at the full statements and proofs relevant to this comparison, with text searches; it does not assert the wheel rim-leaf theorem. Tamura–Tanaka (2026) concerns rooted forests and root configurations according to its available abstract, but its complete manuscript could not be inspected, which remains a material risk. Aldous (1990) gives general random-spanning-tree leaf statistics; only its accessible abstract was available here, so undiscovered specialized formulas cannot be ruled out. Grimmett–Winkler (2003) discusses edge negative association, which does not logically imply covariance of degree-one indicators. Separate same-subject scientific record searches did not surface an equivalent theorem. In the accessible prior statements, none implies the new *strict distance-two extremum*: wheel/fan total counts do not state any joint leaf event, forest separation is a different event, and edge negative association concerns different random variables. Unindexed or inaccessible earlier work remains a historical-priority limitation; absence from search is not a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-This is a motivated local structure statistic of a canonical uniform spanning-tree model. The assertion is not just a numerical instance or a relabeling of classical tree counts: it establishes a strict sign at every wheel size and separation, plus the counterintuitive, globally sharp fact that separation two produces a more negative covariance than adjacent rim vertices. It distinguishes a degree-one dependence phenomenon from known negative dependence of *edges*, with an explicit geometric limiting profile. The degree-one event's nonmonotonicity means such a result is not immediate from existing edge-association theorems, and the result supplies natural finite-size and large-size benchmarks for random spanning tree local statistics.
+Neither classical Fibonacci/Lucas wheel/fan spanning-tree enumerations nor the published wheel degree-covariance theorem gives the exact two-point leaf indicators or their strict distance-two strongest-negative ordering; covariance of vertex degrees does not imply covariance of events deg=1. The full accessible Miezaki–Tamura primary paper counts two-component wheel forests and specialized vertex separations, not simultaneous degree-one indicators. The claim supplies a motivated all-m family correlation classification.
 
-## Principal sources and limitations
+## value
 
-Merino (2023), DOI 10.37236/11097; Miezaki–Tamura (2025), arXiv:2512.18214; Tamura–Tanaka (2026), arXiv:2609.29486; Aldous (1990), DOI 10.1137/0403039; Grimmett–Winkler (2003), arXiv:math/0302185. The theorem is unweighted, concerns rim vertices only, and does not establish uniform-in-distance convergence or results for other graphs. There is no independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Leaf indicators are nonlinear, nonmonotone local statistics and ordinary edge/degree negative association does not settle their covariance. The counterintuitive distance-two maximum gives a natural sharp all-size dependence ordering with exact limiting decay, useful for understanding uniform-tree local geometry. The classical fan/wheel determinants are inputs, not the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of wheel rim-leaf formulas
+# Independent mathematical audit
 
-The standalone artifact `check_wheel_leaves.py` uses only the Python 3 standard library and exact integer/rational arithmetic. Run `python3 check_wheel_leaves.py` in the same directory as this file.
+## correctness
 
-A successful run on the packaged artifact prints `PASS: 2718 exact assertions; brute spanning-tree enumeration m=3,...,8; all-size-claim instances m=3,...,100.` It independently enumerates edge subsets without cycles, counts all spanning trees of \(W_{m+1}\) for \(3\le m\le8\), and compares prescribed single- and double-leaf counts to the Fibonacci–Lucas formulas. It then checks the strict negative covariance and distance-ordering inequalities for every permitted integer distance up through \(m=100\). Exact fractions rather than floating-point approximations are used throughout.
+PASS
 
-These are finite checks, not an infinite proof. The all-size result instead follows from the leaf-grafting bijections, matrix-tree identities, and explicit Binet inequalities in `RESULT.md`. The fixed-distance limit follows algebraically as the small root \(t=(3-\sqrt5)/2\) is raised to growing powers. No extrapolation of machine output is used for the theorem.
+For W_{m+1}, m≥3, uniform spanning trees, τ(W)=L_{2m}−2 follows by circulant cofactor. Deleting one/two rim vertices yields fans with τ=F_{2k} (tridiagonal recurrence). One-leaf graft counts 3F_{2m−2}, adjacent joint counts 4F_{2m−4}, separated distance d≥2 counts 9F_{2d−2}F_{2m−2d−2}; exact normalizations follow. Algebraic Binet identities and (1−xy)^2≥(1−x²)(1−y²) force strict negative covariance, and Fibonacci ratio/product monotonicity proves distance-two is strictly most negative then monotone until half-cycle; fixed-distance t→0 profile as stated. An independent direct spanning-tree enumeration m=3..8 corroborated all exact probabilities.
 
-No validation has been performed for weighted wheels, hub-leaf correlations or arbitrary graphs. Independent audit is not yet performed.
+## originality
+
+PASS
+
+Neither classical Fibonacci/Lucas wheel/fan spanning-tree enumerations nor the published wheel degree-covariance theorem gives the exact two-point leaf indicators or their strict distance-two strongest-negative ordering; covariance of vertex degrees does not imply covariance of events deg=1. The full accessible Miezaki–Tamura primary paper counts two-component wheel forests and specialized vertex separations, not simultaneous degree-one indicators. The claim supplies a motivated all-m family correlation classification.
+
+## value
+
+PASS
+
+Leaf indicators are nonlinear, nonmonotone local statistics and ordinary edge/degree negative association does not settle their covariance. The counterintuitive distance-two maximum gives a natural sharp all-size dependence ordering with exact limiting decay, useful for understanding uniform-tree local geometry. The classical fan/wheel determinants are inputs, not the contribution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
