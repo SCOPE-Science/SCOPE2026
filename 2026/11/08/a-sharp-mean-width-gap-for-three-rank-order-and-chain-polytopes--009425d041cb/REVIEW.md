@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact support-function reduction follows from the filter/antichain vertex descriptions. The centered positive-part and absolute-value sums satisfy a joint Gaussian central limit theorem with covariance explicitly computed from the normal distribution; uniformly bounded second moments of the maxima justify passage to expectations. A planar Gaussian-support/perimeter identity supplies the exact expectation of each three-variable Gaussian maximum. Independent Gaussian radial normalization then yields the correctly scaled spherical mean-width expansions. The standalone checker confirms finite vertex optimizations and numerical constants but is not used as an infinite proof.
+## correctness
 
-**Originality — PASS (provisional historical priority).** Closest full-text sources (Ahmad–Fourier–Joswig 2023 and Freij-Hollanti–Lundström 2023) analyze face numbers of precisely these ranked and ordinal-sum poset polytopes, not mean widths. Later full-text treatments by Fourier (2026), Lee (2026), and Goel (2026) establish broader face-vector or edge-direction/length results, but no implication to the sharp Gaussian maximum or Euclidean first intrinsic-volume separation was found. Published claim-index searches on order/chain polytope Gaussian widths found records on inradii, ellipsoids, and asymmetry instead. The nearest exact mathematical claim and parameter comparisons are specified in `AUDIT.json`. This is a best-knowledge originality assessment, not proof of publication priority.
+PASS
 
-**Value — PASS.** The order and chain polytopes share their entire Ehrhart polynomial, so a geometric metric that sharply separates them is independently informative. For two antichain ranks they are Euclidean congruent, making three ranks the first naturally nontrivial regime. The resulting fixed, nonzero width gap survives the high-dimensional limit even though both widths grow like the square root of rank size. The Gaussian maximum and perimeter reduction gives a reusable structural mechanism rather than isolated numerical data.
+Stanley filter/antichain vertices give exact Gaussian supports h_O=max(S1,T1+S2,T1+T2+S3) and h_C=max(S1,S2,S3), with S_j=sum(G_jk)_+, T_j=sum G_jk. The joint CLT for centered (G,|G|) sums has independent limiting Z_j~N(0,1), B_j~N(0,1-2/pi) due zero cross covariance. Uniform second-moment bounds imply expectation convergence of support maxima. For any three centered Gaussian support coordinates, their expected maximum equals sum of three pair-distance standard deviations divided by 2sqrt(2pi), a planar Gaussian Cauchy-perimeter identity. The chain pairwise squared distances are a,a,a with a=1-1/pi; the order distances a,a,b with b=2-1/pi. Independent symbolic covariance multiplication reproduced these arrays. Normalizing Gaussian width by expected chi_(3m) radius yields the constant (sqrt(b)-sqrt(a))/sqrt(6pi)=0.10852079033018437. Only asymptotic m->infinity established; finite m positivity or convergence rate not inferred from simulations.
 
-**Limits and risk.** This establishes neither finite-dimensional monotonicity nor arbitrary-poset mean-width comparison, and the convergence rate is not quantified. A hidden equivalent result in Gaussian extrema or poset intrinsic volumes is the main remaining historical risk. The proof is analytical; Monte Carlo is supplementary. Independent mathematical assessment has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Stanley (1986) establishes order/chain Ehrhart equivalence, and Ahmad–Fourier–Joswig and Freij-Hollanti–Lundström study ranked poset face numbers, not Euclidean mean-width limits. Published SCOPE inertia-gap and two-level width results compare different functionals/families. The surviving result is a three-rank standard-coordinate mean-width gap in a family where two levels give an exact isometry, plus the joint Gaussian-support weak limit. No inspected primary source implies this exact constant.
+
+## value
+
+PASS
+
+Rank-three ordinal sums are a natural minimal step beyond the two-rank Euclidean isometry. A positive dimension-independent gap between two Ehrhart-equivalent polytope families isolates genuinely metric information not visible in lattice counts. The exact Gaussian limit makes it a reusable benchmark for Euclidean comparisons of poset polytopes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
