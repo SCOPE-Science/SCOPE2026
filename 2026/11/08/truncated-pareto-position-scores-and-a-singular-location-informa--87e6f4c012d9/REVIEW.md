@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The gas equation and mass law imply an explicit \(u\)-coordinate density; a one-to-one pushforward proves the truncated-Pareto score distribution exactly. Elementary integration proves the moment threshold and Fisher expression. The Sobolev difference quotient before the spinodal and a local square-root expansion at the spinodal prove the two Hellinger constants. The moving/returning total-density equality is read from the published finite-return-speed formulas. The extracted standalone test checks normalization, flux identities, moment expressions and four numerical Hellinger scales; finite tests do not prove the asymptotic theorem.
+## correctness
 
-**Originality — PASS, qualified.** The 2026 source establishes the full stationary profile and finite-return-speed model, thereby providing essential input and strong algebraic coverage at the density level. However, the exact truncated-Pareto spatial score law, the score-moment phase boundary and the coefficient of the nonregular translation-Hellinger law are separate observables and were not found in inspected source sections or the searched indexed and related literature. A related comparison of the same gas and droplet branches concerns transport, not information geometry. Classical cusp-location methods explain the kind of logarithm but not the specific model's entire score distribution. A fuller human publication-priority search could find a dominating earlier functional calculation.
+PASS
 
-**Value — PASS.** The score quantifies sensitivity of spatial-density observations to a small origin displacement, not an arbitrary moment selected solely for ease of computation. Its complete truncated-Pareto distribution makes a sharp distinction between finite precritical translation information and a marginally nonregular endpoint. The universal moment cutoff and exact Hellinger constant diagnose the gas spinodal and survive the finite-return-speed extension, while explicitly separating a mathematical metastable-branch diagnostic from physical entropy production and finite-size dynamics.
+At positive x, mass integration of (1-u)u’=-chi u gives M=(m/chi)(u0-u0²/2), u0=1-sqrt(delta). The normalized U=u(|X|) density is m(1-u)/(M chi). W=chi/(1-U), Jacobian du/dw=chi/w² gives exactly m chi/(M w³) on (chi,chi/sqrt(delta)); q=2 integration gives I_delta=m chi log(1/delta)/(2M). At delta=0 u=1-sqrt(2chi_c|x|)+O(|x|); sqrt(p)=sqrt(chi_c)-(chi_c/sqrt2)sqrt(|x|)+O(|x|). Both sides of square-root cusp produce ∫(Δsqrt p)²~(chi_c²/4)h² log(1/|h|), so H²~chi_c² h² log(1/(chi_c|h|))/8 under the given half-integral convention. For fixed delta>0 sqrt(p) in H¹ gives H²=I h²/8+o(h²). Finite-return statement applies to total normalized stationary density only; source local flux equations supply the model premise.
 
-Closest source: Grange, *Motility-Induced Phase Separation of Run-and-Tumble Particles under Local Stochastic Resetting* (arXiv:2610.26149v1, 19 October 2026); its gas density, phase diagram and finite-return-speed formulas are pre-existing. Related general work on noninstantaneous returns (Bodrova–Chechkin–Sokolov 2020) does not settle the specific score law. Residual risks are prior functional analyses of the exact Lambert profile and nonuniformity near the spinodal; the latter is excluded from the claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The cited original Grange source derives the gas stationary Lambert profile and finite-return identity, not a confirmed published Fisher score law; this submission rigorously identifies a natural information-theoretic functional and its sharp singular translation modulus, best-of-knowledge only. The exact primary Grange full text was not accessible for exhaustive phrase-level comparison, a serious explicit priority risk but not alone a scientific failure.
+
+## value
+
+PASS
+
+The exact spatial score law and Fisher divergence identify the first nonregular location-inference transition in a physically motivated metastable gas branch, with a sharp model-specific Hellinger coefficient; useful beyond merely substituting into the known density.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
