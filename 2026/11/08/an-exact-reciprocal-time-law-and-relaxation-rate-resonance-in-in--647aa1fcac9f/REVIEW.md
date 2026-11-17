@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The analytic theorem checks the invariant physical domain, strict positive-time infection, monotonic global extinction at the invasion threshold, asymptotic activity/prevalence ratio, exact reciprocal differentiation and rigidity, complete matched-rate quadrature, and second-order activity slaving leading to the integrable logarithmic error. The separately extracted exact-symbolic and numerical checker passed; finite integration is corroboration, not proof. The matched-rate parameter conditions are both necessary and sufficient among the stated class of observables. Remaining scope restriction: homogeneous critical mean-field ODE with smooth rational inhibitory feedback.
+## correctness
 
-## Originality — PASS, with residual risk
-The full relevant homogeneous mean-field and bifurcation treatment in Alexandersen–Bassett (arXiv:2608.26528v1), its critical center-manifold analysis, and the earlier O'Regan–Drake critical disease-emergence study were compared by statement and implication. The motivating paper establishes local bifurcation structure and absence of homogeneous periodic orbits but does not present the all-initial-condition exact reciprocal-time linearization, rigidity among affine-in-activity reciprocal coordinates, matched-rate quadrature, or sharp global rate-dependent logarithmic coefficient. The earlier disease-emergence work analyzes different dynamics. The related August 2026 activity–Alzheimer's study was only accessible at abstract level and cannot be excluded on full-text evidence; an unindexed or disguised equivalent remains possible. This is a best-knowledge originality assessment, not a mathematical proof of novelty.
+PASS
 
-## Mathematical value — PASS
-At an epidemic invasion threshold, the leading critical slowdown is insensitive to activity response speed while the first measurable reciprocal-prevalence correction changes sign at an exactly solvable relaxation-rate resonance. The affine identity supplies a nonperturbative time-coordinate solution and its rigidity explains why that simplification is not generic. These provide sharp, checkable guidance about transient epidemic clearance in a natural negative-feedback model, not merely a rephrasing of a classical scalar SIS result.
+At eta=zeta criticality the physical quadrant is invariant and y activity bounded; x decreases under x’=-zeta*x*(x+s*y)/(1+s*y), forcing x->0 and y->0. For r=y/x, r’=kappa*k-(kappa-q)r with q=-x’/x->0, so r->k, establishing x~1/[zeta(1+s*k)t]. Differentiation yields V=((1+s*y)/x)’=M+s(zeta-kappa)(y/x-k), M=zeta(1+s*k); hence V is exactly affine when kappa=zeta. For U=(c+d*y)/x, all-state constancy first forces eta=zeta from the y=0 1/x term, then comparing y-coefficients forces d=c*s and kappa=zeta. Off resonance delta=y-kx solves delta’+kappa delta=-k x’; stable convolution gives delta=(k*M/kappa)x²+O(x³). This yields V’=M+s*k*(zeta/kappa-1)/t+O(log t/t²), which integrates to the finite-limit log correction. Independent symbolic derivative and coefficient calculations produced exact zero residual. Finite numerics do not prove these asymptotics.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Broader critical adaptive-SIS literature proves inverse-time decay and log corrections in a different contact-density system, but its hypotheses and vector field do not contain this positive relaxing activity/inhibitory rational transmission law as a direct specialization. The new exact all-state reciprocal affine identity and rigidity at kappa=zeta are nontrivial additional structure. Full motivating primary text inaccessible, so this is a qualified best-of-knowledge originality judgment, not confirmed historical priority.
+
+## value
+
+PASS
+
+The invasion-threshold extinction rate and first logarithmic correction are natural dynamic quantities. A precise activity/recovery rate resonance exactly linearizes reciprocal prevalence, with a rigidity theorem and log-term sign reversal under detuning, providing a reusable solvable benchmark in inhibitory epidemic activity feedback rather than just a scalar SIS textbook limit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
