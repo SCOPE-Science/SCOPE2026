@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The graph is the \(20\)-vertex Möbius ladder with cycle edges and ten antipodal rungs. Run `python3 verify.py` beside `verification_output.txt` in a Python 3.9+ environment with no extra packages. The executable independently builds all faces by both an induced-degree filter and a sixty-forbidden-triple filter, then confirms identical faces, exact matching pairs and complete reversed-incidence acyclicity. An acyclic matching with one critical vertex and twenty-three critical seven-cells proves the integral homotopy classification by discrete Morse theory.
+## correctness
 
-The verified output includes `FACES nonempty=53670`, `MORSE matched_pairs=26823`, `ACYCLIC covering_relations=335460 visited=53670`, and `H7 rank=23 involution_trace=-1 rational_plus=11 rational_minus=12`, followed by `ALL_MOBIUS_DISSOCIATION_CHECKS_PASS`. The verifier is deterministic: its pivot order is explicitly embedded in the source and reported in `RESULT.md`.
+PASS
 
-The formula for the reduced antipodal Lefschetz number at every length is proved symbolically in `RESULT.md` using fixed antipodal pairs and cycle independence polynomials. The program verifies its length-ten specialization from the complete face list, but this finite check is not represented as an infinite proof. The result is a homotopy equivalence, not a simplicial homeomorphism or an equivariant homotopy equivalence. There is no claim of independent external validation.
+Direct graph has 20 vertices, 30 edges, and dissociation faces precisely vertex subsets inducing maximum degree≤1 (equivalent to forbidding each length-2 path). Independent enumeration from induced degree and forbidden triples agreed on all 2²⁰−1 nonempty masks, with 53,670 faces and f-vector (20,190,1080,3975,9624,15050,14340,7505,1760,126). Deterministic 20-pivot matching yielded 26,823 pairs, one critical vertex and 23 critical 7-cells; independent full 335,460 directed-cover-edge DAG topological-sort visited 53,670 faces, so Forman integral Morse collapse yields wedge 23 S^7. For arbitrary n≥3, invariant faces are unions of antipodal pairs indexed by independent sets of C_n; oriented simplex sign gives reduced Lefschetz -I(C_n;-1)=-2cos(nπ/3). At n10 this is +1, and reduced H7 trace is −1, yielding +/− dimensions 11/12. No integral eigensublattice splitting asserted.
+
+## originality
+
+PASS
+
+Closest published Möbius-ladder higher-independence results cover lengths 8–16, not length 20 or a uniform antipodal Lefschetz trace. Ordinary independence and matching studies of Möbius ladders use different face sets. The exact integral homotopy and all-length involution trace survive best-knowledge comparison.
+
+## value
+
+PASS
+
+The Möbius ladder is a canonical highly symmetric cubic graph; its natural nonflag dissociation complex at 20 vertices has a genuinely nontrivial exact integral sphere wedge with an exhaustive acyclic matching. The uniform antipodal Lefschetz formula yields rational representation data invisible to face-count and ordinary Betti tables, motivating further equivariant classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

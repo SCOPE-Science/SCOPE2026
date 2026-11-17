@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The integer-mask definition of the graph and allowed faces is complete. `verify.py` checks the equivalence of two independent face tests on all nonempty subsets of the twenty vertices; it reconstructs all \(53{,}670\) simplices and all \(26{,}823\) matched pairs, verifies the exact one-plus-twenty-three critical-cell profile, and detects no cycle in the reversed-matching face-poset graph containing \(335{,}460\) covering edges. The CW consequence is the integral homotopy type \(\bigvee^{23}S^7\). The uniform Lefschetz identity is proved independently using the quotient-cycle classification of fixed simplices and the orientation signs. The resulting involution trace and rational eigenspace multiplicities follow by the Hopf trace theorem. The two proofs do not assume a theorem about other ladder sizes.
+PASS
 
-## Originality
+Direct graph has 20 vertices, 30 edges, and dissociation faces precisely vertex subsets inducing maximum degree≤1 (equivalent to forbidding each length-2 path). Independent enumeration from induced degree and forbidden triples agreed on all 2²⁰−1 nonempty masks, with 53,670 faces and f-vector (20,190,1080,3975,9624,15050,14340,7505,1760,126). Deterministic 20-pivot matching yielded 26,823 pairs, one critical vertex and 23 critical 7-cells; independent full 335,460 directed-cover-edge DAG topological-sort visited 53,670 faces, so Forman integral Morse collapse yields wedge 23 S^7. For arbitrary n≥3, invariant faces are unions of antipodal pairs indexed by independent sets of C_n; oriented simplex sign gives reduced Lefschetz -I(C_n;-1)=-2cos(nπ/3). At n10 this is +1, and reduced H7 trace is −1, yielding +/− dimensions 11/12. No integral eigensublattice splitting asserted.
 
-PASS relative to material inspected, not a guarantee of worldwide priority. Full accessible texts of the 2015 forbidden-path matching-tree paper, the 2020 higher-independence classification, and the 2026 ordinary independence/perfect-matching classification were compared for exact objects and potential stronger implications. The 2015 work classifies paths, cycles and forests but not Möbius ladders. The 2020 work handles other listed graph families, and the 2026 paper handles strictly different complexes on the same graph family. Additional indexed work discusses Möbius-ladder matching and ordinary-independence symmetry or a separate fourteen-vertex two-independence case; none inspected implies the present twenty-vertex integral homotopy or the infinite antipodal trace formula. Some indexed adjacent works were available only as abstracts or summaries, so subtle implicit overlap remains possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The exact homotopy of a highly symmetric cubic graph's nonflag higher-independence complex is not determined by the known ordinary-independence or matching classifications. The additional uniform fixed-pair formula links the antipodal action across the entire Möbius-ladder family to the six-periodic cycle independence evaluation. The twenty-vertex instance identifies nontrivial \(11\)- versus \(12\)-dimensional rational isotypic pieces, data invisible in nonequivariant Betti ranks. This structural combination supplies a motivated benchmark for equivariant topology; it is more than an isolated small face-count calculation.
+Closest published Möbius-ladder higher-independence results cover lengths 8–16, not length 20 or a uniform antipodal Lefschetz trace. Ordinary independence and matching studies of Möbius ladders use different face sets. The exact integral homotopy and all-length involution trace survive best-knowledge comparison.
 
-## Closest literature and limits
+## value
 
-The closest works are Taylan (arXiv:1501.06754v1), Deshpande–Singh (arXiv:2001.05448v1) and Agarwal–Basak (arXiv:2608.30601v1). No result for the full homotopy type at arbitrary length, equivariant sphere-wedge splitting, or integral eigensublattice decomposition is claimed. Equivalent unindexed work and incomplete access to some neighboring published records are residual priority risks. No external independent mathematical audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Möbius ladder is a canonical highly symmetric cubic graph; its natural nonflag dissociation complex at 20 vertices has a genuinely nontrivial exact integral sphere wedge with an exhaustive acyclic matching. The uniform antipodal Lefschetz formula yields rational representation data invisible to face-count and ordinary Betti tables, motivating further equivariant classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
