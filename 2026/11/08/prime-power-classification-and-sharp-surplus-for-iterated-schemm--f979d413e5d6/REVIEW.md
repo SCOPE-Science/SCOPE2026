@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The consecutive-unit prime-power formula is reconstructed by CRT counting. The odd-input lemma \(L_2(n)\ge3\) for odd \(n\ge5\), with equality exactly at \(5,9,15\), gives an exact sharp first-prime surplus. For exponents at least two, the first three positive iterates supply a uniform strict lower bound. The explicit geometric-series formulas at \(3\) and \(5\) and the zero formula at \(2\) cover all prime powers. The standalone exact-integer verifier tests direct definitions and many finite cases; it is not used as an infinite certificate.
+## correctness
 
-**Originality — PASS, qualified.** Defant's 2015 paper defines \(D_m\), proves deficiency for multiples of \(3\) and (at \(m=2\)) multiples of \(5\), and proves existence of infinitely many abundant prime-power rays for each even \(m\). The first two deficiency statements already cover those *sign* cases, and are not presented as new. The existential abundant-ray result does not give the universal \(p\ge7\) classification or sharp prime-power surplus. Harrington–Jones (2010) analyze the underlying exceptional-unit function and iteration counts, not the iterated sums. The checked research index and literature searches yielded no equivalent or dominating prime-power classification. Historical novelty remains subject to unindexed or overlooked work, particularly because the argument is short.
+PASS
 
-**Mathematical value — PASS.** Defant explicitly asks about the existence of further perfect iterate sums. A complete classification on the natural one-prime-support domain eliminates all prime powers as potential perfect examples, and identifies the exact sign transition and three sharp minimizers. It is an infinite structural classification, rather than a finite table or a single negative example; the result does not claim to settle perfectness for composite numbers with multiple prime factors.
+PASS: The product L_2(n)=∏_{q^e||n}q^(e-1)(q-2) shows for odd u>=5 that L_2(u)>=3, with equality exactly u=5,9,15. Hence D_2(u)>=4, with equality exactly those u. For p>=7, exponent a=1 gives D_2(p)-p=D_2(p-2)-2>=2, equality iff p-2∈{5,9,15}, or p=7,11,17. For a>=2 the first two iterates sum to at least p^a+(p-6)p^(a-2), and the third contributes >=3, so surplus >=4. Geometric sums handle p=2,3,5. Independent exact direct iterative checks covered 231 prime-power cases p<500, p^a<=200000 and found exactly those equality cases. Finite checks corroborate rather than prove the bounds.
 
-**Closest sources and residual limits.** Colin Defant, JIS 18 (2015), Article 15.2.1, Theorems 3.3–3.5 and concluding questions; Harrington and Jones, Integers 10 (2010), A42, on the exceptional-unit iteration length. The 2010 PDF was consulted through accessible extracted sections; full visual rendering was not available. No independent review has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for a narrow surviving new claim ONLY: the October 12, 2026 published Resultary theorem already classifies all D_2(p^a) abundance/deficiency, absence of perfect prime powers and gives the p=3,5 formulas; those are NOT new here. The exact globally minimal positive surplus 2 and full equality case p=7,11,17 are a further independently proved sharp lower-bound layer, not stated or implied as an exact value by the earlier proof (which only gives a nonsharp inequality). The package overstates priority for the complete dichotomy; correcting that public scientific attribution is necessary before importer readiness. Earlier Defant only gives infinite selected abundant prime-power rays.
+
+## value
+
+PASS
+
+PASS for the sharp natural extremal invariant only: among all D_2-abundant prime powers, the precise least positive excess and every equality case are a meaningful sharp boundary of the existing abundance classification. The proof identifies the full small-output fiber L_2(u)=3 and a uniform strict separation of exponent>=2, rather than a lookup of three examples. This does not re-credit the already known all-prime dichotomy; incremental scope is narrow and should be labeled as such.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
