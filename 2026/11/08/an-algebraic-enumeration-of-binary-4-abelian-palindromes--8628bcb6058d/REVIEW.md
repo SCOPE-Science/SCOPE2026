@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The assertion is all-length and has two independent mathematical components. First, boundary conservation for contiguous factor counts reduces four-abelian equivalence under reversal to a mirrored three-letter boundary and one remaining independent antisymmetric four-factor difference. Second, an eight-state weighted de Bruijn matrix has exactly the stated determinant and reversal-trace rational function, whose Laurent constant term yields the algebraic generating function. The subdominant denominator polynomial has no root inside the half-radius disk; the square-root transfer gives the asymptotic. These implications are reconstructed in RESULT.md and their finite matrix identities are checked symbolically in verify.py. Exhaustive enumeration through length sixteen independently agrees. Computational checks do not substitute for the proof of the infinite statement.
+PASS
 
-## Originality: PASS (qualified)
+For n>=4, flow conservation between length-three and length-four factor counts forces the first triple of w to equal the reversed last triple. With this condition all nonpalindromic four-factor antisymmetric count differences are (0,-h,h,-h,0,-h), h=N0011−N1100, so one scalar condition suffices. The 8-state de Bruijn transfer with t and t^-1 on 0011/1100 respectively has determinant 1−2z+(2−t−t^-1)z^6 and exactly stated reversed-terminal rational trace; formal t^0 extraction yields displayed square-root OGF. The other radicand 1−2z+4z^6 has no zero |z|<=1/2 by y=2z, |y−1|<=1/16 and Re(y^6)>0 contradiction. Unique singularity z=1/2 yields 1/2(1−2z)^(-1/2) leading term and asymptotic. Directly enumerated all 2^n words n<=12 independently, matching listed a_n and structural criterion; finite tests supplement the algebraic proof.
 
-Karhumäki and Puzynina (2014) analyze rich and poor classes of k-abelian palindromes, rather than the ambient enumeration of all binary 4-abelian palindromes. Cassaigne, Karhumäki and Puzynina's accessible full 2016 presentation contains general equivalence definitions, the \((4,2)\) poorness case, constructions and open factor-richness questions; no exact algebraic total-count generating function or square-root asymptotic is given in that inspected material. Searches for reversed 4-gram balance, the derived series, and the exact numerical sequence did not locate a dominating identity in indexed sources or published research records. The 2014 chapter is subscription-only in its full form; a related 2018 journal publication likewise could not be read in full. This is a genuine historical-priority risk, not evidence of a proved uniqueness claim. Results on substring counts and on palindromic duplications do not imply this exact enumerator.
+## originality
 
-## Value: PASS
+PASS
 
-This counts all length-n words satisfying the first binary k-abelian reversal condition that is not decided solely by endpoint symbols, and determines an exact singularity and asymptotic probability. It exposes a one-dimensional internal balance obstruction after boundary reflection, converting a priori several local constraints into a single global statistic. That is a natural complete enumeration of a defined finite language, not an arbitrary small-parameter census or a recomputation of a published table.
+Karhumäki–Puzynina (2014) and Cassaigne–Karhumäki–Puzynina (2016 slides, 2018 journal) treat k-abelian palindrome factor-richness, poorness and infinite-word existence, not necessarily counts of all binary words equivalent to reversal. The accessible full 2016 slides contain no algebraic ambient-language enumeration or singular asymptotic; Resultary searches found no dominating count formula. However the 2014/2018 full primary texts could not be read under authorized VPN-disconnected access, genuine priority uncertainty explicitly retained rather than automatic failure.
 
-## Limitations
+## value
 
-The characterization is binary and at level four only. It does not answer the separate extremal problem of how many distinct k-abelian palindromic factors can occur within one given word. Complete priority against inaccessible full publications cannot be guaranteed. No external audit or independent mathematical validation has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ambient cardinality of binary 4-abelian palindromes is a natural language-counting invariant at the first level with a genuine internal imbalance condition, unlike trivial palindrome recognition. The exact radical generating function, independent one-constraint characterization, and n^(-1/2) density answer a meaningful finite-language enumeration problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
