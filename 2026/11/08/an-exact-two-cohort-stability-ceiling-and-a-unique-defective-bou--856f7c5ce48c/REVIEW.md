@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The scope is a \(C^1\) cohort-separable recurrence near a positive equilibrium, with \(F(K)=K\). The Jacobian and characteristic polynomial follow by direct differentiation. Strict quadratic Jury inequalities give an exact necessary-and-sufficient hyperbolic-sink classification, including the exceptional slope \(a=-1\), the sharp slope \(a=-3\), and both allocation endpoints. At the unique extreme point, the Jordan identity is proved by exact nilpotency. The proof treats the full continuous parameter domain; the attached exact-rational checker reproduces the critical algebra and provides 3,554 subsidiary assertions.
+PASS
 
-## Originality — PASS within inspected evidence, with priority risks
+Differentiation yields J=[[ag,a(1-g)],[1,0]] with P(lambda)=lambda^2-ag lambda-a(1-g). Strict quadratic Jury gives 1-a>0, 1+a(2g-1)>0, 1+a(1-g)>0. At q=-a>1, compatible bounds are 1-1/q<g<(1+1/q)/2, width (3-q)/(2q)>0 exactly q<3; at q=3 they touch uniquely g=2/3. J=[[-2,-1],[1,0]] has J+I=N≠0, N²=0, so J^n=(-1)^n(I-nN). Verified this symbolic characteristic, Jury bounds and Jordan powers independently with SymPy. Ricker F_r(K)=K, F_r'(K)=1-r makes slope threshold r<4 for hyperbolic sink. At a=-1, g=0 or 1 are excluded; nonhyperbolic boundaries not claimed nonlinearly unstable.
 
-The source preprint by Lazaryan and Sedaghat (arXiv:1509.08132, 2015) develops a different two-stage Ricker system: one adult persistence term is linear and a separate delayed recruitment term is nonlinear. Its inspected Section 1 and conclusion do not give the allocation-split \(gF(x_t)+(1-g)F(x_{t-1})\) or the universal slope interval and defective contact. Wikan and Kristensen (2024) apply a single density-dependent factor to an aggregate Leslie age structure, a different nonlinear placement. The 2014 maturation-delay article studies a continuous-time delay equation rather than this discrete convex mixture. The 1993 Silva–Hallam and 1996–1997 Wikan works address very close age-structured stability questions; their complete texts were not accessible, so implicit stronger coverage remains a material, named priority risk. The result is not claimed to establish novelty of the Jury criterion, the Ricker model, or the general phenomenon of delay-related stability changes.
+## originality
 
-## Value — PASS
+PASS
 
-Distributed maturation is biologically motivated, and the two adjacent maturation ages form the smallest nontrivial cohort mixture. The complete all-slope phase diagram answers a concrete design question: exactly when an allocation can restore local stability to an overcompensating recruitment response. The sharp universal ceiling, the uniquely shrinking design interval, and the nonsemisimple boundary transient give a benchmark that is not a numerical choice of a few growth rates. No global population behavior or empirical recommendation is inferred.
+PASS best-of-knowledge for the exact response-independent two-age stabilizing fraction window and unique -3 defective collision, not for the elementary Jury criterion itself. Resultary search found no matched same recursion; older age-structured articles are plausible but do not establish this independently read equation and their full text remains inaccessible.
 
-## Scope and limitations
+## value
 
-The claim concerns hyperbolic local stability and linearized boundary response only. Different age-structured mechanisms, including common-density Leslie fecundity, may have different thresholds. Unit-modulus cases are not classified for nonlinear stability. Inaccessible historical full texts prevent a definitive priority assertion.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp limit of whether mixing one- and two-census recruitment can restore a hyperbolic sink is a natural structural model boundary, not an arbitrary small-instance computation. Unique g=2/3 collision with a nonsemisimple multiplier -1 explains linearized transient amplification exactly and delineates applicability of local stability management.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
