@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is defined using noncentral two-by-two upper triangular matrices over a finite commutative chain ring of nonzero nilpotent maximal ideal of square zero. Every matrix is represented by its two determinant coordinates and one arbitrary scalar lift; all such lifts are accounted for. Primitive vectors are partitioned by their projective line. Every nonzero nonprimitive vector has the form \(\pi w\) and excludes precisely \(q\) projective lifts of one residue point; distinct nonprimitive vectors commute. The disjoint zero- and one-nonprimitive case counts prove each coefficient. The maximal-degree term can only be achieved with no nonprimitive vector. The finite verifier exhausts 610173 independent sets for both length-two rings with residue field of size two (after accounting for matrix-fiber multiplicities) and checks the larger residue-three local-projective incidences. These are checks, not the universal proof.
+## correctness
 
-## Originality — PASS, with priority risk
-The 2024 arXiv paper *On Commuting graphs of triangular rings* supplies the starting determinant reduction, explicit commuting relations and finite-field calculations. The directly relevant published full RESULT.md at https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-independence-number-for-triangular-commuting-graphs-over-r--2a295dedff3b/RESULT.md proves the independence number for \(\mathbb Z/n\) and explicitly does not classify even its maximum independent sets. Neither inspected text supplies the complete independence polynomial for all radical-square-zero chain rings, the leading coefficient, or its invariance between \(\mathbb Z/p^2\) and \(\mathbb F_p[t]/(t^2)\). The new theorem implies the earlier independence-number result in this subclass, not conversely. published-finding corpus and web query comparisons are recorded in the accompanying structured audit. An unindexed universal graph-enumeration result might still subsume this formula; publication priority remains provisional.
+PASS
 
-## Mathematical value — PASS
-The full independent-set distribution is a standard, natural graph invariant and a substantive refinement of a motivating ring-theoretic extremal problem. Nilpotents make the graph connected and produce a second, nonprimitive determinant layer; its interaction with projective fibers controls the entire polynomial. The exact uniform formula for all length-two finite commutative chain rings, and the exact maximum-independent-set multiplicity, show which structure is robust under changing the coefficient ring. Unlike a bare alpha or a small table, the statement covers all prime-power residue field orders and every allowed coefficient ring.
+Writing each triangular matrix by scalar c plus determinant-coordinate vector v=(a-c,b), the commutator vanishes iff det(v,w)=0; for every nonzero v, exactly q^2 scalar matrices map to it. Primitive vectors form q(q+1) projective points, each containing q^2-q unit generators, with determinant zero between distinct primitives exactly within one point. Nonprimitive nonzero vectors are the q^2-1 elements of m^2 minus zero, all mutually determinant-zero; each excludes exactly q of the q(q+1) primitive points over one residue-field direction. Choosing zero or one matrix per compatible primitive point yields first term; choosing one of q^2(q^2-1) nonprimitive matrix fibers leaves q^2 primitive points and yields second term. Since q^2+1<q(q+1) for q>=2, top degree and coefficient are exact. Reconstructed finite Z/4 graph type (15 nonzero vectors and four matrix lifts), exhaustively enumerated all 2^15 vector subsets with determinants mod 4; coefficients [1,60,1344,14848,86016,245760,262144] match polynomial, sum 610173. No infinite-q claim rests on enumeration.
 
-## Sources and limits
-Source first published 20 February 2024: arXiv:2402.12619v1 (accessible entire primary textual rendering inspected). Closest published antecedent: https://github.com/published-finding corpus/2026/tree/main/2026/10/4/SCOPE-exact-independence-number-for-triangular-commuting-graphs-over-r--2a295dedff3b/RESULT.md (complete text inspected). See AUDIT.json for exact claim-vs-prior implications, actual searches, and risks. The theorem excludes non-chain local rings, longer radicals and higher triangular size. Exhaustive finite checks do not certify the universal statement; proof is required. No independent mathematical assessment has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge: Cheraghpour et al. (2024) provide determinant criterion and some independence numbers, not the full polynomial for all radical-square-zero chain rings; the October 4 2026 exact cyclic-residue theorem determines only alpha, while the November 2 2026 two-pole theorem determines COMMUTING tuples and clique counts (the graph's cliques), not the noncommuting subsets (the graph's independent sets). These are distinct combinatorial enumerators, and neither set of prior statements determines each coefficient or the family-wide maximum-set count. Direct full-text checks and Resultary searches found no encompassing formula. A generic local-ring determinantal distribution theorem remains a possibility.
+
+## value
+
+PASS
+
+PASS: The independence polynomial is the complete distribution of noncommuting matrix subsets for a natural finite-ring graph, not a renaming of its known independence number. The exact projective-line fiber decomposition, interaction with nilpotent directions, and universality across nonisomorphic length-two chain rings give meaningful previously unreported structural enumeration, potentially useful for finite ring graph invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
