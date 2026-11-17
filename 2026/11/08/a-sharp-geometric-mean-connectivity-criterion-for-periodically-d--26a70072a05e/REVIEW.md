@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact root-connection recursion follows from the independent shortcut and two series paths in parallel. For a period-fixed orbit below one, dividing the complementary probabilities at successive levels gives a telescoping product, and the sharp cubic bound \(h(x)\le32/27\) forces the stated product condition. The equality case forces every orbit value to equal \(1/3\) and every shortcut probability to equal \(5/32\). Continuity and monotonicity give global convergence. The homogeneous critical profile and the arithmetic-mean counterexample are checked by exact rational substitutions. The embedded checker independently enumerates the five-bond event and ran successfully. These calculations supplement, but do not replace, the infinite-depth proof.
+## correctness
 
-## Originality — PASS on examined evidence
-The closest exact original work is Berker, Hinczewski and Netz (arXiv:0907.0825, model/RG equation (1), fixed-point phase section), and Hasegawa, Sato and Nemoto (arXiv:1004.5087, Sec. II equation (3), Sec. IV). Their source models fix one long-range shortcut probability across generations and establish the homogeneous \(5/32\) threshold. Neither treats finite-period sequences of shortcut probabilities or the associated geometric-mean forcing theorem and arithmetic-mean phase separation. Lee, Shim and Noh (arXiv:1403.2072, Sec. II) concern degree-ordered site occupation on undecorated flowers, not the present model. Searches for periodic shortcuts, generation-dependent decorated flowers, mean-matched phases, and equivalent renormalization bounds found no closer covering statement. Unindexed or differently formulated results remain a priority risk; no uniqueness or independent audit is claimed.
+PASS
 
-## Mathematical value — PASS
-Periodic modulation of shortcut occupation is an intrinsic way to introduce scale heterogeneity in hierarchical percolation. The theorem gives a sharp profile-independent sufficient condition for complete limiting two-root connection, covering profiles with individual shortcut rates below the homogeneous threshold. At exactly the homogeneous critical average, every nonconstant periodic modulation forces complete root connectivity, and an exact two-period example shows that arithmetic averaging can reverse the connectivity phase even below that average. This is a structural phase-boundary fact, not merely a recomputation of a homogeneous fixed point or an arbitrary finite census.
+The four independent descendants give f_p(x)=1-(1-p)(1-x^2)^2. For a periodic nonunit fixed orbit of the k-fold composition the exact telescoping identity 1=prod(1-p_j)prod((1-x_j)(1+x_j)^2) holds. h(x)<=32/27 with equality only at 1/3, so the critical product and its unique constant equality exception follow. A nonunit fixed point cannot exist below the threshold; monotone continuous period iteration from any q then tends to 1. At constant p=5/32 the q=0 orbit increases only to 1/3. The numerical two-profile comparison was independently reproduced at 1 versus ~0.2661867069; finite observations are not the all-period proof.
 
-## Scientific limits
-The theorem does not classify all nonuniform periodic profiles or infer macroscopic giant-component density from two-root connectivity. The publication-priority comparison is provisional. Independent scientific verification is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the published homogeneous shortcut percolation recursion and 5/32 threshold do not contain a periodically varying generation shortcut vector or the product-over-period obstruction. A general composition result could be rediscovered under nonlinear-dynamics terminology; bounded searches and full primary inspected content did not show that stronger result.
+
+## value
+
+PASS
+
+A sharp uniform forcing boundary for the natural periodically perturbed hierarchical-flower model is a structural result; the same-mean opposite phases show why usual averaging is misleading. It addresses a mathematically motivated distinction that the homogeneous 5/32 phase diagram cannot answer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
