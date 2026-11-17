@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification
-Run `python3 checker.py` from a directory containing the standalone file. The script uses only Python's standard library and exhaustively enumerates every permutation on one through eight points. It computes masks directly, compares them to independently constructed two-move quadrant types, checks the Stirling/record identity for at most two records, verifies the direct-sum-pivot upper bound, and tests the nine-point generic witness. Expected terminal line: `ALL_FINITE_CHECKS_OK`.
+# Independent mathematical audit
 
-The infinite proof is in `RESULT.md`: it uses Ehrenfeucht--Fraïssé equivalence, record statistics, extremal-element union bounds, hypergeometric sampling and a factorial-moment Poisson limit. The checker is a finite consistency test and does not prove these infinite steps. The historical-priority comparison remains incomplete for the inaccessible 1990 chapter. Independent audit has not been performed.
+## correctness
+
+PASS
+
+For permutations represented by two strict total orders, two-round EF equivalence is equality of the collections of four-quadrant occupancy masks. Only nine adjacent-pair/triple/full masks persist with probability tending to one. The displayed nine-point witness (3,2,5,9,1,6,4,8,7) realizes all nine and distinctness forces minimal order nine. The record-maxima Bernoulli-sum distribution gives exact P(R_n<=2)=(1+H_(n-1))/n; missing triple masks is bounded by that event plus direct-sum pivot probabilities O(n^-2). Endpoint and midpoint bounds control the other eight masks, proving two-sided Theta(log n/n). A rank-three sentence requiring adjacent increasing values at adjacent positions has Poisson(1) occurrences by factorial moments of required value-successor runs, hence limit 1-e^-1.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: the full uniform symmetric group (factorial growth), sharp rank-two nine-mask invariant and harmonic-over-linear failure rate are not stated or implied by checked first-order limit laws for proper small permutation classes. Foy–Woods (1990) directly treats two random orders but its full historical chapter remained inaccessible; that is a material unresolved *access/priority risk*, not a scientific FAIL by itself. Classical rank-three succession Poisson law is explicitly credited.
+
+## value
+
+PASS
+
+A natural exact finite-rank logical phase boundary for the unrestricted uniform permutation model, with a minimum representative and matching quantitative rate. This gives a reusable low-rank counterpart to known nonconvergence at unrestricted logical depth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

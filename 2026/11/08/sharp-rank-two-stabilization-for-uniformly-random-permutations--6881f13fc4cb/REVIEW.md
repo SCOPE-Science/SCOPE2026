@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Two-round Ehrenfeucht--Fraïssé play is characterized exactly by sets of pointwise four-quadrant masks. A concrete permutation realizes all nine generic masks, and one vertex cannot realize two different masks, proving the minimum size. The asymptotic failure probability has matching harmonic lower and union upper bounds, proved from record indicators, extremal vertices, rare sum pivots and a hypergeometric bound for a fully surrounded point. The rank-three counterexample uses elementary factorial moments of oriented value successions. Exhaustive finite checks independently reconstruct the masks for all permutations through size eight and verify the analytic finite record identities. No finite experiment is used to infer an infinite claim.
+## correctness
 
-## Originality — PASS on inspected evidence
-The nearest full text, Falgas-Ravry et al. (2026), treats full first-order limits in *proper small permutation classes*, not finite-rank equivalence on uniform permutations from the entire symmetric group. Albert--Bouvel--Féray (2020) provides the two-order language and distinct expressibility results, not this rank-two profile or sharp rate. Indexed literature searches on quadrant signatures, two-round equivalence, uniform random permutations, and logarithmic stabilization found analogous one-order rank profiles and two-order orbit work but no covering statement. The 1990 Foy--Woods chapter directly concerns two random orders; its full text remained inaccessible and is a real historical-priority risk. No novelty is claimed for classical record asymptotics or Poisson successions.
+PASS
 
-## Value — PASS
-The theorem determines a natural entire bounded-rank logical invariant, identifies the smallest finite structure representing its almost-sure theory, obtains a sharp logarithmic finite-size rate rather than only qualitative convergence, and shows that the zero-one statement breaks at the very next quantifier rank. These are motivated exact classification and threshold facts, not an arbitrary finite census.
+For permutations represented by two strict total orders, two-round EF equivalence is equality of the collections of four-quadrant occupancy masks. Only nine adjacent-pair/triple/full masks persist with probability tending to one. The displayed nine-point witness (3,2,5,9,1,6,4,8,7) realizes all nine and distinctness forces minimal order nine. The record-maxima Bernoulli-sum distribution gives exact P(R_n<=2)=(1+H_(n-1))/n; missing triple masks is bounded by that event plus direct-sum pivot probabilities O(n^-2). Endpoint and midpoint bounds control the other eight masks, proving two-sided Theta(log n/n). A rank-three sentence requiring adjacent increasing values at adjacent positions has Poisson(1) occurrences by factorial moments of required value-successor runs, hence limit 1-e^-1.
 
-## Residual risks
-The Foy--Woods (1990) chapter could contain a rank-two statement or a stronger general theorem not visible from the accessible material. A broader finite-model-theoretic characterization could imply the mask criterion. The rank-three succession probability is explicitly classical and is included only for sharpness. No independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: the full uniform symmetric group (factorial growth), sharp rank-two nine-mask invariant and harmonic-over-linear failure rate are not stated or implied by checked first-order limit laws for proper small permutation classes. Foy–Woods (1990) directly treats two random orders but its full historical chapter remained inaccessible; that is a material unresolved *access/priority risk*, not a scientific FAIL by itself. Classical rank-three succession Poisson law is explicitly credited.
+
+## value
+
+PASS
+
+A natural exact finite-rank logical phase boundary for the unrestricted uniform permutation model, with a minimum representative and matching quantitative rate. This gives a reusable low-rank counterpart to known nonconvergence at unrestricted logical depth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
