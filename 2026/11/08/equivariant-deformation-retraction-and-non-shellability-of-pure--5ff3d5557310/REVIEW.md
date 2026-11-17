@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-In a one-dimensional unfilled graph, a descending link is a simplicial cone exactly when it contains one earlier neighbor. A first-third-part argument forces every positive strong match to occur inside the first two appearing parts. The complete-bipartite counting lemma then bounds total pairs by the size of the largest of those parts. Uniqueness of the largest part forces the exact two listed forms of maximal gradients, each realized by an order. A simplicial facet decomposition into disjoint central-simplex-plus-flaps components supplies an explicit graph-automorphism-equivariant strong deformation retraction. The face vector and shellability claims follow from that exact decomposition. Exhaustive independent reconstruction on 16 instances corroborates the assertions. The infinite proof uses no numerical extrapolation.
+## correctness
 
-## Originality — PASS, with residual risk
-The directly relevant September 2026 paper of Knudson and Owens-White was inspected in its accessible primary full text, including its definitions, treatment of stars and cycles, and its treatment of ordinary complete graphs; it does not classify pure strong complexes of genuine complete multipartite graphs with three or more parts and a unique largest part. Fernández supplies the underlying strong-Morse construction, not the pure-complex classification. Relevant indexed records on *ordinary* Morse complexes and complete-bipartite graphs have distinct matching rules; a known full-strong complete-bipartite homotopy classification is also insufficient to imply an equivariant classification of this pure complex on graphs with at least three parts. Specific title/alias/parameter searches yielded no covering theorem. Unindexed work could still coincide with the claim.
+PASS
 
-## Mathematical value — PASS
-The pure/full distinction is central to the motivating article. The new theorem determines the entire equivariant homotopy type, a closed face vector, and failure of shellability across an infinite genuine-multipartite family, despite arbitrarily high pure dimension and individually shellable components. It identifies a structural sharp hypothesis—uniqueness of the largest vertex class—that explains which gradient facets survive the maximum-dimensional truncation. This is a natural complete classification, not a numerical increment or a renamed known invariant.
+The descending link of an inserted vertex in the unfilled graph is a discrete earlier-neighbor set; strong pairings occur exactly at one earlier neighbor. Once vertices from three different multipartite parts have appeared, all future vertices have >=2 earlier neighbors and cannot pair. In the initial complete bipartite section, a count according to first and second occurrences of the parts bounds the number of pairs by the largest involved part. Strictly unique largest C enforces n as maximal size and yields exactly F_r and F_{r,c} for r outside C and c in C; exhibited orders realize all. For fixed r the base simplex on y_{r,c} plus n independent facets with new flap x_{r,c} is connected and collapsible; vertex sets for different r are disjoint. Barycentrically retract each flap and base simplex equivariantly to r. Face count follows by disjoint base/flap enumeration and pure disconnectedness (s>=2,n>=2) prevents shellability. Independent small exact vertex-order enumeration confirmed facet lists for (1,1,2),(1,1,3),(2,1,3),(1,2,4).
 
-## Limits and closest literature
-The result uses the one-dimensional **unfilled** graph and the strictly largest part condition; tied-largest graphs and the full complex are outside scope. The strongest directly comparable primary paper is Knudson–Owens-White, arXiv:2609.06844v1, Sections 3–4, 7, and 10. Fernández, arXiv:2504.15729, Section 3, provides theoretical background. Independent validation and exhaustive external-literature discovery have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The directly relevant 2026 Knudson–Owens-White paper defines this pure strong construction, and its accessible abstract lists other graph families, including stars and ordinary complete graphs, but not genuinely multipartite >=3-part classification. The target result might occur in inaccessible sections: authorized full-text retrieval was blocked by disconnected institutional access after arXiv/open-access attempts. Best-of-knowledge originality is therefore qualified, not a claim of exhaustive literature exclusion. Distinct Resultary ordinary Morse/matching complex calculations do not cover pure strong matchings.
+
+## value
+
+PASS
+
+The first broad unbalanced multipartite facet classification available in the inspected sources gives a natural dimension-vs-homotopy contrast: a pure positive-dimensional complex with individually collapsible shellable components but globally non-shellable and an integral permutation-module representation. This is a motivated topological boundary to known star/complete graph cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

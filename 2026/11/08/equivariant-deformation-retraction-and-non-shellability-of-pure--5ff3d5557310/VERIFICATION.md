@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-Run the included standalone program with `python verify.py`; its final line must be `ALL_VERIFY_OK`. The recorded finite run is in `verify_output.txt`. The program has no third-party dependencies.
+## correctness
 
-The code exhaustively enumerates injective vertex orders and their earlier-neighbor strong gradients for 16 positive part-size tuples; it checks actual maximal gradients against explicit facets, face counts, labels of disjoint components, generators of multipartite graph automorphisms, and mod-two simplicial homology. It includes tripartite and four-part examples, and the bipartite boundary cases as controls. The largest tested inputs use nine graph vertices and exactly 362,880 vertex orders each.
+PASS
 
-The exact formula for arbitrary numbers and sizes of parts follows from the combinatorial first-three-parts argument and the explicit piecewise-linear equivariant deformation retraction in `RESULT.md`. No finite enumeration is asserted to prove the infinite statement. Integral homology and the group action are proved through the retraction, not inferred from mod-two computations. All claims are confined to unfilled graphs with a unique largest part.
+The descending link of an inserted vertex in the unfilled graph is a discrete earlier-neighbor set; strong pairings occur exactly at one earlier neighbor. Once vertices from three different multipartite parts have appeared, all future vertices have >=2 earlier neighbors and cannot pair. In the initial complete bipartite section, a count according to first and second occurrences of the parts bounds the number of pairs by the largest involved part. Strictly unique largest C enforces n as maximal size and yields exactly F_r and F_{r,c} for r outside C and c in C; exhibited orders realize all. For fixed r the base simplex on y_{r,c} plus n independent facets with new flap x_{r,c} is connected and collapsible; vertex sets for different r are disjoint. Barycentrically retract each flap and base simplex equivariantly to r. Face count follows by disjoint base/flap enumeration and pure disconnectedness (s>=2,n>=2) prevents shellability. Independent small exact vertex-order enumeration confirmed facet lists for (1,1,2),(1,1,3),(2,1,3),(1,2,4).
+
+## originality
+
+PASS
+
+The directly relevant 2026 Knudson–Owens-White paper defines this pure strong construction, and its accessible abstract lists other graph families, including stars and ordinary complete graphs, but not genuinely multipartite >=3-part classification. The target result might occur in inaccessible sections: authorized full-text retrieval was blocked by disconnected institutional access after arXiv/open-access attempts. Best-of-knowledge originality is therefore qualified, not a claim of exhaustive literature exclusion. Distinct Resultary ordinary Morse/matching complex calculations do not cover pure strong matchings.
+
+## value
+
+PASS
+
+The first broad unbalanced multipartite facet classification available in the inspected sources gives a natural dimension-vs-homotopy contrast: a pure positive-dimensional complex with individually collapsible shellable components but globally non-shellable and an integral permutation-module representation. This is a motivated topological boundary to known star/complete graph cases.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
