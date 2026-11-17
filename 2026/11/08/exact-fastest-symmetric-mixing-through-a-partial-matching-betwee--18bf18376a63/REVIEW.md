@@ -1,11 +1,21 @@
-# Scientific review: partial-matching fastest symmetric mixing
+# Independent mathematical audit
 
-**Correctness — PASS.** For every integer \(m,k\) with \(2\le k\le m/2\), automorphism averaging reduces global optimization to an invariant kernel without assuming all optimizers are invariant. The odd class-constant two-by-two eigenvalue provides a universal lower bound. Holding-probability constraints and positive-semidefinite monotonicity reduce the bound to one strictly convex scalar function. The proposed radical minimizes that function. The full invariant-subspace eigenvalue list of an explicit feasible kernel reaches the bound, hence proves its global optimality. A standalone verifier replays finite exact parameter identities, constructed-matrix spectra and lower-bound grid witnesses. Finite sampling alone would not prove the theorem; the proof supplies every universal quantifier.
+## correctness
 
-**Originality — PASS on inspected evidence, with explicit residual risk.** The earliest selected primary reference is Boyd–Diaconis–Parrilo–Xiao, arXiv:0709.0955v1, which supplies symmetry reduction, not an explicit partial-matching optimum. Boyd–Diaconis–Xiao (2004) establishes convex SDP. Olesker-Taylor–Zanetti (2024), section 1.3.4, treats two cliques joined by the *full* matching and only mixing-order bounds, whereas the result concerns exactly \(2\le k\le m/2\) and provides the exact SLEM and optimal weights. Jafarizadeh (2025), section 6.3, treats single-bridge barbells via clique lifts, not multiple individually matched gateways. Allison–Shader (2011) is about overlapping unions of cliques; its full text remained inaccessible, so the comparison is restricted to its abstract and explicit subsequent descriptions. No inspected result implies the exact claimed formula. Independent publication priority is not certified and unindexed literature may contain equivalent statements.
+PASS
 
-**Value — PASS.** The matching between dense communities is a natural bottleneck model. Exact optimal SLEM and all constructive edge probabilities for every bridge fraction up to one-half are a complete, nonroutine optimization classification on an infinite two-parameter family. The optimal gap \((6-4\sqrt2)k/[m+(2-2\sqrt2)k]\) quantitatively identifies linear improvement per additional sparse bridge when \(k=o(m)\), while showing that gateway-to-gateway internal edges may optimally be assigned zero probability. The result goes beyond graph-symmetry reduction or a numerical SDP survey.
+For all integers m,k with 2<=k<=m/2, group averaging reduces global symmetric stochastic SLEM optimization on two disjoint K_m joined by a size-k matching to orbit parameters. The odd-between-cliques 2x2 symmetric block lower bounds SLEM; its upper eigenvalue decreases in matching weight, forcing boundary y=1-(m-k)x. The remaining f(x)=((m-2k)x+sqrt(4-4mx+(m²+4mk-4k²)x²))/2 is strictly convex, with unique minimizer x=sqrt2/[(1+sqrt2)m-2k]. Independently symbolically confirmed at x that radicand equals 2 and f(x) equals (m-4k+2sqrt2 k)/(m+2k-2sqrt2 k). Proposed complete kernel saturates gateway rows, sets gateway-gateway intra-clique edges to zero, and its explicit even/odd and local eigenblocks keep all remaining nonconstant eigenvalues inside +/-rho. Independent full symmetric eigenspectra for (m,k)=(4,2),(6,2),(6,3),(10,4),(20,10) agree with formula at numerical precision. No global uniqueness for arbitrary edge weights asserted.
 
-**Closest sources and limitations.** DOI 10.1137/S0036144503423264, arXiv:0709.0955v1, DOI 10.1080/03081087.2010.538690, DOI 10.1007/s00440-023-01257-x, arXiv:2501.02421. The 2011 full text could not be inspected; unindexed overlap is a risk. Scope excludes \(k>m/2\), nonsymmetric kernels, general stationary laws, and characterization of every optimizer.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected published result supplies exact partial (2<=k<=m/2) matching-joined disjoint-clique SLEM and optimal gateway weights. Prior complete-join, overlapping union, full-match, priced biclique or bridge-one cases change the graph or budget. Inaccessible highly plausible Allison–Shader full paper is explicitly treated as residual risk, not falsely declared non-covering.
+
+## value
+
+PASS
+
+Natural bottleneck network with precise number k of independently paired gateways. A closed-form sharp symmetric discrete-time mixing rate and counterintuitive optimal deletion of intra-gateway clique transitions, including all non-invariant feasible designs by convex averaging, provide useful exact benchmarks not mechanically implied by inspected general SDP literature.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
