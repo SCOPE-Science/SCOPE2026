@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness: PASS.** The finite domain is exactly all nonidentity subgroups of the 336-element full automorphism group of the Heawood graph. Enumeration from arbitrary adjoined generators is exhaustive by subgroup generation; 413 subgroups form 23 conjugacy classes. The fixed-orbit PL model follows from equality of barycentric coordinates on every vertex orbit. Every recorded elementary simplicial collapse removes a ridge in exactly one current facet. The remaining two-dimensional cases are classified by checked surface links, edge multiplicities, Euler characteristic, and precise subcomplex intersections; neither an Euler characteristic nor mod-two homology is substituted for a homotopy proof. The verifier checks all asserted class-weighted totals.
+
+**Originality: PASS relative to the evidence searched.** The closest published Heawood independence-complex results establish its ordinary six-sphere wedge, the 168-collineation rational third-homology representation, and minimal induced-subcomplex homology carriers. Their claims concern the whole complex, homology character, or induced vertex supports, not the simultaneous geometric fixed spaces of 412 arbitrary nonidentity subgroups. Barmak's foundational independence-complex paper and Tsukuda's incidence construction do not evaluate these subgroup-fixed spaces. An unindexed or differently termed equivalent fixed-locus table remains a risk.
+
+**Value: PASS.** This is a natural complete finite classification on the smallest thick rank-two spherical building's incidence graph. Noncyclic subgroup-fixed spaces and the mixed homotopy type \(S^1\vee S^2\) cannot be read off from the nonequivariant wedge of six three-spheres or the ordinary homology character. All six homotopy types have explicit complete subgroup frequencies, providing reproducible comparison data for equivariant topology of independence complexes.
+
+**Limits.** The result is not an infinite-family theorem; it does not determine the entire genuine equivariant homotopy type or normalizer representations. Exhaustive publication priority and independent mathematical review remain open.
+
+Self-review: passed. Independent audit: not yet performed.
