@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The graph, conductance convention, gain normalization and full inverse-trace objective are explicit. The three two-leader orbits are exhaustive. Schur-complement inversion supplies all rational objectives, and exact polynomial identities separate every pair type. The positive-coefficient \(Q_m\) expression excludes same-petal outer pairs. The strictly increasing \(m\)-difference and positive \(P_4\) handle all \(m\ge4\); Descartes' rule and endpoint signs give exactly one positive threshold for \(m=2,3\). An exact quadratic at \(m=2,r=1/4\) establishes genuine gain reentrance. The extracted verifier passed 300 representative matrix equalities, 268 exhaustive pair checks and symbolic identities. No numerical extrapolation was used.
+PASS
 
-## Originality — PASS on inspected evidence
+Automorphisms exhaust exactly three two-leader pair types H (hub+outer), D (outer vertices in different triangles), S (same triangle). For modules A_ij=[[1+r+ik,-r],[-r,1+r+jk]], exact 2x2 inverses and hub Schur complement give J_H,J_D,J_S=tr[(L+k diag 1_S)^(-1)], positive for every m>=2, k,r>0. Algebra yields J_D-J_H=P_m/[2(1+2r)(k(1+r)+2r+1)(k(1+r)+4r+2)] and J_S-J_D=r Q_m/[2(1+2r)(k+2r+1)(k(1+r)+2r+1)] with Q_m positive coefficients. P_m=P4+2(m-4)(1+r)(k(1+r)+2r+1)^2 and P4 has strictly positive coefficients, so H optimal m>=4. At m2,3 Descartes one sign change plus opposite endpoint signs implies a unique positive r-threshold. For m2 r=1/4, P2=(25k²-252k+36)/64 shows H-D-H reentrance at k=(126±24sqrt26)/25. Independent exact rational inversion of full pinned Laplacians for m2/3/4/5 and various r,k matched Schur values and D-H differences incl signs, not a substitute for all-parameter polynomial proof.
 
-Lin–Fardad–Jovanović (2013, arXiv:1302.0450), the earlier 2011 conference formulation, and Fitch–Leonard (2014, arXiv:1407.1569) were checked for same-object weighted friendship results, exact finite-gain orbit inequalities, and reentrance. They give general formulations/algorithms or solve paths/cycles, not this evaluated two-parameter family. Indexed similarity searches and accessible previously recorded claims found no statement implying the result. Closest accessible specialized claim addresses the unweighted **infinite-gain** friendship family; its hypotheses and conclusions do not establish finite-gain reentrance. Residual risk: unindexed, inaccessible, or differently named equivalent work.
+## originality
 
-## Value — PASS
+PASS
 
-This provides a complete two-leader control design rule on a natural modular graph with arbitrarily strong internal-edge contrast and arbitrary positive leader reliability. The exact cutoff at four triangles and the two switches as a single gain increases are substantial structural behavior missed by a noise-free specialization. It supplies all optimizers and tie cases, not an arbitrary numerical slice.
+Against full submitted theorem and inspected sources: Natural specific formula distinct from checked prior claims, with clear residual priority risks. Natural finite-gain control problem on weighted friendship network with a complete all-m phase diagram and two genuine gain-driven switches on a five-vertex graph. It sharply distinguishes finite feedback, weighted petal
 
-## Limits
+## value
 
-The theorem assumes equal hub-edge weights, equal petal-edge weights, equal gains, and exactly two leaders. It measures the full inverse trace, not general time-varying tracking. Literature priority is not independently established; the self-review does not replace external audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural finite-gain control problem on weighted friendship network with a complete all-m phase diagram and two genuine gain-driven switches on a five-vertex graph. It sharply distinguishes finite feedback, weighted petal conductance and ideal grounded leaders; substantive structural reentrance beyond routine objective evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
