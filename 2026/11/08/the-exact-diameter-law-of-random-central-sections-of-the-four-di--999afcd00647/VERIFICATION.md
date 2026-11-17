@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing the embedded research files. It uses Python 3 standard-library mathematics and pseudorandom sampling, with a fixed explicit seed.
+## correctness
 
-The verifier passes: (1) five independent angular-integral quadratures compared to the CDF formula; (2) 240 independent Plücker determinant and trace comparisons from Haar Gaussian frames; (3) eight direct direction-grid maximizations of the true bidisc section radius against the compressed-spectrum formula; and (4) 18,000 Haar-plane samples for the predicted \(\pi/4\) endpoint atom and five CDF values. The grid approximation tolerances are intentionally finite; none certifies an infinite geometric statement. The exact theorem follows from the written Grassmannian, polynomial and integration proofs.
+PASS
 
-The full motivating preprint HTML and two closely related published mathematical result proofs were read and compared by objects, hypotheses, and implications. Bibliographic equivalence under other terminology remains a residual risk. Independent audit has not been performed.
+The proof correctly reduces radial maximization to the spectral interval of the rank-two compression P_A|_L. For t=4/s^2>1/2 the event D<=s requires either lambda_- >=t or lambda_+<=1-t, disjoint equal-probability events. The SO(4) self-dual/anti-self-dual oriented-Grassmannian coordinates U=p12+p34 and V=p12-p34 are independent uniform[-1,1]; compressed signed eigenvalues are UV +/- sqrt((1-U^2)(1-V^2)). Same-sign angular variables convert the event into a+b<=alpha with Jacobian sin(a)sin(b)/4; elementary integration gives the stated CDF. The endpoint atom is P(U^2+V^2<=1)=pi/4, and expansion gives the lower quadratic tail. Independent finite difference derivative checks at five interior points and the exact endpoint normalization passed; these do not establish the Haar parametrization, which is proved separately.
+
+## originality
+
+PASS
+
+The October 18 published two-disk-product theorem gives the exact FULL-DIAMETER atom pi/4 in the equal-radius case, so that component is not novel. It explicitly excludes the smaller-diameter distribution. The present full continuous CDF/density, quadratic lower tail, and mass decomposition are not an implication of the older atom-only result; the inspected Guedon et al. paper gives general random diameter bounds and p-ellipsoid estimates, not the stated bidisc distribution. Best-of-knowledge original remainder survives, with old Clifford-torus/principal-angle calculations a historical risk.
+
+## value
+
+PASS
+
+A complete exact Haar probability law for a natural nonsmooth product body, including the mixed absolutely continuous and atomic structure, offers useful finite-dimensional benchmark data beyond the already known endpoint atom; the full law cannot be read from the atom probability alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

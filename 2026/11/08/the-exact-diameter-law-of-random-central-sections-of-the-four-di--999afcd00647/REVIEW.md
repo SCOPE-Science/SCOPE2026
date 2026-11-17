@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof fixes the unit-radius and diameter normalizations, reduces all section directions to Rayleigh quotients of a compressed orthogonal projector, and converts the event into one of two disjoint spectrum-placement events. The self-dual/anti-self-dual Grassmann decomposition proves that the two signed Plücker combinations are independent uniform variables. A characteristic-polynomial identity reduces the eigenvalue condition to an angular triangle and produces the exact distribution. The endpoint atom follows separately from the circular region in the square; differentiating gives the density. A standard-library verifier passed independent direct geometry and integral checks. Finite tests alone are not offered as proof.
+PASS
 
-## Originality — PASS (provisional priority)
+The proof correctly reduces radial maximization to the spectral interval of the rank-two compression P_A|_L. For t=4/s^2>1/2 the event D<=s requires either lambda_- >=t or lambda_+<=1-t, disjoint equal-probability events. The SO(4) self-dual/anti-self-dual oriented-Grassmannian coordinates U=p12+p34 and V=p12-p34 are independent uniform[-1,1]; compressed signed eigenvalues are UV +/- sqrt((1-U^2)(1-V^2)). Same-sign angular variables convert the event into a+b<=alpha with Jacobian sin(a)sin(b)/4; elementary integration gives the stated CDF. The endpoint atom is P(U^2+V^2<=1)=pi/4, and expansion gives the lower quadratic tail. Independent finite difference derivative checks at five interior points and the exact endpoint normalization passed; these do not establish the Haar parametrization, which is proved separately.
 
-The fully inspected Guedon–Litvak–Tatarko–Vritsiou 2026 article develops probability bounds and \(\ell_p\)-ellipsoid applications, not this exact bidisc CDF. The fully inspected published one-spike ellipsoid result reduces to one beta variable; the fully inspected octahedron law concerns a three-dimensional polytope and has a different, atom-free formula. Actual targeted research searches under bidisc, disk product, product section, random diameter, and endpoint-atom terminology yielded no covering theorem. The full-history claim search found an earlier cylinder law but not the bidisc law. These searches do not prove exhaustive bibliographic novelty; older implicit principal-angle calculations remain a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The product of two Euclidean disks is a canonical nonsmooth four-dimensional convex body, and a complete exact Haar-section diameter law is a natural benchmark in random section geometry. The result identifies a substantial positive probability of reaching the global maximum, unlike the atom-free smooth ellipsoid and octahedron benchmarks; it supplies the density and the lower-edge onset rather than a single isolated probability. This extends qualitative probability bounds with an exact, geometrically interpretable distribution, not a routine change of variables of a previously stated formula.
+The October 18 published two-disk-product theorem gives the exact FULL-DIAMETER atom pi/4 in the equal-radius case, so that component is not novel. It explicitly excludes the smaller-diameter distribution. The present full continuous CDF/density, quadratic lower tail, and mass decomposition are not an implication of the older atom-only result; the inspected Guedon et al. paper gives general random diameter bounds and p-ellipsoid estimates, not the stated bidisc distribution. Best-of-knowledge original remainder survives, with old Clifford-torus/principal-angle calculations a historical risk.
 
-## Scope and limits
+## value
 
-No classification is claimed for unequal radii, higher product dimensions, affine sections, or arbitrary convex bodies. The proof is mathematical and the code checks are supplementary. Historic equivalence under alternative terminology and independent auditing remain unresolved.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete exact Haar probability law for a natural nonsmooth product body, including the mixed absolutely continuous and atomic structure, offers useful finite-dimensional benchmark data beyond the already known endpoint atom; the full law cannot be read from the atom probability alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
