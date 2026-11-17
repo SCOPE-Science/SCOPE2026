@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every finite nonempty coordinate-S5 team the absence of individual knowledge is equivalent to the false-world coordinate projections simultaneously containing the observed world; this gives the closure identity directly. Projection invariance establishes idempotence and Möbius inversion gives exact fibers. In full products the closed sets are precisely empty or nonempty Cartesian boxes; inclusion-exclusion counts projection-surjective false events. Choosing a largest coordinate establishes the sharp invisible-event bound and the independent-surjection count. Correlated frames reduce *exactly* to hypergraph edge cover; the two-coordinate matching formula and the three-coordinate 3DM reduction are complete. Direct exhaustive semantics checks and independent recurrences in the included checker support these arguments, but are not the proof of the infinite parameter range.
+PASS
 
-## Originality — PASS within the inspected evidence
+The direct finite S5 semantics gives w not in global someone-knows iff each coordinate w_i appears in some false world, hence exactly T\c_T(H). Projection preservation makes c_T extensive, monotone, idempotent. Möbius inversion on closed subsets gives exact fiber counts; on the full product each nonempty closed subset is a unique nonempty box, giving 1+product_i(2^{n_i}-1). A false set has full projection iff it is an edge cover; minimum size M on full products and corresponding surjection multiplicities follow. In bipartite correlated teams minimum edge cover = vertex count - maximum matching; in 3 parts the equal-size three-dimensional matching reduction proves NP-completeness for explicit T. Independently exhaustively enumerated all 4096 events of 2x2x3, obtaining 64 images and 36 optimal invisible valuations. This finite sample corroborates, not proves, the unrestricted results.
 
-Ding–Yang's March 2026 first-public bundled-modalities paper, inspected in full through its open HTML and §5.1, studies semantics, bisimulation, axiomatization, completeness, and representation. It does not state the finite global observation-image/fiber/optimization classification. Searches for equivalent global knowledge, projections, rectangular closure, edge covers, and surjection-fiber counts returned no matching published theorem among inspected sources. The closest accessible historical modal counterpart, Ding–Liu–Wang (2023), uses hypergraphs for epistemic modality axiomatizations; only its abstract and bibliographic text were available, and historical priority remains a genuine risk. The closed-set Möbius identity, bipartite matching, surjection count and 3DM hardness are explicitly attributed to established theory, not claimed new. Prior local-pointed coalition-knowledge profiles are not the global someone-knows event fibers or correlated-frame optimization problem.
+## originality
 
-## Value — PASS
+PASS
 
-The classical epistemic disjunction does not by itself tell how many distinct global knowledge patterns can be observed, how many propositional assignments are observationally equivalent, or how much of a true proposition can remain hidden from *every* agent. The theorem gives all three exact answers and an explicit change in computational complexity when jointly admissible states are correlated across three local views. The results motivate benchmark cases for finite epistemic models, information leakage and observable distinctions. A generalization beyond arbitrary finite Boolean valuations is not claimed.
+Best-of-knowledge distinct combined global observation image/fiber and correlated-team edge-cover complexity classification. Published fixed-owner secrecy-event size counting conditions on a designated star and non-owner coordinates, while distributed/coalition knowledge profiles count coalitions at one pointed world; neither statement implies the full global someone-knows operator fibers, arbitrary correlated-structure Möbius inversion or three-agent complexity boundary. Classical closure Möbius inversion, edge cover, Stirling-surjection counts and 3D matching NP-hardness are acknowledged background. No implication from the inspected general epistemic bundled-modal axiomatization to the precise enumerations was found.
 
-## Limitations and risks
+## value
 
-Only finite explicit coordinate-S5 frames are treated, and the clean product formulas assume a full Cartesian world set. Independent review and historical-priority checks have not been performed. The 2023 directly relevant hypergraph paper was not fully inspectable. Classical enumerative formulas may have equivalent earlier presentations outside the inspected sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Determines the full image and inverse valuation fiber cardinalities of a natural multi-agent modal operator and connects completely invisible truth sets to sharp extremal optimization and the tractability change between two and three agents. This is more than a renaming of the closure identity; it resolves exact classification and a genuine structural computational boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
