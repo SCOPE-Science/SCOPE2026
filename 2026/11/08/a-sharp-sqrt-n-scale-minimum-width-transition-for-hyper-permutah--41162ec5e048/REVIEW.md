@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The result explicitly restricts normals to the intrinsic sum-zero hyperplane and uses the unweighted Minkowski-sum realization. The support-range decomposition proves both the finite minimum and the complete equality cases using strict Euclidean triangle inequality. The asymptotic proof treats fixed, macroscopic, and intermediate cut sizes separately; its exponential comparison resolves exact balance away from the threshold. The checker independently enumerates small uniform hypergraphs and tests the formulas. The proof, not numerical convergence, establishes the infinite assertions.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Agnarsson (2017, DOI 10.37236/6652) describes the exact uniform-hypergraph polytope and its flags, but the inspected full text contains no Euclidean-width statement. Benedetti–Bergeron–Machacek (arXiv:1712.08848) treats hypergraphic faces, and Pešović–Stojadinović (arXiv:2209.12053) studies combinatorial interpolations, not the width phase. Cardinal–Steiner (arXiv:2311.00779) addresses combinatorial shortest paths rather than continuous directional widths. The existing graph-zonotope cut method concerns the two-element-edge endpoint and does not directly give the noncentral k-uniform transition. A generic earlier permutohedron-width formula could imply the finite cut expression; the new asymptotic threshold and full off-critical equality classification remain the consequential comparison. No claim of guaranteed priority is made.
+PASS
 
-## Mathematical value — PASS
-Hyper-permutahedra are a named natural infinite family of simple generalized permutohedra, not an ad hoc numerical construction. The width is a standard intrinsic metric invariant and the proof gives exact minimizing normals in every finite dimension, plus a genuine asymptotic change from \(n\) singleton-cut lines to balanced-cut families of binomial size. The threshold constant \(2\) and eventual rigidity are not supplied merely by the existing face enumeration. The result can inform extremal geometry and metric conditioning of simplex-sum models.
+PASS: Minkowski support-range additivity counts mixed k-hyperedges across a centered cut as C(s)=binom(n,k)−binom(s,k)−binom(n−s,k). Every sorted zero-sum direction is a nonnegative linear combination of nested centered indicators, with exact support-range additivity and Euclidean triangle inequality, yielding global minimum over cuts and strict equality only for a single positive coordinate gap (all two-level normal ties included). For k_n/sqrt(n)→c>0, fixed-size cuts have normalized limit c sqrt(s), macroscopic cuts ≥2 with equality only balanced, and intermediate-size cuts diverge, proving min(c,2) and strict eventual singleton/balanced minimizing types off c=2. Independent n=3..8 hyperedge count/support evaluation corroborated finite formula.
 
-## Limitations and residual risk
-The finite formula does not classify cut-size minimizers into only two types at every \((n,k)\); no such unproved statement is made. The critical scaling \(c=2\) does not have an asserted eventual contact classification. Similar statements under permutahedral width or discrete isoperimetry terminology might predate this work; independent priority and mathematical validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge: The hyper-permutahedron and its combinatorics are known; the Euclidean mixed-hyperedge minimum-width structural theorem and k~sqrt(n) sharp phase do not follow from inspected polytope face enumeration or distinct hypersimplex width results.
+
+## value
+
+PASS
+
+PASS: Exact Euclidean minimum width of a natural all-k-uniform hypergraphic Minkowski sum, complete minimizer classification and sharp sqrt(n) scale threshold give a usable intrinsic geometric invariant not inferred from known face-enumeration tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
