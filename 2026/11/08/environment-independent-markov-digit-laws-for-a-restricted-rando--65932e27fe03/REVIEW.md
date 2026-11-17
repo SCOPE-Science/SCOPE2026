@@ -1,15 +1,21 @@
-# Scientific assessment: environment-independent restricted Lüroth digit process
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact branch maps and their whole-image partitions give a common three-by-three transition matrix under either map. The conditional-uniformity induction yields every finite joint law for each fixed environment, not merely average frequencies over random environments. Direct matrix computation proves the exact covariance and finite-length variance, and finite-state Markov limit theory yields the central limit theorem. An exact-rational standalone checker independently integrates short original-point cylinders for all finite switching choices up to four steps. Finite tests are corroborating evidence, not an infinite proof.
+## correctness
 
-## Originality — PASS within inspected evidence
-Kalle and Maggioni (arXiv:1805.11430, Section 7) determine the restricted maps, invariant density and one-digit frequency, but do not state the universal quenched Markov factor or exact covariance/CLT. Their later arXiv:2101.01982 Proposition 5.1 gives Markov partitions for rational cutoffs in a more general setting; that existence result does not identify the common transition matrix for both maps or the all-schedule statistical invariance. Ordinary Lüroth digit independence concerns a different full-branch process. The nearest published indexed correlation formulas concern unrelated coded systems. Novelty is assessed only relative to inspected primary materials and available research records; undiscovered equivalent work remains possible.
+PASS
 
-## Value — PASS
-The full stationary digit process, rather than only its marginal frequency, is a basic observable of number expansions. Its exact distribution is unexpectedly insensitive to even completely deterministic switching, and its nonzero oscillating correlation contrasts with the usual independent-digit Lüroth model. The result supplies complete finite-pattern probabilities, finite-sample variance and an explicit positive CLT variance, making it useful for statistical tests of digit sequences from the restricted maps.
+Both specified six-piece affine maps have the same image union for each source piece and identical absolute slopes, differing only orientations; conditional on reaching any of the three coarse target atoms, pushforward of uniform source mass is again uniform on that atom. This property inductively holds conditioned on any earlier itinerary and arbitrary fixed environment sequence. Thus Q=[[1/6,1/6,2/3],[0,0,1],[1/4,1/4,1/2]] is common and pi=(3/16,3/16,5/8) stationary under the prescribed piecewise constant initial density. Q has eigenvalues 1,0,-1/3; the covariance and variance formula follow by geometric summation, CLT by primitive finite-state Markov chain. Independent exact rational matrix checks verified stationarity and n=1..29 covariance and finite-sum formulas; full 3888 cylinder test supplied in source is finite corroboration, not proof.
 
-## Sources and limitations
-Primary full texts inspected: Kalle–Maggioni (2018), arXiv:1805.11430, Section 7 and general framework; Kalle–Maggioni (2021), arXiv:2101.01982, Sections 1, 4 and 5. Related generalized Lüroth and Markov-partition literature was compared at the statement level. Restricted to the specified cutoff, pair of maps, and initial density; it does not cover state-dependent switching. Publication-priority risk remains from unindexed or differently formulated studies.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Kalle–Maggioni is directly the same maps and invariant density; neither their reported Bernoulli-switch one-digit frequency nor general rational-cutoff Markov partition existence automatically entails every deterministic switching schedule has the *same* finite-dimensional law. The explicit shared conditional-uniformity matrix, full digit cylinder law and covariance/CLT are the candidate contributions. Arxiv OA full texts inaccessible, so priority is qualified.
+
+## value
+
+PASS
+
+For random restricted Lüroth digit processes, determining whether complete digit statistics depend on environment path is a basic dynamical question. Identical quenched finite-dimensional Markov laws plus exact correlations and CLT under *every* fixed switching schedule are a motivated structural rigidity beyond known one-digit marginal frequencies, not simply a parameter relabeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
