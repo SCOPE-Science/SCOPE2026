@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
-Run `python3 verify.py` using only the Python standard library. The expected marker is:
+# Independent mathematical audit
 
-`BOUNDED_PARTITION_SHATTERING_PASS 22 202014 16 140`
+## correctness
 
-The first count corresponds to parameter pairs with complete direct trace tests through six vertices, the second to examined query supports, the third to exact finite online-rank cases, and the fourth to independently enumerated component-size facet spectra. The checker builds concepts by independent enumeration of restricted-growth partition strings and tests shattering through distinct trace masks. A separate union-find check tests the forest criterion, a Cayley recurrence checks polynomial coefficients, and a recursive minimax checks finite Littlestone dimensions. Verification is exhaustive over the stated finite ranges only and is not a proof of generality. The general mathematical arguments are recorded in RESULT.md. Independent external audit: not performed.
+PASS
+
+For all n,r>=1, shattering pairwise same-block equality supports under partitions with blocks of size≤r is equivalent to a forest with all components size≤r: cycles force transitivity contradiction, and a larger positive component exceeds the cap; every forest labeling is realized by grouping positive-edge components. The labeled tree exponential formula yields the face polynomial. The union-find predictor merges at most n-ceil(n/r) times, matching a spanning-forest VC witness. A forest facet precisely forbids merging any two components, hence all component size pairs have sum>r. Sorting sizes gives minimum total t*(floor(r/2)+1) minus 1 if r even, and monotone increments fill every intermediate feasible n; resulting gap-free facet-size interval as stated, including r=1, r≥n. Independently checked n4 cap2, n5 cap3 traces, and all 120 n<=15,r<=8 maximal-component cardinality intervals.
+
+## originality
+
+PASS
+
+IMPORTANT PRIOR COVERAGE: the October/November earlier refinement-closed partition theorem already states and proves the forest cap criterion and exact VC=Ldim as its explicit cap specialization. They are not original here. The remaining all-r complete labeled-tree face enumerator and especially parity-sensitive, gap-free inclusion-maximal facet-size spectrum are not supplied by either earlier refinement-closed result or exact-q-block graphic-matroid theorem. O PASS best knowledge only for this surviving composite contribution.
+
+## value
+
+PASS
+
+The exact maximal-face spectrum is a natural simplicial-complex structural invariant not determined by the known rank/VC dimension. It classifies precisely how finite block-size caps destroy purity and yields linearly expanding gaps for fixed r≥3, and is not an arbitrary tiny parametric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

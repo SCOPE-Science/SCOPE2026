@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Cycles contradict transitivity, and oversized components contradict the cap. Every labeling of an admissible forest is realized by the positive-edge component partition. Cayley's labeled-tree enumeration proves the polynomial; an always-zero-until-positive-union predictor proves the sharp online bound. Adding a forest edge is admissible exactly when it joins two components whose sizes sum to at most the cap. Sorted component-size inequalities and monotone increments establish every size in the claimed facet interval, including parity and one-component boundary cases. The independent finite program corroborates critical equivalences but is not used to infer infinite truth.
+## correctness
 
-## Originality
-**PASS within the inspected sources.** Pasteris et al. (2018) cover pairwise clustering and related online mistake bounds; the online upper bound is therefore not presented alone as novel. Bényi et al. (2018) count restricted set partitions, whereas the present weighted labeled-forest formula counts shattered supports. Guingona et al. (2021) address other classes. Classical labeled-tree and forest enumerations and the unrestricted graphic-matroid boundary are acknowledged. Comparisons of the full query-support criteria, complete polynomial, and especially the all-parameter inclusion-maximal-face spectrum found no covering statement in the inspected material. An older bounded-size cluster-forest complex paper could affect priority; this is a real residual risk, not ruled out by search alone.
+PASS
 
-## Value
-**PASS.** The result identifies all possible query-support shattering patterns for a natural clustering concept family, explicitly counts the full complex, gives both learning dimensions, and explains why adding a finite cluster-size cap creates inclusion-maximal supports of inequivalent sizes, with a gap growing linearly at fixed cap greater than two. This is a structural complex theorem rather than a standalone small computation.
+For all n,r>=1, shattering pairwise same-block equality supports under partitions with blocks of size≤r is equivalent to a forest with all components size≤r: cycles force transitivity contradiction, and a larger positive component exceeds the cap; every forest labeling is realized by grouping positive-edge components. The labeled tree exponential formula yields the face polynomial. The union-find predictor merges at most n-ceil(n/r) times, matching a spanning-forest VC witness. A forest facet precisely forbids merging any two components, hence all component size pairs have sum>r. Sorting sizes gives minimum total t*(floor(r/2)+1) minus 1 if r even, and monotone increments fill every intermediate feasible n; resulting gap-free facet-size interval as stated, including r=1, r≥n. Independently checked n4 cap2, n5 cap3 traces, and all 120 n<=15,r<=8 maximal-component cardinality intervals.
 
-## Limitations
-The partition blocks have an upper bound, not a prescribed uniform size. The finer number of individual maximal supports per cardinality is not claimed. This is self-review and not an external independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+IMPORTANT PRIOR COVERAGE: the October/November earlier refinement-closed partition theorem already states and proves the forest cap criterion and exact VC=Ldim as its explicit cap specialization. They are not original here. The remaining all-r complete labeled-tree face enumerator and especially parity-sensitive, gap-free inclusion-maximal facet-size spectrum are not supplied by either earlier refinement-closed result or exact-q-block graphic-matroid theorem. O PASS best knowledge only for this surviving composite contribution.
+
+## value
+
+PASS
+
+The exact maximal-face spectrum is a natural simplicial-complex structural invariant not determined by the known rank/VC dimension. It classifies precisely how finite block-size caps destroy purity and yields linearly expanding gaps for fixed r≥3, and is not an arbitrary tiny parametric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
