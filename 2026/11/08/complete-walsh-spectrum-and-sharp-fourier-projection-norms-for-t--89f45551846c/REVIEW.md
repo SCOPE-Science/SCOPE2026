@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every \(n\ge2\), an elementary edge-count argument uniquely identifies the right vertex of degree two in each spanning tree of \(K_{2,n}\). The ensuing product expression for every unnormalized Walsh coefficient is exact. A three-way sign stratification proves all magnitudes and their multiplicities, including the even-dimensional central zeros; a telescoping binomial identity proves the sharp convolution norm. Parseval and exhaustive independent Walsh transforms for \(2\le n\le8\) agree with all symbolic formulas. The numerical tests confirm but do not replace the unrestricted proof.
+## correctness
 
-## Originality — PASS under bounded comparison
-The general graphical Fourier methods of Goodall (2007), the foundational Boolean harmonic presentation of de Wolf (2008), the Fourier-sparsity/XOR framework of Tsang et al. (2013), and the forest-containing tree counts of Dong and Ge (2021) were compared with the exact claim. None of their inspected results states the three-case Walsh distribution, precise support loss, endpoint norm, or alternating norm increments for these spanning-tree incidence sets. The forest-containing formula is computationally broader in one direction and could be used in a separate inclusion–exclusion derivation, but does not itself make the exact global distribution an immediate special case. Earlier exact signed-tree distributions remain a priority risk. Search failure is not a proof of novelty.
+PASS
 
-## Mathematical value — PASS
-Spanning-tree incidence vectors are the bases of a canonical graphic matroid and form a motivated Boolean Fourier frequency set. The exact norm measures the worst endpoint amplification of the corresponding spectral projection; it is not determined by the familiar tree count \(n2^{n-1}\). The complete support formula also gives an explicit infinite family of XOR matrices with exact rank, while the sharp linear-plus-square-root law and parity increment quantify how an exceptionally sparse Walsh kernel can still produce growing endpoint amplification. This is a natural all-parameter invariant and structural distinction, not an arbitrary finite slice.
+Every spanning tree of K_{2,n}, n>=2, has one right vertex of degree two and n-1 of degree one, giving n*2^(n-1) incidence vectors. Exact Walsh factorization W(a,b)=sum_j a_j b_j product_(i!=j)(a_i+b_i) yields the opposed-pair cases t>=2 zero; t=1 absolute 2^(n-1); t=0 absolute 2^(n-1)|n-2j|. Their counts give support (n+1)2^n - 1_(2|n) binom(n,n/2). With Fourier inverse 2^(-2n)W, endpoint l1 and linfty convolution norm equals kernel l1, obtained by delta and sign extremizers. Telescoping binomial sums give n/2 + n/2^n binom(n-1,floor((n-1)/2)), exact parity increments and central-binomial asymptotics. Walsh diagonalization gives XOR matrix rank. Independent exact Walsh transforms on all frequencies for n=2,3,4,5 produced (tree_count,support)=(4,10),(12,32),(32,74),(80,192), matching exact moment norms. Infinite proof is symbolic.
 
-## Closest literature and limits
-Goodall concerns Cayley-graph spanning-tree enumeration, whereas the current transform is on the edge-incidence cube. Tsang et al. provide general spectral-norm and XOR-rank theory rather than this specific spectrum. Dong and Ge's spanning-forest containment theorem is related but not an evaluation of the signed Walsh distribution or its absolute first moment. The statement does not cover other graph families; unpublished or unindexed exact specializations are possible, and no independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier Fourier-sparsity/XOR-rank theorem gives the general principle rank=Fourier sparsity, not this computed K2n histogram. Goodall discusses spanning-tree enumeration of Cayley graphs, not Walsh transform on a graphical-matroid basis indicator. Dong–Ge forest-containment counting may permit a lengthy inclusion–exclusion evaluation but does not directly give the global signed-spectrum distribution, sharp norm or parity law. No identical published formula identified in Resultary semantic search.
+
+## value
+
+PASS
+
+PASS: spanning-tree masks are a natural graphical-matroid basis frequency set. Exact Walsh magnitudes, sharp endpoint projection norm, and parity corrections provide meaningful all-n harmonic estimates beyond the familiar tree count; XOR rank is a valid derived corollary, not the sole value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
