@@ -1,10 +1,21 @@
-## Correctness — PASS
-The proof constructs the two Gaussian absolute-distance laws under reflection and independent coupling, integrates the covariance of cumulative indicators and sums it over independent pairs. It proves a global upper bound from the strictly decreasing kernel, identifies its sharp constant by coincident positions, and establishes the shifted-grid formulas and uniqueness using a combinatorial count of coincident pairs. The independent numerical integration and exhaustive small-grid tests in `verify.py` passed. The numerical checks are not substituted for the all-parameter proof.
+# Independent mathematical audit
 
-## Originality — PASS (qualified)
-The leading source proves fixed-matching optimal sign selection and gives a distance-minimization motivation for rank matching; the present result optimizes over matchings and proves that rank matching can lose a nonvanishing and asymptotically maximal fraction of attainable variance savings. Nüsken–Pavliotis treats general coupling optimization but not this one-stage cumulative Gaussian assignment kernel; Delon–Salomon–Sobolevski assumes concavity unlike the kernel's curvature change. Searches of indexed mathematical records and the accessible historical ledger yielded no matching or dominating theorem. An unindexed special case of a general assignment theorem remains a priority risk.
+## correctness
 
-## Value — PASS
-The sharp limit \((1-1/N)(\sqrt2-1)\) and the \(41.42\%\) universal savings ceiling expose a quantitative, non-negligible failure of a cheap matching choice made by a recent particle method. The cyclic construction is explicit and the uniqueness threshold is algorithmically testable. It does not establish typical-state benefits or nonlinear full-trajectory variance gains.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. For independent reflected one-stage Gaussian particle pairs, the integrated indicator covariance identity gives each match a gain m² hσ(d)/4 where hσ(d)=g_{2σ}(d)-g_{sqrt(2)σ}(d). This even positive strictly decreasing kernel reaches maximum (2-sqrt(2))σ sqrt(2/pi), and the independent baseline I=Nm²σ/(2sqrt(pi)), giving the sharp fraction sqrt(2)-1. For interleaved shifted lattices a_i=(i-1)L, b_i=iL, rank has N pairs at distance L, while the cyclic bijection has N−1 zero-distance pairs and one distance NL; any other bijection has at most N−2 coincidences. Thus if hσ(L)<hσ(0)/2 the cyclic bijection is uniquely maximizing, and at large L the rank normalized gain vanishes while the cyclic gain tends to (1−1/N)(sqrt(2)−1). Direct differentiation gives the curvature inflection 2σ sqrt(log 2).
+
+## originality
+
+PASS
+
+PASS, carefully narrowed. The Oct 25 published Resultary “Sharp horizon-dependent rank reversal for antithetic Gaussian particle matching” ALREADY derives the same Gaussian reward kernel W_r, its curvature threshold (r=1 gives 2σ sqrt(log 2)), and examples where rank matching is not variance-optimal, with exponentially greater RELATIVE gain but both absolute gains tending to zero for completely separated point clouds. Abkin–Daripa also already derives pairwise gain and minimizes total distance. Those findings are not original here. The distinct surviving claim is the interleaved shifted-lattice construction where N−1 exact positional coincidences yield a uniquely optimal cyclic matching and a POSITIVE asymptotic fraction of original integrated variance, up to 41.42% as N grows. This absolute-gain statement is not a corollary of the earlier separated-block bound. Residual generic assignment-theorem risk recorded.
+
+## value
+
+PASS
+
+PASS, for the new absolute-variance gap only. Prior rank-reversal examples have huge relative gains while absolute gains both disappear; this explicit common-point lattice instead gives a fixed, sharp, nonvanishing fraction of the ORIGINAL integrated-variance budget. That directly answers the natural quantitative practical limit of an otherwise plausible rank-matching heuristic, rather than restating generic rank failure or kernel calculus.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
