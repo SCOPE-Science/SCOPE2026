@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Every closed factor is proved to have at most two markers: a border with two markers would repeat a unique gap; a border with one marker would necessarily occur at every intervening marker; a zero-only border would repeat inside an increasing internal gap. The remaining zero-, one-, and two-marker classes are exhaustive. The two-marker complete-return criterion is exactly that the trailing zero context does not exceed the internal gap. The disjoint class counts yield the claimed formula, including the \(k=1\) boundary. A direct independently implemented factor-and-border enumerator confirmed \(4095\) finite parameter cases, with \(797251\) closed factors counted in total.
+## correctness
 
-**Originality: PASS, qualified.** Badkobeh–Fici–Lipták (arXiv:1305.6395) treat general extremal numbers and CR-poor words; Parshina–Zamboni (arXiv:1810.05472) provide per-length formulas for Arnoux–Rauzy words; Parshina–Postic (arXiv:2005.06254) characterize aperiodicity via open/closed complexity; Parshina–Puzynina (arXiv:2111.00863) establish extremal quadratic asymptotics and closed-rich classes. The inspected claims concern broader global bounds or structurally different recurrent classes and do not imply the present exact all-parameter classification. An unindexed result or overlooked equivalence remains possible.
+PASS
 
-**Value: PASS.** Closed factors encode complete first returns, an established invariant in word combinatorics. Rather than computing a small finite example, the result enumerates every closed factor for arbitrary length and arbitrary increasing gap parameters, revealing exactly which boundary zero contexts support a complete return. Its corollaries give the explicit intermediate exponent \(3/2\), a continuous family of other exponents, and positive quadratic closed-factor density. These are meaningful growth regimes below the unrestricted extremal bound, not merely a recomputation of a known table.
+Strictly increasing complete zero gaps g_j provide a unique full intermarker gap to every substring containing >=2 ones. Hence no closed factor with >=3 ones: a repeated border with >=2 ones is impossible, a border with one one also occurs at an intermediate one, and an all-zero border recurs internally in a longer gap. Unary zero factors are 0^r, r<=g_k; one-marker factors are exactly 0^a1 0^a with 0<=a<=g_{k-1}. Two-marker factors centered on g_j are closed precisely when the trailing zero context b<=g_j, with a<=g_{j-1}, and at the last pair b=0. These disjoint four classes yield g_k+2(g_{k-1}+1)+sum_{j=1}^{k-1}(g_{j-1}+1)(g_j+1), including k=1. Growth analysis gives ramp cubic k and n^(3/2), polynomial-gap exponents and positive-density geometric cases. A separate brute enumeration checked 98 strict gap vectors; universal proof is the gap-uniqueness/return classification.
 
-**Scientific limitations.** No claim for repeated or unordered gaps, other alphabets, or arbitrary-length maximum closed-factor problems. The proof is mathematical and self-contained; the reproduced computational cases are supplementary and not exhaustive over unbounded parameters. Bibliographic uncertainty is acknowledged.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge the four-class closed-factor language and multivariate count for arbitrary strictly increasing gaps are not covered by closed-rich global bounds, recurrence-based word classes or the prior two-marker special family. The known k=1 exact count is acknowledged as a boundary case, not asserted novel alone.
+
+## value
+
+PASS
+
+PASS: The family has a naturally increasing sequence of intermarker distances. The complete multivariate factor-language classification exposes which returns are possible and makes precise a continuum of growth exponents and a positive quadratic-density limit, beyond general closed-rich upper bounds or finite enumerations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

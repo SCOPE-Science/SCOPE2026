@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-11-14",
+  "audited_at_utc": "2026-11-14T21:43:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Strictly increasing complete zero gaps g_j provide a unique full intermarker gap to every substring containing >=2 ones. Hence no closed factor with >=3 ones: a repeated border with >=2 ones is impossible, a border with one one also occurs at an intermediate one, and an all-zero border recurs internally in a longer gap. Unary zero factors are 0^r, r<=g_k; one-marker factors are exactly 0^a1 0^a with 0<=a<=g_{k-1}. Two-marker factors centered on g_j are closed precisely when the trailing zero context b<=g_j, with a<=g_{j-1}, and at the last pair b=0. These disjoint four classes yield g_k+2(g_{k-1}+1)+sum_{j=1}^{k-1}(g_{j-1}+1)(g_j+1), including k=1. Growth analysis gives ramp cubic k and n^(3/2), polynomial-gap exponents and positive-density geometric cases. A separate brute enumeration checked 98 strict gap vectors; universal proof is the gap-uniqueness/return classification.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Parshina–Puzynina global upper n²/6 does not yield exact vector-dependent counts.",
+          "Parshina–Zamboni Arnoux–Rauzy class is recurrent and does not subsume arbitrary increasing-gap marker words."
+        ],
+        "reasoning": "Stronger general global max results do not give four-class exact factor language; k=1 is covered by old two-marker results but full k>=2 unbounded vector family is not.",
+        "searches": [
+          "Resultary semantic query: closed factor count infinite or finite binary word strictly increasing gaps between ones",
+          "arxiv:2111.00863",
+          "arxiv:1810.05472"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1305.6395",
+        "https://arxiv.org/pdf/2111.00863",
+        "https://arxiv.org/abs/1810.05472",
+        "https://oeis.org/A226452",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-closed-factor-counts-for-increasing-gap-binary-words--134b7695e707/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 25 in Badkobeh–Fici–Lipták gives existence of quadratic examples, not a classification of increasing-gap words.",
+          "The new family produces growth exponent 3/2, a continuum up to 2, and geometric quadratic density below the known unrestricted upper bound."
+        ],
+        "reasoning": "Some qualitative growth examples follow known lower-bound constructions, but the exact four-class language and all-gap count are not implied by those claims. k=1 follows a known two-marker boundary and is not an independent priority assertion.",
+        "searches": [
+          "Resultary semantic query: closed factor count infinite or finite binary word strictly increasing gaps between ones",
+          "arxiv:1305.6395",
+          "arxiv:2111.00863"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complete first-return factors and borders are equivalent definitions of closed factors.",
+          "Arnoux–Rauzy closed complexity concerns uniformly recurrent words, unlike unbounded increasing gaps."
+        ],
+        "reasoning": "Alternative return-word terminology yields the same invariant, but no inspected theorem supplies the full four-language classification for every increasing gap vector.",
+        "searches": [
+          "Resultary semantic query: closed factor count infinite or finite binary word strictly increasing gaps between ones",
+          "arxiv:1305.6395"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Global counts of all closed binary words at each length are different from distinct closed factors of a fixed increasing-gap word.",
+          "Formula allows arbitrary k and gaps, yielding a nontrivial explicit polynomial expression in neighboring gap lengths."
+        ],
+        "reasoning": "No all-vector database or table found; the submitted finite verifier is not infinite evidence.",
+        "searches": [
+          "Resultary semantic query: closed factor count infinite or finite binary word strictly increasing gaps between ones",
+          "OEIS A226452"
+        ]
+      },
+      "rationale": "Best-of-knowledge the four-class closed-factor language and multivariate count for arbitrary strictly increasing gaps are not covered by closed-rich global bounds, recurrence-based word classes or the prior two-marker special family. The known k=1 exact count is acknowledged as a boundary case, not asserted novel alone.",
+      "residual_risks": [
+        "Parshina–Zamboni arXiv:1810.05472 full text was inaccessible; the abstract concerns a different recurrent class and inaccessible literature alone is not automatic failure.",
+        "Priority could be affected by unindexed sparse-marker complete-return enumerations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND lower bound, not increasing-gap exact classification",
+          "evidence": "Theorem 25 concerns existence and extremal bounds, not arbitrary g1<...<gk. ",
+          "identifier_or_url": "https://arxiv.org/pdf/1305.6395",
+          "material_read": "Primary PDF relevant definitions and Section 4–5, Theorem 25 p8",
+          "method": "arXiv PDF text and screenshot",
+          "title": "On the Number of Closed Factors in a Word",
+          "trigger": "Foundational closed-factor enumeration and quadratic constructions"
+        },
+        {
+          "assessment": "Global asymptotic, not four-class gap-dependent formula",
+          "evidence": "n²/6 unrestricted maximal is not the family-specific count.",
+          "identifier_or_url": "https://arxiv.org/pdf/2111.00863",
+          "material_read": "Primary arXiv PDF main results and Example 1 p3",
+          "method": "arXiv PDF text and screenshot",
+          "title": "Finite and infinite closed-rich words",
+          "trigger": "Stronger unrestricted closed-factor asymptotics"
+        },
+        {
+          "assessment": "INACCESSIBLE full text; natural objects are recurrent unlike finite increasing gaps",
+          "evidence": "Arnoux–Rauzy words have recurrent factor structure, so not a direct parameter match; inaccessible details are a residual risk.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.05472",
+          "material_read": "Bibliographic title/abstract only; full paper unavailable",
+          "method": "Lawful arXiv access attempts failed for PDF",
+          "title": "Open and closed factors of Arnoux–Rauzy words",
+          "trigger": "Paper with exact closed complexity for a different word class"
+        },
+        {
+          "assessment": "k=1 boundary covered; no broad all-k implication from a two-one theorem",
+          "evidence": "Theorem counts words with exactly two marked ones, while general W has k+1 marker ones.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-closed-factor-complexity-with-exactly-two-marked-positions--2ab04efc05f9",
+          "material_read": "Published summary and formula in Resultary search, not full older source",
+          "method": "Resultary semantic hit",
+          "title": "Sharp closed-factor complexity with exactly two marked positions",
+          "trigger": "Potential exact special case of increasing gaps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The family has a naturally increasing sequence of intermarker distances. The complete multivariate factor-language classification exposes which returns are possible and makes precise a continuum of growth exponents and a positive quadratic-density limit, beyond general closed-rich upper bounds or finite enumerations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1305.6395",
+    "https://arxiv.org/pdf/2111.00863",
+    "https://arxiv.org/abs/1810.05472",
+    "https://oeis.org/A226452",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/exact-closed-factor-counts-for-increasing-gap-binary-words--134b7695e707/RESULT.md"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every finite 1 0^g1 1 ... 0^gk 1 with strictly increasing positive gaps, classifies all distinct nonempty closed factors into four classes and gives their exact count and varied asymptotic growth regimes.",
+  "limitations": [
+    "All 1..5 record Git trees were independently reconstructed from every pinned source blob SHA and matched the assignment source-tree SHA.",
+    "No GitHub writes or public deployment occurred; independent scientific status is a private review, not a formally verified proof or publication.",
+    "The complete scientific interpretation is restricted to the exact hypotheses stated in this record."
+  ],
+  "residual_risks": [
+    "Parshina–Zamboni arXiv:1810.05472 full text was inaccessible; the abstract concerns a different recurrent class and inaccessible literature alone is not automatic failure.",
+    "Priority could be affected by unindexed sparse-marker complete-return enumerations."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "BACKGROUND lower bound, not increasing-gap exact classification",
+      "evidence": "Theorem 25 concerns existence and extremal bounds, not arbitrary g1<...<gk. ",
+      "identifier_or_url": "https://arxiv.org/pdf/1305.6395",
+      "material_read": "Primary PDF relevant definitions and Section 4–5, Theorem 25 p8",
+      "method": "arXiv PDF text and screenshot",
+      "title": "On the Number of Closed Factors in a Word",
+      "trigger": "Foundational closed-factor enumeration and quadratic constructions"
+    },
+    {
+      "assessment": "Global asymptotic, not four-class gap-dependent formula",
+      "evidence": "n²/6 unrestricted maximal is not the family-specific count.",
+      "identifier_or_url": "https://arxiv.org/pdf/2111.00863",
+      "material_read": "Primary arXiv PDF main results and Example 1 p3",
+      "method": "arXiv PDF text and screenshot",
+      "title": "Finite and infinite closed-rich words",
+      "trigger": "Stronger unrestricted closed-factor asymptotics"
+    },
+    {
+      "assessment": "INACCESSIBLE full text; natural objects are recurrent unlike finite increasing gaps",
+      "evidence": "Arnoux–Rauzy words have recurrent factor structure, so not a direct parameter match; inaccessible details are a residual risk.",
+      "identifier_or_url": "https://arxiv.org/abs/1810.05472",
+      "material_read": "Bibliographic title/abstract only; full paper unavailable",
+      "method": "Lawful arXiv access attempts failed for PDF",
+      "title": "Open and closed factors of Arnoux–Rauzy words",
+      "trigger": "Paper with exact closed complexity for a different word class"
+    },
+    {
+      "assessment": "k=1 boundary covered; no broad all-k implication from a two-one theorem",
+      "evidence": "Theorem counts words with exactly two marked ones, while general W has k+1 marker ones.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/25/SCOPE-sharp-closed-factor-complexity-with-exactly-two-marked-positions--2ab04efc05f9",
+      "material_read": "Published summary and formula in Resultary search, not full older source",
+      "method": "Resultary semantic hit",
+      "title": "Sharp closed-factor complexity with exactly two marked positions",
+      "trigger": "Potential exact special case of increasing gaps"
+    }
+  ]
+}
