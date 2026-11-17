@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification of the quadratic-shell Fourier norm
+# Independent mathematical audit
 
-The main proof in `RESULT.md` applies to every odd prime power; the following computation tests finite instances only. Run `python checker.py` after installing dependencies in `requirements.txt`.
+## correctness
 
-The checker builds exact finite-field arithmetic as polynomial residue arithmetic over the prime field. For each field order \(q\) it selects a nonsquare parameter and tests two nonzero quadratic radii, giving \(\varepsilon=-1\) and \(\varepsilon=+1\). It enumerates the indicator of the three-dimensional quadratic shell, computes its full additive Fourier transform with multidimensional prime-field FFTs, and compares **every** Fourier coefficient with the stated Salié/Gauss formula after an explicit trace-dual coordinate change. It also checks the exact cardinality, four frequency-sector counts (origin, isotropic, square, nonsquare), Parseval's identity, and the sharp absolute Fourier sum.
+PASS
 
-Fields checked: \(q=3,5,7,11,9,25,27\). Both discriminant classes pass in every field; the maximum pointwise coefficient discrepancy is below \(6\times10^{-14}\) in double precision.
+Finite-field Gauss summation gives |S_r|=q²+εq and isotropic dual-level count q². Fourier inversion in b proves the exact Salié identity Σ_{t≠0}η(t)ψ(at+b/t)=η(a)GΣ_{v²=4ab}ψ(v). Completing quadratic squares yields F_r(ξ≠0)=qεΣ_{v²=rQ*(ξ)}ψ(v). For nonsquare level the sum vanishes; for square level it is a pair of cosines, never zero in odd characteristic. Multiplicities and the trace fiber sum give ||P||_{1→1}=||P||_{∞→∞}=(q+ε)C_p/p+(1−ε)/q−(1−ε)/q²; point masses and sign-alignment attain the two endpoint operator norms. Traceless Hermitian 2x2 idempotents are the ε=−1 nonzero shell, and the extra scalar axis repeats each kernel coefficient q times. Independent complete direct DFT enumeration at q=3,5,7 over prime fields for both ε sectors agreed to floating tolerance with exact shell and Fourier-zero counts, including q=3 values 16/9 and 8/3; no inference from finite data to all q.
 
-For \(q=3\), the two exact norms are \(16/9\) and \(8/3\). The corresponding numerical norms are \(1.777777777778\) and \(2.666666666667\). For \(q=9\), they are \(5.530864197531\) and \(6.666666666667\), and for \(q=25\) they are \(15.609926291999\) and \(16.827553482999\). The implemented checks also cover prime-field orders \(5,7,11\) and a cubic extension of characteristic three.
+## originality
 
-Checker terminus: `TERNARY_QUADRATIC_SHELL_ENDPOINT_PASS`.
+PASS
 
-**Limits:** FFT comparison is numerical, although field arithmetic, shell membership and multiplicities are exact. These tests do not prove the result at untested field orders and do not establish historical priority. The full mathematical proof is the independent algebraic argument in `RESULT.md`; an external independent audit has not been performed.
+Best of knowledge: Gauss/Salié transforms and finite-field extension estimates are standard, but the complete sharp endpoint absolute-Fourier norm for every nondegenerate three-variable nonzero shell, its exact two-class dependence on characteristic, and the Hermitian projector specialization are not implied by the inspected extension estimates. Other published finite-ring/support and Veronese records use distinct frequency sets.
+
+## value
+
+PASS
+
+The ℓ1 norm of a natural finite-field quadratic-shell Fourier idempotent and its Hermitian orbit specialization are exact intrinsic harmonic-analysis invariants; all odd prime powers, exact zero support, and both sharp endpoint operator norms provide useful data for finite harmonic/spectral analysis rather than a textbook exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
