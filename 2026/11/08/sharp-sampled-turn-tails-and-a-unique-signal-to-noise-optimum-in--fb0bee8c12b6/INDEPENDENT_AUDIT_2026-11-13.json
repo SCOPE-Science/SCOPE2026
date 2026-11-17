@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T02:07:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary 2D OU covariance solves MΣ+ΣM+2D=0 and detΣ=(4TxTy+u²(Tx−Ty)²)/[4(1−u²)]. Small-lag high-angle events localize at |Z|=O(√h), where chord-angle circular-segment area yields symmetric signed tail coefficient [S/(2π√detΣ)]H(α) with H(α)=(π−α+sinα cosα)/(2sin²α). H~π/(2α²) gives p<2 Gaussian-linearized h^(p/2) moments, critical variance S h log(1/h)/(2√detΣ), and p>2 integral moments. Stationary current gives signed mean h uΔ/(2√detΣ); optimizing its squared mean over leading variance reduces to a quadratic in y=u² with one root y∈(1/2,2/3). Checked positivity Tx,Ty>0, |u|<1, fixed α∈(0,π), fixed p, and Δ=0 exception. Source checker geometry, symbolic, Gaussian diagnostics inspected; simulations do not prove rare-event limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general dimensional-cutoff theorem concerns sampled unbounded angular-speed exceedance and fourth-tail exponents, not fixed principal angles.",
+          "Isotropic Gaussian winding results concern unwrapped windings rather than anisotropic nonequilibrium single-lag turns."
+        ],
+        "reasoning": "No prior broad continuous-angle distribution theorem was found which implies the profile and model-dependent optimizer.",
+        "searches": [
+          "Resultary: sampled angular speed dimensional cutoff stationary Gaussian OU",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-dimensional-cutoff-for-sampled-angular-speed-fluctuations-in-gau--0b22b8807106",
+          "https://arxiv.org/abs/0904.0582"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2307.05248",
+        "https://arxiv.org/abs/0904.0582",
+        "https://arxiv.org/abs/1007.4648",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-dimensional-cutoff-for-sampled-angular-speed-fluctuations-in-gau--0b22b8807106",
+        "Git blob RESULT c1121bf0abf6a7a300169f19669070b36f08266c; checker 692c042a410da83d533aec089bf9335579a7ea25"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Viot et al. already establish a |W|^(−3) tail for formal angular speed and the known mean rotation; those pieces are explicitly not credited as novel.",
+          "The finite principal-turn signed macroscopic probabilities are determined by a chord geometry that is absent from those results, and the unique coupling optimum concerns their ratio with the critical logarithmic variance."
+        ],
+        "reasoning": "Known mean and speed-tail marginal behavior alone do not force the explicit finite angle large-turn law or its all-parameter SNR optimum.",
+        "searches": [
+          "https://arxiv.org/abs/2307.05248",
+          "https://arxiv.org/abs/0904.0582",
+          "https://arxiv.org/abs/1007.4648"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical angular-velocity observable divides a cross product by h|Z|² and has unbounded speed tails; the present principal bounded turn angle is an inequivalent nonlinear observable at finite sampling."
+        ],
+        "reasoning": "The stationary angular drift is inherited from earlier papers; the finite principal-turn tail function and SNR optimum need extra chord geometry.",
+        "searches": [
+          "Resultary: Brownian gyrator principal turn sampled finite time Gaussian angular phase",
+          "https://arxiv.org/abs/2307.05248"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The primary paper has formal velocity tails and mean rotation but no table of all fixed principal-turn exceedance coefficients."
+        ],
+        "reasoning": "A finite simulation table would not imply this continuum H(α) profile and all moment exponents.",
+        "searches": [
+          "Resultary: principal turn Brownian gyrator finite sample h log h variance exact",
+          "Brownian gyrator angle distribution tabulated"
+        ]
+      },
+      "rationale": "A precise, physically motivated finite observable resolves divergent angular-speed moments and gives a sharp anisotropic coupling optimum.",
+      "residual_risks": [
+        "Other improper-complex-Gaussian phase-difference literature could encode equivalent tail functions.",
+        "Single-lag principal turn does not establish independence or long-time estimation efficiency.",
+        "The fixed-angle formula is nonuniform as α→0 and as |u|→1."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE not fixed-principal-angle tail profile",
+          "evidence": "Mean rotation and formal angular-speed tails are prior; fixed finite-angle probability asymptotics differ.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.05248",
+          "material_read": "Primary PDF discussion of angular velocity density, |w|^−3 tails and mean gyration, including finite-observed-angle caveat",
+          "method": "Full relevant primary PDF sections inspected",
+          "title": "Destructive effect of fluctuations on the performance of a Brownian gyrator",
+          "trigger": "Same two-temperature gyrator, angular current and speed tails"
+        },
+        {
+          "assessment": "NOT_COVERING anisotropic nonequilibrium principal turn at fixed lag",
+          "evidence": "Unwrapped winding of rotationally invariant Gaussian processes.",
+          "identifier_or_url": "https://arxiv.org/abs/0904.0582",
+          "material_read": "Abstract and pertinent isotropic process setup",
+          "method": "Relevant OA preprint passages",
+          "title": "Winding of planar gaussian processes",
+          "trigger": "Potential dominating Gaussian winding theory"
+        },
+        {
+          "assessment": "NOT_COVERING finite principal-turn law",
+          "evidence": "Observable divides by lag; classifies unbounded angular speed not fixed angle.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-dimensional-cutoff-for-sampled-angular-speed-fluctuations-in-gau--0b22b8807106",
+          "material_read": "Published abstract and precise invariant/observable comparison",
+          "method": "Resultary corpus search",
+          "title": "Dimensional cutoff for sampled angular-speed fluctuations in Gaussian diffusions",
+          "trigger": "Related Resultary sampled angle statistic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite-time principal turns are what experiments observe; identifying their rare large-angle law, sharp moment transition and unique coupling optimizing a well-defined angular SNR is substantive despite earlier angular-speed tail and mean results.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Other improper-complex-Gaussian phase-difference literature could encode equivalent tail functions.",
+    "Single-lag principal turn does not establish independence or long-time estimation efficiency.",
+    "The fixed-angle formula is nonuniform as α→0 and as |u|→1."
+  ],
+  "schema_version": 1
+}
