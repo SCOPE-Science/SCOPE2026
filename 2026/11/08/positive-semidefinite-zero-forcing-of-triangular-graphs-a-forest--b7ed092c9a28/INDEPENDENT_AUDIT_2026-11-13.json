@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T07:21:27Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: PSD zero forcing is applied componentwise in the white induced subgraph. A white-edge cycle in K_n cannot be broken by a blue K_n edge, since any blue edge meeting the cycle sees both incident white cycle edges in the same component. A spanning tree (one ground component) has no initial force. Conversely, if white graph F is disconnected forest, any white leaf u in a nontrivial component C and w outside C give a blue edge uw with precisely one white neighbor uv in white component L(C); induction removes all edges. Thus B succeeds iff F is forest with >=2 ground components for all n>=3, including empty F. Cayley exponential set partitions enumerate all forest sizes; independent Python computed exact 2-component minimum counts n=3..8 as 3,15,110,1080,13377,200704. Reviewed independent PSD simulator in check_psd.py and forest counter in check_forest_counts.py, but infinite theorem rests on structural proof rather than bounded enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known Z_+(J(n,2))=N-n+2",
+          "Complete multipartite PSD forcing polynomial Resultary 2026/10/4 has different graph family"
+        ],
+        "reasoning": "A scalar minimum or generic PSD rule does not logically entail all coefficient counts for every initial set; no checked broader theorem dominates the predicate.",
+        "searches": [
+          "Peters DOI:10.13001/1081-3810.1559",
+          "arXiv:1508.07357 Lemma 8.3",
+          "positive semidefinite zero forcing triangular graphs forest criterion full polynomial"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1003.2028",
+        "DOI:10.13001/1081-3810.1559",
+        "arXiv:1508.07357",
+        "arXiv:1311.7672",
+        "Resultary positive semidefinite zero forcing triangular graphs forest criterion full polynomial",
+        "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-forest-isolate-characterization-and-complete-zero-forcing-polyno--b68b71c4fbca"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Scalar prior minimum is a consequence of current polynomial smallest blue exponent N-n+2",
+          "Ordinary criterion has n(n-1)^(n-3) minimum sets versus PSD two-component Cayley sum"
+        ],
+        "reasoning": "Prior scalar and stricter ordinary forcing-set results are neither equivalent nor stronger than new PSD full enumerator. Explicit K4 mismatch proves the rule difference.",
+        "searches": [
+          "DOI:10.13001/1081-3810.1559",
+          "arXiv:1508.07357",
+          "Resultary positive semidefinite zero forcing triangular graphs forest criterion full polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "J(n,2)=L(K_n)=triangular graph",
+          "Ordinary forcing forest criterion requires isolated ground vertex whereas PSD needs two ground components"
+        ],
+        "reasoning": "PSD and ordinary color-change rules are mathematically different. A white matching of two edges in K4 is a decisive separating example; same graph titles are not equivalent statements.",
+        "searches": [
+          "positive semidefinite zero forcing triangular graphs forest criterion full polynomial",
+          "Resultary triangular graph zero forcing forest isolate 2026/10/13",
+          "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-forest-isolate-characterization-and-complete-zero-forcing-polyno--b68b71c4fbca"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Fallat et al. 2015 Section 8 Lemma 8.3 gives numerical minimum only",
+          "Current f_{n,k} involves all labeled forests with at least two components"
+        ],
+        "reasoning": "No matching all-size PSD enumerator in primary text examined or Resultary results; uninspected thesis remains a specific risk, not alleged noncoverage.",
+        "searches": [
+          "positive semidefinite zero forcing triangular graphs forest criterion full polynomial",
+          "arXiv:1508.07357 Section 8",
+          "2013 zero forcing thesis arXiv:1311.7672"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: Peters 2012 Proposition 3.16 and Fallat et al 2015 Lemma 8.3 establish only scalar PSD minimum N-n+2 for J(n,2), not the complete all-initial-blue-sets forest predicate or polynomial. Prior ordinary zero forcing on J(n,2) has a stronger white-forest-with-isolate condition: K4 disjoint white edges form a PSD-successful, ordinary-unsuccessful witness. General PSD polynomial for complete multipartite graphs is not equivalent. Full 2013 thesis and unindexed exact tables remain historical risks, not automatic failure.",
+      "residual_risks": [
+        "Relevant 2013 thesis not read in full; differently indexed all-set PSD enumerator may exist.",
+        "The minimum number is known; only full structural classification and enumerator survive as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Only scalar Z_+(J(n,2)) found in section, not all-sets enumerator",
+          "evidence": [
+            "Lemma 8.3"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1508.07357",
+          "material_read": "Original full 22-page manuscript, especially Section 8 and Lemma 8.3 (p.14–15); PDF page image inspected",
+          "method": "Primary arXiv PDF and screenshot",
+          "title": "Compressed Cliques Graphs, Clique Coverings and Positive Zero Forcing",
+          "trigger": "Same J(n,2) PSD rule"
+        },
+        {
+          "assessment": "Scalar minimum prior, cannot entail full size polynomial",
+          "evidence": [
+            "Proposition 3.16, value N-n+2"
+          ],
+          "identifier_or_url": "https://doi.org/10.13001/1081-3810.1559",
+          "material_read": "Known Proposition 3.16 as cited in inspected originating package; direct whole-document reread not performed in current run",
+          "method": "Source proof comparison in RESULT.md and journal citation",
+          "title": "Positive semidefinite maximum nullity and zero forcing number",
+          "trigger": "Prior exact PSD triangular-graph number"
+        },
+        {
+          "assessment": "Ordinary zero forcing, a proper subclass of PSD forcing",
+          "evidence": [
+            "White forest must have isolated ground vertex"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/13/SCOPE-forest-isolate-characterization-and-complete-zero-forcing-polyno--b68b71c4fbca",
+          "material_read": "Resultary result summary and theorem identification, not full original text",
+          "method": "Published Resultary semantic search",
+          "title": "Forest-isolate characterization and complete zero-forcing polynomial of triangular graphs",
+          "trigger": "Same graph, different forcing rule"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The exact structural characterization of every PSD forcing set in an unbounded natural graph family is substantially more informative than scalar Z_+. It converts a dynamic process into disconnected labeled forests, yields a full exact generating polynomial and counts all minimum forcing sets, and quantifies a genuine rule-dependent distinction starting with two disjoint K4 edges. Independently useful exact invariant; not mere known minimum recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite exhaustive simulation n<=6 and forest counts n<=8 only; proof valid for n>=3. No propagation times claimed."
+  ],
+  "schema_version": 1
+}
