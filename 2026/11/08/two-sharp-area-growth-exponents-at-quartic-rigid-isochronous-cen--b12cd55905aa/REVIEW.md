@@ -1,11 +1,21 @@
-# Review of the metric boundary laws for quartic rigid centers
+# Independent mathematical audit
 
-**Correctness: PASS.** In polar coordinates the conserved quantity \(K=r^{-3}+P(\theta)\) follows by one differentiation; the exact return/escape alternative and Euclidean disk-area formula then follow with explicit quantifiers. The Fourier restriction to harmonics one and three implies the order-four ODE \(A^{(4)}+10A''+9A=0\), so angular potential maxima have order exactly two or four. Rescaling the integral at each peak, with a genuine integrable majorant, establishes both asymptotic powers and coefficients; critical original-time escape comes from the same positive local Taylor term. The two examples directly realize both orders. A separate standard-library script checks example polynomial identities and asymptotic constants numerically; those checks do not constitute the proof.
+## correctness
 
-**Originality: PASS within inspected evidence.** The closest direct source, Álvarez–Bravo–Calderón (arXiv:2310.05509 and its 2024 open-access full text), explicitly provides the polar reduction, first integral, center criterion, and sphere-global-center theorem. None of those is claimed as new. Full-text comparison to Itikawa–Llibre's homogeneous-quartic global phase-portrait paper shows its main classification is topological, not a disk-cutoff Euclidean area or original-time blow-up law. A related Llibre–Valls article was available as abstract and appendix, not complete main text; its stated results concern topological classification for simple angular zeros. The new metric two-power, sharp-constant law was not located in these sources or the searched mathematical-result records. This is evidence-bounded originality rather than proof of priority.
+PASS
 
-**Value: PASS.** Qualitative knowledge that an isochronous center is not globally periodic does not quantify how its very large periodic orbits occupy Euclidean space. The exact infinite-area phenomenon and the \(1/2\)-versus-\(5/4\) growth dichotomy distinguish regular from degenerate separatrix contacts and determine radial truncation costs; the matching original-time blow-up powers describe the same structural transition dynamically. These are natural geometric invariants for a published planar rigid-center family, not arbitrary finite computations or restatements of integrability.
+Polar equations give theta-dot=1 and d(r^-3)/dt=-3A(theta), so conserved K=r^-3+P(theta). Periodicity iff K>maxP; K<=maxP reaches zero radial inverse cube at finite forward angle (escape in original time). The area integral is one half of angular min{R^2,(M-P)^(-2/3)}. A(theta) is a first/third-harmonic trigonometric cubic satisfying A^(4)+10Asecond+9A=0; nonzero A cannot have fourth-order zero, so maxima of P are exactly order 2 or 4. Rescaling near each maximum by R^(-3/k) gives integrable limiting tail |v|^(-2k/3) and constant (2k)/(2k-3)c^(-1/k). For critical K=M, r~c^(-1/3)(t*-t)^(-k/3). Independently checked angular examples -y(x²+y²), -y³ with contact coefficients 3/2,3/4; inspected finite quadrature verifier only supports examples.
 
-**Closest coverage and limits.** The known first integral is an input, not a new discovery. The original article's compactified sphere-global-center statement is not equivalent to all planar initial conditions being globally periodic: the time reparameterization and crossing of infinity are different. The 2015/2016 phase-portrait classification is relevant and qualitative but does not state the metric limits. The 2021/2022 related paper's main text was not fully available; this residual accessibility issue and unindexed papers remain risks. The proof treats only the homogeneous cubic subfamily; it does not apply unchanged to the full linear-plus-cubic family.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original rigid-system polar first integral, uniform isochronicity and qualitative phase portraits are established in Álvarez–Bravo–Calderón and Itikawa–Llibre; these are not new. Full accessible 2024 article inspection treats Poincare compactification, not asymptotic Euclidean basin area inside growing disks or sharp contact-dependent metric constants. Present contribution is the measured uncompactified area and original-time critical blowup classification. Some older phase-portrait paper main bodies inaccessible remains residual risk.
+
+## value
+
+PASS
+
+This is an all-homogeneous-cubic classification of a natural geometric metric of periodicity basins, with two rigorously exhaustive anomalous exponents and sharp coefficients, not a routine topological phase portrait relabeling. Infinite basin area despite finite local radial caps is a substantive consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

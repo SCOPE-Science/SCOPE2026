@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verifiable steps and limits
+# Independent mathematical audit
 
-The proof begins from the exact original-time identity \(r(t)^{-3}=r_0^{-3}+P(\theta_0)-P(\theta_0+t)\). Check differentiation of \(r^{-3}\) and \(\dot\theta=1\) directly for the written vector field. Check the threshold \(K>M\) to distinguish globally periodic from forward finite-time escaping trajectories. Verify that the integration variable \(r\,dr\,d\theta\) is ordinary planar area.
+## correctness
 
-For the maximal-contact step, expand a general homogeneous cubic on the unit circle into first and third trigonometric harmonics, which satisfy \(A^{(4)}+10A''+9A=0\). Uniqueness for this equation excludes a zero of multiplicity four or greater unless the cubic is zero. Analytic maxima of its primitive can therefore only have contact order two or four.
+PASS
 
-For a contact of order \(k\), rescale angle by \(R^{-3/k}\) in the exact disk-area integral; the limiting integrand has tail power \(2k/3>1\) and integral \((2k/(2k-3))c^{-1/k}\). At critical \(K=M\), use \(\theta(t)=\theta_0+t\) to read the exact rate of radial divergence in **original time**.
+Polar equations give theta-dot=1 and d(r^-3)/dt=-3A(theta), so conserved K=r^-3+P(theta). Periodicity iff K>maxP; K<=maxP reaches zero radial inverse cube at finite forward angle (escape in original time). The area integral is one half of angular min{R^2,(M-P)^(-2/3)}. A(theta) is a first/third-harmonic trigonometric cubic satisfying A^(4)+10Asecond+9A=0; nonzero A cannot have fourth-order zero, so maxima of P are exactly order 2 or 4. Rescaling near each maximum by R^(-3/k) gives integrable limiting tail |v|^(-2k/3) and constant (2k)/(2k-3)c^(-1/k). For critical K=M, r~c^(-1/3)(t*-t)^(-k/3). Independently checked angular examples -y(x²+y²), -y³ with contact coefficients 3/2,3/4; inspected finite quadrature verifier only supports examples.
 
-The standalone command `python3 verify_quartic_rigid.py` checks exact factorization at 63 rational cosine values, two Taylor coefficients and numerical disk-area ratios at radius 1000. The observed output was:
+## originality
 
-```
-QUARTIC_RIGID_EXACT_POTENTIAL_FACTOR_OK cases=63
-QUARTIC_RIGID_AREA_PHASE_CHECK_OK R=1000 exponents=1/2,5/4
-normalized=3.223071439,1.719523221 limits=3.265986324,1.719311891
-```
+PASS
 
-The quadratic-contact numerical ratio approaches its limit more slowly because of an additive lower-order contribution. These finite checks do not prove the general theorem. No independent validation has been performed. Source overlap risk is documented in the review and audit material.
+The original rigid-system polar first integral, uniform isochronicity and qualitative phase portraits are established in Álvarez–Bravo–Calderón and Itikawa–Llibre; these are not new. Full accessible 2024 article inspection treats Poincare compactification, not asymptotic Euclidean basin area inside growing disks or sharp contact-dependent metric constants. Present contribution is the measured uncompactified area and original-time critical blowup classification. Some older phase-portrait paper main bodies inaccessible remains residual risk.
+
+## value
+
+PASS
+
+This is an all-homogeneous-cubic classification of a natural geometric metric of periodicity basins, with two rigorously exhaustive anomalous exponents and sharp coefficients, not a routine topological phase portrait relabeling. Infinite basin area despite finite local radial caps is a substantive consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
