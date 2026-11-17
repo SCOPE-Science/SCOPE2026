@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T16:10:54Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The standard exponential [k/3] denominator with t=k+1 is 1-3z/(t+2)+3z²/[(t+1)(t+2)]-z³/[t(t+1)(t+2)]. Translation z=t+x gives t(t+1)(t+2)q(t+x)=2t-3tx-x³. The strictly increasing cubic x³+3tx=2t has u between 1/2 and 2/3; the roots R=t+u and Z=t-u/2+i sqrt(3t+3u²/4), conjugate Z, are simple. Their moduli obey |Z|²-R²=3t(1-u)>0. The partial-fraction coefficient of (1-z/R)^-1 is A=|Z|²/|R-Z|²>0, while the sum of two complex residue moduli is 2|B|=R|Z|/[v|R-Z|]. Exact symbolic factoring reduces A>2|B| to the positive cubic u³-4u²+10u-4 on (1/2,2/3), with positive multiplier 9u⁴(1-u)/[4(2-3u)²]. The n-th coefficient is at least R^-n(A-2|B|)>0 for all k,n. SymPy checked both factorizations exactly; independent rational recurrence checked k<=80,n<=100. No numerical cutoff is used to establish the all-order result.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2610.39051"
+        ],
+        "reasoning": "Scardino's Theorem 3.1 fully covers k=0 for every odd m, and Theorem 8.2 covers positive tails for general k under property D1; Theorem 9.1 gives transient Hermite profiles and m=5 failures. None deduces the uniform residue inequality A>2|B| for all k at m=3, which closes the finite initial index region as well.",
+        "searches": [
+          "Padé exponential cubic denominator reciprocal coefficients positivity [k/3] Fasi Higham Scardino"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1137/18M1228876",
+        "https://arxiv.org/abs/2610.39051",
+        "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-the-first-failure-of-reciprocal-pad-positivity-at-denominator-de--e2ef02e4d19b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2610.39051",
+          "https://doi.org/10.1137/18M1228876"
+        ],
+        "reasoning": "The conjecture is not a theorem; eventual positivity plus computational checks of bounded indices does not imply positivity at every k,n. The uniform strict residue inequality supplies a complete new proof for this particular denominator degree.",
+        "searches": [
+          "Padé exponential cubic denominator reciprocal coefficients positivity [k/3] Fasi Higham Scardino"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2610.39051",
+          "https://doi.org/10.1137/18M1228876"
+        ],
+        "reasoning": "Equivalent formulation is the all-index scalar reciprocal positivity of the denominator polynomial, or complete positivity of its cubic recurrence; unlike eventual positivity, it requires every initial coefficient order.",
+        "searches": [
+          "Padé exponential cubic denominator reciprocal coefficients positivity [k/3] Fasi Higham Scardino",
+          "positivity 1/q k 3 Pade cubic strict real residue"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/2610.39051"
+        ],
+        "reasoning": "Scardino's exact rational counterexamples for m=5,7,9 and general recurrences do not give all-index positive coefficients at m=3. Other Resultary Padé records treat different degrees 5,7,9,13, not a prior full cubic denominator classification.",
+        "searches": [
+          "positivity 1/q k 3 Pade cubic strict real residue"
+        ]
+      },
+      "rationale": "Fasi–Higham 2019 pose positivity for all odd m, without proving even this fixed cubic case. The full 2026 Scardino arXiv text proves full positivity for k=0 at arbitrary odd m and eventual positivity for general k under spectral minimality, but no theorem of all-index positivity for every k at m=3. The present uniform real-residue domination is an additional quantified all-k/all-n result; it is not the already-known partial-fraction identity.",
+      "residual_risks": [
+        "A separately published special-function/cubic recurrence identity proving all-index positivity for every k might exist unindexed.",
+        "The original 2019 Fasi–Higham paper was compared through the accurately reproduced conjecture rather than full original article."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_OVERLAP_NOT_COVERING: k=0 positivity and eventual positivity, no all-k/all-index m=3 theorem",
+          "evidence": "Theorem 8.2 explicitly permits finitely many initial sign failures; section 9 gives failures for m=5.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.39051",
+          "material_read": "Full arXiv text: Introduction, Theorem 3.1, sections 4–7, Lemma 8.1, Theorem 8.2, Proposition 8.3, Theorems 8.5 and 9.1, conclusion",
+          "method": "Full rendered arXiv source at arxiv.org/abs/2610.39051, 481 lines",
+          "title": "On a positivity conjecture of Fasi and Higham for Padé approximants to the matrix exponential",
+          "trigger": "Most directly competing same-parameter October 2026 paper"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY: conjectured rather than proved all-odd denominator positivity",
+          "evidence": "Scardino states Conjecture 1 as original and exhibits counterexamples for m>=5.",
+          "identifier_or_url": "https://doi.org/10.1137/18M1228876",
+          "material_read": "Conjecture 3.2 as quoted with normalization in subsequent full primary Scardino article; original paper not fully available/read",
+          "method": "Bibliographic and quotation-based source comparison",
+          "title": "An Arbitrary Precision Scaling and Squaring Algorithm for the Matrix Exponential",
+          "trigger": "Original Conjecture 3.2 on reciprocal denominator positivity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Closes a natural smallest nontrivial unresolved odd-denominator case of an explicitly motivated numerical-linear-algebra conjecture, despite the known general failure at degree five. Uniform all-index strict inequality over arbitrary numerator order is a substantive sharp positive region, not just finite positive checks, and the strict gap identifies a robust analytic mechanism.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only scalar reciprocal [k/3] denominator; not matrix-entry positivity or stability.",
+    "Strict residue bound decays relatively as k grows; no uniform numerical conditioning claim."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact exponential Padé denominator becomes the depressed cubic \(x^3+3tx-2t\) under translation. Its positive root is in \((1/2,2/3)\), and the other roots form a complex-conjugate pair with larger modulus. Direct residue formulas reduce simultaneous positivity of every Taylor coefficient to \(sv>Rd\). The displayed positive factorization establishes this strict inequality for every integer \(t=k+1\ge1\), including all boundaries. Geometric-series coefficient extraction then proves \(c_n(k,3)>0\) for every integer \(n\ge0\). The bundled exact-rational checker is supplementary; it is not used to extrapolate finitely many computations to all orders.
+PASS
 
-## Originality — PASS, with residual priority risk
+The standard exponential [k/3] denominator with t=k+1 is 1-3z/(t+2)+3z²/[(t+1)(t+2)]-z³/[t(t+1)(t+2)]. Translation z=t+x gives t(t+1)(t+2)q(t+x)=2t-3tx-x³. The strictly increasing cubic x³+3tx=2t has u between 1/2 and 2/3; the roots R=t+u and Z=t-u/2+i sqrt(3t+3u²/4), conjugate Z, are simple. Their moduli obey |Z|²-R²=3t(1-u)>0. The partial-fraction coefficient of (1-z/R)^-1 is A=|Z|²/|R-Z|²>0, while the sum of two complex residue moduli is 2|B|=R|Z|/[v|R-Z|]. Exact symbolic factoring reduces A>2|B| to the positive cubic u³-4u²+10u-4 on (1/2,2/3), with positive multiplier 9u⁴(1-u)/[4(2-3u)²]. The n-th coefficient is at least R^-n(A-2|B|)>0 for all k,n. SymPy checked both factorizations exactly; independent rational recurrence checked k<=80,n<=100. No numerical cutoff is used to establish the all-order result.
 
-The original Fasi–Higham Conjecture 3.2 asks for all odd denominators. Scardino's October 2026 analysis establishes positivity for numerator degree zero, conditional/eventual positivity from minimal poles, and negative examples with denominator degree at least five. Those statements do not imply the unconditional all-numerator, all-coefficient cubic result. The presently needed strict dominance \(A>2|B|\) is stronger than Scardino's minimal-real-modulus condition and is proved explicitly rather than assumed. Searches of published mathematical records and accessible earlier research claims revealed no statement dominating the cubic result. An older equivalent cubic reciprocal-function identity might exist and would change the originality assessment.
+## originality
 
-## Value — PASS
+PASS
 
-The result resolves an infinite two-parameter natural slice of a published matrix-exponential coefficient conjecture and gives an all-index positive certificate rather than a finite check or eventual-positivity cutoff. The recently established negative degree-five example makes the cubic proof a meaningful boundary for odd denominator degrees. This contributes directly to the analytic assumptions used in norm/error arguments for Padé-based matrix-exponential evaluation.
+Fasi–Higham 2019 pose positivity for all odd m, without proving even this fixed cubic case. The full 2026 Scardino arXiv text proves full positivity for k=0 at arbitrary odd m and eventual positivity for general k under spectral minimality, but no theorem of all-index positivity for every k at m=3. The present uniform real-residue domination is an additional quantified all-k/all-n result; it is not the already-known partial-fraction identity.
 
-## Closest literature and limitations
+## value
 
-Fasi–Higham 2019, §3.1 and Conjecture 3.2; Scardino arXiv:2610.39051v1, §§1,3–9 (especially Lemma 8.1, Theorem 8.2, Theorem 8.5). The proof does not address arbitrary odd degrees, entrywise matrix positivity, or floating-point stability, and a historical-priority risk remains. The included tests are not independent proof certificates.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Closes a natural smallest nontrivial unresolved odd-denominator case of an explicitly motivated numerical-linear-algebra conjecture, despite the known general failure at degree five. Uniform all-index strict inequality over arbitrary numerator order is a substantive sharp positive region, not just finite positive checks, and the strict gap identifies a robust analytic mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
