@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T22:57:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read complete frozen proof, assumptions, and check.py. Direct block multiplication independently gave per-mode characteristic z[z²-(1-c²/q)z+b_i²/q]. For largest B the root product implies q>=B²/r²; for smallest beta the real quadratic at r is nonnegative and implies q r(1-r)<=c²r+beta², hence r>=r* for r<1. At q*=B²/r*², sum r*(1+beta²/B²) and products in [r*² beta²/B²,r*²] put every real or conjugate mode within radius r*, with equality at both extremes. Equality in the two necessary inequalities gives q=q*. Independently computed exact eigenvalues for beta=1,B=3,c=4: radii 1/2 at q=36 and 3/5 at q=25. Repeated-root beta=B case and finite dimension root-limit are explicitly accounted for; numerical sample checks are not the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Liang–Huang §§2.1–2.2 Theorems 2.1 and 2.2 bound real and nonreal eigenvalues of P^-1 A for general blocks, while §3 constructs Q through randomized low-rank approximation.",
+          "Pearson–Potschka treats SPD symmetric factorized preconditioning; the spectral-radius objective here is for a nonsymmetric upper triangular P(q)."
+        ],
+        "reasoning": "More general system structure is not stronger coverage of the exact scalar q minimax optimization; no theorem implying the displayed r* optimizer was found in inspected source.",
+        "searches": [
+          "arxiv:2609.01031 Theorems 2.1 2.2 real nonreal eigenvalue bounds and construction of Q",
+          "arxiv:2505.06043 triangular preconditioners for double saddle point poroelasticity",
+          "arxiv:2106.12433 symmetric SPD preconditioners multiple saddle point"
+        ]
+      },
+      "checked_sources": [
+        "frozen source RESULT.md sha 856dfce30e0e2002ce31b934de4a1d962e116827",
+        "frozen check.py sha a714035cc52667c3a849659337230b496dc7fb25",
+        "https://arxiv.org/abs/2609.01031",
+        "https://arxiv.org/abs/2505.06043",
+        "https://arxiv.org/abs/2106.12433"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Liang–Huang Theorem 2.1 gives real spectrum inclusions, Theorem 2.2 gives nonreal eigenvalue enclosures, not sharp extremal-mode minimization of ρ(I-P(q)^-1K).",
+          "Direct proof requires both B-root product and beta-polynomial evaluation, achieving joint equality at unique q."
+        ],
+        "reasoning": "The source paper supplies a relevant preconditioning structure and broad eigenvalue estimates, but an extra scalar minimax argument is essential. Scope is exact commuting modal subfamily, not arbitrary Schur blocks.",
+        "searches": [
+          "arxiv 2609.01031 spectral eigenvalue complex bounds Schur parameter optimal",
+          "Richardson iteration double saddle spectral radius Schur approximation minimization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Matrix K and upper P(q) reduce to direct 3×3 modes; the quadratic eigenvalue formula is not the classical SPD Richardson real interval formula.",
+          "Liang–Huang (2026) studies spectral bounds for block-triangular double saddle-point preconditioners, but no unit-step Richardson minmax q formula in its inspected main theorems."
+        ],
+        "reasoning": "Compared preconditioner parameter, shift/Uzawa, and Richardson forms; reductions to common quadratic eigenvalue problems do not automatically give the unique two-extreme-mode minimizer.",
+        "searches": [
+          "double saddle point Richardson upper block triangular preconditioner scalar Schur optimal convergence factor modal",
+          "double saddle point Schur scalar parameter minmax spectral radius root quadratic",
+          "optimal Uzawa Richardson block triangular scalar Q"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary same-day indexed item is the source under audit, not prior corroboration.",
+          "Prior spectral enclosure tables for block-preconditioned systems do not calculate the q*=B²/r*² frontier for this modal family."
+        ],
+        "reasoning": "No exact table found for the stated class, and searches do not establish universal priority.",
+        "searches": [
+          "Schur scalar q optimum beta B c closed form Richardson double saddle",
+          "Resultary modal double saddle point sharp Schur tuning exact table"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct claim after actual primary-source and published-record comparisons. The source paper supplies a relevant preconditioning structure and broad eigenvalue estimates, but an extra scalar minimax argument is essential. Scope is exact commuting modal subfamily, not arbitrary Schur blocks.",
+      "residual_risks": [
+        "An older unindexed scalar Uzawa/saddle-point optimal Richardson parameter may express an equivalent quadratic balancing law.",
+        "Nonnormal finite-step transient norm and computational cost are not optimized; only finite-dimensional spectral-radius asymptotics.",
+        "The institutional Oxford fallback returned vpn_disconnected; arXiv HTML for Liang–Huang was accessible and actually reviewed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General spectral bounds and randomized Q construction, no exact one-parameter Richardson radius minimization in inspected material",
+          "evidence": [
+            "Theorem 2.1 real eigenvalue bounds; 2.2 nonreal enclosures; §3 constructs randomized Q"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.01031",
+          "material_read": "Accessible full HTML: introduction, §2 eigenvalue lemmas and Theorems 2.1–2.2, §3 construction of Q, concluding discussion and references",
+          "method": "arXiv rendered full HTML mathematical text; keyword search for Richardson and scalar",
+          "title": "Randomized inexact block triangular preconditioners for double saddle-point systems in PDE-constrained optimization",
+          "trigger": "Directly same three-block saddle structure and Schur approximation"
+        },
+        {
+          "assessment": "Different poroelasticity block formulas; exact scalar modal optimization not evidenced, priority risk retained",
+          "evidence": [
+            "Source discusses real/complex preconditioned eigenvalue bounds"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2505.06043",
+          "material_read": "Bibliographic/abstract and source relationship discussion only, no claim whole text read",
+          "method": "arXiv abstract and mathematical source cross-reference",
+          "title": "Triangular preconditioners for double saddle point linear systems arising in the mixed form of poroelasticity equations",
+          "trigger": "Another 3-block triangular Schur approximation"
+        },
+        {
+          "assessment": "Different symmetric SPD factorization; cannot assert whole-document exclusion",
+          "evidence": [
+            "Symmetric SPD multiple-saddle preconditioning and ideal eigenvalue clustering"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.12433",
+          "material_read": "Abstract and cited theorem descriptions in relevant primary papers, not full research text",
+          "method": "arXiv bibliographic/abstract and cross-reference",
+          "title": "On symmetric positive definite preconditioners for multiple saddle-point systems",
+          "trigger": "Potential broader preconditioned spectral guarantee"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Scalar Schur tuning for an actual three-block indefinite system offers a sharp, unique rate-optimal preconditioning scale depending only on extremal modal couplings, including a real/complex spectral phase; it is more informative than an unoptimized spectral enclosure and can be used as a parameter benchmark. Noncommuting general systems are explicitly excluded.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For finite d>=2, positive diagonal couplings b_i and c>0, the unit-step Richardson iteration on the stated symmetric double-saddle matrix with scalar Schur preconditioner Q=qI has a unique globally minimizing q=B²/r*², with c²r*²+(B²+beta²)r*-B²=0 and optimal asymptotic spectral radius r* in (0,1).",
+  "limitations": [
+    "An older unindexed scalar Uzawa/saddle-point optimal Richardson parameter may express an equivalent quadratic balancing law.",
+    "Nonnormal finite-step transient norm and computational cost are not optimized; only finite-dimensional spectral-radius asymptotics.",
+    "The institutional Oxford fallback returned vpn_disconnected; arXiv HTML for Liang–Huang was accessible and actually reviewed.",
+    "Independent file-level Git blobs were read at the frozen commit, but no complete directory-tree reconstruction was available, so verified_current_tree_sha is null and the publication plan is not ready."
+  ],
+  "schema_version": 1
+}

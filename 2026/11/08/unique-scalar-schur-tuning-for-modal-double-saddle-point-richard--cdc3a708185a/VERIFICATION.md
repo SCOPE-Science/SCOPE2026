@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility checks
+# Independent mathematical audit
 
-The analytic proof in `RESULT.md` is the evidence for all dimensions and all real positive parameters. The modal factorization and necessary/sufficient endpoint conditions are explicitly derived there. The accompanying `check.py` requires Python 3 and NumPy and can be run as `python check.py`. On the reviewed package it reports 9456 passing diagnostic checks, including full-matrix eigenvalue calculations for hundreds of nondegenerate modal examples, parameter perturbations, and an exact-rational test case. Repeated polynomial roots are especially sensitive to floating-point square-root calculations, so a relaxed tolerance is used there, while the strict result follows analytically.
+## correctness
 
-The exact test case has \((\beta,B,c)=(1,3,4)\), optimum \(r_*=1/2\), \(q_*=36\), small-mode roots \(1/2\) and \(1/18\), and large-mode roots \((5\pm2i\sqrt{14})/18\); at the comparison scale \(q=25\), the spectral radius is \(3/5\). These values are independently checkable by substitution into the displayed quadratic. The code does not address arbitrary noncommuting saddle-point blocks, floating-point convergence theory, or the novelty of the theorem.
+PASS
+
+Read complete frozen proof, assumptions, and check.py. Direct block multiplication independently gave per-mode characteristic z[z²-(1-c²/q)z+b_i²/q]. For largest B the root product implies q>=B²/r²; for smallest beta the real quadratic at r is nonnegative and implies q r(1-r)<=c²r+beta², hence r>=r* for r<1. At q*=B²/r*², sum r*(1+beta²/B²) and products in [r*² beta²/B²,r*²] put every real or conjugate mode within radius r*, with equality at both extremes. Equality in the two necessary inequalities gives q=q*. Independently computed exact eigenvalues for beta=1,B=3,c=4: radii 1/2 at q=36 and 3/5 at q=25. Repeated-root beta=B case and finite dimension root-limit are explicitly accounted for; numerical sample checks are not the proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinct claim after actual primary-source and published-record comparisons. The source paper supplies a relevant preconditioning structure and broad eigenvalue estimates, but an extra scalar minimax argument is essential. Scope is exact commuting modal subfamily, not arbitrary Schur blocks.
+
+## value
+
+PASS
+
+Scalar Schur tuning for an actual three-block indefinite system offers a sharp, unique rate-optimal preconditioning scale depending only on extremal modal couplings, including a real/complex spectral phase; it is more informative than an unoptimized spectral enclosure and can be used as a parameter benchmark. Noncommuting general systems are explicitly excluded.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
