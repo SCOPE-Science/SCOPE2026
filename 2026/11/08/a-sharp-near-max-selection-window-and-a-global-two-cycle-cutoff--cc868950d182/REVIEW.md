@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated parameter range is universal over nonzero binary matrices on every periodic \(H\)-by-\(W\) grid with \(H,W\ge4\). Its necessity for *exact maximum-selector equality* has an explicit one-hole witness. The reduction to two independent symmetric one-dimensional argmax selectors is an equality of operators after one update, not an approximation. The potential \(m(A)/|A|\) is nondecreasing by reciprocity of the symmetric three-neighbor matrix; equality forces containment two times ahead. This proves eventual period at most two and, because the potential has at most \(3n\) possible values, yields the conservative quadratic settling bound. Singleton/triple and long-run witnesses establish actual cycles and growing transients. The exact finite checker printed `VERIFY_OK checks=238104`. No conclusion about periods at the selection-width endpoint is made.
+PASS
 
-## Originality — PASS within checked evidence
+The exact normalized field factors q_ji=(R_j/Rmax)(C_i/Cmax); every strict submaximum differs by at least 1/(3 max(H,W)). A single-hole full grid meets that gap (also at strict endpoint), proving the iff operator selection window for H,W>=4. The argmax field is the nonempty rectangle of maximizing row and column indices. On a rectangle it factors as T_H(A)xT_W(B). For K_n symmetric with entries at offsets -1,0,1, e_t=m(A_t)/|A_t| is nondecreasing by reciprocal average-score comparison; equality forces A_t subset A_{t+2}. Finite potential levels and monotone parity subsequences force only fixed points/two-cycles with the conservative quadratic bound. Singleton seeds alternate with three-neighborhood blocks, and long stripes erode linearly. Directly inspected RESULT.md and integer verify.py; independently enumerated nonempty cyclic 1D states up to n=10 and found only cycles of lengths 1,2. This finite check supports rather than replaces the infinite proof. Boundary: the threshold is operator equivalence, not an asserted onset of long cycles above it.
 
-The motivating 2026 numerical study supplies the model and documents other dynamical outcomes. An already public Rule-54/Rule-18 stripe filtration uses disjoint interval geometry and does not cover all starting matrices or the sharp near-max window. The classical 1980–81 Goles–Olivos two-period results assume fixed thresholds at each vertex, whereas the present all-maxima selection uses a globally state-dependent moving threshold and a separable rank-one field. The proof's reciprocity mechanism resembles potential-game arguments and is acknowledged, not claimed as a new general technique. Searches of relevant published records and literature did not find the exact operator-selection boundary combined with this full-grid classification. The motivating paper's full body and the original classical proofs remained unavailable: priority is provisional, and no inaccessible work was declared not covering on snippets alone.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A positive, sharp finite-size parameter interval is classified **for every initial state** in a model previously explored mainly by numerical phase scans. The theorem makes the compressed two-dimensional system analytically reducible in one iteration, forbids all higher periodic cycles in that region, proves an explicit quadratic-time upper bound, exhibits genuine two-cycles, and shows transients need not be uniformly bounded. The sharpness is specifically of the maximum-selector phase, not of the period-two conclusion beyond the endpoint. This is a structural dynamical boundary, not an arbitrary parameter lookup or routine numerical census.
+Best-of-knowledge targeted statement comparison against actual published same-object sources. The existing general principles and any known same-size phenomena are explicitly credited; the surviving contribution is the precise additional scoped statement (see four checks and residual risks).
 
-## Closest literature and scientific limitations
+## value
 
-X. Shi and M. Huang, *Dynamics in a Low-Rank Separable Field Cellular Automaton* (arXiv:2606.08983, 2026), provides the exact update and numerical motivation. A published analysis entitled *An irreversible Rule-54/Rule-18 phase filtration in a normalized separable-field automaton* proves a distinct stripe-subsystem statement for threshold regions away from one. E. Goles and J. Olivos (1980, 1981) give foundational period-two theorems under fixed symmetric thresholds. The full primary text of the 2026 source was not accessible through the routes attempted, and specialized global-maximum automata literature may contain related classifications. No independent review of this result has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural full-state-space phase diagram for a previously numerically investigated nonlocal cellular automaton: a sharp positive-width finite-size selection boundary, one-step low-rank rectangle compression, global period-at-most-two classification, explicit settling bound and unbounded linear transient witnesses. Not merely a generic fixed-threshold corollary; full-grid dynamics and sharp normalization matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

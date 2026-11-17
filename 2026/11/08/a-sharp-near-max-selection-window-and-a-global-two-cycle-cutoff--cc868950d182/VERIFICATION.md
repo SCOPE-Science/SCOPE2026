@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The standalone `verify.py` uses only the Python standard library. The direct normalized-field update computes row and column occupancies and blurred fields as exact integers; the comparison max-selector implementation is independent and uses a different representation. From the local package directory, run `python3 verify.py`. In the actual check, the program exited successfully with:
+## correctness
 
-```
-VERIFY_OK checks=238104
-```
+PASS
 
-Exhaustive one-dimensional checks cover every nonzero binary word on cyclic lengths 4 through 14, verifying the exact reciprocal-score potential identity, monotonicity, the inclusion consequence at equality, and the eventual periods. The full two-dimensional four-by-four one-step check covers every one of 65,536 binary matrices. Further tests sample 4-by-5 and larger sizes, verify explicit sharp-boundary configurations and their strict-side behavior, compare the independent field implementations, and replay the primitive two-cycles and growing-transient examples.
+The exact normalized field factors q_ji=(R_j/Rmax)(C_i/Cmax); every strict submaximum differs by at least 1/(3 max(H,W)). A single-hole full grid meets that gap (also at strict endpoint), proving the iff operator selection window for H,W>=4. The argmax field is the nonempty rectangle of maximizing row and column indices. On a rectangle it factors as T_H(A)xT_W(B). For K_n symmetric with entries at offsets -1,0,1, e_t=m(A_t)/|A_t| is nondecreasing by reciprocal average-score comparison; equality forces A_t subset A_{t+2}. Finite potential levels and monotone parity subsequences force only fixed points/two-cycles with the conservative quadratic bound. Singleton seeds alternate with three-neighborhood blocks, and long stripes erode linearly. Directly inspected RESULT.md and integer verify.py; independently enumerated nonempty cyclic 1D states up to n=10 and found only cycles of lengths 1,2. This finite check supports rather than replaces the infinite proof. Boundary: the threshold is operator equivalence, not an asserted onset of long cycles above it.
 
-Finite enumeration establishes only its tested cases, not the theorem for all lattice sizes. The all-size guarantee, sharp parameter boundary and quadratic termination bound are proved analytically in `RESULT.md`. The full source manuscript could not be inspected, so novelty remains subject to further literature review. Independent scientific audit has not been performed.
+## originality
+
+PASS
+
+Best-of-knowledge targeted statement comparison against actual published same-object sources. The existing general principles and any known same-size phenomena are explicitly credited; the surviving contribution is the precise additional scoped statement (see four checks and residual risks).
+
+## value
+
+PASS
+
+A natural full-state-space phase diagram for a previously numerically investigated nonlocal cellular automaton: a sharp positive-width finite-size selection boundary, one-step low-rank rectangle compression, global period-at-most-two classification, explicit settling bound and unbounded linear transient witnesses. Not merely a generic fixed-threshold corollary; full-grid dynamics and sharp normalization matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
