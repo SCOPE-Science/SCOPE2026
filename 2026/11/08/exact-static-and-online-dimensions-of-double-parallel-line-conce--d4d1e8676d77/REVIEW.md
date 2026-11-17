@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The three-positive-query localization lemma follows from unique joins and parallel classes: noncollinear triples permit at most three double-line unions, while collinear triples force a common line and a varying parallel companion. Recursion bounds Littlestone dimension by four. The four-point lower construction realizes all sixteen traces for every order at least four, and the two exceptional orders are proved separately using a singleton concept and line complementation. The standalone enumerator checks field models at eight orders, including extension fields. No finite computation is used as an infinite or all-plane proof.
+## correctness
 
-## Originality
-PASS within accessible comparisons. The 2019 union theorem of Cambie–Girão–Kang, the 2019 real-halfspace union bounds of Csikós–Mustafa–Kupavskii, the 2021 general online closure bounds of Ghazi–Golowich–Kumar–Manurangsi, and the 2025 unrestricted real-line union classification of Eleftheriou–Papadopoulos–Westhead do not give the exact joint VC/Littlestone classification for finite affine double-parallel-line unions. Broader projective-plane two-line-union work concerns a larger family and does not imply these sharp restricted online ranks. Searches of closely phrased concepts and related published results found no covering theorem. Alternative terminology and further priority sources remain a residual risk; a search failure is not a uniqueness certificate.
+PASS
 
-## Mathematical value
-PASS. The problem is a natural constrained two-line-union range system. Its exact static/online agreement across *all* finite affine planes, the exceptional order-three complement-of-line regime, and the first depth-four order distinguish geometric union complexity from coarse closure bounds. The three-positive-point localization argument supplies a reusable mechanism bounding adaptive rank for finite incidence classes; no arbitrary subparameter or unmotivated finite slice is introduced.
+A triple of prescribed positive points is either noncollinear, permitting <=3 two-parallel-line unions, or collinear, forcing a shared containing line and mutually disjoint choices of the second parallel line; in either case its conditional Littlestone dimension <=1. Three iterations of the positive-branch recurrence yield global Ldim <=4. For q>=4 a support with three selected points on L, a fourth unused point on L, and one transverse selected point realizes all 16 traces by choosing two parallel lines or two distinct non-L directions. At q=2 concepts all equal the point set; at q=3 every two-line union is a complement of one line, with both dimensions 2. Proof uses affine axioms only, including non-Desarguesian planes; packaged finite-field verifier is corroboration, not the universal proof.
 
-## Limits
-There is no independent validation. No exact complete shattering polynomial or classification of all maximum supports is claimed. The theorem relies only on affine-plane axioms; explicit finite-field tests are corroborative. An equivalently worded older finite-geometry result has not been ruled out exhaustively.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No inspected source gives the exact VC and online dimensions for two distinct parallel lines in arbitrary affine planes, including sharp order-2/3 exceptions and order-4 threshold. Unrestricted/nonparallel two-line unions are different concept families with different rank behavior. Searches alone do not certify novelty.
+
+## value
+
+PASS
+
+The exactly-two-parallel-line union is a natural affine range space, and its uniform all-plane adaptive/static equality plus exceptional q=2,3 and first depth-4 q=4 threshold is a sharp structural classification. Three-positive localization is reusable and not just a small-order census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
