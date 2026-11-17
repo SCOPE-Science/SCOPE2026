@@ -1,11 +1,21 @@
-# Review of the exact Perrin \(23\)-adic value spectrum
+# Independent mathematical audit
 
-**Correctness — PASS.** The companion matrix has characteristic polynomial \(T^3-T-1\). Its \(22\)-step deviation has square divisible by \(23\), and the requisite trace of its cube vanishes modulo \(529\). Those exact divisibilities give restricted quadratic analytic interpolations with nonzero quadratic coefficients in all \(22\) branches. A p-adic Morse transformation normalizes every branch to a unit multiple of a square. The finite table distinguishes \(198\) full-lift classes from \(13\) isolated critical-only square classes. The standalone verifier reproduces each finite step, and direct enumeration checks image sizes through the fourth prime power. No finite experiment is used as the proof of the analytic theorem.
+## correctness
 
-**Originality — PASS (priority not independently guaranteed).** The nearest explicitly inspected material gives Perrin recurrence, discriminant, primality signatures, and modular periods: OEIS A001608, A104217, and Jacobsen's 2016 detailed Perrin-primality page. OEIS A104217's recorded period modulo \(23\) does not imply image cardinalities, a critical-square decomposition, or the Haar measure. Targeted search of those equivalent formulations and semantic search of accessible mathematical research records identified no encompassing result. Original Adams–Shanks 1982 full text was not inspected, a residual priority limitation.
+PASS
 
-**Mathematical value — PASS.** The discriminant prime \(23\) makes this an intrinsic ramified local problem, not an arbitrary modulus or computer-selected slice. The theorem gives a natural exact invariant at every prime-power precision and the limiting Haar measure of the Perrin value closure. The division into generic full residue balls and exceptional quadratic critical images exposes why the density differs from that suggested by a period table or unramified lifting.
+Reconstructed companion trace R_n=tr(A^n), A^22=I+N, N^2 divisible by 23, tr(A^r N^3) divisible by 23^2 for all r via Cayley-Hamilton/recurrence. These ensure 22 restricted analytic branches F_r(t)=R_r+23g_r(t), nonzero quadratic reduction for all r. Every branch has a unique simple critical point and an analytic unit-square change of variable; Hensel isometries lift its other residue classes freely. Independently recomputed quadratic branch table modulo 529: 211 targets, 198 with some simple preimage and 13 critical-only, all unique and disjoint. Hence |I_k|=198·23^(k-2)+13S_(k-3) for k>=3, period 22·23^(k-1), Haar measure 198/529+13/25392=9517/25392. Finite table checks are not the proof of the analytic unrestricted step.
 
-Scientific limitations: the statement concerns only the classical Perrin trace sequence at the ramified prime \(23\); no classification at other primes is implied. Historical priority and the derivation deserve an independent inspection.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS. Literature and Resultary research on 23-adic Perrin trace images, ramified prime discriminant and periods found only recurrence/period/signature literature and a related but different Padovan 23-adic isometry; these statements do not imply a complete Perrin value image or Haar measure. Adams–Shanks 1982 full text was not read and may hide an equivalent local calculation.
+
+## value
+
+PASS
+
+The discriminant -23 makes 23 the distinguished ramified prime for the classical Perrin trace, not an arbitrary small modulus. Exact all-power value images, the 198 full balls versus 13 ramified quadratic pieces, and Haar density are natural local invariants with a new structural explanation beyond a period table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
