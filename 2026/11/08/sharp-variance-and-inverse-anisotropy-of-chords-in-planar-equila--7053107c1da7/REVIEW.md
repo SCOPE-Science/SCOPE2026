@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is a fixed closed unit-edge planar multiset with even \(n\ge4\) and \(2\le k\le n-2\). The random object is the squared distance for the sum of a uniform \(k\)-subset, not independently sampled vectors or the unsquared chord. Closure gives the sum of off-diagonal Gram entries and every row sum. Pair-overlap counting yields the exact fourth moment, with the second angular harmonic entering through the trace of the squared frame operator. Symbolic rational-function reduction of the final variance and upper expression gives identically zero residual; exhaustive exact-rational subset enumeration checks 16 finite settings, including both \(n=4\) extremizers. Positivity and equality are proved via the complex triangle inequality; a continuous antipodally paired family gives every possible value. The finite computations are supplementary rather than proofs for untested integers.
+## correctness
 
-## Originality — PASS (provisional historical priority)
-Cantarella, Deguchi and Shonkwiler, arXiv:1206.3161, Section 6, introduce the very same fixed-edge rearrangement model, but their identified theorem is for the first moment of squared chord length. In particular, the common mean does not describe its fluctuation. Zirbel and Millett, arXiv:1204.1366, study expectations across ideal ring ensembles, not the conditional fixed planar edge-set fourth chord moment. Cantarella and Shonkwiler, arXiv:1310.5924, derive chord moments under a global spatial symplectic probability model, not the conditional permutation law or its planar tight-frame extrema. Published related findings on fourth chord moments for parallelogram point sampling and radial second moments of nested permutohedra involve different geometric sampling spaces; they do not give the present all-even-edge range or inverse anisotropy. No direct implication was located in targeted searches covering edge-set ensembles, vector subset sampling, frame potentials and equivalent formulations. Generic fourth-moment sampling identities might exist elsewhere and historical priority remains to be verified independently. Absence from search results is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The source's original fixed-edge mean is identical for all closed equilateral edge multisets of a given size, obscuring different shapes. The fourth moment provides exactly the missing directional invariant. The full sharp interval, *all* equality configurations, all intermediate convex-polygon realizations, and a span-independent inverse reconstruction of the 2-by-2 directional spectrum are natural complete geometric facts. They classify a meaningful shape-sensitive observable rather than an arbitrary isolated computation. They do not characterize individual polygons, and the upper equality lies only on the degenerate boundary when embedded convexity is imposed.
+For n even>=4, 2<=k<=n-2 and closed planar unit vectors, R_k=|sum_{j in S}e_j|² for uniform k-subset. Closure gives sum_{j != i} e_i·e_j=-1, G=-n/2; pair-overlap sums H=n/2-T and K=n(n-4)/8+T/2, T=(n²+J-2n)/4 with J=|sum exp(2i theta)|². Hypergeometric q2,q3,q4 yield Var=A_nk+B_nk J, positive B, and mean k(n-k)/(n-1). 0<=J<=n²; zero iff tight frame and max iff antipodal collinear balanced; explicit continuously varying antipodal strictly convex walk realizes every interior value. Eigenvalues (n ± sqrt J)/2 recovered from one variance. Independently enumerated rational unit-antipodal edge sets n=4,6,8,10 for all k and confirmed exact moments.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Cantarella–Deguchi–Shonkwiler 2012 Section 6 Proposition 15 studies the exact same uniformly permuted fixed-edge ensemble but obtains the mean, not the conditional squared-chord variance or inverse directional tensor. Zirbel–Millett and later symplectic polygon work average over different global polygon measures. General sampling-without-replacement fourth moment formulas may imply algebraic portions, but the sharp polygon-frame attainment and inversion need additional argument.
+
+## value
+
+PASS
+
+A complete all-even-size sharp fluctuation interval in a natural random polygon reordering model, with exact geometric equality and convex interpolation, plus inverse recovery of frame anisotropy from variance; provides a nontrivial second-order statistic beyond the previously known mean.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

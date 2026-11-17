@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The analytic proof in `RESULT.md` establishes the finite-population moment formula for every even \(n\ge4\) and every integer \(2\le k\le n-2\), including endpoints. Exact symbolic algebra reduces the derived expression for \(\operatorname{Var}(R_k)\) to \(A_{n,k}+B_{n,k}J\) with zero residual and verifies the quoted upper expression. The inequalities and equality cases are justified analytically by \(0\le J\le n^2\), and the geometric realization uses an explicit continuous family of antipodally paired closed equilateral convex polygons.
+# Independent mathematical audit
 
-The embedded file `chord_variance_verifier.py` runs with Python's standard library, `python chord_variance_verifier.py`, and reports `VERIFY_OK exact_subsets=16 geometry_equalities=2` after exhaustive rational evaluation of all subsets for its specified \(n\)-and-\(k\) instances. Its computations verify illustrative cases but do not certify the universal proof. The proof does not establish odd-edge optimal bounds, polygon congruence recovery, finite-sample statistical bounds or historical uniqueness of the claim. Independent audit has not been performed.
+## correctness
+
+PASS
+
+For n even>=4, 2<=k<=n-2 and closed planar unit vectors, R_k=|sum_{j in S}e_j|² for uniform k-subset. Closure gives sum_{j != i} e_i·e_j=-1, G=-n/2; pair-overlap sums H=n/2-T and K=n(n-4)/8+T/2, T=(n²+J-2n)/4 with J=|sum exp(2i theta)|². Hypergeometric q2,q3,q4 yield Var=A_nk+B_nk J, positive B, and mean k(n-k)/(n-1). 0<=J<=n²; zero iff tight frame and max iff antipodal collinear balanced; explicit continuously varying antipodal strictly convex walk realizes every interior value. Eigenvalues (n ± sqrt J)/2 recovered from one variance. Independently enumerated rational unit-antipodal edge sets n=4,6,8,10 for all k and confirmed exact moments.
+
+## originality
+
+PASS
+
+Cantarella–Deguchi–Shonkwiler 2012 Section 6 Proposition 15 studies the exact same uniformly permuted fixed-edge ensemble but obtains the mean, not the conditional squared-chord variance or inverse directional tensor. Zirbel–Millett and later symplectic polygon work average over different global polygon measures. General sampling-without-replacement fourth moment formulas may imply algebraic portions, but the sharp polygon-frame attainment and inversion need additional argument.
+
+## value
+
+PASS
+
+A complete all-even-size sharp fluctuation interval in a natural random polygon reordering model, with exact geometric equality and convex interpolation, plus inverse recovery of frame anisotropy from variance; provides a nontrivial second-order statistic beyond the previously known mean.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
