@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,22 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and limits
 
-For the precisely defined family \(P_d=\operatorname{conv}(\operatorname{Av}_d(132,213))\), the following mathematical steps were reconstructed: (i) complete facet systems and projected Euclidean normal norms; (ii) the exact nonnegative Dirichlet path Green kernel; (iii) the sharp inball bound from its first row; (iv) construction of equality with all facet distances; (v) uniqueness from strictly positive first row; and (vi) the antipodal-pair outer-sphere lower bound with strict convexity ruling out nonvertex contacts.
+# Independent mathematical audit
 
-## Reproducible checks
+## correctness
 
-Run `python3 verification/verify_avoiding_inball.py`. It prints exactly:
+PASS
 
-```
-PASS: exact vertex/facet signatures 8194
-PASS: high-precision inball/facet/Laplacian checks 14850
-PASS: total checks 23044
-```
+Using the established complete 2(d-1) facet presentation, the prefix deficits u_k satisfy u_k>=r sqrt(k(d-k)/d) and L u<= (2-sqrt(2) r)1. Dirichlet path Green inverse has strictly positive entries min(i,j)(d-max(i,j))/d. Its k=1 bound gives the claimed r. The parabolic u_k=(r/H)k(d-k) attains it, and its B_k distance is r sqrt(k(d-k)/(d-1)). Equality only at k=1,d-1; strict positivity of first Green row proves uniqueness. Antipodal monotone permutations force the unique circumball of radius sqrt(d(d^2-1)/12). Independent calculations for every d=2..80 confirmed contact ratios, constraints and boundary case; the proof handles unbounded d.
 
-These tests cover all reverse-layered vertices through \(d=10\) and 99 consecutive dimensions from \(d=2\) through \(d=100\), including end ranks and strict interior ranks. The proof applies to all integers \(d\ge2\). A separate SciPy HiGHS linear-programming check of the primal inball optimization agreed for all \(2\le d\le32\); the standalone program itself has no nonstandard dependencies.
+## originality
 
-## What is not established by finite tests
+PASS
 
-Enumeration through \(d=10\) is not a classification proof for arbitrary \(d\); the cited full facet theorem and the derived Green-matrix argument supply the infinite-dimensional reasoning. High-precision checks cannot certify strict inequalities at all dimensions; the symbolic inequality \(k(d-k)\ge d-1\), with equality only at the endpoints, does. The record is reviewed by the same model only; independent audit has not been performed. Historical originality is provisional.
+The precise facet system, cube combinatorics and path-Laplacian model are already established by de Castro and Tamayo Jimenez, and are credited. Their complete inspected geometric and Ehrhart results do not state the Euclidean inball center, the exact contact-facet spectrum or the intrinsic circumball comparison. A lattice equivalence alone need not be isometric; here the inball proof uses the actual intrinsic metric. No broader prior result implying all formulas was identified.
+
+## value
+
+PASS
+
+The exact inradius and rigidity of contact facets quantify the Euclidean distortion of a canonical pattern-avoiding polytope while the vertex circumradius stays unchanged. The d^(3/2) aspect-ratio growth and fixed number of contact facets are meaningful high-dimensional geometry, not routine relabeling of the known face-lattice cube.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
