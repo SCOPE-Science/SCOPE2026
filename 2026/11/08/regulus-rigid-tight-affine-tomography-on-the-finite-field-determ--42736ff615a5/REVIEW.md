@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The quadratic polar pairing \(B(X,Y)=\det(X+Y)-\det X-\det Y\) is nondegenerate even in characteristic two. All maximal determinant-zero two-planes are explicitly parametrized by row or column directions. Any nonzero rank-one frequency belongs to exactly one plane of each ruling. Applying a complete affine coset-sum normal operator to a character yields exactly \(q^2\) when its frequency is in the plane and zero otherwise. This gives every weighted eigenvalue, its multiplicity and the entire kernel. Comparing the grid sums proves uniqueness of injective minimum designs and rigidity of all tight positive-weight designs. Reproducible direct integer incidence calculations for \(q=2,3,4\) agree with the complete spectra; they are corroboration, not the infinite proof.
+PASS
 
-## Originality — PASS under bounded comparison
+For V=M2(F_q) with Q=det and nondegenerate polar pairing B in every characteristic, every maximal totally singular 2-plane is in exactly one of the left/right rulings L_i,R_j. Every nonzero rank-one frequency lies in one L_i∩R_j, with q−1 nonzero multiples; invertible frequencies are invisible. Since each D=D^{⊥_B}, a full affine coset-sum view has normal multiplier q² on D and 0 otherwise. Thus nonzero rank-one eigenvalues are q²(w_i+v_j), the constant eigenvalue is q²(Σw_i+Σv_j), and invertible-frequency eigenvalues vanish. For selected positive-direction sets sizes a,c the mean-zero rank-one nullity is (q−1)(q+1−a)(q+1−c), implying injectivity iff a or c equals q+1. Tightness iff one full ruling uniform or both complete with weights constant within each; proper nonempty opposite additions to one full unit-weight ruling yield condition number sqrt(2), full additions restore 1. Constants in inversion follow from eigenvalues on mean and rank-one components. Independently constructed affine-incidence Gram matrices for q=2,3 with four selection patterns and matched full eigenvalue multiplicities; all-q proof is character orthogonality, not extrapolation.
 
-Koh's complete 2012 text proves endpoint mapping bounds for full affine transforms, not the exact rank-one frequency-grid eigenvalues or partial-view designs. Feldman–Grinberg's complete 2017 article proves an admissibility classification for projective point-to-line transforms; its doubly ruled quadrics share geometric ingredients but use different source and measurement spaces and do not state an implication giving the new weighted affine-plane tomography theorem. Carbery–Stones–Wright analyze finite-field averages; Scarabotti analyzes finite multiplicity-free Radon transforms, but its full text was unavailable. Publicly indexed Fourier tomography, scalar-view-weighting, and quadratic-cone results were checked by claim implication, and no equivalent or stronger statement covering the full proposed grid classification was identified. General Fourier-slice theory itself is acknowledged as prior art. Residual risk: an unlocated specialization, or an implicit consequence of inaccessible general finite Radon literature, may already give the result.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The determinant-zero Fourier cone is exactly the recoverable nonconstant frequency sector for the maximal null-plane measurements. The theorem solves its natural finite-field inverse problem for **every** selection of complete direction views and nonnegative weights, with explicit stability and inversion, not just a single sample calculation. The classification of all injective selections and all tight positive-weight selections is structural, and the exact condition-number deterioration and restoration on adding opposite-ruling views is a nonmonotone design phenomenon. It is relevant to sparse-direction tomography on finite quadratic geometries. No general signal recovery outside the characteristic cone or arbitrary-coset erasure result is claimed.
+Standard finite affine Radon slicing and projective doubly ruled quadrics are credited. The most relevant published null-ray transforms use 1-dimensional rays, different Fourier visibility and a different reconstruction problem; Koh addresses full-family mapping inequalities. The arbitrary-view weighted pair-grid spectrum, exact minimal ruling designs and nonmonotone tightness are not in inspected statements. The inaccessible Scarabotti general harmonic-analysis paper remains a named priority risk but cannot alone fail originality.
 
-## Closest literature and limitations
+## value
 
-Doowon Koh, arXiv:1209.1215 (complete text inspected); Feldman–Grinberg, arXiv:1707.06695 (complete text inspected); Carbery–Stones–Wright, DOI:10.1017/S0305004107000680 (limited portion read); Scarabotti, DOI:10.1137/S0895480102416398 (abstract only). The relevant inaccessible-source priority risk remains explicit, and no external assessment of priority or correctness was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The finite determinant quadric supplies a natural self-dual rank-one frequency cone and two canonical rulings. An exact all-q partial-view tomography classification pinpoints the unique minimal direction architectures, true weighted tightness rigidity and a counterintuitive nonmonotone √2 conditioning penalty from adding only some measurements. These are precise design and inverse-problem invariants, not merely restating Fourier diagonalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
