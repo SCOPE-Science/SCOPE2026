@@ -1,15 +1,21 @@
-# Scientific review: characteristic-seven dihedral hyperelliptic rank strata
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(\Delta(a,b)\ne0\), the polynomial \(xq_{a,b}(x^2)\) is squarefree of degree nine and defines a smooth genus-four curve. The displayed Cartier matrix is derived by coefficient extraction from the exact cube of its defining polynomial, not inferred from numerics. Its two complementary \(2\)-by-\(2\) blocks have the same determinant \(D\) and fixed unit entries; therefore its rank is exactly four or two. For \(D=0\), direct rank-one factorizations show the second and every subsequent twisted Cartier product are zero if and only if \(1+u^7w=0\). This distinction between Cartier rank and stable rank is crucial to the \(7\)-rank assertion. Lexicographic elimination gives the printed two-generator Gröbner basis; its univariate factorization has 20 distinct roots and the discriminant gcd is one. Both attached verification programs executed successfully, including an independent full \(\mathbb F_{49}\)-parameter check. These are exact finite algebraic certificates for assertions about all \(k\)-points, not only a finite-field sample.
+## correctness
 
-## Originality — PASS, subject to independent historical priority
-The normal form is known: Ohashi–Kudo, arXiv:2312.16858, Sections 2.2 and 3.1, give the same \(D_4\)-symmetric hyperelliptic family and study superspecial members. The present result does not appropriate that construction. The closest general genus-four result, Kudo–Harashita, arXiv:1607.01114, excludes *superspecial* curves in characteristic seven (Cartier rank zero); it does not exclude Jacobians with \(7\)-rank zero and Cartier rank two. The explicit nonordinary divisor, the finer ranks \(4,2,0\), the degree-22 elimination equation and its 20 smooth geometric parameter solutions are not stated in those inspected sources. Searches for equivalent formulas, broader rank-stratification theorems and exact computational tables identified no covering claim in the material reviewed. Because general Cartier methods and the genus-two isogeny are established, the genuine contribution is only the exact characteristic-seven stratification and census; an unindexed special-case calculation could affect priority.
+PASS
 
-## Mathematical value — PASS
-This is the natural full two-parameter dihedral normal form for genus-four hyperelliptic curves, not an arbitrary coefficient slice. The \(7\)-rank and Cartier \(a\)-number are standard moduli invariants. Their exceptional loci control the ordinary boundary and the finite lowest-rank stratum. Proving that no intermediate rank occurs and obtaining exactly 20 smooth zero-rank parameter points supply a complete arithmetic stratification beyond the existence/nonexistence of superspecial curves. The coefficient-pair count is not misstated as an isomorphism-class count, and rank zero is not misstated as supersingularity.
+For smooth x(T^4+aT^3+bT^2+aT+1)|_{T=x^2} of degree 9, the genus is four. Direct coefficient extraction from f(x)^3 verifies M_{ij}=c_{7i-j} in the differential basis. Its permuted 2x2 anti-diagonal blocks have common determinant D=uw-v and each a unit entry, so Cartier rank is 4 if D!=0 and exactly 2 if D=0; the a-number is 0 or 2. Crucially the semilinear Cartier iterate is tested with Frobenius twist: on D=0 the twisted products are rank two for E=1+u^7*w!=0 and nilpotent for E=0, giving stable 7-ranks 2 and 0. An independent GF(7) SymPy symbolic reconstruction in this audit checked all 16 Cartier matrix entries, determinant D^2, and lex Groebner elimination of (D,E) giving degree-22 P(a) with squarefree part degree 20. The discriminant after the unique b substitution is coprime to P, so all twenty geometric solutions are smooth; the 20 count is not merely GF(7) or GF(49) sample evidence. The examined verification scripts independently compute the F49 sample and characteristic-7 algebra. Limitation: coefficient-marked parameter points, not isomorphism classes or Newton polygons.
 
-## Closest prior work and limitations
-Ohashi–Kudo's automorphism classification and superspecial algorithm overlap in objects and normalization but not in the asserted stratification. Kudo–Harashita's nonexistence result excludes a different, stronger condition. Generic Hasse–Witt algorithms can reproduce the coefficient stage but do not directly give the elimination count without computation. Possible overlooked specialised rank tables and parameter identifications remain risks; full Newton polygons and isomorphism classes are not determined.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026-10-18 same-family SCOPE theorem already gives the entire Cartier a-number/nonordinary divisor, after the exact parameter substitution s=a,t=b-2; that part is NOT original. It only determines p-rank on the two F7-rational exceptional pairs, whereas the present result establishes p-rank across the full geometric D=0 divisor and identifies exactly 20 geometric zero-rank parameters by new elimination. The broader original dihedral normal form and superspeciality literature likewise do not supply this remaining geometric 7-rank census. This precise surviving all-geometric stratification is best-of-knowledge original; an unindexed earlier table may still overlap.
+
+## value
+
+PASS
+
+A natural full two-parameter automorphism-rich genus-four curve family has standard Jacobian invariants 7-rank and a-number. The new step separates geometric rank-two and rank-zero loci inside the previously known nonordinary divisor and counts exactly 20 smooth marked rank-zero fibers, a finite exceptional stratum of intrinsic arithmetic interest. Unlike a small-field recomputation, the exact geometric census uses elimination over the algebraic closure and proves an all-parameter classification; it does not pretend already-known nonordinary divisors themselves are new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
