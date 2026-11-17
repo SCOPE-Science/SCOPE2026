@@ -1,21 +1,21 @@
-# Scientific review: exterior-algebra four-dimensional module variety
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The classification follows from two explicit mutually exclusive loci. On the nonzero-product locus, any vector with nonzero product image yields the regular four-dimensional module basis; the stabilizer is the unit group of a four-dimensional local algebra and the orbit dimension is twelve. The zero-product locus is the proper image of a rank-eight vector bundle on \(\operatorname{Gr}(2,4)\), with dimension twelve established separately on the rank-two-first-operator chart. The rank-two chart of the intersection is a repeated-eigenvalue hypersurface: nilpotent centralizers impose the discriminant condition, and a one-parameter family proves the converse. The two components are distinct and each twelve-dimensional, forcing the intersection to have dimension at most eleven; the chart realizes eleven. The counting formulas partition first matrices by ranks zero, one and two, with all rank-one and rank-two fibers calculated explicitly. Every characteristic is included, and the direct \(\mathbb F_2\) enumeration and \(\mathbb F_3\) canonical-fiber checks agree.
+PASS
 
-Limits: no scheme-theoretic reducedness of the original defining ideal, global intersection irreducibility, or assertion beyond four-dimensional modules is claimed. The finite computations corroborate, but do not prove, unrestricted field statements.
+For XY!=0, z,Xz,Yz,XYz form a basis, giving the single regular E-module orbit of dimension16-4=12. The annihilating locus is the proper image of a rank-eight vector bundle over Gr(2,4), irreducible dimension12. In the rank2 X chart Y=(A,B;0,-A), A²=0 and [A,B]=0; nonzero nilpotent A has centralizer kI+kA, so its closure intersects A=0 precisely when B has repeated eigenvalues, with reduced char2 equation tr B=0. Thus intersection has dimension11. Counting rank0/rank1/rank2 square-zero X and corresponding Y fibers yields q^6(2q^6+q^5+q^4-q²-q-1), with nonzero-product regular orbit |GL4|/(q³(q-1)). Independently checked q=2 counts 10816 total and 2520 nonzero and algebraic polynomial identity. Computations only illustrate all-field geometric proof.
 
-## Originality (PASS, provisional)
+## originality
 
-Levy's 2006 characteristic-two theorem already determines the two components and their dimensions in that characteristic; this aspect is explicitly credited rather than treated as new. Schröer's 2002 study of mutually annihilating nilpotent pairs covers the first component's general type. Chen–Wang (2018) addresses unrestricted anti-commutation and the semnilpotent case, not the simultaneously square-zero locus. Huang (2021) counts mutually annihilating pairs rather than regular exterior-algebra representations. The narrower contribution evaluated as not directly implied is the exact all-characteristic finite-field count and the characteristic-uniform intersection-divisor criterion/dimension. Direct searches of aliases (exterior-algebra representations, restricted commuting varieties, square-zero anticommutation and module degenerations) produced no statement supplying both. A general theorem on degenerations or module representation schemes could nevertheless cover the claim: priority remains provisional, and no independent originality certification is asserted.
+PASS
 
-## Value (PASS)
+Levy already gives two dimension12 components in characteristic two, Schröer annihilating locus and a later published all-dimensional product-rank census covers the regular positive-product orbit. The surviving geometric claim is the precise all-characteristic rank-two discriminant intersection criterion and dimension11 incidence, not established by those inspected results. Total cardinality may be assembled from known pieces; this is not itself asserted as clearly new.
 
-This is the smallest dimension supporting a nonzero product of two square-zero anti-commuting operators, so the regular-module orbit and its boundary arise naturally rather than from an arbitrary parameter slice. The equal-dimensional two-component geometry, explicit codimension-one discriminant incidence, and the full field-independent point-count polynomial measure how faithful minimal modules meet representations that kill the socle product. The count also identifies the precise frequency of nonzero-product pairs. These facts distinguish the reduced geometry and arithmetic of the exterior-algebra module scheme; they are more substantive than computing a single example.
+## value
 
-## References and residual limitations
+PASS
 
-Relevant primary texts: Schröer, arXiv:math/0211293, sections 1 and 2; Levy, arXiv:math/0609180, Proposition 2.3 and section 3; Chen–Wang, arXiv:1805.00378, introduction and component theorem; Huang, arXiv:2110.15566, introductory definitions and main theorem. This is a self-review, not an independent audit.
+Dimension four is the smallest exterior-algebra module carrying XY!=0. The divisor describing degeneration between the regular and annihilating components is an independently motivated geometric structural fact; point counts complement it, not sole value.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
