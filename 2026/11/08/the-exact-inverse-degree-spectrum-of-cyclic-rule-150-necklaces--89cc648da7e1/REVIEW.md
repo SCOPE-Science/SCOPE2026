@@ -1,19 +1,21 @@
-# Mathematical review: cyclic Rule 150 inverse-degree law
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The fundamental kernel recurrence \(x_{i+1}=x_i\oplus x_{i-1}\) has precisely four three-periodic solutions when \(3\mid n\), and none nonzero otherwise. The three image parity sums provide two independent constraints and match the image dimension. Fixing a target representative turns necklaces over that target into orbits of its four labeled predecessors under the target's rotation stabilizer. For primitive period divisible by three this action is a translation on the four-element fiber (four fixed points or two two-cycles); for primitive period coprime to three it is a fixed point and a three-cycle. Möbius inversion and Burnside yield an exact whole-space census. All boundary lengths, repeat parities, and primitive-period quantifiers were checked against the proof. The standalone verifier independently checked the full transition graph on every ring through length \(18\), as well as the census arithmetic through \(60\). This finite corroboration is distinct from the infinite proof.
+PASS
 
-## Originality
+The kernel equation x_(i+1)=x_i+x_(i-1) mod2 has exactly four period-3 solutions when 3|n and only zero otherwise. The image is the codimension-two equality of three parity sums. For a fixed output y of least period p, the necklace predecessor classes are stabilizer R^p orbits on its 4-member labeled fiber. When 3 does not divide p, action has one fixed and one 3-cycle, giving 2. When 3|p and primitive block is reachable, action fixes all 4; otherwise it translates by nonzero 2-torsion, giving 2. Burnside uses H_n(d) fixed reachable strings; Mobius inversion on primitive good blocks yields B4. I independently enumerated all labeled inputs and quotient output fibers for n=1..12, confirming the exact (B0,B2,B4) histograms (2,2,0), (8,5,1), (44,2,14), (256,16,80) at n=3,6,9,12. The nontrivial all-n argument rests on group action/linear algebra, not this finite run.
 
-**PASS, qualified.** The most relevant earlier algebraic analysis is Martin–Odlyzko–Wolfram (1984), which supplies labeled-state polynomial reachability and cycle structure, not this rotation-class predecessor census. Krawczyk (2013) uses a different equivalence relation on phase-space graphs and compares Rule 105 with Rule 150. Frati–Petak–Cheney (2024) specifically motivates necklace networks but does not give an all-size inverse-degree spectrum, primitive-period parity criterion, or exact divisor census. Searches covered the direct Rule 150 formulation, Rule 105 output complement, three-tap polynomial \(1+z+z^2\), orbit quotients, and published mathematical-record claims. The strongest residual risk is that an earlier explicit quotient formula is embedded in a less searchable classical CA source or phase-space atlas; no independent priority validation has occurred.
+## originality
 
-## Value
+PASS
 
-**PASS.** The inverse-branching structure of a necklace network is a natural measure of information loss after discarding the indexing origin. This gives the full spectrum and all output-dependent equality cases for a classical elementary rule over unbounded ring sizes, not merely a finite example. The sharp stabilizer criterion explains an otherwise hidden two-versus-four collapse of a uniform four-element labeled fiber, and the census gives the exact graph indegree histogram and a generic four-parent law. It differs structurally from prior work on Rule 90 because the Rule 150 kernel has period three and is absent at coprime ring lengths.
+Martin–Odlyzko–Wolfram 1984 gives additive finite-ring algebra and labeled linear image; Frati–Petak–Cheney 2024 investigates 256 binary necklace networks, but its accessible full manuscript does not provide this exact all-length pointwise stabilizer-degree law or Mobius-Burnside class census. A published Rule 90 inverse law concerns a different kernel and cannot directly imply Rule 150 parity conditions. Search could miss old tables or additive-CAs network-degree characterizations; originality is best-of-knowledge.
 
-## Closest literature and limitations
+## value
 
-The proof inherits the established polynomial representation of additive cellular automata but adds the explicit orbit analysis. The all-length exact inverse-degree census should not be confused with earlier finite-state transition graphs, generalized isomorphism-class partitions, or staggered reversible Rule 150. The result is limited to synchronous one-step evolution and rotation classes; absolute priority and independent verification remain open.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+This is a natural complete invariant of the rotation-quotient dynamics: it distinguishes 0,2,4 predecessor necklaces despite all reachable labeled outputs having four predecessors. Exact period/parity criteria, census formulas and almost-sure degree-four asymptotics aid classification of finite cyclic cellular-automaton phase space. It is not a mere renaming of labeled linear rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
