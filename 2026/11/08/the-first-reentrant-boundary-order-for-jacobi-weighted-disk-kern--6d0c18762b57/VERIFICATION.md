@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verify_jacobi_transition.py` in a Python 3 environment with SymPy and NumPy. Successful execution prints:
+## correctness
 
-`JACOBI_FIRST_REENTRANCE_PASS exact_cayley=4 exact_routh=4 exact_witnesses=3 sampled_cases=316`
+PASS
 
-The verifier reconstructs four exact kernel numerator/Cayley identities from the rising-factorial moments, performs symbolic Routh elimination for boundary orders zero through three, and confirms three exact fourth-order witness polynomials and their sign arrays. It separately evaluates 316 rational-parameter root-count cases numerically. The numerical cases do not establish any infinite-parameter assertion. The general proof instead uses algebraic identities plus the Routh–Hurwitz root-count theorem, strict positivity of all nonfinal first-column entries, and positivity of the kernel on the nonnegative real scalar axis.
+PASS: Beta(k+t,m+1) gives monomial norms and the rational kernel numerator for every real t>0. The Cayley transform sends scalar roots |s|<1 to Re(u)>0; the explicit Routh first columns have positive nonfinal entries and a final entry with precisely one positive zero for m=0,1,2,3. The m=3 constant equals 2(t+1)^4-8(t+1)^2+3, giving the displayed unique threshold. The exact degree-five m=4 polynomials at t=1/2,1,4 have Routh variation counts 1,0,2. At each lower threshold only simple u=0 occurs, corresponding to excluded s=-1.
 
-The required input is only the included checker and standard installed Python libraries. The verification makes no claim of independent external mathematical audit, exhaustive literature priority certification, or classification beyond the stated boundary orders.
+## originality
+
+PASS
+
+A genuine third-order Jacobi-weight root-count threshold together with the sharp first reentrant boundary order four survives the known lower-order and fourth-order precedents.
+
+## value
+
+PASS
+
+The sharp first integer boundary order where zeros disappear and subsequently reenter in a natural Jacobi weighted Bergman family is a motivated spectral/analytic threshold. Completing the missing m3 classification for all t>0 is a substantive, non-mechanical finite-order obstacle to proving minimality, not a fixed numerical sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

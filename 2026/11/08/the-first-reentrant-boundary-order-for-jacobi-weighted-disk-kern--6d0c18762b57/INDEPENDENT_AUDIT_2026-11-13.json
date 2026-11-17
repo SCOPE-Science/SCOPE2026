@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T09:16:23Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "verify_jacobi_transition.py",
+        "https://arxiv.org/abs/1703.05976",
+        "https://arxiv.org/abs/2509.13897"
+      ],
+      "rationale": "PASS: Beta(k+t,m+1) gives monomial norms and the rational kernel numerator for every real t>0. The Cayley transform sends scalar roots |s|<1 to Re(u)>0; the explicit Routh first columns have positive nonfinal entries and a final entry with precisely one positive zero for m=0,1,2,3. The m=3 constant equals 2(t+1)^4-8(t+1)^2+3, giving the displayed unique threshold. The exact degree-five m=4 polynomials at t=1/2,1,4 have Routh variation counts 1,0,2. At each lower threshold only simple u=0 occurs, corresponding to excluded s=-1.",
+      "residual_risks": [
+        "Routh arrays need the conventional treatment at boundary parameter values; handled via simple zero at u=0 in proof."
+      ],
+      "status": "PASS",
+      "verified_checks": [
+        "Rechecked Cayley-polynomial definitions and Routh-array elimination in frozen verify_jacobi_transition.py, with exact symbolic identities and parameter sign tests.",
+        "Examined m4 witness polynomials including Q_{4,1}(u)=120(u+1)^5; verified claimed sign-change columns in the proof.",
+        "Distinguished numerical sampled parameter probes from the all-real-t Routh sign argument."
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Known m=1,2 thresholds and m=4 reentry do not imply that m=3 is zero-free after a single transition; m=3 exact positive cutoff remains necessary for minimality."
+        ],
+        "reasoning": "Earlier positive m=0,1,2 and m=4 isolated results leave the integer boundary order three as a genuine missing case; neither dominates the submitted m<=3 all-real-t theorem.",
+        "searches": [
+          "Jacobi radial weighted Bergman kernels zero free phase threshold boundary order four Routh reentry",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-sharp-lu-qi-keng-thresholds-for-jacobi-weighted-disk-kernels--760a818ffdbf",
+          "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-reentrant-bergman-kernel-zeros-at-the-fourth-jacobi-boundary-ord--6175dda32baa"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1703.05976",
+        "https://arxiv.org/abs/2509.13897",
+        "Resultary published Jacobi threshold records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Perälä studies general radial-kernel vanishing/finite zeros, Miña-Díaz a Blaschke-modulus weighted family, Karp–Vishnyakova generalized Eulerian polynomials. None of the inspected substantive passages supplies the m3 threshold with this t-normalization."
+        ],
+        "reasoning": "Model equivalence of moment numerators with Eulerian polynomials alone does not give the asserted sharp threshold; the missing m3 Routh classification survives the prior implication test.",
+        "searches": [
+          "https://arxiv.org/abs/1703.05976",
+          "https://arxiv.org/abs/2212.08118",
+          "https://arxiv.org/abs/2509.13897"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rising-factorial generating-polynomial numerators belong to a generalized Eulerian framework, but the inspected framework does not present this m=3 Cayley right-half-plane root count and threshold."
+        ],
+        "reasoning": "The family can be expressed in generalized Eulerian polynomial language, but general generation/zero-location tools without the specified Routh threshold are not identical to the sharp scalar disk zero classification.",
+        "searches": [
+          "Jacobi radial weighted Bergman kernels zero free phase threshold boundary order four Routh reentry",
+          "https://arxiv.org/abs/2509.13897"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact m=3 Cayley/Routh count matching the stated threshold was found in inspected published records or source passages."
+        ],
+        "reasoning": "The claim concerns continuous parameter zero counts and a minimal structural order rather than a tabulated finite instance; failed search alone is not taken as proof of novelty.",
+        "searches": [
+          "Resultary search:Jacobi radial weighted Bergman kernels zero free phase threshold boundary order four Routh reentry",
+          "arxiv:1703.05976",
+          "arxiv:2509.13897"
+        ]
+      },
+      "rationale": "A genuine third-order Jacobi-weight root-count threshold together with the sharp first reentrant boundary order four survives the known lower-order and fourth-order precedents.",
+      "residual_risks": [
+        "Equivalent generalized-Eulerian Schur-stability result might be unindexed; Miña-Díaz full text not exhaustively inspected.",
+        "m4 reentry and lower m1,m2 cutoffs are not themselves novel and are expressly treated as prerequisites."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_NOT_COVERING",
+          "evidence": [
+            "General radial kernel zero-finiteness; no stated exact third Jacobi boundary-order threshold."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1703.05976",
+          "material_read": "Full available PDF, introduction and statements on existence/finiteness of kernel zeros and radial moment constructions",
+          "method": "Read primary full-text portions in PDF with page images",
+          "title": "Vanishing Bergman kernels on the disk",
+          "trigger": "Radial weighted disk kernel zeros"
+        },
+        {
+          "assessment": "RELATED_METHODS_NOT_DECISIVE",
+          "evidence": [
+            "General polynomial zero location does not explicitly determine the m=3 scalar-disk count for all positive origin exponent t."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.13897",
+          "material_read": "Full accessible PDF, introduction, sections 2 and 5 on generalized Eulerian polynomial zeros",
+          "method": "Primary PDF inspected with page images and theorem comparisons",
+          "title": "Generalized f-Eulerian polynomials: zeros and hypergeometric representations with applications",
+          "trigger": "Potential broader polynomial zero theorem"
+        },
+        {
+          "assessment": "UNRESOLVED_FULL_TEXT",
+          "evidence": [
+            "Inspected description concerns products of Blaschke modulus factors; no full-source NOT_COVERING assertion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2212.08118",
+          "material_read": "Bibliographic abstract/model description; complete full text not inspected",
+          "method": "Metadata and model comparison only",
+          "title": "A representation for the reproducing kernel of a weighted Bergman space",
+          "trigger": "Weighted Bergman kernel family with related algebra"
+        },
+        {
+          "assessment": "PARTIAL_COVERING",
+          "evidence": [
+            "m1 and m2 thresholds already known; m3 is absent."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-two-sharp-lu-qi-keng-thresholds-for-jacobi-weighted-disk-kernels--760a818ffdbf",
+          "material_read": "Published full theorem summary/search record, comparison to exact m1,m2 thresholds",
+          "method": "Published mathematical record comparison",
+          "title": "Two sharp Lu Qi-Keng thresholds for Jacobi-weighted disk kernels",
+          "trigger": "Same family at boundary orders 1 and 2"
+        },
+        {
+          "assessment": "PARTIAL_COVERING",
+          "evidence": [
+            "m4 reentry known; missing smaller-order m3 classification required to claim first."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/8/SCOPE-reentrant-bergman-kernel-zeros-at-the-fourth-jacobi-boundary-ord--6175dda32baa",
+          "material_read": "Published theorem summary and exact transition description, not entire primary proof",
+          "method": "Published mathematical record comparison",
+          "title": "Reentrant Bergman-kernel zeros at the fourth Jacobi boundary order",
+          "trigger": "Same weight family at m4"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The sharp first integer boundary order where zeros disappear and subsequently reenter in a natural Jacobi weighted Bergman family is a motivated spectral/analytic threshold. Completing the missing m3 classification for all t>0 is a substantive, non-mechanical finite-order obstacle to proving minimality, not a fixed numerical sample.",
+      "residual_risks": [],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No m>=5 phase diagram; m4 only three exact witnesses, not full t classification.",
+    "Originality provisional under unindexed polynomial-stability literature."
+  ],
+  "schema_version": 1
+}
