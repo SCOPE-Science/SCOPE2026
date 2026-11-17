@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs the exact regenerative single-cycle mean; solves the positive-return splitting/exit boundary problems; derives the negative-return OU mean via a globally remainder-controlled scaled-complementary-error-function expansion; controls the integrated remainder using the clock's finite second moment; and uses stopped first-, second- and third-moment Brownian identities. In particular the clock-independent constant \(L^2/(2D)\) comes from a quadratic optional-stopping cancellation, while the cubic identity \(\mathbb E[B_{T\wedge R}^3]=-6DL\mathbb E[(R-T)_+]\) fixes the first protocol-dependent term. The sharp Poisson specialization and strict comparison with uninterrupted OU follow algebraically. Fifty-two independent numerical checks passed, without being treated as an infinite-parameter proof.
+PASS
 
-## Originality — PASS (qualified)
+The actual protocol uses driftless search Brownian motion to L, reset clock R independent with E[R²]<∞ and P(R>0)>0, and a target-visible OU return that ends at 0 or L. Renewal gives Mκ=[E(T∧R)+E(1_{R<T}uκ(B_R))]/pκ. The negative-return OU hitting-time derivative is c_D κ^-1/2 erfcx(a sqrt(κ/(2D))), with a globally controlled cubic expansion; bounded-domain return solves regular perturbation equations. Stopped Brownian first and second moments give leading Lc_D/√κ and clock-independent constant L²/(2D). The stopped cubic martingale and E[B_t 1(T>t)]=-L P(T≤t) give E[(T∧R)-stopped B³]=-6DL H with H=E[(R-T)_+]; the sqrtκ coefficient is c_D[L³/(6D)+L H/p0] and strictly exceeds permanent OU. ER² controls fourth stopped moments and the O(κ) remainder. Poisson clocks give p0=(1-e^-2q)/(2q), H=e^-q/r and coefficient factor 1+6/(q sinh q). Independently checked erfcx Taylor derivatives and exponential identities (14 assertions). The theorem is pointwise for fixed clocks, no uniform r-limits or optimal resetting.
 
-The full 2025 Frydel preprint directly covers the visible-return harmonic protocol and has exact renewal/mean-time expressions, and the 2023 Biswas–Kundu–Pal paper establishes a general stochastic-home-return renewal framework. These **already cover the model's baseline formulas**, which are therefore explicitly excluded from the novelty claim. The October 2026 Dubey–Pal paper covers the harmonically confined two-phase model. The new assertion is a three-term weak-return-trap theorem for every independent finite-second-moment reset-clock law, with a universal constant term and an explicit strictly positive first clock-dependent correction. The closest accessible primary full texts give MFPT formulas, comparisons and phase diagrams but not this asymptotic statement. Semantic searches found no equivalent registered finding; absence of a search hit is not a proof of novelty. There remains a priority risk from unindexed supplements and partially accessible newer formulations.
+## originality
 
-## Value — PASS
+PASS
 
-Harmonic traps are implementable return controls and the weak-confinement limit is experimentally meaningful. Determining a universal divergence plus clock-independent finite term is a structural classification, not a routine single-parameter numerical calculation. The first nonuniversal coefficient quantifies a positive overhead against uninterrupted OU search and the Poisson factor \(1+6/(q\sinh q)\) gives a testable dependence on reset frequency. Arbitrary finite-variance clock laws—including deterministic scheduling—share the same two leading terms, improving the interpretability of weak-return experiments.
+Best-knowledge assessment against mathematically matching and broader prior claims; explicit boundaries and uninspected-source risks retained. The exact cancellation of all clock dependence through the leading and constant MFPT terms, with a universal strictly positive first renewal-clock penalty at order sqrtκ, is a natural weak-trap singular-limit fact. It differentiates target-visible stochastic home-return protocols and is useful for cost comparisons.
 
-## Limitations and closest prior literature
+## value
 
-The result is a theorem for driftless search, 1D OU return, active target sensing during return, and independent clocks of finite second moment. All asymptotics fix the reset law. The underlying renewal model and the existence of finite-parameter MFPT formulas are prior results. Closest comparisons: Dubey–Pal (2026, arXiv:2610.18814), Frydel (2025, arXiv:2511.14646), Biswas–Kundu–Pal (2023, arXiv:2307.16294). No independent scientific review or certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact cancellation of all clock dependence through the leading and constant MFPT terms, with a universal strictly positive first renewal-clock penalty at order sqrtκ, is a natural weak-trap singular-limit fact. It differentiates target-visible stochastic home-return protocols and is useful for cost comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

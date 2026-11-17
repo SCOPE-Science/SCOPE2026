@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T08:10:57.833890Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md (renewal identity, OU BVP and stopped cubic martingale)",
+        "frozen verify_weak_return.py BVP/quadrature code inspected, not used for universal claim",
+        "14 independent symbolic/numeric asymptotic coefficient checks"
+      ],
+      "rationale": "The actual protocol uses driftless search Brownian motion to L, reset clock R independent with E[R²]<∞ and P(R>0)>0, and a target-visible OU return that ends at 0 or L. Renewal gives Mκ=[E(T∧R)+E(1_{R<T}uκ(B_R))]/pκ. The negative-return OU hitting-time derivative is c_D κ^-1/2 erfcx(a sqrt(κ/(2D))), with a globally controlled cubic expansion; bounded-domain return solves regular perturbation equations. Stopped Brownian first and second moments give leading Lc_D/√κ and clock-independent constant L²/(2D). The stopped cubic martingale and E[B_t 1(T>t)]=-L P(T≤t) give E[(T∧R)-stopped B³]=-6DL H with H=E[(R-T)_+]; the sqrtκ coefficient is c_D[L³/(6D)+L H/p0] and strictly exceeds permanent OU. ER² controls fourth stopped moments and the O(κ) remainder. Poisson clocks give p0=(1-e^-2q)/(2q), H=e^-q/r and coefficient factor 1+6/(q sinh q). Independently checked erfcx Taylor derivatives and exponential identities (14 assertions). The theorem is pointwise for fixed clocks, no uniform r-limits or optimal resetting.",
+      "residual_risks": [
+        "Unrestricted assertions rest on the analytic proofs, not finite checks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Biswas–Kundu–Pal give general return-reset renewal identities; Frydel gives visible-return finite-parameter formulas; Dubey–Pal have general harmonic first-passage setting.",
+          "A general finite-parameter expression may admit expansion but the full clock-independent first two terms plus H/p0 correction are not statements inspected in those papers."
+        ],
+        "reasoning": "The older frameworks cover wider protocols but require a new singular asymptotic extraction to obtain these exact uniform-clock coefficients; Dubey–Pal full-text comparison is incomplete, a retained priority risk.",
+        "searches": [
+          "Resultary published-record semantic search: Brownian search first passage with resetting finite-duration Ornstein Uhlenbeck return visible target weak return trap three term asymptotic",
+          "arxiv:2307.16294",
+          "arxiv:2511.14646",
+          "arxiv:2610.18814"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2511.14646",
+        "https://arxiv.org/abs/2610.18814",
+        "https://arxiv.org/abs/2307.16294",
+        "Resultary published-record semantic search: Brownian search first passage with resetting finite-duration Ornstein Uhlenbeck return visible target weak return trap three term asymptotic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frydel section III gives SR-B renewal/splitting expressions for exponential return switches but not the documented small κ coefficient.",
+          "The new proof uses cubic stopped Brownian identity E X³=-6DL H and fourth stopped moment control beyond the generic renewal formula."
+        ],
+        "reasoning": "The previous general framework does not state the exact asymptotic, though it is a starting point for its derivation. Because the very relevant October 2026 Dubey–Pal source could not be read fully, the O pass is best-knowledge only with a specifically material residual risk.",
+        "searches": [
+          "arxiv:2511.14646",
+          "arxiv:2610.18814",
+          "Resultary published-record semantic search: Brownian search first passage with resetting finite-duration Ornstein Uhlenbeck return visible target weak return trap three term asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frydel SR-B visible-return Poisson model has the same renewal mean time and return boundary formula for Poisson clocks.",
+          "Dubey–Pal present stochastic return harmonic-search/return models, with same detection distinction."
+        ],
+        "reasoning": "The renewal formula is established prior background, but no inspected full-text source gives the universal three-term κ↓0 coefficient and finite-second-moment arbitrary-clock extension.",
+        "searches": [
+          "Resultary published-record semantic search: Brownian search first passage with resetting finite-duration Ornstein Uhlenbeck return visible target weak return trap three term asymptotic",
+          "arxiv:2511.14646",
+          "arxiv:2610.18814"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The universal coefficient depends on the law of an arbitrary nonnegative reset clock R and on H/p0, not finitely tabulated graph/integer data."
+        ],
+        "reasoning": "Exact database/table comparison is inapplicable to the infinite-dimensional renewal-clock law family; Poisson special formula was compared algebraically with source model.",
+        "searches": [
+          "Resultary published-record semantic search: Brownian search first passage with resetting finite-duration Ornstein Uhlenbeck return visible target weak return trap three term asymptotic",
+          "arxiv:2511.14646"
+        ]
+      },
+      "rationale": "Best-knowledge assessment against mathematically matching and broader prior claims; explicit boundaries and uninspected-source risks retained. The exact cancellation of all clock dependence through the leading and constant MFPT terms, with a universal strictly positive first renewal-clock penalty at order sqrtκ, is a natural weak-trap singular-limit fact. It differentiates target-visible stochastic home-return protocols and is useful for cost comparisons.",
+      "residual_risks": [
+        "Dubey–Pal 2026 arxiv:2610.18814 full text inaccessible; authorized institutional reader specifically returned vpn_disconnected, so a closely relevant source could contain the same weak-return expansion.",
+        "Any claim that generic exact MFPT formulas themselves are novel would be false; only this stated singular coefficient analysis survives.",
+        "Uniformity in reset-clock families is not proved and must not be inferred."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same Poisson protocol is prior, without documented general three-term weak-κ expansion.",
+          "evidence": "Renewal mean with target visibility and explicit splitting probabilities.",
+          "identifier_or_url": "https://arxiv.org/abs/2511.14646",
+          "material_read": "Full open preprint, including Section III SR-B mean-first-passage formulas and equations (46)–(49)",
+          "method": "Open-access PDF and page-image inspection",
+          "title": "Search by Return: Stochastic Resetting in Fluctuating Harmonic Potentials",
+          "trigger": "Exact visible OU return subprotocol"
+        },
+        {
+          "assessment": "Priority risk: no whole-document NOT_COVERING claim is made.",
+          "evidence": "Abstract identifies harmonic stochastic returns and target-visible first passage; full asymptotic claims not independently inspected.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.18814",
+          "material_read": "Abstract and available bibliographic description; full text inaccessible",
+          "method": "Attempted arXiv/open-access retrieval, then authorized institutional Oxford reader returned vpn_disconnected; no bypass",
+          "title": "Towards synergy between theory and experiments: First-passage processes under resetting with stochastic return protocols",
+          "trigger": "Very closely matching stochastic-return target-visible harmonic model"
+        },
+        {
+          "assessment": "Provides broad regenerative identity but no verified implication for the weak trap three-term coefficients.",
+          "evidence": "One-cycle MFPT renewal framework is prior art.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.16294",
+          "material_read": "Abstract and reported renewal framework, not the full supplementary technical content",
+          "method": "Open source metadata and comparison",
+          "title": "Search with stochastic home returns can expedite classical first passage under resetting",
+          "trigger": "General renewal equation encompasses cycle decomposition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2511.14646",
+        "https://arxiv.org/abs/2610.18814",
+        "https://arxiv.org/abs/2307.16294",
+        "Resultary published-record semantic search: Brownian search first passage with resetting finite-duration Ornstein Uhlenbeck return visible target weak return trap three term asymptotic"
+      ],
+      "rationale": "The exact cancellation of all clock dependence through the leading and constant MFPT terms, with a universal strictly positive first renewal-clock penalty at order sqrtκ, is a natural weak-trap singular-limit fact. It differentiates target-visible stochastic home-return protocols and is useful for cost comparisons.",
+      "residual_risks": [
+        "Value is restricted to the mathematically stated original result, not known background tools or special cases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Dubey–Pal 2026 arxiv:2610.18814 full text inaccessible; authorized institutional reader specifically returned vpn_disconnected, so a closely relevant source could contain the same weak-return expansion.",
+    "Any claim that generic exact MFPT formulas themselves are novel would be false; only this stated singular coefficient analysis survives.",
+    "Uniformity in reset-clock families is not proved and must not be inferred.",
+    "No GitHub write or server audit closeout was performed; scientific review is complete but public intake plan is not_ready due to unclean frozen public metadata."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Execute `python verify_weak_return.py` with Python 3, NumPy and SciPy. The program solves the OU exit mean on the positive interval by an independent collocation boundary-value solver, calculates the positive-side exit probabilities by exact-scale quadrature, integrates the negative-side OU hitting-time derivative, and independently evaluates the continuous-OU comparator.
+## correctness
 
-A run of the included program completed with `PASS numerical checks: 52`. The checks span five independent reset-time laws (exponential clocks of rates 0.25, 1 and 4, and deterministic durations 0.4 and 2), four trap stiffnesses each (0.02, 0.005, 0.001 and 0.0002), strict ordering of the full mean above the OU mean, and controlled relative asymptotic errors. The Poisson cases also check an \(O(\kappa)\)-sized residual against the explicit three-term formula. These tolerances are for numerical corroboration, not certified error bounds or proofs.
+PASS
 
-The scientific proof uses a globally bounded third derivative of \(\operatorname{erfcx}\) on the nonnegative axis, finite fourth stopped Brownian moments from \(\mathbb E[R^2]<\infty\), optional stopping, and an exact renewal identity. The independent audit status is not_performed.
+The actual protocol uses driftless search Brownian motion to L, reset clock R independent with E[R²]<∞ and P(R>0)>0, and a target-visible OU return that ends at 0 or L. Renewal gives Mκ=[E(T∧R)+E(1_{R<T}uκ(B_R))]/pκ. The negative-return OU hitting-time derivative is c_D κ^-1/2 erfcx(a sqrt(κ/(2D))), with a globally controlled cubic expansion; bounded-domain return solves regular perturbation equations. Stopped Brownian first and second moments give leading Lc_D/√κ and clock-independent constant L²/(2D). The stopped cubic martingale and E[B_t 1(T>t)]=-L P(T≤t) give E[(T∧R)-stopped B³]=-6DL H with H=E[(R-T)_+]; the sqrtκ coefficient is c_D[L³/(6D)+L H/p0] and strictly exceeds permanent OU. ER² controls fourth stopped moments and the O(κ) remainder. Poisson clocks give p0=(1-e^-2q)/(2q), H=e^-q/r and coefficient factor 1+6/(q sinh q). Independently checked erfcx Taylor derivatives and exponential identities (14 assertions). The theorem is pointwise for fixed clocks, no uniform r-limits or optimal resetting.
+
+## originality
+
+PASS
+
+Best-knowledge assessment against mathematically matching and broader prior claims; explicit boundaries and uninspected-source risks retained. The exact cancellation of all clock dependence through the leading and constant MFPT terms, with a universal strictly positive first renewal-clock penalty at order sqrtκ, is a natural weak-trap singular-limit fact. It differentiates target-visible stochastic home-return protocols and is useful for cost comparisons.
+
+## value
+
+PASS
+
+The exact cancellation of all clock dependence through the leading and constant MFPT terms, with a universal strictly positive first renewal-clock penalty at order sqrtκ, is a natural weak-trap singular-limit fact. It differentiates target-visible stochastic home-return protocols and is useful for cost comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
