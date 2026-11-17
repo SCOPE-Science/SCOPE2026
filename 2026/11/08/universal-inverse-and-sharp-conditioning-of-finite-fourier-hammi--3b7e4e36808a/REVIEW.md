@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. Character orthogonality gives an explicit inverse of the nonzero-label one-coordinate Schur complement. Support-poset zeta factorization and Boolean Möbius inversion yield the stated exact inverse kernel and its union-support cutoff. A union count proves the exact Frobenius norm; dominance of the origin entry and near-constant entries of the original transform give the sharp limiting condition number and singular-vector localization. Three exact matrix identities and six numerical/Frobenius tests pass. Finite tests supplement rather than prove the all-parameter statement.
+## correctness
 
-## Originality
-PASS under bounded literature comparison. Delvaux--Van Barel's Kronecker-Fourier work addresses extremal rank defects and Hamming numbers; Gluesing-Luerssen's Hamming-weight theory addresses MacWilliams partitions; neither inspected argument provides the principal-ball inverse or its sharp conditioning constant. Contiguous Fourier minors and band-on-shell or first-band-on-ball operators are different restrictions. The earlier binary two-ball spectral result covers just one specialization and does not imply the general kernel formula. Historical priority and uninspected broader poset inversion theorems remain residual risks.
+PASS
 
-## Mathematical value
-PASS. This is an exact structural inversion theorem for a natural low-interaction Fourier sampling problem, uniform across every finite abelian alphabet and all finite ball radii. It includes a sparse inverse, a directly computable inverse Frobenius norm, and the sharp polynomial growth of instability with a localized worst mode. It supplies information required to distinguish exact recoverability from stable interpolation; no claim is made of an arbitrary-radius uniform estimate or full finite-size singular spectrum.
+Reconstructed Schur complement of the zero-indexed Fourier table, exact local K^-1=q^-1 conjugate bicharacter, zeta factorization H=ZDZ^T on partial nonzero assignments and Boolean-interval Möbius inverse. Entrywise summation gives the union-support cutoff and binomial sum. Counting ordered pairs by support union gives the Frobenius formula. Fixed q,r, the origin inverse entry dominates all others by a full n-power and H approaches all-ones in Frobenius norm, hence the stated sharp n^(2r) constant and singular-vector localization. Independently checked exact two-sided inverse products in q2 n3 r1, q2 n4 r2, q3 n2 r1; these tests are finite corroboration.
 
-## Limitations and verification status
-The proof uses counting-measure, unnormalized Fourier entries and fixed-alphabet/fixed-radius asymptotics. The executable checks are finite. Literature comparison is bounded and independent validation is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge genuinely new exact principal-ball inverse and sharp conditioning for all finite abelian groups and radii. Existing rank-deficiency, Hamming-shell and degree-band results involve distinct operators; possible older general zeta-compressed-character inverse identities remain an explicit risk.
+
+## value
+
+PASS
+
+Closed sparse inverse of a natural structured finite Fourier sampling matrix, with exact support-union zeros and polynomial ill-conditioning constant quantifying an interpolation stability barrier; useful beyond finite instance enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
