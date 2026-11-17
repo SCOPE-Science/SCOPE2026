@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T15:17:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned full RESULT.md and check.py",
+        "Independent Poisson rate function, contact equations, and dense radial coverage check"
+      ],
+      "rationale": "Discrete Fourier orthogonality at n+1 angular points diagonalizes the polynomial sampling Gram with eigenvalues lambda_k=e^-t1 t1^k/k!+e^-t2 t2^k/k!. Uniform Stirling for t_j=n*a_j with positive a_j produces I(s|a)=a-s+s log(s/a). For R<1/e, convex sublevel intervals of I cover s=0 and s=1 only if the first radius a<=R and the second meets I(1|b)<=R. Among such centers, a=R maximizes first right reach eR; b=b_R the smaller root of I(1|b)=R minimizes the second left endpoint. Strict contact of these endpoints uniquely requires rho=b/R>e solving rho-1=e log rho and (rho-1)R-1-log(rho R)=0, giving rho≈5.7591317338, R*=0.1055733636919 and second center rho*R≈0.6080109091. Every R<R* leaves an uncovered gap, and at R* the whole [0,1] is covered. Uniform factorial errors and compactified subsequences of arbitrary radii yield -log B_n/n ->R* and asymptotically unique normalized radii. Independently numerically solved both contact equations and a dense s-grid matched R*; this finite computation does not replace global convexity/compactness proof.",
+      "residual_risks": [
+        "Numerical covering only samples points; global optimizer and arbitrary changing radii require the analytic endpoint and compactness steps."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2109.11825",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-universal-half-step-spectral-optimality-for-paired-fock-sampling--20eeece8686a/RESULT.md",
+          "Fock MZ general sampling and Gabor frames"
+        ],
+        "reasoning": "General stable MZ families using multiple sampling geometries and truncated reproducing kernels do not mathematically dictate a sharp exponentially unstable minimum for two equally weighted full-Fock regular rings. Fixed-radii half-step angular Gram spectral optimization is a different infinite-dimensional point-kernel object.",
+        "searches": [
+          "Resultary: two concentric circle Fock coherent state sampling exponential condition number stability frame",
+          "Resultary: universal half-step spectral optimality for paired Fock sampling rings",
+          "Resultary: sharp one circle sampling barrier and design rigidity truncated Fock",
+          "two-center Poisson KL divergence minimax interval covering"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2109.11825",
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-universal-half-step-spectral-optimality-for-paired-fock-sampling--20eeece8686a/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-one-circle-sampling-barrier-and-design-rigidity-for-trunca--69240c62b4d5/RESULT.md",
+        "https://arxiv.org/abs/1905.09927"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2109.11825",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-universal-half-step-spectral-optimality-for-paired-fock-sampling--20eeece8686a/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-one-circle-sampling-barrier-and-design-rigidity-for-trunca--69240c62b4d5/RESULT.md",
+          "I(s|a)=a-s+slog(s/a), two-interval endpoint contacts"
+        ],
+        "reasoning": "The previous results supply Fourier diagonalization and general sampling theory, not the derived constrained two-center covering extremum with unique ratio; the new scalar extremum is an additional global argument, not a direct corollary of a single-radius or fixed-angle theorem.",
+        "searches": [
+          "Resultary: two concentric circle Fock coherent state sampling exponential condition number stability frame",
+          "Resultary: universal half-step spectral optimality for paired Fock sampling rings",
+          "Resultary: sharp one circle sampling barrier and design rigidity truncated Fock",
+          "two-center Poisson KL divergence minimax interval covering"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2109.11825",
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-universal-half-step-spectral-optimality-for-paired-fock-sampling--20eeece8686a/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-one-circle-sampling-barrier-and-design-rigidity-for-trunca--69240c62b4d5/RESULT.md",
+          "Poisson Kullback-Leibler two-center interval covering"
+        ],
+        "reasoning": "The two-circle Gram has a Poisson mass sum, which may be called radial frame design or scalar KL covering. Neither known single-circle conditioning nor paired-ring angular Gram shift equals the global minimax over freely varying two squared radii of the minimum singular-value exponent.",
+        "searches": [
+          "Resultary: two concentric circle Fock coherent state sampling exponential condition number stability frame",
+          "Resultary: universal half-step spectral optimality for paired Fock sampling rings",
+          "Resultary: sharp one circle sampling barrier and design rigidity truncated Fock",
+          "two-center Poisson KL divergence minimax interval covering"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-universal-half-step-spectral-optimality-for-paired-fock-sampling--20eeece8686a/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-one-circle-sampling-barrier-and-design-rigidity-for-trunca--69240c62b4d5/RESULT.md",
+          "full-Fock Poisson mass spectrum for regular circles"
+        ],
+        "reasoning": "Poisson eigenvalues and one-circle optimal radius are known or directly elementary. The finite spectra are credited, but no inspected table or theorem computes the specific rho>e root and R*=0.10557336 for all 2-ring choices.",
+        "searches": [
+          "Resultary: two concentric circle Fock coherent state sampling exponential condition number stability frame",
+          "Resultary: universal half-step spectral optimality for paired Fock sampling rings",
+          "Resultary: sharp one circle sampling barrier and design rigidity truncated Fock",
+          "two-center Poisson KL divergence minimax interval covering"
+        ]
+      },
+      "rationale": "Constrained two-radial-orbit full-Fock normalized absolute lower-frame exponent and uniquely asymptotic optimal radii were not in inspected prior Fock-polynomial MZ, one-circle radial conditioning, or two-ring angular Gram-rotation theorems. Best-of-knowledge originality may still be threatened by earlier Poisson information-geometric covering results.",
+      "residual_risks": [
+        "Unindexed Poisson-KL information-geometric two-center covering literature may already contain the scalar minimax theorem or a broader interval covering theorem.",
+        "Constrained two equal-weight regular angular rings, full-Fock normalization and exponential rate only; not all planar geometries or exact finite-n optima."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General existence and normalized truncated-kernel MZ comparisons, no explicit two-ring full-Fock normalized sharp exponent in inspected results",
+          "evidence": "Gröchenig and Ortega-Cerdà 2022, arxiv:2109.11825; different evaluation normalization",
+          "identifier_or_url": "https://arxiv.org/abs/2109.11825",
+          "material_read": "Accessible primary full arxiv paper, introduction, definitions and theorems on polynomial MZ sampling and transfer; PDF first-page screenshot additionally inspected",
+          "method": "lawful arxiv PDF/text and screenshot",
+          "title": "Marcinkiewicz-Zygmund inequalities for polynomials in Fock space",
+          "trigger": "same polynomial Fock sampling stability and possible dominating theorem"
+        },
+        {
+          "assessment": "Controls relative angular offset for full infinite-Fock point Gram at fixed radii; does not optimize polynomial-coefficient sampling over radii",
+          "evidence": "half-step relative rotation is unique strict optimum for its distinct objective",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-universal-half-step-spectral-optimality-for-paired-fock-sampling--20eeece8686a/RESULT.md",
+          "material_read": "Full published RESULT.md including exact Fourier 2x2 blocks, hypergeometric zero theorem and angular-shift proof",
+          "method": "public GitHub full source",
+          "title": "Universal half-step spectral optimality for paired Fock sampling rings",
+          "trigger": "same two regular Fock rings and spectral extremality"
+        },
+        {
+          "assessment": "One-circle conditional optimum and oversampling obstruction do not supply two-center Poisson rate and asymptotic optimizer",
+          "evidence": "one-radius radius ((n-1)!)^(1/(n-1)) and spectral conditioning",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-one-circle-sampling-barrier-and-design-rigidity-for-trunca--69240c62b4d5/RESULT.md",
+          "material_read": "Full published RESULT.md with one-circle factorial radius, all positive angular weights classification and asymptotic",
+          "method": "public GitHub full source",
+          "title": "Sharp one-circle sampling barrier and design rigidity for truncated Bargmann-Fock spaces",
+          "trigger": "same normalized Fock polynomial single radius"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2109.11825",
+        "https://github.com/Resultary/2026/blob/main/2026/11/1/SCOPE-universal-half-step-spectral-optimality-for-paired-fock-sampling--20eeece8686a/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/11/8/SCOPE-sharp-one-circle-sampling-barrier-and-design-rigidity-for-trunca--69240c62b4d5/RESULT.md"
+      ],
+      "rationale": "Exact optimal two-radius placement and the inevitable exponentially small lower-frame bound for a concrete 2(n+1)-sample sensing geometry quantify a natural sensing stability barrier. This is not merely known Fourier diagonalization and is independent from optimizing condition numbers or angular shifts.",
+      "residual_risks": [
+        "Other two-center information geometry could dominate its scalar mathematics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed Poisson-KL information-geometric two-center covering literature may already contain the scalar minimax theorem or a broader interval covering theorem.",
+    "Constrained two equal-weight regular angular rings, full-Fock normalization and exponential rate only; not all planar geometries or exact finite-n optima."
+  ],
+  "schema_version": 1
+}

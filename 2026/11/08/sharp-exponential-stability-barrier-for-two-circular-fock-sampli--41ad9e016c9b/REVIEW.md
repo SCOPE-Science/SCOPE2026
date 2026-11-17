@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement concerns two full \((n+1)\)-point angular orbits of normalized Fock evaluation vectors. Root-of-unity orthogonality gives an exact diagonal Gram, including the zero-radius boundary. Stirling's formula turns each Gram eigenvalue into one of two Poisson large-deviation profiles. A level-set covering argument proves the global two-center optimum: the first radius covering normalized degree zero has maximal reach at \(a=R\), and the second radius covering degree one has maximal left reach at the lower solution of \(I(1\mid b)=R\). At the unique touching level the three active constraints produce the two displayed scalar equations and prove strict uniqueness. A compactified subsequence argument handles radii depending arbitrarily on \(n\). The independent finite-matrix and rate computations agree, but are supporting checks rather than an infinite proof. No exact finite-dimensional optimizing pair or polynomial prefactor is claimed.
+## correctness
 
-## Originality — PASS, provisional
-Gröchenig and Ortega-Cerdà (arXiv:2109.11825, first posted 2021-09-24; *Mathematische Zeitschrift* 2022) give general Fock-polynomial sampling/interpolation results and a Hermite-band interpretation. Their full-text theorems concern the existence and transfer of uniformly stable sampling configurations, not the sharp exponent for **two** circular angular orbits or unique optimal radial ratios. Their principal polynomial MZ definition uses the truncated reproducing kernel, whereas the present operator uses full-Fock coherent-state weights. The 2019 Gröchenig–Lyubarskii work concerns multivariate infinite lattices. The 2021 Gröchenig–Ortega-Cerdà Bergman/Hardy study concerns disk spaces and general MZ families. Related concentric Szegő-kernel orbit results treat a Hardy-space determinant objective rather than Fock Poisson-weight lower frame exponents. No inspected source implies the precise scalar covering constant or its sharp measurement consequence. Historical equivalence through Poisson information geometry or experimental design remains a residual risk; a search absence does not prove novelty.
+PASS
 
-## Mathematical value — PASS
-This answers a natural constrained sampling-design problem with \(2(n+1)\) point observations of an \((n+1)\)-dimensional analytic polynomial space. The sharp optimal lower-frame decay exponent is \(0.10557336\ldots\), strictly better than the one-circle exponent \(1/e\) but still exponentially unstable. The result identifies the uniquely rate-optimal distribution of the two radial orbits and quantifies precisely why merely doubling uniformly distributed angular samples on finitely many circles does not produce uniformly stable Fock-polynomial sampling. This informs radial placement in Gaussian Gabor/Hermite-band sensing. Its value is the sharp quantitative obstruction and unique minimizing geometry, not the already-standard Fourier diagonalization alone.
+Discrete Fourier orthogonality at n+1 angular points diagonalizes the polynomial sampling Gram with eigenvalues lambda_k=e^-t1 t1^k/k!+e^-t2 t2^k/k!. Uniform Stirling for t_j=n*a_j with positive a_j produces I(s|a)=a-s+s log(s/a). For R<1/e, convex sublevel intervals of I cover s=0 and s=1 only if the first radius a<=R and the second meets I(1|b)<=R. Among such centers, a=R maximizes first right reach eR; b=b_R the smaller root of I(1|b)=R minimizes the second left endpoint. Strict contact of these endpoints uniquely requires rho=b/R>e solving rho-1=e log rho and (rho-1)R-1-log(rho R)=0, giving rho≈5.7591317338, R*=0.1055733636919 and second center rho*R≈0.6080109091. Every R<R* leaves an uncovered gap, and at R* the whole [0,1] is covered. Uniform factorial errors and compactified subsequences of arbitrary radii yield -log B_n/n ->R* and asymptotically unique normalized radii. Independently numerically solved both contact equations and a dense s-grid matched R*; this finite computation does not replace global convexity/compactness proof.
 
-## Limits and priority risks
-The result applies to full-Fock-normalized complex point evaluations, two equal-weight concentric regular angular orbits, and a limiting exponential rate. Other sampling geometries and truncated-kernel normalization are not covered. A stronger historical Poisson-divergence covering theorem could implicitly contain the scalar minimax lemma; no exhaustive review of all information-geometric publications was possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Constrained two-radial-orbit full-Fock normalized absolute lower-frame exponent and uniquely asymptotic optimal radii were not in inspected prior Fock-polynomial MZ, one-circle radial conditioning, or two-ring angular Gram-rotation theorems. Best-of-knowledge originality may still be threatened by earlier Poisson information-geometric covering results.
+
+## value
+
+PASS
+
+Exact optimal two-radius placement and the inevitable exponentially small lower-frame bound for a concrete 2(n+1)-sample sensing geometry quantify a natural sensing stability barrier. This is not merely known Fourier diagonalization and is independent from optimizing condition numbers or angular shifts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
