@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the graph definition on sixteen binary words, the exact count of \(280\) connected four-sets, a full \(64559\)-face simplicial enumeration, and a \(32160\)-pair directed-Hasse acyclic matching with critical-cell counts \((1,31,206)\) in dimensions \((0,10,11)\). The Alexander-dual three-boundary has \(255\) integer unit pivots, which establishes primitive image, ranks \(25\) and \(200\) and torsion-freeness. Integral duality and the low-cell CW attaching-map argument establish the *homotopy* equivalence, not only the integral Betti numbers. Reproducible full checks are supplied in `proof/q4_cut_verifier.py` and its output. The result is restricted to the ordinary four-cut construction.
+## correctness
 
-## Originality — PASS against inspected sources
-The source arXiv:2304.13675, inspected in its accessible complete HTML text at the definitions, theorems on two-cuts and family classifications, gives no four-cut four-cube classification. Its Cartesian-product corollary is explicitly for two-cuts, while the graph-prism family is \(K_m\square K_2\), not \(Q_4\). The distinct total-cut construction of arXiv:2209.13503 was checked at its definitions and theorem overview. Named high-girth cut-complex results require at least girth \(6\) at cut size four, whereas the four-cube has girth \(4\). Targeted searches for tesseract, hypercube, binary four-cube and the isomorphic toroidal grid \(C_4\square C_4\), with statement and dimension parameters, produced no covering theorem. A stronger inaccessible or unindexed publication remains a residual risk.
+PASS
 
-## Value — PASS
-The four-cube is the canonical regular four-dimensional cubical graph and a natural test case at the girth-four boundary, precisely where high-girth cut-complex theorems cease to apply. Its eleven-dimensional ordinary four-cut complex has *two* nonzero integral homology degrees and a complete nonequivariant mixed-dimensional sphere-wedge homotopy type, giving an explicit, substantial non-shellability example. This invariant is intrinsic and not an arbitrary choice of a graph subfamily or parameter slice.
+For the sixteen-vertex binary hypercube Q4, independent construction verifies 280 connected/1540 disconnected four-sets, 64,558 nonempty cut faces, and acyclic 32,160-pair Morse matching across all 511,696 Hasse incidences with one critical vertex, 31 degree-ten and 206 degree-eleven cells. The Alexander dual has full two-skeleton, precisely 280 connected-fourset tetrahedra, and no higher simplices by absence of K2,3 in the cube. Exact integral sparse column elimination has 255 unit pivots in the 560x280 tetrahedron boundary, proving primitive image and free dual ranks H3=25, H2=200. Alexander duality yields free original H10=25,H11=200. In the Morse two-consecutive-degree CW complex these ranks force six unit Smith factors; pi10 of a wedge of S10 is Z31, so six unit-attached 10/11-cell pairs cancel, leaving the claimed wedge.
 
-## Limits
-There is no claim of a general hypercube formula or equivariant decomposition; the full bibliography cannot be exhaustively guaranteed. No independent external mathematical audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS for the final **homotopy** claim, not for the previously known Betti numbers: October 25 published all-dimension ordinary four-cut *integral homology* of Qd, including (a4,b4)=(25,200) and nonshellability of Q4. That paper explicitly states it does NOT determine the homotopy type. The extra verified acyclic Morse matching and primitive high-dimensional attaching classification are required to upgrade homology to the 25 S10 wedge 200 S11 homotopy assertion. No earlier exact Q4 homotopy conclusion was found by Resultary, whose prior family theorem is carefully credited.
+
+## value
+
+PASS
+
+The Q4 ordinary four-cut complex is a canonical finite object; the exact two-degree integral homotopy wedge is a nontrivial strengthening of known homology and distinguishes the homotopy classification from a rank table. The complete finite explicit Morse reduction is reusable in cut topology even though no all-dimension homotopy theorem is proved.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
