@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The offspring word gives \(B_n\asymp2^{n/2}(n+2)^\kappa\) by an explicit exponentially spaced excess-branch count. Iterated Hölder supplies a necessary eigenvalue summability test, while level-radial functions show sufficiency. Exact power norms and the spectral radius settle the full disk; disjoint sibling-subtree eigenvectors establish infinite multiplicity and hence the Fredholm essential disk. The two-sided critical series test proves that the boundary is included if and only if \(p>\rho\), with equality excluded. The complex \(\ell^\infty\) boundary is handled separately, avoiding finite-\(p\) summability assumptions.
+## correctness
 
-**Originality — PASS, with residual priority risk.** The motivating 2026 tree-Rota paper treats Hilbert-space radius/universality, rather than tunable peripheral membership over the Banach \(\ell^p\) scale. The 2018 directed-tree \(L^p\) literature concerns hypercyclicity, and the 2017 tree-shift paper concerns Hilbert-space multiplier algebras, reflexivity and Wold decompositions. Related published mathematical records on dyadic shift power norms, geometric weighted shifts and single-exponent spectral regions were compared; none identified equivalent full coverage. Classical radial eigenvectors and sequence-space ratio tests are prior techniques, not claimed as new. A broader older weighted-shift or tree-spectrum result may encode the same conclusion and is a genuine risk.
+PASS
 
-**Mathematical value — PASS.** Point-spectrum membership at the spectral radius is a natural invariant in Banach-space operator dynamics; \(p\) is the ambient canonical interpolation scale. One sparse *unweighted* branching geometry independently controls the endpoint across all \(p\), with arbitrary sharp threshold, while the full essential disk does not change its qualitative shape. The contrast distinguishes point from essential spectra and provides a structurally motivated exact classification, not isolated finite numerical gains.
+For rho>1 and kappa=1/(rho-1), N_j=ceil(2^{j/(2kappa)})+j is strictly increasing; exponential inversion yields h(k)=2kappa log2(k+1)+O_kappa(1). At block endpoints n=2k+h, #2=k+h, hence B_n≈2^{n/2}(n+2)^kappa; bounded gap between endpoints extends uniformly. For finite p, Hölder gives A_{n+1}≥|lambda|^p A_n/b_n^{p-1}; radial f(v)=lambda^n/B_n is an exact eigenfunction and its norm series is ∑|lambda|^{pn}/B_n^{p-1}. At |lambda|=r_p its terms compare to n^{-kappa(p-1)}, converging exactly p>rho. At p∞ radial eigenfunction bounded through |lambda|=sqrt2 and a local descendant-growth upper bound excludes larger. Disjoint descendant supports give exact ||S_p^j||=(sup_n B_{n+j}/B_n)^{1-1/p}; Gelfand gives full disk, interior infinite eigenspace multiplicity gives Fredholm essential closed disk. Independently checked endpoint population bookkeeping for rho=1.5,2,4 at 1,000 blocks; finite tests are illustrations, not the infinite proof.
 
-The statements do not establish corresponding behavior for forward shifts, non-spherically homogeneous trees or alternative notions of essential spectrum. Reproducibility checks are finite; the proof is analytical.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge contribution is a *single unweighted* (1,2)-branching tree whose entire ℓp family has a prescribed strict peripheral eigenvalue transition at arbitrary rho>1, while full and Fredholm spectra remain disks. Nearest ℓ2 radius-threshold and weighted-tree operator papers do not imply the variable-p critical boundary comparison.
+
+## value
+
+PASS
+
+Controlling whether spectral-circle points are eigenvalues as a function of the ambient Banach exponent is a motivated operator-theoretic boundary problem. A single unweighted binary/unary tree with *arbitrary* critical p and complete point/full/Fredholm spectra is a genuine structural phenomenon, not a finite numerical curiosity or a renaming of weighted shifts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

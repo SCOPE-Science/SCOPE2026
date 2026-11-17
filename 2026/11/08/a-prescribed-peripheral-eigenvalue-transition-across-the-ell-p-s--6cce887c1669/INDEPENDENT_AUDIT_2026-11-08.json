@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-11-08",
+  "audited_at_utc": "2026-11-08T20:53:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For rho>1 and kappa=1/(rho-1), N_j=ceil(2^{j/(2kappa)})+j is strictly increasing; exponential inversion yields h(k)=2kappa log2(k+1)+O_kappa(1). At block endpoints n=2k+h, #2=k+h, hence B_n≈2^{n/2}(n+2)^kappa; bounded gap between endpoints extends uniformly. For finite p, Hölder gives A_{n+1}≥|lambda|^p A_n/b_n^{p-1}; radial f(v)=lambda^n/B_n is an exact eigenfunction and its norm series is ∑|lambda|^{pn}/B_n^{p-1}. At |lambda|=r_p its terms compare to n^{-kappa(p-1)}, converging exactly p>rho. At p∞ radial eigenfunction bounded through |lambda|=sqrt2 and a local descendant-growth upper bound excludes larger. Disjoint descendant supports give exact ||S_p^j||=(sup_n B_{n+j}/B_n)^{1-1/p}; Gelfand gives full disk, interior infinite eigenspace multiplicity gives Fredholm essential closed disk. Independently checked endpoint population bookkeeping for rho=1.5,2,4 at 1,000 blocks; finite tests are illustrations, not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buckley–Seco full preprint studies ℓ2 Rota universality/spectral radii; indexed Nov2 theorem tunes point-to-continuous radius for fixed ℓ2."
+        ],
+        "reasoning": "Neither statement covers arbitrary p∈[1,∞], endpoint p=rho exclusion and Fredholm disk using polynomial population correction.",
+        "searches": [
+          "ℓp backward tree shift point spectrum spectral boundary arbitrary critical p threshold sparse branching polynomial correction essential disk",
+          "arxiv:2610.40089",
+          "Resultary:2026/11/2/SCOPE-arbitrary-point-to-continuous-spectral-thresholds-for-binary-bra--9cffb8b3a4fa"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.40089",
+        "https://arxiv.org/abs/1805.10243",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-arbitrary-point-to-continuous-spectral-thresholds-for-binary-bra--9cffb8b3a4fa"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A Hilbert-space spectral disk or fixed-p point radius theorem does not imply an across-all-p closed/peripheral transition on one tree."
+        ],
+        "reasoning": "The new critical-circle exponent depends on p through κ(p−1), and the construction controls B_n by polynomial correction; prior radius estimates do not supply this equality.",
+        "searches": [
+          "arxiv:2610.40089",
+          "arxiv:1805.10243",
+          "Resultary:2026/11/2/SCOPE-arbitrary-point-to-continuous-spectral-thresholds-for-binary-bra--9cffb8b3a4fa"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The boundary series ∑ B_n^{1-p} r_p^{pn} translates to the harmonic criterion κ(p−1)>1; an ℓ2 radial radius result is a different quantifier."
+        ],
+        "reasoning": "No equivalent condition with tunable p threshold from a single unweighted tree was identified in inspected full theorem statements.",
+        "searches": [
+          "unweighted backward shift spherically homogeneous rooted binary tree l^p point spectrum boundary threshold Fredholm essential spectrum",
+          "ℓp backward tree shift point spectrum spectral boundary arbitrary critical p threshold sparse branching polynomial correction essential disk",
+          "arxiv:2610.40089",
+          "arxiv:1805.10243"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact indexed tree encoding N_j=ceil(2^{j/(2κ)})+j or universal rho>1 ℓp-threshold family appeared; this is an infinite quantified theorem, not a finite atlas row."
+        ],
+        "reasoning": "Exact-table comparison is less central here: relevant databases index theorem families and graph degree bounds, not a tabulated finite invariant.",
+        "searches": [
+          "unweighted backward shift spherically homogeneous rooted binary tree l^p point spectrum boundary threshold Fredholm essential spectrum",
+          "arxiv:1805.10243"
+        ]
+      },
+      "rationale": "Best-of-knowledge contribution is a *single unweighted* (1,2)-branching tree whose entire ℓp family has a prescribed strict peripheral eigenvalue transition at arbitrary rho>1, while full and Fredholm spectra remain disks. Nearest ℓ2 radius-threshold and weighted-tree operator papers do not imply the variable-p critical boundary comparison.",
+      "residual_risks": [
+        "Only the full Buckley–Seco close comparator was read; the 2018 ℓp hypercyclicity article abstract does not justify a whole-paper negative assertion.",
+        "Unindexed operator-weighted-shift boundary criteria may express similar results; comparisons are best-of-knowledge, not historical certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING prescribed arbitrary ℓp critical crossing on a single unweighted binary/unary tree; focus is Hilbert-space Rota universality and growth radii",
+          "evidence": [
+            "Main theorem concerns ℓ2 interior point spectrum under branching growth radii; not a simultaneous variable-p boundary phase p=rho."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.40089",
+          "material_read": "Full ten-page preprint (lawful full-text OA mirror), introduction, theorem 1, radii and branching examples",
+          "method": "Full-text PDF with page visual inspection",
+          "title": "Rota universality of shifts on trees",
+          "trigger": "Most plausible exact paper on tree backward-sum shift radii and point spectrum"
+        },
+        {
+          "assessment": "The abstract concerns hypercyclicity and sufficient/necessary conditions, not the exact prescribed critical peripheral point spectrum; full-text coverage remains an originality risk",
+          "evidence": [
+            "The paper does study backward shifts on unweighted rooted trees and could contain a related spectral criterion; no whole-document negative coverage claim."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.10243",
+          "material_read": "Public abstract and primary bibliographic statement; complete primary text not inspected in this run",
+          "method": "arXiv abstract search",
+          "title": "Hypercyclicity of Shifts on Weighted Lp Spaces of Directed Trees",
+          "trigger": "Lp backward-shift literature and possible radius threshold results"
+        },
+        {
+          "assessment": "DIFFERENT: earlier tunes point spectrum *radius* for a fixed Hilbert exponent; current fixes radius r_p and tunes boundary inclusion across varying p using n^kappa correction",
+          "evidence": [
+            "Prior indexed result says an ℓ2 disk of point spectrum radius r within sqrt2 full disk; not an ℓp-varying peripheral inclusion p>rho."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-arbitrary-point-to-continuous-spectral-thresholds-for-binary-bra--9cffb8b3a4fa",
+          "material_read": "Indexed statement and result summary",
+          "method": "Resultary semantic record search",
+          "title": "Arbitrary point-to-continuous spectral thresholds for binary-branching tree shifts",
+          "trigger": "Close prior with arbitrary spectral radius boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Controlling whether spectral-circle points are eigenvalues as a function of the ambient Banach exponent is a motivated operator-theoretic boundary problem. A single unweighted binary/unary tree with *arbitrary* critical p and complete point/full/Fredholm spectra is a genuine structural phenomenon, not a finite numerical curiosity or a renaming of weighted shifts.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.40089",
+    "https://arxiv.org/abs/1805.10243",
+    "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-arbitrary-point-to-continuous-spectral-thresholds-for-binary-bra--9cffb8b3a4fa"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every rho>1 a single unweighted unary-binary tree has full and Fredholm disk spectrum of radius 2^((1-1/p)/2), with peripheral point circle iff p>rho, and p=infinity radius sqrt2.",
+  "limitations": [
+    "One constructed spherically homogeneous rooted tree per rho, not arbitrary tree, forward shift, or another essential-spectrum definition.",
+    "Finite population tests illustrate only; proof of all p and arbitrary rho is analytic."
+  ],
+  "residual_risks": [
+    "A related uninspected 2018 primary full text could contain more than its accessible abstract; no full-document noncoverage assertion."
+  ],
+  "schema_version": 1
+}
