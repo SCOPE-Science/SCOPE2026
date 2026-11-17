@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The one-sided differentiable exponential generator integrates to zero and has squared Fourier multiplier \(a^2\omega^2/(a^2+\omega^2)^2=\operatorname{sech}^2(\log|\omega/a|)/4\). Uniform periodization gives sharp Plancherel frame bounds. The strict global maximum/minimum and monotonicity of the periodized kernel follow from an exact DLMF elliptic-series representation, whose derivative has the correct sign on the entire half-period. For any non-half phase, sampling the long-gap midpoint proves its lower bound is strictly smaller, while sampling a bank center proves its upper bound is strictly greater. At half phase both bounds follow from a single finer periodization. Large-spacing tail dominance and small-spacing first Fourier harmonic give the constants and rates. Standalone numerical integration and identities pass 486 finite checks; these are corroboration, not an infinite certificate.
+## correctness
 
-## Originality — PASS relative to inspected sources
-The full mathematical text of Pedersen–Lindeberg–Gerstoft, arXiv:2609.17201, §§3–5, treats finite differences of exponential smoothing kernels in finite scale banks with a lowpass residual, and computes their frame constants and channel overlaps, without a two-offset infinite derivative-bank minimax. The companion arXiv:2605.09770 and Lindeberg (2026) concern different finite banks or infinite-cascade kernels. The general equally-spaced circle-polarization theorem of Hardin–Kendall–Saff (2013) requires a convex geodesic potential; the current potential is concave at its peak, and that theorem does not yield simultaneous upper- and lower-bound constants. The DLMF hyperbolic/elliptic sum is an acknowledged classical ingredient. Targeted mathematical-record searches found no statement dominating the complete claim. Search absence alone does not prove novelty. Residual risk: equivalent general two-point rearrangement results, or unindexed causal wavelet frame optimization.
+PASS
 
-## Mathematical value — PASS
-Sharp nonasymptotic frame extrema for causal continuous-translation two-bank designs determine which relative scale phase optimizes reconstruction stability for every geometric ratio. The exact elliptic constants and the sparse \(\sqrt q\) versus single-grid \(q\) conditioning growth, plus exponentially near-tight dense limit, quantify a meaningful reconstruction/spacing tradeoff not available from qualitative frame existence or a generic periodization formula.
+The assigned proof directly computes Fourier window response i a ω/(a+iω)^2 and squared modulus (1/4)sech²(log|ω/a|). Plancherel gives the periodized positive frame multiplier P_h(t)+P_h(t-θh). Its strict centered periodic unimodality follows analytically from the Jacobi dn² Fourier identity (DLMF 22.11.13), not a numerical grid. For θ=1/2, two banks form the h/2 lattice; evaluating at the longer-gap midpoint and grid center proves every other θ has a smaller sharp lower bound and larger sharp upper bound. Nearest sech tails and the first Poisson Fourier coefficient yield the stated sparse/dense asymptotic constants. Independent mpmath verified Poisson-vs-direct sums for three scales; full parameter theorem is analytic.
 
-## Limits
-Fixed wavelet family and equal channel gains; all two-sided integer log-scale indices; no finite-bank or sampled-time implementation bounds. No claim to independent originality certification. Full original mathematical proof is in RESULT.md.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact simultaneous two-bank offset maximization/minimization and explicit frame bounds for causal exponential derivatives are distinct from finite DoE and DoT filter-bank reconstructions. Classical equally-spaced polarization theorems assume convex distance kernels, violated by the periodized sech² peak, and only compare the minimum, not the maximum. Historical priority qualified by missing closest full primary paper.
+
+## value
+
+PASS
+
+A sharp robust filter-design theorem: one unique half-logstep stagger simultaneously improves worst and best continuum frame bounds at all ratios, with exact sparse/dense deterioration. That structural optimizer classification matters beyond computing one special-function sum.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
