@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim is restricted to the exact map and geometric inducing scheme of Ji–Ma at \(\lambda=1/2\), initialized uniformly on a single specified level-five branch. The cited branch-image and roof identities are directly present in [1], and their affine restriction transfers the level process to a skip-free walk with i.i.d. geometric increments. The first-passage generating function \(U(z)=1-\sqrt{1-z}\) and its Catalan coefficients follow algebraically. Optional stopping at the first zero/upper-barrier crossing is justified by a geometric upper bound on the stopping time and integrable overshoots, and yields exact \(1/(h+1)\) heights. Fibonacci roof growth and the Catalan tail give the two-sided bound leading to \(\log\varphi/\log T\). An independently executable finite checker supports, but does not prove, those infinite assertions.
+PASS
 
-## Originality
+Ji–Ma Fact 2.2 shows each high-level induced branch maps affinely across exactly one branch family at levels i≥j−1, with lengths proportional to λ^i; normalized conditional Lebesgue thus gives iid geometric increments G−1. At λ=1/2, from height 1 the first-passage PGF satisfies U=z/(2−U), hence U=1−sqrt(1−z), giving the Catalan mass and central-binomial survival. The zero-mean skip-free walk stopped at 0 or first height h has finite mean stopping time; conditional geometric overshoot above h has mean 1, so optional stopping yields P(H≥h)=1/(h+1). The original-map roof S_{j−1} grows between fixed positive multiples of phi^j; c phi^H≤R≤C τ phi^H. With H windows (1±η)log T/log phi and induced τ survival O(n^{-1/2}), a two-sided probability sandwich gives log(T)P(R>T)->log phi and divergence of every positive moment. Distinguishes induced-block stopping time from actual earliest original-map first hit.
 
-**PASS within accessible evidence.** Ji–Ma [1] prove qualitative critical null recurrence and use the same induced level process; the new statement is neither a new claim of criticality nor an alternate proof of that result. The exact original-time accumulated roof-excursion tail, including the sharp golden-ratio coefficient, does not appear in the inspected formulas or conclusions of [1]. Bruin–Todd [2,3] concern related unimodal/infinitely branched models and thermodynamic quantities, not the defined bimodal original-clock stopping variable. Ma [4] studies a smooth cubic family. Closest indexed analogues concern different dynamical systems or Fibonacci combinatorics with different observables. Absence of a match is not a uniqueness proof; a general result for critical skip-free renewal walks with exponential roofs might imply the statement and remains the principal risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** A sharp quantitative recurrence invariant is natural at the precise parameter where the originating family becomes null recurrent. The same excursion has a polynomial tail in *inducing steps* but an inverse-logarithmic tail in *original map iterations*, with all positive original-clock moments infinite. The conversion is not obtained from the drift test of the original paper: it uses the full maximum-height law, a memoryless overshoot correction, and the Fibonacci growth of return times. This distinction is relevant for original-time ergodic observables and return statistics, without asserting an unproved mixing-rate consequence.
+Ji–Ma (2023) provide the exact constructed bimodal model, branch/roof data, and λ=1/2 conservative/dissipative boundary; their inspected material does not give the original-f-iteration excursion tail or constant. Earlier Resultary return law treats the auxiliary Tλ map and three/four-cell return bases, not this level-five starting branch with Fibonacci roof; the later space-time comparison explicitly states its auxiliary map is not semiconjugate to the original induced system. Catalan and geometric-height ingredients are classical, but translating to the physical Fibonacci clock produces a distinct new asymptotic statement not covered by the published induced clock results.
 
-## Closest literature and limitations
+## value
 
-The four inspected works are Ji–Ma (2023), Bruin–Todd's 2011/2019 infinitely branched map article, Bruin–Todd's Fibonacci unimodal wild-attractor article, and Ma's 2024 smooth cubic article, with references and material specifics in RESULT.md and AUDIT.json. The original-clock variable ends an inducing block and need not equal the first ordinary-iterate visit to the stopping set. The special critical parameter and the specified initial distribution are integral to the theorem; no universality or independent priority certification is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The sharp conversion from t^{-1/2} induced-time survival to 1/log T original-map survival and universal golden-ratio constant directly separates recurrent symbolic time from physical iteration time at the natural critical parameter. It is a meaningful dynamical invariant with consequences (all positive physical-time moments divergent), not only recomputation of Catalan numbers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
