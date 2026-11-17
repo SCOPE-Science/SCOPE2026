@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Stationary Fourier-mode variances establish finite pointwise cubic moments. Gaussian Wick contraction removes the entire linear score span, yielding the exact conditional score variance. The proof explicitly counts resonant modes and evaluates the crossover integral via an elementary quartic substitution. The 182 verification cases test finite calculations only; the analytic argument covers all stated positive parameters, integer modes, and asymptotic limits.
+## correctness
 
-## Originality — PASS within inspected evidence
-Sanders–Kuehn–Hilder–Bastiaansen (arXiv:2610.38866) give the source inference task and stochastic pattern example but not the projection-based Gaussian information and joint finite/continuum threshold law. Gowda–Kuehn (arXiv:1403.5920) and Bernuzzi–Düx–Kuehn (DOI:10.1017/S0956792524000330) establish variance-based warning signs; that covariance input is acknowledged. The Wick first-to-third-chaos decomposition is classical and not claimed original. The finite-volume resonance distinction and explicit crossover are the assessed specialization. Generic prior statistical-estimation literature remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-Projection against linear drift nuisances is necessary to quantify identifiable cubic response, precisely the sign-inference obstacle that motivates the problem. A finite periodic domain may completely suppress the approach-to-onset information blow-up unless a spatial Fourier mode resonates, whereas the thermodynamic calculation produces two distinct fractional exponents and a continuous wavenumber crossover. These are natural distinctions in experimental spatial domain size and admissible patterns, not arbitrary small-instance computations.
+The Fourier basis has independent stationary variances sigma^2/(2 lambda_j) and point variance v_L=(sigma^2/(2L))*sum_j lambda_j^-1; the series has O(j^-4) tail. Gaussian E[u(x)^3 u(y)]=3v_L Cov(u(x),u(y)) proves cubic score minus 3v_L times identity-linear score is orthogonal to every admissible deterministic linear nuisance via Ito isometry, while 3v_L times identity is itself in that nuisance span. Wick-cubic variance E[(u^3-3vu)^2]=6v^3 yields J_L=6v^3/sigma^2 for any positive finite T. At fixed L, resonant modes j=0 (r=1) or +/-j (r=2) give v~sigma^2*r/(2La) hence coefficient 3*sigma^4*r^3/(4L^3). Off resonance finite by summability. For L->infty at fixed a, Riemann sum becomes integral with rescaling q=(a/Gamma)^(1/4) z; elementary quartic integral gives Phi(eta) with limiting eta=0 value pi/sqrt2 and eta->infty pi/eta, yielding both claimed exponents and constants. Independent high-precision quadrature matched Phi at five eta values; it does not replace limits.
 
-## Limitations and closest literature
-The theorem concerns only a stationary Gaussian linearization under full-space/full-time observation with the baseline law fixed for the conditional score. It establishes neither nonlinear global well-posedness nor optimal finite-record sign-classification accuracy. Historical priority is provisional because standard Gaussian-score literature could contain equivalent components.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the joint exact conditional Wick-score information and three-regime volume/resonance crossover. Gaussian chaos orthogonality, covariance divergence and standard Fourier SPDE preliminaries are prior mathematics.
+
+## value
+
+PASS
+
+Distinguishing fixed-volume off-resonance, discrete-mode resonance, and two thermodynamic pattern-onset exponents resolves a naturally relevant identifiability/information question in noisy pattern formation. The exact crossover quantifies an experimentally meaningful order-of-limits effect beyond standard variance-early-warning observations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
