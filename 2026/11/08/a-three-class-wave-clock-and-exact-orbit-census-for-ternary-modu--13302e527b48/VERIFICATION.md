@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-09.md",
+      "INDEPENDENT_AUDIT_2026-11-09.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The proof uses a modular nilpotent tensor-sum decomposition and exact temporal primary modules. The following replayable, standard-library-only checks supplement that proof:
+# Independent mathematical audit
 
-- `python3 proof/verify_matrix.py`: exact modular ranks and temporal fixed-space dimensions for \((m,d)=(3,1),(3,2),(3,3),(3,4),(6,1),(6,2),(9,1)\), including independently checked sharp matrix orders.
-- `python3 proof/verify_states.py`: exhaustive state-by-state evolution of \(729\) states on \(H(1,3)\), plus deterministic state-level samples on \(H(2,3)\), \(H(3,3)\), and \(H(1,6)\).
-- `python3 proof/verify_tensor.py`: exact integer recurrence checks for ten alphabet sizes and forty dimensions per size.
+## correctness
 
-The captured expected output is in `proof/verify_matrix.out`, `proof/verify_states.out`, and `proof/verify_tensor.out`. Computations do not establish arbitrary-dimension correctness, nor do sampled states imply an exhaustive census; those assertions rely on the proof in `RESULT.md`. The historical literature comparison has limitations documented in `REVIEW.md`; independent audit has not been performed.
+PASS
+
+With 3|m, each J_m is square-zero rank-one over F_3; tensor-coordinate sum N=A+dI satisfies N³=0 by characteristic-three Frobenius. Tensor-sum Jordan fusion J2⊞J2=J3⊕J1 and J3⊞J2=2J3 yields a=((m-1)^d+(m-3)^d)/2, b=((m-1)^d-(m-3)^d)/2,c=(m^d-a-2b)/3; k1=a+b+c,k2=a+2b+2c. The temporal companion polynomial is (X²+dX+1)^j per j-block and the eigenkernel is one-dimensional, hence for d mod3=1,2 the temporal blocks are J_{2j}(+/-1), and for d mod3=0 the irreducible (X²+1)^j cyclic module. Fixed-space ranks give sharp orders 9,18,12 respectively and primitive populations by subtracting divisibility-ordered fixed counts; T is invertible so all initial states are periodic. Independent exact F_3 matrix ranks/orders matched m=3,d=1,2,3 and m=6,d=1. Finite matrix cases do not imply the all-d tensor identity without the algebraic proof.
+
+## originality
+
+PASS
+
+Published general modular adjacency algebra calculations for Hamming schemes are genuine prior background; the 2003 Yoshikawa proceeding provides a quotient algebra and Cartesian recurrence but not the natural-vertex-module Jordan multiplicities or any two-time-level temporal orbit census. Other published exact reversible wave clocks concern different graph families or characteristic two. The 2004 Yoshikawa journal version and Macfarlane full article are important inaccessible priority risks, not automatic novelty disproof.
+
+## value
+
+PASS
+
+Complete natural-module and dynamical orbit classification for the vertex-transitive Hamming graph family over every finite extension field of characteristic three. The resonance at 3|m creates nonsemisimple tensor blocks and exact 9/12/18 clock trichotomy invisible to characteristic-zero spectrum; full fixed-state counts add substantial structural content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

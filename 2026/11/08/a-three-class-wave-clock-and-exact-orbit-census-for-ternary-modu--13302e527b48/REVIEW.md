@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The all-ones adjacency on a clique of size divisible by three is a square-zero rank-one operator over characteristic three. Its Hamming tensor sum has nilpotency index at most three. The exact fusion rules \(J_2\otimes J_2\simeq J_3\oplus J_1\) and \(J_3\otimes J_2\simeq2J_3\) give closed multiplicities for every size-one, size-two, and size-three Jordan block. The two-time-level companion map then has one temporal primary block per spatial block, giving all fixed-space dimensions and exact orders. Independent finite calculations using direct modular matrices and direct state evolution support the proof. Correctness does not depend on extrapolating these tests.
+## correctness
 
-**Originality — PASS with stated access risk.** The relevant published baseline consists of Brunnet–Chaté on nonlinear binary high-dimensional hypercube rules, Macfarlane on one-dimensional binary reversible second-order automata, and Steeb–Hardy on reversible one-dimensional cellular waves. The full Steeb–Hardy text, including the explicit reversible construction, has been inspected and does not give the modular Hamming-graph decomposition. Yoshikawa's complete six-page January 2003 symposium proceeding is closer algebraically: Theorems 2.4 and 3.4 give the modular adjacency algebra as a truncated polynomial quotient, and Proposition 3.1 gives a Cartesian adjacency recurrence, but none of them supplies the natural-module Jordan multiplicities or the reversible wave's primitive periods. The later 2004 journal version and Macfarlane's full text were inaccessible, so the possibility of an equivalent statement in an uninspected version cannot be eliminated. Searches and statement comparisons did not identify a theorem that implies the complete claim without new representation-theoretic work; a negative search is not proof of priority.
+PASS
 
-**Mathematical value — PASS.** The result resolves the exact recurrent-state census of an infinite family of vertex-transitive Hamming graphs, for every admissible clique size and field extension. The nonsemisimplicity of the adjacency operator at the alphabet/characteristic resonance forces a genuine three-way temporal transition with sharp global orders \(9\), \(12\), and \(18\), not visible from the usual complex spectrum. The closed block multiplicities also determine all fixed-point counts, not only the maximum period. This is a structural classification, not a special-case computation.
+With 3|m, each J_m is square-zero rank-one over F_3; tensor-coordinate sum N=A+dI satisfies N³=0 by characteristic-three Frobenius. Tensor-sum Jordan fusion J2⊞J2=J3⊕J1 and J3⊞J2=2J3 yields a=((m-1)^d+(m-3)^d)/2, b=((m-1)^d-(m-3)^d)/2,c=(m^d-a-2b)/3; k1=a+b+c,k2=a+2b+2c. The temporal companion polynomial is (X²+dX+1)^j per j-block and the eigenkernel is one-dimensional, hence for d mod3=1,2 the temporal blocks are J_{2j}(+/-1), and for d mod3=0 the irreducible (X²+1)^j cyclic module. Fixed-space ranks give sharp orders 9,18,12 respectively and primitive populations by subtracting divisibility-ordered fixed counts; T is invertible so all initial states are periodic. Independent exact F_3 matrix ranks/orders matched m=3,d=1,2,3 and m=6,d=1. Finite matrix cases do not imply the all-d tensor identity without the algebraic proof.
 
-**Limits.** No extension to other state characteristics or alphabet sizes is asserted; configurations are not quotiented by graph symmetries. Important full-text priority comparisons remain inaccessible. Independent verification is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published general modular adjacency algebra calculations for Hamming schemes are genuine prior background; the 2003 Yoshikawa proceeding provides a quotient algebra and Cartesian recurrence but not the natural-vertex-module Jordan multiplicities or any two-time-level temporal orbit census. Other published exact reversible wave clocks concern different graph families or characteristic two. The 2004 Yoshikawa journal version and Macfarlane full article are important inaccessible priority risks, not automatic novelty disproof.
+
+## value
+
+PASS
+
+Complete natural-module and dynamical orbit classification for the vertex-transitive Hamming graph family over every finite extension field of characteristic three. The resonance at 3|m creates nonsemisimple tensor blocks and exact 9/12/18 clock trichotomy invisible to characteristic-zero spectrum; full fixed-state counts add substantial structural content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
