@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` in the package directory. The script uses only the Python standard library, enumerates each labeled partial injection for \(1\le n\le6\), independently constructs the inverse submonoid closure under the generator and its inverse, and compares the number of resulting distinct sets and their nilpotent-generated subcollections with closed-form predictions. It also tests the exact partition formula and the first nine values. Successful execution concludes with `VERIFY_OK`.
+## correctness
 
-Observed output from the packaged script:
+PASS
 
-```
-FORMULA_VALUES_OK n=0..8
-DIRECT_CLOSURES_OK n=1 total=2 monogenic=2 nilpotent=1
-DIRECT_CLOSURES_OK n=2 total=7 monogenic=6 nilpotent=2
-DIRECT_CLOSURES_OK n=3 total=34 monogenic=24 nilpotent=7
-DIRECT_CLOSURES_OK n=4 total=209 monogenic=126 nilpotent=37
-DIRECT_CLOSURES_OK n=5 total=1546 monogenic=838 nilpotent=251
-DIRECT_CLOSURES_OK n=6 total=13327 monogenic=6841 nilpotent=2026
-VERIFY_OK
-```
+PASS. Rank/chain displacement shows an inverse-generating partial injection with a genuine chain has precisely f and f⁻¹ as generators. Group-type elements are permutations on a recovered support; cyclic subgroups give the totient-corrected sum. Hence M_n=(I_n−U_n)/2+∑_r binom(n,r)c_r with c_r=∑_{λ⊢r}r!/(z_λ φ(lcmλ)). A nilpotent partial injection is disjoint union of directed chains and has EGF exp(z/(1−z)); only the empty map is group-type nilpotent, giving Z_n=(A_n+1)/2. Saddle analysis of (1−z)^−β exp(z/(1−z)) gives I_n/n!~e^(2√n−1/2)/(2√π n^1/4) and A_n/n!~e^(2√n−1/2)/(2√π n^3/4); thus Z_n/M_n~n^−1/2. Independent literal closure enumeration n=1..5 verified M=2,6,24,126,838 and Z=1,2,7,37,251; not a proof of asymptotics.
 
-The program does not verify the asymptotic estimates by symbolic or infinite certificates. Those are established by the explicit coefficient argument in `RESULT.md`. The complete exact count rests on the two-generator lemma and the cyclic subgroup enumeration; the program checks only finite instances of these conclusions. The public package contains no external dependencies or unpublished datasets.
+## originality
+
+PASS
+
+PASS only for the surviving nilpotent-generated submonoid census Z_n and sharp n^−1/2 proportion, with important prior credit: Resultary 2026-11-02 already proves the identical embedded M_n formula and two-generator rigidity, as well as a stronger maximal-chain/period profile. These are NOT original here. Its EGF counts all chain/cycle profiles but neither states the cycle-free nilpotent-generated submonoid fraction nor the relative leading asymptotic; these require the cycle-free specialization and separate square-root singular coefficient comparison. Unlocated older nilpotent-subsemigroup papers are a specific priority risk.
+
+## value
+
+PASS
+
+PASS for a natural, separately countable property of embedded inverse submonoids: whether an inverse generating class admits a nilpotent generator. The exact cycle-free count and n^−1/2 decay establish an asymptotic boundary among substructures, not merely known nilpotent element tables. M_n rigidity/total is covered and has zero marginal value by itself; acceptance relies entirely on the additional precise submonoid-level asymptotic and its motivation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
