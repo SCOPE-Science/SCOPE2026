@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-This package contains `verify.py`, a standalone Python 3 script using only the standard library. Run `python3 verify.py` in a directory containing the extracted script. It independently builds the full \((2k+1)\)-species matrix, enumerates all nonempty supports, solves supported equilibrium linear equations with rational arithmetic, applies an exact positive-definiteness criterion, and checks every missing-species invasion exponent against the classification.
+## correctness
 
-The script passed 84 exact full-support comparisons at sizes \(k=2,3,4\) over four pair-competition strengths and seven hub-competition strengths (excluding transition-curve instances). The proof in RESULT.md—not these finitely many checks—establishes the theorem for arbitrary \(k\ge2\).
+PASS
 
-The review is limited to the mathematical result in the open parameter chambers. No independent mathematical audit or external certification has been carried out. Unindexed literature equivalences remain possible.
+On the nonnegative competitive LV orthant, a hyperbolic sink must have positive supported abundance, positive-definite symmetric supported interaction matrix, and strictly negative invasion exponents. For alpha<1 an occupied peripheral pair must contain both leaves (otherwise missing sibling invades); for alpha>1 both cannot coexist by the negative eigenvalue 1-alpha. Without hub, every pair must be occupied; hub invasion threshold is beta=(1+alpha)/(2k) or beta=1/k. With hub, beta>1 forbids all leaves by indefinite principal minor, and beta<1 forces each pair occupied, giving explicit arrowhead-supported abundances h=(1-k beta)/(1-k beta^2), y=(1-beta)/(1-k beta^2), or all-leaf symmetric formula with 1+alpha replacing pair degree. Positivity and definiteness coincide with the stated open chambers; no unlisted supports. Independently solved rational support tests for k=2,3 at alpha=1/2,3/2 and beta=.1,.4,.5,1.3, yielding stable counts 1,1,2,8,8,9 as appropriate. The infinite classification rests on support argument, not finite tests.
+
+## originality
+
+PASS
+
+PASS for complete two-parameter phase diagram with explicit hub-present abundances, threshold switching, and exact all-k sink counts for a natural graph family. Earlier Hong–Pego exclusion/multistability framework and Fried clique results already explain the 2^k mutually exclusive peripheral choices in strong competition; not original in isolation. The inspected primary material did not give both hub competition thresholds or classify every open chamber at finite strengths. Potential parameter-specialization of a more general network theorem remains residual risk.
+
+## value
+
+PASS
+
+A friendship graph is an elementary but natural motif for multistable competitive communities: one shared species interacting with k otherwise separated rival pairs. The classification locates real bifurcation boundaries between coexistence, exclusion, hub-only and bistability, and gives exact abundances and sink multiplicities for every k. More than generic clique counting; usable exact case study with experimentally meaningful finite competition strengths, without claiming basins or transition curve dynamics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
