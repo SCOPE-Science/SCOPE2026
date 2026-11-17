@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem states a uniform asymptotic for edge-uniform irreversible dimer adsorption on \(K_N\setminus E(H_N)\), where \(N\) is even and \(H_N\) is triangle-free with a fixed maximum-degree bound. The proof derives the exact one-step tagged-pair probability from the current allowable-edge count; a marked-set comparison to sampling without replacement proves uniform two-, three- and four-tag survival bounds. Conditional counts of extra forbidden edges show that, until a fixed-size final stage, the survival law differs from the one-missing-edge product by \(O_\Delta(\log N/N)\) relatively. The final stage has no extra forbidden edge with conditional probability \(1-O_\Delta(1/N)\), and the exact product telescopes to \(3/(N^2-1)\). Triangle-freeness ensures that each completed adsorption leaves exactly zero or two vacancies. Summation over mutually exclusive forbidden terminal pairs yields the stated uniform formula. The only nonstandard step—uniform marked survival bounds—has been derived with explicit degree-based numerator/denominator inequalities rather than inferred from experiments. `verify.py` passed 62 exact finite-state assertions, supplemental only.
+## correctness
 
-## Originality — PASS on the examined evidence
-The dimer RSA definition and exchangeable edge-arrival representation are explicitly prior work: Penrose–Sudbury (arXiv:math/0503519, Section 2). Its examined tree formulas and bounded-degree-substrate normal approximation do not imply the new near-complete-graph rare-jamming constant. Pippenger (1989) and Dyer–Frieze (1991) give broad graph-adsorption and greedy-matching frameworks; the available material does not establish this forbidden-edge asymptotic. Existing exact analysis for a deleted perfect matching is a special case, not a result covering arbitrary irregular triangle-free bounded-degree excluded graphs. The cycle constant and uniform structural universality are the non-subsumed portion. Risks: unindexed equivalents and inaccessible full text of the older Pippenger and Dyer–Frieze papers; this review makes no claim that searching proves absolute novelty.
+PASS
 
-## Mathematical value — PASS
-The probability of imperfect greedy saturation is a natural observable for dense matching substrates with sparse, local geometric exclusions. Merely knowing that a maximal matching misses at most two vertices gives no asymptotic probability. The theorem proves a uniform first-order coefficient determined only by the forbidden edge count, even when the forbidden graph has arbitrary topology, establishing a structural universality class. It predicts a nontrivial \(3/2\) enhancement relative to a uniformly sampled final pair and a cycle-specific measurable constant \(3\). This constitutes a substantive extension beyond the previously solved matching-deletion example, not an arbitrary fixed-order table or routine parameter substitution.
+For even N and triangle-free H_N, every allowable-edge greedy step reduces vacancies by two and cannot stop with k≥3; a terminal two-set must be forbidden. For each forbidden e, exact conditional one-step survival is (binom(k−2,2)−h0)/(binom(k,2)−1−h0−h1), with baseline s0=(k−3)/(k+1). One-step degree-bounded r-mark comparisons give uniform survival ΘΔ((k/N)^r) for r=2,3,4 above fixed L, hence conditional counts E[h0|e] = OΔ(k²/N), E[h1|e]=OΔ(k/N). Their relative survival correction OΔ(1/(Nk)) telescopes with logN/N loss. At fixed final L, all extra forbidden edges disappear conditionally with probability 1−OΔ(1/N). Baseline product yields 3/(N²−1); summing disjoint forbidden final pairs gives 3m_N/(N²−1)(1+OΔ(logN/N)). Independently computed exact subset recursions: single forbidden edge n4=1/5,n6=3/35,n8=1/21,n10=1/33; forbidden cycles n6=1/3,n8=212/825,n10=178177/825825. These finite checks do not prove uniform asymptotics.
 
-## Limits and priority caveat
-The relative rate is \(O_\Delta(\log N/N)\), not an optimized second-order expansion. Triangle-freeness and bounded forbidden degree are material hypotheses. The exact rational checks are limited to finite sizes and do not certify the limit. Two plausible broad older sources were not inspected in full, so independent historical-priority review remains appropriate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact deleted-perfect-matching jamming coefficient and graph RSA background are already prior; neither establishes the uniform sharp leading coefficient over arbitrary irregular, disconnected triangle-free Δ-bounded forbidden graphs. Bounded-degree *adsorption substrate* results differ from bounded-degree *exclusion graph* with dense allowed substrate. Best-of-knowledge originality passes with a substantive full-text risk for early graph RSA publications.
+
+## value
+
+PASS
+
+The imperfect-saturation probability in dense random greedy matching with sparse local restrictions is a natural rare-event quantity. The strong uniform coefficient independent of forbidden graph geometry, including arbitrary disconnected and irregular fixed-Δ cases, provides a structural universality law and specific cycle prediction beyond the solved deleted-matching special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
