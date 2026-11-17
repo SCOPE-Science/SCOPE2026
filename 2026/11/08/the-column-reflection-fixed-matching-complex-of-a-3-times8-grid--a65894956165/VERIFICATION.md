@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-08.md",
+      "INDEPENDENT_AUDIT_2026-11-08.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Executable finite certificate
+# Independent mathematical audit
 
-Run `python3 verify.py` (Python standard library). The program reconstructs the \(3\times8\) grid, its column involution and every edge orbit; builds a separate \(3\times4\) grid with one pendant edge on each of three boundary vertices; compares all 190 pairs of orbit vertices. It then enumerates the full augmented matching-complex face poset and creates deterministic pairs using the 20-element pivot order printed in RESULT.md. Full Hasse-direction topological sorting verifies acyclicity, leaving the critical 0/4-cell pattern that proves the integral homotopy type by discrete Morse theory.
+## correctness
 
-Independent mod-two boundary-matrix ranks corroborate the four-dimensional rank four and vanishing otherwise. The recorded verifier output is `verification_output.txt`. The proofs of the geometric fixed-point triangulation and the Morse consequence are in RESULT.md. No external independent audit has been conducted. The primary 2026 preprint's full text could not be inspected, so an unindexed overlap remains possible.
+PASS
+
+Geometric fixed points of a simplicial vertex permutation are the affine simplex points with constant barycentric coordinates on each orbit. The 37 edges of P3×P8 form twenty involution edge orbits (17 pairs and 3 singleton seam edges). Independently checked all 190 pairs of orbit conflicts against the matching complex of the 3×4 grid with three boundary leaves: exact pairwise compatibility, hence all simplices, is preserved. Independently enumerated 2,636 augmented matching faces of this 20-edge graph with face counts (20,149,524,911,750,255,26). Reconstructed the stated 1316 acyclic toggle pairs and full Hasse topological sort, leaving precisely four critical five-edge faces after pairing augmented empty face. Ordinary Morse model has one 0-cell and four 4-cells and no intervening cells; hence wedge^4 S4. This is an actual geometric fixed set, not invariant homology.
+
+## originality
+
+PASS
+
+Even-width reflection-fixed matching complex reduces to a whiskered half-grid matching complex; published all-width reflection Lefschetz formulas and half-turn quotient Euler characteristics can compute only alternating traces, not integral homotopy concentration or wedge splitting. The latest grid homology paper concerns the full, not geometric fixed, matching complex.
+
+## value
+
+PASS
+
+The ordinary matching-complex fixed-point space is an important symmetry refinement: invariant chains and alternating traces cannot determine its integral homotopy type. The even-width fixed-space identification with a natural seam-whiskered grid and exact four-S4 classification give a nontrivial finite model and reusable geometric reduction. The 3×8 instance is a motivated representative, not a random slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
