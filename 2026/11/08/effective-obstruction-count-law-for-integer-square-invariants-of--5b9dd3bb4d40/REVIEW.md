@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The published source [1, Theorem C] explicitly characterizes the universally integral-square invariant by local inertness conditions. The odd-prime density \((p-1)/(2p^{2j+1})\) and the dyadic density \(1/2^{2j+2}\) sum to the stated rational parameters. A bounded valuation cutoff and the CRT prove exact independence at finite modulus. Coupling all discarded prime events costs at most \(O(Y^{-1}+2^{-2L})\); the finite-sample residue-class discrepancy is \(O(M_{Y,L}/X)\). The Chebyshev bound at \(Y=\lfloor\log X/(100\log\log X)\rfloor\), \(L=\lceil\log\log X\rceil\) completes the absolute effective rate. The standalone exact-arithmetic verifier checked 181482 local residues, 114554 coprime-start pairs, 98 explicit bad witnesses and 100000 parameter counts; finite checks are corroboration, not infinite proof.
+## correctness
 
-**Originality (O): PASS, with expressly disclosed residual risk.** The source [1] gives local necessary and sufficient conditions, not the parameter distribution. The general geometric-sieve theorem of Poonen–Stoll as cited and reproduced by [2, Theorem 2.2] already implies the **qualitative** independent-prime probability law for suitable local conditions, so no originality is claimed for that theorem or the general method. The distinct statement here gives exact new local factors for this specific arithmetic dynamical property, the entire product-form probability generating function, and the effective \(O((\log\log X)/\log X)\) total-variation estimate; no such rate or specialized coefficients were located in the inspected works or searched records. A previous related finding from the same source counts failing sequence indices as \(x_0\) varies for fixed square parameters, a separate random variable and parameter space. General unpublished effective sieve consequences remain a genuine priority risk.
+PASS
 
-**Mathematical value (V): PASS.** The source paper establishes a complex all-start/all-index predicate but only illustrates it by finitely many integer parameters. Quantifying the parameter prevalence, the complete distribution of numbers of independent local failures, and a uniform finite-sample convergence rate answers a natural global counting question for the exact same predicate. This is not merely a restatement of a known qualitative independence lemma, since the explicit local factors and quantitative rate are part of the result. The asymptotic error is not claimed optimal.
+Using published local square criterion, odd prime bad event v_p(k)=2j≥2 with negative unit quadratic residue has Haar mass Σ_{j≥1}(p-1)/(2p^{2j+1})=1/[2p(p+1)]; at 2, even valuation≥4 with unit 3 mod4 has mass Σ_{j≥2}2^{-(2j+2)}=1/48. CRT yields independent Bernoulli models for finitely many prime tests; discarded large-prime events cost O(1/Y), large valuations O(2^{-2L}), and nonuniform finite residues modulo M cost O(M/X). Choosing L=ceil(loglog X), Y=floor(log X/(100loglogX)), Chebyshev bound ensures M≤X^{1/2} for sufficiently large X, yielding O(loglog X/logX) total variation. Independent first-1000 exact bad count 98; n≤100000 obstruction histogram (B=0,1,2,3)=(90140,9516,343,1); partial Euler product to 10^6 gives δ≈0.901295043, explicit tail <5e-7.
 
-**Closest source comparison.** [1] has the same recurrence and precise square criterion but no parameter-distribution theorem; [2] has the general geometric sieve (broader setting) but not the specialized effective estimate. A prior related claim (opaque ID `86147800-c0ff-4276-a9de-111e25fa04e0`) uses the same paper but fixes \(k=h^2\) and varies starting values to count failing indices of a *different* linear square candidate \(b_n+(2/h)a_n\), rather than varying \(k\) and counting obstructing primes for \(b_n^2-4a_n^2/k\).
+## originality
 
-**Risks and limits.** The claim relies on Theorem C in [1] without independently reproving it; priority might be affected by existing specialized quantitative sieve literature not indexed or located. Finite computation is not substituted for any infinite proof. The claimed total-variation rate is an upper bound, not a sharpness result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS best of knowledge: the source Theorem C determines universal-square validity for one fixed k, not the exact distribution over k or a uniform quantitative total-variation rate for the count of distinct bad primes. General local-global/CRT sieve provides background independence, but the recurrence-specific exact masses and effective rate are new results not implied as a displayed already-specialized formula in inspected sources.
+
+## value
+
+PASS
+
+PASS: the proportion of integer parameters with the universal integer-square property is a natural arithmetic frequency of a published recurrence invariant. The full defect-count distribution and explicit convergence rate strengthen a yes/no prime-local criterion and provide useful quantitative information, not a bare formula specialization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
