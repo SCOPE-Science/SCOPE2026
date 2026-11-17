@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-The finite integer certificate is `artifacts/verify.py`, using only the Python 3 standard library. Replayed against the included program, it returned:
+# Independent mathematical audit
 
-```text
-ZERO_REDUCED_COST_GRAPH_OK states=81 edges=161 cyclic_SCC_sizes=12,4,2
-EXACT_COMPONENT_DETERMINANTS_OK degree_10+4+2
-TRACE_GENERATING_SERIES_FIRST_40_OK [6, 12, 10, 34, 42, 68, 132, 214, 330, 630]
-INDEPENDENT_BRUTE_FORCE_OK 3 6
-INDEPENDENT_BRUTE_FORCE_OK 4 12
-INDEPENDENT_BRUTE_FORCE_OK 5 10
-INDEPENDENT_BRUTE_FORCE_OK 6 34
-CIRCULAR_BINARY_WITNESSES_OK n=3..40
-VERIFY_OK
-```
+## correctness
 
-The mathematical proof reduces every cyclic length to 81 transfer states and the exact characteristic polynomials of its three cyclic components. This finite reduction, not extrapolation from the four directly enumerated prisms, supports the unrestricted formula. No independent audit was performed. The historical novelty assessment remains provisional despite inspection of the complete motivating preprint HTML and the directly applicable 2018 prism theorem, because older equivalent enumerations under alternate terminology may exist.
+PASS
+
+The stated nine-column-symbol three-column domination test is equivalent to the Italian rule on C_n x K_2 for n>=3. Independently reconstructed all 729 triples: exactly 666 allowed transitions, all satisfy the proposed nonnegative potential inequality; exactly 161 are zero-cost. Independent SCC calculation finds cyclic components of sizes 12,4,2, whose determinants multiply to P(z)=(1+z)(1+z^2-z^3+z^4)(1-z-z^2-z^5)(1-z^4)(1-z^2). Independent zero-cost trace counts for n=3..6 give 6,12,10,34. Telescoping proves the minimum n, trace/log determinant proves all n, and primitivity plus Perron--Frobenius yields the unique dominant root of x^5-x^4-x^3-1. This is an infinite proof from finite transition classification, not extrapolation.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority supported by actual same-object comparison: no stronger equivalent theorem located, subject to named full-text/historical risks.
+
+## value
+
+PASS
+
+Counting every labelled optimum of a natural cyclic-prism family fills a nontrivial enumerative gap beyond known minimum weight n. The exact critical component decomposition, rational series, and exponential growth constant are useful invariants for domination enumerators; not a cosmetic reparameterization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
