@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verification.py` with a standard Python 3 interpreter. No third-party dependencies or downloads are required.
+## correctness
 
-The program performs independent exact polynomial-ring multiplication of the strongly regular adjacency algebra to fourth order, compares its edge and nonedge coefficients with the closed expressions, and confirms the nonedge quadratic discriminant identity symbolically. It then generates 12 concrete graphs, independently checks their strongly regular parameters by common-neighbor counts, and compares all 9,768 entries from sampled exact-rational RK4 matrices with the appropriate formulas. Every checked matrix has exact unit row sums.
+PASS
 
-The graph instances are Petersen, triangular graphs on 5 and 6 base points, rook graphs on 3-by-3 and 4-by-4 grids, Shrikhande, complete bipartite graphs with part sizes 3 and 4, and Paley graphs of orders 5, 13, 17, and 29. The output must end with both `passed` messages. The inequalities establishing all-dimensional positivity, the uniqueness of the cubic zero, and strict improvement over the forward Euler step are proved algebraically in `RESULT.md`. Finite checks cannot certify arbitrary graph parameters or every real timestep.
+From the actual frozen graph-polynomial proof, A²=(k-μ)I+(λ-μ)A+μJ puts all powers of L=kI-A in three entry classes. Edge entries of the complete RK4 endpoint are hF(h) with cubic F=1-ah/2+(a²-b)h²/6-[a³-b(2a+μ)]h³/24, a=2k-λ and b=(k-λ-1)(k-μ). The nonedge-entry quadratic has strictly negative discriminant and positive value, while R4(-hL) is positive definite, so diagonals remain positive. With t=b/a²<1/4 and u=μ/a<1, the inequality 5-(10+9u)t-4t²>0 makes F strictly decreasing, and its sole positive zero τ is the exact *global* horizon, not just a first safe cutoff. At h=1/k the stochastic-matrix positive expansion gives all entries positive, so τ>1/k. Independent rational adjacency-matrix checks on Petersen, K3,3 and C5 total 981 assertions. No claim of stagewise positivity or extension to non-SRG graphs.
 
-A later independent mathematical audit has not been performed.
+## originality
+
+PASS
+
+Best-knowledge assessment against mathematically matching and broader prior claims; explicit boundaries and uninspected-source risks retained. A complete graph-parameter-dependent positivity barrier for a widely used high-order diffusion time step, including nonreentrance, persistent nonedge positivity and guaranteed strict forward-Euler improvement. Those structural properties are not automatically returned by a generic numerical first-root algorithm.
+
+## value
+
+PASS
+
+A complete graph-parameter-dependent positivity barrier for a widely used high-order diffusion time step, including nonreentrance, persistent nonedge positivity and guaranteed strict forward-Euler improvement. Those structural properties are not automatically returned by a generic numerical first-root algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

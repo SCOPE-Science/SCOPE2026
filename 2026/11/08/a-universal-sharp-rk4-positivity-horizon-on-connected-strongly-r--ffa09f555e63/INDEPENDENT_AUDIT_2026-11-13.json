@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-11-13",
+  "audited_at_utc": "2026-11-13T08:10:57.833860Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md (SRG adjacency algebra, quartic Taylor and strict derivative inequality)",
+        "frozen verification.py symbolic class identities and graph matrices inspected",
+        "independent 981 exact rational matrix assertions"
+      ],
+      "rationale": "From the actual frozen graph-polynomial proof, A²=(k-μ)I+(λ-μ)A+μJ puts all powers of L=kI-A in three entry classes. Edge entries of the complete RK4 endpoint are hF(h) with cubic F=1-ah/2+(a²-b)h²/6-[a³-b(2a+μ)]h³/24, a=2k-λ and b=(k-λ-1)(k-μ). The nonedge-entry quadratic has strictly negative discriminant and positive value, while R4(-hL) is positive definite, so diagonals remain positive. With t=b/a²<1/4 and u=μ/a<1, the inequality 5-(10+9u)t-4t²>0 makes F strictly decreasing, and its sole positive zero τ is the exact *global* horizon, not just a first safe cutoff. At h=1/k the stochastic-matrix positive expansion gives all entries positive, so τ>1/k. Independent rational adjacency-matrix checks on Petersen, K3,3 and C5 total 981 assertions. No claim of stagewise positivity or extension to non-SRG graphs.",
+      "residual_risks": [
+        "Unrestricted assertions rest on the analytic proofs, not finite checks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical RK4 on complete multipartite graphs has its own sharp β/N bound, but complete multipartite is a proper SRG subfamily in the relevant cases.",
+          "The general SRG Padé result studies the [2/2] rational update, not the fourth-order polynomial RK4 endpoint."
+        ],
+        "reasoning": "Neither the narrower complete-multipartite result nor the different Padé rational integrator yields the cubic for all SRGs; the broad older first-root framework lacks the claimed exact nonedge positivity.",
+        "searches": [
+          "Resultary published-record semantic search: strongly regular graphs Runge Kutta fourth order polynomial Laplacian entrywise positivity edge nonedge sharp stepsize",
+          "2026/10/25/SCOPE-sharp-rk4-positivity-equals-spectral-stability-on-complete-multi--37dd2f54631e",
+          "2026/11/2/SCOPE-exact-positivity-intervals-for-fourth-order-pad-diffusion-on-str--4defdf9c32e5"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1406.6755",
+        "https://homepages.cwi.nl/~aeb/math/ipm/ipm.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-positivity-intervals-for-fourth-order-pad-diffusion-on-str--4defdf9c32e5",
+        "Resultary published-record semantic search: strongly regular graphs Runge Kutta fourth order polynomial Laplacian entrywise positivity edge nonedge sharp stepsize"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The older polyhedral theorem supplies a first-positive-zero test, without proving the sign cannot recover at later h.",
+          "The new nonedge discriminant is negative for all parameters and edge derivative globally negative for SRGs."
+        ],
+        "reasoning": "A procedure to test finitely many roots is not the same implication as universal monotone cubic edge entries and nonedge positivity for all time; these need the SRG-specific argument.",
+        "searches": [
+          "arxiv:1406.6755",
+          "2026/10/25/SCOPE-sharp-rk4-positivity-equals-spectral-stability-on-complete-multi--37dd2f54631e",
+          "Resultary published-record semantic search: strongly regular graphs Runge Kutta fourth order polynomial Laplacian entrywise positivity edge nonedge sharp stepsize"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Horváth–Song–Terlaky study polynomial invariance thresholds for general ODEs, but not the exact endpoint RK4 graph three-class sign law.",
+          "The same parameter triple covers nonisomorphic SRGs, while the theorem quantifies over all of them."
+        ],
+        "reasoning": "General polyhedral-invariance procedures can compute candidate roots but are not an equivalent closed-form universal all-time class sign theorem for strongly regular graph heat updates.",
+        "searches": [
+          "Resultary published-record semantic search: strongly regular graphs Runge Kutta fourth order polynomial Laplacian entrywise positivity edge nonedge sharp stepsize",
+          "arxiv:1406.6755",
+          "https://doi.org/10.1016/j.apnum.2004.08.026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Standard SRG parameter tables encode (v,k,λ,μ), not a universal RK4 positivity-root theorem.",
+          "Exact matrix verification covered three graphs with different parameter sets but does not constitute exhaustive SRG enumeration."
+        ],
+        "reasoning": "This is an infinite family analytic identity and threshold, not a recomputed small-graph lookup table.",
+        "searches": [
+          "Resultary published-record semantic search: strongly regular graphs Runge Kutta fourth order polynomial Laplacian entrywise positivity edge nonedge sharp stepsize",
+          "A. E. Brouwer and W. H. Haemers, Spectra of Graphs, Chapter 9"
+        ]
+      },
+      "rationale": "Best-knowledge assessment against mathematically matching and broader prior claims; explicit boundaries and uninspected-source risks retained. A complete graph-parameter-dependent positivity barrier for a widely used high-order diffusion time step, including nonreentrance, persistent nonedge positivity and guaranteed strict forward-Euler improvement. Those structural properties are not automatically returned by a generic numerical first-root algorithm.",
+      "residual_risks": [
+        "Specialized numerical-analysis paper not in searched sources could provide the same SRG RK4 family.",
+        "Graph examples and checked polynomial identities support the derivation but do not enumerate every admissible parameter tuple; unrestricted proof rests on inequalities."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides generic first-positive-zero sufficient computations, not the complete SRG cubic classification.",
+          "evidence": "Polyhedral invariance first-root logic; no SRG adjacency-algebra nonreentrance proof.",
+          "identifier_or_url": "https://arxiv.org/abs/1406.6755",
+          "material_read": "Full preprint, with Theorems 3.3–3.4 and coefficient-root algorithm",
+          "method": "Open-access PDF full-text and page-image inspection",
+          "title": "Steplength Thresholds for Invariance Preserving of Discretization Methods of Dynamical Systems on a Polyhedron",
+          "trigger": "General positivity procedure could dominate RK4 claim"
+        },
+        {
+          "assessment": "Supplies standard algebra inputs used in proof, not novel positivity output.",
+          "evidence": "A²=(k-μ)I+(λ-μ)A+μJ.",
+          "identifier_or_url": "https://homepages.cwi.nl/~aeb/math/ipm/ipm.pdf",
+          "material_read": "Strongly regular graph adjacency identity and spectral background",
+          "method": "Open textbook preprint",
+          "title": "Spectra of Graphs, Chapter 9",
+          "trigger": "Canonical SRG adjacency algebra and spectrum"
+        },
+        {
+          "assessment": "Different numerical scheme; cannot equate Padé and Taylor RK4.",
+          "evidence": "[2/2] Padé rational method, as opposed to R4 polynomial.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-positivity-intervals-for-fourth-order-pad-diffusion-on-str--4defdf9c32e5",
+          "material_read": "Published record statement and description of Padé [2/2] function",
+          "method": "Published-record semantic search and repository result",
+          "title": "Exact positivity intervals for fourth-order Padé diffusion on strongly regular graphs",
+          "trigger": "Same SRG objects and fourth-order endpoint property"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1406.6755",
+        "https://homepages.cwi.nl/~aeb/math/ipm/ipm.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/11/2/SCOPE-exact-positivity-intervals-for-fourth-order-pad-diffusion-on-str--4defdf9c32e5",
+        "Resultary published-record semantic search: strongly regular graphs Runge Kutta fourth order polynomial Laplacian entrywise positivity edge nonedge sharp stepsize"
+      ],
+      "rationale": "A complete graph-parameter-dependent positivity barrier for a widely used high-order diffusion time step, including nonreentrance, persistent nonedge positivity and guaranteed strict forward-Euler improvement. Those structural properties are not automatically returned by a generic numerical first-root algorithm.",
+      "residual_risks": [
+        "Value is restricted to the mathematically stated original result, not known background tools or special cases."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Specialized numerical-analysis paper not in searched sources could provide the same SRG RK4 family.",
+    "Graph examples and checked polynomial identities support the derivation but do not enumerate every admissible parameter tuple; unrestricted proof rests on inequalities.",
+    "No GitHub write or server audit closeout was performed; scientific review is complete but public intake plan is not_ready due to unclean frozen public metadata."
+  ],
+  "schema_version": 1
+}
