@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-The two self-contained verifiers use the same explicitly defined dodecahedral graph, but eliminate opposite halves first. They execute exhaustive integer counting for every fixed preferred-color occupancy and assert the entire resulting table.
+## correctness
 
-```sh
-g++ -std=c++17 -O2 verify_inner_ring.cpp -o verify_inner_ring
-./verify_inner_ring
-python3 verify_outer_pentagons.py
-```
+PASS
 
-Expected final printed markers are `INNER_RING_DP_OK` and `INDEPENDENT_PENTAGON_OK`. The Python verifier additionally compares the piecewise ground sectors at representative interior and boundary fields using exact rational arithmetic. Its sector data and the C++ sector data match `SECTOR_TABLE.csv`.
+Using GP(10,2), the source outer-decagon/inner-pentagon recurrence accounts for every 3^20 coloring. A new independent C++ min-plus implementation enumerated each of 3^10 inner-ring colorings and all outer-cycle transitions, returning all 21 sector minima and multiplicities. Their exact line envelope yields h/J=-1,0,3/2,3 and the stated boundary totals 98770,7200,32320,212905.
 
-The enumeration is finite and exhaustive because fixing all ten inner or all ten outer vertices partitions the complete \(3^{20}\)-configuration space into disjoint subproblems. The recurrence traverses all three colors at each remaining vertex and aggregates every tie, with 64-bit integer counts. This is a certificate of the stated finite claims, not evidence for any infinite-size behavior. Independent external validation has not been performed.
+## originality
+
+PASS
+
+Previously established same-graph zero-field and h/J=-1 critical counts are excluded. Remaining signed-field classification with positive-field h/J=3/2 and 3 crossings and exact degeneracies is not present in the inspected stronger general Potts frameworks or same-graph critical-polynomial theorem.
+
+## value
+
+PASS
+
+An exhaustive exact zero-temperature field diagram on a naturally frustrated 20-vertex graph—including coexistence degeneracy and field-induced improper-color sectors—is a useful self-contained finite statistical-mechanics invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
