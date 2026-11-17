@@ -1,15 +1,21 @@
-# Review of the three-torus facet-jump law
+# Independent mathematical audit
 
-## Correctness
-PASS. The distribution is exactly radial volume in a lattice Voronoi cell; the generating facet foot is interior because the shared facet is centrally symmetric about the midpoint of its relevant vector. The 3D radial derivative is an area of a spherical cap complement. An active cap boundary moves smoothly, and its exposed-arc length varies continuously at all nonbirth values by dominated convergence despite circle tangencies and multiple contacts. The only derivative jump in the cap-union area is therefore the birth of a cap, with coefficient \(2\pi/r\); multiplying by \(-r^2/V\) produces the asserted \(-2\pi r/V\) per facet. Simultaneous births are separated and additive. An orthogonal-torus checker confirms two exact coefficients and five CDF values independently.
+## correctness
 
-## Originality
-PASS (best knowledge, with residual historical-priority risk). The closest inspected papers address the Voronoi polytope and facet vectors (Voigt–Weis, arXiv:1003.4173; Blömer–Kohn, arXiv:1512.00720), not the distance distribution's derivative jumps. Mémoli–Needham (arXiv:1810.09646) studies inverse distance histograms, and a prior two-dimensional result has a square-root threshold rather than the present three-dimensional jump. Neither the two-dimensional statement nor general facet-vector theory logically gives the all-degeneracy second-derivative law in dimension three without the spherical union-area argument. The complete Mémoli–Needham preprint was not accessible in this review, and a stronger unlocated result remains a risk.
+PASS
 
-## Value
-PASS. The entire Voronoi-relevant length spectrum and facet count of an arbitrary flat three-torus become observable from one scalar geodesic-distance distribution. The theorem excludes false geometric signatures even at coincident edge, vertex, and facet events, a natural obstruction in inverse metric geometry. It is not merely a formula for a chosen box and does not assert stronger unsupported reconstruction of the whole lattice. The exact jump differs analytically from the planar square-root phenomenon.
+Flat torus difference is Haar-uniform, and the nearest-lattice representative is uniform in its central Voronoi cell C, so F(r)=vol(C∩B_r)/V and F'(r)=r²(4π-U(r))/V. A Voronoi facet plane has foot v/2 in its relative interior, ensuring its spherical cap is born at r=|v|/2 uncovered. Its area 2π(1-a/r) contributes U' right jump 2π/a. Other caps and crossings have continuous exposed-boundary first variations, so F'' jump equals -2πr m(r)/V; covolume from initial r³ coefficient. Opposite facets counted separately. Independent cube case tested six simultaneous facet births at r=1/2, yielding exact jump -6π. Full-dimensional/general coincident critical radii proof examined; no analytic gap found.
 
-## Limits
-Population law only; no finite-sample stability or isometry reconstruction theorem. Euclidean three-dimensional flat quotient only. Historical priority is provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: two-dimensional flat-torus results have square-root births in an angular derivative, while the submitted result is a three-dimensional second-derivative jump law for every Euclidean lattice with simultaneous degeneracies. The Voronoi relevant-vector bijection is classical, but neither the inspected two-dimensional full mathematical theorem nor accessible primary abstracts state or algebraically imply the exact three-dimensional cap coefficient. Source access limits remain.
+
+## value
+
+PASS
+
+PASS: sharp distributional singularities recover the covolume and entire multiset of three-dimensional Voronoi facet distances with multiplicity from the natural pair-distance invariant. The no-spurious-edge/vertex-jump classification is a useful structural inverse-geometric statement, not a small table or routine normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
