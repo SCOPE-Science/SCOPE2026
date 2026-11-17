@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification evidence and scope
 
-`python verify.py` runs entirely with Python 3's standard library. It enumerates every vertex permutation for the wheel and clique-joined-cycle test cases satisfying \(4\le n\le7\), \(1\le k\le2\), \(n+k\le8\), and compares exact rational distributions with the derived finite mixture. It separately evaluates the random-first-vertex recursion for path lengths 0 through 15, checking total probability, exact mean and second factorial moment against coefficients of the stated closed rational-exponential generating functions. It checks large-index mean and variance coefficients at three path lengths. The current package checker completes with `VERIFY_OK 68 exact-moment-and-enumeration-assertions`.
+# Independent mathematical audit
 
-The proof, not the checker, establishes the all-parameter mixture law, complex-analytic Gaussian limit, and asymptotic moment calculations. In particular, finite enumeration does not certify limiting normality, and variance convergence is not inferred from weak convergence.
+## correctness
 
-The primary scientific sources are arXiv:2009.08609 (full text, Sections II–III and Appendix A) and DOI 10.1002/rsa.21200 (full text, Sections 1–3), with arXiv:1510.05560 as background. Uninspected work could contain prior versions of the clique-joined-cycle result; independent priority and proof review have not been performed.
+PASS
+
+First random vertex is a clique hub with probability k/(n+k), then exactly one vertex is accepted; otherwise it is on C_n and greedy completion is independent of hub order and distributed as 1+R_{n-3}. Thus pgf=(kz+nzf_{n-3}(z))/(n+k). The path first-arrival recurrence m f_m=z∑ f_{i-2}f_{m-i-1} yields F_t=z(1+tF)^2, exact first two factorial moment functions and asymptotic rho=(1-e^-2)/2, var coefficient e^-4. Unique dominant analytic pole gives Gaussian weak fluctuations. The exact mixture variance (1-p)v_n+p(1-p)(mu_n-1)^2 establishes fixed-k inflation e^-4+k rho², k=o(n) Gaussian despite rare hub, divergent-k unit-variance weak collapse, and k/n→c two-atom limit. Independently enumerated all n+k! orders for (n,k)=(5,1),(6,1),(5,2) and exactly recovered all outcome masses; finite checks supplement the proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for explicit join K_k∨C_n finite distribution and rare-hub variance/weak-limit mismatch. Krapivsky provides the one-dimensional path Riccati, density, variance and cumulant structure, fully credited as prior. General greedy MIS local-limit literature and older clique bouquet / complete multipartite results concern distinct graph families or statistics, not the join-cycle exact mixture or nonuniform-integrability transition. The proof is short via mixture but describes a natural wheel-graph phenomenon, not covered by the inspected prior statement. Historical exact wheel calculations remain possible.
+
+## value
+
+PASS
+
+The wheel (k=1) is a canonical non-bounded-degree perturbation of the cycle. Demonstrating that Gaussian weak fluctuations can coexist with a strictly different asymptotic finite-sample variance because an O(1/n) hub event produces an O(n) deviation is a structurally motivated counterexample to moment heuristics. Exact k-scaling classification gives meaningful natural boundaries, not an arbitrary tiny-instance enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

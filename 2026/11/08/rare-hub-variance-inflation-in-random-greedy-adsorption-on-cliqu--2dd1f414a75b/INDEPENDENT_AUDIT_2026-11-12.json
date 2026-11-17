@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T13:03:18.279947Z",
+  "axes": {
+    "correctness": {
+      "rationale": "First random vertex is a clique hub with probability k/(n+k), then exactly one vertex is accepted; otherwise it is on C_n and greedy completion is independent of hub order and distributed as 1+R_{n-3}. Thus pgf=(kz+nzf_{n-3}(z))/(n+k). The path first-arrival recurrence m f_m=z∑ f_{i-2}f_{m-i-1} yields F_t=z(1+tF)^2, exact first two factorial moment functions and asymptotic rho=(1-e^-2)/2, var coefficient e^-4. Unique dominant analytic pole gives Gaussian weak fluctuations. The exact mixture variance (1-p)v_n+p(1-p)(mu_n-1)^2 establishes fixed-k inflation e^-4+k rho², k=o(n) Gaussian despite rare hub, divergent-k unit-variance weak collapse, and k/n→c two-atom limit. Independently enumerated all n+k! orders for (n,k)=(5,1),(6,1),(5,2) and exactly recovered all outcome masses; finite checks supplement the proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krapivsky Sec. III and Appendix calculate full 1D RSA occupancy cumulants and variance, applicable as a component.",
+          "Krivelevich et al. general local-limit greedy MIS asymptotics assume suitable locally finite/hypothesis regimes and do not state this exact unbounded-hub mixture in inspected summary."
+        ],
+        "reasoning": "Stronger general local-limit results may recover the weak Gaussian bulk but not automatically uniform-integrability failure and the k/n→c macroscopic two-point law.",
+        "searches": [
+          "https://arxiv.org/pdf/2009.08609",
+          "https://doi.org/10.1002/rsa.21200",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-greedy-law-balance-and-infinite-non-equicardinal-uniform-c--7409a1c63395"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2009.08609",
+        "https://doi.org/10.1002/rsa.21200",
+        "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-greedy-law-balance-and-infinite-non-equicardinal-uniform-c--7409a1c63395"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Krapivsky's path coefficient rho and sigma² give Y_n bulk but say nothing about rare hub-first probability k/(n+k).",
+          "Exact mixture immediately adds p(1-p)(mu_n-1)^2 to variance and creates two distinct scaling limits as k varies."
+        ],
+        "reasoning": "The additional first-event decomposition is elementary but mathematically nontrivial in consequence; the earlier path law alone does not imply a result about a new join graph without this graph-specific argument.",
+        "searches": [
+          "https://arxiv.org/pdf/2009.08609",
+          "https://doi.org/10.1002/rsa.21200",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-greedy-law-balance-and-infinite-non-equicardinal-uniform-c--7409a1c63395"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The path and cycle RSA laws are covered by Krapivsky's Riccati analysis; the new graph is the join of C_n with K_k, not a path or bare cycle.",
+          "Published clique bouquet greedy-law result concerns K_1 joined to a disjoint union of cliques, not the cycle whose nonadjacent vertices can co-accept."
+        ],
+        "reasoning": "Adding one universal vertex is not an algebraic relabeling of the one-dimensional model for purposes of output variance. The base path law is inherited, while first-arrival mixture creates different weak and moment limits.",
+        "searches": [
+          "random greedy MIS on join K_k vee C_n rare hub mixture variance central limit",
+          "https://arxiv.org/pdf/2009.08609",
+          "https://doi.org/10.1002/rsa.21200",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-greedy-law-balance-and-infinite-non-equicardinal-uniform-c--7409a1c63395"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No earlier exact finite pgf table for K_k∨C_n identified in the targeted published results.",
+          "The displayed wheel probabilities for n=5,6 are simple consequences of the new mixture, not themselves the scientific value basis."
+        ],
+        "reasoning": "Absence of a matching table is not novelty proof; contribution is full all-n/k structural law and asymptotic second-moment anomaly.",
+        "searches": [
+          "random greedy MIS on join K_k vee C_n rare hub mixture variance central limit",
+          "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-greedy-law-balance-and-infinite-non-equicardinal-uniform-c--7409a1c63395"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for explicit join K_k∨C_n finite distribution and rare-hub variance/weak-limit mismatch. Krapivsky provides the one-dimensional path Riccati, density, variance and cumulant structure, fully credited as prior. General greedy MIS local-limit literature and older clique bouquet / complete multipartite results concern distinct graph families or statistics, not the join-cycle exact mixture or nonuniform-integrability transition. The proof is short via mixture but describes a natural wheel-graph phenomenon, not covered by the inspected prior statement. Historical exact wheel calculations remain possible.",
+      "residual_risks": [
+        "An exact wheel or clique-joined-cycle random greedy fluctuation theorem may exist under alternate adsorption terminology.",
+        "The Gaussian component is prior; only the join-specific mixture and its scaling consequences are new. Gaussian convergence does not give moment convergence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS base 1D Riccati/density/variance, not graph join in inspected sections",
+          "evidence": "Section III equation for full counting statistics and Appendix singular expansions; explicitly describes extension to rings as straightforward",
+          "identifier_or_url": "https://arxiv.org/pdf/2009.08609",
+          "material_read": "Primary 11-page arXiv PDF opened; visually inspected page 3 (zero-index page 2), text inspected sections II, III and Appendix including cumulant/pole and variance formulas",
+          "method": "Full-text PDF text search and mandatory page screenshot",
+          "title": "Large Deviations in One-Dimensional Random Sequential Adsorption",
+          "trigger": "Exact same base nearest-neighbor random sequential adsorption on paths"
+        },
+        {
+          "assessment": "OBJECT differs: bouquet petals complete rather than cycle",
+          "evidence": "Uniformity characterization has no direct join-cycle variance expression",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-greedy-law-balance-and-infinite-non-equicardinal-uniform-c--7409a1c63395",
+          "material_read": "Published Resultary mathematical summary of clique bouquets with disjoint-clique petals",
+          "method": "Resultary semantic search",
+          "title": "Exact greedy-law balance and infinite non-equicardinal uniform clique bouquets",
+          "trigger": "Earlier universal-hub greedy MIS result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The wheel (k=1) is a canonical non-bounded-degree perturbation of the cycle. Demonstrating that Gaussian weak fluctuations can coexist with a strictly different asymptotic finite-sample variance because an O(1/n) hub event produces an O(n) deviation is a structurally motivated counterexample to moment heuristics. Exact k-scaling classification gives meaningful natural boundaries, not an arbitrary tiny-instance enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2009.08609",
+    "https://doi.org/10.1002/rsa.21200",
+    "https://github.com/Resultary/2026/tree/main/2026/10/18/SCOPE-exact-greedy-law-balance-and-infinite-non-equicardinal-uniform-c--7409a1c63395"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An exact wheel or clique-joined-cycle random greedy fluctuation theorem may exist under alternate adsorption terminology.",
+    "The Gaussian component is prior; only the join-specific mixture and its scaling consequences are new. Gaussian convergence does not give moment convergence."
+  ],
+  "schema_version": 1
+}

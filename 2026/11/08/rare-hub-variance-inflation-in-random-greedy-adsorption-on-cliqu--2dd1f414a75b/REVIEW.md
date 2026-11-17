@@ -1,15 +1,21 @@
-# Scientific review: clique-joined-cycle random greedy adsorption
+# Independent mathematical audit
 
-## Correctness — PASS
-The result is an exact first-arrival mixture, with clique-first probability \(k/(n+k)\) and otherwise a cycle whose random greedy count equals \(1+R_{n-3}\). The relative cycle permutation is independent of the first-vertex class. The path first-arrival recurrence yields \(F_t=z(1+tF)^2\); its exact first and second factorial-moment functions imply path mean density \(\rho=(1-e^{-2})/2\) and variance coefficient \(\sigma^2=e^{-4}\). The analytic Riccati solution has one simple dominant pole near \(t=1\) for small complex marking parameter, yielding the centered Gaussian limit. The mixture variance identity proves the finite-variance inflation and the phase regimes. A separate rational enumerator independently checks the exact finite distribution for several small joined cycles and the moment generating-function coefficients. Finite tests verify examples; they do not establish the infinite limit.
+## correctness
 
-## Originality — PASS, with priority qualification
-Krapivsky's *Large Deviations in One-Dimensional Random Sequential Adsorption* (arXiv:2009.08609, full text Sections II–III, Appendix A) already provides the path Riccati generating function and the two base constants. These ingredients are explicitly credited and are not presented as new. Krivelevich, Mészáros, Michaeli and Shikhelman's *Greedy maximal independent sets via local limits* (DOI 10.1002/rsa.21200, full text Sections 1–3) proves density and concentration statements for appropriate graph sequences, not the exact clique-joined-cycle law or second-moment anomaly; its path-growth hypothesis does not directly cover the universal-hub family. Related published complete-multipartite and threshold-graph greedy-law records have distinct graph classes and claims. Targeted searches for wheel/cone/join random greedy variance and Gaussian fluctuations did not locate the same theorem. The new statement is the exact clique-joined-cycle mixture and the sharp discrepancy between weak Gaussian and second-moment limits, including the growing-clique phase diagram. It is an elementary reduction of established path statistics, so an overlooked prior derivation or interpretation as an implicit corollary remains a real priority risk.
+PASS
 
-## Value — PASS
-A single universally adjacent hub in a wheel changes the leading variance constant despite leaving the \(\sqrt n\)-scale Gaussian weak limit unchanged, while a growing hub clique makes variance standardization asymptotically degenerate. This supplies a canonical, explicit counterexample to replacing fluctuation-law convergence with second-moment convergence in greedy adsorption and a complete finite-law/scaling classification for the natural \(K_k\vee C_n\) family. Its graph-theoretic model is motivated by global blocking hubs, not by an arbitrary numerical slice. The value is the structural rare-event phenomenon; the one-dimensional base constants alone are not claimed as new.
+First random vertex is a clique hub with probability k/(n+k), then exactly one vertex is accepted; otherwise it is on C_n and greedy completion is independent of hub order and distributed as 1+R_{n-3}. Thus pgf=(kz+nzf_{n-3}(z))/(n+k). The path first-arrival recurrence m f_m=z∑ f_{i-2}f_{m-i-1} yields F_t=z(1+tF)^2, exact first two factorial moment functions and asymptotic rho=(1-e^-2)/2, var coefficient e^-4. Unique dominant analytic pole gives Gaussian weak fluctuations. The exact mixture variance (1-p)v_n+p(1-p)(mu_n-1)^2 establishes fixed-k inflation e^-4+k rho², k=o(n) Gaussian despite rare hub, divergent-k unit-variance weak collapse, and k/n→c two-atom limit. Independently enumerated all n+k! orders for (n,k)=(5,1),(6,1),(5,2) and exactly recovered all outcome masses; finite checks supplement the proof.
 
-## Residual limitations
-No claim is made about nonuniform inspection orders, more general joins, repeated adsorption attempts, or a universal variance theorem. Published and indexed searches do not prove absolute historical priority. The research has not undergone independent mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for explicit join K_k∨C_n finite distribution and rare-hub variance/weak-limit mismatch. Krapivsky provides the one-dimensional path Riccati, density, variance and cumulant structure, fully credited as prior. General greedy MIS local-limit literature and older clique bouquet / complete multipartite results concern distinct graph families or statistics, not the join-cycle exact mixture or nonuniform-integrability transition. The proof is short via mixture but describes a natural wheel-graph phenomenon, not covered by the inspected prior statement. Historical exact wheel calculations remain possible.
+
+## value
+
+PASS
+
+The wheel (k=1) is a canonical non-bounded-degree perturbation of the cycle. Demonstrating that Gaussian weak fluctuations can coexist with a strictly different asymptotic finite-sample variance because an O(1/n) hub event produces an O(n) deviation is a structurally motivated counterexample to moment heuristics. Exact k-scaling classification gives meaningful natural boundaries, not an arbitrary tiny-instance enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
