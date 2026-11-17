@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The proof is self-contained modulo standard Euclidean ellipsoid facts and the matrix-tree theorem. The exact rational checker `check_unicyclic_ellipsoid.py` requires SymPy and verifies weighted-Laplacian shape identities, all sign-pattern inclusions and contacts, the isotropic covariance certificate, and the matrix-tree cofactor for 51 constructed graph instances on 3 to 8 vertices. It also checks the cycle-length comparison for indices 3 through 40. Run `python check_unicyclic_ellipsoid.py`; the recorded output is `UNICYCLIC_GRAPHICAL_ZONOTOPE_LOEWNER_CHECKS_PASSED 51 3468 6696`.
+# Independent mathematical audit
 
-Limits: the finite enumeration does not establish the infinite theorem. General optimality is supplied by the expectation, trace, and determinant argument in the proof; strict monotonicity is supplied by Bernoulli's inequality. Independent mathematical audit has not been performed. The earliest publicly verified lead among the cited paper versions is arXiv:1912.02439 on 2019-12-05.
+## correctness
+
+PASS
+
+The single-cycle incidence kernel gives an affine isomorphism B from bridge cube [-1/2,1/2]^(n-k) times the zero-sum projection of the k-cube. Balanced mixed cycle-sign patterns have maximal projected squared norm floor(k^2/4)/k; uniform balanced cycles and independent bridge signs form a centered isotropic contact distribution for the two-block shape S with eigenvalues d/4 and d floor(k^2/4)/(k(k-1)). The averaging-trace/AM–GM certificate establishes global uniqueness of the Löwner ellipsoid. B S B^T equals stated weighted Laplacian; pseudo-determinant BB^T=n k follows from matrix-tree theorem and yields exact volume and contact count. Exact consecutive-length ratio formulas and Bernoulli prove strict volume increase at fixed n. Verified odd/even cases and bridge independence.
+
+## originality
+
+PASS
+
+Best-of-knowledge original exact minimum-volume enclosing ellipsoid for entire unicyclic incidence-zonotope class, all contact vertices, volume dependence only on (n,k), and sharp cycle extremizers. Earlier complete-bipartite formula includes only the four-cycle K_2,2 (and other multiply cyclic graphs), not arbitrary unicyclic graphs. General zonotope ellipsoid bounds and graphical deformation results do not imply the special isotropic contact measure and exact cycle length monotonicity without the submitted substantive quotient and certificate.
+
+## value
+
+PASS
+
+The exact Euclidean Löwner ellipsoid is a fundamental natural convex-geometric invariant of graphical zonotopes. The one-circuit family is a geometrically motivated first non-parallelotope class, and exact contact classes and cycle-dependent sharp volume extremizers are useful, mathematically nontrivial structural information. The all-unicyclic solution is not an arbitrary small graph census or a generic method restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

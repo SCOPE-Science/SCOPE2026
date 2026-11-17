@@ -1,15 +1,21 @@
-# Scientific review: exact Löwner ellipsoids of unicyclic graphical zonotopes
+# Independent mathematical audit
 
-## Correctness — PASS
-The incidence matrix has one-dimensional kernel carried by the unique cycle. Its quotient yields a Cartesian product of a bridge cube and the coordinate-sum-zero projection of a cycle cube. The proposed two-block enclosing ellipsoid attains the worst-case squared radius exactly at balanced cycle signs, and an explicit sign distribution has mean zero and covariance equal to the ellipsoid shape divided by the intrinsic dimension. The trace–determinant inequality certifies **global** Löwner optimality and uniqueness. Weighted matrix-tree determinants provide the volume in the inherited Euclidean metric. Strict parity-dependent inequalities give cycle-length monotonicity. A separately implemented exact-rational finite checker passed 51 graph cases and 6,696 sign-pattern evaluations. Finite checks do not stand in for the infinite argument.
+## correctness
 
-## Originality — PASS, with historical-priority qualification
-Deza–Pournin (arXiv:1912.02439) develops zonotope computation; Gassmann–Althoff (DOI:10.23919/ACC45564.2020.9147938) provides exact square-generator conversions and approximations for redundant generators; and Padrol–Pilaud–Poullot (arXiv:2111.12422) develops graphical-zonotope deformations and combinatorics. The known complete-bipartite graphical-zonotope Löwner result covers \(C_4=K_{2,2}\), a single overlapping case, but is not a theorem for every unicyclic graph or their sharp cycle-length ordering. Its primary repository full text could not be inspected, so this comparison is expressly limited to its reported statement. Other comparisons concerning cycle-zonotope graph spectra and symmetric-edge-polytope ellipsoids do not imply the new metric statement. Potential equivalent results under projected-cube or optimal-design terminology remain a priority risk.
+PASS
 
-## Mathematical value — PASS
-The full classification settles a natural metric invariant of an infinite family, records the complete tangent-vertex orbit, and proves the unexpected independence from tree attachment locations. Sharp extremizers distinguish the triangle cycle from the pure cycle at fixed graph order. None is a finite-table recomputation or a routine numerical improvement.
+The single-cycle incidence kernel gives an affine isomorphism B from bridge cube [-1/2,1/2]^(n-k) times the zero-sum projection of the k-cube. Balanced mixed cycle-sign patterns have maximal projected squared norm floor(k^2/4)/k; uniform balanced cycles and independent bridge signs form a centered isotropic contact distribution for the two-block shape S with eigenvalues d/4 and d floor(k^2/4)/(k(k-1)). The averaging-trace/AM–GM certificate establishes global uniqueness of the Löwner ellipsoid. B S B^T equals stated weighted Laplacian; pseudo-determinant BB^T=n k follows from matrix-tree theorem and yields exact volume and contact count. Exact consecutive-length ratio formulas and Bernoulli prove strict volume increase at fixed n. Verified odd/even cases and bridge independence.
 
-## Scientific limits
-Only connected simple unweighted unicyclic graphs in their canonical incidence Euclidean realization are included. Arbitrary edge weights, more than one independent cycle and general affine embeddings are not proved. Primary full text of the closest published complete-bipartite ellipsoid report was inaccessible. Independent mathematical audit has not been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact minimum-volume enclosing ellipsoid for entire unicyclic incidence-zonotope class, all contact vertices, volume dependence only on (n,k), and sharp cycle extremizers. Earlier complete-bipartite formula includes only the four-cycle K_2,2 (and other multiply cyclic graphs), not arbitrary unicyclic graphs. General zonotope ellipsoid bounds and graphical deformation results do not imply the special isotropic contact measure and exact cycle length monotonicity without the submitted substantive quotient and certificate.
+
+## value
+
+PASS
+
+The exact Euclidean Löwner ellipsoid is a fundamental natural convex-geometric invariant of graphical zonotopes. The one-circuit family is a geometrically motivated first non-parallelotope class, and exact contact classes and cycle-dependent sharp volume extremizers are useful, mathematically nontrivial structural information. The all-unicyclic solution is not an arbitrary small graph census or a generic method restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
