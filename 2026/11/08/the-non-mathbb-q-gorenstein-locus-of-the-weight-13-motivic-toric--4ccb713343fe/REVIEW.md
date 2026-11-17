@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS (self-review).** The intrinsic affine lattice was checked by an explicit unimodular minor. Complete facet enumeration yields eight primitive normal rays. A short integer relation among the four rays of a distinguished edge contradicts the canonical rational support equations. Each remaining proper face contains a vertex with an explicit integral support vector. The packaged exact-arithmetic checker exhausts all proper faces and reproduces these conclusions. This is a finite computation with complete enumeration of the fixed input, not an inference from samples.
+## correctness
 
-**Originality — PASS (provisional historical assessment).** The motivating source [1] reports dimension, degree, normality, projective normality, and non-smoothness, and depicts the polytope; it does not state the canonical Cartier locus or identify the unique non-Q-Gorenstein invariant curve. General toric Cartier criteria [2] give the method, not this polytope-specific classification. Accessible mathematical literature and semantic published-result comparisons found no implication covering the exact claim. Possible alternate presentations of this fixed semigroup or a pre-existing explicit fan computation remain a residual priority risk.
+PASS
 
-**Value — PASS.** Weight 13 is the first four-dimensional base in the motivating series; its canonical-divisor behavior matters for whether standard discrepancy and minimal-model arguments can be applied. Rather than merely detecting singularity, the theorem identifies the complete non-Q-Gorenstein locus as one projective curve and proves Gorenstein behavior on its complement. The result is specific but naturally motivated by the paper's first fourfold example and is not a routine renaming of the published geometry.
+Using assigned normal toric monomial model, independent exact enumeration over all nine solutions of 2a+3b+5c+7d+8e=13 gives intrinsic four-lattice, 8 vertices, 8 supporting facets, and face vector (8,19,19,8). For the distinguished edge, ray dependence n1-2n4-n6+n7=0 but coefficient sum -1 obstructs even rational K-support. Rational row-reduction at all faces finds precisely the two endpoint vertices and shared edge non-Q-Cartier; six other maximal cone support vectors are integral, so all other orbits are Cartier. Edge orbit closure is complete normal toric curve P1. Independently reproduced exact facet and face computations, not just verifier output.
 
-The theorem does not classify other weights, the full singular locus, or the projective cone. Independent mathematical review and exhaustive historical-priority assessment remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: standard canonical Cartier test and neighboring weight12 singularity computation do not determine this concrete weight13 fan. Full highly relevant original weight13 MZV toric article was inaccessible via arXiv/OA, and Oxford VPN requires manual authentication; this is recorded as material priority risk, not automatic failure. No decisive published same-statement coverage established from readable evidence.
+
+## value
+
+PASS
+
+Exact canonical divisor Cartier/Q-Cartier stratification is a natural birational invariant of a concrete published motivic toric variety, and its exceptional locus being exactly one P1 curve with six Gorenstein charts is a meaningful complete classification, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
