@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-An independent direct implementation of the one-good-removal definition was compared against the prefix criterion for 71,110 assignments; 181 separately enumerated multipartite allocation instances agreed with the exact factorial count, and seven small graph families matched the all-ranking threshold. The argument establishes every case analytically: a bijection on top-ranked goods and a multipartite-class injection on the remaining goods; the Gaussian limit comes from the hypergeometric CLT and a Chebyshev tail bound. The included finite checks do not substitute for these proofs.
+## correctness
 
-## Originality — PASS, qualified
-The primary 32-page Haviv (2026) article proves the SD-EF1/strong-colorability equivalence and the balanced bipartite worst-case threshold; neither is claimed as new. Its Lemmas 3.8 and 4.3 and Equbal et al. (2026) and Hummel–Hetland (2021) were compared directly. The exact allocation-count distribution and the random-order Gaussian transition were not found in the inspected primary material or targeted research-record searches. The closest research records concern random priority SD envy-freeness (a different probability space) and multipartite proper conflict-free or forced colorings (different constraints). Unindexed or implicit equivalents remain possible, particularly because the finite enumerative reduction uses a known ranked-block lemma.
+PASS
 
-## Mathematical value — PASS
-The main reliability theorem quantifies what a worst-case strong-colorability threshold cannot: how many uniformly random shared rankings allow the full fair allocation below the adversarial threshold. The exact all-parameter coefficient probability and its sharp Gaussian scaling show a meaningful distinction between random-rank and worst-case agent requirements. The finite counting step is useful for the exact law but is not touted as a standalone major advance.
+For a common strict ranking, SD-EF1 for every ordered agent pair is equivalent to all preference-prefix bundle counts differing by at most one: removing the earliest item of an envied bundle suffices and any >=2 prefix gap obstructs. At prefix ell every agent must receive one of top ell goods; t=N-ell<ell remaining goods go to distinct agents. In a complete multipartite graph a bottom good can only join the top good from its own part, yielding the exact falling factorial and feasibility 2x_i<=n_i. Uniform bottom t-set yields the coefficient/hypergeometric probability. Worst-case threshold N-floor(min n_i/2) follows by putting excess low-ranked goods in a smallest part and monotonicity for lower agent counts. For K_{m,m}, the centered hypergeometric window has variance (m^2-s^2)/(4(2m-1)), giving 2Phi(sqrt2 c)-1=erf(c) for s/sqrt m->c; Chebyshev handles s/sqrt m->infty. Independently enumerated feasible shared-ranking allocations in (2,2) ell=3 (6), (2,3) ell=3 (0), (1,2,2) ell=3 (0).
 
-## Limits and literature
-The finite count requires a common strict order, complete multipartite conflicts, and more than half as many agents as goods. The asymptotic is balanced bipartite only. All-source uniqueness and formal external review are not established. Closest primary references: Haviv, arXiv:2607.01059v1; Equbal et al., arXiv:2605.09930v1; Hummel–Hetland, DOI 10.1007/s10458-021-09537-3.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Haviv (2026) provides the fairness/strong-colorability equivalence, ranked-block idea and balanced K_{m,m} worst-case threshold, which must be credited. Accessible first-version abstract and source review report these; the complete 32-page primary was inaccessible after both preprint and OA searches and authorized institutional retrieval returned vpn_disconnected. No prior evaluated all-rankings exact labeled-allocation coefficient probability nor the corresponding Gaussian typical-agent transition was identified; this is qualified best-of-knowledge, not proof of absence. Closest random-priority and graphical house-assignment results use different randomness/constrained objects.
+
+## value
+
+PASS
+
+PASS: Exact share of rankings admitting full SD-EF1 allocation is a natural reliability statistic that answers a different question from a worst-case strong-colorability threshold. The sharp erf(c) crossover demonstrates a genuine sqrt(m) typical-versus-linear worst-case gap, and the labelled-allocation coefficient polynomial quantifies the feasible solution multiplicity. No new broad mechanism theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
