@@ -1,0 +1,23 @@
+# Scientific review: universal logarithmic shape law for tiny Poisson cuboids
+
+## Correctness — PASS
+
+The two sampling conventions have different, independently derived side-length laws: independent exponential widths for the stationary typical cell, and independent shape-two gamma widths for the cell containing a fixed origin. Rescaling by each directional intensity reduces both volume conditions to a product of independent unit-rate gammas. The transformed logarithmic density is exactly \(\Gamma(k)^{-1}e^{-kt-e^{-t}}\). Splitting its non-exponential factor as a half-line indicator plus an integrable correction of mass \(-\gamma\) supplies the explicit first two terms of the product lower tail. The conditional chart-density convergence has unit-integral limit and therefore yields total variation by Scheffé's lemma. The full exponent vector is deliberately claimed in weak convergence only, since its finite-threshold support is disjoint from its limiting simplex. Independent Bessel identities and numerical simulations passed the standalone checks. The remainder is not claimed with a numerical rate; independent mathematical validation remains outstanding.
+
+## Originality — PASS, provisional historical priority
+
+The closest mathematical source is Beermann, Redenbach and Thäle, *Asymptotic shape of small cells*, arXiv:1211.5488, first posted 2012-11-23. Its full text was inspected: Proposition 4 proves independent **typical-cell** exponential widths; Theorem 2 treats planar qualitative small-area degeneration, and Section 2.3 explicitly leaves the higher-dimensional small-volume qualitative extension unresolved. Thus independent exponential widths are *known* input, not a proposed discovery. The submitted claim instead provides a complete dimension-independent logarithmic-simplex **marked** limit, a two-term sharp small-volume tail, and an origin-containing zero-cell comparison including independent position marks. These claims do not follow from the published *statements* of its theorem on the classical shape functional without additional distributional analysis.
+
+Gilles Bonnet, *Small cells in a Poisson hyperplane tessellation*, arXiv:1702.01964 (2017), was also inspected in its introduction and relevant Sections 2–4. Its general facet and shape arguments chiefly concern size functionals bounded below by geometric width or, elsewhere, absolutely continuous directional measures; the product-volume functional on arbitrarily elongated cuboids does not satisfy the relevant width comparability. Its discussion of the atomic parallelepiped case does not provide the explicit joint logarithmic mark or the two-term constants. The general Mellin-product methodology and results outside the inspected corpus remain possible historical coverage risks. No global uniqueness or independent priority certification is asserted.
+
+Comparison against indexed mathematical findings did not identify the same conditional log-simplex and beta undershoot joint statement. Related items include a hyperbolic Poisson–Voronoi typical-area study (an indexed hyperbolic Poisson–Voronoi area study), endpoint-Gamma localization in Poisson–Laguerre geometry (an indexed Poisson–Laguerre large-inradius study), and a three-direction zero-cell polygon side-count law. Their different tessellations, conditioning observables, or parameter regimes do not imply this full marked theorem under a direct specialization.
+
+## Mathematical value — PASS
+
+This resolves a specifically identified higher-dimensional small-volume **shape** gap for an archetypal stochastic convex-body tessellation. The exact logarithmic simplex law describes the *relative rates at which side lengths collapse*, not merely that they tend to zero, while the distinct rare-volume exponents and beta undershoot distinguish cell-intensity sampling from spatial location bias. The two-term expansion provides the finite correction to a logarithmically singular small-volume law in every fixed dimension; its coefficient is directly testable. These are natural geometric shape/volume observables, not arbitrary selected parameters.
+
+## Limits and priority risks
+
+No statement for continuously distributed hyperplane directions, nonstationary processes, arbitrary size functionals, or dimension-uniform convergence. The independence of normalized origin-position marks belongs to the zero cell only. Full-vector log-shape convergence is weak, not total variation. Product-distribution theory may contain equivalent conditional asymptotics not surfaced in the searches, and some earlier references from 2003 and older books were not available for full-text comparison. An independent audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
