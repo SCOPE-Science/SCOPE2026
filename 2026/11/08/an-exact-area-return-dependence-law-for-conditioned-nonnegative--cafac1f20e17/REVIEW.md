@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The exact probability space is the Catalan ensemble of nonnegative \(2n\)-step symmetric bridges. The area convention is explicit, and return counts include the last return. The primitive decomposition yields \(F(z,q)=zqC(zq^2,q)\), and formal differentiation gives \(F_q=z/(1-4z)\). Extracting marginal and mixed coefficients proves the covariance formula. The induction with \(P_n=(2n^2+7n+3)/3\) makes the sign strict at every \(n\ge2\). Primitive-component counts independently establish the conditional gap of \(n\). Finite rational verification provides a cross-check, not the infinite proof. At \(n=1\) the covariance is zero; conditioning on exactly two returns is only used for \(n\ge2\).
+## correctness
 
-## Originality
-PASS, qualified. Search comparisons against separate area-moment, return-count, and first-return enumerations did not identify the displayed mixed covariance formula, all-size strict sign, or exactly linear one-versus-two conditional gap. Deutsch (1999) gives return enumerations, Janson (2007) surveys area moments, Bandlow–Killpatrick (2001) gives q-Catalan area recurrences, and Denisov–Kolb–Wachtel (2013) gives area local limits. None of the inspected material states these two joint-observable assertions or a stronger joint law that directly specializes to them. The component decomposition is classical, and implicit derivability from broader historical q-Catalan/plane-tree identities is a genuine residual priority risk. The Takács (1991) full text and Kreweras (1986) historical joint bridge chapter were not materially inspected.
+PASS
 
-## Value
-PASS. Zero returns and excursion fragmentation are natural discrete local-time features, while integrated positive height is the principal area functional behind the Airy scaling law. Their dependence is not determined by the two marginal distributions. The exact strict finite-size sign, linear covariance scale, and the especially sharp conditional shift of exactly \(n\) distinguish a structural boundary effect from a mere numerical correlation at a few small lengths. No claim of a general limit theorem or application beyond this conditioned walk is needed.
+Unique primitive decomposition U P D and F(z,q)=zq C(zq^2,q) give G(z,u,q)=1/(1-uF). Coefficientwise derivatives at q=u=1 yield E[A], E[R], and E[AR], hence Cov=(6*4^n/C_n-4n^2-14n-6)/(n+2). The Catalan ratio Q_n obeys Q_{n+1}=2(n+2)Q_n/(2n+1), below the polynomial supersolution for n>=2, proving strict negativity. The primitive count-conditioned mean difference is n for n>=2. Independent complete Dyck enumeration for n<=8 matched covariance, return mean and conditional gap exactly; infinite n follows from formal generating series and induction.
 
-## Closest literature and limits
-The closest sources use different marginals or limiting objects. The claim is a finite exact mixed statistic with a specific normalization, not a new solution of the general area distribution problem. Its likely elementary derivation from classical generating-function methods limits its methodological novelty. Possible earlier implicit coverage is explicitly unresolved; no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+No directly covering theorem after statement-level searches, with residual risks recorded. The surviving claim is not an identified corollary of the compared sources.
+
+## value
+
+PASS
+
+The number of visits to the hard wall is a natural excursion statistic whose relationship to total integrated height is not captured by the separate area and marginal return laws. Exact finite-n negative covariance, asymptotic -4n+6sqrt(pi n), and conditional R=1 vs R=2 gap n form a useful structural dependence statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

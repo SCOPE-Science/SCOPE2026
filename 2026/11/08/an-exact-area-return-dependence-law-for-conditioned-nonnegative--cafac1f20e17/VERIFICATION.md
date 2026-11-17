@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The enclosed `verify.py` is a standard-library-only exact-integer and rational checker. It independently enumerates all admissible paths through semilength nine and verifies the first, return, and mixed moments; a state-based recurrence verifies the moments through semilength eighty. A separately organized state recurrence for conditional return counts checks the one-versus-two expected area gap through semilength fifty. Exact Catalan-ratio and super-solution checks cover three hundred values.
+# Independent mathematical audit
 
-Command: `python verify.py`
+## correctness
 
-Expected successful completion prints two `PASS:` lines. The finite checks do not establish the infinite theorem; its proof uses formal power-series identities and a strict inductive rational inequality. No external or independent audit was performed.
+PASS
+
+Unique primitive decomposition U P D and F(z,q)=zq C(zq^2,q) give G(z,u,q)=1/(1-uF). Coefficientwise derivatives at q=u=1 yield E[A], E[R], and E[AR], hence Cov=(6*4^n/C_n-4n^2-14n-6)/(n+2). The Catalan ratio Q_n obeys Q_{n+1}=2(n+2)Q_n/(2n+1), below the polynomial supersolution for n>=2, proving strict negativity. The primitive count-conditioned mean difference is n for n>=2. Independent complete Dyck enumeration for n<=8 matched covariance, return mean and conditional gap exactly; infinite n follows from formal generating series and induction.
+
+## originality
+
+PASS
+
+No directly covering theorem after statement-level searches, with residual risks recorded. The surviving claim is not an identified corollary of the compared sources.
+
+## value
+
+PASS
+
+The number of visits to the hard wall is a natural excursion statistic whose relationship to total integrated height is not captured by the separate area and marginal return laws. Exact finite-n negative covariance, asymptotic -4n+6sqrt(pi n), and conditional R=1 vs R=2 gap n form a useful structural dependence statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
