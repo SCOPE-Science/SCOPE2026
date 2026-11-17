@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T02:08:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the standard Cerny n-state cyclic letter a and single-merging b, the submitted piecewise integer rank D(i,j) partitions all unordered pairs into the complete interval 1..binom(n,2). Each pair has exactly one letter reducing D by one and no letter reducing it more than one, so it equals the minimum merge length and fixes the unique shortest word. The rank-N descent gives explicit W_n whose suffixes are the unique shortest words. Independent reverse pair-BFS and rank-transition checks for n=2..26 corroborated both parity cases; all-n justification is the piecewise case proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier theorem optimizes the exact word for every positive (c_a,c_b) simultaneously, strictly stronger than unit-letter-cost shortest uniqueness.",
+          "Behague–Johnson supplies the sharp worst-pair binom(n,2) but not all individual word values; the 2026 theorem does."
+        ],
+        "reasoning": "Full submitted claim is a specialization of the older arbitrary-positive-letter-weight theorem.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-coordinatewise-optimal-pair-synchronization-in-the-ern-automata--6c832e7845c7/RESULT.md",
+          "arXiv:2008.12166"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-coordinatewise-optimal-pair-synchronization-in-the-ern-automata--6c832e7845c7/RESULT.md",
+        "https://arxiv.org/abs/2008.12166",
+        "https://arxiv.org/abs/1404.6731"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Substitute c_a=c_b=1 in the earlier theorem to get the minimum merging length and unique minimum word for every unordered pair.",
+          "The earlier formula for W(P) in short-arc coordinates gives the submitted W_n at the maximum rank and the shorter suffix words at all other ranks."
+        ],
+        "reasoning": "Each submitted theorem clause follows mathematically, and no distinct final claim survives unchanged. Scientific failure is originality, not correctness or value.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-coordinatewise-optimal-pair-synchronization-in-the-ern-automata--6c832e7845c7/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Earlier uses cyclic shorter-distance coordinate h and starting position i; submitted uses increasing labels i<j and gap g=j-i. Converting h=min(g,n-g) gives equal rank values.",
+          "Both automata act by a:x→x+1 mod n, b(n-1)=0 and b fixes other states."
+        ],
+        "reasoning": "These are the same labeled objects and same pair-merging problem, expressed in two coordinate systems.",
+        "searches": [
+          "Resultary: Černý automaton shortest pair synchronization distance",
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-coordinatewise-optimal-pair-synchronization-in-the-ern-automata--6c832e7845c7/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier published all-pair rank formula produces exactly 1..binom(n,2), each once, not only the maximal value.",
+          "Its words are explicit for each pair and coincide with exactly one suffix per rank of the longest word."
+        ],
+        "reasoning": "This is an all-n exact theorem, not a small data-table overlap or independent numeric observation.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-coordinatewise-optimal-pair-synchronization-in-the-ern-automata--6c832e7845c7/RESULT.md",
+          "arXiv:1404.6731"
+        ]
+      },
+      "rationale": "FAIL: A November 2, 2026 published stronger theorem Coordinatewise-optimal pair synchronization in the Černý automata gives the exact unique minimizing word for every pair simultaneously for ALL strictly positive letter costs, its explicit a/b Parikh vector, and the all-distinct pair-length spectrum 1..binom(n,2). For costs c_a=c_b=1 it directly implies every submitted distance and word. The earlier words form suffixes of its longest word by its explicit formulas. Its entire theorem and proof were read; no independent original remainder is present.",
+      "residual_risks": [
+        "No priority ambiguity material to verdict: earlier complete theorem explicitly proves stronger objective on the exact same automaton."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: same pair states, same words, strictly stronger costs and equality uniqueness",
+          "evidence": "Step 4 uniquely minimizes word for all weights; Step 5 provides all rank lengths 1..binom(n,2).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-coordinatewise-optimal-pair-synchronization-in-the-ern-automata--6c832e7845c7/RESULT.md",
+          "material_read": "Entire published RESULT.md, full theorem, coordinate proof, positive-weight optimization, unique word and rank spectrum",
+          "method": "Fetched and read complete GitHub blob 96d6c92dc9adfd5ee8bb9d840dd08c8960e9c7ed",
+          "title": "Coordinatewise-optimal pair synchronization in the Černý automata",
+          "trigger": "Exact stronger prior theorem identified by semantic search"
+        },
+        {
+          "assessment": "Partial prior maximum only; decisive 2026 stronger result supersedes it",
+          "evidence": "General upper bound attained by a Cerny pair.",
+          "identifier_or_url": "https://arxiv.org/abs/2008.12166",
+          "material_read": "Accessible abstract and cited statement about RDV(2,n)=binom(n,2); full article not inspected this run",
+          "method": "Read available introductory statement",
+          "title": "Synchronizing Times for k-sets in Automata",
+          "trigger": "Prior maximum rendezvous bound"
+        },
+        {
+          "assessment": "Odd-state pair graph potentially implies some special shortest words, but 2026 theorem fully covers them",
+          "evidence": "Related to expected random-input merging time, not needed to conclude rejection.",
+          "identifier_or_url": "https://arxiv.org/abs/1404.6731",
+          "material_read": "Accessible indexed theorem/graph summary and submitted discussion of Section 3; original article not read in full this run",
+          "method": "Read available summary",
+          "title": "Synchronizing Automata with Random Inputs",
+          "trigger": "Earlier Cerny pair transition structure"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "A full shortest-pair distance spectrum and synchronized unique suffix-chain are natural precise state-merging invariants with genuine algorithmic meaning. The conclusion is valuable but already mathematically established.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-coordinatewise-optimal-pair-synchronization-in-the-ern-automata--6c832e7845c7/RESULT.md",
+    "https://arxiv.org/abs/2008.12166",
+    "https://arxiv.org/abs/1404.6731"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Only merging unordered pairs in the standard labeled Cerny family; not full-set reset words.",
+    "n=2..26 BFS is bounded corroboration; uniform rank-law proof establishes all n."
+  ],
+  "residual_risks": [
+    "No priority ambiguity material to verdict: earlier complete theorem explicitly proves stronger objective on the exact same automaton."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERING: same pair states, same words, strictly stronger costs and equality uniqueness",
+      "evidence": "Step 4 uniquely minimizes word for all weights; Step 5 provides all rank lengths 1..binom(n,2).",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/11/2/SCOPE-coordinatewise-optimal-pair-synchronization-in-the-ern-automata--6c832e7845c7/RESULT.md",
+      "material_read": "Entire published RESULT.md, full theorem, coordinate proof, positive-weight optimization, unique word and rank spectrum",
+      "method": "Fetched and read complete GitHub blob 96d6c92dc9adfd5ee8bb9d840dd08c8960e9c7ed",
+      "title": "Coordinatewise-optimal pair synchronization in the Černý automata",
+      "trigger": "Exact stronger prior theorem identified by semantic search"
+    },
+    {
+      "assessment": "Partial prior maximum only; decisive 2026 stronger result supersedes it",
+      "evidence": "General upper bound attained by a Cerny pair.",
+      "identifier_or_url": "https://arxiv.org/abs/2008.12166",
+      "material_read": "Accessible abstract and cited statement about RDV(2,n)=binom(n,2); full article not inspected this run",
+      "method": "Read available introductory statement",
+      "title": "Synchronizing Times for k-sets in Automata",
+      "trigger": "Prior maximum rendezvous bound"
+    },
+    {
+      "assessment": "Odd-state pair graph potentially implies some special shortest words, but 2026 theorem fully covers them",
+      "evidence": "Related to expected random-input merging time, not needed to conclude rejection.",
+      "identifier_or_url": "https://arxiv.org/abs/1404.6731",
+      "material_read": "Accessible indexed theorem/graph summary and submitted discussion of Section 3; original article not read in full this run",
+      "method": "Read available summary",
+      "title": "Synchronizing Automata with Random Inputs",
+      "trigger": "Earlier Cerny pair transition structure"
+    }
+  ]
+}
