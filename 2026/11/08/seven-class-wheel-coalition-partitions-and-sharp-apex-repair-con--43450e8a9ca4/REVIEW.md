@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof fixes a pair of vertices outside an apex-containing set whose open-neighborhood traces agree. The neighborhood-counting argument from the motivating paper gives the contextual upper bound \(2\Delta(H)+2\); this estimate alone is not asserted to be original. The sharp construction has precisely one original collision and \(2d+2\) one-vertex repairs for all \(d\ge2\). Non-dominating singleton complements furnish an actual coalition partition. The wheel trace table and six repairs prove the seven-class lower bound for every \(m\ge10\). The finite verifier checks the definitions directly but is not substituted for the unrestricted proof.
+PASS
 
-## Originality — PASS, with historical risk
+For A containing cone apex h, a collision between outside u,v can be resolved by a single appended w only if w belongs to {u,v}∪(N_H(u)△N_H(v)), giving ≤2d+2 repairs (prior). Two disjoint once-subdivided d-stars have degree max d for d≥2 and selecting apex plus terminal leaves leaves exactly the two centers colliding, while each 2d+2 unselected center/intermediate removes that collision; singleton complements cannot dominate, yielding an LDC partition into 2d+3 classes. On wheel K1∨C_m, m≥10, selected A includes h and rim outside U={1,2,3,6,7,8}, with 2,7 the sole collision and any U insertion repairs it; no singleton dominates, giving seven classes. Independently checked direct trace predicate on wheel m=10,11,15,30. All m and d follow from the local proof, not finite enumeration; no C_L wheel optimality claimed.
 
-Chellali et al., arXiv:2602.18760 (initial submission 2026-02-21), prove an at-most-\(2\Delta(G)\) partner bound for classes of arbitrary LDC partitions (Lemma 2.10) and give \(C_L(C_m)\le6\) for cycles (Lemma 3.4 and Proposition 3.7). Their proof already implies the contextual base-degree estimate, so **the estimate is not original**. They do not give the all-degree sharpness construction or an LDC partition of a wheel with seven classes. Targeted searches for wheel/cone/degree aliases, broader implication, and existing numerical tables found no covering claim. The accessible primary preprint was read through its relevant sections and references. Unindexed literature and unpublished equivalents remain genuine priority risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The previously implicit local bound is **attained for every base maximum degree** \(d\ge2\) by a natural subdivided-star construction. It also produces connected graphs with \(C_L(G)\ge2d+3\) and seven-class LDC partitions on every sufficiently long wheel, strictly larger than the familiar cycle ceiling of six. This extends the recent research program on degree-dependent coalition bounds by a sharp attainability theorem and two motivated infinite constructions. It is not a claim that the wheel number is exactly seven.
+PASS for all-base-degree sharp apex-partner construction and explicit seven-class wheel locating-dominating coalition partition. The collision-based 2d+2 upper estimate is direct from the earlier Chellali et al. lemma and NOT credited as novel. Wheel lower bound seven is not an exact optimal wheel coalition number. The new uniform constructions are independently useful structural examples beyond the cycle-six upper bound.
 
-## Source comparisons and limitations
+## value
 
-The closest statement is Lemma 2.10 in Chellali et al.; its neighborhood-counting proof already implies the contextual local upper bound on cones but does not imply sharpness for all degrees. The cycle classification in Proposition 3.7 concerns the base alone and cannot imply wheel partitions. Slater's earlier location-domination work is definitional, not a coalition result. The contextual bound requires the apex to be selected, the wheel conclusion is only a lower bound, and independent verification has not been undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The concrete equality constructions show that the known local coalition partner bound can be sharp for EVERY maximum base degree, and a uniform wheel family exceeds the largest possible cycle partition by one block. Both are structurally motivated finite-graph results useful to extremal locating–dominating coalition theory; the known upper estimate is not counted as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

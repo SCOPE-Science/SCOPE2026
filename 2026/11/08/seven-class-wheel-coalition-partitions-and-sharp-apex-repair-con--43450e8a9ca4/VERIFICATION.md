@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-12.md",
+      "INDEPENDENT_AUDIT_2026-11-12.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Finite checks and their scope
+# Independent mathematical audit
 
-The standalone `verify.py` uses only standard-library integers and checks the locating-dominating predicate directly: each unselected vertex must have a nonempty open-neighborhood trace on the selected vertices and no two such traces may coincide.
+## correctness
 
-Run `python3 verify.py` from the directory containing the script. The verifier tests every apex-containing subset for each labelled simple base of order \(1\) to \(5\), checks the \(2\Delta(H)+2\) inequality for each non-LD case, independently checks the two-subdivided-star sharp examples for \(d=2,\ldots,20\), and tests the explicit wheel seven-class partition for \(m=10,\ldots,120\). It also enumerates the maximum singleton-repair count of hub-containing non-LD sets on wheels for \(m=3,\ldots,13\).
+PASS
 
-The last printed line is `VERIFY_OK`. The unrestricted mathematical proof is the trace argument in `RESULT.md`; finite tests cannot establish an infinite theorem or priority. A future independent audit has not been performed.
+For A containing cone apex h, a collision between outside u,v can be resolved by a single appended w only if w belongs to {u,v}∪(N_H(u)△N_H(v)), giving ≤2d+2 repairs (prior). Two disjoint once-subdivided d-stars have degree max d for d≥2 and selecting apex plus terminal leaves leaves exactly the two centers colliding, while each 2d+2 unselected center/intermediate removes that collision; singleton complements cannot dominate, yielding an LDC partition into 2d+3 classes. On wheel K1∨C_m, m≥10, selected A includes h and rim outside U={1,2,3,6,7,8}, with 2,7 the sole collision and any U insertion repairs it; no singleton dominates, giving seven classes. Independently checked direct trace predicate on wheel m=10,11,15,30. All m and d follow from the local proof, not finite enumeration; no C_L wheel optimality claimed.
+
+## originality
+
+PASS
+
+PASS for all-base-degree sharp apex-partner construction and explicit seven-class wheel locating-dominating coalition partition. The collision-based 2d+2 upper estimate is direct from the earlier Chellali et al. lemma and NOT credited as novel. Wheel lower bound seven is not an exact optimal wheel coalition number. The new uniform constructions are independently useful structural examples beyond the cycle-six upper bound.
+
+## value
+
+PASS
+
+PASS: The concrete equality constructions show that the known local coalition partner bound can be sharp for EVERY maximum base degree, and a uniform wheel family exceeds the largest possible cycle partition by one block. Both are structurally motivated finite-graph results useful to extremal locating–dominating coalition theory; the known upper estimate is not counted as new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
