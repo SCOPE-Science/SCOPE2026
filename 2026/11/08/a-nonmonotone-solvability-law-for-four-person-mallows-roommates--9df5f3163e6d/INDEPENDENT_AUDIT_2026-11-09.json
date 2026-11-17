@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-11-09",
+  "audited_at_utc": "2026-11-09T11:51:11.101205Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The four-person strict complete matching problem has exactly three perfect matchings. The assigned verifier enumerates all 6^4=1296 reduced preference profiles and finds 48 unsolvable in two disjoint 24-profile relabeling orbits. Independent audit implemented an entirely separate direct enumeration over all 24^4=331,776 quadruples of complete Mallows four-name rankings, deleting each agent’s own name and directly checking all four candidate blocking pairs per matching. The total unsolvable numerator coefficients at powers 0..24 are [0,0,3,22,82,208,404,642,870,1038,1129,1162,1168,1162,1129,1038,870,642,404,208,82,22,3,0,0], sum 12288. Exact SymPy cancellation reproduces the submitted rational function over Z_4(q)^4; derivative factorization 2q(1−q)H(q)/positive denominator checked algebraically. H is reciprocal degree12 with two positive-root sign variations, H(0)>0,H(1)<0 and exact H(379/1000)>0>H(380/1000), so it has precisely one interior zero and global maximum; endpoint q=1 gives 1/27 and small q onset 3q². This is an exhaustive finite proof of the four-person model, not partial sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chin–Michelen and Young–Studebaker consider iid uniform ranking limits, corresponding only to q=1 endpoint.",
+          "Synthetic-culture experiment paper is model-source rather than an exact formula."
+        ],
+        "reasoning": "Uniform asymptotic theorems cannot imply the interior derivative sign and exact small-market rational q-law; full-order Mallows is a nonuniform one-parameter family.",
+        "searches": [
+          "arxiv 2601.07612 random stable roommates typically no solution under impartial culture",
+          "arxiv 2610.07741 sharp asymptotic solvability uniform",
+          "Boehmer Heeger Szufa 2208.04041 Mallows preference cultures"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2208.04041",
+        "https://www.ifaamas.org/Proceedings/aamas2023/pdfs/p1003.pdf",
+        "https://arxiv.org/abs/2601.07612",
+        "https://arxiv.org/abs/2610.07741",
+        "https://arxiv.org/abs/2505.06717",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-stability-stratified-isomorphism-census-for-four-person-stable-r--0bfa73dccf63"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known 48 impossible reduced lists do not by themselves specify each deleted-name insertion weight W_i(tau;q).",
+          "The new numerator uses 24^4 full independent q-weighted draws and a nontrivial palindromic derivative sign analysis."
+        ],
+        "reasoning": "The new probabilistic formula follows from a substantive weighted recomputation of known obstructions and its exact derivative, rather than an automatic scalar substitution from an unweighted count.",
+        "searches": [
+          "published orbit census four-agent blocking cycle vs Mallows weighted profile law",
+          "Mallows reduced-list insertion polynomials independent agents",
+          "four-agent unsolvability q rational derivative palindrome"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Boehmer et al., A Map of Diverse Synthetic Stable Roommates Instances, define full-name Mallows permutations with own-name deletion; empirical results primarily n=200.",
+          "Resultary 2026/10/4 four-agent isomorphism census gives 2 unsolvable orbits, not dispersion law."
+        ],
+        "reasoning": "Compared aliases solvability/no stable matching under common-order Mallows, full-list deletion vs directly sampled reduced orders; the distinct latter probability law is not conflated with this theorem.",
+        "searches": [
+          "Resultary four people stable roommates full four-name Mallows then delete exact unsolvable probability nonmonotonic q",
+          "Boehmer Heeger Szufa Mallows stable roommates four agents noise non-monotone"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/4/0bfa73dccf63: 48 unsolvable out of 1296, two size24 orbits.",
+          "Glitzner–Manlove 2025 table gives the known uniform endpoint ~96.30% solvability."
+        ],
+        "reasoning": "Those are exact uniform endpoint/census tables but no weighted inversion-coefficient polynomial or proof of unique peak.",
+        "searches": [
+          "Resultary four-person 48 unsolvable profiles 2 orbits 1/27",
+          "Resultary: Mallows full-order then delete q probability 0.379464",
+          "Glitzner Manlove 2025 four-person stable roommate table"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: published four-person stable-roommates orbit census already reports two unsolvable 24-sized relabeling classes and 48 bad profiles, and the impartial-culture 1/27 endpoint is standard; neither gives the rational full-order Mallows q-law nor unique interior maximum. The exact synthetic culture is specified by Boehmer–Heeger–Szufa, but their 200-agent sample experiments do not derive this four-person probability. Uniform large-n asymptotics by Chin–Michelen and Young–Studebaker concern q=1, not q∈[0,1].",
+      "residual_risks": [
+        "A differently indexed explicit weighted 4-person calculation could exist; search absence is not priority proof.",
+        "The known two-orbit classification is prior work; novelty attaches only to model-specific Mallows law, quadratic onset, and unique interior maximum.",
+        "The theorem is specific to a common central order and full-name sampling followed by deletion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "MATCHES_MODEL but no four-agent exact weighted formula in relevant sections read; no whole-document noncoverage claim beyond inspected content.",
+          "evidence": "Mallows central order, each preference permutation generated then own name removed; experiments involve 200 agents.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.04041",
+          "material_read": "Accessible complete published AAMAS paper PDF, Section 4.1.1 on Mallows cultures and section on experiments; a page screenshot inspected for the relevant full-order preference generation.",
+          "method": "Read paper model description and compare full ranking then self-deletion versus direct reduced-order draws; reviewed sample-size scope.",
+          "title": "A Map of Diverse Synthetic Stable Roommates Instances",
+          "trigger": "Exact original model definition"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE of known 48 profiles, not weighted q-law.",
+          "evidence": "0 stable matching category has two 24-profile classes.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-stability-stratified-isomorphism-census-for-four-person-stable-r--0bfa73dccf63",
+          "material_read": "Published mathematical record search result and its full quantitative summary, including orbit sizes; underlying complete proof not independently reopened in this run.",
+          "method": "Compared the 2×24 unsolvable profiles with the new weighted random law.",
+          "title": "Stability-stratified isomorphism census for four-person stable roommates",
+          "trigger": "Prior exact four-person obstruction classification"
+        },
+        {
+          "assessment": "PASS finite exhaustive theorem, not simulation.",
+          "evidence": "331776 full draws, 12288 unsolvable, q=1 gives 1/27, single peak in (379/1000,380/1000).",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/a-nonmonotone-solvability-law-for-four-person-mallows-roommates--9df5f3163e6d/RESULT.md",
+          "material_read": "Complete RESULT.md, verify.py and verify_independent.cpp exact enumeration programs.",
+          "method": "Reconstructed full-domain probability independently with a separate Python enumeration and exact rational symbolic derivative.",
+          "title": "A nonmonotone solvability law for four-person Mallows roommates",
+          "trigger": "Assigned final mathematical claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: nonmonotonic unsolvability under increased randomness is an interpretable and sharp counterexample to monotone-noise intuition at the smallest size with possible stable-roommates failure. The exact peak q≈0.379464 and two-inversion threshold identify a natural phase/parameter phenomenon, not merely the known 48-profile census reweighted with no mathematical message.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly four agents with complete strict preference lists, no higher even n or correlated draws.",
+    "Unique peak is rigorously bracketed by rationals; decimal value is approximate.",
+    "No repository write, dispatcher closeout or publication; all source tree/blob identities correspond to actual frozen Git objects.",
+    "Public operations withheld pending complete provenance/privacy sanitization."
+  ],
+  "schema_version": 1
+}

@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A complete four-agent preference profile has exactly three perfect matchings. The stability predicate is checked against all unmatched pairs for all 1296 final strict profiles; exactly 48 are unsolvable and are recovered as two disjoint complete relabeling orbits of 24 elements. In the precise full-four-name Mallows-then-deletion model, each reduced ranking weight is the sum of its four full-order insertion weights. Aggregation gives an explicit 25-coefficient numerator, cross-checked against direct independent C++ enumeration of all 331776 original full-order tuples. Polynomial factorization and the derivative identity are independently checked with integer arithmetic. Palindromicity and Descartes' rule prove one and only one interior maximizing root; an exact rational bracket locates it. The result does not extrapolate a finite count to larger markets.
+PASS
 
-## Originality — PASS (qualified)
+The four-person strict complete matching problem has exactly three perfect matchings. The assigned verifier enumerates all 6^4=1296 reduced preference profiles and finds 48 unsolvable in two disjoint 24-profile relabeling orbits. Independent audit implemented an entirely separate direct enumeration over all 24^4=331,776 quadruples of complete Mallows four-name rankings, deleting each agent’s own name and directly checking all four candidate blocking pairs per matching. The total unsolvable numerator coefficients at powers 0..24 are [0,0,3,22,82,208,404,642,870,1038,1129,1162,1168,1162,1129,1038,870,642,404,208,82,22,3,0,0], sum 12288. Exact SymPy cancellation reproduces the submitted rational function over Z_4(q)^4; derivative factorization 2q(1−q)H(q)/positive denominator checked algebraically. H is reciprocal degree12 with two positive-root sign variations, H(0)>0,H(1)<0 and exact H(379/1000)>0>H(380/1000), so it has precisely one interior zero and global maximum; endpoint q=1 gives 1/27 and small q onset 3q². This is an exhaustive finite proof of the four-person model, not partial sampling.
 
-The earlier four-person orbit census establishes both unsolvable orbit representatives and the 48-profile count; those are not novel. Mertens' impartial-culture probability 26/27 and the 2025 study reporting it concern the endpoint at uniform preference lists. The 2022/2023 synthetic-cultures paper uses the same full-order Mallows-then-deletion construction but empirically maps large markets rather than proving the four-person exact rational law. The 2026 uniform-random asymptotics papers do not parameterize this Mallows family. The exact weighting, quadratic low-noise onset, and unique interior maximum are not logically supplied as explicit probability conclusions by the checked statements, although the public orbit classification supplies useful combinatorial input and makes the computation accessible. Search incompleteness and unindexed equivalent work remain risks.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Under a natural, previously studied correlated-preference culture, **greater preference disorder need not make a stable-roommates market less solvable**. The exact first nontrivial even market shows a two-inversion rare-event barrier, a unique worst dispersion, and 68.8% more unsolvability at that worst point than under completely uniform rankings. This is a motivated parametric stability benchmark and a precise counterexample to naive monotonicity, not an arbitrary parameter slice; it also identifies the material distinction between sampling the common full order first and perturbing each restricted list directly. No general-population theorem is claimed.
+PASS best-of-knowledge: published four-person stable-roommates orbit census already reports two unsolvable 24-sized relabeling classes and 48 bad profiles, and the impartial-culture 1/27 endpoint is standard; neither gives the rational full-order Mallows q-law nor unique interior maximum. The exact synthetic culture is specified by Boehmer–Heeger–Szufa, but their 200-agent sample experiments do not derive this four-person probability. Uniform large-n asymptotics by Chin–Michelen and Young–Studebaker concern q=1, not q∈[0,1].
 
-## Closest literature and limits
+## value
 
-Boehmer–Heeger–Szufa (2022/2023), arXiv:2208.04041: same pre-deletion Mallows culture but large-instance experiments, not the algebraic small-instance law. Glitzner–Manlove (2025), arXiv:2505.06717: exact uniform endpoint cited from Mertens; no formula in the Mallows four-person parameter. Chin–Michelen (2026), arXiv:2601.07612 and Young–Studebaker (2026), arXiv:2610.07741: asymptotics for independent uniform rankings. Published four-person orbit census (2026): the 48 unsolvable profiles and two orbits are preexisting facts. Unindexed computations, alternative Mallows conventions and the absence of an independent audit remain limitations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: nonmonotonic unsolvability under increased randomness is an interpretable and sharp counterexample to monotone-noise intuition at the smallest size with possible stable-roommates failure. The exact peak q≈0.379464 and two-inversion threshold identify a natural phase/parameter phenomenon, not merely the known 48-profile census reweighted with no mathematical message.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
