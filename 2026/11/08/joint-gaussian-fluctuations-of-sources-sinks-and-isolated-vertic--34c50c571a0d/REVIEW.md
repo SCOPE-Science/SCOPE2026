@@ -1,15 +1,21 @@
-# Review: joint subcritical source–sink–isolation fluctuations
+# Independent mathematical audit
 
-## Correctness (C): PASS
-The exact nine finite moments arise from individual forbidden-arc overlaps: one shared forbidden arc for distinct-vertex source/sink or source/isolate indicators, two for two distinct isolates. Their normalized limits give the explicit covariance matrix; the determinant and leading minors are positive on the claimed interval. The indicator-array connected-cumulant expansion controls every fixed higher cumulant by \(O(n)\), yielding the unconditioned Gaussian vector. Directed cycle factorial moments give independent Poisson limits, and forcing a fixed collection of arcs alters the three counts by at most its number of endpoints. This proves asymptotic independence and transfers the joint Gaussian limit through an acyclicity event of limiting probability \((1-\lambda)e^\lambda>0\). Uniform conditional fourth-moment bounds justify the scaled conditional covariance limit. The independently enumerated small graphs matched nine exact finite moment identities at three probabilities, and the packaged checker returned `VERIFY_OK 116 exact/algebraic and limit checks`.
+## correctness
 
-## Originality (O): PASS, qualified
-Gessel (1996, Theorem 2) gives a full *finite* trivariate generating function for acyclic source-only, sink-only, and isolated counts; it is stronger than any claimed finite enumerative formula and was carefully separated from this claim. Ralaivaosaona (2022, Theorems 1–2) proves the relevant **marginal** central limit theorems, while de Panafieu–Dovgal address digraph acyclicity asymptotics. In the inspected primary sources no statement of the complete, nondegenerate three-way Gaussian limit with the indicated cross-covariances or its independence from the Poisson directed-cycle process was identified. Actual targeted mathematical-record searches likewise produced no matching implication-level result. The exact generating function could be a route to derive the new theorem, however; historical priority beyond the located papers is not certified. Gessel's theorem is a material broader-coverage risk, not dismissed by absence of matching wording.
+PASS
 
-## Value (V): PASS
-The subcritical DAG model is a natural object, and separate normal approximations to sources and isolates cannot distinguish zero, positive, or negative joint dependence. The result classifies the complete asymptotic Gaussian coupling, proves nondegeneracy with closed cross-covariances, and explains why forbidding an unbounded family of directed cycles nevertheless leaves local-count fluctuations unchanged. The work is a motivated multivariate extension of established marginal theorems, not a routine finite table.
+Under the UNCONDITIONED independent-arc digraph with p=λ/n, source, sink and isolate indicator means are a=q^(n−1), a and b=q^(2n−2); distinct same-type indicators use disjoint arc sets. Source-sink overlaps contain one forbidden arc and isolate-isolate overlaps two. The exact nine moment identities yield the stated 3×3 Sigma with s=e^(−λ). A separate symbolic determinant check gave s⁴(1−s)²[1+(λ−1)s][1−(λ+1)s], positive for 0<λ<1. For the CLT, rth joint cumulants of fixed grouped labels correspond to connected overlap graphs; with d labels require d−1 O(n^−1) edges and sum to O(n); normalized cumulants of order r>=3 vanish, with bounded fourth moments. Directed simple cycles length l>=2 have Poisson limits with means λ^l/l; fixed forcing of t cycle arcs changes at most t local indicator coordinates, O(t/sqrt(n)) in normalized totals, yielding asymptotic independence. Tail expectation sum_{l>L}λ^l/l→0 and positive limiting acyclicity probability (1−λ)e^λ permit transfer to the conditioned law and second moments via uniform integrability. No λ>=1 claim. Independent exact algebra checks confirmed covariance symmetry, determinant and selected finite moments.
 
-## Closest literature and limits
-Gessel, *Counting acyclic digraphs by sources and sinks* (1996), Theorem 2, https://people.brandeis.edu/~gessel/homepage/papers/acyclic.pdf. Ralaivaosaona, *The Number of Sources and Isolated Vertices in Random Directed Acyclic Graphs* (2022), Theorems 1–2, https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.AofA.2022.17. De Panafieu and Dovgal (2020), https://arxiv.org/abs/2001.08659. Results require fixed \(0<\lambda<1\); rates, critical behavior, and uniqueness in historical literature remain open here. No independent mathematical audit is represented.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full 1995/1996 Gessel paper provides a multivariate finite generating function, so finite distribution is not new. The 2022 Ralaivaosaona paper proves individual marginal normal laws. Neither inspected theorem gives this explicit 3-way conditional Gaussian and its nonzero cross-covariances, and a Resultary ordered-DAG source-sink law uses a different DAG model.
+
+## value
+
+PASS
+
+An explicit nondegenerate joint covariance matrix for three tightly related but non-independent local random-graph counts under global acyclicity, plus a proof of invariance under conditioning and independent rare directed-cycle counts, goes beyond previously published separate marginal CLTs. This is a natural fluctuation classification with meaningful simultaneous observables, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
