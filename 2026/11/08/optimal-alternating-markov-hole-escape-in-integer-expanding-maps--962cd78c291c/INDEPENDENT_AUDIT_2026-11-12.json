@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-11-12",
+  "audited_at_utc": "2026-11-12T00:58:44Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/optimal-alternating-markov-hole-escape-in-integer-expanding-maps--962cd78c291c/RESULT.md (blob 85bc5c54cc8531d1fad69dfc8ea78b39d5f20009)",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/optimal-alternating-markov-hole-escape-in-integer-expanding-maps--962cd78c291c/checker.py (blob 867c3e32f3adb76f642f649eb2a286af22aa4ec6)",
+        "independent finite-horizon schedule enumerations b=2..5,n<=7"
+      ],
+      "rationale": "For symbolic base-b coding the forbidden holes are cylinders 00 and (b-1)(b-1). The source-proof update A_c maps a vector of ending-symbol counts to V except at the chosen endpoint, where it is V-v_endpoint. Positivity of the linear continuation functionals, plus exchanging endpoints, implies choosing the larger current endpoint count minimizes every remaining horizon and strictly wins if unequal. After the first deletion the opposite endpoint count is uniquely largest; hence unique strict alternation for n>=2. The alternating count satisfies A_(n+2)=b A_(n+1)-A_n, A0=b,A1=b²-1, including the b=2 repeated root and exact b>=3 roots. The fixed-hole characteristic polynomial has larger positive root, proving strict escape-rate advantage. Independent exhaustive enumeration of 2^n schedules for b=2..5 and n=1..7 checked equality and uniqueness; the monotone comparison proves all b,n.",
+      "residual_risks": [
+        "No uniqueness asserted for infinite schedules sharing only the limiting escape exponent; time-dependent adaptive control not considered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior Nov 2 binary all-schedule optimum is stronger than the current b=2 component, while general pressure, first-hit, or switching frameworks concern broader classes but do not give the exact b>=3 finite-horizon optimum."
+        ],
+        "reasoning": "Different source dynamical models cannot be dismissed by title alone; the precise implication is full coverage of b=2 and no established all-b implication from inspected material.",
+        "searches": [
+          "Resultary: expanding map switched Markov holes optimal alternating choice two endpoint forbidden 00 11 finite escape",
+          "Bolding Bunimovich Where and When Orbits of Strongly Chaotic Systems Prefer to Go arXiv:1707.04231",
+          "Atnip et al arXiv:2103.04712 random interval maps with holes"
+        ]
+      },
+      "checked_sources": [
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-sharp-moving-hole-escape-envelopes-and-a-zero-entropy-alternatin--91c8d26540fd/RESULT.md",
+        "https://arxiv.org/abs/1707.04231",
+        "https://arxiv.org/abs/2103.04712",
+        "Resultary exact switched-hole searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "At b=2 the current recurrence has a double root and A_n=n+2, directly matching Nov 2. At b>=3 A_n=(r_b^(n+2)-r_b^-(n+2))/(r_b-r_b^-1), which the binary theorem cannot supply."
+        ],
+        "reasoning": "Accept the mathematically substantive higher-base generalization while explicitly rejecting priority for the binary case and standard no-self-overlap static-hole recurrence.",
+        "searches": [
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-sharp-moving-hole-escape-envelopes-and-a-zero-entropy-alternatin--91c8d26540fd/RESULT.md",
+          "Resultary: moving endpoint cylinder holes b-ary expanding maps alternating optimal finite-horizon all bases"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nov 2 Resultary sharp moving-hole escape envelopes theorem covers identical T_2, H0=[0,1/4), H1=[3/4,1) and proves alternating unique minimization with count n+2."
+        ],
+        "reasoning": "The b=2 specialization is not original. The current b>=3 statement concerns b-letter digit counts with b>2 and sharp root (b+sqrt(b²-4))/2; the earlier theorem specializes only to the binary map and does not automatically prove the all-b greedy comparison.",
+        "searches": [
+          "Resultary: expanding map switched Markov holes optimal alternating choice two endpoint forbidden 00 11 finite escape",
+          "Resultary: moving endpoint cylinder holes b-ary expanding maps alternating optimal finite-horizon all bases",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-sharp-moving-hole-escape-envelopes-and-a-zero-entropy-alternatin--91c8d26540fd/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Binary b=2 exact count n+2 appears in the fully read Nov 2 theorem; the b>=3 recurrence and all-horizon optimality do not appear there."
+        ],
+        "reasoning": "The finite b=2 counts are known, but no inspected indexed table of b>=3 optimums establishes the infinite controlled-schedule theorem.",
+        "searches": [
+          "Resultary: moving endpoint cylinder holes b-ary expanding maps alternating optimal finite-horizon all bases",
+          "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-sharp-moving-hole-escape-envelopes-and-a-zero-entropy-alternatin--91c8d26540fd/RESULT.md"
+        ]
+      },
+      "rationale": "The binary base-2 finite-horizon extremizer, optimal count (n+2)/2^(n+1), and uniqueness were published on Nov 2 and are fully prior-covered, not claimed anew. The surviving uniform b>=3 proof has a distinct exact recurrence and root-dependent rate across all integer bases, with strict finite-horizon uniqueness and superiority over either fixed hole.",
+      "residual_risks": [
+        "A nonbinary all-schedule extension could exist outside indexed literature.",
+        "The b=2 part and count equivalence to an unbordered static forbidden word are established, not novel.",
+        "Only relevant portions rather than full text of the broader Bolding–Bunimovich preprint were inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_B2_SPECIAL_CASE",
+          "evidence": [
+            "For all binary schedules P_n>= (n+2)/2^(n+1), equality iff alternating, n>=2; proof uses 2x2 transfer matrices"
+          ],
+          "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-sharp-moving-hole-escape-envelopes-and-a-zero-entropy-alternatin--91c8d26540fd/RESULT.md",
+          "material_read": "Complete RESULT.md, including finite-horizon bounds, equality, mean hitting time, periodic entropy and proof",
+          "method": "Full public GitHub source blob",
+          "title": "Sharp moving-hole escape envelopes and a zero-entropy alternating phase for the doubling map",
+          "trigger": "Same forbidden endpoint holes, binary special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://raw.githubusercontent.com/Resultary/2026/main/2026/11/2/SCOPE-sharp-moving-hole-escape-envelopes-and-a-zero-entropy-alternatin--91c8d26540fd/RESULT.md"
+      ],
+      "rationale": "A complete optimizer for nonadaptive opening of two symmetric b-ary holes at every finite horizon is an exact controlled dynamical invariant. The transition at b=2 versus b>=3 and improved escape exponent over fixed-hole choices are motivated structural information, even after removing the covered binary case.",
+      "residual_risks": [
+        "The model is restricted to equal endpoint two-digit holes and Lebesgue coding, not arbitrary moving holes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "b=2 component was fully published on Nov 2; acceptance is for the uniform b>=3 extension.",
+    "Unindexed nonbinary dynamic-hole optimization remains a priority risk."
+  ],
+  "schema_version": 1
+}
