@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The commutator is the full central exterior-square space. Every ordinary derivation has the exact form \(D_{B,g}(v+z)=Bv+g(v)+\rho(B)z\). For nonzero generator component the evaluation map on both independent parameter spaces is surjective. At central inputs locality reduces to an exterior-square tangent condition. The proof reconstructs all infinitesimal linear preserver operators from the tangent condition using basis-bivector tests, the four-index relation and division by two. The resulting independent normal form is both necessary and sufficient, and its parameters are unique. The block commutator and dimensions are direct consequences. Finite-field computational checks agree in the stated cases but do not replace the proof.
+## correctness
 
-## Originality — PASS (qualified)
-The main October 2026 reference proves existence of proper local derivations for all nonabelian nilpotent complex Lie algebras, not a complete normal-form classification or dimensions of the local-derivation space for the free two-step family. The May 2024 source proves existence for step-two algebras, not the current classification. Earlier free two-step results about *almost inner derivations* classify a stricter type that consists of ordinary derivations. A 2026 reflexive-hull article discusses closure phenomena but did not supply the present exterior-square result in the material accessible for review. Current mathematical-record comparisons and accessible historical claims yielded no covering statement; historical priority remains subject to unindexed literature. The rank-two Heisenberg case has already been considered separately and is excluded.
+PASS
 
-## Mathematical value — PASS
-The result gives the full local-derivation algebra and exact dimension for each free rank at least three, rather than one proper witness. Its independent two-matrix structure and \(n^2\)-dimensional failure of ordinary derivation rigidity are structural facts answering a concrete strengthening of the source's existence theorem. The free two-step Lie algebras form a standard natural family, and the calculation is uniform across infinite and finite coefficient fields of characteristic not two.
+Derivations restrict to the commutator ideal Z via induced rho(B) and have arbitrary central shear. When v!=0 every desired evaluation is attainable by choosing Bv and g(v), so locality restricts only S(z) to rho(End(V))z on pure central inputs. Decomposable bivectors imply S(u wedge v) lies in u wedge V+v wedge V. The coefficient comparison and four-index Plucker relation force S=rho(B), and rho is injective for n>=3 if 2 invertible. For n=3 the trace-transpose representation is an isomorphism. Constructive point witnesses yield converse, dimensions and semidirect bracket. The supplied checker is algebraic finite-field corroboration, not proof of arbitrary n and field.
 
-## Closest sources and limitations
-The primary full-text comparison was Atajonov–Khudoyberdiyev–Yusupov, arXiv:2610.40348v1, in particular Theorem 3.5. Also compared: Khudoyberdiyev–Jumaniyozov, arXiv:2405.04209v1, Theorem 3.1; Burde–Dekimpe–Verbeke, arXiv:1704.06159v1, on almost-inner derivations; and Hao–Chen (2026), accessible abstracts and excerpts only. The theorem does not cover characteristic two or rank two. Only sampled and exhaustively finite cases have been mechanically checked. An independent audit has not been undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior nilpotent-Lie results establish proper local derivations exist, rather than classifying every linear local derivation of the full free two-step family. The highly relevant same-day two-local result classifies simultaneous two-input maps and states the 27-dimensional local map space at n=3, not the independent A,B full space for all n>=4. The result extends an explicit center-preserver characterization uniformly to arbitrary odd-characteristic fields and every rank at least three. Best-of-knowledge with specialist-literature risk.
+
+## value
+
+PASS
+
+The full linear reflexive hull of the derivation space is a canonical structural invariant; an exact n^2-dimensional gap and semidirect description are useful beyond an existence counterexample. Higher-rank family and characteristic boundary are motivated by established local-versus-global derivation questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

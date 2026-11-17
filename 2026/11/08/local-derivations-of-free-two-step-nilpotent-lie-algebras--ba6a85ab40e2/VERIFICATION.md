@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the claimed local-derivation classification
 
-Run `python3 verify.py` with an ordinary Python 3 installation in the same directory. No third-party modules are required. The checker constructs the infinitesimal exterior-square action directly from wedge products and exact modular arithmetic. For ranks three and four over the field with three elements it enumerates every central bivector and tests the complete set of linear local-value constraints on a central operator; the solution-space dimensions are nine and sixteen. In rank five over the field with three elements, sampled decomposable inputs give dimension twenty-five; rank four over five elements gives sixteen. The program also explicitly constructs pointwise derivation witnesses for 2,250 cases across ranks two through six and prime fields of orders three, five and seven. The reproducible recorded output appears in `verification_output.txt`.
+# Independent mathematical audit
 
-Finite samples cannot prove an identity for all coefficient fields or all generator ranks. The general argument is the exterior-square tangent-preserver lemma and direct evaluation construction in `RESULT.md`. Characteristic two and nonlinear local maps are not treated. No independent audit or formal proof certificate is claimed.
+## correctness
+
+PASS
+
+Derivations restrict to the commutator ideal Z via induced rho(B) and have arbitrary central shear. When v!=0 every desired evaluation is attainable by choosing Bv and g(v), so locality restricts only S(z) to rho(End(V))z on pure central inputs. Decomposable bivectors imply S(u wedge v) lies in u wedge V+v wedge V. The coefficient comparison and four-index Plucker relation force S=rho(B), and rho is injective for n>=3 if 2 invertible. For n=3 the trace-transpose representation is an isomorphism. Constructive point witnesses yield converse, dimensions and semidirect bracket. The supplied checker is algebraic finite-field corroboration, not proof of arbitrary n and field.
+
+## originality
+
+PASS
+
+Prior nilpotent-Lie results establish proper local derivations exist, rather than classifying every linear local derivation of the full free two-step family. The highly relevant same-day two-local result classifies simultaneous two-input maps and states the 27-dimensional local map space at n=3, not the independent A,B full space for all n>=4. The result extends an explicit center-preserver characterization uniformly to arbitrary odd-characteristic fields and every rank at least three. Best-of-knowledge with specialist-literature risk.
+
+## value
+
+PASS
+
+The full linear reflexive hull of the derivation space is a canonical structural invariant; an exact n^2-dimensional gap and semidirect description are useful beyond an existence counterexample. Higher-rank family and characteristic boundary are motivated by established local-versus-global derivation questions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
