@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-11-11",
+  "audited_at_utc": "2026-11-11T21:54:27.219795Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/hypergeometric-short-excursions-and-a-rayleigh-gaussian-two-scal--33a10a073c69/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/b0e95ae124c6a0e1a43dab35f490b119e0fbbb37/2026/11/08/hypergeometric-short-excursions-and-a-rayleigh-gaussian-two-scal--33a10a073c69/VERIFICATION.md",
+        "/mnt/data/scope_worker03_20261111T2138Z/independent_checks.py"
+      ],
+      "rationale": "For a uniform fair bridge of length 2n, Catalan primitive-excursion generating function E(z)=2zC(z) yields factorial moments E[(J)_r|K=k]=(n)_r(k−1)_r/(2n−k−1)_r (1≤k<n), uniquely determining Hypergeom(N=2n−k−1,M=k−1,sample=n); k=n is correctly treated as J=n. The exact return-count mass has Rayleigh scaling K/√n⇒X with density x/2 exp(−x²/4) and suitable Gaussian tails. The hypergeometric variance is k/4+O(1) for k~√n and a uniform conditional CLT gives (J−K/2)/n^(1/4)⇒√X Z/2; conditional variance decomposition yields √n(1−Corr(K,J))→√π/[2(4−π)]. Independently enumerated every balanced bridge n=2..7 and compared each conditional probability exactly. The proof of the limit is analytic and not established by these finite checks.",
+      "residual_risks": [
+        "The explicit hypergeometric finite law may have been derived in an unindexed specialization of prior product-Catalan excursion formulas.",
+        "The conditional hypergeometric CLT must be uniform on compact typical k/√n regions and tightness/moment tails control omitted regions; examined analytic proof and finite checks support but do not formally certify all bounds.",
+        "Only fair symmetric exactly conditioned walks, not arbitrary increments."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Serlet exact ordered-length law is a stronger finite distribution input, but its asymptotic regime is K=o(√n).",
+          "Lindell–Holst focus ranked lengths and Brownian-bridge scaling of macroscopic bins, not small length=2."
+        ],
+        "reasoning": "Stronger prior *input* does not supply this joint microscopic asymptotic statement without additional central-limit analysis; novelty is qualified for the finite law alone.",
+        "searches": [
+          "Resultary: tied down simple random walk bridge number of length two excursions conditional on number of returns hypergeometric Rayleigh Gaussian n quarter",
+          "https://lmbp.uca.fr/~serlet/rwfew.pdf",
+          "https://doi.org/10.1239/jap/1197908824"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: tied down simple random walk bridge number of length two excursions conditional on number of returns hypergeometric Rayleigh Gaussian n quarter",
+        "https://lmbp.uca.fr/~serlet/rwfew.pdf",
+        "https://doi.org/10.1239/jap/1197908824",
+        "Frozen RESULT.md blob 7aba3ed08993544ed96a7bd272d9b63af2c1e9dc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Serlet (6) implies coefficient product for all ordered lengths but not a stated typical-regime n^(1/4) CLT.",
+          "Lindell–Holst Prop 3.1 assumes bins with boundaries 2n x_j, x_j>0 fixed; length 2 is shrinking x=1/n, outside their stated limiting regime."
+        ],
+        "reasoning": "The finite conditional distribution can be derived by a special sum from known general laws; the multiscale limit requires new asymptotic deductions not covered by their published statements.",
+        "searches": [
+          "https://lmbp.uca.fr/~serlet/rwfew.pdf",
+          "https://doi.org/10.1239/jap/1197908824",
+          "Resultary: tied down simple random walk bridge number of length two excursions conditional on number of returns hypergeometric Rayleigh Gaussian n quarter"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Serlet eq (6) gives product-Catalan ordered excursion lengths from which a hypergeometric special marginal can be extracted.",
+          "Lindell–Holst Prop 3.1 uses a generating function for counts in fixed macroscopic excursion-length bins."
+        ],
+        "reasoning": "Same bridge objects are involved, but explicit marked-two-step conditional law and especially the n^(1/4) mixture for typically sqrt(n) many excursions are distinct limits.",
+        "searches": [
+          "Resultary: tied down simple random walk bridge number of length two excursions conditional on number of returns hypergeometric Rayleigh Gaussian n quarter",
+          "https://lmbp.uca.fr/~serlet/rwfew.pdf",
+          "https://doi.org/10.1239/jap/1197908824"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact hypergeometric K/J finite conditional table or correlation approach rate in the inspected published sources; existing results concern ranked lengths and other return statistics."
+        ],
+        "reasoning": "The distribution is a general all-n identity, not a lookup sequence or an arbitrary finite database cell; failure to find a table is not proof of novelty.",
+        "searches": [
+          "Resultary: tied down simple random walk bridge number of length two excursions conditional on number of returns hypergeometric Rayleigh Gaussian n quarter",
+          "https://doi.org/10.46298/dmtcs.3337",
+          "https://doi.org/10.1239/jap/1197908824"
+        ]
+      },
+      "rationale": "PASS qualified: Serlet (2014) equation (6) gives a general product-Catalan exact ordered-length distribution, so the raw excursion decomposition and finite conditional law are partly implicit prior combinatorics. Lindell–Holst (2007) Proposition 3.1 counts macroscopic excursion bins and studies longest lengths, not the shrinking two-step bin with K~√n. The new jointly assessed Rayleigh Gaussian variance-mixture, n^(1/4) scale and explicit Pearson correlation correction are not stated or immediately implied by the inspected prior limit theorems; require a specific hypergeometric conditioning and uniform conditional CLT.",
+      "residual_risks": [
+        "The explicit hypergeometric finite law may have been derived in an unindexed specialization of prior product-Catalan excursion formulas.",
+        "The conditional hypergeometric CLT must be uniform on compact typical k/√n regions and tightness/moment tails control omitted regions; examined analytic proof and finite checks support but do not formally certify all bounds.",
+        "Only fair symmetric exactly conditioned walks, not arbitrary increments."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong prior finite input but different low-return asymptotic regime",
+          "evidence": "Serlet 2014 eq (6), K=o(√n) hypothesis in invariance theorem.",
+          "identifier_or_url": "https://lmbp.uca.fr/~serlet/rwfew.pdf",
+          "material_read": "Complete open PDF including ordered-length equation (6) and o(sqrt(n)) regime, pages 2–5, inspected as text and PDF page image",
+          "method": "Lawful author-hosted PDF",
+          "title": "Invariance principle for the random walk conditioned to have few zeros",
+          "trigger": "Exact ordered lengths may subsume finite hypergeometric law"
+        },
+        {
+          "assessment": "Not a theorem about conditional microscopic two-step count or n^(1/4) Gaussian mixture",
+          "evidence": "Lindell–Holst 2007 pp 1056–59, Proposition 3.1, x_j fixed positive.",
+          "identifier_or_url": "https://doi.org/10.1239/jap/1197908824",
+          "material_read": "Complete 12-page PDF; inspected introduction, Sections 2–3, especially Proposition 3.1 on macroscale length bins and limit, text and page screenshot",
+          "method": "Cambridge open PDF via publisher",
+          "title": "Distributions of the longest excursions in a tied down simple random walk and in a Brownian bridge",
+          "trigger": "Same walk excursion family and generating function"
+        },
+        {
+          "assessment": "Ranked excursions rather than specified conditional count; full-paper noncoverage not asserted",
+          "evidence": "Csáki–Hu 2003 citation; material-read limitation explicit.",
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.3337",
+          "material_read": "Abstract and indexed research summary, not complete text during this audit",
+          "method": "Open bibliographic/indexed text",
+          "title": "Lengths and heights of random walk excursions",
+          "trigger": "Possible ranked excursion limit antecedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary: tied down simple random walk bridge number of length two excursions conditional on number of returns hypergeometric Rayleigh Gaussian n quarter",
+        "https://lmbp.uca.fr/~serlet/rwfew.pdf",
+        "https://doi.org/10.1239/jap/1197908824",
+        "Frozen RESULT.md blob 7aba3ed08993544ed96a7bd272d9b63af2c1e9dc"
+      ],
+      "rationale": "PASS: short return segments are a canonical microscopic excursion statistic and K is tied-down discrete local time. The exact conditioned finite population law identifies their dependence and the distinct √n versus n^(1/4) scale with random variance, plus the sharp approach-to-one correlation constant. These are meaningful multiscale probabilistic invariants, not an arbitrary cutoff or an already-tabulated number.",
+      "residual_risks": [
+        "The explicit hypergeometric finite law may have been derived in an unindexed specialization of prior product-Catalan excursion formulas.",
+        "The conditional hypergeometric CLT must be uniform on compact typical k/√n regions and tightness/moment tails control omitted regions; examined analytic proof and finite checks support but do not formally certify all bounds.",
+        "Only fair symmetric exactly conditioned walks, not arbitrary increments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The explicit hypergeometric finite law may have been derived in an unindexed specialization of prior product-Catalan excursion formulas.",
+    "The conditional hypergeometric CLT must be uniform on compact typical k/√n regions and tightness/moment tails control omitted regions; examined analytic proof and finite checks support but do not formally certify all bounds.",
+    "Only fair symmetric exactly conditioned walks, not arbitrary increments.",
+    "Scientific C/O/V decision is best-of-knowledge and distinct from publication readiness; not an external priority certification."
+  ],
+  "schema_version": 1
+}
