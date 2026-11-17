@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The proof gives the exact multinomial edge-category law and the exact linear transformation from local type counts to two independent Gaussian coordinates. It treats noncritical drift, identically zero contrasts, Gaussian boundary-nullity, and realization of every permitted rational direction. The irrational example follows from the bivariate normal quadrant identity plus an algebraic-integer proof. Exact finite enumerations and independent coefficient checks in `checker.py` returned `ALL_CHECKS_OK`.
+## correctness
 
-**Originality: PASS on examined statements, with a material residual priority risk.** The 2026 Benedikt–Lu–Perry–Tan work is about decidability of local/global Presburger satisfiability rather than probability spectra; the earlier Kopczyński–Tan *spectrum* concerns finite-model sizes, not limiting probabilities. Random bounded-degree graph first-order limit-law papers use a strictly weaker observational logic. A standard multinomial CLT is broader as a probability method and directly supplies an ingredient; what is not identified in the checked sources is the exact logical angular-spectrum classification, its irrational witness, and the expressivity contrast. Closely related unindexed work and general Gaussian decision-region results may reduce historical priority.
+PASS
 
-**Value: PASS.** The classification completely describes a natural nontrivial readout fragment motivated by a new decidable counting logic; it reveals a qualitative change from three limiting values to a countable dense set with explicit irrational probability after just one bounded local observation. The precise invariant and the expressivity contrast, not novelty of the CLT, motivate the result.
+The fixed-matching edge-color pairs are iid with counts U,V,W multinomial(n;1/4,1/2,1/4), and the observed vertex counts are exactly (2U,V,V,2W). The centered coordinates X=(2V-n)/sqrt(n), Y=sqrt(2/n)(W-U) have identity covariance, so the bivariate CLT yields independent normal coordinates. Every fixed linear comparison either has nonzero linear drift or a homogeneous Gaussian half-plane limit; degenerate zero normals are treated separately. The exhibited coefficient choices realize all integer directions dX+eY/sqrt(2), giving the countable dense angle spectrum, the irrational Gaussian quadrant probability 1/4+arcsin(1/3)/(2pi), and the color-only boundary {0,1/2,1}. Recomputed all multinomial profile probabilities by enumeration of every coloring for n=1..5, including the correlation 1/3. The computation is finite corroboration, not the CLT proof.
 
-**Limitations.** Only a fixed linear-readout fragment is classified. Full nesting, congruence counting, biased or dependent colors, and general graph models are not treated. Independent mathematical and historical-priority audits have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Benedikt–Lu–Perry–Tan study finite satisfiability and the syntax of separated local/global Presburger quantification, not limits on colored perfect matchings. General Gaussian-cone/CLT principles supply the probabilistic calculation, but not an explicitly published exact readout-language attainable-probability spectrum or its local-observation separation. The claim is best-of-knowledge original as a restricted logical classification, with priority risk from more general probabilistic logics.
+
+## value
+
+PASS
+
+The countable dense (and irrational) versus three-valued asymptotic sentence-probability spectra answer a concrete expressivity question for a natural tiny random graph with one unary predicate. The exact normal-direction realizability is more than a restated CLT, though it uses standard ingredients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
