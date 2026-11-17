@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-10.md",
+      "INDEPENDENT_AUDIT_2026-11-10.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and its standard library. The verifier constructs multiplication tables in the finite incidence algebra, independently enumerates its idempotent generators, computes the corresponding inner-derivation matrices and their ranks over \(\mathbb F_2\) and \(\mathbb F_4\), and compares the complete distributions against the theorem. It also enumerates all vertex-color tripartite cuts for \(1\le n\le10\), checking maximal rank and its exact number of colorings.
+## correctness
 
-Executed checks:
+PASS
 
-```
-BINARY_EXHAUSTIVE_OK 1 6 {0: 1, 2: 12}
-BINARY_EXHAUSTIVE_OK 2 18 {0: 1, 4: 96, 6: 1024, 8: 2304}
-GF4_EXHAUSTIVE_OK {0: 1, 2: 48}
-MAX_CUT_ENUMERATION_OK through n=10
-VERIFY_OK
-```
+For n>=1, q=2^e, the earlier general Boolean-cocycle theorem supplies the exact weighted rank generating function. In tripartite colors R=(3n²-s1s2-s1s3-s2s3)/2 reaches 2n² iff two levels are pure with opposite colors. Count 6(2^n-1) colorings/2 with orbit weight q^{2n²}. For concentration partition coloring configurations into six eta-near-max sectors and their complement; low-defect summation gives base 2^{2H2(.01)}max(1+q^-2,2q^-2(1-.01))<2 versus ground-state 2^n, complement has uniform O(2^{3n}q^{-delta n²}); hence exponentially small loss for fixed q. n1-12 independent binomial sums matched exact maximum multiplicity. Original general rank polynomial is not claimed new.
 
-The finite enumeration supports the small cases only. The general rank polynomial and concentration theorem rely on the six mathematical proof steps in `RESULT.md`. The asymptotic is for fixed \(q\) and does not make a claim uniform in field size. No independent mathematical audit or external verification has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge after actual Resultary searches and material full published-source reading: The November 2 arbitrary-poset cocycle-orbit theorem has the same rank-weight generating function, so the submitted specialization is covered. Its proof contains no extremal multiplicity or fixed-q probability limit, which require separate cut geometry and entropy estimates. ['General Boolean-cocycle rank law completely covers the original full rank polynomial, and same-family extremal results may exist in uninspected Potts/Ising or grading literature. First concentration inequality checked only for q fixed and eta=.01, not uniform q.']
+
+## value
+
+PASS
+
+The rank-maximizing stratum and exponential concentration are precise, naturally motivated extremal statistics of projection derivations of a growing balanced three-level incidence algebra, not the previously tabulated general polynomial; they identify emergent weighted-cut concentration and can guide large-field operator sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
