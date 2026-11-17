@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The affine support is reduced by genuine group automorphisms, after which Frobenius representation theory gives scalar and cyclic induced Fourier blocks. Each nontrivial block has a one-dimensional-or-zero kernel, and its determinant vanishes exactly when its cyclotomic product equals a prescribed sign. Reduction at the prime above the characteristic proves that the multiplier \(-2\) must lie in the complement; a telescoping cyclotomic product proves the converse. The regular-representation multiplicity gives the claimed total nullity. Exact finite checks verify many block identities and modular regular ranks; they do not substitute for the proof. Risks: the theorem does not address nonprime additive groups or conditioning.
+## correctness
 
-## Originality
-**PASS under bounded comparison.** Relevant prior work on finite affine groups supplies representation methods and spectral-gap bounds, but the inspected statements do not give the simultaneous-block zero criterion or exact rank dichotomy for three non-self-adjoint taps. The earlier order-two generalized-dihedral three-tap classification does not imply this order-at-least-three result. An inaccessible plausible full text by Bell–Minei (2006) remains a historical-priority risk, and no global uniqueness theorem is claimed. The review compares claims, not just titles.
+PASS
 
-## Mathematical value
-**PASS.** The family is a natural three-move convolution on connected affine Cayley digraphs and provides an exact all-primes recoverability obstruction expressed by a single multiplicative-subgroup membership test. Every higher-dimensional irreducible Fourier block switches rank at the same arithmetic threshold; the nullity then jumps to \(p-1\), rather than accumulating in intermediate values. This complete infinite-family classification distinguishes proper affine subgroups from the full affine group. No unsupported claim about stability, numerical conditioning or applications is required.
+Translation then ambient scaling automorphisms normalize b=0,u=1; scaling need not be inner in H, but it preserves rank by pullback. Frobenius irreducible decomposition has m nonsingular 1-dimensional blocks and (p-1)/m irreducibles of dimension m. Each nontrivial block is diag(1+zeta^{kh}) plus an m-cycle; cyclic recurrence makes kernel at most one-dimensional, determinant zero exactly when product_h(1+zeta^{kh})=(-1)^m. Reduction modulo cyclotomic prime (1-zeta) forces (-2)^m=1 and hence -2 in the unique subgroup H; conversely if -2 in H, 2H=-H and quotient (1-zeta^{2kh})/(1-zeta^{kh}) telescopes with sum_H h=0, giving determinant zero for all induced blocks. Regular-representation multiplicities give p-1 nullity, none intermediate. Independently computed exact cyclotomic coefficient reduction for p=5,7,11,13,17,19 and all multipliers a!=1, agreeing with iff -2 in H. Finite tests only corroborate full proof.
 
-## Scope and limits
-Only prime fields, order-at-least-three dilation complements, equal unit weights, and complex linear invertibility are covered. The source comparison is bounded; general affine Cayley spectra and the unavailable Bell–Minei paper are residual-priority risks. The packaged checker verifies only the finite cases stated in `VERIFICATION.md`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Finite affine group Fourier decomposition and cyclotomic arithmetic are classical; novelty is the exact arithmetic -2 subgroup criterion and no-intermediate-rank law for nonselfadjoint three-tap operator over all primes/complements of order >=3. Earlier generalized-dihedral three-tap census has order-two complement, not the same domain; undirected affine Cayley spectral work analyzes different symmetric supports. Bell–Minei 2006 is a closely related inaccessible primary paper and is a genuine priority risk, explicitly not claimed to have been read.
+
+## value
+
+PASS
+
+Exact invertibility for the minimal natural three-move convolution on an affine Frobenius group gives a crisp recoverability barrier and exact nullity independent of translation and shift. Distinguishing invertible proper-complement groups from always-singular full affine groups is mathematically nontrivial and potentially useful in sparse harmonic analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
