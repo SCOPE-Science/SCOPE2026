@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-11.md",
+      "INDEPENDENT_AUDIT_2026-11-11.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and actual verification
+# Independent mathematical audit
 
-The full finding is an algebraic proof, not an extrapolation from finite simulation. Both included scripts were run from the evidence source files and their deterministic stdout captured in adjacent `.out` files. `checks/verify_direct.py` enumerates every integer state with \(0\le x_v<2\deg(v)\) for the wheel of rim sizes three through six. This covers all possible immediate primitive-three states by the proof's firing-count bound. The direct update is applied three times to every candidate state; no firing-phase assumption enters that computation. It checks 649,296 candidate states in total and reports exact chip-mass counts for all primitive-three states in that range.
+## correctness
 
-`checks/verify_transfer.py` independently enumerates rim phase words and local integer chip ranges for rim sizes three through twelve. It checks the full set of positive/negative mass bands, outer and inner endpoints, integer Fibonacci total, and total reciprocity. Sympy constructs the nine-state transfer and support matrices from their defined entries, computes their exact symbolic determinants, and checks the stated factorization and rational partial fraction identity. It checks the upper coefficient recurrence. Finite cases are cross-compared with direct dynamical enumeration at the four overlapping sizes.
+PASS
 
-Run using Python 3 with Sympy installed: `python3 checks/verify_direct.py`, `python3 checks/verify_transfer.py`, and `python3 checks/verify_crosscheck.py`. Both print a single JSON object with `status` equal to `PASS` on success. The output files contain the captured full JSON results. The symbolic determinants are exact polynomial identities; random numerical tests were not substituted. They and the main mathematical proof, not finite enumeration, supply the all-sizes justification.
+For n>=4, harmonicity of the three-step Laplacian forces each vertex to fire k=1 or k=2 times in a primitive-three orbit. For k=1, phase colors c(v) give predecessor counts q_v>=1 and exactly q_v independent integer chip offsets; the complement x_v -> 2d_v-1-x_v produces k=2 and mass reversal about 7n-1. The exact phase-offset mass formula 2n+m(c)+sum s_v establishes bands and every intervening mass. The nine-state transfer determinant det(I-tM(y))=1-t-2yt^2-(y^2+4y)t^3-2y^2t^4-y^2t^5+y^2t^6 yields H_n(1)=3n(F_{2n+1}+delta_n); the support matrix characteristic polynomial gives both inner coefficients. Direct independent whole-state enumeration and the polynomial/firing-phase crosschecks support n=4,5; this finite verification is not substituted for the all-n transfer and coloring proof. The claimed n>=4, nonnegative chips, labelled rim, immediate least period 3 and gap normalization are consistent.
 
-The historical priority check is qualified by the unavailable full text of the 1992 Bitar–Goles article. The research reports only self-review, not independent audit or certification.
+## originality
+
+PASS
+
+Fibonacci three-period chip-firing mass bands on wheel graphs: best-of-knowledge comparison of exact mathematical statements and their logical implications found no dominating prior result for the specified original parameter range. Previously published general and overlapping special-case results are explicitly credited. Novelty is not inferred from an unsuccessful search; see named comparisons and residual access risks.
+
+## value
+
+PASS
+
+The exact primitive-three wheel census and parity-dependent chip-mass support answer a natural unresolved counting problem about a ubiquitous graph family with many overlapping cycles. The occupied endpoints of the general middle-stair forbidden region and the Fibonacci closed form could be reused as test cases for structural chip-firing transfer methods. This is not mere direct restatement of general periodicity existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

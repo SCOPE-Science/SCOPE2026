@@ -1,19 +1,21 @@
-# Scientific review: Fibonacci period-three census on wheel graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated result has a complete algebraic proof. The Laplacian argument forces a common three-step firing number, the local predecessor-neighbor inequalities enumerate all once-firing states, and the bounded coordinatewise complement enumerates all twice-firing states. The local chip-mass identity \(|E|+m(c)+\sum_v s_v\) and the independent slack intervals establish the exact support and endpoint multiplicities. A nine-state symbolic determinant is explicitly specified and checked, yielding the Fibonacci/modulo-three formula rather than extrapolating from finite data. A second finite determinant gives the inner endpoint recurrence. Independent direct update enumeration checked 649,296 bounded states for rim sizes three through six. The complete initial-state mass counts agree with separate color-word enumeration. The test at rim size three is supplementary; the claim is for rim sizes at least four.
+PASS
 
-## Originality — PASS, with specific historical-access risk
+For n>=4, harmonicity of the three-step Laplacian forces each vertex to fire k=1 or k=2 times in a primitive-three orbit. For k=1, phase colors c(v) give predecessor counts q_v>=1 and exactly q_v independent integer chip offsets; the complement x_v -> 2d_v-1-x_v produces k=2 and mass reversal about 7n-1. The exact phase-offset mass formula 2n+m(c)+sum s_v establishes bands and every intervening mass. The nine-state transfer determinant det(I-tM(y))=1-t-2yt^2-(y^2+4y)t^3-2y^2t^4-y^2t^5+y^2t^6 yields H_n(1)=3n(F_{2n+1}+delta_n); the support matrix characteristic polynomial gives both inner coefficients. Direct independent whole-state enumeration and the polynomial/firing-phase crosschecks support n=4,5; this finite verification is not substituted for the all-n transfer and coloring proof. The claimed n>=4, nonnegative chips, labelled rim, immediate least period 3 and gap normalization are consistent.
 
-The directly relevant literature introduces parallel chip-firing, establishes general periodic firing and complementation lemmas, and proves bounds for excluded chip masses, but the inspected material does not give the exact wheel mass polynomial, its sharp parity support, or the Fibonacci count. The 2010 full preprint by Jiang treats complete bipartite/multipartite graphs, not wheels. The 2012 full preprint by Jiang, Scully and Zhang classifies possible firing *patterns* but does not count wheel initial *states*. The 2024 full preprint by Ji, Li and Wang proves a general chip-mass exclusion for period three; it does not resolve equality cases or their multiplicities. Related mass-census findings for period two, a single three-resonant cycle, and friendship graphs do not imply the wheel statements, because a wheel has many overlapping cycles and a different local constraint structure. Searches for wheel, Fibonacci and exact three-cycle counts revealed no covering source. The 1992 Bitar–Goles publisher abstract was inspected, but full text was not accessible; an equivalent formulation there or in unindexed literature remains a real priority risk. Lack of a search result is not claimed as proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This resolves the complete *mass-resolved* primitive-three recurrence invariant for an infinite, natural noncactus graph family with highly overlapping short cycles. The exact count is a Fibonacci expression with a genuine mod-three correction, while the minimal recurrent mass and its multiplicity undergo a sharp parity transition. An explicit nine-state transfer formula gives every coefficient, and the inner endpoints attain the general period-three excluded interval boundary with computable positive populations. The result is not a renamed special case of a known family classification and does not rest on an arbitrary finite cutoff.
+Fibonacci three-period chip-firing mass bands on wheel graphs: best-of-knowledge comparison of exact mathematical statements and their logical implications found no dominating prior result for the specified original parameter range. Previously published general and overlapping special-case results are explicitly credited. Novelty is not inferred from an unsuccessful search; see named comparisons and residual access risks.
 
-## Scope and remaining risks
+## value
 
-The result concerns initial configurations *already* of least period three, not their basins or all periods. The algebraic determinant identities are reproducible and finitely checkable; brute-force enumeration does not prove the infinite statement. The inaccessible 1992 full text and potentially unindexed wheel-specific accounts remain novelty risks. There is no independent mathematical audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact primitive-three wheel census and parity-dependent chip-mass support answer a natural unresolved counting problem about a ubiquitous graph family with many overlapping cycles. The occupied endpoints of the general middle-stair forbidden region and the Fibonacci closed form could be reused as test cases for structural chip-firing transfer methods. This is not mere direct restatement of general periodicity existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
