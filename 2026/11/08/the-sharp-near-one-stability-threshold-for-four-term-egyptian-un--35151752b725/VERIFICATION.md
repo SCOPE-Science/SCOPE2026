@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-13.md",
+      "INDEPENDENT_AUDIT_2026-11-13.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The executable `check_egyptian4.py` reconstructs every triple prefix compatible with a non-special four-term sum above \(41/42\), without any arbitrary bound on denominators. For a partial prefix of length \(j<3\), the mathematical inequality \(x_{j+1}<(4-j)/(41/42-s_j)\) is the loop's finite stopping rule. The fourth denominator is minimized exactly using \(m=\max\{x_3,\lfloor1/(1-s_3)\rfloor+1\}\). The program checks the complete seven-group maxima and the unique largest non-special sum \(599/600\). A separate four-coordinate recursion checks all 103 non-special quadruples whose sums lie strictly between \(41/42\) and one. It also samples rational parameters on both sides of the sharp boundary and proves the rational identities independently by exact arithmetic.
+# Independent mathematical audit
 
-To replay, run `python3 check_egyptian4.py` using the Python standard library only. Its captured output is in `verification_egyptian4.txt`.
+## correctness
 
-**Limit.** The rational tests of specific real parameters do not prove a real-interval claim; the inequalities in the paper do. The complete finite enumeration is exhaustive by its mathematically proved denominator bounds, not by an experimental range cutoff. No external review or infinite formal certification is asserted.
+PASS
+
+The classical 3-term Sylvester/Curtiss bound gives beta=41/42 uniquely at (2,3,7). For any other triple prefix and total >beta, the strict rational inequalities x_(j+1)<(4-j)/(beta-s_j) bound each next denominator without a search cutoff. These yield 21 possible triples including one special prefix, 20 other triples in seven listed groups. Each has maximal under-1 fourth denominator max(z,floor[1/(1-s)]+1); rational comparisons give unique maximum 599/600 at (2,3,8,25). Independent exact-fraction derivation recovered these 21 prefixes and unique maximum. For theta>629/630 the special greedy last denominator <=45 and its value >=629/630>599/600, proving uniqueness; on the adjacent interval strict target greed forces 46 and loses. Universal theta statement follows from finite *exhaustive algebraic bounds*, not bounded empirical scan.
+
+## originality
+
+PASS
+
+Nathanson 2022/23 treats the general n-term greedy question, classical Sylvester triple optimality and two-term results; it does not state this sharp fourth-term near-one interval or second-best non-greedy prefix max. Chu covers two terms, and Kovač–Tang concern eventual greed for increasing length at rational targets. A published SCOPE November 2 result on arbitrarily many exactly best three-term representations has different quantifiers and does not imply the present real interval. Searches found no equivalent finite four-term phase threshold.
+
+## value
+
+PASS
+
+This supplies a sharp boundary of greedy optimality on an open real interval for exactly four Egyptian reciprocals, together with a natural second-best extremum 599/600. It answers a motivated fixed-length underapproximation stability question with fully exhaustive rational bounds and a uniquely identified obstruction, not an arbitrary four-tuple computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
