@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The six-state pair transfer follows from explicit neighboring-column compatibility and the requirement that every vacant site have an occupied neighbor. Direct expansion of its characteristic determinant gives the fifth-order nonzero factor. Edge potentials on the ten allowed transitions prove both extremal counting bounds by telescoping; the equality subgraphs yield exactly the period-five and period-three cycles. Three basic concatenable cycles construct both integer-rounded extrema for every period. Primitivity of the transfer and the simple implicit roots at both activity endpoints give the analytic pressure and fractional-density expansions. The included independent finite graph enumerator agrees with transfer polynomials for five sizes; those computations do not replace the infinite argument.
+## correctness
 
-## Originality — PASS, with risks
-The full-plane triangular maximal hard-core model of Wang, Barg and Kashyap (arXiv:2602.18310, full accessible text) establishes broader lattice Gibbs-phase conclusions, not the exact finite-width oriented-diagonal periodic-strip polynomial, sharp 2/5 and 2/3 occupancy cutoffs, or the corresponding pressure coefficients. Barg, He and Wang (arXiv:2610.11042) present a general graph crystallization framework, but only its abstract was accessible for this comparison; no whole-document exclusion is claimed. Targeted independent domination and triangular-ladder transfer searches did not find an exact matching table. The general transfer method and independent-domination terminology are established. A previously unindexed isomorphic ladder enumeration remains a substantive priority risk, and additional full-text bibliographic review is warranted.
+PASS
 
-## Value — PASS
-A natural minimal triangular-width strip provides a complete, parameter-uniform study of maximal rather than ordinary hard-core configurations. Its two distinct commensurate limiting patterns, rigorous equality multiplicities, and noninteger endpoint correction exponents are precise benchmarks for the constrained lattice-gas structures motivating recent two-dimensional work. The analytic positive-activity pressure also separates a finite-width crossover from true planar coexistence. No claim of a new general transfer method or a two-dimensional phase theorem is made.
+The graph has n>=4 cyclic rungs, vertical/horizontal edges and one lower-to-next-upper diagonal. State alphabet 0,A,B, allowed neighboring transitions, and the stated domination constraints at empty center produce exactly the displayed six pair states and 10 allowed edges. Independently constructed characteristic determinant t[t^5-2zt^3-z^2t^2-z^2t-z^2], with cycle weights z on occupied new columns; Z_n=tr(T^n) follows from closed-walk bijection. Checked each of 10 edges against both integer potential inequalities, giving |I|>=ceil(2n/5) and <=floor(2n/3). Equality cycles are uniquely periods five and three, with 5/3 shifts when divisibility permits; concatenations of 2-, 3-, 5-cycles attain rounded bounds for all n>=4. Positive-activity transfer is irreducible with 2- and 3-cycles, so primitive; simple positive Perron root is analytic. Implicit function theorem in z^(1/5) and z^(-1/3), respectively, produces the claimed root and density coefficients 2/5,2/25,2/3,-2/9. Independently enumerated all vertex subsets for n=4..10, compared exact Z_n polynomials and bounds; finite check corroborates, not proves infinite n.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The best-of-knowledge comparison finds no result deriving the exact maximal-independent-set partition recurrence, every-period sharp occupancy bounds/multiplicities, or the 1/5 and 1/3 fractional activity corrections for the specific two-row triangular strip with a single oriented diagonal. Wang–Barg–Kashyap work on full 2D triangular lattice, whose local geometry has six neighbors per site and whose periodic ground-state density bounds 1/7..1/3 per SITE; they do not logically determine this degree-three/four finite-width strip or its 6-state transfer. Barg–He–Wang give broad conditions for crystalline phase coexistence on periodic lattices, not explicit formulas for this finite-width strip; only abstract material was accessible for that second paper, retained as priority risk. General Perron/transfer-matrix methods are credited, not claimed novel.
+
+## value
+
+PASS
+
+A width-two oriented triangular strip is a canonical exactly solvable finite-width specialization of the maximal hard-core lattice gas; occupation endpoints, equality multiplicities, and exact partition polynomial form a complete natural classification, not an arbitrary slice. The distinct sparse/dense commensurate patterns and z^(1/5),z^(-1/3) endpoint susceptibility corrections are precise benchmark invariants for constrained statistical mechanics and clarify finite-width analytic crossover versus planar coexistence. These specific answers are not implied by the generic transfer-matrix method alone without a new local-state analysis. No paper-sized general theorem is required for this self-contained exact family.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
